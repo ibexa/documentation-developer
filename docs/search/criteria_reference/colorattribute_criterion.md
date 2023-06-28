@@ -4,11 +4,14 @@ The `ColorAttribute` Search Criterion searches for products by the value of thei
 
 ## Arguments
 
--  `identifier` - string representing the attribute.
--  `value` - string representing the attribute value.
+- `identifier` - string representing the attribute
+- `value` - array of strings representing the attribute values
 
 ## Example
 
 ``` php
-$query->query = new Product\Query\Criterion\ColorAttribute('color', '#FF0000');
+$query = new ProductQuery(
+    null,
+    new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\ColorAttribute('color', ['#FF0000'])
+);
 ```

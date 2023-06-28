@@ -27,8 +27,8 @@ a [`LocationCreateStruct`](https://github.com/ibexa/core/blob/main/src/contracts
 and pass it to the [`LocationService::createLocation`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/LocationService.php#L141) method:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/AddLocationToContentCommand.php', 51, 52) =]]
-[[= include_file('code_samples/api/public_php_api/src/Command/AddLocationToContentCommand.php', 56, 58) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/AddLocationToContentCommand.php', 50, 51) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/AddLocationToContentCommand.php', 55, 57) =]]
 ```
 
 `LocationCreateStruct` must receive the parent Location ID.
@@ -37,7 +37,7 @@ It sets the `parentLocationId` property of the new Location.
 You can also provide other properties for the Location, otherwise they will be set to their defaults:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/AddLocationToContentCommand.php', 53, 55) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/AddLocationToContentCommand.php', 52, 54) =]]
 ```
 
 ### Changing the main Location
@@ -77,7 +77,7 @@ If you delete the [main Location](#changing-the-main-location) of a Content item
 another Location will become the main one.
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/DeleteContentCommand.php', 45, 46) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/DeleteContentCommand.php', 44, 45) =]]
 ```
 
 To send the Location and its subtree to Trash,
@@ -93,7 +93,7 @@ Items in Trash can be later [restored, or deleted permanently](#trash).
 You can move a Location with its whole subtree using [`LocationService::moveSubtree`:](https://github.com/ibexa/core/blob/main/src/contracts/Repository/LocationService.php#L206)
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/MoveContentCommand.php', 47, 50) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/MoveContentCommand.php', 46, 49) =]]
 ```
 
 [`LocationService::copySubtree`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/LocationService.php#L38) is used in the same way,
@@ -167,7 +167,7 @@ You can specify more details of the Field definition in the create struct, for e
 To copy a Content Type, use [`ContentTypeService::copyContentType`:](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentTypeService.php#L241)
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/CreateContentTypeCommand.php', 89, 90) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/CreateContentTypeCommand.php', 88, 89) =]]
 ```
 
 The copy will automatically be given an identifier based on the original Content Type identifier
@@ -176,7 +176,7 @@ and the copy's ID, for example: `copy_of_folder_21`.
 To change the identifier of the copy, use a [`ContentTypeUpdateStruct`:](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/ContentType/ContentTypeUpdateStruct.php)
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/CreateContentTypeCommand.php', 90, 96) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/CreateContentTypeCommand.php', 89, 95) =]]
 ```
 
 ## Calendar events

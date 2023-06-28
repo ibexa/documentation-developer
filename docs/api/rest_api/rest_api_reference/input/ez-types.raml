@@ -122,7 +122,7 @@ ContentCreateStruct:
     type: object
     properties:
         contentType:
-            descritpion: 'The Content Type for which the new Content item is created.'
+            description: 'The Content Type for which the new Content item is created.'
             required: true
             type: ContentType
         sectionId:
@@ -255,7 +255,7 @@ ContentStruct:
             description: 'Adds a field to the field collection. This method could also be implemented by a magic setter so that $fields[$fieldDefIdentifier][$language] = $value or without language $fields[$fieldDefIdentifier] = $value is an equivalent call.'
             type: string
 ContentType:
-    descritpion: 'This class represents a Content Type.'
+    description: 'This class represents a Content Type.'
     type: BaseObject
     properties:
         id:
@@ -263,7 +263,7 @@ ContentType:
             type: integer
         status:
             description: 'The status of the Content Type. Possible values: const STATUS_DEFINED = 0; Status constant for defined (aka published) Type, const STATUS_DRAFT = 1; Status constant for draft (aka temporary) Type; const STATUS_MODIFIED = 2; Status constant for modified (aka deferred for publishing) Type.'
-            enum: []
+            enum: [ ]
         identifier:
             description: 'String identifier of a Content Type.'
             type: string
@@ -307,11 +307,11 @@ ContentType:
             description: 'If an instance of a Content Type is created the always available flag is set by default to this value.'
             type: boolean
         defaultSortField:
-            descritpion: 'Specifies which property the child Locations should be sorted on by default when created. Map for Location sort fields to their respective SortClauses - class name/identifier and modified subnode. One of the fallowing values: const SORT_FIELD_PATH = 1; const SORT_FIELD_PUBLISHED = 2; const SORT_FIELD_MODIFIED = 3; const SORT_FIELD_SECTION = 4; const SORT_FIELD_DEPTH = 5; const SORT_FIELD_PRIORITY = 8; const SORT_FIELD_NAME = 9; const SORT_FIELD_NODE_ID = 11; const SORT_FIELD_CONTENTOBJECT_ID = 12.'
-            enum: []
+            description: 'Specifies which property the child Locations should be sorted on by default when created. Map for Location sort fields to their respective SortClauses - class name/identifier and modified subnode. One of the fallowing values: const SORT_FIELD_PATH = 1; const SORT_FIELD_PUBLISHED = 2; const SORT_FIELD_MODIFIED = 3; const SORT_FIELD_SECTION = 4; const SORT_FIELD_DEPTH = 5; const SORT_FIELD_PRIORITY = 8; const SORT_FIELD_NAME = 9; const SORT_FIELD_NODE_ID = 11; const SORT_FIELD_CONTENTOBJECT_ID = 12.'
+            enum: [ ]
         defaultSortOrder:
             description: 'Specifies whether the sort order should be ascending or descending by default when created. Map for Location sort order to their respective Query SORT constants. Possible values: const SORT_ORDER_DESC = 0; const SORT_ORDER_ASC = 1.'
-            enum: []
+            enum: [ ]
         FieldDefinitions:
             description: 'This method returns the Content Type Field definitions from this type.'
             type: BaseObject
@@ -399,7 +399,7 @@ ContentTypeGroup:
             type: BaseObject
 
 ContentTypeGroupInput:
-  type: BaseObject
+    type: BaseObject
 
 ContentTypeGroupCreateStruct:
     description: 'This class is used for creating a Content Type group.'
@@ -455,7 +455,7 @@ ContentTypeInfo:
             type: integer
         status:
             description: 'The status of the Content Type. Possible values: const STATUS_DEFINED = 0; Status constant for defined (aka published) Type, const STATUS_DRAFT = 1; Status constant for draft (aka temporary) Type; const STATUS_MODIFIED = 2; Status constant for modified (aka deferred for publishing) Type.'
-            enum: []
+            enum: [ ]
         identifier:
             description: 'String identifier of a Content Type.'
             type: string
@@ -472,7 +472,7 @@ ContentTypeInfo:
             description: 'Modification date of the Content Type.'
             type: datetime
         Creator:
-            descritpion: 'Creator User of the Content Type.'
+            description: 'Creator User of the Content Type.'
             type: BaseObject
         Modifier:
             description: 'Modifier User of the Content Type.'
@@ -502,16 +502,17 @@ ContentTypeInfo:
             description: 'If an instance of a Content Type is created the always available flag is set by default to this value.'
             type: boolean
         defaultSortField:
-            descritpion: 'Specifies which property the child Locations should be sorted on by default when created. Map for Location sort fields to their respective SortClauses - class name/identifier and modified subnode. One of the fallowing values: const SORT_FIELD_PATH = 1; const SORT_FIELD_PUBLISHED = 2; const SORT_FIELD_MODIFIED = 3; const SORT_FIELD_SECTION = 4; const SORT_FIELD_DEPTH = 5; const SORT_FIELD_PRIORITY = 8; const SORT_FIELD_NAME = 9; const SORT_FIELD_NODE_ID = 11; const SORT_FIELD_CONTENTOBJECT_ID = 12.'
-            enum: []
+            description: 'Specifies which property the child Locations should be sorted on by default when created. Map for Location sort fields to their respective SortClauses - class name/identifier and modified subnode. One of the fallowing values: const SORT_FIELD_PATH = 1; const SORT_FIELD_PUBLISHED = 2; const SORT_FIELD_MODIFIED = 3; const SORT_FIELD_SECTION = 4; const SORT_FIELD_DEPTH = 5; const SORT_FIELD_PRIORITY = 8; const SORT_FIELD_NAME = 9; const SORT_FIELD_NODE_ID = 11; const SORT_FIELD_CONTENTOBJECT_ID = 12.'
+            enum: [ ]
         defaultSortOrder:
             description: 'Specifies whether the sort order should be ascending or descending by default when created. Map for Location sort order to their respective Query SORT constants. Possible values: const SORT_ORDER_DESC = 0; const SORT_ORDER_ASC = 1.'
-            enum: []
+            enum: [ ]
 ContentTypeInfoList:
     description: 'List of Content Type information.'
     type: BaseObject
     properties:
         ContentType:
+            description: 'This class stores Content Type information.'
             type: ContentTypeInfo[]
 ContentTypeList:
     description: 'List of Content Types.'
@@ -562,6 +563,7 @@ ContentTypeUpdateStruct:
         descriptions:
             description: 'If set this array of descriptions with languageCode keys replace the complete description collection.'
             type: array
+
 ContentUpdateStruct:
     description: 'This class is used for updating the fields of a Content item draft.'
     type: object
@@ -636,8 +638,8 @@ Criterion:
             description: 'Returns a callback that checks the values types depending on the operator specifications.'
             type: integer
 DateRange:
-  description: 'Representation of date range.'
-  type: object
+    description: 'Representation of date range.'
+    type: object
 datetime:
     description: 'Representation of date and time.'
     type: object
@@ -901,7 +903,7 @@ JWTInput:
             type: string
 Language:
     description: 'This class represents a language in the Repository.'
-    type: object
+    type: BaseObject
     properties:
         ALL:
             description: "Constant for use in API's to specify that you want to load all languages."
@@ -924,6 +926,12 @@ LanguageCode:
     properties:
         languageCode:
             type: string
+LanguageList:
+    description: 'List of languages.'
+    type: BaseObject
+    properties:
+        Language:
+            type: Language[]
 LanguageCreateStruct:
     description: 'This class represents a value for creating a language.'
     type: object
@@ -943,7 +951,7 @@ Limitation:
     properties:
         _identifier:
             description: 'Returns the limitation identifier (one of the defined constants) or a custom limitation. Constants: CONTENTTYPE = Class; LANGUAGE = Language; LOCATION = Node; OWNER = Owner; PARENTOWNER = ParentOwner; PARENTCONTENTTYPE = ParentClass; PARENTDEPTH = ParentDepth; SECTION = Section; NEWSECTION = NewSection; SITEACCESS = SiteAccess; STATE = State; NEWSTATE = NewState; SUBTREE = Subtree; USERGROUP = Group; PARENTUSERGROUP = ParentGroup; STATUS = Status.'
-            enum: ['CONTENTTYPE', 'LANGUAGE', 'LOCATION', 'OWNER', 'PARENTOWNER', 'PARENTCONTENTTYPE', 'PARENTDEPTH', 'SECTION', 'NEWSECTION','SITEACCESS', 'STATE', 'NEWSTATE', 'SUBTREE', 'USERGROUP', 'PARENTUSERGROUP', 'STATUS']
+            enum: [ 'CONTENTTYPE', 'LANGUAGE', 'LOCATION', 'OWNER', 'PARENTOWNER', 'PARENTCONTENTTYPE', 'PARENTDEPTH', 'SECTION', 'NEWSECTION','SITEACCESS', 'STATE', 'NEWSTATE', 'SUBTREE', 'USERGROUP', 'PARENTUSERGROUP', 'STATUS' ]
         Values:
             description: 'A read-only list of IDs or identifiers for which the limitation should be applied. The value of this property must conform to a hash, which means that it may only consist of array and scalar values, but must not contain objects or resources.'
             type: Ref[]
@@ -963,9 +971,9 @@ Location:
         invisible:
             description: 'Indicates that the Location is implicitly marked as hidden by a parent Location.'
             type: boolean
-#            explicitlyHidden:
-#                description: 'Indicates that the Location entity has been explicitly marked as hidden.'
-#                type: boolean
+        #            explicitlyHidden:
+        #                description: 'Indicates that the Location entity has been explicitly marked as hidden.'
+        #                type: boolean
         remoteId:
             description: 'Remote ID, universally unique identifier.'
             type: string
@@ -989,10 +997,10 @@ Location:
             type: integer
         sortField:
             description: 'Specifies which property the child Locations should be sorted on. Map for Location sort fields to their respective SortClauses - class name/identifier and modified subnode. One of the fallowing values: PATH.'
-            enum: ['PATH', 'PUBLISHED', 'MODIFIED', 'SECTION', 'DEPTH', 'CLASS_IDENTIFIER', 'CLASS_NAME', 'PRIORITY', 'NAME', 'MODIFIED_SUBNODE', 'NODE_ID', 'CONTENTOBJECT_ID']
+            enum: [ 'PATH', 'PUBLISHED', 'MODIFIED', 'SECTION', 'DEPTH', 'CLASS_IDENTIFIER', 'CLASS_NAME', 'PRIORITY', 'NAME', 'MODIFIED_SUBNODE', 'NODE_ID', 'CONTENTOBJECT_ID' ]
         sortOrder:
             description: 'Specifies whether the sort order should be ascending or descending. Map for Location sort order to their respective Query SORT constants. One of the fallowing values: const SORT_ORDER_DESC = 0; const SORT_ORDER_ASC = 1.'
-            enum: ['ASC', 'DESC']
+            enum: [ 'ASC', 'DESC' ]
         Content:
             description: 'Represents a Content item in a specific version.'
             type: Ref
@@ -1001,7 +1009,7 @@ Location:
             type: Ref
 
 LocationCreate:
-  type: BaseObject
+    type: BaseObject
 
 LocationCreateStruct:
     description: 'This class is used to create a new Location for a Content item.'
@@ -1091,10 +1099,10 @@ NotificationList:
     description: 'This class represents a notifications list.'
     type: object
     properties:
-       totalCount:
+        totalCount:
             description: 'Number of notifications.'
             type: integer
-       items:
+        items:
             description: 'List of notifications.'
             type: Notification[]
 ObjectState:
@@ -1367,9 +1375,9 @@ Ref:
     type: object
     properties:
         _media-type:
-          type: string
+            type: string
         _href:
-          type: string
+            type: string
 Relation:
     description: 'Class representing a relation between content.'
     type: BaseObject
@@ -1397,7 +1405,7 @@ RelationList:
             type: Relation[]
 Role:
     description: 'This class represents a role.'
-    type:  BaseObject
+    type: BaseObject
     peoperties:
         identifier:
             description: 'Readable string identifier of a role.'
@@ -1407,7 +1415,7 @@ Role:
             type: BaseObject
 RoleAssignment:
     description: 'This value object represents an assignment of a User or User group to a role including a limitation.'
-    type:  BaseObject
+    type: BaseObject
     properties:
         Limitation:
             description: 'Returns the limitation of the role assignment.'
@@ -1417,13 +1425,13 @@ RoleAssignment:
             type: Ref
 RoleAssignmentList:
     description: 'This value object represents a list of assignments of a User or User group to a role including a limitation.'
-    type:  BaseObject
+    type: BaseObject
     properties:
         RoleAssignment:
             type: RoleAssignment[]
 RoleCreateStruct:
     description: 'This class is used to create a new role.'
-    type:  object
+    type: object
     properties:
         identifier:
             description: 'Readable string identifier of a role.'
@@ -1436,14 +1444,14 @@ RoleCreateStruct:
             type: PolicyCreateStruct
 RoleDraft:
     description: 'This class represents a draft of a role, extends Role.'
-    type:  Role
+    type: Role
 RoleLimitation:
     description: 'Role limitation extends Limitation.'
-    type:  Limitation
+    type: Limitation
 
 RoleUpdateStruct:
     description: 'This class is used to update a role.'
-    type:  object
+    type: object
     properties:
         identifier:
             description: 'Readable string identifier of a role.'
@@ -1539,7 +1547,7 @@ Root:
             type: BaseObject
 SearchResult:
     description: 'The total number of URLs.'
-    type:  object
+    type: object
     properties:
         totalCount:
             description: 'The total number of URLs.'
@@ -1549,7 +1557,7 @@ SearchResult:
             type: URL[]
 Section:
     description: 'This class represents a Section.'
-    type:  BaseObject
+    type: BaseObject
     properties:
         sectionId:
             description: 'ID of the Section.'
@@ -1651,10 +1659,10 @@ Translation:
     description: 'Base class for translation messages extends ValueObject.'
     type: object
 Trash:
-  type: BaseObject
-  properties:
-      TrashItem:
-          type: TrashItem[]
+    type: BaseObject
+    properties:
+        TrashItem:
+            type: TrashItem[]
 TrashItem:
     description: 'This class represents a trash item, which is actually a trashed Location.'
     type: Location
@@ -1670,7 +1678,7 @@ Unlink:
         _href:
             type: string
         _method:
-            enum: []
+            enum: [ ]
 URL:
     description: 'This class represents a URL in the Repository.'
     type: object
@@ -1706,7 +1714,7 @@ UrlAlias:
             type: integer
         _type:
             description: 'The type of the URL Alias i.e. one of URLAlias::LOCATION=0, URLAlias::RESOURCE=1, URLAlias::VIRTUAL=2.'
-            enum: []
+            enum: [ ]
         resource:
             description: 'If type = URLAlias::LOCATION it is a Location ID otherwise a string (e.g. /content/search).'
             type: any
@@ -1791,6 +1799,7 @@ UrlWildcard:
             type: boolean
 
 UrlWildcardCreate:
+    description: 'Creates a new URL wildcard.'
     type: BaseObject
 
 UrlWildcardList:
@@ -1813,10 +1822,10 @@ User:
     description: 'This class represents a User value.'
     type: BaseObject
     properties:
-        _id:
+        id:
             description: 'Unique ID of the Content Type.'
             type: integer
-        _remoteId:
+        remoteId:
             description: 'Remote ID of the Content Type.'
             type: string
         ContentType:
@@ -1921,6 +1930,7 @@ UserGroupRoleAssignment:
             type: UserGroup
 
 UserGroupUpdate:
+    description: 'This class is used to update a User group in the Repository.'
     type: BaseObject
 
 UserGroupUpdateStruct:
@@ -1934,6 +1944,7 @@ UserGroupUpdateStruct:
             description: 'The update structure for the profile meta data.'
             type: ContentMetadataUpdateStruct
 UserGroupList:
+    description: 'This class represents a User Group list.'
     type: BaseObject
 
 UserList:
@@ -2063,7 +2074,7 @@ VersionInfo:
             type: integer
         status:
             description: 'One of: VersionInfo::STATUS_DRAFT=0, VersionInfo::STATUS_PUBLISHED=1, VersionInfo::STATUS_ARCHIVED=3.'
-            enum: []
+            enum: [ ]
         modificationDate:
             description: 'The last modified date of this version.'
             type: datetime
@@ -2113,7 +2124,15 @@ VersionTranslationInfo:
             type: LanguageCode[]
 
 VersionUpdate:
+    description: 'This class is used to update a content version.'
     type: BaseObject
+    properties:
+        modificationDate:
+            type: datetime
+        initialLanguageCode:
+            type: string
+        fields:
+            type: Field[]
 
 View: #TODO outdated example
     description: 'View.'
@@ -2122,343 +2141,1542 @@ View: #TODO outdated example
         identifier:
             description: 'Content identifier.'
             type: string
+        User:
+            type: User
+        public:
+            type: boolean
+        LocationQuery:
+            type: object
+        Result:
+            type: object
 
 ContentTypeCreate:
+    description: 'This class is used to create a Content Type.'
     type: BaseObject
+    properties:
+        identifier:
+            type: string
+        mainLanguageCode:
+            type: string
+        remoteId:
+            type: string
+        urlAliasSchema:
+            type: string
+        nameSchema:
+            type: string
+        isContainer:
+            type: boolean
+        defaultSortField:
+            description: 'Specifies which property the child Locations should be sorted on by default when created.'
+            type: any
+        defaultSortOrder:
+            description: 'Specifies whether the sort order should be ascending or descending by default when created.'
+            type: any
+        defaultAlwaysAvailable:
+            type: boolean
+        names:
+            type: array
+        descriptions:
+            type: array
+        FieldDefinition:
+            type: FieldDefinition
+        creatorId:
+            description: 'If set, this value overrides the current user as creator.'
+            type: any
+        creationDate:
+            type: DateTime
+
 
 ContentTypeUpdate:
+    description: 'This class is used to update a Content Type.'
     type: BaseObject
+    properties:
+        identifier:
+            type: string
+        mainLanguageCode:
+            type: string
+        remoteId:
+            type: string
+        urlAliasSchema:
+            type: string
+        nameSchema:
+            type: string
+        isContainer:
+            type: boolean
+        defaultSortField:
+            description: 'Specifies which property the child Locations should be sorted on by default when updated.'
+            type: any
+        defaultSortOrder:
+            description: 'Specifies whether the sort order should be ascending or descending by default when updated.'
+            type: any
+        defaultAlwaysAvailable:
+            type: boolean
+        names:
+            type: array
+        descriptions:
+            type: array
+        modifierId:
+            description: 'If set, this value overrides the current user as creator.'
+            type: any
+        modificationDate:
+            type: DateTime
 
 ViewInput:
+    description: 'This class represents a View input.'
     type: BaseObject
+    properties:
+        identifier:
+            description: 'Content identifier.'
+            type: string
+        FilterQuery:
+            type: object
 
 UserCreate:
+    description: 'This class is used to create a User.'
     type: BaseObject
+    properties:
+        mainLanguageCode:
+            type: string
+        remoteId:
+            type: string
+        login:
+            type: string
+        email:
+            type: string
+        password:
+            type: string
+        enabled:
+            type: boolean
 
 UserGroupCreate:
+    description: 'This class is used to create a User Group.'
     type: BaseObject
+    properties:
+        mainLanguageCode:
+            type: string
+        remoteId:
+            type: string
+        fields:
+            type: Field[]
 
 RoleAssignInput:
+    description: 'This class represents a Role assign input.'
     type: BaseObject
+    properties:
+        id:
+            description: 'The unique ID of the Role assignment.'
+            type: integer
+        Role:
+            description: 'Returns the Role to which the user or user group is assigned to.'
+            type: Role
+        Limitation:
+            description: 'Returns the Limitation of the Role assignment.'
+            type: Limitation
 
 UserUpdate:
+    description: 'This class is used to update a User.'
     type: BaseObject
+    properties:
+        login:
+            type: string
+        email:
+            type: string
+        password:
+            type: string
+        enabled:
+            type: boolean
+        maxLogin:
+            type: integer
+        ContentUpdate:
+            description: 'The update structure for the profile content.'
+            type: ContentUpdate
+        ContentMetadataUpdate:
+            description: 'The update structure for the profile metadata.'
+            type: ContentMetadataUpdate
 
 RoleInput:
+    description: 'This class represents a Role input.'
     type: BaseObject
-
-PolicyCreate:
-    type: BaseObject
-
-PolicyUpdate:
-    type: BaseObject
-
-SessionInput:
-    type: BaseObject
-
-BaseCommerceResponse:
-    type: object
     properties:
-        _media-type:
+        identifier:
             type: string
 
+PolicyCreate:
+    description: 'This class is used to create a Policy.'
+    type: BaseObject
+    properties:
+        module:
+            description: 'Name of module associated with the Policy. For example, content.'
+            type: string
+        function:
+            description: 'Name of the module function, or all functions with ''*''. For example, read.'
+            type: string
+        Limitations:
+            type: Limitation[]
+
+PolicyUpdate:
+    description: 'This class is used to update a Policy.'
+    type: BaseObject
+    properties:
+        Limitations:
+            type: Limitation[]
+
+SessionInput:
+    description: 'This class represents a session input.'
+    type: BaseObject
+    properties:
+        login:
+            type: string
+        password:
+            type: string
+
+BaseCommerceResponse:
+    description: 'Removed'
+    type: object
+
 Basket:
+    description: 'Removed'
     type: BaseCommerceResponse
 
 BasketLineData:
+    description: 'Removed'
     type: object
-    properties:
-        quantity:
-            type: string
-            required: true
-        isVariant:
-            type: string
-        variantCode:
-            type: string
-        sku:
-            type: string
-            required: true
-        dataMap:
-            type: array
-            required: false
 
 PartyTypeInput:
+    description: 'Removed'
     type: object
 
 Party:
+    description: 'Removed'
     type: object
-    properties:
-        PartyIdentification: array
-        PartyName: array
-        PostalAddress: object
-        Contact: object
-        Person: object
-        SesExtension: object
 
 ShippingMethodDataResponse:
+    description: 'Removed'
     type: BaseCommerceResponse
-    properties:
-        shippingMethods: object
-        defaultMethod: string
-        shippingMethodsSorted: array
 
 PaymentMethodDataResponse:
+    description: 'Removed'
     type: BaseCommerceResponse
 
 ShippingAddressesResponse:
+    description: 'Removed'
     type: BaseCommerceResponse
 
 BasketListResponse:
+    description: 'Removed'
     type: BaseCommerceResponse
-    properties:
-        Parties: Party[]
 
 ValidationResponse:
+    description: 'Removed'
     type: BaseCommerceResponse
-    properties:
-        _media_type: string
-        messages: array
 
 CountrySelectionResponse:
+    description: 'Removed'
     type: BaseCommerceResponse
-    properties:
-        _media_type: string
-        countryOptions: object
 
 ShippingMethodData:
+    description: 'Removed'
     type: object
-    properties:
-        shippingMethod:
-            type: string
-            required: true
 
 PaymentMethodData:
+    description: 'Removed'
     type: object
 
 VoucherData:
+    description: 'Removed'
     type: object
 
 CustomerPriceData:
+    description: 'Removed'
     type: object
-    properties:
-        Meta:
-            type: object
-            required: false
-        Items: array
 
 BasketHeaderData:
+    description: 'Removed'
     type: object
-    properties:
-        value: string
 
 BasketLinesData:
+    description: 'Removed'
     type: object
-    properties:
-        sku: string
-        quantity: string
-        basketLineId: integer
-        lineNumber: integer
 
 PriceResponse:
+    description: 'Removed'
     type: BaseCommerceResponse
 
-Catalog:
+CartSummary:
+    description: 'This class represents a cart summary.'
     type: object
+    properties:
+        id:
+            type: integer
+        identifier:
+            type: string
+        name:
+            type: string
+        createdAt:
+            type: datetime
+        updatedAt:
+            type: datetime
+        Owner:
+            type: User
+        SummaryEntryCollection:
+            type: SummaryEntryCollection
+        TotalPrice:
+            type: Price
+        TotalPriceInclVat:
+            type: Price
+        vatCategorySummary:
+            type: VatCategorySummary
+        Currency:
+            type: Currency
+
+CartViewInput:
+    description: 'This class represents a cart view input.'
+    type: object
+    properties:
+        identifier:
+            type: string
+        CartQuery:
+            type: object
+
+Catalog:
+    description: 'This class represents a catalog.'
+    type: object
+    properties:
+        identifier:
+            type: string
+        name:
+            type: string
+        description:
+            type: string
+        created:
+            type: integer
+        modified:
+            type: integer
+        status:
+            type: string
+        User:
+            type: User
+        Criteria:
+            type: Criterion
 
 CatalogList:
+    description: 'This class represents a catalog list.'
     type: object
+    properties:
+        Catalogs:
+            type: Catalog[]
 
 CatalogCreate:
+    description: 'This class is used to create a catalog.'
     type: object
-    description: ''
+    properties:
+        identifier:
+            type: string
+        Criteria:
+            type: Criterion
+        names:
+            type: array
+        descriptions:
+            type: array
+        status:
+            type: string
+        creator_id:
+            type: integer
 
 CatalogUpdate:
+    description: 'This class is used to update a catalog.'
     type: object
+    properties:
+        identifier:
+            type: string
+        transition:
+            type: string
+        Criteria:
+            type: Criterion
+        names:
+            type: array
+        descriptions:
+            type: array
 
 CatalogCopy:
+    description: 'This class is used to copy a catalog.'
     type: object
+    properties:
+        identifier:
+            type: string
+        creator_id:
+            description: 'Optional'
+            type: integer
 
 CatalogViewInput:
+    description: 'This class represents a catalog view input.'
     type: object
+    properties:
+        CatalogQuery:
+            type: object
 
 ProductFilterList:
+    description: 'This class represents a product filter list.'
     type: object
+    properties:
+        productFilters:
+            type: ProductFilter[]
 
 ProductSortClauseList:
+    description: 'This class represents a product sort clause list.'
     type: object
+    properties:
+        productSortClauses:
+            type: ProductSortClause[]
 
 Currency:
+    description: 'This class represents currency.'
     type: object
+    properties:
+        code:
+            type: string
+        subunits:
+            type: integer
+        enabled:
+            type: boolean
 
 CurrencyList:
+    description: 'This class represents a currency list.'
     type: object
+    properties:
+        Currencies:
+            type: Currency[]
 
 CurrencyCreate:
+    description: 'This class is used to create currency.'
     type: object
-    description: ''
+    properties:
+        code:
+            type: string
+        subunits:
+            type: integer
+        enabled:
+            type: boolean
 
 CurrencyUpdate:
+    description: 'This class is used to update currency.'
     type: object
+    properties:
+        subunits:
+            type: integer
+        enabled:
+            type: boolean
+
+CurrencyView:
+    description: 'This class represents a currency view.'
+    type: object
+    properties:
+        identifier:
+            type: string
+        CurrencyQuery:
+            type: object
+        Result:
+            type: object
 
 Region:
+    description: 'This class represents a region.'
     type: object
-    description: ''
+    properties:
+        identifier:
+            type: string
 
 RegionList:
+    description: 'This class represents a region list.'
     type: object
-    description: ''
+    properties:
+        Regions:
+            type: Region[]
 
 AttributeGroup:
+    description: 'This class represents an attribute group.'
     type: object
-    description: ''
+    properties:
+        name:
+            type: string
+        identifier:
+            type: string
+        position:
+            type: integer
 
 AttributeGroupCreate:
+    description: 'This class is used to create an attribute group.'
     type: object
-    description: ''
+    properties:
+        identifier:
+            type: string
+        names:
+            type: array
+        position:
+            type: integer
+        languages:
+            type: array
 
 AttributeGroupUpdate:
+    description: 'This class is used to update an attribute group.'
     type: object
-    description:
+    properties:
+        identifier:
+            type: string
+        names:
+            type: array
+        position:
+            type: integer
+        languages:
+            type: array
 
 AttributeGroupList:
+    description: 'This class represents an attribute group list.'
     type: object
-    description: ''
+    properties:
+        attributeGroups: AttributeGroup[]
 
 AttributeGroupViewInput:
+    description: 'This class represents an attribute group view input.'
     type: object
-    description: ''
+
+AttributeGroupView:
+    description: 'This class represents an attribute group view.'
+    type: object
+    properties:
+        identifier:
+            type: string
+        AttributeGroupList:
+            type: AttributeGroupList
 
 Attribute:
+    description: 'This class represents an attribute.'
     type: object
-    description: ''
+    properties:
+        name:
+            type: string
+        identifier:
+            type: string
+        description:
+            type: string
+        type:
+            type: string
+        type_identifier:
+            type: string
+        value:
+            type: boolean
+        Group:
+            type: AttributeGroup
+        position:
+            type: integer
+        options:
+            type: array
 
 AttributeCreate:
+    description: 'This class is used to create an attribute.'
     type: object
-    description: ''
+    properties:
+        identifier:
+            type: string
+        type:
+            type: string
+        group:
+            type: string
+        names:
+            type: array
+        descriptions:
+            type: array
+        positions:
+            type: integer
+        options:
+            type: array
 
 AttributeUpdate:
+    description: 'This class is used to update an attribute.'
     type: object
-    description: ''
+    properties:
+        identifier:
+            type: string
+        names:
+            type: array
+        descriptions:
+            type: array
+        positions:
+            type: integer
+        options:
+            type: array
 
 AttributeList:
+    description: 'This class represents an attribute list.'
     type: object
-    description: ''
+    properties:
+        attributes: Attribute[]
 
 AttributeViewInput:
+    description: 'This class represents an attribute view input.'
     type: object
-    description: ''
+    properties:
+        identifier:
+            type: string
+        AttributeQuery:
+            type: object
+
+AttributeView:
+    description: 'This class represents an attribute view.'
+    type: object
+    properties:
+        identifier:
+            type: string
+        AttributeQuery:
+            type: object
+        Result:
+            type: object
+
+AttributeType:
+    description: 'This class represents an attribute type.'
+    type: object
+    properties:
+        identifier:
+            type: string
+        name:
+            type: string
+
+AttributeTypeList:
+    description: 'This class represents an attribute type list.'
+    type: object
+    properties:
+        attributeTypes:
+            type: AttributeType[]
 
 CustomerGroup:
+    description: 'This class represents a customer group.'
     type: object
-    description: ''
+    properties:
+        id:
+            type: integer
+        name:
+            type: string
+        identifier:
+            type: string
+        description:
+            type: string
+        users:
+            description: 'A list of users attached to the customer group.'
+            type: User[]
+        global_price_rate:
+            description: 'A numeric string'
+            type: string
 
 CustomerGroupList:
+    description: 'This class represents a customer group list.'
     type: object
-    description: ''
+    properties:
+        customerGroups:
+            type: CustomerGroup[]
 
 CustomerGroupCreate:
+    description: 'This class is used to create a customer group.'
     type: object
-    description: ''
+    properties:
+        identifier:
+            type: string
+        names:
+            type: array
+        descriptions:
+            type: array
+        global_price_rate:
+            description: 'numeric-string'
+            type: string
 
 CustomerGroupUpdate:
+    description: 'This class is used to update a customer group.'
     type: object
-    description: ''
+    properties:
+        names:
+            type: array
+        identifier:
+            type: string
+        position:
+            type: integer
+        languages:
+            type: array
 
 CustomerGroupViewInput:
+    description: 'This class represents a customer group view input.'
     type: object
-    description: ''
+    properties:
+        CustomerGroupQuery:
+            type: object
+
+CustomerGroupView:
+    description: 'This class represents a customer group view.'
+    type: object
+    properties:
+        CurrencyView:
+            type: CurrencyView
+        identifier:
+            type: string
+        CurrencyQuery:
+            type: object
+        Result:
+            type: object
 
 CurrencyViewInput:
+    description: 'This class represents a currency view input.'
     type: object
-    description: ''
+    properties:
+        CurrencyQuery:
+            type: object
 
 ProductType:
+    description: 'This class represents a product type.'
     type: object
-    description: ''
+    properties:
+        identifier:
+            type: string
+        name:
+            type: string
+        AttributeAssignmentList:
+            type: AttributeAssignment[]
 
 ProductTypeUsage:
+    description: 'This class represents a product type usage.'
     type: object
-    description: ''
+    properties:
+        isUsed:
+            type: boolean
 
 ProductTypeCreate:
+    description: 'This class is used to create a product type.'
     type: object
-    description:
+    properties:
+        ContentTypeCreateStruct:
+            type: object
+        main_language_code:
+            type: string
+        assigned_attributes:
+            type: object
+            properties:
+                identifier:
+                    type: string
+                is_required:
+                    type: boolean
+                is_discriminator:
+                    type: boolean
 
 ProductTypeUpdate:
+    description: 'This class is used to update a product type.'
     type: object
-    description:
+    properties:
+        ContentTypeUpdateStruct:
+            type: object
+        assigned_attributes:
+            type: object
+            properties:
+                identifier:
+                    type: string
+                is_required:
+                    type: boolean
+                is_discriminator:
+                    type: boolean
+
 
 ProductTypeViewInput:
+    description: 'This class represents a product type view input.'
     type: object
-    description: ''
+    properties:
+        ProductTypeQuery:
+            type: object
+
+ProductTypeView:
+    description: 'This class represents a product type view.'
+    type: object
+    properties:
+        identifier:
+            type: string
+        ProductTypeQuery:
+            type: object
+        Result:
+            type: object
 
 Product:
+    description: 'This class represents a product.'
     type: object
-    description: ''
+    properties:
+        isVariant:
+            type: boolean
+        isBaseProduct:
+            type: boolean
+        code:
+            type: string
+        name:
+            type: string
+        ProductType:
+            type: ProductType
+        Content:
+            type: Content
+        Thumbnail:
+            type: Thumbnail
+        created_at:
+            type: datetime
+        updated_at:
+            type: datetime
+        AttributesList:
+            type: AttributesList
 
 ProductList:
+    description: 'This class represents a product list.'
     type: object
-    description: ''
+    properties:
+        Products:
+            type: Product[]
+
 
 ProductListGet:
+    description: 'This class represents a product list GET.'
     type: object
-    description: ''
+    properties:
+        offset:
+            type: integer
+        limit:
+            type: integer
+        languages:
+            type: array
 
 ProductGet:
+    description: 'This class represents a product GET.'
     type: object
-    description: ''
+    properties:
+        languages:
+            type: array
 
 ProductCreate:
+    description: 'This class is used to create a product.'
     type: object
-    description: ''
+    properties:
+        ContentCreate:
+            type: ContentCreate
+        code:
+            type: string
+        attributes:
+            type: array
 
 ProductUpdate:
+    description: 'This class is used to create a product.'
     type: object
-    description: ''
+    properties:
+        ContentUpdate:
+            type: ContentUpdate
+        code:
+            type: string
+        attributes:
+            type: array
 
 ProductViewInput:
+    description: 'This class represents a product view input.'
     type: object
-    description: ''
+    properties:
+        ProductQuery:
+            type: object
+
+ProductView:
+    description: 'This class represents a product view.'
+    type: object
+    properties:
+        identifier:
+            type: string
+        ProductQuery:
+            type: object
+        Result:
+            type: object
 
 ProductVariant:
+    description: 'This class represents a product variant.'
     type: object
-    description: ''
+    properties:
+        code:
+            type: string
+        name:
+            type: string
+        Product:
+            type: Product
+        DiscriminatorAttributesList:
+            type: array
 
 ProductVariantCreate:
+    description: 'This class is used to create a product variant.'
     type: object
-    description: ''
+    properties:
+        code:
+            type: string
+        attributes:
+            description: 'array<int|string,mixed>'
+            type: array
 
 ProductVariantGenerate:
+    description: 'This class is used to generate a product variant.'
     type: object
-    description: ''
+    properties:
+        attributes:
+            description: 'array<int|string,mixed>'
+            type: array
 
 ProductVariantUpdate:
+    description: 'This class is used to update a product variant.'
     type: object
-    description: ''
+    properties:
+        code:
+            type: string
+        attributes:
+            description: 'array<int|string,mixed>'
+            type: array
 
 ProductVariantViewInput:
+    description: 'This class represents a product variant view input.'
     type: object
-    description: ''
+    properties:
+        ProductVariantQuery:
+            type: object
+
+ProductVariantView:
+    description: 'This class represents a product variant view.'
+    type: object
+    properties:
+        identifier:
+            type: string
+        ProductVariantQuery:
+            type: object
+        Result:
+            type: object
 
 RegionViewInput:
+    description: 'This class represents a region view input.'
     type: object
-    description: ''
+    properties:
+        RegionQuery:
+            type: object
+
+RegionView:
+    description: 'This class represents a region view.'
+    type: object
+    properties:
+        identifier:
+            type: string
+        RegionQuery:
+            type: object
+        Result:
+            type: object
 
 ProductTypeList:
+    description: 'This class represents a product type list.'
     type: object
-    description:
+    properties:
+        ProductTypes:
+            type: ProductType[]
+
+TaxonomyEntry:
+    description: 'This class represents a taxonomy entry.'
+    type: BaseObject
+    properties:
+        id:
+            type: integer
+        identifier:
+            type: string
+        name:
+            type: string
+        mainLanguageCode:
+            type: string
+        names:
+            type: array
+        Parent:
+            type: TaxonomyEntry
+        Content:
+            type: Content
+        taxonomy:
+            type: string
+        level:
+            type: integer
+
+TaxonomyEntryAssignment:
+    description: 'This class represents a taxonomy entry assignment.'
+    type: object
+    properties:
+        id:
+            type: integer
+        Content:
+            type: Content
+        Entry:
+            type: TaxonomyEntry
+
+EntryAssignmentCollection:
+    description: 'This class represents a taxonomy assignment collection.'
+    type: object
+    properties:
+        Content:
+            type: Content
+        assignments:
+            type: TaxonomyEntryAssignment[]
+
+TaxonomyEntryCreateStruct:
+    description: 'This class is used to create a taxonomy entry.'
+    type: BaseObject
+    properties:
+        identifier:
+            type: string
+        taxonomy:
+            type: string
+        Parent:
+            type: TaxonomyEntry
+        Content:
+            type: Content
+
+TaxonomyEntryUpdateStruct:
+    description: 'This class is used to update a taxonomy entry.'
+    type: BaseObject
+    properties:
+        identifier:
+            type: string
+        name:
+            type: string
+        names:
+            type: array
+        languageCode:
+            type: string
+        mainLanguageCode:
+            type: string
+        Parent:
+            type: TaxonomyEntry
+        Content:
+            type: Content
+
+TaxonomyEntryBulkRemove:
+    description: 'This class is used to bulk remove taxonomy entries.'
+    type: object
+    properties:
+        entries:
+            type: TaxonomyEntry[]
+
+TaxonomyEntryBulkMove:
+    description: 'This class is used to bulk move taxonomy entries.'
+    type: object
+    properties:
+        entries:
+            type: TaxonomyEntryMove[]
 
 TaxonomyEntryAssignToContent:
+    description: 'This class is used to assign taxonomy entry to content.'
     type: object
-    description: ''
+    properties:
+        content:
+            type: integer
+        entries:
+            type: TaxonomyEntry[]
 
 TaxonomyEntryUnassignFromContent:
+    description: 'This class is used to unassign taxonomy entry from content.'
     type: object
-    description: ''
+    properties:
+        content:
+            type: integer
+        entries:
+            type: TaxonomyEntry[]
 
 VatCategoryList:
+    description: 'This class represents a VAT category list.'
     type: object
-    description: ''
+    properties:
+        VatCategories:
+            type: VatCategory[]
+
 VatCategory:
+    description: 'This class represents a VAT category.'
     type: object
-    description: ''
+    properties:
+        identifier:
+            type: string
+        region:
+            type: string
+        vatValue:
+            type: number
+DateTime:
+    description: https://www.php.net/manual/en/class.datetime.php
+    type: object
+
+ContentUpdate:
+    description: 'This class is used to update a Content.'
+    type: object
+    properties:
+        mainLanguageCode:
+            type: string
+        Section:
+            type: Section
+        MainLocation:
+            type: Location
+        Owner:
+            type: User
+        alwaysAvailable:
+            type: boolean
+        remoteId:
+            type: string
+
+ContentMetadataUpdate:
+    description: 'This class is used to update a Content metadata.'
+    type: object
+    properties:
+        ownerId:
+            type: any
+        publishedDate:
+            type: DateTime
+        modificationDate:
+            type: DateTime
+        mainLanguageCode:
+            type: string
+        alwaysAvailable:
+            type: boolean
+        remoteId:
+            type: string
+        mainLocationId:
+            type: any
+        name:
+            type: string
+
+SummaryEntryCollection:
+    description: 'This class represents a summary entry collection.'
+    type: object
+    properties:
+        count:
+            type: integer
+        SummaryEntry:
+            type: SummaryEntry[]
+
+Price:
+    description: 'This class represents a price.'
+    type: object
+    properties:
+        amount:
+            type: string
+        base_amount:
+            type: string
+        Currency:
+            type: Currency
+        money:
+            type: object
+        base_money:
+            type: object
+
+VatCategorySummary:
+    description: 'This class represents a VAT category summary.'
+    type: object
+    properties:
+        subtotal:
+            type: Price
+        vatCategory:
+            type: VatCategory
+
+Thumbnail:
+    description: 'This class represents a thumbnail that can be a target URL or a Base64 data.'
+    type: object
+    properties:
+        resource:
+            type: string
+        width:
+            type: integer
+        height:
+            type: integer
+        mimeType:
+            type: string
+
+AttributesList:
+    description: 'This class represents a attribute list.'
+    type: object
+    properties:
+        Attributes:
+            type: Attribute[]
+
+OrderList:
+    description: 'This class represents an orders list.'
+    type: object
+    properties:
+        Orders:
+            type: Order[]
+
+Order:
+    description: 'This class represents order.'
+    type: object
+    properties:
+        id:
+            type: integer
+        identifier:
+            type: integer
+        created:
+            type: datetime
+        modified:
+            type: datetime
+        status:
+            type: string
+        source:
+            type: string
+        OrderUser:
+            type: OrderUser
+        OrderCurrency:
+            type: OrderCurrency
+        OrderValue:
+            type: OrderValue
+        OrderCompany:
+            type: OrderCompany
+        OrderItemsList:
+            type: OrderItem[]
+        context:
+            type: array
+
+OrderUser:
+    description: 'This class represents order user.'
+    type: object
+    properties:
+        id:
+            type: integer
+        name:
+            type: string
+        email:
+            type: string
+
+OrderCurrency:
+    description: 'This class represents order currency.'
+    type: object
+    properties:
+        id:
+            type: integer
+        code:
+            type: string
+
+OrderValue:
+    description: 'This class represents order value.'
+    type: object
+    properties:
+        vat:
+            type: string
+        total_gross:
+            type: string
+        total_net:
+            type: string
+
+OrderCompany:
+    description: 'This class represents order company.'
+    type: object
+    properties:
+        id:
+            type: integer
+        name:
+            type: string
+
+OrderCreate:
+    description: 'This class is used to create order.'
+    type: object
+    properties:
+        source:
+            type: string
+        OrderUser:
+            type: OrderUser
+        OrderCurrency:
+            type: OrderCurrency
+        OrderValue:
+            type: OrderValue
+        OrderCompany:
+            type: OrderCompany
+        items:
+            type: OrderItem[]
+
+OrderUpdate:
+    description: 'This class is used to update order.'
+    type: object
+    properties:
+        status:
+            type: string
+        transition:
+            type: string
+
+OrderItemsList:
+    description: 'This class represents an order items list.'
+    type: object
+    properties:
+        OrderItems:
+            type: OrderItem[]
+
+OrderItem:
+    description: 'This class represents order item.'
+    type: object
+    properties:
+        OrderItemValue:
+            type: OrderItemValue
+        OrderItemProduct:
+            type: OrderItemProduct
+        quantity:
+            type: integer
+        context:
+            type: array
+
+OrderItemValue:
+    description: 'This class represents order item value.'
+    type: object
+    properties:
+        unit_price_gross:
+            type: string
+        unit_price_net:
+            type: string
+        vat_rate:
+            type: string
+        subtotal_price_gross:
+            type: string
+        subtotal_price_net:
+            type: string
+
+OrderItemProduct:
+    description: 'This class represents order item product.'
+    type: object
+    properties:
+        id:
+            type: integer
+        code:
+            type: string
+        name:
+            type: string
+
+CorporateAccountRoot:
+    description: 'This class represents Corporate Account Root resource information.'
+    type: object
+    properties:
+        link:
+            type: Link[]
+
+Link:
+    description: 'This class represents REST resource information.'
+    type: BaseObject
+    properties:
+        rel:
+            description: 'Unique identifier of a resource.'
+            type: string
+
+
+Company:
+    description: 'This class represents a company.'
+    type: object
+    properties:
+        id:
+            type: integer
+        name:
+            type: string
+        Content:
+            type: Content
+        billingAddress:
+            type: string
+        contactId:
+            type: integer
+        salesRepresentativeId:
+            type: integer
+        defaultAddressId:
+            type: integer
+        addressBookId:
+            description: 'Address book Folder Content ID.'
+            type: integer
+        membersId:
+            description: 'Members Folder Content ID.'
+            type: integer
+        MembersList:
+            description: 'Reference to Members List resource.'
+            type: BaseObject
+        Location:
+            description: 'Reference to Location resource.'
+            type: BaseObject
+        locationPath:
+            description: 'Company Content item Location path string.'
+            type: string
+        isActive:
+            type: boolean
+
+CompanyCreate:
+    description: 'This class is used to create a company.'
+    type: object
+    properties:
+        remoteId:
+            type: string
+        modificationDate:
+            type: string
+        User:
+            description: 'User value.'
+            type: User
+        fields:
+            description: 'Fields of a Company Content item.'
+            type: Field[]
+
+CompanyUpdate:
+    description: 'This class is used to update a Company.'
+    type: object
+    properties:
+        fields:
+            description: 'Fields of a Company Content item.'
+            type: Field[]
+
+CompanyList:
+    description: 'This class represents a list of companies.'
+    type: object
+    properties:
+        Company:
+            type: Company[]
+
+Member:
+    description: 'This class represents a company member.'
+    type: object
+    properties:
+        id:
+            type: integer
+        name:
+            type: string
+        Company:
+            type: Company
+        User:
+            description: 'Underlying User object of a member.'
+            type: User
+        Role:
+            description: 'Reference to the member role in a Company resource.'
+            type: BaseObject
+
+MemberList:
+    description: 'This class represents a list of company members.'
+    type: object
+    properties:
+        Member:
+            type: Member[]
+
+MemberCreate:
+    description: 'This class is used to create a member.'
+    type: object
+    properties:
+        login:
+            type: string
+        email:
+            type: string
+        password:
+            type: string
+        Role:
+            description: 'Reference to a Role resource company member should be given.'
+            type: BaseObject
+        fields:
+            description: 'Fields of a Member Content item.'
+            type: Field[]
+
+MemberUpdate:
+    description: 'This class is used to update a member.'
+    type: object
+    properties:
+        email:
+            type: string
+        password:
+            type: string
+        enabled:
+            type: boolean
+        maxLogin:
+            description: 'Max number of failed login attempts.'
+            type: integer
+        Role:
+            description: 'Reference to a Role resource company member should be given.'
+            type: BaseObject
+        fields:
+            description: 'Fields of a Member Content item.'
+            type: Field[]
+
+ErrorMessage:
+    description: 'Represents an error response. Might contain additional properties depending on an error type.'
+    type: object
+    properties:
+        errorCode:
+            type: integer
+        errorMessage:
+            type: string
+        errorDescription:
+            type: string
+
+PaymentMethod:
+    type: object
+    properties:
+        id:
+            type: integer
+            required: true
+        identifier:
+            type: string
+            required: true
+        enabled:
+            type: boolean
+            required: true
+        name:
+            type: string
+            required: true
+        description:
+            type: string
+            required: true
+
+PaymentMethodCreateStruct:
+    type: object
+    properties:
+        identifier:
+            type: string
+            required: true
+        type:
+            type: string
+            required: true
+        names:
+            description: 'If set this array of names with languageCode keys replace the complete name collection.'
+            type: string[]
+        descriptions:
+            description: 'An array of descriptions with languageCode keys.'
+            type: string[]
+        enabled:
+            type: boolean
+        options:
+            type: object
+            items:
+                type: any
+
+PaymentMethodUpdateStruct:
+    type: object
+    properties:
+        identifier:
+            type: string
+        names:
+            description: 'If set this array of names with languageCode keys replace the complete name collection.'
+            type: string[]
+        descriptions:
+            description: 'An array of descriptions with languageCode keys.'
+            type: string[]
+        enabled:
+            type: boolean
+        options:
+            type: array
+
+PaymentMethodView:
+    type: object
+    properties:
+        identifier:
+            type: string
+            required: true
+        Result:
+            type: object
+            required: true
+
+PaymentMethodList:
+    type: object
+    properties:
+        count:
+            type: integer
+            required: true
+        PaymentMethodList:
+            type: PaymentMethod[]
+            required: true
+
+PaymentMethodViewInput:
+    type: object
+    properties:
+        identifier:
+            type: string
+            required: true
+        PaymentMethodQuery:
+            type: object
+            required: true

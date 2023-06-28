@@ -12,14 +12,14 @@ To access a currency object by its code, use `CurrencyServiceInterface::getCurre
 To access a whole list of currencies, use `CurrencyServiceInterface::findCurrencies`.
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/CurrencyCommand.php', 50, 59) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/CurrencyCommand.php', 49, 57) =]]
 ```
 
 To create a new currency, use `CurrencyServiceInterface::createCurrency()`
 and provide it with a `CurrencyCreateStruct` with code, number of fractional digits and a flag indicating if the currency is enabled:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/CurrencyCommand.php', 65, 68) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/CurrencyCommand.php', 64, 67) =]]
 ```
 
 ## Prices
@@ -29,26 +29,26 @@ To manage prices, use `ProductPriceService`.
 To retrieve the price of a product in the currency for the current context, use `Product::getPrice()`:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 61, 64) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 59, 62) =]]
 ```
 
 To retrieve the price of a product in a specific currency, use `ProductPriceService::getPriceByProductAndCurrency`:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 65, 68) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 63, 66) =]]
 ```
 
 To get all prices (in different currencies) for a given product, use `ProductPriceService::findPricesByProductCode`:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 81, 85) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 79, 83) =]]
 ```
 
 You can also use `ProductPriceService` to create or modify existing prices.
 For example, to create a new price for a given currency, use `ProductPriceService::createProductPrice` and provide it with a `ProductPriceCreateStruct` object:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 72, 78) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 70, 76) =]]
 ```
 
 !!! note

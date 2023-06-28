@@ -9,17 +9,8 @@ description: Configurations and management of binary files.
 To access binary files from the PHP API, use the `Ibexa\Core\IO\IOServiceInterface::loadBinaryFile()` method:
 
 ```php
-use Ibexa\Core\IO\IOServiceInterface;
-
-class FileController
-{
-    //...
-
-    $file = $this->ioService->loadBinaryFile($field->value->id);
-    $fileContent = $this->ioService->getFileContents($file);
-    
-    // ...
-}
+$file = $this->ioService->loadBinaryFile($field->value->id);
+$fileContent = $this->ioService->getFileContents($file);
 ```
 
 ## Handling binary files
@@ -45,8 +36,8 @@ ibexa:
                 binarydata_handler: nfs
 ```
 
-The adapter is the *driver* used by Flysystem to read/write files. Adapters are declared using `oneup_flysystem`. 
-Metadata and binary data handlers are configured under `ibexa_io`. See below the configuration for the default handlers. It declares a metadata handler and a binary data handler, both labeled `default`. Both handlers are of type `flysystem`, and use the same Flysystem adapter, labeled `default` as well.
+The adapter is the *driver* used by Flysystem v2 to read/write files. Adapters are declared using `oneup_flysystem`. 
+Metadata and binary data handlers are configured under `ibexa_io`. See below the configuration for the default handlers. It declares a metadata handler and a binary data handler, both labeled `default`. Both handlers are of type `flysystem`, and use the same Flysystem v2 adapter, labeled `default` as well.
 
 ``` yaml
 ibexa_io:
@@ -63,6 +54,8 @@ ibexa_io:
 The `nfs_adapter`'s directory is based on your site settings, and is automatically set to `$var_dir$/$storage_dir$` (for example, `/path/to/ibexa/public/var/site/storage`).
 
 #### Permissions of generated files
+
+You can configure permissions of generated files under the `ibexa.system.<scope>.io.permissions` [configuration key](configuration.md#configuration-files).
 
 ``` yaml
 ibexa:
@@ -88,7 +81,7 @@ Default values:
 
 !!! note
 
-    As SiteAccess configuration Flysystem's native Local NFS adapter is not supported, the following
+    As SiteAccess configuration Flysystem's v2 native Local NFS adapter is not supported, the following
     configuration should be used:
 
     ``` yaml
@@ -100,9 +93,9 @@ Default values:
     ```
 
 
-### Native Flysystem handler
+### Native Flysystem v2 handler
 
-[[= product_name =]] uses it as the default way to read and write content in form of binary files. Flysystem can use the `local` filesystem, but is also able to read/write to `sftp`, `zip` or cloud filesystems (`azure`, `rackspace`, `S3`).
+[[= product_name =]] uses it as the default way to read and write content in form of binary files. Flysystem v2 can use the `local` filesystem, but is also able to read/write to `sftp`, `zip` or cloud filesystems (`azure`, `rackspace`, `S3`).
 [league/flysystem](http://flysystem.thephpleague.com/) (along with [FlysystemBundle](https://github.com/1up-lab/OneupFlysystemBundle/)) is an abstract file handling library.
 
 #### Handler options

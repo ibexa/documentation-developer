@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Command;
 
@@ -12,25 +12,25 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 final class ProductTypeCommand extends Command
 {
-    private $userService;
+    private UserService $userService;
 
-    private $permissionResolver;
+    private PermissionResolver $permissionResolver;
 
-    private $productTypeService;
+    private ProductTypeServiceInterface $productTypeService;
 
     public function __construct(UserService $userService, PermissionResolver $permissionResolver, ProductTypeServiceInterface $productTypeService)
     {
         $this->userService = $userService;
         $this->permissionResolver = $permissionResolver;
         $this->productTypeService = $productTypeService;
-        parent::__construct("doc:product_type");
+        parent::__construct('doc:product_type');
     }
 
     public function configure(): void
     {
         $this
             ->setDefinition([
-                new InputArgument('productTypeIdentifier', InputArgument::REQUIRED, 'Product type identifier')
+                new InputArgument('productTypeIdentifier', InputArgument::REQUIRED, 'Product type identifier'),
             ]);
     }
 
@@ -50,7 +50,7 @@ final class ProductTypeCommand extends Command
         foreach ($productTypes as $productType) {
             $output->writeln($productType->getName() . ' with identifier ' . $productType->getIdentifier());
         }
-        
+
         return self::SUCCESS;
     }
 }

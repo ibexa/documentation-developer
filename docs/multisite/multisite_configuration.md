@@ -4,7 +4,7 @@ description: Configure SiteAccesses to serve different content in different layo
 
 # Multisite configuration
 
-You can configure the available SiteAccesses under the `ibexa.siteaccess` key.
+You can configure the available SiteAccesses under the `ibexa.siteaccess` [configuration key](configuration.md#configuration-files).
 
 ## SiteAccess configuration
 
@@ -178,7 +178,7 @@ This may cause unexpected errors. Instead, switch between SiteAccesses using the
 You can restrict SiteAccesses to different parts of the content tree.
 When you do it, only the selected Location and its descendants are reachable from this SiteAccess.
 
-Configure this under `ibexa.systems.<scope>.content.tree_root`, for example:
+Configure this under the `ibexa.systems.<scope>.content.tree_root` [configuration key](configuration.md#configuration-files), for example:
 
 ``` yaml
 ibexa:

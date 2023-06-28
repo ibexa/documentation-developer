@@ -18,9 +18,11 @@
                         "name": "testAttr",
                         "description": "",
                         "type": "Checkbox",
+                        "type_identifier": "checkbox",
+                        "value": true,
                         "group": "Test Attribute group",
                         "position": 0,
-                        "options": ""
+                        "options": []
                     }
                 }
             ]
@@ -178,9 +180,11 @@
                 "name": "testAttr",
                 "description": "",
                 "type": "Checkbox",
+                "type_identifier": "checkbox",
+                "value": true,
                 "group": "Test Attribute group",
                 "position": 0,
-                "options": ""
+                "options": []
             },
             {
                 "_media-type": "application/vnd.ibexa.api.Attribute+json",
@@ -188,9 +192,11 @@
                 "name": "nnnn",
                 "description": "",
                 "type": "Checkbox",
+                "type_identifier": "checkbox",
+                "value": true,
                 "group": "Test Attribute group",
                 "position": 0,
-                "options": ""
+                "options": []
             }
         ]
     }

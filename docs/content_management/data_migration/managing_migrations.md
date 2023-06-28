@@ -1,5 +1,5 @@
 ---
-description: Manage data migrations: add files, convert from Kaliop migration bundle, check migration status, and set up configuration.
+description: Manage data migrations by adding files, converting from Kaliop migration bundle, checking migration status, and setting up configuration.
 ---
 
 # Managing migrations

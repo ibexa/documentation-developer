@@ -98,7 +98,6 @@ Next, run:
 composer run post-install-cmd
 ```
 
-
 ### Update the database
 
 [[% include 'snippets/update/db/db_backup_warning.md' %]]

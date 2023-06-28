@@ -1,5 +1,6 @@
 ---
 description: Ibexa DXP is composed of bundles containing different parts of the application.
+page_type: reference
 ---
 
 # Bundles
@@ -11,9 +12,9 @@ You can also reuse the bundles you create in other projects or share them with t
 Many [[= product_name =]] functionalities are provided through separate bundles included in the installation.
 You can see the bundles that are automatically installed with [[= product_name =]]
 in the respective `composer.json` files.
-For example, for Ibexa Content, see the [JSON file on GitHub](https://github.com/ibexa/content/blob/master/composer.json).
+For example, for Ibexa Headless, see the [JSON file on GitHub](https://github.com/ibexa/headless/blob/master/composer.json).
 
-!!! caution "Legacy Commerce bundles"
+!!! caution "Deprecated legacy Commerce bundles"
 
     As of [[= product_name =]] v4.4 all `ibexa/commerce` packages are deprecated. 
     They are gradually replaced by their revamped counterparts and removed 
@@ -64,17 +65,17 @@ see the [How to Remove a Bundle]([[= symfony_doc =]]/bundles/remove.html) instru
 |[ibexa/standard-design](https://github.com/ibexa/standard-design)|Standard design and theme to be handled by `design-engine`|
 |[ibexa/user](https://github.com/ibexa/user)|User management|
 
-## Ibexa Content packages
+## Ibexa Headless packages
 
 |Bundle|Description|
 |---------|-----------|
 |ibexa/date-based-publisher|Date-based publishing functionality|
-|ibexa/commerce-base-design|Standard design and theme for the shop|
-|ibexa/commerce-checkout|Shop checkout functionality|
-|ibexa/commerce-fieldtypes|Shop-specific Field Types|
-|ibexa/commerce-price-engine|Engine for handling prices|
-|ibexa/commerce-shop-ui|UI for the shop front page|
-|ibexa/commerce-shop|Main shop functionalities|
+|ibexa/commerce-base-design|Standard design and theme for the shop **deprecated** |
+|ibexa/commerce-checkout|Shop checkout functionality **deprecated** |
+|ibexa/commerce-fieldtypes|Shop-specific Field Types **deprecated** |
+|ibexa/commerce-price-engine|Engine for handling prices **deprecated** |
+|ibexa/commerce-shop-ui|UI for the shop front page **deprecated** |
+|ibexa/commerce-shop|Main shop functionalities **deprecated** |
 |ibexa/calendar|Calendar tab with a calendar widget|
 |ibexa/connector-dam|Connector for DAM (Digital Asset Management) systems|
 |ibexa/elastic-search-engine|Integration with Elasticsearch search engine|
@@ -105,8 +106,11 @@ see the [How to Remove a Bundle]([[= symfony_doc =]]/bundles/remove.html) instru
 
 |Bundle|Description|
 |---------|-----------|
-|ibexa/commerce-admin-ui|Shop-related Back Office functionalities|
-|ibexa/commerce-erp-admin|ERP connection for the shop|
-|ibexa/commerce-order-history|Order history functionality|
-|ibexa/commerce-page-builder|Shop-related Page blocks|
-|ibexa/commerce-transaction|Transactional shop functionalities|
+|ibexa/cart|Main store functionalities|
+|ibexa/checkout|Store checkout functionality|
+|ibexa/storefront|A store front starting kit|
+|ibexa/commerce-admin-ui|Shop-related Back Office functionalities **deprecated** |
+|ibexa/commerce-erp-admin|ERP connection for the shop **deprecated** |
+|ibexa/commerce-order-history|Order history functionality **deprecated** |
+|ibexa/commerce-page-builder|Shop-related Page blocks **deprecated** |
+|ibexa/commerce-transaction|Transactional shop functionalities **deprecated** |

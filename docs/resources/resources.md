@@ -1,5 +1,6 @@
 ---
 description: See additional information about Ibexa DXP development process, helpful tools, and learn how you can contribute to the creation of the platform.
+page_type: landing_page
 ---
 
 # Resources

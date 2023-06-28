@@ -56,7 +56,7 @@ For example, `/content/edit/draft/1/5/eng-GB` enables you to edit draft 5 of Con
 
 You can use custom templates for the content editing forms.
 
-Define the templates in the following configuration:
+Define the templates under the `ibexa.system.<scope>.content_edit.templates` [configuration key](configuration.md#configuration-files):
 
 ``` yaml
 ibexa:

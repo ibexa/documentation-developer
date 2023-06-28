@@ -4,10 +4,13 @@ The `ProductName` Search Criterion searches for products by theis names.
 
 ## Arguments
 
-- `name` - string representing the Product name, with `*` as wildcard.
+- `productName` - string representing the Product name, with `*` as wildcard
 
 ## Example
 
 ``` php
-$query->query = new Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\ProductName('sofa*');
+$query = new ProductQuery(
+    null,
+    new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\ProductName('sofa*')
+);
 ```

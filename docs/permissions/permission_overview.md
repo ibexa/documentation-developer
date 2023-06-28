@@ -30,22 +30,6 @@ Instead, try to organize your content so that it can be covered with general Rol
 Using Groups is easier to manage and more secure. It also improves system performance.
 The more Role assignments and complex Policies you add for a given User, the more complex the search/load queries will be, because they always take permissions into account.
 
-## Permissions for routes
-
-You can limit access to specific routes per Policy:
-
-``` yaml
-ibexa_commerce_quick_order:
-    path: /quickorder
-    defaults:
-        _controller: Ibexa\Bundle\Commerce\QuickOrder\Controller\QuickOrderController::quickOrderAction
-        policy: siso_policy/quickorder
-```
-
-This configuration can be used to check whether a user has a single Policy.
-If you need more complex rules, e.g. to check the Section or check multiple Policies at once,
-implement a permission check in the controller.
-
 ## Permissions for custom controllers
 
 You can control access to a custom controller by implementing the `performAccessCheck()` method.

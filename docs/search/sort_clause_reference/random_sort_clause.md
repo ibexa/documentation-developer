@@ -5,8 +5,8 @@ orders search results randomly.
 
 ## Arguments
 
-- `seed` (optional) - int representing the random seed
-- `sortDirection` (optional) - Query or LocationQuery constant, either `Query::SORT_ASC` or `Query::SORT_DESC`.
+- (optional) `seed` - int representing the random seed
+[[= include_file('docs/snippets/sort_direction.md') =]]
 
 ## Limitations
 

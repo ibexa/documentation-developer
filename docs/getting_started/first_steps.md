@@ -20,21 +20,17 @@ To remove the welcome page and get a completely clean installation to start your
 remove the following files and folders from your installation:
 
 - Delete the file `config/packages/ibexa_welcome_page.yaml`
-- Delete the `templates/themes/standard` folder
+- Delete the `templates/themes/standard/full/welcome_page.html.twig` file
 - Delete the `assets/scss` folder
 - Delete all `translations/ibexa_platform_welcome_page.*` files
 - In `webpack.config.js` remove the `Encore.addEntry` section and uncomment the last line,
 so that the end of the file looks like this:
 
 ``` js
-// Put your config here.
+module.exports = [ibexaConfig, ...customConfigs, projectConfig];
 
-// uncomment the two lines below, if you added a new entry (by Encore.addEntry() or Encore.addStyleEntry() method) to your own Encore configuration for your project
-// const projectConfig = Encore.getWebpackConfig();
-// module.exports = [ IbexaConfig, ...customConfigs, projectConfig ];
-
-// comment-out this line if you've uncommented the above lines
-module.exports = [ IbexaConfig, ...customConfigs ];
+// uncomment this line if you've commented-out the above lines
+module.exports = [ eZConfig, ibexaConfig, ...customConfigs ];
 ```
 
 ## Add a Content Type

@@ -3,11 +3,11 @@ ibexa_fieldtype_page:
         my_block:
             name: My Block
             category: default
-            thumbnail: images/thumbnails/my_block.svg
+            thumbnail: /bundles/ibexaicons/img/all-icons.svg#edit
             views:
                 default:
                     name: Default block layout
-                    template: my_block.html.twig
+                    template: '@ibexadesign/blocks/my_block.html.twig'
                     priority: -255
             attributes:
                 my_text_attribute:

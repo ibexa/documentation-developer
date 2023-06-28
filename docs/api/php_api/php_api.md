@@ -1,5 +1,6 @@
 ---
 description: Public PHP API exposes the Repository in a number of services and allows creating, reading, updating, managing, and deleting objects.
+page_type: reference
 ---
 
 # PHP API
@@ -12,10 +13,6 @@ content and related objects such as Sections, Locations, Content Types, language
 The PHP API is built on top of a layered architecture, including a persistence SPI that abstracts storage.
 Using the API ensures that your code will be forward compatible with future releases based on other storage engines.
 
-!!! tip
-
-    For more information see a [presentation about [[= product_name =]] API.](https://alongosz.github.io/ezconf2018-api/)
-
 ## Using API services
 
 You can access the PHP API by injecting relevant services into your code.
@@ -25,6 +22,7 @@ Those services are obtained using `get[ServiceName]()` methods: `getContentServi
 
 The full list of available services covers:
 
+- CorporateAccountService (recommended for company creation)
 - CompanyService
 - [ContentService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php)
 - [ContentTypeService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentTypeService.php)

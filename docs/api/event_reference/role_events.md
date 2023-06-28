@@ -1,5 +1,6 @@
 ---
 description: Events that are triggered when working with Roles.
+page_type: reference
 ---
 
 # Role events

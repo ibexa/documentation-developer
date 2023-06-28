@@ -32,7 +32,7 @@ create a template file and inform the system, through configuration, when to use
 You might also set a SiteAccess under `scope`, to which the new user will be invited.
 If the SiteAccess is not set, it falls back to the default `site` value.
 
-For example, use the following configuration:
+For example, use the following [configuration](configuration.md#configuration-files):
 
 ```yaml
  ibexa:
@@ -42,7 +42,7 @@ For example, use the following configuration:
                  hash_expiration_time: P7D
                  templates:
                      mail: "@@App/invitation/mail.html.twig"
- ```
+```
 
 Here, you can specify which template should be used for the invitation mail,
 and what should be the expiration time for the invitation link included in that mail.

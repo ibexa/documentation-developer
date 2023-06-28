@@ -4,11 +4,17 @@ The `FloatAttribute` Search Criterion searches for products by the value of thei
 
 ## Arguments
 
--  `identifier` - string representing the attribute.
--  `value` - string representing the attribute value.
+- `identifier` - string representing the attribute
+- `value` - string representing the attribute value
 
 ## Example
 
 ``` php
-$query->query = new Product\Query\Criterion\FloatAttribute('length', 16.5);
+$query = new ProductQuery(
+    null,
+    new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\FloatAttribute(
+        'length',
+        16.5
+    )
+);
 ```

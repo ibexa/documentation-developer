@@ -25,7 +25,7 @@ To enable or disable Site Factory, follow respectively:
 
 ## Enable Site Factory
 
-To enable Site Factory, set `ibexa_site_factory.enabled` to `true` in `config/packages/ibexa_site_factory.yaml`.
+To enable Site Factory, set the `ibexa_site_factory.enabled` [configuration key](configuration.md#configuration-files) to `true`.
 
 ### Configure designs
 
@@ -35,16 +35,18 @@ The number of empty SiteAccess groups must be equal to the number of templates t
 In this example, you add two SiteAccess groups (`example_site_factory_group_1` and `example_site_factory_group_2`)
 that correspond to the two templates (`site1` and `site2`) that you add in the next step.
 
-Add the groups in `config/packages/ibexa.yaml`:
+Add the groups under the `ibexa.siteaccess` [configuration key](configuration.md#configuration-files):
 
 ``` yaml
 ibexa:
     siteaccess:
-        list: [site]
+        # ...
         groups:
-            site_group: [site]
-            example_site_factory_group_1: []
-            example_site_factory_group_2: []
+            site_group: [import, site]
+            storefront_group: [site]
+            corporate_group: [corporate]
+            example_site_factory_group_1: [ ]
+            example_site_factory_group_2: [ ]
 
     system:
         example_site_factory_group_1:
@@ -83,7 +85,7 @@ ibexa:
 
 ### Add site template configuration
 
-Add thumbnails and names for your site templates in `config/packages/ibexa_site_factory.yaml`:
+Add thumbnails and names for your site templates:
 
 ```yaml
 ibexa_site_factory:
@@ -156,7 +158,7 @@ Your sites should be now visible under:
 ### Define site directory
 
 You can adjust the place where the directory of the new site is created (Location with ID 2 by default).
-To do it, go to `config/packages/ibexa_site_factory.yaml`, and add the following parameter:
+To do it, go to configuration files and under the `ibexa.system.<scope>.site_factory` [configuration key](configuration.md#configuration-files) add the following parameter:
 
 ``` yaml
 ibexa:

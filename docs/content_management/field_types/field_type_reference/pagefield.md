@@ -38,7 +38,7 @@ When rendering a Page, its zones are passed to the layout as a `zones` array wit
 
 Each div that's a zone should have the `data-ibexa-zone-id` attribute with zone ID as a value for a zone container.
 
-To render a block inside the layout, use the Twig `render_esi()` function to call `IbexaFieldTypePageBundle:Block:render`.
+To render a block inside the layout, use the Twig `render_esi()` function to call `Ibexa\\Bundle\\FieldTypePage\\Controller\\BlockController::renderAction`.
 
 The `renderAction` has the following parameters:
 
@@ -52,7 +52,7 @@ The `renderAction` has the following parameters:
 Example usage:
 
 ``` html+twig
-{{ render_esi(controller('IbexaFieldTypePageBundle\Controller\BlockController::renderAction', {
+{{ render_esi(controller('Ibexa\\Bundle\\FieldTypePage\\Controller\\BlockController::renderAction', {
     'locationId': locationId,
     'blockId': block.id,
     'versionNo': versionInfo.versionNo,
@@ -71,10 +71,10 @@ As a whole a sample layout could look as follows:
             {# for each block #}
             {% for block in blocks %}
                 {# create a new layer with appropriate ID #}
-                <div class="landing-page__block block_{{ block.type }}" data-ibexa-block-id="{{ block.id }}">
-                    {# render the block by using the "IbexaFieldTypePageBundle\Controller\BlockController::renderAction" controller #}
+                <div class="landing-page__block block_{{ block.type }}" data-ez-block-id="{{ block.id }}">
+                    {# render the block by using the "Ibexa\\Bundle\\FieldTypePage\\Controller\\BlockController::renderAction" controller #}
                     {# location.id is the ID of the Location of the current Content item, block.id is the ID of the current block #}
-                    {{ render_esi(controller('IbexaFieldTypePageBundle\Controller\BlockController::renderAction', {
+                    {{ render_esi(controller('Ibexa\\Bundle\\FieldTypePage\\Controller\\BlockController::renderAction', {
                         'locationId': locationId,
                         'blockId': block.id,
                         'versionNo': versionInfo.versionNo,

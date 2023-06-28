@@ -8,9 +8,10 @@ ibexa_taxonomy:
                 parent: parent
                 name: name
         content_categories:
-            parent_location_remote_id: content_categories_remote_id
+            parent_location_remote_id: <content_categories_remote_id>
             content_type: content_category
             field_mappings:
                 identifier: category_identifier
                 parent: parent_category
                 name: name_field
+            assigned_content_tab: false

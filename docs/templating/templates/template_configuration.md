@@ -4,7 +4,7 @@ description: Template configuration defines which templates are used for which c
 
 # Template configuration
 
-You configure how templates are used under the `content_view` key.
+You configure how templates are used under the `ibexa.system.<scope>.content_view` [configuration key](configuration.md#configuration-files).
 
 The following example configuration defines template usage for several cases:
 
@@ -30,7 +30,7 @@ Other templates can [extend the page layout](#page-layout).
 
 ## View types
 
-`content_view` defines rules for rendering content.
+The `ibexa.system.<scope>.content_view` [configuration key](configuration.md#configuration-files) defines rules for rendering content.
 Rules are grouped per *view type*.
 
 ``` yaml

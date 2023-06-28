@@ -1,17 +1,17 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Command;
 
+use Ibexa\Contracts\Core\Repository\LocationService;
+use Ibexa\Contracts\Core\Repository\Values\Content\Location;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Input\InputArgument;
-use Ibexa\Contracts\Core\Repository\Values\Content\Location;
-use Ibexa\Contracts\Core\Repository\LocationService;
 
 class BrowseLocationsCommand extends Command
 {
-    private $locationService;
+    private LocationService $locationService;
 
     public function __construct(LocationService $locationService)
     {
@@ -24,7 +24,7 @@ class BrowseLocationsCommand extends Command
         $this
             ->setDescription('Lists all descendants of the Location')
             ->setDefinition([
-                new InputArgument('locationId', InputArgument::REQUIRED, 'Location ID to browse from')
+                new InputArgument('locationId', InputArgument::REQUIRED, 'Location ID to browse from'),
             ]);
     }
 

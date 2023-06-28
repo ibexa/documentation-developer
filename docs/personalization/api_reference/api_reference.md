@@ -1,5 +1,6 @@
 ---
 description: Correlate metadata with user data and combine users into clusters of certain type.
+page_type: landing_page
 ---
 
 # API reference

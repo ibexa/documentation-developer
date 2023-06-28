@@ -32,6 +32,18 @@ Run:
     composer require ibexa/commerce:[[= latest_tag_4_1 =]] --with-all-dependencies --no-scripts
     ```
 
+### VCL configuration for Fastly
+
+The Fastly `.vcl` configuration files have changed.
+Follow the upgrade steps below to update them:
+
+1. Locate the `vendor/ibexa/fastly/fastly/ez_main.vcl` file and update your VCL file with the recent changes.
+2. Do the same with `vendor/ibexa/fastly/fastly/ez_user_hash.vcl`.
+3. Upload a new `snippet_re_enable_shielding.vcl` snippet file, based on `vendor/ibexa/fastly/fastly/snippet_re_enable_shielding.vcl`.
+
+Once the VCL configuration has been updated,
+you may enable [Fastly Shielding](https://docs.fastly.com/en/guides/shielding) if you prefer.
+
 ## Update from v4.1.latest to v4.2
 
 When you have the latest version of v4.1, you can update to v4.2.

@@ -17,7 +17,7 @@ To enable OAuth2, you need to:
 
 ## OAuth2 provider configuration
 
-To configure the OAuth2 provider, add it under the `oauth2` key in SiteAccess-aware configuration, for example:
+To configure the OAuth2 provider, add it under the `oauth2` [configuration key](configuration.md#configuration-files) in SiteAccess-aware configuration, for example:
 
 ``` yaml
 [[= include_file('code_samples/user_management/oauth_google/config/packages/oauth.yaml') =]]

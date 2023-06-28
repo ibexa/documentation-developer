@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MemberList media-type="application/vnd.ibexa.api.MemberList+xml" href="/api/ibexa/v2/corporate/companies/139/members">
+  <Member media-type="application/vnd.ibexa.api.Member+xml" href="/api/ibexa/v2/corporate/companies/139/members/144">
+    <id>144</id>
+    <name>Jay Kowalski</name>
+    <Company media-type="application/vnd.ibexa.api.Company+xml">
+      <id>139</id>
+      <name>Ibexa Sp. z o. o.</name>
+      <Content media-type="application/vnd.ibexa.api.Content+xml" href="/api/ibexa/v2/content/objects/139" remoteId="b16d06d4c5ba7c37b26fa167b551dfc2" id="139">
+        <ContentType media-type="application/vnd.ibexa.api.ContentType+xml" href="/api/ibexa/v2/content/types/48"/>
+        <Name>Ibexa Sp. z o. o.</Name>
+        <TranslatedName>Ibexa Sp. z o. o.</TranslatedName>
+        <Versions media-type="application/vnd.ibexa.api.VersionList+xml" href="/api/ibexa/v2/content/objects/139/versions"/>
+        <CurrentVersion media-type="application/vnd.ibexa.api.Version+xml" href="/api/ibexa/v2/content/objects/139/currentversion">
+          <Version media-type="application/vnd.ibexa.api.Version+xml" href="/api/ibexa/v2/content/objects/139/versions/6">
+            <VersionInfo>
+              <id>677</id>
+              <versionNo>6</versionNo>
+              <status>PUBLISHED</status>
+              <modificationDate>2023-04-28T16:10:13+02:00</modificationDate>
+              <Creator media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/14"/>
+              <creationDate>2023-04-28T16:10:13+02:00</creationDate>
+              <initialLanguageCode>eng-GB</initialLanguageCode>
+              <languageCodes>eng-GB</languageCodes>
+              <VersionTranslationInfo media-type="application/vnd.ibexa.api.VersionTranslationInfo+xml">
+                <Language>
+                  <languageCode>eng-GB</languageCode>
+                </Language>
+              </VersionTranslationInfo>
+              <names>
+                <value languageCode="eng-GB">Ibexa Sp. z o. o.</value>
+              </names>
+              <Content media-type="application/vnd.ibexa.api.ContentInfo+xml" href="/api/ibexa/v2/content/objects/139"/>
+            </VersionInfo>
+            <Fields>
+              <field>
+                <id>673</id>
+                <fieldDefinitionIdentifier>active</fieldDefinitionIdentifier>
+                <languageCode>eng-GB</languageCode>
+                <fieldTypeIdentifier>ezboolean</fieldTypeIdentifier>
+                <fieldValue>true</fieldValue>
+              </field>
+              <field>
+                <id>674</id>
+                <fieldDefinitionIdentifier>name</fieldDefinitionIdentifier>
+                <languageCode>eng-GB</languageCode>
+                <fieldTypeIdentifier>ezstring</fieldTypeIdentifier>
+                <fieldValue>Ibexa Sp. z o. o.</fieldValue>
+              </field>
+              <field>
+                <id>675</id>
+                <fieldDefinitionIdentifier>vat</fieldDefinitionIdentifier>
+                <languageCode>eng-GB</languageCode>
+                <fieldTypeIdentifier>ezstring</fieldTypeIdentifier>
+                <fieldValue>123 456 789</fieldValue>
+              </field>
+              <field>
+                <id>676</id>
+                <fieldDefinitionIdentifier>website</fieldDefinitionIdentifier>
+                <languageCode>eng-GB</languageCode>
+                <fieldTypeIdentifier>ezstring</fieldTypeIdentifier>
+                <fieldValue>https://ibexa.co</fieldValue>
+              </field>
+              <field>
+                <id>677</id>
+                <fieldDefinitionIdentifier>customer_group</fieldDefinitionIdentifier>
+                <languageCode>eng-GB</languageCode>
+                <fieldTypeIdentifier>ibexa_customer_group</fieldTypeIdentifier>
+                <fieldValue>
+                  <value key="customer_group_id">1</value>
+                </fieldValue>
+              </field>
+              <field>
+                <id>678</id>
+                <fieldDefinitionIdentifier>sales_rep</fieldDefinitionIdentifier>
+                <languageCode>eng-GB</languageCode>
+                <fieldTypeIdentifier>ezobjectrelation</fieldTypeIdentifier>
+                <fieldValue>
+                  <value key="destinationContentId">14</value>
+                  <value key="destinationContentHref">/api/ibexa/v2/content/objects/14</value>
+                </fieldValue>
+              </field>
+              <field>
+                <id>679</id>
+                <fieldDefinitionIdentifier>contact</fieldDefinitionIdentifier>
+                <languageCode>eng-GB</languageCode>
+                <fieldTypeIdentifier>ezobjectrelation</fieldTypeIdentifier>
+                <fieldValue>
+                  <value key="destinationContentId">144</value>
+                  <value key="destinationContentHref">/api/ibexa/v2/content/objects/144</value>
+                </fieldValue>
+              </field>
+              <field>
+                <id>680</id>
+                <fieldDefinitionIdentifier>default_address</fieldDefinitionIdentifier>
+                <languageCode>eng-GB</languageCode>
+                <fieldTypeIdentifier>ezobjectrelation</fieldTypeIdentifier>
+                <fieldValue>
+                  <value key="destinationContentId">142</value>
+                  <value key="destinationContentHref">/api/ibexa/v2/content/objects/142</value>
+                </fieldValue>
+              </field>
+              <field>
+                <id>681</id>
+                <fieldDefinitionIdentifier>billing_address</fieldDefinitionIdentifier>
+                <languageCode>eng-GB</languageCode>
+                <fieldTypeIdentifier>ibexa_address</fieldTypeIdentifier>
+                <fieldValue>
+                  <value key="name">HQ</value>
+                  <value key="country">PL</value>
+                  <value key="fields">
+                    <value key="region">Silesia</value>
+                    <value key="locality">Katowice</value>
+                    <value key="street">Gliwicka 6/5</value>
+                    <value key="postal_code">40-079</value>
+                    <value key="email">company@email.invalid</value>
+                    <value key="phone_number">+48 000 000 000</value>
+                  </value>
+                </fieldValue>
+              </field>
+              <field>
+                <id>683</id>
+                <fieldDefinitionIdentifier>members</fieldDefinitionIdentifier>
+                <languageCode>eng-GB</languageCode>
+                <fieldTypeIdentifier>ezobjectrelation</fieldTypeIdentifier>
+                <fieldValue>
+                  <value key="destinationContentId">140</value>
+                  <value key="destinationContentHref">/api/ibexa/v2/content/objects/140</value>
+                </fieldValue>
+              </field>
+              <field>
+                <id>682</id>
+                <fieldDefinitionIdentifier>address_book</fieldDefinitionIdentifier>
+                <languageCode>eng-GB</languageCode>
+                <fieldTypeIdentifier>ezobjectrelation</fieldTypeIdentifier>
+                <fieldValue>
+                  <value key="destinationContentId">141</value>
+                  <value key="destinationContentHref">/api/ibexa/v2/content/objects/141</value>
+                </fieldValue>
+              </field>
+            </Fields>
+            <Relations media-type="application/vnd.ibexa.api.RelationList+xml" href="/api/ibexa/v2/content/objects/139/versions/6/relations"/>
+            <Thumbnail media-type="application/vnd.ibexa.api.Thumbnail+xml">
+              <resource>/placeholder</resource>
+              <width></width>
+              <height></height>
+              <mimeType>image/svg+xml</mimeType>
+            </Thumbnail>
+          </Version>
+        </CurrentVersion>
+        <Section media-type="application/vnd.ibexa.api.Section+xml" href="/api/ibexa/v2/content/sections/10"/>
+        <MainLocation media-type="application/vnd.ibexa.api.Location+xml" href="/api/ibexa/v2/content/locations/1/65/140"/>
+        <Locations media-type="application/vnd.ibexa.api.LocationList+xml" href="/api/ibexa/v2/content/objects/139/locations"/>
+        <Owner media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/14"/>
+        <lastModificationDate>2023-04-28T16:10:13+02:00</lastModificationDate>
+        <publishedDate>2023-04-28T15:44:55+02:00</publishedDate>
+        <mainLanguageCode>eng-GB</mainLanguageCode>
+        <currentVersionNo>6</currentVersionNo>
+        <alwaysAvailable>true</alwaysAvailable>
+        <isHidden>false</isHidden>
+        <status>PUBLISHED</status>
+        <ObjectStates media-type="application/vnd.ibexa.api.ContentObjectStates+xml" href="/api/ibexa/v2/content/objects/139/objectstates"/>
+      </Content>
+      <billingAddress>HQ, Poland</billingAddress>
+      <contactId>144</contactId>
+      <salesRepresentativeId>14</salesRepresentativeId>
+      <defaultAddressId>142</defaultAddressId>
+      <addressBookId>141</addressBookId>
+      <membersId>140</membersId>
+      <MemberList media-type="application/vnd.ibexa.api.MemberList+xml" href="/api/ibexa/v2/corporate/companies/139/members"/>
+      <Location media-type="application/vnd.ibexa.api.Location+xml" href="/api/ibexa/v2/content/locations/1/65/140"/>
+      <locationPath>/1/65/140/</locationPath>
+      <isActive>1</isActive>
+    </Company>
+    <User media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/144" id="144" remoteId="1b3938c16adfa29996f3afff0b4a0032">
+      <ContentType media-type="application/vnd.ibexa.api.ContentType+xml" href="/api/ibexa/v2/content/types/47"/>
+      <name>Jay Kowalski</name>
+      <Versions media-type="application/vnd.ibexa.api.VersionList+xml" href="/api/ibexa/v2/content/objects/144/versions"/>
+      <Section media-type="application/vnd.ibexa.api.Section+xml" href="/api/ibexa/v2/content/sections/10"/>
+      <MainLocation media-type="application/vnd.ibexa.api.Location+xml" href="/api/ibexa/v2/content/locations/1/65/140/141/145"/>
+      <Locations media-type="application/vnd.ibexa.api.LocationList+xml" href="/api/ibexa/v2/content/objects/144/locations"/>
+      <Groups media-type="application/vnd.ibexa.api.UserGroupRefList+xml" href="/api/ibexa/v2/user/users/144/groups"/>
+      <Owner media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/14"/>
+      <publishDate>2023-04-28T16:10:03+02:00</publishDate>
+      <lastModificationDate>2023-04-28T16:17:07+02:00</lastModificationDate>
+      <mainLanguageCode>eng-GB</mainLanguageCode>
+      <alwaysAvailable>true</alwaysAvailable>
+      <Version media-type="application/vnd.ibexa.api.Version+xml" href="/api/ibexa/v2/content/objects/144/versions/6">
+        <VersionInfo>
+          <id>683</id>
+          <versionNo>6</versionNo>
+          <status>PUBLISHED</status>
+          <modificationDate>2023-04-28T16:17:07+02:00</modificationDate>
+          <Creator media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/14"/>
+          <creationDate>2023-04-28T16:17:06+02:00</creationDate>
+          <initialLanguageCode>eng-GB</initialLanguageCode>
+          <languageCodes>eng-GB</languageCodes>
+          <VersionTranslationInfo media-type="application/vnd.ibexa.api.VersionTranslationInfo+xml">
+            <Language>
+              <languageCode>eng-GB</languageCode>
+            </Language>
+          </VersionTranslationInfo>
+          <names>
+            <value languageCode="eng-GB">Jay Kowalski</value>
+          </names>
+          <Content media-type="application/vnd.ibexa.api.ContentInfo+xml" href="/api/ibexa/v2/content/objects/144"/>
+        </VersionInfo>
+        <Fields>
+          <field>
+            <id>698</id>
+            <fieldDefinitionIdentifier>first_name</fieldDefinitionIdentifier>
+            <languageCode>eng-GB</languageCode>
+            <fieldTypeIdentifier>ezstring</fieldTypeIdentifier>
+            <fieldValue>Jay</fieldValue>
+          </field>
+          <field>
+            <id>699</id>
+            <fieldDefinitionIdentifier>last_name</fieldDefinitionIdentifier>
+            <languageCode>eng-GB</languageCode>
+            <fieldTypeIdentifier>ezstring</fieldTypeIdentifier>
+            <fieldValue>Kowalski</fieldValue>
+          </field>
+          <field>
+            <id>700</id>
+            <fieldDefinitionIdentifier>phone_number</fieldDefinitionIdentifier>
+            <languageCode>eng-GB</languageCode>
+            <fieldTypeIdentifier>ezstring</fieldTypeIdentifier>
+            <fieldValue>+48 123 123 456</fieldValue>
+          </field>
+          <field>
+            <id>701</id>
+            <fieldDefinitionIdentifier>user</fieldDefinitionIdentifier>
+            <languageCode>eng-GB</languageCode>
+            <fieldTypeIdentifier>ezuser</fieldTypeIdentifier>
+            <fieldValue>
+              <value key="hasStoredLogin">true</value>
+              <value key="contentId">144</value>
+              <value key="login">jay.kowalski</value>
+              <value key="email">jay.kowalski@email.invalid</value>
+              <value key="passwordUpdatedAt">1682691427</value>
+              <value key="enabled">false</value>
+              <value key="maxLogin">5</value>
+              <value key="plainPassword"/>
+            </fieldValue>
+          </field>
+        </Fields>
+        <Relations media-type="application/vnd.ibexa.api.RelationList+xml" href="/api/ibexa/v2/content/objects/144/versions/6/relations"/>
+        <Thumbnail media-type="application/vnd.ibexa.api.Thumbnail+xml">
+          <resource>/user/default_profile_image/initials.svg?initials=JK#profile_image</resource>
+          <width></width>
+          <height></height>
+          <mimeType>image/svg+xml</mimeType>
+        </Thumbnail>
+      </Version>
+      <login>jay.kowalski</login>
+      <email>jay.kowalski@email.invalid</email>
+      <enabled>false</enabled>
+      <UserGroups media-type="application/vnd.ibexa.api.UserGroupList+xml" href="/api/ibexa/v2/user/users/144/groups"/>
+      <Roles media-type="application/vnd.ibexa.api.RoleAssignmentList+xml" href="/api/ibexa/v2/user/users/144/roles"/>
+    </User>
+    <Role media-type="application/vnd.ibexa.api.Role+xml" href="/api/ibexa/v2/user/roles/15">
+      <identifier>Company Buyer</identifier>
+      <Policies media-type="application/vnd.ibexa.api.PolicyList+xml" href="/api/ibexa/v2/user/roles/15/policies"/>
+    </Role>
+  </Member>
+</MemberList>

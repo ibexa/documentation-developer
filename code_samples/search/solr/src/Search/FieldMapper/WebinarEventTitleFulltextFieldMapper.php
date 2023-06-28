@@ -1,24 +1,24 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Search\FieldMapper;
 
-use Ibexa\Contracts\Solr\FieldMapper\ContentFieldMapper;
+use Ibexa\Contracts\Core\Persistence\Content;
 use Ibexa\Contracts\Core\Persistence\Content\Handler as ContentHandler;
 use Ibexa\Contracts\Core\Persistence\Content\Location\Handler as LocationHandler;
-use Ibexa\Contracts\Core\Persistence\Content;
 use Ibexa\Contracts\Core\Search;
+use Ibexa\Contracts\Solr\FieldMapper\ContentFieldMapper;
 
 class WebinarEventTitleFulltextFieldMapper extends ContentFieldMapper
 {
     /**
      * @var \Ibexa\Contracts\Core\Persistence\Content\Type\Handler
      */
-    protected $contentHandler;
+    protected \Ibexa\Contracts\Core\Persistence\Content\Type\Handler $contentHandler;
 
     /**
      * @var \Ibexa\Contracts\Core\Persistence\Content\Location\Handler
      */
-    protected $locationHandler;
+    protected \Ibexa\Contracts\Core\Persistence\Content\Location\Handler $locationHandler;
 
     /**
      * @param \Ibexa\Contracts\Core\Persistence\Content\Handler $contentHandler

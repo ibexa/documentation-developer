@@ -1,0 +1,10 @@
+{
+    "CartViewInput": {
+        "identifier": "loadUserCarts",
+        "CartQuery": {
+            "offset": 0,
+            "limit": 10,
+            "ownerId": 123
+        }
+    }
+}

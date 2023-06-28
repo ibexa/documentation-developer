@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MemberUpdate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <email>jay.kowalski@updated.email</email>
+    <password>Publish123#</password>
+    <enabled>false</enabled>
+    <maxLogin>5</maxLogin>
+    <Role media-type="application/vnd.ibexa.api.Role+xml" href="/api/ibexa/v2/user/roles/15"/>
+    <fields>
+        <field>
+            <fieldDefinitionIdentifier>first_name</fieldDefinitionIdentifier>
+            <fieldValue>Jay</fieldValue>
+        </field>
+        <field>
+            <fieldDefinitionIdentifier>last_name</fieldDefinitionIdentifier>
+            <fieldValue>Kowalski</fieldValue>
+        </field>
+        <field>
+            <fieldDefinitionIdentifier>phone_number</fieldDefinitionIdentifier>
+            <fieldValue>+48 123 123 456</fieldValue>
+        </field>
+    </fields>
+</MemberUpdate>

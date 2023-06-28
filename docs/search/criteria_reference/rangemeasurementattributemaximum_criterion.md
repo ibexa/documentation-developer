@@ -4,12 +4,19 @@ The `RangeMeasurementAttributeMaximum` Search Criterion searches for products by
 
 ## Arguments
 
--  `identifier` - string representing the attribute.
--  `value` - `\Ibexa\Contracts\Measurement\Value\SimpleValueInterface` object representing the maximum attribute value.
+- `identifier` - string representing the attribute
+- `value` - `\Ibexa\Contracts\Measurement\Value\SimpleValueInterface` object representing the maximum attribute value
 
 ## Example
 
 ``` php
 $value = $this->measurementService->buildSimpleValue('length', 150, 'centimeter');
-$criteria = new Criterion\RangeMeasurementAttributeMaximum('length', $value);
+
+$query = new ProductQuery(
+    null,
+    new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\RangeMeasurementAttributeMaximum(
+        'length',
+        $value
+    )
+);
 ```

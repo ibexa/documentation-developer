@@ -5,6 +5,9 @@ description: Page blocks can contain multiple attributes, of both built-in and c
 # Page block attributes
 
 A block has attributes that the editor fills in when adding th block to a Page.
+
+[[% include 'snippets/page_block_cache_clear.md' %]]
+
 Each block can have the following properties:
 
 |Attribute|Description|
@@ -78,12 +81,7 @@ Depending on the complexity of the type, you can use a `GenericFormTypeMapper` o
 For a generic mapper, add a new service definition to `config/services.yaml`:
 
 ``` yaml
-my_application.block.attribute.my_string:
-    class: Ibexa\FieldTypePage\FieldType\Page\Block\Attribute\FormTypeMapper\GenericFormTypeMapper
-    arguments:
-        $formTypeClass: App\Block\Attribute\MyStringAttributeType
-    tags:
-        - { name: ibexa.page_builder.form_type_attribute.mapper, alias: my_string }
+[[= include_file('code_samples/page/custom_attribute/config/custom_services.yaml', 0, 7) =]]
 ```
 
 #### Custom mapper
@@ -98,32 +96,21 @@ for example in `src/Block/Attribute/MyStringAttributeMapper.php`:
 Then, add a new service definition for your mapper to `config/services.yaml`:
 
 ``` yaml
-App\Block\Attribute\MyStringAttributeMapper:
-        tags:
-            - { name: ibexa.page_builder.form_type_attribute.mapper, alias: my_string }
+[[= include_file('code_samples/page/custom_attribute/config/custom_services.yaml', 8, 11) =]]
 ```
 
 ### Edit templates
 
-Next, configure a template for the attribute edit form by creating a `templates/custom_form_templates.html.twig` file:
+Next, configure a template for the attribute edit form by creating a `templates/themes/admin/custom_form_templates.html.twig` file:
 
 ``` html+twig
-{% block my_string_attribute_widget %}
-    <h2>My String</h2>
-    {{ form_widget(form) }}
-{% endblock %}
-
-{# more templates here #}
+[[= include_file('code_samples/page/custom_attribute/templates/themes/admin/custom_form_templates.html.twig') =]]
 ```
 
-Add the template to your configuration:
+Add the template to your configuration under the `system.<scope>.page_builder_forms` [configuration key](configuration.md#configuration-files):
 
 ``` yaml
-system:
-    default:
-        page_builder_forms:
-            block_edit_form_templates:
-                - { template: custom_form_templates.html.twig, priority: 0 }
+[[= include_file('code_samples/page/custom_attribute/config/packages/page_blocks.yaml', 16, 22) =]]
 ```
 
 ### Custom attribute configuration
@@ -131,7 +118,7 @@ system:
 Now, you can create a block containing your custom attribute:
 
 ``` yaml hl_lines="12-16"
-[[= include_file('code_samples/page/custom_attribute/config/packages/page_blocks.yaml') =]]
+[[= include_file('code_samples/page/custom_attribute/config/packages/page_blocks.yaml', 0, 15) =]]
 ```
 
 ### Nested attribute configuration
@@ -157,6 +144,11 @@ Validators can be also set on a parent attribute (group defining level), it mean
 ``` yaml
 [[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 9,16) =]] [[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 19,26) =]]
 ```
+
+!!! caution "Moving attributes between groups"
+
+    If you move an attribute between groups or add an ungrouped attribute to a group,
+    the block values are removed.
 
 ## Help messages for form fields
 

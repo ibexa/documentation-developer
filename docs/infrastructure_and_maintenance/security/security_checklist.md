@@ -27,7 +27,7 @@ make sure that your setup is secure.
     
     The following command will generate a 64-character-long secure random value:
     
-    `print bin2hex(random_bytes(32));`
+    `php -r "print bin2hex(random_bytes(32));"`
     
 !!! note
 
@@ -97,7 +97,8 @@ See [Security advisory: EZSA-2020-002.](https://developers.ibexa.co/security-adv
 ### Block execution of scripts in `var` directory
 
 Make sure the web server blocks the execution of PHP files and other scripts in the `var` directory.
-See [vhost.template.](https://github.com/ezsystems/developer-documentation/tree/master/code_samples/install/vhost_template/vhost.template#L80)
+See the line below `# Disable .php(3) and other executable extensions in the var directory` in the
+[virtual host configuration](https://raw.githubusercontent.com/ibexa/post-install/main/resources/templates/apache2/vhost.template).
 
 ### Use secure password hashing
 
@@ -132,7 +133,7 @@ Once you have properly configured secure user roles and permissions, to avoid ex
 
 - Avoid exposing servers on the open internet when not strictly required.
 - Ensure any servers, services, ports and virtual hosts that were opened for testing purposes are locked down before going live.
-- Secure the database with a good password, keys, firewall, etc.
+- Secure the database with a good password, keys, firewall, etc. Ensure that the database user used by the web app only has access to do the operations needed by Ibexa DXP. The Data Definition Language (DDL) commands (create, alter, drop, truncate, comment) are not needed for running Ibexa DXP, only for installing and upgrading it. If the web app user does not have these rights, then that reduces the damage that can be done if there is a security breach.
 - Consider whether certain interfaces must be left available on the open internet. Roles protect your content on all interfaces, but you may prefer to reduce your attack surface. For example:
     - The `/search` and `/graphql` endpoints
     - The REST API endpoints

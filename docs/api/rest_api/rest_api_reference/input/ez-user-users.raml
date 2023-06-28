@@ -47,6 +47,24 @@ head:
             description: OK - verifies if there are Users matching the given filter.
         404:
             description: Error - there are no visibile Users matching the filter.
+/current:
+    get:
+        displayName: Load current User
+        description: Redirects to current User, if available.
+        headers:
+            Accept:
+                description: If set, the User is returned in XML or JSON format (after redirection).
+                example:  |
+                    application/vnd.ibexa.api.User+xml
+                    application/vnd.ibexa.api.User+json
+        responses:
+            307:
+                description: OK.
+                headers:
+                    Location:
+                        description: REST endpoint for current user.
+            401:
+                description: User is not currently logged in.
 /{userId}:
     get:
         displayName: Load User
@@ -303,3 +321,46 @@ head:
                                 example: !include examples/user/users/user_id/roles/role_id/DELETE/RoleAssignmentList.json.example
                     401:
                         description: Error - the user is not authorized to delete this Content Type.
+    /segments:
+        get:
+            displayName: View user segments
+            description: TODO
+            headers:
+                Accept:
+                    description: If set, the user's segment list is returned in XML or JSON format.
+                    example: |
+                        application/vnd.ibexa.api.UserSegmentList+xml
+                        application/vnd.ibexa.api.UserSegmentList+json
+        post:
+            displayName: Assign Segments to User
+            description: Assigns Segments from payload to User given by ID.
+            headers:
+                Content-Type:
+                    description: The UserSegmentAssignInput schema encoded in XML or JSON format.
+                    example: |
+                        application/vnd.ibexa.api.UserSegmentAssignInput+xml
+                        application/vnd.ibexa.api.UserSegmentAssignInput+json
+        /{segmentIdentifier}:
+            delete:
+                displayName: Unassign Segment from User
+                description: The Segment designated by its identifier is unassigned from the User given by ID.
+    /drafts:
+        get:
+            displayName: Load user drafts
+            description: Loads user's drafts
+            headers:
+                Accept:
+                    description: If set, the version list is returned in XML or JSON format.
+                    example:  |
+                        application/vnd.ibexa.api.VersionList+xml
+                        application/vnd.ibexa.api.VersionList+json
+            responses:
+                200:
+                    description: OK - List the draft versions
+                    body:
+                        application/vnd.ibexa.api.VersionList+xml:
+                            type: VersionList
+                        application/vnd.ibexa.api.VersionList+json:
+                            type: VersionList
+                401:
+                    description: Error - the current user is not authorized to list the drafts of the given user.
