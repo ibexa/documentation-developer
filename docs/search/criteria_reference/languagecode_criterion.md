@@ -11,9 +11,33 @@ should be returned even if it does not contain the selected language (default `t
 
 ## Example
 
+### PHP
+
 ``` php
 $query->query = new Criterion\LanguageCode('ger-DE', false);
 ```
+
+### REST API
+
+=== "XML"
+
+    ```xml
+      <Query>
+        <Filter>
+            <LanguageCodeCriterion>eng-GB</LanguageCodeCriterion>
+        </Filter>
+      </Query>
+    ```
+
+=== "JSON"
+
+    ```json
+    "Query": {
+        "Filter": {
+            "LanguageCodeCriterion": "eng-GB"
+            }
+        }
+    ```
 
 ## Use case
 

@@ -9,6 +9,30 @@ searches for content based on the identifier of the Section it is assigned to.
 
 ## Example
 
+### PHP
+
 ``` php
 $query->query = new Criterion\SectionIdentifier(['sports', 'news']);
 ```
+
+### REST API
+
+=== "XML"
+
+    ```xml
+      <Query>
+        <Filter>
+            <SectionIdentifierCriterion>sports</SectionIdentifierCriterion>
+        </Filter>
+      </Query>
+    ```
+
+=== "JSON"
+
+    ```json
+    "Query": {
+        "Filter": {
+            "SectionIdentifierCriterion": "sports"
+            }
+        }
+    ```

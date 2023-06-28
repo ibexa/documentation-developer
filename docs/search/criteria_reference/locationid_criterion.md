@@ -9,6 +9,30 @@ searches for content based in the Location ID.
 
 ## Example
 
+### PHP
+
 ``` php
 $query->query = new Criterion\LocationId(62);
 ```
+
+### REST API
+
+=== "XML"
+
+    ```xml
+      <Query>
+        <Filter>
+            <LocationIdCriterion>62</LocationIdCriterion>
+        </Filter>
+      </Query>
+    ```
+
+=== "JSON"
+
+    ```json
+    "Query": {
+        "Filter": {
+            "LocationIdCriterion": "62"
+            }
+        }
+    ```

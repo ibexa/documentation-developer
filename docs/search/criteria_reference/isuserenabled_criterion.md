@@ -14,6 +14,30 @@ The `IsUserEnabled` Criterion is not available in Solr or Elastic search engines
 
 ## Example
 
+### PHP
+
 ``` php
 $query->query = new Criterion\IsUserEnabled();
 ```
+
+### REST API
+
+=== "XML"
+
+    ```xml
+      <Query>
+        <Filter>
+            <IsUserEnabledCriterion>true</IsUserEnabledCriterion>
+        </Filter>
+      </Query>
+    ```
+
+=== "JSON"
+
+    ```json
+    "Query": {
+        "Filter": {
+            "IsUserEnabledCriterion": "true"
+            }
+        }
+    ```

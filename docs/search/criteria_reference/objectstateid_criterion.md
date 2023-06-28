@@ -9,6 +9,30 @@ searches for content based on its Object State ID.
 
 ## Example
 
+### PHP
+
 ``` php
 $query->query = new Criterion\ObjectStateId([4, 5]);
 ```
+
+### REST API
+
+=== "XML"
+
+    ```xml
+      <Query>
+        <Filter>
+            <ObjectStateIdCriterion>1</ObjectStateIdCriterion>
+        </Filter>
+      </Query>
+    ```
+
+=== "JSON"
+
+    ```json
+    "Query": {
+        "Filter": {
+            "ObjectStateIdCriterion": "1"
+            }
+        }
+    ```
