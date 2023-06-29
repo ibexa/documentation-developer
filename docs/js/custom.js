@@ -79,12 +79,13 @@ $(document).ready(function() {
         })
         .addClass('external');
 
-    docsearch({
+    let search = docsearch({
         container: '#docsearch',
         appId: '2DNYOU6YJZ',
         apiKey: '21ce3e522455e18e7ee16cf7d66edb4b',
         indexName: 'ezplatform',
         inputSelector: '#search_input',
+        autocompleteOptions: { debug: false },
         transformData: function(hits) {
             const hitsPerPage = 10;
             const removedPattern = '¶';
@@ -126,6 +127,15 @@ $(document).ready(function() {
             }
         },
         debug: false,
+    });
+    search.autocomplete.on('autocomplete:updated', event => {
+        $('.ds-dropdown-menu .ds-suggestion').each(function() {
+            let category = $(this).find('.algolia-docsearch-suggestion--subcategory-column');
+            let content = $(this).find('.algolia-docsearch-suggestion--title');
+            if (content.text().trim() == category.text().trim()) {
+                content.remove();
+            }
+        });
     });
 
     $(document).on('keydown keypress', 'form.md-search__form', function(event) {
