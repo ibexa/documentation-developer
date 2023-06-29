@@ -168,7 +168,7 @@ For example, if a guideline invites you to run `php bin/console cache:clear`, yo
 
 ## Other options for configuration
 
-DDEV offers several ways to achieve a same thing, offering different levels of flexibility or adaptability to your development environment.
+DDEV offers several ways to achieve the same thing, offering different levels of flexibility or adaptability to your development environment.
 
 !!! tip
 
@@ -258,7 +258,7 @@ sed -i 's/ibexa_params.d/sites-enabled\/ibexa_params.d/' .ddev/nginx_full/ibexa.
 
 #### Apache Virtual Host
 
-To set the Apache Virtual Host, `.ddev/apache/apache-site.conf` will be override with Ibexa DXP's config. You can do it manually or using a script.
+To set the Apache Virtual Host, `.ddev/apache/apache-site.conf` will be overridden with Ibexa DXP's config. You can do it manually or using a script.
 
 ##### Manual
 
@@ -372,7 +372,7 @@ Compared to running a clean install like described in [Installation steps](#inst
 
 If the local project needs to answer to real production domains (for example, to use the existing [hostname to SiteAccess](../multisite/siteaccess/siteaccess_matching.md#maphost) or [hostname element to SiteAccess](../multisite/siteaccess/siteaccess_matching.md#hostelement) mappings), you can use [additional hostnames](https://ddev.readthedocs.io/en/latest/users/extend/additional-hostnames/).
 
-!!! warning
+!!! caution
 
     As this feature will modify domain resolution, the real website may be unreachable until the `hosts` file is manually cleaned.
 
