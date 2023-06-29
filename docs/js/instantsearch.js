@@ -154,7 +154,7 @@
                                 // Not first, last and in a new group: close previous group, close current group
                                 let groupHeaderHTML = `<h2 class="instantsearch__group-header">
                                         ${previousGroupName}
-                                        (${groupChildCount})
+                                        <!--(${groupChildCount})-->
                                     </h2>`;
                                 resultHTML += `${groupHeaderHTML}
                                         <div class="instantsearch__group">
@@ -172,7 +172,7 @@
                                 // Not first, not last and in new group: close previous group, add to next group content
                                 let groupHeaderHTML = `<h2 class="instantsearch__group-header">
                                         ${previousGroupName}
-                                        (${groupChildCount})
+                                        <!--(${groupChildCount})-->
                                     </h2>`;
                                 resultHTML += `${groupHeaderHTML}
                                         <div class="instantsearch__group">
@@ -187,7 +187,7 @@
                             groupChildCount++;
                             let groupHeaderHTML = `<h2 class="instantsearch__group-header">
                                     ${groupName}
-                                    (${groupChildCount})
+                                    <!--(${groupChildCount})-->
                                 </h2>`;
                             resultHTML += `${groupHeaderHTML}
                                     <div class="instantsearch__group">
