@@ -10,6 +10,8 @@ searches for content based on its Object State identifier.
 
 ## Example
 
+### PHP
+
 ``` php
 $query->query = new Criterion\ObjectStateIdentifier(['ready']);
 ```

@@ -8,6 +8,8 @@ The `ProductCode` Search Criterion searches for products by their codes.
 
 ## Example
 
+### PHP
+
 ``` php
 $query = new ProductQuery(
     null,

@@ -11,9 +11,43 @@ searches for content based on its creator or modifier.
 
 ## Example
 
+### PHP
+
 ``` php
 $query->query = new Criterion\UserMetadata(Criterion\UserMetadata::GROUP, Criterion\Operator::EQ, 12);
 ```
+
+### REST API
+
+=== "XML"
+
+    ```xml
+      <Query>
+        <Filter>
+          <UserMetadataCriterion>
+            <target>GROUP</target>
+            <operator>EQ</operator>
+            <value>12</value>
+          </UserMetadataCriterion>
+        </Filter>
+      </Query>
+    ```
+
+=== "JSON"
+
+    ```json
+    {
+      "Query": {
+        "Filter": {
+          "UserMetadataCriterion": {
+            "target": "GROUP",
+            "operator": "EQ",
+            "value": 12
+          }
+        }
+      }
+    }
+    ```
 
 ## Use case
 
