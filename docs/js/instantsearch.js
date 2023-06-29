@@ -31,7 +31,10 @@
     const parsed_search_query = decodeURI(search_query.replace('+', ' '));
     const search_page = (match = doc.location.search.match(/p=(\d*?)(&|$)/)) ? match[1] : 1;
     const parsed_search_page = parseInt(search_page);
-    const version = doc.location.pathname.split('/')[2];
+    let version = doc.location.pathname.split('/')[2];
+    if (!/^\d+\.\d+$/.test(version) && version !== 'latest') {
+        version = 'master';
+    }
     const search = instantsearch({
         indexName: 'ezplatform',
         searchClient: algoliasearch('2DNYOU6YJZ', '21ce3e522455e18e7ee16cf7d66edb4b'),
