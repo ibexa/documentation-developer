@@ -331,6 +331,7 @@ nav:
         - Shipping management:
             - Shipping management: commerce/shipping_management/shipping_management.md
             - Configure shipping: commerce/shipping_management/configure_shipment.md
+            - Extend Shipping: commerce/shipping_management/extend_shipping.md
             - Shipping method API: commerce/shipping_management/shipping_method_api.md
             - Shipment API: commerce/shipping_management/shipment_api.md
         - Storefront:
