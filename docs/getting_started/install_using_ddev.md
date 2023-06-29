@@ -74,6 +74,8 @@ Now, configure the database connection for your Ibexa DXP project. Depending on 
 
     Those commands will set a `DATABASE_URL` environment variable inside the container which overrides [the variable from `.env`](install_ibexa_dxp.md#change-installation-parameters).
 
+    If you wan't to use `.env.local` file instead of server-level environment variables, see [Using dotenv](#using-dotenv).
+
 === "MariaDB / MySQL"
 
     ```bash
