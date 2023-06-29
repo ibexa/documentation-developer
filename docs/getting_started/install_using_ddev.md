@@ -176,7 +176,7 @@ DDEV offers several ways to achieve the same thing, offering different levels of
 
     Learn more about the [DDEV commands](https://ddev.readthedocs.io/en/latest/users/usage/commands/):
     
-    - by running [`ddev list`](https://ddev.readthedocs.io/en/latest/users/usage/commands/#list) to list them all,
+    - by running [`ddev --help`](https://ddev.readthedocs.io/en/latest/users/usage/cli/#using-the-ddev-command) to list them all,
     - by running [`ddev help <command>`](https://ddev.readthedocs.io/en/latest/users/usage/commands/#help) to get usage details about a given command.
     
     Learn more about DDEV configuration at [`ddev config` command documentation](https://ddev.readthedocs.io/en/latest/users/usage/commands/#config) and [advanced configuration files documentation](https://ddev.readthedocs.io/en/latest/users/configuration/config/).
