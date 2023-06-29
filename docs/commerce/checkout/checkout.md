@@ -54,6 +54,6 @@ Virtual product is a special type of a [Product](products.md). Virtual products 
 They can be sold individually, or as part of a product bundle.
 
 Virtual products don’t require shipment when they are purchased individually.
-While purchasing virtual product, you only have to fill in Billing address and select relevant payment method.. 
+While purchasing virtual product, you only have to fill in Billing address and select relevant payment method. 
 
 ![`Virtual product purchasing`](virtual_product_purchase.png "Virtual product purchasing")
