@@ -130,7 +130,13 @@ ddev composer config --global http-basic.updates.ibexa.co <installation-key> <to
 
 Replace `<installation-key>` and `<token-password>` with your actual installation key and token password, respectively.
 
-If you want to reuse an existing `auth.json`file, see [Using an auth.json](#using-an-authjson).
+This authentication won't persist if the project is restarted (by `ddev restart` or `ddev composer create`). You can back up the authentication file (`auth.json`) using the following command:
+
+```bash
+ddev exec "mkdir -p .ddev/homeadditions/.composer; cp ~/.composer/auth.json .ddev/homeadditions/.composer"
+```
+
+If you want to reuse an existing `auth.json` file, see [Using an auth.json](#using-an-authjson).
 
 ### 5. Create Ibexa DXP project
 
@@ -139,6 +145,11 @@ Once DDEV is running, use Composer to create a new Ibexa DXP project. Remember t
 ```bash
 ddev composer create ibexa/<edition>-skeleton:<version>
 ```
+
+!!! tip
+
+    You may add the Symfony Debug bundle for its var dumper enhancement which can avoid getting out of memory when dumping huge or circular variables.
+    `ddev composer require --dev symfony/debug-bundle`
 
 ### 6. Install the DXP and its database
 
