@@ -98,7 +98,7 @@ The Solr Search Engine Bundle can be configured in many ways. The config further
 
 #### Single-core example (default)
 
-Out of the box in [[= product_name =]] the following is enabled for a simple setup:
+Out of the box in [[= product_name =]] the following is enabled for a simple setup under the `ibexa_solr` [configuration key](configuration.md#configuration-files):
 
 ``` yaml
 ibexa_solr:

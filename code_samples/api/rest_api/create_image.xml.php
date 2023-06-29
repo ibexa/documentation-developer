@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 if ($argc < 2) {
     // Print script usage
@@ -70,7 +70,6 @@ $curl = curl_init();
 $responseHeaders = [];
 $doc = new DOMDocument();
 
-
 curl_setopt_array($curl, [
     CURLOPT_USERPWD => "$username:$password",
     CURLOPT_URL => "$baseUrl/content/objects",
@@ -81,9 +80,10 @@ curl_setopt_array($curl, [
         'Accept: application/vnd.ibexa.api.ContentInfo+xml',
     ],
     CURLOPT_RETURNTRANSFER => true,
-    CURLOPT_HEADERFUNCTION => function ($curl, $header) {
+    CURLOPT_HEADERFUNCTION => static function ($curl, $header) {
         global $responseHeaders;
         $responseHeaders[] = $header;
+
         return strlen($header);
     },
 ]);

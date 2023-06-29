@@ -11,5 +11,12 @@ The `SimpleMeasurementAttribute` Search Criterion searches for products by the v
 
 ``` php
 $value = $this->measurementService->buildSimpleValue('length', 120, 'centimeter');
-$criteria = new Criterion\SimpleMeasurementAttribute('width', $value);
+
+$query = new ProductQuery(
+    null,
+    new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\SimpleMeasurementAttribute(
+        'width',
+        $value
+    )
+);
 ```

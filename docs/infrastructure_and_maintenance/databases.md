@@ -12,11 +12,6 @@ description: Ibexa DXP can use MySQL, PostgreSQL or MariaDB as its database.
 
 To use PostgreSQL, you need to have the `pdo_pgsql` PHP extension installed.
 
-Make sure you have the `ibexa/doctrine-dbal-schema` Composer package installed
-and `Ibexa\Bundle\DoctrineSchema\DoctrineSchemaBundle()` enabled.
-If not, install the package with `composer require ibexa/doctrine-dbal-schema`
-and enable `DoctrineSchemaBundle` in `AppKernel.php`.
-
 ### Provide parameters
 
 When you run `composer install`, you will be asked to [provide installation parameters](install_ibexa_dxp.md#change-installation-parameters).

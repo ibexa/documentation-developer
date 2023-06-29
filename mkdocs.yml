@@ -69,6 +69,9 @@ nav:
             - Content Type events: api/event_reference/content_type_events.md
             - Location events: api/event_reference/location_events.md
             - Catalog events: api/event_reference/catalog_events.md
+            - Cart events: api/event_reference/cart_events.md
+            - Order management events: api/event_reference/order_management_events.md
+            - Payment events: api/event_reference/payment_events.md
             - Language events: api/event_reference/language_events.md
             - Section events: api/event_reference/section_events.md
             - Object state events: api/event_reference/object_state_events.md
@@ -139,7 +142,6 @@ nav:
         - Locations: content_management/locations.md
         - Content Relations: content_management/content_relations.md
         - Content availability: content_management/content_availability.md
-        - Customize Field Type metadata: content_management/customize_field_type_metadata.md
         - Taxonomy:
             - Taxonomy: content_management/taxonomy/taxonomy.md
             - Taxonomy API: content_management/taxonomy/taxonomy_api.md
@@ -204,6 +206,7 @@ nav:
             - Searching: content_management/field_types/field_type_search.md
             - Create custom generic Field Type: content_management/field_types/create_custom_generic_field_type.md
             - Create custom Field Type comparison: content_management/field_types/create_custom_field_type_comparison.md
+            - Customize Field Type metadata: content_management/field_types/customize_field_type_metadata.md
             - Field Type reference:
                 - Field Type reference: content_management/field_types/field_type_reference/field_type_reference.md
                 - Address Field Type: content_management/field_types/field_type_reference/addressfield.md
@@ -320,13 +323,14 @@ nav:
             - Configure order processing: commerce/order_management/configure_order_management.md
             - Order management API: commerce/order_management/order_management_api.md
         - Payment management:
-            - Payment management: commerce/payment/payment.md 
-            - Configure payment: commerce/payment/configure_payment.md 
+            - Payment: commerce/payment/payment.md 
+            - Configure Payment: commerce/payment/configure_payment.md 
+            - Extend Payment: commerce/payment/extend_payment.md 
             - Payment method API: commerce/payment/payment_method_api.md 
             - Payment API: commerce/payment/payment_api.md 
         - Shipping management:
             - Shipping management: commerce/shipping_management/shipping_management.md
-            - Configure shipment: commerce/shipping_management/configure_shipment.md
+            - Configure shipping: commerce/shipping_management/configure_shipment.md
             - Shipping method API: commerce/shipping_management/shipping_method_api.md
             - Shipment API: commerce/shipping_management/shipment_api.md
         - Storefront:
@@ -334,6 +338,7 @@ nav:
             - Configure Storefront: commerce/storefront/configure_storefront.md
             - Extend Storefront: commerce/storefront/extend_storefront.md
     - Customer management:
+        - Customer management: customer_management/customer_management.md
         - Customer Portal: customer_management/customer_portal.md
         - Customer Portal configuration: customer_management/cp_configuration.md
         - Create Customer Portal: customer_management/cp_page_builder.md
@@ -454,6 +459,8 @@ nav:
             - FloatAttribute: search/criteria_reference/floatattribute_criterion.md
             - IntegerAttribute: search/criteria_reference/integerattribute_criterion.md
             - ProductAvailability: search/criteria_reference/productavailability_criterion.md
+            - ProductStock: search/criteria_reference/productstock_criterion.md
+            - ProductStockRange: search/criteria_reference/productstockrange_criterion.md
             - ProductCategory: search/criteria_reference/productcategory_criterion.md
             - ProductCode: search/criteria_reference/productcode_criterion.md
             - ProductName: search/criteria_reference/productname_criterion.md
@@ -591,6 +598,7 @@ nav:
             - KeywordTermAggregation: search/aggregation_reference/keywordterm_aggregation.md
             - Product attribute aggregations: search/aggregation_reference/product_attribute_aggregations.md
             - ProductAvailabilityTermAggregation: search/aggregation_reference/productavailabilityterm_aggregation.md
+            - ProductStockRangeAggregation: search/aggregation_reference/productstockrange_aggregation.md
             - ProductPriceRangeAggregation: search/aggregation_reference/productpricerange_aggregation.md
             - ProductTypeTermAggregation: search/aggregation_reference/producttypeterm_aggregation.md
             - SelectionTermAggregation: search/aggregation_reference/selectionterm_aggregation.md

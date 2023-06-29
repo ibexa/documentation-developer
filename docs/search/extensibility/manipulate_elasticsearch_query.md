@@ -12,7 +12,7 @@ The following example shows how to add an additional Search Criterion to all que
 Depending on your configuration, this might impact all search queries,
 including those used for search and content tree in the Back Office.
 
-``` php hl_lines="35"
+``` php hl_lines="34"
 <?php
 
 declare(strict_types=1);

@@ -1,5 +1,6 @@
 ---
 description: Ibexa DXP offers a range of built-in Field Types that cover most common needs when creating content.
+page_type: reference
 ---
 
 # Field Type reference

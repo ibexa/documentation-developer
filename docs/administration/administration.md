@@ -1,5 +1,6 @@
 ---
 description: Administer and configure your Ibexa DXP installation.
+page_type: landing_page
 ---
 
 # Administration

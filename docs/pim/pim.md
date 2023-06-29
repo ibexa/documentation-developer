@@ -1,5 +1,6 @@
 ---
 description: Ibexa DXP offers PIM functionalities, with product, product type, product variant and attribute management capabilities to manage complex products.
+page_type: landing_page
 ---
 
 # PIM (Product management)

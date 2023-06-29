@@ -1,5 +1,6 @@
 ---
 description: Product Sort Clauses
+page_type: reference
 ---
 
 # Product Sort Clauses

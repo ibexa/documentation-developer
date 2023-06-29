@@ -1,5 +1,6 @@
 ---
 description: Events that are triggered when working with content Locations.
+page_type: reference
 ---
 
 # Location events

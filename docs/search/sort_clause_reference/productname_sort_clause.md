@@ -9,6 +9,11 @@ The `ProductName` Sort Clause sorts search results by the Product code.
 ## Example
 
 ``` php
-$query = new LocationQuery();
-$query->sortClauses = [new Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause\ProductName()];
+$query = new ProductQuery(
+    null,
+    null,
+    [
+        new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause\ProductName()
+    ]
+);
 ```

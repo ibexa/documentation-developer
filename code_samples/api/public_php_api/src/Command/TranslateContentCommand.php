@@ -1,23 +1,22 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Command;
 
+use Ibexa\Contracts\Core\Repository\ContentService;
+use Ibexa\Contracts\Core\Repository\PermissionResolver;
+use Ibexa\Contracts\Core\Repository\UserService;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputOption;
-use Ibexa\Contracts\Core\Repository\ContentService;
-use Ibexa\Contracts\Core\Repository\UserService;
-use Ibexa\Contracts\Core\Repository\PermissionResolver;
 
 class TranslateContentCommand extends Command
 {
-    private $contentService;
+    private ContentService $contentService;
 
-    private $userService;
+    private UserService $userService;
 
-    private $permissionResolver;
+    private PermissionResolver $permissionResolver;
 
     public function __construct(ContentService $contentService, UserService $userService, PermissionResolver $permissionResolver, ?string $name = null)
     {
@@ -35,7 +34,7 @@ class TranslateContentCommand extends Command
                 new InputArgument('language', InputArgument::REQUIRED, 'Language to add'),
                 new InputArgument('nameInNewLanguage', InputArgument::REQUIRED, 'Content name in new language'),
                 new InputArgument('secondaryLanguage', InputArgument::OPTIONAL, 'Secondary language to add'),
-                new InputArgument('nameInSecondaryLanguage', InputArgument::OPTIONAL, 'Content name in secondary language')
+                new InputArgument('nameInSecondaryLanguage', InputArgument::OPTIONAL, 'Content name in secondary language'),
             ]);
     }
 

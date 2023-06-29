@@ -1,5 +1,6 @@
 ---
 description: Events that are triggered when working with bookmarks, notifications, settings, forms and others.
+page_type: reference
 ---
 
 # Other events

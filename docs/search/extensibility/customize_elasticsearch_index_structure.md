@@ -29,7 +29,7 @@ The strategies are:
 The default strategy is the composite of language and Content Type ID,
 resulting in indexes in the form of `<repository>_<document_type>_<language>_<content_type_id>`.
 
-To change the strategy, use the `ibexa_elasticsearch.document_group_resolver` configuration key:
+To change the strategy, use the `ibexa_elasticsearch.document_group_resolver` [configuration key](configuration.md#configuration-files):
 
 ``` yaml
 ibexa_elasticsearch:

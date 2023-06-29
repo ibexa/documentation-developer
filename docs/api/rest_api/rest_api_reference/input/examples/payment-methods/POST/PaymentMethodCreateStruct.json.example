@@ -1,0 +1,9 @@
+{
+  "PaymentMethodCreateStruct": {
+    "identifier": "bank_transfer",
+    "type": "offline",
+    "names": {
+      "eng-GB": "Bank Transfer"
+    }
+  }
+}

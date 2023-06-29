@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Ibexa\Bundle\Core\Imagine;
 
@@ -11,6 +11,7 @@ interface PlaceholderProvider
      *
      * @param \Ibexa\Core\FieldType\Image\Value $value
      * @param array $options
+     *
      * @return string Path to placeholder
      */
     public function getPlaceholder(ImageValue $value, array $options = []): string;

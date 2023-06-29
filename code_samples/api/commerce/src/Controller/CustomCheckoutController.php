@@ -20,7 +20,7 @@ class CustomCheckoutController extends Controller
         $this->checkoutService = $checkoutService;
     }
 
-    public function showContentAction(): Response
+    public function showContentAction()
     {
         // Get checkout for a specific cart
         $cart = $this->cartService->getCart('d7424b64-7dc1-474c-82c8-1700f860d55e');
@@ -46,7 +46,7 @@ class CustomCheckoutController extends Controller
         // Delete a checkout
         $this->checkoutService->deleteCheckout($newCheckout);
 
-        return $this->render('custom_checkout.html.twig', [
+        return $this->render('@ibexadesign/checkout/custom_checkout.html.twig', [
             'checkout_id' => $checkoutIdentifier,
             'new_checkout_id' => $newCheckoutIdentifier,
         ]);

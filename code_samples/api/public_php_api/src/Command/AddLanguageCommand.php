@@ -1,21 +1,21 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Command;
 
+use Ibexa\Contracts\Core\Repository\LanguageService;
+use Ibexa\Contracts\Core\Repository\PermissionResolver;
+use Ibexa\Contracts\Core\Repository\UserService;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Ibexa\Contracts\Core\Repository\LanguageService;
-use Ibexa\Contracts\Core\Repository\UserService;
-use Ibexa\Contracts\Core\Repository\PermissionResolver;
 
 class AddLanguageCommand extends Command
 {
-    private $languageService;
+    private LanguageService $languageService;
 
-    private $userService;
+    private UserService $userService;
 
-    private $permissionResolver;
+    private PermissionResolver $permissionResolver;
 
     public function __construct(LanguageService $languageService, UserService $userService, PermissionResolver $permissionResolver)
     {
@@ -38,7 +38,7 @@ class AddLanguageCommand extends Command
         $languageList = $this->languageService->loadLanguages();
 
         foreach ($languageList as $language) {
-            $output->writeln($language->languageCode . ": " . $language->name);
+            $output->writeln($language->languageCode . ': ' . $language->name);
         }
 
         $languageCreateStruct = $this->languageService->newLanguageCreateStruct();

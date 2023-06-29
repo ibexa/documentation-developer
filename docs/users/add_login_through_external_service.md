@@ -10,7 +10,7 @@ The example below shows how to add a **Log in with Google** option to the Back O
 
 ## Configure OAuth2 client
 
-Configure the OAuth2 client in `config/packages/knpu_oauth2_client.yaml`:
+Configure the OAuth2 client under the `knpu_oauth2_client` [configuration key](configuration.md#configuration-files):
 
 ``` yaml
 [[= include_file('code_samples/user_management/oauth_google/config/packages/knpu_oauth2_client.yaml') =]]
@@ -40,19 +40,19 @@ Create a resource owner mapper for Google login in `src/OAuth/GoogleResourceOwne
 The mapper extends [`ResourceOwnerToExistingOrNewUserMapper`](oauth_authentication.md#resource-owner-mappers),
 which enables it to create a new user in the Repository if the user does not exist yet.
 
-The mapper loads a user (line 50) or creates a new one (line 60),
+The mapper loads a user (line 51) or creates a new one (line 61),
 based on the information from `resourceOwner`, that is the OAuth provider.
 
-The new user name is set with a `google:` prefix (lines 18, 105), to avoid conflicts with users registered in a regular way.
+The new user name is set with a `google:` prefix (lines 19, 106), to avoid conflicts with users registered in a regular way.
 
-``` php hl_lines="18 50 60 105"
+``` php hl_lines="19 51 61 106"
 [[= include_file('code_samples/user_management/oauth_google/src/OAuth/GoogleResourceOwnerMapper.php') =]]
 ```
 
 Configure the service by using the `ibexa.oauth2_client.resource_owner_mapper` tag:
 
 ``` yaml
-[[= include_file('code_samples/user_management/oauth_google/config/services.yaml', 33, 36) =]]
+[[= include_file('code_samples/user_management/oauth_google/config/custom_services.yaml', 0, 4) =]]
 ```
 
 ## Add template
@@ -67,7 +67,7 @@ in `templates/themes/admin/account/login/oauth2_login.html.twig`:
 Finally, add the template to the login form by using the `login-form-after` [component](custom_components.md):
 
 ``` yaml
-[[= include_file('code_samples/user_management/oauth_google/config/services.yaml', 37, 43) =]]
+[[= include_file('code_samples/user_management/oauth_google/config/custom_services.yaml', 5, 11) =]]
 ```
 
 ![Log in to the Back Office with Google](log_in_via_google.png)
