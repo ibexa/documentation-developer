@@ -2,19 +2,17 @@
 
 {% block styles %}
   {{ super() }}
-  {% set site_url = config.site_url | default(nav.homepage.url, true) | url %}
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7/themes/algolia-min.css"/>
-  <link rel="stylesheet" href="{{ site_url }}/css/instantsearch.css"/>
+  <link rel="stylesheet" href="{{ base_url }}/css/instantsearch.css"/>
 {% endblock %}
 
 {% block scripts %}
   {{ super() }}
-  {% set site_url = config.site_url | default(nav.homepage.url, true) | url %}
 
   <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4"></script>
-  <script src="{{ site_url }}/js/instantsearch.js"></script>
+  <script src="{{ base_url }}/js/instantsearch.js"></script>
 {% endblock %}
 
 {% block site_nav %}
