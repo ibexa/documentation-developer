@@ -35,47 +35,38 @@ body {
 .md-typeset .front-page .info-tile {
   border: 1px solid #ececf1;
   border-radius: 12px;
-  padding: 24px;
+  padding: 12px;
   display: flex;
   align-items: center;
   flex: 1;
   box-shadow: 4px 22px 47px rgba(52, 116, 204, 0.05);
   height: 100%; }
-  .md-typeset .front-page .info-tile--link-card .info-tile__content {
-    font-size: 14px; }
-  .md-typeset .front-page .info-tile--link-card a {
-    color: #3474cc;
-    text-decoration: underline; }
-    .md-typeset .front-page .info-tile--link-card a::after {
-      display: inline-block;
-      content: '';
-      width: 14px;
-      height: 13px;
-      margin-left: 4px;
-      background-color: #3474cc;
-      -webkit-mask-image: url(../images/icons.svg#link-view);
-      mask-image: url(../images/icons.svg#link-view); }
-    .md-typeset .front-page .info-tile--link-card a:hover {
-      color: #275799; }
-      .md-typeset .front-page .info-tile--link-card a:hover::after {
-        background-color: #275799; }
-      .md-typeset .front-page .info-tile--link-card a:hover svg {
-        fill: #275799; }
-    .md-typeset .front-page .info-tile--link-card a svg {
-      fill: #3474cc;
+  .md-typeset .front-page .info-tile--link-card {
+    padding: 24px; }
+    .md-typeset .front-page .info-tile--link-card .info-tile__content {
+      font-size: 14px;
+      margin-bottom: 0; }
+    .md-typeset .front-page .info-tile--link-card h3 svg {
+      fill: #ae1164;
       width: 16px;
       height: 16px;
       margin-right: 4px; }
+    .md-typeset .front-page .info-tile--link-card a {
+      color: #131c26;
+      text-decoration: underline; }
   .md-typeset .front-page .info-tile__circle {
     width: 72px;
     height: 72px;
     border-radius: 50%;
+    margin: 12px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-shrink: 0; }
   .md-typeset .front-page .info-tile__content {
-    padding: 0 16px;
+    padding: 0 4px;
+    margin-bottom: 18px;
+    height: 100%;
     font-size: 12px;
     line-height: 18px;
     color: #71767c;
@@ -95,14 +86,17 @@ body {
       line-height: 26px;
       margin-top: 8px;
       color: #131c26; }
-  .md-typeset .front-page .info-tile__arrow {
+  .md-typeset .front-page .info-tile__details {
     display: flex;
+    justify-content: flex-end;
     align-items: center;
-    flex-shrink: 0; }
+    font-size: 10px;
+    color: #ae1164; }
   .md-typeset .front-page .info-tile__arrow-icon {
-    width: 18px;
-    height: 16px;
-    fill: #131c26; }
+    width: 13px;
+    height: 13px;
+    margin-left: 4px;
+    fill: #ae1164; }
   .md-typeset .front-page .info-tile h3 {
     font-size: 18px;
     font-weight: 600;
@@ -111,7 +105,7 @@ body {
     .md-typeset .front-page .info-tile h3 a {
       text-decoration: none; }
   .md-typeset .front-page .info-tile ul {
-    margin: 0 12px;
+    margin: 0 0 0 12px;
     list-style: none;
     margin-left: 24px; }
     .md-typeset .front-page .info-tile ul li {
@@ -126,51 +120,38 @@ body {
   text-decoration: none; }
 
 .md-typeset .front-page .notification {
-  background-color: #ecf8fb;
-  border-left: 4px solid #47bedb;
-  color: #2b7283;
+  background-color: #f3f3f6;
+  border-radius: 12px;
+  color: #131c26;
   font-size: 12px;
-  display: flex;
-  padding: 8px;
-  margin: 8px 0; }
-  .md-typeset .front-page .notification__info-icon-wrapper {
-    margin-top: 2.5px;
-    margin-right: 8px;
-    flex-shrink: 0; }
+  padding: 32px;
+  margin: 30px 40px 40px 0;
+  position: relative; }
   .md-typeset .front-page .notification__content {
-    flex-grow: 1; }
-    .md-typeset .front-page .notification__content h3 {
-      font-family: "Work Sans";
-      line-height: 1.5;
-      font-size: 14px;
-      font-weight: 400;
-      margin: 0; }
-  .md-typeset .front-page .notification__cta {
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
+    padding-right: 260px;
+    padding-bottom: 32px; }
+    .md-typeset .front-page .notification__content h2 {
+      margin: 0 0 14px; }
+    .md-typeset .front-page .notification__content a {
+      color: #131c26;
+      text-decoration: underline; }
+      .md-typeset .front-page .notification__content a:hover {
+        color: #3474cc; }
+  .md-typeset .front-page .notification__cta a {
+    display: inline-block;
+    background: linear-gradient(to right, #db0032 0%, #ae1164 100%);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 15px 16px;
+    border-radius: 12px;
     font-size: 14px; }
-  .md-typeset .front-page .notification__close-btn {
-    height: 16px;
-    width: 16px;
-    border-radius: 50%;
-    margin-left: 24px;
-    background-color: #daf2f7;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center; }
-    .md-typeset .front-page .notification__close-btn:hover {
-      background-color: #b5e5f0; }
-      .md-typeset .front-page .notification__close-btn:hover svg {
-        fill: #1c4c58; }
-  .md-typeset .front-page .notification a {
-    color: #2b7283;
-    text-decoration: underline; }
-    .md-typeset .front-page .notification a:hover {
-      color: #1c4c58; }
-  .md-typeset .front-page .notification svg {
-    fill: #2b7283; }
+  .md-typeset .front-page .notification__image {
+    position: absolute;
+    right: -40px;
+    top: -30px;
+    height: 272px; }
+    .md-typeset .front-page .notification__image svg {
+      height: 272px; }
 
 .md-typeset .front-page .accordion {
   border: 1px solid #ececf1;
@@ -186,33 +167,18 @@ body {
         border-bottom: 1px solid #e0e0e8;
         padding-bottom: 16px;
         margin-bottom: 16px; }
-        .md-typeset .front-page .accordion details[open] summary .accordion__toggler--hide {
-          display: block; }
-        .md-typeset .front-page .accordion details[open] summary .accordion__toggler--show {
-          display: none; }
+        .md-typeset .front-page .accordion details[open] summary .accordion__toggler svg {
+          transform: rotate(180deg); }
       .md-typeset .front-page .accordion details[open] .row {
         padding: 8px;
         font-size: 14px; }
         .md-typeset .front-page .accordion details[open] .row a {
-          color: #3474cc;
+          color: #131c26;
           text-decoration: underline; }
-          .md-typeset .front-page .accordion details[open] .row a::after {
-            display: inline-block;
-            content: '';
-            width: 14px;
-            height: 13px;
-            margin-left: 4px;
-            background-color: #3474cc;
-            -webkit-mask-image: url(../images/icons.svg#link-view);
-            mask-image: url(../images/icons.svg#link-view); }
           .md-typeset .front-page .accordion details[open] .row a:hover {
-            color: #275799; }
-            .md-typeset .front-page .accordion details[open] .row a:hover::after {
-              background-color: #275799; }
-            .md-typeset .front-page .accordion details[open] .row a:hover svg {
-              fill: #275799; }
+            color: #3474cc; }
         .md-typeset .front-page .accordion details[open] .row ul {
-          margin: 0 12px;
+          margin: 0 0 0 12px;
           list-style: none; }
           .md-typeset .front-page .accordion details[open] .row ul li {
             padding: 4px;
@@ -234,23 +200,12 @@ body {
       margin: 0;
       flex-grow: 1; }
     .md-typeset .front-page .accordion summary .accordion__toggler {
-      flex-shrink: 0;
-      font-size: 12px;
-      text-decoration: underline;
-      font-weight: 400;
-      padding-right: 8px; }
-      .md-typeset .front-page .accordion summary .accordion__toggler::after {
-        display: inline-block;
-        content: '';
-        width: 12px;
-        height: 12px;
-        margin-left: 4px;
-        background-color: #131c26;
-        -webkit-mask-image: url(../images/icons.svg#toggler-view);
-        mask-image: url(../images/icons.svg#toggler-view);
-        transform: translateY(calc(50% - 4px)); }
-      .md-typeset .front-page .accordion summary .accordion__toggler--hide {
-        display: none; }
+      flex-shrink: 0; }
+      .md-typeset .front-page .accordion summary .accordion__toggler svg {
+        width: 13px;
+        height: 13px;
+        transform-origin: center;
+        transition: transform 0.3s; }
 
 @media (min-width: 1900px) {
   .bootstrap-iso .col-fhd-3 {

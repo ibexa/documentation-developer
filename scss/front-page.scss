@@ -1,6 +1,8 @@
 
 $ibexa-color-primary: #ae1164;
 
+$ibexa-color-danger: #db0032;
+
 $ibexa-color-info-700: #275799;
 $ibexa-color-info-600: #3474cc;
 
@@ -8,7 +10,10 @@ $ibexa-color-dark: #131c26;
 $ibexa-color-dark-400: #71767c;
 
 $ibexa-color-light: #e0e0e8;
+$ibexa-color-light-300: #f3f3f6;
 $ibexa-color-light-400: #ececf1;
+
+$ibexa-color-white: #ffffff;
 
 $ibexa-color-complementary: #47bedb;
 $ibexa-color-complementary-800: #1c4c58;
@@ -17,35 +22,8 @@ $ibexa-color-complementary-300: #b5e5f0;
 $ibexa-color-complementary-200: #daf2f7;
 $ibexa-color-complementary-100: #ecf8fb;
 
-@mixin link-with-bg-icon() {
-    color: $ibexa-color-info-600;
-
-    &::after {
-        display: inline-block;
-        content: '';
-        width: 14px;
-        height: 13px;
-        margin-left: 4px;
-        background-color: $ibexa-color-info-600;
-        -webkit-mask-image: url(../images/icons.svg#link-view);
-        mask-image: url(../images/icons.svg#link-view);
-    }
-
-    &:hover {
-        color: $ibexa-color-info-700;
-
-        &::after {
-            background-color: $ibexa-color-info-700;
-        }
-
-        svg {
-            fill: $ibexa-color-info-700;
-        }
-    }
-}
-
 @mixin list() {
-    margin: 0 12px;
+    margin: 0 0 0 12px;
     list-style: none;
 
     li {
@@ -103,7 +81,7 @@ body {
     .info-tile {
         border: 1px solid $ibexa-color-light-400;
         border-radius: 12px;
-        padding: 24px;
+        padding: 12px;
         display: flex;
         align-items: center;
         flex: 1;
@@ -111,21 +89,26 @@ body {
         height: 100%;
 
         &--link-card {
+            padding: 24px;
+
             .info-tile__content {
                 font-size: 14px;
+                margin-bottom: 0;
             }
 
-            a {
-                @include link-with-bg-icon();
-
-                text-decoration: underline;
-
+            h3 {
                 svg {
-                    fill: $ibexa-color-info-600;
+                    fill: $ibexa-color-primary;
                     width: 16px;
                     height: 16px;
                     margin-right: 4px;
                 }
+
+            }
+
+            a {
+                color: $ibexa-color-dark;
+                text-decoration: underline;
             }
         }
 
@@ -133,6 +116,7 @@ body {
             width: 72px;
             height: 72px;
             border-radius: 50%;
+            margin: 12px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -140,7 +124,9 @@ body {
         }
 
         &__content {
-            padding: 0 16px;
+            padding: 0 4px;
+            margin-bottom: 18px;
+            height: 100%;
             font-size: 12px;
             line-height: 18px;
             color: $ibexa-color-dark-400;
@@ -168,16 +154,19 @@ body {
             }
         }
 
-        &__arrow {
+        &__details {
             display: flex;
+            justify-content: flex-end;
             align-items: center;
-            flex-shrink: 0;
+            font-size: 10px;
+            color: $ibexa-color-primary;
         }
 
         &__arrow-icon {
-            width: 18px;
-            height: 16px;
-            fill: $ibexa-color-dark;
+            width: 13px;
+            height: 13px;
+            margin-left: 4px;
+            fill: $ibexa-color-primary;
         }
 
         h3 {
@@ -207,70 +196,53 @@ body {
     }
 
     .notification {
-        background-color: $ibexa-color-complementary-100;
-        border-left: 4px solid $ibexa-color-complementary;
-        color: $ibexa-color-complementary-700;
+        background-color: $ibexa-color-light-300;
+        border-radius: 12px;
+        color: $ibexa-color-dark;
         font-size: 12px;
-        display: flex;
-        padding: 8px;
-        margin: 8px 0;
-
-        &__info-icon-wrapper {
-            margin-top: 2.5px;
-            margin-right: 8px;
-            flex-shrink: 0;
-        }
+        padding: 32px;
+        margin: 30px 40px 40px 0;
+        position: relative;
 
         &__content {
-            flex-grow: 1;
+            padding-right: 260px;
+            padding-bottom: 32px;
 
-            h3 {
-                font-family: "Work Sans";
-                line-height: 1.5;
-                font-size: 14px;
-                font-weight: 400;
-                margin: 0;
+            h2 {
+                margin: 0 0 14px;
             }
-        }
 
-        &__cta {
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            font-size: 14px;
-        }
+            a {
+                color: $ibexa-color-dark;
+                text-decoration: underline;
 
-        &__close-btn {
-            height: 16px;
-            width: 16px;
-            border-radius: 50%;
-            margin-left: 24px;
-            background-color: $ibexa-color-complementary-200;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            &:hover {
-                background-color: $ibexa-color-complementary-300;
-
-                svg {
-                    fill: $ibexa-color-complementary-800;
+                &:hover {
+                    color: $ibexa-color-info-600;
                 }
             }
         }
 
-        a {
-            color: $ibexa-color-complementary-700;
-            text-decoration: underline;
-
-            &:hover {
-                color: $ibexa-color-complementary-800;
+        &__cta {
+            a {
+                display: inline-block;
+                background: linear-gradient(to right, $ibexa-color-danger 0%, $ibexa-color-primary 100%);
+                color: $ibexa-color-white;
+                text-decoration: none;
+                padding: 15px 16px;
+                border-radius: 12px;
+                font-size: 14px;
             }
         }
 
-        svg {
-            fill: $ibexa-color-complementary-700;
+        &__image {
+            position: absolute;
+            right: -40px;
+            top: -30px;
+            height: 272px;
+
+            svg {
+                height: 272px;
+            }
         }
     }
 
@@ -295,12 +267,8 @@ body {
                     margin-bottom: 16px;
 
                     .accordion__toggler {
-                        &--hide {
-                            display: block;
-                        }
-
-                        &--show {
-                            display: none;
+                        svg {
+                            transform: rotate(180deg);
                         }
                     }
                 }
@@ -310,9 +278,12 @@ body {
                     font-size: 14px;
 
                     a {
-                        @include link-with-bg-icon();
-
+                        color: $ibexa-color-dark;
                         text-decoration: underline;
+
+                        &:hover {
+                            color: $ibexa-color-info-600;
+                        }
                     }
 
                     ul {
@@ -346,25 +317,12 @@ body {
 
             .accordion__toggler {
                 flex-shrink: 0;
-                font-size: 12px;
-                text-decoration: underline;
-                font-weight: 400;
-                padding-right: 8px;
 
-                &::after {
-                    display: inline-block;
-                    content: '';
-                    width: 12px;
-                    height: 12px;
-                    margin-left: 4px;
-                    background-color: $ibexa-color-dark;
-                    -webkit-mask-image: url(../images/icons.svg#toggler-view);
-                    mask-image: url(../images/icons.svg#toggler-view);
-                    transform: translateY(calc(50% - 4px));
-                }
-
-                &--hide {
-                    display: none;
+                svg {
+                    width: 13px;
+                    height: 13px;
+                    transform-origin: center;
+                    transition: transform 0.3s;
                 }
             }
         }
