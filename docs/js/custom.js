@@ -85,7 +85,6 @@ $(document).ready(function() {
         apiKey: '21ce3e522455e18e7ee16cf7d66edb4b',
         indexName: 'ezplatform',
         inputSelector: '#search_input',
-        autocompleteOptions: { debug: false },
         transformData: function(hits) {
             const hitsPerPage = 10;
             const removedPattern = '¶';
