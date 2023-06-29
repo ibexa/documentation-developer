@@ -14,3 +14,28 @@ $query = new ProductQuery(
     new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\ProductCode(['ergo_desk', 'alter_desk'])
 );
 ```
+
+### REST API
+
+=== "XML"
+
+    ```xml
+      <ProductQuery>
+        <Filter>
+          <ProductCodeCriterion>ski</ProductCodeCriterion>
+          <ProductCodeCriterion>snowboard</ProductCodeCriterion>
+        </Filter>
+      </ProductQuery>
+    ```
+
+=== "JSON"
+
+    ```json
+    {
+      "ProductQuery": {
+        "Filter": {
+          "ProductCodeCriterion": ["ski", "snowboard"]
+        }
+      }
+    }
+    ```

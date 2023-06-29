@@ -9,6 +9,8 @@ The `CreatedAtRange` Search Criterion searches for products based on the date ra
 
 ## Example
 
+### PHP
+
 ``` php
 $criteria = new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\CreatedAtRange(
     new \DateTimeImmutable('2020-07-10T00:00:00+00:00'),
@@ -17,3 +19,33 @@ $criteria = new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\C
 
 $productQuery = new ProductQuery(null, $criteria);
 ```
+
+### REST API
+
+=== "XML"
+
+    ```xml
+      <ProductQuery>
+        <Filter>
+            <CreatedAtRange>
+                <min>2023-06-12</min>
+                <max>2023-06-20</max>
+            </CreatedAtRange>
+        </Filter>
+      </ProductQuery>
+    ```
+
+=== "JSON"
+
+    ```json
+    {
+      "ProductQuery": {
+        "Filter": {
+          "CreatedAtRange": {
+            "min": "2023-06-12",
+            "max": "2023-06-20"
+          }
+        }
+      }
+    }
+    ```

@@ -9,6 +9,8 @@ matches content if at least one of the provided Criteria matches.
 
 ## Example
 
+### PHP
+
 ``` php
 $query->filter = new Criterion\LogicalOr([
         new Criterion\ContentTypeIdentifier('article'),
@@ -16,3 +18,33 @@ $query->filter = new Criterion\LogicalOr([
     ]
 );
 ```
+
+### REST API
+
+=== "XML"
+
+    ```xml
+      <Query>
+        <Filter>
+            <OR>
+                <ContentTypeIdentifierCriterion>article</ContentTypeIdentifierCriterion>
+                <SectionIdentifierCriterion>news</SectionIdentifierCriterion>
+            </OR>
+        </Filter>
+      </Query>
+    ```
+
+=== "JSON"
+
+    ```json
+    {
+      "Query": {
+        "Filter": {
+          "OR": {
+            "ContentTypeIdentifierCriterion": "article",
+            "SectionIdentifierCriterion": "news"
+          }
+        }
+      }
+    }
+    ```

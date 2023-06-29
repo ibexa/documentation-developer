@@ -9,6 +9,8 @@ The `SelectionAttribute` Search Criterion searches for products by the value of 
 
 ## Example
 
+### PHP
+
 ``` php
 $query = new ProductQuery(
     null,
@@ -18,3 +20,33 @@ $query = new ProductQuery(
     )
 );
 ```
+
+### REST API
+
+=== "XML"
+
+    ```xml
+    <AttributeQuery>
+        <Query>
+            <SelectionAttributeCriterion>
+                <identifier>fabric_type</identifier>
+                <value>[cotton]</value>
+            </SelectionAttributeeCriterion>
+        </Query>
+    </AttributeQuery>
+    ```
+
+=== "JSON"
+
+    ```json
+    {
+      "AttributeQuery": {
+        "Query": {
+          "SelectionAttributeCriterion": {
+                "identifier": "fabric_type",
+                "value": ["cotton"]
+            },
+        }
+      }
+    }
+    ```

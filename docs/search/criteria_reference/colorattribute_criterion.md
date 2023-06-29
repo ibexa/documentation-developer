@@ -23,19 +23,27 @@ $query = new ProductQuery(
 === "XML"
 
     ```xml
-      <Query>
-        <Filter>
-            <ContentIdCriterion>[69, 72]</ContentIdCriterion>
-        </Filter>
-      </Query>
+    <AttributeQuery>
+        <Query>
+            <ColorAttributeCriterion>
+                <identifier>color</identifier>
+                <value>#000000</value>
+            </ColorAttributeCriterion>
+        </Query>
+    </AttributeQuery>
     ```
 
 === "JSON"
 
     ```json
-    "Query": {
-        "Filter": {
-            "ContentIdCriterion": [69, 72]
-            }
+    {
+      "AttributeQuery": {
+        "Query": {
+          "ColorAttributeCriterion": {
+                "identifier": "color",
+                "value": ["#000000"]
+            },
         }
+      }
+    }
     ```
