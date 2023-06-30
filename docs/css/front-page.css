@@ -150,8 +150,8 @@ body {
     right: -40px;
     top: -30px;
     height: 272px; }
-    .md-typeset .front-page .notification__image svg {
-      height: 272px; }
+    .md-typeset .front-page .notification__image img {
+      height: 275px; }
 
 .md-typeset .front-page .accordion {
   border: 1px solid #ececf1;

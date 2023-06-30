@@ -80,7 +80,7 @@
                     <a href="update_and_migration/from_4.4/update_from_4.4/">Update your application</a>
                 </div>
                 <div class="notification__image">
-                    <svg><use xlink:href="images/icons.svg#notification-image" /></svg>
+                    <img src="images/notification-image.png" alt="The latest release" />
                 </div>
             </div>
         </div>
