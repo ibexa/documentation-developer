@@ -96,16 +96,16 @@
                     <div class="row">
                         <div class="col-12 col-lg-6 col-fhd-3">
                             <ul>
-                                <li><a href="api/php_api/php_api/">PHP API</a></li>
-                                <li><a href="search/solr_search_engine/">Solr search engine</a></li>
-                                <li><a href="search/search_api/">Search API</a></li>
+                                <li><a href="release_notes/ibexa_dxp_v4.5/#all-new-ibexa-commerce-packages">All-new Ibexa Commerce packages</a></li>
+                                <li><a href="release_notes/ibexa_dxp_v4.5/#new-commerce-page-blocks">New commerce page blocks</a></li>
+                                <li><a href="release_notes/ibexa_dxp_v4.5/#page-builder-for-b2b-portals">Page Builder for B2B portals</a></li>
                             </ul>
                         </div>
                         <div class="col-12 col-lg-6 col-fhd-3">
                             <ul>
-                                <li><a href="content_management/content_model/">Content model</a></li>
-                                <li><a href="content_management/images/images/">Images</a></li>
-                                <li><a href="content_management/pages/page_blocks/">Page blocks</a></li>
+                                <li><a href="release_notes/ibexa_dxp_v4.5/#personalization-improvements">Personalization improvements</a></li>
+                                <li><a href="release_notes/ibexa_dxp_v4.5/#customer-data-platform-cdp-configuration">Customer Data Platform (CDP) configuration</a></li>
+                                <li><a href="release_notes/ibexa_dxp_v4.5/#api-improvements">API improvements</a></li>
                             </ul>
                         </div>
                     </div>
@@ -124,16 +124,16 @@
                     <div class="row">
                         <div class="col-12 col-lg-6 col-fhd-3">
                             <ul>
-                                <li><a href="release_notes/ibexa_dxp_v4.5/#all-new-ibexa-commerce-packages">All-new Ibexa Commerce packages</a></li>
-                                <li><a href="release_notes/ibexa_dxp_v4.5/#new-commerce-page-blocks">New commerce page blocks</a></li>
-                                <li><a href="release_notes/ibexa_dxp_v4.5/#page-builder-for-b2b-portals">Page Builder for B2B portals</a></li>
+                                <li><a href="api/php_api/php_api/">PHP API</a></li>
+                                <li><a href="search/solr_search_engine/">Solr search engine</a></li>
+                                <li><a href="search/search_api/">Search API</a></li>
                             </ul>
                         </div>
                         <div class="col-12 col-lg-6 col-fhd-3">
                             <ul>
-                                <li><a href="release_notes/ibexa_dxp_v4.5/#personalization-improvements">Personalization improvements</a></li>
-                                <li><a href="release_notes/ibexa_dxp_v4.5/#customer-data-platform-cdp-configuration">Customer Data Platform (CDP) configuration</a></li>
-                                <li><a href="release_notes/ibexa_dxp_v4.5/#api-improvements">API improvements</a></li>
+                                <li><a href="content_management/content_model/">Content model</a></li>
+                                <li><a href="content_management/images/images/">Images</a></li>
+                                <li><a href="content_management/pages/page_blocks/">Page blocks</a></li>
                             </ul>
                         </div>
                     </div>
