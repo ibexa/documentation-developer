@@ -20,11 +20,11 @@ $query->query = new Criterion\SectionIdentifier(['sports', 'news']);
 === "XML"
 
     ```xml
-      <Query>
+    <Query>
         <Filter>
             <SectionIdentifierCriterion>sports</SectionIdentifierCriterion>
         </Filter>
-      </Query>
+    </Query>
     ```
 
 === "JSON"

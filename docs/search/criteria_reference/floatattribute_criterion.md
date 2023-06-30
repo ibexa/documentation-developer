@@ -40,13 +40,13 @@ $query = new ProductQuery(
 
     ```json
     {
-      "AttributeQuery": {
-        "Query": {
-          "FloatAttributeCriterion": {
-                "identifier": "length",
-                "value": 16.5
-            },
+        "AttributeQuery": {
+            "Query": {
+                "FloatAttributeCriterion": {
+                    "identifier": "length",
+                    "value": 16.5
+                }
+            }
         }
-      }
     }
     ```

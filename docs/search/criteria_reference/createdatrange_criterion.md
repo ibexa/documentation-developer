@@ -25,27 +25,27 @@ $productQuery = new ProductQuery(null, $criteria);
 === "XML"
 
     ```xml
-      <ProductQuery>
+    <ProductQuery>
         <Filter>
             <CreatedAtRange>
                 <min>2023-06-12</min>
                 <max>2023-06-20</max>
             </CreatedAtRange>
         </Filter>
-      </ProductQuery>
+    </ProductQuery>
     ```
 
 === "JSON"
 
     ```json
     {
-      "ProductQuery": {
-        "Filter": {
-          "CreatedAtRange": {
-            "min": "2023-06-12",
-            "max": "2023-06-20"
-          }
+        "ProductQuery": {
+            "Filter": {
+                "CreatedAtRange": {
+                    "min": "2023-06-12",
+                    "max": "2023-06-20"
+                }
+            }
         }
-      }
     }
     ```

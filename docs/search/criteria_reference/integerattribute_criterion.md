@@ -40,13 +40,13 @@ $query = new ProductQuery(
 
     ```json
     {
-      "AttributeQuery": {
-        "Query": {
-          "IntegerAttributeCriterion": {
-                "identifier": "size",
-                "value": 38
-            },
+        "AttributeQuery": {
+            "Query": {
+                "IntegerAttributeCriterion": {
+                    "identifier": "size",
+                    "value": 38
+                }
+            }
         }
-      }
     }
     ```

@@ -30,14 +30,14 @@ The `IntegerAttributeRange` Search Criterion searches for products by the range 
 
     ```json
     {
-      "AttributeQuery": {
-        "Query": {
-          "IntegerAttributeRangeCriterion": {
-                "identifier": "length",
-                "min": 16,
-                "max": 25
-            },
+        "AttributeQuery": {
+            "Query": {
+                "IntegerAttributeRangeCriterion": {
+                    "identifier": "length",
+                    "min": 16,
+                    "max": 25
+                }
+            }
         }
-      }
     }
     ```

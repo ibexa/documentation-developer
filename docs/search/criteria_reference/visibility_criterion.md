@@ -26,11 +26,11 @@ $query->query = new Criterion\Visibility(Criterion\Visibility::HIDDEN);
 === "XML"
 
     ```xml
-      <Query>
+    <Query>
         <Filter>
-          <VisibilityCriterion>HIDDEN</VisibilityCriterion>
+            <VisibilityCriterion>HIDDEN</VisibilityCriterion>
         </Filter>
-      </Query>
+    </Query>
     ```
 
 === "JSON"

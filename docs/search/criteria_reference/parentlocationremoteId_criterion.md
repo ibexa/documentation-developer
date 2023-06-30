@@ -12,11 +12,11 @@ The `ParentLocationRemoteId` Search Criterion searches for content based on the 
 === "XML"
 
     ```xml
-      <Query>
+    <Query>
         <Filter>
             <ParentLocationRemoteIdCriterion>abab615dcf26699a4291657152da4337</ParentLocationRemoteIdCriterion>
         </Filter>
-      </Query>
+    </Query>
     ```
 
 === "JSON"

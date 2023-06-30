@@ -31,14 +31,14 @@ $query->query = Criterion\Sibling::fromLocation($location);
 === "XML"
 
     ```xml
-      <Query>
+    <Query>
         <Filter>
             <SiblingCriterion>
-            <locationId>85</locationId>
-            <parentLocationId>81</parentLocationId>
+                <locationId>85</locationId>
+                <parentLocationId>81</parentLocationId>
             </SiblingCriterion>
         </Filter>
-      </Query>
+    </Query>
     ```
 
 === "JSON"
@@ -53,5 +53,3 @@ $query->query = Criterion\Sibling::fromLocation($location);
             }
         }
     ```
-
-  v

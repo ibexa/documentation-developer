@@ -20,11 +20,11 @@ $query->query = new Criterion\ContentTypeIdentifier(['article', 'blog_post']);
 === "XML"
 
     ```xml
-      <Query>
+    <Query>
         <Filter>
             <ContentTypeIdentifierCriterion>article</ContentTypeIdentifierCriterion>
         </Filter>
-      </Query>
+    </Query>
     ```
 
 === "JSON"

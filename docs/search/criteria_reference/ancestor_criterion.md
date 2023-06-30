@@ -20,11 +20,11 @@ $query->query = new Criterion\Ancestor([$this->locationService->loadLocation(62)
 === "XML"
 
     ```xml
-      <Query>
+    <Query>
         <Filter>
             <AncestorCriterion>/81/82/</AncestorCriterion>
         </Filter>
-      </Query>
+    </Query>
     ```
 
 === "JSON"

@@ -29,11 +29,11 @@ $query->query = new Criterion\UserLogin('adm*', Criterion\Operator::LIKE);
 === "XML"
 
     ```xml
-      <Query>
+    <Query>
         <Filter>
             <UserLoginCriterion>johndoe</UserLoginCriterion>
         </Filter>
-      </Query>
+    </Query>
     ```
 
 === "JSON"

@@ -22,21 +22,21 @@ $query = new ProductQuery(
 === "XML"
 
     ```xml
-      <ProductQuery>
+    <ProductQuery>
         <Filter>
-          <ProductNameCriterion>sofa*</ProductNameCriterion>
+            <ProductNameCriterion>sofa*</ProductNameCriterion>
         </Filter>
-      </ProductQuery>
+    </ProductQuery>
     ```
 
 === "JSON"
 
     ```json
     {
-      "ProductQuery": {
-        "Filter": {
-          "ProductNameCriterion": "sofa*"
+        "ProductQuery": {
+            "Filter": {
+                "ProductNameCriterion": "sofa*"
+            }
         }
-      }
     }
     ```

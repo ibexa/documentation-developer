@@ -25,11 +25,11 @@ $query->query = new Criterion\IsUserEnabled();
 === "XML"
 
     ```xml
-      <Query>
+    <Query>
         <Filter>
             <IsUserEnabledCriterion>true</IsUserEnabledCriterion>
         </Filter>
-      </Query>
+    </Query>
     ```
 
 === "JSON"

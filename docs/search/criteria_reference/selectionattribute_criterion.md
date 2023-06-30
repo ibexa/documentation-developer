@@ -40,13 +40,15 @@ $query = new ProductQuery(
 
     ```json
     {
-      "AttributeQuery": {
-        "Query": {
-          "SelectionAttributeCriterion": {
-                "identifier": "fabric_type",
-                "value": ["cotton"]
-            },
+        "AttributeQuery": {
+            "Query": {
+                "SelectionAttributeCriterion": {
+                    "identifier": "fabric_type",
+                    "value": [
+                        "cotton"
+                    ]
+                }
+            }
         }
-      }
     }
     ```

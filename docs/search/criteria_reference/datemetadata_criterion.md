@@ -26,15 +26,15 @@ $query->query = new Criterion\DateMetadata(
 === "XML"
 
     ```xml
-      <Query>
+    <Query>
         <Filter>
-          <DateMetadataCriterion>
-            <Target>modified</Target>
-            <Value>1675681020</Value>
-            <Operator>gte</Operator>
-          </DateMetadataCriterion>
+            <DateMetadataCriterion>
+                <Target>modified</Target>
+                <Value>1675681020</Value>
+                <Operator>gte</Operator>
+            </DateMetadataCriterion>
         </Filter>
-      </Query>
+    </Query>
     ```
 
 === "JSON"

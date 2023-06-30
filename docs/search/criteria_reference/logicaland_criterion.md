@@ -24,27 +24,27 @@ $query->query = new Criterion\LogicalAnd([
 === "XML"
 
     ```xml
-      <Query>
+    <Query>
         <Filter>
             <AND>
                 <ContentTypeIdentifierCriterion>article</ContentTypeIdentifierCriterion>
                 <SectionIdentifierCriterion>news</SectionIdentifierCriterion>
             </AND>
         </Filter>
-      </Query>
+    </Query>
     ```
 
 === "JSON"
 
     ```json
     {
-      "Query": {
-        "Filter": {
-          "AND": {
-            "ContentTypeIdentifierCriterion": "article",
-            "SectionIdentifierCriterion": "news"
-          }
+        "Query": {
+            "Filter": {
+                "AND": {
+                    "ContentTypeIdentifierCriterion": "article",
+                    "SectionIdentifierCriterion": "news"
+                }
+            }
         }
-      }
     }
     ```

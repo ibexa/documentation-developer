@@ -52,11 +52,11 @@ $query->query = new Criterion\FullText('baseball AND cup');
 === "XML"
 
     ```xml
-      <Query>
+    <Query>
         <Filter>
             <FullTextCriterion>victory</FullTextCriterion>
         </Filter>
-      </Query>
+    </Query>
     ```
 
 === "JSON"

@@ -33,30 +33,30 @@ $query->query = new Criterion\Field('name', Criterion\Operator::CONTAINS, 'Platf
 === "XML"
 
     ```xml
-      <Query>
+    <Query>
         <Filter>
-          <FieldCriterion>
-            <target>name</target>
-            <operator>CONTAINS</operator>
-            <value>Platform</value>
-          </FieldCriterion>
+            <FieldCriterion>
+                <target>name</target>
+                <operator>CONTAINS</operator>
+                <value>Platform</value>
+            </FieldCriterion>
         </Filter>
-      </Query>
+    </Query>
     ```
 
 === "JSON"
 
     ```json
     {
-      "Query": {
-        "Filter": {
-          "FieldCriterion": {
-            "target": "name",
-            "operator": "CONTAINS",
-            "value": "Platform"
-          }
+        "Query": {
+            "Filter": {
+                "FieldCriterion": {
+                    "target": "name",
+                    "operator": "CONTAINS",
+                    "value": "Platform"
+                }
+            }
         }
-      }
     }
     ```
 

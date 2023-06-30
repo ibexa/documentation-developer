@@ -24,27 +24,27 @@ $query->filter = new Criterion\LogicalOr([
 === "XML"
 
     ```xml
-      <Query>
+    <Query>
         <Filter>
             <OR>
                 <ContentTypeIdentifierCriterion>article</ContentTypeIdentifierCriterion>
                 <SectionIdentifierCriterion>news</SectionIdentifierCriterion>
             </OR>
         </Filter>
-      </Query>
+    </Query>
     ```
 
 === "JSON"
 
     ```json
     {
-      "Query": {
-        "Filter": {
-          "OR": {
-            "ContentTypeIdentifierCriterion": "article",
-            "SectionIdentifierCriterion": "news"
-          }
+        "Query": {
+            "Filter": {
+                "OR": {
+                    "ContentTypeIdentifierCriterion": "article",
+                    "SectionIdentifierCriterion": "news"
+                }
+            }
         }
-      }
     }
     ```

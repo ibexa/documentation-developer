@@ -22,11 +22,11 @@ $query->query = new Criterion\LanguageCode('ger-DE', false);
 === "XML"
 
     ```xml
-      <Query>
+    <Query>
         <Filter>
             <LanguageCodeCriterion>eng-GB</LanguageCodeCriterion>
         </Filter>
-      </Query>
+    </Query>
     ```
 
 === "JSON"

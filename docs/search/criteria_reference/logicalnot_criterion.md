@@ -22,13 +22,13 @@ $query->filter = new Criterion\LogicalNot(
 === "XML"
 
     ```xml
-      <Query>
+    <Query>
         <Criterion>
             <LogicalNotCriterion>
                 <ContentTypeIdentifierCriterion>article</ContentTypeIdentifierCriterion>
             </LogicalNotCriterion>
         </Criterion>
-      </Query>
+    </Query>
     ```
 
 === "JSON"
@@ -38,7 +38,7 @@ $query->filter = new Criterion\LogicalNot(
       "Query": {
         "Criterion": {
           "LogicalNotCriterion": {
-            "ContentTypeIdentifierCriterion": "article",
+            "ContentTypeIdentifierCriterion": "article"
           }
         }
       }

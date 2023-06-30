@@ -30,14 +30,14 @@ The `FloatAttributeRange` Search Criterion searches for products by the range of
 
     ```json
     {
-      "AttributeQuery": {
-        "Query": {
-          "FloatAttributeRangeCriterion": {
-                "identifier": "length",
-                "min": 16.5,
-                "max": 25
-            },
+        "AttributeQuery": {
+            "Query": {
+                "FloatAttributeRangeCriterion": {
+                    "identifier": "length",
+                    "min": 16.5,
+                    "max": 25
+                }
+            }
         }
-      }
     }
     ```

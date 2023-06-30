@@ -20,11 +20,11 @@ $query->query = new Criterion\ParentLocationId([54, 58]);
 === "XML"
 
     ```xml
-      <Query>
+    <Query>
         <Filter>
             <ParentLocationIdCriterion>[81, 82]</ParentLocationIdCriterion>
         </Filter>
-      </Query>
+    </Query>
     ```
 
 === "JSON"

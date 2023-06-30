@@ -25,24 +25,26 @@ $query->query = new Criterion\ObjectStateIdentifier(['not_locked'], 'ez_lock');
 === "XML"
 
     ```xml
-      <Query>
+    <Query>
         <Filter>
-          <ObjectStateIdentifierCriterion>
-            <value>not_locked</value>
-            <target>ez_lock</target>
-          </ObjectStateIdentifierCriterion>
+            <ObjectStateIdentifierCriterion>
+                <value>not_locked</value>
+                <target>ez_lock</target>
+            </ObjectStateIdentifierCriterion>
         </Filter>
-      </Query>
-    ```
+    </Query>
+    ``` 
 
 === "JSON"
 
     ```json
-    "Query": {
-      "Filter": {
-        "ObjectStateIdentifierCriterion": {
-          "value": "not_locked",
-          "target": "ez_lock"
+    {
+      "Query": {
+        "Filter": {
+          "ObjectStateIdentifierCriterion": {
+            "value": "not_locked",
+            "target": "ez_lock"
+          }
         }
       }
     }

@@ -22,30 +22,30 @@ $query->query = new Criterion\UserMetadata(Criterion\UserMetadata::GROUP, Criter
 === "XML"
 
     ```xml
-      <Query>
+    <Query>
         <Filter>
-          <UserMetadataCriterion>
-            <target>GROUP</target>
-            <operator>EQ</operator>
-            <value>12</value>
-          </UserMetadataCriterion>
+            <UserMetadataCriterion>
+                <target>GROUP</target>
+                <operator>EQ</operator>
+                <value>12</value>
+            </UserMetadataCriterion>
         </Filter>
-      </Query>
+    </Query>
     ```
 
 === "JSON"
 
     ```json
     {
-      "Query": {
-        "Filter": {
-          "UserMetadataCriterion": {
-            "target": "GROUP",
-            "operator": "EQ",
-            "value": 12
-          }
+        "Query": {
+            "Filter": {
+                "UserMetadataCriterion": {
+                    "target": "GROUP",
+                    "operator": "EQ",
+                    "value": 12
+                }
+            }
         }
-      }
     }
     ```
 

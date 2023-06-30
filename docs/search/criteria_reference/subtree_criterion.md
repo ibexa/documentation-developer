@@ -21,11 +21,11 @@ $query->query = new Criterion\Subtree('/1/2/71/72/');
 === "XML"
 
     ```xml
-      <Query>
+    <Query>
         <Filter>
             <SubtreeCriterion>/1/2/71/</SubtreeCriterion>
         </Filter>
-      </Query>
+    </Query>
     ```
 
 === "JSON"

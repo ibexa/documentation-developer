@@ -29,11 +29,11 @@ $query->query = new Criterion\UserEmail('nospam*', Criterion\Operator::LIKE);
 === "XML"
 
     ```xml
-      <Query>
+    <Query>
         <Filter>
             <UserEmailCriterion>j.black*</UserEmailCriterion>
         </Filter>
-      </Query>
+    </Query>
     ```
 
 === "JSON"

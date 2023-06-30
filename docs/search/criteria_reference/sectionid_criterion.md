@@ -20,11 +20,11 @@ $query->query = new Criterion\SectionId(3);
 === "XML"
 
     ```xml
-      <Query>
+    <Query>
         <Filter>
             <SectionIdCriterion>3</SectionIdCriterion>
         </Filter>
-      </Query>
+    </Query>
     ```
 
 === "JSON"

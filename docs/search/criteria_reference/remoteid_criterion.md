@@ -20,11 +20,11 @@ $query->query = new Criterion\RemoteId('abab615dcf26699a4291657152da4337');
 === "XML"
 
     ```xml
-      <Query>
+    <Query>
         <Filter>
             <ContentRemoteIdCriterion>abab615dcf26699a4291657152da4337</ContentRemoteIdCriterion>
         </Filter>
-      </Query>
+    </Query>
     ```
 
 === "JSON"

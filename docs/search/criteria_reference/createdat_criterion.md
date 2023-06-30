@@ -25,14 +25,14 @@ $productQuery = new ProductQuery(null, $criteria);
 === "XML"
 
     ```xml
-      <ProductQuery>
+    <ProductQuery>
         <Filter>
             <CreatedAtCriterion>
                 <created_at>2023-06-12</created_at>
-                <operator> >= </operator>
+                <operator>>=</operator>
             </CreatedAtCriterion>
         </Filter>
-      </ProductQuery>
+    </ProductQuery>
     ```
 
 === "JSON"
