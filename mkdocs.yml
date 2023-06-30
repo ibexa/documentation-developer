@@ -442,6 +442,7 @@ nav:
             - ObjectStateId: search/criteria_reference/objectstateid_criterion.md
             - ObjectStateIdentifier: search/criteria_reference/objectstateidentifier_criterion.md
             - ParentLocationId: search/criteria_reference/parentlocationid_criterion.md
+            - ParentLocationRemoteId: search/criteria_reference/parentlocationremoteId_criterion.md
             - Priority: search/criteria_reference/priority_criterion.md
             - RemoteId: search/criteria_reference/remoteid_criterion.md
             - SectionId: search/criteria_reference/sectionid_criterion.md
@@ -459,6 +460,11 @@ nav:
             - LogicalOr Criterion: search/criteria_reference/logicalor_criterion.md
         - Product Search Criteria:
             - Product Search Criteria: search/criteria_reference/product_search_criteria.md
+            - AttributeName: search/criteria_reference/attributename_criterion.md
+            - AttributeGroupIdentifier: search/criteria_reference/attributegroupidentifier_criterion.md
+            - CatalogIdentifier: search/criteria_reference/catalogidentifier_criterion.md
+            - CatalogName: search/criteria_reference/catalogname_criterion.md
+            - CatalogStatus: search/criteria_reference/catalogstatus_criterion.md
             - BasePrice: search/criteria_reference/baseprice_criterion.md
             - CheckboxAttribute: search/criteria_reference/checkboxattribute_criterion.md
             - ColorAttribute: search/criteria_reference/colorattribute_criterion.md
@@ -466,7 +472,9 @@ nav:
             - CreatedAtRange: search/criteria_reference/createdatrange_criterion.md
             - CustomPrice: search/criteria_reference/customprice_criterion.md
             - FloatAttribute: search/criteria_reference/floatattribute_criterion.md
+            - FloatAttributeRange: search/criteria_reference/floatattributerange_criterion.md
             - IntegerAttribute: search/criteria_reference/integerattribute_criterion.md
+            - IntegerAttributeRange: search/criteria_reference/integerattributerange_criterion.md
             - ProductAvailability: search/criteria_reference/productavailability_criterion.md
             - ProductStock: search/criteria_reference/productstock_criterion.md
             - ProductStockRange: search/criteria_reference/productstockrange_criterion.md
