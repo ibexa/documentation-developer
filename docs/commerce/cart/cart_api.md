@@ -1,5 +1,5 @@
 ---
-description: Use PHP API to work with carts in Commerce, manage cart entries, or validate products.
+description: Use PHP API and REST API to work with carts in Commerce, manage cart entries, or validate products.
 edition: commerce
 ---
 
@@ -41,7 +41,7 @@ It follows the same search Query pattern as other APIs:
 ## Create cart
 
 To create a cart, use the `CartServiceInterface::createCart` method and provide 
-it with `Ibexa\Contracts\Cart\Value\CartCreateStruct` that contains metadata (name, currency):
+it with `Ibexa\Contracts\Cart\Value\CartCreateStruct` that contains metadata (name, currency, owner):
 
 ``` php
 [[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 7, 8) =]]
@@ -62,6 +62,19 @@ To update cart metadata, use the `CartServiceInterface::updateCartMetadata` meth
 // ...
 
 [[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 92, 99) =]]
+```
+
+You can also use this method to change cart ownership:
+
+``` php
+use Ibexa\Contracts\Cart\Value\CartMetadataUpdateStruct;
+
+// ...
+
+$updateMetadataStruct = new CartMetadataUpdateStruct();
+$updateMetadataStruct->setOwner($userService->loadUserByLogin('user'));
+
+$cart = $cartService->updateCartMetadata($cart, $updateMetadataStruct);
 ```
 
 ## Delete cart

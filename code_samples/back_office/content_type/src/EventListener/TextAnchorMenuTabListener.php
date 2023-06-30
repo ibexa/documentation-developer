@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\EventListener;
 
@@ -12,7 +12,7 @@ class TextAnchorMenuTabListener implements EventSubscriberInterface
     {
         return [ConfigureMenuEvent::CONTENT_EDIT_ANCHOR_MENU => 'onAnchorMenuConfigure'];
     }
-    
+
     public function onAnchorMenuConfigure(ConfigureMenuEvent $event): void
     {
         // access anchor menu root item

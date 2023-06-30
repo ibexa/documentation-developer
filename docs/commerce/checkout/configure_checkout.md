@@ -1,5 +1,5 @@
 ---
-description: Configure the default checkouts process and build custom ones.
+description: Configure checkout, modify the default checkout workflow.
 edition: commerce
 ---
 
@@ -12,7 +12,7 @@ the checkout configuration.
 
     When you modify the workflow configuration, make sure you properly set user [permissions](permission_use_cases.md#commerce) to the checkout component.
 
-## Checkout workflow
+## Configure checkout workflow
 
 Checkout workflow relies on [Symfony Workflow](http://symfony.com/doc/5.4/components/workflow.html).
 Each transition represents a separate checkout step. 
@@ -40,104 +40,16 @@ Each step configuration includes the following settings:
 - `label` - An optional name of the step that can be displayed in the Twig helper.
 - `translation_domain` - A optional setting that defines the domain for a site with translated content. By default it is set to `checkout`.
 
-### Default checkout workflow configuration
+### Checkout customization example
 
-The default checkout workflow configuration looks as follows:
-
-``` yaml
-framework:
-    workflows:
-      workflow: <your_workflow_identifier> #optional, "ibexa_checkout" is used by default
-        ibexa_checkout:
-            type: state_machine
-            audit_trail:
-                enabled: false
-            marking_store:
-                type: method
-                property: status
-            supports:
-                - Ibexa\Contracts\Checkout\Value\CheckoutInterface
-            initial_marking: initialized
-            places:
-                - initialized
-                - address_selected
-                - shipping_selected
-                - summarized
-                - completed
-            transitions:
-                select_address:
-                    from:
-                        - initialized
-                        - address_selected
-                        - shipping_selected
-                        - summarized
-                    to: address_selected
-                    metadata:
-                        next_step: select_shipping
-                        controller: Ibexa\Bundle\Checkout\Controller\CheckoutStep\AddressStepController::renderStepView
-                        label: 'Billing & shipping address'
-                        translation_domain: checkout
-                select_shipping:
-                    from:
-                        - address_selected
-                        - shipping_selected
-                        - summarized
-                    to: shipping_selected
-                    metadata:
-                        next_step: summary
-                        controller: Ibexa\Bundle\Checkout\Controller\CheckoutStep\ShippingStepController::renderStepView
-                        label: 'Shipping & payment method'
-                        translation_domain: checkout
-                summary:
-                    from:
-                        - shipping_selected
-                        - summarized
-                    to: summarized
-                    metadata:
-                        next_step: complete
-                        controller: Ibexa\Bundle\Checkout\Controller\CheckoutStep\SummaryStepController::renderStepView
-                        label: 'Payment & summary'
-                        translation_domain: checkout
-                complete:
-                    from: summarized
-                    to: completed
-                    metadata:
-                        controller: Ibexa\Bundle\Checkout\Controller\CheckoutStep\CompleteStepController::renderCompleteView
-                        label: 'Order confirmation'
-                        translation_domain: checkout
-```
+For more information about the results you can achieve by customizing checkout, see [Customize checkout](customize_checkout.md).
 
 ## Configure shipping and payment methods
 
-You can define the shipping and payment methods.
-Under `ibexa.repositories.<repository_name>.checkout`, create entries that resemble 
-the following example:
+You can define the shipping and payment methods in the user interface.
+For more information, see [Work with shipping methods]([[= user_doc =]]/commerce/shipping_management/work_with_shipping_methods/) and [Work with payment methods]([[= user_doc =]]/commerce/payment/work_with_payment_methods/).
 
-``` yaml 
-ibexa:
-    repositories:
-        <repository_name>:
-            checkout:
-                shipping_methods:
-                    courier:
-                        name: "Courier"
-                        translation_domain: "checkout" #optional, all shipping/payment methods use this one by default
-                    parcel_machine:
-                        name: "Parcel machine"
-                    self_pickup:
-                        name: "Self pickup"
-                    express_delivery:
-                        name: "Express delivery"
-                payment_methods:
-                    credit_card:
-                        name: "Credit card"
-                    paypal:
-                        name: "Paypal"
-                    money_transfer:
-                        name: "Money transfer"
-```
-
-## Shipping and billing address field format configuration 
+## Configure shipping and billing address field format
 
 In your implementation, you may need to create custom format configurations 
 for the shipping or billing address fields, for example, to use different address 
@@ -150,46 +62,3 @@ They fall back to `billing` and `shipping` predefined formats by default:
 - `shipping` is part of the `ibexa/checkout` bundle's default configuration 
 
 To modify address formats you create custom ones.
-
-### Define custom Address Field Type formats 
-
-To create custom Address Field Type formats to be used in checkout, make the following changes in the project configuration files. 
-
-First, define custom format configuration keys for `billing_address_format` and `shipping_address_format`:
-
-``` yaml 
-ibexa:
-    repositories:
-        <repository_name>:
-            checkout:
-                #coming from Corporate Account, "billing" by default
-                billing_address_format: <custom_billing_fieldtype_address_format> 
-                #coming from Corporate Account, "shipping" by default 
-                shipping_address_format: <custom_shipping_fieldtype_address_format> 
-                #used in registration, uses given shipping/billing addresses to pre-populate address forms in select_address checkout step, "customer" by default
-                customer_content_type: <your_ct_identifier_for_customer> 
-```
-
-Then, define custom address formats, which, for example, do not include the `locality` field:
-
-``` yaml 
-ibexa_field_type_address:
-    formats:
-        <custom_shipping_fieldtype_address_format>:
-            country:
-                default:
-                    - region
-                    - street
-                    - postal_code
-                    - email
-                    - phone_number
-                    
-        <custom_billing_fieldtype_address_format>:
-            country:
-                default:
-                    - region
-                    - street
-                    - postal_code
-                    - email
-                    - phone_number
-```

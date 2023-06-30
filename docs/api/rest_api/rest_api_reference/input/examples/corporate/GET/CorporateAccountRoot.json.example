@@ -1,0 +1,42 @@
+{
+  "CorporateAccountRoot": {
+    "_media-type": "application\/vnd.ibexa.api.CorporateAccountRoot+json",
+    "links": [
+      {
+        "_media-type": "application\/vnd.ibexa.api.CompaniesList+json",
+        "_rel": "ca-companies",
+        "_href": "\/api\/ibexa\/v2\/corporate\/companies"
+      },
+      {
+        "_media-type": "application\/vnd.ibexa.api.ContentTypeGroup+json",
+        "_rel": "ca-types",
+        "_href": "\/api\/ibexa\/v2\/content\/typegroups?identifier=corporate_account"
+      },
+      {
+        "_media-type": "application\/vnd.ibexa.api.ContentType+json",
+        "_rel": "ca-types-company",
+        "_href": "\/api\/ibexa\/v2\/content\/types\/48"
+      },
+      {
+        "_media-type": "application\/vnd.ibexa.api.ContentType+json",
+        "_rel": "ca-types-member",
+        "_href": "\/api\/ibexa\/v2\/content\/types\/47"
+      },
+      {
+        "_media-type": "application\/vnd.ibexa.api.ContentType+json",
+        "_rel": "ca-types-address",
+        "_href": "\/api\/ibexa\/v2\/content\/types\/49"
+      },
+      {
+        "_media-type": "application\/vnd.ibexa.api.Role+json",
+        "_rel": "ca-role-admin",
+        "_href": "\/api\/ibexa\/v2\/user\/roles\/14"
+      },
+      {
+        "_media-type": "application\/vnd.ibexa.api.Role+json",
+        "_rel": "ca-role-buyer",
+        "_href": "\/api\/ibexa\/v2\/user\/roles\/15"
+      }
+    ]
+  }
+}

@@ -5,7 +5,7 @@ searches for content based in the Location remote ID.
 
 ## Arguments
 
-- `value` - string(s) representing the Location remote ID(s).
+- `value` - string(s) representing the Location remote ID(s)
 
 ## Example
 

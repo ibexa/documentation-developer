@@ -5,21 +5,16 @@ description: Use blocks to customize the content of a Page with dynamic content.
 # Page blocks
 
 Page blocks are configured in YAML files, under the `ibexa_fieldtype_page` key.
+Keep in mind that Page block configuration is not SiteAccess-aware.
 
-!!! caution
+[[= product_name =]] ships with a number of page blocks.
+For a list of all page blocks that are available out-of-the-box,
+see [Page block reference]([[= user_doc =]]/content_management/block_reference/).
 
-    Page block configuration is not SiteAccess-aware.
+For information on how to create and configure new layouts for the Page,
+see [Page layouts](render_page.md#render-a-layout).
 
-!!! tip
-
-    For information on how to create and configure new layouts for the Page,
-    see [Page layouts](render_page.md#render-a-layout).
-    
-!!! note 
-
-    [[= product_name =]] ships with a number of page blocks.
-    For a list of all page blocks that are available out-of-the-box, 
-    see [Page block reference]([[= user_doc =]]/content_management/block_reference/).
+[[% include 'snippets/page_block_cache_clear.md' %]]
 
 ## Block configuration
 
@@ -76,7 +71,7 @@ The highest number shows first on the list.
 The template for the configuration modal of built-in Page blocks is contained in
 `vendor/ibexa/page-builder/src/bundle/Resources/views/page_builder/block/config.html.twig`.
 
-You can override it by using the `configuration_template` setting:
+You can override it by using the `configuration_template` [configuration key](configuration.md#configuration-files):
 
 ``` yaml
 [[= include_file('code_samples/page/custom_page_block/config/packages/page_blocks.yaml', 0, 7) =]]
@@ -115,7 +110,7 @@ Before the block is rendered, the listener adds `my_parameter` to it with value 
 You can use this parameter, for example, in block template:
 
 ``` html+twig
-[[= include_file('code_samples/page/page_listener/templates/my_block.html.twig') =]]
+[[= include_file('code_samples/page/page_listener/templates/themes/standard/block/my_block.html.twig') =]]
 ```
 
 #### Exposing content relations from blocks

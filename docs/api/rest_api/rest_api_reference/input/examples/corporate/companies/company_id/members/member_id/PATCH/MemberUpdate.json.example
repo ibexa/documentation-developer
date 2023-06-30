@@ -1,0 +1,29 @@
+{
+  "MemberUpdate": {
+    "login": "jay.kowalski",
+    "email": "jay.kowalski@email.invalid",
+    "password": "Ibexa123#",
+    "maxLogin": 5,
+    "enabled": false,
+    "Role": {
+      "_media-type": "application/vnd.ibexa.api.Role+json",
+      "_href": "/api/ibexa/v2/user/roles/15"
+    },
+    "fields": {
+      "field": [
+        {
+          "fieldDefinitionIdentifier": "first_name",
+          "fieldValue": "Jay"
+        },
+        {
+          "fieldDefinitionIdentifier": "last_name",
+          "fieldValue": "Kowalski"
+        },
+        {
+          "fieldDefinitionIdentifier": "phone_number",
+          "fieldValue": "+48 123 123 456"
+        }
+      ]
+    }
+  }
+}

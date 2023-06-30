@@ -34,9 +34,14 @@
                                             "name": "number",
                                             "description": "",
                                             "type": "Float",
+                                            "type_identifier": "float",
+                                            "value": 1.5,
                                             "group": "test",
                                             "position": 0,
-                                            "options": "{\"min\":null,\"max\":null}"
+                                            "options": {
+                                                "min": 4,
+                                                "max": 5
+                                            }
                                         }
                                     },
                                     {
@@ -49,9 +54,14 @@
                                             "name": "testAttr",
                                             "description": "",
                                             "type": "Integer",
+                                            "type_identifier": "integer",
+                                            "value": 5,
                                             "group": "test",
                                             "position": 0,
-                                            "options": "{\"min\":null,\"max\":null}"
+                                            "options": {
+                                                "min": 4,
+                                                "max": 5
+                                            }
                                         }
                                     }
                                 ]
@@ -219,9 +229,14 @@
                                 "name": "number",
                                 "description": "",
                                 "type": "Float",
+                                "type_identifier": "float",
+                                "value": 1.5,
                                 "group": "test",
                                 "position": 0,
-                                "options": "{\"min\":null,\"max\":null}"
+                                "options": {
+                                    "min": 4,
+                                    "max": 5
+                                }
                             },
                             {
                                 "_media-type": "application/vnd.ibexa.api.Attribute+json",
@@ -229,9 +244,14 @@
                                 "name": "testAttr",
                                 "description": "",
                                 "type": "Integer",
+                                "type_identifier": "integer",
+                                "value": 5,
                                 "group": "test",
                                 "position": 0,
-                                "options": "{\"min\":null,\"max\":null}"
+                                "options": {
+                                    "min": 4,
+                                    "max": 5
+                                }
                             }
                         ]
                     },
@@ -258,9 +278,14 @@
                                             "name": "number",
                                             "description": "",
                                             "type": "Float",
+                                            "type_identifier": "float",
+                                            "value": 1.5,
                                             "group": "test",
                                             "position": 0,
-                                            "options": "{\"min\":null,\"max\":null}"
+                                            "options": {
+                                                "min": 4,
+                                                "max": 5
+                                            }
                                         }
                                     },
                                     {
@@ -273,9 +298,14 @@
                                             "name": "testAttr",
                                             "description": "",
                                             "type": "Integer",
+                                            "type_identifier": "integer",
+                                            "value": 5,
                                             "group": "test",
                                             "position": 0,
-                                            "options": "{\"min\":null,\"max\":null}"
+                                            "options": {
+                                                "min": 4,
+                                                "max": 5
+                                            }
                                         }
                                     }
                                 ]
@@ -443,9 +473,14 @@
                                 "name": "number",
                                 "description": "",
                                 "type": "Float",
+                                "type_identifier": "float",
+                                "value": 1.5,
                                 "group": "test",
                                 "position": 0,
-                                "options": "{\"min\":null,\"max\":null}"
+                                "options": {
+                                    "min": 4,
+                                    "max": 5
+                                }
                             },
                             {
                                 "_media-type": "application/vnd.ibexa.api.Attribute+json",
@@ -453,9 +488,14 @@
                                 "name": "testAttr",
                                 "description": "",
                                 "type": "Integer",
+                                "type_identifier": "integer",
+                                "value": 5,
                                 "group": "test",
                                 "position": 0,
-                                "options": "{\"min\":null,\"max\":null}"
+                                "options": {
+                                    "min": 4,
+                                    "max": 5
+                                }
                             }
                         ]
                     }

@@ -12,6 +12,7 @@ use EzSystems\Raml2Html\Generator\Generator;
 use EzSystems\Raml2Html\RAML\ParserFactory;
 use EzSystems\Raml2Html\Twig\Extension\HashExtension;
 use EzSystems\Raml2Html\Twig\Extension\RenderExtension;
+use EzSystems\Raml2Html\Twig\Extra\Markdown\GithubFlavoredMarkdown;
 use Symfony\Component\Console\Application as BaseApplication;
 use Twig as Twig;
 use Twig\Extra\Markdown\DefaultMarkdown;
@@ -60,7 +61,7 @@ final class Application extends BaseApplication
             $this->twig->addRuntimeLoader(new class implements RuntimeLoaderInterface {
                 public function load($class): ?MarkdownRuntime {
                     if (MarkdownRuntime::class === $class) {
-                        return new MarkdownRuntime(new DefaultMarkdown());
+                        return new MarkdownRuntime(new GithubFlavoredMarkdown());
                     }
 
                     return null;

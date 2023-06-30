@@ -1,5 +1,6 @@
 ---
 description: URL Twig functions enable rendering URLs and routes.
+page_type: reference
 ---
 
 # URL Twig functions

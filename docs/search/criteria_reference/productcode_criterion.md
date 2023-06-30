@@ -4,10 +4,13 @@ The `ProductCode` Search Criterion searches for products by their codes.
 
 ## Arguments
 
-- `codes` - int(s) representing the Product codes(s).
+- `productCode` - array of strings representing the Product codes(s)
 
 ## Example
 
 ``` php
-$query->query = new Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\ProductCode([62, 64]);
+$query = new ProductQuery(
+    null,
+    new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\ProductCode(['ergo_desk', 'alter_desk'])
+);
 ```

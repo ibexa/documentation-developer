@@ -4,16 +4,17 @@ The `CreatedAt` Sort Clause sorts search results by the date and time of the cre
 
 ## Arguments
 
-- `sortDirection` (optional) - `CreatedAt` constant, either `CreatedAt::SORT_ASC` or `CreatedAt::SORT_DESC`.
+- (optional) `sortDirection` - `CreatedAt` constant, either `CreatedAt::SORT_ASC` or `CreatedAt::SORT_DESC`
 
 ## Example
 
 ``` php
 $productQuery = new ProductQuery(
     null,
-    $criteria,
+    null,
     [
-        new CreatedAt(CreatedAt::SORT_ASC)
+        new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause\CreatedAt(
+            \Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause\CreatedAt::SORT_ASC)
     ]
 );
 ```

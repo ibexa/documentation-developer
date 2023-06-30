@@ -4,11 +4,16 @@ The `ProductName` Sort Clause sorts search results by the Product code.
 
 ## Arguments
 
-- `sortDirection` (optional) - Query or LocationQuery constant, either `Query::SORT_ASC` or `Query::SORT_DESC`.
+[[= include_file('docs/snippets/sort_direction.md') =]]
 
 ## Example
 
 ``` php
-$query = new LocationQuery();
-$query->sortClauses = [new Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause\ProductName()];
+$query = new ProductQuery(
+    null,
+    null,
+    [
+        new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause\ProductName()
+    ]
+);
 ```

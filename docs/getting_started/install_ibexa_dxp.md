@@ -122,7 +122,7 @@ run the following command:
 === "[[= product_name_content =]]"
 
     ``` bash
-    composer create-project ibexa/content-skeleton .
+    composer create-project ibexa/headless-skeleton .
     ```
 
 === "[[= product_name_exp =]]"
@@ -144,7 +144,7 @@ run the following command:
     === "[[= product_name_content =]]"
 
         ``` bash
-        composer create-project ibexa/content-skeleton --no-install .
+        composer create-project ibexa/headless-skeleton --no-install .
         composer update
         ```
 
@@ -173,7 +173,7 @@ run the following command:
     specific tag (`3.3.2`), version range (`~3.3.2`), stability (`^3.3@rc`), etc.:
 
     ``` bash
-    composer create-project ibexa/content-skeleton:3.3.2 .
+    composer create-project ibexa/experience-skeleton:3.3.2 .
     ```
 
 !!! note "Platform.sh"
@@ -259,17 +259,17 @@ You may choose to replace the [default search engine](search.md#legacy-search-en
 
 === "Solr"
 
-    Follow [How to set up Solr search engine](solr_search_engine.md#how-to-set-up-solr-search-engine) to install Solr.
+    Follow [How to set up Solr search engine](install_solr.md) to install Solr.
 
 === "Elasticsearch"
 
     Do the following steps to enable Elasticsearch:
 
-    1. [Download and install Elasticsearch](elasticsearch_search_engine.md#step-1-download-and-install-elasticsearch)
-    2. [Verify that the Elasticsearch instance is up](elasticsearch_search_engine.md#step-2-verify-that-the-elasticsearch-instance-is-up)
-    3. [Set the default search engine](elasticsearch_search_engine.md#step-3-set-the-default-search-engine)
-    4. [Configure the search engine](elasticsearch_search_engine.md#step-4-configure-the-search-engine)
-    5. [Push the templates](elasticsearch_search_engine.md#step-5-push-the-templates)
+    1. [Download and install Elasticsearch](install_elastic_search.md)
+    2. [Verify that the Elasticsearch instance is up](install_elastic_search.md#verify-the-instance)
+    3. [Set the default search engine](install_elastic_search.md#set-the-default-search-engine)
+    4. [Configure the search engine](configure_elastic_search.md)
+    5. [Push the templates](install_elastic_search.md#push-the-templates)
 
     Configure the following parameter in the `.env` file:
 
@@ -345,35 +345,49 @@ for information on how to do it on different systems.
 
 ### Set up virtual host
 
-Prepare a [virtual host configuration](https://httpd.apache.org/docs/2.4/vhosts/) for your site.
+Prepare a [virtual host configuration](https://en.wikipedia.org/wiki/Virtual_hosting) for your site.
 
-You can copy [the example vhost file](https://github.com/ezsystems/developer-documentation/tree/master/code_samples/install/vhost_template/vhost.template)
-to `/etc/apache2/sites-available` as a `.conf` file and modify it to fit your project.
+=== "Apache"
 
-Specify `/<your installation directory>/public` as the `DocumentRoot` and `Directory`.
-Uncomment the line that starts with `#if [APP_ENV]` and set the value to `prod` or `dev`,
-depending on the environment that you are configuring:
+    You can copy [the example vhost file](https://raw.githubusercontent.com/ibexa/post-install/main/resources/templates/apache2/vhost.template)
+    to `/etc/apache2/sites-available` as a `.conf` file and modify it to fit your project.
 
-```
-SetEnvIf Request_URI ".*" APP_ENV=prod
-```
+    Specify `/<your installation directory>/public` as the `DocumentRoot` and `Directory`, or ensure `BASEDIR` is set in the environment.
+    Uncomment the line that starts with `#if [APP_ENV]` and set the value to `prod` or `dev`, depending on the environment that you are configuring,
+    or ensure `APP_ENV` is set in the environment.
 
-#### Enable virtual host
+    ```
+    SetEnvIf Request_URI ".*" APP_ENV=prod
+    ```
 
-When the virtual host file is ready, enable the virtual host and disable the default:
+    When the virtual host file is ready, enable the virtual host and disable the default:
 
-``` bash
-a2ensite ibexa
-a2dissite 000-default.conf
-```
+    ``` bash
+    a2ensite ibexa
+    a2dissite 000-default.conf
+    ```
 
-Finally, restart the Apache server.
-The command may vary depending on your Linux distribution.
-For example, on Ubuntu use:
+    Finally, restart the Apache server.
+    The command may vary depending on your Linux distribution.
+    For example, on Ubuntu use:
 
-``` bash
-service apache2 restart
-```
+    ``` bash
+    service apache2 restart
+    ```
+
+=== "nginx"
+
+    You can use [this example vhost file](https://raw.githubusercontent.com/ibexa/post-install/main/resources/templates/nginx/vhost.template)
+    and modify it to fit your project. You will also need the `ibexa_params.d` files that should reside in a subdirectory below where the main file is,
+    [as is shown here](https://github.com/ibexa/post-install/tree/main/resources/templates/nginx).
+
+
+    Specify `/<your installation directory>/public` as the `root`, or ensure `BASEDIR` is set in the environment.
+    Ensure `APP_ENV` is set to `prod` or `dev` in the environment, depending on the environment that you are configuring, and uncomment the line that starts with `#if[APP_ENV`.
+
+    When the virtual host file is ready, enable the virtual host and disable the default.
+    Finally, restart the nginx server.
+    The command may vary depending on your Linux distribution.
 
 Open your project in the browser by visiting the domain address, for example `http://localhost:8080`.
 You should see the welcome page.

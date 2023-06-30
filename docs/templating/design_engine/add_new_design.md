@@ -12,8 +12,8 @@ and provide it with a distinct design.
 
 ## Configure a new SiteAccess
 
-First, in the SiteAccess configuration in `config/packages/ibexa.yaml`,
-add the `campaign` SiteAccess to the list under `ibexa.siteaccess`:
+First, in the SiteAccess configuration, under the `ibexa.siteaccess` [configuration key](configuration.md#configuration-files),
+add the `campaign` SiteAccess:
 
 ``` yaml
 ibexa:
@@ -22,9 +22,12 @@ ibexa:
             - import
             - site
             - admin
+            - corporate
             - campaign
         groups:
             site_group: [import, site, campaign]
+            storefront_group: [site]
+            corporate_group: [corporate]
         default_siteaccess: site
 ```
 

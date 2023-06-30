@@ -12,7 +12,7 @@ With the `ibexa/storefront` package, you can configure the product catalog and m
 
 Before you start configuring the Storefront, make sure you have created, configured and published [catalogs](https://doc.ibexa.co/projects/userguide/en/latest/pim/work_with_catalogs/#create-catalogs) in the Back Office.
 
-The configuration is available under the `ibexa.system.<scope>.storefront.catalog` key.
+The configuration is available under the `ibexa.system.<scope>.storefront.catalog` [configuration key](configuration.md#configuration-files).
 It accepts the following values:
 
 1\. All products available for all users:
@@ -77,6 +77,8 @@ interface CatalogResolverInterface
 {
     public function resolveCatalog(?User $user = null): ?CatalogInterface;
 }
+```
+
 `null` stands for the current user.
 
 ### Configure user account
@@ -86,7 +88,7 @@ The following user settings mechanisms used in `ibexa/storefront` are reused fro
 - [change password feature](user_management.md)
 - user avatar
 
-Settings for a Storefront user are configured under the `ibexa.system.<scope>.storefront.user_settings_groups:
+Settings for a Storefront user are configured under the `ibexa.system.<scope>.storefront.user_settings_groups` [configuration key](configuration.md#configuration-files):
 
 ```yaml
 ibexa:

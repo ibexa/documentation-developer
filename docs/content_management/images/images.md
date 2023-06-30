@@ -180,7 +180,7 @@ placeholders from:
 ### Semantic configuration
 
 Placeholder generation can be configured for each [`binary_handler`](file_management.md#handling-binary-files) under the 
-`ibexa.image_placeholder` key:
+`ibexa.image_placeholder` [configuration key](configuration.md#configuration-files):
  
 ```yaml
 ibexa:
@@ -260,7 +260,7 @@ To be able to use a proper link in your templates, you also need a dedicated Twi
 Now you can load SVG files in your templates by using generated links and a newly created Twig helper:
 
 ```twig
-[[= include_file('code_samples/back_office/images/templates/svg_helper.html.twig') =]]
+[[= include_file('code_samples/back_office/images/templates/themes/standard/svg_helper.html.twig') =]]
 ```
 
 ## Image optimization
@@ -294,10 +294,7 @@ Content items that are identified as images are rendered in the Rich Text Field
 by using a dedicated template.
 
 You can determine Content Types that will be treated as images and rendered.
-You do this in `ibexa/core/bundle/Core/Resources/config/default_settings.yml`. 
-By default, the `ibexa.content_view.image_embed_content_types_identifiers` 
-parameter is set to cover the Image Content Type, but you can add other types 
-that you want to be treated as images, for example:
+You do this by overriding the `ibexa.content_view.image_embed_content_types_identifiers` parameter, for example:
 
 ``` yaml
 [[= include_file('code_samples/back_office/images/config/default_settings.yaml', 0, 2) =]]

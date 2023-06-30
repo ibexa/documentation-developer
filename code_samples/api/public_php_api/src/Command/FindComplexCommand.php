@@ -1,27 +1,28 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Command;
 
-use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Input\InputArgument;
+use Ibexa\Contracts\Core\Repository\LocationService;
+use Ibexa\Contracts\Core\Repository\SearchService;
 use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\SortClause;
-use Ibexa\Contracts\Core\Repository\SearchService;
-use Ibexa\Contracts\Core\Repository\LocationService;
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
 
 class FindComplexCommand extends Command
 {
-    private $searchService;
-    private $locationService;
+    private SearchService $searchService;
+
+    private LocationService $locationService;
 
     public function __construct(SearchService $searchService, LocationService $locationService)
     {
         $this->searchService = $searchService;
         $this->locationService = $locationService;
-        parent::__construct("doc:find_complex");
+        parent::__construct('doc:find_complex');
     }
 
     protected function configure()
@@ -41,7 +42,7 @@ class FindComplexCommand extends Command
         $contentTypeIdentifier = $input->getArgument('contentTypeIdentifier');
         $text = $input->getArgument('text');
 
-        $query = new LocationQuery;
+        $query = new LocationQuery();
 
         $query->query = new Criterion\LogicalAnd([
             new Criterion\Subtree($this->locationService->loadLocation($locationId)->pathString),
@@ -49,7 +50,7 @@ class FindComplexCommand extends Command
             new Criterion\FullText($text),
             new Criterion\LogicalNot(
                 new Criterion\SectionIdentifier('Media')
-            )
+            ),
         ]);
 
         $query->sortClauses = [

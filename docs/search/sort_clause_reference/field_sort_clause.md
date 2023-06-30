@@ -10,7 +10,7 @@ Results of the query that do not belong to the Content Type are ranked lower.
 
 - `typeIdentifier` - string representing the identifier of the Content Type to which the Field belongs
 - `fieldIdentifier` - string representing the identifier of the Field to sort by
-- `sortDirection` (optional) - Query or LocationQuery constant, either `Query::SORT_ASC` or `Query::SORT_DESC`.
+[[= include_file('docs/snippets/sort_direction.md') =]]
 
 ## Limitations
 

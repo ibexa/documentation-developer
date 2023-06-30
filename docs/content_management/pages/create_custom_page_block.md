@@ -6,14 +6,15 @@ description: Create and configure custom Page blocks to add customized content t
 
 In addition to existing blocks which you can use in a Page, you can also create custom blocks.
 
-To do this, add block configuration in a YAML file, under the `ibexa_fieldtype_page` key,
-for example in `config/packages/ibexa_page_builder.yaml`.
+To do this, add block configuration in a YAML file, under the `ibexa_fieldtype_page` [configuration key](configuration.md#configuration-files).
+
+[[% include 'snippets/page_block_cache_clear.md' %]]
 
 The following example shows how to create a block that showcases an event.
 
 ## Configure block
 
-First, add the following YAML configuration:
+First, add the following [YAML configuration](configuration.md#configuration-files):
 
 ``` yaml
 [[= include_file('code_samples/page/custom_page_block/config/packages/page_blocks.yaml', 0, 6) =]][[= include_file('code_samples/page/custom_page_block/config/packages/page_blocks.yaml', 16, 39) =]]
@@ -59,7 +60,7 @@ The template with the greatest priority is used as the default one.
 ## Add edit templates
 
 You can also customize the template for the block settings modal.
-Do this under the `configuration_template` key:
+Do this under the `configuration_template` [configuration key](configuration.md#configuration-files):
 
 ``` yaml
 [[= include_file('code_samples/page/custom_page_block/config/packages/page_blocks.yaml', 0, 7) =]]

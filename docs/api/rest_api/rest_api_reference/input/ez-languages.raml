@@ -1,0 +1,38 @@
+displayName: Languages
+get:
+    displayName: Language list
+    description: Lists languages
+    headers:
+        Accept:
+            description: If set, the list is returned in XML or JSON format.
+            example:  |
+                application/vnd.ibexa.api.LanguageList+xml
+                application/vnd.ibexa.api.LanguageList+json
+    responses:
+        200:
+            body:
+                application/vnd.ibexa.api.LanguageList+xml:
+                    type: LanguageList
+                    example: !include examples/languages/GET/LanguageList.xml.example
+                application/vnd.ibexa.api.LanguageList+json:
+                    type: LanguageList
+                    example: !include examples/languages/GET/LanguageList.json.example
+
+/{code}:
+    get:
+        displayName: Get language
+        headers:
+            Accept:
+                description: If set, the language is returned in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.Language+xml
+                    application/vnd.ibexa.api.Language+json
+        responses:
+            200:
+                body:
+                    application/vnd.ibexa.api.Language+xml:
+                        type: Language
+                        example: !include examples/languages/code/GET/Language.xml.example
+                    application/vnd.ibexa.api.Language+json:
+                        type: Language
+                        example: !include examples/languages/code/GET/Language.json.example

@@ -5,7 +5,7 @@ sorts search results by the depth of the Location in the Content tree.
 
 ## Arguments
 
-- `sortDirection` (optional) - Query or LocationQuery constant, either `Query::SORT_ASC` or `Query::SORT_DESC`.
+[[= include_file('docs/snippets/sort_direction.md') =]]
 
 ## Example
 

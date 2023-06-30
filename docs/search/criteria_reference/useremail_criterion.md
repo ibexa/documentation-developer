@@ -5,8 +5,8 @@ searches for content based on the email assigned to the User account.
 
 ## Arguments
 
-- `value` - string(s) representing the User email(s).
-- `operator` - operator constant (IN, EQ, LIKE).
+- `value` - string(s) representing the User email(s)
+- (optional) `operator` - operator constant (IN, EQ, LIKE)
 
 ## Limitations
 

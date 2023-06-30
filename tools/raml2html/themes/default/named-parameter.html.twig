@@ -38,7 +38,7 @@
     </td>
     <td>
     {% if item.description %}
-        {{ item.description }}
+        {{ item.description|default('')|markdown_to_html }}
     {% endif %}
     </td>
 </tr>

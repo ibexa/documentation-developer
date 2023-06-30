@@ -1,5 +1,6 @@
 ---
 description: Ibexa DXP offers a range of built-in Field Types that cover most common needs when creating content.
+page_type: reference
 ---
 
 # Field Type reference
@@ -63,4 +64,4 @@ Legacy Search/Storage Engine index is limited to 255 characters in database desi
 so formatted and unformatted text blocks will only index the first part.
 In case of multiple selection Field Types like Keyword, Selection, Country, etc.,
 only the first choices are indexed. They are indexed only as a text blob separated by string separator.
-Proper indexing of these Field Types is done with [Solr Search engine](solr_search_engine.md).
+Proper indexing of these Field Types is done with [Solr Search engine](solr_overview.md).

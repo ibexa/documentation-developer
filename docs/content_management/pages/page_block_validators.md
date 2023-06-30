@@ -10,13 +10,20 @@ The following block validators are available:
 - `required` - checks whether the attribute is provided
 - `regexp` - validates attribute according to the provided regular expression
 - `not_blank` - checks whether the attribute is not left empty
+- `not_blank_richtext` - checks whether a `richtext` attribute is not left empty
 - `content_type` - checks whether the selected Content Types match the provided values
 - `content_container` - checks whether the selected Content item is a container
+
+!!! note
+
+    Do not use the `required` and `not_blank` validators for `richtext` attributes.
+    Instead, use `not_blank_richtext`.
 
 For each validator you can provide a message that displays in the Page Builder
 when an attribute field does not fulfil the criteria.
 
-Additionally, for some validators you can provide settings in the `options` key, for example:
+Additionally, for some validators you can provide settings under the
+`ibexa_fieldtype_page.blocks.<block_name>.validators.regexp.options` [configuration key](configuration.md#configuration-files), for example:
 
 ``` yaml
 email:
@@ -48,13 +55,13 @@ In `src/Validator`, create an `AlphaOnlyValidator.php` class that performs the v
 [[= include_file('code_samples/page/custom_block_validator/src/Validator/AlphaOnlyValidator.php') =]]
 ```
 
-Then, in `config/packages/ibexa_page_fieldtype.yaml` enable the new validator in Page Builder:
+Then, under `ibexa_fieldtype_page.block_validators`, enable the new validator in Page Builder:
 
 ``` yaml
 [[= include_file('code_samples/page/custom_block_validator/config/packages/page_blocks.yaml', 0, 3) =]]
 ```
 
-Finally, add the validator to one of your block attributes in `config/packages/ibexam_page_fieldtype.yaml`, for example:
+Finally, add the validator to one of your block attributes, for example:
 
 ``` yaml hl_lines="16-18"
 [[= include_file('code_samples/page/custom_block_validator/config/packages/page_blocks.yaml', 0, 1) =]][[= include_file('code_samples/page/custom_block_validator/config/packages/page_blocks.yaml', 3, 20) =]]

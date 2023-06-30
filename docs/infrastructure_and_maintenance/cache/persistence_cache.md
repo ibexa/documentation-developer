@@ -34,7 +34,7 @@ Notes:
   For instance tree operations or changes to Content Types are
   examples of operations that also need to invalidate content cache by tags.
 - Search is not defined as persistence and the queries themselves are not planned to be cached as they are too complex by design (for example, full text).
-  Use [Solr](solr_search_engine.md) which caches this for you to improve scale/performance, and to offload your database.
+  Use [Solr](solr_overview.md) which caches this for you to improve scale/performance, and to offload your database.
 
 For further details on which calls are cached or not, see details in the [Symfony Web Debug Toolbar](devops.md#web-debug-toolbar)
 which has info on cache use in two places:
@@ -69,7 +69,7 @@ You can select a different cache backend and configure its parameters in the rel
 ### Multi Repository setup
 
 You can [configure multisite to work with multiple Repositories](multisite_configuration.md#location-id).
-Then, in `ibexa.yaml` you can specify which cache pool you want to use on a SiteAccess or SiteAccess group level.
+Then, in configuration you can specify which cache pool you want to use on a SiteAccess or SiteAccess group level.
 
 The following example shows use in a SiteAccess group:
 
@@ -160,7 +160,7 @@ Out of the box in `config/packages/cache_pool/cache.redis.yaml` you'll find a de
 
 !!! note "Ibexa Cloud"
 
-    For Ibexa Cloud/Platform.sh: This is automatically configured in `vendor/platformsh/symfonyflex-bridge/platformsh-flex-env.php` if you have enabled Redis as `rediscache` Platform.sh service.
+    For Ibexa Cloud/Platform.sh: This is automatically configured in `vendor/ibexa/core/src/bundle/Core/DependencyInjection/IbexaCoreExtension.php` if you have enabled Redis as `rediscache` Platform.sh service.
 
 For anything else, you can enable it with environment variables.
 For instance, if you set the following environment variables `export CACHE_POOL="cache.redis" CACHE_DSN="secret@example.com:1234/13"`, it will result in config like this:
@@ -238,9 +238,9 @@ Out of the box in `config/packages/cache_pool/cache.memcached.yaml` you'll find 
 
 !!! note "Ibexa Cloud"
 
-    For Ibexa Cloud/Platform.sh: This is automatically configured in `config/env/platformsh.php` if you have enabled Memcached as `cache` Platform.sh service.
+    For Ibexa Cloud/Platform.sh: This is automatically configured in `vendor/ibexa/core/src/bundle/Core/DependencyInjection/IbexaCoreExtension.php` if you have enabled Memcached as `cache` Platform.sh service.
 
-For anything else, you can enable it with environment variables detected automatically by `config/env/generic.php`.
+For anything else, you can enable it with environment variables detected automatically by `vendor/ibexa/core/src/bundle/Core/DependencyInjection/IbexaCoreExtension.php`.
 For instance, if you set the following environment variables `export CACHE_POOL="cache.memcached" CACHE_DSN="user:pass@localhost?weight=33"`, it will result in config like this:
 
 ``` yaml

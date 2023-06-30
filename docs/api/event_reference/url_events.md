@@ -1,5 +1,6 @@
 ---
 description: Events that are triggered when working with URLs, URL aliases and URL wildcards.
+page_type: reference
 ---
 
 # URL events

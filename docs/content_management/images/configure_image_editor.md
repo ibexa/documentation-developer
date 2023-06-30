@@ -22,9 +22,8 @@ You can modify the default settings to change the appearance or behavior of the 
 You can also expand the default set of parameters to create buttons that may be required by custom features
 that you add by extending the Image Editor, for example, to enable changes to the color palette of an image.
 
-To do this, modify the `config/packages/ibexa.yaml` file, or create a separate 
-YAML file in the `config/packages` folder, and add a settings tree similar to 
-the following example.
+To do this, under the `ibexa.system.<scope>.image_editor` [configuration key](configuration.md#configuration-files)
+add a settings tree similar to the following example.
 The settings tree can contain one or more action groups.
 You can control the order of actions within a group by setting the `priority` parameter.
 You can also toggle the visibility of actions within the user interface.

@@ -104,10 +104,14 @@ ibexa.address.field.tax_number.billing_address.DE
 
 #### Example event listener
 
+An event listener can also provide validation by using either one of [constraints provided by Symfony](https://symfony.com/doc/current/validation.html#supported-constraints),
+or a custom constraint.
+
 ```php
 use Ibexa\Contracts\FieldTypeAddress\Event\MapFieldEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Validator\Constraints\Positive;
 
 class ExampleAddressSubscriber implements EventSubscriberInterface
 {
@@ -124,6 +128,7 @@ class ExampleAddressSubscriber implements EventSubscriberInterface
         $event->setType(IntegerType::class);
         $event->setOptions([
             'attr' => ['class' => 'some-tax-number'],
+            'constraints' => [new Positive()],
         ]);
     }
 }

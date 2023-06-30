@@ -1,5 +1,6 @@
 ---
 description: Events that are triggered when working with Sections.
+page_type: reference
 ---
 
 # Section events

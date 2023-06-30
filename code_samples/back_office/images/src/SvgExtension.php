@@ -21,7 +21,7 @@ class SvgExtension extends AbstractExtension
     }
 
     /**
-     * @return TwigFunction[]
+     * @return \Twig\TwigFunction[]
      */
     public function getFunctions(): array
     {
