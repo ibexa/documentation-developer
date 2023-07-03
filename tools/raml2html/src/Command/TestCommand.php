@@ -21,8 +21,8 @@ final class TestCommand extends Command
         $this->setName('test')
             ->setDescription('Compare REST API Reference documentation with Ibexa DXP routing configuration under /api/ibexa/v2 prefix')
             ->setHelp('It is recommended to not use --console-path and --routing-file options while testing the Rest API Reference HTML file against configuration. Those options are used to test that the default configuration file list is up-to-date and other subtleties.')
-            ->addArgument('rest-api-reference', InputArgument::REQUIRED, 'Path to the REST API Reference HTML file')
             ->addArgument('ibexa-dxp-root', InputArgument::REQUIRED, 'Path to an Ibexa DXP root directory')
+            ->addArgument('rest-api-reference', InputArgument::OPTIONAL, 'Path to the REST API Reference HTML file', 'docs/api/rest_api/rest_api_reference/rest_api_reference.html')
             ->addOption('console-path', 'c', InputOption::VALUE_OPTIONAL, 'Path to the console relative to Ibexa DXP root directory (if no value, use `bin/console`)', false)
             ->addOption('routing-file', 'f', InputOption::VALUE_IS_ARRAY | InputOption::VALUE_OPTIONAL, 'Path to a routing configuration YAML file relative to Ibexa DXP root directory', ReferenceTester::DEFAULT_FILE_LIST)
             ->addOption('tested-routes', 't', InputOption::VALUE_OPTIONAL,

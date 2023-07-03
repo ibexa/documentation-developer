@@ -34,5 +34,5 @@ cd ~/ibexa-dxp;
 composer create-project ibexa/commerce-skeleton . --no-install --ignore-platform-reqs --no-scripts;
 composer install --ignore-platform-reqs --no-scripts;
 cd -;
-php tools/raml2html/raml2html.php test docs/api/rest_api/rest_api_reference/rest_api_reference.html ~/ibexa-dxp
+php tools/raml2html/raml2html.php test ~/ibexa-dxp
 ```
