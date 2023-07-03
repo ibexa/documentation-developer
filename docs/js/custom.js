@@ -151,4 +151,10 @@ $(document).ready(function() {
             document.location.hash = event.target.hash;
         }, 500);
     })
+
+    document.querySelectorAll('.notification__close-btn').forEach((closeBtn) => {
+        closeBtn.addEventListener('click', () => {
+            closeBtn.closest('.notification').setAttribute('hidden', 'hidden');
+        });
+    });
 });
