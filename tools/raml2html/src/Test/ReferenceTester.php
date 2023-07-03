@@ -13,11 +13,17 @@ class ReferenceTester
     public const DEFAULT_FILE_LIST = [
         'vendor/ibexa/rest/src/bundle/Resources/config/routing.yml',
         //'vendor/ibexa/commerce-rest/src/bundle/Resources/config/routing.yaml', // Removed as of 4.4
-        // `find $dxpRoot/vendor/ibexa -name "routing_rest.y*ml"`
+        // `find vendor/ibexa -name "routing_rest.y*ml" | sort`
         //'vendor/ibexa/admin-ui/src/bundle/Resources/config/routing_rest.yaml',
         'vendor/ibexa/calendar/src/bundle/Resources/config/routing_rest.yaml',
         'vendor/ibexa/cart/src/bundle/Resources/config/routing_rest.yaml',
         'vendor/ibexa/connector-dam/src/bundle/Resources/config/routing_rest.yaml',
+        //'vendor/ibexa/corporate-account/src/bundle/Resources/config/routing_rest.yaml', // Import the 3 following files
+        'vendor/ibexa/corporate-account/src/bundle/Resources/config/routing/rest/companies.yaml',
+        'vendor/ibexa/corporate-account/src/bundle/Resources/config/routing/rest/members.yaml',
+        'vendor/ibexa/corporate-account/src/bundle/Resources/config/routing/rest/root.yaml',
+        'vendor/ibexa/order-management/src/bundle/Resources/config/routing_rest.yaml',
+        'vendor/ibexa/payment/src/bundle/Resources/config/routing_rest.yaml',
         'vendor/ibexa/personalization/src/bundle/Resources/config/routing_rest.yaml',
         'vendor/ibexa/product-catalog/src/bundle/Resources/config/routing_rest.yaml',
         //'vendor/ibexa/scheduler/src/bundle/Resources/config/routing_rest.yaml', // prefixed /api/datebasedpublisher/v1
@@ -192,6 +198,10 @@ class ReferenceTester
         foreach ($parsedRoutingFiles as $routingFile => $parsedRoutingFile) {
             foreach ($parsedRoutingFile as $routeId => $routeDef) {
                 $line = (int)explode(':', `grep -n '^$routeId:$' {$this->dxpRoot}/$routingFile`)[0];
+                if (!array_key_exists('path', $routeDef) && array_key_exists('resource', $routeDef)) {
+                    user_error("$routeId in $routingFile imports another file {$routeDef['resource']}", E_USER_WARNING);
+                    continue;
+                }
                 if (!array_key_exists('methods', $routeDef)) {
                     $routeDef['methods'] = self::METHOD_LIST;
                 }
