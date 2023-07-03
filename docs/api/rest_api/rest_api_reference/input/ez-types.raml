@@ -559,10 +559,10 @@ ContentTypeUpdateStruct:
             type: datetime
         names:
             description: 'If set this array of names with languageCode keys replace the complete name collection.'
-            type: array
+            type: string[]
         descriptions:
             description: 'If set this array of descriptions with languageCode keys replace the complete description collection.'
-            type: array
+            type: string[]
 
 ContentUpdateStruct:
     description: 'This class is used for updating the fields of a Content item draft.'
@@ -615,6 +615,7 @@ CreateStruct:
         data:
             description: 'Notification data.'
             type: array
+            items: mixed
 Criterion:
     description: 'Criterion implementations.'
     type: object
@@ -625,6 +626,7 @@ Criterion:
         value:
             description: 'The value(s) matched by the Criteria.'
             type: array
+            items: mixed
         target:
             description: 'The target used by the Criteria (field, metadata...).'
             type: string
@@ -813,10 +815,10 @@ FieldDefinitionCreateStruct:
             type: string
         names:
             description: 'An array of names with languageCode keys.'
-            type: array
+            type: string[]
         descriptions:
             description: 'An array of descriptions with languageCode keys.'
-            type: array
+            type: string[]
         fieldGroup:
             description: 'Field group name.'
             type: string
@@ -853,10 +855,10 @@ FieldDefinitionUpdateStruct:
             type: string
         names:
             description: 'If set this array of names with languageCode keys replace the complete name collection.'
-            type: array
+            type: string[]
         descriptions:
             description: 'If set this array of descriptions with languageCode keys replace the complete description collection.'
-            type: array
+            type: string[]
         fieldGroup:
             description: 'If set the field group is changed to this name.'
             type: string
@@ -908,6 +910,8 @@ Language:
         ALL:
             description: "Constant for use in API's to specify that you want to load all languages."
             type: array
+            items: string
+            maxItems: 0
         id:
             description: 'The language ID (auto generated).'
             type: integer
@@ -1073,6 +1077,7 @@ Message:
         values:
             description: 'Translation value objects. May not contain any numbers, which might result in requiring plural forms. Use Plural for that.'
             type: array
+            items: mixed
 Notification:
     description: 'This class represents a notification value.'
     type: object
@@ -1095,6 +1100,7 @@ Notification:
         data:
             description: 'This class represents data.'
             type: array
+            items: mixed
 NotificationList:
     description: 'This class represents a notifications list.'
     type: object
@@ -1291,6 +1297,7 @@ Plural:
         values:
             description: 'Translation value objects. May not contain any numbers, which might result in requiring plural forms. Use MessagePlural for that.'
             type: array
+            item: mixed
 Policy:
     description: 'This class represents a policy value.'
     type: BaseObject
@@ -1720,7 +1727,7 @@ UrlAlias:
             type: any
         path:
             description: 'The full path of the alias.'
-            type:
+            type: string
         languageCodes:
             description: 'The languageCodes for which this path is valid.'
             type: string[]
@@ -2046,6 +2053,7 @@ ValueObject:
         Properties:
             description: 'Function where list of properties are returned.'
             type: array
+            items: mixed
 Version:
     description: 'Returns the VersionInfo for this version.'
     type: BaseObject
@@ -2175,9 +2183,9 @@ ContentTypeCreate:
         defaultAlwaysAvailable:
             type: boolean
         names:
-            type: array
+            type: string[]
         descriptions:
-            type: array
+            type: string[]
         FieldDefinition:
             type: FieldDefinition
         creatorId:
@@ -2212,9 +2220,9 @@ ContentTypeUpdate:
         defaultAlwaysAvailable:
             type: boolean
         names:
-            type: array
+            type: string[]
         descriptions:
-            type: array
+            type: string[]
         modifierId:
             description: 'If set, this value overrides the current user as creator.'
             type: any
@@ -2475,9 +2483,9 @@ CatalogCreate:
         Criteria:
             type: Criterion
         names:
-            type: array
+            type: string[]
         descriptions:
-            type: array
+            type: string[]
         status:
             type: string
         creator_id:
@@ -2494,9 +2502,9 @@ CatalogUpdate:
         Criteria:
             type: Criterion
         names:
-            type: array
+            type: string[]
         descriptions:
-            type: array
+            type: string[]
 
 CatalogCopy:
     description: 'This class is used to copy a catalog.'
@@ -2610,11 +2618,12 @@ AttributeGroupCreate:
         identifier:
             type: string
         names:
-            type: array
+            type: string[]
         position:
             type: integer
         languages:
             type: array
+            items: mixed
 
 AttributeGroupUpdate:
     description: 'This class is used to update an attribute group.'
@@ -2623,11 +2632,12 @@ AttributeGroupUpdate:
         identifier:
             type: string
         names:
-            type: array
+            type: string[]
         position:
             type: integer
         languages:
             type: array
+            items: mixed
 
 AttributeGroupList:
     description: 'This class represents an attribute group list.'
@@ -2670,6 +2680,7 @@ Attribute:
             type: integer
         options:
             type: array
+            items: mixed
 
 AttributeCreate:
     description: 'This class is used to create an attribute.'
@@ -2682,13 +2693,14 @@ AttributeCreate:
         group:
             type: string
         names:
-            type: array
+            type: string[]
         descriptions:
-            type: array
+            type: string[]
         positions:
             type: integer
         options:
             type: array
+            items: mixed
 
 AttributeUpdate:
     description: 'This class is used to update an attribute.'
@@ -2697,13 +2709,14 @@ AttributeUpdate:
         identifier:
             type: string
         names:
-            type: array
+            type: string[]
         descriptions:
-            type: array
+            type: string[]
         positions:
             type: integer
         options:
             type: array
+            items: mixed
 
 AttributeList:
     description: 'This class represents an attribute list.'
@@ -2780,9 +2793,9 @@ CustomerGroupCreate:
         identifier:
             type: string
         names:
-            type: array
+            type: string[]
         descriptions:
-            type: array
+            type: string[]
         global_price_rate:
             description: 'numeric-string'
             type: string
@@ -2792,13 +2805,14 @@ CustomerGroupUpdate:
     type: object
     properties:
         names:
-            type: array
+            type: string[]
         identifier:
             type: string
         position:
             type: integer
         languages:
             type: array
+            items: mixed
 
 CustomerGroupViewInput:
     description: 'This class represents a customer group view input.'
@@ -2941,6 +2955,7 @@ ProductListGet:
             type: integer
         languages:
             type: array
+            items: mixed
 
 ProductGet:
     description: 'This class represents a product GET.'
@@ -2948,6 +2963,7 @@ ProductGet:
     properties:
         languages:
             type: array
+            items: mixed
 
 ProductCreate:
     description: 'This class is used to create a product.'
@@ -2959,6 +2975,7 @@ ProductCreate:
             type: string
         attributes:
             type: array
+            items: mixed
 
 ProductUpdate:
     description: 'This class is used to create a product.'
@@ -2970,6 +2987,7 @@ ProductUpdate:
             type: string
         attributes:
             type: array
+            items: mixed
 
 ProductViewInput:
     description: 'This class represents a product view input.'
@@ -3001,6 +3019,7 @@ ProductVariant:
             type: Product
         DiscriminatorAttributesList:
             type: array
+            items: mixed
 
 ProductVariantCreate:
     description: 'This class is used to create a product variant.'
@@ -3011,6 +3030,7 @@ ProductVariantCreate:
         attributes:
             description: 'array<int|string,mixed>'
             type: array
+            items: mixed
 
 ProductVariantGenerate:
     description: 'This class is used to generate a product variant.'
@@ -3019,6 +3039,7 @@ ProductVariantGenerate:
         attributes:
             description: 'array<int|string,mixed>'
             type: array
+            items: mixed
 
 ProductVariantUpdate:
     description: 'This class is used to update a product variant.'
@@ -3029,6 +3050,7 @@ ProductVariantUpdate:
         attributes:
             description: 'array<int|string,mixed>'
             type: array
+            items: mixed
 
 ProductVariantViewInput:
     description: 'This class represents a product variant view input.'
@@ -3086,7 +3108,7 @@ TaxonomyEntry:
         mainLanguageCode:
             type: string
         names:
-            type: array
+            type: string[]
         Parent:
             type: TaxonomyEntry
         Content:
@@ -3138,7 +3160,7 @@ TaxonomyEntryUpdateStruct:
         name:
             type: string
         names:
-            type: array
+            type: string[]
         languageCode:
             type: string
         mainLanguageCode:
@@ -3327,6 +3349,7 @@ Order:
             type: OrderItem[]
         context:
             type: array
+            items: mixed
 
 OrderUser:
     description: 'This class represents order user.'
@@ -3413,6 +3436,7 @@ OrderItem:
             type: integer
         context:
             type: array
+            items: mixed
 
 OrderItemValue:
     description: 'This class represents order item value.'
@@ -3650,6 +3674,7 @@ PaymentMethodUpdateStruct:
             type: boolean
         options:
             type: array
+            items: mixed
 
 PaymentMethodView:
     type: object
