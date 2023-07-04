@@ -104,12 +104,6 @@ To do it, extend drop-down list in the **View** field and choose one of the avai
 
 When everything is configured in the Block settings, click **Submit** button.
 
-After submitting the block, Page will refresh and Ibexa Connect block will display data from provided webhook. 
+After submitting the block, Page will refresh and Ibexa Connect block will display data from provided Ibexa Connect webhook. 
 
 ![Ibexa Connect webhook preview](ibexa_connect_webhook_preview.png)
-
-
-
-
-
-
