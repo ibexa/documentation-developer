@@ -22,8 +22,6 @@
         "check-cs": "@fix-cs --dry-run"
     },
     "config": {
-        "allow-plugins": {
-            "php-http/discovery": true
-        }
+        "allow-plugins": false
     }
 }

@@ -6,7 +6,7 @@ description: Work with Ibexa Connect scenario block that retrieves and displays 
 
 Ibexa Connect scenario block retrieves and displays data from an Ibexa Connect webhook. 
 
-Scenario block is regular [Page block](page_blocks.md) and can be configured on field definition level as any other block.
+Scenario block is a regular [Page block](page_blocks.md) and can be configured on field definition level as any other block.
 
 !!! caution
     
@@ -15,7 +15,7 @@ Scenario block is regular [Page block](page_blocks.md) and can be configured on 
 
 ## Scenario block configuration
 
-In the following example you will learn how to configure Ibexa Connect scenario block with two available templates: `foo` and `bar`.
+In the following example you will learn how to configure Ibexa Connect scenario block with two available templates: `company_customers` and `external_clients`.
 
 ### Block templates
 
@@ -25,14 +25,14 @@ First, in `config/packages/ibexa_connect.yaml` add the following configuration:
 ibexa_connect:
     scenario_block:
         block_templates:
-            foo:
+            company_customers:
                 template: 'blocks/default.html.twig'
-            bar:
-                label: Bar
+            external_clients:
+                label: External clients
                 template: 'blocks/default.html.twig'
                 parameters:
-                    foo: string
-                    bar:
+                    company_customers: string
+                    external_clients:
                         type: string
                         required: true
 ```
@@ -97,7 +97,7 @@ for example, `https://ibexa.integromat.celonis.com/3/scenarios/688/edit`:
 
 ![Ibexa Connect Basic tab](ibexa_connect_basic_tab.png)
 
-- In the **Design** tab, choose one of declared templates, in the following example, `foo` or `Bar`. 
+- In the **Design** tab, choose one of declared templates, in the following example, `company_customers` or `External clients`. 
 To do it, extend drop-down list in the **View** field and choose one of the available options.
 
 ![Ibexa Connect Design tab](ibexa_connect_design_tab.png)
