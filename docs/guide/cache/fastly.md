@@ -99,7 +99,7 @@ fastly service-version activate --version=latest activate
 
 The Fastly configuration is stored in [Varnish Configuration Language (VCL)](https://docs.fastly.com/en/guides/uploading-custom-vcl). By uploading custom VCL files
 you can change the behaviour of Fastly.
-Ibexa DXP ships with two VCL files that needs to be enabled in order for Fastly to work correctly with Ibexa DXP; `ez_main.vcl` and `ez_user_hash.vcl` (located in `vendor/ezsystems/ezplatform-http-cache-fastly/fastly/fastly/`)
+Ibexa DXP ships with two VCL files that needs to be enabled in order for Fastly to work correctly with Ibexa DXP; `ez_main.vcl` and `ez_user_hash.vcl` (located in `vendor/ezsystems/ezplatform-http-cache-fastly/fastly/`)
 
 ### List the custom VCLs for a particular version
 
@@ -364,7 +364,7 @@ In `snippet_basic_auth_error.vcl`:
 
 ```
 // This code should be added a snippet in your config:
-//  Name : BasicAuth recv
+//  Name : BasicAuth error
 //  Priority: 100
 //  Type:error
 
