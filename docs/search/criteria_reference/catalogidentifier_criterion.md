@@ -1,6 +1,6 @@
 # CatalogIdentifier Criterion
 
-The `CatalogIdentifier` Search Criterion searches for catalogs by the value of their identifier.
+The `CatalogIdentifier` Search Criterion searches for a catalog by the value of its identifier.
 
 ## Arguments
 
