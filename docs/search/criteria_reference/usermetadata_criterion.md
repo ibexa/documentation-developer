@@ -51,7 +51,7 @@ $query->query = new Criterion\UserMetadata(Criterion\UserMetadata::GROUP, Criter
 
 ## Use case
 
-You can use the `UserMetadata` Criterion to search for blog posts created by the Contributor User Group:
+You can use the `UserMetadata` Criterion to search for blog posts created by the Contributor user group:
 
 ``` php hl_lines="7"
 // ID of your custom Contributor User Group
