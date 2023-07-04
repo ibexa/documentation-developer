@@ -723,6 +723,7 @@ nav:
             - Package structure: resources/contributing/package_structure.md
     - Release notes:
         - Release notes: release_notes/release_notes.md
+        - Ibexa DXP v4.6 LTS: release_notes/ibexa_dxp_v4.6.md
         - Ibexa DXP v4.5: release_notes/ibexa_dxp_v4.5.md
         - Ibexa DXP v4.4: release_notes/ibexa_dxp_v4.4.md
         - Ibexa DXP v4.3: release_notes/ibexa_dxp_v4.3.md
@@ -792,6 +793,7 @@ extra:
   latest_tag_4_3: '4.3.5'
   latest_tag_4_4: '4.4.3'
   latest_tag_4_5: '4.5.0'
+  latest_tag_4_5: '4.6.0'
 
   symfony_doc: 'http://symfony.com/doc/5.4'
   user_doc: 'https://doc.ibexa.co/projects/userguide/en/master'
