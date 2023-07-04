@@ -45,7 +45,8 @@ def define_env(env):
     @env.macro
     def cards(pages, columns=1, style="cards"):
         current_page = env.variables.page
-        absolute_url = current_page.abs_url
+        absolute_url = current_page.canonical_url
+        # absolute_url = current_page.abs_url
         canonical = current_page.canonical_url
         url_parts = re.search("//([^/]+)/([^/]+)/([^/]+)/", canonical)
         (site, language, version) = url_parts.groups()
