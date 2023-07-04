@@ -29,7 +29,7 @@ The feature requires exposing an endpoint that passed data to an internal mailin
 
 - Pushing a message when the store customer's cart status remains unchanged for a set time to induce a purchase.
 
-- Pushing a message that invites a visitor to come back to the site after they have not returned to the site for a set time.
+- Pushing a message that invites a visitor to come back to the site after they haven't returned to the site for a set time.
 
 For more information, see [Email triggers](https://doc.ibexa.co/projects/userguide/en/4.5/personalization/triggers.md).
 
