@@ -163,7 +163,9 @@ To let your visitors receive emails with recommendations:
 
 1\. With the [User API](api_reference/user_api.md#post-requests), add the `e-mail` attribute (or another identifier) to the user record.
 
-2\. Prepare an endpoint that will intercept push messages and pass them on to your mailing system, for example, an Ibexa Connect [webhook](https://doc.ibexa.co/projects/connect/en/latest/tools/webhooks/). The webhook must meet the following requirements:
+2\. Prepare an endpoint to intercept push messages and pass them on, for example, to your mailing system.
+Out of many options, it could be an Ibexa Connect [webhook](https://doc.ibexa.co/projects/connect/en/latest/tools/webhooks/). 
+The webhook must meet the following requirements:
 
    - can't require authentication
    - must support POST requests
