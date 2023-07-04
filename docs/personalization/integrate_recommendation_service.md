@@ -165,9 +165,8 @@ To let your visitors receive emails with recommendations:
 
 2\. Prepare an endpoint to intercept push messages and pass them on, for example, to your mailing system.
 Out of many options, it could be an Ibexa Connect [webhook](https://doc.ibexa.co/projects/connect/en/latest/tools/webhooks/). 
-The webhook must meet the following requirements:
+The endpoint must meet the following requirements:
 
-   - can't require authentication
    - must support POST requests
    - must accept JSON objects in a format that resembles the following example:
 
