@@ -222,6 +222,7 @@ nav:
                 - 'Customer profile data': 'guide/customers/customer_api/customer_profile_data.md'
                 - 'Customer data configuration': 'guide/customers/customer_api/configuration_for_customer_data.md'
         - Shop process:
+            - Shop process: 'guide/shop_process.md'
             - Basket:
                 - 'Basket': 'guide/basket/basket.md'
                 - 'Basket configuration': 'guide/basket/basket_configuration.md'

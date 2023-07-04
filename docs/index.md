@@ -166,7 +166,7 @@
             <div class="info-tile info-tile--link-card">
                 <div class="info-tile__content">
                     <h3>
-                        <a href="content_management/content_management/">
+                        <a href="guide/catalog/product/">
                             <svg><use xlink:href="images/icons.svg#product" /></svg>
                             Product
                         </a>
@@ -183,7 +183,7 @@
             <div class="info-tile info-tile--link-card">
                 <div class="info-tile__content">
                     <h3>
-                        <a href="content_management/content_management/">
+                        <a href="guide/shop_process/">
                             <svg><use xlink:href="images/icons.svg#cart" /></svg>
                             Commerce
                         </a>
@@ -200,7 +200,7 @@
             <div class="info-tile info-tile--link-card">
                 <div class="info-tile__content">
                     <h3>
-                        <a href="content_management/content_management/">
+                        <a href="cdp/cdp/">
                             <svg><use xlink:href="images/icons.svg#profile" /></svg>
                             Customer
                         </a>

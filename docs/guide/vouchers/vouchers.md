@@ -1,4 +1,6 @@
 ---
+description: Manage vouchers and provide your customers with discounts.
+
 edition: commerce
 ---
 
