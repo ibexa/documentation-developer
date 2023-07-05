@@ -40,6 +40,24 @@ Fastly CLI, use the credentials for the environment you want to change).
 The Fastly configuration is versioned. That means that when you want to alter the configuration, you'll create a new version
 and activate it. You then may at any point revert back to a previous version if needed.
 
+## Quick setup of Fastly for use with Ibexa DXP
+
+Below are the few commands needed in order to install the required VCL configurtion for running Fastly with Ibexa DXP.
+In addition, you also need to set up domains, https and origin configuration (not covered here). What the various commands
+do are explained later on this page:
+
+```
+fastly vcl custom create --name "ez_main.vcl" --version=active --autoclone --content=vendor/ezsystems/ezplatform-http-cache-fastly/fastly/ --version=latest --main
+fastly vcl custom create --name "ez_user_hash.vcl" --content=vendor/ezsystems/ezplatform-http-cache-fastly/fastly/ez_user_hash.vcl --version=latest
+fastly vcl snippet create --name="Re-Enable shielding on restart" --version=latest --priority 100 --type recv --content=vendor/ezsystems/ezplatform-http-cache-fastly/fastly/snippet_re_enable_shielding.vcl
+fastly service-version activate --version=latest activate
+```
+
+
+!!! note "None of the steps above are needed when using Ibexa Cloud as this is then preconfigured for you"
+
+
+
 ### List configuration versions
 
 ```
@@ -177,7 +195,7 @@ Versions: 8
 
 - Make a new version based on the current active one, and upload the new vcl
   ```
-    $ fastly vcl custom update --name=ez_main.vcl --version=latest --autoclone --content=vendor/ezsystems/ezplatform-http-cache-fastly/fastly/ez_main.vcl
+    $ fastly vcl custom update --name=ez_main.vcl --version=active --autoclone --content=vendor/ezsystems/ezplatform-http-cache-fastly/fastly/ez_main.vcl
   ```
 - Make a description of the change in Fastly's version system
   ```
