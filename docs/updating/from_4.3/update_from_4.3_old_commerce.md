@@ -218,5 +218,5 @@ run data migration required by the Customer Portal applications feature:
 
 ```bash
 php bin/console ibexa:migrations:import vendor/ibexa/corporate-account/src/bundle/Resources/migrations/application_internal_fields.yaml --name=2022_11_07_22_46_application_internal_fields.yaml
-php bin/console ibexa:migration:migrate --file=2022_11_07_22_46_application_internal_fields.yaml
+php bin/console ibexa:migrations:migrate --file=2022_11_07_22_46_application_internal_fields.yaml
 ```
