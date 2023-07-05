@@ -327,7 +327,8 @@ Follow the steps below.
 
 Usernames and password can be stored inside vcl, but we'll instead store them in a [dictionary](https://docs.fastly.com/en/guides/working-with-dictionaries-using-the-web-interface#working-with-dictionaries-using-vcl-snippets)
 
-!!! note "In order to make this example work, you must run Ibexa DXP 3.3.16 or later, or 4.5."
+!!! note
+    In order to make this example work, you must run Ibexa DXP 3.3.16 or later, or 4.5.
 
 ### Create the dictionary and activate the change:
 
