@@ -35,11 +35,6 @@ Fastly CLI, use the credentials for the environment you want to change).
     Varnish is automatically provisioned on Ibexa Cloud. Varnish needs to be disabled on all environments that is using
     Fastly. See [documentation on how to do that](https://docs.platform.sh/guides/ibexa/fastly.html)
 
-## Quick introduction to the Fastly CLI
-
-The Fastly configuration is versioned. That means that when you want to alter the configuration, you'll create a new version
-and activate it. You then may at any point revert back to a previous version if needed.
-
 ## Quick setup of Fastly for use with Ibexa DXP
 
 Below are the few commands needed in order to install the required VCL configurtion for running Fastly with Ibexa DXP.
@@ -53,10 +48,12 @@ fastly vcl snippet create --name="Re-Enable shielding on restart" --version=late
 fastly service-version activate --version=latest activate
 ```
 
-
 !!! note "None of the steps above are needed when using Ibexa Cloud as this is then preconfigured for you"
 
+## Quick introduction to the Fastly CLI
 
+The Fastly configuration is versioned. That means that when you want to alter the configuration, you'll create a new version
+and activate it. You then may at any point revert back to a previous version if needed.
 
 ### List configuration versions
 
