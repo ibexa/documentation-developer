@@ -559,10 +559,10 @@ ContentTypeUpdateStruct:
             type: datetime
         names:
             description: 'If set this array of names with languageCode keys replace the complete name collection.'
-            type: string[]
+            type: Value[]
         descriptions:
             description: 'If set this array of descriptions with languageCode keys replace the complete description collection.'
-            type: string[]
+            type: Value[]
 
 ContentUpdateStruct:
     description: 'This class is used for updating the fields of a Content item draft.'
@@ -815,10 +815,10 @@ FieldDefinitionCreateStruct:
             type: string
         names:
             description: 'An array of names with languageCode keys.'
-            type: string[]
+            type: Value[]
         descriptions:
             description: 'An array of descriptions with languageCode keys.'
-            type: string[]
+            type: Value[]
         fieldGroup:
             description: 'Field group name.'
             type: string
@@ -855,10 +855,10 @@ FieldDefinitionUpdateStruct:
             type: string
         names:
             description: 'If set this array of names with languageCode keys replace the complete name collection.'
-            type: string[]
+            type: Value[]
         descriptions:
             description: 'If set this array of descriptions with languageCode keys replace the complete description collection.'
-            type: string[]
+            type: Value[]
         fieldGroup:
             description: 'If set the field group is changed to this name.'
             type: string
@@ -2178,9 +2178,9 @@ ContentTypeCreate:
         defaultAlwaysAvailable:
             type: boolean
         names:
-            type: string[]
+            type: Value[]
         descriptions:
-            type: string[]
+            type: Value[]
         FieldDefinition:
             type: FieldDefinition
         creatorId:
@@ -2215,9 +2215,9 @@ ContentTypeUpdate:
         defaultAlwaysAvailable:
             type: boolean
         names:
-            type: string[]
+            type: Value[]
         descriptions:
-            type: string[]
+            type: Value[]
         modifierId:
             description: 'If set, this value overrides the current user as creator.'
             type: any
@@ -2478,9 +2478,9 @@ CatalogCreate:
         Criteria:
             type: Criterion
         names:
-            type: string[]
+            type: object
         descriptions:
-            type: string[]
+            type: object
         status:
             type: string
         creator_id:
@@ -2497,9 +2497,9 @@ CatalogUpdate:
         Criteria:
             type: Criterion
         names:
-            type: string[]
+            type: object
         descriptions:
-            type: string[]
+            type: object
 
 CatalogCopy:
     description: 'This class is used to copy a catalog.'
@@ -2624,12 +2624,9 @@ AttributeGroupUpdate:
         identifier:
             type: string
         names:
-            type: string[]
+            type: object
         position:
             type: integer
-        languages:
-            type: array
-            items: mixed
 
 AttributeGroupList:
     description: 'This class represents an attribute group list.'
@@ -2685,9 +2682,9 @@ AttributeCreate:
         group:
             type: string
         names:
-            type: string[]
+            type: object
         descriptions:
-            type: string[]
+            type: object
         positions:
             type: integer
         options:
@@ -2701,9 +2698,9 @@ AttributeUpdate:
         identifier:
             type: string
         names:
-            type: string[]
+            type: object
         descriptions:
-            type: string[]
+            type: object
         positions:
             type: integer
         options:
@@ -2785,9 +2782,9 @@ CustomerGroupCreate:
         identifier:
             type: string
         names:
-            type: string[]
+            type: object
         descriptions:
-            type: string[]
+            type: object
         global_price_rate:
             description: 'numeric-string'
             type: string
@@ -2797,14 +2794,11 @@ CustomerGroupUpdate:
     type: object
     properties:
         names:
-            type: string[]
+            type: object
         identifier:
             type: string
         position:
             type: integer
-        languages:
-            type: array
-            items: mixed
 
 CustomerGroupViewInput:
     description: 'This class represents a customer group view input.'
@@ -2946,8 +2940,7 @@ ProductListGet:
         limit:
             type: integer
         languages:
-            type: array
-            items: mixed
+            type: string[]
 
 ProductGet:
     description: 'This class represents a product GET.'
