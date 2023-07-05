@@ -82,7 +82,7 @@ Then, in `templates/block` directory under `default.html.twig`, provide your blo
 {{ dump(ibexa_connect_data) }}
 ```
 
-In the following example, the configuration of the block is very simple - block is only used to display the content transferred from an Ibexa Connect webhook.
+In the following example, the configuration of the block is non-complex - block is only used to display the content transferred from an Ibexa Connect webhook.
 
 At this point the Ibexa Connect scenario block is ready to be used in Page Builder.
 
