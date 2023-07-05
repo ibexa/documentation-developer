@@ -26,7 +26,7 @@ You can choose between two available types: `Physical` and `Virtual`:
 They can use measurement attributes. They require shipment in the online purchase process.
 Examples: heaters, laptops, phones.
 - `Virtual` - non-tangible items. They can be sold individually, or as part of a product bundle.
-They do not require shipment in the online process. Examples: memberships, services, warranties. 
+They don't require shipment in the online process. Examples: memberships, services, warranties. 
 
 ## Product attributes
 

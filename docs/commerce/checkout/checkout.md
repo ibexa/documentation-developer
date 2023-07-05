@@ -53,7 +53,7 @@ For more information about shipping and billing addresses, see [Configure checko
 Virtual product is a special type of a [product](products.md). Virtual products are non-tangible items such as memberships, services, warranties. 
 They can be sold individually, or as part of a product bundle.
 
-Virtual products don’t require shipment when they are purchased individually.
+Virtual products don’t require shipment when they're purchased individually.
 While purchasing virtual product, you only have to fill in the billing address and select relevant payment method. 
 
 ![`Virtual product purchasing`](virtual_product_purchase.png "Virtual product purchasing")
