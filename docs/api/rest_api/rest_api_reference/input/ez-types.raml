@@ -2668,8 +2668,7 @@ Attribute:
         position:
             type: integer
         options:
-            type: array
-            items: mixed
+            type: object
 
 AttributeCreate:
     description: 'This class is used to create an attribute.'
@@ -2947,8 +2946,7 @@ ProductGet:
     type: object
     properties:
         languages:
-            type: array
-            items: mixed
+            type: string[]
 
 ProductCreate:
     description: 'This class is used to create a product.'
@@ -2960,10 +2958,10 @@ ProductCreate:
             type: string
         attributes:
             type: array
-            items: mixed
+            items: object
 
 ProductUpdate:
-    description: 'This class is used to create a product.'
+    description: 'This class is used to update a product.'
     type: object
     properties:
         ContentUpdate:
@@ -2972,7 +2970,7 @@ ProductUpdate:
             type: string
         attributes:
             type: array
-            items: mixed
+            items: object
 
 ProductViewInput:
     description: 'This class represents a product view input.'
@@ -3003,8 +3001,7 @@ ProductVariant:
         Product:
             type: Product
         DiscriminatorAttributesList:
-            type: array
-            items: mixed
+            type: Attribute[]
 
 ProductVariantCreate:
     description: 'This class is used to create a product variant.'
@@ -3093,7 +3090,8 @@ TaxonomyEntry:
         mainLanguageCode:
             type: string
         names:
-            type: string[]
+            type: array
+            items: mixed
         Parent:
             type: TaxonomyEntry
         Content:
@@ -3145,7 +3143,8 @@ TaxonomyEntryUpdateStruct:
         name:
             type: string
         names:
-            type: string[]
+            type: array
+            items: mixed
         languageCode:
             type: string
         mainLanguageCode:
@@ -3333,8 +3332,7 @@ Order:
         OrderItemsList:
             type: OrderItem[]
         context:
-            type: array
-            items: mixed
+            type: object
 
 OrderUser:
     description: 'This class represents order user.'
@@ -3420,8 +3418,7 @@ OrderItem:
         quantity:
             type: integer
         context:
-            type: array
-            items: mixed
+            type: object
 
 OrderItemValue:
     description: 'This class represents order item value.'
