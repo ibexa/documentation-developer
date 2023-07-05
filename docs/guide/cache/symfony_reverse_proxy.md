@@ -29,9 +29,8 @@ HTTP Cache.
 - Fastly VCLs can be found in `vendor/ezsystems/ezplatform-http-cache-fastly/fastly`
   - `ez_main.vcl` needs to installed as the **main** custom VCL
   - `ez_user_hash.vcl` also needs to be installed as custom VCL
-  - `snippet_re_enable_shielding.vcl` needs to be installed as snippet. See comments in the .vcl file itself for
-    instructions on how to install it.
-  - For further explenations on how to configure Fastly with Ibexa DXP see [Configuring and Customizing Fastly](fastly.md)
+  - `snippet_re_enable_shielding.vcl` needs to be installed as snippet.
+  - For further explanations on how to configure Fastly with Ibexa DXP see [Configuring and Customizing Fastly](fastly.md)
 
 The provided .vcl files will work both with [Fastly Shielding](https://docs.fastly.com/en/guides/shielding) enabled and without it.
 
