@@ -95,12 +95,12 @@ fastly service-version clone --version=latest
 ```
 
 !!! note "The --version parameter"
-Most Fastly CLI commands have the `--version` parameter. The `--version` parameter always supports aliases like `active`
-and `latest` in additional to a specific version number.
+    Most Fastly CLI commands have the `--version` parameter. The `--version` parameter always supports aliases like `active`
+    and `latest` in additional to a specific version number.
 
 !!! note "The --autoclone parameter"
-Most Fastly CLI commands that alter the config also supports the `--autoclone` parameter so that explicitly calling
-`fastly service-version clone` is often not needed if the using the `--autoclone` parameter is prefered.
+    Most Fastly CLI commands that alter the config also supports the `--autoclone` parameter so that explicitly calling
+    `fastly service-version clone` is often not needed if the using the `--autoclone` parameter is prefered.
 
 ### Activate version:
 
@@ -222,7 +222,8 @@ KlUh0J1fnw1JY1aEQ0up    8        Re-Enable shielding on restart  false    1iJWIf
 
 ```
 
-!!! note "As of version 3.3.24, 4.1.6 and 4.2.0, Ibexa DXP also requires one snippet installed, in addition to the custom vcls `ez_main.vcl` and `ez_user_hash.vcl`. That snippet is by default named `Re-Enable shielding on restart`"
+!!! note
+    As of version 3.3.24, 4.1.6 and 4.2.0, Ibexa DXP also requires one snippet to be installed, in addition to the custom vcls `ez_main.vcl` and `ez_user_hash.vcl`. That snippet is by default named `Re-Enable shielding on restart`
 
 ### Get the details of installed snippets
 
