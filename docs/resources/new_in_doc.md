@@ -10,19 +10,20 @@ This page contains recent highlights and notable changes in Ibexa DXP documentat
 
 ### Personalization
 
-- [Email triggers in User Guide](https://doc.ibexa.co/projects/userguide/en/master/personalization/triggers/)
+- [Email triggers](https://doc.ibexa.co/en/master/personalization/integrate_recommendation_service/#send-emails-with-recommendations)
+- [Email triggers in user documentation](https://doc.ibexa.co/projects/userguide/en/master/personalization/triggers/)
 
 ### Search
 
-- [Updated search engines documentation](https://doc.ibexa.co/en/master/search/search_engines/):
+- [Updated search engines documentation](https://doc.ibexa.co/en/master/search/search_engines/search_engines/):
     - [Elasticsearch search engine](https://doc.ibexa.co/en/master/search/search_engines/elastic_search/elastic_search_overview/)
     - [Solr search engine](https://doc.ibexa.co/en/master/search/search_engines/solr_search_engine/solr_overview/)
     - [Legacy search engine](https://doc.ibexa.co/en/master/search/search_engines/legacy_search_engine/legacy_search_overview/#legacy-search-engine)
 
 ### Commerce
 
-- [Shipping methods management](https://doc.ibexa.co/projects/userguide/en/master/commerce/shipping_management/work_with_shipping_methods/)
-- [Payment methods management](https://doc.ibexa.co/projects/userguide/en/master/commerce/payment/work_with_payments/)
+- [Shipping methods management in user documentation](https://doc.ibexa.co/projects/userguide/en/master/commerce/shipping_management/work_with_shipping_methods/)
+- [Payment methods management in user documentation](https://doc.ibexa.co/projects/userguide/en/master/commerce/payment/work_with_payments/)
 - Stock Search Criteria and Aggregation:
     - [ProductStockRangeAggregation](https://doc.ibexa.co/en/master/search/aggregation_reference/productstockrange_aggregation/)
     - [ProductStock](https://doc.ibexa.co/en/master/search/criteria_reference/productstock_criterion/)
