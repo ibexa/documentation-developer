@@ -45,7 +45,7 @@ do are explained later on this page:
 fastly vcl custom create --name "ez_main.vcl" --version=active --autoclone --content=vendor/ezsystems/ezplatform-http-cache-fastly/fastly/ --version=latest --main
 fastly vcl custom create --name "ez_user_hash.vcl" --content=vendor/ezsystems/ezplatform-http-cache-fastly/fastly/ez_user_hash.vcl --version=latest
 fastly vcl snippet create --name="Re-Enable shielding on restart" --version=latest --priority 100 --type recv --content=vendor/ezsystems/ezplatform-http-cache-fastly/fastly/snippet_re_enable_shielding.vcl
-fastly service-version activate --version=latest activate
+fastly service-version activate --version=latest
 ```
 
 !!! note "None of the steps above are needed when using Ibexa Cloud as this is then preconfigured for you"
@@ -107,7 +107,7 @@ Most Fastly CLI commands that alter the config also supports the `--autoclone` p
 You activate a version using the command:
 
 ```
-fastly service-version activate --version=latest activate
+fastly service-version activate --version=latest
 ```
 
 ## Viewing and modifying the VCL configuration
