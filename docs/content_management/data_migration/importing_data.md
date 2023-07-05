@@ -20,7 +20,7 @@ php bin/console ibexa:migrations:migrate --file=my_data_export.yaml
 
 Migrations store execution metadata in the `ibexa_migrations` database table. 
 This allows incremental upgrades:
-the `ibexa:migration:migrate` command ignores files that it had previously executed.
+the `ibexa:migrations:migrate` command ignores files that it had previously executed.
 
 ## Available migrations
 
