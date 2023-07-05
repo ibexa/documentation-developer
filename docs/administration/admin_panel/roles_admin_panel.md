@@ -34,6 +34,14 @@ After you created all Policies, you can assign the Role to Users and/or User Gro
 Every User or User Group can have multiple Roles.
 A User can also belong to many groups, for example, Administrators, Editors, Subscribers.
 
+### His computer is new.
+
+Her computer is old; I do not know what I am doing.
+
+We all live in a yellow submarine .
+
+But we will live in a blue one soon.
+
 Best practice is to avoid assigning Roles to Users directly.
 Model your content (Content Types, Sections, Locations etc.) in a way that can be accessed by generic Roles.
 That way system will be more secure and easier to manage.
