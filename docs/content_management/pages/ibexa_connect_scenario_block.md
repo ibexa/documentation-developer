@@ -15,7 +15,7 @@ Scenario block is a regular [Page block](page_blocks.md) and can be configured o
 
 ## Scenario block configuration
 
-In the following example you will learn how to configure Ibexa Connect scenario block with two available templates: `company_customers` and `external_clients`.
+In the following example you can learn how to configure Ibexa Connect scenario block with two available templates: `company_customers` and `external_clients`.
 
 ### Block templates
 
@@ -104,6 +104,6 @@ To do it, extend drop-down list in the **View** field and choose one of the avai
 
 When everything is configured in the Block settings, click **Submit** button.
 
-After submitting the block, Page will refresh and Ibexa Connect block will display data from provided Ibexa Connect webhook. 
+After submitting the block, Page refreshes and Ibexa Connect block displays data from provided Ibexa Connect webhook. 
 
 ![Ibexa Connect webhook preview](ibexa_connect_webhook_preview.png)
