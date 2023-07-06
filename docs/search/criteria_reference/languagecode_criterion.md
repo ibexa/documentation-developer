@@ -35,8 +35,8 @@ $query->query = new Criterion\LanguageCode('ger-DE', false);
     "Query": {
         "Filter": {
             "LanguageCodeCriterion": "eng-GB"
-            }
         }
+    }
     ```
 
 ## Use case

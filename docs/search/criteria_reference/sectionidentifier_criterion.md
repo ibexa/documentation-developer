@@ -33,6 +33,6 @@ $query->query = new Criterion\SectionIdentifier(['sports', 'news']);
     "Query": {
         "Filter": {
             "SectionIdentifierCriterion": "sports"
-            }
         }
+    }
     ```

@@ -16,7 +16,8 @@ The `LogicalAnd` Search Criterion matches payments if all provided Criteria matc
 ### PHP
 
 ``` php
-$query->query = new \Ibexa\Contracts\Payment\Payment\Query\Criterion\LogicalAnd([
+$query->query = new \Ibexa\Contracts\Payment\Payment\Query\Criterion\LogicalAnd(
+    [
         new \Ibexa\Contracts\Payment\Payment\Query\Criterion\CreatedAt(new DateTime('2023-03-01'));
         new \Ibexa\Contracts\Payment\Payment\Query\Criterion\Currency('USD');
     ]

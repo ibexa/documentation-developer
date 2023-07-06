@@ -33,8 +33,8 @@ $query->query = new Criterion\ContentTypeGroupId([1, 2]);
     "Query": {
         "Filter": {
             "ContentTypeGroupIdCriterion": [1, 2]
-            }
         }
+    }
     ```
 
 ## Use case

@@ -33,6 +33,6 @@ $query->query = new Criterion\UserId([14]);
     "Query": {
         "Filter": {
             "UserIdCriterion": "14"
-            }
         }
+    }
     ```

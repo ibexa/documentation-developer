@@ -38,6 +38,6 @@ $query->query = new Criterion\IsUserEnabled();
     "Query": {
         "Filter": {
             "IsUserEnabledCriterion": "true"
-            }
         }
+    }
     ```

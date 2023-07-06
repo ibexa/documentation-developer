@@ -39,6 +39,6 @@ $query->query = new Criterion\Visibility(Criterion\Visibility::HIDDEN);
     "Query": {
         "Filter": {
             "ContentIdCriterion": "HIDDEN"
-            }
         }
+    }
     ```

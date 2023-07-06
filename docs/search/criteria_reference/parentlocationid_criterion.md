@@ -33,8 +33,8 @@ $query->query = new Criterion\ParentLocationId([54, 58]);
     "Query": {
         "Filter": {
             "ParentLocationIdCriterion": [69, 72]
-            }
         }
+    }
     ```
 
 ## Use case

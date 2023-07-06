@@ -33,6 +33,6 @@ $query->query = new Criterion\LocationRemoteId(['4d1e5f216c0a7aaab7f005ffd4b6a8a
     "Query": {
         "Filter": {
             "LocationRemoteIdCriterion": "3aaeefdb0ae573ac91f6d6ea78d230b7"
-            }
         }
+    }
     ```

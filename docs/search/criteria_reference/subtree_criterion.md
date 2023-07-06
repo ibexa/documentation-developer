@@ -34,6 +34,6 @@ $query->query = new Criterion\Subtree('/1/2/71/72/');
     "Query": {
         "Filter": {
             "SubtreeCriterion": "/1/2/71/"
-            }
         }
+    }
     ```

@@ -33,8 +33,8 @@ $query->query = new Criterion\Ancestor([$this->locationService->loadLocation(62)
     "Query": {
         "Filter": {
             "AncestorCriterion": "/81/82/"
-            }
         }
+    }
     ```
 
 ## Use case

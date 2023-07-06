@@ -33,6 +33,6 @@ $query->query = new Criterion\ObjectStateId([4, 5]);
     "Query": {
         "Filter": {
             "ObjectStateIdCriterion": "1"
-            }
         }
+    }
     ```

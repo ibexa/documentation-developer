@@ -33,6 +33,6 @@ $query->query = new Criterion\LocationId(62);
     "Query": {
         "Filter": {
             "LocationIdCriterion": "62"
-            }
         }
+    }
     ```

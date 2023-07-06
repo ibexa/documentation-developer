@@ -33,6 +33,6 @@ $query->query = new Criterion\ContentTypeIdentifier(['article', 'blog_post']);
     "Query": {
         "Filter": {
             "ContentTypeIdentifierCriterion": "article"
-            }
         }
+    }
     ```

@@ -42,6 +42,6 @@ $query->query = new Criterion\UserEmail('nospam*', Criterion\Operator::LIKE);
     "Query": {
         "Filter": {
             "UserEmailCriterion": "j.black*"
-            }
         }
+    }
     ```

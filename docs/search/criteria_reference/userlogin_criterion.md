@@ -42,6 +42,6 @@ $query->query = new Criterion\UserLogin('adm*', Criterion\Operator::LIKE);
     "Query": {
         "Filter": {
             "UserLoginCriterion": "johndoe"
-            }
         }
+    }
     ```

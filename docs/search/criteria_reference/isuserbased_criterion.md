@@ -43,6 +43,6 @@ $query->query = new Criterion\IsUserBased();
     "Query": {
         "Filter": {
             "IsUserBasedCriterion": "false"
-            }
         }
+    }
     ```

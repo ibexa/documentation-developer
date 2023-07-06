@@ -33,6 +33,6 @@ $query->query = new Criterion\ContentTypeId([44]);
     "Query": {
         "Filter": {
             "ContentTypeIdCriterion": 44
-            }
         }
+    }
     ```

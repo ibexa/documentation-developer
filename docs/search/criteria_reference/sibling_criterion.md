@@ -49,7 +49,7 @@ $query->query = Criterion\Sibling::fromLocation($location);
             "SiblingCriterion": {
                 "locationId": 85,
                 "parentLocationId": 81
-                }
             }
         }
+    }
     ```

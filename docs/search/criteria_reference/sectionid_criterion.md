@@ -33,6 +33,6 @@ $query->query = new Criterion\SectionId(3);
     "Query": {
         "Filter": {
             "SectionIdCriterion": "3"
-            }
         }
+    }
     ```

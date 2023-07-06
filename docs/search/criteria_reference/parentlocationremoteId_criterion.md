@@ -25,6 +25,6 @@ The `ParentLocationRemoteId` Search Criterion searches for content based on the 
     "Query": {
         "Filter": {
             "ParentLocationRemoteIdCriterion": "abab615dcf26699a4291657152da4337"
-            }
         }
+    }
     ```

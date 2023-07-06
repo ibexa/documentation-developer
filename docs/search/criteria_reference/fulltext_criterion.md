@@ -65,8 +65,8 @@ $query->query = new Criterion\FullText('baseball AND cup');
     "Query": {
         "Filter": {
             "FullTextCriterion": "victory"
-            }
         }
+    }
     ```
 
 ## Use cases

@@ -33,6 +33,6 @@ $query->query = new Criterion\RemoteId('abab615dcf26699a4291657152da4337');
     "Query": {
         "Filter": {
             "ContentRemoteIdCriterion": "abab615dcf26699a4291657152da4337"
-            }
         }
+    }
     ```
