@@ -1,0 +1,4 @@
+services:
+    App\Menu\MenuBuilder:
+        tags:
+            - {name: knp_menu.menu_builder, method: buildMenu, alias: root}

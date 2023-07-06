@@ -1,5 +1,6 @@
 ---
 description: Events that are triggered when working with users and User Groups.
+page_type: reference
 ---
 
 # User events

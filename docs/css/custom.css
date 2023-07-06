@@ -80,14 +80,14 @@
 
 @font-face {
     font-family: 'Work Sans';
-    src: url('../fonts/Noto_Sans/WorkSans-Regular.ttf');
+    src: url('../fonts/Work_Sans/WorkSans-Regular.ttf');
     font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Work Sans';
-    src: url('../fonts/Noto_Sans/WorkSans-SemiBold.ttf');
+    src: url('../fonts/Work_Sans/WorkSans-SemiBold.ttf');
     font-weight: 600;
     font-style: normal;
 }
@@ -221,50 +221,45 @@ ul li li li {
 
 /* Admonitions */
 
-/* Reset Material admonitions */
-
 .md-typeset :is(.admonition,details):is(.tip,.note,.caution),
 .md-typeset :is(.admonition-title,summary),
 .md-typeset :is(.tip,.note)>:is(.admonition-title,summary) {
-    border: 0;
     background-color: #ffffff;
     box-shadow: none;
     font-size: 16px;
 }
 
-/* Caution */
-
-.md-typeset .admonition:is(.caution)
-{
-    border: 0.1rem solid var(--caution-border);
-}
-
-.md-typeset .admonition:is(.caution)>.admonition-title {
-    border-left: 0.1rem solid var(--caution-border);
-}
-
-/* Note, tip and expand box */
-
 .md-typeset :is(.admonition,details):is(.tip,.note)
 {
     border: 0.1rem solid var(--note-border);
+    border-radius: 0.1rem;
 }
 
-.md-typeset :is(.admonition,details):is(.tip,.note)>:is(.admonition-title,summary) {
-    border-left: 0.1rem solid var(--note-border);
+.md-typeset :is(.admonition,details):is(.caution)
+{
+    border: 0.1rem solid var(--caution-border);
+    border-radius: 0.1rem;
+}
+
+.md-typeset .admonition.caution>.admonition-title {
+    border-color: var(--caution-border);    
+}
+
+.md-typeset .admonition:is(.note,.tip)>:is(.admonition-title) {
+    border-color: var(--note-border);
+}
+
+.md-typeset :is(.admonition,details[open]):is(.note,.tip,.caution) :is(.admonition-title,summary) {
+    border-bottom: 1px solid var(--note-border);
 }
 
 /* Admonition icons */
-.md-typeset :is(.admonition,details).tip>:is(.admonition-title,summary):before {
-    background-color: var(--note-border);
-    -webkit-mask-image: var(--md-admonition-icon--tip);
-            mask-image: var(--md-admonition-icon--tip);
-}
 
-.md-typeset :is(.admonition,details).note>:is(.admonition-title,summary):before {
-    background-color: var(--note-border);
-    -webkit-mask-image: var(--md-admonition-icon--note);
-            mask-image: var(--md-admonition-icon--note);
+.md-typeset .note > .admonition-title::before,
+.md-typeset .tip > .admonition-title::before,
+.md-typeset .note > summary::before,
+.md-typeset .tip > summary::before {
+  background-color: var(--note-border);
 }
 
 .md-typeset :is(.admonition,details).caution>:is(.admonition-title,summary):before {
@@ -273,24 +268,25 @@ ul li li li {
             mask-image: var(--md-admonition-icon--caution);
 }
 
-/* General admonitions */
+/* Tile admonition */
 
-.md-typeset .admonition.caution>.admonition-title {
+.md-typeset :is(.admonition):is(.tile) {
     background-color: #ffffff;
-    border-color: var(--caution-border);    
+    border: 1px solid #D4D4D4;
+    border-radius: 5px;
+    padding: 0.7rem;
+    margin-bottom: 0.4rem;
+    overflow: auto;
+    box-shadow: none;
+    font-size: 16px;
 }
 
-.md-typeset .admonition:is(.note,.tip)>:is(.admonition-title) {
-    background-color: #ffffff;
-    border-color: var(--note-border);
+.md-typeset :is(.admonition).tile>:is(.admonition-title) {
+    padding-left: 0.7rem;
 }
 
-.md-typeset :is(.admonition,details[open]):is(.note,.tip,.caution) :is(.admonition-title,summary) {
-    border-bottom: 1px solid var(--note-border);
-}
-
-.md-typeset :is(.admonition,details):is(.note,.tip,.caution) :is(.admonition-title,summary) {
-    margin-left: -0.7rem;
+.md-typeset :is(.admonition).tile>:is(.admonition-title):before {
+    content: none;
 }
 
 /* Fix scrollbar in admonitions when containing a table */

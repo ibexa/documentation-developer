@@ -65,12 +65,12 @@ services:
 Users can set their preferred date and time formats in the User settings menu.
 This format is used throughout the Back Office.
 
-You can set the list of available formats with the following configuration:
+You can set the list of available formats under the `ibexa.system.<scope>.user_preferences` [configuration key](configuration.md#configuration-files):
 
 ``` yaml
 ibexa:
     system:
-        <siteaccess>:
+        <scope>:
             user_preferences:
                 allowed_short_date_formats:
                     'label for dd/MM/yyyy': 'dd/MM/yyyy'
@@ -91,7 +91,7 @@ The default date and time format is set using:
 ``` yaml
 ibexa:
     system:
-        <siteaccess>:
+        <scope>:
             user_preferences:
                 short_datetime_format:
                     date_format: 'dd/MM/yyyy'

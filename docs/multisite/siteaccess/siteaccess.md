@@ -1,5 +1,6 @@
 ---
 description: SiteAccesses enable you to provide separate configuration for each site in a multisite setup.
+page_type: landing_page
 ---
 
 # SiteAccess

@@ -91,7 +91,7 @@ $menu->addChild(
     'all_content_list',
     [
         'extras' => [
-            'template' => 'list/all_content_list.html.twig',
+            'template' => '@ibexadesign/list/all_content_list.html.twig',
             'template_parameters' => [
                 'custom_parameter' => 'value',
             ],
@@ -100,7 +100,7 @@ $menu->addChild(
 );
 ```
 
-You can then use the variable `custom_parameter` in `templates/list/all_content_list.html.twig`.
+You can then use the variable `custom_parameter` in `templates/themes/admin/list/all_content_list.html.twig`.
 
 ### Translatable labels
 

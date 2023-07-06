@@ -1,5 +1,6 @@
 ---
 description: Import data into your Repository from prepared YAML files.
+page_type: reference
 ---
 
 # Importing data
@@ -19,7 +20,7 @@ php bin/console ibexa:migrations:migrate --file=my_data_export.yaml
 
 Migrations store execution metadata in the `ibexa_migrations` database table. 
 This allows incremental upgrades:
-the `ibexa:migration:migrate` command ignores files that it had previously executed.
+the `ibexa:migrations:migrate` command ignores files that it had previously executed.
 
 ## Available migrations
 
@@ -28,11 +29,11 @@ The following data migration steps are available:
 |                      | `create` | `update` | `delete` |
 |----------------------|:--------:|:--------:|:--------:|
 | `content`            | &#10004; | &#10004; | &#10004; |
-| `content_type`       | &#10004; | &#10004; |          |
+| `content_type`       | &#10004; | &#10004; | &#10004; |
 | `role`               | &#10004; | &#10004; | &#10004; |
-| `content_type_group` | &#10004; | &#10004; |          |
+| `content_type_group` | &#10004; | &#10004; | &#10004; |
 | `user`               | &#10004; | &#10004; |          |
-| `user_group`         | &#10004; |          | &#10004; |
+| `user_group`         | &#10004; | &#10004; | &#10004; |
 | `language`           | &#10004; |          |          |
 | `object_state_group` | &#10004; |          |          |
 | `object_state`       | &#10004; |          |          |
@@ -43,6 +44,7 @@ The following data migration steps are available:
 | `customer_group`     | &#10004; | &#10004; | &#10004; |
 | `currency`           | &#10004; | &#10004; | &#10004; |
 | `product_price`      | &#10004; |          |          |
+| `product_availability` | &#10004; |          |          |
 | `segment_group`      | &#10004; | &#10004; | &#10004; |
 | `segment`            | &#10004; | &#10004; | &#10004; |
 | `setting`            | &#10004; | &#10004; | &#10004; |

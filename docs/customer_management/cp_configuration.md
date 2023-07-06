@@ -29,7 +29,7 @@ ibexa:
 ## Roles and Policies
 
 You can add custom roles to your installation
-by listing them under the `ibexa.site_access.config.default.corporate_accounts.roles` key.
+by listing them under the `ibexa.site_access.config.default.corporate_accounts.roles` [configuration](configuration.md#configuration-files).
 This key overwrites the default list set in `vendor/ibexa/corporate-account/src/bundle/Resources/config/default_settings.yaml` (the following example redeclares them for clarity):
 
 ```yaml
@@ -76,8 +76,7 @@ To learn more, see [Address Field Type documentation](addressfield.md).
 ## Templates
 
 You can also define new templates for, among others: invitation email,
-reset password message and the information screens after any of the user's actions in 
-`config/packages/ibexa.yaml`.
+reset password message and the information screens after any of the user's actions.
 
 ```yaml
 ibexa:

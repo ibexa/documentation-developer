@@ -19,6 +19,12 @@ The component exposes the following:
 There is no specific configuration related to the cart component.
 All configuration is done at the checkout and storefront level.
 
+Cart constructor takes the following arguments:
+
+- `userId` - by default, read from the header's meta element with `name="UserId"`, where variable type must be integer
+- `currencyCode` - by default, read from the header's meta element with `name="ActiveCurrencyCode"`
+- `lang` - by default, read from the document element's `lang` attribute
+
 ## Cart data handling
 
 Cart data is handled by two storages, depending on whether the buyer is anonymous 
@@ -74,15 +80,19 @@ For more information, see [Customize storefront layout](customize_storefront_lay
 Main cart is the main user interface component of the cart.
 By default, it lists items selected for purchase and requested cart item quantities. 
 
-Users who visit the Main cart can remove individual items.
+Users who view the Main cart can remove individual items.
 
-#### Add to cart
+For more information, see [Customize storefront layout](customize_storefront_layout.md#main-cart).
 
-By default, the Add to cart component consists of a quantity input field and a button.
+#### Add to Cart
+
+By default, the Add to Cart component consists of a quantity input field and a button.
+For example, to add variant selectors, you have to [extend the Twig and JavaScript](customize_storefront_layout.md#add-to-cart) component.
 
 #### Minicart
 
-By default, the Minicart component consists of a counter that displays a total number of cart items.
+By default, the Minicart component consists of a counter that displays a total number of cart items with `div` wrappers.
+The Minicart icon, titles and other [elements](customize_storefront_layout.md#mini-cart) can be customized for individual projects.
 
 #### Cart summary 
 
@@ -94,7 +104,69 @@ and taxes included) in the selected currency.
 You could extend the Cart summary widget to let buyers navigate from this view, 
 for example, to checkout, or back to shopping, by adding respective buttons.
 
+### Cart events
+
+When cart data is changed or loaded, the `ibexa-cart:cart-data-changed` event is triggered on `body`.
+The reference to the Cart is sent in the event's `detail`.
+
+```js
+document.body.addEventListener(
+    'ibexa-cart:cart-data-changed',
+    ({ detail: { cart } }) => {
+        refreshMyWidget(cart);
+    },
+    false,
+);
+```
+
 ### Cart service 
 
 The Cart package provides `Ibexa\Contracts\Cart\CartServiceInterface` Symfony service, 
 which is the entrypoint for calling the [backend API](cart_api.md).
+
+You can import the service using the following code:
+
+```js
+import * as cartService from '@ibexa-cart/src/bundle/Resources/public/js/service/cart';
+```
+
+Use the service in your code as follows:
+
+```js
+cartService.deleteCartEntry(cartIdentifier, entryIdentifier);
+```
+
+Every cart service function returns a `Promise` object with a parsed response.
+When the request is not `OK`, it can throw an error with the response `statusText`.
+
+- `loadUserCarts(ownerId)` - loads 10 user carts
+- `loadCartSummary(cartIdentifier)` - load cart summary data
+- `createCart(currencyCode)` - creates a new cart
+- `deleteCart(cartIdentifier)` - deletes the cart
+- `createCartEntry(cartIdentifier, productCode, quantity)` - creates a new cart entry for the specified product
+- `updateProductQuantity(cartIdentifier, entryIdentifier, quantity)` - updates product quantity to a new value
+- `deleteCartEntry(cartIdentifier, entryIdentifier)` - deletes cart entry
+- `emptyCart(cartIdentifier)` - empties cart by removing all entries, returns Promise
+
+To import and initialize cart (without extending it or passing any options), add the following:
+
+```js
+import Cart from '@ibexa-cart/src/bundle/Resources/public/js/component/cart';
+
+new Cart();
+```
+
+
+### Change request before sending
+
+Before every request is sent by `cartService`, the `ibexa-cart:prepare-request` event is triggered on `document`, so you can change request object by assigning a new one to `detail.request`:
+
+```js
+document.addEventListener(
+    'ibexa-cart:prepare-request',
+    (event) => {
+        event.detail.request = modifiedRequest;
+    },
+    false,
+);
+```

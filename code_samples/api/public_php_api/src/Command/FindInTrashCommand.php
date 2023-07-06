@@ -1,17 +1,17 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Command;
 
+use Ibexa\Contracts\Core\Repository\TrashService;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Input\InputArgument;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\TrashService;
 
 class FindInTrashCommand extends Command
 {
-    private $trashService;
+    private TrashService $trashService;
 
     public function __construct(TrashService $trashService)
     {

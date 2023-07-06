@@ -18,7 +18,7 @@ A similar but internal logic is done in the provided enhanced Symfony Proxy (App
 
 ## Request lifecycle
 
-This expands steps covered in [FOSHttpCacheBundle documentation on user context feature](https://foshttpcachebundle.readthedocs.io/en/2.8.0/features/user-context.html#how-it-works):
+This expands steps covered in [FOSHttpCacheBundle documentation on user context feature](https://foshttpcachebundle.readthedocs.io/en/latest/features/user-context.html#how-it-works):
 
 1. A client (browser) requests URI `/foo`.
 1. The caching proxy receives the request and holds it. It first sends a hash request to the application's context hash route: `/_fos_user_context_hash`.
@@ -129,7 +129,7 @@ This solution requires more effort (controller, VCL logic and adapting your own 
 
 ### Best practices for custom vary by logic
 
-For information on how user context hashes are generated, see [FOSHttpCacheBundle documentation](https://foshttpcachebundle.readthedocs.io/en/2.8.0/features/user-context.html#generating-hashes).
+For information on how user context hashes are generated, see [FOSHttpCacheBundle documentation](https://foshttpcachebundle.readthedocs.io/en/latest/features/user-context.html#generating-hashes).
 
 [[= product_name =]] implements a custom context provider in order to make user context hash reflect the current User's Roles and Limitations.
 This is needed given [[= product_name =]]'s more complex permission model compared to Symfony's.
@@ -151,7 +151,7 @@ needs, and adapt the user context hash VCL logic to use the additional header.
 
 To avoid overloading any application code, take advantage of Symfony's event system:
 
-1\. Add a Response [event listener or subscriber](https://symfony.com/doc/5.1/event_dispatcher.html) to add your own hash to `/_fos_user_context_hash`:
+1\. Add a [Response event (`kernel.response`)](https://symfony.com/doc/5.4/reference/events.html#kernel-response) [listener or subscriber](https://symfony.com/doc/5.4/event_dispatcher.html) to add your own hash to `/_fos_user_context_hash`:
 
 ```php
 public function addPreferenceHash(FilterResponseEvent $event)

@@ -1,5 +1,6 @@
 ---
 description: Use built-in Query types to quickly query Content items in templates.
+page_type: reference
 ---
 
 # Built-in Query types

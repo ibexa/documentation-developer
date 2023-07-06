@@ -20,12 +20,12 @@ The matcher class must implement the following methods:
 The following example shows how to implement an `Owner` matcher.
 This matcher identifies Content items that have the provided owner or owners.
 
-``` php hl_lines="48"
+``` php hl_lines="44"
 [[= include_file('code_samples/front/view_matcher/src/View/Matcher/Owner.php') =]]
 ```
 
 The matcher checks whether the owner of the current content (by its ContentInfo or Location)
-matches any of the values passed in configuration (line 48).
+matches any of the values passed in configuration (line 44).
 
 ## View configuration
 

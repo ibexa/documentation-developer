@@ -1,5 +1,6 @@
 ---
 description: Catalog Twig functions enable getting and rendering certain catalog information.
+page_type: reference
 ---
 
 # Catalog Twig functions

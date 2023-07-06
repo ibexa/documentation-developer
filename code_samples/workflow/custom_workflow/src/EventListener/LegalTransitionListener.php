@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\EventListener;
 
+use Ibexa\Contracts\AdminUi\Notification\TranslatableNotificationHandlerInterface as NotificationInterface;
 use Ibexa\Contracts\Workflow\Event\Action\AbstractTransitionWorkflowActionListener;
 use Symfony\Component\Workflow\Event\TransitionEvent;
-use Ibexa\Contracts\AdminUi\Notification\TranslatableNotificationHandlerInterface as NotificationInterface;
 
 class LegalTransitionListener extends AbstractTransitionWorkflowActionListener
 {

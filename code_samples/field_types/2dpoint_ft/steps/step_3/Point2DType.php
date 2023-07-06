@@ -16,10 +16,11 @@ final class Point2DType extends AbstractType
         $builder->add('x', NumberType::class);
         $builder->add('y', NumberType::class);
     }
+
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Value::class
+            'data_class' => Value::class,
         ]);
     }
 }

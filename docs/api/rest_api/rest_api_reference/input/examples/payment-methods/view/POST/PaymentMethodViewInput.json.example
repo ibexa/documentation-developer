@@ -1,0 +1,9 @@
+{
+  "PaymentMethodViewInput": {
+    "identifier": "example",
+    "PaymentMethodQuery": {
+      "offset": 0,
+      "limit": 10
+    }
+  }
+}

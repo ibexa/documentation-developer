@@ -1,5 +1,6 @@
 ---
 description: Use date Twig filters to select the date and time format used in templates.
+page_type: reference
 ---
 
 # Date Twig filters

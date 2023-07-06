@@ -6,7 +6,7 @@ description: Step-by-step activation procedure of Ibexa CDP.
 
 ## Configuration
 
-To configure Ibexa CDP, edit the `config/packages/ibexa_cdp.yaml` file:
+To configure Ibexa CDP, use the `ibexa.system.<scope>.cdp` [configuration key](configuration.md#configuration-files):
 
 ```yaml
 ibexa:
@@ -14,8 +14,11 @@ ibexa:
         default:
             cdp:
                 account_number: 123456
-                user_data_streaming:
-                    stream_id: 00000000-00000000-00000000-00000000
+                data_export:
+                    user_data:
+                        transport: stream_file
+                        stream_file:
+                            stream_id: 00000000-00000000-00000000-00000000
                 activations:
                     client_id: '%env(CDP_ACTIVATION_CLIENT_ID)%'
                     client_secret: '%env(CDP_ACTIVATION_CLIENT_SECRET)%'
@@ -52,7 +55,7 @@ A pop-up window displays with a list of all available accounts and their numbers
 
 ![Account number](img/cdp_account_number.png)
 
-## User Data Streaming
+## Data export
 
 You need to specify a source of the user data that Ibexa CDP will connect to.
 To do so, go to **Data Manager** in **Tools** section and select **Create new dataflow**.
@@ -63,11 +66,12 @@ It will take you to a Dataflow Creator, where in five steps you will set up a da
 In the **General Information** section, specify dataflow name,
 choose **Stream File** as a source of user data and **CDP** as a destination,
 where they will be sent for processing.
+Currently, only Stream File transport is supported and can be initialized from the configuration. 
 
 ### Download
 
 In the **Download** section, select **Stream file**. 
-Copy generated steam ID and paste it into the `config/packages/ibexa_cdp.yaml` file under `stream_id`.
+Copy generated steam ID and paste it into the configuration file under `stream_id`.
 It allows you to establish a datastream from the Streaming API into the Data Manager.
 
 Next, you need to export your user data to the CDP.
