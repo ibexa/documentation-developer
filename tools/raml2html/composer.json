@@ -16,10 +16,10 @@
         "php": "^8.0",
         "symfony/console": "^6.0",
         "raml-org/raml-php-parser": "^4.8",
-        "twig/twig": "^3.5",
+        "twig/twig": "^3.6",
         "symfony/filesystem": "^6.0",
         "ramsey/uuid": "^4.7",
-        "twig/markdown-extra": "^3.5",
+        "twig/markdown-extra": "^3.6",
         "league/commonmark": "^2.3",
         "cweagans/composer-patches": "^1.7"
     },
