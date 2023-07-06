@@ -1,18 +1,24 @@
 # Configure and customize Fastly
 
-You can configure Fastly using API calls or through the Fastly Web Interface. Fastly provides a [Fastly CLI](https://developer.fastly.com/reference/cli/) for configuring Fastly through its API.
+You can configure Fastly by using API calls or through the Fastly Web Interface. 
+Fastly provides a [Fastly CLI](https://developer.fastly.com/reference/cli/) for configuring Fastly through its API.
+
+Ibexa Cloud is delivered with Fastly preconfigured. 
+It means that you don't have to do any changes to the Fastly configuration in order to make your site work. 
+The information provided here is only applicable if you want to change the default Fastly configuration on Ibexa Cloud, 
+or if you are not using Ibexa Cloud and want to configure Fastly to work with [[= product_name =]] on premise.
 
 !!! note "The Fastly Web Interface is not available for Ibexa Cloud"
     It's recommend for Ibexa Cloud customers to use the Fastly CLI instead of using the Fastly API directly with `curl`, and so on.
 
 
-## Getting the Fastly credentials from an Ibexa Cloud installation
+## Getting Fastly credentials from Ibexa Cloud installation
 
-In order to use the Fastly CLI or the Fastly API directly, you need to obtain the credentials for your site. The
-credentials can be obtained by ssh'ing into your Fastly-enabled environment (for example, production or staging) and
+In order to use Fastly CLI or Fastly API directly, you need to obtain the credentials for your site.
+To obtain the cridentials connect via SSH to your Fastly-enabled environment (for example, production or staging) and
 type the command:
 
-```
+```bash
 declare|grep FASTLY
 FASTLY_KEY=...
 FASTLY_SERVICE_ID=...
@@ -21,25 +27,18 @@ FASTLY_SERVICE_ID=...
 Note that these credentials will be different for your production and staging environments. When configuring the
 Fastly CLI, use the credentials for the environment you want to change.
 
-!!! note "Difference in environment variable names"
-    When configuring the Fastly CLI, you may use the environment variables `FASTLY_SERVICE_ID` and `FASTLY_API_TOKEN`, while
-    Ibexa DXP uses the variables `FASTLY_SERVICE_ID` and `FASTLY_KEY`.
-
-!!! note "Ibexa Cloud is delivered with Fastly already preconfigured"
-    Ibexa Cloud is delivered with Fastly preconfigured. That means that you don't have to do any changes to the Fastly
-    configuration in order to make your site work. The information provided here is only applicable if you want to change
-    the default Fastly configuration on Ibexa Cloud, or if you are not using Ibexa Cloud and want to configure Fastly
-    to work with Ibexa DXP on premise.
+You may also notice difference in environment variable names.
+[[= product_name =]] uses the `FASTLY_SERVICE_ID` and `FASTLY_KEY` variables but you may ecounter `FASTLY_SERVICE_ID` and `FASTLY_API_TOKEN` in your configuration.
 
 !!! note "Varnish needs to be disabled when using Fastly"
     Varnish is automatically provisioned on Ibexa Cloud. Varnish needs to be disabled on all environments which use
-    Fastly. See [documentation on how to do that](https://docs.platform.sh/guides/ibexa/fastly.html)
+    Fastly. See [documentation on how to do that](https://docs.platform.sh/guides/ibexa/fastly.html).
 
-## Quick setup of Fastly to use with Ibexa DXP
+## Quick setup of Fastly to use with [[= product_name =]]
 
-Below are the few commands needed in order to install the required VCL configurtion for running Fastly with Ibexa DXP.
-In addition, you also need to set up domains, https and origin configuration (not covered here). What the various commands
-do are explained later on this page:
+Use commands below to install VCL configurtion required for running Fastly with [[= product_name =]].
+You also need to set up domains, https and origin configuration (not covered here).
+All commands are explained in detail later on this page:
 
 ```
 fastly vcl custom create --name "ez_main.vcl" --version=active --autoclone --content=vendor/ezsystems/ezplatform-http-cache-fastly/fastly/ --version=latest --main
@@ -53,11 +52,11 @@ fastly service-version activate --version=latest
 ## Quick introduction to the Fastly CLI
 
 The Fastly configuration is versioned, it means that when you want to alter the configuration, you'll create a new version
-and activate it. You may then at any point revert back to a previous version if needed.
+and activate it. You may then at any point revert back to the previous version if needed.
 
 ### List configuration versions
 
-```
+``` bash hl_lines="10"
 fastly service-version list
 NUMBER  ACTIVE  LAST EDITED (UTC)
 1       false   2023-07-03 10:01
@@ -70,11 +69,11 @@ NUMBER  ACTIVE  LAST EDITED (UTC)
 8       true    2023-07-03 12:13
 ```
 
-In the example above, version 8 is the current version being used (ACTIVE=true).
+In the example above, version 8 is used (ACTIVE=true).
 
 ### Create a new configuration version
 
-A version that is ACTIVE cannot be modified. In order to change some configuration, you need to create a new version:
+A version that is ACTIVE cannot be modified. In order to change the configuration, you need to create a new version:
 
 Clone the current active version:
 
@@ -100,11 +99,11 @@ fastly service-version clone --version=latest
 
 !!! note "The --autoclone parameter"
     Most Fastly CLI commands that alter the config also supports the `--autoclone` parameter so that explicitly calling
-    `fastly service-version clone` is often not needed if the using the `--autoclone` parameter is prefered.
+    `fastly service-version clone` is often not needed if the `--autoclone` parameter is prefered.
 
 ### Activate version:
 
-Activate a version using the command:
+Activate a version with this command:
 
 ```
 fastly service-version activate --version=latest
@@ -114,7 +113,7 @@ fastly service-version activate --version=latest
 
 The Fastly configuration is stored in [Varnish Configuration Language (VCL)](https://docs.fastly.com/en/guides/uploading-custom-vcl). By uploading custom VCL files
 you can change the behaviour of Fastly.
-Ibexa DXP ships with two VCL files that needs to be enabled in order for Fastly to work correctly with Ibexa DXP; `ez_main.vcl` and `ez_user_hash.vcl` (located in `vendor/ezsystems/ezplatform-http-cache-fastly/fastly/`)
+[[= product_name =]] ships with two VCL files that need to be enabled in order for Fastly to work correctly with the platform; `ez_main.vcl` and `ez_user_hash.vcl` (located in `vendor/ezsystems/ezplatform-http-cache-fastly/fastly/`)
 
 ### List the custom VCLs for a particular version
 
@@ -125,7 +124,7 @@ SERVICE ID              VERSION  NAME              MAIN
 4SEKDky8P3wdrctwZCi1C1  77       ez_user_hash.vcl  false
 ```
 
-### Get the vcl ez_main.vcl for a particular version
+### Get the VCL `ez_main.vcl` for a particular version
 
 ```
 $ fastly vcl custom describe --name=ez_main.vcl --version=77
@@ -190,16 +189,17 @@ Versions: 8
 
 ### Change Fastly configuration
 
-- You can change the configuration, for example, by uploading a modified a .vcl file. 
-Make a new version based on the current active one, and upload the new vcl
+- You can change the configuration, for example, by uploading a modified `.vcl` file. 
+
+Make a new version based on the current active one, and upload the new VCL:
   ```
     $ fastly vcl custom update --name=ez_main.vcl --version=active --autoclone --content=vendor/ezsystems/ezplatform-http-cache-fastly/fastly/ez_main.vcl
   ```
-- Make a description of the change in Fastly's version system
+- Make a description of the change in Fastly's version system:
   ```
     $ fastly service-version update --version=latest --comment="Added feature X"
   ```
-- Activate the new version
+- Activate the new version:
   ```
     fastly service-version activate --version=latest
   ```
@@ -208,7 +208,8 @@ Make a new version based on the current active one, and upload the new vcl
 
 You may also add VCL code to the Fastly configuration without modifying the custom VCLs directly. Do that by creating
 [snippets](https://docs.fastly.com/en/guides/about-vcl-snippets). It is recommended to use snippets instead of changing
-the VCL files provided by Ibexa DXP as much as possible, making it easier to later upgrade the Ibexa DXP VCLs.
+the VCL files provided by [[= product_name =]] as much as possible, making it easier to later upgrade the [[= product_name =]] VCLs.
+
 When you use snippets, the snippet code is injected into the VCL where the `#FASTLY ...` macros are placed.
 For example, if you create a snippet for the `recv` subroutine, it will be injected into the `ez_main.vcl` file on the
 line where `#FASTLY recv` is found.
@@ -223,7 +224,7 @@ KlUh0J1fnw1JY1aEQ0up    8        Re-Enable shielding on restart  false    1iJWIf
 ```
 
 !!! note
-    As of version 3.3.24, 4.1.6 and 4.2.0, Ibexa DXP also requires one snippet to be installed, in addition to the custom vcls `ez_main.vcl` and `ez_user_hash.vcl`. That snippet is by default named `Re-Enable shielding on restart`
+    As of version 3.3.24, 4.1.6 and 4.2.0, [[= product_name =]] also requires one snippet to be installed, in addition to the custom VCLs `ez_main.vcl` and `ez_user_hash.vcl`. That snippet is by default named `Re-Enable shielding on restart`.
 
 ### Get the details of installed snippets
 
@@ -264,7 +265,7 @@ Updated at: 2022-06-23 12:24:48 +0000 UTC
 
 ```
 
-You can also get the same details for a particular snippet using the `vcl snippet describe` command :
+You can also get the same details for a particular snippet using the `vcl snippet describe` command:
 
 ```
 fastly vcl snippet describe --version=active "--name=Re-Enable shielding on restart"
@@ -297,23 +298,23 @@ Using the Fastly web interface you can easily see the diff between two different
 
 Use the Fastly API to download the generated VCL. This generated VCL is the vcl config that Fastly generates based on all the configuration settings (so it includes all custom .vcls, snippets, origin config).
 
-The example below extracts the generated vcl for version no. 11 of some service
+The example below extracts the generated VCL for version no. 11 of some service:
 ```
 curl -i  "https://api.fastly.com/service/[FASTLY_SERVICE_ID]/version/11/generated_vcl" -H "Fastly-Key: [FASTLY_API_TOKEN]" -H "Accept: application/json" > generated_vcl_11_raw
 cp generated_vcl_11_raw generated_vcl_11_json_only
 ```
 
-Next, you need to edit generated_vcl_11_json_only in your favourite editor, remove anything before the json data and save.
-Then, do the same steps again for version no. 12 (or whatever version you want to diff version 11 against)
+Next, you need to edit `generated_vcl_11_json_only` in your favourite editor, remove anything before the json data and save.
+Then, follow the same steps again for version no. 12 (or whatever version you want to diff version 11 against).
 
-Then replace \n in the files in order to give human-readable diffs:
+Then replace `\n` in the files to get human-readable diffs:
 
 ```
 cat generated_vcl_11_json_only |jq .content|perl -pe 's/\\n/\n/g' > generated_vcl_11_json_done
 cat generated_vcl_12_json_only |jq .content|perl -pe 's/\\n/\n/g' > generated_vcl_12_json_done
 ```
 
-Finally, you can use GNU diff to and get a readable diff of the two versions:
+Finally, you can use GNU diff to get a readable diff of the two versions:
 
 ```
 diff -ruN generated_vcl_11_json_done generated_vcl_12_json_done
@@ -321,11 +322,11 @@ diff -ruN generated_vcl_11_json_done generated_vcl_12_json_done
 
 ## Enabling basic-auth on Fastly.
 
-To enable basic-auth, use https://developer.fastly.com/solutions/examples/http-basic-auth as an example.
+To enable basic-auth, use [Fastly documentation](https://developer.fastly.com/solutions/examples/http-basic-auth) as an example.
 
 Follow the steps below.
 
-Usernames and password can be stored inside vcl, but we'll instead store them in a [dictionary](https://docs.fastly.com/en/guides/working-with-dictionaries-using-the-web-interface#working-with-dictionaries-using-vcl-snippets)
+Usernames and passwords can be stored inside the VCL file, but in this case credentials are stored in a [dictionary](https://docs.fastly.com/en/guides/working-with-dictionaries-using-the-web-interface#working-with-dictionaries-using-vcl-snippets).
 
 !!! note
     In order to make this example work, you must run Ibexa DXP 3.3.16 or later, or 4.5.
@@ -337,14 +338,14 @@ fastly dictionary create --version=active --autoclone --name=basicauth
 fastly service-version activate --version=latest
 ```
 
-Now, the Fastly configuration has a dictionary named `basicauth`. The benefit of using a dictionary than storing
-the usernames directly in vcl is that we can add or remove records without creating and activating new versions of the configuration.
+The Fastly configuration has a dictionary named `basicauth`. The benefit of using a dictionary insted of storing
+the usernames directly in VCL file is that we can add or remove records without creating and activating new versions of the configuration.
 
 ### Get the dictionary ID
 
 To add users to the dictionary, first get the dictionary ID.
 
-```
+```hl_lines="5"
 fastly dictionary list --version=active
 
 Service ID: KlUh0J1fnw1JY1aEQ0up
@@ -359,7 +360,9 @@ Last edited (UTC): 2023-07-03 10:33
 In the example above, the ID is `ltC6Rg4pqw4qaNKF5tEW`.
 
 
-### Create a record in the dictionary ( user name and password )
+### Create a record in the dictionary
+
+Add user's name and password to the dictionary:
 
 ```
 fastly dictionary-item create --dictionary-id=ltC6Rg4pqw4qaNKF5tEW --key=user1 --value=foobar1
@@ -367,16 +370,16 @@ fastly dictionary-item create --dictionary-id=ltC6Rg4pqw4qaNKF5tEW --key=user1 -
 
 ### List dictionary records
 
-You may see the records of a dictionary using:
+You may see the records from a dictionary using:
 
 ```
 fastly dictionary-item list --dictionary-id=ltC6Rg4pqw4qaNKF5tEW33
 ```
 
-Now you have a dictionary storing a user name and password. The next thing to do is to alter the Fastly .vcl configration.
+Now your dictionary stores new user name and password. The next thing to do is to alter the Fastly VCL configration
 and add the basic-auth support. 
 In this example, do that using snippets (https://docs.fastly.com/en/guides/about-vcl-snippets ) so that no changes
-are need in the .vcl files shipped by Ibexa DXP. You need two snippets, store these as files on your system:
+are need in the .vcl files shipped by [[= product_name =]] You need two snippets, store these as files in your system:
 
 In `snippet_basic_auth_error.vcl`:
 
@@ -456,7 +459,7 @@ If you want basic-auth to be enabled only for one domain, you may alter `snippet
 +if (fastly.ff.visits_this_service == 0 && req.restarts == 0 && req.http.host == "example.com") {
 ```
 
-You install the snippets using the Fastly CLI as the following:
+Install the snippets with the following Fastly CLI command:
 
 ```
 fastly vcl snippet create --name="BasicAuth recv" --version=active --autoclone --priority 100 --type recv --content=snippet_basic_auth_recv.vcl

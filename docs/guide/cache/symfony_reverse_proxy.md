@@ -30,7 +30,7 @@ HTTP Cache.
   - `ez_main.vcl` needs to installed as the **main** custom VCL
   - `ez_user_hash.vcl` also needs to be installed as custom VCL
   - `snippet_re_enable_shielding.vcl` needs to be installed as snippet.
-  - For further explanations on how to configure Fastly with Ibexa DXP see [Configuring and Customizing Fastly](fastly.md)
+  - For further explanations on how to configure Fastly with [[= product_name =]] see [Configuring and Customizing Fastly](fastly.md).
 
 The provided .vcl files will work both with [Fastly Shielding](https://docs.fastly.com/en/guides/shielding) enabled and without it.
 
