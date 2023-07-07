@@ -4,7 +4,7 @@ You can configure Fastly by using API calls or through the Fastly Web Interface.
 Fastly provides a [Fastly CLI](https://developer.fastly.com/reference/cli/) for configuring Fastly through its API.
 
 Ibexa Cloud is delivered with Fastly preconfigured. 
-It means that you don't have to do any changes to the Fastly configuration in order to make your site work. 
+It means that you don't have to do any changes to the Fastly configuration to make your site work. 
 The information provided here is only applicable if you want to change the default Fastly configuration on Ibexa Cloud, 
 or if you are not using Ibexa Cloud and want to configure Fastly to work with [[= product_name =]] on premise.
 
@@ -12,47 +12,49 @@ or if you are not using Ibexa Cloud and want to configure Fastly to work with [[
     It's recommend for Ibexa Cloud customers to use the Fastly CLI instead of using the Fastly API directly with `curl`, and so on.
 
 
-## Getting Fastly credentials from Ibexa Cloud installation
+## Prepare for using Fastly locally
 
-In order to use Fastly CLI or Fastly API directly, you need to obtain the credentials for your site.
-To obtain the cridentials connect via SSH to your Fastly-enabled environment (for example, production or staging) and
-type the command:
+These steps are not needed when you use Ibexa Cloud, because Fastly then comes preconfigured.
 
-```bash
+### Get Fastly credentials from Ibexa Cloud installation
+
+To use Fastly CLI or Fastly API directly, you need to obtain the credentials for your site.
+To obtain the credentials, connect to your Fastly-enabled environment (for example, production or staging) through SSH and run the following command:
+
+``` bash
 declare|grep FASTLY
 FASTLY_KEY=...
 FASTLY_SERVICE_ID=...
 ```
 
-Note that these credentials will be different for your production and staging environments. When configuring the
-Fastly CLI, use the credentials for the environment you want to change.
+These credentials are different for your production and staging environments. 
+When you configure the Fastly CLI, use the credentials for the environment that you want to change.
 
-You may also notice difference in environment variable names.
-[[= product_name =]] uses the `FASTLY_SERVICE_ID` and `FASTLY_KEY` variables but you may ecounter `FASTLY_SERVICE_ID` and `FASTLY_API_TOKEN` in your configuration.
+You might also encounter a difference in environment variable names.
+[[= product_name =]] uses the `FASTLY_SERVICE_ID` and `FASTLY_KEY` variables but you may see `FASTLY_SERVICE_ID` and `FASTLY_API_TOKEN` in your configuration.
 
-!!! note "Varnish needs to be disabled when using Fastly"
-    Varnish is automatically provisioned on Ibexa Cloud. Varnish needs to be disabled on all environments which use
+!!! note "Disable Varnish when you use Fastly"
+    Varnish is automatically provisioned on Ibexa Cloud. Varnish needs to be disabled on all environments that use
     Fastly. See [documentation on how to do that](https://docs.platform.sh/guides/ibexa/fastly.html).
 
-## Quick setup of Fastly to use with [[= product_name =]]
+### Quickly configure Fastly for use with [[= product_name =]]
 
-Use commands below to install VCL configurtion required for running Fastly with [[= product_name =]].
-You also need to set up domains, https and origin configuration (not covered here).
-All commands are explained in detail later on this page:
+Use the commands below to install VCL configuration required for running Fastly with [[= product_name =]].
+You also need to set up domains, HTTPS and origin configuration (not covered here).
+All commands are explained in detail [below](#viewing-and-modifying-the-vcl-configuration):
 
-```
+``` bash
 fastly vcl custom create --name "ez_main.vcl" --version=active --autoclone --content=vendor/ezsystems/ezplatform-http-cache-fastly/fastly/ --version=latest --main
 fastly vcl custom create --name "ez_user_hash.vcl" --content=vendor/ezsystems/ezplatform-http-cache-fastly/fastly/ez_user_hash.vcl --version=latest
 fastly vcl snippet create --name="Re-Enable shielding on restart" --version=latest --priority 100 --type recv --content=vendor/ezsystems/ezplatform-http-cache-fastly/fastly/snippet_re_enable_shielding.vcl
 fastly service-version activate --version=latest
 ```
 
-!!! note "None of the steps above are needed when using Ibexa Cloud as this is then preconfigured for you"
+## Quick introduction to Fastly CLI
 
-## Quick introduction to the Fastly CLI
-
-The Fastly configuration is versioned, it means that when you want to alter the configuration, you'll create a new version
-and activate it. You may then at any point revert back to the previous version if needed.
+Fastly configuration is versioned, which means that when you alter the configuration, you create a new version
+and activate it. 
+If needed, you can revert the configuration to one of previous versions at any point.
 
 ### List configuration versions
 
@@ -71,63 +73,62 @@ NUMBER  ACTIVE  LAST EDITED (UTC)
 
 In the example above, version 8 is used (ACTIVE=true).
 
-### Create a new configuration version
+### Create new configuration version
 
-A version that is ACTIVE cannot be modified. In order to change the configuration, you need to create a new version:
+A version that is ACTIVE cannot be modified. To change the configuration, you need to create a new version:
 
 Clone the current active version:
 
-```
+``` bash
 fastly service-version clone --version=active
 ```
 
 Clone a particular version:
 
-```
+``` bash
 fastly service-version clone --version=4
 ```
 
 Clone the newest version:
 
-```
+``` bash
 fastly service-version clone --version=latest
 ```
 
-!!! note "The --version parameter"
-    Most Fastly CLI commands have the `--version` parameter. The `--version` parameter always supports aliases like `active`
-    and `latest` in additional to a specific version number.
+!!! note "Command parameters"
+    Most Fastly CLI commands have the `--version` parameter. 
+    In addition to a specific version number, the `--version` parameter always supports aliases like `active` and `latest`.
 
-!!! note "The --autoclone parameter"
-    Most Fastly CLI commands that alter the config also supports the `--autoclone` parameter so that explicitly calling
-    `fastly service-version clone` is often not needed if the `--autoclone` parameter is prefered.
+    Most Fastly CLI commands that alter the config also support the `--autoclone` parameter. 
+    With such commands, when you use the `--autoclone` parameter, calling `fastly service-version clone` is longer needed.
 
-### Activate version:
+### Activate version
 
 Activate a version with this command:
 
-```
+``` bash
 fastly service-version activate --version=latest
 ```
 
-## Viewing and modifying the VCL configuration
+## View and modify VCL configuration
 
-The Fastly configuration is stored in [Varnish Configuration Language (VCL)](https://docs.fastly.com/en/guides/uploading-custom-vcl). By uploading custom VCL files
-you can change the behaviour of Fastly.
-[[= product_name =]] ships with two VCL files that need to be enabled in order for Fastly to work correctly with the platform; `ez_main.vcl` and `ez_user_hash.vcl` (located in `vendor/ezsystems/ezplatform-http-cache-fastly/fastly/`)
+Fastly configuration is stored in Varnish Configuration Language (VCL) files. 
+You can change the behaviour of Fastly by [uploading custom VCL files](https://docs.fastly.com/en/guides/uploading-custom-vcl).
+[[= product_name =]] ships with two VCL files that need to be enabled for Fastly to work correctly with the platform; `ez_main.vcl` and `ez_user_hash.vcl` (located in `vendor/ezsystems/ezplatform-http-cache-fastly/fastly/`)
 
-### List the custom VCLs for a particular version
+### List custom `.vcl` files for specific version
 
-```
-$ fastly vcl custom list --version 77
+``` bash
+fastly vcl custom list --version 77
 SERVICE ID              VERSION  NAME              MAIN
 4SEKDky8P3wdrctwZCi1C1  77       ez_main.vcl       true
 4SEKDky8P3wdrctwZCi1C1  77       ez_user_hash.vcl  false
 ```
 
-### Get the VCL `ez_main.vcl` for a particular version
+### Get `ez_main.vcl` for specific version
 
-```
-$ fastly vcl custom describe --name=ez_main.vcl --version=77
+``` bash
+fastly vcl custom describe --name=ez_main.vcl --version=77
 
 Service ID: 4SEKDky8P3wdrctwZCi1C1
 Service Version: 77
@@ -142,19 +143,19 @@ sub vcl_recv {
 (....)
 ```
 
-### Make a description for a particular version:
+### Provide description for specific version
 
-You may provide a description on every version, explaining what changed in that particular version:
+For each version, you can provide a description that explains what changed in that version:
 
+``` bash
+fastly service-version update --version=52 --comment="Added support for basic-auth on the staging domain"
 ```
-$ fastly service-version update --version=52 --comment="Added support for basic-auth on the staging domain"
-```
 
-#### Show description for every version
+#### List descriptions for all versions
 
-You may see the descriptions by adding the `--verbose` (`-v`) option to the `service-version list` command:
+You can list the descriptions by adding the `--verbose` (`-v`) option to the `service-version list` command:
 
-```
+``` bash
 fastly service-version list -v
 
 Fastly API token provided via FASTLY_API_TOKEN
@@ -187,51 +188,55 @@ Versions: 8
         (...)
 ```
 
-### Change Fastly configuration
+### Modify Fastly configuration
 
-- You can change the configuration, for example, by uploading a modified `.vcl` file. 
+You can modify the existing Fastly configuration, for example, by uploading a modified `.vcl` file. 
 
-Make a new version based on the current active one, and upload the new VCL:
-  ```
-    $ fastly vcl custom update --name=ez_main.vcl --version=active --autoclone --content=vendor/ezsystems/ezplatform-http-cache-fastly/fastly/ez_main.vcl
-  ```
-- Make a description of the change in Fastly's version system:
-  ```
-    $ fastly service-version update --version=latest --comment="Added feature X"
-  ```
-- Activate the new version:
-  ```
-    fastly service-version activate --version=latest
-  ```
+Create a new version based on the one that is currently active, and upload the file:
+
+``` bash
+fastly vcl custom update --name=ez_main.vcl --version=active --autoclone --content=vendor/ezsystems/ezplatform-http-cache-fastly/fastly/ez_main.vcl
+```
+
+Provide a description of the change in Fastly's version system:
+
+``` bash
+fastly service-version update --version=latest --comment="Added feature X"
+```
+
+Activate the new version:
+
+``` bash
+fastly service-version activate --version=latest
+```
 
 ## Snippets
 
-You may also add VCL code to the Fastly configuration without modifying the custom VCLs directly. Do that by creating
-[snippets](https://docs.fastly.com/en/guides/about-vcl-snippets). It is recommended to use snippets instead of changing
-the VCL files provided by [[= product_name =]] as much as possible, making it easier to later upgrade the [[= product_name =]] VCLs.
+You can also add VCL code to the Fastly configuration without modifying the custom `.vcl` files directly. 
+You do it by creating [snippets](https://docs.fastly.com/en/guides/about-vcl-snippets).
+It is recommended that you use snippets instead of changing the VCL files provided by [[= product_name =]] as much as possible, which makes it easier to upgrade the [[= product_name =]] VCL configuration later.
 
 When you use snippets, the snippet code is injected into the VCL where the `#FASTLY ...` macros are placed.
-For example, if you create a snippet for the `recv` subroutine, it will be injected into the `ez_main.vcl` file on the
+For example, if you create a snippet for the `recv` subroutine, it is injected into the `ez_main.vcl` file, the
 line where `#FASTLY recv` is found.
 
-### List available snippets for a particular version
+### List available snippets for specific version
 
-```
-$ fastly vcl snippet list --version=active
+``` bash
+fastly vcl snippet list --version=active
 SERVICE ID              VERSION  NAME                            DYNAMIC  SNIPPET ID
 KlUh0J1fnw1JY1aEQ0up    8        Re-Enable shielding on restart  false    1iJWIfsPLNGxcphsjggq
-
 ```
 
 !!! note
     As of version 3.3.24, 4.1.6 and 4.2.0, [[= product_name =]] also requires one snippet to be installed, in addition to the custom VCLs `ez_main.vcl` and `ez_user_hash.vcl`. That snippet is by default named `Re-Enable shielding on restart`.
 
-### Get the details of installed snippets
+### Get details of installed snippets
 
-You can get more information, like priority, which subroutine it is attached to (`vcl_recv`, `vcl_fetch` etc. ) and the code itself using the `--verbose` option when using the `vcl snippet list` command:
+Use the `vcl snippet list` command with the `--verbose` option to get information such as: priority, which subroutine it is attached to (`vcl_recv`, `vcl_fetch` etc.) and the code itself.
 
-```
-$ fastly vcl snippet list --version=active -v
+``` bash
+fastly vcl snippet list --version=active -v
 Fastly API token provided via FASTLY_API_TOKEN
 Fastly API endpoint: https://api.fastly.com
 Service ID (via FASTLY_SERVICE_ID): [....]
@@ -244,12 +249,12 @@ Priority: 100
 Dynamic: false
 Type: recv
 Content:
-// This code should be added a snipped in your config:
-//  Name : Re-Enable shielding on restart
+// This code should be added as a snippet in your config:
+//  Name: Re-Enable shielding on restart
 //  Priority: 100
 //  Type: recv
 //
-// Fastly CLI :
+// Fastly CLI:
 // - fastly vcl snippet create --name="Re-Enable shielding on restart" --version=active --autoclone --priority 100 --type recv --content=vendor/ezsystems/ezplatform-http-cache-fastly/fastly/snipped_re_enable_shielding.vcl
 // - fastly service-version activate --version=latest
 
@@ -262,45 +267,45 @@ set req.http.X-Snippet-Loaded = "v1";
 
 Created at: 2022-06-23 10:55:34 +0000 UTC
 Updated at: 2022-06-23 12:24:48 +0000 UTC
-
 ```
 
 You can also get the same details for a particular snippet using the `vcl snippet describe` command:
 
-```
+``` bash
 fastly vcl snippet describe --version=active "--name=Re-Enable shielding on restart"
 ```
 
-### Create a snippet
+### Create snippet
 
-```
+``` bash
 fastly vcl snippet create --name="Re-Enable shielding on restart" --version=active --autoclone --priority 100 --type recv --content=vendor/ezsystems/ezplatform-http-cache-fastly/fastly/snippet_re_enable_shielding.vcl
 fastly service-version activate --version=latest
 ```
 
-### Delete a snippet
+### Delete snippet
 
-```
+``` bash
 fastly vcl snippet delete --name="Re-Enable shielding on restart" --version=active --autoclone
 fastly service-version activate --version=latest
 ```
 
-### Update an existing snippet
+### Update existing snippet
 
-```
+``` bash
 fastly vcl snippet update --name="Re-Enable shielding on restart" --version=active --autoclone --priority 100 --type recv --content=vendor/ezsystems/ezplatform-http-cache-fastly/fastly/snippet_re_enable_shielding.vcl
 fastly service-version activate --version=latest
 ```
 
-### Get the diff between two versions
+### Get diff between two versions
 
-Using the Fastly web interface you can easily see the diff between two different versions. Unfortunately, this is not supported by the Fastly CLI. However, it is possible with the help of the Fastly API and GNU diff.
+You can easily view the diff between two different versions by using the Fastly web interface. Unfortunately, Fastly CLI does not support this functionality. However, Fastly API and GNU diff can help you get an identical result.
 
-Use the Fastly API to download the generated VCL. This generated VCL is the vcl config that Fastly generates based on all the configuration settings (so it includes all custom .vcls, snippets, origin config).
+Use the Fastly API to download the generated `.vcl` file. It includes the VCL configuration that Fastly generates based on all the configuration settings (from all custom `.vcl` files, snippets, and origin configuration).
 
 The example below extracts the generated VCL for version no. 11 of some service:
-```
-curl -i  "https://api.fastly.com/service/[FASTLY_SERVICE_ID]/version/11/generated_vcl" -H "Fastly-Key: [FASTLY_API_TOKEN]" -H "Accept: application/json" > generated_vcl_11_raw
+
+``` bash
+curl -i "https://api.fastly.com/service/[FASTLY_SERVICE_ID]/version/11/generated_vcl" -H "Fastly-Key: [FASTLY_API_TOKEN]" -H "Accept: application/json" > generated_vcl_11_raw
 cp generated_vcl_11_raw generated_vcl_11_json_only
 ```
 
@@ -309,18 +314,18 @@ Then, follow the same steps again for version no. 12 (or whatever version you wa
 
 Then replace `\n` in the files to get human-readable diffs:
 
-```
+``` bash
 cat generated_vcl_11_json_only |jq .content|perl -pe 's/\\n/\n/g' > generated_vcl_11_json_done
 cat generated_vcl_12_json_only |jq .content|perl -pe 's/\\n/\n/g' > generated_vcl_12_json_done
 ```
 
 Finally, you can use GNU diff to get a readable diff of the two versions:
 
-```
+``` bash
 diff -ruN generated_vcl_11_json_done generated_vcl_12_json_done
 ```
 
-## Enabling basic-auth on Fastly.
+## Enable basic-auth on Fastly
 
 To enable basic-auth, use [Fastly documentation](https://developer.fastly.com/solutions/examples/http-basic-auth) as an example.
 
@@ -329,23 +334,23 @@ Follow the steps below.
 Usernames and passwords can be stored inside the VCL file, but in this case credentials are stored in a [dictionary](https://docs.fastly.com/en/guides/working-with-dictionaries-using-the-web-interface#working-with-dictionaries-using-vcl-snippets).
 
 !!! note
-    In order to make this example work, you must run Ibexa DXP 3.3.16 or later, or 4.5.
+    To make this example work, you must run [[= product_name =]] in version 3.3.16 or later, or 4.5.
 
-### Create the dictionary and activate the change:
+### Create and activate dictionary
 
-```
+Fastly configuration includes a dictionary named `basicauth`. 
+Using a dictionary instead of storing usernames directly in a `.vcl` file is beneficial, because you can add or remove records without having to create and activate new configuration versions.
+
+``` bash
 fastly dictionary create --version=active --autoclone --name=basicauth
 fastly service-version activate --version=latest
 ```
 
-The Fastly configuration has a dictionary named `basicauth`. The benefit of using a dictionary insted of storing
-the usernames directly in VCL file is that we can add or remove records without creating and activating new versions of the configuration.
-
-### Get the dictionary ID
+### Get dictionary ID
 
 To add users to the dictionary, first get the dictionary ID.
 
-```hl_lines="5"
+``` bash hl_lines="5"
 fastly dictionary list --version=active
 
 Service ID: KlUh0J1fnw1JY1aEQ0up
@@ -360,42 +365,42 @@ Last edited (UTC): 2023-07-03 10:33
 In the example above, the ID is `ltC6Rg4pqw4qaNKF5tEW`.
 
 
-### Create a record in the dictionary
+### Create record in dictionary
 
-Add user's name and password to the dictionary:
+Add username and password to the dictionary:
 
-```
+``` bash
 fastly dictionary-item create --dictionary-id=ltC6Rg4pqw4qaNKF5tEW --key=user1 --value=foobar1
 ```
 
 ### List dictionary records
 
-You may see the records from a dictionary using:
+You can list the records from a dictionary by using the following command:
 
-```
+``` bash
 fastly dictionary-item list --dictionary-id=ltC6Rg4pqw4qaNKF5tEW33
 ```
 
-Now your dictionary stores new user name and password. The next thing to do is to alter the Fastly VCL configration
+Now your dictionary stores new username and password. The next thing to do is to alter the Fastly VCL configuration
 and add the basic-auth support. 
-In this example, do that using snippets (https://docs.fastly.com/en/guides/about-vcl-snippets ) so that no changes
-are need in the .vcl files shipped by [[= product_name =]] You need two snippets, store these as files in your system:
+This example uses [snippets](https://docs.fastly.com/en/guides/about-vcl-snippets), so that no changes are needed in the `.vcl` files that are shipped with [[= product_name =]]. 
+You need two snippets, store these as files in your system:
 
 In `snippet_basic_auth_error.vcl`:
 
-```
-// This code should be added a snippet in your config:
-//  Name : BasicAuth error
+``` bash
+// This code should be added as a snippet in your config:
+//  Name: BasicAuth error
 //  Priority: 100
-//  Type:error
+//  Type: error
 
-// This code should be added a snippet in your config:
+// This code should be added as a snippet in your config:
 //
-// See snippet_basic_auth_recv.vcl for instructions on how to install
+// See snippet_basic_auth_recv.vcl for instructions for installation instructions
 //
 
 
-#If the status code is a 401, we serve a synthetic HTML page which displays this error to the user.
+# If status code is a 401, a synthetic HTML page with this error is served to the user.
 if (obj.status == 401) {
   set obj.http.Content-Type = "text/html; charset=utf-8";
   set obj.http.WWW-Authenticate = "Basic realm=MYREALM";
@@ -414,13 +419,14 @@ if (obj.status == 401) {
 ```
 
 In `snippet_basic_auth_recv.vcl`:
-```
-// This code should be added a snippet in your config:
-//  Name : BasicAuth recv
+
+``` bash
+// This code should be added as a snippet in your config:
+//  Name: BasicAuth recv
 //  Priority: 100
 //  Type: recv
 //
-// Fastly CLI :
+// Fastly CLI:
 // - fastly vcl snippet create --name="BasicAuth recv" --version=active --autoclone --priority 100 --type recv --content=snippet_basic_auth_recv.vcl
 // - fastly vcl snippet create --name="BasicAuth error" --version=latest --priority 100 --type error --content=snippet_basic_auth_error.vcl
 // - fastly service-version activate --version=latest
@@ -431,7 +437,7 @@ declare local var.username STRING;
 declare local var.password STRING;
 declare local var.result STRING;
 
-# We only check basic auth on edge nodes. This below logic makes sure this is only run at the edge.
+# Basic auth is checked on edge nodes only. The logic below makes sure that it is only run at the edge.
 if (fastly.ff.visits_this_service == 0 && req.restarts == 0) {
   if (req.http.Authorization ~ "(?i)^Basic ([a-z0-9_=]+)$") {
     set var.credential = digest.base64_decode(re.group.1);
@@ -444,7 +450,7 @@ if (fastly.ff.visits_this_service == 0 && req.restarts == 0) {
     } else if (var.result != var.password) {
       error 401 "Restricted";
     }
-    #We unset the Auth header to avoid exposing this as a response header.
+    # The Auth header is unset to avoid exposing it as a response header.
     unset req.http.Authorization;
     set req.http.Auth-User = var.username;
   } else {
@@ -453,15 +459,16 @@ if (fastly.ff.visits_this_service == 0 && req.restarts == 0) {
 }
 ```
 
-If you want basic-auth to be enabled only for one domain, you may alter `snippet_basic_auth_recv.vcl`
-```diff
+To enable basic-auth for one domain only, alter `snippet_basic_auth_recv.vcl`:
+
+``` diff
 -if (fastly.ff.visits_this_service == 0 && req.restarts == 0 &&) {
 +if (fastly.ff.visits_this_service == 0 && req.restarts == 0 && req.http.host == "example.com") {
 ```
 
 Install the snippets with the following Fastly CLI command:
 
-```
+``` bash
 fastly vcl snippet create --name="BasicAuth recv" --version=active --autoclone --priority 100 --type recv --content=snippet_basic_auth_recv.vcl
 fastly vcl snippet create --name="BasicAuth error" --version=latest --priority 100 --type error --content=snippet_basic_auth_error.vcl
 fastly service-version activate --version=latest
