@@ -3680,3 +3680,21 @@ PaymentMethodViewInput:
         PaymentMethodQuery:
             type: object
             required: true
+
+ShippingMethodType:
+    description: 'This class represents a shipping method type.'
+    type: object
+    properties:
+        identifier:
+            type: string
+            required: true
+        name:
+            type: string
+            required: true
+
+ShippingMethodTypesList:
+    description: 'This class represents a list of shipping method types.'
+    type: object
+    properties:
+        ShippingMethodType:
+            type: ShippingMethodType[]
