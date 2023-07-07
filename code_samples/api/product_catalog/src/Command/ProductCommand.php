@@ -1,36 +1,36 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Command;
 
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\UserService;
+use Ibexa\Contracts\ProductCatalog\Local\LocalProductServiceInterface;
 use Ibexa\Contracts\ProductCatalog\ProductAvailabilityServiceInterface;
 use Ibexa\Contracts\ProductCatalog\ProductServiceInterface;
-use Ibexa\Contracts\ProductCatalog\Local\LocalProductServiceInterface;
 use Ibexa\Contracts\ProductCatalog\ProductTypeServiceInterface;
 use Ibexa\Contracts\ProductCatalog\Values\Availability\ProductAvailabilityCreateStruct;
 use Ibexa\Contracts\ProductCatalog\Values\Availability\ProductAvailabilityUpdateStruct;
 use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
+use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion;
+use Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause;
-use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion;
 
 final class ProductCommand extends Command
 {
-    private $userService;
+    private UserService $userService;
 
-    private $permissionResolver;
+    private PermissionResolver $permissionResolver;
 
-    private $productTypeService;
+    private ProductTypeServiceInterface $productTypeService;
 
-    private $productService;
+    private ProductServiceInterface $productService;
 
-    private $localProductService;
+    private LocalProductServiceInterface $localProductService;
 
-    private $productAvailabilityService;
+    private ProductAvailabilityServiceInterface $productAvailabilityService;
 
     public function __construct(UserService $userService, PermissionResolver $permissionResolver, ProductTypeServiceInterface $productTypeService, ProductServiceInterface $productService, LocalProductServiceInterface $localProductService, ProductAvailabilityServiceInterface $productAvailabilityService)
     {
@@ -40,7 +40,7 @@ final class ProductCommand extends Command
         $this->productTypeService = $productTypeService;
         $this->localProductService = $localProductService;
         $this->productAvailabilityService = $productAvailabilityService;
-        parent::__construct("doc:product");
+        parent::__construct('doc:product');
     }
 
     public function configure(): void
@@ -48,7 +48,7 @@ final class ProductCommand extends Command
         $this
             ->setDefinition([
                 new InputArgument('productCode', InputArgument::REQUIRED, 'Product code'),
-                new InputArgument('productType', InputArgument::REQUIRED, 'Product type')
+                new InputArgument('productType', InputArgument::REQUIRED, 'Product type'),
             ]);
     }
 
@@ -62,7 +62,7 @@ final class ProductCommand extends Command
 
         $product = $this->productService->getProduct($productCode);
 
-        $output->writeln('Product with code ' .  $product->getCode() . ' is ' . $product->getName());
+        $output->writeln('Product with code ' . $product->getCode() . ' is ' . $product->getName());
 
         $criteria = new Criterion\ProductType([$productType]);
         $sortClauses = [new SortClause\ProductName(ProductQuery::SORT_ASC)];
@@ -72,7 +72,7 @@ final class ProductCommand extends Command
         $products = $this->productService->findProducts($productQuery);
 
         foreach ($products as $product) {
-            $output->writeln($product->getName() . " of type " . $product->getProductType()->getName());
+            $output->writeln($product->getName() . ' of type ' . $product->getProductType()->getName());
         }
 
         $productType = $this->productTypeService->getProductType($productType);
@@ -92,24 +92,23 @@ final class ProductCommand extends Command
 
         $product = $this->productService->getProduct('NEWMODIFIEDPRODUCT');
 
-        $productAvailabilityCreateStruct = new ProductAvailabilityCreateStruct($product, true, 10);
+        $productAvailabilityCreateStruct = new ProductAvailabilityCreateStruct($product, true, true);
 
         $this->productAvailabilityService->createProductAvailability($productAvailabilityCreateStruct);
 
         if ($this->productAvailabilityService->hasAvailability($product)) {
             $availability = $this->productAvailabilityService->getAvailability($product);
 
-            $output->write($availability->isAvailable() ? "Available" : "Unavailable");
+            $output->write($availability->isAvailable() ? 'Available' : 'Unavailable');
             $output->writeln(' with stock ' . $availability->getStock());
 
             $availability = $this->productAvailabilityService->getAvailability($product);
 
-            $productAvailabilityUpdateStruct = new ProductAvailabilityUpdateStruct($product, true);
-            $productAvailabilityUpdateStruct->setStock(80);
+            $productAvailabilityUpdateStruct = new ProductAvailabilityUpdateStruct($product, true, false, 80);
 
             $this->productAvailabilityService->updateProductAvailability($productAvailabilityUpdateStruct);
 
-            $output->write($availability->isAvailable() ? "Available" : "Unavailable");
+            $output->write($availability->isAvailable() ? 'Available' : 'Unavailable');
             $output->writeln(' available now with stock ' . $availability->getStock());
         }
 

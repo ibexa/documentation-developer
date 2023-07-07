@@ -1,5 +1,6 @@
 ---
 description: Aggregations help fine-tune search for content and Locations by grouping results into categories.
+page_type: reference
 ---
 
 # Aggregation reference
@@ -58,6 +59,7 @@ There are three types of aggregations:
 |---|---|---|
 |[Product attribute](product_attribute_aggregations.md) | Term / Range | Product attribute values |
 |[ProductAvailabilityTerm](productavailabilityterm_aggregation.md) | Term | Product availability |
+|[ProductStockRange](productstockrange_aggregation.md) | Range | Product stock |
 |[ProductPriceRange](productpricerange_aggregation.md) | Range | Product price |
 |[ProductTypeTerm](producttypeterm_aggregation.md) | Term | Product type |
 |[TaxonomyEntryIdAggregation](taxonomyentryid_aggregation.md) | Term | Product category |

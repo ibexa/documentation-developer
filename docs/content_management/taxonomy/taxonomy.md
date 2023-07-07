@@ -4,7 +4,7 @@ description: A taxonomy uses tags to categorize and organize content
 
 # Taxonomy
 
-Taxonomies (**Tags**) allow you to organize content to make it easy for your site users to browse and to deliver content appropriate for them. It also enhances content search.
+Taxonomies (**Tags**) allow you to organize content to make it easy for your site users to browse and to deliver content appropriate for them. 
 Taxonomies are classifications of logical relationships between content.
 In [[= product_name =]] you can create many taxonomies, each with many tags. The platform mechanism enables creating any entities with a tree structure and assign them to a Content item.
 
@@ -12,7 +12,7 @@ Default tag configuration is available in `config/packages/ibexa_taxonomy.yaml`
 The associated Content Type is `tag`.
 
 ``` yaml
-[[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 1, 9 )=]]
+[[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 0, 9 )=]]
 ```
 
 ## Configuration keys
@@ -31,10 +31,11 @@ You can create other taxonomies than the one predefined in the system, for examp
 
 To do it, first, create a new container to store the new taxonomy's items, for example a folder named "Content categories".
 
-Next, in `config/packages/ibexa_taxonomy.yaml` add the following configuration:
+Next, under the `ibexa_taxonomy.taxonomies` [key](configuration.md#configuration-files) add the following configuration:
 
 ``` yaml
-[[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml')=]]
+[[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 0, 2)=]]        # existing keys
+[[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 9, 17)=]]
 ```
 
 Replace `<content_categories_remote_id>` with the new container's Location remote ID.
@@ -59,10 +60,11 @@ To use this new taxonomy, add an `ibexa_taxonomy_entry_assignement` Field to a C
 The **Content** tab in taxonomy objects, for example, tags and categories, lists all Content assigned to the current taxonomy. 
 You can hide the **Content** tab in the **Categories** view.
 
-In the `config/packages/ibexa_taxonomy.yaml` add `assigned_content_tab` with the flag `false` (for other taxonomies this flag is by default set to `true`):
+In configuration add `assigned_content_tab` with the flag `false` (for other taxonomies this flag is by default set to `true`):
 
 ``` yaml
-[[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 0,2 )=]][[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 9,17 )=]]
+[[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 0, 2)=]]        # existing keys
+[[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 9, 17)=]]
 ```
 
 For more information about available functionalities of tags, see [User Documentation]([[= user_doc =]]/taxonomy).

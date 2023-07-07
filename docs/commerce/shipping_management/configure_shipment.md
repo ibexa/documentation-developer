@@ -1,5 +1,5 @@
 ---
-description: Configure the default shipment process.
+description: Configure shipping, modify the default shipment workflow.
 edition: commerce
 ---
 
@@ -12,7 +12,7 @@ the shipping configuration.
 
     When you modify the workflow configuration, make sure you properly set user [permissions](permission_use_cases.md#commerce) for the shipping component.
 
-## Shipment workflow
+## Configure shipment workflow
 
 Shipment workflow relies on a [Symfony Workflow](http://symfony.com/doc/5.4/components/workflow.html).
 Each transition represents a separate shipment step. 
@@ -27,10 +27,10 @@ o see the default workflow, in your project directory, navigate to the following
 
 ### Custom shipment workflows
 
-You define custom workflow implementations under the `framework.workflows` key. 
+You define custom workflow implementations under the `framework.workflows` [configuration key](configuration.md#configuration-files). 
 The `shipping.shipment_workflow` parameter is repository-aware.
 
-To customize your configuration, place it in a YAML file, under the `framework.workflows.<your_workflow_name>` key:
+To customize your configuration, place it under the `framework.workflows.<your_workflow_name>` [configuration key](configuration.md#configuration-files):
 
 ``` yaml
 [[= include_file('code_samples/front/shop/shipping/config/packages/ibexa.yaml', 8, 89) =]]

@@ -1,5 +1,5 @@
 ---
-description: "Ibexa DXP releases new versions periodically in different flavors: Ibexa Content, Ibexa Experience and Ibexa Commerce, plus open-source Ibexa OSS."
+description: "Ibexa DXP releases new versions periodically in different flavors: Ibexa Headless, Ibexa Experience and Ibexa Commerce, plus open-source Ibexa OSS."
 ---
 
 # Ibexa DXP release process and roadmap

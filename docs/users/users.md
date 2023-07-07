@@ -1,5 +1,6 @@
 ---
 description: Users in Ibexa DXP refer to all kinds of user accounts, such as administrators, editors, managers or shop customers.
+page_type: landing_page
 ---
 
 # Users
@@ -10,6 +11,5 @@ All such user accounts have the same underlying mechanism and enable you to cont
 
 [[= cards([
     "users/user_management",
-    "users/login_and_registration",
     "users/invitations",
 ], columns=3) =]]

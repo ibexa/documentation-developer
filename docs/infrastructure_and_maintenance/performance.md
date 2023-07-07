@@ -16,7 +16,7 @@ If you are in a hurry, the most important recommendations on this page are:
 - Dump optimized Composer autoload classmap
 - Use a full web (Nginx/Apache) server with vhost
 - Avoid shared filesystems for code (Docker for Mac/Win, VirtualBox/*, Vagrant, etc.), or find ways to optimize or work around the issues.
-- For clustering (mainly relevant for production/staging), reduce latency to Redis/Memcached, use Varnish and [Solr](solr_search_engine.md).
+- For clustering (mainly relevant for production/staging), reduce latency to Redis/Memcached, use Varnish and [Solr](solr_overview.md).
 
 ## Client
 
@@ -78,12 +78,12 @@ In production setups:
 
 ### Search
 
-- Use [Solr Bundle and Solr](solr_search_engine.md) to greatly offload your database and get more stable performance on your installation.
+- Use [Solr Bundle and Solr](solr_overview.md) to greatly offload your database and get more stable performance on your installation.
 
 ## Long-running console commands
 
 Executing long-running console commands can result in running out of memory.
-Two examples of such commands are a custom import command and the indexing command provided by the [Solr Bundle](solr_search_engine.md).
+Two examples of such commands are a custom import command and the indexing command provided by the [Solr Bundle](solr_overview.md).
 
 ### Reducing memory usage
 

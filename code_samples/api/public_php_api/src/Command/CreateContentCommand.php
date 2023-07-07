@@ -1,29 +1,29 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Command;
 
-use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputOption;
 use Ibexa\Contracts\Core\Repository\ContentService;
 use Ibexa\Contracts\Core\Repository\ContentTypeService;
 use Ibexa\Contracts\Core\Repository\LocationService;
-use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
+use Ibexa\Contracts\Core\Repository\UserService;
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Output\OutputInterface;
 
 class CreateContentCommand extends Command
 {
-    private $contentService;
+    private ContentService $contentService;
 
-    private $contentTypeService;
+    private ContentTypeService $contentTypeService;
 
-    private $locationService;
+    private LocationService $locationService;
 
-    private $userService;
+    private UserService $userService;
 
-    private $permissionResolver;
+    private PermissionResolver $permissionResolver;
 
     public function __construct(ContentService $contentService, ContentTypeService $contentTypeService, LocationService $locationService, UserService $userService, PermissionResolver $permissionResolver)
     {
@@ -61,13 +61,13 @@ class CreateContentCommand extends Command
 
         $locationCreateStruct = $this->locationService->newLocationCreateStruct($parentLocationId);
 
-        $draft = $this->contentService->createContent($contentCreateStruct, array($locationCreateStruct));
+        $draft = $this->contentService->createContent($contentCreateStruct, [$locationCreateStruct]);
 
-        $output->writeln("Created a draft of " . $contentType->getName() . " with name " . $draft->getName());
+        $output->writeln('Created a draft of ' . $contentType->getName() . ' with name ' . $draft->getName());
 
         if ($input->getOption('publish')) {
             $content = $this->contentService->publishVersion($draft->versionInfo);
-            $output->writeln("Published Content item " . $content->getName());
+            $output->writeln('Published Content item ' . $content->getName());
         }
 
         return self::SUCCESS;

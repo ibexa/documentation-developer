@@ -1,5 +1,5 @@
 ---
-description: Configure the order processing workflow.
+description: Configure order processing, modify the default workflow.
 edition: commerce
 ---
 
@@ -11,7 +11,7 @@ When you work with your Commerce implementation, you can modify and customize th
 
     When you modify the workflow configuration, make sure you properly set user [permissions](permission_use_cases.md#commerce) for the Order management component.
 
-## Order processing workflow
+## Configure order processing workflow
 
 Order processing workflow relies on a [Symfony Workflow](http://symfony.com/doc/5.4/components/workflow.html).
 Each transition represents a separate order processing step. 
@@ -31,7 +31,7 @@ You define custom workflow implementations under the `framework.workflows` key.
 If your installation supports multiple languages, for each place in the workflow, you can define a label that is pulled from a XLIFF file based on the [translation domain setting](../../multisite/languages/back_office_translations.md). 
 You can also define colors that are used for status labels.
 
-To customize your configuration, place it in a YAML file under the `framework.workflows.<your_workflow_name>` key:
+To customize your configuration, place it under the `framework.workflows.<your_workflow_name>` [configuration key](configuration.md#configuration-files):
 
 ``` yaml
 [[= include_file('code_samples/front/shop/order-management/config/packages/ibexa.yaml', 0, 66) =]]
@@ -43,7 +43,7 @@ Then reference it with `ibexa.repositories.<your_repository>.order_management.wo
 [[= include_file('code_samples/front/shop/order-management/config/packages/ibexa.yaml', 69, 74) =]]
 ```
 
-#### PIM integration
+### PIM integration
 
 By default, the component integration mechanism reduces product stock values when an order is made (in status "pending") and reverts it to the original value when an order is cancelled.
 In your implementation, you may want the reduction/restoration of stock to happen at other stages of the order fulfillment process.

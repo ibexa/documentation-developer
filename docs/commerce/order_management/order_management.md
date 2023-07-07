@@ -13,7 +13,7 @@ From the development perspective, the component enables customization of the ord
 The component exposes the following:
 
 - [PHP API](order_management_api.md) that allows for managing orders
-- [REST API](../../api/rest_api/rest_api_reference/rest_api_reference.html#managing-orders) that helps get order information over HTTP
+- [REST API](../../api/rest_api/rest_api_reference/rest_api_reference.html#orders) that helps get order information over HTTP
 
 ### Order management service 
 

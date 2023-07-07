@@ -167,12 +167,12 @@ You can for example use `simple_block_field`, `simple_inline_field` or `field_at
 ### Registering a template
 
 If you don't use the [design engine](design_engine.md) or you want to have separate templates per Field Type and/or SiteAccess,
-you can register a template with the following configuration:
+you can register a template under the `ibexa.system.<scope>.field_templates` [configuration key](configuration.md#configuration-files):
 
 ``` yaml
 ibexa:
     system:
-        <siteaccess>:
+        <scope>:
             field_templates:
                 -
                     template: 'fields/custom_field_template.html.twig'
@@ -201,7 +201,7 @@ ibexa:
 ### Field edit template
 
 To use a template for the Field edit form in the Back Office, you need to specify it in configuration
-under the `twig.form_themes` key:
+under the `twig.form_themes` [configuration key](configuration.md#configuration-files):
 
 ``` yaml
 twig:

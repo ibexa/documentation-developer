@@ -4,13 +4,15 @@ declare(strict_types=1);
 
 namespace App\Command;
 
+use Ibexa\Contracts\Core\Repository\PermissionResolver;
+use Ibexa\Contracts\Core\Repository\UserService;
+use Ibexa\Contracts\ProductCatalog\RegionServiceInterface;
 use Ibexa\Contracts\Shipping\ShippingMethodServiceInterface;
 use Ibexa\Contracts\Shipping\Value\ShippingMethod\Query\Criterion\ShippingMethodRegion;
 use Ibexa\Contracts\Shipping\Value\ShippingMethod\ShippingMethodDeleteTranslationStruct;
 use Ibexa\Contracts\Shipping\Value\ShippingMethod\ShippingMethodQuery;
-use Ibexa\Contracts\Core\Repository\PermissionResolver;
-use Ibexa\Contracts\Core\Repository\UserService;
-use Ibexa\Contracts\ProductCatalog\RegionServiceInterface;
+use Ibexa\ProductCatalog\Local\Repository\Values\Region;
+use Ibexa\Shipping\Value\ShippingMethodType;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -50,25 +52,26 @@ final class ShippingMethodCommand extends Command
 
         $output->writeln(
             sprintf(
-                'Availability status of shipping method %d is "%s"', 
-                $shippingMethodId, $shippingMethod->isEnabled()
+                'Availability status of shipping method %d is "%s"',
+                $shippingMethodId,
+                $shippingMethod->isEnabled()
             )
         );
 
         // Get a single shipping method by identifier
-        $shippingMethodIdentifier = '4ac4b8a0-eed8-496d-87d9-32a960a10629';
+        $shippingMethodIdentifier = 'cash';
         $shippingMethod = $this->shippingMethodService->getShippingMethod($shippingMethodIdentifier);
 
         $output->writeln(
             sprintf(
-                'Got shipping method by identifier "%s" and type "%s".', 
-                $shippingMethodIdentifier, 
+                'Got shipping method by identifier "%s" and type "%s".',
+                $shippingMethodIdentifier,
                 $shippingMethod->getType()->getIdentifier()
             )
         );
 
         // Find shipping methods
-        $shippingMethodQuery = new ShippingMethodQuery(new ShippingMethodRegion($this->regionService->getRegion('EU')));
+        $shippingMethodQuery = new ShippingMethodQuery(new ShippingMethodRegion($this->regionService->getRegion('default')));
         $shippingMethodQuery->setLimit(10);
 
         $shippingMethods = $this->shippingMethodService->findShippingMethods($shippingMethodQuery);
@@ -89,17 +92,25 @@ final class ShippingMethodCommand extends Command
 
         // Create a new shipping method
         $shippingMethodCreateStruct = $this->shippingMethodService->newShippingMethodCreateStruct(
-            'eu_free_eur',
+            'courier',
         );
 
+        $shippingMethodCreateStruct->setType(
+            new ShippingMethodType('flat_rate')
+        );
+        $shippingMethodCreateStruct->setRegions(([new Region('default')]));
+        $shippingMethodCreateStruct->setOptions(
+            ['currency' => 1, 'price' => 1200]
+        );
+        $shippingMethodCreateStruct->setVatCategoryIdentifier('standard');
         $shippingMethodCreateStruct->setEnabled(true);
-        $shippingMethodCreateStruct->setName('eng-GB', 'EU free shipping EUR');
+        $shippingMethodCreateStruct->setName('eng-GB', 'Courier');
 
         $shippingMethod = $this->shippingMethodService->createShippingMethod($shippingMethodCreateStruct);
 
         $output->writeln(
             sprintf(
-                'Created shipping method with name %s', 
+                'Created shipping method with name %s',
                 $shippingMethod->getName()
             )
         );
@@ -107,13 +118,17 @@ final class ShippingMethodCommand extends Command
         // Update the shipping method
         $shippingMethodUpdateStruct = $this->shippingMethodService->newShippingMethodUpdateStruct();
         $shippingMethodUpdateStruct->setEnabled(false);
+        $shippingMethodUpdateStruct->setOptions(
+            ['currency' => 1, 'price' => 800]
+        );
+        $shippingMethodUpdateStruct->setVatCategoryIdentifier('standard');
+        $shippingMethodUpdateStruct->setName('eng-GB', 'Courier');
 
         $this->shippingMethodService->updateShippingMethod($shippingMethod, $shippingMethodUpdateStruct);
 
         $output->writeln(sprintf(
-            'Updated shipping method "%s" by changing its "Enabled" status to "%s".',
+            'Updated shipping method "%s"',
             $shippingMethod->getName(),
-            $shippingMethod->isEnabled()
         ));
 
         // Delete the shipping method

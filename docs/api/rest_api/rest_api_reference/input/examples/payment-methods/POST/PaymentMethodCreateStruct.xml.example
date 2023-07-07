@@ -1,0 +1,7 @@
+<PaymentMethodCreateStruct>
+    <identifier>bank_transfer</identifier>
+    <type>offline</type>
+    <names>
+        <eng-GB>Bank transfer</eng-GB>
+    </names>
+</PaymentMethodCreateStruct>

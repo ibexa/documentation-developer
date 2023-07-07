@@ -9,7 +9,7 @@ Follow the instruction below to create a template with login form. If you want t
 
 First, make sure you have configured [login methods](user_management.md#login-methods).
 
-If you only want to change a template, in the `config/packages/views.yaml` add the following configuration:
+If you only want to change a template, add the following configuration under the `ibexa.system.<scope>.user` [configuration key](configuration.md#configuration-files):
 
 ```yaml
 ibexa:

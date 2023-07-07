@@ -1,14 +1,13 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\View\Matcher;
 
-use Ibexa\Core\Repository\Repository;
 use Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo;
 use Ibexa\Contracts\Core\Repository\Values\Content\Location;
+use Ibexa\Core\MVC\Symfony\Matcher\ContentBased\MultipleValued;
 use Ibexa\Core\MVC\Symfony\View\ContentValueView;
 use Ibexa\Core\MVC\Symfony\View\LocationValueView;
 use Ibexa\Core\MVC\Symfony\View\View;
-use Ibexa\Core\MVC\Symfony\Matcher\ContentBased\MultipleValued;
 
 class Owner extends MultipleValued
 {

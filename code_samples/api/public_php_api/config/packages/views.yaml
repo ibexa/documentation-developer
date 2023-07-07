@@ -7,6 +7,6 @@ ibexa:
                         controller: App\Controller\CustomController::showContentAction
 #                        controller: App\Controller\PaginationController::showContentAction
 #                        controller: App\Controller\CustomFilterController::showChildrenAction
-#                        template: custom_filter.html.twig
+#                        template: '@ibexadesign/full/custom_filter.html.twig'
                         match:
                             Identifier\ContentType: [folder]

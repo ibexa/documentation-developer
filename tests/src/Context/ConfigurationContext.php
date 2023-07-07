@@ -1,16 +1,15 @@
-<?php
+<?php declare(strict_types=1);
 
 /**
  * @copyright Copyright (C) Ibexa. All rights reserved.
  * @license For full copyright and license information view LICENSE file distributed with this source code.
  */
+
 namespace EzSystems\DeveloperDocumentation\Test\Context;
 
+use Behat\Behat\Context\Context;
 use Behat\Gherkin\Node\TableNode;
 use EzSystems\DeveloperDocumentation\Test\ConfigurationEditor;
-use Symfony\Component\Console\Input\ArrayInput;
-use Symfony\Bundle\FrameworkBundle\Console\Application;
-use Behat\Behat\Context\Context;
 
 class ConfigurationContext implements Context
 {
@@ -20,6 +19,7 @@ class ConfigurationContext implements Context
     {
         $this->basePath = $basePath;
     }
+
     /**
      * @Given I set the Landing Page template configuration in :filePath
      */
@@ -137,48 +137,48 @@ class ConfigurationContext implements Context
         ]);
     }
 
-	/**
-	 * @Given I create configuration of Form block to :filePath
-	 */
-	public function addFormBlockConfig($filePath): void
-	{
-		$config = new ConfigurationEditor(sprintf('%s/%s', $this->basePath, $filePath));
-		$config->add([
-			'ezplatform_page_fieldtype.blocks.form.views.newsletter.template' => 'blocks/form/newsletter.html.twig',
-			'ezplatform_page_fieldtype.blocks.form.views.newsletter.name' => 'Newsletter Form View',
-		]);
-	}
+    /**
+     * @Given I create configuration of Form block to :filePath
+     */
+    public function addFormBlockConfig($filePath): void
+    {
+        $config = new ConfigurationEditor(sprintf('%s/%s', $this->basePath, $filePath));
+        $config->add([
+            'ezplatform_page_fieldtype.blocks.form.views.newsletter.template' => 'blocks/form/newsletter.html.twig',
+            'ezplatform_page_fieldtype.blocks.form.views.newsletter.name' => 'Newsletter Form View',
+        ]);
+    }
 
-	/**
-	 * @Given I create configuration of Form field to :filePath
-	 */
-	public function addFormFieldConfig($configPath): void
-	{
-		$config = new ConfigurationEditor(sprintf('%s/%s', $this->basePath, $configPath));
-		$config->add([
-			'ezpublish.system.site.field_templates' => [['template' => 'fields/form_field.html.twig', 'priority' => 30,]],
-		]);
-	}
+    /**
+     * @Given I create configuration of Form field to :filePath
+     */
+    public function addFormFieldConfig($configPath): void
+    {
+        $config = new ConfigurationEditor(sprintf('%s/%s', $this->basePath, $configPath));
+        $config->add([
+            'ezpublish.system.site.field_templates' => [['template' => 'fields/form_field.html.twig', 'priority' => 30]],
+        ]);
+    }
 
-	/**
-	 * @Given I create configuration of Captcha field to :filePath
-	 */
-	public function addCaptchaConfig($configPath): void
-	{
-		$config = new ConfigurationEditor(sprintf('%s/%s', $this->basePath, $configPath));
-		$config->add([
-			'gregwar_captcha.width' => '150',
-			'gregwar_captcha.invalid_message' => 'Please, enter again.',
-			'gregwar_captcha.reload' => 'true',
-			'gregwar_captcha.length' => '4',
-		]);
-	}
+    /**
+     * @Given I create configuration of Captcha field to :filePath
+     */
+    public function addCaptchaConfig($configPath): void
+    {
+        $config = new ConfigurationEditor(sprintf('%s/%s', $this->basePath, $configPath));
+        $config->add([
+            'gregwar_captcha.width' => '150',
+            'gregwar_captcha.invalid_message' => 'Please, enter again.',
+            'gregwar_captcha.reload' => 'true',
+            'gregwar_captcha.length' => '4',
+        ]);
+    }
 
     /**
      * @Given I rebuild Webpack Encore assets
      */
     public function rebuildYarn(): void
     {
-        shell_exec("bin/console ezplatform:encore:compile");
+        shell_exec('bin/console ezplatform:encore:compile');
     }
 }

@@ -1,5 +1,6 @@
 ---
 description: Export Repository data to use in future data migrations.
+page_type: reference
 ---
 
 # Exporting data
@@ -151,8 +152,9 @@ The following types are available:
 - `location`
 - `attribute_group`
 - `attribute`
-- `customer_group`
-- `currency`
+- `segment`
+- `segment_group`
+- `company`
 
 If you do not provide the `--type` option, the command asks you to select a type of data.
 
@@ -176,7 +178,7 @@ The following combinations of types are modes are available:
 |`role`|&#10004;|&#10004;|&#10004;|
 |`content_type_group`|&#10004;|&#10004;||
 |`user`|&#10004;|&#10004;||
-|`user_group`|&#10004;||&#10004;|
+|`user_group`|&#10004;|&#10004;|&#10004;|
 |`language`|&#10004;|||
 |`object_state_group`|&#10004;|||
 |`object_state`|&#10004;|||
@@ -184,8 +186,9 @@ The following combinations of types are modes are available:
 |`location`||&#10004;||
 |`attribute_group`|&#10004;|&#10004;|&#10004;|
 |`attribute`|&#10004;|&#10004;|&#10004;|
-|`customer_group`|&#10004;|&#10004;|&#10004;|
-|`currency`|&#10004;|&#10004;|&#10004;|
+|`segment`|&#10004;|&#10004;|&#10004;|
+|`segment_group`|&#10004;|&#10004;|&#10004;|
+|`company`|&#10004;|||
 
 ## match-property
 
@@ -203,6 +206,8 @@ The following properties are available (per type):
     - `location_remote_id`
     - `parent_location_id`
     - `user_id`
+    - `user_email`
+    - `user_login`
 - `content_type`
     - `content_type_identifier`
 - `content_type_group`
@@ -226,11 +231,21 @@ The following properties are available (per type):
     - `section_id`
     - `section_identifier`
 - `user`
-  - `login`
-  - `email`
+    - `login`
+    - `email`
+    - `id`
 - `user_group`
-  - `id`
-  - `remoteId`
+    - `id`
+    - `remoteId`
+- `attribute`
+    - `id`
+    - `identifier`
+    - `type`
+    - `attribute_group_id`
+    - `position`
+    - `options`
+- `attribute_group`
+    - `identifier`
 
 You can extend the list of available matchers by creating [a custom one](add_data_migration_matcher.md).
 
@@ -259,7 +274,7 @@ php bin/console ibexa:migrations:generate --type=content --mode=create --file=my
 
 !!! note
 
-    When migrating multiple files at once (for example when calling `ibexa:migration:migrate` without options),
+    When migrating multiple files at once (for example when calling `ibexa:migrations:migrate` without options),
     they are executed in alphabetical order.
 
 ## user-context
