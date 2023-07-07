@@ -1,3 +1,7 @@
+---
+description: Configure Fastly for use with Ibexa DXP.
+---
+
 # Configure and customize Fastly
 
 You can configure Fastly by using API calls or through the Fastly Web Interface. 
@@ -269,10 +273,12 @@ Created at: 2022-06-23 10:55:34 +0000 UTC
 Updated at: 2022-06-23 12:24:48 +0000 UTC
 ```
 
-You can also get the same details for a particular snippet using the `vcl snippet describe` command:
+You can also get the same details for a particular snippet using the `vcl snippet describe` command.
+
+### Get specific snippet
 
 ``` bash
-fastly vcl snippet describe --version=active "--name=Re-Enable shielding on restart"
+fastly vcl snippet describe --name="Re-Enable shielding on restart" --version=latest
 ```
 
 ### Create snippet
@@ -282,17 +288,17 @@ fastly vcl snippet create --name="Re-Enable shielding on restart" --version=acti
 fastly service-version activate --version=latest
 ```
 
-### Delete snippet
-
-``` bash
-fastly vcl snippet delete --name="Re-Enable shielding on restart" --version=active --autoclone
-fastly service-version activate --version=latest
-```
-
 ### Update existing snippet
 
 ``` bash
 fastly vcl snippet update --name="Re-Enable shielding on restart" --version=active --autoclone --priority 100 --type recv --content=vendor/ezsystems/ezplatform-http-cache-fastly/fastly/snippet_re_enable_shielding.vcl
+fastly service-version activate --version=latest
+```
+
+### Delete snippet
+
+``` bash
+fastly vcl snippet delete --name="Re-Enable shielding on restart" --version=active --autoclone
 fastly service-version activate --version=latest
 ```
 
