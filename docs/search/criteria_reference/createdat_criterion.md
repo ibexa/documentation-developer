@@ -4,8 +4,8 @@ The `CreatedAt` Search Criterion searches for products based on the date when th
 
 ## Arguments
 
-- `createdAt` (PHP), `created_at` (REST) - indicating the date that should be matched, provided as a `DateTimeInterface` object
-- `operator` - Operator constant (EQ, GT, GTE, LT, LTE)
+- `createdAt` (PHP), `created_at` (REST) - indicating the date that should be matched, provided as a `DateTimeInterface` object in PHP, or as a string acceptable by `DateTime` constructor in REST
+- `operator` - Operator constant (EQ, GT, GTE, LT, LTE) in PHP or its value in REST
 
 ## Example
 
