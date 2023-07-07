@@ -12,7 +12,7 @@ description: How to run a cluster infrastructure using DDEV locally.
 
 This guide follows [Install using DDEV](install_using_ddev.md) and helps to extend the previous installation to locally replicate a production [cluster](clustering.md).
 
-In contrast to a production cluster, this setup will have only one front app server.
+In contrast to a production cluster, this setup has only one front app server.
 But the data sharing needed by a cluster of several servers can still be emulated.
 
 The `ddev config --php-version` option should set the same PHP version as the production servers.
@@ -33,12 +33,12 @@ A [search engine](search_engines.md) can be added to the cluster.
 
 ### Elasticsearch
 
-The following commands will:
+The following commands:
 
-1. add the Elasticsearch container,
-1. set it up as the search engine,
-1. restart the DDEV cluster and clear application cache,
-1. then inject the schema and reindex the content.
+1. adds the Elasticsearch container,
+1. sets it up as the search engine,
+1. restarts the DDEV cluster and clear application cache,
+1. then injects the schema and reindex the content.
 
 ```bash
 ddev get ddev/ddev-elasticsearch
@@ -50,12 +50,12 @@ ddev php bin/console ibexa:elasticsearch:put-index-template
 ddev php bin/console ibexa:reindex
 ```
 
-You can now check that Elasticsearch works properly.
+You can now check that Elasticsearch works.
 
-For example, `ddev exec curl -s "http://elasticsearch:9200/_count"` will
+For example, `ddev exec curl -s "http://elasticsearch:9200/_count"`
 
-- test that the `web` server is accessing the `elasticsearch` server,
-- display the number of indexed documents.
+- tests that the `web` server is accessing the `elasticsearch` server,
+- displays the number of indexed documents.
 
 See [ddev/ddev-elasticsearch README](https://github.com/ddev/ddev-elasticsearch) for more information on topics such as memory management.
 
@@ -78,13 +78,13 @@ ddev get ibexa/ddev-solr
 ddev restart
 ```
 
-You can now test that Solr works properly.
+You can now test that Solr works.
 
-For example, `ddev exec curl -s http://solr:8983/api/cores/` will
+For example, `ddev exec curl -s http://solr:8983/api/cores/`
 
-- test that the `web` server is accessing the `solr` server,
-- test `collection1` existence and status,
-- display `collection1`'s `numDocs` that should not be zero if indexing worked correctly. 
+- tests that the `web` server is accessing the `solr` server,
+- tests `collection1` existence and status,
+- displays `collection1`'s `numDocs` that shouldn't be zero if indexing worked correctly. 
 
 The Solr admin can be accessed from the host by using the port 8983 on the same `.ddev.site` subdomain as the front. Use `ddev describe` to get that URL.
 
@@ -94,8 +94,8 @@ You can add a [persistence cache pool](persistence_cache.md#persistence-cache-co
 
 In the following examples:
 
-- the same service will be used to store both persistence cache and sessions,
-- the session handler will be set on Symfony side, not on PHP side.
+- the same service is used to store both persistence cache and sessions,
+- the session handler is set on Symfony side, not on PHP side.
 
 ### Install Redis
 
@@ -118,9 +118,9 @@ ddev restart
 ddev php bin/console cache:clear
 ```
 
-You can now check that Redis works properly.
+You can now check that Redis works.
 
-For example, `ddev redis-cli MONITOR` will output such as `"SETEX" "ezp:`, `"MGET" "ezp:`, `"SETEX" "PHPREDIS_SESSION:`, `"GET" "PHPREDIS_SESSION:`, etc. while navigating into the website, in particular the Back Office.
+For example, `ddev redis-cli MONITOR` outputs such as `"SETEX" "ezp:`, `"MGET" "ezp:`, `"SETEX" "PHPREDIS_SESSION:`, `"GET" "PHPREDIS_SESSION:`, etc. while navigating into the website, in particular the Back Office.
 
 See [Redis commands](https://redis.io/commands/) for more details such as information about the [`MONITOR`](https://redis.io/commands/monitor/) used in the previous example.
 
@@ -156,7 +156,7 @@ ddev php bin/console cache:clear
 
 You can now check that everything went right.
 
-For example, `watch 'ddev exec netcat -w1 memcached 11211 <<< "stats" | grep "cmd_.et "'` will
+For example, `watch 'ddev exec netcat -w1 memcached 11211 <<< "stats" | grep "cmd_.et "'`
 
-- test that the `web` service accesses the `memcached` service,
-- display the increase of `cmd_get` and `cmd_set` while navigating into the website.
+- tests that the `web` service accesses the `memcached` service,
+- displays the increase of `cmd_get` and `cmd_set` while navigating into the website.

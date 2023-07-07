@@ -122,7 +122,7 @@ ddev start
 ### 4. Composer authentication
 
 Next, you need to [set up authentication tokens](install_ibexa_dxp.md#set-up-authentication-tokens) by modifying the Composer configuration.
-You must run the following command **after** executing  `ddev start`, because the command will run inside the container.
+You must run the following command **after** executing  `ddev start`, because the command run inside the container.
 
 ```bash
 ddev composer config --global http-basic.updates.ibexa.co <installation-key> <token-password>
@@ -271,7 +271,7 @@ sed -i 's/ibexa_params.d/sites-enabled\/ibexa_params.d/' .ddev/nginx_full/ibexa.
 
 #### Apache Virtual Host
 
-To set the Apache Virtual Host, `.ddev/apache/apache-site.conf` will be overridden with Ibexa DXP's config. You can do it manually or using a script.
+To set the Apache Virtual Host, override `.ddev/apache/apache-site.conf` with Ibexa DXP's config. You can do it manually or using a script.
 
 ##### Manual
 
@@ -345,7 +345,7 @@ To run an existing project, you'll need to
     - getting a clean database using ddev `php bin/console ibexa:install ibexa-<edition>` then adding some data using [Ibexa data migration](../content_management/data_migration/importing_data.md)
     - injecting a dump using [`ddev import-db`](https://ddev.readthedocs.io/en/latest/users/usage/commands/#import-db) and copying related binary files into `public/var`
 
-The following example will run an already [version-controlled project](install_ibexa_dxp.md#add-project-to-version-control) and have the right content structure (but no content):
+The following example run an already [version-controlled project](install_ibexa_dxp.md#add-project-to-version-control) and have the right content structure (but no content):
 
 ```bash
 # Clone the version-controlled project and enter its local directory
@@ -393,16 +393,16 @@ If the local project needs to answer to real production domains (for example, to
 
 DDEV can be useful to locally simulate a production cluster.
 
-- See [Clustering using DDEV](clustering_using_ddev.md) to add Elasticsearch, Solr, Redis or Memcached to your DDEV installation.
+- See [clustering using DDEV](clustering_using_ddev.md) to add Elasticsearch, Solr, Redis or Memcached to your DDEV installation.
 - See [Ibexa Cloud and DDEV](ibexa_cloud_and_ddev.md) to locally run an Ibexa DXP project using DDEV.
 
 ## Stop or remove the project
 
-If you need to stop the project to start it again latter, use `ddev stop`. Afterwards, a `ddev start` will run the project in the same state.
+If you need to stop the project to start it again latter, use `ddev stop`. Afterward, a `ddev start` runs the project in the same state.
 
 If you want to fully remove the project:
 
-- delete the DDEV elements without backup: `ddev delete --omit-snapshot && rm -rf ./ddev`;
+- delete the DDEV elements without backup: `ddev delete --omit-snapshot && rm -rf ./ddev`
 - remove the project folder: `cd .. && rm -r my-ddev-project`
 
 If [additional hostnames](#hostnames-and-domains) have been used, you must clean the hosts file.
