@@ -55,25 +55,7 @@ ibexa:
 You also need to create `pagelayout.html.twig` file in `templates` folder:
 
 ```html+twig
-<!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sriracha|Roboto|Open+Sans">
-
-    {% if content is defined %}
-        {% set title = ez_content_name(content) %}
-    {% endif %}
-    <title>{{ title|default('Home'|trans) }} - {{ "It's a Dog's World!"|trans }}</title>
-</head>
-<body>
-<div class="container">
-    <div class="row main">
-        {% block content %}{% endblock %}
-    </div>
-</div>
-</body>
-</html>
+[[= include_file('code_samples/page/ibexa_connect_scenario_block/pagelayout.html.twig') =]]
 ```
 
 Then, in `templates/block` directory under `default.html.twig`, provide your block configuration:
@@ -93,7 +75,7 @@ Now, you can configure Ibexa Connect scenario block in Page Builder.
 To do it, in your Page add Ibexa Connect block by dragging it from the menu to a drop zone and enter block settings. 
 
 - In the **Basic** tab in **Webhook link** field, provide a link to an Ibexa Connect webhook, 
-for example, `https://ibexa.integromat.celonis.com/3/scenarios/688/edit`:
+for example, `https://connect.ibexa.co/3/scenarios/688/edit`:
 
 ![Ibexa Connect Basic tab](ibexa_connect_basic_tab.png)
 
