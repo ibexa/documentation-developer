@@ -4,7 +4,7 @@ description: Configure Fastly Image Optimizer.
 
 # Fastly Image Optimizer (Fastly IO)
 
-The Fastly Image Optimizer (Fastly IO) is an external service that provides real-time image optimisation for multiple input and output formats.
+The Fastly Image Optimizer (Fastly IO) is an external service that provides real-time image optimization for multiple input and output formats.
 It serves and caches image requests from your origin server, making your website faster and more efficient.
 
 To be able to configure this feature, you need [Fastly IO subscription](https://docs.fastly.com/en/guides/about-fastly-image-optimizer).
@@ -23,7 +23,7 @@ you need to:
 
 - [install Fastly CLI](https://developer.fastly.com/learning/tools/cli#installing),
 - define `FASTLY_SERVICE_ID` and `FASTLY_KEY` environmental variables,
-- set restrictions on the optimiser by using `ibexa_image_optimizer.vcl`:
+- set restrictions on the optimizer by using `ibexa_image_optimizer.vcl`:
 
 ```vcl
 # Restrict optimizer by file path and extension
@@ -34,17 +34,17 @@ if (req.url.ext ~ "(?i)^(gif|png|jpe?g|webp)$") {
 }
 ```
 
-You can customize what image formats will be included, for example: `gif|png|jpe?g|webp`
+You can customize what image formats are included, for example: `gif|png|jpe?g|webp`,
 and which paths should be used as a source of images, for example: `^/var/([a-zA-Z0-9_-]+)/storage/images`.
 For more configuration options, see [Enabling image optimization](https://developer.fastly.com/reference/io/#enabling-image-optimization).
-After you have saved your modifications or want to use the default one as-is, you can upload it from the command line using:
+To apply your modifications or use the default configuration as-is, you can upload the `.vcl` file from the command line:
 
 ```bash
 fastly vcl snippet create --name="Ibexa Image Optimizer" --version=active --autoclone --type recv --content=vendor/ibexa/fastly/fastly/ibexa_image_optimizer.vcl
 fastly service-version activate --version=latest
 ```
 
-For more command examples, see [our Fastly configuration examples](fastly.md).
+For more information about Fastly configuration and CLI usage examples, see [Configure and customize Fastly](fastly.md).
 
 ## Define SiteAccess for Fastly IO
 
