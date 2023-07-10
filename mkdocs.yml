@@ -514,6 +514,7 @@ nav:
               - 'Reverse proxy': 'guide/cache/symfony_reverse_proxy.md'
               - 'Context-aware HTTP cache': 'guide/cache/context_aware_cache.md'
               - 'Content-aware HTTP cache': 'guide/cache/content_aware_cache.md'
+              - 'Configure and customize Fastly': 'guide/cache/fastly.md'
             - 'Persistence cache': 'guide/persistence_cache.md'
             - 'Shop caching': 'guide/cache/shop_caching.md'
         - Clustering:
