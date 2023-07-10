@@ -400,9 +400,7 @@ In `snippet_basic_auth_error.vcl`:
 //  Priority: 100
 //  Type: error
 
-// This code should be added as a snippet in your config:
-//
-// See snippet_basic_auth_recv.vcl for instructions for installation instructions
+// See snippet_basic_auth_recv.vcl for installation instructions
 //
 
 
