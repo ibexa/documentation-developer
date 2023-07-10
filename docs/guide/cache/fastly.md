@@ -258,7 +258,7 @@ Content:
 //  Type: recv
 //
 // Fastly CLI:
-// - fastly vcl snippet create --name="Re-Enable shielding on restart" --version=active --autoclone --priority 100 --type recv --content=vendor/ezsystems/ezplatform-http-cache-fastly/fastly/snipped_re_enable_shielding.vcl
+// - fastly vcl snippet create --name="Re-Enable shielding on restart" --version=active --autoclone --priority 100 --type recv --content=vendor/ezsystems/ezplatform-http-cache-fastly/fastly/snippet_re_enable_shielding.vcl
 // - fastly service-version activate --version=latest
 
 
