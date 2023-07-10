@@ -37,7 +37,7 @@ For more information on how to configure Fastly with [[= product_name =]], see [
 
 !!! tip
 
-    Support for Fastly Shielding was added in [[= product_name =]] v3.3.24 and V4.1.6
+    Support for Fastly Shielding was added in [[= product_name =]] v3.3.24 and v4.1.6.
 
     When you extend [FOSHttpCacheBundle](https://foshttpcachebundle.readthedocs.io/en/2.9.1/),
     you can also adapt your VCL further with [FOSHttpCache documentation](http://foshttpcache.readthedocs.org/en/latest/varnish-configuration.html)

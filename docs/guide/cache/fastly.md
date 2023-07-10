@@ -21,7 +21,7 @@ or if you are not using Ibexa Cloud and want to configure Fastly to work with [[
 
 ## Prepare for using Fastly locally
 
-These steps are not needed when you use Ibexa Cloud, because Fastly then comes preconfigured.
+These steps are not needed when you use Ibexa Cloud, because Fastly is preconfigured in it.
 
 ### Get Fastly credentials from Ibexa Cloud installation
 
@@ -103,7 +103,7 @@ fastly service-version clone --version=latest
     In addition to a specific version number, the `--version` parameter always supports aliases like `active` and `latest`.
 
     Most Fastly CLI commands that alter the config also support the `--autoclone` parameter. 
-    With such commands, when you use the `--autoclone` parameter, calling `fastly service-version clone` is longer needed.
+    With such commands, when you use the `--autoclone` parameter, calling `fastly service-version clone` is no longer needed.
 
 ### Activate version
 
@@ -303,9 +303,12 @@ fastly service-version activate --version=latest
 
 ### Get diff between two versions
 
-You can easily view the diff between two different versions by using the Fastly web interface. Unfortunately, Fastly CLI does not support this functionality. However, Fastly API and GNU diff can help you get an identical result.
+You can easily view the diff between two different versions by using the Fastly web interface.
+Unfortunately, Fastly CLI does not support this functionality.
+However, Fastly API and GNU diff can help you get an identical result.
 
-Use the Fastly API to download the generated `.vcl` file. It includes the VCL configuration that Fastly generates based on all the configuration settings (from all custom `.vcl` files, snippets, and origin configuration).
+Use the Fastly API to download the generated `.vcl` file. It includes the VCL configuration that Fastly generates
+based on all the configuration settings (from all custom `.vcl` files, snippets, and origin configuration).
 
 The example below extracts the generated VCL for version no. 11 of some service:
 
