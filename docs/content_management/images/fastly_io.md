@@ -13,8 +13,8 @@ To be able to configure this feature, you need [Fastly IO subscription](https://
 
 To use Fastly Image Optimizer, you first need a [working setup of Ibexa DXP and Fastly](reverse_proxy.md#using-varnish-or-fastly)
 with shielding enabled.
-To enable shielding, follow steps in Fastly documentation, [Enabling and disabling shielding](https://developer.fastly.com/learning/concepts/shielding/).
-Remember to choose a [Shield location](https://developer.fastly.com/learning/concepts/shielding/#choosing-a-shield-location) from the Shielding menu in Fastly web interface as specified in [Fastly IO documentation](https://docs.fastly.com/en/guides/shielding#enabling-shielding).
+To enable shielding, follow the steps in [Fastly developer documentation](https://developer.fastly.com/learning/concepts/shielding/#enabling-and-disabling-shielding).
+Remember to choose a shield location from the **Shielding** menu, as described in [Fastly user documentation](https://docs.fastly.com/en/guides/shielding#enabling-shielding).
 
 ## VCL configuration
 
@@ -23,7 +23,7 @@ you need to:
 
 - [install Fastly CLI](https://developer.fastly.com/learning/tools/cli#installing),
 - define `FASTLY_SERVICE_ID` and `FASTLY_KEY` environmental variables,
-- set restrictions on the optimizer by using `ibexa_image_optimizer.vcl`:
+- set optimizer restrictions by using the `ibexa_image_optimizer.vcl` file:
 
 ```vcl
 # Restrict optimizer by file path and extension
@@ -37,6 +37,7 @@ if (req.url.ext ~ "(?i)^(gif|png|jpe?g|webp)$") {
 You can customize what image formats are included, for example: `gif|png|jpe?g|webp`,
 and which paths should be used as a source of images, for example: `^/var/([a-zA-Z0-9_-]+)/storage/images`.
 For more configuration options, see [Enabling image optimization](https://developer.fastly.com/reference/io/#enabling-image-optimization).
+
 To apply your modifications or use the default configuration as-is, you can upload the `.vcl` file from the command line:
 
 ```bash
