@@ -15,6 +15,9 @@ or if you are not using Ibexa Cloud and want to configure Fastly to work with [[
 !!! note "The Fastly Web Interface is not available for Ibexa Cloud"
     It's recommend for Ibexa Cloud customers to use the Fastly CLI instead of using the Fastly API directly with `curl`, and so on.
 
+!!! note "Disable Varnish when you use Fastly"
+    Varnish is automatically provisioned on Ibexa Cloud. Varnish needs to be disabled on all environments that use
+    Fastly. See [documentation on how to do that](https://docs.platform.sh/guides/ibexa/fastly.html).
 
 ## Prepare for using Fastly locally
 
@@ -34,12 +37,8 @@ FASTLY_SERVICE_ID=...
 These credentials are different for your production and staging environments. 
 When you configure the Fastly CLI, use the credentials for the environment that you want to change.
 
-You might also encounter a difference in environment variable names.
-[[= product_name =]] uses the `FASTLY_SERVICE_ID` and `FASTLY_KEY` variables but you may see `FASTLY_SERVICE_ID` and `FASTLY_API_TOKEN` in your configuration.
-
-!!! note "Disable Varnish when you use Fastly"
-    Varnish is automatically provisioned on Ibexa Cloud. Varnish needs to be disabled on all environments that use
-    Fastly. See [documentation on how to do that](https://docs.platform.sh/guides/ibexa/fastly.html).
+!!! note "Different environment variable names between products"
+    When you configure Fastly CLI, you use the `FASTLY_API_TOKEN` variable to store the token, while with [[= product_name =]] you use `FASTLY_KEY` for the same purpose.
 
 ### Quickly configure Fastly for use with [[= product_name =]]
 
