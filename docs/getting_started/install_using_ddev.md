@@ -148,7 +148,7 @@ ddev composer create ibexa/<edition>-skeleton:<version>
 
 !!! tip
 
-    You may add the Symfony Debug bundle for its var dumper enhancement which can avoid getting out of memory when dumping huge or circular variables.
+    You may add the Symfony Debug bundle for its var dumper enhancement which allows to avoid getting out of memory error when dumping objects containing circular references.
     `ddev composer require --dev symfony/debug-bundle`
 
 ### 6. Install the DXP and its database
