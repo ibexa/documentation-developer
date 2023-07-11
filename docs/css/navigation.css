@@ -162,6 +162,7 @@
 .md-nav--primary .md-nav__item--nested>.level-1 {
     background-image: url(../images/plus.svg);
     background-size: 15px 18px;
+    background-position: 3px 11px;
 }
 
 .md-nav--primary .md-nav__item--nested>.md-nav__toggle:checked~.level-1,
@@ -229,8 +230,7 @@
 .md-nav--primary li label:focus,
 .md-nav--primary .level-4:hover,
 .md-nav--primary .level-4:focus {
-    background-color: #424242;
-    color: var(--white) !important;
+    color: var(--ibexa-jazzberry) !important;
 }
 
 .md-nav--primary>.md-nav__list>li:first-child {
@@ -290,19 +290,31 @@
 /* Search */
 
 .md-search__form {
-    padding-top: 0.2rem;
     font-size: 11pt;
 }
 
+.md-search__form:hover {
+    background: none;
+}
+
 .md-search__form label svg {
-    padding-top: 0.3rem;
+    width: 16px;
+    height: 16px;
 }
 
 .md-search__input {
-    height: 1.5rem;
-    padding-bottom: 0.15rem;
+    height: 34px;
+    padding: 9px 16px 8px;
     border: 1px solid var(--dark-grey);
+    border-radius: 12px;
+    font-size: 12px;
     background-color: var(--ibexa-dusk-black);
+    letter-spacing: 0.12px;
+    margin-top: 3px;
+}
+
+[dir=ltr] .md-search__input {
+    padding-left: 50px;
 }
 
 .md-search__input:hover  {
@@ -319,7 +331,21 @@
 }
 
 .md-search__icon[for=__search] {
-    top: .2rem;
+    top: 12px;
+    height: 16px;
+    width: 16px;
+}
+
+[dir=ltr] .md-search__icon[for=__search] {
+    left: 16px;
+}
+
+[dir=rtl] .md-search__icon[for=__search] {
+    right: 16px;
+}
+
+.md-search__inner {
+    width: 260px;
 }
 
 [data-md-toggle=search]:checked~.md-header .md-search__inner {
@@ -382,12 +408,17 @@ ul.breadcrumbs li.breadcrumb-item-current {
     height: 100%;
 }
 
+[data-md-toggle=search]:checked~.md-header .md-search__form {
+    background-color: transparent;
+}
+
 [data-md-toggle=search]:checked~.md-header .md-search__inner {
     height: 56px;
     z-index: 401;
 }
 
 [data-md-toggle=search]:checked~.md-header .md-search__input {
+    margin-top: 0;
     padding-left: 1.5rem;
     background-color: var(--md-default-bg-color);
 }
