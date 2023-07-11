@@ -1,11 +1,11 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Attribute\NameSchema;
 
 use Ibexa\Contracts\ProductCatalog\Values\AttributeDefinitionInterface;
 use Ibexa\ProductCatalog\NameSchema\NameSchemaStrategyInterface;
 
-final class CustomNameSchemaStrategy implements NameSchemaStrategyInterface
+final class NameSchemaStrategyInterface implements NameSchemaStrategyInterface
 {
     /**
      * @param mixed $value
