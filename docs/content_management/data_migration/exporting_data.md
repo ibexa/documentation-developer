@@ -274,7 +274,7 @@ php bin/console ibexa:migrations:generate --type=content --mode=create --file=my
 
 !!! note
 
-    When migrating multiple files at once (for example when calling `ibexa:migration:migrate` without options),
+    When migrating multiple files at once (for example when calling `ibexa:migrations:migrate` without options),
     they are executed in alphabetical order.
 
 ## user-context

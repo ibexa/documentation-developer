@@ -151,6 +151,62 @@ if ($recommendations && isset($recommendations->recommendationResponseList)) {
 curl_close($curl);
 ```
 
+## Send emails with recommendations
+
+By using [email triggers]([[= user_doc =]]/personalization/triggers.md), your organization can send emails to individual visitors, for example, to invite them to return to the website or remind them of items abandoned in a cart.
+
+Email triggers are push messages with recommendations.
+Specific conditions, such as the time that must pass before email start being sent, content types and attributes to be included in a response, or a number of repetitions, are first defined based on an interview between you and Ibexa.
+Email triggers are then processed on the Personalization server and responses are delivered to a dedicated endpoint.
+
+To let your visitors receive emails with recommendations:
+
+1\. With the [User API](api_reference/user_api.md#post-requests), add the `e-mail` attribute (or another identifier) to the user record.
+
+2\. Prepare an endpoint to intercept push messages and pass them on, for example, to your mailing system.
+Out of many options, it could be an Ibexa Connect [webhook](https://doc.ibexa.co/projects/connect/en/latest/tools/webhooks/). 
+The endpoint must meet the following requirements:
+
+   - must support POST requests
+   - must accept JSON objects in a format that resembles the following example:
+
+``` json
+{
+   "customerID":"1234567",
+   "userExternalId":"user@domain.com",
+   "triggerType":"REACTIVATION|ABANDONED_SHOPPING_CART",
+   "triggerName":"TRIGGER_REF_CODE",
+   "triggerOpenedLink":"NEW_EVENT_FOR_TRIGGER_OPENED",
+   "recommendations":[
+      {
+         "itemId":959,
+         "itemType":46,
+         "links":{
+            "clickRecommended":"CLICK_RECOMMENDED_LINK_WITH_TRIGGER_REF_CODE",
+            "rendered":"RENDERED_LINK"
+         },
+         "attributes":{
+            "ses_name":"First product's name",
+			      "ses_image":["img_1", "img_2"]
+         }
+      },
+      {
+         "itemId":123,
+         "itemType":55,
+         "links":{
+            "clickRecommended":"CLICK_RECOMMENDED_LINK_WITH_TRIGGER_REF_CODE",
+            "rendered":"RENDERED_LINK"
+         },
+         "attributes":{
+            "ses_name_for_type_55":"Second product's name"
+         }
+      }
+   ]
+}
+```
+
+3\. Contact `support@ibexa.co` with your organization's requirements to have the email triggers enabled.
+
 ## Advanced integration
 
 You can configure integration at a more advanced level to track more events, 
