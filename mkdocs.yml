@@ -306,6 +306,7 @@ nav:
         - Create custom attribute type: pim/create_custom_attribute_type.md
         - Create product code generator: pim/create_product_code_generator.md
         - Create custom catalog filter: pim/create_custom_catalog_filter.md
+        - Create Custom Name Schema strategy: pim/create_custom_name_schema_strategy.md
         - Prices: pim/prices.md
         - Price API: pim/price_api.md
     - Commerce:
