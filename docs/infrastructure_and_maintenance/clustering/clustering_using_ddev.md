@@ -33,12 +33,12 @@ A [search engine](search_engines.md) can be added to the cluster.
 
 ### Elasticsearch
 
-The following commands:
+The following sequence of commands:
 
-1. adds the Elasticsearch container,
-1. sets it up as the search engine,
-1. restarts the DDEV cluster and clear application cache,
-1. then injects the schema and reindex the content.
+1. Adds the Elasticsearch container.
+2. Sets Elasticsearch as the search engine.
+3. Restarts the DDEV cluster and clears application cache.
+4. Injects the schema and reindexes the content.
 
 ```bash
 ddev get ddev/ddev-elasticsearch
