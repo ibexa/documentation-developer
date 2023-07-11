@@ -1,0 +1,33 @@
+{
+  "Shipment": {
+    "_media-type": "application\/vnd.ibexa.api.Shipment+json",
+    "_href": "\/api\/ibexa\/v2\/shipments\/ae741491-e80c-49f2-8a44-5163b4afa144",
+    "id": 1,
+    "identifier": "ae741491-e80c-49f2-8a44-5163b4afa144",
+    "status": "pending",
+    "transitions": {
+      "transitionList": [
+        "prepare",
+        "cancel"
+      ]
+    },
+    "Order": {
+      "_media-type": "application\/vnd.ibexa.api.Order+json",
+      "_href": "\/api\/ibexa\/v2\/orders\/order\/33f6db52-478f-41f1-afbe-6d38f6a4704f"
+    },
+    "Amount": {
+      "value": "2257",
+      "currency": "EUR"
+    },
+    "createdAt": "2023-06-26T15:40:28+02:00",
+    "updatedAt": "2023-06-26T15:40:28+02:00",
+    "Owner": {
+      "_media-type": "application\/vnd.ibexa.api.User+json",
+      "_href": "\/api\/ibexa\/v2\/user\/users\/14"
+    },
+    "Method": {
+      "_media-type": "application\/vnd.ibexa.api.ShippingMethod+json",
+      "_href": "\/api\/ibexa\/v2\/shipping\/methods\/inpost_parcel_locker_delivery"
+    }
+  }
+}

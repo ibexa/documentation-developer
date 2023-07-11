@@ -3681,6 +3681,29 @@ PaymentMethodViewInput:
             type: object
             required: true
 
+Shipment:
+    description: 'This class represents a a single shipment.'
+    type: object
+    properties:
+        identifier:
+            type: string
+        status:
+            type: string
+        transitions:
+            type: TransitionList[]
+        Order:
+            type: object
+        Amount:
+            type: object
+        createdAt:
+            type: datetime
+        updatedAt:
+            type: datetime
+        Owner:
+            type: object
+        Method:
+            type: object
+
 ShippingMethodType:
     description: 'This class represents a shipping method type.'
     type: object
@@ -3698,3 +3721,5 @@ ShippingMethodTypesList:
     properties:
         ShippingMethodType:
             type: ShippingMethodType[]
+
+

@@ -1,0 +1,85 @@
+get:
+    displayName: Load shipments
+    description: Loads a list of shipments.
+    headers:
+        Accept:
+            description: If set, the payment method returned in XML or JSON format.
+            example:  |
+                application/vnd.ibexa.api.ShipmentRefList+xml
+        Content-Type:
+            description: The payment method schema encoded in XML or JSON format.
+            example:  |
+                application/vnd.ibexa.api.ShipmentRefList+xml
+    responses:
+        200:
+            description: OK - loads the payment method.
+            body:
+                application/vnd.ibexa.api.Shipment+xml:
+                    type: Shipment
+                    example: !include examples/shipments/GET/ShipmentRefList.xml.example
+                application/vnd.ibexa.api.Shipment+json:
+                    type: Shipment
+                    example: !include examples/shipments/GET/ShipmentRefList.json.example
+        401:
+            description: Error - the user has no permission to read shipment list.
+        404:
+            description: Error - the shipment does not exist.
+
+/identifier:
+    get:
+        displayName: Load a single shipment based on its identifier
+        description: Loads a single shipment based on its identifier.
+        headers:
+            Accept:
+                description: Shipping method - If set, the payment method returned in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.Shipment+xml
+            Content-Type:
+                description: The shipment schema encoded in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.Shipment+xml
+        responses:
+            200:
+                description: OK - loads the payment method.
+                body:
+                    application/vnd.ibexa.api.Shipment+xml:
+                        type: Shipment
+                        example: !include examples/shipments/identifier/GET/Shipment.xml.example
+                    application/vnd.ibexa.api.Shipment+json:
+                        type: Shipment
+                        example: !include examples/shipments/identifier/GET/Shipment.json.example
+            401:
+                description: Error - the user has no permission to read shipment.
+            404:
+                description: Error - the shipment does not exist.
+
+    patch:
+        displayName: Update shipment
+        description: Updates a shipment.
+        body:
+            application/vnd.ibexa.api.Shipment+json:
+                type: ShipmentUpdate
+                example: !include examples/shipments/identifier/PATCH/Shipment.xml.example
+        headers:
+            Accept:
+                description: If set, the updated shipment is returned in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.Shipment+json
+            Content-Type:
+                description: The ShipmentUpdate schema encoded in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.ShipmentUpdate+json
+        responses:
+            200:
+                body:
+                    application/vnd.ibexa.api.Shipment+json:
+                        type: ShipmentUpdate
+                        example: !include examples/shipments/identifier/PATCH/Shipment.xml.example
+            400:
+                description: Error - the input does not match the input schema definition.
+            401:
+                description: Error - the user is not authorized to update this shipment.
+            404:
+                description: Error - the shipment with the given ID does not exist.
+            406:
+                description: Error - the shipment cannot be cancelled due to not-allowed workflow transition
