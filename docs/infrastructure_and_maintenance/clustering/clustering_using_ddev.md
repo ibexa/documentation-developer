@@ -94,18 +94,18 @@ You can add a [persistence cache pool](persistence_cache.md#persistence-cache-co
 
 In the following examples:
 
-- the same service is used to store both persistence cache and sessions,
-- the session handler is set on Symfony side, not on PHP side.
+- the same service is used to store both persistence cache and sessions
+- the session handler is set on Symfony side, not on PHP side
 
 ### Install Redis
 
-The following command lines
+The following sequence of commands:
 
-1. add the Redis container,
-1. set up Redis as the cache pool,
-1. set up Redis as the session handler,
-1. change `maxmemory-policy` from default `allkeys-lfu` to a [value accepted by the `RedisTagAwareAdapter`](https://github.com/symfony/cache/blob/5.4/Adapter/RedisTagAwareAdapter.php#L95),
-1. restart the DDEV cluster and clear application cache.
+1. Adds the Redis container.
+1. Set Redis as the cache pool.
+1. Sets Redis as the session handler.
+1. Changes `maxmemory-policy` from default `allkeys-lfu` to a [value accepted by the `RedisTagAwareAdapter`](https://github.com/symfony/cache/blob/5.4/Adapter/RedisTagAwareAdapter.php#L95).
+1. Restarts the DDEV cluster and clears application cache.
 
 ```bash
 ddev get ddev/ddev-redis
@@ -139,10 +139,10 @@ First, if not already there, append the following [new service](https://doc.ibex
 Second, install and set up the add-on.
 The following sequence of commands:
 
-1. add the Memcached container,
-1. set up Memcached as the cache pool,
-1. set up Memcached as the session handler,
-1. restart the DDEV cluster and clear application cache.
+1. Adds the Memcached container.
+1. Sets Memcached as the cache pool.
+1. Sets Memcached as the session handler.
+1. Restarts the DDEV cluster and clears application cache.
 
 ```bash
 ddev get ddev/ddev-memcached
