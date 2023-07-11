@@ -156,7 +156,4 @@ ddev php bin/console cache:clear
 
 You can now check whether everything went right.
 
-For example, `watch 'ddev exec netcat -w1 memcached 11211 <<< "stats" | grep "cmd_.et "'`
-
-- tests that the `web` service accesses the `memcached` service,
-- displays the increase of `cmd_get` and `cmd_set` while navigating into the website.
+For example, the `watch 'ddev exec netcat -w1 memcached 11211 <<< "stats" | grep "cmd_.et "'` command checks whether the `web` service can access the `memcached` service, and displays the increase of `cmd_get` and `cmd_set` while navigating into the website.
