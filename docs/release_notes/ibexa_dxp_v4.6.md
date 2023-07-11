@@ -24,29 +24,29 @@ The feature set and capabilities of the product remain the same.
 
 #### Email triggers
 
-With email triggers, you can increase the engagement of your visitors and customers by delivering recommendations straight to their mailboxes. 
-The feature requires exposing an endpoint that passed data to an internal mailing system and supports the following two use cases:
+You can increase the engagement of your visitors and customers by delivering recommendations straight to their mailboxes. 
+The feature requires that you expose an endpoint that passes data to an internal mailing system and supports the following two use cases:
 
-- Pushing a message when the store customer's cart status remains unchanged for a set time to induce a purchase.
+- Inducing a purchase by pushing a message with cart contents or equivalents, when the customer's cart status remains unchanged for a set time.
 
-- Pushing a message that invites a visitor to come back to the site after they haven't returned to the site for a set time.
+- Inviting a visitor to come back to the site by pushing a message with recommendations, when the customer hasn't returned to the site for a set time.
 
 For more information, see [Email triggers](https://doc.ibexa.co/projects/userguide/en/4.5/personalization/triggers.md).
 
-#### Multiple attributes in submodel computation
+#### Multiple attributes in recommendation computation
 
-With this feature you get an option to combine different attribute types when computing submodels. 
-This way they can now prepare a submodel based on one attribute and then group the resulting recommendations by the other one.
+With this feature, you get an option to combine several attribute types when computing recommendations. 
+As a result, users can be presented with recommendations from an intersection of submodel results.
 
-For more information, see [Advanced model configuration](https://doc.ibexa.co/projects/userguide/en/latest/personalization/configure_models/#advanced-model-configuration).
+For more information, see [Submodel parameters](recommendation_api.md#submodel-parameters) and [Submodels]https://doc.ibexa.co/projects/userguide/en/latest/personalization/recommendation_models/#submodels).
 
-#### PIM integration
 
-Improvements in this area result possibility to track events in relation to products and product variants alike.
-Depending on a setting that you make when editing a model configuration, the recommendation response includes product variants or base products only. 
-As a result, you can deliver more accurate recommendations and avoid showing multiple variants of the same product to the client.
+#### New scenario filter
 
-For more information, see [Configure models](https://doc.ibexa.co/projects/userguide/en/latest/personalization/configure_models/).
+Depending on a setting that you make when defining a scenario, the recommendation response can now include either product variants or base products only. 
+This way you can deliver more accurate recommendations and avoid showing multiple variants of the same product to the client.
+
+For more information, see [Commerce-specific filters](https://doc.ibexa.co/projects/userguide/en/latest/personalization/filters/#commerce-specific-filters).
 
 ### 
 
