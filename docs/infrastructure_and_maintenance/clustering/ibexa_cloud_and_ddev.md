@@ -7,7 +7,7 @@ description: Use DDEV to run an Ibexa Cloud project locally.
 Two ways are available to run an Ibexa Cloud project locally with DDEV:
 
 - [by using the `ddev-platformsh` add-on](#simulate-ibexa-cloud-with-the-ddev-platformsh-add-on)
-- [Like other existing project, without this add-on](#simulate-ibexa-cloud-without-the-platformsh-add-on).
+- [like other existing project, without the add-on](#simulate-ibexa-cloud-without-the-platformsh-add-on).
 
 ## Simulate Ibexa Cloud with the `ddev-platformsh` add-on
 
@@ -56,7 +56,7 @@ ddev launch
 
 !!! note
 
-    As the Platform.sh API token is set at user profile level, it will be stored globally under current user root as `PLATFORMSH_CLI_TOKEN` in `~/.ddev/global_config.yaml`.
+    The Platform.sh API token is set at user profile level, therefore it is stored globally under current user root as `PLATFORMSH_CLI_TOKEN` in `~/.ddev/global_config.yaml`.
 
 ## Simulate Ibexa Cloud without the Platform.sh add-on
 
