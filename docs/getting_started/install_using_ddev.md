@@ -221,11 +221,11 @@ The following example shows the use of `.env.local` with database configuration:
 
 !!! note "Precedence"
 
-    For the same variable, its server level environment value overrides its application level dotenv value.
-    To switch a variable from `ddev config --web-environment-add` command to `.env.local` file, you have
+    For the same variable, its server level environment value overrides its application level `.env` value.
+    To switch a variable from `ddev config --web-environment-add` command to `.env.local` file, you have to do either of the following:
 
-    - to remove it from under the `web_environment:` key in `.ddev/config.yaml` file then restart the project,
-    - or rebuild the project from scratch.
+    - remove it from under the `web_environment:` key in `.ddev/config.yaml` file then restart the project
+    - rebuild the project from scratch
 
 ### Webserver configuration
 
