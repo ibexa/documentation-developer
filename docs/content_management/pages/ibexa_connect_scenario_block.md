@@ -22,19 +22,7 @@ In the following example you can learn how to configure Ibexa Connect scenario b
 First, in `config/packages/ibexa_connect.yaml` add the following configuration:
 
 ``` yaml
-ibexa_connect:
-    scenario_block:
-        block_templates:
-            company_customers:
-                template: 'blocks/default.html.twig'
-            external_clients:
-                label: External clients
-                template: 'blocks/default.html.twig'
-                parameters:
-                    external_client_id: string
-                    external_client_name:
-                        type: string
-                        required: true
+[[= include_file('code_samples/page/ibexa_connect_scenario_block/config/packages/ibexa_connect.yaml') =]]
 ```
 
 For each block template you can set up additional settings, for example, label, type or parameters. 
@@ -44,24 +32,19 @@ For each block template you can set up additional settings, for example, label, 
 To preview your block in the frontend, define page layouts in `config/packages/views.yaml` directory. This file defines, which layouts are used to render Page Builder. 
 
 ```yaml
-ibexa:
-    system:
-        site:
-            page_layout: pagelayout.html.twig
-            user:
-                layout: pagelayout.html.twig
+[[= include_file('code_samples/page/ibexa_connect_scenario_block/config/packages/views.yaml') =]]
 ```
 
 You also need to create `pagelayout.html.twig` file in `templates` folder:
 
 ```html+twig
-[[= include_file('code_samples/page/ibexa_connect_scenario_block/pagelayout.html.twig') =]]
+[[= include_file('code_samples/page/ibexa_connect_scenario_block/templates/pagelayout.html.twig') =]]
 ```
 
 Then, in `templates/block` directory under `default.html.twig`, provide your block configuration:
 
 ```html+twig
-{{ dump(ibexa_connect_data) }}
+[[= include_file('code_samples/page/ibexa_connect_scenario_block/templates/block/default.html.twig') =]]
 ```
 
 In the following example, the configuration of the block is non-complex - block is only used to display the content transferred from an Ibexa Connect webhook.
