@@ -4,7 +4,7 @@ Tool for generating static HTML from RAML definitions.
 
 ## Installation
 
-PHP 7.4 and [Composer](https://getcomposer.org/) are required.
+PHP 8 and [Composer](https://getcomposer.org/) are required.
 
 To install required dependencies, go to raml2html directory and run:
 
