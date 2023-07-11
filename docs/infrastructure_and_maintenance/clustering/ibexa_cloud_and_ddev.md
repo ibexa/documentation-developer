@@ -14,7 +14,7 @@ Two ways are available to run an Ibexa Cloud project locally with DDEV:
 To configure the [`ddev/ddev-platformsh` add-on](https://github.com/ddev/ddev-platformsh), you need a [Platform.sh API Token](https://docs.platform.sh/administration/cli/api-tokens.html).
 
 `COMPOSER_AUTH` from Platform.sh can't be used, because JSON commas are incorrectly interpreted by `--web-environment-add`, which sees them as multiple variable separators.
-But the variable must exist for Platform.sh `hooks` scripts to work. To use an `auth.json` file for this purpose, see [Using an auth.json](install_using_ddev.md#using-an-authjson).
+But the variable must exist for Platform.sh `hooks` scripts to work. To use an `auth.json` file for this purpose, see [Using an auth.json](install_with_ddev.md#using-an-authjson).
 
 The following sequence of commands:
 
@@ -60,7 +60,7 @@ ddev launch
 
 ## Simulate Ibexa Cloud without the Platform.sh add-on
 
-The following example adapts the [manual method to run an already existing project](install_using_ddev.md#run-an-already-existing-project) to the Platform.sh case:
+The following example adapts the [manual method to run an already existing project](install_with_ddev.md#run-an-already-existing-project) to the Platform.sh case:
 
 The following sequence of commands:
 
@@ -92,4 +92,4 @@ ddev launch
 
 From there, services can be added to get closer to Ibexa Cloud Platform.sh architecture.
 `.platform/services.yaml` indicates the services used.
-Refer to [clustering with DDEV](clustering_using_ddev.md) for those additions.
+Refer to [clustering with DDEV](clustering_with_ddev.md) for those additions.
