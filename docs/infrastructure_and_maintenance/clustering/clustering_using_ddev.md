@@ -1,8 +1,8 @@
 ---
-description: How to run a cluster infrastructure using DDEV locally.
+description: Use DDEV to run a cluster infrastructure locally.
 ---
 
-# Clustering using DDEV
+# Clustering with DDEV
 
 !!! caution
 
@@ -10,7 +10,7 @@ description: How to run a cluster infrastructure using DDEV locally.
     A staging environment for validation before production should exactly replicate the production environment.
     This is meant for development environment only.
 
-This guide follows [Install using DDEV](install_using_ddev.md) and helps to extend the previous installation to locally replicate a production [cluster](clustering.md).
+This guide follows [Install with DDEV](install_using_ddev.md) and helps to extend the previous installation to locally replicate a production [cluster](clustering.md).
 
 In contrast to a production cluster, this setup has only one front app server.
 But the data sharing needed by a cluster of several servers can still be emulated.

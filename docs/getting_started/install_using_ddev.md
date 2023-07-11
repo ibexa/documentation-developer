@@ -2,9 +2,9 @@
 description: Install Ibexa DXP with Docker and DDEV to use it for development.
 ---
 
-# Install using DDEV
+# Install with DDEV
 
-This guide provides a step-by-step walkthrough of installing [[= product_name =]] using [DDEV](https://ddev.com/).
+This guide provides a step-by-step walkthrough of installing [[= product_name =]] by using [DDEV](https://ddev.com/).
 DDEV is an open-source tool that simplifies the process of setting up local PHP development environments.
 
 ## Requirements
@@ -30,7 +30,7 @@ Replace `my-ddev-project` with your desired directory name.
 
 #### Configure PHP version and document root
 
-Next, configure your DDEV environment using the command below:
+Next, configure your DDEV environment with the following command:
 
 ```bash
 ddev config --project-type=php --php-version 8.1 --docroot=public --create-docroot
@@ -117,7 +117,7 @@ ddev start
 
 !!! tip
 
-    If you forgot some part of configuration, you can set it by using `ddev config` later, but afterwards you have to restart DDEV using `ddev restart`.
+    If you forgot some part of configuration, you can set it by using `ddev config` later, but afterwards you have to restart DDEV with `ddev restart`.
 
 ### 4. Composer authentication
 
@@ -130,7 +130,7 @@ ddev composer config --global http-basic.updates.ibexa.co <installation-key> <to
 
 Replace `<installation-key>` and `<token-password>` with your actual installation key and token password, respectively.
 
-This authentication won't persist if the project is restarted (by `ddev restart` or `ddev composer create`). You can back up the authentication file (`auth.json`) using the following command:
+This authentication won't persist if the project is restarted (by `ddev restart` or `ddev composer create`). You can back up the authentication file (`auth.json`) by using the following command:
 
 ```bash
 ddev exec "mkdir -p .ddev/homeadditions/.composer; cp ~/.composer/auth.json .ddev/homeadditions/.composer"
@@ -173,7 +173,7 @@ Once the above steps are completed, open your Ibexa DXP webpage by running the `
 You can now start using Ibexa DXP and implement your own website on the platform.
 
 You can edit the configuration and code in the DDEV project directory.
-You can use commands listed in the documentation by prefixing them with `ddev exec` or by opening a terminal inside the container using `ddev ssh`.
+You can use commands listed in the documentation by prefixing them with `ddev exec` or by opening a terminal inside the container by using `ddev ssh`.
 For example, if a guideline invites you to run `php bin/console cache:clear`, you can do it in the DDEV container in one of the following ways:
 
 - run `ddev php bin/console cache:clear`
@@ -337,13 +337,13 @@ ddev restart
 
 To run an existing project, you'll need to
 
-1. configure the DDEV project
-1. start the DDEV project
-1. add Composer authentication
-1. install dependencies packages using Composer
-1. populate the contents, which could be
-    - getting a clean database using ddev `php bin/console ibexa:install ibexa-<edition>` then adding some data using [Ibexa data migration](../content_management/data_migration/importing_data.md)
-    - injecting a dump using [`ddev import-db`](https://ddev.readthedocs.io/en/latest/users/usage/commands/#import-db) and copying related binary files into `public/var`
+1. Configure the DDEV project.
+1. Start the DDEV project.
+1. Add Composer authentication.
+1. Install dependencies packages with Composer.
+1. Populate the contents, which could mean:
+    - getting a clean database with ddev `php bin/console ibexa:install ibexa-<edition>` and adding some data with [Ibexa data migration](../content_management/data_migration/importing_data.md), or
+    - injecting a dump with [`ddev import-db`](https://ddev.readthedocs.io/en/latest/users/usage/commands/#import-db) and copying related binary files into `public/var`.
 
 The following example run an already [version-controlled project](install_ibexa_dxp.md#add-project-to-version-control) and have the right content structure (but no content):
 
@@ -393,8 +393,8 @@ If the local project needs to answer to real production domains (for example, to
 
 DDEV can be useful to locally simulate a production cluster.
 
-- See [clustering using DDEV](clustering_using_ddev.md) to add Elasticsearch, Solr, Redis or Memcached to your DDEV installation.
-- See [Ibexa Cloud and DDEV](ibexa_cloud_and_ddev.md) to locally run an Ibexa DXP project using DDEV.
+- See [clustering with DDEV](clustering_using_ddev.md) to add Elasticsearch, Solr, Redis or Memcached to your DDEV installation.
+- See [Ibexa Cloud and DDEV](ibexa_cloud_and_ddev.md) to locally run an Ibexa DXP project by using DDEV.
 
 ## Stop or remove the project
 

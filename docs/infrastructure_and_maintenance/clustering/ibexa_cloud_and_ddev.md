@@ -1,15 +1,15 @@
 ---
-description: How to run locally an Ibexa Cloud project using DDEV.
+description: Use DDEV to run an Ibexa Cloud project locally.
 ---
 
 # Ibexa Cloud and DDEV
 
-Two ways are available to run an Ibexa Cloud project locally using DDEV:
+Two ways are available to run an Ibexa Cloud project locally with DDEV:
 
-- [Using the `ddev-platformsh` add-on](#simulate-ibexa-cloud-using-the-ddev-platformsh-add-on).
+- [by using the `ddev-platformsh` add-on](#simulate-ibexa-cloud-with-the-ddev-platformsh-add-on)
 - [Like other existing project, without this add-on](#simulate-ibexa-cloud-without-the-platformsh-add-on).
 
-## Simulate Ibexa Cloud using the `ddev-platformsh` add-on
+## Simulate Ibexa Cloud with the `ddev-platformsh` add-on
 
 To configure the [`ddev/ddev-platformsh` add-on](https://github.com/ddev/ddev-platformsh), you'll need a [Platform.sh API Token](https://docs.platform.sh/administration/cli/api-tokens.html).
 
@@ -92,4 +92,4 @@ ddev launch
 
 From there, services can be added to get closer to Ibexa Cloud Platform.sh architecture.
 `.platform/services.yaml` indicates the services used.
-Refer to [clustering using DDEV](clustering_using_ddev.md) for those additions.
+Refer to [clustering with DDEV](clustering_using_ddev.md) for those additions.
