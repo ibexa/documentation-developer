@@ -9,7 +9,7 @@ The `Owner` Criterion searches for shipments based on the user reference.
 
 ## Arguments
 
-- `user reference` - \Ibexa\Contracts\Core\Repository\Values\User\UserReference(int $userId)
+- `UserReference` object - \Ibexa\Contracts\Core\Repository\Values\User\UserReference(int $userId)
 
 ## Example
 
@@ -21,7 +21,7 @@ $query = new ShipmentQuery(
 );
 ```
 
-Owner Criterion accepts also owners board:
+`Owner` Criterion accepts also multiple values:
 
 ``` php
 $query = new ShipmentQuery(

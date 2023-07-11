@@ -1,15 +1,15 @@
 ---
-description: Owner Criterion
+description: OwnerCriterion Criterion
 edition: commerce
 ---
 
 # Owner Criterion
 
-The `Owner` Criterion searches for orders based on the user reference.
+The `OwnerCriterion` Criterion searches for orders based on the user reference.
 
 ## Arguments
 
-- `user reference` - \Ibexa\Contracts\Core\Repository\Values\User\UserReference(int $userId)
+- `UserReference` object - \Ibexa\Contracts\Core\Repository\Values\User\UserReference(int $userId)
 
 ## Example
 
@@ -21,7 +21,7 @@ $query = new OrderQuery(
 );
 ```
 
-Owner Criterion accepts also owners board:
+`OwnerCriterion` Criterion accepts also multiple values:
 
 ``` php
 $query = new OrderQuery(
