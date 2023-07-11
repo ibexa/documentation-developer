@@ -73,7 +73,7 @@ Now, configure the database connection for your Ibexa DXP project. Depending on 
 
 !!! note
 
-    Those commands will set a `DATABASE_URL` environment variable inside the container which overrides [the variable from `.env`](install_ibexa_dxp.md#change-installation-parameters).
+    Those commands set a `DATABASE_URL` environment variable inside the container which overrides [the variable from `.env`](install_ibexa_dxp.md#change-installation-parameters).
 
     To use `.env.local` file instead of server-level environment variables, see [Using dotenv](#using-dotenv).
 
@@ -337,7 +337,7 @@ ddev restart
 
 ### Run an already existing project
 
-To run an existing project, you'll need to
+To run an existing project, you need to:
 
 1. Configure the DDEV project.
 1. Start the DDEV project.
@@ -389,7 +389,7 @@ If the local project needs to answer to real production domains (for example, to
 
 !!! caution
 
-    As this feature will modify domain resolution, the real website may be unreachable until the `hosts` file is manually cleaned.
+    As this feature modifies domain resolution, the real website may be unreachable until the `hosts` file is manually cleaned.
 
 ### Cluster or Ibexa Cloud
 

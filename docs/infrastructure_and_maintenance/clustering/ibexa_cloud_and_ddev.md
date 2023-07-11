@@ -11,7 +11,7 @@ Two ways are available to run an Ibexa Cloud project locally with DDEV:
 
 ## Simulate Ibexa Cloud with the `ddev-platformsh` add-on
 
-To configure the [`ddev/ddev-platformsh` add-on](https://github.com/ddev/ddev-platformsh), you'll need a [Platform.sh API Token](https://docs.platform.sh/administration/cli/api-tokens.html).
+To configure the [`ddev/ddev-platformsh` add-on](https://github.com/ddev/ddev-platformsh), you need a [Platform.sh API Token](https://docs.platform.sh/administration/cli/api-tokens.html).
 
 `COMPOSER_AUTH` from Platform.sh can't be used, because JSON commas are incorrectly interpreted by `--web-environment-add`, which sees them as multiple variables' separators.
 But the variable must exist for Platform.sh hooks' scripts to work. An `auth.json` file can be used, see [Using an auth.json](install_using_ddev.md#using-an-authjson) for more.
