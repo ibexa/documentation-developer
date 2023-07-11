@@ -24,8 +24,6 @@ Start by creating a new directory for your DDEV project by using the following c
 mkdir my-ddev-project && cd my-ddev-project
 ```
 
-Replace `my-ddev-project` with your desired directory name.
-
 ### 2. Configure DDEV
 
 #### Configure PHP version and document root
@@ -129,8 +127,6 @@ Replace `<installation-key>` and `<token-password>` with your actual installatio
 ```bash
 ddev composer config --global http-basic.updates.ibexa.co <installation-key> <token-password>
 ```
-
-Replace `<installation-key>` and `<token-password>` with your actual installation key and token password, respectively.
 
 This authentication won't persist if the project is restarted (by `ddev restart` or `ddev composer create`). You can back up the authentication file (`auth.json`) by using the following command:
 
