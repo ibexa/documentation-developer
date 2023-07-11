@@ -6,7 +6,7 @@ description: Use DDEV to run a cluster infrastructure locally.
 
 !!! caution
 
-    This is not to be used in production.
+    Do not use this procedure in production.
     A staging environment for validation before production should exactly replicate the production environment.
     This is meant for development environment only.
 
@@ -23,7 +23,7 @@ The `ddev config --php-version` option should set the same PHP version as the pr
     - [`ddev ssh`](https://ddev.readthedocs.io/en/latest/users/usage/commands/#ssh) opens a terminal inside a service.
     - [`ddev exec`](https://ddev.readthedocs.io/en/latest/users/usage/commands/#exec) executes a command inside a service.
 
-    [Discover more commands in DDEV documentation](https://ddev.readthedocs.io/en/latest/users/usage/commands/).
+   Discover more commands in [DDEV documentation](https://ddev.readthedocs.io/en/latest/users/usage/commands/).
 
 To run an Ibexa Cloud project locally, you may refer to [Ibexa Cloud and DDEV](ibexa_cloud_and_ddev.md) instead.
 
@@ -50,7 +50,7 @@ ddev php bin/console ibexa:elasticsearch:put-index-template
 ddev php bin/console ibexa:reindex
 ```
 
-You can now check that Elasticsearch works.
+You can now check whether Elasticsearch works.
 
 For example, `ddev exec curl -s "http://elasticsearch:9200/_count"`
 
@@ -67,7 +67,7 @@ See [Elasticsearch REST API reference](https://www.elastic.co/guide/en/elasticse
 
 !!! tip
 
-    [`jq`](https://jqlang.github.io/jq/) can be used to format and colorize Elasticsearch REST API outputs
+    You can use [`jq`](https://jqlang.github.io/jq/) to format and colorize Elasticsearch REST API outputs.
 
 ### Solr
 
@@ -78,7 +78,7 @@ ddev get ibexa/ddev-solr
 ddev restart
 ```
 
-You can now test that Solr works.
+You can now check whether Solr works.
 
 For example, `ddev exec curl -s http://solr:8983/api/cores/`
 
@@ -86,7 +86,7 @@ For example, `ddev exec curl -s http://solr:8983/api/cores/`
 - tests `collection1` existence and status,
 - displays `collection1`'s `numDocs` that shouldn't be zero if indexing worked correctly. 
 
-The Solr admin can be accessed from the host by using the port 8983 on the same `.ddev.site` subdomain as the front. Use `ddev describe` to get that URL.
+You can access the Solr admin UI from the host by using port 8983 on the same `.ddev.site` subdomain as the front. Use `ddev describe` to get that URL.
 
 ## Share cache and sessions
 
@@ -118,11 +118,11 @@ ddev restart
 ddev php bin/console cache:clear
 ```
 
-You can now check that Redis works.
+You can now check whether Redis works.
 
 For example, `ddev redis-cli MONITOR` outputs such as `"SETEX" "ezp:`, `"MGET" "ezp:`, `"SETEX" "PHPREDIS_SESSION:`, `"GET" "PHPREDIS_SESSION:`, etc. while navigating into the website, in particular the Back Office.
 
-See [Redis commands](https://redis.io/commands/) for more details such as information about the [`MONITOR`](https://redis.io/commands/monitor/) used in the previous example.
+See [Redis commands](https://redis.io/commands/) for more details such as information about the [`MONITOR`](https://redis.io/commands/monitor/) command used in the previous example.
 
 ### Install Memcached
 
@@ -137,7 +137,7 @@ First, if not already there, append the following [new service](https://doc.ibex
 ```
 
 Second, install and set up the add-on.
-The following commands:
+The following sequence of commands:
 
 1. add the Memcached container,
 1. set up Memcached as the cache pool,
@@ -154,7 +154,7 @@ ddev restart
 ddev php bin/console cache:clear
 ```
 
-You can now check that everything went right.
+You can now check whether everything went right.
 
 For example, `watch 'ddev exec netcat -w1 memcached 11211 <<< "stats" | grep "cmd_.et "'`
 
