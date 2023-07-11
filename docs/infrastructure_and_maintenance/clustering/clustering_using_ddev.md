@@ -80,11 +80,11 @@ ddev restart
 
 You can now check whether Solr works.
 
-For example, `ddev exec curl -s http://solr:8983/api/cores/`
+For example, the `ddev exec curl -s http://solr:8983/api/cores/` command:
 
-- tests that the `web` server is accessing the `solr` server,
-- tests `collection1` existence and status,
-- displays `collection1`'s `numDocs` that shouldn't be zero if indexing worked correctly. 
+ - checks whether the `web` server can access the `solr` server, 
+ - checks whether `collection1` exists and its status
+ - displays `collection1`'s `numDocs` that shouldn't be zero if indexing worked correctly
 
 You can access the Solr admin UI from the host by using port 8983 on the same `.ddev.site` subdomain as the front. Use `ddev describe` to get that URL.
 
