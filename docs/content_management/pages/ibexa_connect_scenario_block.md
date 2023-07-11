@@ -31,8 +31,8 @@ ibexa_connect:
                 label: External clients
                 template: 'blocks/default.html.twig'
                 parameters:
-                    company_customers: string
-                    external_clients:
+                    external_client_id: string
+                    external_client_name:
                         type: string
                         required: true
 ```
