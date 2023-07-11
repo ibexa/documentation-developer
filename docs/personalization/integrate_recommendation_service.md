@@ -181,24 +181,18 @@ The endpoint must meet the following requirements:
       {
          "itemId":959,
          "itemType":46,
-         "links":{
-            "clickRecommended":"CLICK_RECOMMENDED_LINK_WITH_TRIGGER_REF_CODE",
-            "rendered":"RENDERED_LINK"
-         },
+         "clickRecommended":"CLICK_RECOMMENDED_LINK_WITH_TRIGGER_REF_CODE",
          "attributes":{
-            "ses_name":"First product's name",
-			      "ses_image":["img_1", "img_2"]
+            "ses_name":"Minimalista Coffee Table", 
+            "ses_image":["img_1", "img_2"]
          }
       },
       {
          "itemId":123,
          "itemType":55,
-         "links":{
-            "clickRecommended":"CLICK_RECOMMENDED_LINK_WITH_TRIGGER_REF_CODE",
-            "rendered":"RENDERED_LINK"
-         },
+         "clickRecommended":"CLICK_RECOMMENDED_LINK_WITH_TRIGGER_REF_CODE",
          "attributes":{
-            "ses_name_for_type_55":"Second product's name"
+            "ses_name_for_type_55":"Minimalista Coffee Table"
          }
       }
    ]
