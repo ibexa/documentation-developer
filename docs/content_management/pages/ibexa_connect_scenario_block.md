@@ -67,7 +67,7 @@ To do it, extend drop-down list in the **View** field and choose one of the avai
 
 ![Ibexa Connect Design tab](ibexa_connect_design_tab.png)
 
-When everything is configured in the Block settings, click **Submit** button.
+Click **Submit** button to confirm.
 
 After submitting the block, Page refreshes and Ibexa Connect block displays data from provided Ibexa Connect webhook. 
 
