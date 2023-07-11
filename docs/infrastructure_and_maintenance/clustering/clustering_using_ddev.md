@@ -52,18 +52,15 @@ ddev php bin/console ibexa:reindex
 
 You can now check whether Elasticsearch works.
 
-For example, `ddev exec curl -s "http://elasticsearch:9200/_count"`
-
-- tests that the `web` server is accessing the `elasticsearch` server,
-- displays the number of indexed documents.
+For example, the `ddev exec curl -s "http://elasticsearch:9200/_count"` command checks whether the `web` server can access the `elasticsearch` server and displays the number of indexed documents.
 
 See [ddev/ddev-elasticsearch README](https://github.com/ddev/ddev-elasticsearch) for more information on topics such as memory management.
 
-See [Elasticsearch REST API reference](https://www.elastic.co/guide/en/elasticsearch/reference/current/rest-apis.html) for more request possibilities like
+See [Elasticsearch REST API reference](https://www.elastic.co/guide/en/elasticsearch/reference/current/rest-apis.html) for more request options, like, for example:
 
-- the [`_count`](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html) from the above test,
-- or [`_cluster/health`](https://www.elastic.co/guide/en/elasticsearch/reference/current/cluster-health.html) (don't mind the "yellow" status),
-- or [`_search?size=0"`](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-search.html) (which is another way to get document count).
+- [`_count`](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html), as seen above
+- [`_cluster/health`](https://www.elastic.co/guide/en/elasticsearch/reference/current/cluster-health.html) (don't mind the "yellow" status which is normal in the absence of replicas in the DDEV container)
+- [`_search?size=0"`](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-search.html), which is another way to get document count
 
 !!! tip
 
@@ -120,7 +117,7 @@ ddev php bin/console cache:clear
 
 You can now check whether Redis works.
 
-For example, `ddev redis-cli MONITOR` outputs such as `"SETEX" "ezp:`, `"MGET" "ezp:`, `"SETEX" "PHPREDIS_SESSION:`, `"GET" "PHPREDIS_SESSION:`, etc. while navigating into the website, in particular the Back Office.
+For example, the `ddev redis-cli MONITOR` command returns outputs such as `"SETEX" "ezp:`, `"MGET" "ezp:`, `"SETEX" "PHPREDIS_SESSION:`, `"GET" "PHPREDIS_SESSION:`, etc. while navigating into the website, in particular the Back Office.
 
 See [Redis commands](https://redis.io/commands/) for more details such as information about the [`MONITOR`](https://redis.io/commands/monitor/) command used in the previous example.
 
