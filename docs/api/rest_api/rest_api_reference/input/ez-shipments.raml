@@ -3,16 +3,16 @@ get:
     description: Loads a list of shipments.
     headers:
         Accept:
-            description: If set, the payment method returned in XML or JSON format.
+            description: If set, the shipments are returned in XML or JSON format.
             example:  |
                 application/vnd.ibexa.api.ShipmentRefList+xml
         Content-Type:
-            description: The payment method schema encoded in XML or JSON format.
+            description: The shipments schema encoded in XML or JSON format.
             example:  |
                 application/vnd.ibexa.api.ShipmentRefList+xml
     responses:
         200:
-            description: OK - loads the payment method.
+            description: OK - loads the shipments.
             body:
                 application/vnd.ibexa.api.Shipment+xml:
                     type: Shipment
@@ -31,7 +31,7 @@ get:
         description: Loads a single shipment based on its identifier.
         headers:
             Accept:
-                description: Shipping method - If set, the payment method returned in XML or JSON format.
+                description: If set, the shipment is returned in XML or JSON format.
                 example:  |
                     application/vnd.ibexa.api.Shipment+xml
             Content-Type:
@@ -40,7 +40,7 @@ get:
                     application/vnd.ibexa.api.Shipment+xml
         responses:
             200:
-                description: OK - loads the payment method.
+                description: OK - loads the shipment.
                 body:
                     application/vnd.ibexa.api.Shipment+xml:
                         type: Shipment

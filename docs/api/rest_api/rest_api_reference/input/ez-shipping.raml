@@ -1,52 +1,100 @@
 displayName: Shipping methods
 
-/method-types:
-
+/methods
     get:
-        displayName: Load shipping methods types
-        description: Loads shipping methods types.
+        displayName: Load shipping methods
+        description: Loads shipping methods.
         headers:
             Accept:
-                description: Shipping method type reference - If set, the payment method returned in XML or JSON format.
+                description: Shipping method reference - If set, the shipping method returned in XML or JSON format.
                 example:  |
-                    application/vnd.ibexa.api.ShippingMethodTypesRefList+json
+                    application/vnd.ibexa.api.ShippingMethodsRefList+json
             Content-Type:
-                description: The payment method schema encoded in XML or JSON format.
+                description: The shipping method schema encoded in XML or JSON format.
                 example:  |
-                    application/vnd.ibexa.api.ShippingMethodTypesRefList+json
+                    application/vnd.ibexa.api.ShippingMethodsRefList+json
         responses:
             200:
-                description: OK - loads the payment method.
+                description: OK - loads the shipping method.
                 body:
-                    application/vnd.ibexa.api.ShippingMethodType+json:
-                        type: PaymentMethod
-                        example: !include examples/shipping/method-types/GET/ShippingMethodTypesList.xml.example
+                    application/vnd.ibexa.api.ShippingMethod+json:
+                        type: ShippingMethod
+                        example: !include examples/shipping/methods/GET/ShippingMethodList.json.example
             401:
-                description: Error - the user has no permission to read payment methods.
+                description: Error - the user has no permission to read shipping methods.
             404:
-                description: Error - the payment methods does not exist.
-
-    /{identifier}:
+                description: Error - the shipping methods does not exist.
+   /identifier
         get:
             displayName: Load shipping method based on its identifier
             description: Loads shipping methods based on their identifiers.
             headers:
                 Accept:
-                    description: Shipping method - If set, the payment method returned in XML or JSON format.
+                    description: Shipping method - If set, the shipping method returned in XML or JSON format.
+                    example:  |
+                        application/vnd.ibexa.api.ShippingMethod+json
+                Content-Type:
+                    description: The shipping method schema encoded in XML or JSON format.
+                    example:  |
+                        application/vnd.ibexa.api.ShippingMethod+json
+            responses:
+                200:
+                    description: OK - loads the shipping method.
+                    body:
+                        application/vnd.ibexa.api.ShippingMethod+json:
+                            type: ShippingMethod
+                            example: !include examples/shipping/methods/identifier/GET/ShippingMethod.xml.example
+                401:
+                    description: Error - the user has no permission to read shipping method.
+                404:
+                    description: Error - the shipping method does not exist.
+
+/method-types:
+    get:
+        displayName: Load shipping methods types
+        description: Loads shipping methods types.
+        headers:
+            Accept:
+                description: Shipping method type reference - If set, the shipping method returned in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.ShippingMethodTypesRefList+json
+            Content-Type:
+                description: The shipping method schema encoded in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.ShippingMethodTypesRefList+json
+        responses:
+            200:
+                description: OK - loads the shipping method.
+                body:
+                    application/vnd.ibexa.api.ShippingMethodType+json:
+                        type: ShippingMethodType
+                        example: !include examples/shipping/method-types/GET/ShippingMethodTypesList.xml.example
+            401:
+                description: Error - the user has no permission to read shipping methods type.
+            404:
+                description: Error - the shipping method type does not exist.
+
+    /{identifier}:
+        get:
+            displayName: Load shipping method type based on its identifier
+            description: Loads shipping methods type based on their identifiers.
+            headers:
+                Accept:
+                    description: Shipping method type - If set, the shipping method returned in XML or JSON format.
                     example:  |
                         application/vnd.ibexa.api.ShippingMethodType+json
                 Content-Type:
-                    description: The payment method schema encoded in XML or JSON format.
+                    description: The shipping method schema encoded in XML or JSON format.
                     example:  |
                         application/vnd.ibexa.api.ShippingMethodType+json
             responses:
                 200:
-                    description: OK - loads the payment method.
+                    description: OK - loads the shipping method.
                     body:
                         application/vnd.ibexa.api.ShippingMethodType+json:
-                            type: PaymentMethod
+                            type: ShippingMethodType
                             example: !include examples/shipping/method-types/identifier/GET/ShippingMethodType.json.example
                 401:
-                    description: Error - the user has no permission to read payment methods.
+                    description: Error - the user has no permission to read shipping method.
                 404:
-                    description: Error - the payment methods does not exist.
+                    description: Error - the shipping method type does not exist.
