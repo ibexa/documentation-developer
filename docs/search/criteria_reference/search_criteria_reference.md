@@ -49,6 +49,7 @@ Due to this storage limitation, searching content using the Country Field Type o
 |[ObjectStateId](objectstateid_criterion.md)|Object State ID|&#10004; |&#10004; |&#10004; |
 |[ObjectStateIdentifier](objectstateidentifier_criterion.md)|Object State Identifier|&#10004; |&#10004; |&#10004; |
 |[ParentLocationId](parentlocationid_criterion.md)|Location ID of a Content item's parent|&#10004; |&#10004; |&#10004; |
+|[ParentLocationRemoteId](parentlocationremoteId_criterion.md)|Location remote ID of a Content item's parent|&#10004; |&#10004; |
 |[Priority](priority_criterion.md)|Location priority| |&#10004; |&#10004; |
 |[RemoteId](remoteid_criterion.md)|Remote content ID|&#10004; |&#10004; |&#10004; |
 |[SectionId](sectionid_criterion.md)|ID of the Section content is assigned to|&#10004; |&#10004; |&#10004; |

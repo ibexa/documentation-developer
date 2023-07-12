@@ -15,6 +15,30 @@ Use Location Search to avoid this.
 
 ## Example
 
+### PHP
+
 ``` php
 $query->query = new Criterion\Visibility(Criterion\Visibility::HIDDEN);
 ```
+
+### REST API
+
+=== "XML"
+
+    ```xml
+    <Query>
+        <Filter>
+            <VisibilityCriterion>HIDDEN</VisibilityCriterion>
+        </Filter>
+    </Query>
+    ```
+
+=== "JSON"
+
+    ```json
+    "Query": {
+        "Filter": {
+            "ContentIdCriterion": "HIDDEN"
+        }
+    }
+    ```

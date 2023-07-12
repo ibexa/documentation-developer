@@ -13,17 +13,52 @@ The `LIKE` operator works together with wildcards (`*`). Without a wildcards its
 
 The `CONTAINS` operator works with collection Fields like the Country Field Type,
 enabling you to retrieve results when the query value is one of the values of the collection.
-Querying for a collection with the `EQ` operator will return result only when the whole collection equals the query values.
+Querying for a collection with the `EQ` operator returns result only when the whole collection equals the query values.
+
+## Limitations
+
+The `Field` Criterion isn't available in [Repository filtering](search_api.md#repository-filtering).
+
 
 ## Example
+
+### PHP
 
 ``` php
 $query->query = new Criterion\Field('name', Criterion\Operator::CONTAINS, 'Platform');
 ```
 
-## Limitations
+### REST API
 
-The `Field` Criterion is not available in [Repository filtering](search_api.md#repository-filtering).
+=== "XML"
+
+    ```xml
+    <Query>
+        <Filter>
+            <FieldCriterion>
+                <target>name</target>
+                <operator>CONTAINS</operator>
+                <value>Platform</value>
+            </FieldCriterion>
+        </Filter>
+    </Query>
+    ```
+
+=== "JSON"
+
+    ```json
+    {
+        "Query": {
+            "Filter": {
+                "FieldCriterion": {
+                    "target": "name",
+                    "operator": "CONTAINS",
+                    "value": "Platform"
+                }
+            }
+        }
+    }
+    ```
 
 ## Use case
 
