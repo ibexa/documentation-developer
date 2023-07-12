@@ -64,7 +64,9 @@ For more information, see [Commerce-specific filters](https://doc.ibexa.co/proje
 
 ### 
 
-### 
+### Ibexa Connect
+
+For list of changes in Ibexa Connect, see [Ibexa app release notes](https://doc.ibexa.co/projects/connect/en/latest/general/ibexa_app_release_notes/).
 
 ### Deprecations
 
