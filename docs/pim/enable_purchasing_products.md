@@ -28,7 +28,7 @@ To enable purchasing from the catalog, the following configuration is required:
 All currencies available in the system must be enabled in the Back Office under **Commerce** -> **Currencies**.
 
 Additionally, you must configure currencies valid for specific SiteAccesses
-under the `ibexa.system.<scope>.product_catalog.regions` [configuration key](configuration.md#configuration-files):
+under the `ibexa.system.<scope>.product_catalog.currencies` [configuration key](configuration.md#configuration-files):
 
 ``` yaml
 ibexa:
