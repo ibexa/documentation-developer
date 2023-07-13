@@ -54,19 +54,19 @@ For example the `featured_template.html.twig` file can look like this:
 
 The templates have access to all block attributes, as you can see above in the `name`, `category` and `event` variables.
 
-Priority of templates indicates the order in which they are presented in Page Builder.
+Priority of templates indicates the order in which they're presented in Page Builder.
 The template with the greatest priority is used as the default one.
 
 ## Add block JavaScript
 
-If your block is animated with JavaScript, you may have to take precaution to keep it working properly when previewed in Back Office's Page Builder.
+If your block is animated with JavaScript, you may have to take precaution to keep it working when previewed in Back Office's Page Builder.
 
-If you use an event related to the page being loaded to trigger the initialisation of your custom block, the block won't work in the Page Builder preview.
+If you use an event related to the page being loaded to trigger the initialisation of your custom block, a freshly added block doesn't work in the Page Builder preview.
 For example, the [`DOMContentLoaded`](https://developer.mozilla.org/en-US/docs/Web/API/Document/DOMContentLoaded_event) event isn't fired when a block is dragged into the page as the DOM is already loaded.
 
 The Page Builder fires `body` events that you can listen to initialize your block:
 
-* `ibexa-render-block-preview` event is fired when the page is loaded in the page builder, when a block is added, when a block is deleted, and when a block setting modification is submitted.
+* `ibexa-render-block-preview` event is fired when the page is loaded in the Page Builder, when a block is added, when a block is deleted, and when a block setting modification is submitted.
 * `ibexa-post-update-blocks-preview` event is fired when a block setting modification is submitted, this event has a `detail` property listing the reloaded modified block IDs and their configs.
 
 ```javascript
