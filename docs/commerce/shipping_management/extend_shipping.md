@@ -16,7 +16,7 @@ You can also [customize the shipment processing workflow](configure_shipment.md#
 If your application needs shipping methods of other type than the default ones, you must create custom shipping method types. 
 Code samples below show how this could be done.
  
-### Define a custom shipping method type
+### Define custom shipping method type
 
 Use a built-in type factory to define the shipping method type class in the service definition file:
 
@@ -33,6 +33,12 @@ Here, you can also define a name of the custom shipping method type by using the
 
 ``` php
 [[= include_file('code_samples/front/shop/shipping/src/ShippingMethodType/Form/Type/CustomShippingMethodOptionsType.php') =]]
+```
+
+Create a translations file that defines a name for the custom shipping method type, for example:
+
+``` yaml
+[[= include_file('code_samples/front/shop/shipping/translations/ibexa_shipping.en.yaml') =]]
 ```
 
 Next, define an options form mapper in the service definition file:
@@ -81,10 +87,17 @@ Register the converter as a service:
 
 #### Storage definition 
 
+!!! note "Create table"
+
+    Before you can proceed, create a database table, which has the columns that are used below:
+
+    `CREATE TABLE ibexa_shipping_method_region_custom(id int, customer_id text, shipping_method_region_id int);`
+
+
 Define a table that stores information specific for the shipping method, together with its schema.
 
 ``` php
-[[= include_file('code_samples/front/shop/shipping/src/ShippingMethodType/Storage/StorageConverter.php') =]]
+[[= include_file('code_samples/front/shop/shipping/src/ShippingMethodType/Storage/StorageDefinition.php') =]]
 ```
 
 ``` php
@@ -97,10 +110,12 @@ Then, register the storage definition as a service:
 [[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 0, 1) =]] [[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 28, 31) =]]
 ```
 
+![Creating a shipping method of custom type](img/custom_shipping_method_type.png "Creating a shipping method of custom type")
+
 ## Toggle shipping method type availability
 
 You can decide whether shipping methods of your custom type should be available for selection during checkout.
-For example, you can limit shipping method availability to customers that meet a specific condition.
+For example, you can limit shipping method availability to customers who meet a specific condition.
 Here, a voter class checks the `customer_identifier` against a condition.
 
 ``` php

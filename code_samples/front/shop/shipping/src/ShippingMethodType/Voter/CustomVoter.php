@@ -12,6 +12,6 @@ final class CustomVoter extends AbstractVoter
 {
     protected function getVote(ShippingMethodInterface $method, CartInterface $cart): bool
     {
-        return $method->getOptions()->get('customer_identifier') === 'foo';
+        return $method->getOptions()->get('customer_identifier') === 'Acme';
     }
 }

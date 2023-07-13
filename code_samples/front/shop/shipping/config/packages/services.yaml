@@ -9,7 +9,7 @@
     app.shipping.shipping_method.custom.form_mapper.options:
         class: Ibexa\Bundle\Shipping\Form\ShippingMethod\OptionsFormMapper
         arguments:
-            $formType: 'Ibexa\Bundle\Shipping\Form\Type\CustomShippingMethodOptionsType'
+            $formType: 'App\ShippingMethodType\Form\Type\CustomShippingMethodOptionsType'
         tags:
             - name: ibexa.shipping.shipping_method.form_mapper.options
               type: custom
@@ -19,7 +19,7 @@
             $validators: !tagged_iterator { tag: 'ibexa.shipping.shipping_method.options.validator.custom' }
         tags:
             - name: ibexa.shipping.shipping_method.options.validator
-              type: custom 
+              type: custom
     App\ShippingMethodType\CustomerNotNullValidator:
         tags:
             - name: ibexa.shipping.shipping_method.options.validator.custom
@@ -29,10 +29,10 @@
     App\ShippingMethodType\Storage\StorageDefinition:
         tags:
             - { name: 'ibexa.shipping.shipping_method.storage_definition', type: 'custom' }
-    Ibexa\Shipping\ShippingMethod\Voter\CustomVoter:
+    App\ShippingMethodType\Voter\CustomVoter:
         tags:
             - { name: ibexa.shipping.shipping.voter, method: custom }
-    Ibexa\Shipping\ShippingMethod\Cost\CustomCostFormatter:
+    App\ShippingMethodType\Cost\CustomCostFormatter:
         tags:
             - name: ibexa.shipping.shipping_method.formatter.cost
-              type: custom  
+              type: custom

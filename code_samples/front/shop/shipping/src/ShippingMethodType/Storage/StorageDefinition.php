@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace App\ShippingMethodType\Storage;
 
 use Doctrine\DBAL\Types\Types;
@@ -14,7 +12,7 @@ final class StorageDefinition implements StorageDefinitionInterface
     {
         return [
             AbstractOptionsStorageSchema::COLUMN_SHIPPING_METHOD_REGION_ID => Types::INTEGER,
-            StorageSchema::COLUMN_CUSTOMER_ID => Types::INTEGER,
+            StorageSchema::COLUMN_CUSTOMER_ID => Types::STRING,
         ];
     }
 
