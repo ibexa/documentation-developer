@@ -5,7 +5,7 @@
  * Copyright 2011-2018 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
-  /*# sourceMappingURL=bootstrap.min.css.map */
+  /*# sourceMappingURL=bootstrap.css.map */
 }
 .bootstrap-iso :root {
   --blue: #007bff;
@@ -38,8 +38,8 @@
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 .bootstrap-iso *,
-.bootstrap-iso ::after,
-.bootstrap-iso ::before {
+.bootstrap-iso *::before,
+.bootstrap-iso *::after {
   box-sizing: border-box;
 }
 .bootstrap-iso html {
@@ -97,8 +97,8 @@
   margin-top: 0;
   margin-bottom: 1rem;
 }
-.bootstrap-iso abbr[data-original-title],
-.bootstrap-iso abbr[title] {
+.bootstrap-iso abbr[title],
+.bootstrap-iso abbr[data-original-title] {
   text-decoration: underline;
   -webkit-text-decoration: underline dotted;
   text-decoration: underline dotted;
@@ -110,23 +110,23 @@
   font-style: normal;
   line-height: inherit;
 }
-.bootstrap-iso dl,
 .bootstrap-iso ol,
-.bootstrap-iso ul {
+.bootstrap-iso ul,
+.bootstrap-iso dl {
   margin-top: 0;
   margin-bottom: 1rem;
 }
 .bootstrap-iso ol ol,
+.bootstrap-iso ul ul,
 .bootstrap-iso ol ul,
-.bootstrap-iso ul ol,
-.bootstrap-iso ul ul {
+.bootstrap-iso ul ol {
   margin-bottom: 0;
 }
 .bootstrap-iso dt {
   font-weight: 700;
 }
 .bootstrap-iso dd {
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
   margin-left: 0;
 }
 .bootstrap-iso blockquote {
@@ -169,19 +169,19 @@
   color: inherit;
   text-decoration: none;
 }
-.bootstrap-iso a:not([href]):not([tabindex]):focus,
-.bootstrap-iso a:not([href]):not([tabindex]):hover {
+.bootstrap-iso a:not([href]):not([tabindex]):hover,
+.bootstrap-iso a:not([href]):not([tabindex]):focus {
   color: inherit;
   text-decoration: none;
 }
 .bootstrap-iso a:not([href]):not([tabindex]):focus {
   outline: 0;
 }
+.bootstrap-iso pre,
 .bootstrap-iso code,
 .bootstrap-iso kbd,
-.bootstrap-iso pre,
 .bootstrap-iso samp {
-  font-family: monospace,monospace;
+  font-family: monospace, monospace;
   font-size: 1em;
 }
 .bootstrap-iso pre {
@@ -204,8 +204,8 @@
   border-collapse: collapse;
 }
 .bootstrap-iso caption {
-  padding-top: .75rem;
-  padding-bottom: .75rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
   color: #6c757d;
   text-align: left;
   caption-side: bottom;
@@ -224,10 +224,10 @@
   outline: 1px dotted;
   outline: 5px auto -webkit-focus-ring-color;
 }
-.bootstrap-iso button,
 .bootstrap-iso input,
-.bootstrap-iso optgroup,
+.bootstrap-iso button,
 .bootstrap-iso select,
+.bootstrap-iso optgroup,
 .bootstrap-iso textarea {
   margin: 0;
   font-family: inherit;
@@ -242,28 +242,28 @@
 .bootstrap-iso select {
   text-transform: none;
 }
-.bootstrap-iso [type=reset],
-.bootstrap-iso [type=submit],
 .bootstrap-iso button,
-.bootstrap-iso html [type=button] {
+.bootstrap-iso html [type="button"],
+.bootstrap-iso [type="reset"],
+.bootstrap-iso [type="submit"] {
   -webkit-appearance: button;
 }
-.bootstrap-iso [type=button]::-moz-focus-inner,
-.bootstrap-iso [type=reset]::-moz-focus-inner,
-.bootstrap-iso [type=submit]::-moz-focus-inner,
-.bootstrap-iso button::-moz-focus-inner {
+.bootstrap-iso button::-moz-focus-inner,
+.bootstrap-iso [type="button"]::-moz-focus-inner,
+.bootstrap-iso [type="reset"]::-moz-focus-inner,
+.bootstrap-iso [type="submit"]::-moz-focus-inner {
   padding: 0;
   border-style: none;
 }
-.bootstrap-iso input[type=checkbox],
-.bootstrap-iso input[type=radio] {
+.bootstrap-iso input[type="radio"],
+.bootstrap-iso input[type="checkbox"] {
   box-sizing: border-box;
   padding: 0;
 }
-.bootstrap-iso input[type=date],
-.bootstrap-iso input[type=datetime-local],
-.bootstrap-iso input[type=month],
-.bootstrap-iso input[type=time] {
+.bootstrap-iso input[type="date"],
+.bootstrap-iso input[type="time"],
+.bootstrap-iso input[type="datetime-local"],
+.bootstrap-iso input[type="month"] {
   -webkit-appearance: listbox;
 }
 .bootstrap-iso textarea {
@@ -281,7 +281,7 @@
   width: 100%;
   max-width: 100%;
   padding: 0;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
   font-size: 1.5rem;
   line-height: inherit;
   color: inherit;
@@ -290,16 +290,16 @@
 .bootstrap-iso progress {
   vertical-align: baseline;
 }
-.bootstrap-iso [type=number]::-webkit-inner-spin-button,
-.bootstrap-iso [type=number]::-webkit-outer-spin-button {
+.bootstrap-iso [type="number"]::-webkit-inner-spin-button,
+.bootstrap-iso [type="number"]::-webkit-outer-spin-button {
   height: auto;
 }
-.bootstrap-iso [type=search] {
+.bootstrap-iso [type="search"] {
   outline-offset: -2px;
   -webkit-appearance: none;
 }
-.bootstrap-iso [type=search]::-webkit-search-cancel-button,
-.bootstrap-iso [type=search]::-webkit-search-decoration {
+.bootstrap-iso [type="search"]::-webkit-search-cancel-button,
+.bootstrap-iso [type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 .bootstrap-iso ::-webkit-file-upload-button {
@@ -319,46 +319,46 @@
 .bootstrap-iso [hidden] {
   display: none !important;
 }
-.bootstrap-iso .h1,
-.bootstrap-iso .h2,
-.bootstrap-iso .h3,
-.bootstrap-iso .h4,
-.bootstrap-iso .h5,
-.bootstrap-iso .h6,
 .bootstrap-iso h1,
 .bootstrap-iso h2,
 .bootstrap-iso h3,
 .bootstrap-iso h4,
 .bootstrap-iso h5,
-.bootstrap-iso h6 {
-  margin-bottom: .5rem;
+.bootstrap-iso h6,
+.bootstrap-iso .h1,
+.bootstrap-iso .h2,
+.bootstrap-iso .h3,
+.bootstrap-iso .h4,
+.bootstrap-iso .h5,
+.bootstrap-iso .h6 {
+  margin-bottom: 0.5rem;
   font-family: inherit;
   font-weight: 500;
   line-height: 1.2;
   color: inherit;
 }
-.bootstrap-iso .h1,
-.bootstrap-iso h1 {
+.bootstrap-iso h1,
+.bootstrap-iso .h1 {
   font-size: 2.5rem;
 }
-.bootstrap-iso .h2,
-.bootstrap-iso h2 {
+.bootstrap-iso h2,
+.bootstrap-iso .h2 {
   font-size: 2rem;
 }
-.bootstrap-iso .h3,
-.bootstrap-iso h3 {
+.bootstrap-iso h3,
+.bootstrap-iso .h3 {
   font-size: 1.75rem;
 }
-.bootstrap-iso .h4,
-.bootstrap-iso h4 {
+.bootstrap-iso h4,
+.bootstrap-iso .h4 {
   font-size: 1.5rem;
 }
-.bootstrap-iso .h5,
-.bootstrap-iso h5 {
+.bootstrap-iso h5,
+.bootstrap-iso .h5 {
   font-size: 1.25rem;
 }
-.bootstrap-iso .h6,
-.bootstrap-iso h6 {
+.bootstrap-iso h6,
+.bootstrap-iso .h6 {
   font-size: 1rem;
 }
 .bootstrap-iso .lead {
@@ -391,14 +391,14 @@
   border: 0;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
-.bootstrap-iso .small,
-.bootstrap-iso small {
+.bootstrap-iso small,
+.bootstrap-iso .small {
   font-size: 80%;
   font-weight: 400;
 }
-.bootstrap-iso .mark,
-.bootstrap-iso mark {
-  padding: .2em;
+.bootstrap-iso mark,
+.bootstrap-iso .mark {
+  padding: 0.2em;
   background-color: #fcf8e3;
 }
 .bootstrap-iso .list-unstyled {
@@ -436,10 +436,10 @@
   height: auto;
 }
 .bootstrap-iso .img-thumbnail {
-  padding: .25rem;
+  padding: 0.25rem;
   background-color: #fff;
   border: 1px solid #dee2e6;
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   max-width: 100%;
   height: auto;
 }
@@ -447,7 +447,7 @@
   display: inline-block;
 }
 .bootstrap-iso .figure-img {
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
   line-height: 1;
 }
 .bootstrap-iso .figure-caption {
@@ -469,7 +469,7 @@
   color: inherit;
 }
 .bootstrap-iso kbd {
-  padding: .2rem .4rem;
+  padding: 0.2rem 0.4rem;
   font-size: 87.5%;
   color: #fff;
   background-color: #212529;
@@ -542,15 +542,11 @@
   margin-left: 0;
 }
 .bootstrap-iso .no-gutters > .col,
-.bootstrap-iso .no-gutters > [class*=col-] {
+.bootstrap-iso .no-gutters > [class*="col-"] {
   padding-right: 0;
   padding-left: 0;
 }
-.bootstrap-iso .col,
 .bootstrap-iso .col-1,
-.bootstrap-iso .col-10,
-.bootstrap-iso .col-11,
-.bootstrap-iso .col-12,
 .bootstrap-iso .col-2,
 .bootstrap-iso .col-3,
 .bootstrap-iso .col-4,
@@ -559,40 +555,12 @@
 .bootstrap-iso .col-7,
 .bootstrap-iso .col-8,
 .bootstrap-iso .col-9,
+.bootstrap-iso .col-10,
+.bootstrap-iso .col-11,
+.bootstrap-iso .col-12,
+.bootstrap-iso .col,
 .bootstrap-iso .col-auto,
-.bootstrap-iso .col-lg,
-.bootstrap-iso .col-lg-1,
-.bootstrap-iso .col-lg-10,
-.bootstrap-iso .col-lg-11,
-.bootstrap-iso .col-lg-12,
-.bootstrap-iso .col-lg-2,
-.bootstrap-iso .col-lg-3,
-.bootstrap-iso .col-lg-4,
-.bootstrap-iso .col-lg-5,
-.bootstrap-iso .col-lg-6,
-.bootstrap-iso .col-lg-7,
-.bootstrap-iso .col-lg-8,
-.bootstrap-iso .col-lg-9,
-.bootstrap-iso .col-lg-auto,
-.bootstrap-iso .col-md,
-.bootstrap-iso .col-md-1,
-.bootstrap-iso .col-md-10,
-.bootstrap-iso .col-md-11,
-.bootstrap-iso .col-md-12,
-.bootstrap-iso .col-md-2,
-.bootstrap-iso .col-md-3,
-.bootstrap-iso .col-md-4,
-.bootstrap-iso .col-md-5,
-.bootstrap-iso .col-md-6,
-.bootstrap-iso .col-md-7,
-.bootstrap-iso .col-md-8,
-.bootstrap-iso .col-md-9,
-.bootstrap-iso .col-md-auto,
-.bootstrap-iso .col-sm,
 .bootstrap-iso .col-sm-1,
-.bootstrap-iso .col-sm-10,
-.bootstrap-iso .col-sm-11,
-.bootstrap-iso .col-sm-12,
 .bootstrap-iso .col-sm-2,
 .bootstrap-iso .col-sm-3,
 .bootstrap-iso .col-sm-4,
@@ -601,12 +569,40 @@
 .bootstrap-iso .col-sm-7,
 .bootstrap-iso .col-sm-8,
 .bootstrap-iso .col-sm-9,
+.bootstrap-iso .col-sm-10,
+.bootstrap-iso .col-sm-11,
+.bootstrap-iso .col-sm-12,
+.bootstrap-iso .col-sm,
 .bootstrap-iso .col-sm-auto,
-.bootstrap-iso .col-xl,
+.bootstrap-iso .col-md-1,
+.bootstrap-iso .col-md-2,
+.bootstrap-iso .col-md-3,
+.bootstrap-iso .col-md-4,
+.bootstrap-iso .col-md-5,
+.bootstrap-iso .col-md-6,
+.bootstrap-iso .col-md-7,
+.bootstrap-iso .col-md-8,
+.bootstrap-iso .col-md-9,
+.bootstrap-iso .col-md-10,
+.bootstrap-iso .col-md-11,
+.bootstrap-iso .col-md-12,
+.bootstrap-iso .col-md,
+.bootstrap-iso .col-md-auto,
+.bootstrap-iso .col-lg-1,
+.bootstrap-iso .col-lg-2,
+.bootstrap-iso .col-lg-3,
+.bootstrap-iso .col-lg-4,
+.bootstrap-iso .col-lg-5,
+.bootstrap-iso .col-lg-6,
+.bootstrap-iso .col-lg-7,
+.bootstrap-iso .col-lg-8,
+.bootstrap-iso .col-lg-9,
+.bootstrap-iso .col-lg-10,
+.bootstrap-iso .col-lg-11,
+.bootstrap-iso .col-lg-12,
+.bootstrap-iso .col-lg,
+.bootstrap-iso .col-lg-auto,
 .bootstrap-iso .col-xl-1,
-.bootstrap-iso .col-xl-10,
-.bootstrap-iso .col-xl-11,
-.bootstrap-iso .col-xl-12,
 .bootstrap-iso .col-xl-2,
 .bootstrap-iso .col-xl-3,
 .bootstrap-iso .col-xl-4,
@@ -615,6 +611,10 @@
 .bootstrap-iso .col-xl-7,
 .bootstrap-iso .col-xl-8,
 .bootstrap-iso .col-xl-9,
+.bootstrap-iso .col-xl-10,
+.bootstrap-iso .col-xl-11,
+.bootstrap-iso .col-xl-12,
+.bootstrap-iso .col-xl,
 .bootstrap-iso .col-xl-auto {
   position: relative;
   width: 100%;
@@ -1623,9 +1623,9 @@
   margin-bottom: 1rem;
   background-color: transparent;
 }
-.bootstrap-iso .table td,
-.bootstrap-iso .table th {
-  padding: .75rem;
+.bootstrap-iso .table th,
+.bootstrap-iso .table td {
+  padding: 0.75rem;
   vertical-align: top;
   border-top: 1px solid #dee2e6;
 }
@@ -1639,19 +1639,19 @@
 .bootstrap-iso .table .table {
   background-color: #fff;
 }
-.bootstrap-iso .table-sm td,
-.bootstrap-iso .table-sm th {
+.bootstrap-iso .table-sm th,
+.bootstrap-iso .table-sm td {
   padding: 0.3rem;
 }
 .bootstrap-iso .table-bordered {
   border: 1px solid #dee2e6;
 }
-.bootstrap-iso .table-bordered td,
-.bootstrap-iso .table-bordered th {
+.bootstrap-iso .table-bordered th,
+.bootstrap-iso .table-bordered td {
   border: 1px solid #dee2e6;
 }
-.bootstrap-iso .table-bordered thead td,
-.bootstrap-iso .table-bordered thead th {
+.bootstrap-iso .table-bordered thead th,
+.bootstrap-iso .table-bordered thead td {
   border-bottom-width: 2px;
 }
 .bootstrap-iso .table-striped tbody tr:nth-of-type(odd) {
@@ -1661,8 +1661,8 @@
   background-color: rgba(0, 0, 0, 0.075);
 }
 .bootstrap-iso .table-primary,
-.bootstrap-iso .table-primary > td,
-.bootstrap-iso .table-primary > th {
+.bootstrap-iso .table-primary > th,
+.bootstrap-iso .table-primary > td {
   background-color: #b8daff;
 }
 .bootstrap-iso .table-hover .table-primary:hover {
@@ -1673,8 +1673,8 @@
   background-color: #9fcdff;
 }
 .bootstrap-iso .table-secondary,
-.bootstrap-iso .table-secondary > td,
-.bootstrap-iso .table-secondary > th {
+.bootstrap-iso .table-secondary > th,
+.bootstrap-iso .table-secondary > td {
   background-color: #d6d8db;
 }
 .bootstrap-iso .table-hover .table-secondary:hover {
@@ -1685,8 +1685,8 @@
   background-color: #c8cbcf;
 }
 .bootstrap-iso .table-success,
-.bootstrap-iso .table-success > td,
-.bootstrap-iso .table-success > th {
+.bootstrap-iso .table-success > th,
+.bootstrap-iso .table-success > td {
   background-color: #c3e6cb;
 }
 .bootstrap-iso .table-hover .table-success:hover {
@@ -1697,8 +1697,8 @@
   background-color: #b1dfbb;
 }
 .bootstrap-iso .table-info,
-.bootstrap-iso .table-info > td,
-.bootstrap-iso .table-info > th {
+.bootstrap-iso .table-info > th,
+.bootstrap-iso .table-info > td {
   background-color: #bee5eb;
 }
 .bootstrap-iso .table-hover .table-info:hover {
@@ -1709,8 +1709,8 @@
   background-color: #abdde5;
 }
 .bootstrap-iso .table-warning,
-.bootstrap-iso .table-warning > td,
-.bootstrap-iso .table-warning > th {
+.bootstrap-iso .table-warning > th,
+.bootstrap-iso .table-warning > td {
   background-color: #ffeeba;
 }
 .bootstrap-iso .table-hover .table-warning:hover {
@@ -1721,8 +1721,8 @@
   background-color: #ffe8a1;
 }
 .bootstrap-iso .table-danger,
-.bootstrap-iso .table-danger > td,
-.bootstrap-iso .table-danger > th {
+.bootstrap-iso .table-danger > th,
+.bootstrap-iso .table-danger > td {
   background-color: #f5c6cb;
 }
 .bootstrap-iso .table-hover .table-danger:hover {
@@ -1733,8 +1733,8 @@
   background-color: #f1b0b7;
 }
 .bootstrap-iso .table-light,
-.bootstrap-iso .table-light > td,
-.bootstrap-iso .table-light > th {
+.bootstrap-iso .table-light > th,
+.bootstrap-iso .table-light > td {
   background-color: #fdfdfe;
 }
 .bootstrap-iso .table-hover .table-light:hover {
@@ -1745,8 +1745,8 @@
   background-color: #ececf6;
 }
 .bootstrap-iso .table-dark,
-.bootstrap-iso .table-dark > td,
-.bootstrap-iso .table-dark > th {
+.bootstrap-iso .table-dark > th,
+.bootstrap-iso .table-dark > td {
   background-color: #c6c8ca;
 }
 .bootstrap-iso .table-hover .table-dark:hover {
@@ -1757,8 +1757,8 @@
   background-color: #b9bbbe;
 }
 .bootstrap-iso .table-active,
-.bootstrap-iso .table-active > td,
-.bootstrap-iso .table-active > th {
+.bootstrap-iso .table-active > th,
+.bootstrap-iso .table-active > td {
   background-color: rgba(0, 0, 0, 0.075);
 }
 .bootstrap-iso .table-hover .table-active:hover {
@@ -1782,8 +1782,8 @@
   color: #fff;
   background-color: #212529;
 }
-.bootstrap-iso .table-dark td,
 .bootstrap-iso .table-dark th,
+.bootstrap-iso .table-dark td,
 .bootstrap-iso .table-dark thead th {
   border-color: #32383e;
 }
@@ -1857,14 +1857,14 @@
 .bootstrap-iso .form-control {
   display: block;
   width: 100%;
-  padding: .375rem .75rem;
+  padding: 0.375rem 0.75rem;
   font-size: 1rem;
   line-height: 1.5;
   color: #495057;
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid #ced4da;
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 .bootstrap-iso .form-control::-ms-expand {
@@ -1931,71 +1931,71 @@
 .bootstrap-iso .col-form-label-sm {
   padding-top: calc(0.25rem + 1px);
   padding-bottom: calc(0.25rem + 1px);
-  font-size: .875rem;
+  font-size: 0.875rem;
   line-height: 1.5;
 }
 .bootstrap-iso .form-control-plaintext {
   display: block;
   width: 100%;
-  padding-top: .375rem;
-  padding-bottom: .375rem;
+  padding-top: 0.375rem;
+  padding-bottom: 0.375rem;
   margin-bottom: 0;
   line-height: 1.5;
   background-color: transparent;
   border: solid transparent;
   border-width: 1px 0;
 }
-.bootstrap-iso .form-control-plaintext.form-control-lg,
 .bootstrap-iso .form-control-plaintext.form-control-sm,
-.bootstrap-iso .input-group-lg > .form-control-plaintext.form-control,
-.bootstrap-iso .input-group-lg > .input-group-append > .form-control-plaintext.btn,
-.bootstrap-iso .input-group-lg > .input-group-append > .form-control-plaintext.input-group-text,
-.bootstrap-iso .input-group-lg > .input-group-prepend > .form-control-plaintext.btn,
-.bootstrap-iso .input-group-lg > .input-group-prepend > .form-control-plaintext.input-group-text,
 .bootstrap-iso .input-group-sm > .form-control-plaintext.form-control,
-.bootstrap-iso .input-group-sm > .input-group-append > .form-control-plaintext.btn,
+.bootstrap-iso .input-group-sm > .input-group-prepend > .form-control-plaintext.input-group-text,
 .bootstrap-iso .input-group-sm > .input-group-append > .form-control-plaintext.input-group-text,
 .bootstrap-iso .input-group-sm > .input-group-prepend > .form-control-plaintext.btn,
-.bootstrap-iso .input-group-sm > .input-group-prepend > .form-control-plaintext.input-group-text {
+.bootstrap-iso .input-group-sm > .input-group-append > .form-control-plaintext.btn,
+.bootstrap-iso .form-control-plaintext.form-control-lg,
+.bootstrap-iso .input-group-lg > .form-control-plaintext.form-control,
+.bootstrap-iso .input-group-lg > .input-group-prepend > .form-control-plaintext.input-group-text,
+.bootstrap-iso .input-group-lg > .input-group-append > .form-control-plaintext.input-group-text,
+.bootstrap-iso .input-group-lg > .input-group-prepend > .form-control-plaintext.btn,
+.bootstrap-iso .input-group-lg > .input-group-append > .form-control-plaintext.btn {
   padding-right: 0;
   padding-left: 0;
 }
 .bootstrap-iso .form-control-sm,
 .bootstrap-iso .input-group-sm > .form-control,
-.bootstrap-iso .input-group-sm > .input-group-append > .btn,
+.bootstrap-iso .input-group-sm > .input-group-prepend > .input-group-text,
 .bootstrap-iso .input-group-sm > .input-group-append > .input-group-text,
 .bootstrap-iso .input-group-sm > .input-group-prepend > .btn,
-.bootstrap-iso .input-group-sm > .input-group-prepend > .input-group-text {
-  padding: .25rem .5rem;
-  font-size: .875rem;
+.bootstrap-iso .input-group-sm > .input-group-append > .btn {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
   line-height: 1.5;
   border-radius: 0.2rem;
 }
-.bootstrap-iso .input-group-sm > .input-group-append > select.btn:not([size]):not([multiple]),
+.bootstrap-iso select.form-control-sm:not([size]):not([multiple]),
+.bootstrap-iso .input-group-sm > select.form-control:not([size]):not([multiple]),
+.bootstrap-iso .input-group-sm > .input-group-prepend > select.input-group-text:not([size]):not([multiple]),
 .bootstrap-iso .input-group-sm > .input-group-append > select.input-group-text:not([size]):not([multiple]),
 .bootstrap-iso .input-group-sm > .input-group-prepend > select.btn:not([size]):not([multiple]),
-.bootstrap-iso .input-group-sm > .input-group-prepend > select.input-group-text:not([size]):not([multiple]),
-.bootstrap-iso .input-group-sm > select.form-control:not([size]):not([multiple]),
-.bootstrap-iso select.form-control-sm:not([size]):not([multiple]) {
+.bootstrap-iso .input-group-sm > .input-group-append > select.btn:not([size]):not([multiple]) {
   height: calc(1.8125rem + 2px);
 }
 .bootstrap-iso .form-control-lg,
 .bootstrap-iso .input-group-lg > .form-control,
-.bootstrap-iso .input-group-lg > .input-group-append > .btn,
+.bootstrap-iso .input-group-lg > .input-group-prepend > .input-group-text,
 .bootstrap-iso .input-group-lg > .input-group-append > .input-group-text,
 .bootstrap-iso .input-group-lg > .input-group-prepend > .btn,
-.bootstrap-iso .input-group-lg > .input-group-prepend > .input-group-text {
-  padding: .5rem 1rem;
+.bootstrap-iso .input-group-lg > .input-group-append > .btn {
+  padding: 0.5rem 1rem;
   font-size: 1.25rem;
   line-height: 1.5;
   border-radius: 0.3rem;
 }
-.bootstrap-iso .input-group-lg > .input-group-append > select.btn:not([size]):not([multiple]),
+.bootstrap-iso select.form-control-lg:not([size]):not([multiple]),
+.bootstrap-iso .input-group-lg > select.form-control:not([size]):not([multiple]),
+.bootstrap-iso .input-group-lg > .input-group-prepend > select.input-group-text:not([size]):not([multiple]),
 .bootstrap-iso .input-group-lg > .input-group-append > select.input-group-text:not([size]):not([multiple]),
 .bootstrap-iso .input-group-lg > .input-group-prepend > select.btn:not([size]):not([multiple]),
-.bootstrap-iso .input-group-lg > .input-group-prepend > select.input-group-text:not([size]):not([multiple]),
-.bootstrap-iso .input-group-lg > select.form-control:not([size]):not([multiple]),
-.bootstrap-iso select.form-control-lg:not([size]):not([multiple]) {
+.bootstrap-iso .input-group-lg > .input-group-append > select.btn:not([size]):not([multiple]) {
   height: calc(2.875rem + 2px);
 }
 .bootstrap-iso .form-group {
@@ -2015,7 +2015,7 @@
   margin-left: -5px;
 }
 .bootstrap-iso .form-row > .col,
-.bootstrap-iso .form-row > [class*=col-] {
+.bootstrap-iso .form-row > [class*="col-"] {
   padding-right: 5px;
   padding-left: 5px;
 }
@@ -2026,7 +2026,7 @@
 }
 .bootstrap-iso .form-check-input {
   position: absolute;
-  margin-top: .3rem;
+  margin-top: 0.3rem;
   margin-left: -1.25rem;
 }
 .bootstrap-iso .form-check-input:disabled ~ .form-check-label {
@@ -2048,13 +2048,13 @@
 .bootstrap-iso .form-check-inline .form-check-input {
   position: static;
   margin-top: 0;
-  margin-right: .3125rem;
+  margin-right: 0.3125rem;
   margin-left: 0;
 }
 .bootstrap-iso .valid-feedback {
   display: none;
   width: 100%;
-  margin-top: .25rem;
+  margin-top: 0.25rem;
   font-size: 80%;
   color: #28a745;
 }
@@ -2064,91 +2064,91 @@
   z-index: 5;
   display: none;
   max-width: 100%;
-  padding: .5rem;
-  margin-top: .1rem;
-  font-size: .875rem;
+  padding: 0.5rem;
+  margin-top: 0.1rem;
+  font-size: 0.875rem;
   line-height: 1;
   color: #fff;
   background-color: rgba(40, 167, 69, 0.8);
   border-radius: 0.2rem;
 }
-.bootstrap-iso .custom-select.is-valid,
+.bootstrap-iso .was-validated .form-control:valid,
 .bootstrap-iso .form-control.is-valid,
 .bootstrap-iso .was-validated .custom-select:valid,
-.bootstrap-iso .was-validated .form-control:valid {
+.bootstrap-iso .custom-select.is-valid {
   border-color: #28a745;
 }
-.bootstrap-iso .custom-select.is-valid:focus,
+.bootstrap-iso .was-validated .form-control:valid:focus,
 .bootstrap-iso .form-control.is-valid:focus,
 .bootstrap-iso .was-validated .custom-select:valid:focus,
-.bootstrap-iso .was-validated .form-control:valid:focus {
+.bootstrap-iso .custom-select.is-valid:focus {
   border-color: #28a745;
   box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
 }
-.bootstrap-iso .custom-select.is-valid ~ .valid-feedback,
-.bootstrap-iso .custom-select.is-valid ~ .valid-tooltip,
+.bootstrap-iso .was-validated .form-control:valid ~ .valid-feedback,
+.bootstrap-iso .was-validated .form-control:valid ~ .valid-tooltip,
 .bootstrap-iso .form-control.is-valid ~ .valid-feedback,
 .bootstrap-iso .form-control.is-valid ~ .valid-tooltip,
 .bootstrap-iso .was-validated .custom-select:valid ~ .valid-feedback,
 .bootstrap-iso .was-validated .custom-select:valid ~ .valid-tooltip,
-.bootstrap-iso .was-validated .form-control:valid ~ .valid-feedback,
-.bootstrap-iso .was-validated .form-control:valid ~ .valid-tooltip {
+.bootstrap-iso .custom-select.is-valid ~ .valid-feedback,
+.bootstrap-iso .custom-select.is-valid ~ .valid-tooltip {
   display: block;
 }
-.bootstrap-iso .form-check-input.is-valid ~ .form-check-label,
-.bootstrap-iso .was-validated .form-check-input:valid ~ .form-check-label {
+.bootstrap-iso .was-validated .form-check-input:valid ~ .form-check-label,
+.bootstrap-iso .form-check-input.is-valid ~ .form-check-label {
   color: #28a745;
 }
-.bootstrap-iso .form-check-input.is-valid ~ .valid-feedback,
-.bootstrap-iso .form-check-input.is-valid ~ .valid-tooltip,
 .bootstrap-iso .was-validated .form-check-input:valid ~ .valid-feedback,
-.bootstrap-iso .was-validated .form-check-input:valid ~ .valid-tooltip {
+.bootstrap-iso .was-validated .form-check-input:valid ~ .valid-tooltip,
+.bootstrap-iso .form-check-input.is-valid ~ .valid-feedback,
+.bootstrap-iso .form-check-input.is-valid ~ .valid-tooltip {
   display: block;
 }
-.bootstrap-iso .custom-control-input.is-valid ~ .custom-control-label,
-.bootstrap-iso .was-validated .custom-control-input:valid ~ .custom-control-label {
+.bootstrap-iso .was-validated .custom-control-input:valid ~ .custom-control-label,
+.bootstrap-iso .custom-control-input.is-valid ~ .custom-control-label {
   color: #28a745;
 }
-.bootstrap-iso .custom-control-input.is-valid ~ .custom-control-label::before,
-.bootstrap-iso .was-validated .custom-control-input:valid ~ .custom-control-label::before {
+.bootstrap-iso .was-validated .custom-control-input:valid ~ .custom-control-label::before,
+.bootstrap-iso .custom-control-input.is-valid ~ .custom-control-label::before {
   background-color: #71dd8a;
 }
-.bootstrap-iso .custom-control-input.is-valid ~ .valid-feedback,
-.bootstrap-iso .custom-control-input.is-valid ~ .valid-tooltip,
 .bootstrap-iso .was-validated .custom-control-input:valid ~ .valid-feedback,
-.bootstrap-iso .was-validated .custom-control-input:valid ~ .valid-tooltip {
+.bootstrap-iso .was-validated .custom-control-input:valid ~ .valid-tooltip,
+.bootstrap-iso .custom-control-input.is-valid ~ .valid-feedback,
+.bootstrap-iso .custom-control-input.is-valid ~ .valid-tooltip {
   display: block;
 }
-.bootstrap-iso .custom-control-input.is-valid:checked ~ .custom-control-label::before,
-.bootstrap-iso .was-validated .custom-control-input:valid:checked ~ .custom-control-label::before {
+.bootstrap-iso .was-validated .custom-control-input:valid:checked ~ .custom-control-label::before,
+.bootstrap-iso .custom-control-input.is-valid:checked ~ .custom-control-label::before {
   background-color: #34ce57;
 }
-.bootstrap-iso .custom-control-input.is-valid:focus ~ .custom-control-label::before,
-.bootstrap-iso .was-validated .custom-control-input:valid:focus ~ .custom-control-label::before {
+.bootstrap-iso .was-validated .custom-control-input:valid:focus ~ .custom-control-label::before,
+.bootstrap-iso .custom-control-input.is-valid:focus ~ .custom-control-label::before {
   box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
 }
-.bootstrap-iso .custom-file-input.is-valid ~ .custom-file-label,
-.bootstrap-iso .was-validated .custom-file-input:valid ~ .custom-file-label {
+.bootstrap-iso .was-validated .custom-file-input:valid ~ .custom-file-label,
+.bootstrap-iso .custom-file-input.is-valid ~ .custom-file-label {
   border-color: #28a745;
 }
-.bootstrap-iso .custom-file-input.is-valid ~ .custom-file-label::before,
-.bootstrap-iso .was-validated .custom-file-input:valid ~ .custom-file-label::before {
+.bootstrap-iso .was-validated .custom-file-input:valid ~ .custom-file-label::before,
+.bootstrap-iso .custom-file-input.is-valid ~ .custom-file-label::before {
   border-color: inherit;
 }
-.bootstrap-iso .custom-file-input.is-valid ~ .valid-feedback,
-.bootstrap-iso .custom-file-input.is-valid ~ .valid-tooltip,
 .bootstrap-iso .was-validated .custom-file-input:valid ~ .valid-feedback,
-.bootstrap-iso .was-validated .custom-file-input:valid ~ .valid-tooltip {
+.bootstrap-iso .was-validated .custom-file-input:valid ~ .valid-tooltip,
+.bootstrap-iso .custom-file-input.is-valid ~ .valid-feedback,
+.bootstrap-iso .custom-file-input.is-valid ~ .valid-tooltip {
   display: block;
 }
-.bootstrap-iso .custom-file-input.is-valid:focus ~ .custom-file-label,
-.bootstrap-iso .was-validated .custom-file-input:valid:focus ~ .custom-file-label {
+.bootstrap-iso .was-validated .custom-file-input:valid:focus ~ .custom-file-label,
+.bootstrap-iso .custom-file-input.is-valid:focus ~ .custom-file-label {
   box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
 }
 .bootstrap-iso .invalid-feedback {
   display: none;
   width: 100%;
-  margin-top: .25rem;
+  margin-top: 0.25rem;
   font-size: 80%;
   color: #dc3545;
 }
@@ -2158,85 +2158,85 @@
   z-index: 5;
   display: none;
   max-width: 100%;
-  padding: .5rem;
-  margin-top: .1rem;
-  font-size: .875rem;
+  padding: 0.5rem;
+  margin-top: 0.1rem;
+  font-size: 0.875rem;
   line-height: 1;
   color: #fff;
   background-color: rgba(220, 53, 69, 0.8);
   border-radius: 0.2rem;
 }
-.bootstrap-iso .custom-select.is-invalid,
+.bootstrap-iso .was-validated .form-control:invalid,
 .bootstrap-iso .form-control.is-invalid,
 .bootstrap-iso .was-validated .custom-select:invalid,
-.bootstrap-iso .was-validated .form-control:invalid {
+.bootstrap-iso .custom-select.is-invalid {
   border-color: #dc3545;
 }
-.bootstrap-iso .custom-select.is-invalid:focus,
+.bootstrap-iso .was-validated .form-control:invalid:focus,
 .bootstrap-iso .form-control.is-invalid:focus,
 .bootstrap-iso .was-validated .custom-select:invalid:focus,
-.bootstrap-iso .was-validated .form-control:invalid:focus {
+.bootstrap-iso .custom-select.is-invalid:focus {
   border-color: #dc3545;
   box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
 }
-.bootstrap-iso .custom-select.is-invalid ~ .invalid-feedback,
-.bootstrap-iso .custom-select.is-invalid ~ .invalid-tooltip,
+.bootstrap-iso .was-validated .form-control:invalid ~ .invalid-feedback,
+.bootstrap-iso .was-validated .form-control:invalid ~ .invalid-tooltip,
 .bootstrap-iso .form-control.is-invalid ~ .invalid-feedback,
 .bootstrap-iso .form-control.is-invalid ~ .invalid-tooltip,
 .bootstrap-iso .was-validated .custom-select:invalid ~ .invalid-feedback,
 .bootstrap-iso .was-validated .custom-select:invalid ~ .invalid-tooltip,
-.bootstrap-iso .was-validated .form-control:invalid ~ .invalid-feedback,
-.bootstrap-iso .was-validated .form-control:invalid ~ .invalid-tooltip {
+.bootstrap-iso .custom-select.is-invalid ~ .invalid-feedback,
+.bootstrap-iso .custom-select.is-invalid ~ .invalid-tooltip {
   display: block;
 }
-.bootstrap-iso .form-check-input.is-invalid ~ .form-check-label,
-.bootstrap-iso .was-validated .form-check-input:invalid ~ .form-check-label {
+.bootstrap-iso .was-validated .form-check-input:invalid ~ .form-check-label,
+.bootstrap-iso .form-check-input.is-invalid ~ .form-check-label {
   color: #dc3545;
 }
-.bootstrap-iso .form-check-input.is-invalid ~ .invalid-feedback,
-.bootstrap-iso .form-check-input.is-invalid ~ .invalid-tooltip,
 .bootstrap-iso .was-validated .form-check-input:invalid ~ .invalid-feedback,
-.bootstrap-iso .was-validated .form-check-input:invalid ~ .invalid-tooltip {
+.bootstrap-iso .was-validated .form-check-input:invalid ~ .invalid-tooltip,
+.bootstrap-iso .form-check-input.is-invalid ~ .invalid-feedback,
+.bootstrap-iso .form-check-input.is-invalid ~ .invalid-tooltip {
   display: block;
 }
-.bootstrap-iso .custom-control-input.is-invalid ~ .custom-control-label,
-.bootstrap-iso .was-validated .custom-control-input:invalid ~ .custom-control-label {
+.bootstrap-iso .was-validated .custom-control-input:invalid ~ .custom-control-label,
+.bootstrap-iso .custom-control-input.is-invalid ~ .custom-control-label {
   color: #dc3545;
 }
-.bootstrap-iso .custom-control-input.is-invalid ~ .custom-control-label::before,
-.bootstrap-iso .was-validated .custom-control-input:invalid ~ .custom-control-label::before {
+.bootstrap-iso .was-validated .custom-control-input:invalid ~ .custom-control-label::before,
+.bootstrap-iso .custom-control-input.is-invalid ~ .custom-control-label::before {
   background-color: #efa2a9;
 }
-.bootstrap-iso .custom-control-input.is-invalid ~ .invalid-feedback,
-.bootstrap-iso .custom-control-input.is-invalid ~ .invalid-tooltip,
 .bootstrap-iso .was-validated .custom-control-input:invalid ~ .invalid-feedback,
-.bootstrap-iso .was-validated .custom-control-input:invalid ~ .invalid-tooltip {
+.bootstrap-iso .was-validated .custom-control-input:invalid ~ .invalid-tooltip,
+.bootstrap-iso .custom-control-input.is-invalid ~ .invalid-feedback,
+.bootstrap-iso .custom-control-input.is-invalid ~ .invalid-tooltip {
   display: block;
 }
-.bootstrap-iso .custom-control-input.is-invalid:checked ~ .custom-control-label::before,
-.bootstrap-iso .was-validated .custom-control-input:invalid:checked ~ .custom-control-label::before {
+.bootstrap-iso .was-validated .custom-control-input:invalid:checked ~ .custom-control-label::before,
+.bootstrap-iso .custom-control-input.is-invalid:checked ~ .custom-control-label::before {
   background-color: #e4606d;
 }
-.bootstrap-iso .custom-control-input.is-invalid:focus ~ .custom-control-label::before,
-.bootstrap-iso .was-validated .custom-control-input:invalid:focus ~ .custom-control-label::before {
+.bootstrap-iso .was-validated .custom-control-input:invalid:focus ~ .custom-control-label::before,
+.bootstrap-iso .custom-control-input.is-invalid:focus ~ .custom-control-label::before {
   box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
 }
-.bootstrap-iso .custom-file-input.is-invalid ~ .custom-file-label,
-.bootstrap-iso .was-validated .custom-file-input:invalid ~ .custom-file-label {
+.bootstrap-iso .was-validated .custom-file-input:invalid ~ .custom-file-label,
+.bootstrap-iso .custom-file-input.is-invalid ~ .custom-file-label {
   border-color: #dc3545;
 }
-.bootstrap-iso .custom-file-input.is-invalid ~ .custom-file-label::before,
-.bootstrap-iso .was-validated .custom-file-input:invalid ~ .custom-file-label::before {
+.bootstrap-iso .was-validated .custom-file-input:invalid ~ .custom-file-label::before,
+.bootstrap-iso .custom-file-input.is-invalid ~ .custom-file-label::before {
   border-color: inherit;
 }
-.bootstrap-iso .custom-file-input.is-invalid ~ .invalid-feedback,
-.bootstrap-iso .custom-file-input.is-invalid ~ .invalid-tooltip,
 .bootstrap-iso .was-validated .custom-file-input:invalid ~ .invalid-feedback,
-.bootstrap-iso .was-validated .custom-file-input:invalid ~ .invalid-tooltip {
+.bootstrap-iso .was-validated .custom-file-input:invalid ~ .invalid-tooltip,
+.bootstrap-iso .custom-file-input.is-invalid ~ .invalid-feedback,
+.bootstrap-iso .custom-file-input.is-invalid ~ .invalid-tooltip {
   display: block;
 }
-.bootstrap-iso .custom-file-input.is-invalid:focus ~ .custom-file-label,
-.bootstrap-iso .was-validated .custom-file-input:invalid:focus ~ .custom-file-label {
+.bootstrap-iso .was-validated .custom-file-input:invalid:focus ~ .custom-file-label,
+.bootstrap-iso .custom-file-input.is-invalid:focus ~ .custom-file-label {
   box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
 }
 .bootstrap-iso .form-inline {
@@ -2310,7 +2310,7 @@
   .bootstrap-iso .form-inline .form-check-input {
     position: relative;
     margin-top: 0;
-    margin-right: .25rem;
+    margin-right: 0.25rem;
     margin-left: 0;
   }
   .bootstrap-iso .form-inline .custom-control {
@@ -2336,18 +2336,18 @@
   -ms-user-select: none;
   user-select: none;
   border: 1px solid transparent;
-  padding: .375rem .75rem;
+  padding: 0.375rem 0.75rem;
   font-size: 1rem;
   line-height: 1.5;
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
-.bootstrap-iso .btn:focus,
-.bootstrap-iso .btn:hover {
+.bootstrap-iso .btn:hover,
+.bootstrap-iso .btn:focus {
   text-decoration: none;
 }
-.bootstrap-iso .btn.focus,
-.bootstrap-iso .btn:focus {
+.bootstrap-iso .btn:focus,
+.bootstrap-iso .btn.focus {
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
@@ -2358,8 +2358,8 @@
 .bootstrap-iso .btn:not(:disabled):not(.disabled) {
   cursor: pointer;
 }
-.bootstrap-iso .btn:not(:disabled):not(.disabled).active,
-.bootstrap-iso .btn:not(:disabled):not(.disabled):active {
+.bootstrap-iso .btn:not(:disabled):not(.disabled):active,
+.bootstrap-iso .btn:not(:disabled):not(.disabled).active {
   background-image: none;
 }
 .bootstrap-iso a.btn.disabled,
@@ -2376,8 +2376,8 @@
   background-color: #0069d9;
   border-color: #0062cc;
 }
-.bootstrap-iso .btn-primary.focus,
-.bootstrap-iso .btn-primary:focus {
+.bootstrap-iso .btn-primary:focus,
+.bootstrap-iso .btn-primary.focus {
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
 }
 .bootstrap-iso .btn-primary.disabled,
@@ -2386,15 +2386,15 @@
   background-color: #007bff;
   border-color: #007bff;
 }
-.bootstrap-iso .btn-primary:not(:disabled):not(.disabled).active,
 .bootstrap-iso .btn-primary:not(:disabled):not(.disabled):active,
+.bootstrap-iso .btn-primary:not(:disabled):not(.disabled).active,
 .bootstrap-iso .show > .btn-primary.dropdown-toggle {
   color: #fff;
   background-color: #0062cc;
   border-color: #005cbf;
 }
-.bootstrap-iso .btn-primary:not(:disabled):not(.disabled).active:focus,
 .bootstrap-iso .btn-primary:not(:disabled):not(.disabled):active:focus,
+.bootstrap-iso .btn-primary:not(:disabled):not(.disabled).active:focus,
 .bootstrap-iso .show > .btn-primary.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
 }
@@ -2408,8 +2408,8 @@
   background-color: #5a6268;
   border-color: #545b62;
 }
-.bootstrap-iso .btn-secondary.focus,
-.bootstrap-iso .btn-secondary:focus {
+.bootstrap-iso .btn-secondary:focus,
+.bootstrap-iso .btn-secondary.focus {
   box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.5);
 }
 .bootstrap-iso .btn-secondary.disabled,
@@ -2418,15 +2418,15 @@
   background-color: #6c757d;
   border-color: #6c757d;
 }
-.bootstrap-iso .btn-secondary:not(:disabled):not(.disabled).active,
 .bootstrap-iso .btn-secondary:not(:disabled):not(.disabled):active,
+.bootstrap-iso .btn-secondary:not(:disabled):not(.disabled).active,
 .bootstrap-iso .show > .btn-secondary.dropdown-toggle {
   color: #fff;
   background-color: #545b62;
   border-color: #4e555b;
 }
-.bootstrap-iso .btn-secondary:not(:disabled):not(.disabled).active:focus,
 .bootstrap-iso .btn-secondary:not(:disabled):not(.disabled):active:focus,
+.bootstrap-iso .btn-secondary:not(:disabled):not(.disabled).active:focus,
 .bootstrap-iso .show > .btn-secondary.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.5);
 }
@@ -2440,8 +2440,8 @@
   background-color: #218838;
   border-color: #1e7e34;
 }
-.bootstrap-iso .btn-success.focus,
-.bootstrap-iso .btn-success:focus {
+.bootstrap-iso .btn-success:focus,
+.bootstrap-iso .btn-success.focus {
   box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5);
 }
 .bootstrap-iso .btn-success.disabled,
@@ -2450,15 +2450,15 @@
   background-color: #28a745;
   border-color: #28a745;
 }
-.bootstrap-iso .btn-success:not(:disabled):not(.disabled).active,
 .bootstrap-iso .btn-success:not(:disabled):not(.disabled):active,
+.bootstrap-iso .btn-success:not(:disabled):not(.disabled).active,
 .bootstrap-iso .show > .btn-success.dropdown-toggle {
   color: #fff;
   background-color: #1e7e34;
   border-color: #1c7430;
 }
-.bootstrap-iso .btn-success:not(:disabled):not(.disabled).active:focus,
 .bootstrap-iso .btn-success:not(:disabled):not(.disabled):active:focus,
+.bootstrap-iso .btn-success:not(:disabled):not(.disabled).active:focus,
 .bootstrap-iso .show > .btn-success.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5);
 }
@@ -2472,8 +2472,8 @@
   background-color: #138496;
   border-color: #117a8b;
 }
-.bootstrap-iso .btn-info.focus,
-.bootstrap-iso .btn-info:focus {
+.bootstrap-iso .btn-info:focus,
+.bootstrap-iso .btn-info.focus {
   box-shadow: 0 0 0 0.2rem rgba(23, 162, 184, 0.5);
 }
 .bootstrap-iso .btn-info.disabled,
@@ -2482,15 +2482,15 @@
   background-color: #17a2b8;
   border-color: #17a2b8;
 }
-.bootstrap-iso .btn-info:not(:disabled):not(.disabled).active,
 .bootstrap-iso .btn-info:not(:disabled):not(.disabled):active,
+.bootstrap-iso .btn-info:not(:disabled):not(.disabled).active,
 .bootstrap-iso .show > .btn-info.dropdown-toggle {
   color: #fff;
   background-color: #117a8b;
   border-color: #10707f;
 }
-.bootstrap-iso .btn-info:not(:disabled):not(.disabled).active:focus,
 .bootstrap-iso .btn-info:not(:disabled):not(.disabled):active:focus,
+.bootstrap-iso .btn-info:not(:disabled):not(.disabled).active:focus,
 .bootstrap-iso .show > .btn-info.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(23, 162, 184, 0.5);
 }
@@ -2504,8 +2504,8 @@
   background-color: #e0a800;
   border-color: #d39e00;
 }
-.bootstrap-iso .btn-warning.focus,
-.bootstrap-iso .btn-warning:focus {
+.bootstrap-iso .btn-warning:focus,
+.bootstrap-iso .btn-warning.focus {
   box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.5);
 }
 .bootstrap-iso .btn-warning.disabled,
@@ -2514,15 +2514,15 @@
   background-color: #ffc107;
   border-color: #ffc107;
 }
-.bootstrap-iso .btn-warning:not(:disabled):not(.disabled).active,
 .bootstrap-iso .btn-warning:not(:disabled):not(.disabled):active,
+.bootstrap-iso .btn-warning:not(:disabled):not(.disabled).active,
 .bootstrap-iso .show > .btn-warning.dropdown-toggle {
   color: #212529;
   background-color: #d39e00;
   border-color: #c69500;
 }
-.bootstrap-iso .btn-warning:not(:disabled):not(.disabled).active:focus,
 .bootstrap-iso .btn-warning:not(:disabled):not(.disabled):active:focus,
+.bootstrap-iso .btn-warning:not(:disabled):not(.disabled).active:focus,
 .bootstrap-iso .show > .btn-warning.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.5);
 }
@@ -2536,8 +2536,8 @@
   background-color: #c82333;
   border-color: #bd2130;
 }
-.bootstrap-iso .btn-danger.focus,
-.bootstrap-iso .btn-danger:focus {
+.bootstrap-iso .btn-danger:focus,
+.bootstrap-iso .btn-danger.focus {
   box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.5);
 }
 .bootstrap-iso .btn-danger.disabled,
@@ -2546,15 +2546,15 @@
   background-color: #dc3545;
   border-color: #dc3545;
 }
-.bootstrap-iso .btn-danger:not(:disabled):not(.disabled).active,
 .bootstrap-iso .btn-danger:not(:disabled):not(.disabled):active,
+.bootstrap-iso .btn-danger:not(:disabled):not(.disabled).active,
 .bootstrap-iso .show > .btn-danger.dropdown-toggle {
   color: #fff;
   background-color: #bd2130;
   border-color: #b21f2d;
 }
-.bootstrap-iso .btn-danger:not(:disabled):not(.disabled).active:focus,
 .bootstrap-iso .btn-danger:not(:disabled):not(.disabled):active:focus,
+.bootstrap-iso .btn-danger:not(:disabled):not(.disabled).active:focus,
 .bootstrap-iso .show > .btn-danger.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.5);
 }
@@ -2568,8 +2568,8 @@
   background-color: #e2e6ea;
   border-color: #dae0e5;
 }
-.bootstrap-iso .btn-light.focus,
-.bootstrap-iso .btn-light:focus {
+.bootstrap-iso .btn-light:focus,
+.bootstrap-iso .btn-light.focus {
   box-shadow: 0 0 0 0.2rem rgba(248, 249, 250, 0.5);
 }
 .bootstrap-iso .btn-light.disabled,
@@ -2578,15 +2578,15 @@
   background-color: #f8f9fa;
   border-color: #f8f9fa;
 }
-.bootstrap-iso .btn-light:not(:disabled):not(.disabled).active,
 .bootstrap-iso .btn-light:not(:disabled):not(.disabled):active,
+.bootstrap-iso .btn-light:not(:disabled):not(.disabled).active,
 .bootstrap-iso .show > .btn-light.dropdown-toggle {
   color: #212529;
   background-color: #dae0e5;
   border-color: #d3d9df;
 }
-.bootstrap-iso .btn-light:not(:disabled):not(.disabled).active:focus,
 .bootstrap-iso .btn-light:not(:disabled):not(.disabled):active:focus,
+.bootstrap-iso .btn-light:not(:disabled):not(.disabled).active:focus,
 .bootstrap-iso .show > .btn-light.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(248, 249, 250, 0.5);
 }
@@ -2600,8 +2600,8 @@
   background-color: #23272b;
   border-color: #1d2124;
 }
-.bootstrap-iso .btn-dark.focus,
-.bootstrap-iso .btn-dark:focus {
+.bootstrap-iso .btn-dark:focus,
+.bootstrap-iso .btn-dark.focus {
   box-shadow: 0 0 0 0.2rem rgba(52, 58, 64, 0.5);
 }
 .bootstrap-iso .btn-dark.disabled,
@@ -2610,15 +2610,15 @@
   background-color: #343a40;
   border-color: #343a40;
 }
-.bootstrap-iso .btn-dark:not(:disabled):not(.disabled).active,
 .bootstrap-iso .btn-dark:not(:disabled):not(.disabled):active,
+.bootstrap-iso .btn-dark:not(:disabled):not(.disabled).active,
 .bootstrap-iso .show > .btn-dark.dropdown-toggle {
   color: #fff;
   background-color: #1d2124;
   border-color: #171a1d;
 }
-.bootstrap-iso .btn-dark:not(:disabled):not(.disabled).active:focus,
 .bootstrap-iso .btn-dark:not(:disabled):not(.disabled):active:focus,
+.bootstrap-iso .btn-dark:not(:disabled):not(.disabled).active:focus,
 .bootstrap-iso .show > .btn-dark.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(52, 58, 64, 0.5);
 }
@@ -2633,8 +2633,8 @@
   background-color: #007bff;
   border-color: #007bff;
 }
-.bootstrap-iso .btn-outline-primary.focus,
-.bootstrap-iso .btn-outline-primary:focus {
+.bootstrap-iso .btn-outline-primary:focus,
+.bootstrap-iso .btn-outline-primary.focus {
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
 }
 .bootstrap-iso .btn-outline-primary.disabled,
@@ -2642,15 +2642,15 @@
   color: #007bff;
   background-color: transparent;
 }
-.bootstrap-iso .btn-outline-primary:not(:disabled):not(.disabled).active,
 .bootstrap-iso .btn-outline-primary:not(:disabled):not(.disabled):active,
+.bootstrap-iso .btn-outline-primary:not(:disabled):not(.disabled).active,
 .bootstrap-iso .show > .btn-outline-primary.dropdown-toggle {
   color: #fff;
   background-color: #007bff;
   border-color: #007bff;
 }
-.bootstrap-iso .btn-outline-primary:not(:disabled):not(.disabled).active:focus,
 .bootstrap-iso .btn-outline-primary:not(:disabled):not(.disabled):active:focus,
+.bootstrap-iso .btn-outline-primary:not(:disabled):not(.disabled).active:focus,
 .bootstrap-iso .show > .btn-outline-primary.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
 }
@@ -2665,8 +2665,8 @@
   background-color: #6c757d;
   border-color: #6c757d;
 }
-.bootstrap-iso .btn-outline-secondary.focus,
-.bootstrap-iso .btn-outline-secondary:focus {
+.bootstrap-iso .btn-outline-secondary:focus,
+.bootstrap-iso .btn-outline-secondary.focus {
   box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.5);
 }
 .bootstrap-iso .btn-outline-secondary.disabled,
@@ -2674,15 +2674,15 @@
   color: #6c757d;
   background-color: transparent;
 }
-.bootstrap-iso .btn-outline-secondary:not(:disabled):not(.disabled).active,
 .bootstrap-iso .btn-outline-secondary:not(:disabled):not(.disabled):active,
+.bootstrap-iso .btn-outline-secondary:not(:disabled):not(.disabled).active,
 .bootstrap-iso .show > .btn-outline-secondary.dropdown-toggle {
   color: #fff;
   background-color: #6c757d;
   border-color: #6c757d;
 }
-.bootstrap-iso .btn-outline-secondary:not(:disabled):not(.disabled).active:focus,
 .bootstrap-iso .btn-outline-secondary:not(:disabled):not(.disabled):active:focus,
+.bootstrap-iso .btn-outline-secondary:not(:disabled):not(.disabled).active:focus,
 .bootstrap-iso .show > .btn-outline-secondary.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.5);
 }
@@ -2697,8 +2697,8 @@
   background-color: #28a745;
   border-color: #28a745;
 }
-.bootstrap-iso .btn-outline-success.focus,
-.bootstrap-iso .btn-outline-success:focus {
+.bootstrap-iso .btn-outline-success:focus,
+.bootstrap-iso .btn-outline-success.focus {
   box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5);
 }
 .bootstrap-iso .btn-outline-success.disabled,
@@ -2706,15 +2706,15 @@
   color: #28a745;
   background-color: transparent;
 }
-.bootstrap-iso .btn-outline-success:not(:disabled):not(.disabled).active,
 .bootstrap-iso .btn-outline-success:not(:disabled):not(.disabled):active,
+.bootstrap-iso .btn-outline-success:not(:disabled):not(.disabled).active,
 .bootstrap-iso .show > .btn-outline-success.dropdown-toggle {
   color: #fff;
   background-color: #28a745;
   border-color: #28a745;
 }
-.bootstrap-iso .btn-outline-success:not(:disabled):not(.disabled).active:focus,
 .bootstrap-iso .btn-outline-success:not(:disabled):not(.disabled):active:focus,
+.bootstrap-iso .btn-outline-success:not(:disabled):not(.disabled).active:focus,
 .bootstrap-iso .show > .btn-outline-success.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5);
 }
@@ -2729,8 +2729,8 @@
   background-color: #17a2b8;
   border-color: #17a2b8;
 }
-.bootstrap-iso .btn-outline-info.focus,
-.bootstrap-iso .btn-outline-info:focus {
+.bootstrap-iso .btn-outline-info:focus,
+.bootstrap-iso .btn-outline-info.focus {
   box-shadow: 0 0 0 0.2rem rgba(23, 162, 184, 0.5);
 }
 .bootstrap-iso .btn-outline-info.disabled,
@@ -2738,15 +2738,15 @@
   color: #17a2b8;
   background-color: transparent;
 }
-.bootstrap-iso .btn-outline-info:not(:disabled):not(.disabled).active,
 .bootstrap-iso .btn-outline-info:not(:disabled):not(.disabled):active,
+.bootstrap-iso .btn-outline-info:not(:disabled):not(.disabled).active,
 .bootstrap-iso .show > .btn-outline-info.dropdown-toggle {
   color: #fff;
   background-color: #17a2b8;
   border-color: #17a2b8;
 }
-.bootstrap-iso .btn-outline-info:not(:disabled):not(.disabled).active:focus,
 .bootstrap-iso .btn-outline-info:not(:disabled):not(.disabled):active:focus,
+.bootstrap-iso .btn-outline-info:not(:disabled):not(.disabled).active:focus,
 .bootstrap-iso .show > .btn-outline-info.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(23, 162, 184, 0.5);
 }
@@ -2761,8 +2761,8 @@
   background-color: #ffc107;
   border-color: #ffc107;
 }
-.bootstrap-iso .btn-outline-warning.focus,
-.bootstrap-iso .btn-outline-warning:focus {
+.bootstrap-iso .btn-outline-warning:focus,
+.bootstrap-iso .btn-outline-warning.focus {
   box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.5);
 }
 .bootstrap-iso .btn-outline-warning.disabled,
@@ -2770,15 +2770,15 @@
   color: #ffc107;
   background-color: transparent;
 }
-.bootstrap-iso .btn-outline-warning:not(:disabled):not(.disabled).active,
 .bootstrap-iso .btn-outline-warning:not(:disabled):not(.disabled):active,
+.bootstrap-iso .btn-outline-warning:not(:disabled):not(.disabled).active,
 .bootstrap-iso .show > .btn-outline-warning.dropdown-toggle {
   color: #212529;
   background-color: #ffc107;
   border-color: #ffc107;
 }
-.bootstrap-iso .btn-outline-warning:not(:disabled):not(.disabled).active:focus,
 .bootstrap-iso .btn-outline-warning:not(:disabled):not(.disabled):active:focus,
+.bootstrap-iso .btn-outline-warning:not(:disabled):not(.disabled).active:focus,
 .bootstrap-iso .show > .btn-outline-warning.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.5);
 }
@@ -2793,8 +2793,8 @@
   background-color: #dc3545;
   border-color: #dc3545;
 }
-.bootstrap-iso .btn-outline-danger.focus,
-.bootstrap-iso .btn-outline-danger:focus {
+.bootstrap-iso .btn-outline-danger:focus,
+.bootstrap-iso .btn-outline-danger.focus {
   box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.5);
 }
 .bootstrap-iso .btn-outline-danger.disabled,
@@ -2802,15 +2802,15 @@
   color: #dc3545;
   background-color: transparent;
 }
-.bootstrap-iso .btn-outline-danger:not(:disabled):not(.disabled).active,
 .bootstrap-iso .btn-outline-danger:not(:disabled):not(.disabled):active,
+.bootstrap-iso .btn-outline-danger:not(:disabled):not(.disabled).active,
 .bootstrap-iso .show > .btn-outline-danger.dropdown-toggle {
   color: #fff;
   background-color: #dc3545;
   border-color: #dc3545;
 }
-.bootstrap-iso .btn-outline-danger:not(:disabled):not(.disabled).active:focus,
 .bootstrap-iso .btn-outline-danger:not(:disabled):not(.disabled):active:focus,
+.bootstrap-iso .btn-outline-danger:not(:disabled):not(.disabled).active:focus,
 .bootstrap-iso .show > .btn-outline-danger.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.5);
 }
@@ -2825,8 +2825,8 @@
   background-color: #f8f9fa;
   border-color: #f8f9fa;
 }
-.bootstrap-iso .btn-outline-light.focus,
-.bootstrap-iso .btn-outline-light:focus {
+.bootstrap-iso .btn-outline-light:focus,
+.bootstrap-iso .btn-outline-light.focus {
   box-shadow: 0 0 0 0.2rem rgba(248, 249, 250, 0.5);
 }
 .bootstrap-iso .btn-outline-light.disabled,
@@ -2834,15 +2834,15 @@
   color: #f8f9fa;
   background-color: transparent;
 }
-.bootstrap-iso .btn-outline-light:not(:disabled):not(.disabled).active,
 .bootstrap-iso .btn-outline-light:not(:disabled):not(.disabled):active,
+.bootstrap-iso .btn-outline-light:not(:disabled):not(.disabled).active,
 .bootstrap-iso .show > .btn-outline-light.dropdown-toggle {
   color: #212529;
   background-color: #f8f9fa;
   border-color: #f8f9fa;
 }
-.bootstrap-iso .btn-outline-light:not(:disabled):not(.disabled).active:focus,
 .bootstrap-iso .btn-outline-light:not(:disabled):not(.disabled):active:focus,
+.bootstrap-iso .btn-outline-light:not(:disabled):not(.disabled).active:focus,
 .bootstrap-iso .show > .btn-outline-light.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(248, 249, 250, 0.5);
 }
@@ -2857,8 +2857,8 @@
   background-color: #343a40;
   border-color: #343a40;
 }
-.bootstrap-iso .btn-outline-dark.focus,
-.bootstrap-iso .btn-outline-dark:focus {
+.bootstrap-iso .btn-outline-dark:focus,
+.bootstrap-iso .btn-outline-dark.focus {
   box-shadow: 0 0 0 0.2rem rgba(52, 58, 64, 0.5);
 }
 .bootstrap-iso .btn-outline-dark.disabled,
@@ -2866,15 +2866,15 @@
   color: #343a40;
   background-color: transparent;
 }
-.bootstrap-iso .btn-outline-dark:not(:disabled):not(.disabled).active,
 .bootstrap-iso .btn-outline-dark:not(:disabled):not(.disabled):active,
+.bootstrap-iso .btn-outline-dark:not(:disabled):not(.disabled).active,
 .bootstrap-iso .show > .btn-outline-dark.dropdown-toggle {
   color: #fff;
   background-color: #343a40;
   border-color: #343a40;
 }
-.bootstrap-iso .btn-outline-dark:not(:disabled):not(.disabled).active:focus,
 .bootstrap-iso .btn-outline-dark:not(:disabled):not(.disabled):active:focus,
+.bootstrap-iso .btn-outline-dark:not(:disabled):not(.disabled).active:focus,
 .bootstrap-iso .show > .btn-outline-dark.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(52, 58, 64, 0.5);
 }
@@ -2889,27 +2889,27 @@
   background-color: transparent;
   border-color: transparent;
 }
-.bootstrap-iso .btn-link.focus,
-.bootstrap-iso .btn-link:focus {
+.bootstrap-iso .btn-link:focus,
+.bootstrap-iso .btn-link.focus {
   text-decoration: underline;
   border-color: transparent;
   box-shadow: none;
 }
-.bootstrap-iso .btn-link.disabled,
-.bootstrap-iso .btn-link:disabled {
+.bootstrap-iso .btn-link:disabled,
+.bootstrap-iso .btn-link.disabled {
   color: #6c757d;
 }
-.bootstrap-iso .btn-group-lg > .btn,
-.bootstrap-iso .btn-lg {
-  padding: .5rem 1rem;
+.bootstrap-iso .btn-lg,
+.bootstrap-iso .btn-group-lg > .btn {
+  padding: 0.5rem 1rem;
   font-size: 1.25rem;
   line-height: 1.5;
   border-radius: 0.3rem;
 }
-.bootstrap-iso .btn-group-sm > .btn,
-.bootstrap-iso .btn-sm {
-  padding: .25rem .5rem;
-  font-size: .875rem;
+.bootstrap-iso .btn-sm,
+.bootstrap-iso .btn-group-sm > .btn {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
   line-height: 1.5;
   border-radius: 0.2rem;
 }
@@ -2920,9 +2920,9 @@
 .bootstrap-iso .btn-block + .btn-block {
   margin-top: 0.5rem;
 }
-.bootstrap-iso input[type=button].btn-block,
-.bootstrap-iso input[type=reset].btn-block,
-.bootstrap-iso input[type=submit].btn-block {
+.bootstrap-iso input[type="submit"].btn-block,
+.bootstrap-iso input[type="reset"].btn-block,
+.bootstrap-iso input[type="button"].btn-block {
   width: 100%;
 }
 .bootstrap-iso .fade {
@@ -2950,19 +2950,19 @@
   overflow: hidden;
   transition: height 0.35s ease;
 }
-.bootstrap-iso .dropdown,
-.bootstrap-iso .dropup {
+.bootstrap-iso .dropup,
+.bootstrap-iso .dropdown {
   position: relative;
 }
 .bootstrap-iso .dropdown-toggle::after {
   display: inline-block;
   width: 0;
   height: 0;
-  margin-left: .255em;
-  vertical-align: .255em;
+  margin-left: 0.255em;
+  vertical-align: 0.255em;
   content: "";
-  border-top: .3em solid;
-  border-right: .3em solid transparent;
+  border-top: 0.3em solid;
+  border-right: 0.3em solid transparent;
   border-bottom: 0;
   border-left: 0.3em solid transparent;
 }
@@ -2977,8 +2977,8 @@
   display: none;
   float: left;
   min-width: 10rem;
-  padding: .5rem 0;
-  margin: .125rem 0 0;
+  padding: 0.5rem 0;
+  margin: 0.125rem 0 0;
   font-size: 1rem;
   color: #212529;
   text-align: left;
@@ -2996,12 +2996,12 @@
   display: inline-block;
   width: 0;
   height: 0;
-  margin-left: .255em;
-  vertical-align: .255em;
+  margin-left: 0.255em;
+  vertical-align: 0.255em;
   content: "";
   border-top: 0;
-  border-right: .3em solid transparent;
-  border-bottom: .3em solid;
+  border-right: 0.3em solid transparent;
+  border-bottom: 0.3em solid;
   border-left: 0.3em solid transparent;
 }
 .bootstrap-iso .dropup .dropdown-toggle:empty::after {
@@ -3015,11 +3015,11 @@
   display: inline-block;
   width: 0;
   height: 0;
-  margin-left: .255em;
-  vertical-align: .255em;
+  margin-left: 0.255em;
+  vertical-align: 0.255em;
   content: "";
-  border-top: .3em solid transparent;
-  border-bottom: .3em solid transparent;
+  border-top: 0.3em solid transparent;
+  border-bottom: 0.3em solid transparent;
   border-left: 0.3em solid;
 }
 .bootstrap-iso .dropright .dropdown-toggle:empty::after {
@@ -3036,8 +3036,8 @@
   display: inline-block;
   width: 0;
   height: 0;
-  margin-left: .255em;
-  vertical-align: .255em;
+  margin-left: 0.255em;
+  vertical-align: 0.255em;
   content: "";
 }
 .bootstrap-iso .dropleft .dropdown-toggle::after {
@@ -3047,11 +3047,11 @@
   display: inline-block;
   width: 0;
   height: 0;
-  margin-right: .255em;
-  vertical-align: .255em;
+  margin-right: 0.255em;
+  vertical-align: 0.255em;
   content: "";
-  border-top: .3em solid transparent;
-  border-right: .3em solid;
+  border-top: 0.3em solid transparent;
+  border-right: 0.3em solid;
   border-bottom: 0.3em solid transparent;
 }
 .bootstrap-iso .dropleft .dropdown-toggle:empty::after {
@@ -3062,14 +3062,14 @@
 }
 .bootstrap-iso .dropdown-divider {
   height: 0;
-  margin: .5rem 0;
+  margin: 0.5rem 0;
   overflow: hidden;
   border-top: 1px solid #e9ecef;
 }
 .bootstrap-iso .dropdown-item {
   display: block;
   width: 100%;
-  padding: .25rem 1.5rem;
+  padding: 0.25rem 1.5rem;
   clear: both;
   font-weight: 400;
   color: #212529;
@@ -3078,8 +3078,8 @@
   background-color: transparent;
   border: 0;
 }
-.bootstrap-iso .dropdown-item:focus,
-.bootstrap-iso .dropdown-item:hover {
+.bootstrap-iso .dropdown-item:hover,
+.bootstrap-iso .dropdown-item:focus {
   color: #16181b;
   text-decoration: none;
   background-color: #f8f9fa;
@@ -3100,9 +3100,9 @@
 }
 .bootstrap-iso .dropdown-header {
   display: block;
-  padding: .5rem 1.5rem;
+  padding: 0.5rem 1.5rem;
   margin-bottom: 0;
-  font-size: .875rem;
+  font-size: 0.875rem;
   color: #6c757d;
   white-space: nowrap;
 }
@@ -3114,23 +3114,23 @@
   display: inline-flex;
   vertical-align: middle;
 }
-.bootstrap-iso .btn-group-vertical > .btn,
-.bootstrap-iso .btn-group > .btn {
+.bootstrap-iso .btn-group > .btn,
+.bootstrap-iso .btn-group-vertical > .btn {
   position: relative;
   -webkit-box-flex: 0;
   -ms-flex: 0 1 auto;
   flex: 0 1 auto;
 }
-.bootstrap-iso .btn-group-vertical > .btn:hover,
-.bootstrap-iso .btn-group > .btn:hover {
+.bootstrap-iso .btn-group > .btn:hover,
+.bootstrap-iso .btn-group-vertical > .btn:hover {
   z-index: 1;
 }
-.bootstrap-iso .btn-group-vertical > .btn.active,
-.bootstrap-iso .btn-group-vertical > .btn:active,
-.bootstrap-iso .btn-group-vertical > .btn:focus,
-.bootstrap-iso .btn-group > .btn.active,
+.bootstrap-iso .btn-group > .btn:focus,
 .bootstrap-iso .btn-group > .btn:active,
-.bootstrap-iso .btn-group > .btn:focus {
+.bootstrap-iso .btn-group > .btn.active,
+.bootstrap-iso .btn-group-vertical > .btn:focus,
+.bootstrap-iso .btn-group-vertical > .btn:active,
+.bootstrap-iso .btn-group-vertical > .btn.active {
   z-index: 1;
 }
 .bootstrap-iso .btn-group .btn + .btn,
@@ -3159,31 +3159,31 @@
 .bootstrap-iso .btn-group > .btn:first-child {
   margin-left: 0;
 }
-.bootstrap-iso .btn-group > .btn-group:not(:last-child) > .btn,
-.bootstrap-iso .btn-group > .btn:not(:last-child):not(.dropdown-toggle) {
+.bootstrap-iso .btn-group > .btn:not(:last-child):not(.dropdown-toggle),
+.bootstrap-iso .btn-group > .btn-group:not(:last-child) > .btn {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
-.bootstrap-iso .btn-group > .btn-group:not(:first-child) > .btn,
-.bootstrap-iso .btn-group > .btn:not(:first-child) {
+.bootstrap-iso .btn-group > .btn:not(:first-child),
+.bootstrap-iso .btn-group > .btn-group:not(:first-child) > .btn {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
 .bootstrap-iso .dropdown-toggle-split {
-  padding-right: .5625rem;
+  padding-right: 0.5625rem;
   padding-left: 0.5625rem;
 }
 .bootstrap-iso .dropdown-toggle-split::after {
   margin-left: 0;
 }
-.bootstrap-iso .btn-group-sm > .btn + .dropdown-toggle-split,
-.bootstrap-iso .btn-sm + .dropdown-toggle-split {
-  padding-right: .375rem;
+.bootstrap-iso .btn-sm + .dropdown-toggle-split,
+.bootstrap-iso .btn-group-sm > .btn + .dropdown-toggle-split {
+  padding-right: 0.375rem;
   padding-left: 0.375rem;
 }
-.bootstrap-iso .btn-group-lg > .btn + .dropdown-toggle-split,
-.bootstrap-iso .btn-lg + .dropdown-toggle-split {
-  padding-right: .75rem;
+.bootstrap-iso .btn-lg + .dropdown-toggle-split,
+.bootstrap-iso .btn-group-lg > .btn + .dropdown-toggle-split {
+  padding-right: 0.75rem;
   padding-left: 0.75rem;
 }
 .bootstrap-iso .btn-group-vertical {
@@ -3209,13 +3209,13 @@
   margin-top: -1px;
   margin-left: 0;
 }
-.bootstrap-iso .btn-group-vertical > .btn-group:not(:last-child) > .btn,
-.bootstrap-iso .btn-group-vertical > .btn:not(:last-child):not(.dropdown-toggle) {
+.bootstrap-iso .btn-group-vertical > .btn:not(:last-child):not(.dropdown-toggle),
+.bootstrap-iso .btn-group-vertical > .btn-group:not(:last-child) > .btn {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
-.bootstrap-iso .btn-group-vertical > .btn-group:not(:first-child) > .btn,
-.bootstrap-iso .btn-group-vertical > .btn:not(:first-child) {
+.bootstrap-iso .btn-group-vertical > .btn:not(:first-child),
+.bootstrap-iso .btn-group-vertical > .btn-group:not(:first-child) > .btn {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
@@ -3223,10 +3223,10 @@
 .bootstrap-iso .btn-group-toggle > .btn-group > .btn {
   margin-bottom: 0;
 }
-.bootstrap-iso .btn-group-toggle > .btn input[type=checkbox],
-.bootstrap-iso .btn-group-toggle > .btn input[type=radio],
-.bootstrap-iso .btn-group-toggle > .btn-group > .btn input[type=checkbox],
-.bootstrap-iso .btn-group-toggle > .btn-group > .btn input[type=radio] {
+.bootstrap-iso .btn-group-toggle > .btn input[type="radio"],
+.bootstrap-iso .btn-group-toggle > .btn input[type="checkbox"],
+.bootstrap-iso .btn-group-toggle > .btn-group > .btn input[type="radio"],
+.bootstrap-iso .btn-group-toggle > .btn-group > .btn input[type="checkbox"] {
   position: absolute;
   clip: rect(0, 0, 0, 0);
   pointer-events: none;
@@ -3243,9 +3243,9 @@
   align-items: stretch;
   width: 100%;
 }
-.bootstrap-iso .input-group > .custom-file,
+.bootstrap-iso .input-group > .form-control,
 .bootstrap-iso .input-group > .custom-select,
-.bootstrap-iso .input-group > .form-control {
+.bootstrap-iso .input-group > .custom-file {
   position: relative;
   -webkit-box-flex: 1;
   -ms-flex: 1 1 auto;
@@ -3253,29 +3253,29 @@
   width: 1%;
   margin-bottom: 0;
 }
-.bootstrap-iso .input-group > .custom-file:focus,
+.bootstrap-iso .input-group > .form-control:focus,
 .bootstrap-iso .input-group > .custom-select:focus,
-.bootstrap-iso .input-group > .form-control:focus {
+.bootstrap-iso .input-group > .custom-file:focus {
   z-index: 3;
 }
-.bootstrap-iso .input-group > .custom-file + .custom-file,
-.bootstrap-iso .input-group > .custom-file + .custom-select,
-.bootstrap-iso .input-group > .custom-file + .form-control,
-.bootstrap-iso .input-group > .custom-select + .custom-file,
-.bootstrap-iso .input-group > .custom-select + .custom-select,
-.bootstrap-iso .input-group > .custom-select + .form-control,
-.bootstrap-iso .input-group > .form-control + .custom-file,
+.bootstrap-iso .input-group > .form-control + .form-control,
 .bootstrap-iso .input-group > .form-control + .custom-select,
-.bootstrap-iso .input-group > .form-control + .form-control {
+.bootstrap-iso .input-group > .form-control + .custom-file,
+.bootstrap-iso .input-group > .custom-select + .form-control,
+.bootstrap-iso .input-group > .custom-select + .custom-select,
+.bootstrap-iso .input-group > .custom-select + .custom-file,
+.bootstrap-iso .input-group > .custom-file + .form-control,
+.bootstrap-iso .input-group > .custom-file + .custom-select,
+.bootstrap-iso .input-group > .custom-file + .custom-file {
   margin-left: -1px;
 }
-.bootstrap-iso .input-group > .custom-select:not(:last-child),
-.bootstrap-iso .input-group > .form-control:not(:last-child) {
+.bootstrap-iso .input-group > .form-control:not(:last-child),
+.bootstrap-iso .input-group > .custom-select:not(:last-child) {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
-.bootstrap-iso .input-group > .custom-select:not(:first-child),
-.bootstrap-iso .input-group > .form-control:not(:first-child) {
+.bootstrap-iso .input-group > .form-control:not(:first-child),
+.bootstrap-iso .input-group > .custom-select:not(:first-child) {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
@@ -3297,25 +3297,25 @@
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
-.bootstrap-iso .input-group-append,
-.bootstrap-iso .input-group-prepend {
+.bootstrap-iso .input-group-prepend,
+.bootstrap-iso .input-group-append {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
-.bootstrap-iso .input-group-append .btn,
-.bootstrap-iso .input-group-prepend .btn {
+.bootstrap-iso .input-group-prepend .btn,
+.bootstrap-iso .input-group-append .btn {
   position: relative;
   z-index: 2;
 }
-.bootstrap-iso .input-group-append .btn + .btn,
-.bootstrap-iso .input-group-append .btn + .input-group-text,
-.bootstrap-iso .input-group-append .input-group-text + .btn,
-.bootstrap-iso .input-group-append .input-group-text + .input-group-text,
 .bootstrap-iso .input-group-prepend .btn + .btn,
 .bootstrap-iso .input-group-prepend .btn + .input-group-text,
+.bootstrap-iso .input-group-prepend .input-group-text + .input-group-text,
 .bootstrap-iso .input-group-prepend .input-group-text + .btn,
-.bootstrap-iso .input-group-prepend .input-group-text + .input-group-text {
+.bootstrap-iso .input-group-append .btn + .btn,
+.bootstrap-iso .input-group-append .btn + .input-group-text,
+.bootstrap-iso .input-group-append .input-group-text + .input-group-text,
+.bootstrap-iso .input-group-append .input-group-text + .btn {
   margin-left: -1px;
 }
 .bootstrap-iso .input-group-prepend {
@@ -3331,7 +3331,7 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  padding: .375rem .75rem;
+  padding: 0.375rem 0.75rem;
   margin-bottom: 0;
   font-size: 1rem;
   font-weight: 400;
@@ -3343,25 +3343,25 @@
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
 }
-.bootstrap-iso .input-group-text input[type=checkbox],
-.bootstrap-iso .input-group-text input[type=radio] {
+.bootstrap-iso .input-group-text input[type="radio"],
+.bootstrap-iso .input-group-text input[type="checkbox"] {
   margin-top: 0;
 }
-.bootstrap-iso .input-group > .input-group-append:last-child > .btn:not(:last-child):not(.dropdown-toggle),
-.bootstrap-iso .input-group > .input-group-append:last-child > .input-group-text:not(:last-child),
+.bootstrap-iso .input-group > .input-group-prepend > .btn,
+.bootstrap-iso .input-group > .input-group-prepend > .input-group-text,
 .bootstrap-iso .input-group > .input-group-append:not(:last-child) > .btn,
 .bootstrap-iso .input-group > .input-group-append:not(:last-child) > .input-group-text,
-.bootstrap-iso .input-group > .input-group-prepend > .btn,
-.bootstrap-iso .input-group > .input-group-prepend > .input-group-text {
+.bootstrap-iso .input-group > .input-group-append:last-child > .btn:not(:last-child):not(.dropdown-toggle),
+.bootstrap-iso .input-group > .input-group-append:last-child > .input-group-text:not(:last-child) {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 .bootstrap-iso .input-group > .input-group-append > .btn,
 .bootstrap-iso .input-group > .input-group-append > .input-group-text,
-.bootstrap-iso .input-group > .input-group-prepend:first-child > .btn:not(:first-child),
-.bootstrap-iso .input-group > .input-group-prepend:first-child > .input-group-text:not(:first-child),
 .bootstrap-iso .input-group > .input-group-prepend:not(:first-child) > .btn,
-.bootstrap-iso .input-group > .input-group-prepend:not(:first-child) > .input-group-text {
+.bootstrap-iso .input-group > .input-group-prepend:not(:first-child) > .input-group-text,
+.bootstrap-iso .input-group > .input-group-prepend:first-child > .btn:not(:first-child),
+.bootstrap-iso .input-group > .input-group-prepend:first-child > .input-group-text:not(:first-child) {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
@@ -3404,7 +3404,7 @@
 }
 .bootstrap-iso .custom-control-label::before {
   position: absolute;
-  top: .25rem;
+  top: 0.25rem;
   left: 0;
   display: block;
   width: 1rem;
@@ -3419,7 +3419,7 @@
 }
 .bootstrap-iso .custom-control-label::after {
   position: absolute;
-  top: .25rem;
+  top: 0.25rem;
   left: 0;
   display: block;
   width: 1rem;
@@ -3466,14 +3466,14 @@
   display: inline-block;
   width: 100%;
   height: calc(2.25rem + 2px);
-  padding: .375rem 1.75rem .375rem .75rem;
+  padding: 0.375rem 1.75rem 0.375rem 0.75rem;
   line-height: 1.5;
   color: #495057;
   vertical-align: middle;
   background: #fff url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E") no-repeat right 0.75rem center;
   background-size: 8px 10px;
   border: 1px solid #ced4da;
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -3490,7 +3490,7 @@
 .bootstrap-iso .custom-select[multiple],
 .bootstrap-iso .custom-select[size]:not([size="1"]) {
   height: auto;
-  padding-right: .75rem;
+  padding-right: 0.75rem;
   background-image: none;
 }
 .bootstrap-iso .custom-select:disabled {
@@ -3502,14 +3502,14 @@
 }
 .bootstrap-iso .custom-select-sm {
   height: calc(1.8125rem + 2px);
-  padding-top: .375rem;
-  padding-bottom: .375rem;
+  padding-top: 0.375rem;
+  padding-bottom: 0.375rem;
   font-size: 75%;
 }
 .bootstrap-iso .custom-select-lg {
   height: calc(2.875rem + 2px);
-  padding-top: .375rem;
-  padding-bottom: .375rem;
+  padding-top: 0.375rem;
+  padding-bottom: 0.375rem;
   font-size: 125%;
 }
 .bootstrap-iso .custom-file {
@@ -3544,7 +3544,7 @@
   left: 0;
   z-index: 1;
   height: calc(2.25rem + 2px);
-  padding: .375rem .75rem;
+  padding: 0.375rem 0.75rem;
   line-height: 1.5;
   color: #495057;
   background-color: #fff;
@@ -3559,7 +3559,7 @@
   z-index: 3;
   display: block;
   height: calc(calc(2.25rem + 2px) - 1px * 2);
-  padding: .375rem .75rem;
+  padding: 0.375rem 0.75rem;
   line-height: 1.5;
   color: #495057;
   content: "Browse";
@@ -3581,8 +3581,8 @@
   display: block;
   padding: 0.5rem 1rem;
 }
-.bootstrap-iso .nav-link:focus,
-.bootstrap-iso .nav-link:hover {
+.bootstrap-iso .nav-link:hover,
+.bootstrap-iso .nav-link:focus {
   text-decoration: none;
 }
 .bootstrap-iso .nav-link.disabled {
@@ -3596,11 +3596,11 @@
 }
 .bootstrap-iso .nav-tabs .nav-link {
   border: 1px solid transparent;
-  border-top-left-radius: .25rem;
+  border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
 }
-.bootstrap-iso .nav-tabs .nav-link:focus,
-.bootstrap-iso .nav-tabs .nav-link:hover {
+.bootstrap-iso .nav-tabs .nav-link:hover,
+.bootstrap-iso .nav-tabs .nav-link:focus {
   border-color: #e9ecef #e9ecef #dee2e6;
 }
 .bootstrap-iso .nav-tabs .nav-link.disabled {
@@ -3608,8 +3608,8 @@
   background-color: transparent;
   border-color: transparent;
 }
-.bootstrap-iso .nav-tabs .nav-item.show .nav-link,
-.bootstrap-iso .nav-tabs .nav-link.active {
+.bootstrap-iso .nav-tabs .nav-link.active,
+.bootstrap-iso .nav-tabs .nav-item.show .nav-link {
   color: #495057;
   background-color: #fff;
   border-color: #dee2e6 #dee2e6 #fff;
@@ -3678,15 +3678,15 @@
 }
 .bootstrap-iso .navbar-brand {
   display: inline-block;
-  padding-top: .3125rem;
-  padding-bottom: .3125rem;
+  padding-top: 0.3125rem;
+  padding-bottom: 0.3125rem;
   margin-right: 1rem;
   font-size: 1.25rem;
   line-height: inherit;
   white-space: nowrap;
 }
-.bootstrap-iso .navbar-brand:focus,
-.bootstrap-iso .navbar-brand:hover {
+.bootstrap-iso .navbar-brand:hover,
+.bootstrap-iso .navbar-brand:focus {
   text-decoration: none;
 }
 .bootstrap-iso .navbar-nav {
@@ -3711,7 +3711,7 @@
 }
 .bootstrap-iso .navbar-text {
   display: inline-block;
-  padding-top: .5rem;
+  padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
 .bootstrap-iso .navbar-collapse {
@@ -3725,15 +3725,15 @@
   align-items: center;
 }
 .bootstrap-iso .navbar-toggler {
-  padding: .25rem .75rem;
+  padding: 0.25rem 0.75rem;
   font-size: 1.25rem;
   line-height: 1;
   background-color: transparent;
   border: 1px solid transparent;
   border-radius: 0.25rem;
 }
-.bootstrap-iso .navbar-toggler:focus,
-.bootstrap-iso .navbar-toggler:hover {
+.bootstrap-iso .navbar-toggler:hover,
+.bootstrap-iso .navbar-toggler:focus {
   text-decoration: none;
 }
 .bootstrap-iso .navbar-toggler:not(:disabled):not(.disabled) {
@@ -3779,7 +3779,7 @@
     left: auto;
   }
   .bootstrap-iso .navbar-expand-sm .navbar-nav .nav-link {
-    padding-right: .5rem;
+    padding-right: 0.5rem;
     padding-left: 0.5rem;
   }
   .bootstrap-iso .navbar-expand-sm > .container,
@@ -3790,7 +3790,7 @@
   .bootstrap-iso .navbar-expand-sm .navbar-collapse {
     display: -webkit-box !important;
     display: -ms-flexbox !important;
-    display: flex!important;
+    display: flex !important;
     -ms-flex-preferred-size: auto;
     flex-basis: auto;
   }
@@ -3833,7 +3833,7 @@
     left: auto;
   }
   .bootstrap-iso .navbar-expand-md .navbar-nav .nav-link {
-    padding-right: .5rem;
+    padding-right: 0.5rem;
     padding-left: 0.5rem;
   }
   .bootstrap-iso .navbar-expand-md > .container,
@@ -3844,7 +3844,7 @@
   .bootstrap-iso .navbar-expand-md .navbar-collapse {
     display: -webkit-box !important;
     display: -ms-flexbox !important;
-    display: flex!important;
+    display: flex !important;
     -ms-flex-preferred-size: auto;
     flex-basis: auto;
   }
@@ -3887,7 +3887,7 @@
     left: auto;
   }
   .bootstrap-iso .navbar-expand-lg .navbar-nav .nav-link {
-    padding-right: .5rem;
+    padding-right: 0.5rem;
     padding-left: 0.5rem;
   }
   .bootstrap-iso .navbar-expand-lg > .container,
@@ -3898,7 +3898,7 @@
   .bootstrap-iso .navbar-expand-lg .navbar-collapse {
     display: -webkit-box !important;
     display: -ms-flexbox !important;
-    display: flex!important;
+    display: flex !important;
     -ms-flex-preferred-size: auto;
     flex-basis: auto;
   }
@@ -3941,7 +3941,7 @@
     left: auto;
   }
   .bootstrap-iso .navbar-expand-xl .navbar-nav .nav-link {
-    padding-right: .5rem;
+    padding-right: 0.5rem;
     padding-left: 0.5rem;
   }
   .bootstrap-iso .navbar-expand-xl > .container,
@@ -3952,7 +3952,7 @@
   .bootstrap-iso .navbar-expand-xl .navbar-collapse {
     display: -webkit-box !important;
     display: -ms-flexbox !important;
-    display: flex!important;
+    display: flex !important;
     -ms-flex-preferred-size: auto;
     flex-basis: auto;
   }
@@ -3992,7 +3992,7 @@
   left: auto;
 }
 .bootstrap-iso .navbar-expand .navbar-nav .nav-link {
-  padding-right: .5rem;
+  padding-right: 0.5rem;
   padding-left: 0.5rem;
 }
 .bootstrap-iso .navbar-expand > .container,
@@ -4003,7 +4003,7 @@
 .bootstrap-iso .navbar-expand .navbar-collapse {
   display: -webkit-box !important;
   display: -ms-flexbox !important;
-  display: flex!important;
+  display: flex !important;
   -ms-flex-preferred-size: auto;
   flex-basis: auto;
 }
@@ -4017,24 +4017,24 @@
 .bootstrap-iso .navbar-light .navbar-brand {
   color: rgba(0, 0, 0, 0.9);
 }
-.bootstrap-iso .navbar-light .navbar-brand:focus,
-.bootstrap-iso .navbar-light .navbar-brand:hover {
+.bootstrap-iso .navbar-light .navbar-brand:hover,
+.bootstrap-iso .navbar-light .navbar-brand:focus {
   color: rgba(0, 0, 0, 0.9);
 }
 .bootstrap-iso .navbar-light .navbar-nav .nav-link {
   color: rgba(0, 0, 0, 0.5);
 }
-.bootstrap-iso .navbar-light .navbar-nav .nav-link:focus,
-.bootstrap-iso .navbar-light .navbar-nav .nav-link:hover {
+.bootstrap-iso .navbar-light .navbar-nav .nav-link:hover,
+.bootstrap-iso .navbar-light .navbar-nav .nav-link:focus {
   color: rgba(0, 0, 0, 0.7);
 }
 .bootstrap-iso .navbar-light .navbar-nav .nav-link.disabled {
   color: rgba(0, 0, 0, 0.3);
 }
+.bootstrap-iso .navbar-light .navbar-nav .show > .nav-link,
 .bootstrap-iso .navbar-light .navbar-nav .active > .nav-link,
-.bootstrap-iso .navbar-light .navbar-nav .nav-link.active,
 .bootstrap-iso .navbar-light .navbar-nav .nav-link.show,
-.bootstrap-iso .navbar-light .navbar-nav .show > .nav-link {
+.bootstrap-iso .navbar-light .navbar-nav .nav-link.active {
   color: rgba(0, 0, 0, 0.9);
 }
 .bootstrap-iso .navbar-light .navbar-toggler {
@@ -4050,31 +4050,31 @@
 .bootstrap-iso .navbar-light .navbar-text a {
   color: rgba(0, 0, 0, 0.9);
 }
-.bootstrap-iso .navbar-light .navbar-text a:focus,
-.bootstrap-iso .navbar-light .navbar-text a:hover {
+.bootstrap-iso .navbar-light .navbar-text a:hover,
+.bootstrap-iso .navbar-light .navbar-text a:focus {
   color: rgba(0, 0, 0, 0.9);
 }
 .bootstrap-iso .navbar-dark .navbar-brand {
   color: #fff;
 }
-.bootstrap-iso .navbar-dark .navbar-brand:focus,
-.bootstrap-iso .navbar-dark .navbar-brand:hover {
+.bootstrap-iso .navbar-dark .navbar-brand:hover,
+.bootstrap-iso .navbar-dark .navbar-brand:focus {
   color: #fff;
 }
 .bootstrap-iso .navbar-dark .navbar-nav .nav-link {
   color: rgba(255, 255, 255, 0.5);
 }
-.bootstrap-iso .navbar-dark .navbar-nav .nav-link:focus,
-.bootstrap-iso .navbar-dark .navbar-nav .nav-link:hover {
+.bootstrap-iso .navbar-dark .navbar-nav .nav-link:hover,
+.bootstrap-iso .navbar-dark .navbar-nav .nav-link:focus {
   color: rgba(255, 255, 255, 0.75);
 }
 .bootstrap-iso .navbar-dark .navbar-nav .nav-link.disabled {
   color: rgba(255, 255, 255, 0.25);
 }
+.bootstrap-iso .navbar-dark .navbar-nav .show > .nav-link,
 .bootstrap-iso .navbar-dark .navbar-nav .active > .nav-link,
-.bootstrap-iso .navbar-dark .navbar-nav .nav-link.active,
 .bootstrap-iso .navbar-dark .navbar-nav .nav-link.show,
-.bootstrap-iso .navbar-dark .navbar-nav .show > .nav-link {
+.bootstrap-iso .navbar-dark .navbar-nav .nav-link.active {
   color: #fff;
 }
 .bootstrap-iso .navbar-dark .navbar-toggler {
@@ -4090,8 +4090,8 @@
 .bootstrap-iso .navbar-dark .navbar-text a {
   color: #fff;
 }
-.bootstrap-iso .navbar-dark .navbar-text a:focus,
-.bootstrap-iso .navbar-dark .navbar-text a:hover {
+.bootstrap-iso .navbar-dark .navbar-text a:hover,
+.bootstrap-iso .navbar-dark .navbar-text a:focus {
   color: #fff;
 }
 .bootstrap-iso .card {
@@ -4115,11 +4115,11 @@
   margin-left: 0;
 }
 .bootstrap-iso .card > .list-group:first-child .list-group-item:first-child {
-  border-top-left-radius: .25rem;
+  border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
 }
 .bootstrap-iso .card > .list-group:last-child .list-group-item:last-child {
-  border-bottom-right-radius: .25rem;
+  border-bottom-right-radius: 0.25rem;
   border-bottom-left-radius: 0.25rem;
 }
 .bootstrap-iso .card-body {
@@ -4145,7 +4145,7 @@
   margin-left: 1.25rem;
 }
 .bootstrap-iso .card-header {
-  padding: .75rem 1.25rem;
+  padding: 0.75rem 1.25rem;
   margin-bottom: 0;
   background-color: rgba(0, 0, 0, 0.03);
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
@@ -4157,7 +4157,7 @@
   border-top: 0;
 }
 .bootstrap-iso .card-footer {
-  padding: .75rem 1.25rem;
+  padding: 0.75rem 1.25rem;
   background-color: rgba(0, 0, 0, 0.03);
   border-top: 1px solid rgba(0, 0, 0, 0.125);
 }
@@ -4266,46 +4266,46 @@
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
   }
-  .bootstrap-iso .card-group > .card:first-child .card-header,
-  .bootstrap-iso .card-group > .card:first-child .card-img-top {
+  .bootstrap-iso .card-group > .card:first-child .card-img-top,
+  .bootstrap-iso .card-group > .card:first-child .card-header {
     border-top-right-radius: 0;
   }
-  .bootstrap-iso .card-group > .card:first-child .card-footer,
-  .bootstrap-iso .card-group > .card:first-child .card-img-bottom {
+  .bootstrap-iso .card-group > .card:first-child .card-img-bottom,
+  .bootstrap-iso .card-group > .card:first-child .card-footer {
     border-bottom-right-radius: 0;
   }
   .bootstrap-iso .card-group > .card:last-child {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
   }
-  .bootstrap-iso .card-group > .card:last-child .card-header,
-  .bootstrap-iso .card-group > .card:last-child .card-img-top {
+  .bootstrap-iso .card-group > .card:last-child .card-img-top,
+  .bootstrap-iso .card-group > .card:last-child .card-header {
     border-top-left-radius: 0;
   }
-  .bootstrap-iso .card-group > .card:last-child .card-footer,
-  .bootstrap-iso .card-group > .card:last-child .card-img-bottom {
+  .bootstrap-iso .card-group > .card:last-child .card-img-bottom,
+  .bootstrap-iso .card-group > .card:last-child .card-footer {
     border-bottom-left-radius: 0;
   }
   .bootstrap-iso .card-group > .card:only-child {
     border-radius: 0.25rem;
   }
-  .bootstrap-iso .card-group > .card:only-child .card-header,
-  .bootstrap-iso .card-group > .card:only-child .card-img-top {
-    border-top-left-radius: .25rem;
+  .bootstrap-iso .card-group > .card:only-child .card-img-top,
+  .bootstrap-iso .card-group > .card:only-child .card-header {
+    border-top-left-radius: 0.25rem;
     border-top-right-radius: 0.25rem;
   }
-  .bootstrap-iso .card-group > .card:only-child .card-footer,
-  .bootstrap-iso .card-group > .card:only-child .card-img-bottom {
-    border-bottom-right-radius: .25rem;
+  .bootstrap-iso .card-group > .card:only-child .card-img-bottom,
+  .bootstrap-iso .card-group > .card:only-child .card-footer {
+    border-bottom-right-radius: 0.25rem;
     border-bottom-left-radius: 0.25rem;
   }
   .bootstrap-iso .card-group > .card:not(:first-child):not(:last-child):not(:only-child) {
     border-radius: 0;
   }
-  .bootstrap-iso .card-group > .card:not(:first-child):not(:last-child):not(:only-child) .card-footer,
-  .bootstrap-iso .card-group > .card:not(:first-child):not(:last-child):not(:only-child) .card-header,
+  .bootstrap-iso .card-group > .card:not(:first-child):not(:last-child):not(:only-child) .card-img-top,
   .bootstrap-iso .card-group > .card:not(:first-child):not(:last-child):not(:only-child) .card-img-bottom,
-  .bootstrap-iso .card-group > .card:not(:first-child):not(:last-child):not(:only-child) .card-img-top {
+  .bootstrap-iso .card-group > .card:not(:first-child):not(:last-child):not(:only-child) .card-header,
+  .bootstrap-iso .card-group > .card:not(:first-child):not(:last-child):not(:only-child) .card-footer {
     border-radius: 0;
   }
 }
@@ -4332,7 +4332,7 @@
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  padding: .75rem 1rem;
+  padding: 0.75rem 1rem;
   margin-bottom: 1rem;
   list-style: none;
   background-color: #e9ecef;
@@ -4340,8 +4340,8 @@
 }
 .bootstrap-iso .breadcrumb-item + .breadcrumb-item::before {
   display: inline-block;
-  padding-right: .5rem;
-  padding-left: .5rem;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
   color: #6c757d;
   content: "/";
 }
@@ -4365,7 +4365,7 @@
 .bootstrap-iso .page-link {
   position: relative;
   display: block;
-  padding: .5rem .75rem;
+  padding: 0.5rem 0.75rem;
   margin-left: -1px;
   line-height: 1.25;
   color: #007bff;
@@ -4388,11 +4388,11 @@
 }
 .bootstrap-iso .page-item:first-child .page-link {
   margin-left: 0;
-  border-top-left-radius: .25rem;
+  border-top-left-radius: 0.25rem;
   border-bottom-left-radius: 0.25rem;
 }
 .bootstrap-iso .page-item:last-child .page-link {
-  border-top-right-radius: .25rem;
+  border-top-right-radius: 0.25rem;
   border-bottom-right-radius: 0.25rem;
 }
 .bootstrap-iso .page-item.active .page-link {
@@ -4409,34 +4409,34 @@
   border-color: #dee2e6;
 }
 .bootstrap-iso .pagination-lg .page-link {
-  padding: .75rem 1.5rem;
+  padding: 0.75rem 1.5rem;
   font-size: 1.25rem;
   line-height: 1.5;
 }
 .bootstrap-iso .pagination-lg .page-item:first-child .page-link {
-  border-top-left-radius: .3rem;
+  border-top-left-radius: 0.3rem;
   border-bottom-left-radius: 0.3rem;
 }
 .bootstrap-iso .pagination-lg .page-item:last-child .page-link {
-  border-top-right-radius: .3rem;
+  border-top-right-radius: 0.3rem;
   border-bottom-right-radius: 0.3rem;
 }
 .bootstrap-iso .pagination-sm .page-link {
-  padding: .25rem .5rem;
-  font-size: .875rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
   line-height: 1.5;
 }
 .bootstrap-iso .pagination-sm .page-item:first-child .page-link {
-  border-top-left-radius: .2rem;
+  border-top-left-radius: 0.2rem;
   border-bottom-left-radius: 0.2rem;
 }
 .bootstrap-iso .pagination-sm .page-item:last-child .page-link {
-  border-top-right-radius: .2rem;
+  border-top-right-radius: 0.2rem;
   border-bottom-right-radius: 0.2rem;
 }
 .bootstrap-iso .badge {
   display: inline-block;
-  padding: .25em .4em;
+  padding: 0.25em 0.4em;
   font-size: 75%;
   font-weight: 700;
   line-height: 1;
@@ -4453,16 +4453,16 @@
   top: -1px;
 }
 .bootstrap-iso .badge-pill {
-  padding-right: .6em;
-  padding-left: .6em;
+  padding-right: 0.6em;
+  padding-left: 0.6em;
   border-radius: 10rem;
 }
 .bootstrap-iso .badge-primary {
   color: #fff;
   background-color: #007bff;
 }
-.bootstrap-iso .badge-primary[href]:focus,
-.bootstrap-iso .badge-primary[href]:hover {
+.bootstrap-iso .badge-primary[href]:hover,
+.bootstrap-iso .badge-primary[href]:focus {
   color: #fff;
   text-decoration: none;
   background-color: #0062cc;
@@ -4471,8 +4471,8 @@
   color: #fff;
   background-color: #6c757d;
 }
-.bootstrap-iso .badge-secondary[href]:focus,
-.bootstrap-iso .badge-secondary[href]:hover {
+.bootstrap-iso .badge-secondary[href]:hover,
+.bootstrap-iso .badge-secondary[href]:focus {
   color: #fff;
   text-decoration: none;
   background-color: #545b62;
@@ -4481,8 +4481,8 @@
   color: #fff;
   background-color: #28a745;
 }
-.bootstrap-iso .badge-success[href]:focus,
-.bootstrap-iso .badge-success[href]:hover {
+.bootstrap-iso .badge-success[href]:hover,
+.bootstrap-iso .badge-success[href]:focus {
   color: #fff;
   text-decoration: none;
   background-color: #1e7e34;
@@ -4491,8 +4491,8 @@
   color: #fff;
   background-color: #17a2b8;
 }
-.bootstrap-iso .badge-info[href]:focus,
-.bootstrap-iso .badge-info[href]:hover {
+.bootstrap-iso .badge-info[href]:hover,
+.bootstrap-iso .badge-info[href]:focus {
   color: #fff;
   text-decoration: none;
   background-color: #117a8b;
@@ -4501,8 +4501,8 @@
   color: #212529;
   background-color: #ffc107;
 }
-.bootstrap-iso .badge-warning[href]:focus,
-.bootstrap-iso .badge-warning[href]:hover {
+.bootstrap-iso .badge-warning[href]:hover,
+.bootstrap-iso .badge-warning[href]:focus {
   color: #212529;
   text-decoration: none;
   background-color: #d39e00;
@@ -4511,8 +4511,8 @@
   color: #fff;
   background-color: #dc3545;
 }
-.bootstrap-iso .badge-danger[href]:focus,
-.bootstrap-iso .badge-danger[href]:hover {
+.bootstrap-iso .badge-danger[href]:hover,
+.bootstrap-iso .badge-danger[href]:focus {
   color: #fff;
   text-decoration: none;
   background-color: #bd2130;
@@ -4521,8 +4521,8 @@
   color: #212529;
   background-color: #f8f9fa;
 }
-.bootstrap-iso .badge-light[href]:focus,
-.bootstrap-iso .badge-light[href]:hover {
+.bootstrap-iso .badge-light[href]:hover,
+.bootstrap-iso .badge-light[href]:focus {
   color: #212529;
   text-decoration: none;
   background-color: #dae0e5;
@@ -4531,8 +4531,8 @@
   color: #fff;
   background-color: #343a40;
 }
-.bootstrap-iso .badge-dark[href]:focus,
-.bootstrap-iso .badge-dark[href]:hover {
+.bootstrap-iso .badge-dark[href]:hover,
+.bootstrap-iso .badge-dark[href]:focus {
   color: #fff;
   text-decoration: none;
   background-color: #1d2124;
@@ -4555,7 +4555,7 @@
 }
 .bootstrap-iso .alert {
   position: relative;
-  padding: .75rem 1.25rem;
+  padding: 0.75rem 1.25rem;
   margin-bottom: 1rem;
   border: 1px solid transparent;
   border-radius: 0.25rem;
@@ -4573,7 +4573,7 @@
   position: absolute;
   top: 0;
   right: 0;
-  padding: .75rem 1.25rem;
+  padding: 0.75rem 1.25rem;
   color: inherit;
 }
 .bootstrap-iso .alert-primary {
@@ -4686,7 +4686,7 @@
   display: flex;
   height: 1rem;
   overflow: hidden;
-  font-size: .75rem;
+  font-size: 0.75rem;
   background-color: #e9ecef;
   border-radius: 0.25rem;
 }
@@ -4743,8 +4743,8 @@
   color: #495057;
   text-align: inherit;
 }
-.bootstrap-iso .list-group-item-action:focus,
-.bootstrap-iso .list-group-item-action:hover {
+.bootstrap-iso .list-group-item-action:hover,
+.bootstrap-iso .list-group-item-action:focus {
   color: #495057;
   text-decoration: none;
   background-color: #f8f9fa;
@@ -4756,22 +4756,22 @@
 .bootstrap-iso .list-group-item {
   position: relative;
   display: block;
-  padding: .75rem 1.25rem;
+  padding: 0.75rem 1.25rem;
   margin-bottom: -1px;
   background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.125);
 }
 .bootstrap-iso .list-group-item:first-child {
-  border-top-left-radius: .25rem;
+  border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
 }
 .bootstrap-iso .list-group-item:last-child {
   margin-bottom: 0;
-  border-bottom-right-radius: .25rem;
+  border-bottom-right-radius: 0.25rem;
   border-bottom-left-radius: 0.25rem;
 }
-.bootstrap-iso .list-group-item:focus,
-.bootstrap-iso .list-group-item:hover {
+.bootstrap-iso .list-group-item:hover,
+.bootstrap-iso .list-group-item:focus {
   z-index: 1;
   text-decoration: none;
 }
@@ -4801,8 +4801,8 @@
   color: #004085;
   background-color: #b8daff;
 }
-.bootstrap-iso .list-group-item-primary.list-group-item-action:focus,
-.bootstrap-iso .list-group-item-primary.list-group-item-action:hover {
+.bootstrap-iso .list-group-item-primary.list-group-item-action:hover,
+.bootstrap-iso .list-group-item-primary.list-group-item-action:focus {
   color: #004085;
   background-color: #9fcdff;
 }
@@ -4815,8 +4815,8 @@
   color: #383d41;
   background-color: #d6d8db;
 }
-.bootstrap-iso .list-group-item-secondary.list-group-item-action:focus,
-.bootstrap-iso .list-group-item-secondary.list-group-item-action:hover {
+.bootstrap-iso .list-group-item-secondary.list-group-item-action:hover,
+.bootstrap-iso .list-group-item-secondary.list-group-item-action:focus {
   color: #383d41;
   background-color: #c8cbcf;
 }
@@ -4829,8 +4829,8 @@
   color: #155724;
   background-color: #c3e6cb;
 }
-.bootstrap-iso .list-group-item-success.list-group-item-action:focus,
-.bootstrap-iso .list-group-item-success.list-group-item-action:hover {
+.bootstrap-iso .list-group-item-success.list-group-item-action:hover,
+.bootstrap-iso .list-group-item-success.list-group-item-action:focus {
   color: #155724;
   background-color: #b1dfbb;
 }
@@ -4843,8 +4843,8 @@
   color: #0c5460;
   background-color: #bee5eb;
 }
-.bootstrap-iso .list-group-item-info.list-group-item-action:focus,
-.bootstrap-iso .list-group-item-info.list-group-item-action:hover {
+.bootstrap-iso .list-group-item-info.list-group-item-action:hover,
+.bootstrap-iso .list-group-item-info.list-group-item-action:focus {
   color: #0c5460;
   background-color: #abdde5;
 }
@@ -4857,8 +4857,8 @@
   color: #856404;
   background-color: #ffeeba;
 }
-.bootstrap-iso .list-group-item-warning.list-group-item-action:focus,
-.bootstrap-iso .list-group-item-warning.list-group-item-action:hover {
+.bootstrap-iso .list-group-item-warning.list-group-item-action:hover,
+.bootstrap-iso .list-group-item-warning.list-group-item-action:focus {
   color: #856404;
   background-color: #ffe8a1;
 }
@@ -4871,8 +4871,8 @@
   color: #721c24;
   background-color: #f5c6cb;
 }
-.bootstrap-iso .list-group-item-danger.list-group-item-action:focus,
-.bootstrap-iso .list-group-item-danger.list-group-item-action:hover {
+.bootstrap-iso .list-group-item-danger.list-group-item-action:hover,
+.bootstrap-iso .list-group-item-danger.list-group-item-action:focus {
   color: #721c24;
   background-color: #f1b0b7;
 }
@@ -4885,8 +4885,8 @@
   color: #818182;
   background-color: #fdfdfe;
 }
-.bootstrap-iso .list-group-item-light.list-group-item-action:focus,
-.bootstrap-iso .list-group-item-light.list-group-item-action:hover {
+.bootstrap-iso .list-group-item-light.list-group-item-action:hover,
+.bootstrap-iso .list-group-item-light.list-group-item-action:focus {
   color: #818182;
   background-color: #ececf6;
 }
@@ -4899,8 +4899,8 @@
   color: #1b1e21;
   background-color: #c6c8ca;
 }
-.bootstrap-iso .list-group-item-dark.list-group-item-action:focus,
-.bootstrap-iso .list-group-item-dark.list-group-item-action:hover {
+.bootstrap-iso .list-group-item-dark.list-group-item-action:hover,
+.bootstrap-iso .list-group-item-dark.list-group-item-action:focus {
   color: #1b1e21;
   background-color: #b9bbbe;
 }
@@ -4918,8 +4918,8 @@
   text-shadow: 0 1px 0 #fff;
   opacity: 0.5;
 }
-.bootstrap-iso .close:focus,
-.bootstrap-iso .close:hover {
+.bootstrap-iso .close:hover,
+.bootstrap-iso .close:focus {
   color: #000;
   text-decoration: none;
   opacity: 0.75;
@@ -4954,7 +4954,7 @@
 .bootstrap-iso .modal-dialog {
   position: relative;
   width: auto;
-  margin: .5rem;
+  margin: 0.5rem;
   pointer-events: none;
 }
 .bootstrap-iso .modal.fade .modal-dialog {
@@ -4991,7 +4991,7 @@
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: .3rem;
+  border-radius: 0.3rem;
   outline: 0;
 }
 .bootstrap-iso .modal-backdrop {
@@ -5021,7 +5021,7 @@
   justify-content: space-between;
   padding: 1rem;
   border-bottom: 1px solid #e9ecef;
-  border-top-left-radius: .3rem;
+  border-top-left-radius: 0.3rem;
   border-top-right-radius: 0.3rem;
 }
 .bootstrap-iso .modal-header .close {
@@ -5101,7 +5101,7 @@
   word-spacing: normal;
   white-space: normal;
   line-break: auto;
-  font-size: .875rem;
+  font-size: 0.875rem;
   word-wrap: break-word;
   opacity: 0;
 }
@@ -5111,7 +5111,7 @@
 .bootstrap-iso .tooltip .arrow {
   position: absolute;
   display: block;
-  width: .8rem;
+  width: 0.8rem;
   height: 0.4rem;
 }
 .bootstrap-iso .tooltip .arrow::before {
@@ -5120,69 +5120,69 @@
   border-color: transparent;
   border-style: solid;
 }
-.bootstrap-iso .bs-tooltip-auto[x-placement^=top],
-.bootstrap-iso .bs-tooltip-top {
+.bootstrap-iso .bs-tooltip-top,
+.bootstrap-iso .bs-tooltip-auto[x-placement^="top"] {
   padding: 0.4rem 0;
 }
-.bootstrap-iso .bs-tooltip-auto[x-placement^=top] .arrow,
-.bootstrap-iso .bs-tooltip-top .arrow {
+.bootstrap-iso .bs-tooltip-top .arrow,
+.bootstrap-iso .bs-tooltip-auto[x-placement^="top"] .arrow {
   bottom: 0;
 }
-.bootstrap-iso .bs-tooltip-auto[x-placement^=top] .arrow::before,
-.bootstrap-iso .bs-tooltip-top .arrow::before {
+.bootstrap-iso .bs-tooltip-top .arrow::before,
+.bootstrap-iso .bs-tooltip-auto[x-placement^="top"] .arrow::before {
   top: 0;
-  border-width: .4rem .4rem 0;
+  border-width: 0.4rem 0.4rem 0;
   border-top-color: #000;
 }
-.bootstrap-iso .bs-tooltip-auto[x-placement^=right],
-.bootstrap-iso .bs-tooltip-right {
+.bootstrap-iso .bs-tooltip-right,
+.bootstrap-iso .bs-tooltip-auto[x-placement^="right"] {
   padding: 0 0.4rem;
 }
-.bootstrap-iso .bs-tooltip-auto[x-placement^=right] .arrow,
-.bootstrap-iso .bs-tooltip-right .arrow {
+.bootstrap-iso .bs-tooltip-right .arrow,
+.bootstrap-iso .bs-tooltip-auto[x-placement^="right"] .arrow {
   left: 0;
-  width: .4rem;
+  width: 0.4rem;
   height: 0.8rem;
 }
-.bootstrap-iso .bs-tooltip-auto[x-placement^=right] .arrow::before,
-.bootstrap-iso .bs-tooltip-right .arrow::before {
+.bootstrap-iso .bs-tooltip-right .arrow::before,
+.bootstrap-iso .bs-tooltip-auto[x-placement^="right"] .arrow::before {
   right: 0;
-  border-width: .4rem .4rem .4rem 0;
+  border-width: 0.4rem 0.4rem 0.4rem 0;
   border-right-color: #000;
 }
-.bootstrap-iso .bs-tooltip-auto[x-placement^=bottom],
-.bootstrap-iso .bs-tooltip-bottom {
+.bootstrap-iso .bs-tooltip-bottom,
+.bootstrap-iso .bs-tooltip-auto[x-placement^="bottom"] {
   padding: 0.4rem 0;
 }
-.bootstrap-iso .bs-tooltip-auto[x-placement^=bottom] .arrow,
-.bootstrap-iso .bs-tooltip-bottom .arrow {
+.bootstrap-iso .bs-tooltip-bottom .arrow,
+.bootstrap-iso .bs-tooltip-auto[x-placement^="bottom"] .arrow {
   top: 0;
 }
-.bootstrap-iso .bs-tooltip-auto[x-placement^=bottom] .arrow::before,
-.bootstrap-iso .bs-tooltip-bottom .arrow::before {
+.bootstrap-iso .bs-tooltip-bottom .arrow::before,
+.bootstrap-iso .bs-tooltip-auto[x-placement^="bottom"] .arrow::before {
   bottom: 0;
-  border-width: 0 .4rem .4rem;
+  border-width: 0 0.4rem 0.4rem;
   border-bottom-color: #000;
 }
-.bootstrap-iso .bs-tooltip-auto[x-placement^=left],
-.bootstrap-iso .bs-tooltip-left {
+.bootstrap-iso .bs-tooltip-left,
+.bootstrap-iso .bs-tooltip-auto[x-placement^="left"] {
   padding: 0 0.4rem;
 }
-.bootstrap-iso .bs-tooltip-auto[x-placement^=left] .arrow,
-.bootstrap-iso .bs-tooltip-left .arrow {
+.bootstrap-iso .bs-tooltip-left .arrow,
+.bootstrap-iso .bs-tooltip-auto[x-placement^="left"] .arrow {
   right: 0;
-  width: .4rem;
+  width: 0.4rem;
   height: 0.8rem;
 }
-.bootstrap-iso .bs-tooltip-auto[x-placement^=left] .arrow::before,
-.bootstrap-iso .bs-tooltip-left .arrow::before {
+.bootstrap-iso .bs-tooltip-left .arrow::before,
+.bootstrap-iso .bs-tooltip-auto[x-placement^="left"] .arrow::before {
   left: 0;
-  border-width: .4rem 0 .4rem .4rem;
+  border-width: 0.4rem 0 0.4rem 0.4rem;
   border-left-color: #000;
 }
 .bootstrap-iso .tooltip-inner {
   max-width: 200px;
-  padding: .25rem .5rem;
+  padding: 0.25rem 0.5rem;
   color: #fff;
   text-align: center;
   background-color: #000;
@@ -5209,7 +5209,7 @@
   word-spacing: normal;
   white-space: normal;
   line-break: auto;
-  font-size: .875rem;
+  font-size: 0.875rem;
   word-wrap: break-word;
   background-color: #fff;
   background-clip: padding-box;
@@ -5220,94 +5220,94 @@
   position: absolute;
   display: block;
   width: 1rem;
-  height: .5rem;
+  height: 0.5rem;
   margin: 0 0.3rem;
 }
-.bootstrap-iso .popover .arrow::after,
-.bootstrap-iso .popover .arrow::before {
+.bootstrap-iso .popover .arrow::before,
+.bootstrap-iso .popover .arrow::after {
   position: absolute;
   display: block;
   content: "";
   border-color: transparent;
   border-style: solid;
 }
-.bootstrap-iso .bs-popover-auto[x-placement^=top],
-.bootstrap-iso .bs-popover-top {
+.bootstrap-iso .bs-popover-top,
+.bootstrap-iso .bs-popover-auto[x-placement^="top"] {
   margin-bottom: 0.5rem;
 }
-.bootstrap-iso .bs-popover-auto[x-placement^=top] .arrow,
-.bootstrap-iso .bs-popover-top .arrow {
+.bootstrap-iso .bs-popover-top .arrow,
+.bootstrap-iso .bs-popover-auto[x-placement^="top"] .arrow {
   bottom: calc((0.5rem + 1px) * -1);
 }
-.bootstrap-iso .bs-popover-auto[x-placement^=top] .arrow::after,
-.bootstrap-iso .bs-popover-auto[x-placement^=top] .arrow::before,
+.bootstrap-iso .bs-popover-top .arrow::before,
+.bootstrap-iso .bs-popover-auto[x-placement^="top"] .arrow::before,
 .bootstrap-iso .bs-popover-top .arrow::after,
-.bootstrap-iso .bs-popover-top .arrow::before {
+.bootstrap-iso .bs-popover-auto[x-placement^="top"] .arrow::after {
   border-width: 0.5rem 0.5rem 0;
 }
-.bootstrap-iso .bs-popover-auto[x-placement^=top] .arrow::before,
-.bootstrap-iso .bs-popover-top .arrow::before {
+.bootstrap-iso .bs-popover-top .arrow::before,
+.bootstrap-iso .bs-popover-auto[x-placement^="top"] .arrow::before {
   bottom: 0;
   border-top-color: rgba(0, 0, 0, 0.25);
 }
-.bootstrap-iso .bs-popover-auto[x-placement^=top] .arrow::after,
-.bootstrap-iso .bs-popover-top .arrow::after {
+.bootstrap-iso .bs-popover-top .arrow::after,
+.bootstrap-iso .bs-popover-auto[x-placement^="top"] .arrow::after {
   bottom: 1px;
   border-top-color: #fff;
 }
-.bootstrap-iso .bs-popover-auto[x-placement^=right],
-.bootstrap-iso .bs-popover-right {
+.bootstrap-iso .bs-popover-right,
+.bootstrap-iso .bs-popover-auto[x-placement^="right"] {
   margin-left: 0.5rem;
 }
-.bootstrap-iso .bs-popover-auto[x-placement^=right] .arrow,
-.bootstrap-iso .bs-popover-right .arrow {
+.bootstrap-iso .bs-popover-right .arrow,
+.bootstrap-iso .bs-popover-auto[x-placement^="right"] .arrow {
   left: calc((0.5rem + 1px) * -1);
-  width: .5rem;
+  width: 0.5rem;
   height: 1rem;
   margin: 0.3rem 0;
 }
-.bootstrap-iso .bs-popover-auto[x-placement^=right] .arrow::after,
-.bootstrap-iso .bs-popover-auto[x-placement^=right] .arrow::before,
+.bootstrap-iso .bs-popover-right .arrow::before,
+.bootstrap-iso .bs-popover-auto[x-placement^="right"] .arrow::before,
 .bootstrap-iso .bs-popover-right .arrow::after,
-.bootstrap-iso .bs-popover-right .arrow::before {
+.bootstrap-iso .bs-popover-auto[x-placement^="right"] .arrow::after {
   border-width: 0.5rem 0.5rem 0.5rem 0;
 }
-.bootstrap-iso .bs-popover-auto[x-placement^=right] .arrow::before,
-.bootstrap-iso .bs-popover-right .arrow::before {
+.bootstrap-iso .bs-popover-right .arrow::before,
+.bootstrap-iso .bs-popover-auto[x-placement^="right"] .arrow::before {
   left: 0;
   border-right-color: rgba(0, 0, 0, 0.25);
 }
-.bootstrap-iso .bs-popover-auto[x-placement^=right] .arrow::after,
-.bootstrap-iso .bs-popover-right .arrow::after {
+.bootstrap-iso .bs-popover-right .arrow::after,
+.bootstrap-iso .bs-popover-auto[x-placement^="right"] .arrow::after {
   left: 1px;
   border-right-color: #fff;
 }
-.bootstrap-iso .bs-popover-auto[x-placement^=bottom],
-.bootstrap-iso .bs-popover-bottom {
+.bootstrap-iso .bs-popover-bottom,
+.bootstrap-iso .bs-popover-auto[x-placement^="bottom"] {
   margin-top: 0.5rem;
 }
-.bootstrap-iso .bs-popover-auto[x-placement^=bottom] .arrow,
-.bootstrap-iso .bs-popover-bottom .arrow {
+.bootstrap-iso .bs-popover-bottom .arrow,
+.bootstrap-iso .bs-popover-auto[x-placement^="bottom"] .arrow {
   top: calc((0.5rem + 1px) * -1);
 }
-.bootstrap-iso .bs-popover-auto[x-placement^=bottom] .arrow::after,
-.bootstrap-iso .bs-popover-auto[x-placement^=bottom] .arrow::before,
+.bootstrap-iso .bs-popover-bottom .arrow::before,
+.bootstrap-iso .bs-popover-auto[x-placement^="bottom"] .arrow::before,
 .bootstrap-iso .bs-popover-bottom .arrow::after,
-.bootstrap-iso .bs-popover-bottom .arrow::before {
+.bootstrap-iso .bs-popover-auto[x-placement^="bottom"] .arrow::after {
   border-width: 0 0.5rem 0.5rem 0.5rem;
 }
-.bootstrap-iso .bs-popover-auto[x-placement^=bottom] .arrow::before,
-.bootstrap-iso .bs-popover-bottom .arrow::before {
+.bootstrap-iso .bs-popover-bottom .arrow::before,
+.bootstrap-iso .bs-popover-auto[x-placement^="bottom"] .arrow::before {
   top: 0;
   border-bottom-color: rgba(0, 0, 0, 0.25);
 }
-.bootstrap-iso .bs-popover-auto[x-placement^=bottom] .arrow::after,
-.bootstrap-iso .bs-popover-bottom .arrow::after {
+.bootstrap-iso .bs-popover-bottom .arrow::after,
+.bootstrap-iso .bs-popover-auto[x-placement^="bottom"] .arrow::after {
   top: 1px;
   border-bottom-color: #fff;
 }
-.bootstrap-iso .bs-popover-auto[x-placement^=bottom] .popover-header::before,
-.bootstrap-iso .bs-popover-bottom .popover-header::before {
+.bootstrap-iso .bs-popover-bottom .popover-header::before,
+.bootstrap-iso .bs-popover-auto[x-placement^="bottom"] .popover-header::before {
   position: absolute;
   top: 0;
   left: 50%;
@@ -5317,35 +5317,35 @@
   content: "";
   border-bottom: 1px solid #f7f7f7;
 }
-.bootstrap-iso .bs-popover-auto[x-placement^=left],
-.bootstrap-iso .bs-popover-left {
+.bootstrap-iso .bs-popover-left,
+.bootstrap-iso .bs-popover-auto[x-placement^="left"] {
   margin-right: 0.5rem;
 }
-.bootstrap-iso .bs-popover-auto[x-placement^=left] .arrow,
-.bootstrap-iso .bs-popover-left .arrow {
+.bootstrap-iso .bs-popover-left .arrow,
+.bootstrap-iso .bs-popover-auto[x-placement^="left"] .arrow {
   right: calc((0.5rem + 1px) * -1);
-  width: .5rem;
+  width: 0.5rem;
   height: 1rem;
   margin: 0.3rem 0;
 }
-.bootstrap-iso .bs-popover-auto[x-placement^=left] .arrow::after,
-.bootstrap-iso .bs-popover-auto[x-placement^=left] .arrow::before,
+.bootstrap-iso .bs-popover-left .arrow::before,
+.bootstrap-iso .bs-popover-auto[x-placement^="left"] .arrow::before,
 .bootstrap-iso .bs-popover-left .arrow::after,
-.bootstrap-iso .bs-popover-left .arrow::before {
+.bootstrap-iso .bs-popover-auto[x-placement^="left"] .arrow::after {
   border-width: 0.5rem 0 0.5rem 0.5rem;
 }
-.bootstrap-iso .bs-popover-auto[x-placement^=left] .arrow::before,
-.bootstrap-iso .bs-popover-left .arrow::before {
+.bootstrap-iso .bs-popover-left .arrow::before,
+.bootstrap-iso .bs-popover-auto[x-placement^="left"] .arrow::before {
   right: 0;
   border-left-color: rgba(0, 0, 0, 0.25);
 }
-.bootstrap-iso .bs-popover-auto[x-placement^=left] .arrow::after,
-.bootstrap-iso .bs-popover-left .arrow::after {
+.bootstrap-iso .bs-popover-left .arrow::after,
+.bootstrap-iso .bs-popover-auto[x-placement^="left"] .arrow::after {
   right: 1px;
   border-left-color: #fff;
 }
 .bootstrap-iso .popover-header {
-  padding: .5rem .75rem;
+  padding: 0.5rem 0.75rem;
   margin-bottom: 0;
   font-size: 1rem;
   color: inherit;
@@ -5358,7 +5358,7 @@
   display: none;
 }
 .bootstrap-iso .popover-body {
-  padding: .5rem .75rem;
+  padding: 0.5rem 0.75rem;
   color: #212529;
 }
 .bootstrap-iso .carousel {
@@ -5377,16 +5377,16 @@
   align-items: center;
   width: 100%;
   transition: -webkit-transform 0.6s ease;
-  transition: transform .6s ease;
+  transition: transform 0.6s ease;
   transition: transform 0.6s ease, -webkit-transform 0.6s ease;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-perspective: 1000px;
   perspective: 1000px;
 }
+.bootstrap-iso .carousel-item.active,
 .bootstrap-iso .carousel-item-next,
-.bootstrap-iso .carousel-item-prev,
-.bootstrap-iso .carousel-item.active {
+.bootstrap-iso .carousel-item-prev {
   display: block;
 }
 .bootstrap-iso .carousel-item-next,
@@ -5399,39 +5399,39 @@
   -webkit-transform: translateX(0);
   transform: translateX(0);
 }
-@supports ((-webkit-transform-style:preserve-3d) or (transform-style:preserve-3d)) {
+@supports ((-webkit-transform-style: preserve-3d) or (transform-style: preserve-3d)) {
   .bootstrap-iso .carousel-item-next.carousel-item-left,
   .bootstrap-iso .carousel-item-prev.carousel-item-right {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
 }
-.bootstrap-iso .active.carousel-item-right,
-.bootstrap-iso .carousel-item-next {
+.bootstrap-iso .carousel-item-next,
+.bootstrap-iso .active.carousel-item-right {
   -webkit-transform: translateX(100%);
   transform: translateX(100%);
 }
-@supports ((-webkit-transform-style:preserve-3d) or (transform-style:preserve-3d)) {
-  .bootstrap-iso .active.carousel-item-right,
-  .bootstrap-iso .carousel-item-next {
+@supports ((-webkit-transform-style: preserve-3d) or (transform-style: preserve-3d)) {
+  .bootstrap-iso .carousel-item-next,
+  .bootstrap-iso .active.carousel-item-right {
     -webkit-transform: translate3d(100%, 0, 0);
     transform: translate3d(100%, 0, 0);
   }
 }
-.bootstrap-iso .active.carousel-item-left,
-.bootstrap-iso .carousel-item-prev {
+.bootstrap-iso .carousel-item-prev,
+.bootstrap-iso .active.carousel-item-left {
   -webkit-transform: translateX(-100%);
   transform: translateX(-100%);
 }
-@supports ((-webkit-transform-style:preserve-3d) or (transform-style:preserve-3d)) {
-  .bootstrap-iso .active.carousel-item-left,
-  .bootstrap-iso .carousel-item-prev {
+@supports ((-webkit-transform-style: preserve-3d) or (transform-style: preserve-3d)) {
+  .bootstrap-iso .carousel-item-prev,
+  .bootstrap-iso .active.carousel-item-left {
     -webkit-transform: translate3d(-100%, 0, 0);
     transform: translate3d(-100%, 0, 0);
   }
 }
-.bootstrap-iso .carousel-control-next,
-.bootstrap-iso .carousel-control-prev {
+.bootstrap-iso .carousel-control-prev,
+.bootstrap-iso .carousel-control-next {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -5449,10 +5449,10 @@
   text-align: center;
   opacity: 0.5;
 }
-.bootstrap-iso .carousel-control-next:focus,
-.bootstrap-iso .carousel-control-next:hover,
+.bootstrap-iso .carousel-control-prev:hover,
 .bootstrap-iso .carousel-control-prev:focus,
-.bootstrap-iso .carousel-control-prev:hover {
+.bootstrap-iso .carousel-control-next:hover,
+.bootstrap-iso .carousel-control-next:focus {
   color: #fff;
   text-decoration: none;
   outline: 0;
@@ -5464,8 +5464,8 @@
 .bootstrap-iso .carousel-control-next {
   right: 0;
 }
-.bootstrap-iso .carousel-control-next-icon,
-.bootstrap-iso .carousel-control-prev-icon {
+.bootstrap-iso .carousel-control-prev-icon,
+.bootstrap-iso .carousel-control-next-icon {
   display: inline-block;
   width: 20px;
   height: 20px;
@@ -5560,73 +5560,73 @@
 .bootstrap-iso .bg-primary {
   background-color: #007bff !important;
 }
-.bootstrap-iso a.bg-primary:focus,
 .bootstrap-iso a.bg-primary:hover,
-.bootstrap-iso button.bg-primary:focus,
-.bootstrap-iso button.bg-primary:hover {
+.bootstrap-iso a.bg-primary:focus,
+.bootstrap-iso button.bg-primary:hover,
+.bootstrap-iso button.bg-primary:focus {
   background-color: #0062cc !important;
 }
 .bootstrap-iso .bg-secondary {
   background-color: #6c757d !important;
 }
-.bootstrap-iso a.bg-secondary:focus,
 .bootstrap-iso a.bg-secondary:hover,
-.bootstrap-iso button.bg-secondary:focus,
-.bootstrap-iso button.bg-secondary:hover {
+.bootstrap-iso a.bg-secondary:focus,
+.bootstrap-iso button.bg-secondary:hover,
+.bootstrap-iso button.bg-secondary:focus {
   background-color: #545b62 !important;
 }
 .bootstrap-iso .bg-success {
   background-color: #28a745 !important;
 }
-.bootstrap-iso a.bg-success:focus,
 .bootstrap-iso a.bg-success:hover,
-.bootstrap-iso button.bg-success:focus,
-.bootstrap-iso button.bg-success:hover {
+.bootstrap-iso a.bg-success:focus,
+.bootstrap-iso button.bg-success:hover,
+.bootstrap-iso button.bg-success:focus {
   background-color: #1e7e34 !important;
 }
 .bootstrap-iso .bg-info {
   background-color: #17a2b8 !important;
 }
-.bootstrap-iso a.bg-info:focus,
 .bootstrap-iso a.bg-info:hover,
-.bootstrap-iso button.bg-info:focus,
-.bootstrap-iso button.bg-info:hover {
+.bootstrap-iso a.bg-info:focus,
+.bootstrap-iso button.bg-info:hover,
+.bootstrap-iso button.bg-info:focus {
   background-color: #117a8b !important;
 }
 .bootstrap-iso .bg-warning {
   background-color: #ffc107 !important;
 }
-.bootstrap-iso a.bg-warning:focus,
 .bootstrap-iso a.bg-warning:hover,
-.bootstrap-iso button.bg-warning:focus,
-.bootstrap-iso button.bg-warning:hover {
+.bootstrap-iso a.bg-warning:focus,
+.bootstrap-iso button.bg-warning:hover,
+.bootstrap-iso button.bg-warning:focus {
   background-color: #d39e00 !important;
 }
 .bootstrap-iso .bg-danger {
   background-color: #dc3545 !important;
 }
-.bootstrap-iso a.bg-danger:focus,
 .bootstrap-iso a.bg-danger:hover,
-.bootstrap-iso button.bg-danger:focus,
-.bootstrap-iso button.bg-danger:hover {
+.bootstrap-iso a.bg-danger:focus,
+.bootstrap-iso button.bg-danger:hover,
+.bootstrap-iso button.bg-danger:focus {
   background-color: #bd2130 !important;
 }
 .bootstrap-iso .bg-light {
   background-color: #f8f9fa !important;
 }
-.bootstrap-iso a.bg-light:focus,
 .bootstrap-iso a.bg-light:hover,
-.bootstrap-iso button.bg-light:focus,
-.bootstrap-iso button.bg-light:hover {
+.bootstrap-iso a.bg-light:focus,
+.bootstrap-iso button.bg-light:hover,
+.bootstrap-iso button.bg-light:focus {
   background-color: #dae0e5 !important;
 }
 .bootstrap-iso .bg-dark {
   background-color: #343a40 !important;
 }
-.bootstrap-iso a.bg-dark:focus,
 .bootstrap-iso a.bg-dark:hover,
-.bootstrap-iso button.bg-dark:focus,
-.bootstrap-iso button.bg-dark:hover {
+.bootstrap-iso a.bg-dark:focus,
+.bootstrap-iso button.bg-dark:hover,
+.bootstrap-iso button.bg-dark:focus {
   background-color: #1d2124 !important;
 }
 .bootstrap-iso .bg-white {
@@ -5693,23 +5693,23 @@
   border-color: #fff !important;
 }
 .bootstrap-iso .rounded {
-  border-radius: 2.5px !important;
+  border-radius: 0.25rem !important;
 }
 .bootstrap-iso .rounded-top {
-  border-top-left-radius: .25rem!important;
-  border-top-right-radius: 2.5px !important;
+  border-top-left-radius: 0.25rem !important;
+  border-top-right-radius: 0.25rem !important;
 }
 .bootstrap-iso .rounded-right {
-  border-top-right-radius: .25rem!important;
-  border-bottom-right-radius: 2.5px !important;
+  border-top-right-radius: 0.25rem !important;
+  border-bottom-right-radius: 0.25rem !important;
 }
 .bootstrap-iso .rounded-bottom {
-  border-bottom-right-radius: .25rem!important;
-  border-bottom-left-radius: 2.5px !important;
+  border-bottom-right-radius: 0.25rem !important;
+  border-bottom-left-radius: 0.25rem !important;
 }
 .bootstrap-iso .rounded-left {
-  border-top-left-radius: .25rem!important;
-  border-bottom-left-radius: 2.5px !important;
+  border-top-left-radius: 0.25rem !important;
+  border-bottom-left-radius: 0.25rem !important;
 }
 .bootstrap-iso .rounded-circle {
   border-radius: 50% !important;
@@ -5930,8 +5930,8 @@
   content: "";
 }
 .bootstrap-iso .embed-responsive .embed-responsive-item,
-.bootstrap-iso .embed-responsive embed,
 .bootstrap-iso .embed-responsive iframe,
+.bootstrap-iso .embed-responsive embed,
 .bootstrap-iso .embed-responsive object,
 .bootstrap-iso .embed-responsive video {
   position: absolute;
@@ -5955,35 +5955,35 @@
   padding-top: 100%;
 }
 .bootstrap-iso .flex-row {
-  -webkit-box-orient: horizontal!important;
-  -webkit-box-direction: normal!important;
-  -ms-flex-direction: row!important;
+  -webkit-box-orient: horizontal !important;
+  -webkit-box-direction: normal !important;
+  -ms-flex-direction: row !important;
   flex-direction: row !important;
 }
 .bootstrap-iso .flex-column {
-  -webkit-box-orient: vertical!important;
-  -webkit-box-direction: normal!important;
-  -ms-flex-direction: column!important;
+  -webkit-box-orient: vertical !important;
+  -webkit-box-direction: normal !important;
+  -ms-flex-direction: column !important;
   flex-direction: column !important;
 }
 .bootstrap-iso .flex-row-reverse {
-  -webkit-box-orient: horizontal!important;
-  -webkit-box-direction: reverse!important;
+  -webkit-box-orient: horizontal !important;
+  -webkit-box-direction: reverse !important;
   -ms-flex-direction: row-reverse !important;
   flex-direction: row-reverse !important;
 }
 .bootstrap-iso .flex-column-reverse {
-  -webkit-box-orient: vertical!important;
-  -webkit-box-direction: reverse!important;
+  -webkit-box-orient: vertical !important;
+  -webkit-box-direction: reverse !important;
   -ms-flex-direction: column-reverse !important;
   flex-direction: column-reverse !important;
 }
 .bootstrap-iso .flex-wrap {
-  -ms-flex-wrap: wrap!important;
+  -ms-flex-wrap: wrap !important;
   flex-wrap: wrap !important;
 }
 .bootstrap-iso .flex-nowrap {
-  -ms-flex-wrap: nowrap!important;
+  -ms-flex-wrap: nowrap !important;
   flex-wrap: nowrap !important;
 }
 .bootstrap-iso .flex-wrap-reverse {
@@ -5991,133 +5991,133 @@
   flex-wrap: wrap-reverse !important;
 }
 .bootstrap-iso .justify-content-start {
-  -webkit-box-pack: start!important;
-  -ms-flex-pack: start!important;
+  -webkit-box-pack: start !important;
+  -ms-flex-pack: start !important;
   justify-content: flex-start !important;
 }
 .bootstrap-iso .justify-content-end {
-  -webkit-box-pack: end!important;
-  -ms-flex-pack: end!important;
+  -webkit-box-pack: end !important;
+  -ms-flex-pack: end !important;
   justify-content: flex-end !important;
 }
 .bootstrap-iso .justify-content-center {
-  -webkit-box-pack: center!important;
-  -ms-flex-pack: center!important;
+  -webkit-box-pack: center !important;
+  -ms-flex-pack: center !important;
   justify-content: center !important;
 }
 .bootstrap-iso .justify-content-between {
-  -webkit-box-pack: justify!important;
-  -ms-flex-pack: justify!important;
+  -webkit-box-pack: justify !important;
+  -ms-flex-pack: justify !important;
   justify-content: space-between !important;
 }
 .bootstrap-iso .justify-content-around {
-  -ms-flex-pack: distribute!important;
+  -ms-flex-pack: distribute !important;
   justify-content: space-around !important;
 }
 .bootstrap-iso .align-items-start {
-  -webkit-box-align: start!important;
-  -ms-flex-align: start!important;
+  -webkit-box-align: start !important;
+  -ms-flex-align: start !important;
   align-items: flex-start !important;
 }
 .bootstrap-iso .align-items-end {
-  -webkit-box-align: end!important;
-  -ms-flex-align: end!important;
+  -webkit-box-align: end !important;
+  -ms-flex-align: end !important;
   align-items: flex-end !important;
 }
 .bootstrap-iso .align-items-center {
-  -webkit-box-align: center!important;
-  -ms-flex-align: center!important;
+  -webkit-box-align: center !important;
+  -ms-flex-align: center !important;
   align-items: center !important;
 }
 .bootstrap-iso .align-items-baseline {
-  -webkit-box-align: baseline!important;
-  -ms-flex-align: baseline!important;
+  -webkit-box-align: baseline !important;
+  -ms-flex-align: baseline !important;
   align-items: baseline !important;
 }
 .bootstrap-iso .align-items-stretch {
-  -webkit-box-align: stretch!important;
-  -ms-flex-align: stretch!important;
+  -webkit-box-align: stretch !important;
+  -ms-flex-align: stretch !important;
   align-items: stretch !important;
 }
 .bootstrap-iso .align-content-start {
-  -ms-flex-line-pack: start!important;
+  -ms-flex-line-pack: start !important;
   align-content: flex-start !important;
 }
 .bootstrap-iso .align-content-end {
-  -ms-flex-line-pack: end!important;
+  -ms-flex-line-pack: end !important;
   align-content: flex-end !important;
 }
 .bootstrap-iso .align-content-center {
-  -ms-flex-line-pack: center!important;
+  -ms-flex-line-pack: center !important;
   align-content: center !important;
 }
 .bootstrap-iso .align-content-between {
-  -ms-flex-line-pack: justify!important;
+  -ms-flex-line-pack: justify !important;
   align-content: space-between !important;
 }
 .bootstrap-iso .align-content-around {
-  -ms-flex-line-pack: distribute!important;
+  -ms-flex-line-pack: distribute !important;
   align-content: space-around !important;
 }
 .bootstrap-iso .align-content-stretch {
-  -ms-flex-line-pack: stretch!important;
+  -ms-flex-line-pack: stretch !important;
   align-content: stretch !important;
 }
 .bootstrap-iso .align-self-auto {
-  -ms-flex-item-align: auto!important;
+  -ms-flex-item-align: auto !important;
   align-self: auto !important;
 }
 .bootstrap-iso .align-self-start {
-  -ms-flex-item-align: start!important;
+  -ms-flex-item-align: start !important;
   align-self: flex-start !important;
 }
 .bootstrap-iso .align-self-end {
-  -ms-flex-item-align: end!important;
+  -ms-flex-item-align: end !important;
   align-self: flex-end !important;
 }
 .bootstrap-iso .align-self-center {
-  -ms-flex-item-align: center!important;
+  -ms-flex-item-align: center !important;
   align-self: center !important;
 }
 .bootstrap-iso .align-self-baseline {
-  -ms-flex-item-align: baseline!important;
+  -ms-flex-item-align: baseline !important;
   align-self: baseline !important;
 }
 .bootstrap-iso .align-self-stretch {
-  -ms-flex-item-align: stretch!important;
+  -ms-flex-item-align: stretch !important;
   align-self: stretch !important;
 }
 @media (min-width: 576px) {
   .bootstrap-iso .flex-sm-row {
-    -webkit-box-orient: horizontal!important;
-    -webkit-box-direction: normal!important;
-    -ms-flex-direction: row!important;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+    -ms-flex-direction: row !important;
     flex-direction: row !important;
   }
   .bootstrap-iso .flex-sm-column {
-    -webkit-box-orient: vertical!important;
-    -webkit-box-direction: normal!important;
-    -ms-flex-direction: column!important;
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+    -ms-flex-direction: column !important;
     flex-direction: column !important;
   }
   .bootstrap-iso .flex-sm-row-reverse {
-    -webkit-box-orient: horizontal!important;
-    -webkit-box-direction: reverse!important;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: reverse !important;
     -ms-flex-direction: row-reverse !important;
     flex-direction: row-reverse !important;
   }
   .bootstrap-iso .flex-sm-column-reverse {
-    -webkit-box-orient: vertical!important;
-    -webkit-box-direction: reverse!important;
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: reverse !important;
     -ms-flex-direction: column-reverse !important;
     flex-direction: column-reverse !important;
   }
   .bootstrap-iso .flex-sm-wrap {
-    -ms-flex-wrap: wrap!important;
+    -ms-flex-wrap: wrap !important;
     flex-wrap: wrap !important;
   }
   .bootstrap-iso .flex-sm-nowrap {
-    -ms-flex-wrap: nowrap!important;
+    -ms-flex-wrap: nowrap !important;
     flex-wrap: nowrap !important;
   }
   .bootstrap-iso .flex-sm-wrap-reverse {
@@ -6125,134 +6125,134 @@
     flex-wrap: wrap-reverse !important;
   }
   .bootstrap-iso .justify-content-sm-start {
-    -webkit-box-pack: start!important;
-    -ms-flex-pack: start!important;
+    -webkit-box-pack: start !important;
+    -ms-flex-pack: start !important;
     justify-content: flex-start !important;
   }
   .bootstrap-iso .justify-content-sm-end {
-    -webkit-box-pack: end!important;
-    -ms-flex-pack: end!important;
+    -webkit-box-pack: end !important;
+    -ms-flex-pack: end !important;
     justify-content: flex-end !important;
   }
   .bootstrap-iso .justify-content-sm-center {
-    -webkit-box-pack: center!important;
-    -ms-flex-pack: center!important;
+    -webkit-box-pack: center !important;
+    -ms-flex-pack: center !important;
     justify-content: center !important;
   }
   .bootstrap-iso .justify-content-sm-between {
-    -webkit-box-pack: justify!important;
-    -ms-flex-pack: justify!important;
+    -webkit-box-pack: justify !important;
+    -ms-flex-pack: justify !important;
     justify-content: space-between !important;
   }
   .bootstrap-iso .justify-content-sm-around {
-    -ms-flex-pack: distribute!important;
+    -ms-flex-pack: distribute !important;
     justify-content: space-around !important;
   }
   .bootstrap-iso .align-items-sm-start {
-    -webkit-box-align: start!important;
-    -ms-flex-align: start!important;
+    -webkit-box-align: start !important;
+    -ms-flex-align: start !important;
     align-items: flex-start !important;
   }
   .bootstrap-iso .align-items-sm-end {
-    -webkit-box-align: end!important;
-    -ms-flex-align: end!important;
+    -webkit-box-align: end !important;
+    -ms-flex-align: end !important;
     align-items: flex-end !important;
   }
   .bootstrap-iso .align-items-sm-center {
-    -webkit-box-align: center!important;
-    -ms-flex-align: center!important;
+    -webkit-box-align: center !important;
+    -ms-flex-align: center !important;
     align-items: center !important;
   }
   .bootstrap-iso .align-items-sm-baseline {
-    -webkit-box-align: baseline!important;
-    -ms-flex-align: baseline!important;
+    -webkit-box-align: baseline !important;
+    -ms-flex-align: baseline !important;
     align-items: baseline !important;
   }
   .bootstrap-iso .align-items-sm-stretch {
-    -webkit-box-align: stretch!important;
-    -ms-flex-align: stretch!important;
+    -webkit-box-align: stretch !important;
+    -ms-flex-align: stretch !important;
     align-items: stretch !important;
   }
   .bootstrap-iso .align-content-sm-start {
-    -ms-flex-line-pack: start!important;
+    -ms-flex-line-pack: start !important;
     align-content: flex-start !important;
   }
   .bootstrap-iso .align-content-sm-end {
-    -ms-flex-line-pack: end!important;
+    -ms-flex-line-pack: end !important;
     align-content: flex-end !important;
   }
   .bootstrap-iso .align-content-sm-center {
-    -ms-flex-line-pack: center!important;
+    -ms-flex-line-pack: center !important;
     align-content: center !important;
   }
   .bootstrap-iso .align-content-sm-between {
-    -ms-flex-line-pack: justify!important;
+    -ms-flex-line-pack: justify !important;
     align-content: space-between !important;
   }
   .bootstrap-iso .align-content-sm-around {
-    -ms-flex-line-pack: distribute!important;
+    -ms-flex-line-pack: distribute !important;
     align-content: space-around !important;
   }
   .bootstrap-iso .align-content-sm-stretch {
-    -ms-flex-line-pack: stretch!important;
+    -ms-flex-line-pack: stretch !important;
     align-content: stretch !important;
   }
   .bootstrap-iso .align-self-sm-auto {
-    -ms-flex-item-align: auto!important;
+    -ms-flex-item-align: auto !important;
     align-self: auto !important;
   }
   .bootstrap-iso .align-self-sm-start {
-    -ms-flex-item-align: start!important;
+    -ms-flex-item-align: start !important;
     align-self: flex-start !important;
   }
   .bootstrap-iso .align-self-sm-end {
-    -ms-flex-item-align: end!important;
+    -ms-flex-item-align: end !important;
     align-self: flex-end !important;
   }
   .bootstrap-iso .align-self-sm-center {
-    -ms-flex-item-align: center!important;
+    -ms-flex-item-align: center !important;
     align-self: center !important;
   }
   .bootstrap-iso .align-self-sm-baseline {
-    -ms-flex-item-align: baseline!important;
+    -ms-flex-item-align: baseline !important;
     align-self: baseline !important;
   }
   .bootstrap-iso .align-self-sm-stretch {
-    -ms-flex-item-align: stretch!important;
+    -ms-flex-item-align: stretch !important;
     align-self: stretch !important;
   }
 }
 @media (min-width: 768px) {
   .bootstrap-iso .flex-md-row {
-    -webkit-box-orient: horizontal!important;
-    -webkit-box-direction: normal!important;
-    -ms-flex-direction: row!important;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+    -ms-flex-direction: row !important;
     flex-direction: row !important;
   }
   .bootstrap-iso .flex-md-column {
-    -webkit-box-orient: vertical!important;
-    -webkit-box-direction: normal!important;
-    -ms-flex-direction: column!important;
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+    -ms-flex-direction: column !important;
     flex-direction: column !important;
   }
   .bootstrap-iso .flex-md-row-reverse {
-    -webkit-box-orient: horizontal!important;
-    -webkit-box-direction: reverse!important;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: reverse !important;
     -ms-flex-direction: row-reverse !important;
     flex-direction: row-reverse !important;
   }
   .bootstrap-iso .flex-md-column-reverse {
-    -webkit-box-orient: vertical!important;
-    -webkit-box-direction: reverse!important;
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: reverse !important;
     -ms-flex-direction: column-reverse !important;
     flex-direction: column-reverse !important;
   }
   .bootstrap-iso .flex-md-wrap {
-    -ms-flex-wrap: wrap!important;
+    -ms-flex-wrap: wrap !important;
     flex-wrap: wrap !important;
   }
   .bootstrap-iso .flex-md-nowrap {
-    -ms-flex-wrap: nowrap!important;
+    -ms-flex-wrap: nowrap !important;
     flex-wrap: nowrap !important;
   }
   .bootstrap-iso .flex-md-wrap-reverse {
@@ -6260,134 +6260,134 @@
     flex-wrap: wrap-reverse !important;
   }
   .bootstrap-iso .justify-content-md-start {
-    -webkit-box-pack: start!important;
-    -ms-flex-pack: start!important;
+    -webkit-box-pack: start !important;
+    -ms-flex-pack: start !important;
     justify-content: flex-start !important;
   }
   .bootstrap-iso .justify-content-md-end {
-    -webkit-box-pack: end!important;
-    -ms-flex-pack: end!important;
+    -webkit-box-pack: end !important;
+    -ms-flex-pack: end !important;
     justify-content: flex-end !important;
   }
   .bootstrap-iso .justify-content-md-center {
-    -webkit-box-pack: center!important;
-    -ms-flex-pack: center!important;
+    -webkit-box-pack: center !important;
+    -ms-flex-pack: center !important;
     justify-content: center !important;
   }
   .bootstrap-iso .justify-content-md-between {
-    -webkit-box-pack: justify!important;
-    -ms-flex-pack: justify!important;
+    -webkit-box-pack: justify !important;
+    -ms-flex-pack: justify !important;
     justify-content: space-between !important;
   }
   .bootstrap-iso .justify-content-md-around {
-    -ms-flex-pack: distribute!important;
+    -ms-flex-pack: distribute !important;
     justify-content: space-around !important;
   }
   .bootstrap-iso .align-items-md-start {
-    -webkit-box-align: start!important;
-    -ms-flex-align: start!important;
+    -webkit-box-align: start !important;
+    -ms-flex-align: start !important;
     align-items: flex-start !important;
   }
   .bootstrap-iso .align-items-md-end {
-    -webkit-box-align: end!important;
-    -ms-flex-align: end!important;
+    -webkit-box-align: end !important;
+    -ms-flex-align: end !important;
     align-items: flex-end !important;
   }
   .bootstrap-iso .align-items-md-center {
-    -webkit-box-align: center!important;
-    -ms-flex-align: center!important;
+    -webkit-box-align: center !important;
+    -ms-flex-align: center !important;
     align-items: center !important;
   }
   .bootstrap-iso .align-items-md-baseline {
-    -webkit-box-align: baseline!important;
-    -ms-flex-align: baseline!important;
+    -webkit-box-align: baseline !important;
+    -ms-flex-align: baseline !important;
     align-items: baseline !important;
   }
   .bootstrap-iso .align-items-md-stretch {
-    -webkit-box-align: stretch!important;
-    -ms-flex-align: stretch!important;
+    -webkit-box-align: stretch !important;
+    -ms-flex-align: stretch !important;
     align-items: stretch !important;
   }
   .bootstrap-iso .align-content-md-start {
-    -ms-flex-line-pack: start!important;
+    -ms-flex-line-pack: start !important;
     align-content: flex-start !important;
   }
   .bootstrap-iso .align-content-md-end {
-    -ms-flex-line-pack: end!important;
+    -ms-flex-line-pack: end !important;
     align-content: flex-end !important;
   }
   .bootstrap-iso .align-content-md-center {
-    -ms-flex-line-pack: center!important;
+    -ms-flex-line-pack: center !important;
     align-content: center !important;
   }
   .bootstrap-iso .align-content-md-between {
-    -ms-flex-line-pack: justify!important;
+    -ms-flex-line-pack: justify !important;
     align-content: space-between !important;
   }
   .bootstrap-iso .align-content-md-around {
-    -ms-flex-line-pack: distribute!important;
+    -ms-flex-line-pack: distribute !important;
     align-content: space-around !important;
   }
   .bootstrap-iso .align-content-md-stretch {
-    -ms-flex-line-pack: stretch!important;
+    -ms-flex-line-pack: stretch !important;
     align-content: stretch !important;
   }
   .bootstrap-iso .align-self-md-auto {
-    -ms-flex-item-align: auto!important;
+    -ms-flex-item-align: auto !important;
     align-self: auto !important;
   }
   .bootstrap-iso .align-self-md-start {
-    -ms-flex-item-align: start!important;
+    -ms-flex-item-align: start !important;
     align-self: flex-start !important;
   }
   .bootstrap-iso .align-self-md-end {
-    -ms-flex-item-align: end!important;
+    -ms-flex-item-align: end !important;
     align-self: flex-end !important;
   }
   .bootstrap-iso .align-self-md-center {
-    -ms-flex-item-align: center!important;
+    -ms-flex-item-align: center !important;
     align-self: center !important;
   }
   .bootstrap-iso .align-self-md-baseline {
-    -ms-flex-item-align: baseline!important;
+    -ms-flex-item-align: baseline !important;
     align-self: baseline !important;
   }
   .bootstrap-iso .align-self-md-stretch {
-    -ms-flex-item-align: stretch!important;
+    -ms-flex-item-align: stretch !important;
     align-self: stretch !important;
   }
 }
 @media (min-width: 992px) {
   .bootstrap-iso .flex-lg-row {
-    -webkit-box-orient: horizontal!important;
-    -webkit-box-direction: normal!important;
-    -ms-flex-direction: row!important;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+    -ms-flex-direction: row !important;
     flex-direction: row !important;
   }
   .bootstrap-iso .flex-lg-column {
-    -webkit-box-orient: vertical!important;
-    -webkit-box-direction: normal!important;
-    -ms-flex-direction: column!important;
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+    -ms-flex-direction: column !important;
     flex-direction: column !important;
   }
   .bootstrap-iso .flex-lg-row-reverse {
-    -webkit-box-orient: horizontal!important;
-    -webkit-box-direction: reverse!important;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: reverse !important;
     -ms-flex-direction: row-reverse !important;
     flex-direction: row-reverse !important;
   }
   .bootstrap-iso .flex-lg-column-reverse {
-    -webkit-box-orient: vertical!important;
-    -webkit-box-direction: reverse!important;
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: reverse !important;
     -ms-flex-direction: column-reverse !important;
     flex-direction: column-reverse !important;
   }
   .bootstrap-iso .flex-lg-wrap {
-    -ms-flex-wrap: wrap!important;
+    -ms-flex-wrap: wrap !important;
     flex-wrap: wrap !important;
   }
   .bootstrap-iso .flex-lg-nowrap {
-    -ms-flex-wrap: nowrap!important;
+    -ms-flex-wrap: nowrap !important;
     flex-wrap: nowrap !important;
   }
   .bootstrap-iso .flex-lg-wrap-reverse {
@@ -6395,134 +6395,134 @@
     flex-wrap: wrap-reverse !important;
   }
   .bootstrap-iso .justify-content-lg-start {
-    -webkit-box-pack: start!important;
-    -ms-flex-pack: start!important;
+    -webkit-box-pack: start !important;
+    -ms-flex-pack: start !important;
     justify-content: flex-start !important;
   }
   .bootstrap-iso .justify-content-lg-end {
-    -webkit-box-pack: end!important;
-    -ms-flex-pack: end!important;
+    -webkit-box-pack: end !important;
+    -ms-flex-pack: end !important;
     justify-content: flex-end !important;
   }
   .bootstrap-iso .justify-content-lg-center {
-    -webkit-box-pack: center!important;
-    -ms-flex-pack: center!important;
+    -webkit-box-pack: center !important;
+    -ms-flex-pack: center !important;
     justify-content: center !important;
   }
   .bootstrap-iso .justify-content-lg-between {
-    -webkit-box-pack: justify!important;
-    -ms-flex-pack: justify!important;
+    -webkit-box-pack: justify !important;
+    -ms-flex-pack: justify !important;
     justify-content: space-between !important;
   }
   .bootstrap-iso .justify-content-lg-around {
-    -ms-flex-pack: distribute!important;
+    -ms-flex-pack: distribute !important;
     justify-content: space-around !important;
   }
   .bootstrap-iso .align-items-lg-start {
-    -webkit-box-align: start!important;
-    -ms-flex-align: start!important;
+    -webkit-box-align: start !important;
+    -ms-flex-align: start !important;
     align-items: flex-start !important;
   }
   .bootstrap-iso .align-items-lg-end {
-    -webkit-box-align: end!important;
-    -ms-flex-align: end!important;
+    -webkit-box-align: end !important;
+    -ms-flex-align: end !important;
     align-items: flex-end !important;
   }
   .bootstrap-iso .align-items-lg-center {
-    -webkit-box-align: center!important;
-    -ms-flex-align: center!important;
+    -webkit-box-align: center !important;
+    -ms-flex-align: center !important;
     align-items: center !important;
   }
   .bootstrap-iso .align-items-lg-baseline {
-    -webkit-box-align: baseline!important;
-    -ms-flex-align: baseline!important;
+    -webkit-box-align: baseline !important;
+    -ms-flex-align: baseline !important;
     align-items: baseline !important;
   }
   .bootstrap-iso .align-items-lg-stretch {
-    -webkit-box-align: stretch!important;
-    -ms-flex-align: stretch!important;
+    -webkit-box-align: stretch !important;
+    -ms-flex-align: stretch !important;
     align-items: stretch !important;
   }
   .bootstrap-iso .align-content-lg-start {
-    -ms-flex-line-pack: start!important;
+    -ms-flex-line-pack: start !important;
     align-content: flex-start !important;
   }
   .bootstrap-iso .align-content-lg-end {
-    -ms-flex-line-pack: end!important;
+    -ms-flex-line-pack: end !important;
     align-content: flex-end !important;
   }
   .bootstrap-iso .align-content-lg-center {
-    -ms-flex-line-pack: center!important;
+    -ms-flex-line-pack: center !important;
     align-content: center !important;
   }
   .bootstrap-iso .align-content-lg-between {
-    -ms-flex-line-pack: justify!important;
+    -ms-flex-line-pack: justify !important;
     align-content: space-between !important;
   }
   .bootstrap-iso .align-content-lg-around {
-    -ms-flex-line-pack: distribute!important;
+    -ms-flex-line-pack: distribute !important;
     align-content: space-around !important;
   }
   .bootstrap-iso .align-content-lg-stretch {
-    -ms-flex-line-pack: stretch!important;
+    -ms-flex-line-pack: stretch !important;
     align-content: stretch !important;
   }
   .bootstrap-iso .align-self-lg-auto {
-    -ms-flex-item-align: auto!important;
+    -ms-flex-item-align: auto !important;
     align-self: auto !important;
   }
   .bootstrap-iso .align-self-lg-start {
-    -ms-flex-item-align: start!important;
+    -ms-flex-item-align: start !important;
     align-self: flex-start !important;
   }
   .bootstrap-iso .align-self-lg-end {
-    -ms-flex-item-align: end!important;
+    -ms-flex-item-align: end !important;
     align-self: flex-end !important;
   }
   .bootstrap-iso .align-self-lg-center {
-    -ms-flex-item-align: center!important;
+    -ms-flex-item-align: center !important;
     align-self: center !important;
   }
   .bootstrap-iso .align-self-lg-baseline {
-    -ms-flex-item-align: baseline!important;
+    -ms-flex-item-align: baseline !important;
     align-self: baseline !important;
   }
   .bootstrap-iso .align-self-lg-stretch {
-    -ms-flex-item-align: stretch!important;
+    -ms-flex-item-align: stretch !important;
     align-self: stretch !important;
   }
 }
 @media (min-width: 1200px) {
   .bootstrap-iso .flex-xl-row {
-    -webkit-box-orient: horizontal!important;
-    -webkit-box-direction: normal!important;
-    -ms-flex-direction: row!important;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+    -ms-flex-direction: row !important;
     flex-direction: row !important;
   }
   .bootstrap-iso .flex-xl-column {
-    -webkit-box-orient: vertical!important;
-    -webkit-box-direction: normal!important;
-    -ms-flex-direction: column!important;
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+    -ms-flex-direction: column !important;
     flex-direction: column !important;
   }
   .bootstrap-iso .flex-xl-row-reverse {
-    -webkit-box-orient: horizontal!important;
-    -webkit-box-direction: reverse!important;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: reverse !important;
     -ms-flex-direction: row-reverse !important;
     flex-direction: row-reverse !important;
   }
   .bootstrap-iso .flex-xl-column-reverse {
-    -webkit-box-orient: vertical!important;
-    -webkit-box-direction: reverse!important;
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: reverse !important;
     -ms-flex-direction: column-reverse !important;
     flex-direction: column-reverse !important;
   }
   .bootstrap-iso .flex-xl-wrap {
-    -ms-flex-wrap: wrap!important;
+    -ms-flex-wrap: wrap !important;
     flex-wrap: wrap !important;
   }
   .bootstrap-iso .flex-xl-nowrap {
-    -ms-flex-wrap: nowrap!important;
+    -ms-flex-wrap: nowrap !important;
     flex-wrap: nowrap !important;
   }
   .bootstrap-iso .flex-xl-wrap-reverse {
@@ -6530,100 +6530,100 @@
     flex-wrap: wrap-reverse !important;
   }
   .bootstrap-iso .justify-content-xl-start {
-    -webkit-box-pack: start!important;
-    -ms-flex-pack: start!important;
+    -webkit-box-pack: start !important;
+    -ms-flex-pack: start !important;
     justify-content: flex-start !important;
   }
   .bootstrap-iso .justify-content-xl-end {
-    -webkit-box-pack: end!important;
-    -ms-flex-pack: end!important;
+    -webkit-box-pack: end !important;
+    -ms-flex-pack: end !important;
     justify-content: flex-end !important;
   }
   .bootstrap-iso .justify-content-xl-center {
-    -webkit-box-pack: center!important;
-    -ms-flex-pack: center!important;
+    -webkit-box-pack: center !important;
+    -ms-flex-pack: center !important;
     justify-content: center !important;
   }
   .bootstrap-iso .justify-content-xl-between {
-    -webkit-box-pack: justify!important;
-    -ms-flex-pack: justify!important;
+    -webkit-box-pack: justify !important;
+    -ms-flex-pack: justify !important;
     justify-content: space-between !important;
   }
   .bootstrap-iso .justify-content-xl-around {
-    -ms-flex-pack: distribute!important;
+    -ms-flex-pack: distribute !important;
     justify-content: space-around !important;
   }
   .bootstrap-iso .align-items-xl-start {
-    -webkit-box-align: start!important;
-    -ms-flex-align: start!important;
+    -webkit-box-align: start !important;
+    -ms-flex-align: start !important;
     align-items: flex-start !important;
   }
   .bootstrap-iso .align-items-xl-end {
-    -webkit-box-align: end!important;
-    -ms-flex-align: end!important;
+    -webkit-box-align: end !important;
+    -ms-flex-align: end !important;
     align-items: flex-end !important;
   }
   .bootstrap-iso .align-items-xl-center {
-    -webkit-box-align: center!important;
-    -ms-flex-align: center!important;
+    -webkit-box-align: center !important;
+    -ms-flex-align: center !important;
     align-items: center !important;
   }
   .bootstrap-iso .align-items-xl-baseline {
-    -webkit-box-align: baseline!important;
-    -ms-flex-align: baseline!important;
+    -webkit-box-align: baseline !important;
+    -ms-flex-align: baseline !important;
     align-items: baseline !important;
   }
   .bootstrap-iso .align-items-xl-stretch {
-    -webkit-box-align: stretch!important;
-    -ms-flex-align: stretch!important;
+    -webkit-box-align: stretch !important;
+    -ms-flex-align: stretch !important;
     align-items: stretch !important;
   }
   .bootstrap-iso .align-content-xl-start {
-    -ms-flex-line-pack: start!important;
+    -ms-flex-line-pack: start !important;
     align-content: flex-start !important;
   }
   .bootstrap-iso .align-content-xl-end {
-    -ms-flex-line-pack: end!important;
+    -ms-flex-line-pack: end !important;
     align-content: flex-end !important;
   }
   .bootstrap-iso .align-content-xl-center {
-    -ms-flex-line-pack: center!important;
+    -ms-flex-line-pack: center !important;
     align-content: center !important;
   }
   .bootstrap-iso .align-content-xl-between {
-    -ms-flex-line-pack: justify!important;
+    -ms-flex-line-pack: justify !important;
     align-content: space-between !important;
   }
   .bootstrap-iso .align-content-xl-around {
-    -ms-flex-line-pack: distribute!important;
+    -ms-flex-line-pack: distribute !important;
     align-content: space-around !important;
   }
   .bootstrap-iso .align-content-xl-stretch {
-    -ms-flex-line-pack: stretch!important;
+    -ms-flex-line-pack: stretch !important;
     align-content: stretch !important;
   }
   .bootstrap-iso .align-self-xl-auto {
-    -ms-flex-item-align: auto!important;
+    -ms-flex-item-align: auto !important;
     align-self: auto !important;
   }
   .bootstrap-iso .align-self-xl-start {
-    -ms-flex-item-align: start!important;
+    -ms-flex-item-align: start !important;
     align-self: flex-start !important;
   }
   .bootstrap-iso .align-self-xl-end {
-    -ms-flex-item-align: end!important;
+    -ms-flex-item-align: end !important;
     align-self: flex-end !important;
   }
   .bootstrap-iso .align-self-xl-center {
-    -ms-flex-item-align: center!important;
+    -ms-flex-item-align: center !important;
     align-self: center !important;
   }
   .bootstrap-iso .align-self-xl-baseline {
-    -ms-flex-item-align: baseline!important;
+    -ms-flex-item-align: baseline !important;
     align-self: baseline !important;
   }
   .bootstrap-iso .align-self-xl-stretch {
-    -ms-flex-item-align: stretch!important;
+    -ms-flex-item-align: stretch !important;
     align-self: stretch !important;
   }
 }
@@ -6710,7 +6710,7 @@
   left: 0;
   z-index: 1030;
 }
-@supports ((position:-webkit-sticky) or (position:sticky)) {
+@supports ((position: -webkit-sticky) or (position: sticky)) {
   .bootstrap-iso .sticky-top {
     position: -webkit-sticky;
     position: sticky;
@@ -6791,99 +6791,99 @@
   margin-left: 0 !important;
 }
 .bootstrap-iso .m-1 {
-  margin: 2.5px !important;
+  margin: 0.25rem !important;
 }
 .bootstrap-iso .mt-1,
 .bootstrap-iso .my-1 {
-  margin-top: 2.5px !important;
+  margin-top: 0.25rem !important;
 }
 .bootstrap-iso .mr-1,
 .bootstrap-iso .mx-1 {
-  margin-right: 2.5px !important;
+  margin-right: 0.25rem !important;
 }
 .bootstrap-iso .mb-1,
 .bootstrap-iso .my-1 {
-  margin-bottom: 2.5px !important;
+  margin-bottom: 0.25rem !important;
 }
 .bootstrap-iso .ml-1,
 .bootstrap-iso .mx-1 {
-  margin-left: 2.5px !important;
+  margin-left: 0.25rem !important;
 }
 .bootstrap-iso .m-2 {
-  margin: 5px !important;
+  margin: 0.5rem !important;
 }
 .bootstrap-iso .mt-2,
 .bootstrap-iso .my-2 {
-  margin-top: 5px !important;
+  margin-top: 0.5rem !important;
 }
 .bootstrap-iso .mr-2,
 .bootstrap-iso .mx-2 {
-  margin-right: 5px !important;
+  margin-right: 0.5rem !important;
 }
 .bootstrap-iso .mb-2,
 .bootstrap-iso .my-2 {
-  margin-bottom: 5px !important;
+  margin-bottom: 0.5rem !important;
 }
 .bootstrap-iso .ml-2,
 .bootstrap-iso .mx-2 {
-  margin-left: 5px !important;
+  margin-left: 0.5rem !important;
 }
 .bootstrap-iso .m-3 {
-  margin: 10px !important;
+  margin: 1rem !important;
 }
 .bootstrap-iso .mt-3,
 .bootstrap-iso .my-3 {
-  margin-top: 10px !important;
+  margin-top: 1rem !important;
 }
 .bootstrap-iso .mr-3,
 .bootstrap-iso .mx-3 {
-  margin-right: 10px !important;
+  margin-right: 1rem !important;
 }
 .bootstrap-iso .mb-3,
 .bootstrap-iso .my-3 {
-  margin-bottom: 10px !important;
+  margin-bottom: 1rem !important;
 }
 .bootstrap-iso .ml-3,
 .bootstrap-iso .mx-3 {
-  margin-left: 10px !important;
+  margin-left: 1rem !important;
 }
 .bootstrap-iso .m-4 {
-  margin: 15px !important;
+  margin: 1.5rem !important;
 }
 .bootstrap-iso .mt-4,
 .bootstrap-iso .my-4 {
-  margin-top: 15px !important;
+  margin-top: 1.5rem !important;
 }
 .bootstrap-iso .mr-4,
 .bootstrap-iso .mx-4 {
-  margin-right: 15px !important;
+  margin-right: 1.5rem !important;
 }
 .bootstrap-iso .mb-4,
 .bootstrap-iso .my-4 {
-  margin-bottom: 15px !important;
+  margin-bottom: 1.5rem !important;
 }
 .bootstrap-iso .ml-4,
 .bootstrap-iso .mx-4 {
-  margin-left: 15px !important;
+  margin-left: 1.5rem !important;
 }
 .bootstrap-iso .m-5 {
-  margin: 30px !important;
+  margin: 3rem !important;
 }
 .bootstrap-iso .mt-5,
 .bootstrap-iso .my-5 {
-  margin-top: 30px !important;
+  margin-top: 3rem !important;
 }
 .bootstrap-iso .mr-5,
 .bootstrap-iso .mx-5 {
-  margin-right: 30px !important;
+  margin-right: 3rem !important;
 }
 .bootstrap-iso .mb-5,
 .bootstrap-iso .my-5 {
-  margin-bottom: 30px !important;
+  margin-bottom: 3rem !important;
 }
 .bootstrap-iso .ml-5,
 .bootstrap-iso .mx-5 {
-  margin-left: 30px !important;
+  margin-left: 3rem !important;
 }
 .bootstrap-iso .p-0 {
   padding: 0 !important;
@@ -6905,99 +6905,99 @@
   padding-left: 0 !important;
 }
 .bootstrap-iso .p-1 {
-  padding: 2.5px !important;
+  padding: 0.25rem !important;
 }
 .bootstrap-iso .pt-1,
 .bootstrap-iso .py-1 {
-  padding-top: 2.5px !important;
+  padding-top: 0.25rem !important;
 }
 .bootstrap-iso .pr-1,
 .bootstrap-iso .px-1 {
-  padding-right: 2.5px !important;
+  padding-right: 0.25rem !important;
 }
 .bootstrap-iso .pb-1,
 .bootstrap-iso .py-1 {
-  padding-bottom: 2.5px !important;
+  padding-bottom: 0.25rem !important;
 }
 .bootstrap-iso .pl-1,
 .bootstrap-iso .px-1 {
-  padding-left: 2.5px !important;
+  padding-left: 0.25rem !important;
 }
 .bootstrap-iso .p-2 {
-  padding: 5px !important;
+  padding: 0.5rem !important;
 }
 .bootstrap-iso .pt-2,
 .bootstrap-iso .py-2 {
-  padding-top: 5px !important;
+  padding-top: 0.5rem !important;
 }
 .bootstrap-iso .pr-2,
 .bootstrap-iso .px-2 {
-  padding-right: 5px !important;
+  padding-right: 0.5rem !important;
 }
 .bootstrap-iso .pb-2,
 .bootstrap-iso .py-2 {
-  padding-bottom: 5px !important;
+  padding-bottom: 0.5rem !important;
 }
 .bootstrap-iso .pl-2,
 .bootstrap-iso .px-2 {
-  padding-left: 5px !important;
+  padding-left: 0.5rem !important;
 }
 .bootstrap-iso .p-3 {
-  padding: 10px !important;
+  padding: 1rem !important;
 }
 .bootstrap-iso .pt-3,
 .bootstrap-iso .py-3 {
-  padding-top: 10px !important;
+  padding-top: 1rem !important;
 }
 .bootstrap-iso .pr-3,
 .bootstrap-iso .px-3 {
-  padding-right: 10px !important;
+  padding-right: 1rem !important;
 }
 .bootstrap-iso .pb-3,
 .bootstrap-iso .py-3 {
-  padding-bottom: 10px !important;
+  padding-bottom: 1rem !important;
 }
 .bootstrap-iso .pl-3,
 .bootstrap-iso .px-3 {
-  padding-left: 10px !important;
+  padding-left: 1rem !important;
 }
 .bootstrap-iso .p-4 {
-  padding: 15px !important;
+  padding: 1.5rem !important;
 }
 .bootstrap-iso .pt-4,
 .bootstrap-iso .py-4 {
-  padding-top: 15px !important;
+  padding-top: 1.5rem !important;
 }
 .bootstrap-iso .pr-4,
 .bootstrap-iso .px-4 {
-  padding-right: 15px !important;
+  padding-right: 1.5rem !important;
 }
 .bootstrap-iso .pb-4,
 .bootstrap-iso .py-4 {
-  padding-bottom: 15px !important;
+  padding-bottom: 1.5rem !important;
 }
 .bootstrap-iso .pl-4,
 .bootstrap-iso .px-4 {
-  padding-left: 15px !important;
+  padding-left: 1.5rem !important;
 }
 .bootstrap-iso .p-5 {
-  padding: 30px !important;
+  padding: 3rem !important;
 }
 .bootstrap-iso .pt-5,
 .bootstrap-iso .py-5 {
-  padding-top: 30px !important;
+  padding-top: 3rem !important;
 }
 .bootstrap-iso .pr-5,
 .bootstrap-iso .px-5 {
-  padding-right: 30px !important;
+  padding-right: 3rem !important;
 }
 .bootstrap-iso .pb-5,
 .bootstrap-iso .py-5 {
-  padding-bottom: 30px !important;
+  padding-bottom: 3rem !important;
 }
 .bootstrap-iso .pl-5,
 .bootstrap-iso .px-5 {
-  padding-left: 30px !important;
+  padding-left: 3rem !important;
 }
 .bootstrap-iso .m-auto {
   margin: auto !important;
@@ -7039,99 +7039,99 @@
     margin-left: 0 !important;
   }
   .bootstrap-iso .m-sm-1 {
-    margin: 2.5px !important;
+    margin: 0.25rem !important;
   }
   .bootstrap-iso .mt-sm-1,
   .bootstrap-iso .my-sm-1 {
-    margin-top: 2.5px !important;
+    margin-top: 0.25rem !important;
   }
   .bootstrap-iso .mr-sm-1,
   .bootstrap-iso .mx-sm-1 {
-    margin-right: 2.5px !important;
+    margin-right: 0.25rem !important;
   }
   .bootstrap-iso .mb-sm-1,
   .bootstrap-iso .my-sm-1 {
-    margin-bottom: 2.5px !important;
+    margin-bottom: 0.25rem !important;
   }
   .bootstrap-iso .ml-sm-1,
   .bootstrap-iso .mx-sm-1 {
-    margin-left: 2.5px !important;
+    margin-left: 0.25rem !important;
   }
   .bootstrap-iso .m-sm-2 {
-    margin: 5px !important;
+    margin: 0.5rem !important;
   }
   .bootstrap-iso .mt-sm-2,
   .bootstrap-iso .my-sm-2 {
-    margin-top: 5px !important;
+    margin-top: 0.5rem !important;
   }
   .bootstrap-iso .mr-sm-2,
   .bootstrap-iso .mx-sm-2 {
-    margin-right: 5px !important;
+    margin-right: 0.5rem !important;
   }
   .bootstrap-iso .mb-sm-2,
   .bootstrap-iso .my-sm-2 {
-    margin-bottom: 5px !important;
+    margin-bottom: 0.5rem !important;
   }
   .bootstrap-iso .ml-sm-2,
   .bootstrap-iso .mx-sm-2 {
-    margin-left: 5px !important;
+    margin-left: 0.5rem !important;
   }
   .bootstrap-iso .m-sm-3 {
-    margin: 10px !important;
+    margin: 1rem !important;
   }
   .bootstrap-iso .mt-sm-3,
   .bootstrap-iso .my-sm-3 {
-    margin-top: 10px !important;
+    margin-top: 1rem !important;
   }
   .bootstrap-iso .mr-sm-3,
   .bootstrap-iso .mx-sm-3 {
-    margin-right: 10px !important;
+    margin-right: 1rem !important;
   }
   .bootstrap-iso .mb-sm-3,
   .bootstrap-iso .my-sm-3 {
-    margin-bottom: 10px !important;
+    margin-bottom: 1rem !important;
   }
   .bootstrap-iso .ml-sm-3,
   .bootstrap-iso .mx-sm-3 {
-    margin-left: 10px !important;
+    margin-left: 1rem !important;
   }
   .bootstrap-iso .m-sm-4 {
-    margin: 15px !important;
+    margin: 1.5rem !important;
   }
   .bootstrap-iso .mt-sm-4,
   .bootstrap-iso .my-sm-4 {
-    margin-top: 15px !important;
+    margin-top: 1.5rem !important;
   }
   .bootstrap-iso .mr-sm-4,
   .bootstrap-iso .mx-sm-4 {
-    margin-right: 15px !important;
+    margin-right: 1.5rem !important;
   }
   .bootstrap-iso .mb-sm-4,
   .bootstrap-iso .my-sm-4 {
-    margin-bottom: 15px !important;
+    margin-bottom: 1.5rem !important;
   }
   .bootstrap-iso .ml-sm-4,
   .bootstrap-iso .mx-sm-4 {
-    margin-left: 15px !important;
+    margin-left: 1.5rem !important;
   }
   .bootstrap-iso .m-sm-5 {
-    margin: 30px !important;
+    margin: 3rem !important;
   }
   .bootstrap-iso .mt-sm-5,
   .bootstrap-iso .my-sm-5 {
-    margin-top: 30px !important;
+    margin-top: 3rem !important;
   }
   .bootstrap-iso .mr-sm-5,
   .bootstrap-iso .mx-sm-5 {
-    margin-right: 30px !important;
+    margin-right: 3rem !important;
   }
   .bootstrap-iso .mb-sm-5,
   .bootstrap-iso .my-sm-5 {
-    margin-bottom: 30px !important;
+    margin-bottom: 3rem !important;
   }
   .bootstrap-iso .ml-sm-5,
   .bootstrap-iso .mx-sm-5 {
-    margin-left: 30px !important;
+    margin-left: 3rem !important;
   }
   .bootstrap-iso .p-sm-0 {
     padding: 0 !important;
@@ -7153,99 +7153,99 @@
     padding-left: 0 !important;
   }
   .bootstrap-iso .p-sm-1 {
-    padding: 2.5px !important;
+    padding: 0.25rem !important;
   }
   .bootstrap-iso .pt-sm-1,
   .bootstrap-iso .py-sm-1 {
-    padding-top: 2.5px !important;
+    padding-top: 0.25rem !important;
   }
   .bootstrap-iso .pr-sm-1,
   .bootstrap-iso .px-sm-1 {
-    padding-right: 2.5px !important;
+    padding-right: 0.25rem !important;
   }
   .bootstrap-iso .pb-sm-1,
   .bootstrap-iso .py-sm-1 {
-    padding-bottom: 2.5px !important;
+    padding-bottom: 0.25rem !important;
   }
   .bootstrap-iso .pl-sm-1,
   .bootstrap-iso .px-sm-1 {
-    padding-left: 2.5px !important;
+    padding-left: 0.25rem !important;
   }
   .bootstrap-iso .p-sm-2 {
-    padding: 5px !important;
+    padding: 0.5rem !important;
   }
   .bootstrap-iso .pt-sm-2,
   .bootstrap-iso .py-sm-2 {
-    padding-top: 5px !important;
+    padding-top: 0.5rem !important;
   }
   .bootstrap-iso .pr-sm-2,
   .bootstrap-iso .px-sm-2 {
-    padding-right: 5px !important;
+    padding-right: 0.5rem !important;
   }
   .bootstrap-iso .pb-sm-2,
   .bootstrap-iso .py-sm-2 {
-    padding-bottom: 5px !important;
+    padding-bottom: 0.5rem !important;
   }
   .bootstrap-iso .pl-sm-2,
   .bootstrap-iso .px-sm-2 {
-    padding-left: 5px !important;
+    padding-left: 0.5rem !important;
   }
   .bootstrap-iso .p-sm-3 {
-    padding: 10px !important;
+    padding: 1rem !important;
   }
   .bootstrap-iso .pt-sm-3,
   .bootstrap-iso .py-sm-3 {
-    padding-top: 10px !important;
+    padding-top: 1rem !important;
   }
   .bootstrap-iso .pr-sm-3,
   .bootstrap-iso .px-sm-3 {
-    padding-right: 10px !important;
+    padding-right: 1rem !important;
   }
   .bootstrap-iso .pb-sm-3,
   .bootstrap-iso .py-sm-3 {
-    padding-bottom: 10px !important;
+    padding-bottom: 1rem !important;
   }
   .bootstrap-iso .pl-sm-3,
   .bootstrap-iso .px-sm-3 {
-    padding-left: 10px !important;
+    padding-left: 1rem !important;
   }
   .bootstrap-iso .p-sm-4 {
-    padding: 15px !important;
+    padding: 1.5rem !important;
   }
   .bootstrap-iso .pt-sm-4,
   .bootstrap-iso .py-sm-4 {
-    padding-top: 15px !important;
+    padding-top: 1.5rem !important;
   }
   .bootstrap-iso .pr-sm-4,
   .bootstrap-iso .px-sm-4 {
-    padding-right: 15px !important;
+    padding-right: 1.5rem !important;
   }
   .bootstrap-iso .pb-sm-4,
   .bootstrap-iso .py-sm-4 {
-    padding-bottom: 15px !important;
+    padding-bottom: 1.5rem !important;
   }
   .bootstrap-iso .pl-sm-4,
   .bootstrap-iso .px-sm-4 {
-    padding-left: 15px !important;
+    padding-left: 1.5rem !important;
   }
   .bootstrap-iso .p-sm-5 {
-    padding: 30px !important;
+    padding: 3rem !important;
   }
   .bootstrap-iso .pt-sm-5,
   .bootstrap-iso .py-sm-5 {
-    padding-top: 30px !important;
+    padding-top: 3rem !important;
   }
   .bootstrap-iso .pr-sm-5,
   .bootstrap-iso .px-sm-5 {
-    padding-right: 30px !important;
+    padding-right: 3rem !important;
   }
   .bootstrap-iso .pb-sm-5,
   .bootstrap-iso .py-sm-5 {
-    padding-bottom: 30px !important;
+    padding-bottom: 3rem !important;
   }
   .bootstrap-iso .pl-sm-5,
   .bootstrap-iso .px-sm-5 {
-    padding-left: 30px !important;
+    padding-left: 3rem !important;
   }
   .bootstrap-iso .m-sm-auto {
     margin: auto !important;
@@ -7288,99 +7288,99 @@
     margin-left: 0 !important;
   }
   .bootstrap-iso .m-md-1 {
-    margin: 2.5px !important;
+    margin: 0.25rem !important;
   }
   .bootstrap-iso .mt-md-1,
   .bootstrap-iso .my-md-1 {
-    margin-top: 2.5px !important;
+    margin-top: 0.25rem !important;
   }
   .bootstrap-iso .mr-md-1,
   .bootstrap-iso .mx-md-1 {
-    margin-right: 2.5px !important;
+    margin-right: 0.25rem !important;
   }
   .bootstrap-iso .mb-md-1,
   .bootstrap-iso .my-md-1 {
-    margin-bottom: 2.5px !important;
+    margin-bottom: 0.25rem !important;
   }
   .bootstrap-iso .ml-md-1,
   .bootstrap-iso .mx-md-1 {
-    margin-left: 2.5px !important;
+    margin-left: 0.25rem !important;
   }
   .bootstrap-iso .m-md-2 {
-    margin: 5px !important;
+    margin: 0.5rem !important;
   }
   .bootstrap-iso .mt-md-2,
   .bootstrap-iso .my-md-2 {
-    margin-top: 5px !important;
+    margin-top: 0.5rem !important;
   }
   .bootstrap-iso .mr-md-2,
   .bootstrap-iso .mx-md-2 {
-    margin-right: 5px !important;
+    margin-right: 0.5rem !important;
   }
   .bootstrap-iso .mb-md-2,
   .bootstrap-iso .my-md-2 {
-    margin-bottom: 5px !important;
+    margin-bottom: 0.5rem !important;
   }
   .bootstrap-iso .ml-md-2,
   .bootstrap-iso .mx-md-2 {
-    margin-left: 5px !important;
+    margin-left: 0.5rem !important;
   }
   .bootstrap-iso .m-md-3 {
-    margin: 10px !important;
+    margin: 1rem !important;
   }
   .bootstrap-iso .mt-md-3,
   .bootstrap-iso .my-md-3 {
-    margin-top: 10px !important;
+    margin-top: 1rem !important;
   }
   .bootstrap-iso .mr-md-3,
   .bootstrap-iso .mx-md-3 {
-    margin-right: 10px !important;
+    margin-right: 1rem !important;
   }
   .bootstrap-iso .mb-md-3,
   .bootstrap-iso .my-md-3 {
-    margin-bottom: 10px !important;
+    margin-bottom: 1rem !important;
   }
   .bootstrap-iso .ml-md-3,
   .bootstrap-iso .mx-md-3 {
-    margin-left: 10px !important;
+    margin-left: 1rem !important;
   }
   .bootstrap-iso .m-md-4 {
-    margin: 15px !important;
+    margin: 1.5rem !important;
   }
   .bootstrap-iso .mt-md-4,
   .bootstrap-iso .my-md-4 {
-    margin-top: 15px !important;
+    margin-top: 1.5rem !important;
   }
   .bootstrap-iso .mr-md-4,
   .bootstrap-iso .mx-md-4 {
-    margin-right: 15px !important;
+    margin-right: 1.5rem !important;
   }
   .bootstrap-iso .mb-md-4,
   .bootstrap-iso .my-md-4 {
-    margin-bottom: 15px !important;
+    margin-bottom: 1.5rem !important;
   }
   .bootstrap-iso .ml-md-4,
   .bootstrap-iso .mx-md-4 {
-    margin-left: 15px !important;
+    margin-left: 1.5rem !important;
   }
   .bootstrap-iso .m-md-5 {
-    margin: 30px !important;
+    margin: 3rem !important;
   }
   .bootstrap-iso .mt-md-5,
   .bootstrap-iso .my-md-5 {
-    margin-top: 30px !important;
+    margin-top: 3rem !important;
   }
   .bootstrap-iso .mr-md-5,
   .bootstrap-iso .mx-md-5 {
-    margin-right: 30px !important;
+    margin-right: 3rem !important;
   }
   .bootstrap-iso .mb-md-5,
   .bootstrap-iso .my-md-5 {
-    margin-bottom: 30px !important;
+    margin-bottom: 3rem !important;
   }
   .bootstrap-iso .ml-md-5,
   .bootstrap-iso .mx-md-5 {
-    margin-left: 30px !important;
+    margin-left: 3rem !important;
   }
   .bootstrap-iso .p-md-0 {
     padding: 0 !important;
@@ -7402,99 +7402,99 @@
     padding-left: 0 !important;
   }
   .bootstrap-iso .p-md-1 {
-    padding: 2.5px !important;
+    padding: 0.25rem !important;
   }
   .bootstrap-iso .pt-md-1,
   .bootstrap-iso .py-md-1 {
-    padding-top: 2.5px !important;
+    padding-top: 0.25rem !important;
   }
   .bootstrap-iso .pr-md-1,
   .bootstrap-iso .px-md-1 {
-    padding-right: 2.5px !important;
+    padding-right: 0.25rem !important;
   }
   .bootstrap-iso .pb-md-1,
   .bootstrap-iso .py-md-1 {
-    padding-bottom: 2.5px !important;
+    padding-bottom: 0.25rem !important;
   }
   .bootstrap-iso .pl-md-1,
   .bootstrap-iso .px-md-1 {
-    padding-left: 2.5px !important;
+    padding-left: 0.25rem !important;
   }
   .bootstrap-iso .p-md-2 {
-    padding: 5px !important;
+    padding: 0.5rem !important;
   }
   .bootstrap-iso .pt-md-2,
   .bootstrap-iso .py-md-2 {
-    padding-top: 5px !important;
+    padding-top: 0.5rem !important;
   }
   .bootstrap-iso .pr-md-2,
   .bootstrap-iso .px-md-2 {
-    padding-right: 5px !important;
+    padding-right: 0.5rem !important;
   }
   .bootstrap-iso .pb-md-2,
   .bootstrap-iso .py-md-2 {
-    padding-bottom: 5px !important;
+    padding-bottom: 0.5rem !important;
   }
   .bootstrap-iso .pl-md-2,
   .bootstrap-iso .px-md-2 {
-    padding-left: 5px !important;
+    padding-left: 0.5rem !important;
   }
   .bootstrap-iso .p-md-3 {
-    padding: 10px !important;
+    padding: 1rem !important;
   }
   .bootstrap-iso .pt-md-3,
   .bootstrap-iso .py-md-3 {
-    padding-top: 10px !important;
+    padding-top: 1rem !important;
   }
   .bootstrap-iso .pr-md-3,
   .bootstrap-iso .px-md-3 {
-    padding-right: 10px !important;
+    padding-right: 1rem !important;
   }
   .bootstrap-iso .pb-md-3,
   .bootstrap-iso .py-md-3 {
-    padding-bottom: 10px !important;
+    padding-bottom: 1rem !important;
   }
   .bootstrap-iso .pl-md-3,
   .bootstrap-iso .px-md-3 {
-    padding-left: 10px !important;
+    padding-left: 1rem !important;
   }
   .bootstrap-iso .p-md-4 {
-    padding: 15px !important;
+    padding: 1.5rem !important;
   }
   .bootstrap-iso .pt-md-4,
   .bootstrap-iso .py-md-4 {
-    padding-top: 15px !important;
+    padding-top: 1.5rem !important;
   }
   .bootstrap-iso .pr-md-4,
   .bootstrap-iso .px-md-4 {
-    padding-right: 15px !important;
+    padding-right: 1.5rem !important;
   }
   .bootstrap-iso .pb-md-4,
   .bootstrap-iso .py-md-4 {
-    padding-bottom: 15px !important;
+    padding-bottom: 1.5rem !important;
   }
   .bootstrap-iso .pl-md-4,
   .bootstrap-iso .px-md-4 {
-    padding-left: 15px !important;
+    padding-left: 1.5rem !important;
   }
   .bootstrap-iso .p-md-5 {
-    padding: 30px !important;
+    padding: 3rem !important;
   }
   .bootstrap-iso .pt-md-5,
   .bootstrap-iso .py-md-5 {
-    padding-top: 30px !important;
+    padding-top: 3rem !important;
   }
   .bootstrap-iso .pr-md-5,
   .bootstrap-iso .px-md-5 {
-    padding-right: 30px !important;
+    padding-right: 3rem !important;
   }
   .bootstrap-iso .pb-md-5,
   .bootstrap-iso .py-md-5 {
-    padding-bottom: 30px !important;
+    padding-bottom: 3rem !important;
   }
   .bootstrap-iso .pl-md-5,
   .bootstrap-iso .px-md-5 {
-    padding-left: 30px !important;
+    padding-left: 3rem !important;
   }
   .bootstrap-iso .m-md-auto {
     margin: auto !important;
@@ -7537,99 +7537,99 @@
     margin-left: 0 !important;
   }
   .bootstrap-iso .m-lg-1 {
-    margin: 2.5px !important;
+    margin: 0.25rem !important;
   }
   .bootstrap-iso .mt-lg-1,
   .bootstrap-iso .my-lg-1 {
-    margin-top: 2.5px !important;
+    margin-top: 0.25rem !important;
   }
   .bootstrap-iso .mr-lg-1,
   .bootstrap-iso .mx-lg-1 {
-    margin-right: 2.5px !important;
+    margin-right: 0.25rem !important;
   }
   .bootstrap-iso .mb-lg-1,
   .bootstrap-iso .my-lg-1 {
-    margin-bottom: 2.5px !important;
+    margin-bottom: 0.25rem !important;
   }
   .bootstrap-iso .ml-lg-1,
   .bootstrap-iso .mx-lg-1 {
-    margin-left: 2.5px !important;
+    margin-left: 0.25rem !important;
   }
   .bootstrap-iso .m-lg-2 {
-    margin: 5px !important;
+    margin: 0.5rem !important;
   }
   .bootstrap-iso .mt-lg-2,
   .bootstrap-iso .my-lg-2 {
-    margin-top: 5px !important;
+    margin-top: 0.5rem !important;
   }
   .bootstrap-iso .mr-lg-2,
   .bootstrap-iso .mx-lg-2 {
-    margin-right: 5px !important;
+    margin-right: 0.5rem !important;
   }
   .bootstrap-iso .mb-lg-2,
   .bootstrap-iso .my-lg-2 {
-    margin-bottom: 5px !important;
+    margin-bottom: 0.5rem !important;
   }
   .bootstrap-iso .ml-lg-2,
   .bootstrap-iso .mx-lg-2 {
-    margin-left: 5px !important;
+    margin-left: 0.5rem !important;
   }
   .bootstrap-iso .m-lg-3 {
-    margin: 10px !important;
+    margin: 1rem !important;
   }
   .bootstrap-iso .mt-lg-3,
   .bootstrap-iso .my-lg-3 {
-    margin-top: 10px !important;
+    margin-top: 1rem !important;
   }
   .bootstrap-iso .mr-lg-3,
   .bootstrap-iso .mx-lg-3 {
-    margin-right: 10px !important;
+    margin-right: 1rem !important;
   }
   .bootstrap-iso .mb-lg-3,
   .bootstrap-iso .my-lg-3 {
-    margin-bottom: 10px !important;
+    margin-bottom: 1rem !important;
   }
   .bootstrap-iso .ml-lg-3,
   .bootstrap-iso .mx-lg-3 {
-    margin-left: 10px !important;
+    margin-left: 1rem !important;
   }
   .bootstrap-iso .m-lg-4 {
-    margin: 15px !important;
+    margin: 1.5rem !important;
   }
   .bootstrap-iso .mt-lg-4,
   .bootstrap-iso .my-lg-4 {
-    margin-top: 15px !important;
+    margin-top: 1.5rem !important;
   }
   .bootstrap-iso .mr-lg-4,
   .bootstrap-iso .mx-lg-4 {
-    margin-right: 15px !important;
+    margin-right: 1.5rem !important;
   }
   .bootstrap-iso .mb-lg-4,
   .bootstrap-iso .my-lg-4 {
-    margin-bottom: 15px !important;
+    margin-bottom: 1.5rem !important;
   }
   .bootstrap-iso .ml-lg-4,
   .bootstrap-iso .mx-lg-4 {
-    margin-left: 15px !important;
+    margin-left: 1.5rem !important;
   }
   .bootstrap-iso .m-lg-5 {
-    margin: 30px !important;
+    margin: 3rem !important;
   }
   .bootstrap-iso .mt-lg-5,
   .bootstrap-iso .my-lg-5 {
-    margin-top: 30px !important;
+    margin-top: 3rem !important;
   }
   .bootstrap-iso .mr-lg-5,
   .bootstrap-iso .mx-lg-5 {
-    margin-right: 30px !important;
+    margin-right: 3rem !important;
   }
   .bootstrap-iso .mb-lg-5,
   .bootstrap-iso .my-lg-5 {
-    margin-bottom: 30px !important;
+    margin-bottom: 3rem !important;
   }
   .bootstrap-iso .ml-lg-5,
   .bootstrap-iso .mx-lg-5 {
-    margin-left: 30px !important;
+    margin-left: 3rem !important;
   }
   .bootstrap-iso .p-lg-0 {
     padding: 0 !important;
@@ -7651,99 +7651,99 @@
     padding-left: 0 !important;
   }
   .bootstrap-iso .p-lg-1 {
-    padding: 2.5px !important;
+    padding: 0.25rem !important;
   }
   .bootstrap-iso .pt-lg-1,
   .bootstrap-iso .py-lg-1 {
-    padding-top: 2.5px !important;
+    padding-top: 0.25rem !important;
   }
   .bootstrap-iso .pr-lg-1,
   .bootstrap-iso .px-lg-1 {
-    padding-right: 2.5px !important;
+    padding-right: 0.25rem !important;
   }
   .bootstrap-iso .pb-lg-1,
   .bootstrap-iso .py-lg-1 {
-    padding-bottom: 2.5px !important;
+    padding-bottom: 0.25rem !important;
   }
   .bootstrap-iso .pl-lg-1,
   .bootstrap-iso .px-lg-1 {
-    padding-left: 2.5px !important;
+    padding-left: 0.25rem !important;
   }
   .bootstrap-iso .p-lg-2 {
-    padding: 5px !important;
+    padding: 0.5rem !important;
   }
   .bootstrap-iso .pt-lg-2,
   .bootstrap-iso .py-lg-2 {
-    padding-top: 5px !important;
+    padding-top: 0.5rem !important;
   }
   .bootstrap-iso .pr-lg-2,
   .bootstrap-iso .px-lg-2 {
-    padding-right: 5px !important;
+    padding-right: 0.5rem !important;
   }
   .bootstrap-iso .pb-lg-2,
   .bootstrap-iso .py-lg-2 {
-    padding-bottom: 5px !important;
+    padding-bottom: 0.5rem !important;
   }
   .bootstrap-iso .pl-lg-2,
   .bootstrap-iso .px-lg-2 {
-    padding-left: 5px !important;
+    padding-left: 0.5rem !important;
   }
   .bootstrap-iso .p-lg-3 {
-    padding: 10px !important;
+    padding: 1rem !important;
   }
   .bootstrap-iso .pt-lg-3,
   .bootstrap-iso .py-lg-3 {
-    padding-top: 10px !important;
+    padding-top: 1rem !important;
   }
   .bootstrap-iso .pr-lg-3,
   .bootstrap-iso .px-lg-3 {
-    padding-right: 10px !important;
+    padding-right: 1rem !important;
   }
   .bootstrap-iso .pb-lg-3,
   .bootstrap-iso .py-lg-3 {
-    padding-bottom: 10px !important;
+    padding-bottom: 1rem !important;
   }
   .bootstrap-iso .pl-lg-3,
   .bootstrap-iso .px-lg-3 {
-    padding-left: 10px !important;
+    padding-left: 1rem !important;
   }
   .bootstrap-iso .p-lg-4 {
-    padding: 15px !important;
+    padding: 1.5rem !important;
   }
   .bootstrap-iso .pt-lg-4,
   .bootstrap-iso .py-lg-4 {
-    padding-top: 15px !important;
+    padding-top: 1.5rem !important;
   }
   .bootstrap-iso .pr-lg-4,
   .bootstrap-iso .px-lg-4 {
-    padding-right: 15px !important;
+    padding-right: 1.5rem !important;
   }
   .bootstrap-iso .pb-lg-4,
   .bootstrap-iso .py-lg-4 {
-    padding-bottom: 15px !important;
+    padding-bottom: 1.5rem !important;
   }
   .bootstrap-iso .pl-lg-4,
   .bootstrap-iso .px-lg-4 {
-    padding-left: 15px !important;
+    padding-left: 1.5rem !important;
   }
   .bootstrap-iso .p-lg-5 {
-    padding: 30px !important;
+    padding: 3rem !important;
   }
   .bootstrap-iso .pt-lg-5,
   .bootstrap-iso .py-lg-5 {
-    padding-top: 30px !important;
+    padding-top: 3rem !important;
   }
   .bootstrap-iso .pr-lg-5,
   .bootstrap-iso .px-lg-5 {
-    padding-right: 30px !important;
+    padding-right: 3rem !important;
   }
   .bootstrap-iso .pb-lg-5,
   .bootstrap-iso .py-lg-5 {
-    padding-bottom: 30px !important;
+    padding-bottom: 3rem !important;
   }
   .bootstrap-iso .pl-lg-5,
   .bootstrap-iso .px-lg-5 {
-    padding-left: 30px !important;
+    padding-left: 3rem !important;
   }
   .bootstrap-iso .m-lg-auto {
     margin: auto !important;
@@ -7786,99 +7786,99 @@
     margin-left: 0 !important;
   }
   .bootstrap-iso .m-xl-1 {
-    margin: 2.5px !important;
+    margin: 0.25rem !important;
   }
   .bootstrap-iso .mt-xl-1,
   .bootstrap-iso .my-xl-1 {
-    margin-top: 2.5px !important;
+    margin-top: 0.25rem !important;
   }
   .bootstrap-iso .mr-xl-1,
   .bootstrap-iso .mx-xl-1 {
-    margin-right: 2.5px !important;
+    margin-right: 0.25rem !important;
   }
   .bootstrap-iso .mb-xl-1,
   .bootstrap-iso .my-xl-1 {
-    margin-bottom: 2.5px !important;
+    margin-bottom: 0.25rem !important;
   }
   .bootstrap-iso .ml-xl-1,
   .bootstrap-iso .mx-xl-1 {
-    margin-left: 2.5px !important;
+    margin-left: 0.25rem !important;
   }
   .bootstrap-iso .m-xl-2 {
-    margin: 5px !important;
+    margin: 0.5rem !important;
   }
   .bootstrap-iso .mt-xl-2,
   .bootstrap-iso .my-xl-2 {
-    margin-top: 5px !important;
+    margin-top: 0.5rem !important;
   }
   .bootstrap-iso .mr-xl-2,
   .bootstrap-iso .mx-xl-2 {
-    margin-right: 5px !important;
+    margin-right: 0.5rem !important;
   }
   .bootstrap-iso .mb-xl-2,
   .bootstrap-iso .my-xl-2 {
-    margin-bottom: 5px !important;
+    margin-bottom: 0.5rem !important;
   }
   .bootstrap-iso .ml-xl-2,
   .bootstrap-iso .mx-xl-2 {
-    margin-left: 5px !important;
+    margin-left: 0.5rem !important;
   }
   .bootstrap-iso .m-xl-3 {
-    margin: 10px !important;
+    margin: 1rem !important;
   }
   .bootstrap-iso .mt-xl-3,
   .bootstrap-iso .my-xl-3 {
-    margin-top: 10px !important;
+    margin-top: 1rem !important;
   }
   .bootstrap-iso .mr-xl-3,
   .bootstrap-iso .mx-xl-3 {
-    margin-right: 10px !important;
+    margin-right: 1rem !important;
   }
   .bootstrap-iso .mb-xl-3,
   .bootstrap-iso .my-xl-3 {
-    margin-bottom: 10px !important;
+    margin-bottom: 1rem !important;
   }
   .bootstrap-iso .ml-xl-3,
   .bootstrap-iso .mx-xl-3 {
-    margin-left: 10px !important;
+    margin-left: 1rem !important;
   }
   .bootstrap-iso .m-xl-4 {
-    margin: 15px !important;
+    margin: 1.5rem !important;
   }
   .bootstrap-iso .mt-xl-4,
   .bootstrap-iso .my-xl-4 {
-    margin-top: 15px !important;
+    margin-top: 1.5rem !important;
   }
   .bootstrap-iso .mr-xl-4,
   .bootstrap-iso .mx-xl-4 {
-    margin-right: 15px !important;
+    margin-right: 1.5rem !important;
   }
   .bootstrap-iso .mb-xl-4,
   .bootstrap-iso .my-xl-4 {
-    margin-bottom: 15px !important;
+    margin-bottom: 1.5rem !important;
   }
   .bootstrap-iso .ml-xl-4,
   .bootstrap-iso .mx-xl-4 {
-    margin-left: 15px !important;
+    margin-left: 1.5rem !important;
   }
   .bootstrap-iso .m-xl-5 {
-    margin: 30px !important;
+    margin: 3rem !important;
   }
   .bootstrap-iso .mt-xl-5,
   .bootstrap-iso .my-xl-5 {
-    margin-top: 30px !important;
+    margin-top: 3rem !important;
   }
   .bootstrap-iso .mr-xl-5,
   .bootstrap-iso .mx-xl-5 {
-    margin-right: 30px !important;
+    margin-right: 3rem !important;
   }
   .bootstrap-iso .mb-xl-5,
   .bootstrap-iso .my-xl-5 {
-    margin-bottom: 30px !important;
+    margin-bottom: 3rem !important;
   }
   .bootstrap-iso .ml-xl-5,
   .bootstrap-iso .mx-xl-5 {
-    margin-left: 30px !important;
+    margin-left: 3rem !important;
   }
   .bootstrap-iso .p-xl-0 {
     padding: 0 !important;
@@ -7900,99 +7900,99 @@
     padding-left: 0 !important;
   }
   .bootstrap-iso .p-xl-1 {
-    padding: 2.5px !important;
+    padding: 0.25rem !important;
   }
   .bootstrap-iso .pt-xl-1,
   .bootstrap-iso .py-xl-1 {
-    padding-top: 2.5px !important;
+    padding-top: 0.25rem !important;
   }
   .bootstrap-iso .pr-xl-1,
   .bootstrap-iso .px-xl-1 {
-    padding-right: 2.5px !important;
+    padding-right: 0.25rem !important;
   }
   .bootstrap-iso .pb-xl-1,
   .bootstrap-iso .py-xl-1 {
-    padding-bottom: 2.5px !important;
+    padding-bottom: 0.25rem !important;
   }
   .bootstrap-iso .pl-xl-1,
   .bootstrap-iso .px-xl-1 {
-    padding-left: 2.5px !important;
+    padding-left: 0.25rem !important;
   }
   .bootstrap-iso .p-xl-2 {
-    padding: 5px !important;
+    padding: 0.5rem !important;
   }
   .bootstrap-iso .pt-xl-2,
   .bootstrap-iso .py-xl-2 {
-    padding-top: 5px !important;
+    padding-top: 0.5rem !important;
   }
   .bootstrap-iso .pr-xl-2,
   .bootstrap-iso .px-xl-2 {
-    padding-right: 5px !important;
+    padding-right: 0.5rem !important;
   }
   .bootstrap-iso .pb-xl-2,
   .bootstrap-iso .py-xl-2 {
-    padding-bottom: 5px !important;
+    padding-bottom: 0.5rem !important;
   }
   .bootstrap-iso .pl-xl-2,
   .bootstrap-iso .px-xl-2 {
-    padding-left: 5px !important;
+    padding-left: 0.5rem !important;
   }
   .bootstrap-iso .p-xl-3 {
-    padding: 10px !important;
+    padding: 1rem !important;
   }
   .bootstrap-iso .pt-xl-3,
   .bootstrap-iso .py-xl-3 {
-    padding-top: 10px !important;
+    padding-top: 1rem !important;
   }
   .bootstrap-iso .pr-xl-3,
   .bootstrap-iso .px-xl-3 {
-    padding-right: 10px !important;
+    padding-right: 1rem !important;
   }
   .bootstrap-iso .pb-xl-3,
   .bootstrap-iso .py-xl-3 {
-    padding-bottom: 10px !important;
+    padding-bottom: 1rem !important;
   }
   .bootstrap-iso .pl-xl-3,
   .bootstrap-iso .px-xl-3 {
-    padding-left: 10px !important;
+    padding-left: 1rem !important;
   }
   .bootstrap-iso .p-xl-4 {
-    padding: 15px !important;
+    padding: 1.5rem !important;
   }
   .bootstrap-iso .pt-xl-4,
   .bootstrap-iso .py-xl-4 {
-    padding-top: 15px !important;
+    padding-top: 1.5rem !important;
   }
   .bootstrap-iso .pr-xl-4,
   .bootstrap-iso .px-xl-4 {
-    padding-right: 15px !important;
+    padding-right: 1.5rem !important;
   }
   .bootstrap-iso .pb-xl-4,
   .bootstrap-iso .py-xl-4 {
-    padding-bottom: 15px !important;
+    padding-bottom: 1.5rem !important;
   }
   .bootstrap-iso .pl-xl-4,
   .bootstrap-iso .px-xl-4 {
-    padding-left: 15px !important;
+    padding-left: 1.5rem !important;
   }
   .bootstrap-iso .p-xl-5 {
-    padding: 30px !important;
+    padding: 3rem !important;
   }
   .bootstrap-iso .pt-xl-5,
   .bootstrap-iso .py-xl-5 {
-    padding-top: 30px !important;
+    padding-top: 3rem !important;
   }
   .bootstrap-iso .pr-xl-5,
   .bootstrap-iso .px-xl-5 {
-    padding-right: 30px !important;
+    padding-right: 3rem !important;
   }
   .bootstrap-iso .pb-xl-5,
   .bootstrap-iso .py-xl-5 {
-    padding-bottom: 30px !important;
+    padding-bottom: 3rem !important;
   }
   .bootstrap-iso .pl-xl-5,
   .bootstrap-iso .px-xl-5 {
-    padding-left: 30px !important;
+    padding-left: 3rem !important;
   }
   .bootstrap-iso .m-xl-auto {
     margin: auto !important;
@@ -8105,57 +8105,57 @@
 .bootstrap-iso .text-primary {
   color: #007bff !important;
 }
-.bootstrap-iso a.text-primary:focus,
-.bootstrap-iso a.text-primary:hover {
+.bootstrap-iso a.text-primary:hover,
+.bootstrap-iso a.text-primary:focus {
   color: #0062cc !important;
 }
 .bootstrap-iso .text-secondary {
   color: #6c757d !important;
 }
-.bootstrap-iso a.text-secondary:focus,
-.bootstrap-iso a.text-secondary:hover {
+.bootstrap-iso a.text-secondary:hover,
+.bootstrap-iso a.text-secondary:focus {
   color: #545b62 !important;
 }
 .bootstrap-iso .text-success {
   color: #28a745 !important;
 }
-.bootstrap-iso a.text-success:focus,
-.bootstrap-iso a.text-success:hover {
+.bootstrap-iso a.text-success:hover,
+.bootstrap-iso a.text-success:focus {
   color: #1e7e34 !important;
 }
 .bootstrap-iso .text-info {
   color: #17a2b8 !important;
 }
-.bootstrap-iso a.text-info:focus,
-.bootstrap-iso a.text-info:hover {
+.bootstrap-iso a.text-info:hover,
+.bootstrap-iso a.text-info:focus {
   color: #117a8b !important;
 }
 .bootstrap-iso .text-warning {
   color: #ffc107 !important;
 }
-.bootstrap-iso a.text-warning:focus,
-.bootstrap-iso a.text-warning:hover {
+.bootstrap-iso a.text-warning:hover,
+.bootstrap-iso a.text-warning:focus {
   color: #d39e00 !important;
 }
 .bootstrap-iso .text-danger {
   color: #dc3545 !important;
 }
-.bootstrap-iso a.text-danger:focus,
-.bootstrap-iso a.text-danger:hover {
+.bootstrap-iso a.text-danger:hover,
+.bootstrap-iso a.text-danger:focus {
   color: #bd2130 !important;
 }
 .bootstrap-iso .text-light {
   color: #f8f9fa !important;
 }
-.bootstrap-iso a.text-light:focus,
-.bootstrap-iso a.text-light:hover {
+.bootstrap-iso a.text-light:hover,
+.bootstrap-iso a.text-light:focus {
   color: #dae0e5 !important;
 }
 .bootstrap-iso .text-dark {
   color: #343a40 !important;
 }
-.bootstrap-iso a.text-dark:focus,
-.bootstrap-iso a.text-dark:hover {
+.bootstrap-iso a.text-dark:hover,
+.bootstrap-iso a.text-dark:focus {
   color: #1d2124 !important;
 }
 .bootstrap-iso .text-muted {
@@ -8176,9 +8176,9 @@
 }
 @media print {
   .bootstrap-iso *,
-  .bootstrap-iso ::after,
-  .bootstrap-iso ::before {
-    text-shadow: none!important;
+  .bootstrap-iso *::before,
+  .bootstrap-iso *::after {
+    text-shadow: none !important;
     box-shadow: none !important;
   }
   .bootstrap-iso a:not(.btn) {
@@ -8190,21 +8190,21 @@
   .bootstrap-iso pre {
     white-space: pre-wrap !important;
   }
-  .bootstrap-iso blockquote,
-  .bootstrap-iso pre {
+  .bootstrap-iso pre,
+  .bootstrap-iso blockquote {
     border: 1px solid #999;
     page-break-inside: avoid;
   }
   .bootstrap-iso thead {
     display: table-header-group;
   }
-  .bootstrap-iso img,
-  .bootstrap-iso tr {
+  .bootstrap-iso tr,
+  .bootstrap-iso img {
     page-break-inside: avoid;
   }
+  .bootstrap-iso p,
   .bootstrap-iso h2,
-  .bootstrap-iso h3,
-  .bootstrap-iso p {
+  .bootstrap-iso h3 {
     orphans: 3;
     widows: 3;
   }
@@ -8234,8 +8234,8 @@
   .bootstrap-iso .table th {
     background-color: #fff !important;
   }
-  .bootstrap-iso .table-bordered td,
-  .bootstrap-iso .table-bordered th {
+  .bootstrap-iso .table-bordered th,
+  .bootstrap-iso .table-bordered td {
     border: 1px solid #ddd !important;
   }
 }
