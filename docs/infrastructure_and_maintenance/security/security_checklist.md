@@ -94,6 +94,10 @@ Introduce a measure against brute force login attacks (captcha, etc.).
 If you are using Fastly, disable Varnish.
 See [Security advisory: EZSA-2020-002.](https://developers.ibexa.co/security-advisories/ezsa-2020-002-unauthorised-cache-purge-with-misconfigured-fastly)
 
+### Block upload of unwanted file types
+
+Go through `ibexa.site_access.config.default.io.file_storage.file_type_blacklist` defined in `Core/Resources/config/default_settings.yml` and verify that it includes all file types you want to block from being uploaded, and no others.
+
 ### Block execution of scripts in `var` directory
 
 Make sure the web server blocks the execution of PHP files and other scripts in the `var` directory.
