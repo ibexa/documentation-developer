@@ -34,8 +34,8 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-  --font-family-monospace: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 .bootstrap-iso *,
 .bootstrap-iso ::after,
@@ -126,7 +126,7 @@
   font-weight: 700;
 }
 .bootstrap-iso dd {
-  margin-bottom: 0.5rem;
+  margin-bottom: .5rem;
   margin-left: 0;
 }
 .bootstrap-iso blockquote {
@@ -204,8 +204,8 @@
   border-collapse: collapse;
 }
 .bootstrap-iso caption {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
+  padding-top: .75rem;
+  padding-bottom: .75rem;
   color: #6c757d;
   text-align: left;
   caption-side: bottom;
@@ -281,7 +281,7 @@
   width: 100%;
   max-width: 100%;
   padding: 0;
-  margin-bottom: 0.5rem;
+  margin-bottom: .5rem;
   font-size: 1.5rem;
   line-height: inherit;
   color: inherit;
@@ -331,7 +331,7 @@
 .bootstrap-iso h4,
 .bootstrap-iso h5,
 .bootstrap-iso h6 {
-  margin-bottom: 0.5rem;
+  margin-bottom: .5rem;
   font-family: inherit;
   font-weight: 500;
   line-height: 1.2;
@@ -398,7 +398,7 @@
 }
 .bootstrap-iso .mark,
 .bootstrap-iso mark {
-  padding: 0.2em;
+  padding: .2em;
   background-color: #fcf8e3;
 }
 .bootstrap-iso .list-unstyled {
@@ -436,10 +436,10 @@
   height: auto;
 }
 .bootstrap-iso .img-thumbnail {
-  padding: 0.25rem;
+  padding: .25rem;
   background-color: #fff;
   border: 1px solid #dee2e6;
-  border-radius: 0.25rem;
+  border-radius: .25rem;
   max-width: 100%;
   height: auto;
 }
@@ -447,7 +447,7 @@
   display: inline-block;
 }
 .bootstrap-iso .figure-img {
-  margin-bottom: 0.5rem;
+  margin-bottom: .5rem;
   line-height: 1;
 }
 .bootstrap-iso .figure-caption {
@@ -469,7 +469,7 @@
   color: inherit;
 }
 .bootstrap-iso kbd {
-  padding: 0.2rem 0.4rem;
+  padding: .2rem .4rem;
   font-size: 87.5%;
   color: #fff;
   background-color: #212529;
@@ -1625,7 +1625,7 @@
 }
 .bootstrap-iso .table td,
 .bootstrap-iso .table th {
-  padding: 0.75rem;
+  padding: .75rem;
   vertical-align: top;
   border-top: 1px solid #dee2e6;
 }
@@ -1857,14 +1857,14 @@
 .bootstrap-iso .form-control {
   display: block;
   width: 100%;
-  padding: 0.375rem 0.75rem;
+  padding: .375rem .75rem;
   font-size: 1rem;
   line-height: 1.5;
   color: #495057;
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid #ced4da;
-  border-radius: 0.25rem;
+  border-radius: .25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 .bootstrap-iso .form-control::-ms-expand {
@@ -1931,14 +1931,14 @@
 .bootstrap-iso .col-form-label-sm {
   padding-top: calc(0.25rem + 1px);
   padding-bottom: calc(0.25rem + 1px);
-  font-size: 0.875rem;
+  font-size: .875rem;
   line-height: 1.5;
 }
 .bootstrap-iso .form-control-plaintext {
   display: block;
   width: 100%;
-  padding-top: 0.375rem;
-  padding-bottom: 0.375rem;
+  padding-top: .375rem;
+  padding-bottom: .375rem;
   margin-bottom: 0;
   line-height: 1.5;
   background-color: transparent;
@@ -1966,8 +1966,8 @@
 .bootstrap-iso .input-group-sm > .input-group-append > .input-group-text,
 .bootstrap-iso .input-group-sm > .input-group-prepend > .btn,
 .bootstrap-iso .input-group-sm > .input-group-prepend > .input-group-text {
-  padding: 0.25rem 0.5rem;
-  font-size: 0.875rem;
+  padding: .25rem .5rem;
+  font-size: .875rem;
   line-height: 1.5;
   border-radius: 0.2rem;
 }
@@ -1985,7 +1985,7 @@
 .bootstrap-iso .input-group-lg > .input-group-append > .input-group-text,
 .bootstrap-iso .input-group-lg > .input-group-prepend > .btn,
 .bootstrap-iso .input-group-lg > .input-group-prepend > .input-group-text {
-  padding: 0.5rem 1rem;
+  padding: .5rem 1rem;
   font-size: 1.25rem;
   line-height: 1.5;
   border-radius: 0.3rem;
@@ -2026,7 +2026,7 @@
 }
 .bootstrap-iso .form-check-input {
   position: absolute;
-  margin-top: 0.3rem;
+  margin-top: .3rem;
   margin-left: -1.25rem;
 }
 .bootstrap-iso .form-check-input:disabled ~ .form-check-label {
@@ -2048,13 +2048,13 @@
 .bootstrap-iso .form-check-inline .form-check-input {
   position: static;
   margin-top: 0;
-  margin-right: 0.3125rem;
+  margin-right: .3125rem;
   margin-left: 0;
 }
 .bootstrap-iso .valid-feedback {
   display: none;
   width: 100%;
-  margin-top: 0.25rem;
+  margin-top: .25rem;
   font-size: 80%;
   color: #28a745;
 }
@@ -2064,9 +2064,9 @@
   z-index: 5;
   display: none;
   max-width: 100%;
-  padding: 0.5rem;
-  margin-top: 0.1rem;
-  font-size: 0.875rem;
+  padding: .5rem;
+  margin-top: .1rem;
+  font-size: .875rem;
   line-height: 1;
   color: #fff;
   background-color: rgba(40, 167, 69, 0.8);
@@ -2148,7 +2148,7 @@
 .bootstrap-iso .invalid-feedback {
   display: none;
   width: 100%;
-  margin-top: 0.25rem;
+  margin-top: .25rem;
   font-size: 80%;
   color: #dc3545;
 }
@@ -2158,9 +2158,9 @@
   z-index: 5;
   display: none;
   max-width: 100%;
-  padding: 0.5rem;
-  margin-top: 0.1rem;
-  font-size: 0.875rem;
+  padding: .5rem;
+  margin-top: .1rem;
+  font-size: .875rem;
   line-height: 1;
   color: #fff;
   background-color: rgba(220, 53, 69, 0.8);
@@ -2310,7 +2310,7 @@
   .bootstrap-iso .form-inline .form-check-input {
     position: relative;
     margin-top: 0;
-    margin-right: 0.25rem;
+    margin-right: .25rem;
     margin-left: 0;
   }
   .bootstrap-iso .form-inline .custom-control {
@@ -2336,10 +2336,10 @@
   -ms-user-select: none;
   user-select: none;
   border: 1px solid transparent;
-  padding: 0.375rem 0.75rem;
+  padding: .375rem .75rem;
   font-size: 1rem;
   line-height: 1.5;
-  border-radius: 0.25rem;
+  border-radius: .25rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 .bootstrap-iso .btn:focus,
@@ -2901,15 +2901,15 @@
 }
 .bootstrap-iso .btn-group-lg > .btn,
 .bootstrap-iso .btn-lg {
-  padding: 0.5rem 1rem;
+  padding: .5rem 1rem;
   font-size: 1.25rem;
   line-height: 1.5;
   border-radius: 0.3rem;
 }
 .bootstrap-iso .btn-group-sm > .btn,
 .bootstrap-iso .btn-sm {
-  padding: 0.25rem 0.5rem;
-  font-size: 0.875rem;
+  padding: .25rem .5rem;
+  font-size: .875rem;
   line-height: 1.5;
   border-radius: 0.2rem;
 }
@@ -2958,11 +2958,11 @@
   display: inline-block;
   width: 0;
   height: 0;
-  margin-left: 0.255em;
-  vertical-align: 0.255em;
+  margin-left: .255em;
+  vertical-align: .255em;
   content: "";
-  border-top: 0.3em solid;
-  border-right: 0.3em solid transparent;
+  border-top: .3em solid;
+  border-right: .3em solid transparent;
   border-bottom: 0;
   border-left: 0.3em solid transparent;
 }
@@ -2977,8 +2977,8 @@
   display: none;
   float: left;
   min-width: 10rem;
-  padding: 0.5rem 0;
-  margin: 0.125rem 0 0;
+  padding: .5rem 0;
+  margin: .125rem 0 0;
   font-size: 1rem;
   color: #212529;
   text-align: left;
@@ -2996,12 +2996,12 @@
   display: inline-block;
   width: 0;
   height: 0;
-  margin-left: 0.255em;
-  vertical-align: 0.255em;
+  margin-left: .255em;
+  vertical-align: .255em;
   content: "";
   border-top: 0;
-  border-right: 0.3em solid transparent;
-  border-bottom: 0.3em solid;
+  border-right: .3em solid transparent;
+  border-bottom: .3em solid;
   border-left: 0.3em solid transparent;
 }
 .bootstrap-iso .dropup .dropdown-toggle:empty::after {
@@ -3015,11 +3015,11 @@
   display: inline-block;
   width: 0;
   height: 0;
-  margin-left: 0.255em;
-  vertical-align: 0.255em;
+  margin-left: .255em;
+  vertical-align: .255em;
   content: "";
-  border-top: 0.3em solid transparent;
-  border-bottom: 0.3em solid transparent;
+  border-top: .3em solid transparent;
+  border-bottom: .3em solid transparent;
   border-left: 0.3em solid;
 }
 .bootstrap-iso .dropright .dropdown-toggle:empty::after {
@@ -3036,8 +3036,8 @@
   display: inline-block;
   width: 0;
   height: 0;
-  margin-left: 0.255em;
-  vertical-align: 0.255em;
+  margin-left: .255em;
+  vertical-align: .255em;
   content: "";
 }
 .bootstrap-iso .dropleft .dropdown-toggle::after {
@@ -3047,11 +3047,11 @@
   display: inline-block;
   width: 0;
   height: 0;
-  margin-right: 0.255em;
-  vertical-align: 0.255em;
+  margin-right: .255em;
+  vertical-align: .255em;
   content: "";
-  border-top: 0.3em solid transparent;
-  border-right: 0.3em solid;
+  border-top: .3em solid transparent;
+  border-right: .3em solid;
   border-bottom: 0.3em solid transparent;
 }
 .bootstrap-iso .dropleft .dropdown-toggle:empty::after {
@@ -3062,14 +3062,14 @@
 }
 .bootstrap-iso .dropdown-divider {
   height: 0;
-  margin: 0.5rem 0;
+  margin: .5rem 0;
   overflow: hidden;
   border-top: 1px solid #e9ecef;
 }
 .bootstrap-iso .dropdown-item {
   display: block;
   width: 100%;
-  padding: 0.25rem 1.5rem;
+  padding: .25rem 1.5rem;
   clear: both;
   font-weight: 400;
   color: #212529;
@@ -3100,9 +3100,9 @@
 }
 .bootstrap-iso .dropdown-header {
   display: block;
-  padding: 0.5rem 1.5rem;
+  padding: .5rem 1.5rem;
   margin-bottom: 0;
-  font-size: 0.875rem;
+  font-size: .875rem;
   color: #6c757d;
   white-space: nowrap;
 }
@@ -3170,7 +3170,7 @@
   border-bottom-left-radius: 0;
 }
 .bootstrap-iso .dropdown-toggle-split {
-  padding-right: 0.5625rem;
+  padding-right: .5625rem;
   padding-left: 0.5625rem;
 }
 .bootstrap-iso .dropdown-toggle-split::after {
@@ -3178,12 +3178,12 @@
 }
 .bootstrap-iso .btn-group-sm > .btn + .dropdown-toggle-split,
 .bootstrap-iso .btn-sm + .dropdown-toggle-split {
-  padding-right: 0.375rem;
+  padding-right: .375rem;
   padding-left: 0.375rem;
 }
 .bootstrap-iso .btn-group-lg > .btn + .dropdown-toggle-split,
 .bootstrap-iso .btn-lg + .dropdown-toggle-split {
-  padding-right: 0.75rem;
+  padding-right: .75rem;
   padding-left: 0.75rem;
 }
 .bootstrap-iso .btn-group-vertical {
@@ -3331,7 +3331,7 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  padding: 0.375rem 0.75rem;
+  padding: .375rem .75rem;
   margin-bottom: 0;
   font-size: 1rem;
   font-weight: 400;
@@ -3404,7 +3404,7 @@
 }
 .bootstrap-iso .custom-control-label::before {
   position: absolute;
-  top: 0.25rem;
+  top: .25rem;
   left: 0;
   display: block;
   width: 1rem;
@@ -3419,7 +3419,7 @@
 }
 .bootstrap-iso .custom-control-label::after {
   position: absolute;
-  top: 0.25rem;
+  top: .25rem;
   left: 0;
   display: block;
   width: 1rem;
@@ -3466,14 +3466,14 @@
   display: inline-block;
   width: 100%;
   height: calc(2.25rem + 2px);
-  padding: 0.375rem 1.75rem 0.375rem 0.75rem;
+  padding: .375rem 1.75rem .375rem .75rem;
   line-height: 1.5;
   color: #495057;
   vertical-align: middle;
   background: #fff url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E") no-repeat right 0.75rem center;
   background-size: 8px 10px;
   border: 1px solid #ced4da;
-  border-radius: 0.25rem;
+  border-radius: .25rem;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -3490,7 +3490,7 @@
 .bootstrap-iso .custom-select[multiple],
 .bootstrap-iso .custom-select[size]:not([size="1"]) {
   height: auto;
-  padding-right: 0.75rem;
+  padding-right: .75rem;
   background-image: none;
 }
 .bootstrap-iso .custom-select:disabled {
@@ -3502,14 +3502,14 @@
 }
 .bootstrap-iso .custom-select-sm {
   height: calc(1.8125rem + 2px);
-  padding-top: 0.375rem;
-  padding-bottom: 0.375rem;
+  padding-top: .375rem;
+  padding-bottom: .375rem;
   font-size: 75%;
 }
 .bootstrap-iso .custom-select-lg {
   height: calc(2.875rem + 2px);
-  padding-top: 0.375rem;
-  padding-bottom: 0.375rem;
+  padding-top: .375rem;
+  padding-bottom: .375rem;
   font-size: 125%;
 }
 .bootstrap-iso .custom-file {
@@ -3544,7 +3544,7 @@
   left: 0;
   z-index: 1;
   height: calc(2.25rem + 2px);
-  padding: 0.375rem 0.75rem;
+  padding: .375rem .75rem;
   line-height: 1.5;
   color: #495057;
   background-color: #fff;
@@ -3559,7 +3559,7 @@
   z-index: 3;
   display: block;
   height: calc(calc(2.25rem + 2px) - 1px * 2);
-  padding: 0.375rem 0.75rem;
+  padding: .375rem .75rem;
   line-height: 1.5;
   color: #495057;
   content: "Browse";
@@ -3596,7 +3596,7 @@
 }
 .bootstrap-iso .nav-tabs .nav-link {
   border: 1px solid transparent;
-  border-top-left-radius: 0.25rem;
+  border-top-left-radius: .25rem;
   border-top-right-radius: 0.25rem;
 }
 .bootstrap-iso .nav-tabs .nav-link:focus,
@@ -3678,8 +3678,8 @@
 }
 .bootstrap-iso .navbar-brand {
   display: inline-block;
-  padding-top: 0.3125rem;
-  padding-bottom: 0.3125rem;
+  padding-top: .3125rem;
+  padding-bottom: .3125rem;
   margin-right: 1rem;
   font-size: 1.25rem;
   line-height: inherit;
@@ -3711,7 +3711,7 @@
 }
 .bootstrap-iso .navbar-text {
   display: inline-block;
-  padding-top: 0.5rem;
+  padding-top: .5rem;
   padding-bottom: 0.5rem;
 }
 .bootstrap-iso .navbar-collapse {
@@ -3725,7 +3725,7 @@
   align-items: center;
 }
 .bootstrap-iso .navbar-toggler {
-  padding: 0.25rem 0.75rem;
+  padding: .25rem .75rem;
   font-size: 1.25rem;
   line-height: 1;
   background-color: transparent;
@@ -3779,7 +3779,7 @@
     left: auto;
   }
   .bootstrap-iso .navbar-expand-sm .navbar-nav .nav-link {
-    padding-right: 0.5rem;
+    padding-right: .5rem;
     padding-left: 0.5rem;
   }
   .bootstrap-iso .navbar-expand-sm > .container,
@@ -3833,7 +3833,7 @@
     left: auto;
   }
   .bootstrap-iso .navbar-expand-md .navbar-nav .nav-link {
-    padding-right: 0.5rem;
+    padding-right: .5rem;
     padding-left: 0.5rem;
   }
   .bootstrap-iso .navbar-expand-md > .container,
@@ -3887,7 +3887,7 @@
     left: auto;
   }
   .bootstrap-iso .navbar-expand-lg .navbar-nav .nav-link {
-    padding-right: 0.5rem;
+    padding-right: .5rem;
     padding-left: 0.5rem;
   }
   .bootstrap-iso .navbar-expand-lg > .container,
@@ -3941,7 +3941,7 @@
     left: auto;
   }
   .bootstrap-iso .navbar-expand-xl .navbar-nav .nav-link {
-    padding-right: 0.5rem;
+    padding-right: .5rem;
     padding-left: 0.5rem;
   }
   .bootstrap-iso .navbar-expand-xl > .container,
@@ -3992,7 +3992,7 @@
   left: auto;
 }
 .bootstrap-iso .navbar-expand .navbar-nav .nav-link {
-  padding-right: 0.5rem;
+  padding-right: .5rem;
   padding-left: 0.5rem;
 }
 .bootstrap-iso .navbar-expand > .container,
@@ -4115,11 +4115,11 @@
   margin-left: 0;
 }
 .bootstrap-iso .card > .list-group:first-child .list-group-item:first-child {
-  border-top-left-radius: 0.25rem;
+  border-top-left-radius: .25rem;
   border-top-right-radius: 0.25rem;
 }
 .bootstrap-iso .card > .list-group:last-child .list-group-item:last-child {
-  border-bottom-right-radius: 0.25rem;
+  border-bottom-right-radius: .25rem;
   border-bottom-left-radius: 0.25rem;
 }
 .bootstrap-iso .card-body {
@@ -4145,7 +4145,7 @@
   margin-left: 1.25rem;
 }
 .bootstrap-iso .card-header {
-  padding: 0.75rem 1.25rem;
+  padding: .75rem 1.25rem;
   margin-bottom: 0;
   background-color: rgba(0, 0, 0, 0.03);
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
@@ -4157,7 +4157,7 @@
   border-top: 0;
 }
 .bootstrap-iso .card-footer {
-  padding: 0.75rem 1.25rem;
+  padding: .75rem 1.25rem;
   background-color: rgba(0, 0, 0, 0.03);
   border-top: 1px solid rgba(0, 0, 0, 0.125);
 }
@@ -4291,12 +4291,12 @@
   }
   .bootstrap-iso .card-group > .card:only-child .card-header,
   .bootstrap-iso .card-group > .card:only-child .card-img-top {
-    border-top-left-radius: 0.25rem;
+    border-top-left-radius: .25rem;
     border-top-right-radius: 0.25rem;
   }
   .bootstrap-iso .card-group > .card:only-child .card-footer,
   .bootstrap-iso .card-group > .card:only-child .card-img-bottom {
-    border-bottom-right-radius: 0.25rem;
+    border-bottom-right-radius: .25rem;
     border-bottom-left-radius: 0.25rem;
   }
   .bootstrap-iso .card-group > .card:not(:first-child):not(:last-child):not(:only-child) {
@@ -4332,7 +4332,7 @@
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  padding: 0.75rem 1rem;
+  padding: .75rem 1rem;
   margin-bottom: 1rem;
   list-style: none;
   background-color: #e9ecef;
@@ -4340,8 +4340,8 @@
 }
 .bootstrap-iso .breadcrumb-item + .breadcrumb-item::before {
   display: inline-block;
-  padding-right: 0.5rem;
-  padding-left: 0.5rem;
+  padding-right: .5rem;
+  padding-left: .5rem;
   color: #6c757d;
   content: "/";
 }
@@ -4365,7 +4365,7 @@
 .bootstrap-iso .page-link {
   position: relative;
   display: block;
-  padding: 0.5rem 0.75rem;
+  padding: .5rem .75rem;
   margin-left: -1px;
   line-height: 1.25;
   color: #007bff;
@@ -4388,11 +4388,11 @@
 }
 .bootstrap-iso .page-item:first-child .page-link {
   margin-left: 0;
-  border-top-left-radius: 0.25rem;
+  border-top-left-radius: .25rem;
   border-bottom-left-radius: 0.25rem;
 }
 .bootstrap-iso .page-item:last-child .page-link {
-  border-top-right-radius: 0.25rem;
+  border-top-right-radius: .25rem;
   border-bottom-right-radius: 0.25rem;
 }
 .bootstrap-iso .page-item.active .page-link {
@@ -4409,34 +4409,34 @@
   border-color: #dee2e6;
 }
 .bootstrap-iso .pagination-lg .page-link {
-  padding: 0.75rem 1.5rem;
+  padding: .75rem 1.5rem;
   font-size: 1.25rem;
   line-height: 1.5;
 }
 .bootstrap-iso .pagination-lg .page-item:first-child .page-link {
-  border-top-left-radius: 0.3rem;
+  border-top-left-radius: .3rem;
   border-bottom-left-radius: 0.3rem;
 }
 .bootstrap-iso .pagination-lg .page-item:last-child .page-link {
-  border-top-right-radius: 0.3rem;
+  border-top-right-radius: .3rem;
   border-bottom-right-radius: 0.3rem;
 }
 .bootstrap-iso .pagination-sm .page-link {
-  padding: 0.25rem 0.5rem;
-  font-size: 0.875rem;
+  padding: .25rem .5rem;
+  font-size: .875rem;
   line-height: 1.5;
 }
 .bootstrap-iso .pagination-sm .page-item:first-child .page-link {
-  border-top-left-radius: 0.2rem;
+  border-top-left-radius: .2rem;
   border-bottom-left-radius: 0.2rem;
 }
 .bootstrap-iso .pagination-sm .page-item:last-child .page-link {
-  border-top-right-radius: 0.2rem;
+  border-top-right-radius: .2rem;
   border-bottom-right-radius: 0.2rem;
 }
 .bootstrap-iso .badge {
   display: inline-block;
-  padding: 0.25em 0.4em;
+  padding: .25em .4em;
   font-size: 75%;
   font-weight: 700;
   line-height: 1;
@@ -4453,8 +4453,8 @@
   top: -1px;
 }
 .bootstrap-iso .badge-pill {
-  padding-right: 0.6em;
-  padding-left: 0.6em;
+  padding-right: .6em;
+  padding-left: .6em;
   border-radius: 10rem;
 }
 .bootstrap-iso .badge-primary {
@@ -4555,7 +4555,7 @@
 }
 .bootstrap-iso .alert {
   position: relative;
-  padding: 0.75rem 1.25rem;
+  padding: .75rem 1.25rem;
   margin-bottom: 1rem;
   border: 1px solid transparent;
   border-radius: 0.25rem;
@@ -4573,7 +4573,7 @@
   position: absolute;
   top: 0;
   right: 0;
-  padding: 0.75rem 1.25rem;
+  padding: .75rem 1.25rem;
   color: inherit;
 }
 .bootstrap-iso .alert-primary {
@@ -4686,7 +4686,7 @@
   display: flex;
   height: 1rem;
   overflow: hidden;
-  font-size: 0.75rem;
+  font-size: .75rem;
   background-color: #e9ecef;
   border-radius: 0.25rem;
 }
@@ -4756,18 +4756,18 @@
 .bootstrap-iso .list-group-item {
   position: relative;
   display: block;
-  padding: 0.75rem 1.25rem;
+  padding: .75rem 1.25rem;
   margin-bottom: -1px;
   background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.125);
 }
 .bootstrap-iso .list-group-item:first-child {
-  border-top-left-radius: 0.25rem;
+  border-top-left-radius: .25rem;
   border-top-right-radius: 0.25rem;
 }
 .bootstrap-iso .list-group-item:last-child {
   margin-bottom: 0;
-  border-bottom-right-radius: 0.25rem;
+  border-bottom-right-radius: .25rem;
   border-bottom-left-radius: 0.25rem;
 }
 .bootstrap-iso .list-group-item:focus,
@@ -4954,7 +4954,7 @@
 .bootstrap-iso .modal-dialog {
   position: relative;
   width: auto;
-  margin: 0.5rem;
+  margin: .5rem;
   pointer-events: none;
 }
 .bootstrap-iso .modal.fade .modal-dialog {
@@ -4991,7 +4991,7 @@
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 0.3rem;
+  border-radius: .3rem;
   outline: 0;
 }
 .bootstrap-iso .modal-backdrop {
@@ -5021,7 +5021,7 @@
   justify-content: space-between;
   padding: 1rem;
   border-bottom: 1px solid #e9ecef;
-  border-top-left-radius: 0.3rem;
+  border-top-left-radius: .3rem;
   border-top-right-radius: 0.3rem;
 }
 .bootstrap-iso .modal-header .close {
@@ -5101,7 +5101,7 @@
   word-spacing: normal;
   white-space: normal;
   line-break: auto;
-  font-size: 0.875rem;
+  font-size: .875rem;
   word-wrap: break-word;
   opacity: 0;
 }
@@ -5111,7 +5111,7 @@
 .bootstrap-iso .tooltip .arrow {
   position: absolute;
   display: block;
-  width: 0.8rem;
+  width: .8rem;
   height: 0.4rem;
 }
 .bootstrap-iso .tooltip .arrow::before {
@@ -5131,7 +5131,7 @@
 .bootstrap-iso .bs-tooltip-auto[x-placement^=top] .arrow::before,
 .bootstrap-iso .bs-tooltip-top .arrow::before {
   top: 0;
-  border-width: 0.4rem 0.4rem 0;
+  border-width: .4rem .4rem 0;
   border-top-color: #000;
 }
 .bootstrap-iso .bs-tooltip-auto[x-placement^=right],
@@ -5141,13 +5141,13 @@
 .bootstrap-iso .bs-tooltip-auto[x-placement^=right] .arrow,
 .bootstrap-iso .bs-tooltip-right .arrow {
   left: 0;
-  width: 0.4rem;
+  width: .4rem;
   height: 0.8rem;
 }
 .bootstrap-iso .bs-tooltip-auto[x-placement^=right] .arrow::before,
 .bootstrap-iso .bs-tooltip-right .arrow::before {
   right: 0;
-  border-width: 0.4rem 0.4rem 0.4rem 0;
+  border-width: .4rem .4rem .4rem 0;
   border-right-color: #000;
 }
 .bootstrap-iso .bs-tooltip-auto[x-placement^=bottom],
@@ -5161,7 +5161,7 @@
 .bootstrap-iso .bs-tooltip-auto[x-placement^=bottom] .arrow::before,
 .bootstrap-iso .bs-tooltip-bottom .arrow::before {
   bottom: 0;
-  border-width: 0 0.4rem 0.4rem;
+  border-width: 0 .4rem .4rem;
   border-bottom-color: #000;
 }
 .bootstrap-iso .bs-tooltip-auto[x-placement^=left],
@@ -5171,18 +5171,18 @@
 .bootstrap-iso .bs-tooltip-auto[x-placement^=left] .arrow,
 .bootstrap-iso .bs-tooltip-left .arrow {
   right: 0;
-  width: 0.4rem;
+  width: .4rem;
   height: 0.8rem;
 }
 .bootstrap-iso .bs-tooltip-auto[x-placement^=left] .arrow::before,
 .bootstrap-iso .bs-tooltip-left .arrow::before {
   left: 0;
-  border-width: 0.4rem 0 0.4rem 0.4rem;
+  border-width: .4rem 0 .4rem .4rem;
   border-left-color: #000;
 }
 .bootstrap-iso .tooltip-inner {
   max-width: 200px;
-  padding: 0.25rem 0.5rem;
+  padding: .25rem .5rem;
   color: #fff;
   text-align: center;
   background-color: #000;
@@ -5209,7 +5209,7 @@
   word-spacing: normal;
   white-space: normal;
   line-break: auto;
-  font-size: 0.875rem;
+  font-size: .875rem;
   word-wrap: break-word;
   background-color: #fff;
   background-clip: padding-box;
@@ -5220,7 +5220,7 @@
   position: absolute;
   display: block;
   width: 1rem;
-  height: 0.5rem;
+  height: .5rem;
   margin: 0 0.3rem;
 }
 .bootstrap-iso .popover .arrow::after,
@@ -5262,7 +5262,7 @@
 .bootstrap-iso .bs-popover-auto[x-placement^=right] .arrow,
 .bootstrap-iso .bs-popover-right .arrow {
   left: calc((0.5rem + 1px) * -1);
-  width: 0.5rem;
+  width: .5rem;
   height: 1rem;
   margin: 0.3rem 0;
 }
@@ -5324,7 +5324,7 @@
 .bootstrap-iso .bs-popover-auto[x-placement^=left] .arrow,
 .bootstrap-iso .bs-popover-left .arrow {
   right: calc((0.5rem + 1px) * -1);
-  width: 0.5rem;
+  width: .5rem;
   height: 1rem;
   margin: 0.3rem 0;
 }
@@ -5345,7 +5345,7 @@
   border-left-color: #fff;
 }
 .bootstrap-iso .popover-header {
-  padding: 0.5rem 0.75rem;
+  padding: .5rem .75rem;
   margin-bottom: 0;
   font-size: 1rem;
   color: inherit;
@@ -5358,7 +5358,7 @@
   display: none;
 }
 .bootstrap-iso .popover-body {
-  padding: 0.5rem 0.75rem;
+  padding: .5rem .75rem;
   color: #212529;
 }
 .bootstrap-iso .carousel {
@@ -5377,7 +5377,7 @@
   align-items: center;
   width: 100%;
   transition: -webkit-transform 0.6s ease;
-  transition: transform 0.6s ease;
+  transition: transform .6s ease;
   transition: transform 0.6s ease, -webkit-transform 0.6s ease;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -5693,23 +5693,23 @@
   border-color: #fff !important;
 }
 .bootstrap-iso .rounded {
-  border-radius: 0.25rem !important;
+  border-radius: 2.5px !important;
 }
 .bootstrap-iso .rounded-top {
-  border-top-left-radius: 0.25rem !important;
-  border-top-right-radius: 0.25rem !important;
+  border-top-left-radius: .25rem!important;
+  border-top-right-radius: 2.5px !important;
 }
 .bootstrap-iso .rounded-right {
-  border-top-right-radius: 0.25rem !important;
-  border-bottom-right-radius: 0.25rem !important;
+  border-top-right-radius: .25rem!important;
+  border-bottom-right-radius: 2.5px !important;
 }
 .bootstrap-iso .rounded-bottom {
-  border-bottom-right-radius: 0.25rem !important;
-  border-bottom-left-radius: 0.25rem !important;
+  border-bottom-right-radius: .25rem!important;
+  border-bottom-left-radius: 2.5px !important;
 }
 .bootstrap-iso .rounded-left {
-  border-top-left-radius: 0.25rem !important;
-  border-bottom-left-radius: 0.25rem !important;
+  border-top-left-radius: .25rem!important;
+  border-bottom-left-radius: 2.5px !important;
 }
 .bootstrap-iso .rounded-circle {
   border-radius: 50% !important;
@@ -6791,99 +6791,99 @@
   margin-left: 0 !important;
 }
 .bootstrap-iso .m-1 {
-  margin: 0.25rem !important;
+  margin: 2.5px !important;
 }
 .bootstrap-iso .mt-1,
 .bootstrap-iso .my-1 {
-  margin-top: 0.25rem !important;
+  margin-top: 2.5px !important;
 }
 .bootstrap-iso .mr-1,
 .bootstrap-iso .mx-1 {
-  margin-right: 0.25rem !important;
+  margin-right: 2.5px !important;
 }
 .bootstrap-iso .mb-1,
 .bootstrap-iso .my-1 {
-  margin-bottom: 0.25rem !important;
+  margin-bottom: 2.5px !important;
 }
 .bootstrap-iso .ml-1,
 .bootstrap-iso .mx-1 {
-  margin-left: 0.25rem !important;
+  margin-left: 2.5px !important;
 }
 .bootstrap-iso .m-2 {
-  margin: 0.5rem !important;
+  margin: 5px !important;
 }
 .bootstrap-iso .mt-2,
 .bootstrap-iso .my-2 {
-  margin-top: 0.5rem !important;
+  margin-top: 5px !important;
 }
 .bootstrap-iso .mr-2,
 .bootstrap-iso .mx-2 {
-  margin-right: 0.5rem !important;
+  margin-right: 5px !important;
 }
 .bootstrap-iso .mb-2,
 .bootstrap-iso .my-2 {
-  margin-bottom: 0.5rem !important;
+  margin-bottom: 5px !important;
 }
 .bootstrap-iso .ml-2,
 .bootstrap-iso .mx-2 {
-  margin-left: 0.5rem !important;
+  margin-left: 5px !important;
 }
 .bootstrap-iso .m-3 {
-  margin: 1rem !important;
+  margin: 10px !important;
 }
 .bootstrap-iso .mt-3,
 .bootstrap-iso .my-3 {
-  margin-top: 1rem !important;
+  margin-top: 10px !important;
 }
 .bootstrap-iso .mr-3,
 .bootstrap-iso .mx-3 {
-  margin-right: 1rem !important;
+  margin-right: 10px !important;
 }
 .bootstrap-iso .mb-3,
 .bootstrap-iso .my-3 {
-  margin-bottom: 1rem !important;
+  margin-bottom: 10px !important;
 }
 .bootstrap-iso .ml-3,
 .bootstrap-iso .mx-3 {
-  margin-left: 1rem !important;
+  margin-left: 10px !important;
 }
 .bootstrap-iso .m-4 {
-  margin: 1.5rem !important;
+  margin: 15px !important;
 }
 .bootstrap-iso .mt-4,
 .bootstrap-iso .my-4 {
-  margin-top: 1.5rem !important;
+  margin-top: 15px !important;
 }
 .bootstrap-iso .mr-4,
 .bootstrap-iso .mx-4 {
-  margin-right: 1.5rem !important;
+  margin-right: 15px !important;
 }
 .bootstrap-iso .mb-4,
 .bootstrap-iso .my-4 {
-  margin-bottom: 1.5rem !important;
+  margin-bottom: 15px !important;
 }
 .bootstrap-iso .ml-4,
 .bootstrap-iso .mx-4 {
-  margin-left: 1.5rem !important;
+  margin-left: 15px !important;
 }
 .bootstrap-iso .m-5 {
-  margin: 3rem !important;
+  margin: 30px !important;
 }
 .bootstrap-iso .mt-5,
 .bootstrap-iso .my-5 {
-  margin-top: 3rem !important;
+  margin-top: 30px !important;
 }
 .bootstrap-iso .mr-5,
 .bootstrap-iso .mx-5 {
-  margin-right: 3rem !important;
+  margin-right: 30px !important;
 }
 .bootstrap-iso .mb-5,
 .bootstrap-iso .my-5 {
-  margin-bottom: 3rem !important;
+  margin-bottom: 30px !important;
 }
 .bootstrap-iso .ml-5,
 .bootstrap-iso .mx-5 {
-  margin-left: 3rem !important;
+  margin-left: 30px !important;
 }
 .bootstrap-iso .p-0 {
   padding: 0 !important;
@@ -6905,99 +6905,99 @@
   padding-left: 0 !important;
 }
 .bootstrap-iso .p-1 {
-  padding: 0.25rem !important;
+  padding: 2.5px !important;
 }
 .bootstrap-iso .pt-1,
 .bootstrap-iso .py-1 {
-  padding-top: 0.25rem !important;
+  padding-top: 2.5px !important;
 }
 .bootstrap-iso .pr-1,
 .bootstrap-iso .px-1 {
-  padding-right: 0.25rem !important;
+  padding-right: 2.5px !important;
 }
 .bootstrap-iso .pb-1,
 .bootstrap-iso .py-1 {
-  padding-bottom: 0.25rem !important;
+  padding-bottom: 2.5px !important;
 }
 .bootstrap-iso .pl-1,
 .bootstrap-iso .px-1 {
-  padding-left: 0.25rem !important;
+  padding-left: 2.5px !important;
 }
 .bootstrap-iso .p-2 {
-  padding: 0.5rem !important;
+  padding: 5px !important;
 }
 .bootstrap-iso .pt-2,
 .bootstrap-iso .py-2 {
-  padding-top: 0.5rem !important;
+  padding-top: 5px !important;
 }
 .bootstrap-iso .pr-2,
 .bootstrap-iso .px-2 {
-  padding-right: 0.5rem !important;
+  padding-right: 5px !important;
 }
 .bootstrap-iso .pb-2,
 .bootstrap-iso .py-2 {
-  padding-bottom: 0.5rem !important;
+  padding-bottom: 5px !important;
 }
 .bootstrap-iso .pl-2,
 .bootstrap-iso .px-2 {
-  padding-left: 0.5rem !important;
+  padding-left: 5px !important;
 }
 .bootstrap-iso .p-3 {
-  padding: 1rem !important;
+  padding: 10px !important;
 }
 .bootstrap-iso .pt-3,
 .bootstrap-iso .py-3 {
-  padding-top: 1rem !important;
+  padding-top: 10px !important;
 }
 .bootstrap-iso .pr-3,
 .bootstrap-iso .px-3 {
-  padding-right: 1rem !important;
+  padding-right: 10px !important;
 }
 .bootstrap-iso .pb-3,
 .bootstrap-iso .py-3 {
-  padding-bottom: 1rem !important;
+  padding-bottom: 10px !important;
 }
 .bootstrap-iso .pl-3,
 .bootstrap-iso .px-3 {
-  padding-left: 1rem !important;
+  padding-left: 10px !important;
 }
 .bootstrap-iso .p-4 {
-  padding: 1.5rem !important;
+  padding: 15px !important;
 }
 .bootstrap-iso .pt-4,
 .bootstrap-iso .py-4 {
-  padding-top: 1.5rem !important;
+  padding-top: 15px !important;
 }
 .bootstrap-iso .pr-4,
 .bootstrap-iso .px-4 {
-  padding-right: 1.5rem !important;
+  padding-right: 15px !important;
 }
 .bootstrap-iso .pb-4,
 .bootstrap-iso .py-4 {
-  padding-bottom: 1.5rem !important;
+  padding-bottom: 15px !important;
 }
 .bootstrap-iso .pl-4,
 .bootstrap-iso .px-4 {
-  padding-left: 1.5rem !important;
+  padding-left: 15px !important;
 }
 .bootstrap-iso .p-5 {
-  padding: 3rem !important;
+  padding: 30px !important;
 }
 .bootstrap-iso .pt-5,
 .bootstrap-iso .py-5 {
-  padding-top: 3rem !important;
+  padding-top: 30px !important;
 }
 .bootstrap-iso .pr-5,
 .bootstrap-iso .px-5 {
-  padding-right: 3rem !important;
+  padding-right: 30px !important;
 }
 .bootstrap-iso .pb-5,
 .bootstrap-iso .py-5 {
-  padding-bottom: 3rem !important;
+  padding-bottom: 30px !important;
 }
 .bootstrap-iso .pl-5,
 .bootstrap-iso .px-5 {
-  padding-left: 3rem !important;
+  padding-left: 30px !important;
 }
 .bootstrap-iso .m-auto {
   margin: auto !important;
@@ -7039,99 +7039,99 @@
     margin-left: 0 !important;
   }
   .bootstrap-iso .m-sm-1 {
-    margin: 0.25rem !important;
+    margin: 2.5px !important;
   }
   .bootstrap-iso .mt-sm-1,
   .bootstrap-iso .my-sm-1 {
-    margin-top: 0.25rem !important;
+    margin-top: 2.5px !important;
   }
   .bootstrap-iso .mr-sm-1,
   .bootstrap-iso .mx-sm-1 {
-    margin-right: 0.25rem !important;
+    margin-right: 2.5px !important;
   }
   .bootstrap-iso .mb-sm-1,
   .bootstrap-iso .my-sm-1 {
-    margin-bottom: 0.25rem !important;
+    margin-bottom: 2.5px !important;
   }
   .bootstrap-iso .ml-sm-1,
   .bootstrap-iso .mx-sm-1 {
-    margin-left: 0.25rem !important;
+    margin-left: 2.5px !important;
   }
   .bootstrap-iso .m-sm-2 {
-    margin: 0.5rem !important;
+    margin: 5px !important;
   }
   .bootstrap-iso .mt-sm-2,
   .bootstrap-iso .my-sm-2 {
-    margin-top: 0.5rem !important;
+    margin-top: 5px !important;
   }
   .bootstrap-iso .mr-sm-2,
   .bootstrap-iso .mx-sm-2 {
-    margin-right: 0.5rem !important;
+    margin-right: 5px !important;
   }
   .bootstrap-iso .mb-sm-2,
   .bootstrap-iso .my-sm-2 {
-    margin-bottom: 0.5rem !important;
+    margin-bottom: 5px !important;
   }
   .bootstrap-iso .ml-sm-2,
   .bootstrap-iso .mx-sm-2 {
-    margin-left: 0.5rem !important;
+    margin-left: 5px !important;
   }
   .bootstrap-iso .m-sm-3 {
-    margin: 1rem !important;
+    margin: 10px !important;
   }
   .bootstrap-iso .mt-sm-3,
   .bootstrap-iso .my-sm-3 {
-    margin-top: 1rem !important;
+    margin-top: 10px !important;
   }
   .bootstrap-iso .mr-sm-3,
   .bootstrap-iso .mx-sm-3 {
-    margin-right: 1rem !important;
+    margin-right: 10px !important;
   }
   .bootstrap-iso .mb-sm-3,
   .bootstrap-iso .my-sm-3 {
-    margin-bottom: 1rem !important;
+    margin-bottom: 10px !important;
   }
   .bootstrap-iso .ml-sm-3,
   .bootstrap-iso .mx-sm-3 {
-    margin-left: 1rem !important;
+    margin-left: 10px !important;
   }
   .bootstrap-iso .m-sm-4 {
-    margin: 1.5rem !important;
+    margin: 15px !important;
   }
   .bootstrap-iso .mt-sm-4,
   .bootstrap-iso .my-sm-4 {
-    margin-top: 1.5rem !important;
+    margin-top: 15px !important;
   }
   .bootstrap-iso .mr-sm-4,
   .bootstrap-iso .mx-sm-4 {
-    margin-right: 1.5rem !important;
+    margin-right: 15px !important;
   }
   .bootstrap-iso .mb-sm-4,
   .bootstrap-iso .my-sm-4 {
-    margin-bottom: 1.5rem !important;
+    margin-bottom: 15px !important;
   }
   .bootstrap-iso .ml-sm-4,
   .bootstrap-iso .mx-sm-4 {
-    margin-left: 1.5rem !important;
+    margin-left: 15px !important;
   }
   .bootstrap-iso .m-sm-5 {
-    margin: 3rem !important;
+    margin: 30px !important;
   }
   .bootstrap-iso .mt-sm-5,
   .bootstrap-iso .my-sm-5 {
-    margin-top: 3rem !important;
+    margin-top: 30px !important;
   }
   .bootstrap-iso .mr-sm-5,
   .bootstrap-iso .mx-sm-5 {
-    margin-right: 3rem !important;
+    margin-right: 30px !important;
   }
   .bootstrap-iso .mb-sm-5,
   .bootstrap-iso .my-sm-5 {
-    margin-bottom: 3rem !important;
+    margin-bottom: 30px !important;
   }
   .bootstrap-iso .ml-sm-5,
   .bootstrap-iso .mx-sm-5 {
-    margin-left: 3rem !important;
+    margin-left: 30px !important;
   }
   .bootstrap-iso .p-sm-0 {
     padding: 0 !important;
@@ -7153,99 +7153,99 @@
     padding-left: 0 !important;
   }
   .bootstrap-iso .p-sm-1 {
-    padding: 0.25rem !important;
+    padding: 2.5px !important;
   }
   .bootstrap-iso .pt-sm-1,
   .bootstrap-iso .py-sm-1 {
-    padding-top: 0.25rem !important;
+    padding-top: 2.5px !important;
   }
   .bootstrap-iso .pr-sm-1,
   .bootstrap-iso .px-sm-1 {
-    padding-right: 0.25rem !important;
+    padding-right: 2.5px !important;
   }
   .bootstrap-iso .pb-sm-1,
   .bootstrap-iso .py-sm-1 {
-    padding-bottom: 0.25rem !important;
+    padding-bottom: 2.5px !important;
   }
   .bootstrap-iso .pl-sm-1,
   .bootstrap-iso .px-sm-1 {
-    padding-left: 0.25rem !important;
+    padding-left: 2.5px !important;
   }
   .bootstrap-iso .p-sm-2 {
-    padding: 0.5rem !important;
+    padding: 5px !important;
   }
   .bootstrap-iso .pt-sm-2,
   .bootstrap-iso .py-sm-2 {
-    padding-top: 0.5rem !important;
+    padding-top: 5px !important;
   }
   .bootstrap-iso .pr-sm-2,
   .bootstrap-iso .px-sm-2 {
-    padding-right: 0.5rem !important;
+    padding-right: 5px !important;
   }
   .bootstrap-iso .pb-sm-2,
   .bootstrap-iso .py-sm-2 {
-    padding-bottom: 0.5rem !important;
+    padding-bottom: 5px !important;
   }
   .bootstrap-iso .pl-sm-2,
   .bootstrap-iso .px-sm-2 {
-    padding-left: 0.5rem !important;
+    padding-left: 5px !important;
   }
   .bootstrap-iso .p-sm-3 {
-    padding: 1rem !important;
+    padding: 10px !important;
   }
   .bootstrap-iso .pt-sm-3,
   .bootstrap-iso .py-sm-3 {
-    padding-top: 1rem !important;
+    padding-top: 10px !important;
   }
   .bootstrap-iso .pr-sm-3,
   .bootstrap-iso .px-sm-3 {
-    padding-right: 1rem !important;
+    padding-right: 10px !important;
   }
   .bootstrap-iso .pb-sm-3,
   .bootstrap-iso .py-sm-3 {
-    padding-bottom: 1rem !important;
+    padding-bottom: 10px !important;
   }
   .bootstrap-iso .pl-sm-3,
   .bootstrap-iso .px-sm-3 {
-    padding-left: 1rem !important;
+    padding-left: 10px !important;
   }
   .bootstrap-iso .p-sm-4 {
-    padding: 1.5rem !important;
+    padding: 15px !important;
   }
   .bootstrap-iso .pt-sm-4,
   .bootstrap-iso .py-sm-4 {
-    padding-top: 1.5rem !important;
+    padding-top: 15px !important;
   }
   .bootstrap-iso .pr-sm-4,
   .bootstrap-iso .px-sm-4 {
-    padding-right: 1.5rem !important;
+    padding-right: 15px !important;
   }
   .bootstrap-iso .pb-sm-4,
   .bootstrap-iso .py-sm-4 {
-    padding-bottom: 1.5rem !important;
+    padding-bottom: 15px !important;
   }
   .bootstrap-iso .pl-sm-4,
   .bootstrap-iso .px-sm-4 {
-    padding-left: 1.5rem !important;
+    padding-left: 15px !important;
   }
   .bootstrap-iso .p-sm-5 {
-    padding: 3rem !important;
+    padding: 30px !important;
   }
   .bootstrap-iso .pt-sm-5,
   .bootstrap-iso .py-sm-5 {
-    padding-top: 3rem !important;
+    padding-top: 30px !important;
   }
   .bootstrap-iso .pr-sm-5,
   .bootstrap-iso .px-sm-5 {
-    padding-right: 3rem !important;
+    padding-right: 30px !important;
   }
   .bootstrap-iso .pb-sm-5,
   .bootstrap-iso .py-sm-5 {
-    padding-bottom: 3rem !important;
+    padding-bottom: 30px !important;
   }
   .bootstrap-iso .pl-sm-5,
   .bootstrap-iso .px-sm-5 {
-    padding-left: 3rem !important;
+    padding-left: 30px !important;
   }
   .bootstrap-iso .m-sm-auto {
     margin: auto !important;
@@ -7288,99 +7288,99 @@
     margin-left: 0 !important;
   }
   .bootstrap-iso .m-md-1 {
-    margin: 0.25rem !important;
+    margin: 2.5px !important;
   }
   .bootstrap-iso .mt-md-1,
   .bootstrap-iso .my-md-1 {
-    margin-top: 0.25rem !important;
+    margin-top: 2.5px !important;
   }
   .bootstrap-iso .mr-md-1,
   .bootstrap-iso .mx-md-1 {
-    margin-right: 0.25rem !important;
+    margin-right: 2.5px !important;
   }
   .bootstrap-iso .mb-md-1,
   .bootstrap-iso .my-md-1 {
-    margin-bottom: 0.25rem !important;
+    margin-bottom: 2.5px !important;
   }
   .bootstrap-iso .ml-md-1,
   .bootstrap-iso .mx-md-1 {
-    margin-left: 0.25rem !important;
+    margin-left: 2.5px !important;
   }
   .bootstrap-iso .m-md-2 {
-    margin: 0.5rem !important;
+    margin: 5px !important;
   }
   .bootstrap-iso .mt-md-2,
   .bootstrap-iso .my-md-2 {
-    margin-top: 0.5rem !important;
+    margin-top: 5px !important;
   }
   .bootstrap-iso .mr-md-2,
   .bootstrap-iso .mx-md-2 {
-    margin-right: 0.5rem !important;
+    margin-right: 5px !important;
   }
   .bootstrap-iso .mb-md-2,
   .bootstrap-iso .my-md-2 {
-    margin-bottom: 0.5rem !important;
+    margin-bottom: 5px !important;
   }
   .bootstrap-iso .ml-md-2,
   .bootstrap-iso .mx-md-2 {
-    margin-left: 0.5rem !important;
+    margin-left: 5px !important;
   }
   .bootstrap-iso .m-md-3 {
-    margin: 1rem !important;
+    margin: 10px !important;
   }
   .bootstrap-iso .mt-md-3,
   .bootstrap-iso .my-md-3 {
-    margin-top: 1rem !important;
+    margin-top: 10px !important;
   }
   .bootstrap-iso .mr-md-3,
   .bootstrap-iso .mx-md-3 {
-    margin-right: 1rem !important;
+    margin-right: 10px !important;
   }
   .bootstrap-iso .mb-md-3,
   .bootstrap-iso .my-md-3 {
-    margin-bottom: 1rem !important;
+    margin-bottom: 10px !important;
   }
   .bootstrap-iso .ml-md-3,
   .bootstrap-iso .mx-md-3 {
-    margin-left: 1rem !important;
+    margin-left: 10px !important;
   }
   .bootstrap-iso .m-md-4 {
-    margin: 1.5rem !important;
+    margin: 15px !important;
   }
   .bootstrap-iso .mt-md-4,
   .bootstrap-iso .my-md-4 {
-    margin-top: 1.5rem !important;
+    margin-top: 15px !important;
   }
   .bootstrap-iso .mr-md-4,
   .bootstrap-iso .mx-md-4 {
-    margin-right: 1.5rem !important;
+    margin-right: 15px !important;
   }
   .bootstrap-iso .mb-md-4,
   .bootstrap-iso .my-md-4 {
-    margin-bottom: 1.5rem !important;
+    margin-bottom: 15px !important;
   }
   .bootstrap-iso .ml-md-4,
   .bootstrap-iso .mx-md-4 {
-    margin-left: 1.5rem !important;
+    margin-left: 15px !important;
   }
   .bootstrap-iso .m-md-5 {
-    margin: 3rem !important;
+    margin: 30px !important;
   }
   .bootstrap-iso .mt-md-5,
   .bootstrap-iso .my-md-5 {
-    margin-top: 3rem !important;
+    margin-top: 30px !important;
   }
   .bootstrap-iso .mr-md-5,
   .bootstrap-iso .mx-md-5 {
-    margin-right: 3rem !important;
+    margin-right: 30px !important;
   }
   .bootstrap-iso .mb-md-5,
   .bootstrap-iso .my-md-5 {
-    margin-bottom: 3rem !important;
+    margin-bottom: 30px !important;
   }
   .bootstrap-iso .ml-md-5,
   .bootstrap-iso .mx-md-5 {
-    margin-left: 3rem !important;
+    margin-left: 30px !important;
   }
   .bootstrap-iso .p-md-0 {
     padding: 0 !important;
@@ -7402,99 +7402,99 @@
     padding-left: 0 !important;
   }
   .bootstrap-iso .p-md-1 {
-    padding: 0.25rem !important;
+    padding: 2.5px !important;
   }
   .bootstrap-iso .pt-md-1,
   .bootstrap-iso .py-md-1 {
-    padding-top: 0.25rem !important;
+    padding-top: 2.5px !important;
   }
   .bootstrap-iso .pr-md-1,
   .bootstrap-iso .px-md-1 {
-    padding-right: 0.25rem !important;
+    padding-right: 2.5px !important;
   }
   .bootstrap-iso .pb-md-1,
   .bootstrap-iso .py-md-1 {
-    padding-bottom: 0.25rem !important;
+    padding-bottom: 2.5px !important;
   }
   .bootstrap-iso .pl-md-1,
   .bootstrap-iso .px-md-1 {
-    padding-left: 0.25rem !important;
+    padding-left: 2.5px !important;
   }
   .bootstrap-iso .p-md-2 {
-    padding: 0.5rem !important;
+    padding: 5px !important;
   }
   .bootstrap-iso .pt-md-2,
   .bootstrap-iso .py-md-2 {
-    padding-top: 0.5rem !important;
+    padding-top: 5px !important;
   }
   .bootstrap-iso .pr-md-2,
   .bootstrap-iso .px-md-2 {
-    padding-right: 0.5rem !important;
+    padding-right: 5px !important;
   }
   .bootstrap-iso .pb-md-2,
   .bootstrap-iso .py-md-2 {
-    padding-bottom: 0.5rem !important;
+    padding-bottom: 5px !important;
   }
   .bootstrap-iso .pl-md-2,
   .bootstrap-iso .px-md-2 {
-    padding-left: 0.5rem !important;
+    padding-left: 5px !important;
   }
   .bootstrap-iso .p-md-3 {
-    padding: 1rem !important;
+    padding: 10px !important;
   }
   .bootstrap-iso .pt-md-3,
   .bootstrap-iso .py-md-3 {
-    padding-top: 1rem !important;
+    padding-top: 10px !important;
   }
   .bootstrap-iso .pr-md-3,
   .bootstrap-iso .px-md-3 {
-    padding-right: 1rem !important;
+    padding-right: 10px !important;
   }
   .bootstrap-iso .pb-md-3,
   .bootstrap-iso .py-md-3 {
-    padding-bottom: 1rem !important;
+    padding-bottom: 10px !important;
   }
   .bootstrap-iso .pl-md-3,
   .bootstrap-iso .px-md-3 {
-    padding-left: 1rem !important;
+    padding-left: 10px !important;
   }
   .bootstrap-iso .p-md-4 {
-    padding: 1.5rem !important;
+    padding: 15px !important;
   }
   .bootstrap-iso .pt-md-4,
   .bootstrap-iso .py-md-4 {
-    padding-top: 1.5rem !important;
+    padding-top: 15px !important;
   }
   .bootstrap-iso .pr-md-4,
   .bootstrap-iso .px-md-4 {
-    padding-right: 1.5rem !important;
+    padding-right: 15px !important;
   }
   .bootstrap-iso .pb-md-4,
   .bootstrap-iso .py-md-4 {
-    padding-bottom: 1.5rem !important;
+    padding-bottom: 15px !important;
   }
   .bootstrap-iso .pl-md-4,
   .bootstrap-iso .px-md-4 {
-    padding-left: 1.5rem !important;
+    padding-left: 15px !important;
   }
   .bootstrap-iso .p-md-5 {
-    padding: 3rem !important;
+    padding: 30px !important;
   }
   .bootstrap-iso .pt-md-5,
   .bootstrap-iso .py-md-5 {
-    padding-top: 3rem !important;
+    padding-top: 30px !important;
   }
   .bootstrap-iso .pr-md-5,
   .bootstrap-iso .px-md-5 {
-    padding-right: 3rem !important;
+    padding-right: 30px !important;
   }
   .bootstrap-iso .pb-md-5,
   .bootstrap-iso .py-md-5 {
-    padding-bottom: 3rem !important;
+    padding-bottom: 30px !important;
   }
   .bootstrap-iso .pl-md-5,
   .bootstrap-iso .px-md-5 {
-    padding-left: 3rem !important;
+    padding-left: 30px !important;
   }
   .bootstrap-iso .m-md-auto {
     margin: auto !important;
@@ -7537,99 +7537,99 @@
     margin-left: 0 !important;
   }
   .bootstrap-iso .m-lg-1 {
-    margin: 0.25rem !important;
+    margin: 2.5px !important;
   }
   .bootstrap-iso .mt-lg-1,
   .bootstrap-iso .my-lg-1 {
-    margin-top: 0.25rem !important;
+    margin-top: 2.5px !important;
   }
   .bootstrap-iso .mr-lg-1,
   .bootstrap-iso .mx-lg-1 {
-    margin-right: 0.25rem !important;
+    margin-right: 2.5px !important;
   }
   .bootstrap-iso .mb-lg-1,
   .bootstrap-iso .my-lg-1 {
-    margin-bottom: 0.25rem !important;
+    margin-bottom: 2.5px !important;
   }
   .bootstrap-iso .ml-lg-1,
   .bootstrap-iso .mx-lg-1 {
-    margin-left: 0.25rem !important;
+    margin-left: 2.5px !important;
   }
   .bootstrap-iso .m-lg-2 {
-    margin: 0.5rem !important;
+    margin: 5px !important;
   }
   .bootstrap-iso .mt-lg-2,
   .bootstrap-iso .my-lg-2 {
-    margin-top: 0.5rem !important;
+    margin-top: 5px !important;
   }
   .bootstrap-iso .mr-lg-2,
   .bootstrap-iso .mx-lg-2 {
-    margin-right: 0.5rem !important;
+    margin-right: 5px !important;
   }
   .bootstrap-iso .mb-lg-2,
   .bootstrap-iso .my-lg-2 {
-    margin-bottom: 0.5rem !important;
+    margin-bottom: 5px !important;
   }
   .bootstrap-iso .ml-lg-2,
   .bootstrap-iso .mx-lg-2 {
-    margin-left: 0.5rem !important;
+    margin-left: 5px !important;
   }
   .bootstrap-iso .m-lg-3 {
-    margin: 1rem !important;
+    margin: 10px !important;
   }
   .bootstrap-iso .mt-lg-3,
   .bootstrap-iso .my-lg-3 {
-    margin-top: 1rem !important;
+    margin-top: 10px !important;
   }
   .bootstrap-iso .mr-lg-3,
   .bootstrap-iso .mx-lg-3 {
-    margin-right: 1rem !important;
+    margin-right: 10px !important;
   }
   .bootstrap-iso .mb-lg-3,
   .bootstrap-iso .my-lg-3 {
-    margin-bottom: 1rem !important;
+    margin-bottom: 10px !important;
   }
   .bootstrap-iso .ml-lg-3,
   .bootstrap-iso .mx-lg-3 {
-    margin-left: 1rem !important;
+    margin-left: 10px !important;
   }
   .bootstrap-iso .m-lg-4 {
-    margin: 1.5rem !important;
+    margin: 15px !important;
   }
   .bootstrap-iso .mt-lg-4,
   .bootstrap-iso .my-lg-4 {
-    margin-top: 1.5rem !important;
+    margin-top: 15px !important;
   }
   .bootstrap-iso .mr-lg-4,
   .bootstrap-iso .mx-lg-4 {
-    margin-right: 1.5rem !important;
+    margin-right: 15px !important;
   }
   .bootstrap-iso .mb-lg-4,
   .bootstrap-iso .my-lg-4 {
-    margin-bottom: 1.5rem !important;
+    margin-bottom: 15px !important;
   }
   .bootstrap-iso .ml-lg-4,
   .bootstrap-iso .mx-lg-4 {
-    margin-left: 1.5rem !important;
+    margin-left: 15px !important;
   }
   .bootstrap-iso .m-lg-5 {
-    margin: 3rem !important;
+    margin: 30px !important;
   }
   .bootstrap-iso .mt-lg-5,
   .bootstrap-iso .my-lg-5 {
-    margin-top: 3rem !important;
+    margin-top: 30px !important;
   }
   .bootstrap-iso .mr-lg-5,
   .bootstrap-iso .mx-lg-5 {
-    margin-right: 3rem !important;
+    margin-right: 30px !important;
   }
   .bootstrap-iso .mb-lg-5,
   .bootstrap-iso .my-lg-5 {
-    margin-bottom: 3rem !important;
+    margin-bottom: 30px !important;
   }
   .bootstrap-iso .ml-lg-5,
   .bootstrap-iso .mx-lg-5 {
-    margin-left: 3rem !important;
+    margin-left: 30px !important;
   }
   .bootstrap-iso .p-lg-0 {
     padding: 0 !important;
@@ -7651,99 +7651,99 @@
     padding-left: 0 !important;
   }
   .bootstrap-iso .p-lg-1 {
-    padding: 0.25rem !important;
+    padding: 2.5px !important;
   }
   .bootstrap-iso .pt-lg-1,
   .bootstrap-iso .py-lg-1 {
-    padding-top: 0.25rem !important;
+    padding-top: 2.5px !important;
   }
   .bootstrap-iso .pr-lg-1,
   .bootstrap-iso .px-lg-1 {
-    padding-right: 0.25rem !important;
+    padding-right: 2.5px !important;
   }
   .bootstrap-iso .pb-lg-1,
   .bootstrap-iso .py-lg-1 {
-    padding-bottom: 0.25rem !important;
+    padding-bottom: 2.5px !important;
   }
   .bootstrap-iso .pl-lg-1,
   .bootstrap-iso .px-lg-1 {
-    padding-left: 0.25rem !important;
+    padding-left: 2.5px !important;
   }
   .bootstrap-iso .p-lg-2 {
-    padding: 0.5rem !important;
+    padding: 5px !important;
   }
   .bootstrap-iso .pt-lg-2,
   .bootstrap-iso .py-lg-2 {
-    padding-top: 0.5rem !important;
+    padding-top: 5px !important;
   }
   .bootstrap-iso .pr-lg-2,
   .bootstrap-iso .px-lg-2 {
-    padding-right: 0.5rem !important;
+    padding-right: 5px !important;
   }
   .bootstrap-iso .pb-lg-2,
   .bootstrap-iso .py-lg-2 {
-    padding-bottom: 0.5rem !important;
+    padding-bottom: 5px !important;
   }
   .bootstrap-iso .pl-lg-2,
   .bootstrap-iso .px-lg-2 {
-    padding-left: 0.5rem !important;
+    padding-left: 5px !important;
   }
   .bootstrap-iso .p-lg-3 {
-    padding: 1rem !important;
+    padding: 10px !important;
   }
   .bootstrap-iso .pt-lg-3,
   .bootstrap-iso .py-lg-3 {
-    padding-top: 1rem !important;
+    padding-top: 10px !important;
   }
   .bootstrap-iso .pr-lg-3,
   .bootstrap-iso .px-lg-3 {
-    padding-right: 1rem !important;
+    padding-right: 10px !important;
   }
   .bootstrap-iso .pb-lg-3,
   .bootstrap-iso .py-lg-3 {
-    padding-bottom: 1rem !important;
+    padding-bottom: 10px !important;
   }
   .bootstrap-iso .pl-lg-3,
   .bootstrap-iso .px-lg-3 {
-    padding-left: 1rem !important;
+    padding-left: 10px !important;
   }
   .bootstrap-iso .p-lg-4 {
-    padding: 1.5rem !important;
+    padding: 15px !important;
   }
   .bootstrap-iso .pt-lg-4,
   .bootstrap-iso .py-lg-4 {
-    padding-top: 1.5rem !important;
+    padding-top: 15px !important;
   }
   .bootstrap-iso .pr-lg-4,
   .bootstrap-iso .px-lg-4 {
-    padding-right: 1.5rem !important;
+    padding-right: 15px !important;
   }
   .bootstrap-iso .pb-lg-4,
   .bootstrap-iso .py-lg-4 {
-    padding-bottom: 1.5rem !important;
+    padding-bottom: 15px !important;
   }
   .bootstrap-iso .pl-lg-4,
   .bootstrap-iso .px-lg-4 {
-    padding-left: 1.5rem !important;
+    padding-left: 15px !important;
   }
   .bootstrap-iso .p-lg-5 {
-    padding: 3rem !important;
+    padding: 30px !important;
   }
   .bootstrap-iso .pt-lg-5,
   .bootstrap-iso .py-lg-5 {
-    padding-top: 3rem !important;
+    padding-top: 30px !important;
   }
   .bootstrap-iso .pr-lg-5,
   .bootstrap-iso .px-lg-5 {
-    padding-right: 3rem !important;
+    padding-right: 30px !important;
   }
   .bootstrap-iso .pb-lg-5,
   .bootstrap-iso .py-lg-5 {
-    padding-bottom: 3rem !important;
+    padding-bottom: 30px !important;
   }
   .bootstrap-iso .pl-lg-5,
   .bootstrap-iso .px-lg-5 {
-    padding-left: 3rem !important;
+    padding-left: 30px !important;
   }
   .bootstrap-iso .m-lg-auto {
     margin: auto !important;
@@ -7786,99 +7786,99 @@
     margin-left: 0 !important;
   }
   .bootstrap-iso .m-xl-1 {
-    margin: 0.25rem !important;
+    margin: 2.5px !important;
   }
   .bootstrap-iso .mt-xl-1,
   .bootstrap-iso .my-xl-1 {
-    margin-top: 0.25rem !important;
+    margin-top: 2.5px !important;
   }
   .bootstrap-iso .mr-xl-1,
   .bootstrap-iso .mx-xl-1 {
-    margin-right: 0.25rem !important;
+    margin-right: 2.5px !important;
   }
   .bootstrap-iso .mb-xl-1,
   .bootstrap-iso .my-xl-1 {
-    margin-bottom: 0.25rem !important;
+    margin-bottom: 2.5px !important;
   }
   .bootstrap-iso .ml-xl-1,
   .bootstrap-iso .mx-xl-1 {
-    margin-left: 0.25rem !important;
+    margin-left: 2.5px !important;
   }
   .bootstrap-iso .m-xl-2 {
-    margin: 0.5rem !important;
+    margin: 5px !important;
   }
   .bootstrap-iso .mt-xl-2,
   .bootstrap-iso .my-xl-2 {
-    margin-top: 0.5rem !important;
+    margin-top: 5px !important;
   }
   .bootstrap-iso .mr-xl-2,
   .bootstrap-iso .mx-xl-2 {
-    margin-right: 0.5rem !important;
+    margin-right: 5px !important;
   }
   .bootstrap-iso .mb-xl-2,
   .bootstrap-iso .my-xl-2 {
-    margin-bottom: 0.5rem !important;
+    margin-bottom: 5px !important;
   }
   .bootstrap-iso .ml-xl-2,
   .bootstrap-iso .mx-xl-2 {
-    margin-left: 0.5rem !important;
+    margin-left: 5px !important;
   }
   .bootstrap-iso .m-xl-3 {
-    margin: 1rem !important;
+    margin: 10px !important;
   }
   .bootstrap-iso .mt-xl-3,
   .bootstrap-iso .my-xl-3 {
-    margin-top: 1rem !important;
+    margin-top: 10px !important;
   }
   .bootstrap-iso .mr-xl-3,
   .bootstrap-iso .mx-xl-3 {
-    margin-right: 1rem !important;
+    margin-right: 10px !important;
   }
   .bootstrap-iso .mb-xl-3,
   .bootstrap-iso .my-xl-3 {
-    margin-bottom: 1rem !important;
+    margin-bottom: 10px !important;
   }
   .bootstrap-iso .ml-xl-3,
   .bootstrap-iso .mx-xl-3 {
-    margin-left: 1rem !important;
+    margin-left: 10px !important;
   }
   .bootstrap-iso .m-xl-4 {
-    margin: 1.5rem !important;
+    margin: 15px !important;
   }
   .bootstrap-iso .mt-xl-4,
   .bootstrap-iso .my-xl-4 {
-    margin-top: 1.5rem !important;
+    margin-top: 15px !important;
   }
   .bootstrap-iso .mr-xl-4,
   .bootstrap-iso .mx-xl-4 {
-    margin-right: 1.5rem !important;
+    margin-right: 15px !important;
   }
   .bootstrap-iso .mb-xl-4,
   .bootstrap-iso .my-xl-4 {
-    margin-bottom: 1.5rem !important;
+    margin-bottom: 15px !important;
   }
   .bootstrap-iso .ml-xl-4,
   .bootstrap-iso .mx-xl-4 {
-    margin-left: 1.5rem !important;
+    margin-left: 15px !important;
   }
   .bootstrap-iso .m-xl-5 {
-    margin: 3rem !important;
+    margin: 30px !important;
   }
   .bootstrap-iso .mt-xl-5,
   .bootstrap-iso .my-xl-5 {
-    margin-top: 3rem !important;
+    margin-top: 30px !important;
   }
   .bootstrap-iso .mr-xl-5,
   .bootstrap-iso .mx-xl-5 {
-    margin-right: 3rem !important;
+    margin-right: 30px !important;
   }
   .bootstrap-iso .mb-xl-5,
   .bootstrap-iso .my-xl-5 {
-    margin-bottom: 3rem !important;
+    margin-bottom: 30px !important;
   }
   .bootstrap-iso .ml-xl-5,
   .bootstrap-iso .mx-xl-5 {
-    margin-left: 3rem !important;
+    margin-left: 30px !important;
   }
   .bootstrap-iso .p-xl-0 {
     padding: 0 !important;
@@ -7900,99 +7900,99 @@
     padding-left: 0 !important;
   }
   .bootstrap-iso .p-xl-1 {
-    padding: 0.25rem !important;
+    padding: 2.5px !important;
   }
   .bootstrap-iso .pt-xl-1,
   .bootstrap-iso .py-xl-1 {
-    padding-top: 0.25rem !important;
+    padding-top: 2.5px !important;
   }
   .bootstrap-iso .pr-xl-1,
   .bootstrap-iso .px-xl-1 {
-    padding-right: 0.25rem !important;
+    padding-right: 2.5px !important;
   }
   .bootstrap-iso .pb-xl-1,
   .bootstrap-iso .py-xl-1 {
-    padding-bottom: 0.25rem !important;
+    padding-bottom: 2.5px !important;
   }
   .bootstrap-iso .pl-xl-1,
   .bootstrap-iso .px-xl-1 {
-    padding-left: 0.25rem !important;
+    padding-left: 2.5px !important;
   }
   .bootstrap-iso .p-xl-2 {
-    padding: 0.5rem !important;
+    padding: 5px !important;
   }
   .bootstrap-iso .pt-xl-2,
   .bootstrap-iso .py-xl-2 {
-    padding-top: 0.5rem !important;
+    padding-top: 5px !important;
   }
   .bootstrap-iso .pr-xl-2,
   .bootstrap-iso .px-xl-2 {
-    padding-right: 0.5rem !important;
+    padding-right: 5px !important;
   }
   .bootstrap-iso .pb-xl-2,
   .bootstrap-iso .py-xl-2 {
-    padding-bottom: 0.5rem !important;
+    padding-bottom: 5px !important;
   }
   .bootstrap-iso .pl-xl-2,
   .bootstrap-iso .px-xl-2 {
-    padding-left: 0.5rem !important;
+    padding-left: 5px !important;
   }
   .bootstrap-iso .p-xl-3 {
-    padding: 1rem !important;
+    padding: 10px !important;
   }
   .bootstrap-iso .pt-xl-3,
   .bootstrap-iso .py-xl-3 {
-    padding-top: 1rem !important;
+    padding-top: 10px !important;
   }
   .bootstrap-iso .pr-xl-3,
   .bootstrap-iso .px-xl-3 {
-    padding-right: 1rem !important;
+    padding-right: 10px !important;
   }
   .bootstrap-iso .pb-xl-3,
   .bootstrap-iso .py-xl-3 {
-    padding-bottom: 1rem !important;
+    padding-bottom: 10px !important;
   }
   .bootstrap-iso .pl-xl-3,
   .bootstrap-iso .px-xl-3 {
-    padding-left: 1rem !important;
+    padding-left: 10px !important;
   }
   .bootstrap-iso .p-xl-4 {
-    padding: 1.5rem !important;
+    padding: 15px !important;
   }
   .bootstrap-iso .pt-xl-4,
   .bootstrap-iso .py-xl-4 {
-    padding-top: 1.5rem !important;
+    padding-top: 15px !important;
   }
   .bootstrap-iso .pr-xl-4,
   .bootstrap-iso .px-xl-4 {
-    padding-right: 1.5rem !important;
+    padding-right: 15px !important;
   }
   .bootstrap-iso .pb-xl-4,
   .bootstrap-iso .py-xl-4 {
-    padding-bottom: 1.5rem !important;
+    padding-bottom: 15px !important;
   }
   .bootstrap-iso .pl-xl-4,
   .bootstrap-iso .px-xl-4 {
-    padding-left: 1.5rem !important;
+    padding-left: 15px !important;
   }
   .bootstrap-iso .p-xl-5 {
-    padding: 3rem !important;
+    padding: 30px !important;
   }
   .bootstrap-iso .pt-xl-5,
   .bootstrap-iso .py-xl-5 {
-    padding-top: 3rem !important;
+    padding-top: 30px !important;
   }
   .bootstrap-iso .pr-xl-5,
   .bootstrap-iso .px-xl-5 {
-    padding-right: 3rem !important;
+    padding-right: 30px !important;
   }
   .bootstrap-iso .pb-xl-5,
   .bootstrap-iso .py-xl-5 {
-    padding-bottom: 3rem !important;
+    padding-bottom: 30px !important;
   }
   .bootstrap-iso .pl-xl-5,
   .bootstrap-iso .px-xl-5 {
-    padding-left: 3rem !important;
+    padding-left: 30px !important;
   }
   .bootstrap-iso .m-xl-auto {
     margin: auto !important;
