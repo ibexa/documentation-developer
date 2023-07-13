@@ -96,7 +96,7 @@ See [Security advisory: EZSA-2020-002.](https://developers.ibexa.co/security-adv
 
 ### Block upload of unwanted file types
 
-Go through `ibexa.site_access.config.default.io.file_storage.file_type_blacklist` defined in `Core/Resources/config/default_settings.yml` and verify that it includes all file types you want to block from being uploaded, and no others.
+Go through the `ibexa.site_access.config.default.io.file_storage.file_type_blacklist` setting defined in `src/bundle/Core/Resources/config/default_settings.yml` of the Core bundle, and verify that it includes all file types you want to block from being uploaded, and no others.
 
 ### Block execution of scripts in `var` directory
 
