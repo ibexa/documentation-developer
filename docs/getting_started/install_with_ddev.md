@@ -203,7 +203,7 @@ Alternatively, the Composer global `auth.json` can be the DDEV global `auth.json
 
 If the DDEV project has already been started, you need to run `ddev restart`.
 
-The use an `auth.json` file replaces step [4. Composer authentication](#4-composer-authentication).
+The use of an `auth.json` file replaces step [4. Composer authentication](#4-composer-authentication).
 
 ### Using Dotenv
 
