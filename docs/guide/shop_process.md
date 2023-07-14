@@ -11,4 +11,4 @@ description: The shop process of Ibexa DXP covers various steps of making a tran
 "guide/quick_order/quick_order",
 "guide/order_history/order_history",
 "guide/vouchers/vouchers"
-],) =]]
+], force_version="3.3") =]]
