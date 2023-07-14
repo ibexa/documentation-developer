@@ -8,15 +8,15 @@ edition: commerce
 There are different ways in which you can extend or customize your Shipping module implementation. 
 Here, you can learn about the following ideas to make your Commerce solution more powerful:
 
-    - create a custom shipping method type
-    - toggle shipping method availability in checkout based on a condition
-    - display shipping method parameters on the shipping method details page
+- create a custom shipping method type
+- toggle shipping method availability in checkout based on a condition
+- display shipping method parameters on the shipping method details page
 
 You can also [customize the shipment processing workflow](configure_shipment.md#custom-shipment-workflows).
 
 ## Create custom shipping method type
 
-If your application needs shipping methods of other type than the default ones, you can create custom shipping method types. 
+If your application needs shipping methods of other type than the default ones, you create custom shipping method types. 
 See the code samples below to learn how you could do it.
  
 ### Define custom shipping method type class
@@ -33,13 +33,14 @@ At this point a custom shipping method type should be visible in the user interf
 ### Create options form
 
 In `src/ShippingMethodType/Form/Type/`, create the `CustomShippingMethodOptionsType.php` form type that corresponds to the custom shipping method type.
+
 You also define a name of the custom shipping method type here, by using the `getTranslationMessages` method.
 
-``` php
+``` php hl_lines="32"
 [[= include_file('code_samples/front/shop/shipping/src/ShippingMethodType/Form/Type/CustomShippingMethodOptionsType.php') =]]
 ```
 
-In `translations/`, create a translations file that stores a value name for the custom shipping method type, for example:
+In `translations/`, create a translations file that stores a name value for the custom shipping method type, for example:
 
 ``` yaml
 [[= include_file('code_samples/front/shop/shipping/translations/ibexa_shipping.en.yaml') =]]
@@ -51,10 +52,12 @@ Next, use the type factory to define an options form mapper class in `config/ser
 [[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 0, 1) =]] [[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 8, 15) =]]
 ```
 
+![Creating a shipping method of custom type](img/custom_shipping_method_type.png "Creating a shipping method of custom type")
+
 ### Create options validator
 
-You might want to validate the form data provided by the user against certain constraints. 
-Here, you create an options validator class that checks whether the user provided a value in the `customer_identifier` field and dispatches an error when needed.
+You might want to validate the data provided by the user against certain constraints. 
+Here, you create an options validator class that checks whether the user provided the `customer_identifier` value and dispatches an error when needed.
 
 Use the type factory to define a compound validator class in `config/services.yaml`:
 
@@ -78,6 +81,7 @@ Finally, register the validator as a service:
 
 Before form data can be stored in database tables, field values must be converted to a storage-specific format.
 Here, the storage converter converts the `customer_identifier` string value into the `customer_id` numerical value.
+
 In `src/ShippingMethodType/Storage`, create the `StorageConverter.php` class:
 
 ``` php
