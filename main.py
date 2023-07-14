@@ -37,11 +37,13 @@ def define_env(env):
         return ''.join(line_range)
 
     @env.macro
-    def cards(pages, columns=1):
+    def cards(pages, columns=1, style="cards", force_version=False):
         current_page = env.variables.page
         absolute_url = current_page.abs_url
-        url_parts = re.search("^/([^/]+)/([^/]+)/", absolute_url)
-        (language, version) = url_parts.groups()
+        canonical = current_page.canonical_url
+        url_parts = re.search("//([^/]+)/([^/]+)/([^/]+)/", canonical)
+        (site, language, version) = url_parts.groups()
+        version = force_version or version
 
         if isinstance(pages, str):
             pages = [pages]
