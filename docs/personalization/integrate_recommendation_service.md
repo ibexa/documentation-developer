@@ -153,11 +153,13 @@ curl_close($curl);
 
 ## Send emails with recommendations
 
-By using [email triggers]([[= user_doc =]]/personalization/triggers.md), your organization can send emails to individual visitors, for example, to invite them to return to the website or remind them of items abandoned in a cart.
-
 Email triggers are push messages with recommendations.
-Specific conditions, such as the time that must pass before email start being sent, content types and attributes to be included in a response, or a number of repetitions, are first defined based on an interview between you and Ibexa.
-Email triggers are then processed on the Personalization server and responses are delivered to a dedicated endpoint.
+With this feature, your organization can invite individual visitors to return to the website or remind them of items abandoned in a cart, for example by sending emails.
+Before you can start [using email triggers]([[= user_doc =]]/personalization/triggers), you must contact Ibexa and define specific conditions, for example:
+
+- the time that must pass before emails start being sent
+- content types and attributes that are included in a response
+- a number of repetitionsEmail triggers are then processed on the Personalization server and responses are delivered to a dedicated endpoint.
 
 To let your visitors receive emails with recommendations:
 
@@ -167,8 +169,8 @@ To let your visitors receive emails with recommendations:
 Out of many options, it could be an Ibexa Connect [webhook](https://doc.ibexa.co/projects/connect/en/latest/tools/webhooks/). 
 The endpoint must meet the following requirements:
 
-   - must support POST requests
-   - must accept JSON objects in a format that resembles the following example:
+ - must support POST requests
+ - must accept JSON objects in a format that resembles the following example:
 
 ``` json
 {
