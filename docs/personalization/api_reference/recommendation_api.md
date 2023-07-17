@@ -81,7 +81,7 @@ For more information, see [Submodels]([[= user_doc =]]/personalization/recommend
 
 !!! note "Multiple submodels in recommendations"
 
-    If you send a recommendation request with two attribute keys, the response contains an intersection of two recommendation sets that originate from submodels calculated for these attributes.
+    If you send a request with two attribute keys, the response contains an intersection of two recommendation sets that originate from submodels calculated for these attributes.
     
     For example, to get recommendations for items of certain type that are limited by submodels based on both a nominal and numeric attribute, you can send the following request:
     
@@ -271,7 +271,7 @@ and provided context.
 The shortest expiration period is 5 minutes from the request time, the longest 
 is 24 hours. 
 
-In most cases you don't have to calculate the expiration time manually. 
+Usually, you don't have to calculate the expiration time manually. 
 Instead, make sure that the `Expires` header is used in the configuration 
 of your caching system and not a static value out of your configuration.
 
