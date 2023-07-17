@@ -412,7 +412,8 @@ Typically, you can add a `gw` to the hostname and use nslookup to find it.
 You can also use the [Platform.sh CLI command](https://docs.platform.sh/development/cli.html) to find [the endpoint](https://docs.platform.sh/domains/steps/dns.html?#where-should-the-cname-point-to):
 
 ```bash
-    $ platform environment:info edge_hostname
+    alias ibexa_cloud='PLATFORMSH_CLI_API_URL=https://api.cloud.ibexa.co PLATFORMSH_CLI_SESSION_ID=ibexa_cloud platform'
+    ibexa_cloud environment:info edge_hostname
 ```
 
 #### Finding Nginx endpoint on dedicated cloud
