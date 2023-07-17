@@ -96,7 +96,11 @@ See [Security advisory: EZSA-2020-002.](https://developers.ibexa.co/security-adv
 
 ### Block upload of unwanted file types
 
-Go through the `ibexa.site_access.config.default.io.file_storage.file_type_blacklist` setting defined in `src/bundle/Core/Resources/config/default_settings.yml` of the Core bundle, and verify that it includes all file types you want to block from being uploaded, and no others.
+The `ibexa.site_access.config.default.io.file_storage.file_type_blacklist` setting defined in the config file `src/bundle/Core/Resources/config/default_settings.yml` in the Core bundle lists filename extensions for files that should not be uploaded. Attempting to upload such files will result in an error message. It exists to prevent uploading files that could potentially be executed on the server, which would be a Remote Code Execution (RCE) vulnerability. (There are also other prevention measures in place, like using the web server configuration to block execution of uploaded scripts, see the next point.)
+
+You should adapt this list to your needs. Note that `svg` images are blocked because they may contain JavaScript code. If you opt to allow them, make sure you take steps to mitigate this risk.
+
+The default list of blocked file types contains: `hta htm html jar js jse pgif phar php php3 php4 php5 phps phpt pht phtml svg swf xhtm xhtml`
 
 ### Block execution of scripts in `var` directory
 
