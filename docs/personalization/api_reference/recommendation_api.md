@@ -85,7 +85,7 @@ For more information, see [Submodels]([[= user_doc =]]/personalization/recommend
     
     For example, to get recommendations for items of certain type that are limited by submodels based on both a nominal and numeric attribute, you can send the following request:
     
-    `GET https://reco.perso.ibexa.co/api/v2/00000/john.doe/e2e_top_clicked?numrecs=50&outputtypeid=1&width-range=10:30&color=green`
+    `GET https://reco.perso.ibexa.co/api/v2/00000/john.doe/landing_page.json?numrecs=50&outputtypeid=1&width-range=10:30&color=green`
 
 ## Responses
 
