@@ -217,11 +217,9 @@ The following example shows the use of `.env.local` with database configuration:
     - remove it from under the `web_environment:` key in `.ddev/config.yaml` file then restart the project
     - rebuild the project from scratch
 
-### Webserver configuration
+### Nginx Server Blocks
 
-Setting up the web server as recommended for production requires the following steps.
-
-#### Nginx Server Blocks
+Even if Ibexa DXP works with the default Nginx configuration coming with DDEV, it is recommended to use the dedicated one.
 
 Copy the Server Blocks template as a new Nginx configuration:
 
@@ -257,11 +255,9 @@ sed -i 's/%BINARY_DATA_HANDLER%//' .ddev/nginx_full/ibexa.conf;
 sed -i 's/ibexa_params.d/sites-enabled\/ibexa_params.d/' .ddev/nginx_full/ibexa.conf;
 ```
 
-#### Switch to Apache and its Virtual Host
+### Switch to Apache and its Virtual Host
 
-By default, DDEV uses Nginx.
-
-To use Apache instead, run the following command:
+To use Apache instead of the default Nginx, run the following command:
 
 ```bash
 ddev config --webserver-type=apache-fpm
@@ -271,7 +267,7 @@ Ibexa DXP can't run on Apache without the dedicated Virtual Host.
 
 To set the Apache Virtual Host, override `.ddev/apache/apache-site.conf` with Ibexa DXP's config. You can do it manually or by using a script.
 
-##### Manual
+#### Manual
 
 Copy the Virtual Host template as the new Apache configuration:
 
@@ -309,7 +305,7 @@ Finally, restart the project:
 ddev restart
 ```
 
-##### Scripted
+#### Scripted
 
 Generate the Virtual Host with [`vhost.sh`](https://github.com/ibexa/docker/blob/main/scripts/vhost.sh):
 
