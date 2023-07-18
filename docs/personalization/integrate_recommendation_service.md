@@ -159,7 +159,9 @@ Before you can start [using email triggers]([[= user_doc =]]/personalization/tri
 
 - the time that must pass before emails start being sent
 - content types and attributes that are included in a response
-- a number of repetitionsEmail triggers are then processed on the Personalization server and responses are delivered to a dedicated endpoint.
+- a number of repetitions
+
+Email triggers are then processed on the Personalization server and responses are delivered to a dedicated endpoint.
 
 To let your visitors receive emails with recommendations:
 
