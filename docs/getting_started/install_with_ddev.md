@@ -219,7 +219,7 @@ The following example shows the use of `.env.local` with database configuration:
 
 ### Nginx Server Blocks
 
-Even if Ibexa DXP works with the default Nginx configuration coming with DDEV, it is recommended to use the dedicated one.
+Even if Ibexa DXP works with the default Nginx configuration coming with DDEV, it's recommended to use the dedicated one.
 
 Copy the Server Blocks template as a new Nginx configuration:
 
