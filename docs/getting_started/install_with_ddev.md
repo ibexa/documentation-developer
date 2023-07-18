@@ -322,6 +322,7 @@ bash vhost.sh --template-file=vendor/ibexa/post-install/resources/templates/apac
   --basedir='/var/www/html' \
   --sf-env=dev \
   > .ddev/apache/apache-site.conf
+sed -i 's/php5-fpm.sock/php-fpm.sock/' .ddev/apache/apache-site.conf
 rm vhost.sh
 ```
 
