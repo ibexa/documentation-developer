@@ -40,7 +40,7 @@ You also define a name of the custom shipping method type here, by using the `ge
 [[= include_file('code_samples/front/shop/shipping/src/ShippingMethodType/Form/Type/CustomShippingMethodOptionsType.php') =]]
 ```
 
-In `translations/`, create a translations file that stores a name value for the custom shipping method type, for example:
+In `translations/`, create a translations file `ibexa_shipping.en.yaml` that stores a name value for the custom shipping method type, for example:
 
 ``` yaml
 [[= include_file('code_samples/front/shop/shipping/translations/ibexa_shipping.en.yaml') =]]
