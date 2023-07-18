@@ -92,7 +92,7 @@ git push -u <platform.sh-remote> master
 !!! caution
 
     If you want to use the [Platform.sh CLI](https://docs.platform.sh/development/cli.html), you have to set it up for Ibexa Cloud.
-    Consider using the following alias `ibexa_cloud` with the right set up instead of `platform`:
+    Consider using the following alias `ibexa_cloud` with a dedicated setup instead of `platform`:
     ```bash
     alias ibexa_cloud="PLATFORMSH_CLI_SESSION_ID=ibexa_cloud \
         PLATFORMSH_CLI_API_URL=https://api.cloud.ibexa.co \
