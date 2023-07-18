@@ -22,7 +22,7 @@ You can run data migrations either with a command, or with the [PHP API](public_
     "guide/data_migration/exporting_and_importing_data",
     "guide/data_migration/data_migration_actions",
     "guide/data_migration/migration_management",
-]) =]]
+], force_version="3.3") =]]
 
 !!! caution "Do not enable EzMigrationBundle2"
 
