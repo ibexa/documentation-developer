@@ -36,16 +36,6 @@ ddev config --project-type=php --php-version 8.1 --docroot=public --create-docro
 
 This command sets the project type to PHP, the PHP version to 8.1, the document root to `public` directory, and creates the document root.
 
-#### Switch to Apache (optional)
-
-By default, DDEV uses Nginx.
-
-To use Apache instead, run the following command:
-
-```bash
-ddev config --webserver-type=apache-fpm
-```
-
 #### Use another database type (optional)
 
 By default, DDEV uses MariaDB.
@@ -267,7 +257,17 @@ sed -i 's/%BINARY_DATA_HANDLER%//' .ddev/nginx_full/ibexa.conf;
 sed -i 's/ibexa_params.d/sites-enabled\/ibexa_params.d/' .ddev/nginx_full/ibexa.conf;
 ```
 
-#### Apache Virtual Host
+#### Switch to Apache and its Virtual Host
+
+By default, DDEV uses Nginx.
+
+To use Apache instead, run the following command:
+
+```bash
+ddev config --webserver-type=apache-fpm
+```
+
+Ibexa DXP can't run on Apache without the dedicated Virtual Host.
 
 To set the Apache Virtual Host, override `.ddev/apache/apache-site.conf` with Ibexa DXP's config. You can do it manually or by using a script.
 
