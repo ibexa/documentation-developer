@@ -248,7 +248,7 @@ Error messages can change, don't use them for automated processing.
 
 ## Cache recommendations
 
-In most cases, the Personalization server's response can be cached. 
+The Personalization server's response can be cached. 
 Depending on the recommendation model and context, it can drastically reduce 
 the number of recommendation requests. 
 The recommendation service supports the following HTTP headers to enable cache 
@@ -271,7 +271,7 @@ and provided context.
 The shortest expiration period is 5 minutes from the request time, the longest 
 is 24 hours. 
 
-Usually, you don't have to calculate the expiration time manually. 
+You don't usually have to calculate the expiration time manually. 
 Instead, make sure that the `Expires` header is used in the configuration 
 of your caching system and not a static value out of your configuration.
 
