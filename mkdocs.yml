@@ -384,8 +384,8 @@ nav:
         - Integrate recommendation service: personalization/integrate_recommendation_service.md
         - Tracking integration: personalization/tracking_integration.md
         - Recommendation integration: personalization/recommendation_integration.md
-        - API reference:
-            - API reference: personalization/api_reference/api_reference.md
+        - Personalization API:
+            - Personalization API: personalization/api_reference/api_reference.md
             - Content API: personalization/api_reference/content_api.md
             - Recommendation API: personalization/api_reference/recommendation_api.md
             - Tracking API: personalization/api_reference/tracking_api.md

@@ -35,7 +35,7 @@ The commerce component of [[= product_name =]] covers various areas of managing 
 "commerce/storefront/extend_storefront"
 ], columns=4) =]]
 
-## Explore API reference
+## Explore Commerce API
 
 [[= cards([
 "commerce/cart/cart_api",
