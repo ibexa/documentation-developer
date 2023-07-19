@@ -9,6 +9,30 @@ searches for content based on the identifier of its Content Type.
 
 ## Example
 
+### PHP
+
 ``` php
 $query->query = new Criterion\ContentTypeIdentifier(['article', 'blog_post']);
 ```
+
+### REST API
+
+=== "XML"
+
+    ```xml
+    <Query>
+        <Filter>
+            <ContentTypeIdentifierCriterion>article</ContentTypeIdentifierCriterion>
+        </Filter>
+    </Query>
+    ```
+
+=== "JSON"
+
+    ```json
+    "Query": {
+        "Filter": {
+            "ContentTypeIdentifierCriterion": "article"
+        }
+    }
+    ```

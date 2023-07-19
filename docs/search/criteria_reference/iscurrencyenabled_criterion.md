@@ -13,6 +13,8 @@ The `IsCurrencyEnabledCriterion` Criterion is not available in Solr or Elasticse
 
 ## Example
 
+### PHP
+
 ``` php
 $query->query = new \Ibexa\Contracts\ProductCatalog\Values\Currency\Query\Criterion\IsCurrencyEnabledCriterion();
 ```

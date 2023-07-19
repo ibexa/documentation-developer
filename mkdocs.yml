@@ -385,8 +385,8 @@ nav:
         - Integrate recommendation service: personalization/integrate_recommendation_service.md
         - Tracking integration: personalization/tracking_integration.md
         - Recommendation integration: personalization/recommendation_integration.md
-        - API reference:
-            - API reference: personalization/api_reference/api_reference.md
+        - Personalization API:
+            - Personalization API: personalization/api_reference/api_reference.md
             - Content API: personalization/api_reference/content_api.md
             - Recommendation API: personalization/api_reference/recommendation_api.md
             - Tracking API: personalization/api_reference/tracking_api.md
@@ -443,6 +443,7 @@ nav:
             - ObjectStateId: search/criteria_reference/objectstateid_criterion.md
             - ObjectStateIdentifier: search/criteria_reference/objectstateidentifier_criterion.md
             - ParentLocationId: search/criteria_reference/parentlocationid_criterion.md
+            - ParentLocationRemoteId: search/criteria_reference/parentlocationremoteId_criterion.md
             - Priority: search/criteria_reference/priority_criterion.md
             - RemoteId: search/criteria_reference/remoteid_criterion.md
             - SectionId: search/criteria_reference/sectionid_criterion.md
@@ -460,6 +461,11 @@ nav:
             - LogicalOr Criterion: search/criteria_reference/logicalor_criterion.md
         - Product Search Criteria:
             - Product Search Criteria: search/criteria_reference/product_search_criteria.md
+            - AttributeName: search/criteria_reference/attributename_criterion.md
+            - AttributeGroupIdentifier: search/criteria_reference/attributegroupidentifier_criterion.md
+            - CatalogIdentifier: search/criteria_reference/catalogidentifier_criterion.md
+            - CatalogName: search/criteria_reference/catalogname_criterion.md
+            - CatalogStatus: search/criteria_reference/catalogstatus_criterion.md
             - BasePrice: search/criteria_reference/baseprice_criterion.md
             - CheckboxAttribute: search/criteria_reference/checkboxattribute_criterion.md
             - ColorAttribute: search/criteria_reference/colorattribute_criterion.md
@@ -467,7 +473,9 @@ nav:
             - CreatedAtRange: search/criteria_reference/createdatrange_criterion.md
             - CustomPrice: search/criteria_reference/customprice_criterion.md
             - FloatAttribute: search/criteria_reference/floatattribute_criterion.md
+            - FloatAttributeRange: search/criteria_reference/floatattributerange_criterion.md
             - IntegerAttribute: search/criteria_reference/integerattribute_criterion.md
+            - IntegerAttributeRange: search/criteria_reference/integerattributerange_criterion.md
             - ProductAvailability: search/criteria_reference/productavailability_criterion.md
             - ProductStock: search/criteria_reference/productstock_criterion.md
             - ProductStockRange: search/criteria_reference/productstockrange_criterion.md
@@ -487,6 +495,7 @@ nav:
             - CustomerName: search/criteria_reference/order_customer_name_criterion.md
             - Identifier: search/criteria_reference/order_identifier_criterion.md
             - IsCompanyAssociated: search/criteria_reference/order_company_associated_criterion.md
+            - Owner: search/criteria_reference/order_owner_criterion.md
             - Price: search/criteria_reference/order_price_criterion.md
             - Source: search/criteria_reference/order_source_criterion.md
             - Status: search/criteria_reference/order_status_criterion.md
@@ -520,6 +529,7 @@ nav:
             - Identifier: search/criteria_reference/shipment_identifier_criterion.md
             - LogicalAnd: search/criteria_reference/shipment_logicaland_criterion.md
             - LogicalOr: search/criteria_reference/shipment_logicalor_criterion.md
+            - Owner: search/criteria_reference/shipment_owner_criterion.md
             - ShippingMethod: search/criteria_reference/shipment_shipping_method_criterion.md
             - StatusCriterion: search/criteria_reference/shipment_status_criterion.md
             - UpdatedAtCriterion: search/criteria_reference/shipment_updatedat_criterion.md
@@ -657,6 +667,7 @@ nav:
               - Reverse proxy: infrastructure_and_maintenance/cache/http_cache/reverse_proxy.md
               - Context-aware HTTP cache: infrastructure_and_maintenance/cache/http_cache/context_aware_cache.md
               - Content-aware HTTP cache: infrastructure_and_maintenance/cache/http_cache/content_aware_cache.md
+              - Configure and customize Fastly: infrastructure_and_maintenance/cache/http_cache/fastly.md 
             - Persistence cache: infrastructure_and_maintenance/cache/persistence_cache.md
         - Clustering:
             - Clustering: infrastructure_and_maintenance/clustering/clustering.md

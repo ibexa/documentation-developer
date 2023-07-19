@@ -9,6 +9,8 @@ The `CheckboxAttribute` Search Criterion searches for products by the value of t
 
 ## Example
 
+### PHP
+
 ``` php
 $query = new ProductQuery(
     null,
