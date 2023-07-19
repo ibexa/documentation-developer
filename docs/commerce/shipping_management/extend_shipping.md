@@ -25,7 +25,7 @@ Create a definition of the shipping method type.
 Use a built-in type factory to define the class in `config/services.yaml`:
 
 ``` yaml
-[[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 0, 1) =]] [[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 1, 8) =]]
+[[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 0, 1) =]][[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 1, 8) =]]
 ```
 
 At this point a custom shipping method type should be visible in the user interface.
@@ -50,7 +50,7 @@ In `translations/`, create a translations file `ibexa_shipping.en.yaml` that sto
 Next, use the type factory to define an options form mapper class in `config/services.yaml`:
 
 ``` yaml
-[[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 0, 1) =]] [[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 8, 15) =]]
+[[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 0, 1) =]][[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 8, 15) =]]
 ```
 
 ![Creating a shipping method of custom type](img/custom_shipping_method_type.png "Creating a shipping method of custom type")
@@ -63,7 +63,7 @@ Here, you create an options validator class that checks whether the user provide
 Use the type factory to define a compound validator class in `config/services.yaml`:
 
 ``` yaml
-[[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 0, 1) =]] [[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 15, 22) =]]
+[[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 0, 1) =]][[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 15, 22) =]]
 ```
 
 Then, in `src/ShippingMethodType/`, create a `CustomerNotNullValidator.php` with the validator class:
@@ -75,7 +75,7 @@ Then, in `src/ShippingMethodType/`, create a `CustomerNotNullValidator.php` with
 Finally, register the validator as a service:
 
 ``` yaml
-[[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 0, 1) =]] [[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 22, 25) =]]
+[[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 0, 1) =]][[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 22, 25) =]]
 ```
 
 ### Create storage converter
@@ -92,7 +92,7 @@ In `src/ShippingMethodType/Storage`, create a `StorageConverter.php` file with t
 Then, register the storage converter as a service:
 
 ``` yaml
-[[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 0, 1) =]] [[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 25, 28) =]]
+[[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 0, 1) =]][[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 25, 28) =]]
 ```
 
 #### Storage definition 
@@ -119,7 +119,7 @@ In `src/ShippingMethodType/Storage`, create `StorageDefinition.php` and `Storage
 Then, register the storage definition as a service:
 
 ``` yaml
-[[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 0, 1) =]] [[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 28, 31) =]]
+[[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 0, 1) =]][[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 28, 31) =]]
 ```
 
 ![Creating a shipping method of custom type](img/custom_shipping_method_type.png "Creating a shipping method of custom type")
@@ -137,7 +137,7 @@ In `src/ShippingMethodType/Storage`, create a `CustomVoter.php` file with a vote
 Register the voter as a service:
 
 ``` yaml
-[[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 0, 1) =]] [[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 31, 34) =]]
+[[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 0, 1) =]][[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 31, 34) =]]
 ```
 
 ## Display shipping method parameters in shipping method details view
@@ -152,6 +152,6 @@ To do this, in `src/ShippingMethodType/Cost`, create a `CustomCostFormatter.php`
 Then register the formatter as a service:
 
 ``` yaml
-[[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 0, 1) =]] [[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 34, 38) =]]
+[[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 0, 1) =]][[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 34, 38) =]]
 ```
 
