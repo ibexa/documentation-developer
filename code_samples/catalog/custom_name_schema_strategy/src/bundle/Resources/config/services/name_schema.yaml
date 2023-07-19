@@ -5,3 +5,4 @@ services:
         autoconfigure: true
 
     App\Attribute\NameSchema\CustomNameSchemaStrategy: ~
+    
