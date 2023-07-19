@@ -230,15 +230,15 @@ cp -r vendor/ibexa/post-install/resources/templates/nginx/ibexa_params.d .ddev/n
 
 Then, replace the placeholders with the appropriate values in `.ddev/nginx_full/ibexa.conf`:
 
-| Placeholder             | Value                          |
-|-------------------------|--------------------------------|
-| `%PORT%`                | `80`                           |
-| `%HOST_LIST%`           | `*.ddev.site`                  |
-| `%BASEDIR%`             | `/var/www/html`                |
-| `%BODY_SIZE_LIMIT_M%`   | `0`                            |
-| `%TIMEOUT_S%`           | `0`                            |
-| `%FASTCGI_PASS%`        | `unix:/var/run/php-fpm.sock`   |
-| `%BINARY_DATA_HANDLER%` | empty string |
+| Placeholder             | Value                        |
+|-------------------------|------------------------------|
+| `%PORT%`                | `80`                         |
+| `%HOST_LIST%`           | `*.ddev.site`                |
+| `%BASEDIR%`             | `/var/www/html`              |
+| `%BODY_SIZE_LIMIT_M%`   | `0`                          |
+| `%TIMEOUT_S%`           | `90s`                        |
+| `%FASTCGI_PASS%`        | `unix:/var/run/php-fpm.sock` |
+| `%BINARY_DATA_HANDLER%` | empty string                 |
 
 Because of path resolution inside DDEV's Nginx, you must replace one more thing: `ibexa_params.d` with `sites-enabled/ibexa_params.d`.
 
@@ -249,7 +249,7 @@ sed -i 's/%PORT%/80/' .ddev/nginx_full/ibexa.conf;
 sed -i 's/%HOST_LIST%/*.ddev.site/' .ddev/nginx_full/ibexa.conf;
 sed -i 's/%BASEDIR%/\/var\/www\/html/' .ddev/nginx_full/ibexa.conf;
 sed -i 's/%BODY_SIZE_LIMIT_M%/0/' .ddev/nginx_full/ibexa.conf;
-sed -i 's/%TIMEOUT_S%/60s/' .ddev/nginx_full/ibexa.conf;
+sed -i 's/%TIMEOUT_S%/90s/' .ddev/nginx_full/ibexa.conf;
 sed -i 's/%FASTCGI_PASS%/unix:\/var\/run\/php-fpm.sock/' .ddev/nginx_full/ibexa.conf;
 sed -i 's/%BINARY_DATA_HANDLER%//' .ddev/nginx_full/ibexa.conf;
 sed -i 's/ibexa_params.d/sites-enabled\/ibexa_params.d/' .ddev/nginx_full/ibexa.conf;
