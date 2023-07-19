@@ -1,4 +1,4 @@
- services:
+services:
     app.shipping.shipping_method_type.custom:
         class: Ibexa\Shipping\ShippingMethod\ShippingMethodType
         arguments:

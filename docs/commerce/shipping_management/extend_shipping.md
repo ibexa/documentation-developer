@@ -144,6 +144,7 @@ Register the voter as a service:
 
 You can extend the default  shipping method details view by making shipping method visible on the **Cost** tab.
 To do this, in `src/ShippingMethodType/Cost`, create a `CustomCostFormatter.php` file with a formatter class:
+
 ``` php
 [[= include_file('code_samples/front/shop/shipping/src/ShippingMethodType/Cost/CustomCostFormatter.php') =]]
 ```
