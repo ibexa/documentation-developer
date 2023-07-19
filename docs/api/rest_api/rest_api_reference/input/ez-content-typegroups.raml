@@ -187,9 +187,12 @@ post:
                         application/vnd.ibexa.api.ContentTypeCreate+xml
                         application/vnd.ibexa.api.ContentTypeCreate+json
             body:
-                application/vnd.ibexa.api.ContentTypeCreate.xml:
+                application/vnd.ibexa.api.ContentTypeCreate+xml:
                     type: ContentTypeCreate
                     example: !include examples/content/typegroups/content_type_group_id/types/POST/ContentTypeCreate.xml.example
+                application/vnd.ez.api.ContentTypeCreate+json:
+                    type: ContentTypeCreate
+                    example: !include examples/content/typegroups/content_type_group_id/types/POST/ContentTypeCreate.json.example
             responses:
                 201:
                     description: Content Type created.
