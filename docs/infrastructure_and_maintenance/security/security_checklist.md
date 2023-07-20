@@ -75,6 +75,7 @@ This is specially important for admin accounts and other privileged users.
 - Never go online with admin password set to `publish` or any other default value.
 - Introduce password quality checks. Make sure the checks are strict enough (length/complexity).
 - 16 characters is a quite secure minimum length. Do not go below 10.
+- If using Ibexa DXP v4.5 or newer, enable the password rule that rejects any password which has been exposed in a public breach.
 
 !!! tip "Password rules"
 
