@@ -158,7 +158,7 @@ With this feature, your organization can invite individual visitors to return to
 Before you can start [using email triggers]([[= user_doc =]]/personalization/triggers), you must contact Ibexa and define specific conditions, for example:
 
 - the time that must pass before emails start being sent
-- content types and attributes that are included in a response
+- Content Types and attributes that are included in a response
 - a number of repetitions
 
 Email triggers are then processed on the Personalization server and responses are delivered to a dedicated endpoint.
