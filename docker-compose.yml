@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+    mkdocs:
+        container_name: ibexa-documentation
+        build:
+            dockerfile: Dockerfile
+        restart: always
+        ports:
+            - "8888:8888"
+        volumes:
+            - ./:/docs
