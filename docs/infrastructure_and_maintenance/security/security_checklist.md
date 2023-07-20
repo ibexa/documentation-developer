@@ -103,7 +103,7 @@ See the line below `# Disable .php(3) and other executable extensions in the var
 
 ### Use secure password hashing
 
-Use the most secure supported password hashing method. This is currently `bcrypt`.
+Use the most secure supported password hashing method. This is currently `bcrypt`, and it is enabled by default.
 
 ### Restrict access to the Back Office
 
