@@ -105,10 +105,6 @@ See the line below `# Disable .php(3) and other executable extensions in the var
 
 Use the most secure supported password hashing method. This is currently `bcrypt`, and it is enabled by default.
 
-### Restrict access to the Back Office
-
-If possible, make the Back Office unavailable on the open internet.
-
 ### Use UTF8MB4 with MySQL/MariaDB
 
 If you are using MySQL/MariaDB, use the UTF8MB4 database character set and related collation.
@@ -128,14 +124,14 @@ Use the following checklist to ensure the Roles and Policies are secure:
 - Is there a clear Role separation between the organisation's internal and external users?
 - Is access to user data properly restricted, in accordance with GDPR?
 
-## Underlying stack
+### Minimize exposure
 
-Once you have properly configured secure user roles and permissions, to avoid exposing your application to any DDOS vulnerabilities or other yet unknown security threats, make sure that you do the following:
+Security should be a multi-layered exercise. It is wise to minimize what features you make available to the world, even if there are no known or suspected vulnerabilities in those features, and even if your content is properly protected by roles and policies. Reduce your attack surface by exposing only what you must.
 
-- Avoid exposing servers on the open internet when not strictly required.
-- Ensure any servers, services, ports and virtual hosts that were opened for testing purposes are locked down before going live.
-- Secure the database with a good password, keys, firewall, etc. Ensure that the database user used by the web app only has access to do the operations needed by Ibexa DXP. The Data Definition Language (DDL) commands (create, alter, drop, truncate, comment) are not needed for running Ibexa DXP, only for installing and upgrading it. If the web app user does not have these rights, then that reduces the damage that can be done if there is a security breach.
-- Consider whether certain interfaces must be left available on the open internet. Roles protect your content on all interfaces, but you may prefer to reduce your attack surface. For example:
+- If possible, make the Back Office unavailable on the open internet.
+- [Symfony FOSJsRoutingBundle](https://github.com/FriendsOfSymfony/FOSJsRoutingBundle) is required in those releases where we use it, to expose routes to JavaScript. It exposes only the required routes, nothing more. It is only required in the Back Office site access though, so you might want to block in in other site accesses. You should also go through your own custom routes, and decide for each if you need to expose them or not. See the documentation on [YAML route definitions for exposure](https://github.com/FriendsOfSymfony/FOSJsRoutingBundle/blob/master/Resources/doc/usage.rst#generating-uris).
+- By default, a [Powered-By header](https://doc.ibexa.co/en/latest/update_and_migration/from_1.x_2.x/update_db_to_2.5/#powered-by-header) is set that specifies what version of the DXP is running. For example, `x-powered-by: Ibexa Experience v4`. This doesn't expose anything that couldn't be detected through other means. But if you wish to obscure this, you can either omit the version number, or disable the header entirely.
+- Consider whether certain interfaces must be left available on the open internet. For example:
     - The `/search` and `/graphql` endpoints
     - The REST API endpoints
 
@@ -147,6 +143,14 @@ Once you have properly configured secure user roles and permissions, to avoid ex
         access_control:
             - { path: ^/search, roles: ROLE_USER}
     ```
+
+## Underlying stack
+
+Once you have properly configured secure user roles and permissions, to avoid exposing your application to any DDOS vulnerabilities or other yet unknown security threats, make sure that you do the following:
+
+- Avoid exposing servers on the open internet when not strictly required.
+- Ensure any servers, services, ports and virtual hosts that were opened for testing purposes are locked down before going live.
+- Secure the database with a good password, keys, firewall, etc. Ensure that the database user used by the web app only has access to do the operations needed by Ibexa DXP. The Data Definition Language (DDL) commands (create, alter, drop, truncate, comment) are not needed for running Ibexa DXP, only for installing and upgrading it. If the web app user does not have these rights, then that reduces the damage that can be done if there is a security breach.
 
 ### Security headers
 
