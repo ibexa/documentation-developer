@@ -128,7 +128,7 @@ Then, register the storage definition as a service:
 
 When you implement a web store, you can choose if a certain shipping method is available for selection during checkout.
 Here, you limit shipping method availability to customers who meet a specific condition.
-In `src/ShippingMethodType/Storage`, create a `CustomVoter.php` file with a voter class:
+In `src/ShippingMethodType/Voter`, create a `CustomVoter.php` file with a voter class:
 
 ``` php
 [[= include_file('code_samples/front/shop/shipping/src/ShippingMethodType/Voter/CustomVoter.php') =]]
