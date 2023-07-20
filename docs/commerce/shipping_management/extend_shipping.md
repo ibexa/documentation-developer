@@ -104,7 +104,7 @@ The table stores information specific for the custom shipping method type.
 
     Before you can proceed, in your database, create a table that has columns present in the storage definition, for example:
 
-    `CREATE TABLE ibexa_shipping_method_region_custom(id int, customer_id text, shipping_method_region_id int);`
+    `CREATE TABLE ibexa_shipping_method_region_custom(id int auto_increment primary key, customer_id text, shipping_method_region_id int);`
 
 In `src/ShippingMethodType/Storage`, create `StorageDefinition.php` and `StorageSchema.php` files with their corresponding classes.
 
