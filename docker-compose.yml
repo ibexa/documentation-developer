@@ -10,3 +10,12 @@ services:
             - "8888:8888"
         volumes:
             - ./:/docs
+
+    inotify_rest_php_watcher:
+        build:
+            dockerfile: tools/raml2html/Dockerfile.watch_for_changes
+        container_name: 'ibexa-documentation-rest-changes-watcher'
+        volumes:
+            - ./docs/api/rest_api/rest_api_reference:/rest_api_reference
+            - ./tools/raml2html:/raml2html
+        #restart: always

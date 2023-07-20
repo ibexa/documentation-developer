@@ -1,0 +1,6 @@
+FROM php:8.2-cli-alpine
+RUN apk add --update inotify-tools
+COPY ./tools/raml2html /raml2html
+COPY ./docs/api/rest_api/rest_api_reference/ /rest_api_reference
+WORKDIR /raml2html
+CMD [ "sh", "./watch_for_changes.sh", "/rest_api_reference" ]
