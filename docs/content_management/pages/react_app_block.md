@@ -25,13 +25,14 @@ File has exactly the same structure as regular YAML [block configuration](create
 
 Each configured React app block has an identifier and the following settings:
 
-|Setting|Description|
-|---|---|
-| `name` | Name of the block used in the Page Builder interface. It has to be the same as Component name used in `/page-builder/react/blocks` directory.|
-| `category` | Category in the Page Builder elements menu that the block is shown in. |
-| `thumbnail` | Thumbnail used in the Page Builder elements menu. |
-| `visible` | (Optional) Toggles the block's visibility in the Page Builder elements menu. Remove the block from the layout before you publish another version of the page. |
-| `attributes` | (Optional) List of [block attributes](page_block_attributes.md). |
+| Setting      | Description                                                                                                                                                  |
+|--------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `name`       | Name of the block used in the Page Builder interface. (Used as Component name if no `component` is provided.)                                                |
+| `category`   | Category in the Page Builder elements menu that the block is shown in.                                                                                       |
+| `thumbnail`  | Thumbnail used in the Page Builder elements menu.                                                                                                            |
+| `visible`    | (Optional) Toggles the block's visibility in the Page Builder elements menu. Remove the block from the layout before you publish another version of the page.|
+| `component`  | (Optional) React App Component name used in `assets/page-builder/react/blocks` directory. (If not given, `name` will be used as Component name.)             |
+| `attributes` | (Optional) List of [block attributes](page_block_attributes.md).                                                                                             |
 
 For example:
 
