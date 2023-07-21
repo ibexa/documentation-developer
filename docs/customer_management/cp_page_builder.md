@@ -8,14 +8,16 @@ edition: experience
 On this page, you will learn how to configure the Customer Portal feature to be editable with Page Builder.
 If you already configured Customer Portal, you can learn how to build it with a Page Builder in [User Documentation.]([[= user_doc =]]/customer_management/build_customer_portal/) 
 
-First, you need to decide if you want to create and configure [one portal](#create-and-configure-one-portal) or [multiple portals](#create-and-configure-multiple-portals).
+First, you need to decide if you want to create and configure [one portal](#create-and-configure-one-portal) or [multiple portals](#create-and-configure-multiple-portals) setup.
 
 ## Create and configure one portal
 
+This setup is recommended for simple use cases with one Customer Portal for all markets. 
+If you plan to expand your portal portfolio in the future, see [multiple portal configuration](#create-and-configure-multiple-portals).
+
 ### Configure Page Builder access to Customer Portal
 
-First, create a Customer Portal page,
-its location ID will be later specified in the configuration as [a tree root](multisite_configuration.md#location-tree).
+First, create a Customer Portal page, its location ID will be later specified in the configuration.
 To do it, go to **Content** -> **Content structure**, and select **Customer Portal Page**.
 
 For now, you only need to add a name and a description in the Field view, you can find it in the top toolbar on the left side.
@@ -28,7 +30,7 @@ First, under the `ibexa.siteaccess` [configuration key](configuration.md#configu
 the SiteAccess `list` and to `corporate_group`.
 
 Next, add configuration for `corporate_group` and `custom_portal` under `ibexa.system`.
-Remember to specify `location_id` of the root folder for Customer Portals, you can find it under the **Details** tab of your new page.
+Remember to specify `location_id` of your Customer Portal, you can find it under the **Details** tab of your new page.
 
 ```yaml hl_lines="8 12 14 16"
 ibexa:
@@ -87,6 +89,8 @@ If members of the company don't have sufficient permissions for any Customer Por
     Customer Portal is only available to users that are members of the company. Even if user has all the sufficient permissions but is not a member of a company, they can't see the Customer Portal.
 
 ## Create and configure multiple portals
+
+This setup is recommended for global markets or company specific portals, where each portal is design specifically for its users and their needs.
 
 ### Customer Portal container
 
@@ -153,9 +157,25 @@ ibexa:
 Now, you can go back to your Customer Portal's container.
 All landing pages that you create in it will have Customer Portal template.
 
-### Portal mapping
+### Assign Portal to Customer Group
 
-To be able to see all your portals in the Page Builder view you need to assign them to Customer Groups.
+You can assign multiple Customer Portal containers or Pages to a specific Customer Group.
+First, you need to grant the following permissions to company members from the Customer Group: 
+
+- `user/login` to `custom_portal` SiteAccess
+- `content/read` to selected Customer Portals
+
+![Customer Portal permissions](img/cp_permissions.png)
+
+If members of the Customer Group don't have sufficient permissions for any Customer Portal assigned to them, they will be redirected to the default Customer Portal view.
+
+!!! note
+
+    Customer Portal is only available to users that are members of the company. Even if user has all the sufficient permissions but is not a member of a company, they won't see the Customer Portal.
+
+#### Build-in portal mapping
+
+Now, you need to assign your custom portals to Customer Groups.
 Add portal mapping configuration in `config/services.yaml`:
 
 ```yaml hl_lines="3 4"
@@ -180,22 +200,27 @@ Portals will be displayed to the Customer Group in order specified in the config
 You can specify your own custom logic for redirecting members to a specific Customer Portal.
 To do so, implement `\Ibexa\Contracts\CorporateAccount\CustomerPortal\PickRule\CustomerPortalPickRule` and tag it with `ibexa.corporate_account.customer_portal.pick_rule`.
 
-### Assign Portal to Customer Group
+### Multiple portals on single page
 
-You can assign multiple Customer Portal containers or Pages to a specific Customer Group.
-First, you need to grant the following permissions to company members from the Customer Group: 
+You can allow company members to see multiple versions of Customer Portal on a single page by [combining SiteAccess matchers](siteaccess_matching.md#custom-matchers) with `Compound\LogicalAnd`:
 
-- `user/login` to `custom_portal` SiteAccess
-- `content/read` to selected Customer Portals
+```json
+ibexa:
+    siteaccess:
+        match:
+            Compound\LogicalAnd:
+                custom_portal:
+                    matchers:
+                        Map\Port:
+                            eu: true
+                        Map\Host:
+                            example.com: true
+                    match: custom_portal
+            Map\Host:
+                admin.example.com: site_admin
+```
 
-![Customer Portal permissions](img/cp_permissions.png)
-
-If members of the Customer Group don't have sufficient permissions for any Customer Portal assigned to them, they will be redirected to the default Customer Portal view.
-
-!!! note
-
-    Customer Portal is only available to users that are members of the company. Even if user has all the sufficient permissions but is not a member of a company, they won't see the Customer Portal.
-
+![Multiple portals in one view](img/cp_2_page_view.png)
 
 ## Change Customer Portal layout
 

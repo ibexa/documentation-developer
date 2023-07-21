@@ -338,7 +338,6 @@ nav:
             - Configure Storefront: commerce/storefront/configure_storefront.md
             - Extend Storefront: commerce/storefront/extend_storefront.md
     - Customer management:
-        - Customer management: customer_management/customer_management.md
         - Customer Portal: customer_management/customer_portal.md
         - Customer Portal configuration: customer_management/cp_configuration.md
         - Create Customer Portal: customer_management/cp_page_builder.md
