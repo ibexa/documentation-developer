@@ -31,7 +31,7 @@ Each configured React app block has an identifier and the following settings:
 | `category`   | Category in the Page Builder elements menu that the block is shown in.                                                                                       |
 | `thumbnail`  | Thumbnail used in the Page Builder elements menu.                                                                                                            |
 | `visible`    | (Optional) Toggles the block's visibility in the Page Builder elements menu. Remove the block from the layout before you publish another version of the page.|
-| `component`  | (Optional) React App Component name used in `assets/page-builder/react/blocks` directory. (If not given, `name` will be used as Component name.)             |
+| `component`  | (Optional) React App Component name used in `assets/page-builder/react/blocks` directory. (If not given, `name` is used as Component name.)             |
 | `attributes` | (Optional) List of [block attributes](page_block_attributes.md).                                                                                             |
 
 For example:
