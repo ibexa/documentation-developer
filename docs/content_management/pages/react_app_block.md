@@ -84,7 +84,7 @@ In the following example you will learn how to create `Calculator` React App blo
 First, create a .jsx file which describes your component.
 You can place it in any location.
 
-In the following example, create `Calculator.jsx` file in `../../../page-builder/components/` directory:
+In the following example, create `Calculator.jsx` file in `assets/page-builder/components/` directory:
 
 ``` js
 import React from 'react';
@@ -96,13 +96,13 @@ export default function (props) {
 }
 ```
 
-Then, create a .js file in `/page-builder/react/blocks` directory.
+Then, create a `Calculator.js` file in `assets/page-builder/react/blocks` directory.
 
 Files in this directory create a map of Components which then are imported to `react.blocks.js` file.
 As a result, the components are rendered on the page. 
 
 ``` js
-import Calculator from "../../../page-builder/components/Calculator";
+import Calculator from "../../components/Calculator";
 
 export default {
     Calculator: Calculator,
