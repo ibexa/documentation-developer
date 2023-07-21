@@ -1,5 +1,5 @@
 ---
-description: OwnerCriterion Criterion
+description: Order OwnerCriterion Criterion
 edition: commerce
 ---
 
