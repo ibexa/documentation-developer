@@ -84,6 +84,10 @@ document.getElementsByTagName('body')[0].addEventListener('ibexa-render-block-pr
 });
 ```
 
+!!! note "React"
+
+    If you considere using React JavaScript library, see [React App block](react_app_block.md).
+
 ## Add edit templates
 
 You can also customize the template for the block settings modal.
