@@ -155,7 +155,7 @@ ibexa:
 ```
 
 Now, you can go back to your Customer Portal's container.
-All landing pages that you create in it should have Customer Portal template.
+All Landing Pages that you create in it use Customer Portal template.
 
 ### Assign portal to Customer Group
 
