@@ -101,7 +101,7 @@ The `ibexa.site_access.config.default.io.file_storage.file_type_blacklist` setti
 You should adapt this list to your needs. Note that `svg` images are blocked because they may contain JavaScript code.
 If you opt to allow them, make sure you take steps to mitigate the risk.
 
-The default list of blocked file types contains: `hta htm html jar js jse pgif phar php php3 php4 php5 phps phpt pht phtml svg swf xhtm xhtml`
+The default list of blocked file types contains: `hta htm html jar js jse pgif phar php php3 php4 php5 phps phpt pht phtml svg swf xhtm xhtml`.
 
 ### Block execution of scripts in `var` directory
 
