@@ -17,7 +17,7 @@ If you plan to expand your portal portfolio in the future, see [multiple portal 
 
 ### Configure Page Builder access to Customer Portal
 
-First, create a Customer Portal page, its location ID will be later specified in the configuration.
+First, create a Customer Portal page, its location ID needs to be later specified in the configuration.
 To do it, go to **Content** -> **Content structure**, and select **Customer Portal Page**.
 
 For now, you only need to add a name and a description in the Field view, you can find it in the top toolbar on the left side.
@@ -69,7 +69,7 @@ ibexa:
                     - custom_portal
 ```
 
-Now, you can go to your Customer Portal landing page and edit it in Page Builder.
+Now, you can go to your Customer Portal Landing Page and edit it in Page Builder.
 
 ![Edit Customer Portal in Page Builder](img/cp_edit_in_page_builder.png)
 
@@ -95,7 +95,7 @@ This setup is recommended for global markets or company specific portals, where 
 ### Customer Portal container
 
 First, you need to create a root folder for Customer Portals,
-its location ID will be later specified in the configuration as [a tree root](multisite_configuration.md#location-tree).
+its location ID needs to be later specified in the configuration as [a tree root](multisite_configuration.md#location-tree).
 To do it, go to **Content** -> **Content structure**, and select **Create content**.
 There you will see two possibilities **Customer Portal** and **Customer Portal Page**.
 
@@ -155,9 +155,9 @@ ibexa:
 ```
 
 Now, you can go back to your Customer Portal's container.
-All landing pages that you create in it will have Customer Portal template.
+All landing pages that you create in it should have Customer Portal template.
 
-### Assign Portal to Customer Group
+### Assign portal to Customer Group
 
 You can assign multiple Customer Portal containers or Pages to a specific Customer Group.
 First, you need to grant the following permissions to company members from the Customer Group: 
@@ -204,7 +204,7 @@ To do so, implement `\Ibexa\Contracts\CorporateAccount\CustomerPortal\PickRule\C
 
 You can allow company members to see multiple versions of Customer Portal on a single page by [combining SiteAccess matchers](siteaccess_matching.md#custom-matchers) with `Compound\LogicalAnd`:
 
-```json
+```yaml
 ibexa:
     siteaccess:
         match:
