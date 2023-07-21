@@ -84,7 +84,6 @@ document.getElementsByTagName('body')[0].addEventListener('ibexa-render-block-pr
 });
 ```
 
-
 !!! note "Assets"
 
     For the addition of your custom block's JS and CSS files, see [Assets](assets.md).
