@@ -20,7 +20,7 @@ If you plan to expand your portal portfolio in the future, see [multiple portal 
 First, create a Customer Portal page, its location ID needs to be later specified in the configuration.
 To do it, go to **Content** -> **Content structure**, and select **Customer Portal Page**.
 
-For now, you only need to add a name and a description in the Field view, you can find it in the top toolbar on the left side.
+For now, you only need to add a name and a description in the Field view, you can find it in the upper toolbar on the left side.
 Next, click **Publish** to see the page in the content tree.
 
 ![Add name and description to Customer Portal](img/cp_name_description.png)
@@ -56,7 +56,7 @@ ibexa:
                     excluded_uri_prefixes: [ /media, /images ]
 ```
 
-Next, under the `ibexa.system.admin.page_builder` [configuration key](configuration.md#configuration-files) add `custom_portal` to [the SiteAccess list available to Page Builder](multisite_configuration.md#siteaccesses-and-page-builder):
+Next, under the `ibexa.system.admin.page_builder` [configuration key](configuration.md#configuration-files), add `custom_portal` to [the SiteAccess list available to Page Builder](multisite_configuration.md#siteaccesses-and-page-builder):
 
 ```yaml
 ibexa:
@@ -86,7 +86,7 @@ If members of the company don't have sufficient permissions for any Customer Por
 
 !!! note
 
-    Customer Portal is only available to users that are members of the company. Even if user has all the sufficient permissions but is not a member of a company, they can't see the Customer Portal.
+    Customer Portal is only available to users that are members of the company. Even if a user has all the sufficient permissions but is not a member of a company, they can't see the Customer Portal.
 
 ## Create and configure multiple portals
 
@@ -111,7 +111,7 @@ Select **Customer Portal**, define its name and publish.
 ### Configure Page Builder access to Customer Portal
 
 To be able to see Customer Portal site template in the Page Builder you need to add `custom_portal` SiteAccess to the configuration.
-First, under the `ibexa.siteaccess` [configuration key](configuration.md#configuration-files) add `custom_portal` to
+First, under the `ibexa.siteaccess` [configuration key](configuration.md#configuration-files), add `custom_portal` to
 the SiteAccess `list` and to `corporate_group`.
 
 Next, add configuration for `corporate_group` and `custom_portal` under `ibexa.system`.
@@ -141,7 +141,7 @@ ibexa:
                     excluded_uri_prefixes: [ /media, /images ]
 ```
 
-Next, under the `ibexa.system.admin.page_builder` [configuration key](configuration.md#configuration-files) add `custom_portal` to [the SiteAccess list available to Page Builder](multisite_configuration.md#siteaccesses-and-page-builder):
+Next, under the `ibexa.system.admin.page_builder` [configuration key](configuration.md#configuration-files), add `custom_portal` to [the SiteAccess list available to Page Builder](multisite_configuration.md#siteaccesses-and-page-builder):
 
 ```yaml
 ibexa:
