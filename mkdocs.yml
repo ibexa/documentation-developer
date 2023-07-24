@@ -165,6 +165,7 @@ nav:
             - Page block validators: content_management/pages/page_block_validators.md
             - Create custom Page block: content_management/pages/create_custom_page_block.md
             - React App page block: content_management/pages/react_app_block.md
+            - Ibexa Connect scenario block: content_management/pages/ibexa_connect_scenario_block.md
         - Forms:
             - Forms: content_management/forms/forms.md
             - Form API: content_management/forms/form_api.md
