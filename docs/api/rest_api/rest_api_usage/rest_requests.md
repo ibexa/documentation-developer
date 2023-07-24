@@ -81,12 +81,12 @@ Allow: GET,PATCH,DELETE,COPY,MOVE,SWAP
 
 You can use the following HTTP headers with a REST request:
 
-- [`Accept`](https://tools.ietf.org/html/rfc2616#section-14.1) describing the desired response type and format;
-- [`Content-Type`](https://toos.ietf.org/html/rfc2616#section-14.17) describing the payload type and format;
-- [`X-Siteaccess`](#siteaccess) specifying the target SiteAccess;
-- `X-HTTP-Method-Override` allowing to pass a custom method while using `POST` method as previously seen in [HTTP method](#request-method);
-- [`Destination`](#destination) specifying where to move an item;
-- [`X-Expected-User`](#expected-user) specifying the user needed for the request execution.
+- [`Accept`](https://tools.ietf.org/html/rfc2616#section-14.1) describing the desired response type and format
+- [`Content-Type`](https://toos.ietf.org/html/rfc2616#section-14.17) describing the payload type and format
+- [`X-Siteaccess`](#siteaccess) specifying the target SiteAccess
+- `X-HTTP-Method-Override` allowing to pass a custom method while using `POST` method as previously seen in [HTTP method](#request-method)
+- [`Destination`](#destination) specifying where to move an item
+- [`X-Expected-User`](#expected-user) specifying the user needed for the request execution
 
 Other headers related to authentication methods can be found in [REST API authentication](rest_api_authentication.md).
 
