@@ -45,7 +45,7 @@ ibexa:
                     - poland
 ```
 
-In the `ibexa_storefront.yaml` file, under the `ibexa.system` configuration, regions are set with `default` value. Remember to either exclude this element or extend it by [configuring other regions](enable_purchasing_products.md#configuring-other-regions-and-currencies).
+In the `ibexa_storefront.yaml` file, under the `ibexa.system.storefront_group.product_catalog.regions` configuration, regions are set with `default` value. Remember to either exclude this element or extend it by [configuring other regions](enable_purchasing_products.md#configuring-other-regions-and-currencies).
 
 ```yaml
 ibexa:
