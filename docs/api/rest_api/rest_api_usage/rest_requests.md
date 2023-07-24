@@ -139,7 +139,7 @@ Examples of such requests are:
 
 ### Expected user
 
-The `X-Expected-User` header specifies the user needed on client side for the request execution.
+The `X-Expected-User` header specifies the user needed for the request execution.
 If the current username on server side isn't equal to `X-Expected-User` value, a `401 Unauthorized` error is returned.
 
 For example, it prevents a Content request to be executed with Anonymous user in the case of an expired authentication,
