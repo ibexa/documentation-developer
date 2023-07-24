@@ -40,10 +40,10 @@ You also need to create `pagelayout.html.twig` file in `templates` folder:
 [[= include_file('code_samples/page/ibexa_connect_scenario_block/templates/pagelayout.html.twig') =]]
 ```
 
-Then, in `templates/block` directory under `default.html.twig`, provide your block configuration:
+Then, in `templates/blocks` directory under `default.html.twig`, provide your block configuration:
 
 ```html+twig
-[[= include_file('code_samples/page/ibexa_connect_scenario_block/templates/block/default.html.twig') =]]
+[[= include_file('code_samples/page/ibexa_connect_scenario_block/templates/blocks/default.html.twig') =]]
 ```
 
 In the following example, the configuration of the block is non-complex - block is only used to display the content transferred from an Ibexa Connect webhook.
