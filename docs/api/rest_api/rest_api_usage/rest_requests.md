@@ -84,8 +84,9 @@ You can use the following HTTP headers with a REST request:
 - [`Accept`](https://tools.ietf.org/html/rfc2616#section-14.1) describing the desired response type and format;
 - [`Content-Type`](https://toos.ietf.org/html/rfc2616#section-14.17) describing the payload type and format;
 - [`X-Siteaccess`](#siteaccess) specifying the target SiteAccess;
-- `X-HTTP-Method-Override` allowing to pass a custom method while using `POST` method as previously seen in [HTTP method](#request-method).
-- [`Destination`](#destination) specifying where to move an item
+- `X-HTTP-Method-Override` allowing to pass a custom method while using `POST` method as previously seen in [HTTP method](#request-method);
+- [`Destination`](#destination) specifying where to move an item;
+- [`X-Expected-User`](#expected-user) specifying the user needed for the request execution.
 
 Other headers related to authentication methods can be found in [REST API authentication](rest_api_authentication.md).
 
@@ -135,6 +136,14 @@ Examples of such requests are:
 - [copying a Content](../rest_api_reference/rest_api_reference.html#managing-content-copy-content);
 - [moving a Location and its subtree](../rest_api_reference/rest_api_reference.html#managing-content-move-subtree)
 - [swapping a Location with another](../rest_api_reference/rest_api_reference.html#managing-content-swap-location)
+
+### Expected user
+
+The `X-Expected-User` header specifies the user needed on client side for the request execution.
+If the current username on server side isn't equal to `X-Expected-User` value, a `401 Unauthorized` error is returned.
+
+For example, it prevents a Content request to be executed with Anonymous user in the case of an expired authentication,
+and the response being a `200 OK` but missing Content items due to access rights difference with the expected user.
 
 ## Request body
 
