@@ -57,7 +57,7 @@ See [DDEV database types documentation](https://ddev.readthedocs.io/en/latest/us
 
 #### Configure database connection
 
-Now, configure the database connection for your Ibexa DXP project. Depending on your database of choice (MySQL or PostgreSQL), use the appropriate command below.
+Now, configure the database connection for your [[= product_name =]] project. Depending on your database of choice (MySQL or PostgreSQL), use the appropriate command below.
 
 !!! note
 
@@ -126,9 +126,10 @@ ddev exec "mkdir -p .ddev/homeadditions/.composer; cp ~/.composer/auth.json .dde
 
 If you want to reuse an existing `auth.json` file, see [Using an auth.json](#using-an-authjson).
 
-### 5. Create Ibexa DXP project
+### 5. Create project
 
-Once DDEV is running, use Composer to create a new Ibexa DXP project. Remember to replace `<edition>` and `<version>` with your desired edition and version respectively.
+Once DDEV is running, use Composer to create a new [[= product_name =]] project. 
+Remember to replace `<edition>` and `<version>` with your desired edition and version respectively.
 
 ```bash
 ddev composer create ibexa/<edition>-skeleton:<version>
@@ -139,9 +140,9 @@ ddev composer create ibexa/<edition>-skeleton:<version>
     Consider adding the Symfony Debug bundle which fixes memory outage when dumping objects with circular references.
     `ddev composer require --dev symfony/debug-bundle`
 
-### 6. Install the DXP and its database
+### 6. Install the platform and its database
 
-Once you've made this change, you can proceed to install Ibexa DXP.
+Once you've made this change, you can proceed to install [[= product_name =]].
 
 ```bash
 ddev php bin/console ibexa:install ibexa-<edition>
@@ -150,15 +151,15 @@ ddev php bin/console ibexa:graphql:generate-schema
 
 ### 7. Open browser
 
-Once the above steps are completed, open your Ibexa DXP webpage by running the `ddev launch` command.
+Once the above steps are completed, open the [[= product_name =]]'s webpage by running the `ddev launch` command.
 
 !!! tip
 
     You can also see the project URL in the `ddev start` output.
 
-### 8. Start using Ibexa DXP
+### 8. Start using [[= product_name =]]
 
-You can now start using Ibexa DXP and implement your own website on the platform.
+You can now start using [[= product_name =]] and implement your own website on the platform.
 
 You can edit the configuration and code in the DDEV project directory.
 You can use commands listed in the documentation by prefixing them with `ddev exec` or by opening a terminal inside the container by using `ddev ssh`.
@@ -202,7 +203,7 @@ Instead of using environment variables inside the container, a [`.env.local`](ht
 The following example shows the use of `.env.local` with database configuration:
 
 - Skip step [2. Configure DDEV / Configure database connection](#configure-database-connection).
-- Modify step [5. Create Ibexa DXP project](#5-create-ibexa-dxp-project) to insert the database setting:
+- Modify step [5. Create [[= product_name =]] project](#5-create-ibexa-dxp-project) to insert the database setting:
   ```bash
   ddev composer create ibexa/commerce-skeleton --no-install;
   echo "DATABASE_URL=mysql://db:db@db:3306/db" >> .env.local;
@@ -219,7 +220,7 @@ The following example shows the use of `.env.local` with database configuration:
 
 ### Nginx Server Blocks
 
-Even if Ibexa DXP works with the default Nginx configuration coming with DDEV, it's recommended to use the dedicated one.
+Even if [[= product_name =]] works with the default Nginx configuration that comes with DDEV, it's recommended to use a dedicated one.
 
 Copy the Server Blocks template as a new Nginx configuration:
 
@@ -263,11 +264,12 @@ To use Apache instead of the default Nginx, run the following command:
 ddev config --webserver-type=apache-fpm
 ```
 
-Ibexa DXP can't run on Apache without the dedicated Virtual Host.
+[[= product_name =] can't run on Apache without a dedicated Virtual Host.
 
-To set the Apache Virtual Host, override `.ddev/apache/apache-site.conf` with Ibexa DXP's config. You can do it manually or by using a script.
+To set the Apache Virtual Host, override `.ddev/apache/apache-site.conf` with [[= product_name =]]'s config. 
+You can do it manually or by using a script.
 
-#### Manual
+#### Manual procedure
 
 Copy the Virtual Host template as the new Apache configuration:
 
@@ -275,7 +277,7 @@ Copy the Virtual Host template as the new Apache configuration:
 cp vendor/ibexa/post-install/resources/templates/apache2/vhost.template .ddev/apache/apache-site.conf
 ```
 
-Then, replace the placeholders with the appropriate values in this `.ddev/apache/apache-site.conf`:
+Then, replace the placeholders with the appropriate values in `.ddev/apache/apache-site.conf`:
 
 | Placeholder         | Value                        |
 |---------------------|------------------------------|
@@ -305,7 +307,7 @@ Finally, restart the project:
 ddev restart
 ```
 
-#### Scripted
+#### Scripted procedure
 
 Generate the Virtual Host with [`vhost.sh`](https://github.com/ibexa/docker/blob/main/scripts/vhost.sh):
 
@@ -362,7 +364,7 @@ ddev php bin/console ibexa:install ibexa-<edition>
 # Add some content types using a migration file (previously created on another installation) and update the GraphQL schema
 ddev php bin/console ibexa:migrations:migrate --file=project_content_types.yaml
 ddev php bin/console ibexa:graphql:generate-schema
-# Open the project in the default brother which should display the default SiteAccess frontpage
+# Open the project in the default browser which should display the default SiteAccess frontpage
 ddev launch
 ```
 
@@ -371,9 +373,9 @@ Some DDEV configs can be shared among developers. For example, a common `.ddev/c
 
 Compared to running a clean install like described in [Installation steps](#installation-steps), you can proceed as follows:
 
-- In [1. Create a DDEV project directory](#1-create-a-ddev-project-directory), you can use an existing directory that contains an Ibexa DXP project instead of creating an empty directory.
+- In [1. Create a DDEV project directory](#1-create-a-ddev-project-directory), you can use an existing directory that contains an [[= product_name =]] project instead of creating an empty directory.
 - In [2. Configure DDEV / Configure PHP version and document root](#configure-php-version-and-document-root), don't create the Document root, remove the `--create-docroot` option.
-- In [5. Create Ibexa DXP project](#5-create-ibexa-dxp-project), use only `ddev composer install` instead of `ddev composer create`.
+- In [5. Create [[= product_name =]] project](#5-create-ibexa-dxp-project), use only `ddev composer install` instead of `ddev composer create`.
 - Populate the database with [Ibexa data migration](../content_management/data_migration/importing_data.md) or [`ddev import-db`](https://ddev.readthedocs.io/en/latest/users/usage/commands/#import-db).
 
 ### Hostnames and domains
@@ -389,7 +391,7 @@ If the local project needs to answer to real production domains (for example, to
 DDEV can be useful to locally simulate a production cluster.
 
 - See [clustering with DDEV](clustering_with_ddev.md) to add Elasticsearch, Solr, Redis or Memcached to your DDEV installation.
-- See [Ibexa Cloud and DDEV](ibexa_cloud_and_ddev.md) to locally run an Ibexa DXP project by using DDEV.
+- See [Ibexa Cloud and DDEV](ibexa_cloud_and_ddev.md) to locally run an [[= product_name =]] project by using DDEV.
 
 ## Stop or remove the project
 
