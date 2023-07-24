@@ -233,3 +233,8 @@ Product search now supports stock availability:
 - [ProductStock Criterion](https://doc.ibexa.co/en/4.5/search/criteria_reference/productstock_criterion/) - searches for products with a stock compared to a given number
 - [ProductStockRange Criterion](https://doc.ibexa.co/en/4.5/search/criteria_reference/productstockrange_criterion/) - searches for products with a stock in a given range
 - [ProductStockRangeAggregation](https://doc.ibexa.co/en/4.5/search/aggregation_reference/productstockrange_aggregation/) - aggregates search results by products' stock ranges
+
+
+### `X-Expected-User` REST request header
+
+The [`X-Expected-User` header](https://doc.ibexa.co/en/4.5/api/rest_api/rest_api_usage/rest_requests/#expected-user) checks that the REST request is executed with the desired user (and not, for example, the Anonymous user because of an expired authentication).
