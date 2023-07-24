@@ -230,6 +230,6 @@ Deprecations:
 
 Product search now supports stock availability:
 
-- [ProductStock Criterion](productstock_criterion.md) - searches for products with a stock compared to a given number
-- [ProductStockRange Criterion](productstockrange_criterion.md) - searches for products with a stock in a given range
-- [ProductStockRangeAggregation](productstockrange_aggregation.md) - aggregates search results by products' stock ranges
+- [ProductStock Criterion](https://doc.ibexa.co/en/4.5/search/criteria_reference/productstock_criterion/) - searches for products with a stock compared to a given number
+- [ProductStockRange Criterion](https://doc.ibexa.co/en/4.5/search/criteria_reference/productstockrange_criterion/) - searches for products with a stock in a given range
+- [ProductStockRangeAggregation](https://doc.ibexa.co/en/4.5/search/aggregation_reference/productstockrange_aggregation/) - aggregates search results by products' stock ranges
