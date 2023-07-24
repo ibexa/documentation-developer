@@ -223,3 +223,13 @@ Deprecations:
 | Ibexa Content | Ibexa Experience | Ibexa Commerce|
 |---------------|------------------|---------------|
 | [Ibexa Content v4.5](https://github.com/ibexa/content/releases/tag/v4.5.0) | [Ibexa Experience v4.5](https://github.com/ibexa/experience/releases/tag/v4.5.0) | [Ibexa Commerce v4.5](https://github.com/ibexa/commerce/releases/tag/v4.5.0) |
+
+## v4.5.1
+
+### Product stock criteria and aggregation
+
+Product search now supports stock availability:
+
+- [ProductStock Criterion](productstock_criterion.md) - searches for products with a stock compared to a given number
+- [ProductStockRange Criterion](productstockrange_criterion.md) - searches for products with a stock in a given range
+- [ProductStockRangeAggregation](productstockrange_aggregation.md) - aggregates search results by products' stock ranges
