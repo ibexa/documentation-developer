@@ -226,6 +226,12 @@ Deprecations:
 
 ## v4.5.1
 
+### Product category tree filter
+
+In the main catalog view, the tree of categories now has a search input to reduce the tree to matching categories.
+
+![Product category tree filter](img/4.5_product_category_tree.png "Product category tree filter")
+
 ### Product stock criteria and aggregation
 
 Product search now supports stock availability:
@@ -233,7 +239,6 @@ Product search now supports stock availability:
 - [ProductStock Criterion](https://doc.ibexa.co/en/4.5/search/criteria_reference/productstock_criterion/) - searches for products with a stock compared to a given number
 - [ProductStockRange Criterion](https://doc.ibexa.co/en/4.5/search/criteria_reference/productstockrange_criterion/) - searches for products with a stock in a given range
 - [ProductStockRangeAggregation](https://doc.ibexa.co/en/4.5/search/aggregation_reference/productstockrange_aggregation/) - aggregates search results by products' stock ranges
-
 
 ### `X-Expected-User` REST request header
 
