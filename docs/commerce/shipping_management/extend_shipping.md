@@ -16,8 +16,8 @@ You can also [customize the shipment processing workflow](configure_shipment.md#
 
 ## Create custom shipping method type
 
-If your application needs shipping methods of other type than the default ones, you create custom shipping method types. 
-See the code samples below to learn how you could do it.
+If your application needs shipping methods of other type than the default ones, you can create custom shipping method types. 
+See the code samples below to learn how to do it.
  
 ### Define custom shipping method type class
 
@@ -28,20 +28,20 @@ Use a built-in type factory to define the class in `config/services.yaml`:
 [[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 0, 1) =]][[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 1, 8) =]]
 ```
 
-At this point a custom shipping method type should be visible in the user interface.
+At this point a custom shipping method type should be visible on the **Create shipping method** modal, the **Method type** list.
 
 ### Create options form
 
 To let users create shipping methods of a custom type within the user interface, you need a Symfony form type. 
-In `src/ShippingMethodType/Form/Type/`, create a `CustomShippingMethodOptionsType.php` file with a form type.
+Create a `src/ShippingMethodType/Form/Type/CustomShippingMethodOptionsType.php` file with a form type.
 
-You also define a name of the custom shipping method type here, by using the `getTranslationMessages` method.
+Next, define a name of the custom shipping method type in the file, by using the `getTranslationMessages` method.
 
 ``` php hl_lines="32"
 [[= include_file('code_samples/front/shop/shipping/src/ShippingMethodType/Form/Type/CustomShippingMethodOptionsType.php') =]]
 ```
 
-In `translations/`, create a translations file `ibexa_shipping.en.yaml` that stores a name value for the custom shipping method type:
+Create a translations file `translations/ibexa_shipping.en.yaml` that stores a name value for the custom shipping method type:
 
 ``` yaml
 [[= include_file('code_samples/front/shop/shipping/translations/ibexa_shipping.en.yaml') =]]
@@ -66,7 +66,7 @@ Use the type factory to define a compound validator class in `config/services.ya
 [[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 0, 1) =]][[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 15, 22) =]]
 ```
 
-Then, in `src/ShippingMethodType/`, create a `CustomerNotNullValidator.php` with the validator class:
+Then, create a `src/ShippingMethodType/CustomerNotNullValidator.php` file with a validator class:
 
 ``` php
 [[= include_file('code_samples/front/shop/shipping/src/ShippingMethodType/CustomerNotNullValidator.php') =]]
@@ -83,7 +83,7 @@ Finally, register the validator as a service:
 Before form data can be stored in database tables, field values must be converted to a storage-specific format.
 Here, the storage converter converts the `customer_identifier` string value into the `customer_id` numerical value.
 
-In `src/ShippingMethodType/Storage`, create a `StorageConverter.php` file with the storage converter class:
+Create a `src/ShippingMethodType/Storage/StorageConverter.php` file with a storage converter class:
 
 ``` php
 [[= include_file('code_samples/front/shop/shipping/src/ShippingMethodType/Storage/StorageConverter.php') =]]
@@ -106,11 +106,13 @@ The table stores information specific for the custom shipping method type.
 
     `CREATE TABLE ibexa_shipping_method_region_custom(id int auto_increment primary key, customer_id text, shipping_method_region_id int);`
 
-In `src/ShippingMethodType/Storage`, create `StorageDefinition.php` and `StorageSchema.php` files with their corresponding classes.
+Create a `src/ShippingMethodType/Storage/StorageDefinition.php` file with a storage definition: 
 
 ``` php
 [[= include_file('code_samples/front/shop/shipping/src/ShippingMethodType/Storage/StorageDefinition.php') =]]
 ```
+
+Then, create a `src/ShippingMethodType/Storage/StorageSchema.php` file with a storage schema:
 
 ``` php
 [[= include_file('code_samples/front/shop/shipping/src/ShippingMethodType/Storage/StorageSchema.php') =]]
@@ -128,7 +130,7 @@ Then, register the storage definition as a service:
 
 When you implement a web store, you can choose if a certain shipping method is available for selection during checkout.
 Here, you limit shipping method availability to customers who meet a specific condition.
-In `src/ShippingMethodType/Voter`, create a `CustomVoter.php` file with a voter class:
+Create a `src/ShippingMethodType/Vote/CustomVoter.php` file with a voter class:
 
 ``` php
 [[= include_file('code_samples/front/shop/shipping/src/ShippingMethodType/Voter/CustomVoter.php') =]]
@@ -143,7 +145,7 @@ Register the voter as a service:
 ## Display shipping method parameters in shipping method details view
 
 You can extend the default  shipping method details view by making shipping method visible on the **Cost** tab.
-To do this, in `src/ShippingMethodType/Cost`, create a `CustomCostFormatter.php` file with a formatter class:
+To do this, create a `src/ShippingMethodType/Cost/CustomCostFormatter.php` file with a formatter class:
 
 ``` php
 [[= include_file('code_samples/front/shop/shipping/src/ShippingMethodType/Cost/CustomCostFormatter.php') =]]
