@@ -5,7 +5,7 @@ description: Use blocks to customize the content of a Page with dynamic content.
 # Page blocks
 
 Page blocks are configured in YAML files, under the `ibexa_fieldtype_page` key.
-Keep in mind that Page block configuration is not SiteAccess-aware.
+Keep in mind that Page block configuration isn't SiteAccess-aware.
 
 [[= product_name =]] ships with a number of page blocks.
 For a list of all page blocks that are available out-of-the-box,
@@ -20,15 +20,15 @@ see [Page layouts](render_page.md#render-a-layout).
 
 Each configured block has an identifier and the following settings:
 
-|Setting|Description|
-|---|---|
-| `name` | Name of the block used in the Page Builder interface. |
-| `category` | Category in the Page Builder elements menu that the block is shown in. |
-| `thumbnail` | Thumbnail used in the Page Builder elements menu. |
-| `views` | Available [templates for the block](#block-templates). |
-| `visible` | (Optional) Toggles the block's visibility in the Page Builder elements menu. Remove the block from the layout before you publish another version of the page. |
-| `configuration_template` | (Optional) Template for the block settings modal. |
-| `attributes` | (Optional) List of [block attributes](page_block_attributes.md). |
+| Setting                  | Description                                                                                                                                                   |
+|--------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `name`                   | Name of the block used in the Page Builder interface.                                                                                                         |
+| `category`               | Category in the Page Builder elements menu that the block is shown in.                                                                                        |
+| `thumbnail`              | Thumbnail used in the Page Builder elements menu.                                                                                                             |
+| `views`                  | Available [templates for the block](#block-templates).                                                                                                        |
+| `visible`                | (Optional) Toggles the block's visibility in the Page Builder elements menu. Remove the block from the layout before you publish another version of the page. |
+| `configuration_template` | (Optional) Template for the block settings modal.                                                                                                             |
+| `attributes`             | (Optional) List of [block attributes](page_block_attributes.md).                                                                                              |
 
 For example:
 
