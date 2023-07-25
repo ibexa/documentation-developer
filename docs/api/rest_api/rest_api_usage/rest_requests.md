@@ -141,7 +141,7 @@ Examples of such requests are:
 
 The `X-Expected-User` header specifies the user needed for the request execution.
 With this header, if the current username on server side isn't equal to `X-Expected-User` value, a `401 Unauthorized` error is returned.
-Without this header, the request is executed with the current user who might be unexpected (like the Anonymous user if a previous authentication has expired) and an ambiguous response might be returned without a clue that the request was a success but with a wrong user.
+Without this header, the request is executed with the current user who might be unexpected (like the Anonymous user if a previous authentication has expired) and an ambiguous response might be returned as a success not informing about a wrong user.
 
 For example, it prevents a Content request to be executed with Anonymous user in the case of an expired authentication,
 and the response being a `200 OK` but missing Content items due to access rights difference with the expected user.
