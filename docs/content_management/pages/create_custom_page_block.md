@@ -57,6 +57,39 @@ The templates have access to all block attributes, as you can see above in the `
 Priority of templates indicates the order in which they're presented in Page Builder.
 The template with the greatest priority is used as the default one.
 
+## Add block JavaScript
+
+If your block is animated with JavaScript, you may have to take precaution to keep it working when previewed in Back Office's Page Builder.
+
+If you use an event related to the page being loaded to trigger the initialisation of your custom block, a freshly added block doesn't work in the Page Builder preview.
+For example, the [`DOMContentLoaded`](https://developer.mozilla.org/en-US/docs/Web/API/Document/DOMContentLoaded_event) event isn't fired when a block is dragged into the page as the DOM is already loaded.
+
+The Page Builder fires `body` events that you can listen to initialize your block:
+
+- `ibexa-render-block-preview` event is fired when the page is loaded in the Page Builder, when a block is added, when a block is deleted, and when a block setting modification is submitted.
+- `ibexa-post-update-blocks-preview` event is fired when a block setting modification is submitted, this event has a `detail` property listing the reloaded modified block IDs and their configs.
+
+In the following code, the same `initCustomBlocks` function is attached to two event listeners.
+One listener to call the function when a page is loaded (as a regular front page or as a page edited in the Page Builder).
+The other one to call it when a block is added or configured in the Page Builder.
+This `initCustomBlocks` function finds the custom blocks to loop through them, initializes some JavaScript when the block isn't already initialized, and flag the block as initialized.
+For example, it could initialize carousel blocks with the addition of event listeners to navigation arrows, and the start of an automatic sliding.
+
+```javascript
+document.addEventListener('DOMContentLoaded', function(event) {
+    initCustomBlocks();
+});
+document.getElementsByTagName('body')[0].addEventListener('ibexa-render-block-preview', function(event) {
+    initCustomBlocks();
+});
+```
+
+!!! note
+
+    For the addition of your custom block's JS and CSS files, see [Assets](assets.md).
+    
+    If you consider using React JavaScript library, see [React App block](react_app_block.md).
+
 ## Add edit templates
 
 You can also customize the template for the block settings modal.
