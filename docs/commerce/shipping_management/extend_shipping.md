@@ -30,6 +30,8 @@ Use a built-in type factory to define the class in `config/services.yaml`:
 
 At this point a custom shipping method type should be visible on the **Create shipping method** modal, the **Method type** list.
 
+![Selecting a shipping method type](img/shipping_method_type_selection.png "Selecting a shipping method type")
+
 ### Create options form
 
 To let users create shipping methods of a custom type within the user interface, you need a Symfony form type. 
@@ -78,6 +80,8 @@ Finally, register the validator as a service:
 [[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 0, 1) =]][[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 22, 25) =]]
 ```
 
+![Option validator in action](img/custom_shipping_type_validator.png "Option validator in action")
+
 ### Create storage converter
 
 Before form data can be stored in database tables, field values must be converted to a storage-specific format.
@@ -124,8 +128,6 @@ Then, register the storage definition as a service:
 [[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 0, 1) =]][[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 28, 31) =]]
 ```
 
-![Creating a shipping method of custom type](img/custom_shipping_method_type.png "Creating a shipping method of custom type")
-
 ## Toggle shipping method type availability
 
 When you implement a web store, you can choose if a certain shipping method is available for selection during checkout.
@@ -156,4 +158,6 @@ Then register the formatter as a service:
 ``` yaml
 [[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 0, 1) =]][[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 34, 38) =]]
 ```
+
+![Shipping method parameters in the Cost tab](img/shipping_method_cost_tab.png "Shipping method parameters in the Cost tab")
 
