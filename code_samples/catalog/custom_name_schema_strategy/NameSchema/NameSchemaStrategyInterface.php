@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Attribute\NameSchema;
 
 use Ibexa\Contracts\ProductCatalog\Values\AttributeDefinitionInterface;
-use Ibexa\ProductCatalog\NameSchema\NameSchemaStrategyInterface;
+use Ibexa\Contracts\ProductCatalog\NameSchema\NameSchemaStrategyInterface;
 
 final class NameSchemaStrategyInterface implements NameSchemaStrategyInterface
 {
