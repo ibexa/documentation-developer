@@ -54,7 +54,7 @@ For example the `featured_template.html.twig` file can look like this:
 
 The templates have access to all block attributes, as you can see above in the `name`, `category` and `event` variables.
 
-Priority of templates indicates the order in which they are presented in Page Builder.
+Priority of templates indicates the order in which they're presented in Page Builder.
 The template with the greatest priority is used as the default one.
 
 ## Add edit templates

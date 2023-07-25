@@ -5,13 +5,13 @@ description: Create a block that allows an editor to embed a preconfigured React
 # React App block
 
 React App block allows an editor to embed a preconfigured React application into a page.
-It is configured in YAML files, under the `ibexa_fieldtype_page` key.
-Page block configuration is not SiteAccess-aware.
+It's configured in YAML files, under the `ibexa_fieldtype_page` key.
+Page block configuration isn't SiteAccess-aware.
 
 Another element of React App Block is `\Ibexa\FieldTypePage\FieldType\Page\Block\Event\Listener\ReactBlock` Listener 
 which adds component and props variables.
 
-It is common to all the blocks.
+It's common to all the blocks.
 
 [[% include 'snippets/page_block_cache_clear.md' %]]
 
@@ -55,14 +55,14 @@ Both name and attributes support a short syntax and a long one for specifics.
 
 `Attributes` defined without sub-keys use the key as the identifier and name, and the value as the type:
 
-```
+``` yaml
 attributes:
   b: integer
 ```
 
 Sub-keys can be used to specify any of the usual [attributes configuration](page_block_attributes.md) key:
 
-```
+``` yaml
 attributes:
   a:
     name: Attribute A
@@ -78,7 +78,7 @@ Parameters passed as props must be converted so that they can be used as the con
 
 ## Create React App block
 
-In the following example you will learn how to create `Calculator` React App block.
+In the following example, you learn how to create `Calculator` React App block.
 
 ### Configure React App Block
 
