@@ -66,12 +66,12 @@ For example, the [`DOMContentLoaded`](https://developer.mozilla.org/en-US/docs/W
 
 The Page Builder fires `body` events that you can listen to initialize your block:
 
-* `ibexa-render-block-preview` event is fired when the page is loaded in the Page Builder, when a block is added, when a block is deleted, and when a block setting modification is submitted.
-* `ibexa-post-update-blocks-preview` event is fired when a block setting modification is submitted, this event has a `detail` property listing the reloaded modified block IDs and their configs.
+- `ibexa-render-block-preview` event is fired when the page is loaded in the Page Builder, when a block is added, when a block is deleted, and when a block setting modification is submitted.
+- `ibexa-post-update-blocks-preview` event is fired when a block setting modification is submitted, this event has a `detail` property listing the reloaded modified block IDs and their configs.
 
-In the following code, a same `initCustomBlocks` function is attached to two event listeners.
+In the following code, the same `initCustomBlocks` function is attached to two event listeners.
 One listener to call the function when a page is loaded (as a regular front page or as a page edited in the Page Builder).
-One to call it when a block is added or configured in the Page Builder.
+The other one to call it when a block is added or configured in the Page Builder.
 This `initCustomBlocks` function finds the custom blocks to loop through them, initializes some JavaScript when the block isn't already initialized, and flag the block as initialized.
 For example, it could initialize carousel blocks with the addition of event listeners to navigation arrows, and the start of an automatic sliding.
 
