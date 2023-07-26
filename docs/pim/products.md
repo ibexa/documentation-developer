@@ -20,6 +20,14 @@ A product type can be, for example, a sofa or a keyboard.
 Product types, like Content Types, define the global properties of products and Fields a product consists of.
 A product type also defines the attributes that all products of this type can have.
 
+You can choose between two available types: `Physical` and `Virtual`:
+
+- `Physical` - tangible products with assigned stock. 
+They can use measurement attributes. They require shipment in the online purchase process.
+Examples: heaters, laptops, phones.
+- `Virtual` - non-tangible items. They can be sold individually, or as part of a product bundle.
+They don't require shipment in the online process. Examples: memberships, services, warranties. 
+
 ## Product attributes
 
 Product attributes provide different information about a product

@@ -29,6 +29,8 @@ The `FullText` Criterion is not available in [Repository filtering](search_api.m
 
 ## Example
 
+### PHP
+
 ``` php
 $query->query = new Criterion\FullText('victory');
 ```
@@ -44,6 +46,28 @@ Using the AND operator and parenthesis to search for both words at the same time
 ``` php
 $query->query = new Criterion\FullText('baseball AND cup');
 ```
+
+### REST API
+
+=== "XML"
+
+    ```xml
+    <Query>
+        <Filter>
+            <FullTextCriterion>victory</FullTextCriterion>
+        </Filter>
+    </Query>
+    ```
+
+=== "JSON"
+
+    ```json
+    "Query": {
+        "Filter": {
+            "FullTextCriterion": "victory"
+        }
+    }
+    ```
 
 ## Use cases
 

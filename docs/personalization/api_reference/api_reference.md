@@ -1,8 +1,9 @@
 ---
-description: Correlate metadata with user data and combine users into clusters of certain type.
+description: Explore Personalization API sets that let you manage item data, track events, combine tracking data with users and render recommendations.
+page_type: landing_page
 ---
 
-# API reference
+# Personalization API
 
 This section provides documentation for the Personalization API operations.
 

@@ -4,6 +4,6 @@ ibexa:
             user_settings_update_view:
                 full:
                     unit:
-                        template: User/Setting/update_unit.html.twig
+                        template: '@ibexadesign/user/setting/update_unit.html.twig'
                         match:
                             Identifier: [ unit ]

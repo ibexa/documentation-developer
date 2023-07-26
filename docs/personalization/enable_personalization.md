@@ -61,7 +61,7 @@ see [Developer guide](tracking_api.md) and [Best practices](tracking_integration
 For the recommendations to be calculated, apart from visitor events (CLICK, BUY, etc.), 
 the Personalization server must receive a list of item types that are tracked.
 
-You define item types to be tracked in the `config/packages/ibexa.yaml` file.
+You define item types to be tracked in [configuration files](configuration.md#configuration-files).
 The content is then initially exported by a script.
 After this, it is synchronized with the Personalization service every time a change 
 occurs (using any method that triggers the event).
@@ -138,7 +138,7 @@ Place the following code snippet in the `<head>` section of your header template
 
 ``` html+twig
 {% if content is defined %}
-    {{ ibexa_personalization_track_user(content.id) }}
+    {{ ibexa_recommendation_track_user(content.id) }}
 {% endif %}
 ```
 
@@ -368,11 +368,11 @@ render(controller('ibexa_personalization::showRecommendationsAction', {
 !!! tip
 
     To check whether tracking is enabled on the front end, use the 
-    `ibexa_personalization_enabled()` Twig function.
+    `ibexa_recommendation_enabled()` Twig function.
     You can wrap the call to the `RecommendationController` with:
 
     ``` html+twig
-    {% if ibexa_personalization_enabled() %}
+    {% if ibexa_recommendation_enabled() %}
         <div class="container">
             {# ... #}
         </div>
@@ -536,7 +536,7 @@ For example, to retrieve the `rss` variation of the image, use:
 #### Logging
 
 Most operations are logged by using the `ibexa-personalization` [Monolog channel](http://symfony.com/doc/5.0/cookbook/logging/channels_handlers.html).
-To log everything about Personalization to `dev.recommendation.log`, add the following to the `ibexa.yaml`:
+To log everything about Personalization to `dev.recommendation.log`, add the following configuration:
 
 ``` yaml
 monolog:

@@ -1,6 +1,7 @@
 ---
 description: Customer Portal allows your business clients to create and manage their company accounts.
 edition: experience
+page_type: landing_page
 ---
 
 # Customer Portal
@@ -16,6 +17,7 @@ invite and view members and check their order history.
 "customer_management/cp_configuration",
 "customer_management/cp_applications",
 "users/invitations",
+"customer_management/cp_page_builder",
 "customer_management/create_user_registration_form"
-], columns=4) =]]
+], columns=5) =]]
 

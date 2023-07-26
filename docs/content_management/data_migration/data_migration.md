@@ -1,5 +1,6 @@
 ---
 description: Data migration enables you to import and export Repository data by using YAML files.
+page_type: landing_page
 ---
 
 # Data migration

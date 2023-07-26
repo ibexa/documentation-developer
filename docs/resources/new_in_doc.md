@@ -6,6 +6,92 @@ description: Overview of major recent additions to Ibexa DXP documentation.
 
 This page contains recent highlights and notable changes in Ibexa DXP documentation.
 
+## June 2023
+
+### Personalization
+
+- [Email triggers](https://doc.ibexa.co/en/master/personalization/integrate_recommendation_service/#send-emails-with-recommendations)
+- [Email triggers in user documentation](https://doc.ibexa.co/projects/userguide/en/master/personalization/triggers/)
+
+### Search
+
+- [Updated search engines documentation](https://doc.ibexa.co/en/master/search/search_engines/search_engines/):
+    - [Elasticsearch search engine](https://doc.ibexa.co/en/master/search/search_engines/elastic_search/elastic_search_overview/)
+    - [Solr search engine](https://doc.ibexa.co/en/master/search/search_engines/solr_search_engine/solr_overview/)
+    - [Legacy search engine](https://doc.ibexa.co/en/master/search/search_engines/legacy_search_engine/legacy_search_overview/#legacy-search-engine)
+
+### Commerce
+
+- [Shipping methods management in user documentation](https://doc.ibexa.co/projects/userguide/en/master/commerce/shipping_management/work_with_shipping_methods/)
+- [Payment methods management in user documentation](https://doc.ibexa.co/projects/userguide/en/master/commerce/payment/work_with_payments/)
+- Stock Search Criteria and Aggregation:
+    - [ProductStockRangeAggregation](https://doc.ibexa.co/en/master/search/aggregation_reference/productstockrange_aggregation/)
+    - [ProductStock](https://doc.ibexa.co/en/master/search/criteria_reference/productstock_criterion/)
+    - [ProductStockRange](https://doc.ibexa.co/en/master/search/criteria_reference/productstockrange_criterion/)
+
+## May 2023
+
+### v4.5
+
+- [v4.5 release notes](https://doc.ibexa.co/en/master/release_notes/ibexa_dxp_v4.5/) and guide on how to [update to v4.5](https://doc.ibexa.co/en/master/update_and_migration/from_4.4/update_from_4.4/)
+
+### Customer Portal
+
+- [Corporate account company and member REST API reference](https://doc.ibexa.co/en/master/api/rest_api/rest_api_reference/rest_api_reference.html#corporate-account)
+- [Creating a Customer Portal](https://doc.ibexa.co/en/master/customer_management/cp_page_builder/)
+
+### Commerce
+
+- [Extending payments](https://doc.ibexa.co/en/master/commerce/payment/extend_payment/)
+- Reference for commerce-related events:
+    - [Cart events](https://doc.ibexa.co/en/master/api/event_reference/cart_events/)
+    - [Order management events](https://doc.ibexa.co/en/master/api/event_reference/order_management_events/)
+    - [Payment events](https://doc.ibexa.co/en/master/api/event_reference/payment_events/)
+
+## April 2023
+
+### Payment
+
+- [Payment management](https://doc.ibexa.co/en/master/commerce/payment/payment/),
+including [configuring payment workflow](https://doc.ibexa.co/en/master/commerce/payment/configure_payment/),
+as well as [payment](https://doc.ibexa.co/en/master/commerce/payment/payment_api/)
+and [payment method PHP API](https://doc.ibexa.co/en/master/commerce/payment/payment_method_api/).
+
+### Orders
+
+- [Order management](https://doc.ibexa.co/en/master/commerce/order_management/order_management/),
+including [configuring order workflow](https://doc.ibexa.co/en/master/commerce/order_management/configure_order_management/)
+and [Orders REST API reference](https://doc.ibexa.co/en/master/api/rest_api/rest_api_reference/rest_api_reference.html#orders).
+
+### Shipping
+
+- [Shipping management](https://doc.ibexa.co/en/master/commerce/shipping_management/shipping_management/),
+including [configuring shipment workflow](https://doc.ibexa.co/en/master/commerce/shipping_management/configure_shipment/),
+as well as [shipment](https://doc.ibexa.co/en/master/commerce/shipping_management/shipment_api/)
+and [shipping method PHP API](https://doc.ibexa.co/en/master/commerce/shipping_management/shipping_method_api/).
+
+### Search
+
+- Search Criteria and Sort Clauses covering the new commerce features:
+    - Order [Search Criteria](https://doc.ibexa.co/en/master/search/criteria_reference/order_search_criteria/)
+    and [Sort Clauses](https://doc.ibexa.co/en/master/search/sort_clause_reference/order_sort_clauses/)
+    - Payment [Search Criteria](https://doc.ibexa.co/en/master/search/criteria_reference/payment_search_criteria/)
+    and [Sort Clauses](https://doc.ibexa.co/en/master/search/sort_clause_reference/payment_sort_clauses/)
+    - Payment method [Search Criteria](https://doc.ibexa.co/en/master/search/criteria_reference/payment_method_search_criteria/) 
+    and [Sort Clauses](https://doc.ibexa.co/en/master/search/sort_clause_reference/payment_method_sort_clauses/)
+    - Shipment [Search Criteria](https://doc.ibexa.co/en/master/search/criteria_reference/shipment_search_criteria/)
+    and [Sort Clauses](https://doc.ibexa.co/en/master/search/sort_clause_reference/shipment_sort_clauses/)
+
+### New Page blocks
+
+- [React app Page block](https://doc.ibexa.co/en/master/content_management/pages/react_app_block/)
+- [Bestsellers block](https://doc.ibexa.co/projects/userguide/en/master/content_management/block_reference/#bestsellers-block)
+
+### Others
+
+- [Translation comparison](https://doc.ibexa.co/projects/userguide/en/master/content_management/translate_content/#translation-comparison)
+- [Managing Segments](https://doc.ibexa.co/projects/userguide/en/master/personalization/segment_management/)
+
 ## March 2023
 
 - [Order management API](https://doc.ibexa.co/en/master/commerce/order_management/order_management_api/)

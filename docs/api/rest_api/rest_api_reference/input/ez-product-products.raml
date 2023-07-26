@@ -46,14 +46,14 @@
             Accept:
                 description: If set, the products are returned in XML or JSON format.
                 example:  |
-                    application/vnd.ibexa.api.ProductGet+json
+                    application/vnd.ibexa.api.Product+json
             Content-Type:
                 description: The product schema encoded in XML or JSON format.
                 example:  |
                     application/vnd.ibexa.api.ProductGet+json
         body:
             application/vnd.ibexa.api.ProductGet+json:
-                type: Product
+                type: ProductGet
                 example: !include examples/product/catalog/product/code/GET/ProductGet.json.example
         responses:
             200:

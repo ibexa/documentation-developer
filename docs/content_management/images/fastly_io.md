@@ -4,33 +4,17 @@ description: Configure Fastly Image Optimizer.
 
 # Fastly Image Optimizer (Fastly IO)
 
-The Fastly Image Optimizer (Fastly IO) is an external service that provides real-time image optimisation for multiple input and output formats.
+The Fastly Image Optimizer (Fastly IO) is an external service that provides real-time image optimization for multiple input and output formats.
 It serves and caches image requests from your origin server, making your website faster and more efficient.
 
 To be able to configure this feature, you need [Fastly IO subscription](https://docs.fastly.com/en/guides/about-fastly-image-optimizer).
 
 ## Enable shielding
 
-To use Fastly Image Optimizer, you need shielding.
-To enable it, follow steps in Fastly documentation, [Enabling and disabling shielding](https://developer.fastly.com/learning/concepts/shielding/).
-
-Before proceeding, make sure that you have the `snippet_re_enable_shielding.vcl` configuration file added to your project:
-
-```vcl
-set var.fastly_req_do_shield = (req.restarts <= 2);
-
-# set var.fastly_req_do_shield = (req.restarts > 0 && req.http.accept == "application/vnd.fos.user-context-hash");
-set req.http.X-Snippet-Loaded = "v1";
-```
-
-You can add it using Fastly CLI: 
- 
-```bash
-- fastly vcl snippet create --name="Re-Enable shielding on restart" --version=active --autoclone --priority 100 --type recv --content=vendor/ibexa/fastly/fastly/snippet_re_enable_shielding.vcl
-- fastly service-version activate --version=latest
-```
-
-Next, you need to choose the [Shield location](https://developer.fastly.com/learning/concepts/shielding/#choosing-a-shield-location) from the Shielding menu in Fastly web interface as specified in [Fastly IO documentation](https://docs.fastly.com/en/guides/shielding#enabling-shielding).
+To use Fastly Image Optimizer, you first need a [working setup of Ibexa DXP and Fastly](reverse_proxy.md#using-varnish-or-fastly)
+with shielding enabled.
+To enable shielding, follow the steps in [Fastly developer documentation](https://developer.fastly.com/learning/concepts/shielding/#enabling-and-disabling-shielding).
+Remember to choose a shield location from the **Shielding** menu, as described in [Fastly user documentation](https://docs.fastly.com/en/guides/shielding#enabling-shielding).
 
 ## VCL configuration
 
@@ -39,7 +23,7 @@ you need to:
 
 - [install Fastly CLI](https://developer.fastly.com/learning/tools/cli#installing),
 - define `FASTLY_SERVICE_ID` and `FASTLY_KEY` environmental variables,
-- set restrictions on the optimiser by using `ibexa_image_optimizer.vcl`:
+- set optimizer restrictions by using the `ibexa_image_optimizer.vcl` file:
 
 ```vcl
 # Restrict optimizer by file path and extension
@@ -50,38 +34,23 @@ if (req.url.ext ~ "(?i)^(gif|png|jpe?g|webp)$") {
 }
 ```
 
-This is an example VCL snippet uploaded by using the `vcl_recv` hook:
-
-```bash
-fastly vcl custom create --name="Ibexa VCL" --main --version=latest --autoclone  --content=vendor/ibexa/fastly/fastly/ez_main.vcl
-fastly vcl snippet create --name="Shielding" --version=active --autoclone --type recv --content=vendor/ibexa/fastly/fastly/snippet_re_enable_shielding.vcl
-```
-
-Fastly passes requests through the image optimizer by adding the `x-fastly-imageopto-api` header in `vcl_recv`.
-You need to restrict the optimizer by file path and extension to only apply to image requests:
-
-```vcl
-if (req.url.ext ~ "(?i)^(gif|png|jpe?g|webp)$") {
-    if (req.url.path ~ "^/var/([a-zA-Z0-9_-]+)/storage/images") {
-        set req.http.x-fastly-imageopto-api = "fastly";
-    }
-}
-```
-
-You can define what image formats will be included, for example: `gif|png|jpe?g|webp`
+You can customize what image formats are included, for example: `gif|png|jpe?g|webp`,
 and which paths should be used as a source of images, for example: `^/var/([a-zA-Z0-9_-]+)/storage/images`.
 For more configuration options, see [Enabling image optimization](https://developer.fastly.com/reference/io/#enabling-image-optimization).
 
-After you save this snippet or create your own, you can upload it from the command line using:
+To apply your modifications or use the default configuration as-is, you can upload the `.vcl` file from the command line:
 
 ```bash
-fastly vcl snippet create --name="Shielding" --version=active --autoclone --type recv --content=vendor/ibexa/fastly/fastly/snippet_re_enable_shielding.vcl
+fastly vcl snippet create --name="Ibexa Image Optimizer" --version=active --autoclone --type recv --content=vendor/ibexa/fastly/fastly/ibexa_image_optimizer.vcl
+fastly service-version activate --version=latest
 ```
+
+For more information about Fastly configuration and CLI usage examples, see [Configure and customize Fastly](fastly.md).
 
 ## Define SiteAccess for Fastly IO
 
 Fastly IO configuration is SiteAccess aware.
-You can define what handler should be used for a specific SiteAccess under `variation_handler_identifier`.
+You can define what handler should be used for a specific SiteAccess under `variation_handler_identifier` [configuration key](configuration.md#configuration-files).
 You need to set it up as `fastly`, so Fastly IO can generate all image links.
 By default, it is set as `alias`, and it points to a built-in image optimizer.
 You can also set up a custom handler if your setup requires it.
@@ -118,7 +87,7 @@ To generate your original image configuration run:
 php bin/console ibexa:fastly:migrate-configuration
 ```
 
-Paste the configuration to `config/packages/ibexa.yaml` to define the same variations for Fastly IO:
+Paste the following configuration to define the same variations for Fastly IO:
 
 ```yaml
 ibexa:
@@ -171,3 +140,4 @@ You can select defined image variations during Content item creation in the imag
 Variations can include different sizing options and other filters that are applied to the image.
 
 ![Fastly Image Variations](img/fastly_variations.png)
+

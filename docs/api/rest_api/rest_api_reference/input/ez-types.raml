@@ -263,7 +263,7 @@ ContentType:
             type: integer
         status:
             description: 'The status of the Content Type. Possible values: const STATUS_DEFINED = 0; Status constant for defined (aka published) Type, const STATUS_DRAFT = 1; Status constant for draft (aka temporary) Type; const STATUS_MODIFIED = 2; Status constant for modified (aka deferred for publishing) Type.'
-            enum: []
+            enum: [ ]
         identifier:
             description: 'String identifier of a Content Type.'
             type: string
@@ -308,10 +308,10 @@ ContentType:
             type: boolean
         defaultSortField:
             description: 'Specifies which property the child Locations should be sorted on by default when created. Map for Location sort fields to their respective SortClauses - class name/identifier and modified subnode. One of the fallowing values: const SORT_FIELD_PATH = 1; const SORT_FIELD_PUBLISHED = 2; const SORT_FIELD_MODIFIED = 3; const SORT_FIELD_SECTION = 4; const SORT_FIELD_DEPTH = 5; const SORT_FIELD_PRIORITY = 8; const SORT_FIELD_NAME = 9; const SORT_FIELD_NODE_ID = 11; const SORT_FIELD_CONTENTOBJECT_ID = 12.'
-            enum: []
+            enum: [ ]
         defaultSortOrder:
             description: 'Specifies whether the sort order should be ascending or descending by default when created. Map for Location sort order to their respective Query SORT constants. Possible values: const SORT_ORDER_DESC = 0; const SORT_ORDER_ASC = 1.'
-            enum: []
+            enum: [ ]
         FieldDefinitions:
             description: 'This method returns the Content Type Field definitions from this type.'
             type: BaseObject
@@ -455,7 +455,7 @@ ContentTypeInfo:
             type: integer
         status:
             description: 'The status of the Content Type. Possible values: const STATUS_DEFINED = 0; Status constant for defined (aka published) Type, const STATUS_DRAFT = 1; Status constant for draft (aka temporary) Type; const STATUS_MODIFIED = 2; Status constant for modified (aka deferred for publishing) Type.'
-            enum: []
+            enum: [ ]
         identifier:
             description: 'String identifier of a Content Type.'
             type: string
@@ -503,10 +503,10 @@ ContentTypeInfo:
             type: boolean
         defaultSortField:
             description: 'Specifies which property the child Locations should be sorted on by default when created. Map for Location sort fields to their respective SortClauses - class name/identifier and modified subnode. One of the fallowing values: const SORT_FIELD_PATH = 1; const SORT_FIELD_PUBLISHED = 2; const SORT_FIELD_MODIFIED = 3; const SORT_FIELD_SECTION = 4; const SORT_FIELD_DEPTH = 5; const SORT_FIELD_PRIORITY = 8; const SORT_FIELD_NAME = 9; const SORT_FIELD_NODE_ID = 11; const SORT_FIELD_CONTENTOBJECT_ID = 12.'
-            enum: []
+            enum: [ ]
         defaultSortOrder:
             description: 'Specifies whether the sort order should be ascending or descending by default when created. Map for Location sort order to their respective Query SORT constants. Possible values: const SORT_ORDER_DESC = 0; const SORT_ORDER_ASC = 1.'
-            enum: []
+            enum: [ ]
 ContentTypeInfoList:
     description: 'List of Content Type information.'
     type: BaseObject
@@ -559,10 +559,10 @@ ContentTypeUpdateStruct:
             type: datetime
         names:
             description: 'If set this array of names with languageCode keys replace the complete name collection.'
-            type: array
+            type: Value[]
         descriptions:
             description: 'If set this array of descriptions with languageCode keys replace the complete description collection.'
-            type: array
+            type: Value[]
 
 ContentUpdateStruct:
     description: 'This class is used for updating the fields of a Content item draft.'
@@ -615,6 +615,7 @@ CreateStruct:
         data:
             description: 'Notification data.'
             type: array
+            items: mixed
 Criterion:
     description: 'Criterion implementations.'
     type: object
@@ -625,6 +626,7 @@ Criterion:
         value:
             description: 'The value(s) matched by the Criteria.'
             type: array
+            items: mixed
         target:
             description: 'The target used by the Criteria (field, metadata...).'
             type: string
@@ -813,10 +815,10 @@ FieldDefinitionCreateStruct:
             type: string
         names:
             description: 'An array of names with languageCode keys.'
-            type: array
+            type: Value[]
         descriptions:
             description: 'An array of descriptions with languageCode keys.'
-            type: array
+            type: Value[]
         fieldGroup:
             description: 'Field group name.'
             type: string
@@ -853,10 +855,10 @@ FieldDefinitionUpdateStruct:
             type: string
         names:
             description: 'If set this array of names with languageCode keys replace the complete name collection.'
-            type: array
+            type: Value[]
         descriptions:
             description: 'If set this array of descriptions with languageCode keys replace the complete description collection.'
-            type: array
+            type: Value[]
         fieldGroup:
             description: 'If set the field group is changed to this name.'
             type: string
@@ -905,9 +907,6 @@ Language:
     description: 'This class represents a language in the Repository.'
     type: BaseObject
     properties:
-        ALL:
-            description: "Constant for use in API's to specify that you want to load all languages."
-            type: array
         id:
             description: 'The language ID (auto generated).'
             type: integer
@@ -951,7 +950,7 @@ Limitation:
     properties:
         _identifier:
             description: 'Returns the limitation identifier (one of the defined constants) or a custom limitation. Constants: CONTENTTYPE = Class; LANGUAGE = Language; LOCATION = Node; OWNER = Owner; PARENTOWNER = ParentOwner; PARENTCONTENTTYPE = ParentClass; PARENTDEPTH = ParentDepth; SECTION = Section; NEWSECTION = NewSection; SITEACCESS = SiteAccess; STATE = State; NEWSTATE = NewState; SUBTREE = Subtree; USERGROUP = Group; PARENTUSERGROUP = ParentGroup; STATUS = Status.'
-            enum: ['CONTENTTYPE', 'LANGUAGE', 'LOCATION', 'OWNER', 'PARENTOWNER', 'PARENTCONTENTTYPE', 'PARENTDEPTH', 'SECTION', 'NEWSECTION','SITEACCESS', 'STATE', 'NEWSTATE', 'SUBTREE', 'USERGROUP', 'PARENTUSERGROUP', 'STATUS']
+            enum: [ 'CONTENTTYPE', 'LANGUAGE', 'LOCATION', 'OWNER', 'PARENTOWNER', 'PARENTCONTENTTYPE', 'PARENTDEPTH', 'SECTION', 'NEWSECTION','SITEACCESS', 'STATE', 'NEWSTATE', 'SUBTREE', 'USERGROUP', 'PARENTUSERGROUP', 'STATUS' ]
         Values:
             description: 'A read-only list of IDs or identifiers for which the limitation should be applied. The value of this property must conform to a hash, which means that it may only consist of array and scalar values, but must not contain objects or resources.'
             type: Ref[]
@@ -971,9 +970,9 @@ Location:
         invisible:
             description: 'Indicates that the Location is implicitly marked as hidden by a parent Location.'
             type: boolean
-#            explicitlyHidden:
-#                description: 'Indicates that the Location entity has been explicitly marked as hidden.'
-#                type: boolean
+        #            explicitlyHidden:
+        #                description: 'Indicates that the Location entity has been explicitly marked as hidden.'
+        #                type: boolean
         remoteId:
             description: 'Remote ID, universally unique identifier.'
             type: string
@@ -997,10 +996,10 @@ Location:
             type: integer
         sortField:
             description: 'Specifies which property the child Locations should be sorted on. Map for Location sort fields to their respective SortClauses - class name/identifier and modified subnode. One of the fallowing values: PATH.'
-            enum: ['PATH', 'PUBLISHED', 'MODIFIED', 'SECTION', 'DEPTH', 'CLASS_IDENTIFIER', 'CLASS_NAME', 'PRIORITY', 'NAME', 'MODIFIED_SUBNODE', 'NODE_ID', 'CONTENTOBJECT_ID']
+            enum: [ 'PATH', 'PUBLISHED', 'MODIFIED', 'SECTION', 'DEPTH', 'CLASS_IDENTIFIER', 'CLASS_NAME', 'PRIORITY', 'NAME', 'MODIFIED_SUBNODE', 'NODE_ID', 'CONTENTOBJECT_ID' ]
         sortOrder:
             description: 'Specifies whether the sort order should be ascending or descending. Map for Location sort order to their respective Query SORT constants. One of the fallowing values: const SORT_ORDER_DESC = 0; const SORT_ORDER_ASC = 1.'
-            enum: ['ASC', 'DESC']
+            enum: [ 'ASC', 'DESC' ]
         Content:
             description: 'Represents a Content item in a specific version.'
             type: Ref
@@ -1073,6 +1072,7 @@ Message:
         values:
             description: 'Translation value objects. May not contain any numbers, which might result in requiring plural forms. Use Plural for that.'
             type: array
+            items: mixed
 Notification:
     description: 'This class represents a notification value.'
     type: object
@@ -1095,6 +1095,7 @@ Notification:
         data:
             description: 'This class represents data.'
             type: array
+            items: mixed
 NotificationList:
     description: 'This class represents a notifications list.'
     type: object
@@ -1291,6 +1292,7 @@ Plural:
         values:
             description: 'Translation value objects. May not contain any numbers, which might result in requiring plural forms. Use MessagePlural for that.'
             type: array
+            items: mixed
 Policy:
     description: 'This class represents a policy value.'
     type: BaseObject
@@ -1678,7 +1680,7 @@ Unlink:
         _href:
             type: string
         _method:
-            enum: []
+            enum: [ ]
 URL:
     description: 'This class represents a URL in the Repository.'
     type: object
@@ -1714,13 +1716,13 @@ UrlAlias:
             type: integer
         _type:
             description: 'The type of the URL Alias i.e. one of URLAlias::LOCATION=0, URLAlias::RESOURCE=1, URLAlias::VIRTUAL=2.'
-            enum: []
+            enum: [ ]
         resource:
             description: 'If type = URLAlias::LOCATION it is a Location ID otherwise a string (e.g. /content/search).'
             type: any
         path:
             description: 'The full path of the alias.'
-            type:
+            type: string
         languageCodes:
             description: 'The languageCodes for which this path is valid.'
             type: string[]
@@ -2046,6 +2048,7 @@ ValueObject:
         Properties:
             description: 'Function where list of properties are returned.'
             type: array
+            items: mixed
 Version:
     description: 'Returns the VersionInfo for this version.'
     type: BaseObject
@@ -2074,7 +2077,7 @@ VersionInfo:
             type: integer
         status:
             description: 'One of: VersionInfo::STATUS_DRAFT=0, VersionInfo::STATUS_PUBLISHED=1, VersionInfo::STATUS_ARCHIVED=3.'
-            enum: []
+            enum: [ ]
         modificationDate:
             description: 'The last modified date of this version.'
             type: datetime
@@ -2175,9 +2178,9 @@ ContentTypeCreate:
         defaultAlwaysAvailable:
             type: boolean
         names:
-            type: array
+            type: Value[]
         descriptions:
-            type: array
+            type: Value[]
         FieldDefinition:
             type: FieldDefinition
         creatorId:
@@ -2212,9 +2215,9 @@ ContentTypeUpdate:
         defaultAlwaysAvailable:
             type: boolean
         names:
-            type: array
+            type: Value[]
         descriptions:
-            type: array
+            type: Value[]
         modifierId:
             description: 'If set, this value overrides the current user as creator.'
             type: any
@@ -2475,9 +2478,9 @@ CatalogCreate:
         Criteria:
             type: Criterion
         names:
-            type: array
+            type: object
         descriptions:
-            type: array
+            type: object
         status:
             type: string
         creator_id:
@@ -2494,9 +2497,9 @@ CatalogUpdate:
         Criteria:
             type: Criterion
         names:
-            type: array
+            type: object
         descriptions:
-            type: array
+            type: object
 
 CatalogCopy:
     description: 'This class is used to copy a catalog.'
@@ -2610,11 +2613,9 @@ AttributeGroupCreate:
         identifier:
             type: string
         names:
-            type: array
+            type: string[]
         position:
             type: integer
-        languages:
-            type: array
 
 AttributeGroupUpdate:
     description: 'This class is used to update an attribute group.'
@@ -2623,11 +2624,9 @@ AttributeGroupUpdate:
         identifier:
             type: string
         names:
-            type: array
+            type: object
         position:
             type: integer
-        languages:
-            type: array
 
 AttributeGroupList:
     description: 'This class represents an attribute group list.'
@@ -2669,7 +2668,7 @@ Attribute:
         position:
             type: integer
         options:
-            type: array
+            type: object
 
 AttributeCreate:
     description: 'This class is used to create an attribute.'
@@ -2682,13 +2681,14 @@ AttributeCreate:
         group:
             type: string
         names:
-            type: array
+            type: object
         descriptions:
-            type: array
+            type: object
         positions:
             type: integer
         options:
             type: array
+            items: mixed
 
 AttributeUpdate:
     description: 'This class is used to update an attribute.'
@@ -2697,13 +2697,14 @@ AttributeUpdate:
         identifier:
             type: string
         names:
-            type: array
+            type: object
         descriptions:
-            type: array
+            type: object
         positions:
             type: integer
         options:
             type: array
+            items: mixed
 
 AttributeList:
     description: 'This class represents an attribute list.'
@@ -2780,9 +2781,9 @@ CustomerGroupCreate:
         identifier:
             type: string
         names:
-            type: array
+            type: object
         descriptions:
-            type: array
+            type: object
         global_price_rate:
             description: 'numeric-string'
             type: string
@@ -2792,13 +2793,11 @@ CustomerGroupUpdate:
     type: object
     properties:
         names:
-            type: array
+            type: object
         identifier:
             type: string
         position:
             type: integer
-        languages:
-            type: array
 
 CustomerGroupViewInput:
     description: 'This class represents a customer group view input.'
@@ -2940,14 +2939,14 @@ ProductListGet:
         limit:
             type: integer
         languages:
-            type: array
+            type: string[]
 
 ProductGet:
     description: 'This class represents a product GET.'
     type: object
     properties:
         languages:
-            type: array
+            type: string[]
 
 ProductCreate:
     description: 'This class is used to create a product.'
@@ -2959,9 +2958,10 @@ ProductCreate:
             type: string
         attributes:
             type: array
+            items: object
 
 ProductUpdate:
-    description: 'This class is used to create a product.'
+    description: 'This class is used to update a product.'
     type: object
     properties:
         ContentUpdate:
@@ -2970,6 +2970,7 @@ ProductUpdate:
             type: string
         attributes:
             type: array
+            items: object
 
 ProductViewInput:
     description: 'This class represents a product view input.'
@@ -3000,7 +3001,7 @@ ProductVariant:
         Product:
             type: Product
         DiscriminatorAttributesList:
-            type: array
+            type: Attribute[]
 
 ProductVariantCreate:
     description: 'This class is used to create a product variant.'
@@ -3011,6 +3012,7 @@ ProductVariantCreate:
         attributes:
             description: 'array<int|string,mixed>'
             type: array
+            items: mixed
 
 ProductVariantGenerate:
     description: 'This class is used to generate a product variant.'
@@ -3019,6 +3021,7 @@ ProductVariantGenerate:
         attributes:
             description: 'array<int|string,mixed>'
             type: array
+            items: mixed
 
 ProductVariantUpdate:
     description: 'This class is used to update a product variant.'
@@ -3029,6 +3032,7 @@ ProductVariantUpdate:
         attributes:
             description: 'array<int|string,mixed>'
             type: array
+            items: mixed
 
 ProductVariantViewInput:
     description: 'This class represents a product variant view input.'
@@ -3087,6 +3091,7 @@ TaxonomyEntry:
             type: string
         names:
             type: array
+            items: mixed
         Parent:
             type: TaxonomyEntry
         Content:
@@ -3139,6 +3144,7 @@ TaxonomyEntryUpdateStruct:
             type: string
         names:
             type: array
+            items: mixed
         languageCode:
             type: string
         mainLanguageCode:
@@ -3326,7 +3332,7 @@ Order:
         OrderItemsList:
             type: OrderItem[]
         context:
-            type: array
+            type: object
 
 OrderUser:
     description: 'This class represents order user.'
@@ -3412,7 +3418,7 @@ OrderItem:
         quantity:
             type: integer
         context:
-            type: array
+            type: object
 
 OrderItemValue:
     description: 'This class represents order item value.'
@@ -3439,3 +3445,245 @@ OrderItemProduct:
             type: string
         name:
             type: string
+
+CorporateAccountRoot:
+    description: 'This class represents Corporate Account Root resource information.'
+    type: object
+    properties:
+        link:
+            type: Link[]
+
+Link:
+    description: 'This class represents REST resource information.'
+    type: BaseObject
+    properties:
+        rel:
+            description: 'Unique identifier of a resource.'
+            type: string
+
+
+Company:
+    description: 'This class represents a company.'
+    type: object
+    properties:
+        id:
+            type: integer
+        name:
+            type: string
+        Content:
+            type: Content
+        billingAddress:
+            type: string
+        contactId:
+            type: integer
+        salesRepresentativeId:
+            type: integer
+        defaultAddressId:
+            type: integer
+        addressBookId:
+            description: 'Address book Folder Content ID.'
+            type: integer
+        membersId:
+            description: 'Members Folder Content ID.'
+            type: integer
+        MembersList:
+            description: 'Reference to Members List resource.'
+            type: BaseObject
+        Location:
+            description: 'Reference to Location resource.'
+            type: BaseObject
+        locationPath:
+            description: 'Company Content item Location path string.'
+            type: string
+        isActive:
+            type: boolean
+
+CompanyCreate:
+    description: 'This class is used to create a company.'
+    type: object
+    properties:
+        remoteId:
+            type: string
+        modificationDate:
+            type: string
+        User:
+            description: 'User value.'
+            type: User
+        fields:
+            description: 'Fields of a Company Content item.'
+            type: Field[]
+
+CompanyUpdate:
+    description: 'This class is used to update a Company.'
+    type: object
+    properties:
+        fields:
+            description: 'Fields of a Company Content item.'
+            type: Field[]
+
+CompanyList:
+    description: 'This class represents a list of companies.'
+    type: object
+    properties:
+        Company:
+            type: Company[]
+
+Member:
+    description: 'This class represents a company member.'
+    type: object
+    properties:
+        id:
+            type: integer
+        name:
+            type: string
+        Company:
+            type: Company
+        User:
+            description: 'Underlying User object of a member.'
+            type: User
+        Role:
+            description: 'Reference to the member role in a Company resource.'
+            type: BaseObject
+
+MemberList:
+    description: 'This class represents a list of company members.'
+    type: object
+    properties:
+        Member:
+            type: Member[]
+
+MemberCreate:
+    description: 'This class is used to create a member.'
+    type: object
+    properties:
+        login:
+            type: string
+        email:
+            type: string
+        password:
+            type: string
+        Role:
+            description: 'Reference to a Role resource company member should be given.'
+            type: BaseObject
+        fields:
+            description: 'Fields of a Member Content item.'
+            type: Field[]
+
+MemberUpdate:
+    description: 'This class is used to update a member.'
+    type: object
+    properties:
+        email:
+            type: string
+        password:
+            type: string
+        enabled:
+            type: boolean
+        maxLogin:
+            description: 'Max number of failed login attempts.'
+            type: integer
+        Role:
+            description: 'Reference to a Role resource company member should be given.'
+            type: BaseObject
+        fields:
+            description: 'Fields of a Member Content item.'
+            type: Field[]
+
+ErrorMessage:
+    description: 'Represents an error response. Might contain additional properties depending on an error type.'
+    type: object
+    properties:
+        errorCode:
+            type: integer
+        errorMessage:
+            type: string
+        errorDescription:
+            type: string
+
+PaymentMethod:
+    type: object
+    properties:
+        id:
+            type: integer
+            required: true
+        identifier:
+            type: string
+            required: true
+        enabled:
+            type: boolean
+            required: true
+        name:
+            type: string
+            required: true
+        description:
+            type: string
+            required: true
+
+PaymentMethodCreateStruct:
+    type: object
+    properties:
+        identifier:
+            type: string
+            required: true
+        type:
+            type: string
+            required: true
+        names:
+            description: 'If set this array of names with languageCode keys replace the complete name collection.'
+            type: string[]
+        descriptions:
+            description: 'An array of descriptions with languageCode keys.'
+            type: string[]
+        enabled:
+            type: boolean
+        options:
+            type: object
+            items:
+                type: any
+
+PaymentMethodUpdateStruct:
+    type: object
+    properties:
+        identifier:
+            type: string
+        names:
+            description: 'If set this array of names with languageCode keys replace the complete name collection.'
+            type: string[]
+        descriptions:
+            description: 'An array of descriptions with languageCode keys.'
+            type: string[]
+        enabled:
+            type: boolean
+        options:
+            type: array
+            items: mixed
+
+PaymentMethodView:
+    type: object
+    properties:
+        identifier:
+            type: string
+            required: true
+        Result:
+            type: object
+            required: true
+
+PaymentMethodList:
+    type: object
+    properties:
+        count:
+            type: integer
+            required: true
+        PaymentMethodList:
+            type: PaymentMethod[]
+            required: true
+
+PaymentMethodViewInput:
+    type: object
+    properties:
+        identifier:
+            type: string
+            required: true
+        PaymentMethodQuery:
+            type: object
+            required: true

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\QueryType;
 
@@ -23,7 +23,7 @@ class LatestContentQueryType implements QueryType
         return new LocationQuery([
             'filter' => new Query\Criterion\LogicalAnd($criteria),
             'sortClauses' => [
-                new Query\SortClause\DatePublished(Query::SORT_DESC)
+                new Query\SortClause\DatePublished(Query::SORT_DESC),
             ],
             'limit' => isset($parameters['limit']) ? $parameters['limit'] : 10,
         ]);

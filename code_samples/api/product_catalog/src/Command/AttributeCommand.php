@@ -1,35 +1,35 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Command;
 
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
 use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\ProductCatalog\AttributeDefinitionServiceInterface;
-use Ibexa\Contracts\ProductCatalog\Local\LocalAttributeDefinitionServiceInterface;
 use Ibexa\Contracts\ProductCatalog\AttributeGroupServiceInterface;
+use Ibexa\Contracts\ProductCatalog\AttributeTypeServiceInterface;
+use Ibexa\Contracts\ProductCatalog\Local\LocalAttributeDefinitionServiceInterface;
 use Ibexa\Contracts\ProductCatalog\Local\LocalAttributeGroupServiceInterface;
-use Ibexa\ProductCatalog\Local\Repository\AttributeTypeService;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 final class AttributeCommand extends Command
 {
-    private $attributeGroupService;
+    private AttributeGroupServiceInterface $attributeGroupService;
 
-    private $localAttributeGroupService;
+    private LocalAttributeGroupServiceInterface $localAttributeGroupService;
 
-    private $attributeDefinitionService;
+    private AttributeDefinitionServiceInterface $attributeDefinitionService;
 
-    private $localAttributeDefinitionService;
+    private LocalAttributeDefinitionServiceInterface $localAttributeDefinitionService;
 
-    private $attributeTypeService;
+    private AttributeTypeServiceInterface $attributeTypeService;
 
-    private $userService;
+    private UserService $userService;
 
-    private $permissionResolver;
+    private PermissionResolver $permissionResolver;
 
-    public function __construct(LocalAttributeDefinitionServiceInterface $localAttributeDefinitionService, AttributeDefinitionServiceInterface $attributeDefinitionService, AttributeGroupServiceInterface $attributeGroupService, LocalAttributeGroupServiceInterface $localAttributeGroupService,  AttributeTypeService $attributeTypeService, UserService $userService, PermissionResolver $permissionResolver)
+    public function __construct(LocalAttributeDefinitionServiceInterface $localAttributeDefinitionService, AttributeDefinitionServiceInterface $attributeDefinitionService, AttributeGroupServiceInterface $attributeGroupService, LocalAttributeGroupServiceInterface $localAttributeGroupService, AttributeTypeServiceInterface $attributeTypeService, UserService $userService, PermissionResolver $permissionResolver)
     {
         $this->localAttributeGroupService = $localAttributeGroupService;
         $this->attributeGroupService = $attributeGroupService;
@@ -39,21 +39,21 @@ final class AttributeCommand extends Command
         $this->userService = $userService;
         $this->permissionResolver = $permissionResolver;
 
-        parent::__construct("doc:attributes");
+        parent::__construct('doc:attributes');
     }
 
     public function configure(): void
-    {}
+    {
+    }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
 
         $attributeTypes = $this->attributeTypeService->getAttributeTypes();
 
-        foreach ($attributeTypes as $attributeType){
+        foreach ($attributeTypes as $attributeType) {
             $output->writeln('Attribute type ' . $attributeType->getIdentifier() . ' with name ' . $attributeType->getName());
         }
 
@@ -85,7 +85,7 @@ final class AttributeCommand extends Command
 
         $attributeGroups = $this->attributeGroupService->findAttributeGroups();
 
-        foreach ($attributeGroups as $attributeGroup){
+        foreach ($attributeGroups as $attributeGroup) {
             $output->writeln('Attribute group ' . $attributeGroup->getIdentifier() . ' with name ' . $attributeGroup->getName());
         }
 

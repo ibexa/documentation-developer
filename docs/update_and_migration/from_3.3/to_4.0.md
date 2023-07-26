@@ -159,6 +159,14 @@ If the dry run is successful, run:
 php bin/console ibexa:migrations:migrate
 ```
 
+### Migrate richtext namespaces
+
+Run the upgrade script for updating XML namespaces inside RichText Fields:
+
+```bash
+php bin/console ibexa:migrate:richtext-namespaces
+```
+
 ## Update your custom code
 
 ### Online editor
@@ -193,7 +201,7 @@ Update your configuration, if it applies.
 
 ## Finish update
 
-Adapt your `composer.json` file according to [`manifest.json`](https://github.com/ibexa/recipes/blob/master/ibexa/commerce/4.0.x-dev/manifest.json#L170-L171), by adding the following lines:
+Adapt your `composer.json` file according to [`manifest.json`](https://github.com/ibexa/recipes/blob/master/ibexa/commerce/4.0/manifest.json#L170-L171), by adding the following lines:
 
 ``` json hl_lines="2-3"
 "yarn install": "script",

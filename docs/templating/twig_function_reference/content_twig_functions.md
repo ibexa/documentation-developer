@@ -1,5 +1,6 @@
 ---
 description: Content Twig function enable rendering whole Content items and their information.
+page_type: reference
 ---
 
 # Content Twig functions

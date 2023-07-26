@@ -1,5 +1,5 @@
 ---
-description: Configure the default checkout process.
+description: Configure checkout, modify the default checkout workflow.
 edition: commerce
 ---
 
@@ -12,7 +12,7 @@ the checkout configuration.
 
     When you modify the workflow configuration, make sure you properly set user [permissions](permission_use_cases.md#commerce) to the checkout component.
 
-## Checkout workflow
+## Configure checkout workflow
 
 Checkout workflow relies on [Symfony Workflow](http://symfony.com/doc/5.4/components/workflow.html).
 Each transition represents a separate checkout step. 
@@ -40,47 +40,16 @@ Each step configuration includes the following settings:
 - `label` - An optional name of the step that can be displayed in the Twig helper.
 - `translation_domain` - A optional setting that defines the domain for a site with translated content. By default it is set to `checkout`.
 
-### Default checkout workflow configuration
+### Checkout customization example
 
-The default checkout workflow configuration looks as follows. `ibexa_checkout` key is used by default, you can replace it with your custom workflow identifier if needed.
-
-``` yaml
-[[= include_file('code_samples/front/shop/checkout/config/packages/ibexa.yaml', 39, 98) =]]
-```
+For more information about the results you can achieve by customizing checkout, see [Customize checkout](customize_checkout.md).
 
 ## Configure shipping and payment methods
 
-You can define the shipping and payment methods.
-Under `ibexa.repositories.<repository_name>.checkout`, create entries that resemble 
-the following example.
-If you do not set a value for the `workflow` key, `ibexa_checkout` is used by default.
+You can define the shipping and payment methods in the user interface.
+For more information, see [Work with shipping methods]([[= user_doc =]]/commerce/shipping_management/work_with_shipping_methods/) and [Work with payment methods]([[= user_doc =]]/commerce/payment/work_with_payment_methods/).
 
-``` yaml 
-ibexa:
-    repositories:
-        <repository_name>:
-            checkout: 
-                workflow: <workflow_name>
-                shipping_methods:
-                    courier:
-                        name: "Courier"
-                        translation_domain: "checkout" #optional, all shipping/payment methods use this one by default
-                    parcel_machine:
-                        name: "Parcel machine"
-                    self_pickup:
-                        name: "Self pickup"
-                    express_delivery:
-                        name: "Express delivery"
-                payment_methods:
-                    credit_card:
-                        name: "Credit card"
-                    paypal:
-                        name: "Paypal"
-                    money_transfer:
-                        name: "Money transfer"
-```
-
-## Shipping and billing address field format configuration 
+## Configure shipping and billing address field format
 
 In your implementation, you may need to create custom format configurations 
 for the shipping or billing address fields, for example, to use different address 
@@ -93,8 +62,3 @@ They fall back to `billing` and `shipping` predefined formats by default:
 - `shipping` is part of the `ibexa/checkout` bundle's default configuration 
 
 To modify address formats you create custom ones.
-
-## Checkout customization
-
-You can customize the checkout process to make it fit your specific needs.
-For more information, see [Customize checkout](customize_checkout.md).

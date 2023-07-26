@@ -1,5 +1,6 @@
 ---
 description: Events that are triggered when working with languages.
+page_type: reference
 ---
 
 # Language events

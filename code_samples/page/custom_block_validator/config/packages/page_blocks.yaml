@@ -9,7 +9,7 @@ ibexa_fieldtype_page:
             views:
                 default:
                     name: Default block layout
-                    template: my_block.html.twig
+                    template: '@ibexadesign/blocks/my_block.html.twig'
                     priority: -255
             attributes:
                 my_text_attribute:
