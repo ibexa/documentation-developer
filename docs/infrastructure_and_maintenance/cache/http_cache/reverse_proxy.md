@@ -27,9 +27,9 @@ HTTP Cache.
 
 - [Varnish VCL xkey example](https://github.com/ibexa/http-cache/blob/main/docs/varnish/vcl/varnish5.vcl)
 - Fastly can be found in `vendor/ibexa/fastly/fastly`. You must install the following to use Fastly:
-  - `ez_main.vcl` as the **main** custom VCL
-  - `ez_user_hash.vcl` as another custom VCL
-  - `snippet_re_enable_shielding.vcl` as snippet
+    - `ez_main.vcl` as the **main** custom VCL
+    - `ez_user_hash.vcl` as another custom VCL
+    - `snippet_re_enable_shielding.vcl` as snippet
 
 The provided `.vcl` files work both with [Fastly Shielding](https://docs.fastly.com/en/guides/shielding) enabled and without it.
 If you decide to use Fastly VCL, consider using [Fastly CLI](https://developer.fastly.com/learning/tools/cli#installing) with it to manage VCL files from the command line.

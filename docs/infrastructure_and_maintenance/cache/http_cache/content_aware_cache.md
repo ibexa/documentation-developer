@@ -449,12 +449,13 @@ To obtain it, use `curl`.
 ```
 
 Some notes about each of these parameters:
+
 - `-IXGET`, one of many ways to tell curl that we want to send a GET request, but we are only interested in outputting the headers
 - `--resolve www.staging.foobar.com.us-2.platformsh.site:443:1.2.3.4`
-  - We tell curl not to do a DNS lookup for `www.staging.foobar.com.us-2.platformsh.site`. We do that because in our case
+    - We tell curl not to do a DNS lookup for `www.staging.foobar.com.us-2.platformsh.site`. We do that because in our case
     that will resolve to the Fastly endpoint, not our origin (nginx)
-  - We specify `443` because we are using `https`
-  - We provide the IP of the nginx endpoint at platform.sh (`1.2.3.4` in this example)
+    - We specify `443` because we are using `https`
+    - We provide the IP of the nginx endpoint at platform.sh (`1.2.3.4` in this example)
 - `--header "Surrogate-Capability: abc=ESI/1.0"`, strictly speaking not needed when fetching the user-context-hash, but this tells [[= product_name =]] that client understands ESI tags.
   It is good practice to always include this header when imitating the HTTP Cache.
 - `--header "accept: application/vnd.fos.user-context-hash"` tells [[= product_name =]] that the client wants to receive the user-context-hash
