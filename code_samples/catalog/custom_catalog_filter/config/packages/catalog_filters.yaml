@@ -1,0 +1,11 @@
+ibexa:
+    system:
+        default:
+            product_catalog:
+                catalogs:
+                    filter_preview_templates:
+                        - { template: "@ibexadesign/product_catalog/catalog_filters_blocks.html.twig", priority: 10 }
+
+twig:
+    form_themes:
+        - '@ibexadesign/product_catalog/form_field_override.html.twig'

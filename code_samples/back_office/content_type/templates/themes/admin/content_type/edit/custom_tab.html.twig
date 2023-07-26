@@ -1,0 +1,12 @@
+{% extends '@ibexadesign/ui/component/anchor_navigation/section_group.html.twig' %}
+
+{% set data_id = 'ibexa-edit-content-sections-new-tab' %}
+
+{% block sections %}
+    {% embed '@ibexadesign/ui/component/anchor_navigation/section.html.twig' %}
+        {% set data_id = 'ibexa-edit-content-sections-new-tab-item_2' %}
+        {% block content %}
+            Contents of custom secondary section
+        {% endblock %}
+    {% endembed %}
+{% endblock %}

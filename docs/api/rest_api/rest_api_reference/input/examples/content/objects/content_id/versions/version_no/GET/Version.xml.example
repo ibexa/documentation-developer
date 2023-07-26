@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Version media-type="application/vnd.ibexa.api.Version+xml" href="/api/ibexa/v2/content/objects/107/versions/5">
+    <VersionInfo>
+        <id>581</id>
+        <versionNo>5</versionNo>
+        <status>ARCHIVED</status>
+        <modificationDate>2023-05-24T06:11:50+00:00</modificationDate>
+        <Creator media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/14"/>
+        <creationDate>2023-05-24T06:09:49+00:00</creationDate>
+        <initialLanguageCode>eng-GB</initialLanguageCode>
+        <languageCodes>eng-GB</languageCodes>
+        <VersionTranslationInfo media-type="application/vnd.ibexa.api.VersionTranslationInfo+xml">
+            <Language>
+                <languageCode>eng-GB</languageCode>
+            </Language>
+        </VersionTranslationInfo>
+        <names>
+            <value languageCode="eng-GB">Features</value>
+        </names>
+        <Content media-type="application/vnd.ibexa.api.ContentInfo+xml" href="/api/ibexa/v2/content/objects/107"/>
+    </VersionInfo>
+    <Fields>
+        <field>
+            <id>477</id>
+            <fieldDefinitionIdentifier>name</fieldDefinitionIdentifier>
+            <languageCode>eng-GB</languageCode>
+            <fieldTypeIdentifier>ezstring</fieldTypeIdentifier>
+            <fieldValue>Features</fieldValue>
+        </field>
+        <field>
+            <id>478</id>
+            <fieldDefinitionIdentifier>short_name</fieldDefinitionIdentifier>
+            <languageCode>eng-GB</languageCode>
+            <fieldTypeIdentifier>ezstring</fieldTypeIdentifier>
+            <fieldValue/>
+        </field>
+        <field>
+            <id>479</id>
+            <fieldDefinitionIdentifier>short_description</fieldDefinitionIdentifier>
+            <languageCode>eng-GB</languageCode>
+            <fieldTypeIdentifier>ezrichtext</fieldTypeIdentifier>
+            <fieldValue>
+                <value key="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;section xmlns=&quot;http://docbook.org/ns/docbook&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; version=&quot;5.0-variant ezpublish-1.0&quot;/&gt;
+</value>
+                <value key="xhtml5edit">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;section xmlns=&quot;http://ibexa.co/namespaces/ezpublish5/xhtml5/edit&quot;/&gt;
+</value>
+            </fieldValue>
+        </field>
+        <field>
+            <id>480</id>
+            <fieldDefinitionIdentifier>description</fieldDefinitionIdentifier>
+            <languageCode>eng-GB</languageCode>
+            <fieldTypeIdentifier>ezrichtext</fieldTypeIdentifier>
+            <fieldValue>
+                <value key="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;section xmlns=&quot;http://docbook.org/ns/docbook&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; version=&quot;5.0-variant ezpublish-1.0&quot;/&gt;
+</value>
+                <value key="xhtml5edit">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;section xmlns=&quot;http://ibexa.co/namespaces/ezpublish5/xhtml5/edit&quot;/&gt;
+</value>
+            </fieldValue>
+        </field>
+    </Fields>
+    <Relations media-type="application/vnd.ibexa.api.RelationList+xml" href="/api/ibexa/v2/content/objects/107/versions/5/relations"/>
+    <Thumbnail media-type="application/vnd.ibexa.api.Thumbnail+xml">
+        <resource>/placeholder</resource>
+        <width></width>
+        <height></height>
+        <mimeType>image/svg+xml</mimeType>
+    </Thumbnail>
+</Version>

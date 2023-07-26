@@ -1,0 +1,10 @@
+-   type: product_price
+    mode: create
+    product_code: 'DRESUN'
+    currency_code: 'EUR'
+    amount: 120
+    custom_prices:
+        -   customer_group: wholesaler
+            base_amount: 120
+            custom_amount: 100
+        

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Content media-type="application/vnd.ibexa.api.ContentInfo+xml" href="/api/ibexa/v2/content/objects/110" remoteId="59258c7a8c545db8a641742138d11d82" id="110">
+    <ContentType media-type="application/vnd.ibexa.api.ContentType+xml" href="/api/ibexa/v2/content/types/2"/>
+    <Name>draft article</Name>
+    <TranslatedName>draft article</TranslatedName>
+    <Versions media-type="application/vnd.ibexa.api.VersionList+xml" href="/api/ibexa/v2/content/objects/110/versions"/>
+    <CurrentVersion media-type="application/vnd.ibexa.api.Version+xml" href="/api/ibexa/v2/content/objects/110/currentversion"/>
+    <Section media-type="application/vnd.ibexa.api.Section+xml" href="/api/ibexa/v2/content/sections/1"/>
+    <Locations media-type="application/vnd.ibexa.api.LocationList+xml" href="/api/ibexa/v2/content/objects/110/locations"/>
+    <Owner media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/14"/>
+    <mainLanguageCode>eng-GB</mainLanguageCode>
+    <currentVersionNo>1</currentVersionNo>
+    <alwaysAvailable>true</alwaysAvailable>
+    <isHidden>false</isHidden>
+    <status>DRAFT</status>
+    <ObjectStates media-type="application/vnd.ibexa.api.ContentObjectStates+xml" href="/api/ibexa/v2/content/objects/110/objectstates"/>
+</Content>

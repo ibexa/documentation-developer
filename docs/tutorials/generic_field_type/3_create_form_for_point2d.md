@@ -1,4 +1,8 @@
-# Step 3 - Create form for editing Field Type
+---
+description: Learn how to create a form used for editing a custom Field definition.
+---
+
+# Step 3 - Create a form for editing Field Type
 
 ## Create a form
 
@@ -8,14 +12,14 @@ This method adds fields for `x` and `y` coordinates.
 
 ```php
 [[= include_file('code_samples/field_types/2dpoint_ft/steps/step_3/Point2DType.php', 0, 18) =]]
-[[= include_file('code_samples/field_types/2dpoint_ft/steps/step_3/Point2DType.php', 24, 25) =]]
+[[= include_file('code_samples/field_types/2dpoint_ft/steps/step_3/Point2DType.php', 25, 26) =]]
 ```
 
 ## Add a Form Mapper Interface
 
 The FormMapper adds the Field definitions into Symfony forms using the `add()` method. 
 The `FieldValueFormMapperInterface` provides an edit form for your Field Type in the administration interface.
-For more information about the FormMappers, see [Field Type form and template](../../api/field_type_form_and_template.md).
+For more information about the FormMappers, see [Field Type form and template](form_and_template.md).
 
 First, implement a `FieldValueFormMapperInterface` interface (`Ibexa\Contracts\ContentForms\FieldType\FieldValueFormMapperInterface`) to Field Type definition in the `src/FieldType/Point2D/Type.php`.
 

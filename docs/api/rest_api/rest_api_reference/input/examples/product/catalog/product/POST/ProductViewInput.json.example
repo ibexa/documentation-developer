@@ -1,0 +1,28 @@
+{
+    "ViewInput": {
+        "identifier": "TitleView",
+        "ProductQuery": {
+            "limit": "10",
+            "offset": "0",
+            "Filter": {
+                "ProductTypeCriterion": "desk",
+                "ProductAvailabilityCriterion": false
+            },
+            "SortClauses": {
+                "ProductName": "descending"
+            },
+            "Aggregations": [
+                {
+                    "ProductPriceRange": {
+                        "name": "price",
+                        "currencyCode": "EUR",
+                        "ranges": [
+                            {"from": 0, "to": 10000},
+                            {"from": 10000, "to": null}
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,32 @@
+-   type: attribute_group
+    mode: create
+    identifier: hat
+    names:
+        eng-GB: Hat
+
+-   type: attribute
+    mode: create
+    identifier: size
+    attribute_type_identifier: integer
+    attribute_group_identifier: hat
+    names:
+        eng-GB: Size
+
+-   type: attribute
+    mode: create
+    identifier: color
+    attribute_type_identifier: selection
+    attribute_group_identifier: hat
+    names:
+        eng-GB: Color
+    options:
+        choices:
+            -    value: red
+	         label: 
+	             "eng-GB": "Red"
+            -    value: white
+	         label: 
+	             "eng-GB": "White"
+            -    value: black
+	         label: 
+	             "eng-GB": "Black"

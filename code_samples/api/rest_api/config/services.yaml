@@ -1,0 +1,52 @@
+parameters:
+    app.rest.output.visitor.xml.regexps: ['(^application/app\.api\.[A-Za-z]+\+xml$)']
+    app.rest.output.visitor.json.regexps: ['(^application/app\.api\.[A-Za-z]+\+json$)']
+
+services:
+
+    app.rest.output.visitor.xml:
+        class: Ibexa\Contracts\Rest\Output\Visitor
+        arguments:
+            - '@Ibexa\Rest\Output\Generator\Xml'
+            - '@App\Rest\Output\ValueObjectVisitorDispatcher'
+        tags:
+            - { name: ibexa.rest.output.visitor, regexps: app.rest.output.visitor.xml.regexps, priority: 20 }
+
+    app.rest.output.visitor.json:
+        class: Ibexa\Contracts\Rest\Output\Visitor
+        arguments:
+            - '@Ibexa\Rest\Output\Generator\Json'
+            - '@App\Rest\Output\ValueObjectVisitorDispatcher'
+        tags:
+            - { name: ibexa.rest.output.visitor, regexps: app.rest.output.visitor.json.regexps, priority: 20 }
+
+    App\Rest\Output\ValueObjectVisitorDispatcher:
+        class: App\Rest\Output\ValueObjectVisitorDispatcher
+        arguments:
+            - !tagged_iterator { tag: 'app.rest.output.value_object.visitor', index_by: 'type' }
+            - '@Ibexa\Contracts\Rest\Output\ValueObjectVisitorDispatcher'
+
+    App\Rest\ValueObjectVisitor\RestLocation:
+        class: App\Rest\ValueObjectVisitor\RestLocation
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        arguments:
+            $urlAliasService: '@ibexa.api.service.url_alias'
+        tags:
+            - { name: app.rest.output.value_object.visitor, type: Ibexa\Rest\Server\Values\RestLocation }
+
+    App\Rest\Controller\:
+        resource: '../src/Rest/Controller/'
+        parent: Ibexa\Rest\Server\Controller
+        autowire: true
+        autoconfigure: true
+        tags: [ 'controller.service_arguments' ]
+
+    App\Rest\ValueObjectVisitor\Greeting:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: App\Rest\Values\Greeting }
+
+    App\Rest\InputParser\GreetingInput:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.GreetingInput }

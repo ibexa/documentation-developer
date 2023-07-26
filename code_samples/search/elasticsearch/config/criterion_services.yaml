@@ -1,0 +1,5 @@
+services:
+    App\Query\Criterion\Elasticsearch\CameraManufacturerVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.criterion.visitor }
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }

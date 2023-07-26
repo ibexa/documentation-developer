@@ -85,6 +85,19 @@ $(document).ready(function() {
         apiKey: '21ce3e522455e18e7ee16cf7d66edb4b',
         indexName: 'ezplatform',
         inputSelector: '#search_input',
+        transformData: function(hits) {
+            let removedPattern = '¶';
+            $.each(hits, function(index, hit) {
+                for (let lvl=2; lvl<=6; lvl++) {
+                    if (null !== hit.hierarchy['lvl'+lvl]) {
+                        hits[index].hierarchy['lvl' + lvl] = hit.hierarchy['lvl' + lvl].replace(removedPattern, '');
+                    }
+                    if ('undefined' !== typeof hit._highlightResult.hierarchy['lvl'+lvl]) {
+                        hits[index]._highlightResult.hierarchy['lvl'+lvl].value = hit._highlightResult.hierarchy['lvl'+lvl].value.replace(removedPattern, '');
+                    }
+                }
+            });
+        },
         algoliaOptions: {
             facetFilters: ['lang:en', 'version:' + branchName],
             hitsPerPage: 10,
@@ -112,6 +125,9 @@ $(document).ready(function() {
     // Image enlargement modal
     $('body').append('<div id="imageModal"><img class="modal-content" id="enlargedImage"><div id="modalCaption"></div>/div>');
 
+    //Google Tag Manager code
+    $('body').prepend('<!-- Google Tag Manager (noscript) --><noscript><iframe src=https://www.googletagmanager.com/ns.html?id=GTM-KKQR5LG height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><!-- End Google Tag Manager (noscript) -->');
+
     $('.md-content__inner img').click(function() {
         $('#enlargedImage').attr('src', $(this).attr('src'));
         if ($(this).attr('title')) {
@@ -128,4 +144,17 @@ $(document).ready(function() {
         $('.md-sidebar--primary .md-sidebar__scrollwrap')[0].scrollTop =
         $('.md-sidebar--primary .md-nav__item--active:not(.md-nav__item--nested)')[0].offsetTop - 33;
     }
+
+    // Fix page TOC/hash bug
+    $('.md-sidebar.md-sidebar--secondary nav a').click(function(event) {
+        window.setTimeout(function() {
+            document.location.hash = event.target.hash;
+        }, 500);
+    })
+
+    document.querySelectorAll('.notification__close-btn').forEach((closeBtn) => {
+        closeBtn.addEventListener('click', () => {
+            closeBtn.closest('.notification').setAttribute('hidden', 'hidden');
+        });
+    });
 });

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UserCreate>
+  <mainLanguageCode>eng-GB</mainLanguageCode>
+  <remoteId>remoteId-23456789</remoteId>
+  <login>johnsmith</login>
+  <email>example@example.com</email>
+  <password>Secrepassword5!</password>
+    <fields>
+      <field>
+        <fieldDefinitionIdentifier>first_name</fieldDefinitionIdentifier>
+        <languageCode>eng-GB</languageCode>
+        <fieldValue>John</fieldValue>
+      </field>
+      <field>
+        <fieldDefinitionIdentifier>last_name</fieldDefinitionIdentifier>
+        <languageCode>eng-GB</languageCode>
+        <fieldValue>Smith</fieldValue>
+      </field>
+      <field>
+        <fieldDefinitionIdentifier>user_account</fieldDefinitionIdentifier>
+        <languageCode>eng-GB</languageCode>
+        <fieldValue>
+          <value key="hasStoredLogin">true</value>
+          <value key="contentId">14</value>
+          <value key="login">johnsmith</value>
+          <value key="email">example@example.com</value>
+          <value key="enabled">true</value>
+          <value key="maxLogin">10</value>
+        </fieldValue>
+      </field>
+    </fields>
+</UserCreate>

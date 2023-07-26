@@ -1,3 +1,7 @@
+---
+description: Learn how to add settings that format the Field value.
+---
+
 # Step 6 - Implement Point 2D settings
 
 Implementing settings enables you to define the format for displaying the Field on the page.
@@ -11,7 +15,7 @@ You will also specify coordinates as placeholder values `%x%` and `%y%`.
 
 Open `src/FieldType/Point2D/Type.php` and add a `getSettingsSchema` method according to the following code block:
 
-```php hl_lines="23 24 25 26 27 28 29 30 31"
+```php hl_lines="18-26"
 [[= include_file('code_samples/field_types/2dpoint_ft/steps/step_6/Type.php') =]]
 ```
 
@@ -35,15 +39,15 @@ In `src/FieldType/Point2D/Type.php` you will:
 
 ```php
 [[= include_file('code_samples/field_types/2dpoint_ft/src/FieldType/Point2D/Type.php', 0, 4) =]]
+[[= include_file('code_samples/field_types/2dpoint_ft/src/FieldType/Point2D/Type.php', 7, 8) =]]
+
+// ...
+
 [[= include_file('code_samples/field_types/2dpoint_ft/src/FieldType/Point2D/Type.php', 14, 15) =]]
 
 // ...
 
-[[= include_file('code_samples/field_types/2dpoint_ft/src/FieldType/Point2D/Type.php', 16, 17) =]]
-
-// ...
-
-[[= include_file('code_samples/field_types/2dpoint_ft/src/FieldType/Point2D/Type.php', 42, 48) =]]
+[[= include_file('code_samples/field_types/2dpoint_ft/src/FieldType/Point2D/Type.php', 40, 46) =]]
 ```
 
 <details class="tip">
@@ -72,7 +76,7 @@ Create `templates/point2d_field_type_definition.html.twig`:
 
 ### Add configuration for the format field
 
-Next, provide the template mapping in `config/packages/ezplatform.yaml`:
+Next, provide the template mapping in `config/packages/ibexa.yaml`:
 
 ```yaml hl_lines="6 7"
 [[= include_file('code_samples/field_types/2dpoint_ft/config/packages/field_templates.yaml') =]]
@@ -98,4 +102,4 @@ Now, you can go to Admin in the Back Office and see the results of your work by 
 
 Add new format `(%x%, %y%)` in the **Format** field as shown in the screen below.
 
-![Point 2D definition with format field](img/field_definition_format_field.png)
+![Point 2D definition with format field](field_definition_format_field.png)

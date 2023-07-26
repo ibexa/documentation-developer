@@ -1,26 +1,26 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Command;
 
-use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputOption;
 use Ibexa\Contracts\Core\Repository\LocationService;
-use Ibexa\Contracts\Core\Repository\UserService;
-use Ibexa\Contracts\Core\Repository\TrashService;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
+use Ibexa\Contracts\Core\Repository\TrashService;
+use Ibexa\Contracts\Core\Repository\UserService;
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Output\OutputInterface;
 
 class TrashContentCommand extends Command
 {
-    private $locationService;
+    private LocationService $locationService;
 
-    private $userService;
+    private UserService $userService;
 
-    private $trashService;
+    private TrashService $trashService;
 
-    private $permissionResolver;
+    private PermissionResolver $permissionResolver;
 
     public function __construct(LocationService $locationService, UserService $userService, TrashService $trashService, PermissionResolver $permissionResolver)
     {
@@ -35,7 +35,7 @@ class TrashContentCommand extends Command
     {
         $this->setDefinition([
             new InputArgument('locationId', InputArgument::REQUIRED, 'Location to trash'),
-            new InputArgument('newParentId', InputArgument::OPTIONAL, 'New Location to restore under')
+            new InputArgument('newParentId', InputArgument::OPTIONAL, 'New Location to restore under'),
         ])
             ->addOption('restore', 'r', InputOption::VALUE_NONE, 'Do you want to restore the Content item?');
     }

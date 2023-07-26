@@ -1,3 +1,7 @@
+---
+description: Learn how to add a template for rendering the custom Field on the site front.
+---
+
 # Step 4 - Introduce a template
 
 ## Point 2D template
@@ -8,7 +12,7 @@ In this case the most important variable is the `field`, an instance of `Ibexa\C
 In addition to its own metadata (`id`, `fieldDefIdentifier`, etc.), it exposes the Field Value through the `value` property.
 
 Remember that Field Type templates can be overridden in order to tweak what is displayed and how.
-For more information, see the documentation about [Field Type templates](../../api/field_type_form_and_template.md#content-view-templates).
+For more information, see the documentation about [Field Type templates](form_and_template.md#content-view-templates).
 
 First, create a `point2d_field.html.twig` template in the `templates` directory.
 It will define the default display of a Point 2D.

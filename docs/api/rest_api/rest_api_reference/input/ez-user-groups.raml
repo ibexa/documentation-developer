@@ -1,0 +1,396 @@
+get:
+    displayName: Load User Groups
+    description: Loads User Groups for either an an ID or a remote ID or a Role.
+    queryParameters:
+        roleId:
+            description: Lists User Groups assigned to the given Role (e.g. GET /user/groups?roleId=1).
+        id:
+            description: Retrieves the User Groups for the given ID.
+        remoteID:
+            description: Retrieves the User Groups for the given remote ID.
+    headers:
+        Accept:
+            description: UserGroupList - If set, the User Group List is returned in XML or JSON format. UserGroupRefList - If set, the link list of User Group is returned in XML or JSON format.
+            example: |
+                application/vnd.ibexa.api.UserGroupList+xml
+                application/vnd.ibexa.api.UserGroupList+json
+                application/vnd.ibexa.api.UserGroupRefList+xml
+                application/vnd.ibexa.api.UserGroupRefList+json
+    responses:
+        200:
+            body:
+                application/vnd.ibexa.api.UserGroupList+xml:
+                    type: UserGroupList
+                    example: !include examples/user/groups/GET/UserGroupList.xml.example
+                application/vnd.ibexa.api.UserGroupList+json:
+                    type: UserGroupList
+                    example: !include examples/user/groups/GET/UserGroupList.json.example
+        401:
+            description: Error - the user has no permission to read User Groups.
+/root:
+    get:
+        # Currently does not work
+        displayName: Get root User Group
+        description: Redirects to the root User Group.
+        responses:
+            301:
+                description: Moved permanently.
+/subgroups:
+    post:
+        displayName: Create a top level User Group
+        description: Creates a top level User Group under the root. To create a child group under a parent group use '/user/groups/{path}/subgroups'.
+        headers:
+            Accept:
+                description: If set, the new User Group is returned in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.UserGroup+xml
+                    application/vnd.ibexa.api.UserGroup+json
+            Content-Type:
+                description: The UserGroupCreate schema encoded in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.UserGroupCreate+json
+                    application/vnd.ibexa.api.UserGroupCreate+xml
+        body:
+            application/vnd.ibexa.api.UserGroupCreate+xml:
+                type: UserGroupCreate
+                example: !include examples/user/groups/path/subgroups/POST/UserGroupCreate.xml.example
+            application/vnd.ibexa.api.UserGroupCreate+json:
+                type: UserGroupCreate
+                example: !include examples/user/groups/path/subgroups/POST/UserGroupCreate.json.example
+        responses:
+            201:
+                description: Created - the User Group has been created
+                body:
+                    application/vnd.ibexa.api.UserGroup+xml:
+                        type: UserGroup
+                        example: !include examples/user/groups/path/subgroups/POST/UserGroup.xml.example
+                    application/vnd.ibexa.api.UserGroup+json:
+                        type: UserGroup
+                        example: !include examples/user/groups/path/subgroups/POST/UserGroup.json.example
+            400:
+                description: Error - the input does not match the input schema definition.
+            401:
+                description: Error - the user is not authorized to create this User Group./{path}:
+/{path}:
+    get:
+        displayName: Load User Group
+        description: Loads User Groups for the given {path}.
+        headers:
+            Accept:
+                description: If set, the new User Group is returned in XML or JSON format.
+                example: |
+                    application/vnd.ibexa.api.UserGroup+xml
+                    application/vnd.ibexa.api.UserGroup+json
+            If-None-Match:
+                description: ETag
+        responses:
+            200:
+                description: OK - loads User Groups.
+                body:
+                    application/vnd.ibexa.api.UserGroup+xml:
+                        type: UserGroup
+                        example: !include examples/user/groups/path/GET/UserGroup.xml.example
+                    application/vnd.ibexa.api.UserGroup+json:
+                        type: UserGroup
+                        example: !include examples/user/groups/path/GET/UserGroup.json.example
+            401:
+                description: Error - the user has no permission to read User Groups.
+            404:
+                description: Error -	the User Group does not exist.
+    patch:
+        displayName: Update User Group
+        description: Updates a User Group. PATCH or POST with header X-HTTP-Method-Override PATCH.
+        headers:
+            Accept:
+                description: If set, the new User Group is returned in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.UserGroup+xml
+                    application/vnd.ibexa.api.UserGroup+json
+            Content-Type:
+                description: The UserGroupUpdate schema encoded in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.UserGroupUpdate+json
+                    application/vnd.ibexa.api.UserGroupUpdate+xml
+            If-Match:
+                description: Performs the PATCH only if the specified ETag is the current one. Otherwise a 412 is returned.
+                example: ETag
+        body:
+            application/vnd.ibexa.api.UserGroupUpdate+xml:
+                type: UserGroupUpdate
+                example: !include examples/user/groups/path/PATCH/UserGroupUpdate.xml.example
+            application/vnd.ibexa.api.UserGroupUpdate+json:
+                type: UserGroupUpdate
+                example: !include examples/user/groups/path/PATCH/UserGroupUpdate.json.example
+        responses:
+            200:
+                description: OK - updated User Group.
+                body:
+                    application/vnd.ibexa.api.UserGroup+xml:
+                        type: UserGroup
+                        example: !include examples/user/groups/path/PATCH/UserGroup.xml.example
+                    application/vnd.ibexa.api.UserGroup+json:
+                        type: UserGroup
+                        example: !include examples/user/groups/path/PATCH/UserGroup.json.example
+            400:
+                description: Error - the input does not match the input schema definition.
+            401:
+                description: Error - the user is not authorized to update the User Group.
+            412:
+                description: Error -	if the current ETag does not match with the one provided in the If-Match header.
+    delete:
+        displayName: Delete User Group
+        description: The given User Group is deleted.
+        responses:
+            204:
+                description: No content - the given User Group is deleted.
+            401:
+                description: Error - the user is not authorized to delete this Content Type.
+            403:
+                description: Error - the User Group is not empty.
+    move:
+        displayName: Move User Group
+        description: Moves the User Group to another parent. MOVE or POST with header X-HTTP-Method-Override MOVE.
+        headers:
+            Destination:
+                description: A parent group resource to which the Location is moved.
+        responses:
+            201:
+                description: Created - moves the User Group to another parent.
+            401:
+                description: Error - the user is not authorized to update the User Group.
+            403:
+                description: Error - the new parent does not exist.
+            404:
+                description: Error - the User Group does not exist.
+    /users:
+        get:
+            displayName: Load Users of Group
+            description: Loads the Users of the Group with the given ID.
+            queryParameters:
+                limit:
+                    description: Only 'limit' items will be returned started by offset.
+                offset:
+                    description: Offset of the result set.
+            headers:
+                Accept:
+                    description: UserList - If set, the User list returned in XML or JSON format. UserRefList - If set, the link list of Users returned in XML or JSON format.
+                    example: |
+                        application/vnd.ibexa.api.UserList+xml
+                        application/vnd.ibexa.api.UserList+json
+                        application/vnd.ibexa.api.UserRefList+xml
+                        application/vnd.ibexa.api.UserRefList+json
+            responses:
+                200:
+                    description: OK - the Users of the Group with the given ID.
+                    body:
+                        application/vnd.ibexa.api.UserRefList+xml:
+                            type: UserRefList
+                            example: !include examples/user/groups/id/users/GET/UserRefList.xml.example
+                        application/vnd.ibexa.api.UserRefList+json:
+                            type: UserRefList
+                            example: !include examples/user/groups/id/users/GET/UserRefList.json.example
+                401:
+                    description: Error - the user has no permission to read User Groups.
+                404:
+                    description: Error - the User Group does not exist.
+        post:
+            displayName: Create User
+            description: Creates a new User in the given Group.
+            headers:
+                Accept:
+                    description: If set, the new User is returned in XML or JSON format.
+                    example:  |
+                        application/vnd.ibexa.api.User+xml
+                        application/vnd.ibexa.api.User+json
+                Content-Type:
+                    description: The UserCreate schema encoded in XML or JSON format.
+                    example:  |
+                        application/vnd.ibexa.api.UserCreate+json
+                        application/vnd.ibexa.api.UserCreate+xml
+            body:
+                application/vnd.ibexa.api.UserCreate+xml:
+                    type: UserCreate
+                    example: !include examples/user/groups/path/users/POST/UserCreate.xml.example
+                application/vnd.ibexa.api.UserCreate+json:
+                    type: UserCreate
+                    example: !include examples/user/groups/path/users/POST/UserCreate.json.example
+            responses:
+                201:
+                    body:
+                        application/vnd.ibexa.api.User+xml:
+                            type: User
+                            example: !include examples/user/groups/path/users/POST/User.xml.example
+                        application/vnd.ibexa.api.User+json:
+                            type: User
+                            example: !include examples/user/groups/path/users/POST/User.json.example
+                400:
+                    description: Error - the input does not match the input schema definition.
+                401:
+                    description: Error - the user is not authorized to create this User.
+                403:
+                    description: Error - a User with the same login already exists.
+                404:
+                    description: Error - the Group with the given ID does not exist.
+    /subgroups:
+        get:
+            displayName: Load subgroups
+            description: Returns a list of the subgroups.
+            queryParameters:
+                limit:
+                    description: The number of Locations returned.
+                offset:
+                    description: The offset of the result set.
+            headers:
+                Accept:
+                    description: UserGroupList - If set, the User Group list is returned in XML or JSON format. UserGroupRefList - If set, the link list of User Groups is returned in XML or JSON format.
+                    example: |
+                        application/vnd.ibexa.api.UserGroupList+xml
+                        application/vnd.ibexa.api.UserGroupList+json
+                        application/vnd.ibexa.api.UserGroupRefList+xml
+                        application/vnd.ibexa.api.UserGroupRefList+json
+            responses:
+                200:
+                    description: OK - list of the subgroups.
+                    body:
+                        application/vnd.ibexa.api.UserGroupRefList+xml:
+                            type: UserGroupRefList
+                            example: !include examples/user/groups/id/subgroups/GET/UserGroupRefList.xml.example
+                        application/vnd.ibexa.api.UserGroupRefList+json:
+                            type: UserGroupRefList
+                            example: !include examples/user/groups/id/subgroups/GET/UserGroupRefList.json.example
+                401:
+                    description: Error - the user has no permission to read User Groups.
+                404:
+                    description: Error - the User Group does not exist.
+        post:
+            displayName: Create User Group
+            description: Creates a new User Group under the given parent. To create a top level group use '/user/groups/subgroups'.
+            headers:
+                Accept:
+                    description: If set, the new User Group is returned in XML or JSON format.
+                    example:  |
+                        application/vnd.ibexa.api.UserGroup+xml
+                        application/vnd.ibexa.api.UserGroup+json
+                Content-Type:
+                    description: The UserGroupCreate schema encoded in XML or JSON format.
+                    example:  |
+                        application/vnd.ibexa.api.UserGroupCreate+json
+                        application/vnd.ibexa.api.UserGroupCreate+xml
+            body:
+                application/vnd.ibexa.api.UserGroupCreate+xml:
+                    type: UserGroupCreate
+                    example: !include examples/user/groups/path/subgroups/POST/UserGroupCreate.xml.example
+                application/vnd.ibexa.api.UserGroupCreate+json:
+                    type: UserGroupCreate
+                    example: !include examples/user/groups/path/subgroups/POST/UserGroupCreate.json.example
+            responses:
+                201:
+                    body:
+                        application/vnd.ibexa.api.UserGroup+xml:
+                            type: UserGroup
+                            example: !include examples/user/groups/path/subgroups/POST/UserGroup.xml.example
+                        application/vnd.ibexa.api.UserGroup+json:
+                            type: UserGroup
+                            example: !include examples/user/groups/path/subgroups/POST/UserGroup.json.example
+                400:
+                    description: Error - the input does not match the input schema definition.
+                401:
+                    description: Error - the user is not authorized to create this User Group.
+    /roles:
+        get:
+            displayName: Load Roles for User Group
+            description: Returns a list of all Roles assigned to the given User Group.
+            headers:
+                Accept:
+                    description: If set, the Role assignment list is returned in XML or JSON format.
+                    example: |
+                        application/vnd.ibexa.api.RoleAssignmentList+xml
+                        application/vnd.ibexa.api.RoleAssignmentList+json
+            responses:
+                200:
+                    body:
+                        application/vnd.ibexa.api.RoleAssignmentList+xml:
+                            type: RoleAssignmentList
+                            example: !include examples/user/groups/path/roles/GET/RoleAssignmentList.xml.example
+                        #application/vnd.ibexa.api.RoleAssignmentList+json:
+                            #type: RoleAssignmentList
+                            #example: !include examples/user/groups/path/roles/GET/RoleAssignmentList.json.example
+                400:
+                    description: Error - the user has no permission to read Roles.
+        post:
+            displayName: Assign Role to User Group
+            description: Assigns a Role to a User Group.
+            headers:
+                Accept:
+                    description: If set, the updated Role assignment list is returned in XML or JSON format.
+                    example:  |
+                        application/vnd.ibexa.api.RoleAssignmentList+xml
+                        application/vnd.ibexa.api.RoleAssignmentList+json
+                Content-Type:
+                    description: The RoleAssignInput schema encoded in XML or JSON format.
+                    example:  |
+                        application/vnd.ibexa.api.RoleAssignInput+json
+                        application/vnd.ibexa.api.RoleAssignInput+xml
+            body:
+                application/vnd.ibexa.api.RoleAssignInput+xml:
+                    type: RoleAssignInput
+                    example: !include examples/user/groups/path/roles/POST/RoleAssignInput.xml.example
+                application/vnd.ibexa.api.RoleAssignInput+json:
+                    type: RoleAssignInput
+                    example: !include examples/user/groups/path/roles/POST/RoleAssignInput.json.example
+            responses:
+                200:
+                    body:
+                        application/vnd.ibexa.api.RoleAssignmentList+xml:
+                            type: RoleAssignmentList
+                            example: !include examples/user/groups/path/roles/POST/RoleAssignmentList.xml.example
+                        application/vnd.ibexa.api.RoleAssignmentList+json:
+                            type: RoleAssignmentList
+                            example: !include examples/user/groups/path/roles/POST/RoleAssignmentList.json.example
+                400:
+                    description: Error - validation of limitation in RoleAssignInput fails.
+                401:
+                    description: Error - the user is not authorized to assign this Role.
+        /{roleId}:
+            get:
+                displayName: Load User Group Role Assignment
+                description: Returns a Role assignment of the given User Group.
+                headers:
+                    Accept:
+                        description: If set, the Role assignment list is returned in XML or JSON format.
+                        example: |
+                            application/vnd.ibexa.api.RoleAssignment+xml
+                            application/vnd.ibexa.api.RoleAssignment+json
+                responses:
+                    200:
+                        description: OK - returns a Role assignment of the given User Group.
+                        body:
+                            application/vnd.ibexa.api.RoleAssignment+xml:
+                                type: RoleAssignment
+                                example: !include examples/user/groups/path/roles/role_id/GET/RoleAssignment.xml.example
+                            application/vnd.ibexa.api.RoleAssignment+json:
+                                type: RoleAssignment
+                                example: !include examples/user/groups/path/roles/role_id/GET/RoleAssignment.json.example
+                            
+                    401:
+                        description: Error - the user has no permission to read Roles.
+            delete:
+                displayName: Unassign Role from User Group
+                description: The given Role is removed from the User or User Group.
+                headers:
+                    Accept:
+                        description: If set, the updated Role assignment list is returned in XML or JSON format.
+                        example: |
+                            application/vnd.ibexa.api.RoleAssignmentList+xml
+                            application/vnd.ibexa.api.RoleAssignmentList+json
+                responses:
+                    200:
+                        body:
+                            application/vnd.ibexa.api.RoleAssignmentList+xml:
+                                type: RoleAssignmentList
+                                example: !include examples/user/groups/path/roles/role_id/DELETE/RoleAssignmentList.xml.example
+                            application/vnd.ibexa.api.RoleAssignmentList+json:
+                                type: RoleAssignmentList
+                                example: !include examples/user/groups/path/roles/role_id/DELETE/RoleAssignmentList.json.example
+                    401:
+                        description: Error - the user is not authorized to delete this Role assignment.

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageList media-type="application/vnd.ibexa.api.LanguageList+xml" href="/api/ibexa/v2/languages">
+ <Language media-type="application/vnd.ibexa.api.Language+xml" href="/api/ibexa/v2/languages/eng-GB">
+  <languageId>2</languageId>
+  <languageCode>eng-GB</languageCode>
+  <name>English (United Kingdom)</name>
+ </Language>
+ <Language href="/api/ibexa/v2/languages/pol-PL" media-type="application/vnd.ibexa.api.Language+xml">
+  <languageId>4</languageId>
+  <languageCode>pol-PL</languageCode>
+  <name>Polish (polski)</name>
+ </Language>
+</LanguageList>

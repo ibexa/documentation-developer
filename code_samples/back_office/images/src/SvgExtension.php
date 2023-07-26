@@ -10,8 +10,7 @@ use Twig\TwigFunction;
 
 class SvgExtension extends AbstractExtension
 {
-    /** @var \Symfony\Component\Routing\RouterInterface */
-    protected $router;
+    protected RouterInterface $router;
 
     /**
      * SvgExtension constructor.
@@ -22,9 +21,9 @@ class SvgExtension extends AbstractExtension
     }
 
     /**
-     * @return TwigFunction[]
+     * @return \Twig\TwigFunction[]
      */
-    public function getFunctions()
+    public function getFunctions(): array
     {
         return [
             new TwigFunction('ibexa_svg_link', [

@@ -1,0 +1,76 @@
+#%RAML 1.0
+---
+title: Ibexa REST API
+baseUri: https://ezsystems.github.io/ezplatform-rest-reference
+version: v3.3.2
+
+/: !include ez-root.raml
+
+/bookmark: !include ez-bookmark.raml
+
+/content:
+    displayName: Managing content
+    /objects: !include ez-content-objects.raml
+    /objectstategroups: !include ez-objectstategroups.raml
+    /locations:  !include ez-content-locations.raml
+    /views: !include ez-content-views.raml
+    /sections: !include ez-content-sections.raml
+    /trash: !include ez-content-trash.raml
+    /urlaliases: !include ez-content-urlaliases.raml
+    /urlwildcards: !include ez-content-urlwildcards.raml
+    /typegroups: !include ez-content-typegroups.raml
+    /types: !include ez-content-types.raml
+    # /assets: !include ez-content-assets.raml
+    #/binary: !include ez-content-binary.raml
+
+/calendar: !include ez-calendar.raml
+
+/views: !include ez-views.raml
+
+/user:
+    displayName: Managing users
+    /current: !include ez-user-current.raml
+    /groups: !include ez-user-groups.raml
+    /users: !include ez-user-users.raml
+    /roles: !include ez-user-roles.raml
+    /policies: !include ez-user-policies.raml
+    /sessions: !include ez-user-sessions.raml
+    /token: !include ez-user-token.raml
+
+#/segments: !include ez-segment_groups.raml
+#/segment_groups: !include ez-segment_groups.raml
+
+#/personalization/v1: !include ez-personalization.raml
+
+/services: !include ez-services.raml
+
+/languages: !include ez-languages.raml
+
+/cart: !include ez-cart.raml
+
+/commerce: !include ez-commerce.raml
+
+/orders: !include ez-orders.raml
+
+/payment-method: !include ez-payment-methods.raml
+
+/corporate: !include ez-corporate.raml
+
+/product/catalog:
+    displayName: Product catalog
+    /catalogs: !include ez-product-catalogs.raml
+    /currencies: !include ez-product-currency.raml
+    /regions: !include ez-product-regions.raml
+    /attribute_types: !include ez-product-attributetypes.raml
+    /attribute_groups: !include ez-product-attributegroups.raml
+    /attributes: !include ez-product-attributes.raml
+    /customer_groups: !include ez-product-customergroups.raml
+    /product_types: !include ez-product-producttypes.raml
+    /products: !include ez-product-products.raml
+    /product_variants: !include ez-product-productvariants.raml
+    /product_variant: !include ez-product-productvariant.raml
+    /vat: !include ez-product-vat.raml
+
+/taxonomy: !include ez-taxonomy.raml
+
+types: !include ez-types.raml

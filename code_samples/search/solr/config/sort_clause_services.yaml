@@ -1,0 +1,5 @@
+services:
+    App\Query\SortClause\Solr\ScoreVisitor:
+        tags:
+            - { name: ibexa.search.solr.query.content.sort_clause.visitor }
+            - { name: ibexa.search.solr.query.location.sort_clause.visitor }

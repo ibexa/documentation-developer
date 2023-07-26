@@ -1,9 +1,9 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Migrations\Matcher;
 
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
 use Ibexa\Bundle\Migration\Serializer\Normalizer\Criterion\AbstractCriterionNormalizer;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
 use Ibexa\Contracts\Core\Repository\Values\Filter\FilteringCriterion;
 use Webmozart\Assert\Assert;
 

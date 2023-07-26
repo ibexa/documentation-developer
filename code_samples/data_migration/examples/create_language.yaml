@@ -1,0 +1,7 @@
+-
+    type: language
+    mode: create
+    metadata:
+        languageCode: ger-DE
+        name: German
+        enabled: true

@@ -18,14 +18,11 @@ class SvgController extends Controller
 {
     private const CONTENT_TYPE_HEADER = 'image/svg+xml';
 
-    /** @var \Ibexa\Contracts\Core\Repository\ContentService */
-    private $contentService;
+    private ContentService $contentService;
 
-    /** @var \Ibexa\Core\IO\IOServiceInterface */
-    private $ioService;
+    private IOServiceInterface $ioService;
 
-    /** @var \Ibexa\Core\Helper\TranslationHelper */
-    private $translationHelper;
+    private TranslationHelper $translationHelper;
 
     public function __construct(
         ContentService $contentService,
@@ -60,7 +57,8 @@ class SvgController extends Controller
 
         if (!$field instanceof Field) {
             throw new InvalidArgumentException(
-                sprintf("%s field not present in content %d '%s'",
+                sprintf(
+                    "%s field not present in content %d '%s'",
                     $fieldIdentifier,
                     $content->contentInfo->id,
                     $content->contentInfo->name
@@ -71,7 +69,8 @@ class SvgController extends Controller
         $binaryFile = $this->ioService->loadBinaryFile($field->value->id);
         $response = new Response($this->ioService->getFileContents($binaryFile));
         $disposition = $response->headers->makeDisposition(
-            ResponseHeaderBag::DISPOSITION_INLINE, $filename
+            ResponseHeaderBag::DISPOSITION_INLINE,
+            $filename
         );
 
         $response->headers->set('Content-Disposition', $disposition);

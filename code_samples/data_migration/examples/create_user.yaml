@@ -1,0 +1,23 @@
+-
+    type: user
+    mode: create
+    metadata:
+        login: janedoe
+        email: johndoe@example.com
+        password: Password123Password
+        enabled: true
+        mainLanguage: eng-GB
+        contentType: user
+    groups:
+        - 3c160cca19fb135f83bd02d911f04db2
+    fields:
+        -
+            fieldDefIdentifier: first_name
+            languageCode: eng-GB
+            value: John
+        -
+            fieldDefIdentifier: last_name
+            languageCode: eng-GB
+            value: Doe
+    actions:
+        - { action: assign_user_to_role, identifier: 'Member'}

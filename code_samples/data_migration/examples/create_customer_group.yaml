@@ -1,0 +1,6 @@
+-   type: customer_group
+    mode: create
+    identifier: contractors
+    names:
+        eng-GB: Contractors
+    global_price_rate: -20.0

@@ -1,0 +1,26 @@
+ibexa_fieldtype_page:
+    blocks:
+        block_name:
+            category: default
+            thumbnail: 'path/icons.svg'
+            views:
+                default: { name: 'Default block layout', template: 'template.html.twig', priority: -255 }
+            attributes:
+                group:
+                    name: Group name
+                    type: nested_attribute
+                    options:
+                        attributes:
+                            attribute_1:
+                                name: Name 1
+                                type: type
+                                validators:
+                                    not_blank:
+                                        message: 'Provide a value'
+                            attribute_2:
+                                name: Name 2
+                                type: type
+                        multiple: true
+                    validators:
+                        not_blank:
+                            message: 'Provide a value'

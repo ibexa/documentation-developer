@@ -1,0 +1,47 @@
+displayName: Views
+#get:
+#    displayName: List Views
+post:
+    displayName: Create View
+    description: |
+        Executes a query and returns a View including the results.
+
+        View input reflects the criteria model of the public API.
+
+        Refer to [Search Criteria Reference](/en/latest/search/criteria_reference/search_criteria_reference/)
+    headers:
+        Accept:
+            description: The view in XML or JSON format.
+            example:  |
+                application/vnd.ibexa.api.View+xml
+                application/vnd.ibexa.api.View+json
+                application/vnd.ibexa.api.View+xml; version=1.1
+                application/vnd.ibexa.api.View+json; version=1.1
+        Content-Type:
+            description: The view input in XML or JSON format.
+            example:  |
+                application/vnd.ibexa.api.ViewInput+xml
+                application/vnd.ibexa.api.ViewInput+json
+                application/vnd.ibexa.api.ViewInput+xml; version=1.1
+                application/vnd.ibexa.api.ViewInput+json; version=1.1
+    body:
+        application/vnd.ibexa.api.ViewInput+xml:
+            type: ViewInput
+            example: !include examples/views/POST/ViewInput.xml.example
+        application/vnd.ibexa.api.ViewInput+json:
+            type: ViewInput
+            example: !include examples/views/POST/ViewInput.json.example
+    responses:
+        200:
+            body:
+                application/vnd.ibexa.api.View+xml; version=1.1:
+                    type: View
+                    example: !include examples/views/POST/View.xml.v11.example
+        400:
+            description: Error - the input does not match the input schema definition.
+#/{id}:
+#    get:
+#        displayName: Get View
+#    /results:
+#        get:
+#            displayName: Get View results

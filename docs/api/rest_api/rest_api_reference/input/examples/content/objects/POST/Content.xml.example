@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Content media-type="application/vnd.ibexa.api.Content+xml" href="/api/ibexa/v2/content/objects/108" remoteId="25c5c35ab9d18e88bd2ee77991b730e2" id="108">
+    <ContentType media-type="application/vnd.ibexa.api.ContentType+xml" href="/api/ibexa/v2/content/types/2"/>
+    <Name>draft article</Name>
+    <TranslatedName>draft article</TranslatedName>
+    <Versions media-type="application/vnd.ibexa.api.VersionList+xml" href="/api/ibexa/v2/content/objects/108/versions"/>
+    <CurrentVersion media-type="application/vnd.ibexa.api.Version+xml" href="/api/ibexa/v2/content/objects/108/currentversion">
+        <Version media-type="application/vnd.ibexa.api.Version+xml" href="/api/ibexa/v2/content/objects/108/versions/1">
+            <VersionInfo>
+                <id>586</id>
+                <versionNo>1</versionNo>
+                <status>DRAFT</status>
+                <modificationDate>2023-05-24T06:24:46+00:00</modificationDate>
+                <Creator media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/14"/>
+                <creationDate>2023-05-24T06:24:46+00:00</creationDate>
+                <initialLanguageCode>eng-GB</initialLanguageCode>
+                <languageCodes>eng-GB</languageCodes>
+                <VersionTranslationInfo media-type="application/vnd.ibexa.api.VersionTranslationInfo+xml">
+                    <Language>
+                        <languageCode>eng-GB</languageCode>
+                    </Language>
+                </VersionTranslationInfo>
+                <names>
+                    <value languageCode="eng-GB">draft article</value>
+                </names>
+                <Content media-type="application/vnd.ibexa.api.ContentInfo+xml" href="/api/ibexa/v2/content/objects/108"/>
+            </VersionInfo>
+            <Fields>
+                <field>
+                    <id>481</id>
+                    <fieldDefinitionIdentifier>title</fieldDefinitionIdentifier>
+                    <languageCode>eng-GB</languageCode>
+                    <fieldTypeIdentifier>ezstring</fieldTypeIdentifier>
+                    <fieldValue>draft article</fieldValue>
+                </field>
+                <field>
+                    <id>482</id>
+                    <fieldDefinitionIdentifier>short_title</fieldDefinitionIdentifier>
+                    <languageCode>eng-GB</languageCode>
+                    <fieldTypeIdentifier>ezstring</fieldTypeIdentifier>
+                    <fieldValue/>
+                </field>
+                <field>
+                    <id>483</id>
+                    <fieldDefinitionIdentifier>author</fieldDefinitionIdentifier>
+                    <languageCode>eng-GB</languageCode>
+                    <fieldTypeIdentifier>ezauthor</fieldTypeIdentifier>
+                    <fieldValue/>
+                </field>
+                <field>
+                    <id>484</id>
+                    <fieldDefinitionIdentifier>intro</fieldDefinitionIdentifier>
+                    <languageCode>eng-GB</languageCode>
+                    <fieldTypeIdentifier>ezrichtext</fieldTypeIdentifier>
+                    <fieldValue>
+                        <value key="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;section xmlns=&quot;http://docbook.org/ns/docbook&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xmlns:ezxhtml=&quot;http://ibexa.co/xmlns/dxp/docbook/xhtml&quot; xmlns:ezcustom=&quot;http://ibexa.co/xmlns/dxp/docbook/custom&quot; version=&quot;5.0-variant ezpublish-1.0&quot;&gt;&lt;para&gt;draft draft&lt;/para&gt;&lt;/section&gt;
+</value>
+                        <value key="xhtml5edit">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;section xmlns=&quot;http://ibexa.co/namespaces/ezpublish5/xhtml5/edit&quot;&gt;&lt;p&gt;draft draft&lt;/p&gt;&lt;/section&gt;
+</value>
+                    </fieldValue>
+                </field>
+                <field>
+                    <id>485</id>
+                    <fieldDefinitionIdentifier>body</fieldDefinitionIdentifier>
+                    <languageCode>eng-GB</languageCode>
+                    <fieldTypeIdentifier>ezrichtext</fieldTypeIdentifier>
+                    <fieldValue>
+                        <value key="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;section xmlns=&quot;http://docbook.org/ns/docbook&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xmlns:ezxhtml=&quot;http://ibexa.co/xmlns/dxp/docbook/xhtml&quot; xmlns:ezcustom=&quot;http://ibexa.co/xmlns/dxp/docbook/custom&quot; version=&quot;5.0-variant ezpublish-1.0&quot;&gt;&lt;para&gt;draft draft draft&lt;/para&gt;&lt;/section&gt;
+</value>
+                        <value key="xhtml5edit">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;section xmlns=&quot;http://ibexa.co/namespaces/ezpublish5/xhtml5/edit&quot;&gt;&lt;p&gt;draft draft draft&lt;/p&gt;&lt;/section&gt;
+</value>
+                    </fieldValue>
+                </field>
+                <field>
+                    <id>486</id>
+                    <fieldDefinitionIdentifier>enable_comments</fieldDefinitionIdentifier>
+                    <languageCode>eng-GB</languageCode>
+                    <fieldTypeIdentifier>ezboolean</fieldTypeIdentifier>
+                    <fieldValue>false</fieldValue>
+                </field>
+                <field>
+                    <id>487</id>
+                    <fieldDefinitionIdentifier>image</fieldDefinitionIdentifier>
+                    <languageCode>eng-GB</languageCode>
+                    <fieldTypeIdentifier>ezobjectrelation</fieldTypeIdentifier>
+                    <fieldValue>
+                        <value key="destinationContentId"/>
+                    </fieldValue>
+                </field>
+            </Fields>
+            <Relations media-type="application/vnd.ibexa.api.RelationList+xml" href="/api/ibexa/v2/content/objects/108/versions/1/relations"/>
+            <Thumbnail media-type="application/vnd.ibexa.api.Thumbnail+xml">
+                <resource>/placeholder</resource>
+                <width></width>
+                <height></height>
+                <mimeType>image/svg+xml</mimeType>
+            </Thumbnail>
+        </Version>
+    </CurrentVersion>
+    <Section media-type="application/vnd.ibexa.api.Section+xml" href="/api/ibexa/v2/content/sections/1"/>
+    <Locations media-type="application/vnd.ibexa.api.LocationList+xml" href="/api/ibexa/v2/content/objects/108/locations"/>
+    <Owner media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/14"/>
+    <mainLanguageCode>eng-GB</mainLanguageCode>
+    <currentVersionNo>1</currentVersionNo>
+    <alwaysAvailable>true</alwaysAvailable>
+    <isHidden>false</isHidden>
+    <status>DRAFT</status>
+    <ObjectStates media-type="application/vnd.ibexa.api.ContentObjectStates+xml" href="/api/ibexa/v2/content/objects/108/objectstates"/>
+</Content>

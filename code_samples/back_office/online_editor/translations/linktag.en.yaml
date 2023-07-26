@@ -1,5 +1,0 @@
-ibexa_fieldtype_richtext.custom_tags.linktag.label: 'Link Tag'
-ibexa_fieldtype_richtext.custom_tags.linktag.attributes.attrTitle.label: 'Title'
-ibexa_fieldtype_richtext.custom_tags.linktag.attributes.attrDesc.label: 'Description'
-ibexa_fieldtype_richtext.custom_tags.linktag.attributes.attrColor.label: 'Color'
-ibexa_fieldtype_richtext.custom_tags.linktag.attributes.attrUrl.label: 'URL'

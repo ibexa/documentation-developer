@@ -1,0 +1,9 @@
+{
+    "ViewInput": {
+        "identifier": "TitleView",
+        "CurrencyQuery": {
+            "limit": "10",
+            "offset": "0"
+        }
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "ProductType": {
+        "_media-type": "application/vnd.ibexa.api.ProductType+json",
+        "identifier": "NEW",
+        "name": "pt_1_updated",
+        "AttributeAssignmentList": [
+            {
+                "_media-type": "application/vnd.ibexa.api.AttributeAssignment+json",
+                "is_required": false,
+                "is_discriminator": true,
+                "Attribute": {
+                    "_media-type": "application/vnd.ibexa.api.Attribute+json",
+                    "identifier": "size",
+                    "name": "Size",
+                    "description": "",
+                    "type": "Integer",
+                    "type_identifier": "integer",
+                    "value": 5,
+                    "group": "Hat",
+                    "position": 0,
+                    "options": []
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,334 @@
+displayName: eCommerce API (removed)
+
+/basket:
+    get:
+        displayName: Read list of baskets (removed)
+        description: |
+            Returns baskets for the current user. Only "storedBasket" and "wishList" types are handled. Others will return validation error.
+            Removed as of Ibexa DXP 4.4.
+        queryParameters:
+            type:
+                description: Either "storedBasket" or "wishList". "storedBasket" is assumed if not passed.
+        responses:
+            200:
+                body:
+                    application/vnd.ibexa.api.BasketListResponse+json:
+                        type: BasketListResponse
+                        example: !include examples/commerce/basket/headers/GET/BasketListResponse.json.example
+            400:
+                body:
+                    application/vnd.ibexa.api.ValidationResponse:
+                        type: ValidationResponse
+
+    /current:
+        get:
+            displayName: Get current basket (removed)
+            description: |
+                Returns a Basket instance for the current session. If there isn't one, a new one will be created.
+                Removed as of Ibexa DXP 4.4.
+            headers:
+                Accept:
+                    example: application/vnd.ibexa.api.Basket+json
+            responses:
+                200:
+                    body:
+                        application/vnd.ibexa.api.Basket+json:
+                            type: Basket
+                            example: !include examples/commerce/basket/Basket.json.example
+
+        /{basketId}:
+            copy:
+                displayName: Copy basket to user session (removed)
+                description: |-
+                    Adds basket lines into current basket in user session, if any, using basket stored in permanent storage.
+                    Removed as of Ibexa DXP 4.4.
+                responses:
+                    200:
+                        body:
+                            application/vnd.ibexa.api.Basket+json:
+                                type: Basket
+                                example: !include examples/commerce/basket/Basket.json.example
+                    400:
+                        body:
+                            application/vnd.ibexa.api.ValidationResponse+json:
+                                type: ValidationResponse
+                                example: !include examples/commerce/basket/current/copyfrom/_basket_id_/POST/ValidationResponse.json.example
+
+        /referencenumber:
+            patch:
+                displayName: Save the external reference number in basket (removed)
+                description: Removed as of Ibexa DXP 4.4.
+
+        /remark:
+            patch:
+                displayName: Save the remark in basket (removed)
+                description: Removed as of Ibexa DXP 4.4.
+
+        /party/{partyType}:
+            patch:
+                displayName: Update party information in the basket (removed)
+                description: Updates party (buyer, delivery, invoice) information in the basket. Removed as of Ibexa DXP 4.4.
+                body:
+                    application/vnd.ibexa.api.PartyInvoice+json:
+                        type: PartyTypeInput
+                        example: !include examples/commerce/basket/current/party/invoice/PATCH/PartyInvoice.json.example
+                responses:
+                    200:
+                        body:
+                            application/vnd.ibexa.api.Basket+json:
+                                type: Basket
+                                example: !include examples/commerce/basket/Basket.json.example
+                    400:
+                        body:
+                            application/vnd.ibexa.api.ValidationResponse+json:
+                                type: ValidationResponse
+
+        /shippingmethod:
+            patch:
+                displayName: Update shipping information in current basket (removed)
+                description: Updates shipping information in the current basket. Removed as of Ibexa DXP 4.4.
+                body:
+                    application/vnd.ibexa.api.ShippingMethodData+json:
+                        type: ShippingMethodData
+                        example: !include examples/commerce/basket/current/shippingmethod/PATCH/ShippingMethodData.json.example
+                responses:
+                    200:
+                        body:
+                            application/vnd.ibexa.api.Basket+json:
+                                type: Basket
+                                example: !include examples/commerce/basket/Basket.json.example
+                    400:
+                        body:
+                            application/vnd.ibexa.api.ValidationResponse+json:
+                                type: ValidationResponse
+
+        /paymentmethod:
+            patch:
+                displayName: Update payment information in current basket (removed)
+                description: Updates payment information in the current basket. Removed as of Ibexa DXP 4.4.
+                body:
+                    application/vnd.ibexa.api.PaymentMethodData.json:
+                        type: PaymentMethodData
+                        example: !include examples/commerce/basket/current/paymentmethod/PATCH/PaymentMethodData.json.example
+                responses:
+                    200:
+                        body:
+                            application/vnd.ibexa.api.Basket+json:
+                                type: Basket
+                                example: !include examples/commerce/basket/Basket.json.example
+                    400:
+                        body:
+                            application/vnd.ibexa.api.ValidationResponse+json:
+                                type: ValidationResponse
+
+        /voucher:
+            patch:
+                displayName: Update and check voucher in current basket (removed)
+                description: Updates and checks voucher in current basket. Removed as of Ibexa DXP 4.4.
+                body:
+                    application/vnd.ibexa.api.VoucherData.json:
+                        type: VoucherData
+                        example: !include examples/commerce/basket/current/voucher/PATCH/VoucherData.json.example
+                responses:
+                    200:
+                        body:
+                            application/vnd.ibexa.api.Basket+json:
+                                type: Basket
+                                example: !include examples/commerce/basket/Basket.json.example
+                    400:
+                        body:
+                            application/vnd.ibexa.api.ValidationResponse+json:
+                                type: ValidationResponse
+
+        /line:
+            post:
+                displayName: Add products to current basket (removed)
+                description: Adds products to the current basket. Removed as of Ibexa DXP 4.4.
+                body:
+                    application/vnd.ibexa.api.BasketLineData+json:
+                        type: BasketLineData
+                        example: !include examples/commerce/basket/current/lines/POST/BasketLineData.json.example
+                responses:
+                    200:
+                        body:
+                            application/vnd.ibexa.api.Basket+json:
+                                type: Basket
+                                example: !include examples/commerce/basket/Basket.json.example
+                    400:
+                        body:
+                            application/vnd.ibexa.api.ValidationResponse+json:
+                                type: ValidationResponse
+                                example: !include examples/commerce/basket/current/lines/POST/ValidationResponse.json.example
+
+    /{basketId}:
+        get:
+            displayName: Get Basket by ID (removed)
+            description: Gets basket by ID. Removed as of Ibexa DXP 4.4, use GET /cart/{identifier} instead
+            responses:
+                200:
+                    body:
+                        application/vnd.ibexa.api.Basket+json:
+                            type: Basket
+                            example: !include examples/commerce/basket/_id_/GET/Basket.json.example
+        delete:
+            displayName: Delete Basket by ID (removed)
+            description: Deletes basket by ID. Removed as of Ibexa DXP 4.4, use DELETE /cart/{identifier} instead.
+            responses:
+                200:
+                    description: OK - The basket has been deleted
+                400:
+                    description: Error - The basket does not exist
+                403:
+                    description: Error - Access denied
+
+        /name:
+            patch:
+                displayName: Update the name of the stored basket (removed)
+                description: |
+                    Updates the name of the stored basket.
+                    Removed as of Ibexa DXP 4.4, use PATCH /cart/{identifier} instead.
+                body:
+                    application/vnd.ibexa.api.BasketHeaderData+json:
+                        type: BasketHeaderData
+                        example: !include examples/commerce/basket/_id_/_mode_/POST/BasketHeaderData.json.example
+                responses:
+                    200:
+                        body:
+                            application/vnd.ibexa.api.Basket+json:
+                                type: Basket
+                                example: !include examples/commerce/basket/Basket.json.example
+
+        /note:
+            patch:
+                displayName: Update the note of the stored basket (removed)
+                description: |
+                    Updates the note of the stored basket.
+                    Removed as of Ibexa DXP 4.4.
+                body:
+                    application/vnd.ibexa.api.BasketHeaderData+json:
+                        type: BasketHeaderData
+                        example: !include examples/commerce/basket/_id_/_mode_/POST/BasketHeaderData.json.example
+                responses:
+                    200:
+                        body:
+                            application/vnd.ibexa.api.Basket+json:
+                                type: Basket
+                                example: !include examples/commerce/basket/Basket.json.example
+
+        /line:
+            post:
+                displayName: Add products to stored basket (removed)
+                description: Adds products to the stored basket. Removed as of Ibexa DXP 4.4, use POST /cart/{identifier}/entry instead.
+                body:
+                    application/vnd.ibexa.api.BasketLineData+json:
+                        type: BasketLineData
+                        example: !include examples/commerce/basket/current/lines/POST/BasketLineData.json.example
+                responses:
+                    200:
+                        body:
+                            application/vnd.ibexa.api.Basket+json:
+                                type: Basket
+                                example: !include examples/commerce/basket/Basket.json.example
+                    400:
+                        body:
+                            application/vnd.ibexa.api.ValidationResponse+json:
+                                type: ValidationResponse
+                                example: !include examples/commerce/basket/current/lines/POST/ValidationResponse.json.example
+
+        /line/{lineId}:
+            delete:
+                displayName: Delete a line from a stored basket (removed)
+                description: Removed as of Ibexa DXP 4.4, use DELETE /cart/{identifier}/entry/{entryId} instead.
+                responses:
+                    200:
+                        body:
+                            application/vnd.ibexa.api.Basket+json:
+                                type: Basket
+                                example: !include examples/commerce/basket/Basket.json.example
+                    400:
+                        body:
+                            application/vnd.ibexa.api.ValidationResponse+json:
+                                type: ValidationResponse
+                                example: !include examples/commerce/basket/_id_/line/_line_id_/DELETE/ValidationResponse.json.example
+
+    /{basketName}:
+        post:
+            displayName: Create a new persisted basket (removed)
+            description: Creates a new persisted basket. Removed as of Ibexa DXP 4.4.
+            responses:
+                200:
+                    body:
+                        application/vnd.ibexa.api.Basket+json:
+                            type: Basket
+                            example: !include examples/commerce/basket/Basket.json.example
+                400:
+                    body:
+                        application/vnd.ibexa.api.ValidationResponse+json:
+                            type: ValidationResponse
+                            example: !include examples/commerce/basket/POST/ValidationResponse.json.example
+
+/checkout:
+    /paymentmethods:
+        get:
+            displayName: Get list of payment methods (removed)
+            description: Removed as of Ibexa DXP 4.4.
+            responses:
+                200:
+                    body:
+                        application/vnd.ibexa.api.PaymentMethodDataResponse+json:
+                            type: PaymentMethodDataResponse
+                            example: !include examples/commerce/checkout/payment-methods/GET/PaymentMethodDataResponse.json.example
+
+    /shippingmethods:
+        get:
+            displayName: Get list of shipping methods (removed)
+            description: Removed as of Ibexa DXP 4.4.
+            responses:
+                200:
+                    body:
+                        application/vnd.ibexa.api.ShippingMethodDataResponse+json:
+                            type: ShippingMethodDataResponse
+                            example: !include examples/commerce/checkout/shipping-methods/GET/ShippingMethodDataResponse.json.example
+
+/customer/addresses/shipping:
+    get:
+        displayName: Get list of shipping addresses (removed)
+        description: Removed as of Ibexa DXP 4.4.
+        responses:
+            200:
+                body:
+                    application/json:
+                        type: ShippingAddressesResponse
+                        example: !include examples/commerce/customer/addresses/shipping/GET/ShippingAddressesResponse.json.example
+
+/customerprice:
+    post:
+        displayName: Get customer prices for products (removed)
+        description: Gets customer prices for the requested products. Removed as of Ibexa DXP 4.4.
+        body:
+            application/json:
+                type: CustomerPriceData
+                example: !include examples/commerce/customerprice/POST/CustomerPriceData.json.example
+        responses:
+            200:
+                body:
+                    application/json:
+                        type: PriceResponse
+                        example: !include examples/commerce/customerprice/POST/PriceResponse.json.example
+
+
+/common/check_sku_file/{mode}:
+    post:
+        displayName: Add to basket from CSV or Excel (removed)
+        description: Adds to basket a line from a CSV or Excel file. Removed as of Ibexa DXP 4.4.
+
+/country:
+    get:
+        displayName: Get list of countries (removed)
+        description: Removed as of Ibexa DXP 4.4, use GET /services/countries instead.
+        responses:
+            200:
+                body:
+                    application/json:
+                        type: CountrySelectionResponse
+                        example: !include examples/commerce/country-selection/GET/CountrySelectionResponse.json.example

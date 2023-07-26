@@ -1,0 +1,276 @@
+displayName: Managing Content and Object state groups
+get:
+    displayName: List Object state groups
+    description: Returns a list of all Object state groups.
+    headers:
+        Accept:
+            description: If set, the Object state group list is returned in XML or JSON format.
+            example: |
+                application/vnd.ibexa.api.ObjectStateGroupList+xml
+                application/vnd.ibexa.api.ObjectStateGroupList+json
+        If-None-Match:
+            description: ETag
+    responses:
+        200:
+            description: OK - returns a list of Object state groups.
+            body:
+                application/vnd.ibexa.api.ObjectStateGroupList+xml:
+                    type: ObjectStateGroupList
+                    example: !include examples/content/objectstategroups/GET/ObjectStateGroupList.xml.example
+                application/vnd.ibexa.api.ObjectStateGroupList+json:
+                    type: ObjectStateGroupList
+                    example: !include examples/content/objectstategroups/GET/ObjectStateGroupList.json.example
+        401:
+            description: Error - The user has no permission to read Object state groups.
+post:
+    displayName: Create Object state group
+    description: Creates a new Object state group.
+    headers:
+        Accept:
+            description: If set, the new Object state group is returned in XML or JSON format.
+            example: |
+                application/vnd.ibexa.api.ObjectStateGroup+xml
+                application/vnd.ibexa.api.ObjectStateGroup+json
+        Content-Type:
+            description: The Object state group input schema encoded in XML or JSON format.
+            example: |
+                application/vnd.ibexa.api.ObjectStateGroupCreate+json
+                application/vnd.ibexa.api.ObjectStateGroupCreate+xml
+    body:
+        application/vnd.ibexa.api.ObjectStateGroupCreate+xml:
+            type: ObjectStateGroupCreate
+            example: !include examples/content/objectstategroups/POST/ObjectStateGroupCreate.xml.example
+        application/vnd.ibexa.api.ObjectStateGroupCreate+json:
+            type: ObjectStateGroupCreate
+            example: !include examples/content/objectstategroups/POST/ObjectStateGroupCreate.json.example
+    responses:
+        201:
+            description: Object state group created.
+            body:
+                application/vnd.ibexa.api.ObjectStateGroup+xml:
+                    type: ObjectStateGroup
+                    example: !include examples/content/objectstategroups/POST/ObjectStateGroup.xml.example
+                application/vnd.ibexa.api.ObjectStateGroup+json:
+                    type: ObjectStateGroup
+                    example: !include examples/content/objectstategroups/POST/ObjectStateGroup.json.example
+        400:
+            description: Error - The input does not match the input schema definition.
+        401:
+            description: Error - The user is not authorized to create an Object state group.
+        403:
+            description: Error - An Object state group with the same identifier already exists.
+/{objectStateGroupId}:
+    get:
+        displayName: Get Object state group
+        description: Returns the Object state group with the provided ID.
+        headers:
+            Accept:
+                description: If set, the Object state group is returned in XML or JSON format.
+                example: |
+                    application/vnd.ibexa.api.ObjectStateGroup+xml
+                    application/vnd.ibexa.api.ObjectStateGroup+json
+            If-None-Match:
+                description: ETag
+        responses:
+            200:
+                description: OK - returns the Object state group.
+                body:
+                    application/vnd.ibexa.api.ObjectStateGroup+xml:
+                        type: ObjectStateGroup
+                        example: !include examples/content/objectstategroups/object_state_group_id/GET/ObjectStateGroup.xml.example
+                    application/vnd.ibexa.api.ObjectStateGroup+json:
+                        type: ObjectStateGroup
+                        example: !include examples/content/objectstategroups/object_state_group_id/GET/ObjectStateGroup.json.example
+            401:
+                description: Error - The user is not authorized to read this Object state group.
+            404:
+                description: Error - The Object state group does not exist.
+    patch:
+        displayName: Update Object state group
+        description: Updates an Object state group. PATCH or POST with header X-HTTP-Method-Override PATCH.
+        headers:
+            Accept:
+                description: If set, the updated Object state group is returned in XML or JSON format.
+                example: |
+                    application/vnd.ibexa.api.ObjectStateGroup+xml
+                    application/vnd.ibexa.api.ObjectStateGroup+json
+            Content-Type:
+                description: The Object state group input schema encoded in XML or JSON format.
+                example: |
+                    application/vnd.ibexa.api.ObjectStateGroupUpdate+json
+                    application/vnd.ibexa.api.ObjectStateGroupUpdate+xml
+            If-Match:
+                description: ETag
+                body:
+                    application/vnd.ibexa.api.ObjectStateGroupUpdate+xml:
+                        type: ObjectStateGroupUpdate
+                        example: !include examples/content/objectstategroups/object_state_group_id/PATCH/ObjectStateGroupUpdate.xml.example
+                    application/vnd.ibexa.api.ObjectStateGroupUpdate+json:
+                        type: ObjectStateGroupUpdate
+                        example: !include examples/content/objectstategroups/object_state_group_id/PATCH/ObjectStateGroupUpdate.json.example
+        responses:
+            200:
+                description: OK - Object stated group updated.
+                body:
+                    application/vnd.ibexa.api.ObjectStateGroup+xml:
+                        type: ObjectStateGroup
+                        example: !include examples/content/objectstategroups/object_state_group_id/PATCH/ObjectStateGroup.xml.example
+                    application/vnd.ibexa.api.ObjectStateGroup+json:
+                        type: ObjectStateGroup
+                        example: !include examples/content/objectstategroups/object_state_group_id/PATCH/ObjectStateGroup.json.example
+            400:
+                description: Error - The input does not match the input schema definition.
+            401:
+                description: Error - The user is not authorized to update an Object state group.
+            403:
+                description: Error - An Object state group with the provided identifier already exists.
+            412:
+                description: Error - The current ETag does not match the one provided in the If-Match header.
+    delete:
+        displayName: Delete Object state group
+        description: Deletes the given Object state group including Object states.
+        responses:
+            204:
+                description: No Content - Object state group deleted.
+            401:
+                description: Error - The user is not authorized to delete an Object state group.
+            404:
+                description: Error - The Object state group does not exist.
+    /objectstates:
+        get:
+            displayName: List Object states
+            description: Returns a list of all Object states of the given group.
+            headers:
+                Accept:
+                    description: If set, the Object state list is returned in XML or JSON format.
+                    example: |
+                        application/vnd.ibexa.api.ObjectStateList+xml
+                        application/vnd.ibexa.api.ObjectStateList+json
+                If-None-Match:
+                    description: ETag
+            responses:
+                200:
+                    description: OK - returns a list of Object states.
+                    body:
+                        application/vnd.ibexa.api.ObjectStateList+xml:
+                            type: ObjectStateList
+                            example: !include examples/content/objectstategroups/object_state_group_id/objectstates/GET/ObjectStateList.xml.example
+                        application/vnd.ibexa.api.ObjectStateList+json:
+                            type: ObjectStateList
+                            example: !include examples/content/objectstategroups/object_state_group_id/objectstates/GET/ObjectStateList.json.example
+                401:
+                    description: Error - The user has no permission to read Object states.
+        post:
+            displayName: Create Object state
+            description: Creates a new Object state.
+            headers:
+                Accept:
+                    description: If set, the new Object state is returned in XML or JSON format.
+                    example:
+                        application/vnd.ibexa.api.ObjectState+xml
+                        application/vnd.ibexa.api.ObjectState+json
+                Content-Type:
+                    description: The Object state input schema encoded in XML or JSON format.
+                    example: |
+                        application/vnd.ibexa.api.ObjectStateCreate+json
+                        application/vnd.ibexa.api.ObjectStateCreate+xml
+            body:
+                application/vnd.ibexa.api.ObjectStateCreate+xml:
+                    type: ObjectStateCreate
+                    example: !include examples/content/objectstategroups/object_state_group_id/objectstates/POST/ObjectStateCreate.xml.example
+                application/vnd.ibexa.api.ObjectStateCreate+json:
+                    type: ObjectStateCreate
+                    example: !include examples/content/objectstategroups/object_state_group_id/objectstates/POST/ObjectStateCreate.json.example
+            responses:
+                201:
+                    description: Object state created.
+                    body:
+                        application/vnd.ibexa.api.ObjectState+xml:
+                            type: ObjectState
+                            example: !include examples/content/objectstategroups/object_state_group_id/objectstates/POST/ObjectState.xml.example
+                        application/vnd.ibexa.api.ObjectState+json:
+                            type: ObjectState
+                            example: !include examples/content/objectstategroups/object_state_group_id/objectstates/POST/ObjectState.json.example
+                400:
+                    description: Error - The input does not match the input schema definition.
+                401:
+                    description: Error - The user is not authorized to create an Object state.
+                403:
+                    description: Error - An Object state with the same identifier already exists in the given group.
+        /{objectStateId}:
+            get:
+                displayName: Get Object state
+                description: Returns the Object state.
+                headers:
+                    Accept:
+                        description: If set, the Object State is returned in XML or JSON format.
+                        example: |
+                            application/vnd.ibexa.api.ObjectState+xml
+                            application/vnd.ibexa.api.ObjectState+json
+                    If-None-Match:
+                        description: ETag
+                responses:
+                    200:
+                        description: OK - returns the Object state.
+                        body:
+                            application/vnd.ibexa.api.ObjectState+xml:
+                                type: ObjectState
+                                example: !include examples/content/objectstategroups/object_state_group_id/objectstates/object_state_id/GET/ObjectState.xml.example
+                            application/vnd.ibexa.api.ObjectState+json:
+                                type: ObjectState
+                                example: !include examples/content/objectstategroups/object_state_group_id/objectstates/object_state_id/GET/ObjectState.json.example
+                    401:
+                        description: Error - The user is not authorized to read this Object state.
+                    404:
+                        description: Error - The Object state does not exist.
+            patch:
+                displayName: Update Object state
+                description: Updates an Object state. PATCH or POST with header X-HTTP-Method-Override PATCH.
+                headers:
+                    Accept:
+                        description: If set, the updated Object state is returned in XML or JSON format.
+                        example: |
+                            application/vnd.ibexa.api.ObjectState+xml
+                            application/vnd.ibexa.api.ObjectState+json
+                    Content-Type:
+                        description: The Object state input schema encoded in XML or JSON format.
+                        example: |
+                            application/vnd.ibexa.api.ObjectStateUpdate+json
+                            application/vnd.ibexa.api.ObjectStateUpdate+xml
+                    If-Match:
+                        description: ETag
+                body:
+                    application/vnd.ibexa.api.ObjectStateUpdate+xml:
+                        type: ObjectStateUpdate
+                        example: !include examples/content/objectstategroups/object_state_group_id/objectstates/object_state_id/PATCH/ObjectStateUpdate.xml.example
+                    application/vnd.ibexa.api.ObjectStateUpdate+json:
+                        type: ObjectStateUpdate
+                        example: !include examples/content/objectstategroups/object_state_group_id/objectstates/object_state_id/PATCH/ObjectStateUpdate.json.example
+                responses:
+                    200:
+                        description: OK - Object State updated
+                        body:
+                            application/vnd.ibexa.api.ObjectState+xml:
+                                type: ObjectState
+                                example: !include examples/content/objectstategroups/object_state_group_id/objectstates/object_state_id/PATCH/ObjectState.xml.example
+                            application/vnd.ibexa.api.ObjectState+json:
+                                type: ObjectState
+                                example: !include examples/content/objectstategroups/object_state_group_id/objectstates/object_state_id/PATCH/ObjectState.json.example
+                    400:
+                        description: Error - The input does not match the input schema definition.
+                    401:
+                        description: Error - The user is not authorized to update the Object state.
+                    403:
+                        description: Error - An Object state with the provided identifier already exists in this group.
+                    412:
+                        description: Error - The current ETag does not match the one provided in the If-Match header.
+            delete:
+                displayName: Delete Object state
+                description: Deletes provided Object state.
+                responses:
+                    204:
+                        description: No Content - Object state deleted.
+                    401:
+                        description: Error - The user is not authorized to delete an Object state.
+                    404:
+                        description: Error - The Object state does not exist.

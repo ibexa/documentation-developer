@@ -1,16 +1,16 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Controller;
 
+use Ibexa\Bundle\Core\Controller;
 use Ibexa\Contracts\Core\Repository\ContentService;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\ParentLocationId;
 use Ibexa\Contracts\Core\Repository\Values\Filter\Filter;
 use Ibexa\Core\MVC\Symfony\View\ContentView;
-use Ibexa\Bundle\Core\Controller;
 
 class CustomFilterController extends Controller
 {
-    private $contentService;
+    private ContentService $contentService;
 
     public function __construct(ContentService $contentService)
     {

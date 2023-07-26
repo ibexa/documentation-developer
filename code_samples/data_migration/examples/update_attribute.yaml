@@ -1,0 +1,12 @@
+-
+    type: attribute
+    mode: update
+    criteria:
+        type: field_value
+        field: identifier
+        value: width
+        operator: '='
+    identifier: new_width
+    attribute_group_identifier: size
+    names:
+        eng-GB: New Width

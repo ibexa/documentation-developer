@@ -1,0 +1,21 @@
+{
+    "LanguageList": {
+        "_media-type": "application/vnd.ibexa.api.LanguageList+json",
+        "_href": "/api/ibexa/v2/languages",
+        "Language": [
+            {
+                "_media-type": "application/vnd.ibexa.api.Language+json",
+                "_href": "/api/ibexa/v2/languages/eng-GB",
+                "languageId": 2,
+                "languageCode": "eng-GB",
+                "name": "English (United Kingdom)"
+            }, {
+                "_href": "/api/ibexa/v2/languages/pol-PL",
+                "_media-type": "application/vnd.ibexa.api.Language+json",
+                "languageCode": "pol-PL",
+                "languageId": 4,
+                "name": "Polish (polski)"
+            }
+        ]
+    }
+}

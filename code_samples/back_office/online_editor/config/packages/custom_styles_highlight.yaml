@@ -8,4 +8,4 @@ ibexa_fieldtype_richtext:
     custom_styles:
         highlight:
             template: field_type/ezrichtext/custom_styles/highlight.html.twig
-            is_inline: true
+            inline: true

@@ -1,0 +1,35 @@
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: folder
+        mainTranslation: eng-GB
+    location:
+        parentLocationId: 2
+    fields:
+        -   fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: 'Parent folder'
+    references:
+        -
+            name: parent_folder_location_id
+            type: location_id
+
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: article
+        mainTranslation: eng-GB
+    location:
+        parentLocationId: 'reference:parent_folder_location_id'
+    fields:
+        -   fieldDefIdentifier: title
+            languageCode: eng-GB
+            value: 'Child article'
+        -   fieldDefIdentifier: intro
+            languageCode: eng-GB
+            value:
+                xml: |
+                    <?xml version="1.0" encoding="UTF-8"?>
+                    <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml" xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom" version="5.0-variant ezpublish-1.0"><para>This is <emphasis role="strong">article into</emphasis>.</para></section>

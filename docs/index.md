@@ -1,122 +1,214 @@
 <div class="front-page">
     <div class="row">
-        <h1>Ibexa developer documentation</h1>
-    </div>
-    <div class="row mt-5 pb-4">
         <div class="col-12">
-            <div class="announcement" role="alert">
-                <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
-                    <span class="d-flex align-items-center">
-                        <svg class="tile-icon" width="32" height="32" viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
-                            <g transform="scale(4) translate(1)"><path d="M22.293 19.35c-0.735-0.001-1.331-0.598-1.331-1.333 0-0.367 0.148-0.699 0.388-0.94l-0 0c1.367-1.384 2.211-3.287 2.211-5.387s-0.844-4.003-2.212-5.387l0.001 0.001c-0.254-0.243-0.412-0.585-0.412-0.964 0-0.736 0.597-1.333 1.333-1.333 0.381 0 0.725 0.16 0.968 0.417l0.001 0.001c1.846 1.866 2.987 4.433 2.987 7.267s-1.141 5.401-2.988 7.268l0.001-0.001c-0.242 0.243-0.576 0.393-0.946 0.393-0 0-0.001 0-0.001 0h0zM10.683 19c0.242-0.241 0.391-0.575 0.391-0.943s-0.149-0.702-0.391-0.943v0c-1.391-1.385-2.252-3.302-2.252-5.42 0-2.088 0.836-3.981 2.193-5.361l-0.001 0.001c0.236-0.241 0.382-0.571 0.382-0.935 0-0.737-0.597-1.334-1.334-1.334-0.373 0-0.709 0.153-0.951 0.399l-0 0c-1.823 1.862-2.949 4.413-2.949 7.228 0 2.854 1.157 5.439 3.028 7.309l0 0c0.241 0.241 0.574 0.389 0.942 0.389s0.7-0.149 0.942-0.389l-0 0zM27.237 23.060c2.94-2.896 4.762-6.92 4.762-11.37 0-4.413-1.792-8.408-4.689-11.297l-0-0c-0.243-0.255-0.586-0.414-0.966-0.414-0.736 0-1.333 0.597-1.333 1.333 0 0.381 0.159 0.724 0.415 0.967l0.001 0.001c2.413 2.406 3.907 5.734 3.907 9.41 0 3.708-1.519 7.061-3.968 9.471l-0.002 0.002c-0.242 0.241-0.391 0.575-0.391 0.943s0.149 0.702 0.391 0.943v0c0.241 0.242 0.575 0.391 0.943 0.391s0.702-0.149 0.943-0.391v0zM6.667 23.047c0.237-0.24 0.383-0.571 0.383-0.935 0-0.373-0.153-0.71-0.399-0.951l-0-0c-2.449-2.412-3.967-5.765-3.967-9.471 0-3.677 1.493-7.005 3.907-9.412l0-0c0.228-0.239 0.368-0.563 0.368-0.919 0-0.736-0.597-1.333-1.333-1.333-0.356 0-0.679 0.139-0.918 0.366l0.001-0.001c-2.897 2.889-4.689 6.883-4.689 11.297 0 4.45 1.822 8.474 4.76 11.368l0.002 0.002c0.241 0.242 0.575 0.391 0.943 0.391s0.702-0.149 0.943-0.391v0zM20 11.687c0-0.001 0-0.003 0-0.005 0-2.209-1.791-4-4-4s-4 1.791-4 4c0 1.731 1.1 3.206 2.639 3.762l0.028 0.009v15.213c0 0.736 0.597 1.333 1.333 1.333s1.333-0.597 1.333-1.333v0-15.213c1.565-0.565 2.665-2.037 2.667-3.766v-0z" fill="var(--ibexa-jazzberry)"></path></g>
-                        </svg>
-                        Ibexa DXP v4.0 is now available!
-                    </span>
-                    <span class="d-flex flex-column flex-xs-row flex-sm-row flex-md-row justify-content-between align-items-center ml-md-4">
-                        <a href="releases/ibexa_dxp_v4.0/" class="btn btn-sm btn-announcement-outline mr-4 ml-4 ml-md-0 mb-3 mb-sm-0">
-                            See release notes
-                        </a>
-                    </span>
+            <h1>Ibexa Developer Documentation</h1>
+            <h2>How to start?</h2>
+        </div>
+        <div class="col-12 col-lg-6 col-fhd-3">
+            <a class="info-tile" href="getting_started/requirements/">
+                <div class="info-tile__circle" style="background-color: #fff7ec;">
+                    <svg width="20" height="25"><use xlink:href="images/icons.svg#check-requirements" /></svg>
                 </div>
+                <div class="info-tile__content">
+                    <div class="info-tile__details">
+                        Details
+                        <svg class="info-tile__arrow-icon"><use xlink:href="images/icons.svg#arrow" /></svg>
+                    </div>
+                    <div>
+                        Check the <strong>Requirements</strong>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-12 col-lg-6 col-fhd-3">
+            <a class="info-tile" href="getting_started/install_ibexa_dxp/">
+                <div class="info-tile__circle" style="background-color: #f6e7ef;">
+                    <svg width="25" height="25"><use xlink:href="images/icons.svg#install-dxp" /></svg>
+                </div>
+                <div class="info-tile__content">
+                    <div class="info-tile__details">
+                        Details
+                        <svg class="info-tile__arrow-icon"><use xlink:href="images/icons.svg#arrow" /></svg>
+                    </div>
+                    <div>
+                        Install <strong>Ibexa DXP</strong>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-12 col-lg-6 col-fhd-3">
+            <a class="info-tile" href="getting_started/install_on_ibexa_cloud/">
+                <div class="info-tile__circle" style="background-color: #ecf8fb;">
+                    <svg width="25" height="18"><use xlink:href="images/icons.svg#install-cloud" /></svg>
+                </div>
+                <div class="info-tile__content">
+                    <div class="info-tile__details">
+                        Details
+                        <svg class="info-tile__arrow-icon"><use xlink:href="images/icons.svg#arrow" /></svg>
+                    </div>
+                    <div>
+                        Install on <strong>Ibexa Cloud</strong>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-12 col-lg-6 col-fhd-3">
+            <a class="info-tile" href="getting_started/first_steps/">
+                <div class="info-tile__circle" style="background-color: #f3f3f6;">
+                    <svg width="25" height="24"><use xlink:href="images/icons.svg#first-steps" /></svg>
+                </div>
+                <div class="info-tile__content">
+                    <div class="info-tile__details">
+                        Details
+                        <svg class="info-tile__arrow-icon"><use xlink:href="images/icons.svg#arrow" /></svg>
+                    </div>
+                    <div>
+                        Go through the <strong>First steps</strong>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="notification" id="tile2">
+                <div class="notification__content">
+                    <h2>The latest release is v4.5</h2>
+                    <div>The <a href="release_notes/ibexa_dxp_v4.5/">latest version of Ibexa DXP is v4.5</a>. You can now update your application to the latest version.</div>
+                </div>
+                <div class="notification__cta">
+                    <a href="update_and_migration/from_4.4/update_from_4.4/">Update your application</a>
+                </div>
+                <div class="notification__image">
+                    <img src="images/notification-image.png" alt="The latest release" />
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="accordion">
+                <details>
+                    <summary>
+                        <h2>Notable changes in v4.5</h2>
+                        <div class="accordion__toggler">
+                            <svg><use xlink:href="images/icons.svg#toggler" /></svg>
+                        </div>
+                    </summary>
+                    <div class="row">
+                        <div class="col-12 col-lg-6 col-fhd-3">
+                            <ul>
+                                <li><a href="release_notes/ibexa_dxp_v4.5/#all-new-ibexa-commerce-packages">All-new Ibexa Commerce packages</a></li>
+                                <li><a href="release_notes/ibexa_dxp_v4.5/#new-commerce-page-blocks">New commerce page blocks</a></li>
+                                <li><a href="release_notes/ibexa_dxp_v4.5/#page-builder-for-b2b-portals">Page Builder for B2B portals</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-12 col-lg-6 col-fhd-3">
+                            <ul>
+                                <li><a href="release_notes/ibexa_dxp_v4.5/#personalization-improvements">Personalization improvements</a></li>
+                                <li><a href="release_notes/ibexa_dxp_v4.5/#customer-data-platform-cdp-configuration">Customer Data Platform (CDP) configuration</a></li>
+                                <li><a href="release_notes/ibexa_dxp_v4.5/#api-improvements">API improvements</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </details>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="accordion">
+                <details>
+                    <summary>
+                        <h2>Most popular pages</h2>
+                        <div class="accordion__toggler">
+                            <svg><use xlink:href="images/icons.svg#toggler" /></svg>
+                        </div>
+                    </summary>
+                    <div class="row">
+                        <div class="col-12 col-lg-6 col-fhd-3">
+                            <ul>
+                                <li><a href="api/php_api/php_api/">PHP API</a></li>
+                                <li><a href="search/solr_search_engine/">Solr search engine</a></li>
+                                <li><a href="search/search_api/">Search API</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-12 col-lg-6 col-fhd-3">
+                            <ul>
+                                <li><a href="content_management/content_model/">Content model</a></li>
+                                <li><a href="content_management/images/images/">Images</a></li>
+                                <li><a href="content_management/pages/page_blocks/">Page blocks</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </details>
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-lg px-2 px-lg-4">
-            <div class="tile">
-                <div class="row">
-                    <div class="col-lg">
-                        <h5 class="tile-title">
-                            <svg class="tile-icon align-middle" width="32" height="32">
-                                <use fill="var(--ibexa-jazzberry)" xlink:href="images/ez-icons.svg#publish"></use>
-                            </svg>
-                            Installation
-                        </h5>
-                        <div class="tile-body">
-                            <ol>
-                                <li><a href="getting_started/requirements/">Requirements</a></li>
-                                <li><a href="getting_started/install_ez_platform/">Install Ibexa DXP</a></li>
-                                <li><a href="getting_started/first_steps/">First steps</a></li>
-                            </ol>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="col-12">
+            <h2>Manage your DXP</h2>
         </div>
-        <div class="col-lg px-2">
-            <div class="tile">
-                <div class="row">
-                    <div class="col-lg">
-                        <h5 class="tile-title">
-                            <svg class="tile-icon align-middle" width="32" height="32">
-                                <use fill="var(--ibexa-jazzberry)" xlink:href="images/ez-icons.svg#about"></use>
-                            </svg>
-                            Tutorials
-                        </h5>
-                        <div class="tile-body">
-                            <ul>
-                                <li><a href="tutorials/platform_beginner/building_a_bicycle_route_tracker_in_ez_platform/">Beginner tutorial</a></li>
-                                <li><a href="tutorials/enterprise_beginner/ez_enterprise_beginner_tutorial_-_its_a_dogs_world/">DXP beginner</a></li>
-                                <li><a href="tutorials/generic_field_type/creating_a_point2d_field_type/">Generic Field Type</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg px-2 px-lg-4">
-            <div class="tile">
-                <div class="row">
-                    <div class="col-lg">
-                        <h5 class="tile-title">
-                            <svg class="tile-icon align-middle" width="32" height="32">
-                                <use fill="var(--ibexa-jazzberry)" xlink:href="images/ez-icons.svg#settings-config"></use>
-                            </svg>
-                            Guide to Ibexa DXP
-                        </h5>
-                    <div class="tile-body">
-                        <ul>
-                            <li><a href="guide/content_rendering/render_content/render_content/">Content rendering</a></li>
-                            <li><a href="guide/search/search/">Search</a></li>
-                            <li><a href="releases/ibexa_dxp_v4.0/">Releases</a></li>
-                            <li><a href="api/public_php_api/">API</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-    <div class="row mt-5">
-        <div class="col-lg-4 mb-5 most-popular">
-            <h5>
-                Most popular topics
-                <svg class="tile-icon" width="15" height="15">
-                    <use fill="var(--ibexa-jazzberry)" xlink:href="images/ez-icons.svg#bookmark-active"></use>
-                </svg>
-            </h5>
-                <ul>
-                    <li><a href="guide/images/">Images</a></li>
-                    <li><a href="guide/content_rendering/twig_function_reference/twig_functions_reference/">Twig functions</a></li>
-                    <li><a href="guide/search/search_criteria_reference">Search criteria reference</a></li>
-                    <li><a href="guide/search/solr/">Solr search engine</a></li>
-                </ul>
-        </div>
-        <div class="col-lg-8 mb-5 latest-release">
-            <h5>
-                The latest release
-                <span class="pill">v4.0</span>
-            </h5>
-            <div class="row mt-3">
-                <div class="col-lg-5">The <a href="releases/ibexa_dxp_v4.0/">latest version of Ibexa DXP is v4.0</a>. It is a Fast Track release, and it was released on February 4, 2022.
-                </div>
-                <div class="col-sm-7 features">
+        <div class="col-12 col-lg-6 col-fhd-3">
+            <div class="info-tile info-tile--link-card">
+                <div class="info-tile__content">
+                    <h3>
+                        <a href="content_management/content_management/">
+                            <svg><use xlink:href="images/icons.svg#content-draft" /></svg>
+                            Content
+                        </a>
+                    </h3>
                     <ul>
-                        <li><a href="releases/ibexa_dxp_v4.0/#redesigned-user-interface">New Back Office UI</a></li>
-                        <li><a href="releases/ibexa_dxp_v4.0/#new-product-catalog">New product catalog</a></li>
-                        <li><a href="releases/ibexa_dxp_v4.0/#taxonomy-management">Taxonomy</a></li>
-                        <li><a href="releases/ibexa_dxp_v4.0/#migration-api">Data migration PHP API</a></li>
-                        <li><a href="releases/ibexa_dxp_v4.0/#separate-recommendations-for-different-websites">Multi-site recommendations</a></li>
+                        <li><a href="content_management/content_model/">Content model</a></li>
+                        <li><a href="content_management/file_management/file_management/">File management</a></li>
+                        <li><a href="content_management/pages/pages/">Pages</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-6 col-fhd-3">
+            <div class="info-tile info-tile--link-card">
+                <div class="info-tile__content">
+                    <h3>
+                        <a href="pim/pim/">
+                            <svg><use xlink:href="images/icons.svg#product" /></svg>
+                            Product
+                        </a>
+                    </h3>
+                    <ul>
+                        <li><a href="pim/pim_configuration/">PIM configuration</a></li>
+                        <li><a href="pim/catalogs/">Catalogs</a></li>
+                        <li><a href="pim/prices/">Prices</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-6 col-fhd-3">
+            <div class="info-tile info-tile--link-card">
+                <div class="info-tile__content">
+                    <h3>
+                        <a href="commerce/commerce/">
+                            <svg><use xlink:href="images/icons.svg#cart" /></svg>
+                            Commerce
+                        </a>
+                    </h3>
+                    <ul>
+                        <li><a href="commerce/cart/cart/">Cart</a></li>
+                        <li><a href="commerce/payment/payment/">Payment</a></li>
+                        <li><a href="commerce/storefront/storefront/">Storefront</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-6 col-fhd-3">
+            <div class="info-tile info-tile--link-card">
+                <div class="info-tile__content">
+                    <h3>
+                        <a href="customer_management/customer_portal/">
+                            <svg><use xlink:href="images/icons.svg#profile" /></svg>
+                            Customer
+                        </a>
+                    </h3>
+                    <ul>
+                        <li><a href="customer_management/cp_configuration/">Configuration</a></li>
+                        <li><a href="customer_management/cp_page_builder/">Build Customer Portal</a></li>
+                        <li><a href="customer_management/create_user_registration_form/">Registration form</a></li>
                     </ul>
                 </div>
             </div>

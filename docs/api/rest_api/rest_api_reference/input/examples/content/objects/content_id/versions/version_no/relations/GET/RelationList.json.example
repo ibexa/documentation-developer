@@ -1,0 +1,21 @@
+{
+    "Relations": {
+        "_media-type": "application/vnd.ibexa.api.RelationList+json",
+        "_href": "/api/ibexa/v2/content/objects/107/versions/9/relations",
+        "Relation": [
+            {
+                "_media-type": "application/vnd.ibexa.api.Relation+json",
+                "_href": "/api/ibexa/v2/content/objects/107/versions/9/relations/7",
+                "SourceContent": {
+                    "_media-type": "application/vnd.ibexa.api.ContentInfo+json",
+                    "_href": "/api/ibexa/v2/content/objects/107"
+                },
+                "DestinationContent": {
+                    "_media-type": "application/vnd.ibexa.api.ContentInfo+json",
+                    "_href": "/api/ibexa/v2/content/objects/52"
+                },
+                "RelationType": "LINK"
+            }
+        ]
+    }
+}

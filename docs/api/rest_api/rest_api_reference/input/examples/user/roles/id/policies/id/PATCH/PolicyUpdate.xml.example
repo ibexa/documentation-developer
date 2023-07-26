@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PolicyUpdate>
+    <limitations>
+        <limitation identifier="Class">
+            <values>
+                <ref href="2"/>
+            </values>
+        </limitation>
+        <limitation identifier="ParentClass">
+            <values>
+                <ref href="1"/>
+            </values>
+        </limitation>
+    </limitations>
+</PolicyUpdate>

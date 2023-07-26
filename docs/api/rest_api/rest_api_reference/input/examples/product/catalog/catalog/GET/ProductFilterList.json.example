@@ -1,0 +1,55 @@
+{
+    "ProductFilterList": {
+        "_media-type": "application/vnd.ibexa.api.ProductFilterList+json",
+        "ProductFilter": [
+            {
+                "_media-type": "application/vnd.ibexa.api.ProductFilter+json",
+                "name": "CreatedAtCriterion"
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.ProductFilter+json",
+                "name": "CreatedAtRangeCriterion"
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.ProductFilter+json",
+                "name": "ProductCategoryCriterion"
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.ProductFilter+json",
+                "name": "ColorAttributeCriterion"
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.ProductFilter+json",
+                "name": "FloatAttributeCriterion"
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.ProductFilter+json",
+                "name": "FloatAttributeRangeCriterion"
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.ProductFilter+json",
+                "name": "IntegerAttributeCriterion"
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.ProductFilter+json",
+                "name": "IntegerAttributeRangeCriterion"
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.ProductFilter+json",
+                "name": "SelectionAttributeCriterion"
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.ProductFilter+json",
+                "name": "ProductCodeCriterion"
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.ProductFilter+json",
+                "name": "ProductNameCriterion"
+            },
+            {
+                "_media-type": "application/vnd.ibexa.api.ProductFilter+json",
+                "name": "ProductAvailabilityCriterion"
+            }
+        ]
+    }
+}

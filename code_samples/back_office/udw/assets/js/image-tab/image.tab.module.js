@@ -1,17 +1,17 @@
 import React, { useContext } from 'react';
-    
-    import Tab from '../../../vendor/ezsystems/ezplatform-admin-ui/src/bundle/ui-dev/src/modules/universal-discovery/components/tab/tab';
-    import ImagesList from './components/images.list';
-    
-    const ImageTabModule = () => {
-        return (
-            <div className="m-image-tab">
-                <Tab isContentOnTheFlyDisabled={true} isSortSwitcherDisabled={true} isViewSwitcherDisabled={true}>
-                    <ImagesList />
-                </Tab>
-            </div>
-        );
-    };
+
+import Tab from '@ibexa-admin-ui/src/bundle/ui-dev/src/modules/universal-discovery/components/tab/tab';
+import ImagesList from './components/images.list';
+
+const ImageTabModule = () => {
+    return (
+        <div className="m-image-tab">
+            <Tab isContentOnTheFlyDisabled={true} isSortSwitcherDisabled={true} isViewSwitcherDisabled={true}>
+                <ImagesList />
+            </Tab>
+        </div>
+    );
+};
 ibexa.addConfig(
     'adminUiConfig.universalDiscoveryWidget.tabs',
     [
@@ -19,10 +19,10 @@ ibexa.addConfig(
             id: 'image',
             component: ImageTabModule,
             label: 'Image',
-            icon: '/bundles/ibexaplatformicons/img/all-icons.svg#image',
+            icon: '/bundles/ibexaadminui/img/ibexa-icons.svg#image',
         },
     ],
     true
 );
-    
+
 export default ImageTabModule;

@@ -1,0 +1,69 @@
+{
+    "ProductTypeView": {
+        "_media-type": "application/vnd.ibexa.api.ProductTypeView+json",
+        "identifier": "TitleView",
+        "ProductTypeQuery": {
+            "_media-type": "application/vnd.ibexa.api.ProductTypeQuery+json"
+        },
+        "Result": {
+            "_media-type": "application/vnd.ibexa.api.ViewResult+json",
+            "count": 1,
+            "ProductTypeList": {
+                "_media-type": "application/vnd.ibexa.api.ProductTypeList+json",
+                "ProductType": [
+                    {
+                        "_media-type": "application/vnd.ibexa.api.ProductType+json",
+                        "identifier": "climbing_shoe",
+                        "name": "New Product Type",
+                        "AttributeAssignmentList": [
+                            {
+                                "_media-type": "application/vnd.ibexa.api.AttributeAssignment+json",
+                                "is_required": false,
+                                "is_discriminator": false,
+                                "Attribute": {
+                                    "_media-type": "application/vnd.ibexa.api.Attribute+json",
+                                    "identifier": "measure",
+                                    "name": "measure",
+                                    "description": "",
+                                    "type": "Measurement",
+                                    "type_identifier": "measurement",
+                                    "group": "Test Attribute group",
+                                    "position": 0,
+                                    "options": {
+                                        "type": "length",
+                                        "unit": "centimeter",
+                                        "measurementRange": {
+                                            "minimum": 12,
+                                            "maximum": 15
+                                        },
+                                        "measurementDefaultRange": {
+                                            "defaultRangeMinimumValue": null,
+                                            "defaultRangeMaximumValue": null
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "_media-type": "application/vnd.ibexa.api.AttributeAssignment+json",
+                                "is_required": false,
+                                "is_discriminator": false,
+                                "Attribute": {
+                                    "_media-type": "application/vnd.ibexa.api.Attribute+json",
+                                    "identifier": "leather_color",
+                                    "name": "leather color",
+                                    "description": "",
+                                    "type": "Color",
+                                    "type_identifier": "color",
+                                    "value": "#000000",
+                                    "group": "Test Attribute group",
+                                    "position": 0,
+                                    "options": []
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}

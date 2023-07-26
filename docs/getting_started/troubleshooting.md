@@ -1,8 +1,33 @@
+---
+description: See what issues you can encounter when installing Ibexa DXP and how to resolve them.
+---
+
 # Troubleshooting
 
 This page lists potential problems that you may encounter while installing, configuring, and running [[= product_name =]].
 
-## Enable swap on systems with limited RAM
+## Encoding database password
+
+The password entered in `DATABASE_URL` during installation must either be URL encoded,
+or not contain any special characters that would require URL encoding.
+
+### URL encoding
+
+Using URL encoding involves two steps. First, the password must be URL encoded. This can for instance be done with PHP's `urlencode()` function.
+For example, this function converts a password like `(/!=#Æ¤*;%?[` to `%28%2F%21%3D%23%C3%86%C2%A4%2A%3B%25%3F%5B`.
+
+Second, you must remove `resolve:` from `doctrine.dbal.url` in `config/packages/doctrine.yaml`.
+That means changing `%env(resolve:DATABASE_URL)%` to `%env(DATABASE_URL)%`.
+
+### Avoid special characters
+
+If your password only contains letters a-z, A-Z, and numbers 0-9, you don't need to do any encoding.
+You can either create your password that way, in which case it is a good idea to make it longer to maintain entropy,
+keeping the password hard to guess for an attacker.
+Or, you can for instance convert your password with `bin2hex()`, so that e.g. `(/!=#Æ¤*;%?[` becomes `282f213d23c386c2a42a3b253f5b`.
+The output from `bin2hex` is limited to 0-9 and a-f. This more than doubles the length of the password, keeping entropy similar.
+
+## Enabling swap with limited RAM
 
 If you have problems installing [[= product_name =]] on a system with limited RAM (for example 1GB or 2GB), enable swap.
 It allows your operating system to use the hard disk to supplement RAM when it runs out.
@@ -29,14 +54,18 @@ if you tell Composer to download dev packages or to download from source.
 
 To avoid the error, check the stability of packages and avoid using `--prefer-source`.
 
-## Redis: Cache / Session data inconsistent across web servers
+## Redis sessions issues
 
-See [Redis Cluster info in persistence cache doc](../guide/persistence_cache.md#redis-clustering), and make sure you only read/write to
+### Inconsistent cache/session data
+
+If cache or session data inconsistent across web servers in Redis,
+see [Redis clustering](persistence_cache.md#redis-clustering), and make sure you only read/write to
 one active master instance at a time.
 
-## Redis: Sessions are removed or new sessions are refused
+### Removed or refused sessions
 
-See info on [Redis in session doc](../guide/sessions.md#cluster-setup).
+If Redis sessions are removed or new sessions are refused.
+see info on [Cluster setup](sessions.md#cluster-setup).
 Ideally, use a separated instance of Redis for sessions,
 that either never runs out of memory or uses an eviction policy that suits your needs.
 
@@ -67,24 +96,3 @@ configure the following variables in your Platform.sh environment:
 
 - `HTTPCACHE_USERNAME`
 - `HTTPCACHE_PASSWORD`
-
-## Images in shop are not converted.
-
-Make sure that you have set up correct rights for the image folder:
-
-``` bash
-sudo chmod -R g+w web/var/ecommerce/storage/
-```
-
-## `Defuse\Crypto\Exception\BadFormatException` after installation
-
-If you see the following error after installation:
-
-`[Defuse\Crypto\Exception\BadFormatException] Encoding::hexToBin() input is not a hex string`
-
-Generate a secret using `./vendor/defuse/php-encryption/bin/generate-defuse-key` and
-configure it in `parameters.yml`:
-
-```
-env(JMS_PAYMENT_SECRET): 'def000004cb9c9f5edb77182df64b3d572162a47ec971a9a8beb00459b49fd9a1f9df6991ffc817c8585f59b8c5a032b796ab520eae126c77d8a304b36af0c9acdbfa9b9'
-```

@@ -1,0 +1,15 @@
+---
+description: Administer and configure your Ibexa DXP installation.
+page_type: landing_page
+---
+
+# Administration
+
+Administer and configure your [[= product_name =]] installation.
+
+[[= cards([
+    "administration/admin_panel/admin_panel",
+    "administration/project_organization/project_organization",
+    "administration/configuration/configuration",
+    "administration/back_office/back_office",
+], columns=4) =]]

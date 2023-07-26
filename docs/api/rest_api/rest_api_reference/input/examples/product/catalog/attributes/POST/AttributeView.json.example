@@ -1,0 +1,40 @@
+{
+    "AttributeView": {
+        "_media-type": "application/vnd.ibexa.api.AttributeView+json",
+        "identifier": "TitleView",
+        "AttributeQuery": {
+            "_media-type": "application/vnd.ibexa.api.AttributeQuery+json"
+        },
+        "Result": {
+            "_media-type": "application/vnd.ibexa.api.ViewResult+json",
+            "count": 1,
+            "AttributeList": {
+                "_media-type": "application/vnd.ibexa.api.AttributeList+json",
+                "Attribute": [
+                    {
+                        "_media-type": "application/vnd.ibexa.api.Attribute+json",
+                        "identifier": "measure",
+                        "name": "measure",
+                        "description": "",
+                        "type": "Measurement",
+                        "type_identifier": "measurement",
+                        "group": "Test Attribute group",
+                        "position": 0,
+                        "options": {
+                            "type": "length",
+                            "unit": "centimeter",
+                            "measurementRange": {
+                                "minimum": 12,
+                                "maximum": 15
+                            },
+                            "measurementDefaultRange": {
+                                "defaultRangeMinimumValue": null,
+                                "defaultRangeMaximumValue": null
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

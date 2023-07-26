@@ -1,25 +1,25 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Command;
 
-use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Input\InputArgument;
 use Ibexa\Contracts\Core\Repository\ContentService;
-use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\Core\Repository\ObjectStateService;
 use Ibexa\Contracts\Core\Repository\PermissionResolver;
+use Ibexa\Contracts\Core\Repository\UserService;
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
 
 class ObjectStateCommand extends Command
 {
-    private $contentService;
+    private ContentService $contentService;
 
-    private $userService;
+    private UserService $userService;
 
-    private $objectStateService;
+    private ObjectStateService $objectStateService;
 
-    private $permissionResolver;
+    private PermissionResolver $permissionResolver;
 
     public function __construct(ContentService $contentService, UserService $userService, ObjectStateService $objectStateService, PermissionResolver $permissionResolver)
     {
@@ -61,7 +61,6 @@ class ObjectStateCommand extends Command
         $newObjectStateGroup = $this->objectStateService->createObjectStateGroup($objectStateGroupStruct);
 
         foreach ($objectStateIdentifierList as $objectStateIdentifier) {
-
             $stateStruct = $this->objectStateService->newObjectStateCreateStruct($objectStateIdentifier);
             $stateStruct->defaultLanguageCode = 'eng-GB';
             $stateStruct->names = ['eng-GB' => $objectStateIdentifier];

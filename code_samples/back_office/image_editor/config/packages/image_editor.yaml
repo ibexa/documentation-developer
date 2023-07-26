@@ -1,6 +1,6 @@
 ibexa:
     system:
-        my_site:
+        default:
             image_editor:
                 action_groups:
                     default:

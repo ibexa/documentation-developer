@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Validator;
 
@@ -24,7 +24,7 @@ class AlphaOnlyValidator extends ConstraintValidator
             throw new UnexpectedValueException($value, 'string');
         }
 
-        if (!preg_match('/^[a-zA-Z]+$/', $value, $matches)) {
+        if (!preg_match('/^[A-Za-z0-9]+$/', $value, $matches)) {
             // The argument must be a string or an object implementing __toString()
             $this->context->buildViolation($constraint->message)
                 ->setParameter('{{ string }}', $value)

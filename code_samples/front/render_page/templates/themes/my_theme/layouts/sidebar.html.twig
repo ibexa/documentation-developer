@@ -2,7 +2,7 @@
     <div data-ibexa-zone-id="{{ zones[0].id }}">
         {% if zones[0].blocks %}
             {% for block in zones[0].blocks %}
-                <div class="landing-page__block block_{{ block.type }}" data-ibexa-block-id="{{ block.id }}">
+                <div class="landing-page__block block_{{ block.type }}" data-ez-block-id="{{ block.id }}">
                     {{ render_esi(controller('Ibexa\\Bundle\\FieldTypePage\\Controller\\BlockController::renderAction', {
                         'contentId': contentInfo.id,
                         'blockId': block.id,
@@ -17,7 +17,7 @@
     <div data-ibexa-zone-id="{{ zones[1].id }}">
         {% if zones[1].blocks %}
             {% for block in zones[1].blocks %}
-                <div class="landing-page__block block_{{ block.type }}" data-ibexa-block-id="{{ block.id }}">
+                <div class="landing-page__block block_{{ block.type }}" data-ez-block-id="{{ block.id }}">
                     {{ render_esi(controller('Ibexa\\Bundle\\FieldTypePage\\Controller\\BlockController::renderAction', {
                         'contentId': contentInfo.id,
                         'blockId': block.id,
