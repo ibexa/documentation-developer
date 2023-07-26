@@ -328,7 +328,7 @@ if (client.ip ~ debuggers) {
 
     Refer to the relevant website skeleton for an example: [content](https://github.com/ibexa/content-skeleton/blob/v3.3.15/composer.json), [experience](https://github.com/ibexa/experience-skeleton/blob/v3.3.15/composer.json), [commerce](https://github.com/ibexa/commerce-skeleton/blob/v3.3.15/composer.json).
 
-Adapt your `composer.json` file according to [`manifest.json`](https://github.com/ibexa/recipes/blob/master/ibexa/commerce/3.3.x-dev/manifest.json#L167-L168), by adding the following lines:
+Adapt your `composer.json` file according to [`manifest.json`](https://github.com/ibexa/recipes/blob/master/ibexa/commerce/3.3/manifest.json#L167-L168), by adding the following lines:
 
 ``` json hl_lines="2-3"
 "yarn install": "script",
