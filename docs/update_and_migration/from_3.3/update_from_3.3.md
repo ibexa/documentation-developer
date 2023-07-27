@@ -369,6 +369,24 @@ Ibexa DXP now supports Fastly shielding. If you are using Fastly and want to use
 2. Do the same with `vendor/ezsystems/ezplatform-http-cache-fastly/fastly/ez_user_hash.vcl`.
 3. Upload a new `snippet_re_enable_shielding.vcl` snippet file, based on `vendor/ezsystems/ezplatform-http-cache-fastly/fastly/snippet_re_enable_shielding.vcl`.
 
+### v3.3.25
+
+#### Database update
+
+On Experience or Commerce edition, run the following scripts:
+
+=== "MySQL"
+
+    ``` shell
+    mysql -u<username> -p<password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-3.3.24-to-3.3.25.sql
+    ```
+
+=== "PostgreSQL"
+
+    ``` shell
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-3.3.24-to-3.3.25.sql
+    ```
+
 ### v3.3.28
 
 #### Ensure password safety
