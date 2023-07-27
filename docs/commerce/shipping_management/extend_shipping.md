@@ -55,6 +55,8 @@ Next, use the type factory to define an options form mapper class in `config/ser
 [[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 0, 1) =]][[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 8, 15) =]]
 ```
 
+At this point you should be able to create a shipping method based on a custom shipping method type.
+
 ![Creating a shipping method of custom type](img/custom_shipping_method_type.png "Creating a shipping method of custom type")
 
 ### Create options validator
@@ -79,6 +81,8 @@ Finally, register the validator as a service:
 ``` yaml
 [[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 0, 1) =]][[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 22, 25) =]]
 ```
+
+Now, when you create a new shipping method and leave the **Customer identifier** field empty, you should see a warning.
 
 ![Option validator in action](img/custom_shipping_type_validator.png "Option validator in action")
 
@@ -131,7 +135,7 @@ Then, register the storage definition as a service:
 ## Toggle shipping method type availability
 
 When you implement a web store, you can choose if a certain shipping method is available for selection during checkout.
-Here, you limit shipping method availability to customers who meet a specific condition.
+Here, you limit shipping method availability to customers who meet a specific condition, in this case, they must belong to the Acme company.
 Create a `src/ShippingMethodType/Vote/CustomVoter.php` file with a voter class:
 
 ``` php
@@ -144,9 +148,9 @@ Register the voter as a service:
 [[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 0, 1) =]][[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 31, 34) =]]
 ```
 
-## Display shipping method parameters in shipping method details view
+## Display shipping method parameters in details view 
 
-You can extend the default  shipping method details view by making shipping method visible on the **Cost** tab.
+You can extend the default shipping method details view by making shipping method visible on the **Cost** tab.
 To do this, create a `src/ShippingMethodType/Cost/CustomCostFormatter.php` file with a formatter class:
 
 ``` php
@@ -159,5 +163,11 @@ Then register the formatter as a service:
 [[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 0, 1) =]][[= include_file('code_samples/front/shop/shipping/config/packages/services.yaml', 34, 38) =]]
 ```
 
+You should now see the parameter, in this case it is a customer identifier, displayed on the **Cost** tab of the shipping method's details view.
+
 ![Shipping method parameters in the Cost tab](img/shipping_method_cost_tab.png "Shipping method parameters in the Cost tab")
 
+!!! note "Non-matching label"
+
+    This section does not discuss overriding the default form, therefore the alphanumerical customer identifier is shown under the **Cost value** label.
+    For more information about working with forms, see [Page and Form tutorial](../../tutorials/page_and_form_tutorial/5_create_newsletter_form.md).
