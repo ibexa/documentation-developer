@@ -74,8 +74,8 @@ For details, see the [ISO-3166 glossary](http://www.iso.org/iso/home/standards/c
 
 * A REST route (URI) leads to a REST controller action. A REST route is composed of the root prefix (`ibexa.rest.path_prefix: /api/ibexa/v2`) and a resource path (for example, `/content/objects/{contentId}`).
 * This controller action returns an `Ibexa\Rest\Value` descendant.
-  - This controller action might use the `Request` to build its result according to, for example, GET parameters, the `Accept` HTTP header, or the request payload and its `Content-Type` HTTP header.
-  - This controller action might wrap its return in a `CachedValue` which contains caching information for the reverse proxies.
+    - This controller action might use the `Request` to build its result according to, for example, GET parameters, the `Accept` HTTP header, or the request payload and its `Content-Type` HTTP header.
+    - This controller action might wrap its return in a `CachedValue` which contains caching information for the reverse proxies.
 * The `Ibexa\Bundle\Rest\EventListener\ResponseListener` attached to the `kernel.view event` is triggered, and passes the request and the controller action's result to the `AcceptHeaderVisitorDispatcher`.
 * The `AcceptHeaderVisitorDispatcher` matches one of the `regexps` of an `ibexa.rest.output.visitor` service (an `Ibexa\Contracts\Rest\Output\Visitor`). The role of this `Output\Visitor` is to transform the value returned by the controller into XML or JSON output format. To do so, it combines an `Output\Generator` corresponding to the output format and a `ValueObjectVisitorDispatcher`. This `Output\Generator` is also adding the `media-type` attributes.
 * The matched `Output\Visitor` uses its `ValueObjectVisitorDispatcher` to select the right `ValueObjectVisitor` according to the fully qualified class name (FQCN) of the controller result. A `ValueObjectVisitor` is a service tagged `ibexa.rest.output.value_object.visitor` and this tag has a property `type` pointing a FQCN.
