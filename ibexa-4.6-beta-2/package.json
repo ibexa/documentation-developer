@@ -1,0 +1,37 @@
+{
+  "devDependencies": {
+    "@hotwired/stimulus": "^3.0.0",
+    "@symfony/stimulus-bridge": "^3.0.0",
+    "@symfony/webpack-encore": "^1.7.0",
+    "@babel/preset-react": "^7.0.0",
+    "core-js": "^3.0.0",
+    "regenerator-runtime": "^0.13.2",
+    "webpack-notifier": "^1.6.0",
+    "react-collapsible": "^2.5.0",
+    "sass": "^1.49.7",
+    "sass-loader": "^12.5.0",
+    "@babel/runtime": "^7.13.10",
+    "postcss-loader": "^4.3.0",
+    "raw-loader": "^4.0.1",
+    "style-loader": "^2.0.0",
+    "file-loader": "^6.0.0",
+    "@ckeditor/ckeditor5-alignment": "^36.0.1",
+    "@ckeditor/ckeditor5-build-inline": "^36.0.1",
+    "@ckeditor/ckeditor5-dev-utils": "^32.0.0",
+    "@ckeditor/ckeditor5-widget": "^36.0.1",
+    "@ckeditor/ckeditor5-theme-lark": "^36.0.1",
+    "@ckeditor/ckeditor5-code-block": "^36.0.1"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "dev-server": "encore dev-server",
+    "dev": "encore dev",
+    "watch": "encore dev --watch",
+    "build": "encore production --progress"
+  }
+}

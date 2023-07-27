@@ -1,0 +1,2 @@
+ibexa.storefront:
+    resource: '@IbexaStorefrontBundle/Resources/config/routing.yaml'

@@ -1,0 +1,13 @@
+.ibexa-welcome-footer {
+    background-color: $ibexa-welcome-color-dark-600;
+
+    .ibexa-welcome-paragraph {
+        margin: 18px 0;
+        color: $ibexa-welcome-color-light;
+        font-weight: 700;
+
+        a {
+            color: $ibexa-welcome-color-light;
+        }
+    }
+}

@@ -1,0 +1,7 @@
+ibexa.page_builder:
+    resource: '@IbexaPageBuilderBundle/Resources/config/routing.yaml'
+    defaults:
+        siteaccess_group_whitelist: '%admin_group_name%'
+
+ibexa.page_builder_preview:
+    resource: '@IbexaPageBuilderBundle/Resources/config/routing_preview.yaml'

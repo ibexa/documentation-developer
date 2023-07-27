@@ -1,0 +1,18 @@
+# Base configuration for Solr, for more options see: https://doc.ibexa.co/en/latest/guide/search/search/#solr-bundle
+# Can have several connections used by each Ibexa Repositories in ibexa.yaml
+parameters:
+    # Solr root endpoint, relevant if `solr` is set as search_engine
+    solr_dsn: '%env(SOLR_DSN)%'
+    solr_core: '%env(SOLR_CORE)%'
+
+ibexa_solr:
+    endpoints:
+        endpoint0:
+            dsn: '%solr_dsn%'
+            core: '%solr_core%'
+    connections:
+        default:
+            entry_endpoints:
+                - endpoint0
+            mapping:
+                default: endpoint0

@@ -1,0 +1,2 @@
+ibexa.site_factory:
+    resource: '@IbexaSiteFactoryBundle/Resources/config/routing.yaml'

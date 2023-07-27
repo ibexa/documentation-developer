@@ -1,0 +1,2 @@
+ibexa_system_info:
+  resource: '@IbexaSystemInfoBundle/Resources/config/routing.yaml'

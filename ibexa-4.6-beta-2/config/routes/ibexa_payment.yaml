@@ -1,0 +1,11 @@
+ibexa.payment:
+    resource: '@IbexaPaymentBundle/Resources/config/routing.yaml'
+
+ibexa.payment.admin:
+    resource: '@IbexaPaymentBundle/Resources/config/routing_admin.yaml'
+    defaults:
+        siteaccess_group_whitelist: '%admin_group_name%'
+
+ibexa.payment.rest:
+    resource: '@IbexaPaymentBundle/Resources/config/routing_rest.yaml'
+    prefix: '%ibexa.rest.path_prefix%'

@@ -1,0 +1,11 @@
+parameters:
+    ibexa.page_builder.token_authenticator.enabled: true
+
+jms_translation:
+    configs:
+        page_builder:
+            dirs:
+                - '%kernel.project_dir%/vendor/ibexa/page-builder/src'
+            output_dir: '%kernel.project_dir%/vendor/ibexa/page-builder/src/bundle/Resources/translations/'
+            excluded_dirs: [Behat, Tests]
+            output_format: "xlf"

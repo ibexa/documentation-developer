@@ -1,0 +1,8 @@
+ibexa.rest:
+    resource: '@IbexaRestBundle/Resources/config/routing.yml'
+    prefix: '%ibexa.rest.path_prefix%'
+
+ibexa.rest.options:
+    resource: '@IbexaRestBundle/Resources/config/routing.yml'
+    prefix: '%ibexa.rest.path_prefix%'
+    type: rest_options

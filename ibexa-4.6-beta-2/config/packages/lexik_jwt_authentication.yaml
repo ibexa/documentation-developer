@@ -1,0 +1,12 @@
+lexik_jwt_authentication:
+    secret_key: '%env(APP_SECRET)%'
+    encoder:
+        signature_algorithm: HS256
+    # Disabled by default, because Page builder use an custom extractor
+    token_extractors:
+        authorization_header:
+            enabled: false
+        cookie:
+            enabled: false
+        query_parameter:
+            enabled: false

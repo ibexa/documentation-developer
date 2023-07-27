@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
+  <file source-language="en" target-language="en" datatype="plaintext" original="not.available">
+    <header>
+      <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
+      <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
+    </header>
+    <body>
+      <trans-unit id="e2086adb6f68cb9396d89b469a9e7f48269c7d8a" resname="ibexa_platform_welcome_page.contact.action">
+        <source>Go to support</source>
+        <target state="new">Go to support</target>
+        <note>key: ibexa_platform_welcome_page.contact.action</note>
+      </trans-unit>
+      <trans-unit id="bf9fe11dbf65019b202ad1698b680364f6a7fd5a" resname="ibexa_platform_welcome_page.contact.content">
+        <source>If you need help, contact our support team</source>
+        <target state="new">If you need help, contact our support team</target>
+        <note>key: ibexa_platform_welcome_page.contact.content</note>
+      </trans-unit>
+      <trans-unit id="3e3436ed63f3022eaa731069cb67f16853abc25c" resname="ibexa_platform_welcome_page.contact.image">
+        <source>Support</source>
+        <target state="new">Support</target>
+        <note>key: ibexa_platform_welcome_page.contact.image</note>
+      </trans-unit>
+      <trans-unit id="04d639506956b4106a6e32b13529af399176a4c8" resname="ibexa_platform_welcome_page.contact.title">
+        <source>Contact support</source>
+        <target state="new">Contact support</target>
+        <note>key: ibexa_platform_welcome_page.contact.title</note>
+      </trans-unit>
+      <trans-unit id="4c881f4c860503bedbef66f45a3500ac13c22621" resname="ibexa_platform_welcome_page.copyright">
+        <source><![CDATA[Copyright © %current_year% <a href="http://ibexa.co" rel="noopener" target="_blank">Ibexa</a> | Powered by Ibexa DXP]]></source>
+        <target state="new"><![CDATA[Copyright © %current_year% <a href="http://ibexa.co" rel="noopener" target="_blank">Ibexa</a> | Powered by Ibexa DXP]]></target>
+        <note>key: ibexa_platform_welcome_page.copyright</note>
+      </trans-unit>
+      <trans-unit id="7f9357e012e45e129d8ac53648987ea76e9fcec9" resname="ibexa_platform_welcome_page.developer_documentation.action">
+        <source>Discover more</source>
+        <target state="new">Discover more</target>
+        <note>key: ibexa_platform_welcome_page.developer_documentation.action</note>
+      </trans-unit>
+      <trans-unit id="a6f1ab37279c237f15cf78c81a1ac4772ae20e1d" resname="ibexa_platform_welcome_page.developer_documentation.content">
+        <source xml:space="preserve">The core documentation covers the majority of functionalities, their configuration and available APIs of Ibexa DXP with references and examples.
+The commerce documentation covers the eCommerce features and APIs of Ibexa DXP. This includes payments and other integrations to back office systems.</source>
+        <target xml:space="preserve" state="new">The core documentation covers the majority of functionalities, their configuration and available APIs of Ibexa DXP with references and examples.
+The commerce documentation covers the eCommerce features and APIs of Ibexa DXP. This includes payments and other integrations to back office systems.</target>
+        <note>key: ibexa_platform_welcome_page.developer_documentation.content</note>
+      </trans-unit>
+      <trans-unit id="3fa259b47b0e4454bedff6add212f936bcc39676" resname="ibexa_platform_welcome_page.developer_documentation.image">
+        <source>Developer documentation</source>
+        <target state="new">Developer documentation</target>
+        <note>key: ibexa_platform_welcome_page.developer_documentation.image</note>
+      </trans-unit>
+      <trans-unit id="b9c6e572005f2c67ffee736b32ed1e76f66dc348" resname="ibexa_platform_welcome_page.developer_documentation.title">
+        <source>Developer documentation</source>
+        <target state="new">Developer documentation</target>
+        <note>key: ibexa_platform_welcome_page.developer_documentation.title</note>
+      </trans-unit>
+      <trans-unit id="ce7330019615217d9bd6d0669bd9db7bb25c1e02" resname="ibexa_platform_welcome_page.documentation_center.action">
+        <source>Discover more</source>
+        <target state="new">Discover more</target>
+        <note>key: ibexa_platform_welcome_page.documentation_center.action</note>
+      </trans-unit>
+      <trans-unit id="7df73699591ad7d733503b796526b4ac903d97b8" resname="ibexa_platform_welcome_page.documentation_center.content">
+        <source>Ibexa DXP documentation for developers and editors.</source>
+        <target state="new">Ibexa DXP documentation for developers and editors.</target>
+        <note>key: ibexa_platform_welcome_page.documentation_center.content</note>
+      </trans-unit>
+      <trans-unit id="a6a84c7b2deca139bfacaeaa75e4189179a283ef" resname="ibexa_platform_welcome_page.documentation_center.image">
+        <source>Documentation center</source>
+        <target state="new">Documentation center</target>
+        <note>key: ibexa_platform_welcome_page.documentation_center.image</note>
+      </trans-unit>
+      <trans-unit id="58a36d07dba1b2ebfaff119763e91bf9930327c7" resname="ibexa_platform_welcome_page.documentation_center.title">
+        <source>Documentation center</source>
+        <target state="new">Documentation center</target>
+        <note>key: ibexa_platform_welcome_page.documentation_center.title</note>
+      </trans-unit>
+      <trans-unit id="3225c345efd1cfe64e1b4bb33bb28488b7b1df95" resname="ibexa_platform_welcome_page.documentation_hub.title">
+        <source>Documentation hub</source>
+        <target state="new">Documentation hub</target>
+        <note>key: ibexa_platform_welcome_page.documentation_hub.title</note>
+      </trans-unit>
+      <trans-unit id="4924e37ed8cb46f979ead95828fe1c716dfcbbd0" resname="ibexa_platform_welcome_page.get_started.action">
+        <source>Learn more</source>
+        <target state="new">Learn more</target>
+        <note>key: ibexa_platform_welcome_page.get_started.action</note>
+      </trans-unit>
+      <trans-unit id="0ce428ff673ca23a8979eb2d8759c481930f7c21" resname="ibexa_platform_welcome_page.get_started.content">
+        <source>Whether you're starting your very first project or developing yet another one in a long series, knowledge resources are here to help you accelerate on your goals. Try your hand in quickstarts and tutorials, or explore the references to further enhance your site.</source>
+        <target state="new">Whether you're starting your very first project or developing yet another one in a long series, knowledge resources are here to help you accelerate on your goals. Try your hand in quickstarts and tutorials, or explore the references to further enhance your site.</target>
+        <note>key: ibexa_platform_welcome_page.get_started.content</note>
+      </trans-unit>
+      <trans-unit id="b29e2778b194d45778ae881c8b5d5a77e437edcc" resname="ibexa_platform_welcome_page.get_started.image">
+        <source>Get started</source>
+        <target state="new">Get started</target>
+        <note>key: ibexa_platform_welcome_page.get_started.image</note>
+      </trans-unit>
+      <trans-unit id="b094751ea7815be8c67e7d208201ea4c634e4a27" resname="ibexa_platform_welcome_page.get_started.title">
+        <source>Get started</source>
+        <target state="new">Get started</target>
+        <note>key: ibexa_platform_welcome_page.get_started.title</note>
+      </trans-unit>
+      <trans-unit id="fe5d73aaabb0cc9749c7253ac8cfd46d34fb0d53" resname="ibexa_platform_welcome_page.header.action">
+        <source>Start your project</source>
+        <target state="new">Start your project</target>
+        <note>key: ibexa_platform_welcome_page.header.action</note>
+      </trans-unit>
+      <trans-unit id="3af689d77f5b91ef64d44df8ffb8d57042e16795" resname="ibexa_platform_welcome_page.header.caret_down">
+        <source>Down</source>
+        <target state="new">Down</target>
+        <note>key: ibexa_platform_welcome_page.header.caret_down</note>
+      </trans-unit>
+      <trans-unit id="7d9f206306b985903c673b0fde7b661dd69a8169" resname="ibexa_platform_welcome_page.header.content">
+        <source>Digitalize and automate the way you do business.</source>
+        <target state="new">Digitalize and automate the way you do business.</target>
+        <note>key: ibexa_platform_welcome_page.header.content</note>
+      </trans-unit>
+      <trans-unit id="98c2ffa53627e1a600dc9dc9c1105167b18b4ce5" resname="ibexa_platform_welcome_page.header.image">
+        <source>Commerce</source>
+        <target state="new">Commerce</target>
+        <note>key: ibexa_platform_welcome_page.header.image</note>
+      </trans-unit>
+      <trans-unit id="5ed01ca41cbaaac518bc6c5b3a2d44aefe55ef68" resname="ibexa_platform_welcome_page.header.storefront">
+        <source>Go to storefront</source>
+        <target state="new">Go to storefront</target>
+        <note>key: ibexa_platform_welcome_page.header.storefront</note>
+      </trans-unit>
+      <trans-unit id="ad4d8a3d927782cf037c301c653c0b8d05d57dfe" resname="ibexa_platform_welcome_page.header.title">
+        <source>Welcome to %name% %version%</source>
+        <target state="new">Welcome to %name% %version%</target>
+        <note>key: ibexa_platform_welcome_page.header.title</note>
+      </trans-unit>
+      <trans-unit id="ba159eb50f6e4ff1c3352bcd079cab5c9a1db821" resname="ibexa_platform_welcome_page.php_api.action">
+        <source>Learn more</source>
+        <target state="new">Learn more</target>
+        <note>key: ibexa_platform_welcome_page.php_api.action</note>
+      </trans-unit>
+      <trans-unit id="0e083fa48942a22bb63e5b880050bd8181f20b3c" resname="ibexa_platform_welcome_page.php_api.content">
+        <source>PHP API services cover all product functionalities and give you endless possibilities to customize your code.</source>
+        <target state="new">PHP API services cover all product functionalities and give you endless possibilities to customize your code.</target>
+        <note>key: ibexa_platform_welcome_page.php_api.content</note>
+      </trans-unit>
+      <trans-unit id="990abf39475ac8ff08a079f9d12ef77bff30fc60" resname="ibexa_platform_welcome_page.php_api.image">
+        <source>Public PHP API</source>
+        <target state="new">Public PHP API</target>
+        <note>key: ibexa_platform_welcome_page.php_api.image</note>
+      </trans-unit>
+      <trans-unit id="cfec1821e2e8e4711b762eb7cbc481ec3c9f965d" resname="ibexa_platform_welcome_page.php_api.title">
+        <source>Public PHP API</source>
+        <target state="new">Public PHP API</target>
+        <note>key: ibexa_platform_welcome_page.php_api.title</note>
+      </trans-unit>
+      <trans-unit id="1db958aca724ebf02c48820f5c0250fe23f260fd" resname="ibexa_platform_welcome_page.rest_api.action">
+        <source>Learn more</source>
+        <target state="new">Learn more</target>
+        <note>key: ibexa_platform_welcome_page.rest_api.action</note>
+      </trans-unit>
+      <trans-unit id="839e1e9ae099f9bb8ce8ce4a8661d88f7a363772" resname="ibexa_platform_welcome_page.rest_api.content">
+        <source>As an API-first product, Ibexa DXP focuses on well-structured APIs. REST API endpoints cover most functionalities of the product.</source>
+        <target state="new">As an API-first product, Ibexa DXP focuses on well-structured APIs. REST API endpoints cover most functionalities of the product.</target>
+        <note>key: ibexa_platform_welcome_page.rest_api.content</note>
+      </trans-unit>
+      <trans-unit id="7fbe0600066941b9adaa962f34bd1901e54f0773" resname="ibexa_platform_welcome_page.rest_api.image">
+        <source>REST API reference</source>
+        <target state="new">REST API reference</target>
+        <note>key: ibexa_platform_welcome_page.rest_api.image</note>
+      </trans-unit>
+      <trans-unit id="18a5a05cc386cf7cc6563369a6c81d06ba46e77c" resname="ibexa_platform_welcome_page.rest_api.title">
+        <source>REST API reference</source>
+        <target state="new">REST API reference</target>
+        <note>key: ibexa_platform_welcome_page.rest_api.title</note>
+      </trans-unit>
+      <trans-unit id="e07f89c63a66832a618ff848164af75dd31e4188" resname="ibexa_platform_welcome_page.training_platform.action">
+        <source>Start the training</source>
+        <target state="new">Start the training</target>
+        <note>key: ibexa_platform_welcome_page.training_platform.action</note>
+      </trans-unit>
+      <trans-unit id="7fb57458ffd0fc2361b8fac031e86c2be993911a" resname="ibexa_platform_welcome_page.training_platform.content">
+        <source>Explore the Ibexa Learning Platform for on-demand, self-service courses and certifications.</source>
+        <target state="new">Explore the Ibexa Learning Platform for on-demand, self-service courses and certifications.</target>
+        <note>key: ibexa_platform_welcome_page.training_platform.content</note>
+      </trans-unit>
+      <trans-unit id="7c3418ac41f5969bbb7d3973cbd356d321937719" resname="ibexa_platform_welcome_page.training_platform.image">
+        <source>Training platform</source>
+        <target state="new">Training platform</target>
+        <note>key: ibexa_platform_welcome_page.training_platform.image</note>
+      </trans-unit>
+      <trans-unit id="3d6abc0cf8fb8a9dac536a43c367f2ed43abd0f3" resname="ibexa_platform_welcome_page.training_platform.title">
+        <source>Training platform</source>
+        <target state="new">Training platform</target>
+        <note>key: ibexa_platform_welcome_page.training_platform.title</note>
+      </trans-unit>
+      <trans-unit id="f7d6588ad79a02b9f96fa9874ba6323607041dc4" resname="ibexa_platform_welcome_page.tutorials.action">
+        <source>Learn more</source>
+        <target state="new">Learn more</target>
+        <note>key: ibexa_platform_welcome_page.tutorials.action</note>
+      </trans-unit>
+      <trans-unit id="86638a600dbd0d69f56a0f28d8e4eaeb846ace31" resname="ibexa_platform_welcome_page.tutorials.content">
+        <source>Practical tutorials lead you through the first project to help you learn product basics.</source>
+        <target state="new">Practical tutorials lead you through the first project to help you learn product basics.</target>
+        <note>key: ibexa_platform_welcome_page.tutorials.content</note>
+      </trans-unit>
+      <trans-unit id="816f2bfe9b1f19502b82cd6d2eb32950fdcd6e46" resname="ibexa_platform_welcome_page.tutorials.image">
+        <source>Tutorials</source>
+        <target state="new">Tutorials</target>
+        <note>key: ibexa_platform_welcome_page.tutorials.image</note>
+      </trans-unit>
+      <trans-unit id="cb37cf9bdd539b16245fbf59e4816c87bf84fcaa" resname="ibexa_platform_welcome_page.tutorials.title">
+        <source>Tutorials</source>
+        <target state="new">Tutorials</target>
+        <note>key: ibexa_platform_welcome_page.tutorials.title</note>
+      </trans-unit>
+      <trans-unit id="3145a85713094079e585ea07ea72eabbec07ef33" resname="ibexa_platform_welcome_page.tutorials_and_resources.subheader">
+        <source>Discover the value of Ibexa DXP, our new generation Digital Experience Platform</source>
+        <target state="new">Discover the value of Ibexa DXP, our new generation Digital Experience Platform</target>
+        <note>key: ibexa_platform_welcome_page.tutorials_and_resources.subheader</note>
+      </trans-unit>
+      <trans-unit id="625cd0b04c0bd8bd185bb4306d23a6da1b61e4ea" resname="ibexa_platform_welcome_page.tutorials_and_resources.title">
+        <source>Tutorials and resources</source>
+        <target state="new">Tutorials and resources</target>
+        <note>key: ibexa_platform_welcome_page.tutorials_and_resources.title</note>
+      </trans-unit>
+      <trans-unit id="107812609fee87330734e025d957748367912b72" resname="ibexa_platform_welcome_page.user_documentation.action">
+        <source>Discover more</source>
+        <target state="new">Discover more</target>
+        <note>key: ibexa_platform_welcome_page.user_documentation.action</note>
+      </trans-unit>
+      <trans-unit id="b5d01ed1d9c00ea7fa70879f697fa83394bf7fe9" resname="ibexa_platform_welcome_page.user_documentation.content">
+        <source xml:space="preserve">Manage content, products, site and content structure and much more using the Ibexa DXP administration interface.
+Learn how to administrate your digital store with Ibexa Commerce. Manage products, orders and view statistics.</source>
+        <target xml:space="preserve" state="new">Manage content, products, site and content structure and much more using the Ibexa DXP administration interface.
+Learn how to administrate your digital store with Ibexa Commerce. Manage products, orders and view statistics.</target>
+        <note>key: ibexa_platform_welcome_page.user_documentation.content</note>
+      </trans-unit>
+      <trans-unit id="1cb98a441dcbde92ba1e0079ad08f100c038ccfa" resname="ibexa_platform_welcome_page.user_documentation.image">
+        <source>User documentation</source>
+        <target state="new">User documentation</target>
+        <note>key: ibexa_platform_welcome_page.user_documentation.image</note>
+      </trans-unit>
+      <trans-unit id="d7c608eefa11434e8ab1f5980ed10e6272293420" resname="ibexa_platform_welcome_page.user_documentation.title">
+        <source>User documentation</source>
+        <target state="new">User documentation</target>
+        <note>key: ibexa_platform_welcome_page.user_documentation.title</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

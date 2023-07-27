@@ -1,0 +1,1227 @@
+{
+    "babdev/pagerfanta-bundle": {
+        "version": "v2.11.0"
+    },
+    "doctrine/annotations": {
+        "version": "1.14",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "1.0",
+            "ref": "a2759dd6123694c8d901d0ec80006e044c2e6457"
+        },
+        "files": [
+            "config/routes/annotations.yaml"
+        ]
+    },
+    "doctrine/doctrine-bundle": {
+        "version": "2.7",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "2.4",
+            "ref": "013b823e7fee65890b23e40f31e6667a1ac519ac"
+        },
+        "files": [
+            "config/packages/doctrine.yaml",
+            "src/Entity/.gitignore",
+            "src/Repository/.gitignore"
+        ]
+    },
+    "doctrine/doctrine-migrations-bundle": {
+        "version": "3.1",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "3.1",
+            "ref": "1d01ec03c6ecbd67c3375c5478c9a423ae5d6a33"
+        },
+        "files": [
+            "config/packages/doctrine_migrations.yaml",
+            "migrations/.gitignore"
+        ]
+    },
+    "friendsofsymfony/http-cache-bundle": {
+        "version": "2.16.1"
+    },
+    "friendsofsymfony/jsrouting-bundle": {
+        "version": "2.8",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "2.3",
+            "ref": "a9f2e49180f75cdc71ae279a929c4b2e0638de84"
+        },
+        "files": [
+            "config/routes/fos_js_routing.yaml"
+        ]
+    },
+    "gregwar/captcha-bundle": {
+        "version": "v2.1.5"
+    },
+    "ibexa/admin-ui": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "575fa895eb28f9d0b7e65e02ba9e3bcb16782094"
+        }
+    },
+    "ibexa/admin-ui-assets": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "575fa895eb28f9d0b7e65e02ba9e3bcb16782094"
+        }
+    },
+    "ibexa/calendar": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "575fa895eb28f9d0b7e65e02ba9e3bcb16782094"
+        }
+    },
+    "ibexa/cart": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "575fa895eb28f9d0b7e65e02ba9e3bcb16782094"
+        }
+    },
+    "ibexa/checkout": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "575fa895eb28f9d0b7e65e02ba9e3bcb16782094"
+        }
+    },
+    "ibexa/commerce": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "f6d793c346e67eab5db496563067b68ed1aa93fb"
+        },
+        "files": [
+            "config/packages/cache_pool/cache.memcached.yaml",
+            "config/packages/cache_pool/cache.redis.yaml",
+            "config/packages/cache_pool/cache.tagaware.filesystem.yaml",
+            "config/packages/dfs/dfs.yaml",
+            "config/packages/graphql.yaml",
+            "config/packages/ibexa.yaml",
+            "config/packages/ibexa_admin_ui.yaml",
+            "config/packages/ibexa_assets.yaml",
+            "config/packages/ibexa_doctrine_schema.yaml",
+            "config/packages/ibexa_elasticsearch.yaml",
+            "config/packages/ibexa_fastly.yaml",
+            "config/packages/ibexa_form_builder.yaml",
+            "config/packages/ibexa_http_cache.yaml",
+            "config/packages/ibexa_jms_translation.yaml",
+            "config/packages/ibexa_oauth2_server.yaml",
+            "config/packages/ibexa_page_builder.yaml",
+            "config/packages/ibexa_product_catalog.yaml",
+            "config/packages/ibexa_site_factory.yaml",
+            "config/packages/ibexa_solr.yaml",
+            "config/packages/ibexa_storefront.yaml",
+            "config/packages/ibexa_taxonomy.yaml",
+            "config/packages/ibexa_welcome_page.yaml",
+            "config/packages/lexik_jwt_authentication.yaml",
+            "config/packages/security.yaml",
+            "config/routes/graphql.yaml",
+            "config/routes/ibexa.yaml",
+            "config/routes/ibexa_admin_ui.yaml",
+            "config/routes/ibexa_calendar.yaml",
+            "config/routes/ibexa_cart.yaml",
+            "config/routes/ibexa_checkout.yaml",
+            "config/routes/ibexa_connector_dam.yaml",
+            "config/routes/ibexa_content_forms.yaml",
+            "config/routes/ibexa_corporate_account.yaml",
+            "config/routes/ibexa_fieldtype_address.yaml",
+            "config/routes/ibexa_fieldtype_page.yaml",
+            "config/routes/ibexa_fieldtype_query.yaml",
+            "config/routes/ibexa_form_builder.yaml",
+            "config/routes/ibexa_http_cache.yaml",
+            "config/routes/ibexa_image_editor.yaml",
+            "config/routes/ibexa_oauth2_client.yaml",
+            "config/routes/ibexa_oauth2_server.yaml",
+            "config/routes/ibexa_order_management.yaml",
+            "config/routes/ibexa_page_builder.yaml",
+            "config/routes/ibexa_payment.yaml",
+            "config/routes/ibexa_personalization.yaml",
+            "config/routes/ibexa_product_catalog.yaml",
+            "config/routes/ibexa_rest.yaml",
+            "config/routes/ibexa_scheduler.yaml",
+            "config/routes/ibexa_search.yaml",
+            "config/routes/ibexa_segmentation.yaml",
+            "config/routes/ibexa_shipping.yaml",
+            "config/routes/ibexa_site_factory.yaml",
+            "config/routes/ibexa_storefront.yaml",
+            "config/routes/ibexa_support_tools.yaml",
+            "config/routes/ibexa_system_info.yaml",
+            "config/routes/ibexa_taxonomy.yaml",
+            "config/routes/ibexa_user.yaml",
+            "config/routes/ibexa_version_comparison.yaml",
+            "config/routes/ibexa_workflow.yaml",
+            "ibexa.webpack.config.js",
+            "ibexa.webpack.config.manager.js",
+            "ibexa.webpack.config.react.blocks.js",
+            "ibexa.webpack.custom.configs.js",
+            "package.json",
+            "webpack.config.js",
+            "templates/themes/standard/full/welcome_page.html.twig",
+            "templates/themes/standard/pagelayout.html.twig",
+            "translations/ibexa_welcome_page.en.xlf",
+            "assets/images/caret-down.svg",
+            "assets/images/commerce.svg",
+            "assets/images/development.svg",
+            "assets/images/documentation.svg",
+            "assets/images/header-background.png",
+            "assets/images/php-api.svg",
+            "assets/images/rest-api.svg",
+            "assets/images/support-background.png",
+            "assets/images/support.png",
+            "assets/images/training-background.png",
+            "assets/images/training.svg",
+            "assets/images/tutorials-icon.svg",
+            "assets/images/tutorials.svg",
+            "assets/images/user.svg",
+            "assets/js/react.blocks.js",
+            "assets/js/welcome.page.js",
+            "assets/scss/_contact.scss",
+            "assets/scss/_custom-normalize.scss",
+            "assets/scss/_documentation.scss",
+            "assets/scss/_footer.scss",
+            "assets/scss/_header.scss",
+            "assets/scss/_main.scss",
+            "assets/scss/_training.scss",
+            "assets/scss/_tutorials.scss",
+            "assets/scss/normalize.css",
+            "assets/scss/variables.scss",
+            "assets/scss/welcome-page.scss"
+        ]
+    },
+    "ibexa/connect": {
+        "version": "v4.6.0-beta1"
+    },
+    "ibexa/connector-dam": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "575fa895eb28f9d0b7e65e02ba9e3bcb16782094"
+        }
+    },
+    "ibexa/content-forms": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "575fa895eb28f9d0b7e65e02ba9e3bcb16782094"
+        }
+    },
+    "ibexa/content-tree": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "575fa895eb28f9d0b7e65e02ba9e3bcb16782094"
+        }
+    },
+    "ibexa/core": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "575fa895eb28f9d0b7e65e02ba9e3bcb16782094"
+        }
+    },
+    "ibexa/core-persistence": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "575fa895eb28f9d0b7e65e02ba9e3bcb16782094"
+        }
+    },
+    "ibexa/corporate-account": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "575fa895eb28f9d0b7e65e02ba9e3bcb16782094"
+        }
+    },
+    "ibexa/cron": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "575fa895eb28f9d0b7e65e02ba9e3bcb16782094"
+        }
+    },
+    "ibexa/design-engine": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "575fa895eb28f9d0b7e65e02ba9e3bcb16782094"
+        }
+    },
+    "ibexa/doctrine-schema": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "575fa895eb28f9d0b7e65e02ba9e3bcb16782094"
+        }
+    },
+    "ibexa/elasticsearch": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "575fa895eb28f9d0b7e65e02ba9e3bcb16782094"
+        }
+    },
+    "ibexa/experience": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "4e4b278679615fc1ee62452a5aa2d2cfa6d76d88"
+        },
+        "files": [
+            "config/packages/cache_pool/cache.memcached.yaml",
+            "config/packages/cache_pool/cache.redis.yaml",
+            "config/packages/cache_pool/cache.tagaware.filesystem.yaml",
+            "config/packages/dfs/dfs.yaml",
+            "config/packages/graphql.yaml",
+            "config/packages/ibexa.yaml",
+            "config/packages/ibexa_admin_ui.yaml",
+            "config/packages/ibexa_assets.yaml",
+            "config/packages/ibexa_doctrine_schema.yaml",
+            "config/packages/ibexa_elasticsearch.yaml",
+            "config/packages/ibexa_fastly.yaml",
+            "config/packages/ibexa_form_builder.yaml",
+            "config/packages/ibexa_http_cache.yaml",
+            "config/packages/ibexa_jms_translation.yaml",
+            "config/packages/ibexa_oauth2_server.yaml",
+            "config/packages/ibexa_page_builder.yaml",
+            "config/packages/ibexa_product_catalog.yaml",
+            "config/packages/ibexa_site_factory.yaml",
+            "config/packages/ibexa_solr.yaml",
+            "config/packages/ibexa_taxonomy.yaml",
+            "config/packages/ibexa_welcome_page.yaml",
+            "config/packages/lexik_jwt_authentication.yaml",
+            "config/packages/security.yaml",
+            "config/routes/graphql.yaml",
+            "config/routes/ibexa.yaml",
+            "config/routes/ibexa_admin_ui.yaml",
+            "config/routes/ibexa_calendar.yaml",
+            "config/routes/ibexa_connector_dam.yaml",
+            "config/routes/ibexa_content_forms.yaml",
+            "config/routes/ibexa_corporate_account.yaml",
+            "config/routes/ibexa_fieldtype_address.yaml",
+            "config/routes/ibexa_fieldtype_page.yaml",
+            "config/routes/ibexa_fieldtype_query.yaml",
+            "config/routes/ibexa_form_builder.yaml",
+            "config/routes/ibexa_http_cache.yaml",
+            "config/routes/ibexa_image_editor.yaml",
+            "config/routes/ibexa_oauth2_client.yaml",
+            "config/routes/ibexa_oauth2_server.yaml",
+            "config/routes/ibexa_page_builder.yaml",
+            "config/routes/ibexa_personalization.yaml",
+            "config/routes/ibexa_product_catalog.yaml",
+            "config/routes/ibexa_rest.yaml",
+            "config/routes/ibexa_scheduler.yaml",
+            "config/routes/ibexa_search.yaml",
+            "config/routes/ibexa_segmentation.yaml",
+            "config/routes/ibexa_site_factory.yaml",
+            "config/routes/ibexa_system_info.yaml",
+            "config/routes/ibexa_taxonomy.yaml",
+            "config/routes/ibexa_user.yaml",
+            "config/routes/ibexa_version_comparison.yaml",
+            "config/routes/ibexa_workflow.yaml",
+            "ibexa.webpack.config.js",
+            "ibexa.webpack.config.manager.js",
+            "ibexa.webpack.config.react.blocks.js",
+            "ibexa.webpack.custom.configs.js",
+            "package.json",
+            "webpack.config.js",
+            "templates/themes/standard/full/welcome_page.html.twig",
+            "templates/themes/standard/pagelayout.html.twig",
+            "translations/ibexa_welcome_page.en.xlf",
+            "assets/images/caret-down.svg",
+            "assets/images/development.svg",
+            "assets/images/documentation.svg",
+            "assets/images/experience.svg",
+            "assets/images/header-background.png",
+            "assets/images/php-api.svg",
+            "assets/images/rest-api.svg",
+            "assets/images/support-background.png",
+            "assets/images/support.png",
+            "assets/images/training-background.png",
+            "assets/images/training.svg",
+            "assets/images/tutorials-icon.svg",
+            "assets/images/tutorials.svg",
+            "assets/images/user.svg",
+            "assets/js/react.blocks.js",
+            "assets/js/welcome.page.js",
+            "assets/scss/_contact.scss",
+            "assets/scss/_custom-normalize.scss",
+            "assets/scss/_documentation.scss",
+            "assets/scss/_footer.scss",
+            "assets/scss/_header.scss",
+            "assets/scss/_main.scss",
+            "assets/scss/_training.scss",
+            "assets/scss/_tutorials.scss",
+            "assets/scss/normalize.css",
+            "assets/scss/variables.scss",
+            "assets/scss/welcome-page.scss"
+        ]
+    },
+    "ibexa/fastly": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "575fa895eb28f9d0b7e65e02ba9e3bcb16782094"
+        }
+    },
+    "ibexa/fieldtype-address": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "575fa895eb28f9d0b7e65e02ba9e3bcb16782094"
+        }
+    },
+    "ibexa/fieldtype-matrix": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "575fa895eb28f9d0b7e65e02ba9e3bcb16782094"
+        }
+    },
+    "ibexa/fieldtype-page": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "575fa895eb28f9d0b7e65e02ba9e3bcb16782094"
+        }
+    },
+    "ibexa/fieldtype-query": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "575fa895eb28f9d0b7e65e02ba9e3bcb16782094"
+        }
+    },
+    "ibexa/fieldtype-richtext": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "575fa895eb28f9d0b7e65e02ba9e3bcb16782094"
+        }
+    },
+    "ibexa/form-builder": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "575fa895eb28f9d0b7e65e02ba9e3bcb16782094"
+        }
+    },
+    "ibexa/graphql": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "575fa895eb28f9d0b7e65e02ba9e3bcb16782094"
+        }
+    },
+    "ibexa/headless": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "46af99c11545978065a1980cbca39ba9c3d47b36"
+        },
+        "files": [
+            "config/packages/cache_pool/cache.memcached.yaml",
+            "config/packages/cache_pool/cache.redis.yaml",
+            "config/packages/cache_pool/cache.tagaware.filesystem.yaml",
+            "config/packages/dfs/dfs.yaml",
+            "config/packages/graphql.yaml",
+            "config/packages/ibexa.yaml",
+            "config/packages/ibexa_admin_ui.yaml",
+            "config/packages/ibexa_assets.yaml",
+            "config/packages/ibexa_doctrine_schema.yaml",
+            "config/packages/ibexa_elasticsearch.yaml",
+            "config/packages/ibexa_fastly.yaml",
+            "config/packages/ibexa_http_cache.yaml",
+            "config/packages/ibexa_jms_translation.yaml",
+            "config/packages/ibexa_oauth2_server.yaml",
+            "config/packages/ibexa_product_catalog.yaml",
+            "config/packages/ibexa_solr.yaml",
+            "config/packages/ibexa_taxonomy.yaml",
+            "config/packages/ibexa_welcome_page.yaml",
+            "config/packages/security.yaml",
+            "config/routes/graphql.yaml",
+            "config/routes/ibexa.yaml",
+            "config/routes/ibexa_admin_ui.yaml",
+            "config/routes/ibexa_calendar.yaml",
+            "config/routes/ibexa_connector_dam.yaml",
+            "config/routes/ibexa_content_forms.yaml",
+            "config/routes/ibexa_fieldtype_query.yaml",
+            "config/routes/ibexa_http_cache.yaml",
+            "config/routes/ibexa_image_editor.yaml",
+            "config/routes/ibexa_oauth2_client.yaml",
+            "config/routes/ibexa_oauth2_server.yaml",
+            "config/routes/ibexa_personalization.yaml",
+            "config/routes/ibexa_product_catalog.yaml",
+            "config/routes/ibexa_rest.yaml",
+            "config/routes/ibexa_scheduler.yaml",
+            "config/routes/ibexa_search.yaml",
+            "config/routes/ibexa_system_info.yaml",
+            "config/routes/ibexa_taxonomy.yaml",
+            "config/routes/ibexa_user.yaml",
+            "config/routes/ibexa_version_comparison.yaml",
+            "config/routes/ibexa_workflow.yaml",
+            "ibexa.webpack.config.js",
+            "ibexa.webpack.config.manager.js",
+            "ibexa.webpack.custom.configs.js",
+            "package.json",
+            "webpack.config.js",
+            "templates/themes/standard/full/welcome_page.html.twig",
+            "templates/themes/standard/pagelayout.html.twig",
+            "translations/ibexa_welcome_page.en.xlf",
+            "assets/images/caret-down.svg",
+            "assets/images/content.png",
+            "assets/images/development.svg",
+            "assets/images/documentation.svg",
+            "assets/images/header-background.png",
+            "assets/images/php-api.svg",
+            "assets/images/rest-api.svg",
+            "assets/images/support-background.png",
+            "assets/images/support.png",
+            "assets/images/training-background.png",
+            "assets/images/training.svg",
+            "assets/images/tutorials-icon.svg",
+            "assets/images/tutorials.svg",
+            "assets/images/user.svg",
+            "assets/js/welcome.page.js",
+            "assets/scss/_contact.scss",
+            "assets/scss/_custom-normalize.scss",
+            "assets/scss/_documentation.scss",
+            "assets/scss/_footer.scss",
+            "assets/scss/_header.scss",
+            "assets/scss/_main.scss",
+            "assets/scss/_training.scss",
+            "assets/scss/_tutorials.scss",
+            "assets/scss/normalize.css",
+            "assets/scss/variables.scss",
+            "assets/scss/welcome-page.scss"
+        ]
+    },
+    "ibexa/http-cache": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "575fa895eb28f9d0b7e65e02ba9e3bcb16782094"
+        }
+    },
+    "ibexa/icons": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "575fa895eb28f9d0b7e65e02ba9e3bcb16782094"
+        }
+    },
+    "ibexa/image-editor": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "575fa895eb28f9d0b7e65e02ba9e3bcb16782094"
+        }
+    },
+    "ibexa/installer": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "575fa895eb28f9d0b7e65e02ba9e3bcb16782094"
+        }
+    },
+    "ibexa/measurement": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "575fa895eb28f9d0b7e65e02ba9e3bcb16782094"
+        }
+    },
+    "ibexa/migrations": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "575fa895eb28f9d0b7e65e02ba9e3bcb16782094"
+        }
+    },
+    "ibexa/oauth2-client": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "575fa895eb28f9d0b7e65e02ba9e3bcb16782094"
+        }
+    },
+    "ibexa/order-management": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "575fa895eb28f9d0b7e65e02ba9e3bcb16782094"
+        }
+    },
+    "ibexa/oss": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "3794051e362e55a4772c79b759f6960554b96a93"
+        },
+        "files": [
+            "config/packages/cache_pool/cache.memcached.yaml",
+            "config/packages/cache_pool/cache.redis.yaml",
+            "config/packages/cache_pool/cache.tagaware.filesystem.yaml",
+            "config/packages/dfs/dfs.yaml",
+            "config/packages/graphql.yaml",
+            "config/packages/ibexa.yaml",
+            "config/packages/ibexa_admin_ui.yaml",
+            "config/packages/ibexa_assets.yaml",
+            "config/packages/ibexa_doctrine_schema.yaml",
+            "config/packages/ibexa_http_cache.yaml",
+            "config/packages/ibexa_jms_translation.yaml",
+            "config/packages/ibexa_solr.yaml",
+            "config/packages/ibexa_welcome_page.yaml",
+            "config/packages/security.yaml",
+            "config/routes/graphql.yaml",
+            "config/routes/ibexa.yaml",
+            "config/routes/ibexa_admin_ui.yaml",
+            "config/routes/ibexa_content_forms.yaml",
+            "config/routes/ibexa_fieldtype_query.yaml",
+            "config/routes/ibexa_http_cache.yaml",
+            "config/routes/ibexa_rest.yaml",
+            "config/routes/ibexa_search.yaml",
+            "config/routes/ibexa_system_info.yaml",
+            "config/routes/ibexa_user.yaml",
+            "ibexa.webpack.config.js",
+            "ibexa.webpack.config.manager.js",
+            "ibexa.webpack.custom.configs.js",
+            "package.json",
+            "webpack.config.js",
+            "templates/themes/standard/full/welcome_page.html.twig",
+            "templates/themes/standard/pagelayout.html.twig",
+            "translations/ibexa_welcome_page.en.xlf",
+            "assets/images/caret-down.svg",
+            "assets/images/development.svg",
+            "assets/images/documentation.svg",
+            "assets/images/header-background.png",
+            "assets/images/oss.svg",
+            "assets/images/php-api.svg",
+            "assets/images/rest-api.svg",
+            "assets/images/support-background.png",
+            "assets/images/support.png",
+            "assets/images/training-background.png",
+            "assets/images/training.svg",
+            "assets/images/tutorials-icon.svg",
+            "assets/images/tutorials.svg",
+            "assets/images/user.svg",
+            "assets/js/welcome.page.js",
+            "assets/scss/_contact.scss",
+            "assets/scss/_custom-normalize.scss",
+            "assets/scss/_documentation.scss",
+            "assets/scss/_footer.scss",
+            "assets/scss/_header.scss",
+            "assets/scss/_main.scss",
+            "assets/scss/_training.scss",
+            "assets/scss/_tutorials.scss",
+            "assets/scss/normalize.css",
+            "assets/scss/variables.scss",
+            "assets/scss/welcome-page.scss"
+        ]
+    },
+    "ibexa/page-builder": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "575fa895eb28f9d0b7e65e02ba9e3bcb16782094"
+        }
+    },
+    "ibexa/payment": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "575fa895eb28f9d0b7e65e02ba9e3bcb16782094"
+        }
+    },
+    "ibexa/permissions": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "575fa895eb28f9d0b7e65e02ba9e3bcb16782094"
+        }
+    },
+    "ibexa/personalization": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "575fa895eb28f9d0b7e65e02ba9e3bcb16782094"
+        }
+    },
+    "ibexa/product-catalog": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "575fa895eb28f9d0b7e65e02ba9e3bcb16782094"
+        }
+    },
+    "ibexa/rest": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "575fa895eb28f9d0b7e65e02ba9e3bcb16782094"
+        }
+    },
+    "ibexa/scheduler": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "575fa895eb28f9d0b7e65e02ba9e3bcb16782094"
+        }
+    },
+    "ibexa/search": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "575fa895eb28f9d0b7e65e02ba9e3bcb16782094"
+        }
+    },
+    "ibexa/segmentation": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "575fa895eb28f9d0b7e65e02ba9e3bcb16782094"
+        }
+    },
+    "ibexa/seo": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "575fa895eb28f9d0b7e65e02ba9e3bcb16782094"
+        }
+    },
+    "ibexa/shipping": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "575fa895eb28f9d0b7e65e02ba9e3bcb16782094"
+        }
+    },
+    "ibexa/site-factory": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "575fa895eb28f9d0b7e65e02ba9e3bcb16782094"
+        }
+    },
+    "ibexa/solr": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "575fa895eb28f9d0b7e65e02ba9e3bcb16782094"
+        }
+    },
+    "ibexa/standard-design": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "575fa895eb28f9d0b7e65e02ba9e3bcb16782094"
+        }
+    },
+    "ibexa/storefront": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "575fa895eb28f9d0b7e65e02ba9e3bcb16782094"
+        }
+    },
+    "ibexa/system-info": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "575fa895eb28f9d0b7e65e02ba9e3bcb16782094"
+        }
+    },
+    "ibexa/taxonomy": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "575fa895eb28f9d0b7e65e02ba9e3bcb16782094"
+        }
+    },
+    "ibexa/templated-uri-bundle": {
+        "version": "v3.3.2.2"
+    },
+    "ibexa/tree-builder": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "575fa895eb28f9d0b7e65e02ba9e3bcb16782094"
+        }
+    },
+    "ibexa/user": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "575fa895eb28f9d0b7e65e02ba9e3bcb16782094"
+        }
+    },
+    "ibexa/version-comparison": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "575fa895eb28f9d0b7e65e02ba9e3bcb16782094"
+        }
+    },
+    "ibexa/workflow": {
+        "version": "4.6",
+        "recipe": {
+            "repo": "github.com/ibexa/recipes-dev",
+            "branch": "master",
+            "version": "4.6",
+            "ref": "575fa895eb28f9d0b7e65e02ba9e3bcb16782094"
+        }
+    },
+    "jms/translation-bundle": {
+        "version": "1.9.1"
+    },
+    "knplabs/knp-menu-bundle": {
+        "version": "v3.2.0"
+    },
+    "knpuniversity/oauth2-client-bundle": {
+        "version": "2.15",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "1.20",
+            "ref": "1ff300d8c030f55c99219cc55050b97a695af3f6"
+        },
+        "files": [
+            "config/packages/knpu_oauth2_client.yaml"
+        ]
+    },
+    "lexik/jwt-authentication-bundle": {
+        "version": "2.19",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "2.5",
+            "ref": "e9481b233a11ef7e15fe055a2b21fd3ac1aa2bb7"
+        },
+        "files": [
+            "config/packages/lexik_jwt_authentication.yaml"
+        ]
+    },
+    "liip/imagine-bundle": {
+        "version": "2.11",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "1.8",
+            "ref": "d1227d002b70d1a1f941d91845fcd7ac7fbfc929"
+        },
+        "files": [
+            "config/packages/liip_imagine.yaml",
+            "config/routes/liip_imagine.yaml"
+        ]
+    },
+    "nelmio/cors-bundle": {
+        "version": "2.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "1.5",
+            "ref": "6bea22e6c564fba3a1391615cada1437d0bde39c"
+        },
+        "files": [
+            "config/packages/nelmio_cors.yaml"
+        ]
+    },
+    "oneup/flysystem-bundle": {
+        "version": "4.8",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "4.0",
+            "ref": "3ae1b83985e89138f5443bbc2d9b8c074b497d49"
+        },
+        "files": [
+            "config/packages/oneup_flysystem.yaml"
+        ]
+    },
+    "overblog/graphiql-bundle": {
+        "version": "0.2",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "0.1",
+            "ref": "96d185c63491cd15c1570f6243ec1808f4462970"
+        },
+        "files": [
+            "config/routes/dev/graphiql.yaml"
+        ]
+    },
+    "overblog/graphql-bundle": {
+        "version": "0.14",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "0.12",
+            "ref": "b122f3bfcfc0706c617a74afa8510af4799810f6"
+        },
+        "files": [
+            "config/graphql/types/.gitignore",
+            "config/packages/graphql.yaml",
+            "config/routes/graphql.yaml"
+        ]
+    },
+    "php-http/discovery": {
+        "version": "1.19",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "1.18",
+            "ref": "f45b5dd173a27873ab19f5e3180b2f661c21de02"
+        },
+        "files": [
+            "config/packages/http_discovery.yaml"
+        ]
+    },
+    "phpunit/phpunit": {
+        "version": "9.6",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "9.6",
+            "ref": "7364a21d87e658eb363c5020c072ecfdc12e2326"
+        },
+        "files": [
+            ".env.test",
+            "phpunit.xml.dist",
+            "tests/bootstrap.php"
+        ]
+    },
+    "sensio/framework-extra-bundle": {
+        "version": "6.2",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "5.2",
+            "ref": "fb7e19da7f013d0d422fa9bce16f5c510e27609b"
+        },
+        "files": [
+            "config/packages/sensio_framework_extra.yaml"
+        ]
+    },
+    "stof/doctrine-extensions-bundle": {
+        "version": "1.7",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "1.2",
+            "ref": "e805aba9eff5372e2d149a9ff56566769e22819d"
+        },
+        "files": [
+            "config/packages/stof_doctrine_extensions.yaml"
+        ]
+    },
+    "symfony/console": {
+        "version": "5.4",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "5.3",
+            "ref": "da0c8be8157600ad34f10ff0c9cc91232522e047"
+        },
+        "files": [
+            "bin/console"
+        ]
+    },
+    "symfony/flex": {
+        "version": "2.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "1.0",
+            "ref": "146251ae39e06a95be0fe3d13c807bcf3938b172"
+        },
+        "files": [
+            ".env"
+        ]
+    },
+    "symfony/framework-bundle": {
+        "version": "5.4",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "5.4",
+            "ref": "3cd216a4d007b78d8554d44a5b1c0a446dab24fb"
+        },
+        "files": [
+            "config/packages/cache.yaml",
+            "config/packages/framework.yaml",
+            "config/preload.php",
+            "config/routes/framework.yaml",
+            "config/services.yaml",
+            "public/index.php",
+            "src/Controller/.gitignore",
+            "src/Kernel.php"
+        ]
+    },
+    "symfony/lock": {
+        "version": "5.4",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "5.2",
+            "ref": "8e937ff2b4735d110af1770f242c1107fdab4c8e"
+        },
+        "files": [
+            "config/packages/lock.yaml"
+        ]
+    },
+    "symfony/monolog-bundle": {
+        "version": "3.8",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "3.7",
+            "ref": "213676c4ec929f046dfde5ea8e97625b81bc0578"
+        },
+        "files": [
+            "config/packages/monolog.yaml"
+        ]
+    },
+    "symfony/routing": {
+        "version": "5.4",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "5.3",
+            "ref": "85de1d8ae45b284c3c84b668171d2615049e698f"
+        },
+        "files": [
+            "config/packages/routing.yaml",
+            "config/routes.yaml"
+        ]
+    },
+    "symfony/security-bundle": {
+        "version": "5.4",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "5.3",
+            "ref": "98f1f2b0d635908c2b40f3675da2d23b1a069d30"
+        },
+        "files": [
+            "config/packages/security.yaml"
+        ]
+    },
+    "symfony/swiftmailer-bundle": {
+        "version": "3.5",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "2.5",
+            "ref": "f0b2fccdca2dfd97dc2fd5ad216d5e27c4f895ac"
+        },
+        "files": [
+            "config/packages/dev/swiftmailer.yaml",
+            "config/packages/swiftmailer.yaml",
+            "config/packages/test/swiftmailer.yaml"
+        ]
+    },
+    "symfony/translation": {
+        "version": "5.4",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "5.3",
+            "ref": "da64f5a2b6d96f5dc24914517c0350a5f91dee43"
+        },
+        "files": [
+            "config/packages/translation.yaml",
+            "translations/.gitignore"
+        ]
+    },
+    "symfony/twig-bundle": {
+        "version": "5.4",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "5.4",
+            "ref": "bb2178c57eee79e6be0b297aa96fc0c0def81387"
+        },
+        "files": [
+            "config/packages/twig.yaml",
+            "templates/base.html.twig"
+        ]
+    },
+    "symfony/validator": {
+        "version": "5.4",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "5.3",
+            "ref": "c32cfd98f714894c4f128bb99aa2530c1227603c"
+        },
+        "files": [
+            "config/packages/validator.yaml"
+        ]
+    },
+    "symfony/webpack-encore-bundle": {
+        "version": "1.17",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "1.10",
+            "ref": "eff2e505d4557c967b6710fe06bd947ba555cae5"
+        },
+        "files": [
+            "assets/app.js",
+            "assets/bootstrap.js",
+            "assets/controllers.json",
+            "assets/controllers/hello_controller.js",
+            "assets/styles/app.css",
+            "config/packages/webpack_encore.yaml",
+            "package.json",
+            "webpack.config.js"
+        ]
+    },
+    "symfony/workflow": {
+        "version": "5.4",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "3.3",
+            "ref": "3b2f8ca32a07fcb00f899649053943fa3d8bbfb6"
+        },
+        "files": [
+            "config/packages/workflow.yaml"
+        ]
+    },
+    "twig/extra-bundle": {
+        "version": "v3.6.1"
+    },
+    "willdurand/js-translation-bundle": {
+        "version": "4.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "2.0",
+            "ref": "02b720a49f6d36b44d557e0b18e48bf09e0a8e07"
+        },
+        "files": [
+            "config/routes/js_translation.yaml"
+        ]
+    }
+}

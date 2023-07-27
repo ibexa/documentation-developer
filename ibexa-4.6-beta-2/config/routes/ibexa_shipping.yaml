@@ -1,0 +1,8 @@
+ibexa.shipping:
+    resource: '@IbexaShippingBundle/Resources/config/routing.yaml'
+    defaults:
+        siteaccess_group_whitelist: '%admin_group_name%'
+
+ibexa.shipping.rest:
+    resource: '@IbexaShippingBundle/Resources/config/routing/rest.yaml'
+    prefix: '%ibexa.rest.path_prefix%'

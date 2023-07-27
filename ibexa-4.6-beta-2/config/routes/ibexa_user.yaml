@@ -1,0 +1,2 @@
+ibexa.user:
+    resource: '@IbexaUserBundle/Resources/config/routing.yaml'

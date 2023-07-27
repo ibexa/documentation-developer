@@ -45,7 +45,7 @@ ibexa:
                     - poland
 ```
 
-In the `ibexa_storefront.yaml` file, under the `ibexa.system.storefront_group.product_catalog.regions` configuration, regions are set with `default` value. Remember to either exclude this element or extend it by [configuring other regions](enable_purchasing_products.md#configuring-other-regions-and-currencies).
+In the `ibexa_storefront.yaml` file, under the `ibexa.system.<scope>.product_catalog.regions` configuration key, regions are set with `default` value. Remember to either exclude this element or extend it by [configuring other regions](enable_purchasing_products.md#configuring-other-regions-and-currencies).
 
 ```yaml
 ibexa:
@@ -54,9 +54,19 @@ ibexa:
             product_catalog:
                 currencies:
                     - EUR
+                    - PLN
                 regions:
-                    - default
+                    - germany
+                    - poland 
+        another_storefront_group:
+            product_catalog:
+                currencies:
+                    - GBP
+                regions:
+                    - uk
 ```
+
+This example uses the currencies and regions set in the [VAT rates' example below](#vat-rates).
 
 ### Configuring other regions and currencies
 

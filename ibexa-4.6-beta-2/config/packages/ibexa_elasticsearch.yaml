@@ -1,0 +1,9 @@
+# Base configuration for Elasticsearch
+parameters:
+    elasticsearch_dsn: "%env(ELASTICSEARCH_DSN)%"
+
+ibexa_elasticsearch:
+    connections:
+        default:
+            hosts:
+                - "%elasticsearch_dsn%"

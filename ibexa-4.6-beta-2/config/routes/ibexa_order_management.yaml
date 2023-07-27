@@ -1,0 +1,8 @@
+ibexa.order_management:
+    resource: '@IbexaOrderManagementBundle/Resources/config/routing_admin.yaml'
+    defaults:
+        siteaccess_group_whitelist: '%admin_group_name%'
+
+ibexa.order_management.rest:
+    resource: '@IbexaOrderManagementBundle/Resources/config/routing_rest.yaml'
+    prefix: '%ibexa.rest.path_prefix%'

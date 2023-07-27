@@ -1,0 +1,7 @@
+ibexa.form_builder:
+    resource: '@IbexaFormBuilderBundle/Resources/config/routing.yaml'
+    defaults:
+        siteaccess_group_whitelist: '%admin_group_name%'
+
+ibexa.form_builder.captcha:
+    resource: '@IbexaFormBuilderBundle/Resources/config/captcha_routing.yaml'

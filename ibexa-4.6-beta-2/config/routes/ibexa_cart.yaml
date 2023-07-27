@@ -1,0 +1,6 @@
+ibexa.cart:
+    resource: '@IbexaCartBundle/Resources/config/routing.yaml'
+
+ibexa.cart.rest:
+    resource: '@IbexaCartBundle/Resources/config/routing_rest.yaml'
+    prefix: '%ibexa.rest.path_prefix%'

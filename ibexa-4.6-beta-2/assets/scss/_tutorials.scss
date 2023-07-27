@@ -1,0 +1,81 @@
+.ibexa-welcome-tutorials-and-resources {
+    &__subheader {
+        max-width: 500px;
+        font-weight: 600;
+    }
+
+    &__block {
+        background-color: $ibexa-welcome-color-light-600;
+        padding: 30px 22px 16px 48px;
+        border-radius: 10px;
+
+        .ibexa-welcome-paragraph {
+            margin: 0 0 40px 0;
+        }
+
+        .ibexa-welcome-link {
+            margin: auto 0 0 auto;
+        }
+
+        .ibexa-welcome-circle {
+            width: 54px;
+            height: 54px;
+            background: $ibexa-welcome-color-light;
+        }
+
+        &--get-started {
+            padding: 50px 60px;
+            margin: 76px 0 25px;
+
+            .ibexa-welcome-block-header {
+                font-size: 28px;
+                line-height: 42px;
+                margin: 0 0 8px;
+            }
+
+            .ibexa-welcome-link {
+                margin-left: 0;
+            }
+
+            .ibexa-welcome-img {
+                margin-top: -130px;
+                margin-right: -25px;
+            }
+        }
+
+        &--tutorials {
+            flex-basis: 25%;
+        }
+
+        &--rest-api {
+            flex-basis: 42%;
+        }
+
+        &--php-api {
+            flex-basis: 33%;
+        }
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .ibexa-welcome-tutorials-and-resources {
+        &__img-column {
+            display: none;
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .ibexa-welcome-tutorials-and-resources {
+        &__block {
+            padding: 30px 22px 16px 48px;
+
+            &--get-started {
+                .ibexa-welcome-link {
+                    margin-left: auto;
+                }
+            }
+
+        }
+    }
+}

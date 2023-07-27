@@ -1,0 +1,74 @@
+## Uncomment configuration below if you wish to use product as an OAuth2 Server
+
+#league_oauth2_server:
+#    authorization_server:
+#        # Full path to the private key file.
+#        # How to generate a private key: https://oauth2.thephpleague.com/installation/#generating-public-and-private-keys
+#        private_key: '%env(resolve:OAUTH2_PRIVATE_KEY_PATH)%'
+#
+#        # Passphrase of the private key, if any
+#        private_key_passphrase: '%env(resolve:OAUTH2_PRIVATE_KEY_PASSPHRASE)%'
+#
+#        # The plain string or the ascii safe string used to create a Defuse\Crypto\Key to be used as an encryption key.
+#        # How to generate an encryption key: https://oauth2.thephpleague.com/installation/#string-password
+#        encryption_key: '%env(resolve:OAUTH2_ENCRYPTION_KEY)%'
+#
+#        # The type of value of 'encryption_key'
+#        encryption_key_type:  plain # One of "plain"; "defuse"
+#
+#        # How long the issued access token should be valid for.
+#        # The value should be a valid interval: http://php.net/manual/en/dateinterval.construct.php#refsect1-dateinterval.construct-parameters
+#        access_token_ttl:     PT1H
+#
+#        # How long the issued refresh token should be valid for.
+#        # The value should be a valid interval: http://php.net/manual/en/dateinterval.construct.php#refsect1-dateinterval.construct-parameters
+#        refresh_token_ttl:    P1M
+#
+#        # How long the issued auth code should be valid for.
+#        # The value should be a valid interval: http://php.net/manual/en/dateinterval.construct.php#refsect1-dateinterval.construct-parameters
+#        auth_code_ttl:        PT10M
+#
+#        # Whether to enable the client credentials grant
+#        enable_client_credentials_grant: true
+#
+#        # Whether to enable the password grant
+#        enable_password_grant: true
+#
+#        # Whether to enable the refresh token grant
+#        enable_refresh_token_grant: true
+#
+#        # Whether to enable the authorization code grant
+#        enable_auth_code_grant: true
+#
+#        # Whether to require code challenge for public clients for the auth code grant
+#        require_code_challenge_for_public_clients: true
+#
+#        # Whether to enable access token saving to persistence layer (default to true)
+#        persist_access_token: true
+#
+#    resource_server:      # Required
+#
+#        # Full path to the public key file
+#        # How to generate a public key: https://oauth2.thephpleague.com/installation/#generating-public-and-private-keys
+#        public_key: '%env(resolve:OAUTH2_PUBLIC_KEY_PATH)%'
+#
+#    scopes:
+#        # Scopes that you wish to utilize in your application.
+#        # This should be a simple array of strings.
+#        available:               [default]
+#
+#        # Scopes that will be assigned when no scope given.
+#        # This should be a simple array of strings.
+#        default:                 [default]
+#
+#    # Configures different persistence methods that can be used by the bundle for saving client and token data.
+#    # Only one persistence method can be configured at a time.
+#    persistence:
+#        custom: ibexa
+#
+#    # Set a custom prefix that replaces the default 'ROLE_OAUTH2_' role prefix
+#    role_prefix:          ROLE_OAUTH2_
+#
+#    client:
+#        # Set a custom client class. Must be a League\Bundle\OAuth2ServerBundle\Model\Client
+#        classname:        Ibexa\Contracts\OAuth2Server\Values\Client

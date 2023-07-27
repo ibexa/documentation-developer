@@ -1,0 +1,16 @@
+ibexa:
+    system:
+        storefront_group:
+            product_catalog:
+                currencies:
+                    - EUR
+                regions:
+                    - default
+            storefront:
+                name: Ibexa
+                logo: 'bundles/ibexaadminui/img/ibexa-logo.svg'
+                product_list_filters:
+                    - product_type
+                    - product_availability
+                    - product_price
+

@@ -1,0 +1,8 @@
+jms_translation:
+    configs:
+        form_builder:
+            dirs:
+                - '%kernel.project_dir%/vendor/ibexa/form-builder/src'
+            output_dir: '%kernel.project_dir%/vendor/ibexa/form-builder/src/bundle/Resources/translations/'
+            excluded_dirs: [Behat, Tests]
+            output_format: "xliff"

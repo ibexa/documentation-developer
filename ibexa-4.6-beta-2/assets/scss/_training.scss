@@ -1,0 +1,55 @@
+.ibexa-welcome-training-platform {
+    &__block {
+        background: center url('/assets/images/training-background.png');
+        background-size: cover;
+        border-radius: 10px;
+        max-height: 286px;
+        margin: 50px 0;
+        padding: 50px 60px;
+        color: $ibexa-welcome-color-light;
+    }
+
+    &__img-column {
+        flex: 0;
+    }
+
+    .ibexa-welcome-column {
+        align-items: center;
+    }
+
+    .ibexa-welcome-block-header {
+        font-size: 28px;
+        line-height: 42px;
+        margin: 0 0 8px;
+    }
+
+    .ibexa-welcome-paragraph {
+        margin: 0 0 40px 0;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .ibexa-welcome-training-platform {
+        &__img-column {
+            display: none;
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .ibexa-welcome-training-platform {
+        &__block {
+            padding-top: 32px;
+            padding-bottom: 32px;
+            max-height: 100%;
+        }
+
+        &__img-column {
+            display: none;
+        }
+
+        .ibexa-welcome-column {
+            margin-top: 0;
+        }
+    }
+}

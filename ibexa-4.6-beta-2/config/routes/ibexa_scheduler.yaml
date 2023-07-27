@@ -1,0 +1,6 @@
+ibexa.scheduler:
+    resource: '@IbexaSchedulerBundle/Resources/config/routing.yaml'
+
+ibexa.scheduler.rest:
+    resource: '@IbexaSchedulerBundle/Resources/config/routing_rest.yaml'
+    prefix: '%ibexa.scheduler.rest.prefix%'

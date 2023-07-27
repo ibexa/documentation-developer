@@ -1,0 +1,11 @@
+ibexa.product_catalog:
+    resource: '@IbexaProductCatalogBundle/Resources/config/routing.yaml'
+
+ibexa.product_catalog.admin:
+    resource: '@IbexaProductCatalogBundle/Resources/config/routing_admin.yaml'
+    defaults:
+        siteaccess_group_whitelist: '%admin_group_name%'
+
+ibexa.product_catalog.rest:
+    resource: '@IbexaProductCatalogBundle/Resources/config/routing_rest.yaml'
+    prefix: '%ibexa.rest.path_prefix%'

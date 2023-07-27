@@ -1,0 +1,11 @@
+ibexa.corporate_account:
+    resource: '@IbexaCorporateAccountBundle/Resources/config/routing_admin_ui.yaml'
+
+ibexa.corporate_account.customer_portal:
+    resource: '@IbexaCorporateAccountBundle/Resources/config/routing_customer_portal.yaml'
+    defaults:
+        siteaccess_group_whitelist: 'corporate_group'
+
+ibexa.corporate_account.rest:
+    resource: '@IbexaCorporateAccountBundle/Resources/config/routing_rest.yaml'
+    prefix: '%ibexa.rest.path_prefix%'

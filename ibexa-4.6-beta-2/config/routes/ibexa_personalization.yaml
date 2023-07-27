@@ -1,0 +1,8 @@
+ibexa.personalization:
+    resource: '@IbexaPersonalizationBundle/Resources/config/routing.yaml'
+    defaults:
+        siteaccess_group_whitelist: '%admin_group_name%'
+
+ibexa.personalization.rest:
+    resource: "@IbexaPersonalizationBundle/Resources/config/routing_rest.yaml"
+    prefix:   '%ibexa.rest.path_prefix%'

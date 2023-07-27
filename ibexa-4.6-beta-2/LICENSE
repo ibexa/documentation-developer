@@ -1,0 +1,322 @@
+Copyright (C) 1999-2020 Ibexa AS (formerly eZ Systems AS). All rights reserved.
+
+This source code is available separately under the following licenses:
+
+A - Ibexa Business Use License Agreement (Ibexa BUL),
+version 2.4 or later versions (as license terms may be updated from time to time)
+Ibexa BUL is granted by having a valid Ibexa DXP (formerly eZ Platform Enterprise) subscription,
+as described at: https://www.ibexa.co/product
+For the full Ibexa BUL license text, please see:
+- LICENSE-bul file placed in the root of this source code, or
+- https://www.ibexa.co/software-information/licenses-and-agreements (latest version applies)
+
+AND
+
+B - Ibexa Trial and Test License Agreement (Ibexa TTL),
+version 2.2 or later versions (as license terms may be updated from time to time)
+Full Ibexa TTL license text below, or online on: https://www.ibexa.co/software-information/licenses-and-agreements (latest version applies)
+
+
+----------------------------------------------------------
+
+Ibexa Trial and Test License Agreement ("Ibexa TTL") Version 2.2
+
+
+IMPORTANT: Please read the following license agreement carefully.
+
+This license agreement is between Ibexa AS (Norwegian business
+registration no. 981 601 564, formerly eZ Systems AS), a Norwegian company
+("Licensor" or "Ibexa"), and a test or trial user ("Licensee" or "you").
+By installing all or any portion of the software (or authorizing any other
+person to do so), you accept the terms and conditions of this license.
+If you acquired the software without an opportunity to review this license
+and do not accept the license, you must: (a) not use the software and (b)
+return or delete the software, with your certification of deletion, within
+thirty (30) days of the acquire date.
+
+This license agreement is entered into in connection with Licensee's
+participation in testing a new version of Licensor software and is valid
+for 6 months from the date the software was acquired (downloaded).
+
+The parties hereby agree to the following software license terms:
+
+
+1. Definitions
+
+"Licensed Software" means the Ibexa Digital Experience Platform (DXP)
+or other Ibexa software product (such as eZ Platform Enterprise Edition,
+eZ Publish Platform) downloaded, ordered or otherwise legally acquired
+(licensed) by you from Ibexa (or other party authorized by Ibexa).
+
+"Licensed Copy" means one sample of the Licensed Software.
+
+"Website" means up to three defined site access configurations (unique
+URLs) that may for instance consist of one site for public use, one site
+for internal use (such as an intranet) and one site for site
+administrator use, communicated an unlimited number of channels
+(such as traditional web, mobile).
+
+2. License grant
+
+2.1 You may
+Licensor grants you a limited, non-exclusive, time limited and
+non-transferable right to:
+(a) install and run the Licensed Copy on the agreed number of Websites
+for internal testing purposes;
+(b) make enhancements, patches, workarounds, bug fixes or other
+modifications (collectively "Licensee Modifications") to the Licensed
+Copy, solely for your internal testing of the Licensed Software, and
+(c) perform presentations based on the Licensed Software, including
+building and presenting sample solutions to your clients or potential
+clients.
+
+Since the license is free of charge, you are obliged to submit Licensee
+Modifications to Ibexa on a continuous basis to contribution@ibexa.co as
+contributions, see section 7.1. Such contribution must include a short
+note explaining the Licensee Modification.
+
+Licensee may make a reasonable number of copies of the Licensed Copy as
+required for backup and archival purposes only.
+
+2.2 You may not
+Licensee may use the Licensed Software only as expressly granted in
+section 2.1. Without limiting the foregoing, Licensee may not: (a) use
+or operate the Licensed Software for regular business use; (b) give,
+lease, license, sell, make available, or distribute any part of the
+Licensed Software or Licensee Modifications to any third party, except
+as otherwise expressly permitted herein; (c) use the Licensed Software
+to operate in or as a time-sharing, outsourcing, service bureau,
+application service provider, managed service provider environment or
+similar service directed towards and performed on behalf or for the
+benefit of a third party; (d) copy the Licensed Software onto any public
+or distributed network; or (e) change any rights notices which appear in
+the Licensed Software.
+
+3. Your responsibility
+Except as expressly set forth herein or in a separate written agreement,
+Licensee is the sole responsible for the installation of the Licensed
+Software, its operation, supervision, maintenance, management and
+related training and support. You are also the sole responsible for any
+related installation, maintenance and configuration of computer hardware
+used by the Licensed Software.
+
+4. Price
+You may use the Software free of charge.
+
+5. Audit rights
+During the term of this license and for a three (3) year period
+following its termination, Licensor may conduct periodic reviews of
+Licensee's records relating to its Licensed Software for the purpose of
+verifying Licensee's compliance with this license and any related
+agreements. During this three (3) year period, you are obliged to
+maintain complete and accurate books and other records related to
+software licensing and related payments. Licensor must exercise its
+right of audit upon no fewer than 15 days' prior notice. Licensee will
+provide Licensor with reasonable access and assistance for the audit,
+including reasonable use of available office equipment and space.
+Licensor shall upon request deliver to Licensee a copy of the results of
+any such audit.
+
+6. Termination
+Licensor may terminate this license immediately if you are in breach any
+of its provisions and such breach remains uncured 30 days after receipt
+of notice. In the event that you are or becomes liquidated, dissolved,
+bankrupt or insolvent, whether voluntarily or involuntarily, or is to
+take any action to be so declared, Licensor may terminate this license
+immediately. Upon cancellation or other termination of this license, for
+any reason, you must immediately destroy all copies of the Licensed
+Software, and confirm the destruction within  7 (seven) days. Sections 5
+through 11 shall survive the termination of this license for any reason.
+
+7. Intellectual property rights
+
+7.1 General
+Licensee agrees that the copyright and all other intellectual property
+and proprietary rights of whatever nature in the Licensed Software and
+related documentation are not by this license transferred to you. No
+trademarks of Ibexa may be used by you without Licensor's express written
+permission. If permission is grated, use must always take place in
+accordance with the applicable Licensor guidelines as they may be
+updated from time to time. For Licensee Modifications, you must, in the
+modified files and in a separate text file, clearly indicate that the
+Licensed Software contains modifications and state their dates.
+
+7.2 Contribution of Licensee Modifications
+To the extent that any contributed Licensee Modifications incorporates
+any element which is subject to any intellectual property right owned by
+Licensee, Licensee hereby grants to Ibexa an unrestricted, non-exclusive,
+perpetual, royalty-free, world-wide, irrevocable and fully transferable
+license to make, use, sell, offer for sale, reproduce, create
+derivatives of, publish, display, sublicense or otherwise practice such
+intellectual property right.
+
+Regarding any copyrights in Licensee Modifications:
+- You hereby assign to us joint ownership, and to the extent that such
+  assignment is or becomes invalid, ineffective or unenforceable, you
+  hereby grant to us a perpetual, irrevocable, non-exclusive, worldwide,
+  no-charge unrestricted license to exercise all rights under those
+  copyrights. This includes, at our option, the right to sublicense
+  these same rights to third parties through multiple levels of
+  sub-licensees or other licensing arrangements;
+
+- You agree that each of us can do all things in relation to Licensee
+  Modifications as if each of us were sole and independent copyright
+  holders. If one of us makes a derivative work the Licensee
+  Modifications, the one who makes the derivative work (or has it made)
+  will be the sole owner of that derivative work, hereunder make, have
+  made, use, license, offer to license, import, and otherwise transfer
+  your contribution in whole or in part, whether at a charge or at
+  no-charge;
+
+- You agree that neither of us have any duty to consult with, obtain the
+  consent of, pay or render accounts to the other for any use or
+  distribution of the material.
+
+With respect to the Licensee Modifications, you represent that:
+- it is an original work by you and that you can legally grant the
+  rights set out in these terms;
+- it does not to the best of your knowledge violate any third party's
+  copyrights, trademarks, patents or other intellectual property rights.
+
+8. Disclaimer of warranties
+The Licensed Software is licensed "as is," without any warranties
+whatsoever. Licensor expressly disclaims, and licensee expressly waives,
+all warranties, whether express or implied, including warranties of
+merchantability, fitness for a particular purpose, non-infringement,
+system integration, non-interference and accuracy of informational
+content. Licensor does not warrant that the licensed software will meet
+licensee's requirements or that the operation of the licensed software
+will be uninterrupted or error-free, or that errors will be corrected.
+The entire risk of the licensed software's quality and performance is
+with licensee.
+
+9. Indemnification
+Licensee agrees to indemnify and hold Licensor harmless against any
+damage or loss (including reasonable attorneys' fees) related to any
+claim based upon: (a) use of the Licensed Software in a manner
+prohibited under this license or in a manner for which the Licensed
+Software was not designed; (b) Licensee Modifications or changes made by
+Licensee to the Licensed Software (where use of unmodified Licensed
+Software would not infringe); or (c) changes made, or actions taken, by
+Licensor upon Licensee's direct instructions.
+
+10. Limitation of liability
+To the extent permitted by applicable law, licensor shall have no
+liability with respect to its obligations under this license or
+otherwise for direct, consequential, exemplary, special, indirect,
+incidental or punitive damages, including any lost profits or lost
+savings (whether resulting from impaired or lost data, software or
+computer failure or any other cause), even if it has been advised of the
+possibility of such damages.
+
+This limitation of liability applies to any default, including breach of
+contract, breach of warranty, negligence, misrepresentations and other
+torts. The parties agree that the remedies and limitations herein
+allocate the risks between the parties as authorized by applicable laws.
+The license fee (non) is set in reliance upon this allocation of risk
+and the exclusion of certain damages as set forth in this license.
+
+11. Miscellaneous
+
+11.1 Interpretation
+Failure by Licensor to exercise any right or remedy does not signify
+acceptance of the event giving rise to such right or remedy, or loss of
+such right. No claim arising out of this License may be brought by you
+more than one year after the cause of the claim arose.
+
+If any part of this license is held by a court of competent jurisdiction
+to be illegal or unenforceable, the validity or enforceability of the
+remainder of this License shall not be affected and such provision shall
+be deemed modified to the minimum extent necessary to make such
+provision consistent with applicable law. In its modified form, such
+provision shall be enforceable and enforced.
+
+11.2 Termination for patent action
+This license shall terminate automatically and you may no longer
+exercise any of the rights granted to you by this license as of the date
+you commence an action, including a cross-claim or counterclaim, against
+Ibexa, an Ibexa partner or other licensee of Ibexa software alleging that the
+Software infringes a patent.
+
+11.3 Assignment
+Without the prior written consent of Licensor, you may not assign,
+sublicense or otherwise transfer this license or its rights or
+obligations under this license to any person or party, whether by
+operation of law or otherwise. Any attempt by you to assign this license
+without Licensor's prior written consent is void and will terminate the
+license without further notice.
+
+11.4 Governing law
+This License shall be deemed to have been executed in Norway and shall
+be governed by the laws of Norway, without regard to any conflict of law
+provisions.
+
+11.5 Disputes and legal venue
+The parties shall first attempt to resolve any disputes, controversies
+or claims (collectively "Dispute") arising out of or relating to this
+license through amicable discussions and negotiations.
+
+If a Dispute cannot be resolved amicably between the parties, such
+Dispute shall be referred to Oslo City Court as mandatory legal venue.
+However, if you are located in a country that does not have a bilateral
+or multilateral ruling enforcement treaty with Norway, the Dispute shall
+be referred to and finally determined by arbitration administered by the
+World Intellectual Property Organization (WIPO) Arbitration and
+Mediation Centre in accordance with the WIPO Arbitration Rules.
+
+The place of arbitration shall be in Oslo, Norway. The arbitrator - of
+which there shall be only one - shall be bound by the provisions of this
+license and base the award on Norwegian substantive law and judicial
+precedent. The parties agree that the arbitrator shall have the power to
+decide all matters, including arbitrability, and to award any remedies,
+including attorneys' fees, costs and equitable relief, available under
+applicable law. Either party may enforce any judgment rendered by the
+arbitrator in any court of competent jurisdiction. The parties further
+agree and acknowledge that arbitration shall be the sole and final
+remedy for any dispute between the parties. All proceedings and
+documents shall remain strictly confidential.
+
+In no event shall the United Nations Convention on Contracts for the
+International Sale of Goods apply to, or govern, this License.
+
+11.6 Notices
+Any notice under this license shall be delivered and addressed to
+Licensee at the address provided to Licensor (or authorized
+representative) at the time of order, and to Licensor at
+
+Attn: Software Licensing Dept/CLA,
+Ibexa AS,
+Solligata 2,
+0254 Oslo
+Norway
+
+Notices are deemed received by any party: (a) on the day given, if
+personally delivered or if sent by confirmed facsimile transmission,
+receipt verified; (b) on the third day after deposit, if mailed by
+certified, first class, postage prepaid, return receipt requested mail,
+or by reputable, expedited overnight courier; or (c) on the fifth day
+after deposit, if sent by reputable, expedited international courier.
+
+Either party may change its address for notice purposes upon notice in
+accordance with this section.
+
+11.7 Export law assurances
+Licensee is responsible for complying with any applicable local laws,
+including but not limited to export and import regulations.
+
+11.8 Entire agreement
+This license comprises the entire agreement, and supersedes and merges
+all prior proposals, understandings and agreements, oral and written,
+between the parties relating to the subject matter of this license.
+Licensor's acceptance of any document shall not be construed as an
+acceptance of provisions which are in any way in conflict or
+inconsistent with, or in addition to, this license, unless such terms
+are separately and specifically accepted in writing by an authorized
+officer of Licensor.
+
+11.9 Update of terms
+The Licensor may from time to time issue new versions of this license.
+Unless you within 30 days from when you were first made aware or should
+have become aware of the new license has not made reservations directed
+at Licensor in writing, such new version of the license shall be deemed
+as accepted by you.

@@ -1,0 +1,9 @@
+ibexa_taxonomy:
+    taxonomies:
+        tags:
+            parent_location_remote_id: taxonomy_tags_folder
+            content_type: tag
+            field_mappings:
+                identifier: identifier
+                parent: parent
+                name: name

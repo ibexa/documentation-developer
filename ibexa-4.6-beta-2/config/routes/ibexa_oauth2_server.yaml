@@ -1,0 +1,8 @@
+## Uncomment configuration below if you wish to use product as an OAuth2 Server
+
+#ibexa.oauth2_server:
+#    resource: '@IbexaOAuth2ServerBundle/Resources/config/routing.yaml'
+#
+#league_oauth2_server_bundle:
+#    resource: '@LeagueOAuth2ServerBundle/Resources/config/routes.php'
+#    type: php

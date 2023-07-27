@@ -1,0 +1,6 @@
+ibexa.connector_dam:
+    resource: '@IbexaConnectorDamBundle/Resources/config/routing.yaml'
+
+ibexa.connector_dam.rest:
+    resource: '@IbexaConnectorDamBundle/Resources/config/routing_rest.yaml'
+    prefix: '%ibexa.rest.path_prefix%'

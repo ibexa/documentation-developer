@@ -1,0 +1,2 @@
+ibexa.field_type_address:
+    resource: '@IbexaFieldTypeAddressBundle/Resources/config/routing.yaml'

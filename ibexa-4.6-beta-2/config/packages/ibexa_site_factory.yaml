@@ -1,0 +1,38 @@
+parameters:
+    # Adds a fallback DATABASE_URL if the env var is not set.
+    # This allows you to run cache:warmup even if your
+    # environment variables are not available yet.
+    # You should not need to change this value.
+    env(DATABASE_URL): ''
+    env(DATABASE_DRIVER): ''
+    database_driver: '%env(DATABASE_DRIVER)%'
+
+ibexa_site_factory:
+    enabled: false
+#    templates:
+#        site_template:
+#            siteaccess_group: site_factory_group
+#            name: Example Site
+#            thumbnail: /bundles/ibexasitefactory/img/template-placeholder.png
+
+doctrine:
+    dbal:
+        connections:
+            # This connection is dedicated for SiteFactory to avoid known issues, should be the same as default
+            site_factory:
+                # configure these for your database server
+                driver: '%database_driver%'
+                charset: '%database_charset%'
+                default_table_options:
+                    charset: '%database_charset%'
+                    collate: '%database_collation%'
+                url: '%env(resolve:DATABASE_URL)%'
+
+framework:
+    cache:
+        pools:
+            # This pool should be used only by SiteFactory bundle
+            site_factory_pool:
+                # You can configure it according to your needs
+                adapter: cache.app
+                tags: true

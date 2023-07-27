@@ -1,0 +1,14 @@
+parameters:
+    env(FASTLY_SERVICE_ID): ~
+    env(FASTLY_KEY): ~
+    fastly_service_id: '%env(FASTLY_SERVICE_ID)%'
+    fastly_key: '%env(FASTLY_KEY)%'
+
+ibexa:
+    system:
+        default:
+            http_cache:
+                # If using fastly, 'purge_server' must be set to 'https://api.fastly.com'
+                fastly:
+                    service_id: '%fastly_service_id%'
+                    key: '%fastly_key%'

@@ -1,0 +1,48 @@
+parameters:
+    env(DFS_DATABASE_URL): '%env(resolve:DATABASE_URL)%'
+    dfs_database_url: '%env(resolve:DFS_DATABASE_URL)%'
+    ibexa.io.nfs.adapter.config:
+        root: '%dfs_nfs_path%'
+        path: '$var_dir$/$storage_dir$/'
+        writeFlags: ~
+        linkHandling: ~
+        permissions: [ ]
+
+# new doctrine connection for the dfs legacy_dfs_cluster metadata handler.
+doctrine:
+    dbal:
+        connections:
+            dfs:
+                # configure these for your database server
+                driver: '%dfs_database_driver%'
+                charset: '%dfs_database_charset%'
+                default_table_options:
+                    charset: '%dfs_database_charset%'
+                    collate: '%dfs_database_collation%'
+                url: '%dfs_database_url%'
+
+# define the flysystem handler
+oneup_flysystem:
+    adapters:
+        nfs_adapter:
+            custom:
+                service: ibexa.io.nfs.adapter.site_access_aware
+
+# define ibexa handlers
+ibexa_io:
+    binarydata_handlers:
+        nfs:
+            flysystem:
+                adapter: nfs_adapter
+    metadata_handlers:
+        dfs:
+            legacy_dfs_cluster:
+                connection: doctrine.dbal.dfs_connection
+
+# set the application handlers
+ibexa:
+    system:
+        default:
+            io:
+                metadata_handler: dfs
+                binarydata_handler: nfs

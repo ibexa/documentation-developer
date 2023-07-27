@@ -1,0 +1,6 @@
+ibexa.segmentation:
+    resource: '@IbexaSegmentationBundle/Resources/config/routing.yaml'
+
+ibexa.segmentation.rest:
+    resource: '@IbexaSegmentationBundle/Resources/config/routing_rest.yaml'
+    prefix: '%ibexa.rest.path_prefix%'

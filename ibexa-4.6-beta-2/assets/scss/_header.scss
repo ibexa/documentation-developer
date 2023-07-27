@@ -1,0 +1,72 @@
+.ibexa-welcome-header {
+    height: 100vh;
+    min-height: 820px;
+    background-image: url('/assets/images/header-background.png');
+    background-size: cover;
+    color: $ibexa-welcome-color-light;
+    position: relative;
+
+    &__logo {
+        margin-top: 40px;
+    }
+
+    &__go-down {
+        background: none;
+        border: 0;
+        outline: none;
+        fill: $ibexa-welcome-color-light;
+        position: absolute;
+        bottom: 50px;
+        left: calc(50% - 22px);
+        cursor: pointer;
+    }
+
+    .ibexa-welcome-section-header {
+        font-size: 60px;
+        line-height: 82px;
+        margin: 200px 0 40px;
+    }
+
+    .ibexa-welcome-paragraph {
+        font-size: 22px;
+        line-height: 36px;
+        font-weight: 600;
+        margin: 0 0 40px 0;
+    }
+
+    .ibexa-welcome-img {
+        margin-top: 150px;
+        margin-right: -300px;
+    }
+
+    .ibexa-welcome-btn + .ibexa-welcome-btn {
+        margin-left: 24px;
+    }
+}
+
+@media only screen and (max-width: 1700px) {
+    .ibexa-welcome-header {
+        .ibexa-welcome-img {
+            width: 100%;
+            margin-right: 0;
+        }
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .ibexa-welcome-header {
+        &__img-column {
+            display: none;
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .ibexa-welcome-header {
+        .ibexa-welcome-section-header {
+            font-size: 48px;
+            line-height: 72px;
+            margin-top: 100px;
+        }
+    }
+}

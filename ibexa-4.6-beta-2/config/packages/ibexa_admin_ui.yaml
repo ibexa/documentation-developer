@@ -1,0 +1,75 @@
+parameters:
+    # Admin siteaccess group name
+    admin_group_name: admin_group
+
+ibexa:
+    siteaccess:
+        list: [admin]
+        groups:
+            # WARNING: Do not remove or rename this group.
+            # It's used to distinguish common siteaccesses from admin ones.
+            # In case of multisite with multiple admin panels, remember to add any additional admin siteaccess to this group.
+            admin_group: [admin]
+
+    system:
+        admin_group:
+            # System languages. Note that by default, content, content types, and other data are in eng-GB locale,
+            # so removing eng-GB from this list may lead to errors or content not being shown, unless you change
+            # all eng-GB data to other locales first.
+            # For admin this needs to contain all languages you want to translate content to on the given repository.
+            languages: [eng-GB]
+            content_tree_module:
+                contextual_tree_root_location_ids:
+                    - 2 # Home (Content structure)
+                    - 5 # Users
+                    - 43 # Media
+                    - 48 # Setup
+                    - 55 # Forms
+                    - 56 # Site skeletons
+                    - 60 # Components
+            subtree_paths:
+                content: /1/2/
+                media: /1/43/
+            page_builder:
+                siteaccess_list: [ site ]
+            assets:
+                icon_sets:
+                    streamlineicons: /bundles/ibexaicons/img/all-icons.svg
+                default_icon_set: streamlineicons
+            content_type:
+                about:
+                    thumbnail: '/bundles/ibexaicons/img/all-icons.svg#about'
+                article:
+                    thumbnail: '/bundles/ibexaicons/img/all-icons.svg#article'
+                blog:
+                    thumbnail: '/bundles/ibexaicons/img/all-icons.svg#blog'
+                blog_post:
+                    thumbnail: '/bundles/ibexaicons/img/all-icons.svg#blog_post'
+                folder:
+                    thumbnail: '/bundles/ibexaicons/img/all-icons.svg#folder'
+                form:
+                    thumbnail: '/bundles/ibexaicons/img/all-icons.svg#form'
+                place:
+                    thumbnail: '/bundles/ibexaicons/img/all-icons.svg#place'
+                product:
+                    thumbnail: '/bundles/ibexaicons/img/all-icons.svg#product'
+                field:
+                    thumbnail: '/bundles/ibexaicons/img/all-icons.svg#field'
+                user:
+                    thumbnail: '/bundles/ibexaicons/img/all-icons.svg#user'
+                user_group:
+                    thumbnail: '/bundles/ibexaicons/img/all-icons.svg#user_group'
+                file:
+                    thumbnail: '/bundles/ibexaicons/img/all-icons.svg#file'
+                gallery:
+                    thumbnail: '/bundles/ibexaicons/img/all-icons.svg#gallery'
+                image:
+                    thumbnail: '/bundles/ibexaicons/img/all-icons.svg#image'
+                video:
+                    thumbnail: '/bundles/ibexaicons/img/all-icons.svg#video'
+                landing_page:
+                    thumbnail: '/bundles/ibexaicons/img/all-icons.svg#landing_page'
+                default-config:
+                    thumbnail: '/bundles/ibexaicons/img/all-icons.svg#file'
+            user_content_type_identifier: ['user', 'customer']
+            default_page: 'dashboard'

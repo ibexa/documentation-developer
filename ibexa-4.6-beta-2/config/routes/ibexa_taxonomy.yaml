@@ -1,0 +1,6 @@
+ibexa.taxonomy:
+    resource: '@IbexaTaxonomyBundle/Resources/config/routing.yaml'
+
+ibexa.taxonomy.rest:
+    resource: '@IbexaTaxonomyBundle/Resources/config/routing_rest.yaml'
+    prefix: '%ibexa.rest.path_prefix%'
