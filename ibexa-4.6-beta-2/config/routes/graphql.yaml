@@ -1,5 +1,0 @@
-overblog_graphql_endpoint:
-    path: /graphql
-    defaults:
-        _controller: Overblog\GraphQLBundle\Controller\GraphController::endpointAction
-        _format: "json"

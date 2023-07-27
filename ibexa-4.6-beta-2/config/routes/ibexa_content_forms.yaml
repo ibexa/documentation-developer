@@ -1,2 +1,0 @@
-ibexa.content_forms:
-    resource: '@IbexaContentFormsBundle/Resources/config/routing.yaml'

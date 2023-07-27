@@ -1,2 +1,0 @@
-ibexa.field_type_page:
-    resource: '@IbexaFieldTypePageBundle/Resources/config/routing.yaml'

@@ -1,2 +1,0 @@
-ibexa.field_type_query:
-    resource: '@IbexaFieldTypeQueryBundle/Resources/config/routing/rest.yaml'

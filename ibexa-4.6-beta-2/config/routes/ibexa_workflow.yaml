@@ -1,2 +1,0 @@
-ibexa.workflow:
-    resource: '@IbexaWorkflowBundle/Resources/config/routing.yaml'

@@ -1,2 +1,0 @@
-ibexa.http_cache:
-    resource: '@IbexaHttpCacheBundle/Resources/config/routing.yml'

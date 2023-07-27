@@ -1,2 +1,0 @@
-ibexa.version_comparison:
-    resource: '@IbexaVersionComparisonBundle/Resources/config/routing.yaml'

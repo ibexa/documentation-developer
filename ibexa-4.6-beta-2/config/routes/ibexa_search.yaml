@@ -1,2 +1,0 @@
-ibexa.search:
-    resource: '@IbexaSearchBundle/Resources/config/routing.yaml'

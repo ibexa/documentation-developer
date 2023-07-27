@@ -1,2 +1,0 @@
-ibexa.checkout:
-    resource: '@IbexaCheckoutBundle/Resources/config/routing.yaml'
