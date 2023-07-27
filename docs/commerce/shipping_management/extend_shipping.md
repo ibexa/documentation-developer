@@ -135,7 +135,7 @@ Then, register the storage definition as a service:
 ## Toggle shipping method type availability
 
 When you implement a web store, you can choose if a certain shipping method is available for selection during checkout.
-Here, you limit shipping method availability to customers who meet a specific condition, in this case, they must belong to the Acme company.
+Here, you limit shipping method availability to customers who meet a specific condition. In this case, they must belong to the Acme company.
 Create a `src/ShippingMethodType/Vote/CustomVoter.php` file with a voter class:
 
 ``` php
