@@ -34,7 +34,7 @@ Notes:
   For instance tree operations or changes to Content Types are
   examples of operations that also need to invalidate content cache by tags.
 - Search is not defined as persistence and the queries themselves are not planned to be cached as they are too complex by design (for example, full text).
-  Use [Solr](solr_search_engine.md) which caches this for you to improve scale/performance, and to offload your database.
+  Use [Solr](solr_overview.md) which caches this for you to improve scale/performance, and to offload your database.
 
 For further details on which calls are cached or not, see details in the [Symfony Web Debug Toolbar](devops.md#web-debug-toolbar)
 which has info on cache use in two places:
@@ -62,14 +62,14 @@ The underlying cache system is exposed as an `ibexa.cache_pool` service, and can
 
 By default, configuration uses the `cache.tagaware.filesystem` service to store cache files.
 The service is defined in `config/packages/cache_pool/cache.tagaware.filesystem.yaml`
-to use [FilesystemTagAwareAdapter](https://github.com/ibexa/recipes/blob/master/ibexa/oss/4.0.x-dev/config/packages/cache_pool/cache.tagaware.filesystem.yaml#L8).
+to use [FilesystemTagAwareAdapter](https://github.com/ibexa/recipes/blob/master/ibexa/oss/4.0/config/packages/cache_pool/cache.tagaware.filesystem.yaml#L8).
 
 You can select a different cache backend and configure its parameters in the relevant file in the `cache_pool` folder.
 
 ### Multi Repository setup
 
 You can [configure multisite to work with multiple Repositories](multisite_configuration.md#location-id).
-Then, in `ibexa.yaml` you can specify which cache pool you want to use on a SiteAccess or SiteAccess group level.
+Then, in configuration you can specify which cache pool you want to use on a SiteAccess or SiteAccess group level.
 
 The following example shows use in a SiteAccess group:
 

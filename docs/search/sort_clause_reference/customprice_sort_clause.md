@@ -16,6 +16,11 @@ The `CustomPrice` Sort Clause is not available in the Legacy Search engine.
 ## Example
 
 ``` php
-$sortClauses = [new SortClause\CustomPrice($currency, ProductQuery::SORT_ASC, $customerGroup)];
+$sortClauses = [
+    new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause\CustomPrice(
+        $currency,
+        ProductQuery::SORT_ASC, $customerGroup
+    )
+];
 $productQuery = new ProductQuery(null, null, $sortClauses);
 ```

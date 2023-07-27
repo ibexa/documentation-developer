@@ -1,6 +1,7 @@
 ---
 description: Customer Portal allows your business clients to create and manage their company accounts.
 edition: experience
+page_type: landing_page
 ---
 
 # Customer Portal

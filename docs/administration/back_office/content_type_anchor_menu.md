@@ -14,7 +14,7 @@ See the following example to learn how you can add a Field Type as an anchor men
 
 ## Modify YAML configuration
 
-In a YAML configuration file, for example, in `config/packages/ibexa_admin_ui.yaml`, add:
+Modify the Field Type visibility under the `ibexa.system.<scope>.admin_ui_forms.content_type_edit.field_types` [configuration key](configuration.md#configuration-files):
 
 ```yaml
 ibexa:
@@ -23,7 +23,7 @@ ibexa:
             admin_ui_forms:
                 content_type_edit:
                     field_types:
-                        field_type_identifier:
+                        <field_type_identifier>:
                             meta: true
                             position: 100
 

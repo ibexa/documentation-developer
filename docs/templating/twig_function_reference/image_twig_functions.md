@@ -1,5 +1,6 @@
 ---
 description: Image Twig functions enable rendering images in a specific variation.
+page_type: reference
 ---
 
 # Image Twig functions

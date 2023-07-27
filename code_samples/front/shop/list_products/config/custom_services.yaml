@@ -1,3 +1,0 @@
-services:
-    App\Controller\ProductListController:
-        tags: ['controller.service_arguments']

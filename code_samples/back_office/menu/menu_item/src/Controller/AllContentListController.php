@@ -1,14 +1,14 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Controller;
 
+use Ibexa\AdminUi\Form\Factory\FormFactory;
 use Ibexa\Contracts\AdminUi\Controller\Controller;
 use Ibexa\Contracts\Core\Repository\SearchService;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
 use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
 use Ibexa\Core\Pagination\Pagerfanta\LocationSearchAdapter;
 use Pagerfanta\Pagerfanta;
-use Ibexa\AdminUi\Form\Factory\FormFactory;
 
 class AllContentListController extends Controller
 {
@@ -35,10 +35,10 @@ class AllContentListController extends Controller
         $paginator->setCurrentPage($page);
         $editForm = $this->formFactory->contentEdit();
 
-        return $this->render('list/all_content_list.html.twig', [
+        return $this->render('@ibexadesign/all_content_list.html.twig', [
             'totalCount' => $paginator->getNbResults(),
             'articles' => $paginator,
-            'form_edit' => $editForm->createView()
+            'form_edit' => $editForm->createView(),
         ]);
     }
 }

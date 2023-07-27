@@ -1,12 +1,9 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Block\Listener;
 
-use Ibexa\FieldTypePage\FieldType\Page\Block\Definition\BlockDefinitionEvents;
-use Ibexa\FieldTypePage\FieldType\Page\Block\Definition\Event\BlockAttributeDefinitionEvent;
 use Ibexa\FieldTypePage\FieldType\Page\Block\Renderer\BlockRenderEvents;
 use Ibexa\FieldTypePage\FieldType\Page\Block\Renderer\Event\PreRenderEvent;
-use Ibexa\FieldTypePage\FieldType\Page\Block\Attribute\ValueConverter;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class MyBlockListener implements EventSubscriberInterface
@@ -14,7 +11,7 @@ class MyBlockListener implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return [
-            BlockRenderEvents::getBlockPreRenderEventName('my_block') => 'onBlockPreRender'
+            BlockRenderEvents::getBlockPreRenderEventName('event') => 'onBlockPreRender',
         ];
     }
 

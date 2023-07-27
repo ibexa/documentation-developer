@@ -73,7 +73,6 @@ get:
 
     post:
         displayName: Create a company
-        description:
         headers:
             Accept:
                 description: If set, the new company is returned in XML or JSON format.
@@ -261,7 +260,7 @@ get:
                         body:
                             application/vnd.ibexa.api.Member+xml:
                                 type: Member
-                                example: !include examples/corporate/companies/company_id/members/member_id/GET/Member.json.example
+                                example: !include examples/corporate/companies/company_id/members/member_id/GET/Member.xml.example
                             application/vnd.ibexa.api.Member+json:
                                 type: Member
                                 example: !include examples/corporate/companies/company_id/members/member_id/GET/Member.json.example

@@ -43,7 +43,7 @@ You also need to set (at least) the code for the product and the required Field 
 To delete a product, use `LocalProductService::deleteProduct()`:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 115, 116) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 114, 115) =]]
 ```
 
 ### Product variants
@@ -122,10 +122,12 @@ You can then use `ProductAvailabilityServiceInterface::getStock` to get the stoc
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 98, 103) =]]        }
 ```
 
-To change availability for a product, use `updateProductAvailability()` with a `ProductAvailabilityUpdateStruct`:
+To change availability for a product, use `updateProductAvailability()` with a `ProductAvailabilityUpdateStruct`
+and provide it with the product object. The second parameter defines whether product is available,
+and the third whether its stock is infinite. The fourth parameter is the stock number:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 106, 110) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 106, 109) =]]
 ```
 
 ## Attributes

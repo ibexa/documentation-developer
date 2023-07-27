@@ -9,6 +9,44 @@ The `IntegerAttribute` Search Criterion searches for products by the value of th
 
 ## Example
 
+### PHP
+
 ``` php
-$query->query = new Product\Query\Criterion\IntegerAttribute('size', 38);
+$query = new ProductQuery(
+    null,
+    new \Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\IntegerAttribute(
+        'size',
+        38
+    )
+);
 ```
+
+### REST API
+
+=== "XML"
+
+    ```xml
+    <AttributeQuery>
+        <Query>
+            <IntegerAttributeCriterion>
+                <identifier>size</identifier>
+                <value>38</value>
+            </IntegerAttributeCriterion>
+        </Query>
+    </AttributeQuery>
+    ```
+
+=== "JSON"
+
+    ```json
+    {
+        "AttributeQuery": {
+            "Query": {
+                "IntegerAttributeCriterion": {
+                    "identifier": "size",
+                    "value": 38
+                }
+            }
+        }
+    }
+    ```

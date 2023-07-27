@@ -1,0 +1,8 @@
+ibexa_design_engine:
+    design_list:
+        my_design: [ my_theme ]
+
+ibexa:
+    system:
+        site_group:
+            design: my_design

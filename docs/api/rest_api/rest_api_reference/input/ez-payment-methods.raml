@@ -1,0 +1,154 @@
+displayName: Payment methods
+
+/:
+    post:
+        displayName: Create payment method
+        headers:
+            Accept:
+                description: If set, the created Payment Method is returned in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.PaymentMethod+xml
+                    application/vnd.ibexa.api.PaymentMethod+json
+            Content-Type:
+                description: The Payment Method input schema encoded in XML or JSON.
+                example:  |
+                    application/vnd.ibexa.api.PaymentMethodCreateStruct+xml
+                    application/vnd.ibexa.api.PaymentMethodCreateStruct+json
+        body:
+            application/vnd.ibexa.api.PaymentMethodCreateStruct+xml:
+                type: PaymentMethodCreateStruct
+                example: !include examples/payment-methods/POST/PaymentMethodCreateStruct.xml.example
+            application/vnd.ibexa.api.PaymentMethodCreateStruct+json:
+                type: PaymentMethodCreateStruct
+                example: !include examples/payment-methods/POST/PaymentMethodCreateStruct.json.example
+        responses:
+            200:
+                description: OK
+                body:
+                    application/vnd.ibexa.api.PaymentMethod+json:
+                        type: PaymentMethod
+                        example: !include examples/payment-methods/POST/PaymentMethod.json.example
+            400:
+                description: Error - the input does not match the input schema definition.
+            401:
+                description: Error - the user is not authorized to create Payment Method.
+            404:
+                description: Error - the payment methods does not exist.
+/view:
+    post:
+        displayName: List payment methods
+        description: Executes a query and returns a View including the results. The View input reflects the criteria model of the public API.
+        headers:
+            Accept:
+                description: The view in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.PaymentMethodView+xml
+                    application/vnd.ibexa.api.PaymentMethodView+json
+            Content-Type:
+                description: The view input in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.PaymentMethodViewInput+xml
+                    application/vnd.ibexa.api.PaymentMethodViewInput+json
+        body:
+            application/vnd.ibexa.api.PaymentMethodInput+json:
+                type: PaymentMethodViewInput
+                example: !include examples/payment-methods/view/POST/PaymentMethodViewInput.json.example
+        responses:
+            200:
+                body:
+                    application/vnd.ibexa.api.PaymentMethodView+json:
+                        type: PaymentMethodView
+                        example: !include examples/payment-methods/view/POST/PaymentMethodView.json.example
+            400:
+                description: Error - the input does not match the input schema definition.
+
+/{id}:
+    get:
+        displayName: Load payment method by id
+        description: Loads an payment method by its id.
+        headers:
+            Accept:
+                description: Payment Method - If set, the payment method returned in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.PaymentMethod+json
+            Content-Type:
+                description: The payment method schema encoded in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.PaymentMethod+json
+        responses:
+            200:
+                description: OK - loads the payment method.
+                body:
+                    application/vnd.ibexa.api.PaymentMethod+json:
+                        type: PaymentMethod
+                        example: !include examples/payment-methods/id/GET/PaymentMethod.json.example
+            401:
+                description: Error - the user has no permission to read payment methods.
+            404:
+                description: Error - the payment methods does not exist.
+/{identifier}:
+    get:
+        displayName: Load payment method by identifier
+        description: Loads an payment method by its identifier.
+        headers:
+            Accept:
+                description: Payment Method - If set, the payment method returned in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.PaymentMethod+json
+            Content-Type:
+                description: The payment method schema encoded in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.PaymentMethod+json
+        responses:
+            200:
+                description: OK - loads the payment method.
+                body:
+                    application/vnd.ibexa.api.PaymentMethod+json:
+                        type: PaymentMethod
+                        example: !include examples/payment-methods/identifier/GET/PaymentMethod.json.example
+            401:
+                description: Error - the user has no permission to read payment methods.
+            404:
+                description: Error - the payment methods does not exist.
+    delete:
+        displayName: Delete payment method
+        responses:
+            204:
+                description: No Content
+            401:
+                description: Error - the user has no permission to delete payment methods.
+            404:
+                description: Error - the payment methods does not exist.
+    patch:
+        displayName: Update payment method
+        headers:
+            Accept:
+                description: If set, the updated Payment Method is returned in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.PaymentMethod+xml
+                    application/vnd.ibexa.api.PaymentMethod+json
+            Content-Type:
+                description: The Payment Method input schema encoded in XML or JSON.
+                example:  |
+                    application/vnd.ibexa.api.PaymentMethodUpdateStruct+xml
+                    application/vnd.ibexa.api.PaymentMethodUpdateStruct+json
+        body:
+            application/vnd.ibexa.api.PaymentMethodUpdateStruct+xml:
+                type: PaymentMethodUpdateStruct
+                example: !include examples/payment-methods/identifier/PATCH/PaymentMethodUpdateStruct.xml.example
+            application/vnd.ibexa.api.PaymentMethodUpdateStruct+json:
+                type: PaymentMethodUpdateStruct
+                example: !include examples/payment-methods/identifier/PATCH/PaymentMethodUpdateStruct.json.example
+        responses:
+            200:
+                description: OK
+                body:
+                    application/vnd.ibexa.api.PaymentMethod+json:
+                        type: PaymentMethod
+                        example: !include examples/payment-methods/identifier/PATCH/PaymentMethod.json.example
+            400:
+                description: Error - the input does not match the input schema definition.
+            401:
+                description: Error - the user is not authorized to update Payment Method.
+            404:
+                description: Error - the payment methods does not exist.

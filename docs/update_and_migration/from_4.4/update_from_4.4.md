@@ -101,7 +101,7 @@ Apply the following database update scripts:
 If you earlier upgraded from v3.3 to v4.x and haven't run the migrate script yet, do it now, run:
 
 ```bash
-bash bin/console ibexa:migrate:richtext-namespaces
+php bin/console ibexa:migrate:richtext-namespaces
 ```
 
 #### Ibexa Open Source
@@ -175,14 +175,14 @@ you can now run data migration required by the Customer Portal and Commerce feat
 
 ```bash
 php bin/console ibexa:migrations:import vendor/ibexa/corporate-account/src/bundle/Resources/migrations/customer_portal.yaml --name=2023_03_06_13_00_customer_portal.yaml
-php bin/console ibexa:migration:migrate --file=2023_03_06_13_00_customer_portal.yaml
+php bin/console ibexa:migrations:migrate --file=2023_03_06_13_00_customer_portal.yaml
 ```
 
 - Corporate access role update [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 ```bash
 php bin/console ibexa:migrations:import vendor/ibexa/corporate-account/src/bundle/Resources/migrations/2023_05_09_12_40_corporate_access_role_update.yaml --name=2023_05_09_12_40_corporate_access_role_update.yaml
-php bin/console ibexa:migration:migrate --file=2023_05_09_12_40_corporate_access_role_update.yaml
+php bin/console ibexa:migrations:migrate --file=2023_05_09_12_40_corporate_access_role_update.yaml
 ```
 
 - Corporate account [[% include 'snippets/commerce_badge.md' %]]
@@ -191,26 +191,26 @@ This migration allows all company members to shop in the frontend shop. If you h
 
 ```bash
 php bin/console ibexa:migrations:import vendor/ibexa/storefront/src/bundle/Resources/migrations/2023_04_27_10_30_corporate_account.yaml --name=2023_04_27_10_30_corporate_account.yaml
-php bin/console ibexa:migration:migrate --file=2023_04_27_10_30_corporate_account.yaml
+php bin/console ibexa:migrations:migrate --file=2023_04_27_10_30_corporate_account.yaml
 ```
 
 - Storefront user update [[% include 'snippets/commerce_badge.md' %]]
 
 ```bash
 php bin/console ibexa:migrations:import vendor/ibexa/storefront/src/bundle/Resources/migrations/2023_04_27_11_20_storefront_user_role_update.yaml --name=2023_04_27_11_20_storefront_user_role_update.yaml
-php bin/console ibexa:migration:migrate --file=2023_04_27_11_20_storefront_user_role_update.yaml
+php bin/console ibexa:migrations:migrate --file=2023_04_27_11_20_storefront_user_role_update.yaml
 ```
 
 - Shipment permissions [[% include 'snippets/commerce_badge.md' %]]
 
 ```bash
 php bin/console ibexa:migrations:import vendor/ibexa/shipping/src/bundle/Resources/install/migrations/shipment_permissions.yaml --name=shipment_permissions.yaml
-php bin/console ibexa:migration:migrate --file=shipment_permissions.yaml
+php bin/console ibexa:migrations:migrate --file=shipment_permissions.yaml
 ```
 
 - Order permissions [[% include 'snippets/commerce_badge.md' %]]
 
 ```bash
 php bin/console ibexa:migrations:import vendor/ibexa/order-management/src/bundle/Resources/install/migrations/order_permissions.yaml --name=order_permissions.yaml
-php bin/console ibexa:migration:migrate --file=order_permissions.yaml
+php bin/console ibexa:migrations:migrate --file=order_permissions.yaml
 ```

@@ -12,7 +12,7 @@ To import assets from a bundle, configure them in an `ibexa.config.js` file that
 
 ``` js
 const path = require('path');
-
+git 
 module.exports = (Encore) => {
 	Encore.addEntry('<entry-name>', [
 		path.resolve(__dirname, '<path_to_file>'),
@@ -111,7 +111,7 @@ or in the `encore` folder in the root directory of your project, for example:
 ## Configuration from main project files
 
 If you prefer to include the asset configuration in the main project files,
-add it in [`webpack.config.js`](https://github.com/ibexa/recipes/blob/master/ibexa/oss/4.0.x-dev/encore/webpack.config.js#L31).
+add it in [`webpack.config.js`](https://github.com/ibexa/recipes/blob/master/ibexa/oss/4.0/encore/webpack.config.js#L31).
 
 To overwrite the built-in assets, use the following configuration to replace, remove or add asset files
 in `webpack.config.js`:

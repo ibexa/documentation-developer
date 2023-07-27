@@ -1,5 +1,6 @@
 ---
 description: Field Twig function enable rendering content Fields, their values and their information.
+page_type: reference
 ---
 
 # Field Twig functions

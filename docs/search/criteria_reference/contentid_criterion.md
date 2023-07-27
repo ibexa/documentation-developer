@@ -9,6 +9,30 @@ searches for content by its ID.
 
 ## Example
 
+### PHP
+
 ``` php
 $query->query = new Criterion\ContentId([62, 64]);
 ```
+
+### REST API
+
+=== "XML"
+
+    ```xml
+    <Query>
+        <Filter>
+            <ContentIdCriterion>[69, 72]</ContentIdCriterion>
+        </Filter>
+    </Query>
+    ```
+
+=== "JSON"
+
+    ```json
+    "Query": {
+        "Filter": {
+            "ContentIdCriterion": [69, 72]
+        }
+    }
+    ```

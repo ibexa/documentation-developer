@@ -6,7 +6,7 @@ description: Configure HTTP cache for Ibexa DXP, including cache header rules an
 
 ## Content view configuration
 
-You can configure cache globally for content views in `config/packages/ibexa.yaml`:
+You can configure cache globally for content views under the `ibexa.system.<scope>.content` [configuration key](configuration.md#configuration-files):
 
 ``` yaml
 ibexa:

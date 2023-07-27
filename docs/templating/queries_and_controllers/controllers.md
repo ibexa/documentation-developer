@@ -6,7 +6,7 @@ description: Use controllers to customize rendering and querying content in your
 
 By configuring a controller you can modify and enhance the way in which the built-in content view controller renders content.
 
-You indicate which controller to use in the [content view configuration](template_configuration.md), under the `controller` key:
+You indicate which controller to use in the [content view configuration](template_configuration.md), under the `controller` [configuration key](configuration.md#configuration-files):
 
 ``` yaml
 [[= include_file('code_samples/front/embed_content/config/packages/views.yaml', 23, 26) =]][[= include_file('code_samples/front/embed_content/config/packages/views.yaml', 28, 30) =]]

@@ -26,18 +26,17 @@ For reverse proxies to work properly with your installation, you need to add the
 HTTP Cache.
 
 - [Varnish VCL xkey example](https://github.com/ibexa/http-cache/blob/main/docs/varnish/vcl/varnish5.vcl)
-- Fastly VCL can be found in `vendor/ibexa/fastly/fastly`
-  - `ez_main.vcl` needs to installed as the main custom VCL
-  - `ez_user_hash.vcl` also needs to be installed as custom VCL
-  - `snippet_re_enable_shielding.vcl` needs to be installed as snippet. See comments in the .vcl file itself for
-    instructions on how to install it.
+- Fastly can be found in `vendor/ibexa/fastly/fastly`. You must install the following to use Fastly:
+  - `ez_main.vcl` as the **main** custom VCL
+  - `ez_user_hash.vcl` as another custom VCL
+  - `snippet_re_enable_shielding.vcl` as snippet
 
-The provided .vcl files will work both with [Fastly Shielding](https://docs.fastly.com/en/guides/shielding) enabled and without it.
-
-!!! tip
-    Support for Fastly Shielding was added in Ibexa DXP v3.3.24 and V4.1.6
+The provided `.vcl` files work both with [Fastly Shielding](https://docs.fastly.com/en/guides/shielding) enabled and without it.
+If you decide to use Fastly VCL, consider using [Fastly CLI](https://developer.fastly.com/learning/tools/cli#installing) with it to manage VCL files from the command line.
+To learn more, see [Prepare to use Fastly locally](fastly.md#prepare-for-using-fastly-locally) and [Introduction to Fastly CLI](fastly.md#quick-introduction-to-fastly-cli).
 
 !!! tip
+    Support for Fastly Shielding was added in Ibexa DXP v3.3.24 and v4.1.6
 
     When you extend [FOSHttpCacheBundle](https://foshttpcachebundle.readthedocs.io/en/2.9.1/),
     you can also adapt your VCL further with [FOSHttpCache documentation](http://foshttpcache.readthedocs.org/en/latest/varnish-configuration.html)
@@ -47,12 +46,18 @@ The provided .vcl files will work both with [Fastly Shielding](https://docs.fast
 
 The configuration of [[= product_name =]] for using Varnish or Fastly requires a few steps, starting with configuring proxy.
 
+Failing to configure reverse proxies correctly may introduce several problems, including, but not limited to:
+
+- [[= product_name =]] generating links with a wrong protocol schema (HTTP instead of HTTPS) if HTTPS termination is done before the web server due to the `X-Forward-Proto` headers being ignored
+- [[= product_name =]] generating links with wrong port numbers due to the `X-Forward-Port` headers being ignored
+- Back Office showing the login screen because JWT tokens are not accepted due to the `X-Forward-For` headers being ignored
+
 ### Configure Symfony front controller
 
 You need to consider your `TrustedProxy` configuration when you use Symfony [behind a load balancer or a reverse proxy.](https://symfony.com/doc/5.1/deployment/proxies.html)
 
 To configure trusted proxies, use [Symfony semantic configuration]([[= symfony_doc =]]/deployment/proxies.html#solution-settrustedproxies) under
-`framework.trusted_proxies`, for example:
+the `framework.trusted_proxies` [configuration key](configuration.md#configuration-files), for example:
 
 ``` yaml
 framework:
@@ -87,7 +92,7 @@ For more information about setting these variables, see [Configuration examples]
 ### Update YML configuration
 
 Next, you need to tell [[= product_name =]] to use an HTTP-based purge client (specifically the FosHttpCache Varnish purge client),
-and specify the URL that Varnish can be reached on (in `config/packages/ibexa.yaml`):
+and specify the URL that Varnish can be reached on:
 
 | Configuration | Parameter| Environment variable| Possible values|
 |---------|--------|--------|----------|
@@ -128,7 +133,7 @@ If your installation uses Varnish and you want users to be able to configure and
 you must enable sending Captcha data as a response to an Ajax request. 
 Otherwise, Varnish does not allow for the transfer of Captcha data to the form, and as a result, users see an empty image.
 
-To enable sending Captcha over Ajax, add the following configuration to `config/packages/ibexa.yaml`:
+To enable sending Captcha over Ajax, add the following configuration:
 
 ``` yaml
 ibexa:

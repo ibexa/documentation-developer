@@ -9,9 +9,33 @@ searches for content based on the ID of its Content Type group.
 
 ## Example
 
+### PHP
+
 ``` php
 $query->query = new Criterion\ContentTypeGroupId([1, 2]);
 ```
+
+### REST API
+
+=== "XML"
+
+    ```xml
+    <Query>
+        <Filter>
+            <ContentTypeGroupIdCriterion>[1, 2]</ContentTypeGroupIdCriterion>
+        </Filter>
+    </Query>
+    ```
+
+=== "JSON"
+
+    ```json
+    "Query": {
+        "Filter": {
+            "ContentTypeGroupIdCriterion": [1, 2]
+        }
+    }
+    ```
 
 ## Use case
 
@@ -28,3 +52,25 @@ You can use the `ContentTypeGroupId` Criterion to query all Media Content items
         }
     }
 ```
+
+### REST API
+
+=== "XML"
+
+    ```xml
+      <Query>
+        <Filter>
+            <ContentIdCriterion>[69, 72]</ContentIdCriterion>
+        </Filter>
+      </Query>
+    ```
+
+=== "JSON"
+
+    ```json
+    "Query": {
+        "Filter": {
+            "ContentIdCriterion": [69, 72]
+            }
+        }
+    ```
