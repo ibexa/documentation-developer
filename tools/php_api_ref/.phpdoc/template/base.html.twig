@@ -40,7 +40,7 @@
       }
       // Open current
       let path = document.location.pathname.split('/');
-      let page = path.pop();
+      let page = path.slice(-2).join('/');
       let current = $('.phpdocumentor-sidebar__category .phpdocumentor-list a[href$="'+page+'"]');
       if (current.length) {
         current.closest('li').addClass('current');
