@@ -7,7 +7,7 @@ namespace App\Attribute\NameSchema;
 use Ibexa\Contracts\ProductCatalog\NameSchema\NameSchemaStrategyInterface;
 use Ibexa\Contracts\ProductCatalog\Values\AttributeDefinitionInterface;
 
-final class PercentNameSchemaStrategy implements NameSchemaStrategyInterface
+final class NameSchemaStrategyInterface implements NameSchemaStrategyInterface
 {
     /**
      * @param mixed $value
