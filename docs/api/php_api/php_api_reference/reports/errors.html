@@ -39,26 +39,18 @@
       icon.attr('xlink:href', icon.attr('xlink:href').replace(/#.+$/, '#' + image));
     }
     $(function() {
-      let depth = 3;
-      let lists;
-      while ((lists = $('.phpdocumentor-sidebar__category .phpdocumentor-list.depth-'+depth)).length) {
-        // Close namespaces
-        lists.hide();
-        lists.each(function() {
-          let list = $(this);
-          let target = list.prevAll('svg').first();
-          // Set event listeners
-          target.click(toggle);
-          // Set icon image
-          let icon = target.children('use');
-          let image = 'folder';
-          icon.attr('xlink:href', icon.attr('xlink:href').replace(/#.+$/, '#' + image));
-        });
-        depth++;
-      }
+      $('.phpdocumentor-sidebar__category .phpdocumentor-list.depth-1 .phpdocumentor-list').each(function() {
+        let target = $(this).prevAll('svg').first();
+        // Set event listener
+        target.click(toggle);
+        // Set icon image
+        let icon = target.children('use');
+        let image = 'folder';
+        icon.attr('xlink:href', icon.attr('xlink:href').replace(/#.+$/, '#' + image));
+      });
       // Open current
       let path = document.location.pathname.split('/');
-      let page = path.pop();
+      let page = path.slice(-2).join('/');
       let current = $('.phpdocumentor-sidebar__category .phpdocumentor-list a[href$="'+page+'"]');
       if (current.length) {
         current.closest('li').addClass('current');
@@ -12551,6 +12543,12 @@
                 <svg width="8" height="8">
                     <use fill="var(--ibexa-jazzberry)" xlink:href="../../../images/ez-icons.svg#file"></use>
                 </svg>
+                <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-ProductStockRangeAggregation.html">ProductStockRangeAggregation</a>
+            </li>
+                    <li class="type-element">
+                <svg width="8" height="8">
+                    <use fill="var(--ibexa-jazzberry)" xlink:href="../../../images/ez-icons.svg#file"></use>
+                </svg>
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-ProductTypeTermAggregation.html">ProductTypeTermAggregation</a>
             </li>
                     </ul>
@@ -12711,6 +12709,18 @@
                     <use fill="var(--ibexa-jazzberry)" xlink:href="../../../images/ez-icons.svg#file"></use>
                 </svg>
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-ProductName.html">ProductName</a>
+            </li>
+                    <li class="type-element">
+                <svg width="8" height="8">
+                    <use fill="var(--ibexa-jazzberry)" xlink:href="../../../images/ez-icons.svg#file"></use>
+                </svg>
+                <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-ProductStock.html">ProductStock</a>
+            </li>
+                    <li class="type-element">
+                <svg width="8" height="8">
+                    <use fill="var(--ibexa-jazzberry)" xlink:href="../../../images/ez-icons.svg#file"></use>
+                </svg>
+                <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-ProductStockRange.html">ProductStockRange</a>
             </li>
                     <li class="type-element">
                 <svg width="8" height="8">
@@ -15358,10 +15368,6 @@
                     <td class="phpdocumentor-cell"><a href="reports/errors.html#vendor/ibexa/seo/src/contracts/Renderer/TagRendererRegistryInterface.php">vendor/ibexa/seo/src/contracts/Renderer/TagRendererRegistryInterface.php</a></td>
                     <td class="phpdocumentor-cell">1</td>
                 </tr>
-                                                            <tr>
-                    <td class="phpdocumentor-cell"><a href="reports/errors.html#vendor/ibexa/user/src/contracts/Invitation/Persistence/Gateway.php">vendor/ibexa/user/src/contracts/Invitation/Persistence/Gateway.php</a></td>
-                    <td class="phpdocumentor-cell">2</td>
-                </tr>
                                     </table>
     
     
@@ -15635,51 +15641,6 @@
   key: string|null,
 } $fieldConfig&quot; has error &quot;\Ibexa\Contracts\Seo\Renderer\array{
   label: string&quot; is not a valid Fqsen.</td>
-                </tr>
-                        </tbody>
-        </table>
-            <a id="vendor/ibexa/user/src/contracts/Invitation/Persistence/Gateway.php"></a>
-        <h3><abbr title="vendor/ibexa/user/src/contracts/Invitation/Persistence/Gateway.php">Gateway.php</abbr></h3>
-        <table>
-            <thead>
-                <tr>
-                    <th class="phpdocumentor-heading">Type</th>
-                    <th class="phpdocumentor-heading">Line</th>
-                    <th class="phpdocumentor-heading">Description</th>
-                </tr>
-            </thead>
-            <tbody>
-                            <tr>
-                    <td class="phpdocumentor-cell">ERROR</td>
-                    <td class="phpdocumentor-cell">0</td>
-                    <td class="phpdocumentor-cell">Tag &quot;return&quot; with body &quot;@return array{
-    email: string,
-    hash: string,
-    site_access_name: string,
-    creation_date: int,
-    used: bool,
-    role_id: ?int,
-    user_group_id: ?int,
-    limitation_type: ?string,
-    limitation_value: ?string
- }&quot; has error &quot;\Ibexa\Contracts\User\Invitation\Persistence\array{
-    email: string&quot; is not a valid Fqsen.</td>
-                </tr>
-                            <tr>
-                    <td class="phpdocumentor-cell">ERROR</td>
-                    <td class="phpdocumentor-cell">0</td>
-                    <td class="phpdocumentor-cell">Tag &quot;return&quot; with body &quot;@return array&lt;array{
-    email: string,
-    hash: string,
-    site_access_name: string,
-    creation_date: int,
-    used: bool,
-    role_id: ?int,
-    user_group_id: ?int,
-    limitation_type: ?string,
-    limitation_value: ?string,
-}&gt;&quot; has error &quot;\Ibexa\Contracts\User\Invitation\Persistence\array{
-    email: string&quot; is not a valid Fqsen.</td>
                 </tr>
                         </tbody>
         </table>

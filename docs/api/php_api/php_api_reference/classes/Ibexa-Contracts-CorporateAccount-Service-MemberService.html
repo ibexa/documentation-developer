@@ -38,26 +38,18 @@
       icon.attr('xlink:href', icon.attr('xlink:href').replace(/#.+$/, '#' + image));
     }
     $(function() {
-      let depth = 3;
-      let lists;
-      while ((lists = $('.phpdocumentor-sidebar__category .phpdocumentor-list.depth-'+depth)).length) {
-        // Close namespaces
-        lists.hide();
-        lists.each(function() {
-          let list = $(this);
-          let target = list.prevAll('svg').first();
-          // Set event listeners
-          target.click(toggle);
-          // Set icon image
-          let icon = target.children('use');
-          let image = 'folder';
-          icon.attr('xlink:href', icon.attr('xlink:href').replace(/#.+$/, '#' + image));
-        });
-        depth++;
-      }
+      $('.phpdocumentor-sidebar__category .phpdocumentor-list.depth-1 .phpdocumentor-list').each(function() {
+        let target = $(this).prevAll('svg').first();
+        // Set event listener
+        target.click(toggle);
+        // Set icon image
+        let icon = target.children('use');
+        let image = 'folder';
+        icon.attr('xlink:href', icon.attr('xlink:href').replace(/#.+$/, '#' + image));
+      });
       // Open current
       let path = document.location.pathname.split('/');
-      let page = path.pop();
+      let page = path.slice(-2).join('/');
       let current = $('.phpdocumentor-sidebar__category .phpdocumentor-list a[href$="'+page+'"]');
       if (current.length) {
         current.closest('li').addClass('current');
@@ -12550,6 +12542,12 @@
                 <svg width="8" height="8">
                     <use fill="var(--ibexa-jazzberry)" xlink:href="../../../images/ez-icons.svg#file"></use>
                 </svg>
+                <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-ProductStockRangeAggregation.html">ProductStockRangeAggregation</a>
+            </li>
+                    <li class="type-element">
+                <svg width="8" height="8">
+                    <use fill="var(--ibexa-jazzberry)" xlink:href="../../../images/ez-icons.svg#file"></use>
+                </svg>
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-ProductTypeTermAggregation.html">ProductTypeTermAggregation</a>
             </li>
                     </ul>
@@ -12710,6 +12708,18 @@
                     <use fill="var(--ibexa-jazzberry)" xlink:href="../../../images/ez-icons.svg#file"></use>
                 </svg>
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-ProductName.html">ProductName</a>
+            </li>
+                    <li class="type-element">
+                <svg width="8" height="8">
+                    <use fill="var(--ibexa-jazzberry)" xlink:href="../../../images/ez-icons.svg#file"></use>
+                </svg>
+                <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-ProductStock.html">ProductStock</a>
+            </li>
+                    <li class="type-element">
+                <svg width="8" height="8">
+                    <use fill="var(--ibexa-jazzberry)" xlink:href="../../../images/ez-icons.svg#file"></use>
+                </svg>
+                <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-ProductStockRange.html">ProductStockRange</a>
             </li>
                     <li class="type-element">
                 <svg width="8" height="8">
@@ -15344,6 +15354,10 @@
 
                                                                                 <li class="type method">Methods</li>
                             <li class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-CorporateAccount-Service-MemberService.html#method_countCompanyMembers">countCompanyMembers()</a>
+</li>
+
+                            <li class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Ibexa-Contracts-CorporateAccount-Service-MemberService.html#method_createMember">createMember()</a>
 </li>
 
@@ -15456,6 +15470,74 @@
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_countCompanyMembers">
+        countCompanyMembers()
+        <a href="classes/Ibexa-Contracts-CorporateAccount-Service-MemberService.html#method_countCompanyMembers" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/corporate-account/src/contracts/Service/MemberService.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/corporate-account/src/contracts/Service/MemberService.php');">MemberService.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">50</span>
+</aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">countCompanyMembers</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-CorporateAccount-Values-Company.html"><abbr title="\Ibexa\Contracts\CorporateAccount\Values\Company">Company</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$company</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion">Criterion</abbr></a>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$filter</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$company</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-CorporateAccount-Values-Company.html"><abbr title="\Ibexa\Contracts\CorporateAccount\Values\Company">Company</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$filter</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion">Criterion</abbr></a>|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
+    
+
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                            <dt class="phpdocumentor-tag-list__entry">
+                <span class="phpdocumentor-tag__name">throws</span>
+            </dt>
+                            <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-BadStateException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\BadStateException">BadStateException</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                            <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-InvalidArgumentException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\InvalidArgumentException">InvalidArgumentException</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                                    </dl>
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">int</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_createMember">
         createMember()
         <a href="classes/Ibexa-Contracts-CorporateAccount-Service-MemberService.html#method_createMember" class="headerlink"><i class="fas fa-link"></i></a>
@@ -15463,7 +15545,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/corporate-account/src/contracts/Service/MemberService.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/corporate-account/src/contracts/Service/MemberService.php');">MemberService.php</abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">64</span>
+    <span class="phpdocumentor-element-found-in__line">75</span>
 </aside>
 
     
@@ -15544,7 +15626,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/corporate-account/src/contracts/Service/MemberService.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/corporate-account/src/contracts/Service/MemberService.php');">MemberService.php</abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">68</span>
+    <span class="phpdocumentor-element-found-in__line">79</span>
 </aside>
 
     
@@ -15586,7 +15668,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/corporate-account/src/contracts/Service/MemberService.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/corporate-account/src/contracts/Service/MemberService.php');">MemberService.php</abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">72</span>
+    <span class="phpdocumentor-element-found-in__line">83</span>
 </aside>
 
     
@@ -15628,7 +15710,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/corporate-account/src/contracts/Service/MemberService.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/corporate-account/src/contracts/Service/MemberService.php');">MemberService.php</abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">33</span>
+    <span class="phpdocumentor-element-found-in__line">38</span>
 </aside>
 
     
@@ -15682,6 +15764,35 @@
 
     
 
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                            <dt class="phpdocumentor-tag-list__entry">
+                <span class="phpdocumentor-tag__name">throws</span>
+            </dt>
+                            <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-BadStateException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\BadStateException">BadStateException</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                            <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-InvalidArgumentException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\InvalidArgumentException">InvalidArgumentException</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                            <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-NotFoundException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException">NotFoundException</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                            <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-UnauthorizedException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException">UnauthorizedException</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                                    </dl>
 
             <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-CorporateAccount-Values-Member.html"><abbr title="\Ibexa\Contracts\CorporateAccount\Values\Member">Member</abbr></a>&gt;</span>
@@ -15750,7 +15861,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/corporate-account/src/contracts/Service/MemberService.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/corporate-account/src/contracts/Service/MemberService.php');">MemberService.php</abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">41</span>
+    <span class="phpdocumentor-element-found-in__line">52</span>
 </aside>
 
     
@@ -15800,7 +15911,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/corporate-account/src/contracts/Service/MemberService.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/corporate-account/src/contracts/Service/MemberService.php');">MemberService.php</abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">43</span>
+    <span class="phpdocumentor-element-found-in__line">54</span>
 </aside>
 
     
@@ -15850,7 +15961,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/corporate-account/src/contracts/Service/MemberService.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/corporate-account/src/contracts/Service/MemberService.php');">MemberService.php</abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">48</span>
+    <span class="phpdocumentor-element-found-in__line">59</span>
 </aside>
 
     
@@ -15891,7 +16002,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/corporate-account/src/contracts/Service/MemberService.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/corporate-account/src/contracts/Service/MemberService.php');">MemberService.php</abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">53</span>
+    <span class="phpdocumentor-element-found-in__line">64</span>
 </aside>
 
     
@@ -15932,7 +16043,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/corporate-account/src/contracts/Service/MemberService.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/corporate-account/src/contracts/Service/MemberService.php');">MemberService.php</abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">57</span>
+    <span class="phpdocumentor-element-found-in__line">68</span>
 </aside>
 
     
@@ -15974,7 +16085,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/corporate-account/src/contracts/Service/MemberService.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/corporate-account/src/contracts/Service/MemberService.php');">MemberService.php</abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">55</span>
+    <span class="phpdocumentor-element-found-in__line">66</span>
 </aside>
 
     
@@ -16032,7 +16143,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/corporate-account/src/contracts/Service/MemberService.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/corporate-account/src/contracts/Service/MemberService.php');">MemberService.php</abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">74</span>
+    <span class="phpdocumentor-element-found-in__line">85</span>
 </aside>
 
     
@@ -16098,7 +16209,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/corporate-account/src/contracts/Service/MemberService.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/corporate-account/src/contracts/Service/MemberService.php');">MemberService.php</abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">81</span>
+    <span class="phpdocumentor-element-found-in__line">92</span>
 </aside>
 
     
@@ -16129,7 +16240,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/corporate-account/src/contracts/Service/MemberService.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/corporate-account/src/contracts/Service/MemberService.php');">MemberService.php</abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">70</span>
+    <span class="phpdocumentor-element-found-in__line">81</span>
 </aside>
 
     
@@ -16179,7 +16290,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/corporate-account/src/contracts/Service/MemberService.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/corporate-account/src/contracts/Service/MemberService.php');">MemberService.php</abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">66</span>
+    <span class="phpdocumentor-element-found-in__line">77</span>
 </aside>
 
     

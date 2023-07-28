@@ -38,26 +38,18 @@
       icon.attr('xlink:href', icon.attr('xlink:href').replace(/#.+$/, '#' + image));
     }
     $(function() {
-      let depth = 3;
-      let lists;
-      while ((lists = $('.phpdocumentor-sidebar__category .phpdocumentor-list.depth-'+depth)).length) {
-        // Close namespaces
-        lists.hide();
-        lists.each(function() {
-          let list = $(this);
-          let target = list.prevAll('svg').first();
-          // Set event listeners
-          target.click(toggle);
-          // Set icon image
-          let icon = target.children('use');
-          let image = 'folder';
-          icon.attr('xlink:href', icon.attr('xlink:href').replace(/#.+$/, '#' + image));
-        });
-        depth++;
-      }
+      $('.phpdocumentor-sidebar__category .phpdocumentor-list.depth-1 .phpdocumentor-list').each(function() {
+        let target = $(this).prevAll('svg').first();
+        // Set event listener
+        target.click(toggle);
+        // Set icon image
+        let icon = target.children('use');
+        let image = 'folder';
+        icon.attr('xlink:href', icon.attr('xlink:href').replace(/#.+$/, '#' + image));
+      });
       // Open current
       let path = document.location.pathname.split('/');
-      let page = path.pop();
+      let page = path.slice(-2).join('/');
       let current = $('.phpdocumentor-sidebar__category .phpdocumentor-list a[href$="'+page+'"]');
       if (current.length) {
         current.closest('li').addClass('current');
@@ -12550,6 +12542,12 @@
                 <svg width="8" height="8">
                     <use fill="var(--ibexa-jazzberry)" xlink:href="../../../images/ez-icons.svg#file"></use>
                 </svg>
+                <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-ProductStockRangeAggregation.html">ProductStockRangeAggregation</a>
+            </li>
+                    <li class="type-element">
+                <svg width="8" height="8">
+                    <use fill="var(--ibexa-jazzberry)" xlink:href="../../../images/ez-icons.svg#file"></use>
+                </svg>
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-ProductTypeTermAggregation.html">ProductTypeTermAggregation</a>
             </li>
                     </ul>
@@ -12710,6 +12708,18 @@
                     <use fill="var(--ibexa-jazzberry)" xlink:href="../../../images/ez-icons.svg#file"></use>
                 </svg>
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-ProductName.html">ProductName</a>
+            </li>
+                    <li class="type-element">
+                <svg width="8" height="8">
+                    <use fill="var(--ibexa-jazzberry)" xlink:href="../../../images/ez-icons.svg#file"></use>
+                </svg>
+                <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-ProductStock.html">ProductStock</a>
+            </li>
+                    <li class="type-element">
+                <svg width="8" height="8">
+                    <use fill="var(--ibexa-jazzberry)" xlink:href="../../../images/ez-icons.svg#file"></use>
+                </svg>
+                <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-ProductStockRange.html">ProductStockRange</a>
             </li>
                     <li class="type-element">
                 <svg width="8" height="8">
@@ -15459,6 +15469,31 @@
 
     
 
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                            <dt class="phpdocumentor-tag-list__entry">
+                <span class="phpdocumentor-tag__name">phpstan-return</span>
+            </dt>
+                            <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>array{
+email: string,
+hash: string,
+site_access_name: string,
+creation_date: int,
+used: bool,
+role_id: ?int,
+user_group_id: ?int,
+limitation_type: ?string,
+limitation_value: ?string
+}</p>
+</section>
+
+                                    </dd>
+                                    </dl>
 
             <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
@@ -15500,6 +15535,31 @@
 
     
 
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                            <dt class="phpdocumentor-tag-list__entry">
+                <span class="phpdocumentor-tag__name">phpstan-return</span>
+            </dt>
+                            <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>array&lt;array{
+email: string,
+hash: string,
+site_access_name: string,
+creation_date: int,
+used: bool,
+role_id: ?int,
+user_group_id: ?int,
+limitation_type: ?string,
+limitation_value: ?string,
+}&gt;</p>
+</section>
+
+                                    </dd>
+                                    </dl>
 
             <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>

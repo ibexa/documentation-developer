@@ -191,6 +191,7 @@
     margin-right: var(--spacing-sm);
 }
 
+
 :root {
     --primary-color-hue: 328;
     --primary-color-saturation: 82%;
@@ -230,6 +231,9 @@ ul.phpdocumentor-table-of-contents {
 .phpdocumentor .phpdocumentor-sidebar {
     overflow-x: scroll;
 }
+.phpdocumentor .phpdocumentor-sidebar .phpdocumentor-list.depth-2 .phpdocumentor-list {
+    display: none;
+}
 .phpdocumentor .phpdocumentor-sidebar .phpdocumentor-list li {
     border-left: 1px solid grey;
     overflow: visible;
@@ -268,4 +272,3 @@ ul.phpdocumentor-table-of-contents {
 .phpdocumentor dl dd .phpdocumentor-description {
     margin-bottom: 0;
 }
-

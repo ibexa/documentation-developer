@@ -38,26 +38,18 @@
       icon.attr('xlink:href', icon.attr('xlink:href').replace(/#.+$/, '#' + image));
     }
     $(function() {
-      let depth = 3;
-      let lists;
-      while ((lists = $('.phpdocumentor-sidebar__category .phpdocumentor-list.depth-'+depth)).length) {
-        // Close namespaces
-        lists.hide();
-        lists.each(function() {
-          let list = $(this);
-          let target = list.prevAll('svg').first();
-          // Set event listeners
-          target.click(toggle);
-          // Set icon image
-          let icon = target.children('use');
-          let image = 'folder';
-          icon.attr('xlink:href', icon.attr('xlink:href').replace(/#.+$/, '#' + image));
-        });
-        depth++;
-      }
+      $('.phpdocumentor-sidebar__category .phpdocumentor-list.depth-1 .phpdocumentor-list').each(function() {
+        let target = $(this).prevAll('svg').first();
+        // Set event listener
+        target.click(toggle);
+        // Set icon image
+        let icon = target.children('use');
+        let image = 'folder';
+        icon.attr('xlink:href', icon.attr('xlink:href').replace(/#.+$/, '#' + image));
+      });
       // Open current
       let path = document.location.pathname.split('/');
-      let page = path.pop();
+      let page = path.slice(-2).join('/');
       let current = $('.phpdocumentor-sidebar__category .phpdocumentor-list a[href$="'+page+'"]');
       if (current.length) {
         current.closest('li').addClass('current');
@@ -12550,6 +12542,12 @@
                 <svg width="8" height="8">
                     <use fill="var(--ibexa-jazzberry)" xlink:href="../../../images/ez-icons.svg#file"></use>
                 </svg>
+                <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-ProductStockRangeAggregation.html">ProductStockRangeAggregation</a>
+            </li>
+                    <li class="type-element">
+                <svg width="8" height="8">
+                    <use fill="var(--ibexa-jazzberry)" xlink:href="../../../images/ez-icons.svg#file"></use>
+                </svg>
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-ProductTypeTermAggregation.html">ProductTypeTermAggregation</a>
             </li>
                     </ul>
@@ -12710,6 +12708,18 @@
                     <use fill="var(--ibexa-jazzberry)" xlink:href="../../../images/ez-icons.svg#file"></use>
                 </svg>
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-ProductName.html">ProductName</a>
+            </li>
+                    <li class="type-element">
+                <svg width="8" height="8">
+                    <use fill="var(--ibexa-jazzberry)" xlink:href="../../../images/ez-icons.svg#file"></use>
+                </svg>
+                <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-ProductStock.html">ProductStock</a>
+            </li>
+                    <li class="type-element">
+                <svg width="8" height="8">
+                    <use fill="var(--ibexa-jazzberry)" xlink:href="../../../images/ez-icons.svg#file"></use>
+                </svg>
+                <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-ProductStockRange.html">ProductStockRange</a>
             </li>
                     <li class="type-element">
                 <svg width="8" height="8">
@@ -15355,6 +15365,10 @@
 </li>
 
                             <li class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Core-Repository-RoleService.html#method_countRoleAssignments">countRoleAssignments()</a>
+</li>
+
+                            <li class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Ibexa-Contracts-Core-Repository-RoleService.html#method_createRole">createRole()</a>
 </li>
 
@@ -15396,6 +15410,10 @@
 
                             <li class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Ibexa-Contracts-Core-Repository-RoleService.html#method_loadRoleAssignment">loadRoleAssignment()</a>
+</li>
+
+                            <li class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Core-Repository-RoleService.html#method_loadRoleAssignments">loadRoleAssignments()</a>
 </li>
 
                             <li class="phpdocumentor-table-of-contents__entry -method -public">
@@ -15837,6 +15855,74 @@ is repeated in the policy create struct or if limitation is not allowed on modul
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_countRoleAssignments">
+        countRoleAssignments()
+        <a href="classes/Ibexa-Contracts-Core-Repository-RoleService.html#method_countRoleAssignments" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Repository/RoleService.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Repository/RoleService.php');">RoleService.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">302</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Returns the number of users and user groups assigned to this role.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">countRoleAssignments</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-User-Role.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\User\Role">Role</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$role</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$role</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-User-Role.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\User\Role">Role</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
+    
+
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                            <dt class="phpdocumentor-tag-list__entry">
+                <span class="phpdocumentor-tag__name">throws</span>
+            </dt>
+                            <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-BadStateException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\BadStateException">BadStateException</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                            <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-InvalidArgumentException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\InvalidArgumentException">InvalidArgumentException</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                            <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-UnauthorizedException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException">UnauthorizedException</abbr></a></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>if the authenticated user is not allowed to read a role</p>
+</section>
+
+                                    </dd>
+                                    </dl>
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">int</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_createRole">
         createRole()
         <a href="classes/Ibexa-Contracts-Core-Repository-RoleService.html#method_createRole" class="headerlink"><i class="fas fa-link"></i></a>
@@ -16125,7 +16211,7 @@ is repeated in the policy create struct or if limitation is not allowed on modul
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Repository/RoleService.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Repository/RoleService.php');">RoleService.php</abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">362</span>
+    <span class="phpdocumentor-element-found-in__line">386</span>
 </aside>
 
         <p class="phpdocumentor-summary">Returns the LimitationType registered with the given identifier.</p>
@@ -16182,7 +16268,7 @@ is repeated in the policy create struct or if limitation is not allowed on modul
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Repository/RoleService.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Repository/RoleService.php');">RoleService.php</abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">379</span>
+    <span class="phpdocumentor-element-found-in__line">403</span>
 </aside>
 
         <p class="phpdocumentor-summary">Returns the LimitationType&#039;s assigned to a given module/function.</p>
@@ -16314,7 +16400,7 @@ refers to a non existing identifier.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Repository/RoleService.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Repository/RoleService.php');">RoleService.php</abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">293</span>
+    <span class="phpdocumentor-element-found-in__line">317</span>
 </aside>
 
         <p class="phpdocumentor-summary">Returns UserRoleAssignments assigned to the given User, excluding the ones the current user is not allowed to read.</p>
@@ -16383,7 +16469,7 @@ placed in as well as those inherited from parent UserGroups.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Repository/RoleService.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Repository/RoleService.php');">RoleService.php</abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">302</span>
+    <span class="phpdocumentor-element-found-in__line">326</span>
 </aside>
 
         <p class="phpdocumentor-summary">Returns the UserGroupRoleAssignments assigned to the given UserGroup, excluding the ones the current user is not allowed to read.</p>
@@ -16537,6 +16623,90 @@ placed in as well as those inherited from parent UserGroups.</p>
 
             <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-User-RoleAssignment.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\User\RoleAssignment">RoleAssignment</abbr></a></span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_loadRoleAssignments">
+        loadRoleAssignments()
+        <a href="classes/Ibexa-Contracts-Core-Repository-RoleService.html#method_loadRoleAssignments" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Repository/RoleService.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Repository/RoleService.php');">RoleService.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">289</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Returns the assigned users and user groups to this role with $offset and $limit arguments.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">loadRoleAssignments</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-User-Role.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\User\Role">Role</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$role</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$offset</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$limit</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-User-RoleAssignment.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\User\RoleAssignment">RoleAssignment</abbr></a>&gt;</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$role</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-User-Role.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\User\Role">Role</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$offset</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$limit</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
+    
+
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                            <dt class="phpdocumentor-tag-list__entry">
+                <span class="phpdocumentor-tag__name">throws</span>
+            </dt>
+                            <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-BadStateException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\BadStateException">BadStateException</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                            <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-InvalidArgumentException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\InvalidArgumentException">InvalidArgumentException</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                            <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-UnauthorizedException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException">UnauthorizedException</abbr></a></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>if the authenticated user is not allowed to read a role</p>
+</section>
+
+                                    </dd>
+                                    </dl>
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-User-RoleAssignment.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\User\RoleAssignment">RoleAssignment</abbr></a>&gt;</span>
         
 </article>
                     <article
@@ -16785,7 +16955,7 @@ placed in as well as those inherited from parent UserGroups.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Repository/RoleService.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Repository/RoleService.php');">RoleService.php</abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">337</span>
+    <span class="phpdocumentor-element-found-in__line">361</span>
 </aside>
 
         <p class="phpdocumentor-summary">Instantiates a policy create class.</p>
@@ -16833,7 +17003,7 @@ placed in as well as those inherited from parent UserGroups.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Repository/RoleService.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Repository/RoleService.php');">RoleService.php</abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">344</span>
+    <span class="phpdocumentor-element-found-in__line">368</span>
 </aside>
 
         <p class="phpdocumentor-summary">Instantiates a policy update class.</p>
@@ -16864,7 +17034,7 @@ placed in as well as those inherited from parent UserGroups.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Repository/RoleService.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Repository/RoleService.php');">RoleService.php</abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">327</span>
+    <span class="phpdocumentor-element-found-in__line">351</span>
 </aside>
 
         <p class="phpdocumentor-summary">Instantiates a role copy struct.</p>
@@ -16906,7 +17076,7 @@ placed in as well as those inherited from parent UserGroups.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Repository/RoleService.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Repository/RoleService.php');">RoleService.php</abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">322</span>
+    <span class="phpdocumentor-element-found-in__line">346</span>
 </aside>
 
         <p class="phpdocumentor-summary">Instantiates a role create class.</p>
@@ -16947,7 +17117,7 @@ placed in as well as those inherited from parent UserGroups.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Repository/RoleService.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Repository/RoleService.php');">RoleService.php</abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">351</span>
+    <span class="phpdocumentor-element-found-in__line">375</span>
 </aside>
 
         <p class="phpdocumentor-summary">Instantiates a policy update class.</p>
@@ -17124,7 +17294,7 @@ placed in as well as those inherited from parent UserGroups.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Repository/RoleService.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Repository/RoleService.php');">RoleService.php</abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">313</span>
+    <span class="phpdocumentor-element-found-in__line">337</span>
 </aside>
 
         <p class="phpdocumentor-summary">Removes the given role assignment.</p>

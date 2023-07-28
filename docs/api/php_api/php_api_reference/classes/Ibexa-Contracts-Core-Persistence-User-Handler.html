@@ -38,26 +38,18 @@
       icon.attr('xlink:href', icon.attr('xlink:href').replace(/#.+$/, '#' + image));
     }
     $(function() {
-      let depth = 3;
-      let lists;
-      while ((lists = $('.phpdocumentor-sidebar__category .phpdocumentor-list.depth-'+depth)).length) {
-        // Close namespaces
-        lists.hide();
-        lists.each(function() {
-          let list = $(this);
-          let target = list.prevAll('svg').first();
-          // Set event listeners
-          target.click(toggle);
-          // Set icon image
-          let icon = target.children('use');
-          let image = 'folder';
-          icon.attr('xlink:href', icon.attr('xlink:href').replace(/#.+$/, '#' + image));
-        });
-        depth++;
-      }
+      $('.phpdocumentor-sidebar__category .phpdocumentor-list.depth-1 .phpdocumentor-list').each(function() {
+        let target = $(this).prevAll('svg').first();
+        // Set event listener
+        target.click(toggle);
+        // Set icon image
+        let icon = target.children('use');
+        let image = 'folder';
+        icon.attr('xlink:href', icon.attr('xlink:href').replace(/#.+$/, '#' + image));
+      });
       // Open current
       let path = document.location.pathname.split('/');
-      let page = path.pop();
+      let page = path.slice(-2).join('/');
       let current = $('.phpdocumentor-sidebar__category .phpdocumentor-list a[href$="'+page+'"]');
       if (current.length) {
         current.closest('li').addClass('current');
@@ -12550,6 +12542,12 @@
                 <svg width="8" height="8">
                     <use fill="var(--ibexa-jazzberry)" xlink:href="../../../images/ez-icons.svg#file"></use>
                 </svg>
+                <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-ProductStockRangeAggregation.html">ProductStockRangeAggregation</a>
+            </li>
+                    <li class="type-element">
+                <svg width="8" height="8">
+                    <use fill="var(--ibexa-jazzberry)" xlink:href="../../../images/ez-icons.svg#file"></use>
+                </svg>
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-ProductTypeTermAggregation.html">ProductTypeTermAggregation</a>
             </li>
                     </ul>
@@ -12710,6 +12708,18 @@
                     <use fill="var(--ibexa-jazzberry)" xlink:href="../../../images/ez-icons.svg#file"></use>
                 </svg>
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-ProductName.html">ProductName</a>
+            </li>
+                    <li class="type-element">
+                <svg width="8" height="8">
+                    <use fill="var(--ibexa-jazzberry)" xlink:href="../../../images/ez-icons.svg#file"></use>
+                </svg>
+                <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-ProductStock.html">ProductStock</a>
+            </li>
+                    <li class="type-element">
+                <svg width="8" height="8">
+                    <use fill="var(--ibexa-jazzberry)" xlink:href="../../../images/ez-icons.svg#file"></use>
+                </svg>
+                <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-ProductStockRange.html">ProductStockRange</a>
             </li>
                     <li class="type-element">
                 <svg width="8" height="8">
@@ -15356,6 +15366,10 @@
 </li>
 
                             <li class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Core-Persistence-User-Handler.html#method_countRoleAssignments">countRoleAssignments()</a>
+</li>
+
+                            <li class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Ibexa-Contracts-Core-Persistence-User-Handler.html#method_create">create()</a>
 </li>
 
@@ -15413,6 +15427,10 @@
 
                             <li class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Ibexa-Contracts-Core-Persistence-User-Handler.html#method_loadRoleAssignmentsByRoleId">loadRoleAssignmentsByRoleId()</a>
+</li>
+
+                            <li class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Ibexa-Contracts-Core-Persistence-User-Handler.html#method_loadRoleAssignmentsByRoleIdWithOffsetAndLimit">loadRoleAssignmentsByRoleIdWithOffsetAndLimit()</a>
 </li>
 
                             <li class="phpdocumentor-table-of-contents__entry -method -public">
@@ -15492,7 +15510,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Persistence/User/Handler.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Persistence/User/Handler.php');">Handler.php</abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">272</span>
+    <span class="phpdocumentor-element-found-in__line">284</span>
 </aside>
 
         <p class="phpdocumentor-summary">Adds a policy to a role.</p>
@@ -15556,7 +15574,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Persistence/User/Handler.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Persistence/User/Handler.php');">Handler.php</abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">258</span>
+    <span class="phpdocumentor-element-found-in__line">270</span>
 </aside>
 
         <p class="phpdocumentor-summary">Adds a policy to a role draft.</p>
@@ -15620,7 +15638,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Persistence/User/Handler.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Persistence/User/Handler.php');">Handler.php</abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">329</span>
+    <span class="phpdocumentor-element-found-in__line">341</span>
 </aside>
 
         <p class="phpdocumentor-summary">Assigns role to a user or user group with given limitations.</p>
@@ -15718,6 +15736,48 @@ are an array of limitation values. The limitation parameter is optional.</p>
 
             <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-User-Role.html"><abbr title="\Ibexa\Contracts\Core\Persistence\User\Role">Role</abbr></a></span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_countRoleAssignments">
+        countRoleAssignments()
+        <a href="classes/Ibexa-Contracts-Core-Persistence-User-Handler.html#method_countRoleAssignments" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Persistence/User/Handler.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Persistence/User/Handler.php');">Handler.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">221</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Counts Role&#039;s assignments taking into consideration related and existing user and user group objects.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">countRoleAssignments</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$roleId</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$roleId</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">int</span>
         
 </article>
                     <article
@@ -15918,7 +15978,7 @@ to reference the user.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Persistence/User/Handler.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Persistence/User/Handler.php');">Handler.php</abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">293</span>
+    <span class="phpdocumentor-element-found-in__line">305</span>
 </aside>
 
         <p class="phpdocumentor-summary">Removes a policy from a role.</p>
@@ -15966,7 +16026,7 @@ to reference the user.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Persistence/User/Handler.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Persistence/User/Handler.php');">Handler.php</abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">237</span>
+    <span class="phpdocumentor-element-found-in__line">249</span>
 </aside>
 
         <p class="phpdocumentor-summary">Delete the specified role (draft).</p>
@@ -16216,7 +16276,7 @@ to reference the user.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Persistence/User/Handler.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Persistence/User/Handler.php');">Handler.php</abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">305</span>
+    <span class="phpdocumentor-element-found-in__line">317</span>
 </aside>
 
         <p class="phpdocumentor-summary">Returns the user policies associated with the user (including inherited policies from user groups).</p>
@@ -16397,7 +16457,7 @@ to reference the user.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Persistence/User/Handler.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Persistence/User/Handler.php');">Handler.php</abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">222</span>
+    <span class="phpdocumentor-element-found-in__line">234</span>
 </aside>
 
         <p class="phpdocumentor-summary">Loads roles assignments to a user/group.</p>
@@ -16472,6 +16532,64 @@ By the nature of legacy this can currently also be used to get by $userId.</p>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
+            </dd>
+            </dl>
+
+    
+
+
+            <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-User-RoleAssignment.html"><abbr title="\Ibexa\Contracts\Core\Persistence\User\RoleAssignment">RoleAssignment</abbr></a>&gt;</span>
+        
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_loadRoleAssignmentsByRoleIdWithOffsetAndLimit">
+        loadRoleAssignmentsByRoleIdWithOffsetAndLimit()
+        <a href="classes/Ibexa-Contracts-Core-Persistence-User-Handler.html#method_loadRoleAssignmentsByRoleIdWithOffsetAndLimit" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Persistence/User/Handler.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Persistence/User/Handler.php');">Handler.php</abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">216</span>
+</aside>
+
+        <p class="phpdocumentor-summary">Loads Role&#039;s assignments based on provided $offset and $limit arguments.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">loadRoleAssignmentsByRoleIdWithOffsetAndLimit</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$roleId</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$offset</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$limit</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-User-RoleAssignment.html"><abbr title="\Ibexa\Contracts\Core\Persistence\User\RoleAssignment">RoleAssignment</abbr></a>&gt;</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$roleId</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$offset</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$limit</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int|null</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
             </dd>
             </dl>
 
@@ -16753,7 +16871,7 @@ this function may return several users.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Persistence/User/Handler.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Persistence/User/Handler.php');">Handler.php</abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">244</span>
+    <span class="phpdocumentor-element-found-in__line">256</span>
 </aside>
 
         <p class="phpdocumentor-summary">Publish the specified role draft.</p>
@@ -16794,7 +16912,7 @@ this function may return several users.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Persistence/User/Handler.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Persistence/User/Handler.php');">Handler.php</abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">344</span>
+    <span class="phpdocumentor-element-found-in__line">356</span>
 </aside>
 
         <p class="phpdocumentor-summary">Un-assign a role, by assignment ID.</p>
@@ -16837,7 +16955,7 @@ this function may return several users.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Persistence/User/Handler.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Persistence/User/Handler.php');">Handler.php</abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">337</span>
+    <span class="phpdocumentor-element-found-in__line">349</span>
 </aside>
 
         <p class="phpdocumentor-summary">Un-assign a role.</p>
@@ -16970,7 +17088,7 @@ this function may return several users.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Persistence/User/Handler.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Persistence/User/Handler.php');">Handler.php</abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">283</span>
+    <span class="phpdocumentor-element-found-in__line">295</span>
 </aside>
 
         <p class="phpdocumentor-summary">Update a policy.</p>
@@ -17029,7 +17147,7 @@ this function may return several users.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Persistence/User/Handler.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Persistence/User/Handler.php');">Handler.php</abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">229</span>
+    <span class="phpdocumentor-element-found-in__line">241</span>
 </aside>
 
         <p class="phpdocumentor-summary">Update role (draft).</p>

@@ -7166,6 +7166,16 @@ Search.appendIndex(
             "summary": "Loads\u0020roles\u0020assignments\u0020Role.",
             "url": "classes/Ibexa-Contracts-Core-Persistence-User-Handler.html#method_loadRoleAssignmentsByRoleId"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Persistence\\User\\Handler\u003A\u003AloadRoleAssignmentsByRoleIdWithOffsetAndLimit\u0028\u0029",
+            "name": "loadRoleAssignmentsByRoleIdWithOffsetAndLimit",
+            "summary": "Loads\u0020Role\u0027s\u0020assignments\u0020based\u0020on\u0020provided\u0020\u0024offset\u0020and\u0020\u0024limit\u0020arguments.",
+            "url": "classes/Ibexa-Contracts-Core-Persistence-User-Handler.html#method_loadRoleAssignmentsByRoleIdWithOffsetAndLimit"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Persistence\\User\\Handler\u003A\u003AcountRoleAssignments\u0028\u0029",
+            "name": "countRoleAssignments",
+            "summary": "Counts\u0020Role\u0027s\u0020assignments\u0020taking\u0020into\u0020consideration\u0020related\u0020and\u0020existing\u0020user\u0020and\u0020user\u0020group\u0020objects.",
+            "url": "classes/Ibexa-Contracts-Core-Persistence-User-Handler.html#method_countRoleAssignments"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Persistence\\User\\Handler\u003A\u003AloadRoleAssignmentsByGroupId\u0028\u0029",
             "name": "loadRoleAssignmentsByGroupId",
             "summary": "Loads\u0020roles\u0020assignments\u0020to\u0020a\u0020user\/group.",
@@ -8855,6 +8865,16 @@ Search.appendIndex(
             "name": "getRoleAssignments",
             "summary": "Returns\u0020the\u0020assigned\u0020user\u0020and\u0020user\u0020groups\u0020to\u0020this\u0020role.",
             "url": "classes/Ibexa-Contracts-Core-Repository-Decorator-RoleServiceDecorator.html#method_getRoleAssignments"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Decorator\\RoleServiceDecorator\u003A\u003AloadRoleAssignments\u0028\u0029",
+            "name": "loadRoleAssignments",
+            "summary": "Returns\u0020the\u0020assigned\u0020users\u0020and\u0020user\u0020groups\u0020to\u0020this\u0020role\u0020with\u0020\u0024offset\u0020and\u0020\u0024limit\u0020arguments.",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Decorator-RoleServiceDecorator.html#method_loadRoleAssignments"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Decorator\\RoleServiceDecorator\u003A\u003AcountRoleAssignments\u0028\u0029",
+            "name": "countRoleAssignments",
+            "summary": "Returns\u0020the\u0020number\u0020of\u0020users\u0020and\u0020user\u0020groups\u0020assigned\u0020to\u0020this\u0020role.",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Decorator-RoleServiceDecorator.html#method_countRoleAssignments"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Decorator\\RoleServiceDecorator\u003A\u003AgetRoleAssignmentsForUser\u0028\u0029",
             "name": "getRoleAssignmentsForUser",
@@ -15770,6 +15790,16 @@ Search.appendIndex(
             "name": "getRoleAssignments",
             "summary": "Returns\u0020the\u0020assigned\u0020user\u0020and\u0020user\u0020groups\u0020to\u0020this\u0020role.",
             "url": "classes/Ibexa-Contracts-Core-Repository-RoleService.html#method_getRoleAssignments"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\RoleService\u003A\u003AloadRoleAssignments\u0028\u0029",
+            "name": "loadRoleAssignments",
+            "summary": "Returns\u0020the\u0020assigned\u0020users\u0020and\u0020user\u0020groups\u0020to\u0020this\u0020role\u0020with\u0020\u0024offset\u0020and\u0020\u0024limit\u0020arguments.",
+            "url": "classes/Ibexa-Contracts-Core-Repository-RoleService.html#method_loadRoleAssignments"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\RoleService\u003A\u003AcountRoleAssignments\u0028\u0029",
+            "name": "countRoleAssignments",
+            "summary": "Returns\u0020the\u0020number\u0020of\u0020users\u0020and\u0020user\u0020groups\u0020assigned\u0020to\u0020this\u0020role.",
+            "url": "classes/Ibexa-Contracts-Core-Repository-RoleService.html#method_countRoleAssignments"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\RoleService\u003A\u003AgetRoleAssignmentsForUser\u0028\u0029",
             "name": "getRoleAssignmentsForUser",
@@ -25385,6 +25415,11 @@ Search.appendIndex(
             "name": "getCompanyMembers",
             "summary": "",
             "url": "classes/Ibexa-Contracts-CorporateAccount-Service-MemberService.html#method_getCompanyMembers"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\CorporateAccount\\Service\\MemberService\u003A\u003AcountCompanyMembers\u0028\u0029",
+            "name": "countCompanyMembers",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-CorporateAccount-Service-MemberService.html#method_countCompanyMembers"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\CorporateAccount\\Service\\MemberService\u003A\u003AgetMemberAssignment\u0028\u0029",
             "name": "getMemberAssignment",
@@ -37761,6 +37796,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-ProductPriceRangeAggregation.html#method_getCurrencyCode"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\Aggregation\\ProductStockRangeAggregation",
+            "name": "ProductStockRangeAggregation",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-ProductStockRangeAggregation.html"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\Aggregation\\ProductTypeTermAggregation",
             "name": "ProductTypeTermAggregation",
             "summary": "",
@@ -38210,6 +38250,51 @@ Search.appendIndex(
             "name": "getName",
             "summary": "",
             "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-ProductName.html#method_getName"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\Criterion\\ProductStock",
+            "name": "ProductStock",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-ProductStock.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\Criterion\\ProductStock\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-ProductStock.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\Criterion\\ProductStock\u003A\u003AgetValue\u0028\u0029",
+            "name": "getValue",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-ProductStock.html#method_getValue"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\Criterion\\ProductStock\u003A\u003AsetOperator\u0028\u0029",
+            "name": "setOperator",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-ProductStock.html#method_setOperator"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\Criterion\\ProductStock\u003A\u003AgetOperator\u0028\u0029",
+            "name": "getOperator",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-ProductStock.html#method_getOperator"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\Criterion\\ProductStockRange",
+            "name": "ProductStockRange",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-ProductStockRange.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\Criterion\\ProductStockRange\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-ProductStockRange.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\Criterion\\ProductStockRange\u003A\u003AgetMin\u0028\u0029",
+            "name": "getMin",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-ProductStockRange.html#method_getMin"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\Criterion\\ProductStockRange\u003A\u003AgetMax\u0028\u0029",
+            "name": "getMax",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-ProductStockRange.html#method_getMax"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\Criterion\\ProductType",
             "name": "ProductType",
