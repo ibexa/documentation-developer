@@ -264,7 +264,7 @@ To use Apache instead of the default Nginx, run the following command:
 ddev config --webserver-type=apache-fpm
 ```
 
-[[= product_name =] can't run on Apache without a dedicated Virtual Host.
+[[= product_name =]] can't run on Apache without a dedicated Virtual Host.
 
 To set the Apache Virtual Host, override `.ddev/apache/apache-site.conf` with [[= product_name =]]'s config. 
 You can do it manually or by using a script.
