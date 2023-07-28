@@ -5,7 +5,7 @@ namespace App\Attribute\Percent;
 use Ibexa\Contracts\ProductCatalog\NameSchema\NameSchemaStrategyInterface;
 use Ibexa\Contracts\ProductCatalog\Values\AttributeDefinitionInterface;
 
-final class PercentNameSchemaStrategy implements NameSchemaStrategyInterface
+final class NameSchemaStrategyInterface implements NameSchemaStrategyInterface
 {
     public function resolve(AttributeDefinitionInterface $attributeDefinition, $value, string $languageCode): string
     {
