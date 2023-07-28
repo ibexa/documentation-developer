@@ -1,7 +1,6 @@
 {% extends 'layout.html.twig' %}
 
 {% set usesPackages = false %}
-{% set visibleDepth = 2 %}
 
 {% block javascripts %}
   {{ parent() }}
@@ -21,26 +20,18 @@
       icon.attr('xlink:href', icon.attr('xlink:href').replace(/#.+$/, '#' + image));
     }
     $(function() {
-      let depth = {{ visibleDepth+1 }};
-      let lists;
-      while ((lists = $('.phpdocumentor-sidebar__category .phpdocumentor-list.depth-'+depth)).length) {
-        // Close namespaces
-        lists.hide();
-        lists.each(function() {
-          let list = $(this);
-          let target = list.prevAll('svg').first();
-          // Set event listeners
-          target.click(toggle);
-          // Set icon image
-          let icon = target.children('use');
-          let image = 'folder';
-          icon.attr('xlink:href', icon.attr('xlink:href').replace(/#.+$/, '#' + image));
-        });
-        depth++;
-      }
+      $('.phpdocumentor-sidebar__category .phpdocumentor-list.depth-1 .phpdocumentor-list').each(function() {
+        let target = $(this).prevAll('svg').first();
+        // Set event listener
+        target.click(toggle);
+        // Set icon image
+        let icon = target.children('use');
+        let image = 'folder';
+        icon.attr('xlink:href', icon.attr('xlink:href').replace(/#.+$/, '#' + image));
+      });
       // Open current
       let path = document.location.pathname.split('/');
-      let page = path.pop();
+      let page = path.slice(-2).join('/');
       let current = $('.phpdocumentor-sidebar__category .phpdocumentor-list a[href$="'+page+'"]');
       if (current.length) {
         current.closest('li').addClass('current');

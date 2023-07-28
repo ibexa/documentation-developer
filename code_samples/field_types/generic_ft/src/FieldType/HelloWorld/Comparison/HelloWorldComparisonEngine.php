@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace App\FieldType\HelloWorld\Comparison;
 
-use Ibexa\Contracts\VersionComparison\FieldType\FieldTypeComparisonValue;
 use Ibexa\Contracts\VersionComparison\Engine\FieldTypeComparisonEngine;
-use Ibexa\VersionComparison\Engine\Value\StringComparisonEngine;
+use Ibexa\Contracts\VersionComparison\FieldType\FieldTypeComparisonValue;
 use Ibexa\Contracts\VersionComparison\Result\ComparisonResult;
+use Ibexa\VersionComparison\Engine\Value\StringComparisonEngine;
 
 final class HelloWorldComparisonEngine implements FieldTypeComparisonEngine
 {
     /** @var \Ibexa\VersionComparison\Engine\Value\StringComparisonEngine */
-    private $stringValueComparisonEngine;
+    private \Ibexa\VersionComparison\Engine\Value\StringComparisonEngine $stringValueComparisonEngine;
 
     public function __construct(StringComparisonEngine $stringValueComparisonEngine)
     {

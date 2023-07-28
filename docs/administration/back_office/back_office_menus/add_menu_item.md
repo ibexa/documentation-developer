@@ -15,9 +15,7 @@ and list all Content items there, with a shortcut button to edit them.
 First, create an event subscriber in `src/EventSubscriber/MyMenuSubscriber.php`:
 
 ``` php hl_lines="14 22-23 31-32"
-[[= include_file('code_samples/back_office/menu/menu_item/src/EventSubscriber/MyMenuSubscriber.php', 0, 43) =]]
-    }
-}
+[[= include_file('code_samples/back_office/menu/menu_item/src/EventSubscriber/MyMenuSubscriber.php', 0, 43) =]][[= include_file('code_samples/back_office/menu/menu_item/src/EventSubscriber/MyMenuSubscriber.php', 48, 50) =]]
 ```
 
 This subscriber subscribes to the `ConfigureMenuEvent::MAIN_MENU` event (see line 14).
@@ -44,10 +42,10 @@ Create the following controller file in `src/Controller/AllContentListController
 
 ## Add template
 
-Finally, create the `templates/list/all_content_list.html.twig` file indicated in line 37 in the controller:
+Finally, create the `templates/themes/admin/list/all_content_list.html.twig` file indicated in line 37 in the controller:
 
 ``` html+twig hl_lines="35-42 46 48-54 56"
-[[= include_file('code_samples/back_office/menu/menu_item/templates/list/all_content_list.html.twig') =]]
+[[= include_file('code_samples/back_office/menu/menu_item/templates/themes/admin/all_content_list.html.twig') =]]
 ```
 
 This template uses the [reusable table template](reusable_components.md#tables)

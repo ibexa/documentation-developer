@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace App\Event;
 
+use Ibexa\Contracts\Core\Repository\ContentService;
+use Ibexa\Contracts\Core\Repository\LocationService;
+use Ibexa\Contracts\Core\Repository\SearchService;
 use Ibexa\Contracts\Core\Repository\Values\Content\Location;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query;
+use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
 use Ibexa\FieldTypePage\FieldType\Page\Block\Renderer\BlockRenderEvents;
 use Ibexa\FieldTypePage\FieldType\Page\Block\Renderer\Event\PreRenderEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query;
-use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
-use Ibexa\Contracts\Core\Repository\LocationService;
-use Ibexa\Contracts\Core\Repository\ContentService;
-use Ibexa\Contracts\Core\Repository\SearchService;
 
 class RandomBlockListener implements EventSubscriberInterface
 {

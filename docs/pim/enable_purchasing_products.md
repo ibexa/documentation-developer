@@ -27,20 +27,21 @@ To enable purchasing from the catalog, the following configuration is required:
 
 All currencies available in the system must be enabled in the Back Office under **Commerce** -> **Currencies**.
 
-Additionally, you must configure currencies valid for specific SiteAccesses in configuration:
+Additionally, you must configure currencies valid for specific SiteAccesses
+under the `ibexa.system.<scope>.product_catalog.currencies` [configuration key](configuration.md#configuration-files):
 
 ``` yaml
 ibexa:
     system:
-        shop:
+        default:
             product_catalog:
                 currencies:
                     - EUR
-                    - USD
+                    - GBP
                     - PLN
                 regions:
                     - germany
-                    - usa
+                    - uk
                     - poland
 ```
 
@@ -59,14 +60,24 @@ You set up VAT percentage values corresponding to VAT rates in configuration:
 ``` yaml
 ibexa:
     repositories:
-        shop:
+        default:
             product_catalog:
                 engine: default
                 regions:
                     germany:
                         vat_categories:
-                            standard: 18
-                            reduced: 6
+                            standard: 19
+                            reduced: 7
+                            none: ~
+                    uk:                                               
+                        vat_categories:                            
+                            standard: 20                            
+                            reduced: 5                            
+                            none: ~
+                    poland:                                               
+                        vat_categories:                            
+                            standard: 23                            
+                            reduced: 8                            
                             none: ~
 ```
 

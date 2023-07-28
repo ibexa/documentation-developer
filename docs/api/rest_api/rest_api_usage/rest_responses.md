@@ -88,7 +88,7 @@ Content-Type: application/vnd.ibexa.api.Content+json
 Accept-Patch: application/vnd.ibexa.api.ContentUpdate+json
 ```
 
-Those example `Accept-Path` headers above indicate that the content could be modified by sending a [ContentUpdateStruct](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentUpdateStruct.php) in XML or JSON.
+Those example `Accept-Path` headers above indicate that the content could be modified by sending a [ContentUpdateStruct](../../php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentUpdateStruct.html) in XML or JSON.
 
 ### Location header
 
@@ -162,7 +162,7 @@ to learn how to edit `config/packages/nelmio_cors.yaml`.
 
 The Response body is often a serialization in XML or JSON of an object as it could be retrieved using the Public PHP API.
 
-For example, the resource `/content/objects/52` with the `Accept: application/vnd.ibexa.api.Content+xml` header returns a serialized version of a [ContentInfo](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentInfo.php) object.
+For example, the resource `/content/objects/52` with the `Accept: application/vnd.ibexa.api.Content+xml` header returns a serialized version of a [ContentInfo](../../php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html) object.
 
 ```shell
 curl https://api.example.com/content/objects/52 --header 'Accept: application/vnd.ibexa.api.ContentInfo+xml';

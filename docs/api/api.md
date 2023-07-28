@@ -1,5 +1,6 @@
 ---
 description: Ibexa DXP is an API-first product and provides APIs to handle content and repository information.
+page_type: landing_page
 ---
 
 # API

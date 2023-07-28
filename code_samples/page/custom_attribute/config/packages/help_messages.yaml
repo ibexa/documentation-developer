@@ -2,7 +2,7 @@ ibexa_fieldtype_page:
     blocks:
         slider:
             category: default
-            thumbnail: '/bundles/ibexaadminui/img/ibexa-icons.svg'
+            thumbnail: '/bundles/ibexaicons/img/all-icons.svg#edit'
             views:
                 default: { name: 'Default block layout', template: 'themes/blocks/slider.html.twig', priority: -255 }
             attributes:

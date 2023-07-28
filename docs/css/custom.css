@@ -80,14 +80,14 @@
 
 @font-face {
     font-family: 'Work Sans';
-    src: url('../fonts/Noto_Sans/WorkSans-Regular.ttf');
+    src: url('../fonts/Work_Sans/WorkSans-Regular.ttf');
     font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Work Sans';
-    src: url('../fonts/Noto_Sans/WorkSans-SemiBold.ttf');
+    src: url('../fonts/Work_Sans/WorkSans-SemiBold.ttf');
     font-weight: 600;
     font-style: normal;
 }
@@ -266,6 +266,27 @@ ul li li li {
     background-color: var(--caution-border);
     -webkit-mask-image: var(--md-admonition-icon--caution);
             mask-image: var(--md-admonition-icon--caution);
+}
+
+/* Tile admonition */
+
+.md-typeset :is(.admonition):is(.tile) {
+    background-color: #ffffff;
+    border: 1px solid #D4D4D4;
+    border-radius: 5px;
+    padding: 0.7rem;
+    margin-bottom: 0.4rem;
+    overflow: auto;
+    box-shadow: none;
+    font-size: 16px;
+}
+
+.md-typeset :is(.admonition).tile>:is(.admonition-title) {
+    padding-left: 0.7rem;
+}
+
+.md-typeset :is(.admonition).tile>:is(.admonition-title):before {
+    content: none;
 }
 
 /* Fix scrollbar in admonitions when containing a table */

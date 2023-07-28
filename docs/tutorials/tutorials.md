@@ -1,6 +1,7 @@
 # Tutorials
 
 Get started with tutorials to learn how to create a site with [[= product_name =]].
+page_type: landing_page
 
 [[= cards([
     "tutorials/beginner_tutorial/beginner_tutorial",

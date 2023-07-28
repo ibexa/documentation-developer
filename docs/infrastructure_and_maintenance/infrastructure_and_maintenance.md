@@ -1,5 +1,6 @@
 ---
 description: Learn how to handle cache, use a clustering setup, configure databases and ensure your installation is performing well.
+page_type: landing_page
 ---
 
 # Infrastructure and maintenance

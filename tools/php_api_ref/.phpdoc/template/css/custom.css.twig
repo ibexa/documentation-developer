@@ -2,6 +2,8 @@
 {# this file is meant as a catch-all location for consumers to provide overrides without having to override specific parts #}
 {# https://docs.phpdoc.org/3.3/guide/features/theming/custom-styling.html#adding-your-own-overrides #}
 
+{% set visibleDepth = 2 %}
+
 {% set dark_color='#AE1164' %}
 {% set light_color='#FF4713' %}
 :root {
@@ -43,6 +45,9 @@ ul.phpdocumentor-table-of-contents {
 .phpdocumentor .phpdocumentor-sidebar {
     overflow-x: scroll;
 }
+.phpdocumentor .phpdocumentor-sidebar .phpdocumentor-list.depth-{{ visibleDepth }} .phpdocumentor-list {
+    display: none;
+}
 .phpdocumentor .phpdocumentor-sidebar .phpdocumentor-list li {
     border-left: 1px solid grey;
     overflow: visible;
@@ -81,4 +86,3 @@ ul.phpdocumentor-table-of-contents {
 .phpdocumentor dl dd .phpdocumentor-description {
     margin-bottom: 0;
 }
-

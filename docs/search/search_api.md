@@ -32,7 +32,8 @@ The following command takes the Content Type identifier as an argument and lists
 
 ``` php hl_lines="14 16"
 // ...
-[[= include_file('code_samples/api/public_php_api/src/Command/FindContentCommand.php', 8, 14) =]]    // ...
+[[= include_file('code_samples/api/public_php_api/src/Command/FindContentCommand.php', 4, 7) =]]// ...
+[[= include_file('code_samples/api/public_php_api/src/Command/FindContentCommand.php', 12, 14) =]]    // ...
 [[= include_file('code_samples/api/public_php_api/src/Command/FindContentCommand.php', 31, 47) =]]
 ```
 
@@ -121,18 +122,18 @@ Filtering differs from search. It does not use the `SearchService` and is not ba
 For example, the following command lists all Content items under the specified parent Location
 and sorts them by name in descending order:
 
-``` php hl_lines="16-19"
+``` php hl_lines="13-16"
 // ...
-[[= include_file('code_samples/api/public_php_api/src/Command/FilterCommand.php', 8, 16) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/FilterCommand.php', 4, 9) =]]
 // ...
 [[= include_file('code_samples/api/public_php_api/src/Command/FilterCommand.php', 32, 52) =]]
 ```
 
 The same Filter can be applied to find Locations instead of Content items, for example:
 
-``` php hl_lines="20"
+``` php hl_lines="17"
 // ...
-[[= include_file('code_samples/api/public_php_api/src/Command/FilterLocationCommand.php', 8, 16) =]]// ...
+[[= include_file('code_samples/api/public_php_api/src/Command/FilterLocationCommand.php', 4, 9) =]]// ...
 [[= include_file('code_samples/api/public_php_api/src/Command/FilterLocationCommand.php', 32, 52) =]]
 ```
 
@@ -207,40 +208,22 @@ When using Repository filtering, provide the results of `ContentService::find()`
 
 ### Paginating search results
 
-To paginate search or filtering results, it is recommended to use the [Pagerfanta library](https://github.com/whiteoctober/Pagerfanta) and [[[= product_name =]]'s adapters for it.](https://github.com/ibexa/core/blob/main/src/lib/Pagination/Pagerfanta/Pagerfanta.php)
+To paginate search or filtering results, it is recommended to use the [Pagerfanta library](https://github.com/BabDev/Pagerfanta) and [[[= product_name =]]'s adapters for it.](https://github.com/ibexa/core/blob/main/src/lib/Pagination/Pagerfanta/Pagerfanta.php)
 
 ``` php
 // ...
 [[= include_file('code_samples/api/public_php_api/src/Controller/PaginationController.php', 8, 14) =]]    // ...
 [[= include_file('code_samples/api/public_php_api/src/Controller/PaginationController.php', 21, 31) =]]
-[[= include_file('code_samples/api/public_php_api/src/Controller/PaginationController.php', 35, 42) =]]
+[[= include_file('code_samples/api/public_php_api/src/Controller/PaginationController.php', 32, 42) =]]
 ```
 
 Pagination can then be rendered for example using the following template:
 
 ``` html+twig
-[[= include_file('code_samples/api/public_php_api/templates/custom_pagination.html.twig') =]]
+[[= include_file('code_samples/api/public_php_api/templates/themes/standard/full/custom_pagination.html.twig') =]]
 ```
 
-For more information and examples, see [PagerFanta documentation.](https://github.com/whiteoctober/Pagerfanta/blob/master/README.md)
-
-#### Additional search result data
-
-You can access the following additional search result data from PagerFanta:
-
-- Aggregation results
-- Max. score
-- Computation time
-- Timeout flag
-
-``` php
-[[= include_file('code_samples/api/public_php_api/src/Controller/PaginationController.php', 32, 34) =]]
-```
-
-``` html+twig
-<p>Max score: {{ pagerItems.maxScore }}</p>
-<p>Time: {{ pagerItems.time }}</p>
-```
+For more information and examples, see [PagerFanta documentation.](https://www.babdev.com/open-source/packages/pagerfanta/docs/2.x/usage)
 
 #### Pagerfanta adapters
 

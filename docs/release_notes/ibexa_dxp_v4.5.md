@@ -223,3 +223,23 @@ Deprecations:
 | Ibexa Content | Ibexa Experience | Ibexa Commerce|
 |---------------|------------------|---------------|
 | [Ibexa Content v4.5](https://github.com/ibexa/content/releases/tag/v4.5.0) | [Ibexa Experience v4.5](https://github.com/ibexa/experience/releases/tag/v4.5.0) | [Ibexa Commerce v4.5](https://github.com/ibexa/commerce/releases/tag/v4.5.0) |
+
+## v4.5.1
+
+### Product category tree filter
+
+In the main catalog view, the tree of categories now has a search input to reduce the tree to matching categories.
+
+![Product category tree filter](img/4.5_product_category_tree.png "Product category tree filter")
+
+### Product stock criteria and aggregation
+
+Product search now supports stock availability:
+
+- [ProductStock Criterion](https://doc.ibexa.co/en/4.5/search/criteria_reference/productstock_criterion/) - searches for products with a stock compared to a given number
+- [ProductStockRange Criterion](https://doc.ibexa.co/en/4.5/search/criteria_reference/productstockrange_criterion/) - searches for products with a stock in a given range
+- [ProductStockRangeAggregation](https://doc.ibexa.co/en/4.5/search/aggregation_reference/productstockrange_aggregation/) - aggregates search results by products' stock ranges
+
+### `X-Expected-User` REST request header
+
+The [`X-Expected-User` header](https://doc.ibexa.co/en/4.5/api/rest_api/rest_api_usage/rest_requests/#expected-user) checks that the REST request is executed with the desired user (and not, for example, the Anonymous user because of an expired authentication).

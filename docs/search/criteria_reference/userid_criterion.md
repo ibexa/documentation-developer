@@ -9,6 +9,30 @@ searches for content based on the User ID.
 
 ## Example
 
+### PHP
+
 ``` php
 $query->query = new Criterion\UserId([14]);
 ```
+
+### REST API
+
+=== "XML"
+
+    ```xml
+    <Query>
+        <Filter>
+            <UserIdCriterion>14</UserIdCriterion>
+        </Filter>
+    </Query>
+    ```
+
+=== "JSON"
+
+    ```json
+    "Query": {
+        "Filter": {
+            "UserIdCriterion": "14"
+        }
+    }
+    ```

@@ -6,7 +6,7 @@ description: Configure PIM settings per Repository, with different catalog engin
 
 You can configure PIM per [Repository](repository_configuration.md).
 
-Under `ibexa.repositories.<repository_name>.product_catalog`, indicate the catalog engine to use:
+Under `ibexa.repositories.<repository_name>.product_catalog` [configuration key](configuration.md#configuration-files), indicate the catalog engine to use:
 
 ``` yaml
 ibexa:
@@ -40,12 +40,12 @@ Under `options.product_type_group_identifier` you can define the identifier of t
 
 ## VAT rates
 
-To set up different VAT rates for different regions (countries), you can use the following configuration under `ibexa.repositories.<scope>.product_catalog.regions`:
+To set up different VAT rates for different regions (countries), you can use the following configuration under the `ibexa.repositories.<repository_name>.product_catalog.regions` [configuration key](configuration.md#configuration-files):
 
 ``` yaml
 ibexa:
     repositories:
-        <scope>:
+        <repository_name>:
             product_catalog:
                 engine: default
                 regions:
