@@ -62,12 +62,16 @@ nav:
             - GraphQL queries: api/graphql/graphql_queries.md
             - GraphQL operations: api/graphql/graphql_operations.md
             - GraphQL customization: api/graphql/graphql_customization.md
+            - GraphQL custom Field Type: api/graphql/graphql_custom_ft.md
         - Event reference:
             - Event reference: api/event_reference/event_reference.md
             - Content events: api/event_reference/content_events.md
             - Content Type events: api/event_reference/content_type_events.md
             - Location events: api/event_reference/location_events.md
             - Catalog events: api/event_reference/catalog_events.md
+            - Cart events: api/event_reference/cart_events.md
+            - Order management events: api/event_reference/order_management_events.md
+            - Payment events: api/event_reference/payment_events.md
             - Language events: api/event_reference/language_events.md
             - Section events: api/event_reference/section_events.md
             - Object state events: api/event_reference/object_state_events.md
@@ -120,6 +124,7 @@ nav:
                 - Back Office tabs:  administration/back_office/back_office_tabs/back_office_tabs.md
                 - Create dashboard tab: administration/back_office/back_office_tabs/create_dashboard_tab.md
             - Tab switcher in Content edit page: administration/back_office/content_tab_switcher.md
+            - Add anchor menu to Content Type edit screen: administration/back_office/content_type_anchor_menu.md
             - Back Office menus:
                 - Back Office menus: administration/back_office/back_office_menus/back_office_menus.md
                 - Add menu item: administration/back_office/back_office_menus/add_menu_item.md
@@ -159,6 +164,8 @@ nav:
             - Page block attributes: content_management/pages/page_block_attributes.md
             - Page block validators: content_management/pages/page_block_validators.md
             - Create custom Page block: content_management/pages/create_custom_page_block.md
+            - React App page block: content_management/pages/react_app_block.md
+            - Ibexa Connect scenario block: content_management/pages/ibexa_connect_scenario_block.md
         - Forms:
             - Forms: content_management/forms/forms.md
             - Form API: content_management/forms/form_api.md
@@ -200,6 +207,7 @@ nav:
             - Searching: content_management/field_types/field_type_search.md
             - Create custom generic Field Type: content_management/field_types/create_custom_generic_field_type.md
             - Create custom Field Type comparison: content_management/field_types/create_custom_field_type_comparison.md
+            - Customize Field Type metadata: content_management/field_types/customize_field_type_metadata.md
             - Field Type reference:
                 - Field Type reference: content_management/field_types/field_type_reference/field_type_reference.md
                 - Address Field Type: content_management/field_types/field_type_reference/addressfield.md
@@ -309,10 +317,23 @@ nav:
         - Checkout: 
             - Checkout: commerce/checkout/checkout.md
             - Configure checkout: commerce/checkout/configure_checkout.md
+            - Customize checkout: commerce/checkout/customize_checkout.md
             - Checkout API: commerce/checkout/checkout_api.md
         - Order management:
             - Order management: commerce/order_management/order_management.md
+            - Configure order processing: commerce/order_management/configure_order_management.md
             - Order management API: commerce/order_management/order_management_api.md
+        - Payment management:
+            - Payment: commerce/payment/payment.md 
+            - Configure Payment: commerce/payment/configure_payment.md 
+            - Extend Payment: commerce/payment/extend_payment.md 
+            - Payment method API: commerce/payment/payment_method_api.md 
+            - Payment API: commerce/payment/payment_api.md 
+        - Shipping management:
+            - Shipping management: commerce/shipping_management/shipping_management.md
+            - Configure shipping: commerce/shipping_management/configure_shipment.md
+            - Shipping method API: commerce/shipping_management/shipping_method_api.md
+            - Shipment API: commerce/shipping_management/shipment_api.md
         - Storefront:
             - Storefront: commerce/storefront/storefront.md
             - Configure Storefront: commerce/storefront/configure_storefront.md
@@ -320,6 +341,7 @@ nav:
     - Customer management:
         - Customer Portal: customer_management/customer_portal.md
         - Customer Portal configuration: customer_management/cp_configuration.md
+        - Create Customer Portal: customer_management/cp_page_builder.md
         - Customer Portal Applications: customer_management/cp_applications.md
         - Create registration form: customer_management/create_user_registration_form.md
     - Multisite:
@@ -352,7 +374,6 @@ nav:
         - User management: users/user_management.md
         - Customer groups: users/customer_groups.md
         - Invitations: users/invitations.md
-        - Login and registration: users/login_and_registration.md
         - OAuth authentication: users/oauth_authentication.md
         - Add login through external service: users/add_login_through_external_service.md
         - Segment API: users/segment_api.md
@@ -363,8 +384,8 @@ nav:
         - Integrate recommendation service: personalization/integrate_recommendation_service.md
         - Tracking integration: personalization/tracking_integration.md
         - Recommendation integration: personalization/recommendation_integration.md
-        - API reference:
-            - API reference: personalization/api_reference/api_reference.md
+        - Personalization API:
+            - Personalization API: personalization/api_reference/api_reference.md
             - Content API: personalization/api_reference/content_api.md
             - Recommendation API: personalization/api_reference/recommendation_api.md
             - Tracking API: personalization/api_reference/tracking_api.md
@@ -378,11 +399,20 @@ nav:
         - CDP activation: cdp/cdp_activation.md
     - Search:
         - Search: search/search.md
-        - Search engines: search/search_engines.md
-        - Elasticsearch search engine: search/elasticsearch_search_engine.md
-        - Solr search engine: search/solr_search_engine.md
+        - Search engines: 
+            - Search engines: search/search_engines/search_engines.md
+            - Elasticsearch search engine: 
+                - Overview: search/search_engines/elastic_search/elastic_search_overview.md
+                - Install Elasticsearch: search/search_engines/elastic_search/install_elastic_search.md
+                - Configure Elasticsearch: search/search_engines/elastic_search/configure_elastic_search.md
+            - Solr search engine:
+                - Overview: search/search_engines/solr_search_engine/solr_overview.md
+                - Install Solr: search/search_engines/solr_search_engine/install_solr.md
+                - Configure Solr: search/search_engines/solr_search_engine/configure_solr.md
+            - Legacy search engine: 
+                - Overview: search/search_engines/legacy_search_engine/legacy_search_overview.md
+                - Configure repository: search/search_engines/legacy_search_engine/configure_repository.md
         - Search Criteria and Sort Clauses: search/search_criteria_and_sort_clauses.md
-        - Search API: search/search_api.md
         - Search Criteria reference:
             - Search Criteria reference: search/criteria_reference/search_criteria_reference.md
             - Ancestor: search/criteria_reference/ancestor_criterion.md
@@ -412,6 +442,7 @@ nav:
             - ObjectStateId: search/criteria_reference/objectstateid_criterion.md
             - ObjectStateIdentifier: search/criteria_reference/objectstateidentifier_criterion.md
             - ParentLocationId: search/criteria_reference/parentlocationid_criterion.md
+            - ParentLocationRemoteId: search/criteria_reference/parentlocationremoteId_criterion.md
             - Priority: search/criteria_reference/priority_criterion.md
             - RemoteId: search/criteria_reference/remoteid_criterion.md
             - SectionId: search/criteria_reference/sectionid_criterion.md
@@ -428,7 +459,12 @@ nav:
             - LogicalNot Criterion: search/criteria_reference/logicalnot_criterion.md
             - LogicalOr Criterion: search/criteria_reference/logicalor_criterion.md
         - Product Search Criteria:
-            - ProductSearchCriteria: search/criteria_reference/product_search_criteria.md
+            - Product Search Criteria: search/criteria_reference/product_search_criteria.md
+            - AttributeName: search/criteria_reference/attributename_criterion.md
+            - AttributeGroupIdentifier: search/criteria_reference/attributegroupidentifier_criterion.md
+            - CatalogIdentifier: search/criteria_reference/catalogidentifier_criterion.md
+            - CatalogName: search/criteria_reference/catalogname_criterion.md
+            - CatalogStatus: search/criteria_reference/catalogstatus_criterion.md
             - BasePrice: search/criteria_reference/baseprice_criterion.md
             - CheckboxAttribute: search/criteria_reference/checkboxattribute_criterion.md
             - ColorAttribute: search/criteria_reference/colorattribute_criterion.md
@@ -436,8 +472,12 @@ nav:
             - CreatedAtRange: search/criteria_reference/createdatrange_criterion.md
             - CustomPrice: search/criteria_reference/customprice_criterion.md
             - FloatAttribute: search/criteria_reference/floatattribute_criterion.md
+            - FloatAttributeRange: search/criteria_reference/floatattributerange_criterion.md
             - IntegerAttribute: search/criteria_reference/integerattribute_criterion.md
+            - IntegerAttributeRange: search/criteria_reference/integerattributerange_criterion.md
             - ProductAvailability: search/criteria_reference/productavailability_criterion.md
+            - ProductStock: search/criteria_reference/productstock_criterion.md
+            - ProductStockRange: search/criteria_reference/productstockrange_criterion.md
             - ProductCategory: search/criteria_reference/productcategory_criterion.md
             - ProductCode: search/criteria_reference/productcode_criterion.md
             - ProductName: search/criteria_reference/productname_criterion.md
@@ -446,37 +486,130 @@ nav:
             - RangeMeasurementAttributeMaximum: search/criteria_reference/rangemeasurementattributemaximum_criterion.md
             - SimpleMeasurementAttribute: search/criteria_reference/simplemeasurementattribute_criterion.md
             - SelectionAttribute: search/criteria_reference/selectionattribute_criterion.md
+        - Order Search Criteria: 
+            - Order Search Criteria: search/criteria_reference/order_search_criteria.md
+            - CompanyName: search/criteria_reference/order_company_name_criterion.md
+            - CreatedAt: search/criteria_reference/order_created_criterion.md
+            - CurrencyCode: search/criteria_reference/order_currency_code_criterion.md
+            - CustomerName: search/criteria_reference/order_customer_name_criterion.md
+            - Identifier: search/criteria_reference/order_identifier_criterion.md
+            - IsCompanyAssociated: search/criteria_reference/order_company_associated_criterion.md
+            - Owner: search/criteria_reference/order_owner_criterion.md
+            - Price: search/criteria_reference/order_price_criterion.md
+            - Source: search/criteria_reference/order_source_criterion.md
+            - Status: search/criteria_reference/order_status_criterion.md
+        - Payment Search Criteria: 
+            - Payment Search Criteria: search/criteria_reference/payment_search_criteria.md
+            - CreatedAt: search/criteria_reference/payment_createdat_criterion.md
+            - Currency: search/criteria_reference/payment_currency_criterion.md
+            - Id: search/criteria_reference/payment_id_criterion.md
+            - Identifier: search/criteria_reference/payment_identifier_criterion.md
+            - LogicalAnd: search/criteria_reference/payment_logicaland_criterion.md
+            - LogicalOr: search/criteria_reference/payment_logicalor_criterion.md
+            - Order: search/criteria_reference/payment_order_criterion.md
+            - PaymentMethod: search/criteria_reference/payment_payment_method_criterion.md
+            - Status: search/criteria_reference/payment_status_criterion.md
+            - UpdatedAt: search/criteria_reference/payment_updatedat_criterion.md
+        - Payment Method Search Criteria: 
+            - Payment Method Search Criteria: search/criteria_reference/payment_method_search_criteria.md
+            - CreatedAt: search/criteria_reference/payment_method_createdat_criterion.md
+            - Enabled: search/criteria_reference/payment_method_enabled_criterion.md
+            - Id: search/criteria_reference/payment_method_id_criterion.md
+            - Identifier: search/criteria_reference/payment_method_identifier_criterion.md
+            - LogicalAnd: search/criteria_reference/payment_method_logicaland_criterion.md
+            - LogicalOr: search/criteria_reference/payment_method_logicalor_criterion.md
+            - Type: search/criteria_reference/payment_method_type_criterion.md
+            - UpdatedAt: search/criteria_reference/payment_method_updatedat_criterion.md
+        - Shipment Search Criteria:
+            - Shipment Search Criteria: search/criteria_reference/shipment_search_criteria.md
+            - CreatedAt: search/criteria_reference/shipment_createdat_criterion.md
+            - Currency: search/criteria_reference/shipment_currency_criterion.md
+            - Id: search/criteria_reference/shipment_id_criterion.md
+            - Identifier: search/criteria_reference/shipment_identifier_criterion.md
+            - LogicalAnd: search/criteria_reference/shipment_logicaland_criterion.md
+            - LogicalOr: search/criteria_reference/shipment_logicalor_criterion.md
+            - Owner: search/criteria_reference/shipment_owner_criterion.md
+            - ShippingMethod: search/criteria_reference/shipment_shipping_method_criterion.md
+            - StatusCriterion: search/criteria_reference/shipment_status_criterion.md
+            - UpdatedAtCriterion: search/criteria_reference/shipment_updatedat_criterion.md
+        - URL Search Criteria:
+            - URL Search Criteria: search/url_search_reference/url_search_criteria.md
+            - MatchAll Criterion: search/url_search_reference/matchall_url_criterion.md
+            - MatchNone Criterion: search/url_search_reference/matchnone_url_criterion.md
+            - Pattern Criterion: search/url_search_reference/pattern_url_criterion.md
+            - SectionId Criterion: search/url_search_reference/sectionid_url_criterion.md
+            - SectionIdentifier Criterion: search/url_search_reference/sectionidentifier_url_criterion.md
+            - Validity Criterion: search/url_search_reference/validity_url_criterion.md
+            - VisibleOnly Criterion: search/url_search_reference/visibleonly_url_criterion.md
+            - LogicalAnd Criterion: search/url_search_reference/logicaland_url_criterion.md
+            - LogicalNot Criterion: search/url_search_reference/logicalnot_url_criterion.md
+            - LogicalOr Criterion: search/url_search_reference/logicalor_url_criterion.md
         - Sort Clause reference:
-            - Sort Clause reference: search/sort_clause_reference/sort_clause_reference.md
-            - ContentId: search/sort_clause_reference/contentid_sort_clause.md
-            - ContentName: search/sort_clause_reference/contentname_sort_clause.md
-            - ContentTranslatedName: search/sort_clause_reference/contenttranslatedname_sort_clause.md
-            - ContentTypeName: search/sort_clause_reference/contenttypename_sort_clause.md
-            - CustomField: search/sort_clause_reference/customfield_sort_clause.md
-            - DateModified: search/sort_clause_reference/datemodified_sort_clause.md
-            - DatePublished: search/sort_clause_reference/datepublished_sort_clause.md
-            - DateTrashed: search/sort_clause_reference/datetrashed_sort_clause.md
-            - Depth: search/sort_clause_reference/depth_sort_clause.md
-            - Field: search/sort_clause_reference/field_sort_clause.md
-            - Id: search/sort_clause_reference/id_sort_clause.md
-            - IsMainLocation: search/sort_clause_reference/ismainlocation_sort_clause.md
-            - MapLocationDistance: search/sort_clause_reference/maplocationdistance_sort_clause.md
-            - Path: search/sort_clause_reference/path_sort_clause.md
-            - Priority: search/sort_clause_reference/priority_sort_clause.md
-            - Random: search/sort_clause_reference/random_sort_clause.md
-            - Score: search/sort_clause_reference/score_sort_clause.md
-            - SectionIdentifier: search/sort_clause_reference/sectionidentifier_sort_clause.md
-            - SectionName: search/sort_clause_reference/sectionname_sort_clause.md
-            - UserLogin: search/sort_clause_reference/userlogin_sort_clause.md
-            - Visibility: search/sort_clause_reference/visibility_sort_clause.md
-        - Product Sort Clauses:
-            - ProductSortClauses: search/sort_clause_reference/product_sort_clauses.md
-            - BasePrice: search/sort_clause_reference/baseprice_sort_clause.md
-            - CreatedAt: search/sort_clause_reference/createdat_sort_clause.md
-            - CustomPrice: search/sort_clause_reference/customprice_sort_clause.md
-            - ProductAvailability: search/sort_clause_reference/productavailability_sort_clause.md
-            - ProductCode: search/sort_clause_reference/productcode_sort_clause.md
-            - ProductName: search/sort_clause_reference/productname_sort_clause.md
+            - General Sort Clauses:
+                - General Sort Clause reference: search/sort_clause_reference/sort_clause_reference.md
+                - ContentId: search/sort_clause_reference/contentid_sort_clause.md
+                - ContentName: search/sort_clause_reference/contentname_sort_clause.md
+                - ContentTranslatedName: search/sort_clause_reference/contenttranslatedname_sort_clause.md
+                - ContentTypeName: search/sort_clause_reference/contenttypename_sort_clause.md
+                - CustomField: search/sort_clause_reference/customfield_sort_clause.md
+                - DateModified: search/sort_clause_reference/datemodified_sort_clause.md
+                - DatePublished: search/sort_clause_reference/datepublished_sort_clause.md
+                - DateTrashed: search/sort_clause_reference/datetrashed_sort_clause.md
+                - Depth: search/sort_clause_reference/depth_sort_clause.md
+                - Field: search/sort_clause_reference/field_sort_clause.md
+                - Id: search/sort_clause_reference/id_sort_clause.md
+                - IsMainLocation: search/sort_clause_reference/ismainlocation_sort_clause.md
+                - MapLocationDistance: search/sort_clause_reference/maplocationdistance_sort_clause.md
+                - Path: search/sort_clause_reference/path_sort_clause.md
+                - Priority: search/sort_clause_reference/priority_sort_clause.md
+                - Random: search/sort_clause_reference/random_sort_clause.md
+                - Score: search/sort_clause_reference/score_sort_clause.md
+                - SectionIdentifier: search/sort_clause_reference/sectionidentifier_sort_clause.md
+                - SectionName: search/sort_clause_reference/sectionname_sort_clause.md
+                - UserLogin: search/sort_clause_reference/userlogin_sort_clause.md
+                - Visibility: search/sort_clause_reference/visibility_sort_clause.md
+            - Product Sort Clauses:
+                - Product Sort Clauses: search/sort_clause_reference/product_sort_clauses.md
+                - BasePrice: search/sort_clause_reference/baseprice_sort_clause.md
+                - CreatedAt: search/sort_clause_reference/createdat_sort_clause.md
+                - CustomPrice: search/sort_clause_reference/customprice_sort_clause.md
+                - ProductAvailability: search/sort_clause_reference/productavailability_sort_clause.md
+                - ProductStock: search/criteria_reference/productstock_criterion.md
+                - ProductStockRange: search/criteria_reference/productstockrange_criterion.md
+                - ProductCode: search/sort_clause_reference/productcode_sort_clause.md
+                - ProductName: search/sort_clause_reference/productname_sort_clause.md
+            - Order Sort Clauses:
+                - Order Sort Clauses: search/sort_clause_reference/order_sort_clauses.md
+                - Id: search/sort_clause_reference/order_id_sort_clause.md
+                - Created: search/sort_clause_reference/order_created_sort_clause.md
+                - Updated: search/sort_clause_reference/order_updated_sort_clause.md
+                - Status: search/sort_clause_reference/order_status_sort_clause.md
+            - Payment Sort Clauses:
+                - Payment Sort Clauses: search/sort_clause_reference/payment_sort_clauses.md
+                - Id: search/sort_clause_reference/payment_id_sort_clause.md
+                - Identifier: search/sort_clause_reference/payment_identifier_sort_clause.md
+                - CreatedAt: search/sort_clause_reference/payment_createdat_sort_clause.md
+                - UpdatedAt: search/sort_clause_reference/payment_updatedat_sort_clause.md
+                - Status: search/sort_clause_reference/payment_status_sort_clause.md
+            - Payment Method Sort Clauses:
+                - Payment Method Sort Clauses: search/sort_clause_reference/payment_method_sort_clauses.md
+                - CreatedAt: search/sort_clause_reference/payment_method_createdat_sort_clause.md
+                - Enabled: search/sort_clause_reference/payment_method_enabled_sort_clause.md
+                - Id: search/sort_clause_reference/payment_method_id_sort_clause.md
+                - Identifier: search/sort_clause_reference/payment_method_identifier_sort_clause.md
+                - UpdatedAt: search/sort_clause_reference/payment_method_updatedat_sort_clause.md
+            - Shipment Sort Clauses:
+                - Shipment Sort Clauses: search/sort_clause_reference/shipment_sort_clauses.md
+                - Id: search/sort_clause_reference/shipment_id_sort_clause.md
+                - Identifier: search/sort_clause_reference/shipment_identifier_sort_clause.md
+                - CreatedAt: search/sort_clause_reference/shipment_createdat_sort_clause.md
+                - UpdatedAt: search/sort_clause_reference/shipment_updatedat_sort_clause.md
+                - Status: search/sort_clause_reference/shipment_status_sort_clause.md
+            - URL Sort Clauses:
+                - URL Sort Clauses: search/url_search_reference/url_search_sort_clauses.md
+                - Id Sort Clause: search/url_search_reference/id_url_sort_clause.md
+                - Url Sort Clause: search/url_search_reference/url_url_sort_clause.md
+        - Search API: search/search_api.md
         - Aggregation reference:
             - Aggregation reference: search/aggregation_reference/aggregation_reference.md
             - ContentTypeTermAggregation: search/aggregation_reference/contenttypeterm_aggregation.md
@@ -502,24 +635,16 @@ nav:
             - IntegerRangeAggregation: search/aggregation_reference/integerrange_aggregation.md
             - IntegerStatsAggregation: search/aggregation_reference/integerstats_aggregation.md
             - KeywordTermAggregation: search/aggregation_reference/keywordterm_aggregation.md
+            - Product attribute aggregations: search/aggregation_reference/product_attribute_aggregations.md
+            - ProductAvailabilityTermAggregation: search/aggregation_reference/productavailabilityterm_aggregation.md
+            - ProductStockRangeAggregation: search/aggregation_reference/productstockrange_aggregation.md
+            - ProductStockRangeAggregation: search/aggregation_reference/productstockrange_aggregation.md
+            - ProductPriceRangeAggregation: search/aggregation_reference/productpricerange_aggregation.md
+            - ProductTypeTermAggregation: search/aggregation_reference/producttypeterm_aggregation.md
             - SelectionTermAggregation: search/aggregation_reference/selectionterm_aggregation.md
+            - TaxonomyEntryIdAggregation: search/aggregation_reference/taxonomyentryid_aggregation.md
             - TimeRangeAggregation: search/aggregation_reference/timerange_aggregation.md
-        - URL search reference:
-            - URL search reference: search/url_search_reference/url_search_reference.md
-            - Id Sort Clause: search/url_search_reference/id_url_sort_clause.md
-            - Url Sort Clause: search/url_search_reference/url_url_sort_clause.md
-            - MatchAll Criterion: search/url_search_reference/matchall_url_criterion.md
-            - MatchNone Criterion: search/url_search_reference/matchnone_url_criterion.md
-            - Pattern Criterion: search/url_search_reference/pattern_url_criterion.md
-            - SectionId Criterion: search/url_search_reference/sectionid_url_criterion.md
-            - SectionIdentifier Criterion: search/url_search_reference/sectionidentifier_url_criterion.md
-            - Validity Criterion: search/url_search_reference/validity_url_criterion.md
-            - VisibleOnly Criterion: search/url_search_reference/visibleonly_url_criterion.md
-            - LogicalAnd Criterion: search/url_search_reference/logicaland_url_criterion.md
-            - LogicalNot Criterion: search/url_search_reference/logicalnot_url_criterion.md
-            - LogicalOr Criterion: search/url_search_reference/logicalor_url_criterion.md
         - Search in trash reference: search/search_in_trash_reference.md
-        - Search reindexing: search/search_reindexing.md
         - Extend search:
             - Create custom Search Criterion: search/extensibility/create_custom_search_criterion.md
             - Create custom Sort Clause: search/extensibility/create_custom_sort_clause.md
@@ -528,6 +653,7 @@ nav:
             - Index custom Elasticsearch data: search/extensibility/index_custom_elasticsearch_data.md
             - Customize Elasticsearch index structure: search/extensibility/customize_elasticsearch_index_structure.md
             - Manipulate Elasticsearch query: search/extensibility/manipulate_elasticsearch_query.md
+        - Reindex search: search/reindex_search.md
     - Infrastructure and maintenance:
         - Infrastructure and maintenance: infrastructure_and_maintenance/infrastructure_and_maintenance.md
         - Request lifecycle: infrastructure_and_maintenance/request_lifecycle.md
@@ -540,6 +666,7 @@ nav:
               - Reverse proxy: infrastructure_and_maintenance/cache/http_cache/reverse_proxy.md
               - Context-aware HTTP cache: infrastructure_and_maintenance/cache/http_cache/context_aware_cache.md
               - Content-aware HTTP cache: infrastructure_and_maintenance/cache/http_cache/content_aware_cache.md
+              - Configure and customize Fastly: infrastructure_and_maintenance/cache/http_cache/fastly.md 
             - Persistence cache: infrastructure_and_maintenance/cache/persistence_cache.md
         - Clustering:
             - Clustering: infrastructure_and_maintenance/clustering/clustering.md
@@ -590,6 +717,8 @@ nav:
               - Update to v4.4: update_and_migration/from_4.3/update_from_4.3.md
               - Use new Commerce packages: update_and_migration/from_4.3/update_from_4.3_new_commerce.md
               - Keep old Commerce packages: update_and_migration/from_4.3/update_from_4.3_old_commerce.md
+        -   Update from v4.4:
+            -   Update to v4.5: update_and_migration/from_4.4/update_from_4.4.md
         - Migrate to Ibexa DXP:
             - Migrate from eZ Publish Platform: update_and_migration/migrate_to_ibexa_dxp/migrating_from_ez_publish_platform.md
             - Migrate from eZ Publish: update_and_migration/migrate_to_ibexa_dxp/migrating_from_ez_publish.md
@@ -605,6 +734,7 @@ nav:
             - Package structure: resources/contributing/package_structure.md
     - Release notes:
         - Release notes: release_notes/release_notes.md
+        - Ibexa DXP v4.5: release_notes/ibexa_dxp_v4.5.md
         - Ibexa DXP v4.4: release_notes/ibexa_dxp_v4.4.md
         - Ibexa DXP v4.3: release_notes/ibexa_dxp_v4.3.md
         - Ibexa DXP v4.2: release_notes/ibexa_dxp_v4.2.md
@@ -661,17 +791,18 @@ extra:
   # Global variables
   site_display_name: 'Ibexa Documentation'
   product_name: 'Ibexa DXP'
-  product_name_content: 'Ibexa Content'
+  product_name_content: 'Ibexa Headless'
   product_name_exp: 'Ibexa Experience'
   product_name_com: 'Ibexa Commerce'
   # Global variables - latest tag versions
   latest_tag_2_5: '2.5.31'
-  latest_tag_3_3: '3.3.31'
+  latest_tag_3_3: '3.3.33'
   latest_tag_4_0: '4.0.8'
   latest_tag_4_1: '4.1.5'
   latest_tag_4_2: '4.2.4'
   latest_tag_4_3: '4.3.5'
-  latest_tag_4_4: '4.4.1'
+  latest_tag_4_4: '4.4.4'
+  latest_tag_4_5: '4.5.1'
 
   symfony_doc: 'http://symfony.com/doc/5.4'
   user_doc: 'https://doc.ibexa.co/projects/userguide/en/master'

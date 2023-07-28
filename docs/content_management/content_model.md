@@ -82,7 +82,7 @@ s
 
 A Field is the smallest unit of storage in the content model and the building block of all Content items. Every Field belongs to a Field Type.
 
-Beyond the built-in set of Field Types, you can create your own.
+Beyond the built-in set of Field Types, you can [create your own](create_custom_generic_field_type.md).
 
 ### Field value validation
 
@@ -118,6 +118,10 @@ Depending on the Field Type, there may also be other, specific information to fi
 
 ![Diagram of content model](content_model_diagram.png)
 
+!!! tip
+
+    You can disable the possibility to edit specific Field details per Field Type by [adding custom service definition for `ModifyFieldDefinitionsCollectionTypeExtension`](customize_field_type_metadata.md).
+
 ## Content versions
 
 Each Content item can have multiple versions.
@@ -135,6 +139,6 @@ A new version is also created when a new [language](languages.md) is added to th
 
 ## Products
 
-Products are a special type of content that holds products you can manage in the commerce section of the system.
+Products are a special type of content that holds products you can manage in the built-in PIM system.
 
 See [PIM](pim.md) for more information.

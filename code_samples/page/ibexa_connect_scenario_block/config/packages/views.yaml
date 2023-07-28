@@ -1,0 +1,6 @@
+ibexa:
+    system:
+        site:
+            page_layout: pagelayout.html.twig
+            user:
+                layout: pagelayout.html.twig

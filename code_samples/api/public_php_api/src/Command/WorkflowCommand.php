@@ -1,22 +1,22 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Command;
 
+use Ibexa\Contracts\Core\Repository\ContentService;
+use Ibexa\Contracts\Workflow\Registry\WorkflowRegistryInterface;
+use Ibexa\Contracts\Workflow\Service\WorkflowServiceInterface;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Input\InputArgument;
-use Ibexa\Contracts\Core\Repository\ContentService;
-use Ibexa\Contracts\Workflow\Service\WorkflowServiceInterface;
-use Ibexa\Contracts\Workflow\Registry\WorkflowRegistryInterface;
 
 class WorkflowCommand extends Command
 {
-    private $workflowService;
+    private WorkflowServiceInterface $workflowService;
 
-    private $workflowRegistry;
+    private WorkflowRegistryInterface $workflowRegistry;
 
-    private $contentService;
+    private ContentService $contentService;
 
     public function __construct(WorkflowServiceInterface $workflowService, WorkflowRegistryInterface $workflowRegistry, ContentService $contentService)
     {
@@ -47,7 +47,7 @@ class WorkflowCommand extends Command
 
         $supportedWorkflows = $this->workflowRegistry->getSupportedWorkflows($content);
         foreach ($supportedWorkflows as $supportedWorkflow) {
-            $output->writeln('Supports workflow: '. $supportedWorkflow->getName());
+            $output->writeln('Supports workflow: ' . $supportedWorkflow->getName());
         }
 
         $this->workflowService->start($content, $workflowName);
@@ -57,11 +57,11 @@ class WorkflowCommand extends Command
             $output->writeln($content->getName() . ' is in stage ' . $marking->name . ' in workflow ' . $workflowMetadata->workflow->getName());
         }
 
-       if ($this->workflowService->can($workflowMetadata, $transitionName)) {
+        if ($this->workflowService->can($workflowMetadata, $transitionName)) {
             $workflow = $this->workflowRegistry->getWorkflow($workflowName);
-            $workflow->apply($workflowMetadata->content, $transitionName,  ['message' => 'done', 'reviewerId' => 14]);
+            $workflow->apply($workflowMetadata->content, $transitionName, ['message' => 'done', 'reviewerId' => 14]);
             $output->writeln('Moved ' . $content->getName() . ' through transition ' . $transitionName);
-       }
+        }
 
         return self::SUCCESS;
     }

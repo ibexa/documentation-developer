@@ -1,0 +1,20 @@
+{% extends '@IbexaStorefront/themes/storefront/storefront/layout.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('app') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('app') }}
+{% endblock %}
+
+{% block main_menu %}
+    {% set main_menu_alias = ibexa_storefront_get_main_menu_alias() %}
+    {% set main_menu_options = ibexa_storefront_get_main_menu_options() %}
+
+    <div class="ibexa-store-main-menu-items">
+        {{ knp_menu_render(main_menu_alias, main_menu_options) }}
+    </div>
+{% endblock %}

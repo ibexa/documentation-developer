@@ -15,7 +15,7 @@ To define a parent Location, add a new configuration key to the site template de
 Each template is assigned to its own Location.
 This can be either a Location ID (for example, `62`), or a recommended remote Location ID (for example, `1548b8cd8dd4c6b5082e566615d45e91`).
 
-Add the configuration key to your template:
+Add the configuration key to your template under the `ibexa_site_factory` [configuration key](configuration.md#configuration-files):
 
 ``` yaml hl_lines="7 12"
 ibexa_site_factory:
@@ -100,7 +100,7 @@ Role definitions can contain user/login Policies with Limitations that limit use
 To avoid the need to add the new SiteAccess to Limitations for all Roles,
 you can decide that the Roles you select are automatically updated when the site is created, updated or deleted.
 
-In `config/packages/ibexa_site_factory.yaml`, add a list of Roles which should have access to the frontend
+Under the `ibexa_site_factory` [configuration key](configuration.md#configuration-files), add a list of Roles which should have access to the frontend
 when a site is created in Site Factory, for example:
 
 ``` yaml

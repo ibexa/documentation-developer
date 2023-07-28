@@ -27,6 +27,11 @@ Other configuration is provided in respective files, e.g. `config/packages/ibexa
 Configuration can be made environment-specific using separate folders for each environment.
 These files contain additional settings and point to the general (not environment-specific) configuration that is applied in other cases.
 
+!!! note "New configuration files"
+
+    It is good practice to provide your own configuration in separate files.
+    Any YAML files placed in the `config/packages` folder is automatically included in the system configuration.
+
 !!! tip
 
     Read more about [how configuration is handled in Symfony]([[= symfony_doc =]]/best_practices/configuration.html).

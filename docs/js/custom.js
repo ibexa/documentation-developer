@@ -125,6 +125,9 @@ $(document).ready(function() {
     // Image enlargement modal
     $('body').append('<div id="imageModal"><img class="modal-content" id="enlargedImage"><div id="modalCaption"></div>/div>');
 
+    //Google Tag Manager code
+    $('body').prepend('<!-- Google Tag Manager (noscript) --><noscript><iframe src=https://www.googletagmanager.com/ns.html?id=GTM-KKQR5LG height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><!-- End Google Tag Manager (noscript) -->');
+
     $('.md-content__inner img').click(function() {
         $('#enlargedImage').attr('src', $(this).attr('src'));
         if ($(this).attr('title')) {
@@ -141,4 +144,17 @@ $(document).ready(function() {
         $('.md-sidebar--primary .md-sidebar__scrollwrap')[0].scrollTop =
         $('.md-sidebar--primary .md-nav__item--active:not(.md-nav__item--nested)')[0].offsetTop - 33;
     }
+
+    // Fix page TOC/hash bug
+    $('.md-sidebar.md-sidebar--secondary nav a').click(function(event) {
+        window.setTimeout(function() {
+            document.location.hash = event.target.hash;
+        }, 500);
+    })
+
+    document.querySelectorAll('.notification__close-btn').forEach((closeBtn) => {
+        closeBtn.addEventListener('click', () => {
+            closeBtn.closest('.notification').setAttribute('hidden', 'hidden');
+        });
+    });
 });

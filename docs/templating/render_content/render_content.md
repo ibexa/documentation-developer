@@ -10,7 +10,7 @@ and inform the system, through configuration, when to use this template.
 
 You do it by using the [content view configuration](template_configuration.md).
 
-For example, to apply a custom template to all articles, use the following configuration:
+For example, to apply a custom template to all articles, add the following [configuration](configuration.md#configuration-files):
 
 ``` yaml
 [[= include_file('code_samples/front/render_content/config/packages/views.yaml', 4, 7) =]][[= include_file('code_samples/front/render_content/config/packages/views.yaml', 9, 15) =]]

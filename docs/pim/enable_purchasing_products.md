@@ -8,8 +8,8 @@ To enable purchasing from the catalog, the following configuration is required:
 
 - at least [one region and one currency for the shop](#region-and-currency)
 - [VAT rates for the product type](#vat-rates)
-- at least [one price for the product](prices.md)
-- [availability with positive or infinite stock for the product](pim.md#product-availability-and-stock)
+- at least [one price for the product](#product-price)
+- [availability with positive or infinite stock for the product](#product-availability)
 
 !!! tip "Product completeness"
 
@@ -25,24 +25,48 @@ To enable purchasing from the catalog, the following configuration is required:
 
 ## Region and currency
 
-All currencies available in the system must be enabled in the Back Office under **Commerce** -> **Currencies**.
+All currencies available in the system must be enabled in the Back Office under **Product Catalog** -> **Currencies**.
 
-Additionally, you must configure currencies valid for specific SiteAccesses in configuration:
+Additionally, you must configure currencies valid for specific SiteAccesses
+under the `ibexa.system.<scope>.product_catalog.currencies` [configuration key](configuration.md#configuration-files):
 
 ``` yaml
 ibexa:
     system:
-        shop:
+        default:
             product_catalog:
                 currencies:
                     - EUR
-                    - USD
+                    - GBP
                     - PLN
                 regions:
                     - germany
-                    - usa
+                    - uk
                     - poland
 ```
+
+In the `ibexa_storefront.yaml` file, under the `ibexa.system.<scope>.product_catalog.regions` configuration key, regions are set with `default` value. Remember to either exclude this element or extend it by [configuring other regions](enable_purchasing_products.md#configuring-other-regions-and-currencies).
+
+```yaml
+ibexa:
+    system:
+        storefront_group:
+            product_catalog:
+                currencies:
+                    - EUR
+                    - PLN
+                regions:
+                    - germany
+                    - poland 
+        another_storefront_group:
+            product_catalog:
+                currencies:
+                    - GBP
+                regions:
+                    - uk
+```
+
+This example uses the currencies and regions set in the [VAT rates' example below](#vat-rates).
 
 ### Configuring other regions and currencies
 
@@ -59,14 +83,24 @@ You set up VAT percentage values corresponding to VAT rates in configuration:
 ``` yaml
 ibexa:
     repositories:
-        shop:
+        default:
             product_catalog:
                 engine: default
                 regions:
                     germany:
                         vat_categories:
-                            standard: 18
-                            reduced: 6
+                            standard: 19
+                            reduced: 7
+                            none: ~
+                    uk:                                               
+                        vat_categories:                            
+                            standard: 20                            
+                            reduced: 5                            
+                            none: ~
+                    poland:                                               
+                        vat_categories:                            
+                            standard: 23                            
+                            reduced: 8                            
                             none: ~
 ```
 
@@ -82,5 +116,5 @@ The product must have at least one [price](prices.md) configured.
 
 ## Product availability
 
-To enable adding a product to cart, you must configure product [availability](pim.md#product-availability-and-stock)
+To enable adding a product to cart, you must configure product [availability](products.md#product-availability-and-stock)
 with positive or infinite stock.

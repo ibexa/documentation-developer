@@ -1,5 +1,6 @@
 ---
 description: Events that are triggered when working with Content Types.
+page_type: reference
 ---
 
 # Content Type events

@@ -135,3 +135,4 @@ parameters:
         content_type_identifier: custom_file_contenttype
         content_field_identifier: file
         name_field_identifier: name
+```

@@ -1,0 +1,14 @@
+{
+    "CompanyUpdate": {
+        "fields": {
+            "field": [
+                {
+                    "fieldDefinitionIdentifier": "contact",
+                    "fieldValue": {
+                        "destinationContentId": 144
+                    }
+                }
+            ]
+        }
+    }
+}

@@ -12,6 +12,8 @@ representing whether to search for a main or not main Location
 
 ## Example
 
+### PHP
+
 ``` php
 $query->query = new Criterion\Location\IsMainLocation(IsMainLocation::MAIN);
 ```

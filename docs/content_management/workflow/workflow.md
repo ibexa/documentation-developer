@@ -166,22 +166,6 @@ You can also use the [Workflow Stage Limitation](limitation_reference.md#workflo
 together with the `content/edit` and `content/publish` Policies to limit the ability to edit content in specific stages.
 For example, you can use it to only allow a legal team to edit content in the `legal` stage.
 
-## Workflow service
-
-Workflow uses the Symfony [Workflow Component]([[= symfony_doc =]]/components/workflow.html),
-extended in the workflow service.
-
-The service implements the following methods:
-
-- `start` - places a Content item in a workflow
-- `apply` - performs a transition
-- `can` - checks if a transition is possible
-
-The methods `apply` and `can` are the same as in Symfony Workflow,
-but the implementation in workflow service extends them, for example by providing messages.
-
-For examples of using the Workflow Service, see [Workflow API](workflow_api.md).
-
 ## Validation
 
 ### Validate form before workflow transition

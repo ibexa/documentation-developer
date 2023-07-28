@@ -24,9 +24,7 @@ If your browser language is set to French, the Back Office will be displayed in 
 
 !!! tip
 
-    If you do want to add your own bundle with Back Office translations, you can install it manually via Composer.  
-
-    Also, you can manually add the necessary .xliff files to an existing project.
+    You can also manually add the necessary .xliff files to an existing project.
     
     Add the language to an array under `ibexa.system.<siteaccess>.user_preferences.additional_translations`, for example:
 

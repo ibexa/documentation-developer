@@ -6,6 +6,20 @@ description: PHP API enables you to get workflow information and apply specific 
 
 You can manage [workflows](workflow.md) with PHP API by using `WorkflowServiceInterface`.
 
+## Workflow service
+
+Workflow uses the Symfony [Workflow Component]([[= symfony_doc =]]/components/workflow.html),
+extended in the workflow service.
+
+The service implements the following methods:
+
+- `start` - places a Content item in a workflow
+- `apply` - performs a transition
+- `can` - checks if a transition is possible
+
+The methods `apply` and `can` are the same as in Symfony Workflow,
+but the implementation in workflow service extends them, for example by providing messages.
+
 ## Getting workflow information
 
 To get information about a specific workflow for a Content item, use `WorkflowServiceInterface::loadWorkflowMetadataForContent`:

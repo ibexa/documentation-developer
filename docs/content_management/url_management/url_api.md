@@ -19,12 +19,12 @@ in which you need to specify:
 
 ```php
 // ...
-[[= include_file('code_samples/api/public_php_api/src/Command/FindUrlCommand.php', 9, 12) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/FindUrlCommand.php', 7, 10) =]]
 // ...
-[[= include_file('code_samples/api/public_php_api/src/Command/FindUrlCommand.php', 43, 58) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/FindUrlCommand.php', 41, 56) =]]
 ```
 
 ## URL search reference
 
 For the reference of Search Criteria and Sort Clauses you can use in URL search,
-see [URL search reference](url_search_reference.md).
+see [URL Search Criteria](url_search_criteria.md) and [URL Sort Clauses](url_search_sort_clauses.md).

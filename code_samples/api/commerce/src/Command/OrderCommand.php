@@ -4,21 +4,28 @@ declare(strict_types=1);
 
 namespace App\Command;
 
-use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
+use Ibexa\Contracts\Core\Repository\PermissionResolver;
+use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\OrderManagement\OrderServiceInterface;
-use Ibexa\Contracts\OrderManagement\Value\OrderQuery;
+use Ibexa\Contracts\OrderManagement\Value\Order\OrderQuery;
 use Ibexa\Contracts\OrderManagement\Value\Order\Query\Criterion\CompanyNameCriterion;
 use Ibexa\Contracts\OrderManagement\Value\Order\Query\Criterion\CustomerNameCriterion;
 use Ibexa\Contracts\OrderManagement\Value\Order\Query\Criterion\IdentifierCriterion;
+use Ibexa\Contracts\OrderManagement\Value\OrderCurrency;
+use Ibexa\Contracts\OrderManagement\Value\OrderItem;
+use Ibexa\Contracts\OrderManagement\Value\OrderItemProduct;
+use Ibexa\Contracts\OrderManagement\Value\OrderItemValue;
+use Ibexa\Contracts\OrderManagement\Value\OrderUser;
+use Ibexa\Contracts\OrderManagement\Value\OrderValue;
+use Ibexa\Contracts\OrderManagement\Value\Struct\OrderCreateStruct;
+use Ibexa\Contracts\OrderManagement\Value\Struct\OrderUpdateStruct;
 use Ibexa\Contracts\ProductCatalog\Values\Common\Query\Criterion\LogicalOr;
-use Ibexa\Contracts\OrderManagement\Value\OrderCreateStruct;
-use Ibexa\Contracts\OrderManagement\Value\OrderUpdateStruct;
-use Ibexa\Contracts\Core\Repository\PermissionResolver;
-use Ibexa\Contracts\Core\Repository\UserService;
+use Money;
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
 
-final class OrderCommand extends Command 
+final class OrderCommand extends Command
 {
     private PermissionResolver $permissionResolver;
 
@@ -48,7 +55,7 @@ final class OrderCommand extends Command
         $this->permissionResolver->setCurrentUserReference($currentUser);
 
         // Get order by identifier
-        $orderIdentifier = '4ac4b8a0-eed8-496d-87d9-32a960a10629';
+        $orderIdentifier = '2e897b31-0d7a-46d3-ba45-4eb65fe02790';
         $order = $this->orderService->getOrderByIdentifier($orderIdentifier);
 
         $output->writeln(sprintf('Order has status %s', $orderIdentifier, $order->getStatus()));
@@ -57,21 +64,51 @@ final class OrderCommand extends Command
         $orderId = 1;
         $order = $this->orderService->getOrder($orderId);
 
-
         $output->writeln(sprintf('Order %d has status %s', $orderId, $order->getStatus()));
 
-        // Create order
-        $orderCreateStruct = new OrderCreateStruct();
+        // OrderCreateStruct parameters
+        $items = [
+            new OrderItem(
+                10,
+                new OrderItemValue(
+                    new Money\Money(12, new Money\Currency('EUR')),
+                    new Money\Money(10, new Money\Currency('EUR')),
+                    '12',
+                    new Money\Money(24, new Money\Currency('EUR')),
+                    new Money\Money(20, new Money\Currency('EUR')),
+                ),
+                new OrderItemProduct(
+                    1,
+                    'desk1',
+                    'Desk 1'
+                )
+            ),
+            ];
 
-            // Set properties of $orderCreateStruct here
+        $value = new OrderValue(
+            new Money\Money(20, new Money\Currency('EUR')),
+            new Money\Money(120, new Money\Currency('EUR')),
+            new Money\Money(100, new Money\Currency('EUR')),
+        );
+
+        $user = new OrderUser(14, 'johndoe', 'jd@example.com');
+        $currency = new OrderCurrency(1, 'EUR');
+
+        // Create order
+        $orderCreateStruct = new OrderCreateStruct(
+            $user,
+            $currency,
+            $value,
+            'local_shop',
+            $items
+        );
 
         $order = $this->orderService->createOrder($orderCreateStruct);
 
         $output->writeln(sprintf('Created order with identifier %s', $order->getIdentifier()));
 
         // Update order
-        $orderUpdateStruct = new OrderUpdateStruct();
-        $orderUpdateStruct->setStatus('processed');
+        $orderUpdateStruct = new OrderUpdateStruct('processed');
         $this->orderService->updateOrder($order, $orderUpdateStruct);
 
         $output->writeln(sprintf('Changed order status to %s', $order->getStatus()));
@@ -86,5 +123,7 @@ final class OrderCommand extends Command
         $orders = $this->orderService->findOrders($orderQuery);
 
         $output->writeln(sprintf('Found %d orders with provided criteria', count($orders)));
+
+        return self::SUCCESS;
     }
 }

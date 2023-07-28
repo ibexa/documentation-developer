@@ -58,7 +58,7 @@ rm ezp_cron.txt
 
 ### Configuration
 
-The configuration of external URLs validation is SiteAccess-aware and is stored in the `config/packages/ibexa.yaml` file, under the `ibexa.system.<SITEACCESS>.url_checker` key, for example:
+The configuration of external URLs validation is SiteAccess-aware and is stored under the `ibexa.system.<scope>.url_checker` [configuration key](configuration.md#configuration-files), for example:
 
 ```yaml
 ibexa:
@@ -159,7 +159,7 @@ the prefix path that results from the configured content root is prepended to th
 ### URL alias pattern configuration
 
 You can configure how [[= product_name =]] generates URL aliases.
-The configuration is stored in the `config/packages/ibexa.yaml` file, under the `ibexa.url_alias.slug_converter` key, for example:
+The configuration is stored under the `ibexa.url_alias.slug_converter` [configuration key](configuration.md#configuration-files), for example:
 
 ``` yaml
 ibexa:
@@ -230,7 +230,7 @@ In this case, accessing `<yourdomain>/pictures/home/photo/` loads `<yourdomain>/
 
 You can configure URL wildcards either in the Back Office, or with the Public API.
 
-Before you configure URL wildcards, you must enable the feature in configuration in the `config/packages/ibexa.yaml` file:
+Before you configure URL wildcards, you must enable the feature in configuration:
 
 ``` yaml
 ibexa:

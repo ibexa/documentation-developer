@@ -29,7 +29,8 @@ so you can also define session configuration per SiteAccess and SiteAccess group
 
 ### Session options per SiteAccess
 
-All site-related session configuration can be defined per SiteAccess and SiteAccess group:
+All site-related session configuration can be defined per SiteAccess and SiteAccess group
+under the `ibexa.system.<scope>.session` [configuration key](configuration.md#configuration-files):
 
 ``` yaml
 ibexa:
@@ -126,7 +127,7 @@ Ideally keep [persistence cache](persistence_cache.md) and session data separate
 
 - Sessions can't risk getting [randomly evicted](https://redis.io/topics/lru-cache#eviction-policies) when you run out of memory for cache.
 - You can't completely disable eviction either, as Redis will then start to refuse new entries once full, including new sessions.
-  - Either way, you should monitor your Redis instances and make sure you have enough memory set aside for active sessions/cache items.
+    - Either way, you should monitor your Redis instances and make sure you have enough memory set aside for active sessions/cache items.
 
 If you want to make sure sessions survive Redis or server restarts, consider using a [persistent Redis](https://redis.io/topics/persistence) instance for sessions.
 
