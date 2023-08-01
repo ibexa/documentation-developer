@@ -113,7 +113,11 @@ if (!(array_key_exists('Content', $response) && array_key_exists('_id', $respons
 $contentId = $response['Content']['_id'];
 
 try {
-    $response = $client->request('PUBLISH', "$baseUrl/content/objects/$contentId/versions/1");
+    $response = $client->request('PUBLISH', "$baseUrl/content/objects/$contentId/versions/1", [
+        'headers' => [
+            'Accept: application/json',
+        ],
+    ]);
 } catch (HttpException\TransportExceptionInterface $exception) {
     echo "Client error: {$exception->getMessage()}\n";
     exit(7);
