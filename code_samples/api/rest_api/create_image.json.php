@@ -89,11 +89,12 @@ try {
 
 if (201 !== $responseCode = $response->getStatusCode()) {
     $response = $response->toArray(false);
-    if (is_array($response) && array_key_exists('ErrorMessage', $response)) {
+    if (array_key_exists('ErrorMessage', $response)) {
         echo "Server error: {$response['ErrorMessage']['errorCode']} {$response['ErrorMessage']['errorMessage']}\n";
         echo "\t{$response['ErrorMessage']['errorDescription']}\n";
         exit(4);
     }
+    $responseHeaders = $response->getHeaders(false);
     $error = $responseHeaders[0] ?? $responseCode;
     echo "Server error: $error\n";
     exit(5);
@@ -117,11 +118,12 @@ try {
 
 if (204 !== $responseCode = $response->getStatusCode()) {
     $response = $response->toArray(false);
-    if (is_array($response) && array_key_exists('ErrorMessage', $response)) {
+    if (array_key_exists('ErrorMessage', $response)) {
         echo "Server error: {$response['ErrorMessage']['errorCode']} {$response['ErrorMessage']['errorMessage']}\n";
         echo "\t{$response['ErrorMessage']['errorDescription']}\n";
         exit(8);
     }
+    $responseHeaders = $response->getHeaders(false);
     $error = $responseHeaders[0] ?? $responseCode;
     echo "Server error: $error\n";
     exit(9);
