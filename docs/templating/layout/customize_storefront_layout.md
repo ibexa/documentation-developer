@@ -19,7 +19,7 @@ you need to override [`vendor/ibexa/storefront/src/bundle/Resources/views/themes
 
 To do it, create your own template in `templates/theme/storefront/cart/component/maincart/maincart_empty_cart.html.twig`.
 
-You can customize it, for example, to remove a "Continue shopping button" in the following way:
+You can customize it, for example, to remove a "Continue shopping" button in the following way:
 
 ``` html+twig
 {% trans_default_domain 'ibexa_cart' %}
@@ -165,6 +165,8 @@ JavaScript class:
 
 ### Add to Cart
 
+You could extend this widget by adding variant selectors.
+
 Available Twig:
 
 - `@IbexaCart/themes/standard/cart/component/add_to_cart/add_to_cart.html.twig`
@@ -183,6 +185,8 @@ JavaScript class:
 
 
 ### Minicart
+
+You could modify the minicart widget by changing its icon, title or other elements.
 
 Available Twig:
 
@@ -208,6 +212,9 @@ with parameters:
 
 
 ### Summary
+
+You could extend the summary widget to let buyers navigate from this view, 
+for example, to checkout, or back to shopping, by adding respective buttons.
 
 |Template|Component|
 |---|---|
