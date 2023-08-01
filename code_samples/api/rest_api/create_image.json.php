@@ -83,18 +83,19 @@ try {
         'json' => $data,
     ]);
 } catch (ExceptionInterface $exception) {
-    var_dump($exception->getMessage());//TODO
+    echo "Client error: {$exception->getMessage()}\n";
     exit(3);
 }
 
 if (201 !== $responseCode = $response->getStatusCode()) {
-    try {
-        $response = $response->toArray();
-    } catch (ExceptionInterface $exception) {
-        var_dump($responseCode, $exception->getMessage());//TODO
+    $response = $response->toArray(false);
+    if (is_array($response) && array_key_exists('ErrorMessage', $response)) {
+        echo "Server error: {$response['ErrorMessage']['errorCode']} {$response['ErrorMessage']['errorMessage']}\n";
+        echo "\t{$response['ErrorMessage']['errorDescription']}\n";
         exit(4);
     }
-    var_dump($responseCode, $response);//TODO
+    $error = $responseHeaders[0] ?? $responseCode;
+    echo "Server error: $error\n";
     exit(5);
 }
 
@@ -110,18 +111,19 @@ $contentId = $response['Content']['_id'];
 try {
     $response = $client->request('PUBLISH', "$baseUrl/content/objects/$contentId/versions/1");
 } catch (ExceptionInterface $exception) {
-    var_dump($exception->getMessage());//TODO
+    echo "Client error: {$exception->getMessage()}\n";
     exit(7);
 }
 
 if (204 !== $responseCode = $response->getStatusCode()) {
-    try {
-        $response = $response->toArray();
-    } catch (ExceptionInterface $exception) {
-        var_dump($responseCode, $exception->getMessage());//TODO
+    $response = $response->toArray(false);
+    if (is_array($response) && array_key_exists('ErrorMessage', $response)) {
+        echo "Server error: {$response['ErrorMessage']['errorCode']} {$response['ErrorMessage']['errorMessage']}\n";
+        echo "\t{$response['ErrorMessage']['errorDescription']}\n";
         exit(8);
     }
-    var_dump($responseCode, $response);//TODO
+    $error = $responseHeaders[0] ?? $responseCode;
+    echo "Server error: $error\n";
     exit(9);
 }
 
