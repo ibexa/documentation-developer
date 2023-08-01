@@ -1,5 +1,10 @@
 <?php declare(strict_types=1);
 
+require __DIR__.'/vendor/autoload.php';
+
+use Symfony\Component\HttpClient\HttpClient;
+use Symfony\Contracts\HttpClient\Exception\ExceptionInterface;
+
 if ($argc < 2) {
     // Print script usage
     echo "Usage: php {$argv[0]} <FILE_PATH> [<IMAGE_NAME>]\n";
@@ -65,101 +70,61 @@ $data = [
     ],
 ];
 
-$curl = curl_init();
-$responseHeaders = [];
-
-curl_setopt_array($curl, [
-    CURLOPT_USERPWD => "$username:$password",
-    CURLOPT_URL => "$baseUrl/content/objects",
-    CURLOPT_POST => true,
-    CURLOPT_POSTFIELDS => json_encode($data),
-    CURLOPT_HTTPHEADER => [
-        'Content-Type: application/vnd.ibexa.api.ContentCreate+json',
-        'Accept: application/vnd.ibexa.api.ContentInfo+json',
-    ],
-    CURLOPT_RETURNTRANSFER => true,
-    CURLOPT_HEADERFUNCTION => static function ($curl, $header) {
-        global $responseHeaders;
-        $responseHeaders[] = $header;
-
-        return strlen($header);
-    },
+$client =HttpClient::createForBaseUri($baseUrl, [
+    'auth_basic' => [$username, $password],
 ]);
 
-$response = curl_exec($curl);
-
-if ($error = curl_error($curl)) {
-    echo "cURL error: $error\n";
-    curl_close($curl);
+try {
+    $response = $client->request('POST', "$baseUrl/content/objects", [
+        'headers' => [
+            'Content-Type: application/vnd.ibexa.api.ContentCreate+json',
+            'Accept: application/vnd.ibexa.api.ContentInfo+json',
+        ],
+        'json' => $data,
+    ]);
+} catch (ExceptionInterface $exception) {
+    var_dump($exception->getMessage());//TODO
     exit(3);
 }
 
-if (201 !== $responseCode = curl_getinfo($curl, CURLINFO_RESPONSE_CODE)) {
-    $response = json_decode($response, true);
-    if (is_array($response) && array_key_exists('ErrorMessage', $response)) {
-        echo "Server error: {$response['ErrorMessage']['errorCode']} {$response['ErrorMessage']['errorMessage']}\n";
-        echo "\t{$response['ErrorMessage']['errorDescription']}\n";
-        curl_close($curl);
+if (201 !== $responseCode = $response->getStatusCode()) {
+    try {
+        $response = $response->toArray();
+    } catch (ExceptionInterface $exception) {
+        var_dump($responseCode, $exception->getMessage());//TODO
         exit(4);
     }
-    $error = $responseHeaders[0] ?? $responseCode;
-    echo "Server error: $error\n";
-    curl_close($curl);
+    var_dump($responseCode, $response);//TODO
     exit(5);
 }
 
-$response = json_decode($response, true);
+$response = $response->toArray();
 
 if (!(array_key_exists('Content', $response) && array_key_exists('_id', $response['Content']))) {
     echo "Response error: Unexpected response structure\n";
-    curl_close($curl);
     exit(6);
 }
 
 $contentId = $response['Content']['_id'];
 
-curl_reset($curl);
-$responseHeaders = [];
-
-curl_setopt_array($curl, [
-    CURLOPT_USERPWD => "$username:$password",
-    CURLOPT_URL => "$baseUrl/content/objects/$contentId/versions/1",
-    CURLOPT_POST => true,
-    CURLOPT_HTTPHEADER => [
-        'X-HTTP-Method-Override: PUBLISH',
-        'Accept: application/json',
-    ],
-    CURLOPT_RETURNTRANSFER => true,
-    CURLOPT_HEADERFUNCTION => static function ($curl, $header) {
-        global $responseHeaders;
-        $responseHeaders[] = $header;
-
-        return strlen($header);
-    },
-]);
-
-$response = curl_exec($curl);
-
-if ($error = curl_error($curl)) {
-    echo "cURL error: $error\n";
-    curl_close($curl);
+try {
+    $response = $client->request('PUBLISH', "$baseUrl/content/objects/$contentId/versions/1");
+} catch (ExceptionInterface $exception) {
+    var_dump($exception->getMessage());//TODO
     exit(7);
 }
 
-if (204 !== $responseCode = curl_getinfo($curl, CURLINFO_RESPONSE_CODE)) {
-    $response = json_decode($response, true);
-    if (is_array($response) && array_key_exists('ErrorMessage', $response)) {
-        echo "Server error: {$response['ErrorMessage']['errorCode']} {$response['ErrorMessage']['errorMessage']}\n";
-        echo "\t{$response['ErrorMessage']['errorDescription']}\n";
-        curl_close($curl);
+if (204 !== $responseCode = $response->getStatusCode()) {
+    try {
+        $response = $response->toArray();
+    } catch (ExceptionInterface $exception) {
+        var_dump($responseCode, $exception->getMessage());//TODO
         exit(8);
     }
-    $error = $responseHeaders[0] ?? $responseCode;
-    echo "Server error: $error\n";
+    var_dump($responseCode, $response);//TODO
     exit(9);
 }
 
-echo "Success: Image Content item created with ID $contentId and published\n";
+echo "Success: Image Content item created with ID $contentId and published.\n";
 
-curl_close($curl);
 exit(0);
