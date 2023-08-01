@@ -95,7 +95,8 @@ if (201 !== $responseCode = $response->getStatusCode()) {
             echo "\t{$response['ErrorMessage']['errorDescription']}\n";
             exit(4);
         }
-    } catch (HttpException\DecodingExceptionInterface $exception) {}
+    } catch (HttpException\DecodingExceptionInterface $exception) {
+    }
     $responseHeaders = $response->getInfo('response_headers');
     $error = $responseHeaders[0] ?? $responseCode;
     echo "Server error: $error\n";
@@ -126,7 +127,8 @@ if (204 !== $responseCode = $response->getStatusCode()) {
             echo "\t{$response['ErrorMessage']['errorDescription']}\n";
             exit(8);
         }
-    } catch (HttpException\DecodingExceptionInterface $exception) {}
+    } catch (HttpException\DecodingExceptionInterface $exception) {
+    }
     $responseHeaders = $response->getInfo('response_headers');
     $error = $responseHeaders[0] ?? $responseCode;
     echo "Server error: $error\n";
