@@ -12,18 +12,18 @@ This page contains recent highlights and notable changes in Ibexa DXP documentat
 
 - [v4.5.1 release notes](https://doc.ibexa.co/en/master/release_notes/ibexa_dxp_v4.5/#v451)
 
-### New landing page
+### New home page
 
-- Redesigned [landing page for the Developer Documentation](https://doc.ibexa.co/en/latest/)
+- Redesigned [home page for the developer documentation](https://doc.ibexa.co/en/latest/)
 
 ### Getting started
 
-- New cautions in [Install on Ibexa Cloud](https://doc.ibexa.co/en/master/getting_started/install_on_ibexa_cloud/)
+- New cautions in [Install on Ibexa Cloud](https://doc.ibexa.co/en/master/getting_started/install_on_ibexa_cloud/) about using `cloud.ibexa.co` instead of and not `platform.sh`
 
 ### Content management
 
 - New Page block [Ibexa Connect scenario block](https://doc.ibexa.co/en/master/content_management/pages/ibexa_connect_scenario_block/)
-- Updated [Create custom Page blocks](https://doc.ibexa.co/en/master/content_management/pages/create_custom_page_block/#add-block-javascript) when you create custom Page blocks
+- Updated [Create custom Page blocks](https://doc.ibexa.co/en/master/content_management/pages/create_custom_page_block/#add-block-javascript)
 
 ### Customer Portal
 
@@ -41,7 +41,6 @@ This page contains recent highlights and notable changes in Ibexa DXP documentat
 - [Virtual products](https://doc.ibexa.co/en/master/pim/products/#product-types)
 - [Virtual products in user documentation](https://doc.ibexa.co/projects/userguide/en/master/pim/create_virtual_product/)
 - [Work with product attributes](https://doc.ibexa.co/projects/userguide/en/master/pim/work_with_product_attributes/) in user documentation
-
 
 ### REST API
 - Added example of input payload in JSON format for [ContentTypeCreate in REST API reference](https://doc.ibexa.co/en/master/api/rest_api/rest_api_reference/rest_api_reference.html#managing-content-create-content-type)

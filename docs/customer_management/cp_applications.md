@@ -10,7 +10,7 @@ Applications go through the approval process in the Back Office where they can b
 If they are accepted, the business partner receives an invitation link to the Customer Portal,
 where they can set up their team and manage their account.
 
-For more information on company self-registration, see [user guide documentation](https://doc.ibexa.co/projects/userguide/en/latest/shop_administration/company_self_registration/).
+For more information on company self-registration, see [user documentation](https://doc.ibexa.co/projects/userguide/en/latest/shop_administration/company_self_registration/).
 If provided options are too limited, you can customize an approval process by yourself.
 
 ## Roles and policies
