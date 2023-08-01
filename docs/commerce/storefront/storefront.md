@@ -35,11 +35,10 @@ You can modify them when you build your own web store.
 
 To become familiar with a complete set of templates that covering all functionalities of a store, visit the `vendor/ibexa/storefront/src/bundle/Resources/views/themes/storefront` directory of your installation.
 
-!!! note "Customization"
+!!! note "Customization and permissions"
 
     For more information about modifying the storefront components, whether by changing their appearance or modifying the underlying logic, see [Customize the storefront layout](../../templating/layout/customize_storefront_layout.md).
-    For more information about overriding the default checkout component, see [Customize checkout](../checkout/customize_checkout.md).
 
-!!! note "Roles and permissions"
+    For more information about overriding the default checkout component, see [Customize checkout](../checkout/customize_checkout.md).
 
     For information about roles and permissions that control access to various components of the purchase process, see [Permission use cases](permission_use_cases.md#commerce).
