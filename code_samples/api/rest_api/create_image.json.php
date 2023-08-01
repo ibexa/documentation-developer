@@ -3,7 +3,7 @@
 require __DIR__ . '/vendor/autoload.php';
 
 use Symfony\Component\HttpClient\HttpClient;
-use Symfony\Contracts\HttpClient\Exception\ExceptionInterface;
+use Symfony\Contracts\HttpClient\Exception as HttpException;
 
 if ($argc < 2) {
     // Print script usage
@@ -82,19 +82,21 @@ try {
         ],
         'json' => $data,
     ]);
-} catch (ExceptionInterface $exception) {
+} catch (HttpException\TransportExceptionInterface $exception) {
     echo "Client error: {$exception->getMessage()}\n";
     exit(3);
 }
 
 if (201 !== $responseCode = $response->getStatusCode()) {
-    $response = $response->toArray(false);
-    if (array_key_exists('ErrorMessage', $response)) {
-        echo "Server error: {$response['ErrorMessage']['errorCode']} {$response['ErrorMessage']['errorMessage']}\n";
-        echo "\t{$response['ErrorMessage']['errorDescription']}\n";
-        exit(4);
-    }
-    $responseHeaders = $response->getHeaders(false);
+    try {
+        $response = $response->toArray(false);
+        if (array_key_exists('ErrorMessage', $response)) {
+            echo "Server error: {$response['ErrorMessage']['errorCode']} {$response['ErrorMessage']['errorMessage']}\n";
+            echo "\t{$response['ErrorMessage']['errorDescription']}\n";
+            exit(4);
+        }
+    } catch (HttpException\DecodingExceptionInterface $exception) {}
+    $responseHeaders = $response->getInfo('response_headers');
     $error = $responseHeaders[0] ?? $responseCode;
     echo "Server error: $error\n";
     exit(5);
@@ -111,19 +113,21 @@ $contentId = $response['Content']['_id'];
 
 try {
     $response = $client->request('PUBLISH', "$baseUrl/content/objects/$contentId/versions/1");
-} catch (ExceptionInterface $exception) {
+} catch (HttpException\TransportExceptionInterface $exception) {
     echo "Client error: {$exception->getMessage()}\n";
     exit(7);
 }
 
 if (204 !== $responseCode = $response->getStatusCode()) {
-    $response = $response->toArray(false);
-    if (array_key_exists('ErrorMessage', $response)) {
-        echo "Server error: {$response['ErrorMessage']['errorCode']} {$response['ErrorMessage']['errorMessage']}\n";
-        echo "\t{$response['ErrorMessage']['errorDescription']}\n";
-        exit(8);
-    }
-    $responseHeaders = $response->getHeaders(false);
+    try {
+        $response = $response->toArray(false);
+        if (array_key_exists('ErrorMessage', $response)) {
+            echo "Server error: {$response['ErrorMessage']['errorCode']} {$response['ErrorMessage']['errorMessage']}\n";
+            echo "\t{$response['ErrorMessage']['errorDescription']}\n";
+            exit(8);
+        }
+    } catch (HttpException\DecodingExceptionInterface $exception) {}
+    $responseHeaders = $response->getInfo('response_headers');
     $error = $responseHeaders[0] ?? $responseCode;
     echo "Server error: $error\n";
     exit(9);
