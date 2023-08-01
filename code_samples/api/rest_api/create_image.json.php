@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-require __DIR__.'/vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 
 use Symfony\Component\HttpClient\HttpClient;
 use Symfony\Contracts\HttpClient\Exception\ExceptionInterface;
@@ -70,7 +70,7 @@ $data = [
     ],
 ];
 
-$client =HttpClient::createForBaseUri($baseUrl, [
+$client = HttpClient::createForBaseUri($baseUrl, [
     'auth_basic' => [$username, $password],
 ]);
 
