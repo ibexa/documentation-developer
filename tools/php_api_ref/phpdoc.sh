@@ -7,6 +7,7 @@ OUTPUT_DIR=$2;
 
 FLAVOR='commerce';
 VERSION='4.6.0-beta1';
+EDITIONS=(oss headless experience commerce);
 TMP_DXP_DIR=/tmp/ibexa-dxp-phpdoc;
 PHPDOC_CONF="$(pwd)/tools/php_api_ref/phpdoc.dist.xml";
 PHPDOC_DIR="$(pwd)/tools/php_api_ref/.phpdoc";
@@ -46,16 +47,15 @@ fi;
 
 echo -n 'Building package→edition map… ';
 map=$PHPDOC_DIR/template/package-edition-map.twig;
-editions=(oss headless experience commerce);
 if [[ -f $map ]]; then
   rm $map;
 fi;
 echo "{% set package_edition_map = {" >> $map;
-for edition in ${editions[@]}; do
+for edition in ${EDITIONS[@]}; do
   echo -n "${edition}… ";
   while IFS= read -r line; do
     package=$(echo $line | cut -d '"' -f 2);
-    if [[ ! "${editions[*]}" =~ "${package/ibexa\//}" ]]; then
+    if [[ ! "${EDITIONS[*]}" =~ "${package/ibexa\//}" ]]; then
       echo "'$package': '$edition'," >> $map;
     fi;
   done <<< "$(curl --no-progress-meter "https://raw.githubusercontent.com/ibexa/$edition/v$VERSION/composer.json" | jq .require | grep -E "(ibexa|ezsystems|silversolutions)")";
