@@ -49,7 +49,7 @@ GET /api/ibexa/v2/user/groups?roleId=/api/ibexa/v2/user/roles/1 HTTP/1.1
 ### REST root
 
 The `/` root route is answered by a reference list with the main resource routes and media-types.
-It is presented in XML by default, but you can also switch to JSON output.
+It's presented in XML by default, but you can also switch to JSON output.
 
 ```shell
 curl https://api.example.com/api/ibexa/v2/
@@ -79,5 +79,5 @@ For details, see the [ISO-3166 glossary](http://www.iso.org/iso/home/standards/c
 * The `Ibexa\Bundle\Rest\EventListener\ResponseListener` attached to the `kernel.view event` is triggered, and passes the request and the controller action's result to the `AcceptHeaderVisitorDispatcher`.
 * The `AcceptHeaderVisitorDispatcher` matches one of the `regexps` of an `ibexa.rest.output.visitor` service (an `Ibexa\Contracts\Rest\Output\Visitor`). The role of this `Output\Visitor` is to transform the value returned by the controller into XML or JSON output format. To do so, it combines an `Output\Generator` corresponding to the output format and a `ValueObjectVisitorDispatcher`. This `Output\Generator` is also adding the `media-type` attributes.
 * The matched `Output\Visitor` uses its `ValueObjectVisitorDispatcher` to select the right `ValueObjectVisitor` according to the fully qualified class name (FQCN) of the controller result. A `ValueObjectVisitor` is a service tagged `ibexa.rest.output.value_object.visitor` and this tag has a property `type` pointing a FQCN.
-* `ValueObjectVisitor`s will recursively help to transform the controller result thanks to the abstraction layer of the `Generator`.
+* `ValueObjectVisitor`s recursively help to transform the controller result thanks to the abstraction layer of the `Generator`.
 * The `Output\Visitor` returns the `Response` to send back to the client.
