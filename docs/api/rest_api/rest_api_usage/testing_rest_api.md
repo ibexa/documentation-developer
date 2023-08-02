@@ -23,7 +23,7 @@ For examples of using `curl`, refer to:
 
 ## PHP
 
-To test REST API with PHP, [cURL](https://www.php.net/manual/en/book.curl.php) or the [Symfony HttpClient](https://symfony.com/doc/5.4/http_client.html) can be used; open a PHP shell in a terminal with <nobr>`php -a`</nobr> and copy-paste this code into it:
+To test REST API with PHP, [cURL](https://www.php.net/manual/en/book.curl.php) or the [Symfony HttpClient](https://symfony.com/doc/5.4/http_client.html) can be used. Open a PHP shell in a terminal with <nobr>`php -a`</nobr> and copy-paste this code into it:
 
 === "cURL"
 
