@@ -7,10 +7,10 @@ description: The REST API covers objects in the Ibexa DXP Repository with regula
 The REST API in [[= product_name =]] allows you to interact with an [[= product_name =]] installation using the HTTP protocol,
 following a [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) interaction model.
 
-Each resource (URI) interacts with a part of the system (content, users, search, and so on).
+Each resource (URI) interacts with a part of the system (like content, users or search).
 Every interaction with the Repository than you can do from Back Office or using the [Public PHP API](php_api.md) can also be done using the REST API.
 
-The REST API uses HTTP methods (`GET`, `PUBLISH` , and so on), as well as HTTP headers to specify the type of request.
+The REST API uses HTTP methods (such as `GET` and `PUBLISH`), as well as HTTP headers to specify the type of request.
 
 ## URIs
 
