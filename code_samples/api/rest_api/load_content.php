@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 // cURL
 
@@ -6,10 +6,11 @@ $resource = 'https://api.example.com/api/ibexa/v2/content/objects/52';
 $curl = curl_init($resource);
 curl_setopt_array($curl, [
     CURLOPT_HTTPHEADER => ['Accept: application/vnd.ibexa.api.ContentInfo+json'],
-    CURLOPT_HEADERFUNCTION => function ($curl, $header) {
+    CURLOPT_HEADERFUNCTION => static function ($curl, $header) {
         if (!empty($cleanedHeader = trim($header))) {
             var_dump($cleanedHeader);
         }
+
         return strlen($header);
     },
     CURLOPT_RETURNTRANSFER => true,
