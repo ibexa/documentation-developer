@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Rest\ValueObjectVisitor;
 
@@ -16,7 +16,6 @@ class RestLocation extends BaseRestLocation
     {
         $this->urlAliasService = $urlAliasService;
     }
-
 
     public function visit(Visitor $visitor, Generator $generator, $data)
     {

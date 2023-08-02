@@ -294,10 +294,7 @@ Content items that are identified as images are rendered in the Rich Text Field
 by using a dedicated template.
 
 You can determine Content Types that will be treated as images and rendered.
-You do this in `EzPublishCoreBundle/Resources/config/default_settings.yml`. 
-By default, the `ezplatform.content_view.image_embed_content_types_identifiers` 
-parameter is set to cover the Image Content Type, but you can add other types 
-that you want to be treated as images, for example:
+You do this by overriding the `ezplatform.content_view.image_embed_content_types_identifiers` parameter, for example:
 
 ``` yaml
 [[= include_file('code_samples/back_office/images/config/default_settings.yaml', 0, 2) =]]

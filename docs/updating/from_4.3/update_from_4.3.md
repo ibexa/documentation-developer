@@ -19,4 +19,4 @@ B. If you use Commerce functionalities based on the deprecated packages, you can
 [[= cards([
 "updating/from_4.3/update_from_4.3_new_commerce",
 "updating/from_4.3/update_from_4.3_old_commerce",
-],) =]]
+], force_version="3.3") =]]

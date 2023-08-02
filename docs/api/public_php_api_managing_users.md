@@ -24,7 +24,7 @@ Get all Segments assigned to the group with `SegmentationService::loadSegmentsAs
 Similarly, you can load a Segment in a group by using `SegmentationService::loadSegmentIdentifier()`:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 61, 62) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 62, 63) =]]
 ```
 
 ### Checking assignment

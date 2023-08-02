@@ -8,11 +8,11 @@ use eZ\Publish\API\Repository\LanguageResolver;
 use eZ\Publish\API\Repository\Repository;
 use eZ\Publish\API\Repository\Values\ContentType\ContentType;
 use Ibexa\Platform\OAuth2Client\Repository\OAuth2UserService;
+use Ibexa\Platform\OAuth2Client\ResourceOwner\ResourceOwnerToExistingOrNewUserMapper;
 use League\OAuth2\Client\Provider\GoogleUser;
 use League\OAuth2\Client\Provider\ResourceOwnerInterface;
-use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
-use Ibexa\Platform\OAuth2Client\ResourceOwner\ResourceOwnerToExistingOrNewUserMapper;
+use Symfony\Component\Security\Core\User\UserProviderInterface;
 
 final class GoogleResourceOwnerMapper extends ResourceOwnerToExistingOrNewUserMapper
 {

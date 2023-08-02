@@ -1,14 +1,14 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Controller;
 
-use EzSystems\EzPlatformAdminUiBundle\Controller\Controller;
-use EzSystems\EzPlatformAdminUi\Form\Factory\FormFactory;
-use eZ\Publish\API\Repository\SearchService;
 use eZ\Publish\API\Repository\ContentTypeService;
-use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
+use eZ\Publish\API\Repository\SearchService;
 use eZ\Publish\API\Repository\Values\Content\LocationQuery;
+use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
 use eZ\Publish\Core\Pagination\Pagerfanta\LocationSearchAdapter;
+use EzSystems\EzPlatformAdminUi\Form\Factory\FormFactory;
+use EzSystems\EzPlatformAdminUiBundle\Controller\Controller;
 use Pagerfanta\Pagerfanta;
 
 class AllContentListController extends Controller
@@ -23,8 +23,7 @@ class AllContentListController extends Controller
         SearchService $searchService,
         ContentTypeService $contentTypeService,
         FormFactory $formFactory
-    )
-    {
+    ) {
         $this->searchService = $searchService;
         $this->contentTypeService = $contentTypeService;
         $this->formFactory = $formFactory;
@@ -43,6 +42,7 @@ class AllContentListController extends Controller
         $paginator->setMaxPerPage(8);
         $paginator->setCurrentPage($page);
         $editForm = $this->formFactory->contentEdit();
+
         return $this->render('list/all_content_list.html.twig', [
             'totalCount' => $paginator->getNbResults(),
             'articles' => $paginator,

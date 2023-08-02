@@ -1,14 +1,14 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Command;
 
+use eZ\Publish\API\Repository\ContentService;
+use eZ\Publish\API\Repository\PermissionResolver;
+use eZ\Publish\API\Repository\UserService;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Input\InputArgument;
-use eZ\Publish\API\Repository\ContentService;
-use eZ\Publish\API\Repository\UserService;
-use eZ\Publish\API\Repository\PermissionResolver;
 
 class UpdateContentCommand extends Command
 {
@@ -32,7 +32,7 @@ class UpdateContentCommand extends Command
             ->setDescription('Update provided Content item with a new name')
             ->setDefinition([
                 new InputArgument('contentId', InputArgument::REQUIRED, 'Content ID'),
-                new InputArgument('newName', InputArgument::REQUIRED, 'New name for the updated Content item')
+                new InputArgument('newName', InputArgument::REQUIRED, 'New name for the updated Content item'),
             ]);
     }
 

@@ -251,7 +251,7 @@ php bin/console ibexa:migrations:generate --type=content --mode=create --file=my
 
 !!! note
 
-    When migrating multiple files at once (for example when calling `ibexa:migration:migrate` without options),
+    When migrating multiple files at once (for example when calling `ibexa:migrations:migrate` without options),
     they are executed in alphabetical order.
 
 ## user-context
@@ -279,7 +279,7 @@ php bin/console ibexa:migrations:migrate --file=my_data_export.yaml
 ```
 
 Ibexa Migrations store execution metadata in `ibexa_migrations` database table. This allows incremental upgrades:
-the `ibexa:migration:migrate` command ignores files that it had previously executed.
+the `ibexa:migrations:migrate` command ignores files that it had previously executed.
 
 ## Repeatable steps
 

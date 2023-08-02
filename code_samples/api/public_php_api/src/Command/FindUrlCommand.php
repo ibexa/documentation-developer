@@ -1,18 +1,16 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Command;
 
+use eZ\Publish\API\Repository\PermissionResolver;
+use eZ\Publish\API\Repository\URLService;
+use eZ\Publish\API\Repository\UserService;
+use eZ\Publish\API\Repository\Values\URL\Query\Criterion;
+use eZ\Publish\API\Repository\Values\URL\Query\SortClause;
+use eZ\Publish\API\Repository\Values\URL\URLQuery;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputOption;
-use eZ\Publish\API\Repository\Values\URL\URLQuery;
-use eZ\Publish\API\Repository\Values\URL\Query\Criterion;
-use eZ\Publish\API\Repository\Values\URL\Query\SortClause;
-use eZ\Publish\API\Repository\URLService;
-use eZ\Publish\API\Repository\UserService;
-use eZ\Publish\API\Repository\PermissionResolver;
 
 class FindUrlCommand extends Command
 {
@@ -50,7 +48,7 @@ class FindUrlCommand extends Command
             ]
         );
         $query->sortClauses = [
-            new SortClause\URL(SortClause::SORT_DESC)
+            new SortClause\URL(SortClause::SORT_DESC),
         ];
         $query->offset = 0;
         $query->limit = 25;

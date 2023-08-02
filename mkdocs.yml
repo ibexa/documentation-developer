@@ -222,6 +222,7 @@ nav:
                 - 'Customer profile data': 'guide/customers/customer_api/customer_profile_data.md'
                 - 'Customer data configuration': 'guide/customers/customer_api/configuration_for_customer_data.md'
         - Shop process:
+            - Shop process: 'guide/shop_process.md'
             - Basket:
                 - 'Basket': 'guide/basket/basket.md'
                 - 'Basket configuration': 'guide/basket/basket_configuration.md'
@@ -514,6 +515,7 @@ nav:
               - 'Reverse proxy': 'guide/cache/symfony_reverse_proxy.md'
               - 'Context-aware HTTP cache': 'guide/cache/context_aware_cache.md'
               - 'Content-aware HTTP cache': 'guide/cache/content_aware_cache.md'
+              - 'Configure and customize Fastly': 'guide/cache/fastly.md'
             - 'Persistence cache': 'guide/persistence_cache.md'
             - 'Shop caching': 'guide/cache/shop_caching.md'
         - Clustering:
@@ -605,12 +607,15 @@ nav:
               - Update to v4.4: 'updating/from_4.3/update_from_4.3.md'
               - Use new Commerce packages: 'updating/from_4.3/update_from_4.3_new_commerce.md'
               - Keep old Commerce packages: 'updating/from_4.3/update_from_4.3_old_commerce.md'
+        - Update from v4.4:
+              - 'Update to v4.5': 'updating/from_4.4/update_from_4.4.md'
         - Migrate to Ibexa DXP:
             - 'Migrate from eZ Publish Platform': 'migrating/migrating_from_ez_publish_platform.md'
             - 'Migrate from eZ Publish': 'migrating/migrating_from_ez_publish.md'
             - 'Common migration issues': 'migrating/common_issues.md'
     - Releases:
-        - Ibexa DXP v4.4: releases/ibexa_dxp_v4.4.md
+        - 'Ibexa DXP v4.5': 'releases/ibexa_dxp_v4.5.md'
+        - 'Ibexa DXP v4.4': 'releases/ibexa_dxp_v4.4.md'
         - 'Ibexa DXP v4.3': 'releases/ibexa_dxp_v4.3.md'
         - 'Ibexa DXP v4.2': 'releases/ibexa_dxp_v4.2.md'
         - 'Ibexa DXP v4.1': 'releases/ibexa_dxp_v4.1.md'
@@ -670,12 +675,13 @@ extra:
   product_name_com: 'Ibexa Commerce'
   # Global variables - latest tag versions
   latest_tag_2_5: '2.5.31'
-  latest_tag_3_3: '3.3.31'
+  latest_tag_3_3: '3.3.33'
   latest_tag_4_0: '4.0.8'
   latest_tag_4_1: '4.1.5'
   latest_tag_4_2: '4.2.4'
   latest_tag_4_3: '4.3.5'
-  latest_tag_4_4: '4.4.1'
+  latest_tag_4_4: '4.4.4'
+  latest_tag_4_5: '4.5.1'
 
   symfony_doc: 'http://symfony.com/doc/5.4'
   user_doc: 'https://doc.ibexa.co/projects/userguide/en/master'

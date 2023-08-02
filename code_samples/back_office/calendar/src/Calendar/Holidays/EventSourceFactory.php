@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Calendar\Holidays;
 
@@ -20,9 +20,9 @@ class EventSourceFactory
     public function createEventSource(): EventSourceInterface
     {
         $eventCollectionArray = [];
-        $eventCollectionArray[] = $this->createEvent('April Fools', new DateTime("2022-04-01"));
+        $eventCollectionArray[] = $this->createEvent('April Fools', new DateTime('2022-04-01'));
 
-        $items = json_decode(file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . 'holidays.json'), true);
+        $items = json_decode(file_get_contents(__DIR__ . \DIRECTORY_SEPARATOR . 'holidays.json'), true);
         foreach ($items as $item) {
             $eventCollectionArray[] = $this->createEvent($item['name'], new DateTime($item['date']));
         }

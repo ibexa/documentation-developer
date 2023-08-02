@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Event\Subscriber;
 
-use EzSystems\EzPlatformRichText\eZ\RichText\DOMDocumentFactory;
 use EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Renderer\BlockRenderEvents;
 use EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Renderer\Event\PreRenderEvent;
 use EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Renderer\Twig\TwigRenderRequest;
+use EzSystems\EzPlatformRichText\eZ\RichText\DOMDocumentFactory;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class RichTextBlockSubscriber implements EventSubscriberInterface
@@ -50,4 +50,4 @@ class RichTextBlockSubscriber implements EventSubscriberInterface
         }
         $renderRequest->setParameters($parameters);
     }
- }
+}

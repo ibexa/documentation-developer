@@ -94,8 +94,14 @@ Location visibility allows you to control which parts of the content tree are av
 ![Location visibility](img/content_management_visibility.png "Location visibility")
 
 Once a Content item is published, it cannot be un-published.
-Limiting visibility is the only way to withdraw content from the website without moving it to Trash.
-When the Location of a Content item is hidden, any access to it will be denied, preventing the system from displaying it.
+When the Location of a Content item is hidden, the system will not display it on the website.
+
+!!! caution "Visibility and permissions"
+
+    The Location visibility flag is not permission-based and thus acts as a simple potential filter.
+    **It is not meant to restrict access to content**.
+
+    If you need to restrict access to a given Content item, use [**Sections**](admin_panel.md#sections) or other [**Limitations**](limitations.md), which are permission-based.
 
 If a Content item is hidden, it is invisible in all its Locations.
 If a Location is hidden, all of its descendants in the tree will be hidden as well.

@@ -4,7 +4,7 @@ description: Periodically back up your Repository information by making a databa
 
 # Backup 
 
-You should always make sure that your solution is properly backed up. The following example shows you how to do this on a Linux-UNIX-based system where [[= product_name =]] is using a MySQL database called "example". You should shut down Platform if it's running before making a backup or an upgrade.
+You should always make sure that your solution is properly backed up. The following example shows you how to do this on a Linux-UNIX-based system. You should shut down the DXP if it's running before making a backup.
 
 !!! note "Externally stored assets"
 
@@ -33,10 +33,10 @@ mysqldump -u <database_user> --add-drop-table <database_name> > db_backup.sql
 pg_dump -c --if-exists <database_name> > db_backup.sql
 ```
 
-4\. In parent directory create a tar archive of the files (including the DB dump) using the "tar" command:
+4\. In parent directory create a tar archive of the files (including the database dump) using the "tar" command:
 
 ```
 tar cfz backup_of_ezplatform.tar.gz ezplatform
 ```
 
-At this point, the file `backup_of_ezplatform.tar.gz` should contain a backup of DB and files.
+At this point, the file `backup_of_ezplatform.tar.gz` should contain a backup of database and files.

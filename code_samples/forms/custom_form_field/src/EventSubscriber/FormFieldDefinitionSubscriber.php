@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\EventSubscriber;
 
@@ -12,7 +12,7 @@ class FormFieldDefinitionSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents(): array
     {
         return [
-            FormEvents::getFieldDefinitionEventName('single_line') => 'onSingleLineFieldDefinition'
+            FormEvents::getFieldDefinitionEventName('single_line') => 'onSingleLineFieldDefinition',
         ];
     }
 

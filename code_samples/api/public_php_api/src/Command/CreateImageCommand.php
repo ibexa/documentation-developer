@@ -1,17 +1,17 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Command;
 
-use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputOption;
 use eZ\Publish\API\Repository\ContentService;
 use eZ\Publish\API\Repository\ContentTypeService;
 use eZ\Publish\API\Repository\LocationService;
-use eZ\Publish\API\Repository\UserService;
 use eZ\Publish\API\Repository\PermissionResolver;
+use eZ\Publish\API\Repository\UserService;
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Output\OutputInterface;
 
 class CreateImageCommand extends Command
 {
@@ -57,11 +57,12 @@ class CreateImageCommand extends Command
         $contentType = $this->contentTypeService->loadContentTypeByIdentifier('image');
         $contentCreateStruct = $this->contentService->newContentCreateStruct($contentType, 'eng-GB');
         $contentCreateStruct->setField('name', $name);
-        $imageValue = new \eZ\Publish\Core\FieldType\Image\Value([
+        $imageValue = new \eZ\Publish\Core\FieldType\Image\Value(
+            [
                 'path' => $file,
                 'fileSize' => filesize($file),
                 'fileName' => basename($file),
-                'alternativeText' => $name
+                'alternativeText' => $name,
             ]
         );
         $contentCreateStruct->setField('image', $imageValue);
@@ -70,11 +71,11 @@ class CreateImageCommand extends Command
 
         $draft = $this->contentService->createContent($contentCreateStruct, [$locationCreateStruct]);
 
-        $output->writeln("Created a draft of " . $contentType->getName() . " with name " . $draft->getName());
+        $output->writeln('Created a draft of ' . $contentType->getName() . ' with name ' . $draft->getName());
 
         if ($publish == true) {
             $content = $this->contentService->publishVersion($draft->versionInfo);
-            $output->writeln("Published Content item " . $content->getName());
+            $output->writeln('Published Content item ' . $content->getName());
         }
 
         return self::SUCCESS;

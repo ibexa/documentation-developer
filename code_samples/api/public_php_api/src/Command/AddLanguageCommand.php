@@ -1,13 +1,13 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Command;
 
+use eZ\Publish\API\Repository\LanguageService;
+use eZ\Publish\API\Repository\PermissionResolver;
+use eZ\Publish\API\Repository\UserService;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use eZ\Publish\API\Repository\LanguageService;
-use eZ\Publish\API\Repository\UserService;
-use eZ\Publish\API\Repository\PermissionResolver;
 
 class AddLanguageCommand extends Command
 {
@@ -38,7 +38,7 @@ class AddLanguageCommand extends Command
         $languageList = $this->languageService->loadLanguages();
 
         foreach ($languageList as $language) {
-            $output->writeln($language->languageCode . ": " . $language->name);
+            $output->writeln($language->languageCode . ': ' . $language->name);
         }
 
         $languageCreateStruct = $this->languageService->newLanguageCreateStruct();

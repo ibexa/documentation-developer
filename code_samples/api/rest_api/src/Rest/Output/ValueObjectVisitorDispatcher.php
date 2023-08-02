@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Rest\Output;
 
@@ -43,6 +43,7 @@ class ValueObjectVisitorDispatcher extends BaseValueObjectVisitorDispatcher
         if (isset($this->visitors[$className])) {
             return $this->visitors[$className]->visit($this->outputVisitor, $this->outputGenerator, $data);
         }
+
         return $this->valueObjectVisitorDispatcher->visit($data);
     }
 }
