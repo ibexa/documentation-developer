@@ -92,7 +92,7 @@ Other headers related to authentication methods can be found in [REST API authen
 
 ### SiteAccess
 
-In order to specify a SiteAccess when communicating with the REST API, provide a custom `X-Siteaccess` header.
+To specify a SiteAccess when communicating with the REST API, provide a custom `X-Siteaccess` header.
 Otherwise, the default SiteAccess is used.
 
 The following example shows what could be a SiteAccess called `restapi` dedicated to REST API accesses:
@@ -107,7 +107,7 @@ X-Siteaccess: restapi
 One of the principles of REST is that the same resource (such as Content item, Location, Content Type) should be unique.
 It allows caching your REST API using a reverse proxy such as Varnish.
 If the same resource is available in multiple locations, cache purging is noticeably more complex.
-This is why SiteAccess matching with REST is not enabled at URL level (or domain).
+This is why SiteAccess matching with REST isn't enabled at URL level (or domain).
 
 ### Media types
 
@@ -122,14 +122,14 @@ Media types are also used with the [`Content-Type` header](rest_responses.md#con
 See [Creating content with binary attachments](#creating-content-with-binary-attachments) below.
 Also see [Creating session](rest_api_authentication.md#creating-session) examples.
 
-If the resource only returns one media type, it is also possible to skip it and to just specify the format using `application/xml` or `application/json`.
+If the resource only returns one media type, it's also possible to skip it and to just specify the format using `application/xml` or `application/json`.
 
 A response indicates `href`s to related resources and their media types.
 
 ### Destination
 
 The `Destination` request header is the request counterpart of the `Location` response header.
-It is used for a `COPY`, `MOVE` or `SWAP` operation to indicate where the resource should be moved, copied to or swapped with by using the ID of the parent or target Location.
+It's used for a `COPY`, `MOVE` or `SWAP` operation to indicate where the resource should be moved, copied to or swapped with by using the ID of the parent or target Location.
 
 Examples of such requests are:
 
@@ -165,7 +165,7 @@ The example below is a command-line script to upload images.
 This script:
 
 - receives an image path and optionally a name as command-line arguments,
-- uses the [HTTP basic authentication](rest_api_authentication.md#http-basic-authentication), if it is enabled,
+- uses the [HTTP basic authentication](rest_api_authentication.md#http-basic-authentication), if it's enabled,
 - creates a draft in the /Media/Images folder by posting (`POST`) data to [`/content/objects`](../rest_api_reference/rest_api_reference.html#managing-content-create-content-item),
 - and, publishes (`PUBLISH`) the draft through [`/content/objects/{contentId}/versions/{versionNo}`](../rest_api_reference/rest_api_reference.html#managing-content-publish-a-content-version).
 
@@ -187,9 +187,9 @@ The `/views` route allows you to [search in the repository](search.md). It works
 
 The model allows combining criteria using the logical operators `AND`, `OR` and `NOT`.
 
-Almost all [Search Criteria](search_criteria_reference.md#search-criteria) are available in REST API. The suffix `Criterion` is added when used with REST API.
+Most [Search Criteria](search_criteria_reference.md#search-criteria) are available in REST API. The suffix `Criterion` is added when used with REST API.
 
-Almost all [Sort Clauses](sort_clause_reference.md#sort-clauses) are available too. They require no additional prefix or suffix.
+Most [Sort Clauses](sort_clause_reference.md#sort-clauses) are available too. They require no additional prefix or suffix.
 
 The search request has a `Content-Type: application/vnd.ibexa.api.ViewInput+xml` or `+json` header to specify the format of its body's payload.
 The root node is `<ViewInput>` and it has two mandatory children: `<identifier>` and `<Query>`.
@@ -329,8 +329,8 @@ The following examples search for `article` and `news` typed Content items every
     In JSON, the structure for `ContentTypeIdentifierCriterion` with multiple values has a slightly different format as keys must be unique.
     In JSON, if there is only one item in `SortClauses`, it can be passed directly without an array to wrap it.
 
-You can omit logical operators. If Criteria are of mixed types, they are wrapped in an implicit `AND`.
-If they are of the same type, they are wrapped in an implicit `OR`.
+You can omit logical operators. If Criteria are of mixed types, they're wrapped in an implicit `AND`.
+If they're of the same type, they're wrapped in an implicit `OR`.
 
 For example, the `AND` operator from previous example's `Filter` could be removed.
 
