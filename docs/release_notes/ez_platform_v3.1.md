@@ -75,7 +75,7 @@ For more information on how to manage URLs, see [URL management](https://doc.ibe
 
 ### Tree view in the Universal Discovery Widget
 
-The Universal Discovery Widget, referred to as the Content Browser in user documentation, has been updated by adding the Tree view.
+The Universal Discovery Widget, referred to as the Content Browser in User Documentation, has been updated by adding the Tree view.
 You can now switch between the Grid, Panels and Tree views to browse and manage user accounts, media files, content items and forms.
 Selections that you make in one view survive when you switch to the other view.
 

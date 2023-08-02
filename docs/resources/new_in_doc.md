@@ -18,7 +18,7 @@ This page contains recent highlights and notable changes in Ibexa DXP documentat
 
 ### Getting started
 
-- New cautions in [Install on Ibexa Cloud](https://doc.ibexa.co/en/master/getting_started/install_on_ibexa_cloud/) about using `cloud.ibexa.co` instead of and not `platform.sh`
+- New cautions in [Install on Ibexa Cloud](https://doc.ibexa.co/en/master/getting_started/install_on_ibexa_cloud/) about using `cloud.ibexa.co` instead of `platform.sh`
 
 ### Content management
 
@@ -28,7 +28,6 @@ This page contains recent highlights and notable changes in Ibexa DXP documentat
 ### Customer Portal
 
 - Updated [Creating a Customer Portal](https://doc.ibexa.co/en/master/customer_management/cp_page_builder/)
-- Updated [Create and edit Customer Portal](https://doc.ibexa.co/projects/userguide/en/master/customer_management/build_customer_portal/) in user documentation
 
 ### Personalization
 
