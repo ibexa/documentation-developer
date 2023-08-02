@@ -162,6 +162,8 @@ When searching for Content items (or Locations), the query grammar is also parti
 
 The example below is a command-line script to upload images.
 
+It is based on the [Symfony HttpClient](https://symfony.com/doc/5.4/http_client.html).
+
 This script:
 
 - receives an image path and optionally a name as command-line arguments,
