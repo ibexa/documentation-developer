@@ -94,7 +94,7 @@ When the Location of a Content item is hidden, the system will not display it on
 
 !!! caution "Visibility and permissions"
 
-    The visibility flag is a convenience feature for withdrawing content from the frontend. It acts as a simple filter in the default frontend templates.
+    The visibility flag is a convenient feature for withdrawing content from the frontend. It acts as a simple filter in the default frontend templates.
     It isn't permission-based, and **doesn't restrict access to content**. Hidden content can be read through other means, like the REST API.
 
     If you need to restrict access to a given Content item, create a role that grants read access for a given [**Section**](sections.md) or
