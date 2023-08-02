@@ -133,7 +133,7 @@ It is used for a `COPY`, `MOVE` or `SWAP` operation to indicate where the resour
 
 Examples of such requests are:
 
-- [copying a Content](../rest_api_reference/rest_api_reference.html#managing-content-copy-content);
+- [copying a Content](../rest_api_reference/rest_api_reference.html#managing-content-copy-content)
 - [moving a Location and its subtree](../rest_api_reference/rest_api_reference.html#managing-content-move-subtree)
 - [swapping a Location with another](../rest_api_reference/rest_api_reference.html#managing-content-swap-location)
 
