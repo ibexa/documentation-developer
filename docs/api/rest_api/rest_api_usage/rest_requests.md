@@ -6,7 +6,7 @@ description: REST API requests can have a generic or a custom header. It defines
 
 ## Request method
 
-Depending on the HTTP method used, different actions will be possible on the same resource. Example:
+Depending on the HTTP method used, different actions are possible on the same resource. Example:
 
 | Action                                  | Description                                                          |
 |-----------------------------------------|----------------------------------------------------------------------|
@@ -41,11 +41,11 @@ For method action details per resource, see the [REST API reference](../rest_api
 
     If applicable, both methods are always mentioned in the specifications.
 
-Unsafe methods will require a CSRF token if [session-based authentication](rest_api_authentication.md#session-based-authentication) is used.
+Unsafe methods require a CSRF token if [session-based authentication](rest_api_authentication.md#session-based-authentication) is used.
 
 ### OPTIONS method
 
-Any URI resource that the REST API responds to will respond to an `OPTIONS` request.
+Any URI resource that the REST API responds to also responds to an `OPTIONS` request.
 
 The response contains an [`Allow` header](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.7), which lists the methods accepted by the resource.
 
