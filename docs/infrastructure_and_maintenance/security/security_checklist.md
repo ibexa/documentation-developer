@@ -136,6 +136,17 @@ Use the following checklist to ensure the Roles and Policies are secure:
 - Is there a clear Role separation between the organisation's internal and external users?
 - Is access to user data properly restricted, in accordance with GDPR?
 
+### Do not use "hide" for read access restriction
+
+The hide/show visibility flag is a convenient feature for withdrawing content from the frontend. It acts as a simple filter in the default frontend templates.
+It isn't permission-based, and doesn't restrict read access to content. Hidden content can be read through other means, like the REST API or GraphQL.
+
+If you need to restrict read access to a given Content item, create a role that grants read access for a given
+[**Section**](https://doc.ibexa.co/en/latest/administration/content_organization/sections/)
+or [**Object State**](https://doc.ibexa.co/en/latest/administration/content_organization/object_states/),
+and set a different Section or Object State for the given Content.
+Or use other permission-based [**Limitations**](https://doc.ibexa.co/en/latest/permissions/limitations/).
+
 ### Minimize exposure
 
 Security should be a multi-layered exercise. It is wise to minimize what features you make available to the world, even if there are no known or suspected vulnerabilities in those features, and even if your content is properly protected by roles and policies. Reduce your attack surface by exposing only what you must.
