@@ -45,7 +45,7 @@ If you are using v3.3.15 or earlier v3.3 version, you need to update your Flex s
 In your `composer.json` check whether the `https://flex.ibexa.co` endpoint is still listed in `extra.symfony.endpoint`.
 If that's the case, you need to perform the following update procedure.
 
-First, update the `symfony/flex` bundle to handle the new endpoint properly:
+First, update the `symfony/flex` bundle to handle the new endpoint:
 
 ```bash
 composer update symfony/flex --no-plugins --no-scripts;
@@ -82,7 +82,7 @@ Next, continue with updating the app:
     composer run post-install-cmd
     ```
     
-Review the changes to make sure your custom configuration was not affected.
+Review the changes to make sure your custom configuration wasn't affected.
 
 Remove the `vendor` folder to prevent issues related to the [new Flex server](#update-flex-server).
 
@@ -392,5 +392,5 @@ On Experience or Commerce edition, run the following scripts:
 #### Ensure password safety
 
 Following [Security advisory: IBEXA-SA-2022-009](https://developers.ibexa.co/security-advisories/ibexa-sa-2022-009-critical-vulnerabilities-in-graphql-role-assignment-ct-editing-and-drafts-tooltips),
-unless you can verify based on your log files that the vulnerability has not been exploited,
+unless you can verify based on your log files that the vulnerability hasn't been exploited,
 you should [revoke passwords](https://doc.ibexa.co/en/latest/users/user_management/#revoking-passwords) for all affected users.
