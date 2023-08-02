@@ -23,23 +23,19 @@ For examples of using `curl`, refer to:
 
 ## PHP
 
-To test REST API with PHP, cURL can be used; open a PHP shell in a terminal with `php -a` and copy-paste this code into it:
+To test REST API with PHP, [cURL](https://www.php.net/manual/en/book.curl.php) or the [Symfony HttpClient](https://symfony.com/doc/5.4/http_client.html) can be used; open a PHP shell in a terminal with `php -a` and copy-paste this code into it:
 
-```php
-$resource = 'https://api.example.com/api/ibexa/v2/content/objects/52';
-$curl = curl_init($resource);
-curl_setopt_array($curl, [
-    CURLOPT_HTTPHEADER => ['Accept: application/vnd.ibexa.api.ContentInfo+json'],
-    CURLOPT_HEADERFUNCTION => function($curl, $header) {
-        if (!empty($cleanedHeader = trim($header))) {
-            var_dump($cleanedHeader);
-        }
-        return strlen($header);
-    },
-    CURLOPT_RETURNTRANSFER => true,
-]);
-var_dump(json_decode(curl_exec($curl), true));
-```
+=== "cURL"
+
+    ``` php
+    [[= include_file('code_samples/api/rest_api/load_content.php', 4, 17, '    ') =]]
+    ```
+
+=== "HttpClient"
+
+    ``` php
+    [[= include_file('code_samples/api/rest_api/load_content.php', 20, 27, '    ') =]]
+    ```
 
 `$resource` URI should be edited to address the right domain.
 
