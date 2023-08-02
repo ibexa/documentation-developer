@@ -50,20 +50,6 @@ The following example of an AJAX call retrieves `ContentInfo` (that is, metadata
 
 To test it, copy-paste this code into your browser console alongside a page from your website (to share the domain):
 
-=== "XMLHttpRequest"
-
-    ```javascript
-    var resource = '/api/ibexa/v2/content/objects/52',
-        request = new XMLHttpRequest();
-    
-    request.open('GET', resource, true);
-    request.setRequestHeader('Accept', 'application/vnd.ibexa.api.ContentInfo+json');
-    request.onload = function () {
-        console.log(request.getAllResponseHeaders(), JSON.parse(request.responseText));
-    };
-    request.send();
-    ```
-
 === "Fetch API"
 
     ```javascript
@@ -77,6 +63,20 @@ To test it, copy-paste this code into your browser console alongside a page from
     }).then((data) => {
         console.log(data);
     });
+    ```
+
+=== "XMLHttpRequest"
+
+    ```javascript
+    var resource = '/api/ibexa/v2/content/objects/52',
+        request = new XMLHttpRequest();
+    
+    request.open('GET', resource, true);
+    request.setRequestHeader('Accept', 'application/vnd.ibexa.api.ContentInfo+json');
+    request.onload = function () {
+        console.log(request.getAllResponseHeaders(), JSON.parse(request.responseText));
+    };
+    request.send();
     ```
 
 On a freshly installed Ibexa DXP, `52` is the Content ID of the home page. If necessary, substitute `52` with the Content ID of an item from your database.
