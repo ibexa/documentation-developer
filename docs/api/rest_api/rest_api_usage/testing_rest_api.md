@@ -28,13 +28,13 @@ To test REST API with PHP, [cURL](https://www.php.net/manual/en/book.curl.php) o
 === "cURL"
 
     ``` php
-    [[= include_file('code_samples/api/rest_api/load_content.php', 4, 17, '    ') =]]
+    [[= include_file('code_samples/api/rest_api/load_content.php', 4, 18, '    ') =]]
     ```
 
 === "HttpClient"
 
     ``` php
-    [[= include_file('code_samples/api/rest_api/load_content.php', 20, 27, '    ') =]]
+    [[= include_file('code_samples/api/rest_api/load_content.php', 21, 28, '    ') =]]
     ```
 
 `$resource` URI should be edited to address the right domain.
