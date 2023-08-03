@@ -4,7 +4,7 @@ description: You can test operations in the REST API by using command line, PHP 
 
 # Testing REST API
 
-A standard web browser is not sufficient to fully test the API.
+A standard web browser isn't sufficient to fully test the API.
 You can, however, try opening the root resource with it, using the session authentication: `http://example.com/api/ibexa/v2/`.
 Depending on how your browser understands XML, it either downloads the XML file, or opens it in the browser.
 
