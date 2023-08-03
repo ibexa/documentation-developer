@@ -139,7 +139,7 @@ run the following command:
 
 ??? note "Using PHP 8.0, 7.4 or 7.3"
 
-    If you're using less than PHP 8.1, use a different set of commands:
+    If you're using version lower than PHP 8.1, use a different set of commands:
 
     === "[[= product_name_content =]]"
 
