@@ -31,7 +31,7 @@ General information about a Content item is stored in a [`ContentInfo`](https://
 
 **`contentTypeId`** - the unique numerical ID of the Content Type, on which the Content item is based.
 
-**`name`** - the name is generated automatically based on a [pattern specified in the Content Type definition](#content-name-pattern).
+**`name`** - the name is generated automatically based on a [pattern specified in the Content Type definition](content_types.md#content-type-metadata).
 The name is in the main language of the Content item.
 
 !!! note
