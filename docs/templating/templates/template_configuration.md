@@ -91,13 +91,14 @@ match:
 In the example above, content that is either an article or a blog post is matched,
 but it must be in the "News" Section.
 
-### Matching every content
+### Matching every Content item
 
-When you use no matcher in one rule, this rule always match.
+When you use no matcher in a rule, this rule always match.
 
 ``` yaml
 match: ~
 ```
 
 !!! tip
-    This can be used during development time to identify contents not having a proper template yet. It can be used to handle contents that shouldn't be used with a given view type (for example, to protect a content type designed to be embedded in Rich Text or Page block but not in full view).
+    This can be used during development time to identify Content items not having a proper template yet.
+    It can be used to handle Content items that shouldn't be used with a given view type (for example, to protect a Content Type designed to be embedded in Rich Text or Page block but not seen in full view).
