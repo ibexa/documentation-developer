@@ -12,7 +12,7 @@ Start by creating a `PercentNameSchemaStrategy` class, which implements `\Ibexa\
 This class is responsible for converting attribute values into a string of URL parameters:
 
 ``` php
-[[= include_file('code_samples/catalog/percent_name_schema_strategy/NameSchema/NameSchemaStrategyInterface.php') =]]
+[[= include_file('code_samples/catalog/percent_name_schema_strategy/NameSchema/PercentNameSchemaStrategy.php') =]]
 ```
 
 ## Register strategy
