@@ -12,7 +12,7 @@ use Ibexa\Contracts\Cart\Value\CartInterface;
 use Ibexa\Contracts\Payment\PaymentMethod\PaymentMethodInterface;
 use Ibexa\Contracts\Payment\PaymentMethod\Voter\AbstractVoter;
 
-final class OnlineVoter extends AbstractVoter
+final class NewPaymentMethodTypeVoter extends AbstractVoter
 {
     protected function getVote(PaymentMethodInterface $method, CartInterface $cart): bool
     {
