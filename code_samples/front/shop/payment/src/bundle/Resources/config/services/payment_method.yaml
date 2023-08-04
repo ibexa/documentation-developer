@@ -1,0 +1,13 @@
+ibexa.payment.payment_method.type.new_payment_method_type:
+        class: Ibexa\Contracts\Payment\PaymentMethod\Type\TypeInterface
+        factory: ['@Ibexa\Contracts\Payment\PaymentMethod\Type\TypeFactoryInterface', 'createType']
+        arguments:
+            - New Payment Method Type
+            - ibexa.payment_method.type.new_payment_method_type.name
+            - ibexa_payment_type
+        tags:
+            - { name: ibexa.payment.payment_method.type, alias: new_payment_method_type }
+
+        Ibexa\Payment\PaymentMethod\Voter\NewPaymentMethodTypeVoter:
+        tags:
+            - { name: ibexa.payment.payment_method.voter, type: new_payment_method_type }

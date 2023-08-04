@@ -329,6 +329,7 @@ nav:
             - Configure Payment: commerce/payment/configure_payment.md 
             - Extend Payment: commerce/payment/extend_payment.md 
             - Payment method API: commerce/payment/payment_method_api.md 
+            - Payment method filtering: commerce/payment/payment_method_filtering.md
             - Payment API: commerce/payment/payment_api.md 
         - Shipping management:
             - Shipping management: commerce/shipping_management/shipping_management.md
