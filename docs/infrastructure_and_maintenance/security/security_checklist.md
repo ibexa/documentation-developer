@@ -138,10 +138,11 @@ Use the following checklist to ensure the Roles and Policies are secure:
 
 ### Do not use "hide" for read access restriction
 
-The hide/show visibility flag is a convenient feature for withdrawing content from the frontend. It acts as a simple filter in the default frontend templates.
+The [visibility switcher](https://doc.ibexa.co/en/latest/content_management/locations/#location-visibility) is a convenient feature for withdrawing content from the frontend.
+It acts as a filter in the frontend by default. You can choose to respect it or ignore it in your code.
 It isn't permission-based, and doesn't restrict read access to content. Hidden content can be read through other means, like the REST API or GraphQL.
 
-If you need to restrict read access to a given Content item, create a role that grants read access for a given
+If you need to restrict read access to a given Content item, you could create a role that grants read access for a given
 [**Section**](https://doc.ibexa.co/en/latest/administration/content_organization/sections/)
 or [**Object State**](https://doc.ibexa.co/en/latest/administration/content_organization/object_states/),
 and set a different Section or Object State for the given Content.
