@@ -39,7 +39,7 @@ Now, register the definition as a service:
 As an alternative, instead of creating a custom class, you can use a built-in type factory to define the payment method type in the service definition file:
 
 ``` yaml
-[[= include_file('code_samples/front/shop/payment/config/services.yaml', 0, 1) =]] [[= include_file('code_samples/front/shop/payment/config/services.yaml', 6, 15) =]]
+[[= include_file('code_samples/front/shop/payment/config/services.yaml', 0, 1) =]][[= include_file('code_samples/front/shop/payment/config/services.yaml', 6, 15) =]]
 ```
 
 At this point a custom payment method type should be visible in the user interface.
@@ -61,7 +61,7 @@ Next, create a mapper that maps the information that the user inputs in the form
 Then, register `OptionsFormMapper` a service:
 
 ``` yaml
-[[= include_file('code_samples/front/shop/payment/config/services.yaml', 0, 1) =]] [[= include_file('code_samples/front/shop/payment/config/services.yaml', 16, 20) =]]
+[[= include_file('code_samples/front/shop/payment/config/services.yaml', 0, 1) =]][[= include_file('code_samples/front/shop/payment/config/services.yaml', 16, 20) =]]
 ```
 
 ### Create options validator
@@ -76,7 +76,7 @@ To do that, create an options validator that checks user input against the const
 Then, register the validator as a service:
 
 ``` yaml
-[[= include_file('code_samples/front/shop/payment/config/services.yaml', 0, 1) =]] [[= include_file('code_samples/front/shop/payment/config/services.yaml', 21, 25) =]]
+[[= include_file('code_samples/front/shop/payment/config/services.yaml', 0, 1) =]][[= include_file('code_samples/front/shop/payment/config/services.yaml', 21, 25) =]]
 ```
 
 ### Restart application
