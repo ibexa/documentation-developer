@@ -13,7 +13,7 @@ To allow this filtering, you need to create custom payment method type and regis
 There are different ways you can extend your Payment module implementation. 
 One of them is to [create a custom payment method type](extend_payment.md). 
 
-In the following example you will learn, how to create `New Payment Method Type`.
+The following example shows, how to create `New Payment Method Type`.
 
 ### Add new custom payment method type
 
@@ -27,7 +27,7 @@ In the `arguments` list provide a name of the payment method type, the way you w
 
 At this point a custom payment method type should be visible in the user interface.
 
-### Create a voter for new payment method type
+### Create voter for new payment method type
 
 Now, in `src/lib/PaymentMethod/Voter` directory, create a `NewPaymentMethodTypeVoter.php` file with the voter definition for your new payment method type:
 
