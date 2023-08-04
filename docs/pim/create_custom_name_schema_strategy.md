@@ -4,6 +4,8 @@ description: Create custom name schema strategy to generate URL aliases based on
 
 # Create custom name schema strategy
 
+You can create custom name schema strategy to generate URL aliases based on attribute values.
+
 Make sure the attributes are configured correctly. 
 Each attribute that you want to include in the URL alias must have a name schema strategy.
 
