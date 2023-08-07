@@ -61,7 +61,7 @@ At this point you should be able to create a shipping method based on a custom s
 
 !!! notice
 
-    You must have regions to use this example. If you don't, look at [Enable purchasing products](enable_purchasing_products.md) to create some.
+    You must have regions to use this example. If you haven't, look at [Enable purchasing products](enable_purchasing_products.md) to create regions.
 
 ### Create options validator
 
@@ -167,7 +167,7 @@ Then register the formatter as a service:
 [[= include_file('code_samples/front/shop/shipping/config/services.yaml', 0, 1) =]][[= include_file('code_samples/front/shop/shipping/config/services.yaml', 34, 38) =]]
 ```
 
-You should now see the parameter, in this case it is a customer identifier, displayed on the **Cost** tab of the shipping method's details view.
+You should now see the parameter, in this case it's a customer identifier, displayed on the **Cost** tab of the shipping method's details view.
 
 ![Shipping method parameters in the Cost tab](img/shipping_method_cost_tab.png "Shipping method parameters in the Cost tab")
 
