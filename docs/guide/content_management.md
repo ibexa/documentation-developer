@@ -98,10 +98,13 @@ When the Location of a Content item is hidden, the system will not display it on
 
 !!! caution "Visibility and permissions"
 
-    The Location visibility flag is not permission-based and thus acts as a simple potential filter.
-    **It is not meant to restrict access to content**.
+    The [visibility switcher](https://doc.ibexa.co/en/latest/content_management/locations/#location-visibility) is a convenient feature for withdrawing content from the frontend.
+    It acts as a filter in the frontend by default. You can choose to respect it or ignore it in your code.
+    It isn't permission-based, and **doesn't restrict access to content**. Hidden content can be read through other means, like the REST API.
 
-    If you need to restrict access to a given Content item, use [**Sections**](admin_panel.md#sections) or other [**Limitations**](limitations.md), which are permission-based.
+    If you need to restrict access to a given Content item, you could create a role that grants read access for a given [**Section**](sections.md) or
+    [**Object State**](object_states.md), and set a different Section or Object State for the given Content.
+    Or use other permission-based [**Limitations**](limitations.md).
 
 If a Content item is hidden, it is invisible in all its Locations.
 If a Location is hidden, all of its descendants in the tree will be hidden as well.
