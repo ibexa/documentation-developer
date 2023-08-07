@@ -71,8 +71,17 @@ You should not add any more content directly below Location 1, but instead store
 Location visibility allows you to control which parts of the content tree are available on the front page.
 
 Once a Content item is published, it cannot be un-published.
-Limiting visibility is the only way to withdraw content from the website without moving it to Trash.
-When the Location of a Content item is hidden, any access to it will be denied, preventing the system from displaying it.
+When the Location of a Content item is hidden, the system will not display it on the website.
+
+!!! caution "Visibility and permissions"
+
+    The [visibility switcher](https://doc.ibexa.co/en/latest/content_management/locations/#location-visibility) is a convenient feature for withdrawing content from the frontend.
+    It acts as a filter in the frontend by default. You can choose to respect it or ignore it in your code.
+    It isn't permission-based, and **doesn't restrict access to content**. Hidden content can be read through other means, like the REST API.
+
+    If you need to restrict access to a given Content item, you could create a role that grants read access for a given [**Section**](sections.md) or
+    [**Object State**](object_states.md), and set a different Section or Object State for the given Content.
+    Or use other permission-based [**Limitations**](limitations.md).
 
 If a Content item is hidden, it is invisible in all its Locations.
 If a Location is hidden, all of its descendants in the tree will be hidden as well.
