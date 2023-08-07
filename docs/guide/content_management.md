@@ -102,8 +102,8 @@ When the Location of a Content item is hidden, the system will not display it on
     It acts as a filter in the frontend by default. You can choose to respect it or ignore it in your code.
     It isn't permission-based, and **doesn't restrict access to content**. Hidden content can be read through other means, like the REST API.
 
-    If you need to restrict access to a given Content item, you could create a role that grants read access for a given [**Section**](sections.md) or
-    [**Object State**](object_states.md), and set a different Section or Object State for the given Content.
+    If you need to restrict access to a given Content item, you could create a role that grants read access for a given [**Section**](https://doc.ibexa.co/en/latest/administration/content_organization/sections/) or
+    [**Object State**](https://doc.ibexa.co/en/latest/administration/content_organization/object_states/), and set a different Section or Object State for the given Content.
     Or use other permission-based [**Limitations**](limitations.md).
 
 If a Content item is hidden, it is invisible in all its Locations.
