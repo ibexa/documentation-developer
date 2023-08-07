@@ -59,6 +59,10 @@ At this point you should be able to create a shipping method based on a custom s
 
 ![Creating a shipping method of custom type](img/custom_shipping_method_type.png "Creating a shipping method of custom type")
 
+!!! notice
+
+    You must have regions to use this example. If you don't, look at [Enable purchasing products](enable_purchasing_products.md) to create some.
+
 ### Create options validator
 
 You might want to validate the data provided by the user against certain constraints. 
