@@ -25,7 +25,7 @@ ibexa:
 
 `ibexa.siteaccess.match` can contain multiple matchers.
 
-The first matcher succeeding always wins, so be careful when using catch-all matchers like `URIElement`. In the following example, `Compound\LogicalAnd` must be before the `Map\Host` for `my.site/corporate` to be accessible:
+The first matcher succeeding always wins, so be careful when using catch-all matchers like `URIElement`. In the following example, `Compound\LogicalAnd` must be before the `Map\Host` for `my.site/corporate` to be reachable:
 
 ```yaml
 ibexa:
