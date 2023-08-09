@@ -20,9 +20,10 @@ ibexa:
                         stream_file:
                             stream_id: 00000000-00000000-00000000-00000000
                 activations:
-                    client_id: '%env(CDP_ACTIVATION_CLIENT_ID)%'
-                    client_secret: '%env(CDP_ACTIVATION_CLIENT_SECRET)%'
-                    segment_group_identifier: example_segment_group_identifier
+                    -
+                        client_id: '%env(CDP_ACTIVATION_CLIENT_ID)%'
+                        client_secret: '%env(CDP_ACTIVATION_CLIENT_SECRET)%'
+                        segment_group_identifier: example_segment_group_identifier
 ```
 
 All configuration settings are described below.
