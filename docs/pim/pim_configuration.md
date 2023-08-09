@@ -53,7 +53,7 @@ ibexa:
                         vat_categories:
                             standard: 18
                             reduced: 6
-                            zero: 0
+                            none: ~
 ```
 
 ## Code generation strategy
