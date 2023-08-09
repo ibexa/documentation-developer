@@ -25,7 +25,23 @@ ibexa:
 
 `ibexa.siteaccess.match` can contain multiple matchers.
 
-The first matcher succeeding always wins, so be careful when using catch-all matchers like `URIElement`.
+The first matcher succeeding always wins, so be careful when using catch-all matchers like `URIElement`. In the following example, `Compound\LogicalAnd` must be before the `Map\Host` for `my.site/corporate` to be accessible:
+
+```yaml
+ibexa:
+    siteaccess:
+        match:
+            Compound\LogicalAnd:
+                corporate:
+                    matchers:
+                        Map\URI:
+                            corporate: true
+                        Map\Host:
+                            my.site: true
+                    match: corporate
+            Map\Host:
+                my.site: mysite
+```
 
 If the matcher class does not start with a backslash (`\`), it is relative to `Ibexa\Core\MVC\Symfony\SiteAccess\Matcher`
 (for example, `Map\URI` refers to `Ibexa\Core\MVC\Symfony\SiteAccess\Matcher\Map\URI`)
