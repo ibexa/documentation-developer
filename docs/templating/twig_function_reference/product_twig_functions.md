@@ -42,7 +42,7 @@ The `ibexa_format_product_attribute` filter formats the attribute value to a rea
 ### `ibexa_format_price`
 
 The `ibexa_format_price` filter formats the price value by placing currency code 
-either on the left or on the right from the numerical value.
+either on the left or on the right of the numerical value.
 
 ``` html+twig
 {% for product.price in product.attributes %}
