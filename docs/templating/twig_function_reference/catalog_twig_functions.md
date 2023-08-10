@@ -20,17 +20,6 @@ The `ibexa_get_product_catalog_root()` function gets a root location of the prod
 
 The `ibexa_render_catalog_status` filter renders the status of the catalog, translated into the current language.
 
-### `ibexa_format_price`
-
-The `ibexa_format_price` filter formats the price value by placing currency code 
-either on the left or on the right from the numerical value.
-
-``` html+twig
-{% for product.price in product.attributes %}
-    {{ product.price.getMoney()|ibexa_format_price }}
-{% endfor %}
-```
-
 #### Examples
 
 ``` html+twig
