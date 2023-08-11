@@ -20,7 +20,7 @@ The following example shows, how to create `New Payment Method Type`.
 First, register new payment method type as a service:
 
 ``` yaml
-[[= include_file('code_samples/front/shop/payment/src/bundle/Resources/config/services/payment_method.yaml', 0, 9) =]]
+[[= include_file('code_samples/front/shop/payment/src/bundle/Resources/config/services/payment_method.yaml', 0, 10) =]]
 ```
 
 In the `arguments` list provide a name of the payment method type, the way you want it to appear on the list of available payment method types, in the following example: `New Payment Method Type`.
@@ -39,17 +39,26 @@ Created voter decides, if selected payment method type can be used and displayed
 
 #### Register new voter
 
-Register new voter as a service in `payment_method.yaml` file:
+Register new voter as a service:
 
 ``` yaml
-[[= include_file('code_samples/front/shop/payment/src/bundle/Resources/config/services/payment_method.yaml', 10, 13) =]]
+[[= include_file('code_samples/front/shop/payment/src/bundle/Resources/config/services/payment_method.yaml', 11, 14) =]]
 ```
+
+#### Restart application
 
 Now, clear the cache by running the following command:
 
 ``` bash
 php bin/console cache:clear
 ```
+
+Shut down and restart the application.
+Then, try creating a payment of the new type.
+
+![New payment method type](new_payment_method_type.png "New payment method type")
+
+
 
 
 

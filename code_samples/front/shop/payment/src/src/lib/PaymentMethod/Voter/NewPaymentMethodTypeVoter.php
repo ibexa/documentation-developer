@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace app\Payment\PaymentMethod\Voter;
+namespace App\Payment\PaymentMethod\Voter;
 
 use Ibexa\Contracts\Cart\Value\CartInterface;
 use Ibexa\Contracts\Payment\PaymentMethod\PaymentMethodInterface;
