@@ -94,8 +94,8 @@ When using the "forgot password" feature, a token is created which expires if th
 link that gets mailed to them in time. The time before it expires is set in the parameter
 `ibexa.site_access.config.default.security.token_interval_spec`. By nature this feature must be available to users
 before they have logged in, including would-be attackers. If an attacker uses this feature with someone else's email
-address, the attacker will not receive the email. But they could still try to guess the password reset link. That's why
-this interval should be as short as possible. 5 minutes will often be enough.
+address, the attacker does not receive the email. But they could still try to guess the password reset link. That's why
+this interval should be as short as possible. 5 minutes is often enough.
 
 Ibexa DXP allows you to create and send invitations to create an account in the frontend as a customer, the Back Office
 as an employee, or the Corporate Portal as an organisation member. You can send invitations to individual users or in
