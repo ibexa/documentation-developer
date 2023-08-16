@@ -469,3 +469,5 @@ For example, to have `Arrows` category from [previously added Special characters
 ```js
 ibexa.addConfig('richText.CKEditor.extraConfig', { specialCharacters: { order: ['Arrows'] } }, true);
 ```
+
+![CKEditor Special characters: Arrows categorie on top of character filter](ckeditor-special-characters_arrows-on-top.png)
