@@ -431,9 +431,9 @@ module.exports = (ibexaConfig, ibexaConfigManager) => {
 
 See [Importing assets from a bundle](importing_assets_from_bundle.md) for alternative ways to add files to Webpack Encore entries.
 
-Add the plugin to the RichText toolbar config (under `ibexa.system.<scope>.fieldtypes.ezrichtext.toolbar`).
+Add the plugin button to the RichText toolbar config (under `ibexa.system.<scope>.fieldtypes.ezrichtext.toolbar`).
 
-For example, in `config/packages/ibexa_admin_ui.yaml`:
+For example, a new button group is defined in `config/packages/ibexa_admin_ui.yaml` with [the `specialcharacters` button exposed by the plugin API](https://ckeditor.com/docs/ckeditor5/latest/features/special-characters.html#common-api):
 ```yaml
 ibexa:
     # …
@@ -446,7 +446,7 @@ ibexa:
                         my_group:
                             priority: 25
                             buttons:
-                                SpecialCharacters:
+                                specialCharacters:
                                     priority: 10
 ```
 
