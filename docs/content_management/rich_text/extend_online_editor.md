@@ -393,23 +393,62 @@ For a full list of standard buttons, see the RichText module's [configuration fi
 
 ## Add CKEditor plugins
 
-Custom CKEditor plugin must be added to the `extraPlugins` array under the 
-`window.ibexa.richText.CKEditor.extraPlugins` key.
-For this purpose, either in the bundle's `Resources/encore/` folder, 
-or in the `encore` folder in the root directory of your project, 
-create the following `ibexa.richtext.config.manager.js` file:
+A CKEditor plugin is installed locally by using `yarn add ` or `npm install`. and is deployed by committing the `yarn.lock` file.
 
-``` js
+For example, the local installation of [Special characters plugin](https://ckeditor.com/docs/ckeditor5/latest/features/special-characters.html):
+```bash
+yarn add @ckeditor/ckeditor5-special-characters`
+```
+
+CKEditor plugin must be added to the `window.ibexa.richText.CKEditor.extraPlugins` array.
+For this purpose, create a JavaScript file to import the plugin elements and add them to the array using `ibexa.addConfig`.
+
+For example, `assets/js/special-characters.js`:
+```js
+import SpecialCharacters from '../../node_modules/@ckeditor/ckeditor5-special-characters/src/specialcharacters';
+import SpecialCharactersEssentials from '../../node_modules/@ckeditor/ckeditor5-special-characters/src/specialcharactersessentials';
+ibexa.addConfig('richText.CKEditor.extraPlugins', [ SpecialCharacters, SpecialCharactersEssentials ], true);
+```
+
+Notice that the plugin is imported from `../../node_modules/@ckeditor` path and not directly from `@ckeditor` alias because this alias points at `./public/bundles/ibexaadminuiassets/vendors/@ckeditor`.
+
+Add the previous file to `ibexa-richtext-onlineeditor-js` Webpack Encore entry.
+
+For example, create the following `encore/ibexa.richtext.config.manager.js` file:
+```js
 const path = require('path');
 
 module.exports = (ibexaConfig, ibexaConfigManager) => {
     ibexaConfigManager.add({
         ibexaConfig,
         entryName: 'ibexa-richtext-onlineeditor-js',
-        newItems: ["path_to_file"],
+        newItems: [path.resolve(__dirname, '../assets/js/special-characters.js')],
     });
 };
 ```
+
+See [Importing assets from a bundle](importing_assets_from_bundle.md) for alternative ways to add files to Webpack Encore entries.
+
+Add the plugin to the RichText toolbar config (under `ibexa.system.<scope>.fieldtypes.ezrichtext.toolbar`).
+
+For example, in `config/packages/ibexa_admin_ui.yaml`:
+```yaml
+ibexa:
+    # …
+    system:
+        admin_group:
+            # …
+            fieldtypes:
+                ezrichtext:
+                    toolbar:
+                        my_group:
+                            priority: 25
+                            buttons:
+                                SpecialCharacters:
+                                    priority: 10
+```
+
+Build the assets and clear the cache. For example, run `composer run-script auto-scripts`.
 
 For more information, see [CKEditor plugins documentation](https://ckeditor.com/docs/ckeditor5/latest/installation/advanced/plugins.html).
 
