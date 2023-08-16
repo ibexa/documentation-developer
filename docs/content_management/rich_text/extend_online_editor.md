@@ -462,7 +462,7 @@ To do it, add a custom config object to the `window.ibexa.richText.CKEditor.extr
 by using the `addConfig` method:
 
 ```js
-window.ibexa.addConfig('richText.CKEditor.extraConfig', {{your_custom_config_object}}, true);
+window.ibexa.addConfig('richText.CKEditor.extraConfig', {your_custom_config_object}, true);
 ```
 
 For example, to have `Arrows` category from [Special characters plugin]([Ordering categories](https://ckeditor.com/docs/ckeditor5/latest/features/special-characters.html#ordering-categories)) on top of the filter menu:
