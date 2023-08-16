@@ -9,6 +9,16 @@ Two ways are available to run an Ibexa Cloud project locally with DDEV:
 - [by using the Platform.sh's `ddev-platformsh` add-on](#with-the-ddev-platformsh-add-on)
 - [like other existing project, without this add-on](#Without-the-platformsh-add-on).
 
+!!! note
+
+    The following examples will use [Platform.sh CLI](https://docs.platform.sh/development/cli.html) set up for Ibexa Cloud
+    thanks to the following dedicated alias `ibexa_cloud`:
+    ```bash
+    alias ibexa_cloud="PLATFORMSH_CLI_SESSION_ID=ibexa_cloud \
+        PLATFORMSH_CLI_API_URL=https://api.cloud.ibexa.co \
+        platform"
+    ```
+
 ## With the `ddev-platformsh` add-on
 
 To configure the [`ddev/ddev-platformsh` add-on](https://github.com/ddev/ddev-platformsh), you need a [Platform.sh API Token](https://docs.platform.sh/administration/cli/api-tokens.html).
@@ -22,7 +32,7 @@ You must remove Node.js and NVM installations as they're already included in DDE
 
 The following sequence of commands:
 
-1. Downloads the Ibexa Cloud Platform.sh project from the default environment "production" into a new directory. (Replace `<project-ID>` with the hash of your own project. See [`platform help get`](https://docs.platform.sh/administration/cli.html#3-use) for options like selecting another environment).
+1. Downloads the Ibexa Cloud Platform.sh project from the default environment "production" into a new directory using [Platform.sh CLI alias `ibexa_cloud` defined in introduction](#ibexa-cloud-and-ddev). (Replace `<project-ID>` with the hash of your own project. See [`ibexa_cloud help get`](https://docs.platform.sh/administration/cli.html#3-use) for options like selecting another environment).
 1. Configures a new DDEV project.
 1. Ignores `.ddev/` directory from Git.
 1. Sets Composer authentication by using an already existing `auth.json` file.
@@ -37,7 +47,7 @@ The following sequence of commands:
 1. Opens the project in a browser.
 
 ```bash
-platform project:get <project-ID> my-ddev-project && cd my-ddev-project
+ibexa_cloud project:get <project-ID> my-ddev-project && cd my-ddev-project
 ddev config --project-type=php \
   --web-environment-add COMPOSER_AUTH=''
 echo '.ddev/' >> .gitignore
@@ -63,7 +73,7 @@ The following example adapts the [manual method to run an already existing proje
 
 The following sequence of commands:
 
-1. Downloads the Ibexa Cloud Platform.sh project from the default environment "production" into a new directory. (Replace `<project-ID>` with the hash of your own project. See [`platform help get`](https://docs.platform.sh/administration/cli.html#3-use) for options like selecting another environment).
+1. Downloads the Ibexa Cloud Platform.sh project from the default environment "production" into a new directory using [Platform.sh CLI alias `ibexa_cloud` defined in introduction](#ibexa-cloud-and-ddev). (Replace `<project-ID>` with the hash of your own project. See [`ibexa_cloud help get`](https://docs.platform.sh/administration/cli.html#3-use) for options like selecting another environment).
 1. Configures a new DDEV project.
 1. Ignores `.ddev/` directory from Git.
 1. Starts the DDEV project.
@@ -74,16 +84,16 @@ The following sequence of commands:
 1. Opens the DDEV project in a browser.
 
 ```bash
-platform project:get <project-ID> my-ddev-project && cd my-ddev-project
+ibexa_cloud project:get <project-ID> my-ddev-project && cd my-ddev-project
 ddev config --project-type=php --php-version 8.1 \
   --docroot=public \
   --web-environment-add DATABASE_URL=mysql://db:db@db:3306/db
 echo '.ddev/' >> .gitignore
 ddev start
 ddev composer config --global http-basic.updates.ibexa.co <installation-key> <token-password>
-platform db:dump --gzip --file=production.sql.gz
+ibexa_cloud db:dump --gzip --file=production.sql.gz
 ddev import-db --src=production.sql.gz && rm production.sql.gz
-platform mount:download --mount public/var --target public/var
+ibexa_cloud mount:download --mount public/var --target public/var
 ddev composer install
 ddev launch
 ```
