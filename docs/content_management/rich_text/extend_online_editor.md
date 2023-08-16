@@ -393,7 +393,7 @@ For a full list of standard buttons, see the RichText module's [configuration fi
 
 ## Add CKEditor plugins
 
-A CKEditor plugin is installed locally by using `yarn add ` or `npm install`. and is deployed by committing the `yarn.lock` file.
+A CKEditor plugin is installed locally by using `yarn add ` or `npm install`, and is deployed by committing the `yarn.lock` file.
 
 For example, the local installation of [Special characters plugin](https://ckeditor.com/docs/ckeditor5/latest/features/special-characters.html):
 ```bash
