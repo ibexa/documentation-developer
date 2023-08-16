@@ -34,7 +34,7 @@ The following sequence of commands:
 
 1. Downloads the Ibexa Cloud Platform.sh project from the default environment "production" into a new directory using [Platform.sh CLI alias `ibexa_cloud` defined in introduction](#ibexa-cloud-and-ddev). (Replace `<project-ID>` with the hash of your own project. See [`ibexa_cloud help get`](https://docs.platform.sh/administration/cli.html#3-use) for options like selecting another environment).
 1. Configures a new DDEV project.
-1. Ignores `.ddev/` directory from Git.
+1. Ignores `.ddev/` directory from Git. (Some DDEV config could be committed as in [this documentation](https://ddev.readthedocs.io/en/latest/users/extend/customization-extendibility/#extending-configyaml-with-custom-configyaml-files).)
 1. Sets Composer authentication by using an already existing `auth.json` file.
 1. Creates a `public/var` directory if it doesn't exist, to allow the creation of `public/var/.platform.installed` by Platform.sh hook script.
 1. Installs the `ddev/ddev-platformsh` add-on which prompts for the Platform.sh API token, project ID and environment name.
@@ -75,7 +75,7 @@ The following sequence of commands:
 
 1. Downloads the Ibexa Cloud Platform.sh project from the default environment "production" into a new directory using [Platform.sh CLI alias `ibexa_cloud` defined in introduction](#ibexa-cloud-and-ddev). (Replace `<project-ID>` with the hash of your own project. See [`ibexa_cloud help get`](https://docs.platform.sh/administration/cli.html#3-use) for options like selecting another environment).
 1. Configures a new DDEV project.
-1. Ignores `.ddev/` directory from Git.
+1. Ignores `.ddev/` directory from Git. (Some DDEV config could be committed as in [this documentation](https://ddev.readthedocs.io/en/latest/users/extend/customization-extendibility/#extending-configyaml-with-custom-configyaml-files).)
 1. Starts the DDEV project.
 1. Sets Composer authentication.
 1. [Gets the database content from Platform.sh](https://docs.platform.sh/add-services/mysql.html#exporting-data).
