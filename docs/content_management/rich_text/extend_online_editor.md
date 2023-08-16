@@ -405,7 +405,9 @@ For this purpose, create a JavaScript file to import the plugin elements and add
 
 For example, `assets/js/special-characters.js`:
 ```js
+// The plugin itself
 import SpecialCharacters from '../../node_modules/@ckeditor/ckeditor5-special-characters/src/specialcharacters';
+// The character list that will be used by the plugin
 import SpecialCharactersEssentials from '../../node_modules/@ckeditor/ckeditor5-special-characters/src/specialcharactersessentials';
 ibexa.addConfig('richText.CKEditor.extraPlugins', [ SpecialCharacters, SpecialCharactersEssentials ], true);
 ```
