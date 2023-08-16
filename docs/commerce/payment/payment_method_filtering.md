@@ -45,7 +45,7 @@ Register new voter as a service:
 [[= include_file('code_samples/front/shop/payment/src/bundle/Resources/config/services/payment_method.yaml', 11, 14) =]]
 ```
 
-#### Restart application
+#### Clear cache
 
 Now, clear the cache by running the following command:
 
