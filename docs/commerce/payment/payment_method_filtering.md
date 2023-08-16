@@ -53,12 +53,6 @@ Now, clear the cache by running the following command:
 php bin/console cache:clear
 ```
 
-Shut down and restart the application.
 Then, try creating a payment of the new type.
 
 ![New payment method type](new_payment_method_type.png "New payment method type")
-
-
-
-
-
