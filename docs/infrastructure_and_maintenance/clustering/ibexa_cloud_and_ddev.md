@@ -48,8 +48,7 @@ The following sequence of commands:
 
 ```bash
 ibexa_cloud project:get <project-ID> my-ddev-project && cd my-ddev-project
-ddev config --project-type=php \
-  --web-environment-add COMPOSER_AUTH=''
+ddev config --project-type=php --web-environment-add COMPOSER_AUTH=''
 echo '.ddev/' >> .gitignore
 cp <path-to-an>/auth.json .ddev/homeadditions/
 if [ ! -d public/var ]; then mkdir public/var; fi
@@ -81,13 +80,13 @@ The following sequence of commands:
 1. [Gets the database content from Platform.sh](https://docs.platform.sh/add-services/mysql.html#exporting-data).
 1. [Imports this database content into DDEV project's database](https://ddev.readthedocs.io/en/latest/users/usage/database-management/#database-imports).
 1. [Downloads the Platform.sh public/var locally](https://docs.platform.sh/development/file-transfer.html#transfer-a-file-from-a-mount) to have the content binary files.
+1. Install the dependencies and run post-install scripts.
+1. Displays information about the project services.
 1. Opens the DDEV project in a browser.
 
 ```bash
 ibexa_cloud project:get <project-ID> my-ddev-project && cd my-ddev-project
-ddev config --project-type=php --php-version 8.1 \
-  --docroot=public \
-  --web-environment-add DATABASE_URL=mysql://db:db@db:3306/db
+ddev config --project-type=php --php-version 8.1 --docroot=public --web-environment-add DATABASE_URL=mysql://db:db@db:3306/db
 echo '.ddev/' >> .gitignore
 ddev start
 ddev composer config --global http-basic.updates.ibexa.co <installation-key> <token-password>
@@ -95,6 +94,7 @@ ibexa_cloud db:dump --gzip --file=production.sql.gz
 ddev import-db --src=production.sql.gz && rm production.sql.gz
 ibexa_cloud mount:download --mount public/var --target public/var
 ddev composer install
+ddev describe
 ddev launch
 ```
 
