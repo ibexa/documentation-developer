@@ -38,7 +38,7 @@ The following sequence of commands:
 1. Sets Composer authentication by using an already existing `auth.json` file.
 1. Creates a `public/var` directory if it doesn't exist, to allow the creation of `public/var/.platform.installed` by Platform.sh hook script.
 1. Installs the `ddev/ddev-platformsh` add-on which prompts for the Platform.sh API token, project ID and environment name.
-1. Comments out the Node.js and NVM installations from the hooks copied in `.ddev/config.platformsh.yaml`.
+1. Comments out the Node.js and NVM installations from the hooks copied in `.ddev/config.platformsh.yaml`. (In this file, you may have to discard other specific features like New Relic.)
 1. Changes `maxmemory-policy` from default `allkeys-lfu` to a [value accepted by the `RedisTagAwareAdapter`](https://github.com/symfony/cache/blob/5.4/Adapter/RedisTagAwareAdapter.php#L95).
 1. Starts the project.
 1. Gets the content from Platform.sh, both database and binary files by using `ddev pull platform` feature from the add-on.
