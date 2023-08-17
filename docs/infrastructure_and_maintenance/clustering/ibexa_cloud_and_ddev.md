@@ -50,7 +50,7 @@ The following sequence of commands:
 ibexa_cloud project:get <project-ID> my-ddev-project && cd my-ddev-project
 ddev config --project-type=php --web-environment-add COMPOSER_AUTH=''
 echo '.ddev/' >> .gitignore
-cp <path-to-an>/auth.json .ddev/homeadditions/
+mkdir -p .ddev/homeadditions/.composer && cp <path-to-an>/auth.json .ddev/homeadditions/.composer
 if [ ! -d public/var ]; then mkdir public/var; fi
 ddev get ddev/ddev-platformsh
 sed -i -E "s/( +)(.*nvm (install|use).*)/\1#\2/" .ddev/config.platformsh.yaml
