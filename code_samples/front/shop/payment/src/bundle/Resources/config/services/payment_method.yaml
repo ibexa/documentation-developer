@@ -9,6 +9,6 @@ services:
         tags:
             - { name: ibexa.payment.payment_method.type, alias: new_payment_method_type }
 services:
-    App\PaymentMethod\Voter\NewPaymentMethodTypeVoter:
+    App\Payment\PaymentMethod\Voter\NewPaymentMethodTypeVoter:
         tags:
             - { name: ibexa.payment.payment_method.voter, type: new_payment_method_type }
