@@ -347,7 +347,7 @@ The following examples run an already [version-controlled project](install_ibexa
 ```bash
 # Clone the version-controlled project and enter its local directory
 git clone <repository> my-ddev-project && cd my-ddev-project
-# Exclude the whole `.ddev/` directory from version control
+# Exclude the whole `.ddev/` directory from version control (some DDEV config could have been committed and shared, see notice below)
 .ddev/ >> .gitignore
 # Configure the DDEV project then start it
 ddev config --project-type=php --php-version 8.1 \
