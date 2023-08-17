@@ -145,7 +145,7 @@ ddev composer create ibexa/<edition>-skeleton:<version>
 Once you've made this change, you can proceed to install [[= product_name =]].
 
 ```bash
-ddev php bin/console ibexa:install ibexa-<edition>
+ddev php bin/console ibexa:install
 ddev php bin/console ibexa:graphql:generate-schema
 ```
 
@@ -339,7 +339,7 @@ To run an existing project, you need to:
 1. Add Composer authentication.
 1. Install dependencies packages with Composer.
 1. Populate the contents, which could mean:
-    - getting a clean database with ddev `php bin/console ibexa:install ibexa-<edition>` and adding some data with [Ibexa data migration](../content_management/data_migration/importing_data.md), or
+    - getting a clean database with ddev `php bin/console ibexa:install` and adding some data with [Ibexa data migration](../content_management/data_migration/importing_data.md), or
     - injecting a dump with [`ddev import-db`](https://ddev.readthedocs.io/en/latest/users/usage/commands/#import-db) and copying related binary files into `public/var`.
 
 The following examples run an already [version-controlled project](install_ibexa_dxp.md#add-project-to-version-control) and have the right content structure (but no content):
@@ -360,7 +360,7 @@ ddev composer config --global http-basic.updates.ibexa.co <installation-key> <to
 # Install the dependencies packages
 ddev composer install
 # Populate the database with a clean install
-ddev php bin/console ibexa:install ibexa-<edition>
+ddev php bin/console ibexa:install
 # Add some content types using a migration file (previously created on another installation) and update the GraphQL schema
 ddev php bin/console ibexa:migrations:migrate --file=project_content_types.yaml
 ddev php bin/console ibexa:graphql:generate-schema
