@@ -256,6 +256,14 @@ sed -i 's/%BINARY_DATA_HANDLER%//' .ddev/nginx_full/ibexa.conf;
 sed -i 's/ibexa_params.d/sites-enabled\/ibexa_params.d/' .ddev/nginx_full/ibexa.conf;
 ```
 
+If you want to use HTTPS, you must add the following rule to avoid mixed content (HTTPS pages linking to HTTP resources): `fastcgi_param HTTPS $fcgi_https;`
+
+For example, you can append it to Ibexa's FastCGI config:
+
+```bash
+echo 'fastcgi_param HTTPS $fcgi_https;' >> .ddev/nginx_full/ibexa_params.d/ibexa_fastcgi_params
+```
+
 ### Switch to Apache and its Virtual Host
 
 To use Apache instead of the default Nginx, run the following command:
@@ -301,6 +309,14 @@ sed -i 's/%TIMEOUT%/0/' .ddev/apache/apache-site.conf
 sed -i 's/%FASTCGI_PASS%/unix:\/var\/run\/php-fpm.sock/' .ddev/apache/apache-site.conf
 ```
 
+If you want to use HTTPS, you must add the following rule to avoid mixed content (HTTPS pages linking to HTTP resources): `SetEnvIf X-Forwarded-Proto "https" HTTPS=on`
+
+You can, for example, do it with `sed`:
+
+```bash
+sed -i 's/DirectoryIndex index.php/DirectoryIndex index.php\n\n    SetEnvIf X-Forwarded-Proto "https" HTTPS=on/' .ddev/apache/apache-site.conf
+```
+
 Finally, restart the project:
 
 ```bash
@@ -321,6 +337,7 @@ bash vhost.sh --template-file=vendor/ibexa/post-install/resources/templates/apac
   --sf-env=dev \
   > .ddev/apache/apache-site.conf
 sed -i 's/php5-fpm.sock/php-fpm.sock/' .ddev/apache/apache-site.conf
+sed -i 's/DirectoryIndex index.php/DirectoryIndex index.php\n    SetEnvIf X-Forwarded-Proto "https" HTTPS=on/' .ddev/apache/apache-site.conf
 rm vhost.sh
 ```
 
