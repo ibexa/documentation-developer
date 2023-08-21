@@ -6,7 +6,7 @@ edition: commerce
 # Quick order
 
 The quick order form allows users to efficiently process big orders through the storefront.
-Customers don't need to browse the countless store pages, they can fill in a provided list with products' SKU number and quality or import their own list into the system directly.
+Customers don't need to browse the countless store pages, they can fill in a provided list with products' SKU number and quantity or upload their own list into the system directly.
 Quick order forms can be used by registered and guest users.
 
 ## Quick order flows
