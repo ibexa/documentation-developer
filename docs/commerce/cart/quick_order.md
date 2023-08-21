@@ -11,7 +11,7 @@ Quick order forms can be used by registered and guest users.
 
 ## Quick order flows
 
-Customers can use one of the following methods to specify products and place a quick order.
+Customers can use one or both of the following methods to specify products and place a quick order.
 
 ### Customer enters individual products
 
@@ -35,7 +35,7 @@ Customers can use one of the following methods to specify products and place a q
 
 4\. Uploads the filled in quick order file back to the system by drag and drop or file selection.
 
-5\. The file name appears in the **Add your order** section. At this point, only file format validation is provided.
+5\. The file name appears in the **Add your order** section. At this point, only file validation is provided; the SKUs or products are not validated against the available stock.
 
 ![Customer uploads list of products](img/quick_order_add_order.png)
 
@@ -49,7 +49,7 @@ Orders from quick order are validated in the cart.
 There, the system checks if:
 
 - provided SKU is valid
-- provided products are available
+- provided products are available for purchase
 - provided quantities of products are available
 
 ## Layout
