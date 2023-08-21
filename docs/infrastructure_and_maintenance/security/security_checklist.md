@@ -98,7 +98,7 @@ address, the attacker does not receive the email. But they could still try to gu
 this interval should be as short as possible. 5 minutes is often enough.
 
 Ibexa DXP allows you to create and send invitations to create an account in the frontend as a customer, the Back Office
-as an employee, or the Corporate Portal as an organisation member. You can send invitations to individual users or in
+as an employee, or the Corporate Portal as a business partner. You can send invitations to individual users or in
 bulk. These invitations time out according to the parameter
 `ibexa.site_access.config.default.user_invitation.hash_expiration_time`. This can safely be longer than the "forgot password" time,
 since attackers cannot generate invitations. Don't leave it longer than it needs to be, though.
