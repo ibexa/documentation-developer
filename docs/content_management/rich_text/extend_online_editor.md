@@ -395,12 +395,12 @@ For a full list of standard buttons, see the RichText module's [configuration fi
 
 A CKEditor plugin is installed locally by using `yarn add ` or `npm install`, and is deployed by committing the `yarn.lock` file.
 
-For example, the local installation of [Special characters plugin](https://ckeditor.com/docs/ckeditor5/latest/features/special-characters.html):
+For example, the local installation of the [Special characters plugin](https://ckeditor.com/docs/ckeditor5/latest/features/special-characters.html):
 ```bash
 yarn add @ckeditor/ckeditor5-special-characters`
 ```
 
-CKEditor plugin must be added to the `ibexa.richText.CKEditor.extraPlugins` array.
+The CKEditor plugin must be added to the `ibexa.richText.CKEditor.extraPlugins` array.
 For this purpose, create a JavaScript file to import the plugin elements and add them to the array using `ibexa.addConfig`.
 
 For example, `assets/js/special-characters.js`:
@@ -412,7 +412,7 @@ import SpecialCharactersEssentials from '../../node_modules/@ckeditor/ckeditor5-
 ibexa.addConfig('richText.CKEditor.extraPlugins', [ SpecialCharacters, SpecialCharactersEssentials ], true);
 ```
 
-Notice that the plugin is imported from `../../node_modules/@ckeditor` path and not directly from `@ckeditor` alias because this alias points at `./public/bundles/ibexaadminuiassets/vendors/@ckeditor`.
+The plugin is imported from `../../node_modules/@ckeditor` path and not directly from `@ckeditor` alias because this alias points at `./public/bundles/ibexaadminuiassets/vendors/@ckeditor`.
 
 Add the previous file to `ibexa-richtext-onlineeditor-js` Webpack Encore entry.
 
