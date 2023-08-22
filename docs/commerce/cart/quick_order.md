@@ -88,8 +88,8 @@ ibexa:
 
 ### Quick order form factory
 
-You can use our `QuickOrder/ViewController.php` as a base for creating your own custom storefront for quick orders.
-Below you will find few examples of how to fit it to your needs.
+You can use `QuickOrder/ViewController.php` as a base for creating your own custom storefront for quick orders.
+Below are a few examples of how you can fit it to your needs.
 
 #### Number of rows
 
