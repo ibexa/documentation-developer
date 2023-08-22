@@ -320,6 +320,7 @@ nav:
             - Configure checkout: commerce/checkout/configure_checkout.md
             - Customize checkout: commerce/checkout/customize_checkout.md
             - Checkout API: commerce/checkout/checkout_api.md
+            - Extend checkout: commerce/checkout/extend_checkout.md
         - Order management:
             - Order management: commerce/order_management/order_management.md
             - Configure order processing: commerce/order_management/configure_order_management.md
