@@ -35,7 +35,7 @@ Customers can use one or both of the following methods to specify products and p
 
 4\. Uploads the filled in quick order file back to the system by drag and drop or file selection.
 
-5\. The file name appears in the **Add your order** section. At this point, only file validation is provided; the SKUs or products are not validated against the available stock.
+5\. The file name appears in the **Add your order** section. At this point, only file validation is provided. The SKUs or product availability is not validated.
 
 ![Customer uploads list of products](img/quick_order_add_order.png)
 
@@ -73,7 +73,25 @@ ibexa:
                     file_size_limit: 512k
 ```
 
-### Number of rows
+### Processed records limit
+
+To change the size limit for the processed records, add new value under the `ibexa.system.<scope>.cart` [configuration key](configuration.md#configuration-files):
+
+```yaml
+ibexa:
+    system:
+        <scope>:
+            cart:
+                batch_order:
+                    processed_records_limit: 2000
+```
+
+### Quick order form factory
+
+You can use our `QuickOrder/ViewController.php` as a base for creating your own custom storefront for quick orders.
+Below you will find few examples of how to fit it to your needs.
+
+#### Number of rows
 
 To change the number of rows that is displayed in the quick order form inject `QuickOrderFormFactory.php` to your controller.
 Next, define number of rows under `createQuickOrderForm`:
@@ -86,7 +104,7 @@ public function renderAction(Request $request): object
 }
 ```
 
-### Specify first row
+#### First row
 
 To change the first row that is taken into account for an uploaded file in the quick order form inject `QuickOrderFormFactory.php` to your controller.
 Next, change row number under `processBatchOrderSpreadsheet`:
@@ -97,4 +115,19 @@ private function getEntriesFromFile(?UploadedFile $file): iterable
     if (!empty($file)) {
         foreach ($this->spreadsheetProcessor->processBatchOrderSpreadsheet($file, 1) as $record) {
             [$code, $quantity] = $record;
+}}}            
 ```
+
+#### Add custom validation errors
+
+To change the list of validation errors or the way they are displayed in the quick order form inject `QuickOrderFormFactory.php` to your controller.
+Next, add new errors under `batchOrderErrors`:
+
+```php hl_lines="4"
+private function getEntriesFromFile(?UploadedFile $file): iterable
+{
+    if ($form->isSubmitted() && $form->isValid()) {
+        $batchOrderErrors = $this->batchOrderService->processBatchOrder($cart, $batchEntries);
+}}
+```
+
