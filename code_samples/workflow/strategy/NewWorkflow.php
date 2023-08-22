@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Ibexa\Checkout\Workflow\Strategy;
+namespace App\Checkout\Workflow\Strategy;
 
 use Ibexa\Checkout\Value\Workflow\Workflow;
 use Ibexa\Contracts\Cart\Value\CartInterface;
@@ -20,8 +20,6 @@ final class NewWorkflow implements WorkflowStrategyInterface
 
     public function supports(CartInterface $cart): bool
     {
-            if (!$cart->getCurrency() > 1000) {
-            }
-        }
-    
+        return $cart->getCurrency()->getCode() === 'EUR';
+    }
 }
