@@ -12,6 +12,7 @@ nav:
         - Install Ibexa DXP: getting_started/install_ibexa_dxp.md
         - Install on Ibexa Cloud: getting_started/install_on_ibexa_cloud.md
         - Install on MacOS and Windows: getting_started/install_on_mac_os_and_windows.md
+        - Install with DDEV: getting_started/install_with_ddev.md
         - First steps: getting_started/first_steps.md
         - Troubleshooting: getting_started/troubleshooting.md
     - Tutorials:
@@ -674,6 +675,8 @@ nav:
         - Clustering:
             - Clustering: infrastructure_and_maintenance/clustering/clustering.md
             - Clustering with AWS S3: infrastructure_and_maintenance/clustering/clustering_with_aws_s3.md
+            - Clustering with DDEV: infrastructure_and_maintenance/clustering/clustering_with_ddev.md
+            - Ibexa Cloud and DDEV: infrastructure_and_maintenance/clustering/ibexa_cloud_and_ddev.md
         - DevOps: infrastructure_and_maintenance/devops.md
         - Backup: infrastructure_and_maintenance/backup.md
         - Performance: infrastructure_and_maintenance/performance.md
