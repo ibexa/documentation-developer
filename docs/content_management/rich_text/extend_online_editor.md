@@ -393,15 +393,16 @@ For a full list of standard buttons, see the RichText module's [configuration fi
 
 ## Add CKEditor plugins
 
-A CKEditor plugin is installed locally by using `yarn add ` or `npm install`, and is deployed by committing the `yarn.lock` file.
+Regular CKEditor plugins can be added to the Online Editor. This procedure will be illustrated with the addition of the [Special characters plugin](https://ckeditor.com/docs/ckeditor5/latest/features/special-characters.html).
 
-For example, the local installation of the [Special characters plugin](https://ckeditor.com/docs/ckeditor5/latest/features/special-characters.html):
+A CKEditor plugin is installed locally by using `yarn add ` or `npm install`, and is deployed by committing the `yarn.lock` file. A local installation looks like:
+
 ```bash
 yarn add @ckeditor/ckeditor5-special-characters
 ```
 
 The CKEditor plugin must be added to the `ibexa.richText.CKEditor.extraPlugins` array.
-For this purpose, create an `assets/js/special-characters.js` to import the plugin elements and add them to the array using `ibexa.addConfig` :
+For this purpose, create an `assets/js/richtext.ckeditor-plugins.js` to import the plugin elements and add them to the array using `ibexa.addConfig` :
 
 ```js
 // The plugin itself
@@ -424,7 +425,7 @@ module.exports = (ibexaConfig, ibexaConfigManager) => {
     ibexaConfigManager.add({
         ibexaConfig,
         entryName: 'ibexa-richtext-onlineeditor-js',
-        newItems: [path.resolve(__dirname, '../assets/js/special-characters.js')],
+        newItems: [path.resolve(__dirname, '../assets/js/richtext.ckeditor-plugins.js')],
     });
 };
 ```
