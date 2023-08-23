@@ -401,9 +401,8 @@ yarn add @ckeditor/ckeditor5-special-characters
 ```
 
 The CKEditor plugin must be added to the `ibexa.richText.CKEditor.extraPlugins` array.
-For this purpose, create a JavaScript file to import the plugin elements and add them to the array using `ibexa.addConfig`.
+For this purpose, create an `assets/js/special-characters.js` to import the plugin elements and add them to the array using `ibexa.addConfig` :
 
-For example, `assets/js/special-characters.js`:
 ```js
 // The plugin itself
 import SpecialCharacters from '../../node_modules/@ckeditor/ckeditor5-special-characters/src/specialcharacters';
@@ -416,7 +415,8 @@ The plugin is imported from `../../node_modules/@ckeditor` path and not directly
 
 Add the previous file to `ibexa-richtext-onlineeditor-js` Webpack Encore entry.
 
-For example, create the following `encore/ibexa.richtext.config.manager.js` file:
+Create the following `encore/ibexa.richtext.config.manager.js` file:
+
 ```js
 const path = require('path');
 
@@ -433,7 +433,8 @@ See [Importing assets from a bundle](importing_assets_from_bundle.md) for altern
 
 Add the plugin button to the RichText toolbar config (under `ibexa.system.<scope>.fieldtypes.ezrichtext.toolbar`).
 
-For example, a new button group is defined in `config/packages/ibexa_admin_ui.yaml` with [the `specialcharacters` button exposed by the plugin API](https://ckeditor.com/docs/ckeditor5/latest/features/special-characters.html#common-api):
+A new button group is defined in `config/packages/ibexa_admin_ui.yaml` with [the `specialcharacters` button exposed by the plugin API](https://ckeditor.com/docs/ckeditor5/latest/features/special-characters.html#common-api):
+
 ```yaml
 ibexa:
     # …
@@ -450,7 +451,7 @@ ibexa:
                                     priority: 10
 ```
 
-Build the assets and clear the cache. For example, run `composer run-script auto-scripts`.
+Build the assets and clear the cache by running `composer run-script auto-scripts`.
 
 For more information, see [CKEditor plugins documentation](https://ckeditor.com/docs/ckeditor5/latest/installation/advanced/plugins.html).
 
@@ -465,7 +466,7 @@ by using the `addConfig` method:
 window.ibexa.addConfig('richText.CKEditor.extraConfig', {your_custom_config_object}, true);
 ```
 
-For example, to have `Arrows` category from [previously added Special characters plugin](#add-ckeditor-plugins) on [top of the filter menu](https://ckeditor.com/docs/ckeditor5/latest/features/special-characters.html#ordering-categories):
+To have `Arrows` category from [previously added Special characters plugin](#add-ckeditor-plugins) on [top of the filter menu](https://ckeditor.com/docs/ckeditor5/latest/features/special-characters.html#ordering-categories):
 ```js
 ibexa.addConfig('richText.CKEditor.extraConfig', { specialCharacters: { order: ['Arrows'] } }, true);
 ```
