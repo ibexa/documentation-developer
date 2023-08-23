@@ -19,7 +19,7 @@ Each Content item is an instance of a Content Type.
 A Content item consists of:
 
 - [Content information](#content-information)
-- [Fields](#fields), defined by the [Content Type](#content-types).
+- [Fields](#fields), defined by the [Content Type](content_types.md).
 The Fields can cover data ranging from single variables and text lines to media files or blocks of formatted text.
 
 #### Content information
@@ -31,7 +31,7 @@ General information about a Content item is stored in a [`ContentInfo`](https://
 
 **`contentTypeId`** - the unique numerical ID of the Content Type, on which the Content item is based.
 
-**`name`** - the name is generated automatically based on a [pattern specified in the Content Type definition](#content-name-pattern).
+**`name`** - the name is generated automatically based on a [pattern specified in the Content Type definition](content_types.md#content-name-pattern).
 The name is in the main language of the Content item.
 
 !!! note

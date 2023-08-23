@@ -45,6 +45,7 @@ The following data migration steps are available:
 | `currency`           | &#10004; | &#10004; | &#10004; |
 | `product_price`      | &#10004; |          |          |
 | `product_availability` | &#10004; |          |          |
+| `payment_method`     | &#10004; |          |          |
 | `segment_group`      | &#10004; | &#10004; | &#10004; |
 | `segment`            | &#10004; | &#10004; | &#10004; |
 | `setting`            | &#10004; | &#10004; | &#10004; |
@@ -223,6 +224,20 @@ The following example shows how to create a price for a product identified by it
 
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/create_price.yaml') =]]
+```
+
+### Commerce [[% include 'snippets/commerce_badge.md' %]]
+
+The following example shows how to create a payment method:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/create_payment_method.yaml') =]]
+```
+
+The following example shows how to create a shipping method:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/create_shipping_method.yaml') =]]
 ```
 
 ### Segments [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]

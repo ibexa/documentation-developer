@@ -35,8 +35,8 @@ $query->query = new Criterion\Field('name', Criterion\Operator::CONTAINS, 'Platf
     ```xml
     <Query>
         <Filter>
-            <FieldCriterion>
-                <target>name</target>
+            <Field>
+                <name>name</name>
                 <operator>CONTAINS</operator>
                 <value>Platform</value>
             </FieldCriterion>
@@ -50,8 +50,8 @@ $query->query = new Criterion\Field('name', Criterion\Operator::CONTAINS, 'Platf
     {
         "Query": {
             "Filter": {
-                "FieldCriterion": {
-                    "target": "name",
+                "Field": {
+                    "name": "name",
                     "operator": "CONTAINS",
                     "value": "Platform"
                 }

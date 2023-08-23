@@ -10,14 +10,14 @@ A block has attributes that the editor fills in when adding th block to a Page.
 
 Each block can have the following properties:
 
-|Attribute|Description|
-|----|----|
-|`type`| Attribute type. |
-|`name`| (Optional) The displayed name for the attribute. You can omit it, block identifier is then used as the name. |
-|`value`| (Optional) The default value for the attribute. |
-|`category`| (Optional) The tab where the attribute is displayed in the block edit modal. |
-|`validators`| (Optional) [Validators](page_block_validators.md) checking the attribute value. |
-|`options`| (Optional) Additional options, dependent on the attribute type. |
+| Attribute    | Description                                                                                                  |
+|--------------|--------------------------------------------------------------------------------------------------------------|
+| `type`       | Attribute type.                                                                                              |
+| `name`       | (Optional) The displayed name for the attribute. You can omit it, block identifier is then used as the name. |
+| `value`      | (Optional) The default value for the attribute.                                                              |
+| `category`   | (Optional) The tab where the attribute is displayed in the block edit modal.                                 |
+| `validators` | (Optional) [Validators](page_block_validators.md) checking the attribute value.                              |
+| `options`    | (Optional) Additional options, dependent on the attribute type.                                              |
 
 ## Block attribute types
 
@@ -39,7 +39,7 @@ The following attribute types are available:
 |`schedule_events`,</br>`schedule_snapshots`,</br>`schedule_initial_items`,</br>`schedule_slots`,</br>`schedule_loaded_snapshot`|Used in the Content Scheduler block|-|
 |`nested_attribute`|Defines a group of attributes in a block.|`attributes` - a list of attributes in the group. The attributes in the group are [configured](#page-block-attributes) as regular attributes. </br>`multiple`, when set to true. New groups are added dynamically with the **Add field group** button.|
 
-When you define attributes, you can omit most keys as long as you use simple types that do not require additional options:
+When you define attributes, you can omit most keys as long as you use simple types that don't require additional options:
 
 ``` yaml
 attributes:
