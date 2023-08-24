@@ -89,3 +89,8 @@ ibexa:
                         match:
                             Identifier\ContentType: confirmation_page
 ```
+
+# Order management
+
+Reviewing pending and past orders in Customer Portal requires that you configure all currencies that any of the customers may use under the `ibexa.system.default.product_catalog.currencies` key. 
+For more information, see [Enable purchasing products](https://doc.ibexa.co/en/latest/pim/enable_purchasing_products/).
