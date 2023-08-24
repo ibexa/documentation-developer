@@ -224,7 +224,7 @@ for example, to checkout, or back to shopping, by adding respective buttons.
 
 ### Quick order
 
-You could modify the quick order page by changing its form, title or other elements.
+You can modify the quick order page by changing its form, title or other elements.
 
 Available Twigs:
 
