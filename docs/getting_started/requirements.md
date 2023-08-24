@@ -96,8 +96,8 @@ Optionally if you intend to edit [PNG, SVG, GIF or WEBP files in the Image Edito
 
 ## Asset manager
 
-- `Node.js` 12 or 14
-- `yarn` 1.15.2 or higher
+- `Node.js` 12, 14+, 16+, 18+ (`Node.js` 12 and 14+ has reached its End of Life. We strongly recommend using a newer version to ensure you receive security updates.)
+- `yarn` 1.15.2+
 
 ## Browser
 
