@@ -5,8 +5,8 @@ edition: commerce
 
 # Quick order
 
-The quick order form allows users to efficiently process big orders through the storefront.
-Customers don't need to browse the countless store pages, they can fill in a provided list with products' SKU number and quantity or upload their own list into the system directly.
+The quick order form allows users to efficiently process orders with multiple items in bulk through the storefront.
+Customers don't need to browse the countless store pages, they can fill in a provided form with products' SKU number and quantity, or upload their own list into the system directly.
 Quick order forms can be used by registered and guest users.
 
 ## Quick order flows
@@ -15,21 +15,21 @@ Customers can use one or both of the following methods to specify products and p
 
 ### Customer enters individual products
 
-1\. Customer clicks **Quick order** link.
+1\. Customer clicks the **Quick order** link.
 
 2\. Provides products' SKU and quantity. At this point, no validation is provided.
 
 ![Customer enters individual products](img/quick_order_list.png) 
 
-3\. Customer clicks **Add to cart** to finish an ordering process and add articles to the cart.
+3\. Customer clicks **Add to cart** to add items to the cart and finish an ordering process.
 
 4\. In the cart section, the availability of the entered product is checked, and the customer is informed if any of them is unavailable or quantity is insufficient.
 
 ### Customer uploads list of products
 
-1\. Customer clicks **Quick order** link.
+1\. Customer clicks the **Quick order** link.
 
-2\. Downloads sample file from **Add your order** section.
+2\. Downloads a sample file from **Add your order** section.
 
 3\. Uses the template to fill in their order with products' SKU and quantity. 
 
@@ -39,7 +39,7 @@ Customers can use one or both of the following methods to specify products and p
 
 ![Customer uploads list of products](img/quick_order_add_order.png)
 
-6\. Customer clicks **Add to cart** to finish an ordering process and add articles to the cart. 
+6\. Customer clicks **Add to cart** to add items to the cart and finish an ordering process. 
 
 7\. In the cart section, the file format and provided data are validated, the availability of the entered product is checked, and the customer is informed if any of them is unavailable or quantity is insufficient.
 
@@ -50,7 +50,7 @@ There, the system checks if:
 
 - provided SKU is valid
 - provided products are available for purchase
-- provided quantities of products are available
+- requested quantities of products are available
 
 ## Layout
 
