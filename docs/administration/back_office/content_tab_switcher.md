@@ -80,7 +80,7 @@ For new tabs it is also required to render its section in the Content editing fo
 [[= include_file('code_samples/back_office/content_type/config/custom_services.yaml') =]]
 ```
 
-Finally, create the `templates/theme/admin/content_type/edit/custom_tab.html.twig` file:
+Finally, create the `templates/themes/admin/content_type/edit/custom_tab.html.twig` file:
 
 ``` html+twig
 [[= include_file('code_samples/back_office/content_type/templates/themes/admin/content_type/edit/custom_tab.html.twig') =]]
