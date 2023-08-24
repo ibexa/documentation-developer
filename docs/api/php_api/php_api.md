@@ -38,7 +38,7 @@ The full list of available services covers:
 - [SearchService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/SearchService.php)
 - [SectionService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/SectionService.php)
 - ShippingAddressService
-- SpreadsheetProcessorService
+- SpreadsheetProcessorInterface (`\Ibexa\Contracts\Cart\FileProcessor\SpreadsheetProcessorInterface`)
 - TaxonomyService
 - [TranslationService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/TranslationService.php)
 - [TrashService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/TrashService.php)
