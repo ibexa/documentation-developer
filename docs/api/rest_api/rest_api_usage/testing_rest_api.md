@@ -70,7 +70,7 @@ To test it, copy-paste this code into your browser console alongside a page from
 
     ```javascript
     const resource = '/api/ibexa/v2/content/objects/52';
-        const request = new XMLHttpRequest();
+    const request = new XMLHttpRequest();
     
     request.open('GET', resource, true);
     request.setRequestHeader('Accept', 'application/vnd.ibexa.api.ContentInfo+json');
