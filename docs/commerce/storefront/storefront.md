@@ -29,6 +29,7 @@ You can modify them when you build your own web store.
 | Region menu | Enables selecting between regions, to dynamically change the contents of the product listing page. | 
 | Search for specific product component | Allows for searching for products, for example on the product listing page. |
 | Sort products component | Enables sorting products based on different criteria on a product listing page. |
+| Quick order |Enables buyer to provide or upload a list of products, with their quantities, intended for purchase.|
 
 To become familiar with a complete set of templates that covering all functionalities of a store, visit the `vendor/ibexa/storefront/src/bundle/Resources/views/themes/storefront` directory of your installation.
 

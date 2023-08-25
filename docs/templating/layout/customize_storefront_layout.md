@@ -66,6 +66,7 @@ The most important templates are:
 |`cart/component/minicart/minicart.html.twig`|minicart (cart icon displayed at the top of the page)|
 |`cart/component/add_to_cart/add_to_cart.html.twig`|"add to cart" element|
 |`cart/component/summary/summary.html.twig`|cart summary|
+|`cart/component/quick_order/quick_order.html.twig`|quick order|
 
 #### Extend Twig template
 
@@ -221,3 +222,42 @@ for example, to checkout, or back to shopping, by adding respective buttons.
 |`cart/component/summary/summary.html.twig`|main summary layout|
 |`cart/component/summary/summary_item.html.twig`|item summary layout|
 
+### Quick order
+
+You can modify the quick order page by changing its form, title or other elements.
+
+Available Twigs:
+
+- `@IbexaCart/themes/standard/cart/component/quick_order/quick_order.html.twig` with parameters:
+    - `form_themes`
+    - `form_start_attr`
+    - `form_start_vars`
+    - `main_widget_vars`
+    - `add_to_cart_btn_attr`
+    - `form_end_vars`
+
+- `@IbexaCart/themes/standard/cart/component/quick_order/quick_order_form_fields.html.twig` with parameters per block, block's names are generated based on fields in Symfony form:
+    - `quick_order_widget` block
+        - `main_attr`
+        - `widget_attr`
+    - `quick_order_file_row` block
+        - `file_attr`
+        - `file_vars`
+    - `quick_order_entries_row` block
+        - `entries_wrapper_attr`
+        - `add_entry_btn_attr`
+    - `quick_order_entries_widget` block
+        - `entries_attr`
+        - `form_widget_vars`
+    - `quick_order_entry_row` block
+        - `entry_attr`
+        - `delete_entry_btn_attr`
+        - `code_attr`
+        - `code_vars`
+        - `quantity_attr`
+        - `quantity_vars`
+        - `errors_vars`
+
+JavaScript class:
+
+- `@ibexa-cart/src/bundle/Resources/public/js/component/quick.order`

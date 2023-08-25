@@ -22,6 +22,7 @@ Those services are obtained using `get[ServiceName]()` methods: `getContentServi
 
 The full list of available services covers:
 
+- BatchOrderService
 - CorporateAccountService (recommended for company creation)
 - CompanyService
 - [ContentService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php)
@@ -37,6 +38,7 @@ The full list of available services covers:
 - [SearchService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/SearchService.php)
 - [SectionService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/SectionService.php)
 - ShippingAddressService
+- SpreadsheetProcessorInterface (`\Ibexa\Contracts\Cart\FileProcessor\SpreadsheetProcessorInterface`)
 - TaxonomyService
 - [TranslationService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/TranslationService.php)
 - [TrashService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/TrashService.php)
