@@ -10,12 +10,12 @@ Depending on your needs, the [checkout](checkout.md) process can be customized, 
 To start, use the default workflow that comes with the storefront module as a basis 
 and follow detailed instruction in [Customize checkout](customize_checkout.md).
 
-# Define custom checkout workflow
+## Define custom checkout workflow
 
 This example shows how to create custom checkout `new_workflow` and its strategy.
 Defined strategy assumes that the checkout process depends on the currency used in the basket.
 
-# Create custom strategy
+## Create custom strategy
 
 Create a PHP definition of the new strategy that allows for workflow manipulation.
 In this example, custom checkout workflow applies when specific currency code ('EUR') is used in the basket. 
@@ -24,10 +24,10 @@ In this example, custom checkout workflow applies when specific currency code ('
 [[= include_file('code_samples/workflow/strategy/NewWorkflow.php', 0, 25) =]]
 ```
 
-## Add conditional step
+### Add conditional step
 
 Defining strategy allows to add conditional step for workflow if needed. 
-If you add conditional step, the checkout process uses provided workflow and go to defined step if the condition described in the strategy is met.
+If you add conditional step, the checkout process uses provided workflow and goes to defined step if the condition described in the strategy is met.
 By default conditional step is set as null.
 
 To use conditional step you need to pass second argument to constructor in the strategy definition:
@@ -36,7 +36,7 @@ To use conditional step you need to pass second argument to constructor in the s
 [[= include_file('code_samples/workflow/strategy/NewWorkflowConditionalStep.php', 0, 25) =]]
 ```
 
-## Register strategy
+### Register strategy
 
 Now, register the strategy as a service:
 
@@ -46,18 +46,18 @@ Now, register the strategy as a service:
 
 ## Override default workflow 
 
-Now, you must inform the application that your repository will use the configured workflow.
-
-You do it in repository configuration, under the `ibexa.repositories.<repository_name>.checkout.workflow` configuration key:
-
-``` yaml
-ibexa:
-    repositories:
-        default: 
-            checkout:
-                workflow: new_workflow
-```
+Next, you must inform the application that your repository will use the configured workflow.
 
 !!! note
 
     The configuration allows to override the default workflow, but it's not mandatory. Checkout supports multiple workflows.
+
+You do it in repository configuration, under the `ibexa.repositories.<repository_name>.checkout.workflow` [configuration key](configuration.md#configuration-files):
+
+``` yaml
+ibexa:
+    repositories:
+        <repository_name>: 
+            checkout:
+                workflow: new_workflow
+```
