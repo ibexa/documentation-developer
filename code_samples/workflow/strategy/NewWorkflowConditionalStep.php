@@ -9,7 +9,7 @@ use Ibexa\Contracts\Cart\Value\CartInterface;
 use Ibexa\Contracts\Checkout\Value\Workflow\WorkflowInterface;
 use Ibexa\Contracts\Checkout\Workflow\WorkflowStrategyInterface;
 
-final class NewWorkflow implements WorkflowStrategyInterface
+final class NewWorkflowConditionalStep implements WorkflowStrategyInterface
 {
     private const IDENTIFIER = 'new_workflow';
 
