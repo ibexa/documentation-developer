@@ -140,7 +140,7 @@ Content-Type: application/vnd.ibexa.api.Content+json
 !!! tip "More information about CORS"
 
     - [WHATWG's CORS Protocol specification](https://fetch.spec.whatwg.org/#cors-protocol)
-    - [Overview of CORS on developer.mozilla.org](https://developer.mozilla.org/en-US/docs/HTTP/Access_control_CORS)
+    - [Overview of CORS on developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
 
 CORS support is provided by the third party [nelmio/cors-bundle](https://packagist.org/packages/nelmio/cors-bundle). You can read more about it in [NelmioCorsBundle's README](https://github.com/nelmio/NelmioCorsBundle/blob/master/README.md).
 
