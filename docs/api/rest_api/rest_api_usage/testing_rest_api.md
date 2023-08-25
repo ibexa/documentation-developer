@@ -54,7 +54,7 @@ To test it, copy-paste this code into your browser console alongside a page from
 === "Fetch API"
 
     ```javascript
-    let resource = '/api/ibexa/v2/content/objects/52';
+    const resource = '/api/ibexa/v2/content/objects/52';
     
     fetch(resource, {
         headers: {'Accept': 'application/vnd.ibexa.api.ContentInfo+json'},
@@ -69,8 +69,8 @@ To test it, copy-paste this code into your browser console alongside a page from
 === "XMLHttpRequest"
 
     ```javascript
-    var resource = '/api/ibexa/v2/content/objects/52',
-        request = new XMLHttpRequest();
+    const resource = '/api/ibexa/v2/content/objects/52';
+        const request = new XMLHttpRequest();
     
     request.open('GET', resource, true);
     request.setRequestHeader('Accept', 'application/vnd.ibexa.api.ContentInfo+json');
