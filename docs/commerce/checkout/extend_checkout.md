@@ -5,8 +5,7 @@ edition: commerce
 
 # Extend checkout workflow
 
-Depending on your needs, the [checkout](checkout.md) process can be customized, as it is highly configurable and extensible. 
-You can create [workflow](workflow.md) definitions under the `framework.workflows` [configuration key](configuration.md#configuration-files). 
+Depending on your needs, the [checkout](checkout.md) process can be customized, as it is highly [configurable](configure_checkout.md) and extensible. 
 
 To start, use the default workflow that comes with the storefront module as a basis 
 and follow detailed instruction in [Customize checkout](customize_checkout.md).
@@ -25,6 +24,18 @@ In this example, custom checkout workflow applies when specific currency code ('
 [[= include_file('code_samples/workflow/strategy/NewWorkflow.php', 0, 25) =]]
 ```
 
+## Add conditional step
+
+Defining strategy allows to add conditional step for workflow if needed. 
+If you add conditional step, the checkout process uses provided workflow and go to defined step if the condition described in the strategy is met.
+By default conditional step is set as null.
+
+To use conditional step you need to pass second argument to constructor in the strategy definition:
+
+``` php hl_lines="18"
+[[= include_file('code_samples/workflow/strategy/NewWorkflowConditionalStep.php', 0, 25) =]]
+```
+
 ## Register strategy
 
 Now, register the strategy as a service:
@@ -33,11 +44,11 @@ Now, register the strategy as a service:
 [[= include_file('code_samples/workflow/services/workflow.yaml', 0, 5) =]]
 ```
 
-## Overwrite default workflow 
+## Override default workflow 
 
 Now, you must inform the application that your repository will use the configured workflow.
 
-You do it in repository configuration, under the `ibexa.repositories.<repository_name>.checkout.workflow` [configuration key](configuration.md#configuration-files):
+You do it in repository configuration, under the `ibexa.repositories.<repository_name>.checkout.workflow` configuration key:
 
 ``` yaml
 ibexa:
@@ -46,3 +57,7 @@ ibexa:
             checkout:
                 workflow: new_workflow
 ```
+
+!!! note
+
+    The configuration allows to override the default workflow, but it's not mandatory. Checkout supports multiple workflows.
