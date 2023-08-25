@@ -155,7 +155,7 @@ To enable CORS, add regular expression for an allowed domain using the `.env` va
 For example, to allow the JS test above to be executed alongside this page, you could add the following to an `.env` file (like the `.env.local`): `CORS_ALLOW_ORIGIN=^https?://doc.ibexa.co`.
 
 To add several domains, filter on URIs, or change the default (like not allowing all the methods),
-refer to [NelmioCorsBundle Configuration Documentation](https://github.com/nelmio/NelmioCorsBundle/blob/master/README.md#configuration)
+refer to [NelmioCorsBundle Configuration Documentation](https://symfony.com/bundles/NelmioCorsBundle/current/index.html#configuration)
 to learn how to edit `config/packages/nelmio_cors.yaml`.
 
 ## Response body
