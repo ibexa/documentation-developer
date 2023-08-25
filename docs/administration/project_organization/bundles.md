@@ -61,7 +61,7 @@ see the [How to Remove a Bundle]([[= symfony_doc =]]/bundles/remove.html) instru
 |[ibexa/rest](https://github.com/ibexa/rest)|REST API|
 |[ibexa/richtext](https://github.com/ibexa/richtext)|Field Type for supporting rich-formatted text stored in a structured XML format|
 |[ibexa/search](https://github.com/ibexa/search)|Common search functionalities|
-|[ibexa/solr-search-engine](https://github.com/ibexa/solr-search-engine)|[Solr-powered](http://lucene.apache.org/solr/) search handler|
+|[ibexa/solr-search-engine](https://github.com/ibexa/solr-search-engine)|[Solr-powered](https://solr.apache.org/) search handler|
 |[ibexa/standard-design](https://github.com/ibexa/standard-design)|Standard design and theme to be handled by `design-engine`|
 |[ibexa/user](https://github.com/ibexa/user)|User management|
 
