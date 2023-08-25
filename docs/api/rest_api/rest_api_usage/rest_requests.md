@@ -20,18 +20,18 @@ Depending on the HTTP method used, different actions are possible on the same re
 The following list of available methods gives an overview of the kind of action a method triggers on a resource, if available.
 For method action details per resource, see the [REST API reference](../rest_api_reference/rest_api_reference.html).
 
-| HTTP method                                                | Status   | Description            | Safe |
-|------------------------------------------------------------|----------|------------------------|------|
-| [OPTIONS](https://tools.ietf.org/html/rfc2616#section-9.2) | Standard | List available methods | Yes  |
-| [GET](https://tools.ietf.org/html/rfc2616#section-9.3)     | Standard | Collect data           | Yes  |
-| [HEAD](https://tools.ietf.org/html/rfc2616#section-9.4)    | Standard | Check existence        | Yes  |
-| [POST](https://tools.ietf.org/html/rfc2616#section-9.5)    | Standard | Create an item         | No   |
-| [PATCH](http://tools.ietf.org/html/rfc5789)                | Custom   | Update an item         | No   |
-| COPY                                                       | Custom   | Duplicate an item      | No   |
-| [MOVE](http://tools.ietf.org/html/rfc2518)                 | Custom   | Move an item           | No   |
-| SWAP                                                       | Custom   | Swap two Locations     | No   |
-| PUBLISH                                                    | Custom   | Publish an item        | No   |
-| [DELETE](https://tools.ietf.org/html/rfc2616#section-9.7)  | Standard | Remove an item         | No   |
+| HTTP method                                                          | Status   | Description            | Safe |
+|----------------------------------------------------------------------|----------|------------------------|------|
+| [OPTIONS](https://datatracker.ietf.org/doc/html/rfc2616#section-9.2) | Standard | List available methods | Yes  |
+| [GET](https://datatracker.ietf.org/doc/html/rfc2616#section-9.3)     | Standard | Collect data           | Yes  |
+| [HEAD](https://datatracker.ietf.org/doc/html/rfc2616#section-9.4)    | Standard | Check existence        | Yes  |
+| [POST](https://datatracker.ietf.org/doc/html/rfc2616#section-9.5)    | Standard | Create an item         | No   |
+| [PATCH](https://datatracker.ietf.org/doc/html/rfc5789)               | Custom   | Update an item         | No   |
+| COPY                                                                 | Custom   | Duplicate an item      | No   |
+| [MOVE](https://datatracker.ietf.org/doc/html/rfc2518)                | Custom   | Move an item           | No   |
+| SWAP                                                                 | Custom   | Swap two Locations     | No   |
+| PUBLISH                                                              | Custom   | Publish an item        | No   |
+| [DELETE](https://datatracker.ietf.org/doc/html/rfc2616#section-9.7)  | Standard | Remove an item         | No   |
 
 !!! note "Caution with custom HTTP methods"
 
@@ -81,8 +81,8 @@ Allow: GET,PATCH,DELETE,COPY,MOVE,SWAP
 
 You can use the following HTTP headers with a REST request:
 
-- [`Accept`](https://tools.ietf.org/html/rfc2616#section-14.1) describing the desired response type and format
-- [`Content-Type`](https://toos.ietf.org/html/rfc2616#section-14.17) describing the payload type and format
+- [`Accept`](https://datatracker.ietf.org/doc/html/rfc2616#section-14.1) describing the desired response type and format
+- [`Content-Type`](https://datatracker.ietf.org/doc/html/rfc2616#section-14.17) describing the payload type and format
 - [`X-Siteaccess`](#siteaccess) specifying the target SiteAccess
 - `X-HTTP-Method-Override` allowing to pass a custom method while using `POST` method as previously seen in [HTTP method](#request-method)
 - [`Destination`](#destination) specifying where to move an item
@@ -115,8 +115,8 @@ On top of methods, HTTP request headers allow you to personalize the request's b
 On every resource, you can use the `Accept` header to indicate which format you want to communicate in, JSON or XML.
 This header is also used to specify the response type you want the server to send when multiple types are available.
 
--   `Accept: application/vnd.ibexa.api.Content+xml` to get `Content` (full data, Fields included) as **[XML](http://www.w3.org/XML/)**
--   `Accept: application/vnd.ibexa.api.ContentInfo+json` to get `ContentInfo` (metadata only) as **[JSON](http://www.json.org/)**
+-   `Accept: application/vnd.ibexa.api.Content+xml` to get `Content` (full data, Fields included) as **[XML](https://www.w3.org/XML/)**
+-   `Accept: application/vnd.ibexa.api.ContentInfo+json` to get `ContentInfo` (metadata only) as **[JSON](https://www.json.org/)**
 
 Media types are also used with the [`Content-Type` header](rest_responses.md#content-type-header) to characterize a [request body](#request-body) or a [response body](rest_responses.md#response-body).
 See [Creating content with binary attachments](#creating-content-with-binary-attachments) below.
@@ -152,11 +152,11 @@ You can pass some short scalar parameters in the URIs or as GET parameters, but 
 in particular the ones to create (`POST`) or update (`PATCH`) items.
 In the [REST API reference](../rest_api_reference/rest_api_reference.html), request payload examples are given when needed.
 
-One example is the [creation of an authentication session](rest_api_authentication.md#establishing-a-session).
+One example is the [creation of an authentication session](rest_api_authentication.md#establishing-session).
 
 When creating a Content item, a special payload is needed if the ContentType has some [Image](imagefield.md) or [BinaryFile](binaryfilefield.md) Fields as files need to be attached. See the example of a [script uploading images](#creating-content-with-binary-attachments) below.
 
-When searching for Content items (or Locations), the query grammar is also particular. See the [Search section](#search-view) below.
+When searching for Content items (or Locations), the query grammar is also particular. See the [Search section](#search-views) below.
 
 ### Creating content with binary attachments
 
