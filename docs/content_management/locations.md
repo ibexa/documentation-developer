@@ -75,7 +75,7 @@ It contains a User Group Content item.
 
 ### Forms [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-**Forms** is the top level Location that is intended for Forms created using the [Form Builder](https://doc.ibexa.co/projects/userguide/en/latest/creating_forms/).
+**Forms** is the top level Location that is intended for Forms created using the [Form Builder](https://doc.ibexa.co/projects/userguide/en/latest/content_management/work_with_forms/#create-forms).
 
 ![Forms](content_management_forms.png "Forms")
 
