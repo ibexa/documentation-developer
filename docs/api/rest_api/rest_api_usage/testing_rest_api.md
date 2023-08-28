@@ -10,7 +10,7 @@ Depending on how your browser understands XML, it either downloads the XML file,
 
 The following examples show how to interrogate the REST API using cURL, PHP or JS.
 
-To test further, you can use browser extensions, like [Advanced REST client for Chrome](https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo) or [RESTClient for Firefox](https://addons.mozilla.org/firefox/addon/restclient/), or dedicated tools. For command line users, [HTTPie](https://github.com/jkbr/httpie) is a good tool.
+To test further, you can use browser extensions, like [Advanced REST client for Chrome](https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo) or [RESTClient for Firefox](https://addons.mozilla.org/en-US/firefox/addon/restclient/), or dedicated tools. For command line users, [HTTPie](https://github.com/httpie/cli) is a good tool.
 
 ## CLI
 
