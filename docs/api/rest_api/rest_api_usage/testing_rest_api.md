@@ -23,20 +23,12 @@ For examples of using `curl`, refer to:
 
 ## PHP
 
-You can use [PHP cURL](https://www.php.net/manual/en/book.curl.php) or [Symfony HttpClient](https://symfony.com/doc/5.4/http_client.html) to test REST API.
+You can use [Symfony HttpClient](https://symfony.com/doc/5.4/http_client.html) to test REST API.
 Open a PHP shell in a terminal with <nobr>`php -a`</nobr> and copy-paste this code into it:
 
-=== "cURL"
-
-    ``` php
-    [[= include_file('code_samples/api/rest_api/load_content.php', 4, 18, '    ') =]]
-    ```
-
-=== "HttpClient"
-
-    ``` php
-    [[= include_file('code_samples/api/rest_api/load_content.php', 21, 28, '    ') =]]
-    ```
+``` php
+[[= include_file('code_samples/api/rest_api/load_content.php', 2, 9) =]]
+```
 
 `$resource` URI should be edited to address the right domain.
 
