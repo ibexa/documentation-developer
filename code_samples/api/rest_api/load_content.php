@@ -6,4 +6,4 @@ $client = Symfony\Component\HttpClient\HttpClient::create();
 $response = $client->request('GET', $resource, [
     'headers' => ['Accept: application/vnd.ibexa.api.ContentInfo+json'],
 ]);
-var_dump($response->getStatusCode(), $response->toArray());
+var_dump($response->getStatusCode(), $response->getHeaders(), $response->toArray());
