@@ -23,7 +23,7 @@ You can adapt the configuration in the following places:
 - `.platform/routes.yml` - routes to additional services, for example Fastly
 
 For details about available configuration settings,
-refer to [Platform.sh documentation](https://docs.platform.sh/configuration/app.html).
+refer to [Platform.sh documentation](https://docs.platform.sh/create-apps.html).
 
 ### Disk space
 
@@ -48,7 +48,7 @@ Configuration under `hooks` defines the process of building and deploying your p
 to enable services such as Solr or Elasticsearch, or persistent Redis session storage.
 
 For information about available services,
-see [Platform.sh documentation](https://docs.platform.sh/configuration/services.html).
+see [Platform.sh documentation](https://docs.platform.sh/add-services.html#available-services).
 
 If you enable any of the services, you must uncomment the relevant relationship
 under the `relationship` key in `.platform.app.yaml` as well.
@@ -91,7 +91,7 @@ git push -u <platform.sh-remote> master
 
 !!! caution
 
-    If you want to use the [Platform.sh CLI](https://docs.platform.sh/development/cli.html), you have to set it up for Ibexa Cloud.
+    If you want to use the [Platform.sh CLI](https://docs.platform.sh/administration/cli.html), you have to set it up for Ibexa Cloud.
     Consider using the following alias `ibexa_cloud` with a dedicated setup instead of `platform`:
     ```bash
     alias ibexa_cloud="PLATFORMSH_CLI_SESSION_ID=ibexa_cloud \
