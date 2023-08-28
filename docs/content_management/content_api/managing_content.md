@@ -61,7 +61,7 @@ or [`LocationService::unhideLocation`:](https://github.com/ibexa/core/blob/main/
 [[= include_file('code_samples/api/public_php_api/src/Command/HideLocationCommand.php', 46, 47) =]][[= include_file('code_samples/api/public_php_api/src/Command/HideLocationCommand.php', 49, 50) =]]
 ```
 
-See [Location visibility](#location-visibility) for detailed information
+See [Location visibility](locations.md#location-visibility) for detailed information
 on the behavior of visible and hidden Locations.
 
 ### Deleting a Location
@@ -106,7 +106,7 @@ but it copies the Location and its subtree instead of moving it.
 
 !!! note
 
-    [Copy subtree limit](#copy-subtree-limit) only applies to operations in the Back Office.
+    [Copy subtree limit](back_office_configuration.md#copy-subtree-limit) only applies to operations in the Back Office.
     It is ignored when copying subtrees using the PHP API.
 
 ## Trash

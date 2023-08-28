@@ -4,7 +4,7 @@ description: PHP API enables you to create Sections, assign content to them as w
 
 # Section API
 
-[Sections](admin_panel.md#sections) enable you to divide content into groups
+[Sections](sections.md) enable you to divide content into groups
 which can later be used, for example, as basis for permissions.
 
 You can manage Sections by using the PHP API by using `SectionService`.

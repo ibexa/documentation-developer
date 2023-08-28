@@ -4,7 +4,7 @@ description: You can manage Object states via the PHP API, including creating Ob
 
 # Object state API
 
-[Object states](admin_panel.md#object-states) enable you to set a custom state to any content.
+[Object states](object_states.md) enable you to set a custom state to any content.
 States are grouped into Object state groups.
 
 You can manage Object states by using the PHP API by using `ObjectStateService`.
