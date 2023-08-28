@@ -198,7 +198,7 @@ The use of an `auth.json` file replaces step [4. Composer authentication](#4-com
 
 ### Using Dotenv
 
-Instead of using environment variables inside the container, a [`.env.local`](https://symfony.com/doc/5.4/configuration.html#overriding-environment-values-via-env-local) file can be added to the project.
+Instead of using environment variables inside the container, a [`.env.local`]([[= symfony_doc =]]/configuration.html#overriding-environment-values-via-env-local) file can be added to the project.
 
 The following example shows the use of `.env.local` with database configuration:
 

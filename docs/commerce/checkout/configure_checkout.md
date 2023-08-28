@@ -14,7 +14,7 @@ the checkout configuration.
 
 ## Configure checkout workflow
 
-Checkout workflow relies on [Symfony Workflow](https://symfony.com/doc/5.4/components/workflow.html).
+Checkout workflow relies on [Symfony Workflow]([[= symfony_doc =]]/components/workflow.html).
 Each transition represents a separate checkout step. 
 
 By default, the checkout process is configured to render each step based on a separate 
