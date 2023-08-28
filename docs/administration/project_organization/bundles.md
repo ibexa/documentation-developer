@@ -25,7 +25,7 @@ For example, for Ibexa Headless, see the [JSON file on GitHub](https://github.co
 All bundles containing built-in [[= product_name =]] functionalities are installed automatically.
 Additionally, you can install community-developed bundles from [[[= product_name =]] Packages.](https://developers.ibexa.co/packages)
 
-To learn how to create your own bundles, see [Symfony documentation on bundles.]([[= symfony_doc =]]/bundles.html)
+To learn how to create your own bundles, see [Symfony documentation on bundles]([[= symfony_doc =]]/bundles.html).
 
 ### Overriding third-party bundles
 

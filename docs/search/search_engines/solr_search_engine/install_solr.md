@@ -50,7 +50,7 @@ SolrCloud is a cluster of Solr servers. It enables you to:
 - automatically load balance and fail-over for queries
 - integrate ZooKeeper for cluster coordination and configuration
 
-To set SolrCloud up follow [SolrCloud reference guide.](https://lucene.apache.org/solr/guide/7_7/solrcloud.html)
+To set SolrCloud up follow [SolrCloud reference guide](https://lucene.apache.org/solr/guide/7_7/solrcloud.html).
 
 ### Continue Solr configuration
 
@@ -195,7 +195,7 @@ ibexa_solr:
 
 ### SolrCloud example
 
-To use SolrCloud you need to specify data distribution strategy for connection via the `distribution_strategy` option to [`cloud`.](https://lucene.apache.org/solr/guide/7_7/solrcloud.html)
+To use SolrCloud you need to specify data distribution strategy for connection via the `distribution_strategy` option to [`cloud`](https://lucene.apache.org/solr/guide/7_7/solrcloud.html).
 
 The example is based on multi-core setup so any specific language analysis options could be specified on the collection level.
 
@@ -228,10 +228,10 @@ ibexa_solr:
                 main_translations: main
 ```
 
-This solution uses the default SolrCloud [document routing strategy: `compositeId`.](https://lucene.apache.org/solr/guide/7_7/shards-and-indexing-data-in-solrcloud.html#ShardsandIndexingDatainSolrCloud-DocumentRouting)
+This solution uses the default SolrCloud [document routing strategy: `compositeId`](https://lucene.apache.org/solr/guide/7_7/shards-and-indexing-data-in-solrcloud.html#ShardsandIndexingDatainSolrCloud-DocumentRouting).
 
 ### Solr Basic HTTP Authorization
-Solr core can be secured with Basic HTTP Authorization. See more information here: [Solr Basic Authentication Plugin.](https://cwiki.apache.org/confluence/display/solr/Basic+Authentication+Plugin)
+Solr core can be secured with Basic HTTP Authorization. See more information here: [Solr Basic Authentication Plugin](https://cwiki.apache.org/confluence/display/solr/Basic+Authentication+Plugin).
 In the example below we configured Solr Bundle to work with secured Solr core.
 
 ``` yaml

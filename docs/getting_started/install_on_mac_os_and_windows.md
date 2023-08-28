@@ -65,7 +65,7 @@ The instructions below assume that you are using Apache.
 
 === "macOS"
 
-    Install Composer using a package manager, for example, [Homebrew.](https://brew.sh/)
+    Install Composer using a package manager, for example, [Homebrew](https://brew.sh/).
 
 === "Windows"
 
@@ -90,7 +90,7 @@ Then restart the Apache server.
 Directories `var` and `web/var` need to be writable by CLI and web server user.
 Future files and directories created by these two users will need to inherit those permissions.
 
-For more information, see [Setting up or Fixing File Permissions.]([[= symfony_doc =]]/setup/file_permissions.html)
+For more information, see [Setting up or Fixing File Permissions]([[= symfony_doc =]]/setup/file_permissions.html).
 
 !!! note "Security checklist"
 

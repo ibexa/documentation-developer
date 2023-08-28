@@ -117,7 +117,7 @@ It does not check existing passwords, so it will not block login for anyone. It 
 
     The password itself isn't sent to the https://haveibeenpwned.com/ API, which makes this check secure.
     For more information on how that is possible,
-    see [Validating Leaked Passwords with k-Anonymity.](https://blog.cloudflare.com/validating-leaked-passwords-with-k-anonymity/)
+    see [Validating Leaked Passwords with k-Anonymity](https://blog.cloudflare.com/validating-leaked-passwords-with-k-anonymity/).
 
 ## Login methods
 

@@ -23,7 +23,7 @@ You can adapt the configuration in the following places:
 - `.platform/routes.yml` - routes to additional services, for example Fastly
 
 For details about available configuration settings,
-refer to [Platform.sh documentation.](https://docs.platform.sh/configuration/app.html)
+refer to [Platform.sh documentation](https://docs.platform.sh/configuration/app.html).
 
 ### Disk space
 
@@ -48,7 +48,7 @@ Configuration under `hooks` defines the process of building and deploying your p
 to enable services such as Solr or Elasticsearch, or persistent Redis session storage.
 
 For information about available services,
-see [Platform.sh documentation.](https://docs.platform.sh/configuration/services.html)
+see [Platform.sh documentation](https://docs.platform.sh/configuration/services.html).
 
 If you enable any of the services, you must uncomment the relevant relationship
 under the `relationship` key in `.platform.app.yaml` as well.

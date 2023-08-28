@@ -30,7 +30,7 @@ To get information about a specific workflow for a Content item, use `WorkflowSe
 
 !!! tip
 
-    `marking`, a term from [Symfony Workflow,]([[= symfony_doc =]]/components/workflow.html)
+    `marking`, a term from [Symfony Workflow]([[= symfony_doc =]]/components/workflow.html),
     refers to a state in a workflow.
 
 To get a list of all workflows that can be used for a given Content item, use `WorkflowRegistry`:

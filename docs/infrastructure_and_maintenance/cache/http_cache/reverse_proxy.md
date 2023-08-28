@@ -54,7 +54,7 @@ Failing to configure reverse proxies correctly may introduce several problems, i
 
 ### Configure Symfony front controller
 
-You need to consider your `TrustedProxy` configuration when you use Symfony [behind a load balancer or a reverse proxy.](https://symfony.com/doc/5.1/deployment/proxies.html)
+You need to consider your `TrustedProxy` configuration when you use Symfony [behind a load balancer or a reverse proxy](https://symfony.com/doc/5.1/deployment/proxies.html).
 
 To configure trusted proxies, use [Symfony semantic configuration]([[= symfony_doc =]]/deployment/proxies.html#solution-settrustedproxies) under
 the `framework.trusted_proxies` [configuration key](configuration.md#configuration-files), for example:
@@ -162,7 +162,7 @@ you must make the following changes to the custom block template file:
 data-field-id="{{ field.id }}"
 ```
 
-As a result, your file should be similar to [this example.](https://github.com/ibexa/form-builder/blob/main/src/bundle/Resources/views/themes/standard/fields/captcha.html.twig)
+As a result, your file should be similar to [this example](https://github.com/ibexa/form-builder/blob/main/src/bundle/Resources/views/themes/standard/fields/captcha.html.twig).
 
 For more information about configuring Captcha fields, see [Captcha field](forms.md#captcha-field).
 

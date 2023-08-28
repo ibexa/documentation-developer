@@ -10,7 +10,7 @@ make sure that your setup is secure.
 !!! caution
 
     Security is an ongoing process. After going live, you should pay attention to security advisories
-    released via [your service portal,](https://support.ibexa.co/)
+    released via [your service portal](https://support.ibexa.co/),
     or via [Security advisories](https://developers.ibexa.co/security-advisories) if you're not a subscriber.
     
 ## Symfony
@@ -110,7 +110,7 @@ The account invitation feature defaults to "P7D" (seven days).
 ### Disable Varnish when using Fastly
 
 If you are using Fastly, disable Varnish.
-See [Security advisory: EZSA-2020-002.](https://developers.ibexa.co/security-advisories/ezsa-2020-002-unauthorised-cache-purge-with-misconfigured-fastly)
+See [Security advisory: EZSA-2020-002](https://developers.ibexa.co/security-advisories/ezsa-2020-002-unauthorised-cache-purge-with-misconfigured-fastly).
 
 ### Block upload of unwanted file types
 

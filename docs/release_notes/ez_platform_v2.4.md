@@ -208,7 +208,7 @@ You are now able to load multiple Locations at once, using `LocationService->loa
                  enabled: false
     ```
 
-    By default `HS256` is used as signature algorithm for generated token but we strongly recommend switching to SSH keys. For more information see [`LexikJWTAuthenticationBundle` installation instruction.](https://github.com/lexik/LexikJWTAuthenticationBundle/blob/master/Resources/doc/index.md#installation)
+    By default `HS256` is used as signature algorithm for generated token but we strongly recommend switching to SSH keys. For more information see [`LexikJWTAuthenticationBundle` installation instruction](https://github.com/lexik/LexikJWTAuthenticationBundle/blob/master/Resources/doc/index.md#installation).
 
     3\. Add `EzSystems\EzPlatformPageBuilder\Security\EditorialMode\TokenAuthenticator` authentication provider to `ezpublish_front` firewall before `form_login` in `app/config/security.yml`:
 

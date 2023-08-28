@@ -389,7 +389,7 @@ Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==
 
 ## OAuth
 
-For more information, see [OAuth 2.0 protocol for authorization.](https://oauth.net/2/)
+For more information, see [OAuth 2.0 protocol for authorization](https://oauth.net/2/).
 
 ## SSL client authentication
 

@@ -125,7 +125,7 @@ This solution requires more effort (controller, VCL logic and adapting your own 
     If you need to handle a paywall on a per-item basis, or example, do a
     lookup to backend for each URL where this is relevant.
 
-    You can find an example for paywall authorization in [FOSHTTPCache documentation.](https://foshttpcache.readthedocs.io/en/latest/user-context.html#alternative-for-paywalls-authorization-request)
+    You can find an example for paywall authorization in [FOSHTTPCache documentation](https://foshttpcache.readthedocs.io/en/latest/user-context.html#alternative-for-paywalls-authorization-request).
 
 ### Best practices for custom vary by logic
 

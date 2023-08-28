@@ -104,7 +104,7 @@ to get only versions of a specific status, e.g.:
 Content Relations are versioned.
 To list Relations to and from your content,
 you need to pass a `VersionInfo` object to the [`ContentService::loadRelations`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php#L385) method.
-You can get the current version's `VersionInfo` using [`ContentService::loadVersionInfo`.](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php#L82)
+You can get the current version's `VersionInfo` using [`ContentService::loadVersionInfo`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php#L82).
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 100, 106) =]]
@@ -150,9 +150,9 @@ of the ContentInfo object:
 ### Object states
 
 You can retrieve [Object states](admin_panel.md#object-states) of a Content item
-using [`ObjectStateService::getContentState`.](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ObjectStateService.php#L176)
+using [`ObjectStateService::getContentState`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ObjectStateService.php#L176).
 You need to provide it with the Object state group.
-All Object state groups can be retrieved through [`loadObjectStateGroups`.](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ObjectStateService.php#L59)
+All Object state groups can be retrieved through [`loadObjectStateGroups`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ObjectStateService.php#L59).
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 114, 119) =]]
@@ -193,7 +193,7 @@ $contentService->loadContent($content->id, Language::ALL);
 ## Getting all content in a subtree
 
 To go through all the Content items contained in a subtree,
-you need to use the [`LocationService`.](https://github.com/ibexa/core/blob/main/src/contracts/Repository/LocationService.php)
+you need to use the [`LocationService`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/LocationService.php).
 
 ``` php hl_lines="5 15"
 [[= include_file('code_samples/api/public_php_api/src/Command/BrowseLocationsCommand.php', 30, 49) =]]
