@@ -105,7 +105,7 @@ In `assets/styles/checkout.css`, add styles required to properly display your te
 
 ### Select supported workflow 
 
-Now, you must inform the application that your repository will use the configured workflow.
+Next, you must inform the application that the configured workflow is used in your repository.
 
 You do it in repository configuration, under the `ibexa.repositories.<repository_name>.checkout.workflow` [configuration key](configuration.md#configuration-files):
 
@@ -228,7 +228,7 @@ Now, register the strategy as a service:
 
 ### Override default workflow 
 
-Next, you must inform the application that your repository will use the configured workflow.
+Next, you must inform the application that the configured workflow is used in your repository.
 
 !!! note
 
