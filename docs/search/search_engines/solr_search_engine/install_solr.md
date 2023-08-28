@@ -292,4 +292,4 @@ Here are the most common issues you may encounter:
     - Solr Bundle on purpose does not commit changes directly on Repository updates *(on indexing)*, but lets you control this using Solr configuration. Adjust Solr's `autoSoftCommit` (visibility of changes to search index) and/or `autoCommit` (hard commit, for durability and replication) to balance performance and load on your Solr instance against needs you have for "[NRT](https://cwiki.apache.org/confluence/display/solr/Near+Real+Time+Searching)".
 - Running out of memory during indexing
     - In general make sure to run indexing using the prod environment to avoid debuggers and loggers from filling up memory.
-    - Flysystem: You can find further info in https://jira.ez.no/browse/EZP-25325.
+    - Flysystem: You can find further info in https://issues.ibexa.co/browse/EZP-25325.
