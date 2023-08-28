@@ -42,7 +42,7 @@ Below that, the Field Type must support the **Public API** implementation regard
 On the bottom level, a Field Type can additionally hook into the **Persistence SPI**
 in order to store data from a `FieldValue` in an external service.
 Note that all non-standard [[= product_name =]] database tables (e.g. `ezurl`)
-will be treated as [external storage](field_type_storage.md#storing-external-data).
+will be treated as [external storage](field_type_storage.md#storing-data-externally).
 
 The following sequence diagrams visualize the process of creating and publishing new content across all layers, especially focused on the interaction with a Field Type.
 
