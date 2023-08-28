@@ -1,6 +1,6 @@
 # RichText Field Type
 
-The RichText Field Type is available via the RichText Field Type Bundle provided by the [ibexa/richtext](https://github.com/ibexa/richtext) package.
+The RichText Field Type is available via the RichText Field Type Bundle provided by the [ibexa/fieldtype-richtext](https://github.com/ibexa/fieldtype-richtext) package.
 
 This Field Type validates and stores structured rich text, and exposes it in several formats.
 
