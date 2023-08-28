@@ -16,7 +16,7 @@ This page explains how to install [[= product_name =]] on macOS or Windows.
 ### Prepare work environment
 
 To install [[= product_name =]], you need a stack with MySQL and PHP.
-Additionally, you need [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/lang/en/docs/install/) for asset management.
+Additionally, you need [Node.js](https://nodejs.org/en) and [Yarn](https://classic.yarnpkg.com/en/docs/install/) for asset management.
 If you want to use a web server, you need to install it as well:
 
 - For Windows: Apache
