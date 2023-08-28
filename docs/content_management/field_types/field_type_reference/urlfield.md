@@ -12,7 +12,7 @@ This Field Type makes it possible to store and retrieve a URL. It is formed by t
 
 |Type|Description|Example|
 |------|------|------|
-|`string`|Link content provided to the value.|"http://www.ibexa.co"|
+|`string`|Link content provided to the value.|"https://www.ibexa.co"|
 |`string`|Text content that represents the stored link.|"Ibexa"|
 
 ### Value object
@@ -29,7 +29,7 @@ The Value class of this Field Type contains the following properties:
 ``` php
 // Value object content example
 
-$url->link = "http://www.ibexa.co";
+$url->link = "https://www.ibexa.co";
 $url->text = "Ibexa";
 ```
 
@@ -41,7 +41,7 @@ The `Url\Value` constructor initializes a new Value object with the provided va
 // Constructor example
 
 // Instantiates an Url Value object
-$UrlValue = new Url\Value( "http://www.ibexa.co", "Ibexa" );
+$UrlValue = new Url\Value( "https://www.ibexa.co", "Ibexa" );
 ```
 ### Hash format
 
