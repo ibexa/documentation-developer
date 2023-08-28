@@ -90,7 +90,7 @@ try {
 }
 
 if (201 !== $responseCode = $response->getStatusCode()) {
-    if (!empty($response->getContent(false)) && @$doc->loadXML($response->getContent(false)) && 'ErrorMessage' === $doc->firstChild->nodeName) {
+    if (!empty($response->getContent(false)) && $doc->loadXML($response->getContent(false)) && 'ErrorMessage' === $doc->firstChild->nodeName) {
         echo "Server error: {$doc->getElementsByTagName('errorCode')->item(0)->nodeValue} {$doc->getElementsByTagName('errorMessage')->item(0)->nodeValue}\n";
         echo "\t{$doc->getElementsByTagName('errorDescription')->item(0)->nodeValue}\n";
         exit(4);
@@ -122,7 +122,7 @@ try {
 }
 
 if (204 !== $responseCode = $response->getStatusCode()) {
-    if (!empty($response->getContent(false)) && @$doc->loadXML($response->getContent(false)) && 'ErrorMessage' === $doc->firstChild->nodeName) {
+    if (!empty($response->getContent(false)) && $doc->loadXML($response->getContent(false)) && 'ErrorMessage' === $doc->firstChild->nodeName) {
         echo "Server error: {$doc->getElementsByTagName('errorCode')->item(0)->nodeValue} {{$doc->getElementsByTagName('errorMessage')->item(0)->nodeValue}\n";
         echo "\t{$doc->getElementsByTagName('errorDescription')->item(0)->nodeValue}\n";
         exit(8);
