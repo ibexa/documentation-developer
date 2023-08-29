@@ -41,19 +41,19 @@ The `Url\Value` constructor initializes a new Value object with the provided va
 // Constructor example
 
 // Instantiates an Url Value object
-$UrlValue = new Url\Value( "https://www.ibexa.co", "Ibexa" );
+$UrlValue = new Url\Value( "https://www.ibexa.co/", "Ibexa" );
 ```
 ### Hash format
 
-|Key|Type|Description|Example|
-|------|------|------|------|
-|`link`|`string`|Link content.|"http://ibexa.co"|
-|`text`|`string`|Text content.|"Ibexa"|
+| Key    | Type     | Description   | Example                 |
+|--------|----------|---------------|-------------------------|
+| `link` | `string` | Link content. | "https://www.ibexa.co/" |
+| `text` | `string` | Text content. | "Ibexa"                 |
 
 ```php
 // Example of the hash value in PHP
 $hash = [
-    "link" => "http://ibexa.co",
+    "link" => "https://www.ibexa.co/",
     "text" => "Ibexa"
 ];
 
