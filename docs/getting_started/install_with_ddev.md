@@ -124,7 +124,7 @@ This authentication won't persist if the project is restarted (by `ddev restart`
 ddev exec "mkdir -p .ddev/homeadditions/.composer; cp ~/.composer/auth.json .ddev/homeadditions/.composer"
 ```
 
-If you want to reuse an existing `auth.json` file, see [Using auth.json](#using-authjson).
+If you want to reuse an existing `auth.json` file, see [Using `auth.json`](#using-authjson).
 
 ### 5. Create project
 
