@@ -192,12 +192,7 @@ You should be able to see a one page checkout applied after you add products to 
 
 ![One page checkout](img/single_page_checkout.png "One page checkout")
 
-## Define custom checkout workflow
-
-This example shows how to create custom checkout `new_workflow` and its strategy.
-Defined strategy assumes that the checkout process depends on the currency used in the cart.
-
-### Create custom strategy
+## Create custom strategy
 
 Create a PHP definition of the new strategy that allows for workflow manipulation.
 In this example, custom checkout workflow applies when specific currency code ('EUR') is used in the cart. 
