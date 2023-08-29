@@ -251,7 +251,7 @@ In `DATABASE_VERSION` you can also configure the database server version (for a 
 
 #### Install and configure a search engine
 
-You may choose to replace the [default search engine](search_engines.md#legacy-search-engine) with either Solr or Elasticsearch.
+You may choose to replace the [default search engine](legacy_search_overview.md) with either Solr or Elasticsearch.
 
 !!! note "Shop front end requirement [[% include 'snippets/commerce_badge.md' %]]"
 
