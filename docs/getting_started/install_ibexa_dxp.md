@@ -25,7 +25,7 @@ You can install it by following your favorite tutorial, for example: [Install LA
 
 Additional requirements:
 
-- [Node.js](https://nodejs.org/en) and [Yarn](https://yarnpkg.com/lang/en/docs/install/#debian-stable) for asset management.
+- [Node.js](https://nodejs.org/en) and [Yarn](https://classic.yarnpkg.com/en/docs/install/#debian-stable) for asset management.
 - `git` for version control.
 - to use search in the shop front end, you must [install a search engine](#install-and-configure-a-search-engine).
 
