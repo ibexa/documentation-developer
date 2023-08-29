@@ -294,7 +294,7 @@ You can define this environment variable directly in web server configuration:
 !!! tip
 
     You can configure the variable by using the PHP-FPM configuration file.
-    See [PHP-FPM documentation](http://php.net/manual/en/install.fpm.configuration.php#example-60) for more information.
+    See [PHP-FPM documentation](https://www.php.net/manual/en/install.fpm.configuration.php#example-25) for more information.
 
 !!! note "Precedence"
 
