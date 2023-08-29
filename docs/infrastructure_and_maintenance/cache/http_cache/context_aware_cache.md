@@ -32,7 +32,7 @@ as the hash lookup itself is cached by the cache proxy as described below.
 
 ### User context hash caching
 
-Example of a response sent to reverse proxy from `/_fos_user_context_hash` with [[[= product_name =]]'s default config](#default-options-for-FOSHttpCacheBundle-defined-in-ibexa-dxp):
+Example of a response sent to reverse proxy from `/_fos_user_context_hash` with [[[= product_name =]]'s default config](#default-options-for-foshttpcachebundle):
 
 ```
 HTTP/1.1 200 OK
@@ -68,6 +68,7 @@ It also varies on `Authorization` to cover any possible basic authorization head
 
 !!! caution "Default options for FOSHttpCacheBundle"
 
+    <a name="default-options-for-foshttpcachebundle"></a>
     The following configuration is defined by default for FOSHttpCacheBundle.
     You should not override these settings unless you know what you are doing.
 
