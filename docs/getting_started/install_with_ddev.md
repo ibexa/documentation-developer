@@ -124,7 +124,7 @@ This authentication won't persist if the project is restarted (by `ddev restart`
 ddev exec "mkdir -p .ddev/homeadditions/.composer; cp ~/.composer/auth.json .ddev/homeadditions/.composer"
 ```
 
-If you want to reuse an existing `auth.json` file, see [Using an auth.json](#using-an-authjson).
+If you want to reuse an existing `auth.json` file, see [Using auth.json](#using-authjson).
 
 ### 5. Create project
 
@@ -203,7 +203,7 @@ Instead of using environment variables inside the container, a [`.env.local`]([[
 The following example shows the use of `.env.local` with database configuration:
 
 - Skip step [2. Configure DDEV / Configure database connection](#configure-database-connection).
-- Modify step [5. Create [[= product_name =]] project](#5-create-ibexa-dxp-project) to insert the database setting:
+- Modify step [5. Create [[= product_name =]] project](#5-create-project) to insert the database setting:
   ```bash
   ddev composer create ibexa/commerce-skeleton --no-install;
   echo "DATABASE_URL=mysql://db:db@db:3306/db" >> .env.local;
@@ -356,7 +356,7 @@ To run an existing project, you need to:
 1. Add Composer authentication.
 1. Install dependencies packages with Composer.
 1. Populate the contents, which could mean:
-    - getting a clean database with ddev `php bin/console ibexa:install` and adding some data with [Ibexa data migration](../content_management/data_migration/importing_data.md), or
+    - getting a clean database with ddev `php bin/console ibexa:install` and adding some data with [Ibexa data migration](importing_data.md), or
     - injecting a dump with [`ddev import-db`](https://ddev.readthedocs.io/en/latest/users/usage/commands/#import-db) and copying related binary files into `public/var`.
 
 The following examples run an already [version-controlled project](install_ibexa_dxp.md#add-project-to-version-control) and have the right content structure (but no content):
@@ -388,16 +388,16 @@ ddev launch
 Notice that the example adds the whole `.ddev/` directory to `.gitignore`, but you can also version parts of it.
 Some DDEV configs can be shared among developers. For example, a common `.ddev/config.yaml` can be committed for everyone and [locally extended or overridden](https://ddev.readthedocs.io/en/latest/users/extend/customization-extendibility/#extending-configyaml-with-custom-configyaml-files).
 
-Compared to running a clean install like described in [Installation steps](#installation-steps), you can proceed as follows:
+Compared to running a clean install like described in [Installation steps](#installation), you can proceed as follows:
 
 - In [1. Create a DDEV project directory](#1-create-a-ddev-project-directory), you can use an existing directory that contains an [[= product_name =]] project instead of creating an empty directory.
 - In [2. Configure DDEV / Configure PHP version and document root](#configure-php-version-and-document-root), don't create the Document root, remove the `--create-docroot` option.
-- In [5. Create [[= product_name =]] project](#5-create-ibexa-dxp-project), use only `ddev composer install` instead of `ddev composer create`.
-- Populate the database with [Ibexa data migration](../content_management/data_migration/importing_data.md) or [`ddev import-db`](https://ddev.readthedocs.io/en/latest/users/usage/commands/#import-db).
+- In [5. Create [[= product_name =]] project](#5-create-project), use only `ddev composer install` instead of `ddev composer create`.
+- Populate the database with [Ibexa data migration](importing_data.md) or [`ddev import-db`](https://ddev.readthedocs.io/en/latest/users/usage/commands/#import-db).
 
 ### Hostnames and domains
 
-If the local project needs to answer to real production domains (for example, to use the existing [hostname to SiteAccess](../multisite/siteaccess/siteaccess_matching.md#maphost) or [hostname element to SiteAccess](../multisite/siteaccess/siteaccess_matching.md#hostelement) mappings), you can use [additional hostnames](https://ddev.readthedocs.io/en/latest/users/extend/additional-hostnames/).
+If the local project needs to answer to real production domains (for example, to use the existing [hostname to SiteAccess](siteaccess_matching.md#maphost) or [hostname element to SiteAccess](../multisite/siteaccess/siteaccess_matching.md#hostelement) mappings), you can use [additional hostnames](https://ddev.readthedocs.io/en/latest/users/extend/additional-hostnames/).
 
 !!! caution
 
