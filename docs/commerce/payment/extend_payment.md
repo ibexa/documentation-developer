@@ -9,7 +9,7 @@ There are different ways you can extend your Payment module implementation.
 One of them is to create a custom payment method type. 
 The other is attaching custom data to a payment.
 
-You can also [customize the payment processing workflow](configure_payment.md#custom_payment_workflows).
+You can also [customize the payment processing workflow](configure_payment.md#custom-payment-workflows).
 
 ## Create custom payment method type
 
