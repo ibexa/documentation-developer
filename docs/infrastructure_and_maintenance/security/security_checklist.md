@@ -31,7 +31,7 @@ make sure that your setup is secure.
     
 !!! note
 
-    On Ibexa Cloud, if `APP_SECRET` is not set, the system sets it to [`PLATFORM_PROJECT_ENTROPY`](https://docs.platform.sh/development/variables.html#platformsh-provided-variables)
+    On Ibexa Cloud, if `APP_SECRET` is not set, the system sets it to [`PLATFORM_PROJECT_ENTROPY`](https://docs.platform.sh/guides/symfony/environment-variables.html#symfony-environment-variables)
 
 ### Symfony production mode
 
@@ -222,7 +222,7 @@ For example, if someone succeeds in injecting their JavaScript into your site, t
 
 - Run servers on a recent operating system and install security patches for dependencies.
 - Configure servers to alert you about security updates from vendors. Pay special attention to dependencies used by your project directly, or by PHP. The provider of the operating system usually has a service for this.
-- Enable [GitHub Dependabot](https://docs.github.com/en/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)
+- Enable [GitHub Dependabot](https://docs.github.com/en/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)
 to receive notifications when a security fix is released in a Github-hosted dependency.
 - If you're not using Github for your project, you can create a dummy project on Github with the same dependencies as your real project, and enable Dependabot notifications for that.
 - Ensure you get notifications about security fixes in JavaScript dependencies.
