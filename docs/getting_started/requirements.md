@@ -83,8 +83,8 @@ Optionally if you intend to edit [PNG, SVG, GIF or WEBP files in the Image Edito
 ## [Clustering](clustering.md)
 
 - Linux NFS or S3/EFS (for IO, aka binary files stored in content repository, not supported with legacy)
-- Redis 4.0+, 5.0 or higher (separate instances for session and cache, both using a `volatile-*` [eviction policy](https://redis.io/topics/lru-cache), session instance configured for persistence) or [Memcached](https://memcached.org/) 1.5 or higher
-- [Varnish](http://varnish-cache.org/) 6.0LTS or 7.1 with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.md) or [Fastly](https://www.fastly.com/) using [the provided bundle](http_cache.md#serving-varnish-through-fastly) (for HttpCache)
+- Redis 4.0+, 5.0 or higher (separate instances for session and cache, both using a `volatile-*` [eviction policy](https://redis.io/docs/reference/eviction/), session instance configured for persistence) or [Memcached](https://memcached.org/) 1.5 or higher
+- [Varnish](http://varnish-cache.org/) 6.0LTS or 7.1 with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.md) or [Fastly](https://www.fastly.com/) using [the provided bundle](http_cache.md) (for HTTP Cache)
 
 ## Filesystem
 
@@ -114,7 +114,7 @@ Optionally if you intend to edit [PNG, SVG, GIF or WEBP files in the Image Edito
 
     ### Cloud hosting with Ibexa Cloud and Platform.sh
 
-    In general, Ibexa Cloud supports all features and services of [Platform.sh](https://platform.sh/hosting/php/ez) that are compatible and supported by the [[= product_name =]] version you use.  
+    In general, Ibexa Cloud supports all features and services of [Platform.sh](https://platform.sh/marketplace/ibexa/) that are compatible and supported by the [[= product_name =]] version you use.  
 
     For example:
 
