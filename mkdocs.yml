@@ -438,6 +438,7 @@ nav:
             - IsProductBased: search/criteria_reference/isproductbased_criterion.md
             - IsUserBased: search/criteria_reference/isuserbased_criterion.md
             - IsUserEnabled: search/criteria_reference/isuserenabled_criterion.md
+            - IsVirtual: search/criteria_reference/isvirtual_criterion.md
             - LanguageCode: search/criteria_reference/languagecode_criterion.md
             - LocationId: search/criteria_reference/locationid_criterion.md
             - LocationRemoteId: search/criteria_reference/locationremoteid_criterion.md

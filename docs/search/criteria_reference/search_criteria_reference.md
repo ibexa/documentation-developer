@@ -40,6 +40,7 @@ Due to this storage limitation, searching content using the Country Field Type o
 |[IsProductBased](isproductbased_criterion.md)|Whether content represents a product|&#10004; |&#10004; |&#10004; |
 |[IsUserBased](isuserbased_criterion.md)|Whether content represents a User account|&#10004; |&#10004; |&#10004; |
 |[IsUserEnabled](isuserenabled_criterion.md)|Whether a User account is enabled|&#10004; |&#10004; |&#10004; |
+|[IsVirtual](isvirtual_criterion.md)|Whether a product is virtual|&#10004; |&#10004; |&#10004; |
 |[LanguageCode](languagecode_criterion.md)|Whether a Content item is translated into the selected language|&#10004; |&#10004; |&#10004; |
 |[LocationId](locationid_criterion.md)|Location ID|&#10004; |&#10004; |&#10004; |
 |[LocationRemoteId](locationremoteid_criterion.md)|Location remote ID|&#10004; |&#10004; |&#10004; |
