@@ -9,7 +9,7 @@ or physical (`false`) products.
 
 ## Limitations
 
-The `IsVirtual` Criterion is available in Solr or Elastic search engines.
+The `IsVirtual` Criterion is available in Solr or Elasticsearch engines.
 
 ## Example
 
