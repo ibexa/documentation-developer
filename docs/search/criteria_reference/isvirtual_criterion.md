@@ -4,7 +4,7 @@ The `IsVirtual` Search Criterion searches for virtual or physical products.
 
 ## Arguments
 
-- `isVirtual` - bool representing whether to search for virtual (default `true`)
+- (optional) `isVirtual` - bool representing whether to search for virtual (default `true`)
 or physical (`false`) products.
 
 ## Example
