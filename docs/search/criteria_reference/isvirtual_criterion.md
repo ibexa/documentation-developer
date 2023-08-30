@@ -1,6 +1,6 @@
 # IsVirtual Criterion
 
-The `IsVirtual` Search Criterion searches for virtual products. 
+The `IsVirtual` Search Criterion searches for virtual or physical products. 
 
 ## Arguments
 
