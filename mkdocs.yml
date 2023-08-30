@@ -438,7 +438,6 @@ nav:
             - IsProductBased: search/criteria_reference/isproductbased_criterion.md
             - IsUserBased: search/criteria_reference/isuserbased_criterion.md
             - IsUserEnabled: search/criteria_reference/isuserenabled_criterion.md
-            - IsVirtual: search/criteria_reference/isvirtual_criterion.md
             - LanguageCode: search/criteria_reference/languagecode_criterion.md
             - LocationId: search/criteria_reference/locationid_criterion.md
             - LocationRemoteId: search/criteria_reference/locationremoteid_criterion.md
@@ -481,6 +480,7 @@ nav:
             - FloatAttributeRange: search/criteria_reference/floatattributerange_criterion.md
             - IntegerAttribute: search/criteria_reference/integerattribute_criterion.md
             - IntegerAttributeRange: search/criteria_reference/integerattributerange_criterion.md
+            - IsVirtual: search/criteria_reference/isvirtual_criterion.md
             - ProductAvailability: search/criteria_reference/productavailability_criterion.md
             - ProductStock: search/criteria_reference/productstock_criterion.md
             - ProductStockRange: search/criteria_reference/productstockrange_criterion.md

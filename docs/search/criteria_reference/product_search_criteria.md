@@ -26,6 +26,7 @@ Search Criterion let you to filter product by specific attributes, for example: 
 |[FloatAttributeRange](floatattributerange_criterion.md)|Value of product's float attribute|
 |[IntegerAttribute](integerattribute_criterion.md)|Value of product's integer attribute|
 |[IntegerAttributeRange](integerattributerange_criterion.md)|Value of product's integer attribute|
+|[IsVirtual](isvirtual_criterion.md)|Product type (virtual)|
 |[SelectionAttribute](selectionattribute_criterion.md)|Value of product's selection attribute|
 |[ProductAvailability](productavailability_criterion.md)|Product's availability|
 |[ProductStock](productstock_criterion.md)|Product's numerical stock|
