@@ -7,10 +7,6 @@ The `IsVirtual` Search Criterion searches for virtual products.
 - (optional) `value` - bool representing whether to search for virtual (default `true`)
 or physical (`false`) products.
 
-## Limitations
-
-The `IsVirtual` Criterion is available in Solr or Elasticsearch engines.
-
 ## Example
 
 ### PHP
