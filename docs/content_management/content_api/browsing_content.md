@@ -149,7 +149,7 @@ of the ContentInfo object:
 
 ### Object states
 
-You can retrieve [Object states](admin_panel.md#object-states) of a Content item
+You can retrieve [Object states](object_states.md) of a Content item
 using [`ObjectStateService::getContentState`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ObjectStateService.php#L176).
 You need to provide it with the Object state group.
 All Object state groups can be retrieved through [`loadObjectStateGroups`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ObjectStateService.php#L59).
