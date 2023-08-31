@@ -113,7 +113,7 @@ You can use the `ContentService::find(Filter)` method to find Content items or
 `LocationService::find(Filter)` to find Locations using a defined Filter.
 
 `ContentService::find` returns an iterable [`ContentList`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentList.php)
-while `LocationService::find` returns an iterable [`LocationList`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/LocationList).
+while `LocationService::find` returns an iterable [`LocationList`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/LocationList.php).
 
 Filtering differs from search. It does not use the `SearchService` and is not based on indexed data.
 
