@@ -45,7 +45,7 @@ in this example, `templates/themes/my_theme/full`.
 To render general content information, such as content name,
 use the [`ibexa_content_name()`](content_twig_functions.md#ibexa_content_name) Twig function.
 
-Content name is based on the [content name pattern](content_model.md#content-name-pattern) of the Content Type.
+Content name is based on the [content name pattern](content_types/#content-type-metadata) of the Content Type.
 
 ``` html+twig
 [[= include_file('code_samples/front/render_content/templates/themes/my_theme/full/article.html.twig', 3, 4) =]]
