@@ -7,8 +7,9 @@ description: Render the content from PHP and get the HTML as a string.
 While in PHP, you may need to render the view of a content for further treatment.
 
 The following example is a command outputting the render of a content for a view type in the terminal.
-It will work only if the view doesn't refer to the HTTP request.
-It works with views like the `line` or `embed` ones from default installation. It won't work with a `full` view if the pagelayout is using `app.request.locale`.
+It works only if the view doesn't refer to the HTTP request.
+It works with views like the `line` or `embed` ones from default installation.
+It doesn't work with a `full` view if the pagelayout is using `app.request.locale`.
 
 ```yaml
 # config/services.yaml
@@ -80,7 +81,7 @@ class ViewCommand extends Command {
         // build view
         $contentView = $this->contentViewBuilder->buildView($viewParameters);
 
-        // generate the HTML using TemplateRenderer + ContentViewBuilder
+        // render view
         $renderedView = $this->templateRenderer->render($contentView);
 
         $output->writeln($renderedView);
