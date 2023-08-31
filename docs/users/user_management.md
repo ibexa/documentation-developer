@@ -269,7 +269,7 @@ ibexa.site_access.config.<siteaccess>.user_settings.templates.update
 ## Authenticate user with multiple user providers
 
 Symfony provides native support for [multiple user providers]([[= symfony_doc =]]/security/multiple_user_providers.html).
-This makes it easy to integrate any kind of login handlers, including SSO and existing third party bundles (e.g. [FR3DLdapBundle](https://github.com/Maks3w/FR3DLdapBundle), [HWIOauthBundle](https://github.com/hwi/HWIOAuthBundle), [FOSUserBundle](https://github.com/FriendsOfSymfony/FOSUserBundle), [BeSimpleSsoAuthBundle](http://github.com/BeSimple/BeSimpleSsoAuthBundle), etc.).
+This makes it easy to integrate any kind of login handlers, including SSO and existing third party bundles (e.g. [FR3DLdapBundle](https://github.com/Maks3w/FR3DLdapBundle), [HWIOauthBundle](https://github.com/hwi/HWIOAuthBundle), [FOSUserBundle](https://github.com/FriendsOfSymfony/FOSUserBundle), [BeSimpleSsoAuthBundle](https://github.com/BeSimple/BeSimpleSsoAuthBundle), etc.).
 
 However, to be able to use *external* user providers with [[= product_name =]], a valid Platform user needs to be injected into the Repository.
 This is mainly for the kernel to be able to manage content-related permissions (but not limited to this).
