@@ -9,8 +9,8 @@ While in PHP, you may need to render the view of a Content item for further trea
 The following example is a command outputting the render of a content for a view type in the terminal.
 It works only if the view doesn't refer to the HTTP request.
 It works with views like the `line` or `embed` ones from default installation.
-For this example, there could be some dedicated views not outputting HTML but plain text, [Symfony command styled text](https://symfony.com/doc/5.4/console/coloring.html), Markdown, etc.
-It doesn't work with a `full` view if the pagelayout is using `app.request.locale`.
+To go further with this example, you could add some dedicated views not outputting HTML but plain text, [Symfony command styled text](https://symfony.com/doc/5.4/console/coloring.html), Markdown, etc.
+It doesn't work with a `full` view if the [Page layout](template_configuration.md#page-layout) is using `app.request.locale` as the out-of-the-box one does.
 
 Append to `config/services.yaml` the command as a service:
 
@@ -24,7 +24,7 @@ services:
 
 Create the command in `src/Command/ViewCommand.php`:
 
-```php hl_lines="57-61"
+```php hl_lines="59-63"
 [[= include_file('code_samples/front/render_content_in_php/src/Command/ViewCommand.php') =]]
 ```
 
