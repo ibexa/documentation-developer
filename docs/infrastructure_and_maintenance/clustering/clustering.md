@@ -48,7 +48,7 @@ The main options out of the box in Symfony are the native PHP Memcached or PHP R
 To avoid concurrent access to session data from front-end nodes, if possible you should either:
 
 - Enable [Session locking](https://www.php.net/manual/en/features.session.security.management.php#features.session.security.management.session-locking)
-- Use "Sticky Session", aka [Load Balancer Persistence](https://en.wikipedia.org/wiki/Load_balancing_(computing)#Persistence)
+- Use "Sticky Session", aka [Load Balancer Persistence](https://en.wikipedia.org/wiki/Load_balancing_%28computing%29#Persistence)
 
 Session locking is available with `php-memcached`, and with `php-redis` (v4.2.0 and higher).
 
