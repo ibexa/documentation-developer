@@ -92,6 +92,6 @@ ibexa:
 
 # Order management
 
-Reviewing pending and past orders in Customer Portal requires that you configure all currencies that any of the customers may use under the `ibexa.system.default.product_catalog.currencies` key. 
+Reviewing pending and past orders in Customer Portal requires that you configure all currencies that any of the customers may use under the `ibexa.system.<siteaccess_name>.product_catalog.currencies` key. 
 The first currency from the list is then used for filtering the orders list and calculating the **Average order** and **Total amount** values.
 For more information, see [Enable purchasing products](https://doc.ibexa.co/en/latest/pim/enable_purchasing_products/).
