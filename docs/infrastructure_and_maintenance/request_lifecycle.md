@@ -130,7 +130,7 @@ Now, when the `Request` knows its controller, the `HttpKernel` dispatches the `k
 When HttpKernel dispatches the `kernel.controller` event, the following things happen.
 
 Listening to `kernel.controller`, the `ViewControllerListener` (`Ibexa\Bundle\Core\EventListener\ViewControllerListener`) (priority 10) checks if the `_controller` request attribute is associated with a `ViewBuilder` (a service tagged `ibexa.view.builder`) in the `ViewBuilderRegistry` (`Ibexa\Core\MVC\Symfony\View\Builder\Registry\ControllerMatch`).
-The `ContentViewBuilder` (`Ibexa\Core\MVC\Symfony\View\Builder\ContentViewBuildercontent`) matches on controller starting with `ibexa_content:` (see `Ibexa\Core\MVC\Symfony\View\Builder\ContentViewBuilder::matches`).
+The `ContentViewBuilder` (`Ibexa\Core\MVC\Symfony\View\Builder\ContentViewBuilder`) matches on controller starting with `ibexa_content:` (see `Ibexa\Core\MVC\Symfony\View\Builder\ContentViewBuilder::matches`).
 The `ContentViewBuilder` builds a `ContentView`.
 
 First, the `ContentViewBuilder` loads the `Location` and the `Content`, and adds them to the `ContentView` object.
@@ -196,7 +196,7 @@ The `HttpKernel` retrieves the response attached to the event and continues.
     - 10:`Ibexa\Bundle\Core\EventListener\ViewControllerListener`
         - `Ibexa\Core\MVC\Symfony\View\Builder\Registry\ControllerMatch`
             - tag=`ibexa.view.builder`
-                - `Ibexa\Core\MVC\Symfony\View\Builder\ContentViewBuildercontent`
+                - `Ibexa\Core\MVC\Symfony\View\Builder\ContentViewBuilder`
                     - `Ibexa\Core\MVC\Symfony\View\Configurator\ViewProvider`
 * event=`kernel.controller_arguments`
 * event=`kernel.view`
@@ -221,8 +221,8 @@ The `HttpKernel` retrieves the response attached to the event and continues.
 |  kernel.request         |  Ibexa\Bundle\Core\Routing\UrlAliasRouter            |  contentId          |  1            |
 |  kernel.request         |  Ibexa\Bundle\Core\Routing\UrlAliasRouter            |  locationId         |  42           |
 |  kernel.request         |  locale_listener                      |  _locale            |  en_GB        |
-|  kernel.controller      |  Ibexa\Core\MVC\Symfony\View\Builder\ContentViewBuildercontent       |  view.content       |  Content      |
-|  kernel.controller      |  Ibexa\Core\MVC\Symfony\View\Builder\ContentViewBuildercontent       |  view.location      |  Location     |
+|  kernel.controller      |  Ibexa\Core\MVC\Symfony\View\Builder\ContentViewBuilder       |  view.content       |  Content      |
+|  kernel.controller      |  Ibexa\Core\MVC\Symfony\View\Builder\ContentViewBuilder       |  view.location      |  Location     |
 |  kernel.controller      |  Ibexa\Core\MVC\Symfony\View\Configurator\ViewProvider          |  view.templateIdentifier   |  @IbexaCore/default/content/full.html.twig  |
 |  kernel.controller      |  Ibexa\Core\MVC\Symfony\View\Configurator\ViewProvider          |  view.controllerReference  |  null  |
 |  kernel.controller      |  Ibexa\Bundle\Core\EventListener\ViewControllerListener   |  view               |  ContentView  |
