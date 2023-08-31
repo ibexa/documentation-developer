@@ -1,5 +1,10 @@
 <?php declare(strict_types=1);
 
+require __DIR__ . '/vendor/autoload.php';
+
+use Symfony\Component\HttpClient\HttpClient;
+use Symfony\Contracts\HttpClient\Exception as HttpException;
+
 if ($argc < 2) {
     // Print script usage
     echo "Usage: php {$argv[0]} <FILE_PATH> [<IMAGE_NAME>]\n";
@@ -66,94 +71,68 @@ $data = <<<XML
 </ContentCreate>
 XML;
 
-$curl = curl_init();
-$responseHeaders = [];
+$client = HttpClient::createForBaseUri($baseUrl, [
+    'auth_basic' => [$username, $password],
+]);
 $doc = new DOMDocument();
 
-curl_setopt_array($curl, [
-    CURLOPT_USERPWD => "$username:$password",
-    CURLOPT_URL => "$baseUrl/content/objects",
-    CURLOPT_POST => true,
-    CURLOPT_POSTFIELDS => $data,
-    CURLOPT_HTTPHEADER => [
-        'Content-Type: application/vnd.ibexa.api.ContentCreate+xml',
-        'Accept: application/vnd.ibexa.api.ContentInfo+xml',
-    ],
-    CURLOPT_RETURNTRANSFER => true,
-    CURLOPT_HEADERFUNCTION => static function ($curl, $header) {
-        global $responseHeaders;
-        $responseHeaders[] = $header;
-
-        return strlen($header);
-    },
-]);
-
-$response = curl_exec($curl);
-
-if ($error = curl_error($curl)) {
-    echo "cURL error: $error\n";
-    curl_close($curl);
+try {
+    $response = $client->request('POST', "$baseUrl/content/objects", [
+        'headers' => [
+            'Content-Type: application/vnd.ibexa.api.ContentCreate+xml',
+            'Accept: application/vnd.ibexa.api.ContentInfo+xml',
+        ],
+        'body' => $data,
+    ]);
+} catch (HttpException\TransportExceptionInterface $exception) {
+    echo "Client error: {$exception->getMessage()}\n";
     exit(3);
 }
 
-if (201 !== $responseCode = curl_getinfo($curl, CURLINFO_RESPONSE_CODE)) {
-    if (!empty($response) && $doc->loadXML($response) && 'ErrorMessage' === $doc->firstChild->nodeName) {
+if (201 !== $responseCode = $response->getStatusCode()) {
+    if (!empty($response->getContent(false)) && $doc->loadXML($response->getContent(false)) && 'ErrorMessage' === $doc->firstChild->nodeName) {
         echo "Server error: {$doc->getElementsByTagName('errorCode')->item(0)->nodeValue} {$doc->getElementsByTagName('errorMessage')->item(0)->nodeValue}\n";
         echo "\t{$doc->getElementsByTagName('errorDescription')->item(0)->nodeValue}\n";
-        curl_close($curl);
         exit(4);
     }
+    $responseHeaders = $response->getInfo('response_headers');
     $error = $responseHeaders[0] ?? $responseCode;
     echo "Server error: $error\n";
-    curl_close($curl);
     exit(5);
 }
 
-$doc->loadXML($response);
+$doc->loadXML($response->getContent());
 
 if ('Content' !== $doc->firstChild->nodeName || !$doc->firstChild->hasAttribute('id')) {
     echo "Response error: Unexpected response structure\n";
-    curl_close($curl);
     exit(6);
 }
 
 $contentId = $doc->firstChild->getAttribute('id');
 
-curl_reset($curl);
-$responseHeaders = [];
-
-curl_setopt_array($curl, [
-    CURLOPT_USERPWD => "$username:$password",
-    CURLOPT_URL => "$baseUrl/content/objects/$contentId/versions/1",
-    CURLOPT_POST => true,
-    CURLOPT_HTTPHEADER => [
-        'X-HTTP-Method-Override: PUBLISH',
-        'Accept: application/json',
-    ],
-    CURLOPT_RETURNTRANSFER => true,
-]);
-
-$response = curl_exec($curl);
-
-if ($error = curl_error($curl)) {
-    echo "cURL error: $error\n";
-    curl_close($curl);
+try {
+    $response = $client->request('PUBLISH', "$baseUrl/content/objects/$contentId/versions/1", [
+        'headers' => [
+            'Accept: application/xml',
+        ],
+    ]);
+} catch (HttpException\TransportExceptionInterface $exception) {
+    echo "Client error: {$exception->getMessage()}\n";
     exit(7);
 }
 
-if (204 !== $responseCode = curl_getinfo($curl, CURLINFO_RESPONSE_CODE)) {
-    if (!empty($response) && $doc->loadXML($response) && 'ErrorMessage' === $doc->firstChild->nodeName) {
+if (204 !== $responseCode = $response->getStatusCode()) {
+    if (!empty($response->getContent(false)) && $doc->loadXML($response->getContent(false)) && 'ErrorMessage' === $doc->firstChild->nodeName) {
         echo "Server error: {$doc->getElementsByTagName('errorCode')->item(0)->nodeValue} {{$doc->getElementsByTagName('errorMessage')->item(0)->nodeValue}\n";
         echo "\t{$doc->getElementsByTagName('errorDescription')->item(0)->nodeValue}\n";
-        curl_close($curl);
         exit(8);
     }
+    $responseHeaders = $response->getInfo('response_headers');
     $error = $responseHeaders[0] ?? $responseCode;
     echo "Server error: $error\n";
     exit(9);
 }
 
-echo "Success: Image Content item created with ID $contentId and published\n";
+echo "Success: Image Content item created with ID $contentId and published.\n";
 
-curl_close($curl);
 exit(0);

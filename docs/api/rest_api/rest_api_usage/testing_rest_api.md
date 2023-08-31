@@ -23,22 +23,11 @@ For examples of using `curl`, refer to:
 
 ## PHP
 
-To test REST API with PHP, cURL can be used. Open a PHP shell in a terminal with `php -a` and copy-paste this code into it:
+You can use [Symfony HttpClient](https://symfony.com/doc/5.4/http_client.html) to test REST API.
+Open a PHP shell in a terminal with <nobr>`php -a`</nobr> and copy-paste this code into it:
 
-```php
-$resource = 'https://api.example.com/api/ibexa/v2/content/objects/52';
-$curl = curl_init($resource);
-curl_setopt_array($curl, [
-    CURLOPT_HTTPHEADER => ['Accept: application/vnd.ibexa.api.ContentInfo+json'],
-    CURLOPT_HEADERFUNCTION => function($curl, $header) {
-        if (!empty($cleanedHeader = trim($header))) {
-            var_dump($cleanedHeader);
-        }
-        return strlen($header);
-    },
-    CURLOPT_RETURNTRANSFER => true,
-]);
-var_dump(json_decode(curl_exec($curl), true));
+``` php
+[[= include_file('code_samples/api/rest_api/load_content.php', 2, 9) =]]
 ```
 
 `$resource` URI should be edited to address the right domain.
@@ -54,17 +43,34 @@ The following example of an AJAX call retrieves `ContentInfo` (that is, metadata
 
 To test it, copy-paste this code into your browser console alongside a page from your website (to share the domain):
 
-```javascript
-var resource = '/api/ibexa/v2/content/objects/52',
-    request = new XMLHttpRequest();
+=== "Fetch API"
 
-request.open('GET', resource, true);
-request.setRequestHeader('Accept', 'application/vnd.ibexa.api.ContentInfo+json');
-request.onload = function () {
-    console.log(request.getAllResponseHeaders(), JSON.parse(request.responseText));
-};
-request.send();
-```
+    ```javascript
+    const resource = '/api/ibexa/v2/content/objects/52';
+    
+    fetch(resource, {
+        headers: {'Accept': 'application/vnd.ibexa.api.ContentInfo+json'},
+    }).then((response) => {
+        console.log(...response.headers);
+        return response.json();
+    }).then((data) => {
+        console.log(data);
+    });
+    ```
+
+=== "XMLHttpRequest"
+
+    ```javascript
+    const resource = '/api/ibexa/v2/content/objects/52';
+    const request = new XMLHttpRequest();
+    
+    request.open('GET', resource, true);
+    request.setRequestHeader('Accept', 'application/vnd.ibexa.api.ContentInfo+json');
+    request.onload = function () {
+        console.log(request.getAllResponseHeaders(), JSON.parse(request.responseText));
+    };
+    request.send();
+    ```
 
 On a freshly installed Ibexa DXP, `52` is the Content ID of the home page. If necessary, substitute `52` with the Content ID of an item from your database.
 
