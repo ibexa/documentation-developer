@@ -337,7 +337,7 @@ if (client.ip ~ debuggers) {
 
 ### v3.3.15
 
-Adapt your `composer.json` file according to [`manifest.json`](https://github.com/ibexa/recipes/blob/master/ibexa/commerce/3.3.x-dev/manifest.json#L167-L168), by adding and moving the following lines:
+Adapt your `composer.json` file according to [`manifest.json`](https://github.com/ibexa/recipes/blob/master/ibexa/commerce/3.3/manifest.json#L167-L168), by adding and moving the following lines:
 
 ``` diff
   "composer-scripts": {
