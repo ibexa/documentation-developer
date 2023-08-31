@@ -480,6 +480,7 @@ nav:
             - FloatAttributeRange: search/criteria_reference/floatattributerange_criterion.md
             - IntegerAttribute: search/criteria_reference/integerattribute_criterion.md
             - IntegerAttributeRange: search/criteria_reference/integerattributerange_criterion.md
+            - IsVirtual: search/criteria_reference/isvirtual_criterion.md
             - ProductAvailability: search/criteria_reference/productavailability_criterion.md
             - ProductStock: search/criteria_reference/productstock_criterion.md
             - ProductStockRange: search/criteria_reference/productstockrange_criterion.md
