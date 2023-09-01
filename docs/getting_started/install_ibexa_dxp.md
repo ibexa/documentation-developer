@@ -321,7 +321,7 @@ symfony serve
 Consider adding the Symfony Debug bundle which fixes memory outage when dumping objects with circular references.
 
 ``` bash
-ddev composer require --dev symfony/debug-bundle`
+composer require --dev symfony/debug-bundle
 ```
 
 ## Prepare installation for production
