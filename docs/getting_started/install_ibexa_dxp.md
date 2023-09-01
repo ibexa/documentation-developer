@@ -316,6 +316,14 @@ You can also use [Symfony CLI](https://symfony.com/download):
 symfony serve
 ```
 
+## Prepare installation for development
+
+Consider adding the Symfony Debug bundle which fixes memory outage when dumping objects with circular references.
+
+``` bash
+ddev composer require --dev symfony/debug-bundle`
+```
+
 ## Prepare installation for production
 
 To use [[= product_name =]] with an HTTP server, you need to [set up directory permissions](#set-up-permissions) and [prepare a virtual host](#set-up-virtual-host).
