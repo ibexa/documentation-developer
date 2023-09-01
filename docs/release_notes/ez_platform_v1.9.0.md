@@ -38,7 +38,7 @@ In version 1.8 we introduced a new Content Browser in the Universal Discovery Wi
 
 ### eZ Platform Enterprise Edition - Studio
 
--   It is now possible to configure Landing Page blocks used by the Landing Page editor in a simpler way. The configuration is done in a YAML file (see <https://jira.ez.no/browse/EZEE-1421>)
+-   It is now possible to configure Landing Page blocks used by the Landing Page editor in a simpler way. The configuration is done in a YAML file (see <https://issues.ibexa.co/browse/EZEE-1421>)
 -   *..lots of other bug fixes and smaller improvements..*
 
 ### eZ Platform Enterprise Edition - Studio Demo
@@ -51,8 +51,8 @@ The eZ Enterprise Demo now uses the [Netgen Tags bundle](https://github.com/netg
 
 #### Miscellaneous
 
--   [DEMO-94](https://jira.ez.no/browse/DEMO-94): As an editor, I want to personalize content based on user persona
--   [DEMO-87](https://jira.ez.no/browse/DEMO-87): As an editor, I want to embed a video
+-   [DEMO-94](https://issues.ibexa.co/browse/DEMO-94): As an editor, I want to personalize content based on user persona
+-   [DEMO-87](https://issues.ibexa.co/browse/DEMO-87): As an editor, I want to embed a video
 
 ## Full list of new features, improvements and bug fixes since v1.8.0
 

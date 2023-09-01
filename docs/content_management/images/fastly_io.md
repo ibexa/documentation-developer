@@ -21,7 +21,7 @@ Remember to choose a shield location from the **Shielding** menu, as described i
 To manipulate your Fastly VCL configuration directly from the command line,
 you need to:
 
-- [install Fastly CLI](https://developer.fastly.com/learning/tools/cli#installing),
+- [install Fastly CLI](https://developer.fastly.com/learning/tools/cli/#installing),
 - define `FASTLY_SERVICE_ID` and `FASTLY_KEY` environmental variables,
 - set optimizer restrictions by using the `ibexa_image_optimizer.vcl` file:
 

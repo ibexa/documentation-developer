@@ -13,7 +13,7 @@ When you work with your Commerce implementation, you can modify and customize th
 
 ## Configure order processing workflow
 
-Order processing workflow relies on a [Symfony Workflow](http://symfony.com/doc/5.4/components/workflow.html).
+Order processing workflow relies on a [Symfony Workflow]([[= symfony_doc =]]/components/workflow.html).
 Each transition represents a separate order processing step. 
 
 ### Default order processing configuration
@@ -28,7 +28,7 @@ You can replace the default workflow configuration with a custom one if needed.
 ### Custom order processing workflows
 
 You define custom workflow implementations under the `framework.workflows` key. 
-If your installation supports multiple languages, for each place in the workflow, you can define a label that is pulled from a XLIFF file based on the [translation domain setting](../../multisite/languages/back_office_translations.md). 
+If your installation supports multiple languages, for each place in the workflow, you can define a label that is pulled from a XLIFF file based on the [translation domain setting](back_office_translations.md). 
 You can also define colors that are used for status labels.
 
 To customize your configuration, place it under the `framework.workflows.<your_workflow_name>` [configuration key](configuration.md#configuration-files):

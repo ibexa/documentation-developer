@@ -5,7 +5,7 @@ description: Add anchor menu to the Content Type configuration screen, to make F
 # Add anchor menu to Content Type edit screen
 
 With the anchor menu you can increase visibility of certain [Field Types](field_types.md), which provide more complex functionality, 
-by separating them from the [Field definitions](content_model.md#field-definitions) section in [Content Type](content_model.md#content-types) configuration screen. 
+by separating them from the [Field definitions](content_types.md#field-definitions) section in [Content Type](content_types.md) configuration screen. 
 One example of such Field Type would be [SEO]([[= user_doc =]]/search_engine_optimization/work_with_seo/), 
 because it handles functionality that applies to all Content items of the Content Type.
 You can use the anchor menu feature with other Field Types, including [custom ones](create_custom_generic_field_type.md).

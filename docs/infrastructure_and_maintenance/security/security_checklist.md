@@ -10,7 +10,7 @@ make sure that your setup is secure.
 !!! caution
 
     Security is an ongoing process. After going live, you should pay attention to security advisories
-    released via [your service portal,](https://support.ibexa.co/)
+    released via [your service portal](https://support.ibexa.co/),
     or via [Security advisories](https://developers.ibexa.co/security-advisories) if you're not a subscriber.
     
 ## Symfony
@@ -31,7 +31,7 @@ make sure that your setup is secure.
     
 !!! note
 
-    On Ibexa Cloud, if `APP_SECRET` is not set, the system sets it to [`PLATFORM_PROJECT_ENTROPY`](https://docs.platform.sh/development/variables.html#platformsh-provided-variables)
+    On Ibexa Cloud, if `APP_SECRET` is not set, the system sets it to [`PLATFORM_PROJECT_ENTROPY`](https://docs.platform.sh/guides/symfony/environment-variables.html#symfony-environment-variables)
 
 ### Symfony production mode
 
@@ -110,7 +110,7 @@ The account invitation feature defaults to "P7D" (seven days).
 ### Disable Varnish when using Fastly
 
 If you are using Fastly, disable Varnish.
-See [Security advisory: EZSA-2020-002.](https://developers.ibexa.co/security-advisories/ezsa-2020-002-unauthorised-cache-purge-with-misconfigured-fastly)
+See [Security advisory: EZSA-2020-002](https://developers.ibexa.co/security-advisories/ezsa-2020-002-unauthorised-cache-purge-with-misconfigured-fastly).
 
 ### Block upload of unwanted file types
 
@@ -177,7 +177,7 @@ Security should be a multi-layered exercise. It is wise to minimize what feature
     - The REST API endpoints
 
 !!! tip "Access control"
-    One way to lock down an endpoint that should not be openly available is to restrict access to logged-in users, by using the [`access_control`](https://symfony.com/doc/5.4/security/access_control.html) feature. In your YAML configuration, under the `security` key, add an entry similar to the following one, which redirects requests to a login page:
+    One way to lock down an endpoint that should not be openly available is to restrict access to logged-in users, by using the [`access_control`]([[= symfony_doc =]]/security/access_control.html) feature. In your YAML configuration, under the `security` key, add an entry similar to the following one, which redirects requests to a login page:
 
     ```yaml
     security:
@@ -222,7 +222,7 @@ For example, if someone succeeds in injecting their JavaScript into your site, t
 
 - Run servers on a recent operating system and install security patches for dependencies.
 - Configure servers to alert you about security updates from vendors. Pay special attention to dependencies used by your project directly, or by PHP. The provider of the operating system usually has a service for this.
-- Enable [GitHub Dependabot](https://docs.github.com/en/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)
+- Enable [GitHub Dependabot](https://docs.github.com/en/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)
 to receive notifications when a security fix is released in a Github-hosted dependency.
 - If you're not using Github for your project, you can create a dummy project on Github with the same dependencies as your real project, and enable Dependabot notifications for that.
 - Ensure you get notifications about security fixes in JavaScript dependencies.

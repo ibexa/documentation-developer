@@ -166,7 +166,7 @@ and [shipping method PHP API](https://doc.ibexa.co/en/master/commerce/shipping_m
 - [Customizing checkout](https://doc.ibexa.co/en/master/commerce/checkout/customize_checkout/)
 - Extended [table reusable component documentation](https://doc.ibexa.co/en/master/administration/back_office/back_office_elements/reusable_components/#tables)
 - How to [add GraphQL support to custom Field Types](https://doc.ibexa.co/en/master/api/graphql/graphql_custom_ft/)
-- How to [customize Field Type metadata](https://doc.ibexa.co/en/master/content_management/customize_field_type_metadata/)
+- How to [customize Field Type metadata](https://doc.ibexa.co/en/master/content_management/field_types/customize_field_type_metadata/)
 
 ## February 2023
 

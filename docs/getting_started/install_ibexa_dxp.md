@@ -25,7 +25,7 @@ You can install it by following your favorite tutorial, for example: [Install LA
 
 Additional requirements:
 
-- [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/lang/en/docs/install/#debian-stable) for asset management.
+- [Node.js](https://nodejs.org/en) and [Yarn](https://classic.yarnpkg.com/en/docs/install/#debian-stable) for asset management.
 - `git` for version control.
 - to use search in the shop front end, you must [install a search engine](#install-and-configure-a-search-engine).
 
@@ -68,7 +68,7 @@ composer -V
 The site is password-protected. 
 You must set up authentication tokens to access the site.
 
-Log in to your service portal on [support.ibexa.co](https://support.ibexa.co), go to your **Service Portal**, and look for the following on the **Maintenance and Support agreement details** screen:
+Log in to your service portal on [support.ibexa.co](https://support.ibexa.co/), go to your **Service Portal**, and look for the following on the **Maintenance and Support agreement details** screen:
 
 ![Authentication token](using_composer_auth_token.png)
 
@@ -178,7 +178,7 @@ run the following command:
 
 !!! note "Platform.sh"
 
-    If you are deploying your installation on [Platform.sh](https://docs.platform.sh/frameworks/ibexa.html),
+    If you are deploying your installation on [Platform.sh](https://docs.platform.sh/guides/ibexa/deploy.html),
     run the following command:
     
     ``` bash
@@ -251,7 +251,7 @@ In `DATABASE_VERSION` you can also configure the database server version (for a 
 
 #### Install and configure a search engine
 
-You may choose to replace the [default search engine](search.md#legacy-search-engine) with either Solr or Elasticsearch.
+You may choose to replace the [default search engine](legacy_search_overview.md) with either Solr or Elasticsearch.
 
 !!! note "Shop front end requirement [[% include 'snippets/commerce_badge.md' %]]"
 
@@ -422,7 +422,7 @@ Finally, remove the temporary file:
 
 ### Enable the Link manager
 
-To make use of the [Link Manager](url_management.md#enable-automatic-url-validation).
+To make use of the [Link Manager](url_management.md#enabling-automatic-url-validation).
 
 #### JMS payment secret [[% include 'snippets/commerce_badge.md' %]]
 

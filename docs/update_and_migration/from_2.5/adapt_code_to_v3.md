@@ -35,7 +35,7 @@ In order to adapt, you'll need to move all your PHP code, such as controllers or
 
     Refactoring bundles for `src/` folder can involve extensive changes, if you want to make your `src/AppBundle` continue to work, follow [an Autoloading src/AppBundle guide on Symfony Casts](https://symfonycasts.com/screencast/symfony4-upgrade/flex-composer.json#autoloading-src-amp-src-appbundle).
     
-    You can also follow [Using a "path" Repository guide,](https://symfonycasts.com/screencast/symfony-bundle/extracting-bundle#using-a-path-repository) to create a [composer path repository.](https://getcomposer.org/doc/05-repositories.md#path)
+    You can also follow [Using a "path" Repository guide](https://symfonycasts.com/screencast/symfony-bundle/extracting-bundle#using-a-path-repository), to create a [composer path repository](https://getcomposer.org/doc/05-repositories.md#path).
     If you have several bundles you can move them into a `packages/` directory and load them all with:
     
     ```

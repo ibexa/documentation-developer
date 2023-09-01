@@ -13,7 +13,7 @@ that the buyer intends to purchase.
 The component exposes the following:
 
 - [PHP API](cart_api.md) that allows for managing carts and cart entries, or checking cart validity
-- [REST API](../../api/rest_api/rest_api_reference/rest_api_reference.html#managing-ecommerce-carts) that helps get cart and products information over HTTP
+- [REST API](../../api/rest_api/rest_api_reference/rest_api_reference.html#managing-commerce-carts) that helps get cart and products information over HTTP
 - [Twig functions](cart_twig_functions.md) that enable checking whether product can be added to cart and formatting the price
 
 There is no specific configuration related to the cart component.
@@ -139,7 +139,7 @@ document.addEventListener(
 ### Widgets
 
 [[= product_name =]] comes with a number of components that are interfaces to various functionalities exposed by the Cart.
-For a list of default components available in the storefront, see [Default UI components](../storefront/storefront.md#default-ui-components).
+For a list of default components available in the storefront, see [Default UI components](storefront.md#default-ui-components).
 
 To customize your store, you can override the Twig templates and extend their logic.
 For more information, see [Customize storefront layout](customize_storefront_layout.md).

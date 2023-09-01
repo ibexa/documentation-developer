@@ -101,7 +101,7 @@ This step generates Field values with fake personal names.
 
 ### Expression syntax
 
-You can use [Symfony expression syntax](https://symfony.com/doc/current/components/expression_language/syntax.html) in data migrations.
+You can use [Symfony expression syntax]([[= symfony_doc =]]/reference/formats/expression_language.html) in data migrations.
 It is especially useful in [repeatable steps](#repeatable-steps),
 where you can use it to generate varied content in migration steps.
 

@@ -14,7 +14,7 @@ When you work with your Commerce implementation, you can review and modify the p
 
 ## Configure payment workflow
 
-Payment workflow relies on a [Symfony Workflow](http://symfony.com/doc/5.4/components/workflow.html).
+Payment workflow relies on a [Symfony Workflow]([[= symfony_doc =]]/components/workflow.html).
 Each transition represents a separate payment step. 
 
 ### Default payment workflow configuration

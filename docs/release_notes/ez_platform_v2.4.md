@@ -172,7 +172,7 @@ You are now able to load multiple Locations at once, using `LocationService->loa
 
     ### Update eZ Enterprise v2.4 to v2.4.2
 
-    This release brings [full support for Map\Host matcher](https://jira.ez.no/browse/EZEE-2572) when SiteAccesses are configured for different domains.
+    This release brings [full support for Map\Host matcher](https://issues.ibexa.co/browse/EZEE-2572) when SiteAccesses are configured for different domains.
 
     Token-based authentication (based on JSON Web Token specification) replaced cookie-based authentication that did not work with SiteAccesses configured for a different domains in the Page Builder.
     Authentication mechanizm is enabled by default in v2.4.2, however, the following steps are required during upgrade from v2.4 to v2.4.2+ Enterprise installation:
@@ -208,7 +208,7 @@ You are now able to load multiple Locations at once, using `LocationService->loa
                  enabled: false
     ```
 
-    By default `HS256` is used as signature algorithm for generated token but we strongly recommend switching to SSH keys. For more information see [`LexikJWTAuthenticationBundle` installation instruction.](https://github.com/lexik/LexikJWTAuthenticationBundle/blob/master/Resources/doc/index.md#installation)
+    By default `HS256` is used as signature algorithm for generated token but we strongly recommend switching to SSH keys. For more information see [`LexikJWTAuthenticationBundle` installation instruction](https://github.com/lexik/LexikJWTAuthenticationBundle/blob/master/Resources/doc/index.md#installation).
 
     3\. Add `EzSystems\EzPlatformPageBuilder\Security\EditorialMode\TokenAuthenticator` authentication provider to `ezpublish_front` firewall before `form_login` in `app/config/security.yml`:
 

@@ -139,8 +139,8 @@ Content-Type: application/vnd.ibexa.api.Content+json
 
 !!! tip "More information about CORS"
 
-    - [CORS' W3C specification](http://www.w3.org/TR/cors/)
-    - [Overview of CORS on developer.mozilla.org](https://developer.mozilla.org/en-US/docs/HTTP/Access_control_CORS)
+    - [WHATWG's CORS Protocol specification](https://fetch.spec.whatwg.org/#cors-protocol)
+    - [Overview of CORS on developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
 
 CORS support is provided by the third party [nelmio/cors-bundle](https://packagist.org/packages/nelmio/cors-bundle). You can read more about it in [NelmioCorsBundle's README](https://github.com/nelmio/NelmioCorsBundle/blob/master/README.md).
 
@@ -155,7 +155,7 @@ To enable CORS, add regular expression for an allowed domain using the `.env` va
 For example, to allow the JS test above to be executed alongside this page, you could add the following to an `.env` file (like the `.env.local`): `CORS_ALLOW_ORIGIN=^https?://doc.ibexa.co`.
 
 To add several domains, filter on URIs, or change the default (like not allowing all the methods),
-refer to [NelmioCorsBundle Configuration Documentation](https://github.com/nelmio/NelmioCorsBundle/blob/master/README.md#configuration)
+refer to [NelmioCorsBundle Configuration Documentation](https://symfony.com/bundles/NelmioCorsBundle/current/index.html#configuration)
 to learn how to edit `config/packages/nelmio_cors.yaml`.
 
 ## Response body

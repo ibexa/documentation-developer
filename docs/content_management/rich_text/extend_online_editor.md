@@ -389,7 +389,7 @@ Online Editor toolbar through configuration:
 For each button you can set `priority`, which defines the order of buttons in 
 the toolbar.
 
-For a full list of standard buttons, see the RichText module's [configuration file](https://github.com/ibexa/richtext/blob/main/src/bundle/Resources/config/prepend/ezpublish.yaml)
+For a full list of standard buttons, see the RichText module's [configuration file](https://github.com/ibexa/fieldtype-richtext/blob/main/src/bundle/Resources/config/prepend/ezpublish.yaml)
 
 ## Add CKEditor plugins
 
@@ -454,7 +454,7 @@ ibexa:
 
 Build the assets and clear the cache by running `composer run-script auto-scripts`.
 
-For more information, see [CKEditor plugins documentation](https://ckeditor.com/docs/ckeditor5/latest/installation/advanced/plugins.html).
+For more information, see [CKEditor plugins documentation](https://ckeditor.com/docs/ckeditor5/latest/installation/plugins/plugins.html).
 
 ## Change CKEditor configuration
 

@@ -27,7 +27,7 @@ while LTS releases are suitable for highly stable enterprise rollouts.
 
 ## Versioning conventions
 
-All [[= product_name =]] editions use [semantic versioning](http://semver.org/).  
+All [[= product_name =]] editions use [semantic versioning](https://semver.org/).  
 
 The version number of [[= product_name =]] and all its internal components follows the semantic versioning conventions: vX.Y.Z.
 

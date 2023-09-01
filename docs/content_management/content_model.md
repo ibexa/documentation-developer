@@ -12,7 +12,7 @@ Each Content item is an instance of a Content Type.
 
 !!! tip
 
-    An introduction to the content model for non-developer users is available in [[[= product_name =]] user documentation](https://doc.ibexa.co/projects/userguide/en/latest/content_model/).
+    An introduction to the content model for non-developer users is available in [[[= product_name =]] user documentation](https://doc.ibexa.co/projects/userguide/en/latest/content_management/content_model/).
 
 ## Content items
 
@@ -41,7 +41,7 @@ The name is in the main language of the Content item.
 **`sectionId`** - the unique number of the Section to which the Content item belongs.
 New Content items are placed in the Standard Section by default.
 This behavior can be changed, but content must always belong to some Section.
-See [Sections](admin_panel.md#sections) for more information.
+See [Sections](sections.md) for more information.
 
 **`currentVersionNo`** - current version number is the number of the published version or of a newly created draft (which is 1).
 
@@ -58,7 +58,7 @@ This is set by the system and cannot be modified manually, but will change every
 This is set by the system and cannot be modified.
 
 **`alwaysAvailable`** - indicates if the Content item is shown in the main language when it's not present in another requested language.
-It is [set per Content Type](#default-content-availability).
+It is [set per Content Type](content_availability.md).
 
 **`remoteId`** - a global unique ID of the Content item.
 Accepts up to 100 characters. Cannot contain non-printable characters and control sequences (anything in ASCII range `\x00` - `\x1F`).

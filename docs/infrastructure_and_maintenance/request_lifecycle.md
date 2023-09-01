@@ -89,7 +89,7 @@ calls `Ibexa\Core\MVC\Symfony\Routing\ChainRouter::matchRequest` and adds its re
 
 #### `ChainRouter`
 
-The [`ChainRouter`](https://symfony.com/doc/current/cmf/components/routing/chain.html) is a Symfony Content Management Framework (CMF) component. [[= product_name =]] makes it a service named `Ibexa\Core\MVC\Symfony\Routing\ChainRouter`.
+The [`ChainRouter`](https://symfony.com/bundles/CMFRoutingBundle/current/routing-component/chain.html) is a Symfony Content Management Framework (CMF) component. [[= product_name =]] makes it a service named `Ibexa\Core\MVC\Symfony\Routing\ChainRouter`.
 It has a collection of prioritized routers where to find one matching the request.
 The `ChainRouter` router collection is built by the `ChainRoutingPass`, collecting the services tagged `router`.
 The `DefaultRouter` is always added to the collection with top priority (priority 255).
@@ -153,7 +153,7 @@ The `HttpKernel` then dispatches a `kernel.controller_arguments` (`KernelEvents:
 
 ## Controller execution
 
-The `HttpKernel` extracts from the request the controller and the arguments to pass to the controller. [Argument resolvers](https://symfony.com/doc/current/controller/argument_value_resolver.html) work in a way similar to autowiring.
+The `HttpKernel` extracts from the request the controller and the arguments to pass to the controller. [Argument resolvers](https://symfony.com/doc/5.4/controller/argument_value_resolver.html) work in a way similar to autowiring.
 The `HttpKernel` executes the controller with those arguments.
 
 As a reminder, the controller and its argument can be:
@@ -164,7 +164,7 @@ As a reminder, the controller and its argument can be:
 
 !!! caution "Permission control"
 
-    See [Permissions for custom controller](permissions.md#permissions-for-custom-controllers).
+    See [Permissions for custom controller](permission_overview.md#permissions-for-custom-controllers).
 
 
 ## Kernel's view event and `ContentView` rendering

@@ -32,7 +32,7 @@ as the hash lookup itself is cached by the cache proxy as described below.
 
 ### User context hash caching
 
-Example of a response sent to reverse proxy from `/_fos_user_context_hash` with [[[= product_name =]]'s default config](#default-options-for-FOSHttpCacheBundle-defined-in-ibexa-dxp):
+Example of a response sent to reverse proxy from `/_fos_user_context_hash` with [[[= product_name =]]'s default config](#default-options-for-foshttpcachebundle):
 
 ```
 HTTP/1.1 200 OK
@@ -68,6 +68,7 @@ It also varies on `Authorization` to cover any possible basic authorization head
 
 !!! caution "Default options for FOSHttpCacheBundle"
 
+    <a name="default-options-for-foshttpcachebundle"></a>
     The following configuration is defined by default for FOSHttpCacheBundle.
     You should not override these settings unless you know what you are doing.
 
@@ -125,7 +126,7 @@ This solution requires more effort (controller, VCL logic and adapting your own 
     If you need to handle a paywall on a per-item basis, or example, do a
     lookup to backend for each URL where this is relevant.
 
-    You can find an example for paywall authorization in [FOSHTTPCache documentation.](https://foshttpcache.readthedocs.io/en/latest/user-context.html#alternative-for-paywalls-authorization-request)
+    You can find an example for paywall authorization in [FOSHTTPCache documentation](https://foshttpcache.readthedocs.io/en/latest/user-context.html#alternative-for-paywalls-authorization-request).
 
 ### Best practices for custom vary by logic
 
@@ -151,7 +152,7 @@ needs, and adapt the user context hash VCL logic to use the additional header.
 
 To avoid overloading any application code, take advantage of Symfony's event system:
 
-1\. Add a [Response event (`kernel.response`)](https://symfony.com/doc/5.4/reference/events.html#kernel-response) [listener or subscriber](https://symfony.com/doc/5.4/event_dispatcher.html) to add your own hash to `/_fos_user_context_hash`:
+1\. Add a [Response event (`kernel.response`)]([[= symfony_doc =]]/reference/events.html#kernel-response) [listener or subscriber]([[= symfony_doc =]]/event_dispatcher.html) to add your own hash to `/_fos_user_context_hash`:
 
 ```php
 public function addPreferenceHash(FilterResponseEvent $event)
