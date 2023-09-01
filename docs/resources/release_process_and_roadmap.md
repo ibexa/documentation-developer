@@ -19,7 +19,7 @@ It comes with no commercial support and maintenance services.
 
 We manage the release of [[= product_name =]] using an agile iterative process and a continuous software development model, which is why we provide two kinds of [[= product_name =]] releases:
 
-- Long Term Support releases (LTS) which are supported by Ibexa for a long period of time (see [support lifecycle below](#support-lifecycle)).
+- Long Term Support releases (LTS) which are supported by Ibexa for a long period of time.
 - Fast Track releases (FT) give access to the latest features and are supported for a short period of time. They are maintained only until the next FT release is introduced.
 
 FT releases are tailored for those who want to stay up-to-date with newest functionalities,
