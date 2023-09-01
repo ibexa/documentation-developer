@@ -318,10 +318,23 @@ symfony serve
 
 ## Prepare installation for development
 
-Consider adding the Symfony Debug bundle which fixes memory outage when dumping objects with circular references.
+Consider adding the Symfony DebugBundle which fixes memory outage when dumping objects with circular references.
+The DebugBundle contains the [VarDumper](https://symfony.com/doc/current/components/var_dumper.html) and [its Twig integration](https://symfony.com/doc/current/components/var_dumper.html#debugbundle-and-twig-integration).
 
 ``` bash
 composer require --dev symfony/debug-bundle
+```
+
+For detailed information about request treatment, you can install Symfony Profiler (which might slow down the application):
+
+``` bash
+composer require --dev symfony/profiler-pack
+```
+
+To get all those features in one go:
+
+``` bash
+composer require --dev symfony/debug-pack
 ```
 
 ## Prepare installation for production
