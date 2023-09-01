@@ -9,7 +9,7 @@ eZ Platform has two distributions:
 
 We manage the release of eZ Platform using an agile iterative process and a continuous software development model, which is why we provide two kinds of eZ Platform releases:
 
-- Long Term Support releases (LTS) which are supported by Ibexa for a long period of time (see [support lifecycle below](#support-lifecycle)), for eZ Enterprise subscribers.
+- Long Term Support releases (LTS) which are supported by Ibexa for a long period of time, for eZ Enterprise subscribers.
 - Fast Track releases (FT) give access to the latest features and are supported for a short period of time. They are maintained only until the next FT release is introduced. These are supported for both the open source community and eZ Enterprise subscribers.
 
 FT releases are tailored for those who want to stay up-to-date with newest functionalities,
