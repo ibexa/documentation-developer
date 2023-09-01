@@ -6,7 +6,7 @@ page_type: reference
 # Bundles
 
 A bundle in Symfony (and [[= product_name =]]) is a separate part of your application that implements a feature.
-You can create bundles yourself or make use of available open-source bundles.
+You can [create bundles yourself](package_structure.md) or make use of available open-source bundles.
 You can also reuse the bundles you create in other projects or share them with the community.
 
 Many [[= product_name =]] functionalities are provided through separate bundles included in the installation.
