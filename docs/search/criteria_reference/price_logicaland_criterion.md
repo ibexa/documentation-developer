@@ -19,7 +19,7 @@ The `LogicalAnd` Search Criterion matches prices if all provided Criteria match.
 $query->query = new \Ibexa\Contracts\ProductCatalog\Values\Price\Query\Criterion\LogicalAnd(
     [
         new \Ibexa\Contracts\ProductCatalog\Values\Price\Query\Criterion\Currency('USD'),
-        new \Ibexa\Contracts\ProductCatalog\Values\Price\Query\Criterion\IsCustomPrice('custom', 'customer_group_1')
+        new \Ibexa\Contracts\ProductCatalog\Values\Price\Query\Criterion\IsCustomPrice()
     ]
 );
 ```
