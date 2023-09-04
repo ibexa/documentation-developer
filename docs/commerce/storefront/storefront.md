@@ -16,6 +16,7 @@ You can modify them when you build your own web store.
 
 | Component | Description |
 |------------|----------|
+|Cancel order|Allows logged in users to cancel their orders in a pending status.|
 | Cart summary | Displays a subtotal net value of cart lines, a shipping cost disclaimer, a series of tax values applicable to products in cart, a composition of different taxes, and a total cart value (gross, shipping and taxes included). |
 | Checkout | Displays a series of screens that allow buyers to place an order for cart items. |
 | Currency menu | Enables selecting between currencies, to dynamically change the contents of the product listing page. |
@@ -23,10 +24,13 @@ You can modify them when you build your own web store.
 | Login/register page |  Provides user interface for the login/registration page that enables buyers to access the Product catalog.|
 | Main cart component | Main UI component of the cart. Displays a list of items selected for purchase and requested cart item quantities. Users can remove individual items. |
 | Mini cart widget | Consists of a counter that displays a total number of items added to a cart. |
+|Orders list|Displays a list of orders with such information as status, date, value, order ID. |
 | Product category page | Displays products that belong to a specific category. |
 | Product filters component | Allows for narrowing the list of products displayed in the listing by using different filters, such as product type, availability and price. |
 | Product listing page | Allows for browsing through products, displays product name, code, price, and image. |
 | Region menu | Enables selecting between regions, to dynamically change the contents of the product listing page. | 
+| Reorder |Allows logged in users to repurchase previously bought items. |
+|Searching and filtering of orders| Allows logged in users to search and filter their past orders on the orders page.|
 | Search for specific product component | Allows for searching for products, for example on the product listing page. |
 | Sort products component | Enables sorting products based on different criteria on a product listing page. |
 

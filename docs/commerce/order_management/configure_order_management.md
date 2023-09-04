@@ -43,6 +43,20 @@ Then reference it with `ibexa.repositories.<your_repository>.order_management.wo
 [[= include_file('code_samples/front/shop/order-management/config/packages/ibexa.yaml', 69, 74) =]]
 ```
 
+### Define cancel order
+
+You can define a status and transition in which the order can be cancelled 
+by modifying workflow under the `framework.workflows` [configuration key](configuration.md#configuration-files).
+
+```yaml
+framework:
+    workflows:
+        ibexa_order:
+            metadata:
+                cancel_status: !php/const Ibexa\OrderManagement\Value\Status::CANCELLED_PLACE
+                cancel_transition: !php/const Ibexa\OrderManagement\Value\Status::CANCEL_TRANSITION
+```
+
 ### PIM integration
 
 By default, the component integration mechanism reduces product stock values when an order is made (in status "pending") and reverts it to the original value when an order is cancelled.

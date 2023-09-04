@@ -35,26 +35,93 @@ Customers can use the following workflow to specify orders they want to reorder 
 
 8\. The customer pays for the order and completes the workflow.
 
-## Validation
-
-
-
 ## Configuration
 
-Reorder is part of checkout and as such has the same configuration.
-Below you 
+Reorder is part of checkout and as such has the same [configuration](configure_checkout.md) and [customization](customize_checkout.md) options as checkout.
+Below, you will find a few examples that demonstrate how you can modify this feature.
 
-### Workflow
+### Customize reorder
 
 You can modify workflow under the `framework.workflows` [configuration key](configuration.md#configuration-files).
-Each workflow definition consists of a series of steps as well as a series of transitions between the steps. 
-
+Each workflow definition consists of a series of steps as well as a series of transitions between the steps.
+Below example shows how to set up `can_be_reordered` flag for specific order statuses.
 
 ```yaml
 framework:
     workflows:
         ibexa_order:
-            metadata:
-                cancel_status: !php/const Ibexa\OrderManagement\Value\Status::CANCELLED_PLACE
-                cancel_transition: !php/const Ibexa\OrderManagement\Value\Status::CANCEL_TRANSITION
+            places:
+                !php/const Ibexa\OrderManagement\Value\Status::COMPLETED_PLACE:
+                    metadata:
+                        ...
+                        can_be_reordered: true
+                !php/const Ibexa\OrderManagement\Value\Status::CANCELLED_PLACE:
+                    metadata:
+                        ...
+                        can_be_reordered: true
+
 ```
+
+## Reorder PHP API
+
+You can manage and modify reorder with a dedicated checkout and cart PHP API.
+
+### Checkout PHP API
+
+Reorder comes with dedicated `Ibexa\Contracts\Checkout\Reorder\ReorderService` interface.
+You can use it to manage reorders in your project.
+The following methods can be used to modify the reorder flow to fit your business needs:
+
+#### `ReorderService:addToCartFromOrder` 
+
+Allows you to add items from a previous order to a cart.
+It uses historic data from previously ordered items even if they are no longer available.
+Those items are validated against available stock.
+The method uses the following parameters:
+
+- `$order` (OrderInterface) - the source order from which items will be added to the cart
+- `$reorderCart` (CartInterface) - the shopping cart to which items will be added
+
+Return value:
+
+- `CartInterface` - The modified shopping cart containing the items from the order
+
+#### `ReorderService:copyContext`
+
+Copies context information from a source order to a target checkout.
+This can include additional information or settings associated with the source order, for example, address.
+The method uses the following parameters:
+
+- `$sourceOrder` (OrderInterface) - the source order from which context will be copied
+- `$targetCheckout` (CheckoutInterface) - the target checkout to which context will be copied
+
+#### `ReorderService:createReorderCart` 
+
+Creates a new shopping cart for reordering items from a past order in the same currency.
+The method uses the following parameters:
+
+- `$order` (OrderInterface) - The order for which a reorder cart is being created
+- `$newCartName` (optional string) - An optional name for the new cart
+
+Return value:
+
+- `CartInterface` - The newly created shopping cart.
+
+#### `ReorderService:canBeReordered`
+
+Checks if a given order can be reordered.
+It evaluates criteria such as the order's status to determine reorder eligibility.
+The method uses the following parameters:
+
+- `$order` (OrderInterface) - reorder eligibility
+
+Return value:
+
+- `bool` - true if the order can be reordered; otherwise, false
+
+For more information on how to modify checkout, see [Checkout API documentation](checkout_api.md).
+
+### Cart PHP API
+
+Reorder also facilitates `Ibexa\Contracts\Cart\CartServiceInterface` interface `mergeCarts` method.
+For more information on it, see [Cart API documentation](cart_api.md#merge-cart).

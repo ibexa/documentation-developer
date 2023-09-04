@@ -151,3 +151,14 @@ and provide it with `Ibexa\Contracts\Cart\Value\EntryUpdateStruct`.
 [[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 119, 120) =]]
 [[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 124, 132) =]]
 ```
+
+## Merge carts
+
+To combine the contents of multiple shopping carts into a target cart, you can use the `CartServiceInterface::mergeCarts` method. 
+This operation is helpful when you want to consolidate items from a reorder cart and a current cart into a single order.
+
+```php
+[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 138, 142) =]]
+[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 142, 149) =]]
+[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 149, 152) =]]
+```

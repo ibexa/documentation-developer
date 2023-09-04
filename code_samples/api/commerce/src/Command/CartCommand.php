@@ -13,6 +13,7 @@ use Ibexa\Contracts\Cart\Value\EntryUpdateStruct;
 use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\ProductCatalog\CurrencyServiceInterface;
 use Ibexa\Contracts\ProductCatalog\ProductServiceInterface;
+use Ibexa\Core\Base\Exceptions\InvalidArgumentException;
 use Ibexa\Core\Repository\Permission\PermissionResolver;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -135,5 +136,19 @@ final class CartCommand extends Command
         $this->cartService->deleteCart($cart);
 
         return self::SUCCESS;
+
+        // Get the target cart
+        $order = $this->orderService->getOrderByIdentifier($orderIdentifier);
+
+        // Get the carts to merge
+        $existingCart = $this->cartResolver->resolveCart();
+
+        $reorderCart = $this
+            ->reorderService
+            ->addToCartFromOrder($order, $this->reorderService->createReorderCart($order));
+
+        // Merge the carts into the target cart and delete the merged carts
+        $reorderCart = $this->cartService->mergeCarts($reorderCart, true, $existingCart);
+
     }
 }
