@@ -34,6 +34,10 @@ Create the command in `src/Command/ViewCommand.php`:
 [[= include_file('code_samples/front/render_content_in_php/src/Command/ViewCommand.php') =]]
 ```
 
+!!! caution
+
+    As `Ibexa\Core\MVC\Symfony\View\Builder\ContentViewBuilder` and `Ibexa\Core\MVC\Symfony\View\Renderer\TemplateRenderer` are not part of the public API's `Ibexa\Contracts` namespace, they might change without notice.
+
 Use the command with some simple views:
 
 ```bash
