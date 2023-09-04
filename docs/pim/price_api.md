@@ -29,26 +29,35 @@ To manage prices, use `ProductPriceService`.
 To retrieve the price of a product in the currency for the current context, use `Product::getPrice()`:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 59, 62) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 63, 66) =]]
 ```
 
 To retrieve the price of a product in a specific currency, use `ProductPriceService::getPriceByProductAndCurrency`:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 63, 66) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 67, 70) =]]
 ```
 
 To get all prices (in different currencies) for a given product, use `ProductPriceService::findPricesByProductCode`:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 79, 83) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 83, 87) =]]
+```
+
+To load price definitions that match given criteria, use `ProductPriceServiceInterface::findPrices`:
+
+``` php
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 10, 14) =]]
+
+// ...
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 88, 98) =]]
 ```
 
 You can also use `ProductPriceService` to create or modify existing prices.
 For example, to create a new price for a given currency, use `ProductPriceService::createProductPrice` and provide it with a `ProductPriceCreateStruct` object:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 70, 76) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 74, 80) =]]
 ```
 
 !!! note
