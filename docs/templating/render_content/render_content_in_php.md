@@ -1,5 +1,5 @@
 ---
-description: Render the content from PHP and get the HTML as a string.
+description: Render Content item from PHP and get the resulting HTML as a string.
 ---
 
 # Render content in PHP
