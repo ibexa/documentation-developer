@@ -4,20 +4,18 @@ description: Price Currency Criterion
 
 # Price Currency Criterion
 
-The `Currency` Search Criterion searches for prices based on the given currency.
+The `Currency` Search Criterion searches for prices based on the currency code.
 
 ## Arguments
 
-- `currency` - a `CurrencyInterface` object that represents the currency (`Ibexa\Contracts\ProductCatalog\Values\CurrencyInterface`)
+- `currency_id` - a string currency code
 
 ## Example
 
 ### PHP
 
 ``` php
-$currency = $priceService->getPriceById(123);
-
 $query = new PriceQuery( 
-    new \Ibexa\Contracts\ProductCatalog\Values\Price\Query\Criterion\Currency($currency)
+    new \Ibexa\Contracts\ProductCatalog\Values\Price\Query\Criterion\Currency('USD')
 );
 ```

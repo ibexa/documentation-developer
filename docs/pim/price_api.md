@@ -29,28 +29,28 @@ To manage prices, use `ProductPriceService`.
 To retrieve the price of a product in the currency for the current context, use `Product::getPrice()`:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 67, 70) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 63, 66) =]]
 ```
 
 To retrieve the price of a product in a specific currency, use `ProductPriceService::getPriceByProductAndCurrency`:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 71, 74) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 67, 70) =]]
 ```
 
 To get all prices (in different currencies) for a given product, use `ProductPriceService::findPricesByProductCode`:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 87, 91) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 83, 87) =]]
 ```
 
 To load price definitions that match given criteria, use `ProductPriceServiceInterface::findPrices`:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 12, 16) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 10, 14) =]]
 
 // ...
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 92, 102) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 88, 98) =]]
 ```
 
 You can also use `ProductPriceService` to create or modify existing prices.
@@ -65,25 +65,6 @@ For example, to create a new price for a given currency, use `ProductPriceServic
     Prices operate using the [`Money`](https://github.com/moneyphp/money) library.
     That is why all amounts are provided [in the smallest unit](https://www.moneyphp.org/en/stable/getting-started.html#instantiation).
     For example, for euro `50000` refers to 50000 cents, equal to 50 euros.
-
-### Resolve prices
-
-To display a product price on a product page or in the cart, you must calculate its value based on a base price and the context, where context is information whether any price modifiers that might be applied in relation to a customer group exist.
-To obtain the final price, or resolve the price, use the `PriceResolverInterface` service, which uses the following logic:
-
-1. Checks whether a price exists for the product and currency, returns null if no such price exists.
-2. Verifies whether a customer group-related modifier exists:
-    1. If yes, it returns a custom price that is valid for the selected customer group.
-    2. If not, it returns a base product price in the selected currency.
-
-To resolve a price of a product in the currency for the current context, use either `PriceResolverInterface::resolvePrice()` or `PriceResolverInterface::resolvePrices()`:
-
-``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 7, 8) =]][[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 11, 12) =]]
-
-// ...
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 103, 107) =]]
-```
 
 ## VAT
 

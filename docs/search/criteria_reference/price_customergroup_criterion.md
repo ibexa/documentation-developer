@@ -4,20 +4,18 @@ description: Price CustomerGroup Criterion
 
 # Price CustomerGroup Criterion
 
-The `CustomerGroup` Search Criterion searches for prices based on the customer group.
+The `CustomerGroup` Search Criterion searches for prices based on the customer group ID.
 
 ## Arguments
 
-- `customer_group` - a `CustomerGroupInterface` object that represents the customer group (`Ibexa\Contracts\ProductCatalog\Values\CustomerGroupInterface`)
+- `customer_group_id` - an int representing the customer group ID
 
 ## Example
 
 ### PHP
 
 ``` php
-$customerGroup = $customerGroupService->getCustomerGroup(123);
-
 $query = new PriceQuery( 
-    new \Ibexa\Contracts\ProductCatalog\Values\Price\Query\Criterion\CustomerGroup($customerGroup)
+    new \Ibexa\Contracts\ProductCatalog\Values\Price\Query\Criterion\CustomerGroup(1)
 );
 ```

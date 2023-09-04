@@ -8,7 +8,8 @@ The `IsCustomPrice` Search Criterion searches for prices that are custom prices.
 
 ## Arguments
 
-This Criterion takes no arguments.
+- `type` - string that represents a price type
+- `customer_group` - string that represents a Customer Group code that the custom price applies to
 
 ## Limitations
 
@@ -20,6 +21,6 @@ The `IsCustomPrice` Criterion is not available in Solr or Elasticsearch engines.
 
 ``` php
 $query = new PriceQuery( 
-    new \Ibexa\Contracts\ProductCatalog\Values\Price\Query\Criterion\IsCustomPrice()
+    new \Ibexa\Contracts\ProductCatalog\Values\Price\Query\Criterion\IsCustomPrice('custom', 'customer_group_1')
 );
 ```
