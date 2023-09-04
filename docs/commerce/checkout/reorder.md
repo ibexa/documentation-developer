@@ -102,7 +102,7 @@ The method uses the following parameters:
 
 Return value:
 
-- `CartInterface` - The modified shopping cart containing the items from the order
+- `CartInterface` - the modified shopping cart containing the items from the order
 
 #### `ReorderService:copyContext`
 
@@ -118,12 +118,12 @@ The method uses the following parameters:
 Creates a new shopping cart for reordering items from a past order in the same currency.
 The method uses the following parameters:
 
-- `$order` (OrderInterface) - The order for which a reorder cart is being created
-- `$newCartName` (optional string) - An optional name for the new cart
+- `$order` (OrderInterface) - the order for which a reorder cart is being created
+- `$newCartName` (optional string) - an optional name for the new cart
 
 Return value:
 
-- `CartInterface` - The newly created shopping cart.
+- `CartInterface` - the newly created shopping cart
 
 #### `ReorderService:canBeReordered`
 
