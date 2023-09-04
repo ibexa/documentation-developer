@@ -325,7 +325,7 @@ The DebugBundle contains the [VarDumper](https://symfony.com/doc/5.4/components/
 composer require --dev symfony/debug-bundle
 ```
 
-For detailed information about request treatment, you can install [Symfony Profiler](https://symfony.com/doc/5.4/profiler.html) (which might slow down the application):
+For detailed information about request treatment, you can eventually install [Symfony Profiler](https://symfony.com/doc/5.4/profiler.html):
 
 ``` bash
 composer require --dev symfony/profiler-pack
