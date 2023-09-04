@@ -91,7 +91,7 @@ final class ProductPriceCommand extends Command
             new CustomerGroup('customer_group_1'),
             new Product('ergo_desk'),
         ];
-        
+
         $priceQuery = new PriceQuery(new LogicalOr(...$priceCriterions));
         $prices = $this->priceService->findPrices($priceQuery);
 
