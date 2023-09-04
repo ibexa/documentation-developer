@@ -44,6 +44,7 @@ Below, you will find a few examples that demonstrate how you can modify this fea
 
 You can modify workflow under the `framework.workflows` [configuration key](configuration.md#configuration-files).
 Each workflow definition consists of a series of steps as well as a series of transitions between the steps.
+
 Below example shows how to set up `can_be_reordered` flag for specific order statuses.
 
 ```yaml
@@ -60,6 +61,23 @@ framework:
                         ...
                         can_be_reordered: true
 
+```
+
+The next example shows how to hide a step during checkout in reorder workflow.
+
+```yaml hl_lines="14"
+framework:
+    workflows:
+        ibexa_checkout:
+            transitions:
+                select_address:
+                    metadata:
+                        next_step: select_shipping
+                        controller: Ibexa\Bundle\Checkout\Controller\CheckoutStep\AddressStepController::renderStepView
+                        label: 'Billing & shipping address'
+                        translation_domain: checkout
+                        physical_products_step: true
+                        hidden: true
 ```
 
 ## Reorder PHP API
