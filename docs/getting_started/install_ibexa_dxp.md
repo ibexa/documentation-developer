@@ -331,7 +331,7 @@ For detailed information about request treatment, you can eventually install [Sy
 composer require --dev symfony/profiler-pack
 ```
 
-To get both features in one go:
+To get both features in one go use:
 
 ``` bash
 composer require --dev symfony/debug-pack
