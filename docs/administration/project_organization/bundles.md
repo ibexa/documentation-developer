@@ -106,7 +106,7 @@ see the [How to Remove a Bundle]([[= symfony_doc =]]/bundles/remove.html) instru
 
 |Bundle|Description|
 |---------|-----------|
-|ibexa/headless|Ibexa Headless packages|
+|ibexa/headless|Metapackage for Symfony Flex-based [[= product_name =]] Headless installation|
 |ibexa/corporate-account|Customer portal and corporate accounts|
 |ibexa/fieldtype-address|Address handling Field Type|
 |ibexa/form-builder|Enables creating Form Content items with multiple form fields|
@@ -121,7 +121,7 @@ see the [How to Remove a Bundle]([[= symfony_doc =]]/bundles/remove.html) instru
 
 |Bundle|Description|
 |---------|-----------|
-|ibexa/experience|Ibexa Experience packages|
+|ibexa/experience|Metapackage for Symfony Flex-based [[= product_name =]] Experience installation|
 |ibexa/cart|Main store functionalities|
 |ibexa/checkout|Store checkout functionality|
 |ibexa/storefront|A store front starting kit|
