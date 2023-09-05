@@ -38,7 +38,7 @@ Customers can use the following workflow to specify orders they want to reorder 
 ## Configuration
 
 Reorder is part of checkout and as such has the same [configuration](configure_checkout.md) and [customization](customize_checkout.md) options as checkout.
-Below, you will find a few examples that demonstrate how you can modify this feature.
+Below, you can find a few examples that demonstrate how you can modify this feature.
 
 ### Customize reorder
 
@@ -97,8 +97,8 @@ It uses historic data from previously ordered items even if they are no longer a
 Those items are validated against available stock.
 The method uses the following parameters:
 
-- `$order` (OrderInterface) - the source order from which items will be added to the cart
-- `$reorderCart` (CartInterface) - the shopping cart to which items will be added
+- `$order` (OrderInterface) - the source order from which items are added to the cart
+- `$reorderCart` (CartInterface) - the shopping cart to which items are added
 
 Return value:
 
@@ -110,8 +110,8 @@ Copies context information from a source order to a target checkout.
 This can include additional information or settings associated with the source order, for example, address.
 The method uses the following parameters:
 
-- `$sourceOrder` (OrderInterface) - the source order from which context will be copied
-- `$targetCheckout` (CheckoutInterface) - the target checkout to which context will be copied
+- `$sourceOrder` (OrderInterface) - the source order from which context is copied
+- `$targetCheckout` (CheckoutInterface) - the target checkout to which context is copied
 
 #### `ReorderService:createReorderCart` 
 
@@ -135,7 +135,7 @@ The method uses the following parameters:
 
 Return value:
 
-- `bool` - true if the order can be reordered; otherwise, false
+- `bool` - true if the order can be reordered, otherwise, false
 
 For more information on how to modify checkout, see [Checkout API documentation](checkout_api.md).
 
