@@ -316,6 +316,27 @@ You can also use [Symfony CLI](https://symfony.com/download):
 symfony serve
 ```
 
+## Prepare installation for development
+
+Consider adding the Symfony DebugBundle which fixes memory outage when dumping objects with circular references.
+The DebugBundle contains the [VarDumper]([[= symfony_doc =]]/components/var_dumper.html) and [its Twig integration]([[= symfony_doc =]]/components/var_dumper.html#debugbundle-and-twig-integration).
+
+``` bash
+composer require --dev symfony/debug-bundle
+```
+
+For detailed information about request treatment, you can eventually install [Symfony Profiler]([[= symfony_doc =]]/profiler.html):
+
+``` bash
+composer require --dev symfony/profiler-pack
+```
+
+To get both features in one go use:
+
+``` bash
+composer require --dev symfony/debug-pack
+```
+
 ## Prepare installation for production
 
 To use [[= product_name =]] with an HTTP server, you need to [set up directory permissions](#set-up-permissions) and [prepare a virtual host](#set-up-virtual-host).
