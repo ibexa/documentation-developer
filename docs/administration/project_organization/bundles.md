@@ -74,7 +74,7 @@ see the [How to Remove a Bundle]([[= symfony_doc =]]/bundles/remove.html) instru
 |---------|-----------|
 |ibexa/oss|Core packages|
 |ibexa/content-tree|Content Tree functionality|
-|ibexa/connect|[Ibexa Connect](ibexa_connect.md)|
+|ibexa/connect|[Ibexa Connect](https://doc.ibexa.co/projects/connect/en/latest/)|
 |ibexa/calendar|Calendar tab with a calendar widget|
 |ibexa/connector-dam|Connector for DAM (Digital Asset Management) systems|
 |ibexa/elasticsearch|Integration with Elasticsearch search engine|
