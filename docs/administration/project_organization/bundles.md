@@ -51,7 +51,6 @@ see the [How to Remove a Bundle]([[= symfony_doc =]]/bundles/remove.html) instru
 |[ibexa/content-forms](https://github.com/ibexa/content-forms)|Form-based integration for the Symfony Forms into Content and User objects in kernel|
 |[ibexa/core](https://github.com/ibexa/core)|Core of the [[= product_name =]] application|
 |[ibexa/core-persistence](https://github.com/ibexa/core-persistence)|Core system persistence|
-|[ibexa/core-extensions](https://github.com/ibexa/core-extensions)|Core system functionalities|
 |[ibexa/cron](https://github.com/ibexa/cron)|Cron package for use with the `ibexa:cron:run` command|
 |[ibexa/design-engine](https://github.com/ibexa/design-engine)|[Design fallback system](design_engine.md)|
 |[ibexa/doctrine-schema](https://github.com/ibexa/doctrine-schema)| Basic abstraction layer for cross-DBMS schema import|
