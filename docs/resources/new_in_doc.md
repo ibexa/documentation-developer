@@ -6,6 +6,45 @@ description: Overview of major recent additions to Ibexa DXP documentation.
 
 This page contains recent highlights and notable changes in Ibexa DXP documentation.
 
+## August 2023
+
+### New home page
+
+- Redesigned [home page for the user documentation](https://doc.ibexa.co/projects/userguide/en/latest/)
+
+### Administration
+
+- [Install [[= product_name =]] with DDEV](https://doc.ibexa.co/en/master/getting_started/install_with_ddev/)
+- [Update from v3.3.x to v3.3.latest](https://doc.ibexa.co/en/master/update_and_migration/from_3.3/update_from_3.3/)
+
+### Commerce
+
+- [Importing data](https://doc.ibexa.co/en/master/content_management/data_migration/importing_data/#commerce)
+- Cart
+    - [Quick order](https://doc.ibexa.co/en/master/commerce/cart/quick_order/)
+- Checkout
+    - [Create custom strategy](https://doc.ibexa.co/en/master/commerce/checkout/customize_checkout/#create-custom-strategy)
+- Payments
+    - [Implement payment method filtering](https://doc.ibexa.co/en/master/commerce/payment/payment_method_filtering/)
+    - [Filter payment methods](https://doc.ibexa.co/projects/userguide/en/master/commerce/payment/work_with_payment_methods/#edit-existing-payment-method)
+- Shipping
+    - [Extend shipping](https://doc.ibexa.co/en/master/commerce/shipping_management/extend_shipping/)
+    - [Filter shipping methods](https://doc.ibexa.co/projects/userguide/en/master/commerce/shipping_management/work_with_shipping_methods/#filter-shipping-methods)
+
+### Online Editor
+
+- [Add CKEditor plugins](https://doc.ibexa.co/en/master/content_management/rich_text/extend_online_editor/#add-ckeditor-plugins)
+
+### PIM
+
+- [Custom name schema strategy](https://doc.ibexa.co/en/master/pim/create_custom_name_schema_strategy/)
+- [IsVirtual Search Criterion](https://doc.ibexa.co/en/master/search/criteria_reference/isvirtual_criterion/)
+
+### Security
+
+- [Hidden state clarification](https://doc.ibexa.co/en/master/infrastructure_and_maintenance/security/security_checklist/#do-not-use-hide-for-read-access-restriction)
+- [Add timeouts information](https://doc.ibexa.co/en/master/infrastructure_and_maintenance/security/security_checklist/#protect-against-brute-force-attacks)
+
 ## July 2023
 
 ### v4.5.1
