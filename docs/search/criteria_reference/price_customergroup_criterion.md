@@ -8,7 +8,7 @@ The `CustomerGroup` Search Criterion searches for prices based on the customer g
 
 ## Arguments
 
-- `customer_groupgroup` - a `CustomerGroupInterface` object that represents the customer group (`Ibexa\Contracts\ProductCatalog\Values\CustomerGroupInterface`)
+- `customer_group` - a single object or an array or `CustomerGroupInterface` objects that represent the customer group (`Ibexa\Contracts\ProductCatalog\Values\CustomerGroupInterface`)
 
 ## Example
 

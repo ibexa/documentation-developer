@@ -34,10 +34,17 @@ final class ProductPriceCommand extends Command
 
     private PermissionResolver $permissionResolver;
 
-    public function __construct(CurrencyServiceInterface $currencyService, ProductServiceInterface $productService, ProductPriceServiceInterface $productPriceService, UserService $userService, PermissionResolver $permissionResolver)
+    public function __construct(
+        CurrencyServiceInterface $currencyService, 
+        ProductServiceInterface $productService, 
+        ProductPriceServiceInterface $productPriceService, 
+        PriceResolverInterface $priceResolver,
+        UserService $userService, 
+        PermissionResolver $permissionResolver)
     {
         $this->currencyService = $currencyService;
         $this->productPriceService = $productPriceService;
+        $this->priceResolver = $priceResolver;
         $this->productService = $productService;
         $this->userService = $userService;
         $this->permissionResolver = $permissionResolver;

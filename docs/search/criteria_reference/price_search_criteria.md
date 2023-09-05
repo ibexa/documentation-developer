@@ -19,4 +19,4 @@ With these Criteria you can filter prices by currency, customer group, product, 
 |[IsCustomPrice](price_iscustomprice_criterion.md)|Boolean that indicates whether the price is a custom price|
 |[LogicalAnd](price_logicaland_criterion.md)|Logical AND criterion that matches if all the provided Criteria match|
 |[LogicalOr](price_logicalor_criterion.md)|Logical OR criterion that matches if at least one of the provided Criteria matches|
-|[Product](price_product_criterion.md)|ID of an associated product|
+|[Product](price_product_criterion.md)|Product code|
