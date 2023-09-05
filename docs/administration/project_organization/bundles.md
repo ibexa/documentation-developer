@@ -73,7 +73,7 @@ see the [How to Remove a Bundle]([[= symfony_doc =]]/bundles/remove.html) instru
 |Bundle|Description|
 |---------|-----------|
 |ibexa/oss|Core packages|
-|ibexa/content-tree|Content tree functionality|
+|ibexa/content-tree|Content Tree functionality|
 |ibexa/connect|[Ibexa Connect](ibexa_connect.md)|
 |ibexa/calendar|Calendar tab with a calendar widget|
 |ibexa/connector-dam|Connector for DAM (Digital Asset Management) systems|
@@ -82,7 +82,7 @@ see the [How to Remove a Bundle]([[= symfony_doc =]]/bundles/remove.html) instru
 |ibexa/icons|Icon set for the Back Office|
 |ibexa/image-editor|[Image Editor](configure_image_editor.md)|
 |ibexa/installer|Provides the `ibexa:install` command|
-|ibexa/measurement| Measurement field type and measurement product catalog attribute|
+|ibexa/measurement| Measurement Field Type and measurement product catalog attribute|
 |ibexa/migrations|[Migration of Repository data](data_migration.md)|
 |ibexa/oauth2-client|Integration with [`knpuniversity/oauth2-client-bundle`](https://github.com/knpuniversity/oauth2-client-bundle)|
 |ibexa/personalization|Functionality for personalized recommendations|
