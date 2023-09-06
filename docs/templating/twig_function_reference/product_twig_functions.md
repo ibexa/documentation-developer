@@ -39,6 +39,73 @@ The `ibexa_format_product_attribute` filter formats the attribute value to a rea
 {$ if content is ibexa_product %}
 ```
 
+### `ibexa_has_product_availability`
+
+The `ibexa_has_product_availability` Twig function is used to check whether a product has availability information.
+
+#### Examples
+
+```html+twig
+{% if ibexa_has_product_availability(product) %}
+    <!-- Product has availability defined -->
+{% else %}
+    <!-- Product does not have availability defined -->
+{% endif %}
+```
+
+### `ibexa_get_product_availability`
+
+The `ibexa_get_product_availability` Twig function retrieves the availability information for a product.
+
+#### Examples
+
+```html+twig
+{% set availability = ibexa_get_product_availability(product) %}
+{% if availability %}
+    <!-- Product is available -->
+    Availability: {{ availability }}
+{% else %}
+    <!-- Product is not available -->
+    Availability: Out of stock.
+{% endif %}
+
+```
+
+### `ibexa_is_product_available`
+
+The `ibexa_is_product_available` Twig function checks whether a product is available for purchase based on its availability status.
+
+#### Examples
+
+```html+twig
+{% if ibexa_is_product_available(product) %}
+    <!-- Product is available for purchase -->
+    Add to cart
+{% else %}
+    <!-- Product is not available for purchase -->
+    Out of stock
+{% endif %}
+
+```
+
+### `ibexa_get_product_stock`
+
+The `ibexa_get_product_stock` Twig function retrieves the stock quantity for a product.
+
+#### Examples
+
+```html+twig
+{% set stock = ibexa_get_product_stock(product) %}
+{% if stock is not null %}
+    <!-- Display the stock quantity -->
+    In stock: {{ stock }} items
+{% else %}
+    <!-- No stock information available -->
+    Stock information not available.
+{% endif %}
+
+```
+
 ### `ibexa_format_price`
 
 The `ibexa_format_price` filter formats the price value by placing currency code 
