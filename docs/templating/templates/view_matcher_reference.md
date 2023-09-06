@@ -36,9 +36,6 @@ You can use the following matchers to [match content views](template_configurati
 
     You can also create [custom view matchers](create_custom_view_matcher.md).
 
-!!! tip
-
-
 ## Id\Content
 
 Matches the ID number of a Content item.
