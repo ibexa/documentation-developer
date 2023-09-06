@@ -41,7 +41,7 @@ The default, built-in views are:
 
 - `full` - used when the Content item is displayed by itself, as a full page
 - `line` - used when content is displayed as an item in a list, for example a list of the contents of a folder
-- `text_linked` - used for a text section that is a link
+- `text_linked` - used for a text section which is a link
 - `embed` - used when one Content item is embedded in another, as a block
 - `embed-inline` - used when a Content item is embedded inline in another
 - `asset_image` - used when an image asset is embedded in another Content item
@@ -88,7 +88,7 @@ match:
     Identifier\Section: news
 ```
 
-In the example above, content that is either an article or a blog post is matched,
+In the example above, content which is either an article or a blog post is matched,
 but it must be in the "News" Section.
 
 ### Matching every Content item
