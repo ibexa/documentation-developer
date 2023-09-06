@@ -9,7 +9,7 @@ While in PHP, you may need to render the view of a Content item (for example, fo
 !!! caution
 
     Avoid using PHP rendering in a controller as much as possible.
-    You can access a view directly via the route `/view/content/{contentId}/{viewType}[/{location}]`. For example, on a fresh installation, you can access `/view/content/52/line` which will return a small piece of HTML with a link to the content that could be used in Ajax.
+    You can access a view directly through the route `/view/content/{contentId}/{viewType}[/{location}]`. For example, on a fresh installation, you can access `/view/content/52/line` which will return a small piece of HTML with a link to the content that could be used in Ajax.
     If you need a controller to have additional information available in the template or to customize the `Response` object, define the controller in a [view configuration](template_configuration.md) as shown in [Controllers](controllers.md), enhance the View object and return it.
 
 The following example is a command outputting the render of a content for a view type in the terminal.
