@@ -41,7 +41,7 @@ The `ibexa_format_product_attribute` filter formats the attribute value to a rea
 
 ### `ibexa_has_product_availability`
 
-The `ibexa_has_product_availability` Twig function is used to check whether a product has availability information.
+The `ibexa_has_product_availability` Twig function is used to check whether a product has defined availability.
 
 #### Examples
 
@@ -55,17 +55,17 @@ The `ibexa_has_product_availability` Twig function is used to check whether a pr
 
 ### `ibexa_get_product_availability`
 
-The `ibexa_get_product_availability` Twig function retrieves the availability information for a product.
+The `ibexa_get_product_availability` Twig function retrieves the availability for a product.
 
 #### Examples
 
 ```html+twig
 {% set availability = ibexa_get_product_availability(product) %}
 {% if availability %}
-    <!-- Product is available -->
+    <!-- Product has availability defined -->
     Availability: {{ availability }}
 {% else %}
-    <!-- Product is not available -->
+    <!-- Product does not have availability defined -->
     Availability: Out of stock.
 {% endif %}
 
