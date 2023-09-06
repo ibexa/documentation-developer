@@ -12,7 +12,7 @@ With the `ibexa\storefront` package come the following built-in menus:
 | Item   | Value     | Description |
 |------------|----------|---------|
 | [Breadcrumbs](#breadcrumbs-menu)| - | Renders breadcrumbs for Content Tree Root, Taxonomy Entry, Product, User settings and User settings group | 
-| [Taxonomy](#taxonomy-menu)| - | Renders a menu to change the active currency |               
+| [Taxonomy](#taxonomy-menu)| - | It can render a menu for product categories or tags |               
 | Currency| `currency_menu` | Renders a menu to change the active currency |               
 | Language| `language_menu` | Renders a menu to change the active language |
 | Region  | `region_menu`  | Renders a menu to change the active region |
@@ -20,9 +20,9 @@ With the `ibexa\storefront` package come the following built-in menus:
 Usage example:
 
 ```html_twig
-{% set currrency_menu = knp_menu_get('ibexa_storefront.menu.currency') %}
+{% set currency_menu = knp_menu_get('ibexa_storefront.menu.currency') %}
 
-{{ knp_menu_render(currrency_menu) }}
+{{ knp_menu_render(currency_menu) }}
 ```
 
 ### Breadcrumbs menu

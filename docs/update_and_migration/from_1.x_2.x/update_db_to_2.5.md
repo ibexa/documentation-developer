@@ -38,7 +38,7 @@ Be aware that these upgrade statements may fail due to index collisions.
 This is because the indexes have been shortened, so duplicates may occur.
 If that happens, you must remove the duplicates manually, and then repeat the statements that failed.
 
-After successfully running those statements, change the character set and collation for each table, as described in [kernel upgrade documentation.](https://github.com/ezsystems/ezpublish-kernel/blob/7.5/doc/upgrade/7.2.md)
+After successfully running those statements, change the character set and collation for each table, as described in [kernel upgrade documentation](https://github.com/ezsystems/ezpublish-kernel/blob/7.5/doc/upgrade/7.2.md).
 
 You should also change the character set that is specified in the application config:
 

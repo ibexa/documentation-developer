@@ -48,9 +48,9 @@ You also need to define settings for uploading files in `php.ini`: `upload_max_f
 
 ## Cloning failed using an ssh key
 
-When dealing with Composer packages from [updates.ibexa.co](http://updates.ibexa.co), you may get a "Cloning failed using an ssh key" error
+When dealing with Composer packages from [updates.ibexa.co](https://updates.ibexa.co), you may get a "Cloning failed using an ssh key" error
 if you tell Composer to download dev packages or to download from source.
-[updates.ibexa.co](http://updates.ibexa.co) currently supports only distribution packages in alpha stability or higher.
+[updates.ibexa.co](https://updates.ibexa.co) currently supports only distribution packages in alpha stability or higher.
 
 To avoid the error, check the stability of packages and avoid using `--prefer-source`.
 

@@ -44,7 +44,7 @@ Custom Field Types have to be programmed in PHP. However, the built-in Field Ty
 | [Page](pagefield.md) | Stores a Page with a layout consisting of multiple zones. | N/A | N/A |
 | [Relation](relationfield.md) | Validates and stores a relation to a Content item. | Yes, with both [`Field`](fieldrelation_criterion.md) Criteria | Yes |
 | [RelationList](relationlistfield.md) | Validates and stores a list of relations to Content items. | Yes, with [`FieldRelation` Criterion](fieldrelation_criterion.md) | Yes |
-| [RichText](richtextfield.md) | Validates and stores structured rich text in DocBook xml format, and exposes it in several formats. Available via [RichTextBundle](https://github.com/ibexa/richtext). | Yes[^1^](#1-note-on-legacy-search-engine)  | Yes |
+| [RichText](richtextfield.md) | Validates and stores structured rich text in DocBook xml format, and exposes it in several formats. Available via [IbexaFieldTypeRichTextBundle](https://github.com/ibexa/fieldtype-richtext). | Yes[^1^](#1-note-on-legacy-search-engine)  | Yes |
 | [Selection](selectionfield.md) | Validates and stores a single selection or multiple choices from a list of options. | Yes[^1^](#1-note-on-legacy-search-engine) | Yes |
 | [SesExternaldata](sesexternaldata.md) | Uses external storage to store data. |||
 | [SesProfiledata](sesprofiledata.md) | Stores address data for a customer. | No | No |

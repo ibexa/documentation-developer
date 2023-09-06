@@ -9,7 +9,7 @@ Back Office menus are based on the [KnpMenuBundle](https://github.com/KnpLabs/Kn
 !!! tip
 
     For general information on how to use `MenuBuilder`,
-    see [the official KnpMenuBundle documentation](https://symfony.com/doc/current/bundles/KnpMenuBundle/index.html).
+    see [the official KnpMenuBundle documentation](https://symfony.com/bundles/KnpMenuBundle/current/index.html).
 
 Menus are extensible using event subscribers, for example:
 

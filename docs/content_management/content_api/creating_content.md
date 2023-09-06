@@ -73,7 +73,7 @@ This method must get the [`VersionInfo`](https://github.com/ibexa/core/blob/main
 ## Updating content
 
 To update an existing Content item, you need to prepare a [`ContentUpdateStruct`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentUpdateStruct.php)
-and pass it to [`ContentService::updateContent`.](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php#L320)
+and pass it to [`ContentService::updateContent`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php#L320).
 This method works on a draft, so to publish your changes you need to use [`ContentService::publishVersion`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php#L343) as well:
 
 ``` php
@@ -100,7 +100,7 @@ Only one language can still be set as a version's initial language:
 
 ### Deleting a translation
 
-You can delete a single translation from a Content item's version using [`ContentService::deleteTranslationFromDraft`.](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php#L499)
+You can delete a single translation from a Content item's version using [`ContentService::deleteTranslationFromDraft`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php#L499).
 The method must be provided with a `VersionInfo` object and the code of the language to delete:
 
 ``` php

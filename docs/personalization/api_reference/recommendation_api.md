@@ -253,7 +253,7 @@ Depending on the recommendation model and context, it can drastically reduce
 the number of recommendation requests. 
 The recommendation service supports the following HTTP headers to enable cache 
 control on the client side (all date values must follow the "HTTP-date" format 
-as defined by [RFC 2616](https://tools.ietf.org/html/rfc2616)):
+as defined by [RFC 2616](https://datatracker.ietf.org/doc/html/rfc2616)):
 
 |Scope|Header|Description|Example|
 |---|---|---|---|

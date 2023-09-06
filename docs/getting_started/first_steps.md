@@ -93,7 +93,7 @@ Content view templates use the [Twig templating engine](https://twig.symfony.com
 !!! tip "More information"
 
     - [Templates](templates.md)
-    - [Twig documentation](https://twig.symfony.com/doc/2.x/)
+    - [Twig documentation](https://twig.symfony.com/doc/3.x/)
 
 ## Create content and test view templates
 

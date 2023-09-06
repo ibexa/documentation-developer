@@ -126,7 +126,7 @@ Like most API components, Field Types use the [Symfony service tag mechanism]([[
 A service can be assigned one or several tags, with specific parameters.
 When the [service container](php_api.md#service-container) is compiled into a PHP file, 
 tags are read by `CompilerPass` implementations that add extra handling for tagged services.
-Each service tagged as `ibexa.field_type` is added to a [registry](http://martinfowler.com/eaaCatalog/registry.html) using the `alias` key as its unique `fieldTypeIdentifier` e.g. `ezstring`.
+Each service tagged as `ibexa.field_type` is added to a [registry](https://martinfowler.com/eaaCatalog/registry.html) using the `alias` key as its unique `fieldTypeIdentifier` e.g. `ezstring`.
 Each Field Type must also inherit from the abstract `ibexa.field_type` service.
 This ensures that the initialization steps shared by all Field Types are executed.
 

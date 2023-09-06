@@ -23,7 +23,7 @@ The SPI `FieldValue` struct has properties which the Field Type can use:
 |Property|Description|
 |--------|-----------|
 |`$data`|The data to be stored in the database. This may be a scalar value, an associative array or a simple, serializable object.|
-|`$externalData`|The arbitrary data stored in this field will not be touched by any of the [[= product_name =]] components directly, but will be available for [Storing external data](#storing-external-data).|
+|`$externalData`|The arbitrary data stored in this field will not be touched by any of the [[= product_name =]] components directly, but will be available for [Storing data externally](#storing-data-externally).|
 |`$sortKey`|A value which can be used to sort content by this Field.|
 
 ### Legacy storage engine
@@ -158,7 +158,7 @@ The configuration requires providing the `ibexa.field_type.storage.external.hand
 
 External storage configuration for basic Field Types is located in [`ibexa/core/src/lib/Resources/settings/fieldtype_external_storages.yml`](https://github.com/ibexa/core/blob/main/src/lib/Resources/settings/fieldtype_external_storages.yml).
 
-Using gateway-based storage requires another service implementing `Ibexa\Core\FieldType\StorageGateway` to be injected into the [external storage handler](#storing-external-data)).
+Using gateway-based storage requires another service implementing `Ibexa\Core\FieldType\StorageGateway` to be injected into the [external storage handler](#storing-data-externally)).
 
 ``` yaml
 services:
