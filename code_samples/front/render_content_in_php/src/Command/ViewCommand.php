@@ -17,8 +17,6 @@ class ViewCommand extends Command
 
     private TemplateRenderer $templateRenderer;
 
-    private ResponseTagger $responseTagger;
-
     public function __construct(
         ContentViewBuilder $contentViewBuilder,
         TemplateRenderer $templateRenderer
@@ -59,7 +57,7 @@ class ViewCommand extends Command
         // build view
         $contentView = $this->contentViewBuilder->buildView($viewParameters);
 
-        // generate the HTML using TemplateRenderer + ContentViewBuilder
+        // render view
         $renderedView = $this->templateRenderer->render($contentView);
 
         $output->writeln($renderedView);
