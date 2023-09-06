@@ -101,16 +101,21 @@ match: true
 match: []
 ```
 
+Such rules can be found in the [default template configuration](https://github.com/ibexa/core/blob/4.5/src/bundle/Core/Resources/config/default_settings.yml#L47).
+
 !!! tip
 
-    For example, you can prevent every Content Types not having a dedicated template to be seen in `full` view but sent to a custom controller.
+    For example, you can prevent every Content item not having a dedicated template to be seen in `full` view but sent to a custom controller.
     ```yaml
-    full:
-        # Rules for Content Types meant to be displayed in full view
-        # …
-        # Rule for other Content Types not meant to be displayed in full view
-        no_full_view:
-            controller: App\Controller\ViewController:noFullView
-            template: '@ibexadesign/full/no_full_view.html.twig'
-            match: ~
+    site_group:
+        content_view:
+            full:
+                # Rules for Content Types and specific Content items meant to be displayed in full view:
+                # …
+                # Rule for other Content items not meant to be displayed in full view:
+                no_full_view:
+                    controller: App\Controller\ViewController:noFullViewAction
+                    template: '@ibexadesign/full/no_full_view.html.twig'
+                    match: ~
     ```
+    Still for example, this custom controller could set the response status code as 404 (`$view->setResponse((new Response())->setStatusCode(404));`) and fetch some reverse relations to make suggestions in this error page.
