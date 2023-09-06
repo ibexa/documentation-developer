@@ -26,7 +26,7 @@ This page contains recent highlights and notable changes in Ibexa DXP documentat
     - [Create custom strategy](https://doc.ibexa.co/en/master/commerce/checkout/customize_checkout/#create-custom-strategy)
 - Payments
     - [Implement payment method filtering](https://doc.ibexa.co/en/master/commerce/payment/payment_method_filtering/)
-    - [Filter payment methods](https://doc.ibexa.co/projects/userguide/en/master/commerce/payment/work_with_payment_methods/#edit-existing-payment-method)
+    - [Filter payment methods](https://doc.ibexa.co/projects/userguide/en/master/commerce/payment/work_with_payment_methods/#filter-payment-methods)
 - Shipping
     - [Extend shipping](https://doc.ibexa.co/en/master/commerce/shipping_management/extend_shipping/)
     - [Filter shipping methods](https://doc.ibexa.co/projects/userguide/en/master/commerce/shipping_management/work_with_shipping_methods/#filter-shipping-methods)
