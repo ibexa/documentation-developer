@@ -93,12 +93,24 @@ but it must be in the "News" Section.
 
 ### Matching every Content item
 
-When you use no matcher in a rule, this rule always match.
+When you use no matcher in a rule, this rule always match. Several values are available to declare no matcher:
 
 ``` yaml
 match: ~
+match: true
+match: []
 ```
 
 !!! tip
-    This can be used during development time to identify Content items not having a proper template yet.
-    It can be used to handle Content items that shouldn't be used with a given view type (for example, to protect a Content Type designed to be embedded in Rich Text or Page block but not seen in full view).
+
+    For example, you can prevent every Content Types not having a dedicated template to be seen in `full` view but sent to a custom controller.
+    ```yaml
+    full:
+        # Rules for Content Types meant to be displayed in full view
+        # …
+        # Rule for other Content Types not meant to be displayed in full view
+        no_full_view:
+            controller: App\Controller\ViewController:noFullView
+            template: '@ibexadesign/full/no_full_view.html.twig'
+            match: ~
+    ```
