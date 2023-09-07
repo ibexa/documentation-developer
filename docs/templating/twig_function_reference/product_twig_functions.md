@@ -96,12 +96,12 @@ The `ibexa_get_product_stock` Twig function retrieves the stock quantity for a p
 
 ```html+twig
 {% set stock = ibexa_get_product_stock(product) %}
-{% if stock is not null %}
+{% if stock > 0 %}
     <!-- Display the stock quantity -->
     In stock: {{ stock }} items
 {% else %}
     <!-- No stock information available -->
-    Stock information not available.
+    Out of stock
 {% endif %}
 
 ```
