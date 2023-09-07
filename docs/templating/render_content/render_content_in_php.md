@@ -30,7 +30,7 @@ services:
 
 Create the command in `src/Command/ViewCommand.php`:
 
-```php hl_lines="59-63"
+```php hl_lines="57-61"
 [[= include_file('code_samples/front/render_content_in_php/src/Command/ViewCommand.php') =]]
 ```
 
