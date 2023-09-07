@@ -29,19 +29,19 @@ To manage prices, use `ProductPriceService`.
 To retrieve the price of a product in the currency for the current context, use `Product::getPrice()`:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 67, 70) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 74, 77) =]]
 ```
 
 To retrieve the price of a product in a specific currency, use `ProductPriceService::getPriceByProductAndCurrency`:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 71, 74) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 78, 81) =]]
 ```
 
 To get all prices (in different currencies) for a given product, use `ProductPriceService::findPricesByProductCode`:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 87, 91) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 92, 98) =]]
 ```
 
 To load price definitions that match given criteria, use `ProductPriceServiceInterface::findPrices`:
@@ -50,7 +50,7 @@ To load price definitions that match given criteria, use `ProductPriceServiceInt
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 12, 16) =]]
 
 // ...
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 92, 102) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 99, 109) =]]
 ```
 
 You can also use `ProductPriceService` to create or modify existing prices.
@@ -83,7 +83,7 @@ To resolve a price of a product in the currency for the current context, use eit
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 7, 8) =]][[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 11, 12) =]]
 
 // ...
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 103, 107) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 110, 114) =]]
 ```
 
 ## VAT
