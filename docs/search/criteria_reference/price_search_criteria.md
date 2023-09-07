@@ -9,7 +9,7 @@ Price Search Criteria are part of [Search Criteria](search_criteria_reference.md
 
 With these Criteria you can filter prices by currency, customer group, product, and so on.
 
-## Payment Search Criteria
+## Price Search Criteria
 
 |Search Criterion|Search based on|
 |-----|-----|

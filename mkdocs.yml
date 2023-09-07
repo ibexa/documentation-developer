@@ -528,11 +528,11 @@ nav:
         - Price Search Criteria: 
             - Price Search Criteria: search/criteria_reference/price_search_criteria.md
             - Currency: search/criteria_reference/price_currency_criterion.md
-            - CustomerGrup: search/criteria_reference/price_customergroup_criterion.md
+            - CustomerGroup: search/criteria_reference/price_customergroup_criterion.md
             - IsBasePrice: search/criteria_reference/price_isbaseprice_criterion.md
             - IsCustomPrice: search/criteria_reference/price_iscustomprice_criterion.md
-            - LogicalAnd: search/criteria_reference/payment_logicaland_criterion.md
-            - LogicalOr: search/criteria_reference/payment_logicalor_criterion.md
+            - LogicalAnd: search/criteria_reference/price_logicaland_criterion.md
+            - LogicalOr: search/criteria_reference/price_logicalor_criterion.md
             - Product: search/criteria_reference/price_product_criterion.md
         - Shipment Search Criteria:
             - Shipment Search Criteria: search/criteria_reference/shipment_search_criteria.md

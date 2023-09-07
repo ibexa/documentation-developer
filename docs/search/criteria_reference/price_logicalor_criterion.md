@@ -1,9 +1,9 @@
 ---
-description: Shipment LogicalOr Criterion
+description: Price LogicalOr Criterion
 edition: commerce
 ---
 
-# Shipment LogicalOr Criterion
+# Price LogicalOr Criterion
 
 The `LogicalOr` Search Criterion matches prices if at least one of the provided Criteria matches.
 
