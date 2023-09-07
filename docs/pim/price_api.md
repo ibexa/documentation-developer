@@ -68,8 +68,9 @@ For example, to create a new price for a given currency, use `ProductPriceServic
 
 ### Resolve prices
 
-To display a product price on a product page or in the cart, you must calculate its value based on a base price and the context, where context is information whether any price modifiers that might be applied in relation to a customer group exist.
-To obtain the final price, or resolve the price, use the `PriceResolverInterface` service, which uses the following logic:
+To display a product price on a product page or in the cart, you must calculate its value based on a base price and the context.
+Context contains information about any price modifiers that may apply to a specific customer group.
+To determine the final price, or resolve the price, use the `PriceResolverInterface` service, which uses the following logic:
 
 1. Checks whether a price exists for the product and currency, returns `null` if no such price exists.
 2. Verifies whether a customer group-related modifier exists:
