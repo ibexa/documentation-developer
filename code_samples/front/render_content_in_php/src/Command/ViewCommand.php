@@ -31,7 +31,7 @@ class ViewCommand extends Command
         $this->setDescription('Render the view of a content item')
             ->addOption('content-id', 'c', InputOption::VALUE_OPTIONAL, 'Content ID')
             ->addOption('location-id', 'l', InputOption::VALUE_OPTIONAL, 'Location ID')
-            ->addOption('view-type', 't', InputOption::VALUE_OPTIONAL, 'Location ID', 'line');
+            ->addOption('view-type', 't', InputOption::VALUE_OPTIONAL, 'View Type', 'line');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
