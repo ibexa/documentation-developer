@@ -41,8 +41,7 @@ final class ProductPriceCommand extends Command
         PriceResolverInterface $priceResolver,
         UserService $userService,
         PermissionResolver $permissionResolver
-    )
-    {
+    ) {
         $this->currencyService = $currencyService;
         $this->productPriceService = $productPriceService;
         $this->priceResolver = $priceResolver;
