@@ -19,5 +19,5 @@ By default, [[= product_name =]] contains one Object state group: **Lock**, with
 
 ![**Lock** Object state](object_state_lock.png "Lock Object state")
 
-Object states can be used in conjunction with [permissions](permission_overview.md), in particular with the [State Limitation](limitation_reference.md#state-limitation).
+Object states can be used in conjunction with [permissions](permission_overview.md), in particular with the [Object State Limitation](limitation_reference.md#object-state-limitation).
 Their specific use cases depend on your needs and the setup of your permission system.

@@ -14,7 +14,7 @@ What is stored is the number of seconds, calculated from the beginning of the da
 
 ### Input expectations
 
-If input value is of type `string` or `integer`, it will be passed directly to the [PHP's built-in `\DateTime` class](http://www.php.net/manual/en/datetime.construct.php) constructor, therefore the same input format expectations apply.
+If input value is of type `string` or `integer`, it will be passed directly to the [PHP's built-in `\DateTime` class](https://www.php.net/manual/en/datetime.construct.php) constructor, therefore the same input format expectations apply.
 
 It is also possible to directly pass an instance of `\DateTime`.
 
@@ -40,7 +40,7 @@ The constructor for this Value object will initialize a new Value object with t
 
 ##### String representation
 
-String representation of the date value will generate the date string in the format "H:i:s" as accepted by [PHP's built-in `date()` function](http://www.php.net/manual/en/function.date.php).
+String representation of the date value will generate the date string in the format "H:i:s" as accepted by [PHP's built-in `date()` function](https://www.php.net/manual/en/function.date.php).
 
 |Character|Description|Example|
 |---------|----------|--------|

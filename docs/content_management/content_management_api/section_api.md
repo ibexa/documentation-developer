@@ -4,7 +4,7 @@ description: PHP API enables you to create Sections, assign content to them as w
 
 # Section API
 
-[Sections](admin_panel.md#sections) enable you to divide content into groups
+[Sections](sections.md) enable you to divide content into groups
 which can later be used, for example, as basis for permissions.
 
 You can manage Sections by using the PHP API by using `SectionService`.
@@ -33,7 +33,7 @@ You can use `SectionService` to retrieve Section information such as whether it 
 ## Listing content in a Section
 
 To list Content items assigned to a Section you need to make a [query](search_api.md)
-for content belonging to this section, by applying the [`SearchService`.](https://github.com/ibexa/core/blob/main/src/contracts/Repository/SearchService.php)
+for content belonging to this section, by applying the [`SearchService`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/SearchService.php).
 You can also use the query to get the total number of assigned Content items:
 
 ``` php

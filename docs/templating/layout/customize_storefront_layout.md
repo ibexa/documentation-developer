@@ -19,7 +19,7 @@ you need to override [`vendor/ibexa/storefront/src/bundle/Resources/views/themes
 
 To do it, create your own template in `templates/theme/storefront/cart/component/maincart/maincart_empty_cart.html.twig`.
 
-You can customize it, for example, to remove a "Continue shopping button" in the following way:
+You can customize it, for example, to remove a "Continue shopping" button in the following way:
 
 ``` html+twig
 {% trans_default_domain 'ibexa_cart' %}
@@ -66,6 +66,7 @@ The most important templates are:
 |`cart/component/minicart/minicart.html.twig`|minicart (cart icon displayed at the top of the page)|
 |`cart/component/add_to_cart/add_to_cart.html.twig`|"add to cart" element|
 |`cart/component/summary/summary.html.twig`|cart summary|
+|`cart/component/quick_order/quick_order.html.twig`|quick order|
 
 #### Extend Twig template
 
@@ -165,6 +166,8 @@ JavaScript class:
 
 ### Add to Cart
 
+You could extend this widget by adding variant selectors.
+
 Available Twig:
 
 - `@IbexaCart/themes/standard/cart/component/add_to_cart/add_to_cart.html.twig`
@@ -183,6 +186,8 @@ JavaScript class:
 
 
 ### Minicart
+
+You could modify the minicart widget by changing its icon, title or other elements.
 
 Available Twig:
 
@@ -209,8 +214,50 @@ with parameters:
 
 ### Summary
 
+You could extend the summary widget to let buyers navigate from this view, 
+for example, to checkout, or back to shopping, by adding respective buttons.
+
 |Template|Component|
 |---|---|
 |`cart/component/summary/summary.html.twig`|main summary layout|
 |`cart/component/summary/summary_item.html.twig`|item summary layout|
 
+### Quick order
+
+You can modify the quick order page by changing its form, title or other elements.
+
+Available Twigs:
+
+- `@IbexaCart/themes/standard/cart/component/quick_order/quick_order.html.twig` with parameters:
+    - `form_themes`
+    - `form_start_attr`
+    - `form_start_vars`
+    - `main_widget_vars`
+    - `add_to_cart_btn_attr`
+    - `form_end_vars`
+
+- `@IbexaCart/themes/standard/cart/component/quick_order/quick_order_form_fields.html.twig` with parameters per block, block's names are generated based on fields in Symfony form:
+    - `quick_order_widget` block
+        - `main_attr`
+        - `widget_attr`
+    - `quick_order_file_row` block
+        - `file_attr`
+        - `file_vars`
+    - `quick_order_entries_row` block
+        - `entries_wrapper_attr`
+        - `add_entry_btn_attr`
+    - `quick_order_entries_widget` block
+        - `entries_attr`
+        - `form_widget_vars`
+    - `quick_order_entry_row` block
+        - `entry_attr`
+        - `delete_entry_btn_attr`
+        - `code_attr`
+        - `code_vars`
+        - `quantity_attr`
+        - `quantity_vars`
+        - `errors_vars`
+
+JavaScript class:
+
+- `@ibexa-cart/src/bundle/Resources/public/js/component/quick.order`

@@ -17,7 +17,7 @@ Content Types are organized into groups.
 
 You can add your own groups here to keep your Content Types in better order.
 
-For a full tutorial, see [Create a Content Type](first_steps.md#create-a-content-type) or follow [user documentation](https://doc.ibexa.co/projects/userguide/en/latest/organizing_the_site/#content-types).
+For a full tutorial, see [Add a Content Type](first_steps.md#add-a-content-type) or follow [user documentation](https://doc.ibexa.co/projects/userguide/en/latest/content_management/create_edit_content_types/).
 For a detailed overview of the content model, see [Content model overview](content_model.md).
 
 ## Content Type metadata

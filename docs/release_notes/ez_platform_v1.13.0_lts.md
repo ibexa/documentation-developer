@@ -19,7 +19,7 @@ You can edit a link in the manager and it will be updated automatically in all C
 
 ### Copying subtrees in the back office
 
-Following [EZP-27759](https://jira.ez.no/browse/EZP-27759) you can now copy a Content item with all of its sub-items in the back office.
+Following [EZP-27759](https://issues.ibexa.co/browse/EZP-27759) you can now copy a Content item with all of its sub-items in the back office.
 
 The maximum number of Content items that can be copied this way can be set in configuration, see [Copy subtree limit](https://doc.ibexa.co/en/latest/guide/config_back_office/#copy-subtree-limit).
 
@@ -27,16 +27,16 @@ The maximum number of Content items that can be copied this way can be set in co
 
 ### REST API improvements
 
-- [EZP-27752](https://jira.ez.no/browse/EZP-27752) adds a REST endpoint for deleting a translation from all versions of a Content item.
-- [EZP-28253](https://jira.ez.no/browse/EZP-28253) adds a `fieldTypeIdentifier` field to the REST response for Version, which provides the Field Type.
+- [EZP-27752](https://issues.ibexa.co/browse/EZP-27752) adds a REST endpoint for deleting a translation from all versions of a Content item.
+- [EZP-28253](https://issues.ibexa.co/browse/EZP-28253) adds a `fieldTypeIdentifier` field to the REST response for Version, which provides the Field Type.
 
 ### ezplatform-http-cache extensibility
 
-[EZEE-1780](https://jira.ez.no/browse/EZEE-1780) makes ezplatform-http-cache extensible in third party bundles.
+[EZEE-1780](https://issues.ibexa.co/browse/EZEE-1780) makes ezplatform-http-cache extensible in third party bundles.
 
 ### Fastly
 
-Following [EZEE-1781](https://jira.ez.no/browse/EZEE-1781) you can [serve Varnish through Fastly](https://doc.ibexa.co/en/latest/infrastructure_and_maintenance/cache/http_cache/reverse_proxy/).
+Following [EZEE-1781](https://issues.ibexa.co/browse/EZEE-1781) you can [serve Varnish through Fastly](https://doc.ibexa.co/en/latest/infrastructure_and_maintenance/cache/http_cache/reverse_proxy/).
 
 ## Full list of new features, improvements and bug fixes since v1.12.0
 

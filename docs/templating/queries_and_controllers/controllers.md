@@ -16,7 +16,7 @@ You indicate which controller to use in the [content view configuration](templat
 [[= include_file('code_samples/front/embed_content/src/Controller/RelationController.php', 2, 9) =]]
 ```
 
-For a full example of using a custom controller, see [Embed content](embed_content.md#custom-controller).
+For a full example of using a custom controller, see [Embed content](embed_content.md#embed-relations-with-a-custom-controller).
 
 If you do not want to use the default view controller and only use a custom one,
 use the same configuration, but do not provide the `template` key.
@@ -24,5 +24,5 @@ You have to indicate the template to use from the controller itself.
 
 !!! tip "Permissions for custom controllers"
 
-    See [permission documentation](permissions.md#permissions-for-custom-controllers) for information
+    See [permission documentation](permission_overview.md#permissions-for-custom-controllers) for information
     about access control for custom controllers.

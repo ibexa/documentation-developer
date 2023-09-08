@@ -32,7 +32,7 @@ The `value` property of an Image Field returns an `Ibexa\Core\FieldType\Image\V
 
     Properties marked with an asterisk are currently unsupported. They are available but their value is always `null`.
 
-    Follow [EZP-27987](https://jira.ez.no/browse/EZP-27987) for future progress on this issue.
+    Follow [EZP-27987](https://issues.ibexa.co/browse/EZP-27987) for future progress on this issue.
 
 ### Settings
 
@@ -59,7 +59,7 @@ Using the variation Service, variations of the original image can be obtained. T
 
     Properties marked with an asterisk are currently unsupported. They are available but their value is always `null`.
 
-    Follow [EZP-27987](https://jira.ez.no/browse/EZP-27987) for future progress on this issue.
+    Follow [EZP-27987](https://issues.ibexa.co/browse/EZP-27987) for future progress on this issue.
 
 ### Field Definition options
 

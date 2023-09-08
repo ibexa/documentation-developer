@@ -159,14 +159,6 @@ If the dry run is successful, run:
 php bin/console ibexa:migrations:migrate
 ```
 
-### Migrate richtext namespaces
-
-Run the upgrade script for updating XML namespaces inside RichText Fields:
-
-```bash
-php bin/console ibexa:migrate:richtext-namespaces
-```
-
 ## Update your custom code
 
 ### Online editor
@@ -174,7 +166,7 @@ php bin/console ibexa:migrate:richtext-namespaces
 #### Custom plugins and buttons
 
 If you added your own Online Editor plugins or buttons, you need to rewrite them
-using [CKEditor 5's extensibility](https://ckeditor.com/docs/ckeditor5/latest/framework/guides/plugins/creating-simple-plugin.html).
+using [CKEditor 5's extensibility](https://ckeditor.com/docs/ckeditor5/latest/tutorials/crash-course/plugins.html#creating-custom-plugins).
 
 #### Custom tags
 

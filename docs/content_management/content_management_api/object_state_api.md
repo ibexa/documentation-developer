@@ -4,7 +4,7 @@ description: You can manage Object states via the PHP API, including creating Ob
 
 # Object state API
 
-[Object states](admin_panel.md#object-states) enable you to set a custom state to any content.
+[Object states](object_states.md) enable you to set a custom state to any content.
 States are grouped into Object state groups.
 
 You can manage Object states by using the PHP API by using `ObjectStateService`.
@@ -32,7 +32,7 @@ you need to make use of the [`ObjectStateService`:](https://github.com/ibexa/cor
 ```
 
 [`ObjectStateService::createObjectStateGroup`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ObjectStateService.php#L34)
-takes as argument an [`ObjectStateGroupCreateStruct`,](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/ObjectState/ObjectStateGroupCreateStruct.php)
+takes as argument an [`ObjectStateGroupCreateStruct`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/ObjectState/ObjectStateGroupCreateStruct.php),
 in which you need to specify the identifier, default language and at least one name for the group.
 
 To create an Object state inside a group,
@@ -46,7 +46,7 @@ and provide it with an `ObjectStateCreateStruct`:
 ## Assigning Object state
 
 To assign an Object state to a Content item,
-use [`ObjectStateService::setContentState`.](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ObjectStateService.php#L180)
+use [`ObjectStateService::setContentState`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ObjectStateService.php#L180).
 Provide it with a `ContentInfo` object of the Content item, the Object state group and the Object state:
 
 ``` php

@@ -25,7 +25,7 @@ To enable purchasing from the catalog, the following configuration is required:
 
 ## Region and currency
 
-All currencies available in the system must be enabled in the Back Office under **Commerce** -> **Currencies**.
+All currencies available in the system must be enabled in the Back Office under **Product Catalog** -> **Currencies**.
 
 Additionally, you must configure currencies valid for specific SiteAccesses
 under the `ibexa.system.<scope>.product_catalog.currencies` [configuration key](configuration.md#configuration-files):
@@ -44,6 +44,29 @@ ibexa:
                     - uk
                     - poland
 ```
+
+In the `ibexa_storefront.yaml` file, under the `ibexa.system.<scope>.product_catalog.regions` configuration key, regions are set with `default` value. Remember to either exclude this element or extend it by [configuring other regions](enable_purchasing_products.md#configuring-other-regions-and-currencies).
+
+```yaml
+ibexa:
+    system:
+        storefront_group:
+            product_catalog:
+                currencies:
+                    - EUR
+                    - PLN
+                regions:
+                    - germany
+                    - poland 
+        another_storefront_group:
+            product_catalog:
+                currencies:
+                    - GBP
+                regions:
+                    - uk
+```
+
+This example uses the currencies and regions set in the [VAT rates' example below](#vat-rates).
 
 ### Configuring other regions and currencies
 
