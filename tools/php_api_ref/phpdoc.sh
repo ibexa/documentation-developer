@@ -6,7 +6,7 @@ AUTH_JSON=$1;
 OUTPUT_DIR=$2;
 
 FLAVOR='commerce';
-VERSION='4.6.0-beta1';
+VERSION='4.6.*@dev';
 EDITIONS=(oss headless experience commerce);
 TMP_DXP_DIR=/tmp/ibexa-dxp-phpdoc;
 PHPDOC_CONF="$(pwd)/tools/php_api_ref/phpdoc.dist.xml";
