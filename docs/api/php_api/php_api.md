@@ -19,7 +19,7 @@ The API provides access to Content, User, Content Types and other features throu
 
 The full list of available services covers:
 
-- BatchOrderService
+- [BatchOrderService](php_api_reference/classes/Ibexa-Contracts-Cart-BatchOrderServiceInterface.html)
 - [CorporateAccountService](php_api_reference/classes/Ibexa-Contracts-CorporateAccount-Service-CorporateAccountService.html) (recommended for company creation)
 - [CompanyService](php_api_reference/classes/Ibexa-Contracts-CorporateAccount-Service-CompanyService.html)
 - [ContentService](php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html)
@@ -35,7 +35,7 @@ The full list of available services covers:
 - [SearchService](php_api_reference/classes/Ibexa-Contracts-Core-Repository-SearchService.html)
 - [SectionService](php_api_reference/classes/Ibexa-Contracts-Core-Repository-SectionService.html)
 - [ShippingAddressService](php_api_reference/classes/Ibexa-Contracts-CorporateAccount-Service-ShippingAddressService.html)
-- SpreadsheetProcessorInterface (`\Ibexa\Contracts\Cart\FileProcessor\SpreadsheetProcessorInterface`)
+- [SpreadsheetProcessorInterface](php_api_reference/classes/Ibexa-Contracts-Cart-FileProcessor-SpreadsheetProcessorInterface.html)
 - [TaxonomyService](php_api_reference/classes/Ibexa-Contracts-Taxonomy-Service-TaxonomyServiceInterface.html)
 - [TranslationService](php_api_reference/classes/Ibexa-Contracts-Core-Repository-TranslationService.html)
 - [TrashService](php_api_reference/classes/Ibexa-Contracts-Core-Repository-TrashService.html)
