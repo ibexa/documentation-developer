@@ -6,15 +6,15 @@ description: Use document field mappers to add additional data in Solr search en
 
 You can use document field mappers to index additional data in the search engine.
 
-The additional data can come from external sources (for example, the [Personalization 
-service](personalization.md)), or from internal ones.
+The additional data can come from external sources
+(for example, the [Personalization service](personalization.md)), or from internal ones.
 An example of indexing internal data is indexing data through the Location hierarchy: 
 from the parent Location to the child Location, or indexing child data on the parent Location.
 You can use this to find the content with full-text search, or to simplify a search 
 in a complicated data model.
 
 To do this effectively, you must understand how the data is indexed with the Solr search engine.
-Solr uses [documents](https://lucene.apache.org/solr/guide/7_7/overview-of-documents-fields-and-schema-design.html#how-solr-sees-the-world) as a unit of data that is indexed.
+Solr uses [documents](https://solr.apache.org/guide/7_7/overview-of-documents-fields-and-schema-design.html#how-solr-sees-the-world) as a unit of data that is indexed.
 Documents are indexed per translation, as content blocks. 
 A block is a nested document structure.
 When used in [[= product_name =]], a parent document represents content, 

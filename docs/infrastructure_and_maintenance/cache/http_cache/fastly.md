@@ -44,7 +44,7 @@ When you configure the Fastly CLI, use the credentials for the environment that 
 
 Use the commands below to install VCL configuration required for running Fastly with [[= product_name =]].
 You also need to set up domains, HTTPS and origin configuration (not covered here).
-All commands are explained in detail [below](#viewing-and-modifying-the-vcl-configuration):
+All commands are explained in detail [below](#view-and-modify-vcl-configuration):
 
 ``` bash
 fastly vcl custom create --name=ez_main.vcl --version=active --autoclone --content=vendor/ibexa/fastly/fastly/ --version=latest --main
@@ -335,7 +335,7 @@ diff -ruN generated_vcl_11_json_done generated_vcl_12_json_done
 
 ## Enable basic-auth on Fastly
 
-To enable basic-auth, use [Fastly documentation](https://developer.fastly.com/solutions/examples/http-basic-auth) as an example.
+To enable basic-auth, use [Fastly documentation](https://developer.fastly.com/solutions/examples/http-basic-auth/) as an example.
 
 Follow the steps below.
 

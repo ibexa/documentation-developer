@@ -12,6 +12,7 @@ nav:
         - Install Ibexa DXP: getting_started/install_ibexa_dxp.md
         - Install on Ibexa Cloud: getting_started/install_on_ibexa_cloud.md
         - Install on MacOS and Windows: getting_started/install_on_mac_os_and_windows.md
+        - Install with DDEV: getting_started/install_with_ddev.md
         - First steps: getting_started/first_steps.md
         - Troubleshooting: getting_started/troubleshooting.md
     - Tutorials:
@@ -256,6 +257,7 @@ nav:
             - Render content: templating/render_content/render_content.md
             - Render Page: templating/render_content/render_page.md
             - Customize product view: templating/render_content/customize_product_view.md
+            - Render content in PHP: templating/render_content/render_content_in_php.md
         - Templates:
             - Templates: templating/templates/templates.md
             - Template configuration: templating/templates/template_configuration.md
@@ -309,6 +311,7 @@ nav:
         - Create custom attribute type: pim/create_custom_attribute_type.md
         - Create product code generator: pim/create_product_code_generator.md
         - Create custom catalog filter: pim/create_custom_catalog_filter.md
+        - Create custom name schema: pim/create_custom_name_schema_strategy.md
         - Prices: pim/prices.md
         - Price API: pim/price_api.md
     - Commerce:
@@ -316,7 +319,8 @@ nav:
         - Cart:
             - Cart: commerce/cart/cart.md
             - Cart API: commerce/cart/cart_api.md
-        - Checkout: 
+            - Quick order: commerce/cart/quick_order.md
+        - Checkout:
             - Checkout: commerce/checkout/checkout.md
             - Configure checkout: commerce/checkout/configure_checkout.md
             - Customize checkout: commerce/checkout/customize_checkout.md
@@ -330,10 +334,12 @@ nav:
             - Configure Payment: commerce/payment/configure_payment.md 
             - Extend Payment: commerce/payment/extend_payment.md 
             - Payment method API: commerce/payment/payment_method_api.md 
+            - Payment method filtering: commerce/payment/payment_method_filtering.md
             - Payment API: commerce/payment/payment_api.md 
         - Shipping management:
             - Shipping management: commerce/shipping_management/shipping_management.md
             - Configure shipping: commerce/shipping_management/configure_shipment.md
+            - Extend shipping: commerce/shipping_management/extend_shipping.md
             - Shipping method API: commerce/shipping_management/shipping_method_api.md
             - Shipment API: commerce/shipping_management/shipment_api.md
         - Storefront:
@@ -477,6 +483,7 @@ nav:
             - FloatAttributeRange: search/criteria_reference/floatattributerange_criterion.md
             - IntegerAttribute: search/criteria_reference/integerattribute_criterion.md
             - IntegerAttributeRange: search/criteria_reference/integerattributerange_criterion.md
+            - IsVirtual: search/criteria_reference/isvirtual_criterion.md
             - ProductAvailability: search/criteria_reference/productavailability_criterion.md
             - ProductStock: search/criteria_reference/productstock_criterion.md
             - ProductStockRange: search/criteria_reference/productstockrange_criterion.md
@@ -673,6 +680,8 @@ nav:
         - Clustering:
             - Clustering: infrastructure_and_maintenance/clustering/clustering.md
             - Clustering with AWS S3: infrastructure_and_maintenance/clustering/clustering_with_aws_s3.md
+            - Clustering with DDEV: infrastructure_and_maintenance/clustering/clustering_with_ddev.md
+            - Ibexa Cloud and DDEV: infrastructure_and_maintenance/clustering/ibexa_cloud_and_ddev.md
         - DevOps: infrastructure_and_maintenance/devops.md
         - Backup: infrastructure_and_maintenance/backup.md
         - Performance: infrastructure_and_maintenance/performance.md
@@ -806,7 +815,7 @@ extra:
   latest_tag_4_4: '4.4.4'
   latest_tag_4_5: '4.5.1'
 
-  symfony_doc: 'http://symfony.com/doc/5.4'
+  symfony_doc: 'https://symfony.com/doc/5.4'
   user_doc: 'https://doc.ibexa.co/projects/userguide/en/master'
 
 extra_css:

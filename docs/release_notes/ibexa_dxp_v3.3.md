@@ -78,7 +78,7 @@ framework:
 
 ## Full changelog
 
-See [list of changes in Symfony 5.2.](https://symfony.com/blog/symfony-5-2-curated-new-features)
+See [list of changes in Symfony 5.2](https://symfony.com/blog/symfony-5-2-curated-new-features).
 
 | Ibexa Content  | Ibexa Experience  | Ibexa Commerce |
 |--------------|------------|------------|

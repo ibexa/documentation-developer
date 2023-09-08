@@ -8,7 +8,7 @@ page_type: landing_page
 
 Customer Portal enables [creating and handling of business accounts](https://doc.ibexa.co/projects/userguide/en/master/customer_management/manage_customers/).
 With this feature, your customers can [self-register](https://doc.ibexa.co/projects/userguide/en/master/customer_management/customer_portal/),
-[edit their organization information](https://doc.ibexa.co/projects/userguide/en/latest/shop_administration/customer_portal/),
+[edit their organization information](https://doc.ibexa.co/projects/userguide/en/latest/customer_management/customer_portal/),
 invite and view members and check their order history.
 
 ![Customer Portal dashboard](img/cp_dashboard_customer_portal.png)

@@ -8,7 +8,7 @@ With content queries you can find and render specific content according to crite
 
 You can use queries to list or embed Content items, such as:
 
-- [children in a folder](list_content.md#children-query-type)
+- [children in a folder](list_content.md#list-children-with-query-type)
 - related articles
 - [most recent blog posts](create_custom_query_type.md)
 - recommended products
@@ -154,4 +154,4 @@ The identifier of the Content query Field must be matched by
 using the `'@Ibexa\FieldTypeQuery\ContentView\FieldDefinitionIdentifierMatcher'` matcher.
 
 Query results are provided to the template in the `items` variable.
-See [List content](list_content.md#content-query-field) for an example of using the Content query Field.
+See [List content](list_content.md#list-children-in-content-query-field) for an example of using the Content query Field.

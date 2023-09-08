@@ -60,22 +60,22 @@ Edit it to remove the Image Field that has a Content Relation (ezobjectrelation)
 
 First, to remove the welcome page, go to `config/packages/` and delete the `ibexa_welcome_page.yaml` file.
 
-Place the [`pagelayout.html.twig`](https://github.com/ezsystems/developer-documentation/blob/master/code_samples/tutorials/page_tutorial_starting_point/templates/pagelayout.html.twig) and [`pagelayout_menu.html.twig`](https://github.com/ezsystems/developer-documentation/blob/master/code_samples/tutorials/page_tutorial_starting_point/templates/pagelayout_menu.html.twig) files in the `templates` folder. Create a new folder, called `full`, in `templates`. Place further template files in it:
+Place the [`pagelayout.html.twig`](https://github.com/ibexa/documentation-developer/blob/master/code_samples/tutorials/page_tutorial_starting_point/templates/pagelayout.html.twig) and [`pagelayout_menu.html.twig`](https://github.com/ibexa/documentation-developer/blob/master/code_samples/tutorials/page_tutorial_starting_point/templates/pagelayout_menu.html.twig) files in the `templates` folder. Create a new folder, called `full`, in `templates`. Place further template files in it:
 
-- [`article.html.twig`](https://github.com/ezsystems/developer-documentation/blob/master/code_samples/tutorials/page_tutorial_starting_point/templates/full/article.html.twig)
-- [`dog_breed.html.twig`](https://github.com/ezsystems/developer-documentation/blob/master/code_samples/tutorials/page_tutorial_starting_point/templates/full/dog_breed.html.twig)
-- [`folder.html.twig`](https://github.com/ezsystems/developer-documentation/blob/master/code_samples/tutorials/page_tutorial_starting_point/templates/full/folder.html.twig)
-- [`tip.html.twig`](https://github.com/ezsystems/developer-documentation/blob/master/code_samples/tutorials/page_tutorial_starting_point/templates/full/tip.html.twig)
+- [`article.html.twig`](https://github.com/ibexa/documentation-developer/blob/master/code_samples/tutorials/page_tutorial_starting_point/templates/full/article.html.twig)
+- [`dog_breed.html.twig`](https://github.com/ibexa/documentation-developer/blob/master/code_samples/tutorials/page_tutorial_starting_point/templates/full/dog_breed.html.twig)
+- [`folder.html.twig`](https://github.com/ibexa/documentation-developer/blob/master/code_samples/tutorials/page_tutorial_starting_point/templates/full/folder.html.twig)
+- [`tip.html.twig`](https://github.com/ibexa/documentation-developer/blob/master/code_samples/tutorials/page_tutorial_starting_point/templates/full/tip.html.twig)
 
 Place two configuration files in the `config/packages` folder:
 
-- [`views.yaml`](https://github.com/ezsystems/developer-documentation/blob/master/code_samples/tutorials/page_tutorial_starting_point/config/packages/views.yaml)
-- [`image_variations.yaml`](https://github.com/ezsystems/developer-documentation/blob/master/code_samples/tutorials/page_tutorial_starting_point/config/packages/image_variations.yaml)
+- [`views.yaml`](https://github.com/ibexa/documentation-developer/blob/master/code_samples/tutorials/page_tutorial_starting_point/config/packages/views.yaml)
+- [`image_variations.yaml`](https://github.com/ibexa/documentation-developer/blob/master/code_samples/tutorials/page_tutorial_starting_point/config/packages/image_variations.yaml)
 
 In the `assets` folder in the project root:
 
-- create a `css` folder and add the following stylesheet: [`style.css`](https://github.com/ezsystems/developer-documentation/blob/master/code_samples/tutorials/page_tutorial_starting_point/assets/css/style.css) to it
-- add the [`header.jpg`](https://github.com/ezsystems/developer-documentation/blob/master/code_samples/tutorials/page_tutorial_starting_point/assets/images/header.jpg) file to the `assets/images` folder
+- create a `css` folder and add the following stylesheet: [`style.css`](https://github.com/ibexa/documentation-developer/blob/master/code_samples/tutorials/page_tutorial_starting_point/assets/css/style.css) to it
+- add the [`header.jpg`](https://github.com/ibexa/documentation-developer/blob/master/code_samples/tutorials/page_tutorial_starting_point/assets/images/header.jpg) file to the `assets/images` folder
 
 In the `webpack.config.js` file in the project root folder, add the following line after `Encore.addEntry('app', './assets/app.js');`:
 
@@ -94,7 +94,7 @@ php bin/console cache:clear
 
     Compiling assets with Webpack Encore is explained in [the beginner tutorial](3_customize_the_front_page.md#configuring-webpack).
 
-In the `src` folder create a `QueryType` subfolder and add [`QueryType/MenuQueryType.php`](https://github.com/ezsystems/developer-documentation/blob/master/code_samples/tutorials/page_tutorial_starting_point/src/QueryType/MenuQueryType.php) to it.
+In the `src` folder create a `QueryType` subfolder and add [`QueryType/MenuQueryType.php`](https://github.com/ibexa/documentation-developer/blob/master/code_samples/tutorials/page_tutorial_starting_point/src/QueryType/MenuQueryType.php) to it.
 
 This file takes care of displaying the top menu (read up on it [in the documentation](content_queries.md#query-types)).
 It is not the scope of this tutorial and we won't go here into detail on how it works.

@@ -1,5 +1,4 @@
-PHP API Ref
-===========
+# PHP API Ref
 
 ## Install/Dependencies
 
@@ -13,7 +12,7 @@ Requires [`jq`](https://stedolan.github.io/jq/download/)
   ```
   tools/php_api_ref/phpdoc.sh ~/www/ibexa-dxp-commerce/auth.json
   ```
-- The second argument can be a path to an output directory to use instead of the default one. For example, using the Composer global authentication file as first argument and the path to directory (which will be created if it doesn't exist yet):
+- The second argument can be a path to an output directory to use instead of the default one. For example, using the Composer global authentication file as first argument and the path to directory (which is created if it doesn't exist yet):
   ```
   tools/php_api_ref/phpdoc.sh ~/.composer/auth.json ./docs/api/php_api/php_api_reference-TMP
   ```
@@ -22,7 +21,7 @@ Requires [`jq`](https://stedolan.github.io/jq/download/)
 
 The phpDocumentor 3.3.1's default theme is used as a base.
 
-Our custom templates are located in tools/php_api_ref/.phpdoc/template
+Custom templates are located in tools/php_api_ref/.phpdoc/template
 
 They [replace](https://docs.phpdoc.org/3.3/guide/features/theming/custom-styling.html#replacing-whole-objects-or-components) the [phpDocumentor 3.3.1 default template set](https://github.com/phpDocumentor/phpDocumentor/tree/v3.3.1/data/templates/default) by having the same file tree and names.
 

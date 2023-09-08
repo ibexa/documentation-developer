@@ -96,7 +96,7 @@ Default values:
 ### Native Flysystem v2 handler
 
 [[= product_name =]] uses it as the default way to read and write content in form of binary files. Flysystem v2 can use the `local` filesystem, but is also able to read/write to `sftp`, `zip` or cloud filesystems (`azure`, `rackspace`, `S3`).
-[league/flysystem](http://flysystem.thephpleague.com/) (along with [FlysystemBundle](https://github.com/1up-lab/OneupFlysystemBundle/)) is an abstract file handling library.
+[league/flysystem](https://flysystem.thephpleague.com/docs/) (along with [FlysystemBundle](https://github.com/1up-lab/OneupFlysystemBundle/)) is an abstract file handling library.
 
 #### Handler options
 

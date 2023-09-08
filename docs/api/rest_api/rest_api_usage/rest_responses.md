@@ -9,23 +9,23 @@ description: REST API response code defines the status of the received response.
 The following list of available HTTP response status codes gives an overview of the meaning of each code.
 For code details per resource, see the [REST API reference](../rest_api_reference/rest_api_reference.html).
 
-| Code  | Message                | Description                                                                                                                                                                                                                                                  |
-|-------|------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `200` | OK                     | The resource has been found.                                                                                                                                                                                                                                 |
-| `201` | Created                | The request to create a new item has succeeded; the response `Location` header indicates where you can find the created item.                                                                                                                                |
-| `204` | No Content             | The request has succeeded and there is no additional information in the response header or body (for example when publishing or deleting).                                                                                                                   |
-| `301` | Moved Permanently      | The resource should not be accessed this way; the response `Location` header indicates the proper way.                                                                                                                                                       |
-| `307` | Temporary Redirect     | The resource is available at another URL considered as its main; the response `Location` header indicates this main URL.                                                                                                                                     |
-| `400` | Bad Request            | The input (payload) doesn't have the proper schema for the resource.                                                                                                                                                                                         |
-| `401` | Unauthorized           | The user does not have the permission to make this request.                                                                                                                                                                                                  |
-| `403` | Forbidden              | The user has the permission but action can't be performed because of Repository logic (for example, when trying to create an item with an already existing ID or identifier, when attempting to update a version in another state than draft).               |
-| `404` | Not Found              | The requested object (or a request data like the parent of a new item) hasn't been found.                                                                                                                                                                    |
-| `405` | Method Not Allowed     | The requested resource does not support the HTTP verb that was used.                                                                                                                                                                                         |
-| `406` | Not Acceptable         | The request's `Accept` header is not supported.                                                                                                                                                                                                              |
-| `409` | Conflict               | The request is in conflict with another part of the repository (for example, trying to create a new item with an identifier already used).                                                                                                                   |
-| `415` | Unsupported Media Type | The request payload media type doesn't match the media type specified in the request header.                                                                                                                                                                 |
-| `500` | Internal Server Error  | The server encountered an unexpected condition, usually an exception, which prevents it from fulfilling the request, like database down, permissions or configuration error.                                                                                 |
-| `501` | Not Implemented        | Returned when the requested method has not yet been implemented. For [[= product_name =]], most of Users, User groups, Content items, Locations and Content Types have been implemented. Some of their methods, as well as other features, may return a 501. |
+| Code  | Message                | Description                                                                                                                                                                                                                                                 |
+|-------|------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `200` | OK                     | The resource has been found.                                                                                                                                                                                                                                |
+| `201` | Created                | The request to create a new item has succeeded. The response `Location` header indicates where you can find the created item.                                                                                                                               |
+| `204` | No Content             | The request has succeeded and there is no additional information in the response header or body (for example when publishing or deleting).                                                                                                                  |
+| `301` | Moved Permanently      | The resource shouldn't be accessed this way. The response `Location` header indicates the proper way.                                                                                                                                                       |
+| `307` | Temporary Redirect     | The resource is available at another URL considered as its main. The response `Location` header indicates this main URL.                                                                                                                                    |
+| `400` | Bad Request            | The input (payload) doesn't have the proper schema for the resource.                                                                                                                                                                                        |
+| `401` | Unauthorized           | The user doesn't have the permission to make this request.                                                                                                                                                                                                  |
+| `403` | Forbidden              | The user has the permission but action can't be performed because of Repository logic (for example, when trying to create an item with an already existing ID or identifier, when attempting to update a version in another state than draft).              |
+| `404` | Not Found              | The requested object (or a request data like the parent of a new item) hasn't been found.                                                                                                                                                                   |
+| `405` | Method Not Allowed     | The requested resource doesn't support the HTTP verb that was used.                                                                                                                                                                                         |
+| `406` | Not Acceptable         | The request's `Accept` header isn't supported.                                                                                                                                                                                                              |
+| `409` | Conflict               | The request is in conflict with another part of the repository (for example, trying to create a new item with an identifier already used).                                                                                                                  |
+| `415` | Unsupported Media Type | The request payload media type doesn't match the media type specified in the request header.                                                                                                                                                                |
+| `500` | Internal Server Error  | The server encountered an unexpected condition, usually an exception, which prevents it from fulfilling the request, like database down, permissions or configuration error.                                                                                |
+| `501` | Not Implemented        | Returned when the requested method hasn't yet been implemented. For [[= product_name =]], most of Users, User groups, Content items, Locations and Content Types have been implemented. Some of their methods, as well as other features, may return a 501. |
 
 ## Response headers
 
@@ -139,12 +139,12 @@ Content-Type: application/vnd.ibexa.api.Content+json
 
 !!! tip "More information about CORS"
 
-    - [CORS' W3C specification](http://www.w3.org/TR/cors/)
-    - [Overview of CORS on developer.mozilla.org](https://developer.mozilla.org/en-US/docs/HTTP/Access_control_CORS)
+    - [WHATWG's CORS Protocol specification](https://fetch.spec.whatwg.org/#cors-protocol)
+    - [Overview of CORS on developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
 
 CORS support is provided by the third party [nelmio/cors-bundle](https://packagist.org/packages/nelmio/cors-bundle). You can read more about it in [NelmioCorsBundle's README](https://github.com/nelmio/NelmioCorsBundle/blob/master/README.md).
 
-Using CORS is not limited to REST API resources and can be used for any resource of the platform.
+Using CORS isn't limited to REST API resources and can be used for any resource of the platform.
 
 The CORS bundle adds an `Access-Control-Allow-Origin` header to the response.
 
@@ -155,14 +155,14 @@ To enable CORS, add regular expression for an allowed domain using the `.env` va
 For example, to allow the JS test above to be executed alongside this page, you could add the following to an `.env` file (like the `.env.local`): `CORS_ALLOW_ORIGIN=^https?://doc.ibexa.co`.
 
 To add several domains, filter on URIs, or change the default (like not allowing all the methods),
-refer to [NelmioCorsBundle Configuration Documentation](https://github.com/nelmio/NelmioCorsBundle/blob/master/README.md#configuration)
+refer to [NelmioCorsBundle Configuration Documentation](https://symfony.com/bundles/NelmioCorsBundle/current/index.html#configuration)
 to learn how to edit `config/packages/nelmio_cors.yaml`.
 
 ## Response body
 
 The Response body is often a serialization in XML or JSON of an object as it could be retrieved using the Public PHP API.
 
-For example, the resource `/content/objects/52` with the `Accept: application/vnd.ibexa.api.Content+xml` header returns a serialized version of a [ContentInfo](../../php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html) object.
+For example, the resource `/content/objects/52` with the `Accept: application/vnd.ibexa.api.ContentInfo+xml` header returns a serialized version of a [ContentInfo](../../php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html) object.
 
 ```shell
 curl https://api.example.com/content/objects/52 --header 'Accept: application/vnd.ibexa.api.ContentInfo+xml';
@@ -193,5 +193,5 @@ curl https://api.example.com/content/objects/52 --header 'Accept: application/vn
 
 The response body XML can contain two types of nodes:
 
-- Final nodes that fully give an information as a scalar value;
-- Reference nodes which link to `href` where a new resource of a given `media-type` can be explored if you need to know more.
+- Final nodes that fully give an information as a scalar value
+- Reference nodes which link to `href` where a new resource of a given `media-type` can be explored if you need to know more

@@ -6,7 +6,7 @@ edition: experience
 # Create Customer Portal
 
 On this page, you will learn how to configure the Customer Portal feature to be editable with Page Builder.
-If you already configured Customer Portal, you can learn how to build it with a Page Builder in [User Documentation.]([[= user_doc =]]/customer_management/build_customer_portal/) 
+If you already configured Customer Portal, you can learn how to build it with a Page Builder in [User Documentation]([[= user_doc =]]/customer_management/build_customer_portal/).
 
 First, you need to decide if you want to create and configure [one portal](#create-and-configure-one-portal) or [multiple portals](#create-and-configure-multiple-portals) setup.
 

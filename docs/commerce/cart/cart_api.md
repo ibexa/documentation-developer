@@ -7,7 +7,7 @@ edition: commerce
 
 !!! tip "Cart REST API"
 
-    To learn how to manage carts with the REST API, see the [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#managing-ecommerce-carts).
+    To learn how to manage carts with the REST API, see the [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#managing-commerce-carts).
 
 To get carts and work with them, use the `Ibexa\Contracts\Cart\CartServiceInterface` interface.
 
