@@ -178,14 +178,14 @@ For example, to check if content can be assigned to a Section:
 
 ``` php
 $hasAccess = $this->isGranted(
-    new Attribute( 'section', 'assign', array( 'valueObject' => $contentInfo, 'targets' => $section ) )
+    new Attribute( 'section', 'assign', [ 'valueObject' => $contentInfo, 'targets' => [$section] ] )
 );
 ```
 
 You can also use the permission resolver (`eZ\Publish\API\Repository\PermissionResolver`).
 The `canUser()` method checks if the user can perform a given action with the selected object.
 
-For example: `canUser('content', 'edit', $content, $location );`
+For example: `canUser('content', 'edit', $content, [$location] );`
 checks the `content/edit` permission for the provided Content item at the provided Location.
 
 ### Blocking access to controller action
