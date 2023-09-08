@@ -1,5 +1,4 @@
-PHP API Ref
-===========
+# PHP API Ref
 
 ## Install/Dependencies
 
