@@ -207,7 +207,8 @@ for example, for retailers and distributors or for different regions.
 
 ### General and variant-specific assets
 
-Products and product variants can have their image assets. You can set up general assets — it means that the product will have an asset visible in the main product view. 
+Products and product variants can have their image assets. 
+You can set up general assets — it means that the product has an asset visible in the main product view. 
 Additionally, you can assign assets to product variants and place them in a collection.
 
 ![General and variant-specific assets](img/general_assets.png)

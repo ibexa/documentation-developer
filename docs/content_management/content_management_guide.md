@@ -79,9 +79,9 @@ For a complete list of available Field Types, see [Field Type reference](field_t
 Once you use a Field Type to design and build a Content Type definition, and define its settings, it becomes a Field.
 
 Fields can be as simple as Name, based on a Text line Field Type, or as complex as Page, 
-based on a Landing page Field Type, with multiple options to set and choose from:
+based on a Landing Page Field Type, with multiple options to set and choose from:
 
-![Landing page Field settings](img/fields.png)
+![Landing Page Field settings](img/fields.png)
 
 ### Content Types
 
@@ -106,7 +106,7 @@ For example, articles might have a title, an author, a body, and an image, while
 Forms could be seen as a special kind of Content items, because their role is to gather information from website users and not present it. 
 You create them from basic form fields available in [[= product_name =]]. 
 By adding forms to the website, you can increase the website’s functionality and improve user experience.
-Certain editions of [[= product_name =]] come with a visual [form builder]([[= user_doc =]]/content_management/work_with_forms/).
+Certain editions of [[= product_name =]] come with a visual [Form Builder]([[= user_doc =]]/content_management/work_with_forms/).
 
 ## Content management capabilities
 
@@ -163,7 +163,7 @@ These operations, like in your computer’s file system, can apply both to indiv
 
 Content items can be hidden when necessary, for example, until a certain event, like a Holiday Sale or Board announcement comes. Hidden Content items are not visible to website visitors and are greyed out in the Content Tree.
 
-![Hidden Content Item](img/hiddent_content_item.png)
+![Hidden Content item](img/hiddent_content_item.png)
 
 Editors can also move obsolete Content items to Trash, and ultimately delete them.
 
@@ -194,7 +194,7 @@ There are, however, mechanisms to control access to content with even more conve
 
 You can divide your Content Tree into nominal parts to better organize it.
 Once you have defined sections, for example, Media or Forms, and assigned them to Content items, 
-you can decide which Roles will have access to which Section of the tree.
+you can decide which Roles have access to which Section of the tree.
 
 The setting is inherited, which means that a child Content item inherits a value of this setting from its parent. 
 Changing a Section setting does not result in moving a Content item to a different location within a Content Tree.

@@ -30,7 +30,8 @@ Customer Portal is available in Ibexa Experience. It is also compatible with PIM
 
 ## How does Customer Portal work?
 
-Customer Portal is a component based on Content Types. This means that we provide containers, user management, content management, so you can focus on business logic and general outlook of the portal for your B2B clients.
+Customer Portal is a component based on Content Types. 
+This means that [[= product_name =]] provide containers, user management, content management, so you can focus on business logic and general outlook of the portal for your B2B clients.
 
 ### Customer Portal
 
@@ -69,11 +70,14 @@ The main company management takes place in the Back Office where each company ha
 
 From there, they can activate and deactivate the company, edit its information, invite members, manage their roles and edit their basic information.
 
-In the Roles section, you can define Policies for each User Group, for example, a Company buyer. You can also set up Policies for every user who has a business account by editing a Corporate Access role.
+In the Roles section, you can define Policies for each user group, for example, a Company buyer. 
+You can also set up Policies for every user who has a business account by editing a Corporate Access role.
 
 ### Members
 
-Company members are not standard users. They belong to a separate category called Corporate Accounts. This category is located in Admin -> Corporate -> Corporate Accounts. There, you will find a list of companies and their members.
+Company members are not standard users. They belong to a separate category called Corporate Accounts. 
+This category is located in **Admin** -> **Corporate** -> **Corporate Accounts**. 
+There, you can find a list of companies and their members.
 
 This feature comes with a set of new roles:
 
@@ -98,7 +102,8 @@ Click **Send** to send out invitations.
 
 ![Invitations](img/cp_invitations.png)
 
-Invited users will receive an email message with a registration link. With it, they can register and create their account in the Customer Portal.
+Invited users receive an email message with a registration link. 
+With it, they can register and create their account in the Customer Portal.
 
 ![Create account](img/cp_create_account.png)
 
@@ -132,7 +137,7 @@ Customer Portal comes with [REST API](https://doc.ibexa.co/en/latest/api/rest_ap
 
 Sales representatives can manage details for companies they are associated with, such as contact persons, billing addresses, and more by accessing Back Office.
 Company admins are also able to manage the company's details in the Customer Portal interface.
-By giving users power to manage their own accounts, we reduce the need for administrative interventions.
+By giving users power to manage their own accounts, you reduce the need for administrative interventions.
 
 ### Self registration
 

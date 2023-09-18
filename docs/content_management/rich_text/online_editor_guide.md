@@ -41,9 +41,7 @@ and render them with custom templates.
 
 Custom tags can be created by means of specifying two things only: 
 YAML configuration and relevant Twig templates.
-
-The YAML configuration defines a custom tag's attributes and the template used to render it, 
-as well as where is the toolbar the tag will be available.
+The YAML configuration defines a custom tag’s attributes and the template used to render it, as well as where in the toolbar the tag is available.
 
 See [Extend Online Editor](extend_online_editor.md#configure-custom-tags) for a full example.
 

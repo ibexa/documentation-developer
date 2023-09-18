@@ -39,20 +39,20 @@ The available basic form fields are:
 
 | Field name | Icon | Description|
 |----|----|----|
-|Single line input|![](img/icons/single_line_input.png)|Single line field for short text.|
-|Multiple line input|![](img/icons/multiple_line_input.png)|Multiple line field for longer text.|
-|Number|![](img/icons/Number.png)| Field to set up a number using arrows.|
-|Checkbox|![](img/icons/Checkbox.png)|Single checkbox element with one option value available.|
-|Checkboxes|![](img/icons/Checkboxes.png)|Multiple checkboxes with more than one option values available.|
-|Radio|![](img/icons/Radio.png)|List with multiple option values available and visible.|
-|Dropdown|![](img/icons/Dropdown.png)|Dropdown list with multiple option values available.|
-|Email|![](img/icons/Email.png)|Field to insert an email address.|
-|Date|![](img/icons/Date.png)|Field to insert a date.|
-|URL|![](img/icons/URL.png)|Field to insert an URL address.|
-|File|![](img/icons/File.png)|Interactive field to upload file.|
-|Captcha|![](img/icons/Captcha.png)|Field with captcha and additional blank line to rewrite it.|
-|Button|![](img/icons/Button.png)|Form submit button.|
-|Hidden field|![](img/icons/Hidden_field.png)|Field used to submit metadata that should not be visible in rendered form.|
+|Single line input|![Single line input](img/icons/single_line_input.png)|Single line field for short text.|
+|Multiple line input|![Multiple line input](img/icons/multiple_line_input.png)|Multiple line field for longer text.|
+|Number|![Number](img/icons/Number.png)| Field to set up a number using arrows.|
+|Checkbox|![Checkbox](img/icons/Checkbox.png)|Single checkbox element with one option value available.|
+|Checkboxes|![Checkboxes](img/icons/Checkboxes.png)|Multiple checkboxes with more than one option values available.|
+|Radio|![Radio](img/icons/Radio.png)|List with multiple option values available and visible.|
+|Dropdown|![Dropdown](img/icons/Dropdown.png)|Dropdown list with multiple option values available.|
+|Email|![Email](img/icons/Email.png)|Field to insert an email address.|
+|Date|![Date](img/icons/Date.png)|Field to insert a date.|
+|URL|![URL](img/icons/URL.png)|Field to insert an URL address.|
+|File|![File](img/icons/File.png)|Interactive field to upload file.|
+|Captcha|![Captcha](img/icons/Captcha.png)|Field with captcha and additional blank line to rewrite it.|
+|Button|![Button](img/icons/Button.png)|Form submit button.|
+|Hidden field|![Hidden field](img/icons/Hidden_field.png)|Field used to submit metadata that should not be visible in rendered form.|
 
 ### Create a form
 
