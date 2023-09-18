@@ -90,6 +90,11 @@ nav:
             - Project organization: administration/project_organization/project_organization.md
             - Architecture: administration/project_organization/architecture.md
             - Bundles: administration/project_organization/bundles.md
+            - Packages and bundles:
+                - Package structure: administration/project_organization/packages_and_bundles/package_structure.md
+                - Create bundle: administration/project_organization/packages_and_bundles/create_bundle.md
+                - Install bundle: administration/project_organization/packages_and_bundles/install_package.md
+                - Upload on Packagist: administration/project_organization/packages_and_bundles/upload_packagist.md
         - Admin panel:
             - Admin panel: administration/admin_panel/admin_panel.md
             - Users: administration/admin_panel/users_admin_panel.md
@@ -755,9 +760,9 @@ nav:
         - Ibexa DXP PhpStorm plugin: resources/phpstorm_plugin.md
         - New in documentation: resources/new_in_doc.md
         - Contributing:
+            
             - Report and follow issues: resources/contributing/report_and_follow_issues.md
             - Contribute translations: resources/contributing/contribute_translations.md
-            - Package structure: resources/contributing/package_structure.md
     - Release notes:
         - Release notes: release_notes/release_notes.md
         - Ibexa DXP v4.5: release_notes/ibexa_dxp_v4.5.md
