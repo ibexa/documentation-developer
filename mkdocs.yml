@@ -139,6 +139,7 @@ nav:
             - Notifications: administration/back_office/notifications.md
     - Content management:
         - Content management: content_management/content_management.md
+        - Content management guide: content_management/content_management_guide.md
         - Content model: content_management/content_model.md
         - Locations: content_management/locations.md
         - Content Relations: content_management/content_relations.md
@@ -153,6 +154,7 @@ nav:
             - Add Image Asset from DAM: content_management/images/add_image_asset_from_dam.md
             - Fastly Image Optimizer: content_management/images/fastly_io.md
         - Rich Text:
+            - Online Editor guide: content_management/rich_text/online_editor_guide.md
             - Extend Online Editor: content_management/rich_text/extend_online_editor.md
             - Create custom RichText block: content_management/rich_text/create_custom_richtext_block.md
         - File management:
@@ -168,6 +170,7 @@ nav:
             - React App page block: content_management/pages/react_app_block.md
             - Ibexa Connect scenario block: content_management/pages/ibexa_connect_scenario_block.md
         - Forms:
+            - Form Builder guide: content_management/forms/form_builder_guide.md
             - Forms: content_management/forms/forms.md
             - Form API: content_management/forms/form_api.md
             - Create custom Form field: content_management/forms/create_custom_form_field.md
@@ -300,6 +303,7 @@ nav:
             - Add search form to front page: templating/layout/add_search_form.md
     - PIM (Product management):
         - PIM (Product management): pim/pim.md
+        - PIM guide: pim/pim_guide.md
         - PIM configuration: pim/pim_configuration.md
         - Products: pim/products.md
         - Product API: pim/product_api.md
@@ -345,7 +349,7 @@ nav:
             - Configure Storefront: commerce/storefront/configure_storefront.md
             - Extend Storefront: commerce/storefront/extend_storefront.md
     - Customer management:
-        - Customer Portal: customer_management/customer_portal.md
+        - Customer Portal guide: customer_management/customer_portal.md
         - Customer Portal configuration: customer_management/cp_configuration.md
         - Create Customer Portal: customer_management/cp_page_builder.md
         - Customer Portal Applications: customer_management/cp_applications.md
