@@ -139,7 +139,7 @@ final class CartCommand extends Command
         // Get the target cart
         $order = $this->orderService->getOrderByIdentifier($orderIdentifier);
 
-        // Get the carts to merge
+        // Get the cart to merge
         $existingCart = $this->cartResolver->resolveCart();
 
         $reorderCart = $this
