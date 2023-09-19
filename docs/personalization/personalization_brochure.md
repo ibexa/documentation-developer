@@ -14,7 +14,7 @@ Pricing is based on the number of Personalization API events.
 
 To enable recommendation engine, request access to the service by [creating an account]([[= user_doc =]]/personalization/enable_personalization/#request-access-to-the-server).
 
-After setting up an account and receiving credentials, pass them to your administrator who will configure Personalization service in your Ibexa DXP instance.
+After setting up an account and receiving credentials, pass them to your administrator who can configure Personalization service in your [[= product_name =]] instance.
 
 Now, you can start collecting data and boost your business.
 
@@ -74,13 +74,13 @@ Personalization includes interface as API that you can use to interact with stor
 
 For more information see documentation for API operations available for Personalization:
 
-[Tracking API](https://doc.ibexa.co/en/latest/personalization/api_reference/tracking_api/)
+[Tracking API](api_reference/tracking_api.md/)
 
-[Content API](https://doc.ibexa.co/en/latest/personalization/api_reference/content_api/)
+[Content API](api_reference/content_api.md/)
 
-[Recommendation API])Ibexa Documentation)https://doc.ibexa.co/en/latest/personalization/api_reference/recommendation_api/)
+[Recommendation API](api_reference/recommendation_api.md/)
 
-[User API](https://doc.ibexa.co/en/latest/personalization/api_reference/user_api/)
+[User API](api_reference/user_api.md/)
 
 ## Benefits
 
@@ -124,8 +124,8 @@ Connect Personalization engine with your eCommerce shop, focus on the revenue ge
 
 ## Use cases
 
-[eCommerce](https://doc.ibexa.co/projects/userguide/en/latest/personalization/use_cases/#ecommerce)
+[eCommerce]([[= user_doc =]]/personalization/use_cases/#ecommerce.md)
 
-[Content publishing](https://doc.ibexa.co/projects/userguide/en/latest/personalization/use_cases/#content-publishing)
+[Content publishing]([[= user_doc =]]/personalization/use_cases/#content-publishing.md)
 
-[Multiple website hosting](https://doc.ibexa.co/projects/userguide/en/latest/personalization/use_cases/#multiple-website-hosting)
+[Multiple website hosting]([[= user_doc =]]/personalization/use_cases/#multiple-website-hosting.md)

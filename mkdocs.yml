@@ -399,7 +399,7 @@ nav:
         - Importing historical user tracking data: personalization/importing_historical_user_tracking_data.md
         - Track with ibexa-tracker.js: personalization/tracking_with_ibexa-tracker.md
         - Attribute search in Elasticsearch: personalization/attribute_search_in_elasticsearch.md
-        - Personalization brochure: personalization/personalization_brochure.md
+        - Personalization guide : personalization/personalization_brochure.md
     - CDP (Customer Data Platform):
         - Customer Data Platform: cdp/cdp.md
         - CDP installation: cdp/cdp_installation.md
