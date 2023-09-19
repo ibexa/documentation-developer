@@ -57,7 +57,7 @@ See [Extend Online Editor](extend_online_editor.md#configure-custom-styles) for 
 
 For each RichText element type, you can configure custom data attributes or CSS classes that the user can select when working in Online Editor.
 
-Custom data attributes allow adding new attributes to existing Rich Text elements, such as headings or lists, which are added in the form of data-ezattribute-<attribute_name>="<value>".
+Custom data attributes allow adding new attributes to existing Rich Text elements, such as headings or lists, which are added in the form of `data-ezattribute-<attribute_name>="<value>"`.
 
 See [Extend Online Editor](extend_online_editor.md#custom-data-attributes) for more information
 
