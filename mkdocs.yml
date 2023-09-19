@@ -385,6 +385,7 @@ nav:
         - Segment API: users/segment_api.md
     - Personalization:
         - Personalization: personalization/personalization.md
+        - Personalization guide : personalization/personalization_brochure.md
         - How Personalization works: personalization/how_it_works.md
         - Enable Personalization: personalization/enable_personalization.md
         - Integrate recommendation service: personalization/integrate_recommendation_service.md
@@ -399,7 +400,6 @@ nav:
         - Importing historical user tracking data: personalization/importing_historical_user_tracking_data.md
         - Track with ibexa-tracker.js: personalization/tracking_with_ibexa-tracker.md
         - Attribute search in Elasticsearch: personalization/attribute_search_in_elasticsearch.md
-        - Personalization guide : personalization/personalization_brochure.md
     - CDP (Customer Data Platform):
         - Customer Data Platform: cdp/cdp.md
         - CDP installation: cdp/cdp_installation.md
