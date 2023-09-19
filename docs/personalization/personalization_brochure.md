@@ -18,7 +18,7 @@ After setting up an account and receiving credentials, pass them to your adminis
 
 Now, you can start collecting data and boost your business.
 
-## How does Personalization work?
+## How does Personalization work
 
 
 ![How it works](how_perso_works.png)
@@ -42,7 +42,7 @@ They work in the background and update on regular time intervals to ensure best 
 
 If you need more customized models, contact customer support.
 
-Includes the following model types:
+Personalization service includes the following model types:
 
 - popularity models - based on trends, Top clicked, Top purchased, algorithm recommends trending content 
 
@@ -74,13 +74,10 @@ Personalization includes interface as API that you can use to interact with stor
 
 For more information see documentation for API operations available for Personalization:
 
-[Tracking API](api_reference/tracking_api.md/)
-
-[Content API](api_reference/content_api.md/)
-
-[Recommendation API](api_reference/recommendation_api.md/)
-
-[User API](api_reference/user_api.md/)
+- [Tracking API](api_reference/tracking_api.md/)
+- [Content API](api_reference/content_api.md/)
+- [Recommendation API](api_reference/recommendation_api.md/)
+- [User API](api_reference/user_api.md/)
 
 ## Benefits
 
@@ -90,18 +87,15 @@ Create websites with content targeted at your customers. Deliver your visitors r
 
 ### Reduce clutter and improve customer retention
 
-Help users find content of their interest quicker
-
-use words to appeal to individual customers, as well as segments
-
+Help users find content of their interest quicker,
+use words to appeal to individual customers, as well as segments.
 Enrich customer data by integrating Ibexa Personalization with other systems such as ERP, CRMs.
-
-Track user’s scenarios and develop strategies that match your strategies and improve engagement
+Track user’s scenarios and develop strategies that match your strategies and improve engagement.
 
 
 ### Satisfy customer expectations
 
-Personalization engine shows customers products relevant to their interests, builds a feeling of connection and understanding
+Personalization engine shows customers products relevant to their interests, builds a feeling of connection and understanding.
 
 ### Increase customer engagement
 
@@ -124,8 +118,6 @@ Connect Personalization engine with your eCommerce shop, focus on the revenue ge
 
 ## Use cases
 
-[eCommerce]([[= user_doc =]]/personalization/use_cases/#ecommerce.md)
-
-[Content publishing]([[= user_doc =]]/personalization/use_cases/#content-publishing.md)
-
-[Multiple website hosting]([[= user_doc =]]/personalization/use_cases/#multiple-website-hosting.md)
+- [eCommerce]([[= user_doc =]]/personalization/use_cases/#ecommerce.md)
+- [Content publishing]([[= user_doc =]]/personalization/use_cases/#content-publishing.md)
+- [Multiple website hosting]([[= user_doc =]]/personalization/use_cases/#multiple-website-hosting.md)
