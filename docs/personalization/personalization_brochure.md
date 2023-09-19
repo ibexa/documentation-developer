@@ -1,18 +1,18 @@
-# Personalization
+# Personalization product guide
 
 ## What is Personalization
 
 Personalization engine is a cloud-based service that tracks and analyzes customer behaviors and delivers optimized, user-tailored content, and information.
 
-The engine uses artificial intelligence and machine learning modelling to learn and create behavioral patterns and generate recommendations ready to be presented on one or more websites hosted by the Ibexa DXP instance.
+The engine uses artificial intelligence and machine learning modeling to learn and create behavioral patterns and generate recommendations ready to be presented on one or more websites hosted by the [[= product_name =]] instance.
 
 ## Availability
 
-Personalization service is available in all supported Ibexa DXP versions and editions.
+Personalization service is available in all supported [[= product_name =]] versions and editions.
 
 Pricing is based on the number of Personalization API events.
 
-To enable recommendation engine, request access to the service by [creating an account](https://doc.ibexa.co/projects/userguide/en/master/personalization/enable_personalization/#request-access-to-the-server).
+To enable recommendation engine, request access to the service by [creating an account]([[= user_doc =]]/personalization/enable_personalization/#request-access-to-the-server).
 
 After setting up an account and receiving credentials, pass them to your administrator who will configure Personalization service in your Ibexa DXP instance.
 
