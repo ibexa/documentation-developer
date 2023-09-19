@@ -203,6 +203,13 @@ The endpoint must meet the following requirements:
 }
 ```
 
+!!! note "Secure the endpoint with authorization"
+
+    The trigger service supports additional authentication with a token to secure communication between the Personalization server and the endpoint.
+    An authentication token can be attached to the JSON response as a write-only `authToken` field. 
+    If your endpoint requires authentication, you must provide Ibexa with either basic or Bearer access token.
+    Otherwise, either the field is skipped or a `null` token is passed.
+
 3\. Contact `support@ibexa.co` with your organization's requirements to have the email triggers enabled.
 
 ## Advanced integration
