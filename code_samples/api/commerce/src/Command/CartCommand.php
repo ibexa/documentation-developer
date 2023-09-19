@@ -136,7 +136,7 @@ final class CartCommand extends Command
 
         return self::SUCCESS;
 
-        // Get the target cart
+        // Get the order with items that should be reordered
         $order = $this->orderService->getOrderByIdentifier($orderIdentifier);
 
         // Get the cart to merge

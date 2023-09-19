@@ -63,23 +63,6 @@ framework:
 
 ```
 
-The next example shows how to hide a step during checkout in reorder workflow.
-
-```yaml hl_lines="14"
-framework:
-    workflows:
-        ibexa_checkout:
-            transitions:
-                select_address:
-                    metadata:
-                        next_step: select_shipping
-                        controller: Ibexa\Bundle\Checkout\Controller\CheckoutStep\AddressStepController::renderStepView
-                        label: 'Billing & shipping address'
-                        translation_domain: checkout
-                        physical_products_step: true
-                        hidden: true
-```
-
 ## Reorder PHP API
 
 You can manage and modify reorder with a dedicated checkout and cart PHP API.
@@ -87,7 +70,7 @@ You can manage and modify reorder with a dedicated checkout and cart PHP API.
 ### Checkout PHP API
 
 Reorder comes with dedicated `Ibexa\Contracts\Checkout\Reorder\ReorderService` interface.
-You can use it to manage reorders in your project.
+It contains helper methods and facades added over existing API to ease the order manipulation process.
 The following methods can be used to modify the reorder flow to fit your business needs:
 
 #### `ReorderService:addToCartFromOrder` 
