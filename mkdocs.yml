@@ -385,6 +385,7 @@ nav:
         - Segment API: users/segment_api.md
     - Personalization:
         - Personalization: personalization/personalization.md
+        - Personalization guide : personalization/personalization_brochure.md
         - How Personalization works: personalization/how_it_works.md
         - Enable Personalization: personalization/enable_personalization.md
         - Integrate recommendation service: personalization/integrate_recommendation_service.md
