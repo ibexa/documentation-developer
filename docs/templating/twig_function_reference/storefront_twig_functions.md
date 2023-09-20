@@ -78,7 +78,7 @@ then the main category for "Office" is "Furniture".
 
 ## `ibexa_storefront_get_language_name_by_code()`
 
-`ibexa_storefront_get_language_name_by_code()` returns language name instead of its code in language switcher.
+`ibexa_storefront_get_language_name_by_code()` displays language name based on its code or locale.
 
 ``` html+twig
 {% set languageName = ibexa_storefront_get_language_name_by_code(languageCode) %}
