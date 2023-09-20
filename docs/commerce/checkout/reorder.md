@@ -5,8 +5,8 @@ edition: commerce
 
 # Reorder
 
-The reorder feature allows customers to streamline the process of repurchasing previously bought items.
-Based on a past order identifier, cart is recreated and validated to be eligible for reordering.
+The reorder feature allows customers to streamline the process of repeating purchases.
+Based on a past order identifier, the cart is recreated and validated to be eligible for reordering.
 
 ## Reorder workflow
 
@@ -19,7 +19,7 @@ Customers can use the following workflow to specify orders they want to reorder 
 
 2\. Selects order they want to repurchase from the list.
 
-3\. On the order details site customer clicks **Reorder**.
+3\. On the order details site, customer clicks **Reorder**.
 
 ![Order details site - reorder](img/reorder_button.png)
 
@@ -37,7 +37,7 @@ Customers can use the following workflow to specify orders they want to reorder 
 
 ## Configuration
 
-Reorder is part of checkout and as such has the same [configuration](configure_checkout.md) and [customization](customize_checkout.md) options as checkout.
+Reorder is a part of checkout and as such has the same [configuration](configure_checkout.md) and [customization](customize_checkout.md) options as checkout.
 Below, you can find a few examples that demonstrate how you can modify this feature.
 
 ### Customize reorder
@@ -69,14 +69,14 @@ You can manage and modify reorder with a dedicated checkout and cart PHP API.
 
 ### Checkout PHP API
 
-Reorder comes with dedicated `Ibexa\Contracts\Checkout\Reorder\ReorderService` interface.
+Reorder comes with the dedicated `Ibexa\Contracts\Checkout\Reorder\ReorderService` interface.
 It contains helper methods and facades added over existing API to ease the order manipulation process.
 The following methods can be used to modify the reorder flow to fit your business needs:
 
 #### `ReorderService:addToCartFromOrder` 
 
 Allows you to add items from a previous order to a cart.
-It uses historic data from previously ordered items even if they are no longer available.
+It uses historical data from previously ordered items even if they are no longer available.
 Those items are validated against available stock.
 The method uses the following parameters:
 

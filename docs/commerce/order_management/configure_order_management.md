@@ -45,7 +45,7 @@ Then reference it with `ibexa.repositories.<your_repository>.order_management.wo
 
 ### Define cancel order
 
-You can define a status and transition in which the order can be cancelled 
+You can define a status and transition in which the order can be canceled 
 by modifying workflow under the `framework.workflows` [configuration key](configuration.md#configuration-files).
 
 ```yaml

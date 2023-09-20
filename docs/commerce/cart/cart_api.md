@@ -154,7 +154,7 @@ and provide it with `Ibexa\Contracts\Cart\Value\EntryUpdateStruct`.
 
 ## Merge carts
 
-To combine the contents of multiple shopping carts into a target cart, you can use the `CartServiceInterface::mergeCarts` method. 
+To combine the contents of multiple shopping carts into a target cart, use the `CartServiceInterface::mergeCarts` method. 
 This operation is helpful when you want to consolidate items from a reorder cart and a current cart into a single order.
 
 ```php
