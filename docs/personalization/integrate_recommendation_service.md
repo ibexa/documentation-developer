@@ -151,17 +151,17 @@ if ($recommendations && isset($recommendations->recommendationResponseList)) {
 curl_close($curl);
 ```
 
-## Send emails with recommendations
+## Send messages with recommendations
 
-Email triggers are push messages with recommendations.
-With this feature, your organization can invite individual visitors to return to the website or remind them of items abandoned in a cart, for example by sending emails.
-Before you can start [using email triggers]([[= user_doc =]]/personalization/triggers), you must contact Ibexa and define specific conditions, for example:
+Triggers are push messages with recommendations.
+With this feature, your organization can invite individual visitors to return to the website or remind them of items abandoned in a cart by delivering a message, for example, by sending emails.
+Before you can start [using triggers]([[= user_doc =]]/personalization/triggers), you must contact Ibexa and define specific conditions, for example:
 
-- the time that must pass before emails start being sent
+- the time that must pass before messages start being sent
 - Content Types and attributes that are included in a response
 - a number of repetitions
 
-Email triggers are then processed on the Personalization server and responses are delivered to a dedicated endpoint.
+Triggers are then processed on the Personalization server and responses are delivered to a dedicated endpoint.
 
 To let your visitors receive emails with recommendations:
 
@@ -203,12 +203,12 @@ The endpoint must meet the following requirements:
 }
 ```
 
-!!! note "Secure the endpoint with authorization"
+The object contains links to the recommended items (`triggerOpenedLink`, `clickRecommended`), which are monitored by the Personalization server to gather statistical data.
 
-    The trigger service supports additional authentication with a token to secure communication between the Personalization server and the endpoint.
-    An authentication token can be attached to the JSON response as a write-only `authToken` field. 
-    If your endpoint requires authentication, you must provide Ibexa with either basic or Bearer access token.
-    Otherwise, either the field is skipped or a `null` token is passed.
+!!! note "Support for endpoints with authorization"
+
+    The trigger service supports additional Basic/Bearer token authentication to secure communication between the Personalization server and the endpoint. 
+    If your endpoint requires authentication, you must provide Ibexa with the token.
 
 3\. Contact `support@ibexa.co` with your organization's requirements to have the email triggers enabled.
 

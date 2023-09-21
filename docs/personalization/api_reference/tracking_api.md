@@ -336,6 +336,16 @@ can be provided in the whole shop.
 
 `GET https://event.perso.ibexa.co/api/[customerid]/basket/[userid]/[itemtypeid]/[itemid]`
 
+There are no query string parameters for this event.
+
+### Deletefrombasket event
+
+The Deletefrombasket is issued when the end user removes items from their shopping cart. 
+It could signify that the user has either lost interest in the product or already purchased it elsewhere. 
+Based on this information, recommendations presented by the store can be more accurate.
+
+`GET https://event.perso.ibexa.co/api/[customerid]/deletefrombasket/[userid]/[itemtypeid]/[itemid]`
+
 There are no query string parameters for this event. 
 
 ### Rate event
@@ -369,24 +379,23 @@ There are no query string parameters for this event. 
 
 ## Tracking events based on recommendations
 
-Tracking events based on integrated recommendations are the only way to measure 
-success of recommendations. 
-It is crucial to inform the Personalization server about which recommendations 
-were shown and what recommendations were clicked. 
-Otherwise, reliable statistics cannot be calculated and used to check against 
-the customer's KPIs.
+Tracking events based on integrated recommendations are the only way to measure the accuracy 
+and effectiveness of recommendations. 
+Both recommendation response and trigger message include requests to generate these events.
+Events of this type inform the Personalization server which recommendations 
+were shown to the user and which of those recommendations were clicked. 
+Otherwise, it would be impossible to calculate reliable statistics that could be checked 
+against the customer's KPIs.
 
-A recommendation response already includes the requests to generate a Clickrecommended 
-or Rendered event. 
-They are used and executed when a recommendation is clicked/accepted or a recommendation 
-is shown. 
+A recommendation response includes requests to generate a Rendered and Clickrecommended event. 
+They are executed when a recommendation is shown to the user and when it is clicked or otherwise accepted. 
 Sending Rendered events causes as many requests as recommendations to be displayed, 
 a Clickrecommended event is usually sent only once (when a user clicks on 
 a specific recommendation item).
 
 Example of a recommendation response:
 
-``` jsonp
+``` json
 "recommendationItems": [
     {
       "relevance": 23,
@@ -408,10 +417,50 @@ In the `links` field, the delivered request string is visible, which is executed
 when the end user displays or clicks a recommendations. 
 See [Recommendation API](recommendation_api.md) for more details.
 
-You can still implement the traditional way as mentioned below but it is strongly 
-recommended against this. 
-If you do so, remember to examine it together with the Ibexa team because it is 
-crucial for statistical analysis.
+A trigger message includes requests for a Triggeropened and Clicktriggered event. 
+The former is executed once, when the end user opens a trigger message (for example, embedded into a newsletter).
+The latter is called each time the user follows a link to see the recommended item. 
+Both requests reference the `action_trigger_ref_code`, which stands for a unique alphanumerical trigger identifier.
+
+Example of a trigger message:
+
+``` json
+   "customerID":"177751",
+   "userExternalId":"user@ibexa.co",
+   "triggerType":"REACTIVATION|ABANDAONED_SHOPPING_CART",
+   "triggerName":"trigger_ref_code",
+   "triggerOpenedLink":"//tracker.ibexa.co/api/17751/triggeropened/johndoe?triggername=action_trigger_ref_code",
+   "recommendations":[
+      {
+         "itemId":959,
+         "itemType":46,
+         "clickRecommended":"//tracker.ibexa.co/api/17751/clicktriggered/johndoe/46/959?triggername=action_trigger_ref_code",
+         "attributes":{
+            "ses_name":"Minimalista Coffee Table",
+			"ses_image":["img_1", "img_2"]
+         }
+      }
+   ]
+}
+```
+
+### Rendered event
+
+This event sent when the website uses the recommendation provided by the recommendation 
+engine and renders it on the webpage. 
+In combination with a predefined threshold, it allows the recommender engine to 
+exclude this item from future results and avoid recommending the same item to the 
+same user multiple times during a session.
+
+The URL for a Rendered event has the following format:
+
+`GET https://event.perso.ibexa.co/api/[customerid]/rendered/[userid]/[itemtypeid]/[itemid[,itemid]]`
+
+The Rendered event has the same embedded parameters as the Click event, except 
+for the item ID. 
+It is common that recommendations are rendered as a block with multiple items. 
+To save traffic and reduce latency, you can bundle multiple recommendations in one request. 
+Several item IDs must be comma-separated.
 
 ### Clickrecommended event
 
@@ -437,23 +486,41 @@ This information comes with the recommendation from the recommendation controlle
 The event is used for providing statistics about how often recommendations of 
 the configured recommendation scenario were accepted or considered as useful by users. 
 
-### Rendered event
+### Triggeropened event
 
-This event sent when the website uses the recommendation provided by the recommendation 
-engine and renders it on the webpage. 
-In combination with a predefined threshold, it allows the recommender engine to 
-exclude this item from future results and avoid recommending the same item to the 
-same user multiple times during a session.
+The Triggeropened event is sent when the end user opens a trigger message, for example, by opening an email message with recommendations. 
 
-The URL for a Rendered event has the following format:
+The URL has the following format:
 
-`GET https://event.perso.ibexa.co/api/[customerid]/rendered/[userid]/[itemtypeid]/[itemid[,itemid]]`
+`GET https://tracker.ibexa.co/api/[customerid]/triggeropened/[userid]?triggername=<action_trigger_reference_code>`
 
-The Rendered event has the same embedded parameters as the Click event, except 
-for the item ID. 
-It is common that recommendations are rendered as a block with multiple items. 
-To save traffic and reduce latency, you can bundle multiple recommendations in one request. 
-Several item IDs must be comma-separated.
+The embedded parameters have the same meaning as for a Click event. 
+
+The request parameter is:
+
+|Name|Description|Values|
+|---|---|---|
+|`triggername`|Identifier of the trigger that the message originates from. This parameter is required.|URL-encoded alphanumeric|
+
+The event is used for providing statistics about how often trigger messages are considered valuable by users. 
+
+### Clicktriggered event
+
+The Clicktriggered event is sent when the end user clicks the link delivered in a trigger message to see the recommended item.
+
+The URL has the following format:
+
+`GET https://tracker.ibexa.co/api/[customerid]/clicktriggered/[userid]/[itemtypeid]/[itemid]?triggername=<action_trigger_reference_code>`
+
+The embedded parameters have the same meaning as for a Click event. 
+
+The request parameter is:
+
+|Name|Description|Values|
+|---|---|---|
+|`triggername`|Identifier of the trigger that the recommendation originates from. This parameter is required.|URL-encoded alphanumeric|
+
+The event is used for providing statistics about how often a specific recommendation from the trigger message is considered useful the user. 
 
 ## Tracking event examples
 
