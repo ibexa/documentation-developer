@@ -446,7 +446,7 @@ Example of a trigger message:
 
 ### Rendered event
 
-This event sent when the website uses the recommendation provided by the recommendation 
+This event is sent when the website uses the recommendation provided by the recommendation 
 engine and renders it on the webpage. 
 In combination with a predefined threshold, it allows the recommender engine to 
 exclude this item from future results and avoid recommending the same item to the 
@@ -494,7 +494,7 @@ The URL has the following format:
 
 `GET https://tracker.ibexa.co/api/[customerid]/triggeropened/[userid]?triggername=<action_trigger_reference_code>`
 
-The embedded parameters have the same meaning as for a Click event. 
+The embedded parameters have the same meaning as for the Click event. 
 
 The request parameter is:
 
@@ -502,7 +502,7 @@ The request parameter is:
 |---|---|---|
 |`triggername`|Identifier of the trigger that the message originates from. This parameter is required.|URL-encoded alphanumeric|
 
-The event is used for providing statistics about how often trigger messages are considered valuable by users. 
+The event is used for providing statistics about how often trigger messages are considered valuable by the users. 
 
 ### Clicktriggered event
 
@@ -512,7 +512,7 @@ The URL has the following format:
 
 `GET https://tracker.ibexa.co/api/[customerid]/clicktriggered/[userid]/[itemtypeid]/[itemid]?triggername=<action_trigger_reference_code>`
 
-The embedded parameters have the same meaning as for a Click event. 
+The embedded parameters have the same meaning as for the Click event. 
 
 The request parameter is:
 
@@ -520,7 +520,7 @@ The request parameter is:
 |---|---|---|
 |`triggername`|Identifier of the trigger that the recommendation originates from. This parameter is required.|URL-encoded alphanumeric|
 
-The event is used for providing statistics about how often a specific recommendation from the trigger message is considered useful the user. 
+The event is used for providing statistics about how often a specific recommendation from the trigger message is considered useful by the user. 
 
 ## Tracking event examples
 
