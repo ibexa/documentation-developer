@@ -62,7 +62,13 @@ To generate Content item name or URL alias the Field Type name must be a part of
 
 ## Value handling
 
-A Field Type needs to deal with the custom value format provided by it. In order for the public API to work properly, it delegates working with such custom Field values to the corresponding Field Type. The `Ibexa\Core\FieldType\FieldType` interface therefore provides the following methods:
+A Field Type needs to deal with the custom value format provided by it. In order for the public API to work properly, it delegates working with such custom Field values to the corresponding Field Type. The `Ibexa\Core\FieldType\FieldType` interface therefore provides the following methods.
+
+!!! caution "Simple hash values"
+
+    In [[= product_name =]], a simple hash value always means an array of scalar values and/or nested arrays of scalar values.
+    To avoid issues with format conversion, do not use objects inside the simple hash values.
+
 
 #### `acceptValue()`
 
@@ -95,7 +101,7 @@ When [REST API](rest_api_usage.md) is used, conversion needs to be done for Fiel
 
 |Method|Description|
 |------|-----------|
-|`toHash()`|Converts Field Type Value into a plain hash format.|
+|`toHash()`|Converts Field Type Value into a simple hash format.|
 |`fromHash()`|Converts the other way around.|
 |`fieldSettingsToHash()`|Converts Field Type settings to a simple hash format.|
 |`fieldSettingsFromHash()`|Converts the other way around.|

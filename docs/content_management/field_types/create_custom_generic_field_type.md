@@ -13,6 +13,11 @@ reduces the number of classes which must be created, and simplifies the tagging 
 
     You should not use the Generic Field Type when you need a very specific implementation or complete control over the way data is stored.
 
+!!! caution "Simple hash values"
+
+    In [[= product_name =]], a simple hash value always means an array of scalar values and/or nested arrays of scalar values.
+    To avoid issues with format conversion, do not use objects inside the simple hash values.
+
 ## Define value object
 
 First, create `Value.php` in the `src/FieldType/HelloWorld` directory.

@@ -25,6 +25,11 @@ For more information about Field Type Value, see [Value handling](type_and_value
 
     According to the convention, the class representing Field Type Value should be named `Value` and should be placed in the same namespace as the Type definition.
 
+!!! caution "Simple hash values"
+
+    In [[= product_name =]], a simple hash value always means an array of scalar values and/or nested arrays of scalar values.
+    To avoid issues with format conversion, do not use objects inside the simple hash values.
+
 The Point 2D Value class will contain:
 
 - private properties, used to store the actual data

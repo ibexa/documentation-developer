@@ -33,6 +33,11 @@ In order to provide custom functionality for a Field Type, the SPI interacts wit
 
 On the top layer, the Field Type needs to provide conversion from and to a simple PHP hash value to support the **REST API**. The generated hash value may only consist of scalar values and hashes. It must not contain objects or arrays with numerical indexes that aren't sequential and/or don't start with zero.
 
+!!! caution "Simple hash values"
+
+    In [[= product_name =]], a simple hash value always means an array of scalar values and/or nested arrays of scalar values.
+    To avoid issues with format conversion, do not use objects inside the simple hash values.
+
 Below that, the Field Type must support the **Public API** implementation regarding:
 
 - Settings definition for `FieldDefinition`
