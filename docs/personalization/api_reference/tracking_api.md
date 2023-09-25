@@ -78,7 +78,7 @@ For consistent tracking it is crucial to choose and use a consistent identifier 
 A user usually visits a website anonymously. 
 Therefore, their identifier is either a first-party cookie or a session ID 
 provided by the website. 
-If there is no existing user ID handling that we can re-use, it is recommended that 
+If there is no existing user ID handling that can be re-used, it is recommended that 
 you use your own cookie and set the expiry date to at least 90 days from the last usage. 
 If there is a login mechanism, the user is usually tracked with a temporary 
 identifier before the login. 
@@ -341,7 +341,7 @@ There are no query string parameters for this event.
 ### Deletefrombasket event
 
 The Deletefrombasket is issued when the end user removes items from their shopping cart. 
-It could signify that the user has either lost interest in the product or already purchased it elsewhere. 
+It could signify that the user has lost interest in the product. 
 Based on this information, recommendations presented by the store can be more accurate.
 
 `GET https://event.perso.ibexa.co/api/[customerid]/deletefrombasket/[userid]/[itemtypeid]/[itemid]`
@@ -402,25 +402,30 @@ Example of a recommendation response:
       "itemType": 1,
       "itemId": 100175717,
       "origin": {
-        "itemIds" : [10, 11], // these are the items that the recommendations are based on (context or user history items), multiple values are possible
+        "itemIds" : [10, 11],
         "itemType" : 1,
-        "source" : "REQUEST" // Possible options: REQUEST (parameter "contextitems") or CLICK, CONSUME, BUY, BASKET, RATE (user history)
+        "source" : "REQUEST" 
       },
-      "category" : "Men/Shirts", // Provided only, if category suggestion is requested
+      "category" : "Men/Shirts",
       "links" : {
          "clickRecommended" : "//event.perso.ibexa.co/clickrecommended/johndoe/1/100175717?scenario=also_clicked&modelId=37",
          "rendered" : "//event.perso.ibexa.co/rendered/johndoe/1/100175717"
       },
 ```
 
-In the `links` field, the delivered request string is visible, which is executed 
-when the end user displays or clicks a recommendations. 
+| Field name | Description |
+|---|---|
+| `itemIds` |Items that the recommendations are based on (context or user history items), multiple values are possible.|
+| `source` |Event that initiated the response: REQUEST (parameter "contextitems") or CLICK, CONSUME, BUY, BASKET, RATE (user history).|
+| `category` |A recommended item category. Provided only if category suggestion is requested.|
+| `links` | Requests for events that are executed when the end user displays or clicks a recommendation.|
+
 See [Recommendation API](recommendation_api.md) for more details.
 
 A trigger message includes requests for a Triggeropened and Clicktriggered event. 
-The former is executed once, when the end user opens a trigger message (for example, embedded into a newsletter).
-The latter is called each time the user follows a link to see the recommended item. 
-Both requests reference the `action_trigger_ref_code`, which stands for a unique alphanumerical trigger identifier.
+The first is executed once, when the end user opens a trigger message (for example, embedded into a newsletter).
+The second is called each time the user follows a link to see the recommended item. 
+Both requests provide the `triggername` parameter, which passes a unique alphanumerical identifier of the trigger that initiated the message.
 
 Example of a trigger message:
 
@@ -443,6 +448,8 @@ Example of a trigger message:
    ]
 }
 ```
+
+For more information, see [Send messages with recommendations](../integrate_recommendation_service.md#send-messages-with-recommendations).
 
 ### Rendered event
 
