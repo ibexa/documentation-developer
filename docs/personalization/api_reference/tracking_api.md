@@ -177,6 +177,19 @@ Multiple category locations of an item (multi-homing) are therefore possible.
     Make sure that all embedded and query string parameters are URL encoded and 
     do not use a backslash [encoded as %5C\].
 
+### Event parameters
+
+For a list of embedded parameters that each of the events may use, see the following table. 
+
+|Name|Description|Values|
+|---|---|---|
+|`customerid`|A customer ID (for example "00000"). Can be used to identify a website in installations that [hosts multiple SiteAccesses]([[= user_doc =]]/personalization/use_cases/#multiple-website-hosting).|alphanumeric|
+|userid|A user's ID on the website of the customer. It could be an internal customer code, a session code or a cookie for anonymous users.|URL-encoded alphanumeric|
+|`itemtypeid`|Item type ID.|1 to 2147483647|
+|`itemid`|A unique ID of the item the user has clicked.</br>String-based identifiers are also supported as item IDs to track content on a website, but it is discouraged due to fraud and security issues. If you are unable to provide numeric identifiers for the tracking process, contact Ibexa for further information and implementation notes.|1 to 2147483647|
+|`sourceuserid`|User identifier valid up to now(usually some anonymous session ID)|URL-encoded alphanumeric|
+|`targetuserid`|User identifier valid from now on (usually an account ID or login name)|URL-encoded alphanumeric|
+
 ### Click event
 
 When the end user opens an item/article detail, a Click events is sent. 
@@ -193,15 +206,8 @@ The URL to track user clicks has the following format:
 
 `GET https://event.perso.ibexa.co/api/[customerid]/click/[userid]/[itemtypeid]/[itemid]`
 
-
-|Name|Description|Values|
-|---|---|---|
-|`customerid`|A customer ID (for example "00000"). Can be used to identify a website in installations that [hosts multiple SiteAccesses]([[= user_doc =]]/personalization/use_cases/#multiple-website-hosting).|alphanumeric|
-|userid|A user's ID on the website of the customer. It could be an internal customer code, a session code or a cookie for anonymous users.|URL-encoded alphanumeric|
-|`itemtypeid`|Item type ID.|1 to 2147483647|
-|`itemid`|A unique ID of the item the user has clicked.</br>String-based identifiers are also supported as item IDs to track content on a website, but it is discouraged due to fraud and security issues. If you are unable to provide numeric identifiers for the tracking process, contact Ibexa for further information and implementation notes.|1 to 2147483647|
-
 All embedded parameters are required for the request. 
+For a detailed description of embedded parameters, see [Event parameters](#event-parameters).
 Some optional request parameters can be set over query string parameters (GET parameters).
 
 `GET https://event.perso.ibexa.co/api/[customerid]/click/[userid]/[itemtypeid]/[itemid]?parameter1=value1&parameter2=value2`
@@ -224,7 +230,7 @@ The URL has the following format:
 
 `GET https://event.perso.ibexa.co/api/[customerid]/consume/[userid]/[itemtypeid]/[itemid]`
 
-All embedded parameters are the same as for a Click event. 
+For a detailed description of embedded parameters, see [Event parameters](#event-parameters).
 The following table lists the request parameters:
 
 |Name|Description|Values|
@@ -261,6 +267,7 @@ The URL has the following format: 
 
 `GET https://event.perso.ibexa.co/api/[customerid]/buy/[userid]/[itemtypeid]/[itemid]?fullprice=2.50EUR&quantity=4`
 
+For a detailed description of embedded parameters, see [Event parameters](#event-parameters).
 In addition to the fact that an item is bought, this event should provide information 
 about the product price and quantity.
 
@@ -315,10 +322,7 @@ The format of the URL is: 
 
 `GET https://event.perso.ibexa.co/api/[customerid]/login/[sourceuserid]/[targetuserid]`
 
-|Name|Description|Values|
-|---|---|---|
-|sourceuserid|User identifier valid up to now(usually some anonymous session ID)|URL-encoded alphanumeric|
-|targetuserid|User identifier valid from now on (usually an account ID or login name)|URL-encoded alphanumeric|
+For a detailed description of embedded parameters, see [Event parameters](#event-parameters).
 
 ### Basket event
 
@@ -336,6 +340,7 @@ can be provided in the whole shop.
 
 `GET https://event.perso.ibexa.co/api/[customerid]/basket/[userid]/[itemtypeid]/[itemid]`
 
+For a detailed description of embedded parameters, see [Event parameters](#event-parameters).
 There are no query string parameters for this event.
 
 ### Deletefrombasket event
@@ -346,6 +351,7 @@ Based on this information, recommendations presented by the store can be more ac
 
 `GET https://event.perso.ibexa.co/api/[customerid]/deletefrombasket/[userid]/[itemtypeid]/[itemid]`
 
+For a detailed description of embedded parameters, see [Event parameters](#event-parameters).
 There are no query string parameters for this event. 
 
 ### Rate event
@@ -358,7 +364,9 @@ The format of the URL is:
 
 `GET https://event.perso.ibexa.co/api/[customerid]/rate/[userid]/[itemtypeid]/[itemid]?rating=50`
 
-This can also be used for explicit ratings like a five-star rating for hotels. 
+For a detailed description of embedded parameters, see [Event parameters](#event-parameters).
+
+Rate event can also be used for explicit ratings like a five-star rating for hotels. 
 A predefined rating can be submitted when the user comments on an item.
 
 |Name|Description|Values|
@@ -375,6 +383,7 @@ The format of the URL is:
 
 `GET https://event.perso.ibexa.co/api/[customerid]/blacklist/[userid]/[itemtypeid]/[itemid]`
 
+For a detailed description of embedded parameters, see [Event parameters](#event-parameters).
 There are no query string parameters for this event. 
 
 ## Tracking events based on recommendations
@@ -382,13 +391,14 @@ There are no query string parameters for this event. 
 Tracking events based on integrated recommendations are the only way to measure the accuracy 
 and effectiveness of recommendations. 
 Both recommendation response and trigger message include requests to generate these events.
-Events of this type inform the Personalization server which recommendations 
+Events of this type inform the Personalization server about the recommendations that 
 were shown to the user and which of those recommendations were clicked. 
 Otherwise, it would be impossible to calculate reliable statistics that could be checked 
 against the customer's KPIs.
 
 A recommendation response includes requests to generate a Rendered and Clickrecommended event. 
-They are executed when a recommendation is shown to the user and when it is clicked or otherwise accepted. 
+The first one is executed when a recommendation is shown to the user.
+The second is called when a recommendation is clicked or otherwise accepted. 
 Sending Rendered events causes as many requests as recommendations to be displayed, 
 a Clickrecommended event is usually sent only once (when a user clicks on 
 a specific recommendation item).
@@ -463,10 +473,10 @@ The URL for a Rendered event has the following format:
 
 `GET https://event.perso.ibexa.co/api/[customerid]/rendered/[userid]/[itemtypeid]/[itemid[,itemid]]`
 
-The Rendered event has the same embedded parameters as the Click event, except 
-for the item ID. 
+For a detailed description of embedded parameters, see [Event parameters](#event-parameters).
+
 It is common that recommendations are rendered as a block with multiple items. 
-To save traffic and reduce latency, you can bundle multiple recommendations in one request. 
+To save traffic and speed up the process, you can bundle multiple recommendations in one request. 
 Several item IDs must be comma-separated.
 
 ### Clickrecommended event
@@ -478,8 +488,7 @@ The URL has the following format:
 
 `GET https://event.perso.ibexa.co/api/[customerid]/clickrecommended/[userid]/[itemtypeid]/[itemid]?scenario=<scenarioid>`
 
-The embedded parameters are the same as for a Click event. 
-
+For a detailed description of embedded parameters, see [Event parameters](#event-parameters).
 The request parameters are:
 
 |Name|Description|Values|
@@ -501,8 +510,7 @@ The URL has the following format:
 
 `GET https://tracker.ibexa.co/api/[customerid]/triggeropened/[userid]?triggername=<action_trigger_reference_code>`
 
-The embedded parameters have the same meaning as for the Click event. 
-
+For a detailed description of embedded parameters, see [Event parameters](#event-parameters).
 The request parameter is:
 
 |Name|Description|Values|
@@ -519,8 +527,7 @@ The URL has the following format:
 
 `GET https://tracker.ibexa.co/api/[customerid]/clicktriggered/[userid]/[itemtypeid]/[itemid]?triggername=<action_trigger_reference_code>`
 
-The embedded parameters have the same meaning as for the Click event. 
-
+For a detailed description of embedded parameters, see [Event parameters](#event-parameters).
 The request parameter is:
 
 |Name|Description|Values|
