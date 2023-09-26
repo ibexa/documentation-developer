@@ -33,10 +33,7 @@ In order to provide custom functionality for a Field Type, the SPI interacts wit
 
 On the top layer, the Field Type needs to provide conversion from and to a simple PHP hash value to support the **REST API**. The generated hash value may only consist of scalar values and hashes. It must not contain objects or arrays with numerical indexes that aren't sequential and/or don't start with zero.
 
-!!! caution "Simple hash values"
-
-    In [[= product_name =]], a simple hash value always means an array of scalar values and/or nested arrays of scalar values.
-    To avoid issues with format conversion, do not use objects inside the simple hash values.
+[[= include_file('docs/snippets/simple_hash_value_caution.md') =]]
 
 Below that, the Field Type must support the **Public API** implementation regarding:
 
@@ -47,7 +44,7 @@ Below that, the Field Type must support the **Public API** implementation regard
 On the bottom level, a Field Type can additionally hook into the **Persistence SPI**
 in order to store data from a `FieldValue` in an external service.
 Note that all non-standard [[= product_name =]] database tables (e.g. `ezurl`)
-will be treated as [external storage](field_type_storage.md#storing-data-externally).
+are treated as [external storage](field_type_storage.md#storing-data-externally).
 
 The following sequence diagrams visualize the process of creating and publishing new content across all layers, especially focused on the interaction with a Field Type.
 

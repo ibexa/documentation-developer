@@ -25,17 +25,14 @@ For more information about Field Type Value, see [Value handling](type_and_value
 
     According to the convention, the class representing Field Type Value should be named `Value` and should be placed in the same namespace as the Type definition.
 
-!!! caution "Simple hash values"
+[[= include_file('docs/snippets/simple_hash_value_caution.md') =]]
 
-    In [[= product_name =]], a simple hash value always means an array of scalar values and/or nested arrays of scalar values.
-    To avoid issues with format conversion, do not use objects inside the simple hash values.
-
-The Point 2D Value class will contain:
+The Point 2D Value class contains:
 
 - private properties, used to store the actual data
 - an implementation of the `__toString()` method, required by the Value interface
 
-By default, the constructor from `FieldType\Value` will be used.
+By default, the constructor from `FieldType\Value` is used.
 
 The Point 2D is going to store two elements (coordinates for point 2D):
 
@@ -53,7 +50,7 @@ At this point, it does not matter where they are stored. You want to focus on wh
 A Value class must also implement the `Ibexa\Contracts\Core\FieldType\Value` interface.
 To match the `FieldType\Value` interface, you need to implement `__toString()` method.
 You also need to add getters and setters for `x` and `y` properties.
-This class will represent the point 2D.
+This class represents the point 2D.
 
 The final code should look like this:
 
