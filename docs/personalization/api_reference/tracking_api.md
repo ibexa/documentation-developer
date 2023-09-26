@@ -207,7 +207,7 @@ The URL to track user clicks has the following format:
 `GET https://event.perso.ibexa.co/api/[customerid]/click/[userid]/[itemtypeid]/[itemid]`
 
 All embedded parameters are required for the request. 
-For a detailed description of embedded parameters, see [Event parameters](#event-parameters).
+For a detailed description of embedded parameters, see [event parameters](#event-parameters).
 Some optional request parameters can be set over query string parameters (GET parameters).
 
 `GET https://event.perso.ibexa.co/api/[customerid]/click/[userid]/[itemtypeid]/[itemid]?parameter1=value1&parameter2=value2`
@@ -230,7 +230,7 @@ The URL has the following format:
 
 `GET https://event.perso.ibexa.co/api/[customerid]/consume/[userid]/[itemtypeid]/[itemid]`
 
-For a detailed description of embedded parameters, see [Event parameters](#event-parameters).
+For a detailed description of embedded parameters, see [event parameters](#event-parameters).
 The following table lists the request parameters:
 
 |Name|Description|Values|
@@ -267,7 +267,7 @@ The URL has the following format: 
 
 `GET https://event.perso.ibexa.co/api/[customerid]/buy/[userid]/[itemtypeid]/[itemid]?fullprice=2.50EUR&quantity=4`
 
-For a detailed description of embedded parameters, see [Event parameters](#event-parameters).
+For a detailed description of embedded parameters, see [event parameters](#event-parameters).
 In addition to the fact that an item is bought, this event should provide information 
 about the product price and quantity.
 
@@ -322,7 +322,7 @@ The format of the URL is: 
 
 `GET https://event.perso.ibexa.co/api/[customerid]/login/[sourceuserid]/[targetuserid]`
 
-For a detailed description of embedded parameters, see [Event parameters](#event-parameters).
+For a detailed description of embedded parameters, see [event parameters](#event-parameters).
 
 ### Basket event
 
@@ -340,7 +340,7 @@ can be provided in the whole shop.
 
 `GET https://event.perso.ibexa.co/api/[customerid]/basket/[userid]/[itemtypeid]/[itemid]`
 
-For a detailed description of embedded parameters, see [Event parameters](#event-parameters).
+For a detailed description of embedded parameters, see [event parameters](#event-parameters).
 There are no query string parameters for this event.
 
 ### Deletefrombasket event
@@ -351,7 +351,7 @@ Based on this information, recommendations presented by the store can be more ac
 
 `GET https://event.perso.ibexa.co/api/[customerid]/deletefrombasket/[userid]/[itemtypeid]/[itemid]`
 
-For a detailed description of embedded parameters, see [Event parameters](#event-parameters).
+For a detailed description of embedded parameters, see [event parameters](#event-parameters).
 There are no query string parameters for this event. 
 
 ### Rate event
@@ -364,7 +364,7 @@ The format of the URL is:
 
 `GET https://event.perso.ibexa.co/api/[customerid]/rate/[userid]/[itemtypeid]/[itemid]?rating=50`
 
-For a detailed description of embedded parameters, see [Event parameters](#event-parameters).
+For a detailed description of embedded parameters, see [event parameters](#event-parameters).
 
 Rate event can also be used for explicit ratings like a five-star rating for hotels. 
 A predefined rating can be submitted when the user comments on an item.
@@ -383,7 +383,7 @@ The format of the URL is:
 
 `GET https://event.perso.ibexa.co/api/[customerid]/blacklist/[userid]/[itemtypeid]/[itemid]`
 
-For a detailed description of embedded parameters, see [Event parameters](#event-parameters).
+For a detailed description of embedded parameters, see [event parameters](#event-parameters).
 There are no query string parameters for this event. 
 
 ## Tracking events based on recommendations
@@ -473,7 +473,7 @@ The URL for a Rendered event has the following format:
 
 `GET https://event.perso.ibexa.co/api/[customerid]/rendered/[userid]/[itemtypeid]/[itemid[,itemid]]`
 
-For a detailed description of embedded parameters, see [Event parameters](#event-parameters).
+For a detailed description of embedded parameters, see [event parameters](#event-parameters).
 
 It is common that recommendations are rendered as a block with multiple items. 
 To save traffic and speed up the process, you can bundle multiple recommendations in one request. 
@@ -488,7 +488,7 @@ The URL has the following format:
 
 `GET https://event.perso.ibexa.co/api/[customerid]/clickrecommended/[userid]/[itemtypeid]/[itemid]?scenario=<scenarioid>`
 
-For a detailed description of embedded parameters, see [Event parameters](#event-parameters).
+For a detailed description of embedded parameters, see [event parameters](#event-parameters).
 The request parameters are:
 
 |Name|Description|Values|
@@ -510,7 +510,7 @@ The URL has the following format:
 
 `GET https://tracker.ibexa.co/api/[customerid]/triggeropened/[userid]?triggername=<action_trigger_reference_code>`
 
-For a detailed description of embedded parameters, see [Event parameters](#event-parameters).
+For a detailed description of embedded parameters, see [event parameters](#event-parameters).
 The request parameter is:
 
 |Name|Description|Values|
@@ -527,7 +527,7 @@ The URL has the following format:
 
 `GET https://tracker.ibexa.co/api/[customerid]/clicktriggered/[userid]/[itemtypeid]/[itemid]?triggername=<action_trigger_reference_code>`
 
-For a detailed description of embedded parameters, see [Event parameters](#event-parameters).
+For a detailed description of embedded parameters, see [event parameters](#event-parameters).
 The request parameter is:
 
 |Name|Description|Values|
