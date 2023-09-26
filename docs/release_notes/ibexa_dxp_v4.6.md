@@ -80,13 +80,15 @@ For more information, see [Quick order documentation](https://doc.ibexa.co/en/ma
 
 ## Other changes
 
-### 
+### Expression Language
+
+New `project_dir()` expression language function that allows you to reference current project directory.
 
 ### API improvements
 
 #### REST API for shipping [[% include 'snippets/commerce_badge.md' %]]
 
-This release adds new endpoints that allow you to manage orders by using REST API:
+Endpoints that allow you to manage orders by using REST API:
 
 - GET `/shipments` -  loads a list of shipments
 - GET `/shipments/{identifier}` - loads a single shipment based on its identifier
@@ -99,7 +101,7 @@ This release adds new endpoints that allow you to manage orders by using REST AP
 
 #### REST API for company accounts [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-This release adds new endpoints that allow you to manage companies in your platform with REST API:
+Endpoints that allow you to manage companies in your platform with REST API:
 
 - GET `/sales-representatives` - returns paginated list of available sales representatives
 
@@ -111,7 +113,7 @@ This release adds new endpoints that allow you to manage companies in your platf
 
 ### Ibexa Connect
 
-For list of changes in Ibexa Connect, see [Ibexa app release notes](https://doc.ibexa.co/projects/connect/en/latest/general/ibexa_app_release_notes/).
+For a list of changes in Ibexa Connect, see [Ibexa app release notes](https://doc.ibexa.co/projects/connect/en/latest/general/ibexa_app_release_notes/).
 
 ### DDEV
 
