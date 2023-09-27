@@ -41,7 +41,7 @@ It is important to note that the schema definitions of the Field Type can be bot
 
     Since it is not possible to enforce a schema format, the code using a specific Field Type must basically know all Field Types it deals with.
 
-This will also apply to all user interfaces and the REST API, which therefore must provide extension points to register handling code for custom Field Type. These extensions are not defined yet.
+This also applies to all user interfaces and the REST API, which therefore must provide extension points to register handling code for custom Field Type. These extensions are not defined yet.
 
 ### Field Type name
 
@@ -94,12 +94,14 @@ When [REST API](rest_api_guide.md) is used, conversion needs to be done for Fiel
 
 |Method|Description|
 |------|-----------|
-|`toHash()`|Converts Field Type Value into a plain hash format.|
+|`toHash()`|Converts Field Type Value into a simple hash format.|
 |`fromHash()`|Converts the other way around.|
 |`fieldSettingsToHash()`|Converts Field Type settings to a simple hash format.|
 |`fieldSettingsFromHash()`|Converts the other way around.|
 |`validatorConfigurationToHash()`|Converts Field Type validator configuration to a simple hash format.|
 |`validatorConfigurationFromHash()`|Converts the other way around.|
+
+[[= include_file('docs/snippets/simple_hash_value_caution.md') =]]
 
 ## Registration
 
@@ -155,7 +157,7 @@ The settings are mapped into Symfony forms via the [FormMapper](field_type_form_
 
 ## Extensibility points
 
-Some Field Types will require additional processing, for example a Field Type storing a binary file, or one having more complex settings or validator configuration. For this purpose specific implementations of an abstract class `eZ\Publish\Core\REST\Common\FieldTypeProcessor` are used.
+Some Field Types require additional processing, for example a Field Type storing a binary file, or one having more complex settings or validator configuration. For this purpose specific implementations of an abstract class `eZ\Publish\Core\REST\Common\FieldTypeProcessor` are used.
 
 This class provides the following methods:
 
