@@ -13,6 +13,8 @@ reduces the number of classes which must be created, and simplifies the tagging 
 
     You should not use the Generic Field Type when you need a very specific implementation or complete control over the way data is stored.
 
+[[= include_file('docs/snippets/simple_hash_value_caution.md') =]]
+
 ## Define value object
 
 First, create `Value.php` in the `src/FieldType/HelloWorld` directory.
