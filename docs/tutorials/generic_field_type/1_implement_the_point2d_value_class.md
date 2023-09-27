@@ -25,12 +25,14 @@ For more information about Field Type Value, see [Value handling](../../api/fiel
 
     According to the convention, the class representing Field Type Value should be named `Value` and should be placed in the same namespace as the Type definition.
 
-The Point 2D Value class will contain:
+[[= include_file('docs/snippets/simple_hash_value_caution.md') =]]
+
+The Point 2D Value class contains:
 
 - private properties, used to store the actual data
 - an implementation of the `__toString()` method, required by the Value interface
 
-By default, the constructor from `FieldType\Value` will be used.
+By default, the constructor from `FieldType\Value` is used.
 
 The Point 2D is going to store two elements (coordinates for point 2D):
 
@@ -48,7 +50,7 @@ At this point, it does not matter where they are stored. You want to focus on wh
 A Value class must also implement the `eZ\Publish\SPI\FieldType\Value` interface.
 To match the `FieldType\Value` interface, you need to implement `__toString()` method.
 You also need to add getters and setters for `x` and `y` properties.
-This class will represent the point 2D.
+This class represents the point 2D.
 
 The final code should look like this:
 
