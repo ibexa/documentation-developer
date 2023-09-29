@@ -109,41 +109,28 @@ The expression syntax uses the following structure: `###<IDENTIFIER> <EXPRESSION
 
 The `IDENTIFIER` can be any repeated string that encloses the actual expression.
 
-#### Build-in functions
+#### Built-in functions
 
 Built-in expression language functions that are tagged with `ibexa.migrations.template.expression_language.function`:
 
-- `ibexa.migrations.template.to_bool` - converts various data types, such as integers or strings, into boolean values
+- `to_bool`, `to_int`, `to_float`, `to_string` - convert various data types by passing them into PHP casting functions (like `floatval`, `intval`, etc.)
 
 ```yaml
                 -   fieldDefIdentifier: show_children
                     languageCode: eng-US
                     value: '###XXX to_bool(i % 3) XXX###'
-```
 
-- `ibexa.migrations.template.to_int` - converts different data types, such as strings or floating-point numbers, into integer values
-
-```yaml
                 -   fieldDefIdentifier: quantity
                     languageCode: eng-US
                     value: '###XXX to_int("42") XXX###'
-```
 
-- `ibexa.migrations.template.to_float` - transforms various input types, like strings or integers, into floating-point numbers
-
-```yaml
                 -   fieldDefIdentifier: price
                     languageCode: eng-US
                     value: '###XXX to_float("19.99") XXX###'
-```
 
-- `ibexa.migrations.template.to_string` - converts values of various types, including integers or floats, into string representations
-
-```yaml
                 -   fieldDefIdentifier: description
                     languageCode: eng-US
                     value: '###XXX to_string(123) XXX###'
-```
 
 - `ibexa.migrations.template.reference` - references a specific object or resource within your application or configuration
 
