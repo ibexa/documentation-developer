@@ -109,6 +109,88 @@ The expression syntax uses the following structure: `###<IDENTIFIER> <EXPRESSION
 
 The `IDENTIFIER` can be any repeated string that encloses the actual expression.
 
+#### Build-in functions
+
+Build-in expression language functions that are tagged with `ibexa.migrations.template.expression_language.function`:
+
+- `ibexa.migrations.template.to_bool` - converts various data types, such as integers or strings, into boolean values
+
+```yaml
+                -   fieldDefIdentifier: show_children
+                    languageCode: eng-US
+                    value: '###XXX to_bool(i % 3) XXX###'
+```
+
+- `ibexa.migrations.template.to_int` - converts different data types, such as strings or floating-point numbers, into integer values
+
+```yaml
+                -   fieldDefIdentifier: quantity
+                    languageCode: eng-US
+                    value: '###XXX to_int("42") XXX###'
+```
+
+- `ibexa.migrations.template.to_float` - transforms various input types, like strings or integers, into floating-point numbers
+
+```yaml
+                -   fieldDefIdentifier: price
+                    languageCode: eng-US
+                    value: '###XXX to_float("19.99") XXX###'
+```
+
+- `ibexa.migrations.template.to_string` - converts values of various types, including integers or floats, into string representations
+
+```yaml
+                -   fieldDefIdentifier: description
+                    languageCode: eng-US
+                    value: '###XXX to_string(123) XXX###'
+```
+
+- `ibexa.migrations.template.reference` - references a specific object or resource within your application or configuration
+
+```yaml
+                -   fieldDefIdentifier: some_field
+                    languageCode: eng-US
+                    value: '###XXX reference("example_reference") XXX###'
+```
+
+- `ibexa.migrations.template.project_dir` - retrieves the project's root directory path, making it useful for constructing file paths and accessing project-specific resources
+
+```yaml
+                -   fieldDefIdentifier: project_directory
+                    languageCode: eng-US
+                    value: '###XXX project_dir() XXX###'
+```
+
+#### Custom functions
+
+To add custom functionality into expression language declare it as a service 
+and tag it with `ibexa.migrations.template.expression_language.function`.
+
+Example:
+
+```yaml
+ibexa.migrations.template.to_bool:
+    class: Closure
+    factory: [ Closure, fromCallable ]
+    arguments:
+        - 'boolval'
+    tags:
+        -   name: 'ibexa.migrations.template.expression_language.function'
+            function: to_bool
+
+ibexa.migrations.template.faker:
+    class: Closure
+    factory: [ Closure, fromCallable ]
+    arguments:
+        - 'Faker\Factory::create'
+    tags:
+        -   name: 'ibexa.migrations.template.expression_language.function'
+            function: faker
+```
+
+Service-based functions can be also added, but they must be callable, 
+requiring either an `__invoke` function or a wrapping service with one.
+
 ## Migration examples
 
 The following examples show what data you can import using data migrations.
