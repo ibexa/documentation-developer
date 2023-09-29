@@ -163,7 +163,7 @@ Built-in expression language functions that are tagged with `ibexa.migrations.te
 
 #### Custom functions
 
-To add custom functionality into expression language declare it as a service 
+To add custom functionality into Migration's expression language declare it as a service 
 and tag it with `ibexa.migrations.template.expression_language.function`.
 
 Example:
