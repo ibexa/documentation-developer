@@ -111,7 +111,7 @@ The `IDENTIFIER` can be any repeated string that encloses the actual expression.
 
 #### Build-in functions
 
-Build-in expression language functions that are tagged with `ibexa.migrations.template.expression_language.function`:
+Built-in expression language functions that are tagged with `ibexa.migrations.template.expression_language.function`:
 
 - `ibexa.migrations.template.to_bool` - converts various data types, such as integers or strings, into boolean values
 
