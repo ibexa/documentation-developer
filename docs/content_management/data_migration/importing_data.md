@@ -113,7 +113,7 @@ The `IDENTIFIER` can be any repeated string that encloses the actual expression.
 
 Built-in expression language functions that are tagged with `ibexa.migrations.template.expression_language.function`:
 
-- `to_bool`, `to_int`, `to_float`, `to_string` - convert various data types by passing them into PHP casting functions (like `floatval`, `intval`, etc.)
+- `to_bool`, `to_int`, `to_float`, `to_string` - convert various data types by passing them into PHP casting functions (like `floatval`, `intval`, and others).
 
 ```yaml
                 -   fieldDefIdentifier: show_children
@@ -131,8 +131,9 @@ Built-in expression language functions that are tagged with `ibexa.migrations.te
                 -   fieldDefIdentifier: description
                     languageCode: eng-US
                     value: '###XXX to_string(123) XXX###'
+```
 
-- `ibexa.migrations.template.reference` - references a specific object or resource within your application or configuration
+- `ibexa.migrations.template.reference` - references a specific object or resource within your application or configuration. Learn more about [migration references](managing_migrations.md#references).
 
 ```yaml
                 -   fieldDefIdentifier: some_field
@@ -140,7 +141,7 @@ Built-in expression language functions that are tagged with `ibexa.migrations.te
                     value: '###XXX reference("example_reference") XXX###'
 ```
 
-- `ibexa.migrations.template.project_dir` - retrieves the project's root directory path, making it useful for constructing file paths and accessing project-specific resources
+- `ibexa.migrations.template.project_dir` - retrieves the project's root directory path, making it useful for constructing file paths and accessing project-specific resources.
 
 ```yaml
                 -   fieldDefIdentifier: project_directory
