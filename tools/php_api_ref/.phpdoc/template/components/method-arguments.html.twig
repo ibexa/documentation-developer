@@ -1,0 +1,24 @@
+{# https://github.com/phpDocumentor/phpDocumentor/blob/v3.3.1/data/templates/default/components/method-arguments.html.twig #}
+{% if node.arguments|length > 0 %}
+    <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <table class="phpdocumentor-argument-list">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Type</th>
+            <th scope="col">Default</th>
+            <th scope="col" title="Description">Desc.</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for argument in node.arguments %}
+            <tr class="phpdocumentor-argument-list__entry">
+                <td class="phpdocumentor-signature__argument__name">${{ argument.name }}</td>
+                <td class="phpdocumentor-signature__argument__return-type">{{ argument.type|route('class:short')|join('|')|raw }}</td>
+                <td class="phpdocumentor-signature__argument__default-value">{{ argument.default }}</td>
+                <td class="phpdocumentor-argument-list__definition">{{ include('components/description.html.twig', {'node': argument}) }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+{% endif %}
