@@ -774,10 +774,12 @@ extra:
       url: '/projects/userguide'
     - title: 'Connect Documentation'
       url: '/projects/connect'
-  # Global variables
+ # Global variables
   site_display_name: 'Ibexa Documentation'
+  product_base_name: 'Ibexa'
   product_name: 'Ibexa DXP'
   product_name_content: 'Ibexa Content'
+  product_name_headless: 'Ibexa Headless'
   product_name_exp: 'Ibexa Experience'
   product_name_com: 'Ibexa Commerce'
   # Global variables - latest tag versions
