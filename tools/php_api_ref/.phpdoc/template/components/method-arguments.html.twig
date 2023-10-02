@@ -1,13 +1,27 @@
 {# https://github.com/phpDocumentor/phpDocumentor/blob/v3.3.1/data/templates/default/components/method-arguments.html.twig #}
 {% if node.arguments|length > 0 %}
     <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    {% set hasDefault = false %}
+    {% set hasDescription = false %}
+    {% for argument in node.arguments %}
+        {% if argument.default is not empty %}
+            {% set hasDefault = true %}
+        {% endif %}
+        {% if argument.description is not empty %}
+            {% set hasDescription = true %}
+        {% endif %}
+    {% endfor %}
     <table class="phpdocumentor-argument-list">
     <thead>
         <tr>
             <th scope="col">Name</th>
             <th scope="col">Type</th>
+            {% if hasDefault %}
             <th scope="col">Default</th>
-            <th scope="col" title="Description">Desc.</th>
+            {% endif %}
+            {% if hasDescription %}
+            <th scope="col">Description</th>
+            {% endif %}
         </tr>
     </thead>
     <tbody>
@@ -15,8 +29,12 @@
             <tr class="phpdocumentor-argument-list__entry">
                 <td class="phpdocumentor-signature__argument__name">${{ argument.name }}</td>
                 <td class="phpdocumentor-signature__argument__return-type">{{ argument.type|route('class:short')|join('|')|raw }}</td>
+                {% if hasDefault %}
                 <td class="phpdocumentor-signature__argument__default-value">{{ argument.default }}</td>
+                {% endif %}
+                {% if hasDescription %}
                 <td class="phpdocumentor-argument-list__definition">{{ include('components/description.html.twig', {'node': argument}) }}</td>
+                {% endif %}
             </tr>
         {% endfor %}
     </tbody>
