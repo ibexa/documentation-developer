@@ -16027,7 +16027,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/ibexa/core/src/contracts/Repository/Validator/ContentValidator.php (click to copy)" onclick="navigator.clipboard.writeText('vendor/ibexa/core/src/contracts/Repository/Validator/ContentValidator.php');">ContentValidator.php</abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">29</span>
+    <span class="phpdocumentor-element-found-in__line">37</span>
 </aside>
 
         <p class="phpdocumentor-summary">Validates given content related ValueObject returning field errors structure as a result.</p>
@@ -16083,6 +16083,22 @@ case of full validation. Empty identifiers array is equal to no validation.</p>
     </h5>
     <dl class="phpdocumentor-tag-list">
                                             <dt class="phpdocumentor-tag-list__entry">
+                <span class="phpdocumentor-tag__name">phpstan-return</span>
+            </dt>
+                            <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>array&lt;
+int,
+array&lt;
+string,
+\Ibexa\Contracts\Core\FieldType\ValidationError|\Ibexa\Contracts\Core\FieldType\ValidationError[]
+&gt;</p>
+<blockquote>
+</blockquote>
+</section>
+
+                                    </dd>
+                                                                    <dt class="phpdocumentor-tag-list__entry">
                 <span class="phpdocumentor-tag__name">throws</span>
             </dt>
                             <dd class="phpdocumentor-tag-list__definition">
@@ -16095,8 +16111,8 @@ case of full validation. Empty identifiers array is equal to no validation.</p>
             <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
             &mdash;
-            <section class="phpdocumentor-description"><p>Grouped validation errors by field definition and language code, in format:
-$returnValue[string|int $fieldDefinitionId][string $languageCode] = $fieldErrors;</p>
+            <section class="phpdocumentor-description"><p>Grouped validation errors by field definition ID and language code, in format:
+$returnValue[int $fieldDefinitionId][string $languageCode] = $fieldErrors;</p>
 </section>
 
         

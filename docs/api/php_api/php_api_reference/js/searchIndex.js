@@ -211,6 +211,11 @@ Search.appendIndex(
             "summary": "Triggered\u0020when\u0020saving\u0020the\u0020draft\u0020\u002B\u0020publishing\u0020the\u0020ContentType.",
             "url": "classes/Ibexa-Contracts-AdminUi-Event-FormEvents.html#constant_CONTENT_TYPE_PUBLISH"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Event\\FormEvents\u003A\u003ACONTENT_TYPE_PUBLISH_AND_EDIT",
+            "name": "CONTENT_TYPE_PUBLISH_AND_EDIT",
+            "summary": "Triggered\u0020when\u0020saving\u0020the\u0020draft\u0020\u002B\u0020publishing\u0020the\u0020ContentType\u0020and\u0020starting\u0020edition\u0020on\u0020new\u0020draft.",
+            "url": "classes/Ibexa-Contracts-AdminUi-Event-FormEvents.html#constant_CONTENT_TYPE_PUBLISH_AND_EDIT"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Event\\FormEvents\u003A\u003ACONTENT_TYPE_REMOVE_DRAFT",
             "name": "CONTENT_TYPE_REMOVE_DRAFT",
             "summary": "Triggered\u0020when\u0020removing\u0020the\u0020draft\u0020\u0028e.g.\u0020\u0022cancel\u0022\u0020action\u0029.",
