@@ -3466,35 +3466,100 @@ Search.appendIndex(
             "summary": "Get\u0020Repository\u0020object.",
             "url": "classes/Ibexa-Contracts-Core-Container.html#method_getRepository"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\Core\\Event\\ResolveUrlAliasSchemaEvent",
-            "name": "ResolveUrlAliasSchemaEvent",
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Event\\NameSchema\\AbstractNameSchemaEvent",
+            "name": "AbstractNameSchemaEvent",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-Core-Event-ResolveUrlAliasSchemaEvent.html"
+            "url": "classes/Ibexa-Contracts-Core-Event-NameSchema-AbstractNameSchemaEvent.html"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\Core\\Event\\ResolveUrlAliasSchemaEvent\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Event\\NameSchema\\AbstractNameSchemaEvent\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-Core-Event-ResolveUrlAliasSchemaEvent.html#method___construct"
+            "url": "classes/Ibexa-Contracts-Core-Event-NameSchema-AbstractNameSchemaEvent.html#method___construct"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\Core\\Event\\ResolveUrlAliasSchemaEvent\u003A\u003AgetSchemaIdentifiers\u0028\u0029",
-            "name": "getSchemaIdentifiers",
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Event\\NameSchema\\AbstractNameSchemaEvent\u003A\u003AgetContentType\u0028\u0029",
+            "name": "getContentType",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-Core-Event-ResolveUrlAliasSchemaEvent.html#method_getSchemaIdentifiers"
+            "url": "classes/Ibexa-Contracts-Core-Event-NameSchema-AbstractNameSchemaEvent.html#method_getContentType"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\Core\\Event\\ResolveUrlAliasSchemaEvent\u003A\u003AgetContent\u0028\u0029",
-            "name": "getContent",
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Event\\NameSchema\\AbstractNameSchemaEvent\u003A\u003AgetFieldMap\u0028\u0029",
+            "name": "getFieldMap",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-Core-Event-ResolveUrlAliasSchemaEvent.html#method_getContent"
+            "url": "classes/Ibexa-Contracts-Core-Event-NameSchema-AbstractNameSchemaEvent.html#method_getFieldMap"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\Core\\Event\\ResolveUrlAliasSchemaEvent\u003A\u003AgetTokenValues\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Event\\NameSchema\\AbstractNameSchemaEvent\u003A\u003AgetLanguageCodes\u0028\u0029",
+            "name": "getLanguageCodes",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Event-NameSchema-AbstractNameSchemaEvent.html#method_getLanguageCodes"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Event\\NameSchema\\AbstractSchemaEvent",
+            "name": "AbstractSchemaEvent",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Event-NameSchema-AbstractSchemaEvent.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Event\\NameSchema\\AbstractSchemaEvent\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Event-NameSchema-AbstractSchemaEvent.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Event\\NameSchema\\AbstractSchemaEvent\u003A\u003AgetTokenValues\u0028\u0029",
             "name": "getTokenValues",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-Core-Event-ResolveUrlAliasSchemaEvent.html#method_getTokenValues"
+            "url": "classes/Ibexa-Contracts-Core-Event-NameSchema-AbstractSchemaEvent.html#method_getTokenValues"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\Core\\Event\\ResolveUrlAliasSchemaEvent\u003A\u003AsetTokenValues\u0028\u0029",
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Event\\NameSchema\\AbstractSchemaEvent\u003A\u003AsetTokenValues\u0028\u0029",
             "name": "setTokenValues",
             "summary": "",
-            "url": "classes/Ibexa-Contracts-Core-Event-ResolveUrlAliasSchemaEvent.html#method_setTokenValues"
+            "url": "classes/Ibexa-Contracts-Core-Event-NameSchema-AbstractSchemaEvent.html#method_setTokenValues"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Event\\NameSchema\\AbstractSchemaEvent\u003A\u003AgetSchemaIdentifiers\u0028\u0029",
+            "name": "getSchemaIdentifiers",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Event-NameSchema-AbstractSchemaEvent.html#method_getSchemaIdentifiers"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Event\\NameSchema\\ContentAwareEventInterface",
+            "name": "ContentAwareEventInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Event-NameSchema-ContentAwareEventInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Event\\NameSchema\\ContentAwareEventInterface\u003A\u003AgetContent\u0028\u0029",
+            "name": "getContent",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Event-NameSchema-ContentAwareEventInterface.html#method_getContent"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Event\\NameSchema\\ResolveContentNameSchemaEvent",
+            "name": "ResolveContentNameSchemaEvent",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Event-NameSchema-ResolveContentNameSchemaEvent.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Event\\NameSchema\\ResolveContentNameSchemaEvent\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Event-NameSchema-ResolveContentNameSchemaEvent.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Event\\NameSchema\\ResolveContentNameSchemaEvent\u003A\u003AgetContent\u0028\u0029",
+            "name": "getContent",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Event-NameSchema-ResolveContentNameSchemaEvent.html#method_getContent"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Event\\NameSchema\\ResolveNameSchemaEvent",
+            "name": "ResolveNameSchemaEvent",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Event-NameSchema-ResolveNameSchemaEvent.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Event\\NameSchema\\ResolveUrlAliasSchemaEvent",
+            "name": "ResolveUrlAliasSchemaEvent",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Event-NameSchema-ResolveUrlAliasSchemaEvent.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Event\\NameSchema\\ResolveUrlAliasSchemaEvent\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Event-NameSchema-ResolveUrlAliasSchemaEvent.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Event\\NameSchema\\ResolveUrlAliasSchemaEvent\u003A\u003AgetContent\u0028\u0029",
+            "name": "getContent",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Event-NameSchema-ResolveUrlAliasSchemaEvent.html#method_getContent"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Event\\View\\PostBuildViewEvent",
             "name": "PostBuildViewEvent",
@@ -40571,6 +40636,86 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-Scheduler-ValueObject-ScheduledEntryList.html#property_total"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Search\\SortingDefinition\\SortingDefinition",
+            "name": "SortingDefinition",
+            "summary": "Default\u0020SortingDefinitionInterface\u0020implementation.",
+            "url": "classes/Ibexa-Contracts-Search-SortingDefinition-SortingDefinition.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Search\\SortingDefinition\\SortingDefinition\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Search-SortingDefinition-SortingDefinition.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Search\\SortingDefinition\\SortingDefinition\u003A\u003AgetIdentifier\u0028\u0029",
+            "name": "getIdentifier",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Search-SortingDefinition-SortingDefinition.html#method_getIdentifier"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Search\\SortingDefinition\\SortingDefinition\u003A\u003AgetLabel\u0028\u0029",
+            "name": "getLabel",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Search-SortingDefinition-SortingDefinition.html#method_getLabel"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Search\\SortingDefinition\\SortingDefinition\u003A\u003AgetPriority\u0028\u0029",
+            "name": "getPriority",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Search-SortingDefinition-SortingDefinition.html#method_getPriority"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Search\\SortingDefinition\\SortingDefinition\u003A\u003AgetSortClauses\u0028\u0029",
+            "name": "getSortClauses",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Search-SortingDefinition-SortingDefinition.html#method_getSortClauses"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Search\\SortingDefinition\\SortingDefinitionInterface",
+            "name": "SortingDefinitionInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Search-SortingDefinition-SortingDefinitionInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Search\\SortingDefinition\\SortingDefinitionInterface\u003A\u003AgetIdentifier\u0028\u0029",
+            "name": "getIdentifier",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Search-SortingDefinition-SortingDefinitionInterface.html#method_getIdentifier"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Search\\SortingDefinition\\SortingDefinitionInterface\u003A\u003AgetLabel\u0028\u0029",
+            "name": "getLabel",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Search-SortingDefinition-SortingDefinitionInterface.html#method_getLabel"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Search\\SortingDefinition\\SortingDefinitionInterface\u003A\u003AgetPriority\u0028\u0029",
+            "name": "getPriority",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Search-SortingDefinition-SortingDefinitionInterface.html#method_getPriority"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Search\\SortingDefinition\\SortingDefinitionInterface\u003A\u003AgetSortClauses\u0028\u0029",
+            "name": "getSortClauses",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Search-SortingDefinition-SortingDefinitionInterface.html#method_getSortClauses"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Search\\SortingDefinition\\SortingDefinitionRegistryInterface",
+            "name": "SortingDefinitionRegistryInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Search-SortingDefinition-SortingDefinitionRegistryInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Search\\SortingDefinition\\SortingDefinitionRegistryInterface\u003A\u003AgetDefaultSortingDefinition\u0028\u0029",
+            "name": "getDefaultSortingDefinition",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Search-SortingDefinition-SortingDefinitionRegistryInterface.html#method_getDefaultSortingDefinition"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Search\\SortingDefinition\\SortingDefinitionRegistryInterface\u003A\u003AgetSortingDefinitions\u0028\u0029",
+            "name": "getSortingDefinitions",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Search-SortingDefinition-SortingDefinitionRegistryInterface.html#method_getSortingDefinitions"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Search\\SortingDefinition\\SortingDefintionProviderInterface",
+            "name": "SortingDefintionProviderInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Search-SortingDefinition-SortingDefintionProviderInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Search\\SortingDefinition\\SortingDefintionProviderInterface\u003A\u003AgetSortingDefinitions\u0028\u0029",
+            "name": "getSortingDefinitions",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Search-SortingDefinition-SortingDefintionProviderInterface.html#method_getSortingDefinitions"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Segmentation\\SegmentationServiceInterface",
             "name": "SegmentationServiceInterface",
             "summary": "",
@@ -45661,6 +45806,11 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/ibexa-contracts-core.html"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Event\\NameSchema",
+            "name": "NameSchema",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-core-event-nameschema.html"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Event",
             "name": "Event",
             "summary": "",
@@ -47570,6 +47720,16 @@ Search.appendIndex(
             "name": "ValueObject",
             "summary": "",
             "url": "namespaces/ibexa-contracts-scheduler-valueobject.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Search\\SortingDefinition",
+            "name": "SortingDefinition",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-search-sortingdefinition.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Search",
+            "name": "Search",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-search.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Segmentation\\Configuration",
             "name": "Configuration",

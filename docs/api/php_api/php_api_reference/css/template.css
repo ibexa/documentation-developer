@@ -272,3 +272,15 @@ ul.phpdocumentor-table-of-contents {
 .phpdocumentor dl dd .phpdocumentor-description {
     margin-bottom: 0;
 }
+
+table.phpdocumentor-argument-list {
+    border-collapse: collapse;
+}
+table.phpdocumentor-argument-list th, table.phpdocumentor-argument-list td {
+    border: 1px solid black;
+    padding: 1px 3px;
+}
+
+table.phpdocumentor-argument-list .phpdocumentor-argument-list__entry td {
+    vertical-align: top;
+}
