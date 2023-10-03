@@ -27,7 +27,7 @@ and updated in the background when someone requests them.
 Current content tags (and when the system purges on them):
 
 - Content: `c<content-id>` - Purged on all smaller or larger changes to content (including its metadata, Fields and Locations).
-- Content Version: `cv<content-id>` - Purged when any version of Content is changed (for example, a draft is created or removed).
+- Content version: `cv<content-id>` - Purged when any version of Content is changed (for example, a draft is created or removed).
 - Content Type: `ct<content-type-id>` - Used when the Content Type changes, affecting content of its type.
 - Location: `l<location-id>` - Used for clearing all cache relevant for a given Location.
 - Parent Location: `pl<[parent-]location-id>` - Used for clearing all children of a Location (`pl<location-id>`), or all siblings (`pl<parent-location-id>`).
@@ -96,7 +96,7 @@ Apache has a [hard](https://github.com/apache/httpd/blob/5f32ea94af5f1e7ea68d6fc
     - (Optional) You can set reduced cache TTL for the given view, to reduce the risk of stale cache on subtree operations affecting the inlined content.
 
 2\. You can opt in to set a max length parameter (in bytes) and corresponding ttl (in seconds) 
-for cases when the limit is reached. The system will log a warning where the limit is reached, and when needed, you can optimize 
+for cases when the limit is reached. The system logs a warning where the limit is reached, and when needed, you can optimize 
 these cases as described above.
 
 ```yaml
@@ -111,7 +111,7 @@ parameters:
 
 For content views response tagging is done automatically, and cache system outputs headers as follows:
 
-```
+```bash
 HTTP/1.1 200 OK
 Cache-Control: public, max-age=86400
 xkey: ez-all c1 ct1 l2 pl1 p1 p2
@@ -263,9 +263,9 @@ All event subscribers can be found in `ezplatform-http-cache/src/EventSubscriber
 ### Tags purged on publish event
 
 Below is an example of a Content structure. The tags which the content view controller adds to each location are
-also listed
+also listed:
 
-```
+```bash
    - [Home] (content-id=52, location-id=2)
      ez-all c52 ct42 l2 pl1 p1 p2
      |
@@ -291,14 +291,14 @@ In the event when a new version of `Child` is published, the following keys are 
 In summary, HTTP Cache for any location representing `[Child]`, any Content that relates to the Content `[Child]`, the 
 location for `[Child]`, any children of `[Child]`, any Location that relates to the Location `[Child]`, location for
 `[Parent1]`, any children on `[Parent1]`.
-Effectively, in this example HTTP cache for `[Parent1]` and `[Child]` will be cleared.
+Effectively, in this example HTTP cache for `[Parent1]` and `[Child]` are cleared.
 
 
 ### Tags purged on move event
 
 With the same Content structure as above, the `[Child]` location is moved below `[Parent2]`.
 
-The new structure will then be:
+The new structure is then:
 ```
    - [Home] (content-id=52, location-id=2)
      ez-all c52 ct42 l2 pl1 p1 p2
@@ -312,7 +312,7 @@ The new structure will then be:
          ez-all c55 ct1 l22 pl21 p1 p2 p21 p22
 ```
 
-The following keys will be purged during the move:
+The following keys are purged during the move:
 - `l20`, because cache for previous parent of `[Child]` should be purged (`[Parent1]`)
 - `pl20`, because cache for children of `[Parent1]` should be purged
 - `l21`, because cache for new parent of `[Child]` should be purged (`[Parent2]`)
@@ -364,9 +364,9 @@ Fastly in production, you are likely ending up some (bad) surprises. Due to the 
 quite different from Varnish and Fastly in some aspects.
 If you are going to use Varnish in production, make sure you also test your code with Varnish.
 If you are going to use Fastly in production, testing with Fastly in your developer install is likely not feasible
-(you're local development environment must then be accessible for Fastly). Testing with Varnish instead will in most
-cases do the job. But if you need to change the varnish configuration to make your site work, be aware that Varnish and Fastly uses different dialects, and
-that .vcl code for Varnish V6.x will likely not work as-is on Fastly.
+(you're local development environment must then be accessible for Fastly). Testing with Varnish instead does the job in most cases. 
+But if you need to change the varnish configuration to make your site work, be aware that Varnish and Fastly uses different dialects, and
+that .vcl code for Varnish V6.x is unlikely to work as-is on Fastly.
 
 This section describes to how to debug problems related to HTTP cache. 
 	In order to that, you must be able to look both at
@@ -375,7 +375,7 @@ This section describes to how to debug problems related to HTTP cache.
 	It means you must be able to send requests to your origin (web server) that do not go through Varnish or Fastly.
 	If you run Nginx and Varnish on premise, you should know what host and port number both Varnish and Nginx runs on. If you
 	perform tests on Fastly enabled environment on Ibexa Cloud provided by Platform.sh, you need to use the Platform.sh
-	Dashboard to obtain the endpoint for Nginx.
+	dashboard to obtain the endpoint for Nginx.
 
 The following example shows how to debug and check why Fastly does not cache the front page properly. 
 If you run the command multiple times:
@@ -384,7 +384,7 @@ If you run the command multiple times:
 
 it always outputs:
 
-```
+```bash
 HTTP/2 200
 (...)
 x-cache: MISS
@@ -452,17 +452,17 @@ To obtain it, use `curl`.
 
 Some notes about each of these parameters:
 
-- `-IXGET`, one of many ways to tell curl that we want to send a GET request, but we are only interested in outputting the headers
+- `-IXGET`, one of many ways to tell curl that you want to send a GET request, but you are only interested in outputting the headers
 - `--resolve www.staging.foobar.com.us-2.platformsh.site:443:1.2.3.4`
-    - We tell curl not to do a DNS lookup for `www.staging.foobar.com.us-2.platformsh.site`. We do that because in our case
-    that will resolve to the Fastly endpoint, not our origin (nginx)
-    - We specify `443` because we are using `https`
-    - We provide the IP of the nginx endpoint at platform.sh (`1.2.3.4` in this example)
+    - You tell curl not to do a DNS lookup for `www.staging.foobar.com.us-2.platformsh.site`. You do that because in this case
+    that resolves to the Fastly endpoint, not the origin (nginx)
+    - You specify `443` because you are using `https`
+    - You provide the IP of the nginx endpoint at platform.sh (`1.2.3.4` in this example)
 - `--header "Surrogate-Capability: abc=ESI/1.0"`, strictly speaking not needed when fetching the user-context-hash, but this tells [[= product_name =]] that client understands ESI tags.
   It is good practice to always include this header when imitating the HTTP Cache.
 - `--header "accept: application/vnd.fos.user-context-hash"` tells [[= product_name =]] that the client wants to receive the user-context-hash
 - `--header "x-fos-original-url: /"` is required by the fos-http-cache bundle in order to deliver the user-context-hash
-- `https://www.staging.foobar.com.us-2.platformsh.site/_fos_user_context_hash` : here we use the hostname we earlier told
+- `https://www.staging.foobar.com.us-2.platformsh.site/_fos_user_context_hash` : here you use the hostname you earlier told
   curl how to resolve using `---resolve`. `/_fos_user_context_hash` is the route to the controller that are able to
   deliver the user-context-hash.
 - You may also provide the session cookie (`--cookie ".....=....") for a logged-in-user if you are interested in
@@ -518,10 +518,10 @@ the given `x-user-hash` (`daea248406c0043e62997b37292bf93a8c91434e86614849834088
 The document might also be removed from the cache by purging any of the keys provided in the `Surrogate-Key` header.
 
 So back to the original problem here. This resource is for some reason not cached by Fastly ( remember the
-`x-cache: MISS` we started with). But origin says this page can be cached for 1 day. How can that be?
-The likely reason is that this page also contains some ESI fragments and that one or more of these are not cachable.
+`x-cache: MISS` you started with). But origin says this page can be cached for 1 day. How can that be?
+The likely reason is that this page also contains some ESI fragments and that one or more of these are not cacheable.
 
-So, first let's see if there are any ESIs here. We remove the `-IXGET` options (in order to see content of the response,
+So, first let's see if there are any ESIs here: remove the `-IXGET` options (in order to see content of the response,
 not only headers) to curl and search for esi:
 
 ```bash
@@ -550,7 +550,7 @@ You can also note that this ESI is handled by a controller in the `EzPlatformPag
 
 The output is:
 
-```
+```bash
 HTTP/1.1 200 OK
 Server: nginx/1.20.0
 Content-Type: text/html; charset=UTF-8
@@ -565,7 +565,7 @@ X-Cache-Debug: 1
 Surrogate-Key: ez-all c52 l2
 ```
 
-The headers here look correct and do not indicate that this ESI will not be cached by the HTTP cache
+The headers here look correct and do not indicate that this ESI isn't cached by the HTTP cache.
 The second ESI has a similar response.
 
 #### 3rd ESI
@@ -578,7 +578,7 @@ This ESI is handled by a custom `FooController::customAction` and the output of 
 
 Output:
 
-```
+```bash
 HTTP/1.1 200 OK
 Server: nginx/1.20.0
 Content-Type: text/html; charset=UTF-8
@@ -600,15 +600,15 @@ does not return values from any Content in the [[= product_name =]] Repository. 
 the corresponding IDs to such objects in that header.
 
 The `Set-Cookie` here may cause the problem. A ESI fragment should never set a cookie because:
-- Clients will only receive the headers set in the "mother" document (the headers in the "/" response in this case).
+- Clients only receive the headers set in the "mother" document (the headers in the "/" response in this case).
 
-- Only the content of ESIs responses will be returned to the client. **No headers set in the ESI response will ever reach the client**. ESI headers are only seen by the HTTP cache.
+- Only the content of ESIs responses is returned to the client. **No headers set in the ESI response ever reach the client**. ESI headers are only seen by the HTTP cache.
   
-- Symfony reverse proxy does not support ESIs at all, and any ESI calls (`render_esi()`) will implicitly be replaced by
-  sub-requests (`render()`). So any `Set-Cookie` **will** be sent to the client when using Symfony reverse proxy.
+- Symfony reverse proxy does not support ESIs at all, and any ESI calls (`render_esi()`) are implicitly replaced by
+  sub-requests (`render()`). So any `Set-Cookie` **is sent** to the client when using Symfony reverse proxy.
   
-- Fastly will flag it resource as "not cachable" because it set a cookie at least once. Even though that endpoint.
-  stops setting cookies, Fastly will still not cache that fragment. Any document referring to that ESI will be a `MISS`.
+- Fastly flags its resource as "not cacheable" because it set a cookie at least once. Even though that endpoint
+  stops setting cookies, Fastly still does not cache that fragment. Any document referring to that ESI is a `MISS`.
   Fastly cache needs to be purged (`Purge-all` request) in order to remove this flag.
   
 - It means that it is not recommended to always initiate a session when loading the front page.
