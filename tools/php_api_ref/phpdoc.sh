@@ -69,7 +69,7 @@ echo 'OK';
 echo "Set and run phpDocumentor…";
 sed "s/version number=\".*\"/version number=\"$VERSION\"/" $PHPDOC_CONF > ./phpdoc.dist.xml;
 cp -R $PHPDOC_DIR ./;
-curl -LO "https://github.com/phpDocumentor/phpDocumentor/releases/download/v3.3.1/phpDocumentor.phar";
+curl -LO "https://github.com/phpDocumentor/phpDocumentor/releases/download/v3.4.1/phpDocumentor.phar";
 php phpDocumentor.phar -t php_api_reference;
 if [ $? -eq 0 ]; then
   echo -n "Remove unneeded from phpDocumentor output… ";
