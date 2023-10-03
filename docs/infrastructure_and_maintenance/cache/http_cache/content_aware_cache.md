@@ -413,7 +413,9 @@ You can also use the [Platform.sh CLI command](https://docs.platform.sh/administ
 
 ```bash
     # Define ibexa_cloud alias if it not already exists:
-    alias ibexa_cloud='PLATFORMSH_CLI_API_URL=https://api.cloud.ibexa.co PLATFORMSH_CLI_SESSION_ID=ibexa_cloud platform'
+    alias ibexa_cloud="PLATFORMSH_CLI_SESSION_ID=ibexa_cloud \
+        PLATFORMSH_CLI_API_URL=https://proxy.ibexa.co PLATFORMSH_CLI_API_VENDOR_FILTER=ibexa_cloud \
+        platform"
     # Get the endpoint:
     ibexa_cloud environment:info edge_hostname
 ```

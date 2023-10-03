@@ -15,7 +15,7 @@ Two ways are available to run an Ibexa Cloud project locally with DDEV:
     thanks to the following dedicated alias `ibexa_cloud`:
     ```bash
     alias ibexa_cloud="PLATFORMSH_CLI_SESSION_ID=ibexa_cloud \
-        PLATFORMSH_CLI_API_URL=https://api.cloud.ibexa.co \
+        PLATFORMSH_CLI_API_URL=https://proxy.ibexa.co PLATFORMSH_CLI_API_VENDOR_FILTER=ibexa_cloud \
         platform"
     ```
 

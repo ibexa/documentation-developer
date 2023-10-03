@@ -95,6 +95,6 @@ git push -u <platform.sh-remote> master
     Consider using the following alias `ibexa_cloud` with a dedicated setup instead of `platform`:
     ```bash
     alias ibexa_cloud="PLATFORMSH_CLI_SESSION_ID=ibexa_cloud \
-        PLATFORMSH_CLI_API_URL=https://api.cloud.ibexa.co \
+        PLATFORMSH_CLI_API_URL=https://proxy.ibexa.co PLATFORMSH_CLI_API_VENDOR_FILTER=ibexa_cloud \
         platform"
     ```
