@@ -313,6 +313,7 @@ The new structure is then:
 ```
 
 The following keys are purged during the move:
+
 - `l20`, because cache for previous parent of `[Child]` should be purged (`[Parent1]`)
 - `pl20`, because cache for children of `[Parent1]` should be purged
 - `l21`, because cache for new parent of `[Child]` should be purged (`[Parent2]`)
@@ -462,14 +463,15 @@ Some notes about each of these parameters:
   It is good practice to always include this header when imitating the HTTP Cache.
 - `--header "accept: application/vnd.fos.user-context-hash"` tells [[= product_name =]] that the client wants to receive the user-context-hash
 - `--header "x-fos-original-url: /"` is required by the fos-http-cache bundle in order to deliver the user-context-hash
-- `https://www.staging.foobar.com.us-2.platformsh.site/_fos_user_context_hash` : here you use the hostname you earlier told
+- `https://www.staging.foobar.com.us-2.platformsh.site/_fos_user_context_hash`: here you use the hostname you earlier told
   curl how to resolve using `---resolve`. `/_fos_user_context_hash` is the route to the controller that are able to
   deliver the user-context-hash.
 - You may also provide the session cookie (`--cookie ".....=....") for a logged-in-user if you are interested in
   the x-user-context-hash for a different user but anonymous
 
 The output for this command should look similar to this:
-```
+
+```bash
     HTTP/1.1 200 OK
     Server: nginx/1.20.0
     Content-Type: application/vnd.fos.user-context-hash
@@ -496,8 +498,9 @@ Now you have the user-context-hash, and you can ask origin for the actual resour
     $ curl -IXGET --resolve www.staging.foobar.com.us-2.platformsh.site:443:1.2.3.4 --header "Surrogate-Capability: abc=ESI/1.0" --header "x-user-context-hash: daea248406c0043e62997b37292bf93a8c91434e8661484983408897acd93814" https://www.staging.foobar.com.us-2.platformsh.site/
 ```
 
-The output :
-```
+The output:
+
+```bash
 HTTP/1.1 200 OK
 Server: nginx/1.20.0
 Content-Type: text/html; charset=UTF-8
@@ -528,7 +531,7 @@ not only headers) to curl and search for esi:
     $ curl --resolve www.staging.foobar.com.us-2.platformsh.site:443:1.2.3.4 --header "Surrogate-Capability: abc=ESI/1.0" --header "x-user-context-hash: daea248406c0043e62997b37292bf93a8c91434e8661484983408897acd93814" https://www.staging.foobar.com.us-2.platformsh.site/ | grep esi
 ```
 
-The output is :
+The output is:
 
 ```HTML
     <esi:include src="/_fragment?_hash=B%2BLUWB2kxTCc6nc5aEEn0eEqBSFar%2Br6jNm8fvSKdWU%3D&_path=locationId%3D2%26contentId%3D52%26blockId%3D11%26versionNo%3D3%26languageCode%3Deng-GB%26serialized_siteaccess%3D%257B%2522name%2522%253A%2522site%2522%252C%2522matchingType%2522%253A%2522default%2522%252C%2522matcher%2522%253Anull%252C%2522provider%2522%253Anull%257D%26serialized_siteaccess_matcher%3Dnull%26_format%3Dhtml%26_locale%3Den_GB%26_controller%3DEzSystems%255CEzPlatformPageFieldTypeBundle%255CController%255CBlockController%253A%253ArenderAction" />
