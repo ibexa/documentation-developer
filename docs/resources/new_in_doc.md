@@ -23,6 +23,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 - [Updated configuration for triggers](https://doc.ibexa.co/en/master/personalization/api_reference/tracking_api/#tracking-events-based-on-recommendations)
 - [Send messages with recommendations](https://doc.ibexa.co/en/master/personalization/integrate_recommendation_service/#send-messages-with-recommendations)
 - [Email triggers](https://doc.ibexa.co/projects/userguide/en/master/personalization/triggers/) in user documentation 
+
 ### PIM
 
 - [Product availability Twig extension](https://doc.ibexa.co/en/master/templating/twig_function_reference/product_twig_functions/#ibexa_has_product_availability)
