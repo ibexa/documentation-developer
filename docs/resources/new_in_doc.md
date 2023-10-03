@@ -4,8 +4,56 @@ description: Overview of major recent additions to Ibexa DXP documentation.
 
 # New in documentation
 
-This page contains recent highlights and notable changes in Ibexa DXP documentation.
+This page contains recent highlights and notable changes in [[= product_name =]] documentation.
 
+## September 2023
+
+### Commerce
+
+- Cart
+    - [Merge carts API](https://doc.ibexa.co/en/master/commerce/cart/cart_api/#merge-carts)
+- Checkout
+    - [Reorder](https://doc.ibexa.co/en/master/commerce/checkout/reorder/)
+    - [Hide checkout step](https://doc.ibexa.co/en/master/commerce/checkout/customize_checkout/#hide-checkout-step)
+- Order management
+    - [Define cancel order](https://doc.ibexa.co/en/master/commerce/order_management/configure_order_management/#define-cancel-order)
+
+### Personalization
+
+- [Updated configuration for triggers](https://doc.ibexa.co/en/master/personalization/api_reference/tracking_api/#tracking-events-based-on-recommendations)
+- [Send messages with recommendations](https://doc.ibexa.co/en/master/personalization/integrate_recommendation_service/#send-messages-with-recommendations)
+- [Email triggers](https://doc.ibexa.co/projects/userguide/en/master/personalization/triggers/) in user documentation 
+
+### PIM
+
+- [Product availability Twig extension](https://doc.ibexa.co/en/master/templating/twig_function_reference/product_twig_functions/#ibexa_has_product_availability)
+- [PriceQuery with its criteria](https://doc.ibexa.co/en/master/search/criteria_reference/price_search_criteria/)
+    - [Price API](https://doc.ibexa.co/en/master/pim/price_api/#prices)
+
+### REST API
+
+- Added GET endpoint for all available [Sales Representatives Users](https://doc.ibexa.co/en/master/api/rest_api/rest_api_reference/rest_api_reference.html#corporate-account-read-list-of-sales-representatives)
+
+### Storefront
+
+- [Display language name instead of its code in language swticher](https://doc.ibexa.co/en/master/templating/twig_function_reference/storefront_twig_functions/#ibexa_storefront_get_language_name_by_code)
+
+### Templating
+
+- [Render content in PHP](https://doc.ibexa.co/en/master/templating/render_content/render_content_in_php/)
+
+### Others
+
+- Product guides integrated into developer documentation
+    - [Content management](https://doc.ibexa.co/en/master/content_management/content_management_guide/)
+    - [Customer portal](https://doc.ibexa.co/en/master/customer_management/customer_portal/)
+    - [Form Builder](https://doc.ibexa.co/en/master/content_management/forms/form_builder_guide/)
+    - [Online editor](https://doc.ibexa.co/en/master/content_management/rich_text/online_editor_guide/)
+    - [Personalization](https://doc.ibexa.co/en/master/personalization/personalization_brochure/)
+    - [PIM](https://doc.ibexa.co/en/master/pim/pim_guide/)
+
+- [Updated bundles list](https://doc.ibexa.co/en/master/administration/project_organization/bundles/)
+   
 ## August 2023
 
 ### New home page
