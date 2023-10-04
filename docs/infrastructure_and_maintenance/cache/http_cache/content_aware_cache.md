@@ -299,7 +299,8 @@ Effectively, in this example HTTP cache for `[Parent1]` and `[Child]` are cleare
 With the same Content structure as above, the `[Child]` location is moved below `[Parent2]`.
 
 The new structure is then:
-```
+
+```bash
    - [Home] (content-id=52, location-id=2)
      ez-all c52 ct42 l2 pl1 p1 p2
      |
