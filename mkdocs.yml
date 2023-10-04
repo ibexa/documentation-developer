@@ -619,6 +619,7 @@ nav:
                 - Enabled: search/sort_clause_reference/payment_method_enabled_sort_clause.md
                 - Id: search/sort_clause_reference/payment_method_id_sort_clause.md
                 - Identifier: search/sort_clause_reference/payment_method_identifier_sort_clause.md
+                - Name: search/sort_clause_reference/payment_method_name_criterion.md
                 - UpdatedAt: search/sort_clause_reference/payment_method_updatedat_sort_clause.md
             - Shipment Sort Clauses:
                 - Shipment Sort Clauses: search/sort_clause_reference/shipment_sort_clauses.md
