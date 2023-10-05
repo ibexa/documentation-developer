@@ -12,7 +12,7 @@ You can also reuse the bundles you create in other projects or share them with t
 Many [[= product_name =]] functionalities are provided through separate bundles included in the installation.
 You can see the bundles that are automatically installed with [[= product_name =]]
 in the respective `composer.json` files.
-For example, for Ibexa Headless, see the [JSON file on GitHub](https://github.com/ibexa/headless/blob/master/composer.json).
+For example, for [[= product_name_headless =]], see the [JSON file on GitHub](https://github.com/ibexa/headless/blob/master/composer.json).
 
 !!! caution "Deprecated legacy Commerce bundles"
 

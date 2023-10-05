@@ -19,7 +19,7 @@ You need the following elements:
     You can change the vendor name (from default `vnd.ibexa.api` to new `app.api` like in this example), or you can create a new media type in the default vendor (like `vnd.ibexa.api.Greeting` in the [Creating a new REST resource](creating_new_rest_resource.md) example).
     To do so, tag your new ValueObjectVisitor with `ibexa.rest.output.value_object.visitor` to add it to the existing `ValueObjectVisitorDispatcher`, and a new one will not be needed.
     This way, the `media-type` attribute is also easier to create, because the default `Output\Generator` uses this default vendor.
-    This example presents creating a new vendor as a good practice, to highlight that this is custom extensions that isn't available in a regular Ibexa DXP installation.
+    This example presents creating a new vendor as a good practice, to highlight that this is custom extensions that isn't available in a regular [[= product_name =]] installation.
 
 ## New `RestLocation` `ValueObjectVisitor`
 

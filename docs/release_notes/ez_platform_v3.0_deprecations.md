@@ -1,3 +1,5 @@
+<!-- vale VariablesVersion = NO -->
+
 # eZ Platform v3.0 deprecations and backwards compatibility breaks
 
 This page lists backwards compatibility breaks and deprecations introduced in eZ Platform v3.0.

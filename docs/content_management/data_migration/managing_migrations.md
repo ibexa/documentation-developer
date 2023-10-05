@@ -11,7 +11,7 @@ If you want to convert a file from the format used by the
 to the current migration format, use the `ibexa:migrations:kaliop:convert` command.
 
 The source file must use Kaliop mode and type combinations.
-The converter handles Kaliop types that are different from Ibexa types.
+The converter handles Kaliop types that are different from [[= product_name_base =]] types.
 
 ``` bash
 php bin/console ibexa:migrations:kaliop:convert --input=kaliop_format.yaml --output=ibexa_format.yaml

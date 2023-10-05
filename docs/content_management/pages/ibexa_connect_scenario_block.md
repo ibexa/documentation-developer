@@ -4,17 +4,17 @@ description: Work with Ibexa Connect scenario block that retrieves and displays 
 
 # Ibexa Connect scenario block
 
-Ibexa Connect scenario block retrieves and displays data from an Ibexa Connect webhook. 
+[[= product_name_connect =]] scenario block retrieves and displays data from an [[= product_name_connect =]] webhook. 
 Scenario block is a regular [Page block](page_blocks.md) and can be configured on field definition level as any other block.
 
 !!! caution
     
     When setting up your instance, ensure you have profiler enabled.
-    To set up Page Builder in Ibexa DXP, follow the [Page and Form tutorial](page_and_form_tutorial.md).
+    To set up Page Builder in [[= product_name =]], follow the [Page and Form tutorial](page_and_form_tutorial.md).
 
 ## Scenario block configuration
 
-In the following example you can learn how to configure Ibexa Connect scenario block with two available templates: `company_customers` and `external_clients`.
+In the following example you can learn how to configure [[= product_name_connect =]] scenario block with two available templates: `company_customers` and `external_clients`.
 
 ### Block templates
 
@@ -47,14 +47,14 @@ Then, in `templates/blocks` directory under `default.html.twig`, provide your bl
 ```
 
 In the following example, the configuration of the block is non-complex - block is only used to display the content transferred from an Ibexa Connect webhook.
-At this point the Ibexa Connect scenario block is ready to be used in Page Builder.
+At this point the [[= product_name_connect =]] scenario block is ready to be used in Page Builder.
 
 ### Configure Ibexa Connect scenario block in Page Builder
 
-Now, you can configure Ibexa Connect scenario block in Page Builder.
-To do it, in your Page add Ibexa Connect block by dragging it from the menu to a drop zone and enter block settings. 
+Now, you can configure [[= product_name_connect =]] scenario block in Page Builder.
+To do it, in your Page add [[= product_name_connect =]] block by dragging it from the menu to a drop zone and enter block settings. 
 
-- In the **Basic** tab in **Webhook link** field, provide a link to an Ibexa Connect webhook, 
+- In the **Basic** tab in **Webhook link** field, provide a link to an [[= product_name_connect =]] webhook, 
 for example, `https://connect.ibexa.co/3/scenarios/688/edit`:
 
 ![Ibexa Connect Basic tab](ibexa_connect_basic_tab.png)
@@ -65,6 +65,6 @@ To do it, extend drop-down list in the **View** field and choose one of the avai
 ![Ibexa Connect Design tab](ibexa_connect_design_tab.png)
 
 Click **Submit** button to confirm.
-After submitting the block, Page refreshes and Ibexa Connect block displays data from provided Ibexa Connect webhook. 
+After submitting the block, Page refreshes and [[= product_name_connect =]] block displays data from provided Ibexa Connect webhook. 
 
 ![Ibexa Connect webhook preview](ibexa_connect_webhook_preview.png)

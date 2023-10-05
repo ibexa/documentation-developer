@@ -15,7 +15,7 @@ You can also manage your forms and review the results gathered from the website 
 
 ## Availability
 
-Form Builder is available in Ibexa Experience and Ibexa Commerce.
+Form Builder is available in [[= product_name_exp =]] and [[= product_name_com =]].
 
 ## How does Form Builder work
 

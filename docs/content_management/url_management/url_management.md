@@ -95,13 +95,13 @@ For details, see the tables below.
 |--------------------|---------------------------------------------------------------------|---------------|
 | enabled            | Enables link validation.                                            | true          |
 
-For more information about Ibexa configuration, see [Configuration](configuration.md).
+For more information about [[= product_name_base =]] configuration, see [Configuration](configuration.md).
 
 ### Custom protocol support
 
 You can extend the external URL address validation with a custom protocol.
 To do this, you must provide a service that implements the `Ibexa\Bundle\Core\URLChecker\URLHandlerInterface` interface:
-
+s
 ```php
 <?php
 
