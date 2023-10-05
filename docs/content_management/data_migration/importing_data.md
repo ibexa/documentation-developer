@@ -109,6 +109,76 @@ The expression syntax uses the following structure: `###<IDENTIFIER> <EXPRESSION
 
 The `IDENTIFIER` can be any repeated string that encloses the actual expression.
 
+#### Built-in functions
+
+Built-in expression language functions that are tagged with `ibexa.migrations.template.expression_language.function`:
+
+- `to_bool`, `to_int`, `to_float`, `to_string` - convert various data types by passing them into PHP casting functions (like `floatval`, `intval`, and others).
+
+```yaml
+                -   fieldDefIdentifier: show_children
+                    languageCode: eng-US
+                    value: '###XXX to_bool(i % 3) XXX###'
+
+                -   fieldDefIdentifier: quantity
+                    languageCode: eng-US
+                    value: '###XXX to_int("42") XXX###'
+
+                -   fieldDefIdentifier: price
+                    languageCode: eng-US
+                    value: '###XXX to_float("19.99") XXX###'
+
+                -   fieldDefIdentifier: description
+                    languageCode: eng-US
+                    value: '###XXX to_string(123) XXX###'
+```
+
+- `ibexa.migrations.template.reference` - references a specific object or resource within your application or configuration. Learn more about [migration references](managing_migrations.md#references).
+
+```yaml
+                -   fieldDefIdentifier: some_field
+                    languageCode: eng-US
+                    value: '###XXX reference("example_reference") XXX###'
+```
+
+- `ibexa.migrations.template.project_dir` - retrieves the project's root directory path, making it useful for constructing file paths and accessing project-specific resources.
+
+```yaml
+                -   fieldDefIdentifier: project_directory
+                    languageCode: eng-US
+                    value: '###XXX project_dir() XXX###'
+```
+
+#### Custom functions
+
+To add custom functionality into Migration's expression language declare it as a service 
+and tag it with `ibexa.migrations.template.expression_language.function`.
+
+Example:
+
+```yaml
+ibexa.migrations.template.to_bool:
+    class: Closure
+    factory: [ Closure, fromCallable ]
+    arguments:
+        - 'boolval'
+    tags:
+        -   name: 'ibexa.migrations.template.expression_language.function'
+            function: to_bool
+
+ibexa.migrations.template.faker:
+    class: Closure
+    factory: [ Closure, fromCallable ]
+    arguments:
+        - 'Faker\Factory::create'
+    tags:
+        -   name: 'ibexa.migrations.template.expression_language.function'
+            function: faker
+```
+
+Service-based functions can be also added, but they must be callable, 
+requiring either an `__invoke` function or a wrapping service with one.
+
 ## Migration examples
 
 The following examples show what data you can import using data migrations.
