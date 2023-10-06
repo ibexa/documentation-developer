@@ -17,4 +17,4 @@ TODO: List and describe criteria from Ibexa\Contracts\ActivityLog\Values\Activit
 
 ## Activity Log Search Sort Clauses reference
 
-TODO: List and describe sot clauses from Ibexa\Contracts\ActivityLog\Values\ActivityLog\SortClause\ namespace
+TODO: List and describe sort clauses from Ibexa\Contracts\ActivityLog\Values\ActivityLog\SortClause\ namespace
