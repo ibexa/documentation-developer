@@ -3,7 +3,7 @@ description: Activity Log Search
 page_type: reference
 ---
 
-# Activity Log Search Criteria and Sort Clauses reference
+# Activity Log Search reference
 
 Activity Log Search Criteria and Sort Clauses are used to build `Ibexa\Contracts\ActivityLog\Values\ActivityLog\Query` for `ActivityLogService::find`.
 
