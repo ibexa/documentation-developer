@@ -409,6 +409,8 @@ nav:
         - Customer Data Platform: cdp/cdp.md
         - CDP installation: cdp/cdp_installation.md
         - CDP activation: cdp/cdp_activation.md
+        - CDP global configuration: cdp/cdp_global_configuration.md
+        - CDP data export: cdp/cdp_data_export.md
     - Search:
         - Search: search/search.md
         - Search engines: 
