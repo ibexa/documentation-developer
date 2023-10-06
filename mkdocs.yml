@@ -137,6 +137,9 @@ nav:
             - Multi-file upload: administration/back_office/multifile_upload.md
             - Sub-items list: administration/back_office/subitems_list.md
             - Notifications: administration/back_office/notifications.md
+        - Recent activity:
+            - Recent activity: administration/recent_activity/recent_activity.md
+            - Activity Log search reference: administration/recent_activity/activity_log_search.md
     - Content management:
         - Content management: content_management/content_management.md
         - Content management guide: content_management/content_management_guide.md
