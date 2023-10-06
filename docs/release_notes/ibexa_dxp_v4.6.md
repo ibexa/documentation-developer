@@ -78,6 +78,11 @@ For more information, see [Quick order documentation](https://doc.ibexa.co/en/ma
 
 #### Shipments
 
+Shipping management allows you to work with the shipments: view and modify their status, filter shipments in shipment lists and check all the details.
+You can access shipments for your own orders or all the shipments that exist in the system, depending on your permissions.
+
+For more information, see [Work with shipments](https://doc.ibexa.co/projects/userguide/en/master/commerce/shipping_management/work_with_shipments/).
+
 ## Other changes
 
 ### Expression Language
