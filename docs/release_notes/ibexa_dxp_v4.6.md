@@ -76,6 +76,30 @@ Quick order form is available to both registered and guest users.
 
 For more information, see [Quick order documentation](https://doc.ibexa.co/en/master/commerce/cart/quick_order/).
 
+#### Shipping management
+
+Shipping management allows you to work with the shipments: view and modify their status, filter shipments in shipment lists and check all the details.
+You can access shipments for your own orders or all the shipments that exist in the system, depending on your permissions.
+
+For more information, see [Work with shipments](https://doc.ibexa.co/projects/userguide/en/master/commerce/shipping_management/work_with_shipments/).
+
+#### Owner criterion
+
+Orders and shipments search now supports user reference:
+
+- `OwnerCriterion` Criterion searches for orders based on the user reference.
+- `Owner` Criterion searches for shipments based on the user reference.
+
+#### Customize checkout workflow
+
+You can create a PHP definition of the new strategy that allows for workflow manipulation. 
+Defining strategy allows to add conditional steps for workflow if needed.
+When a conditional step is added, the checkout process uses the specified workflow and proceeds to the defined step.
+
+For more information, see (https://doc.ibexa.co/en/master/commerce/checkout/customize_checkout/#create-custom-strategy)
+
+### New features and improvements in PIM
+
 #### Virtual products
 
 With this feature, you can create virtual products - non-tangible items such as memberships, services, warranties.
@@ -90,19 +114,13 @@ Product search now supports product virutal and physical product type:
 
 - `IsVirtual` - searches for virtual or physical products. 
 
-#### Shipping management
+#### Product page URLs
 
-Shipping management allows you to work with the shipments: view and modify their status, filter shipments in shipment lists and check all the details.
-You can access shipments for your own orders or all the shipments that exist in the system, depending on your permissions.
+When you are creating new product type you can set up product URL alias name pattern.
+With this feature, you can also create custom URL and URL alias name pattern field based on product attributes.
+Customized URLs are easy to remember, help with SEO optimization and reduce bounce rates on the website. 
 
-For more information, see [Work with shipments](https://doc.ibexa.co/projects/userguide/en/master/commerce/shipping_management/work_with_shipments/).
-
-#### Owner criterion
-
-Orders and shipments search now supports user reference:
-
-- `OwnerCriterion` Criterion searches for orders based on the user reference.
-- `Owner` Criterion searches for shipments based on the user reference.
+For more information, see [Product page URLs](https://doc.ibexa.co/projects/userguide/en/master/pim/work_with_product_page_urls/).
 
 ## Other changes
 
@@ -140,6 +158,14 @@ Endpoints that allow you to manage companies in your platform with REST API:
 ### Ibexa Connect
 
 For a list of changes in Ibexa Connect, see [Ibexa app release notes](https://doc.ibexa.co/projects/connect/en/latest/general/ibexa_app_release_notes/).
+
+#### Scenario block
+
+New Ibexa Connect scenario block retrieves and displays data from an Ibexa Connect webhook. 
+Scenario block is a regular Page block and can be configured on field definition level as any other block.
+You also need to configure scenario block in the Page Builder. To do it, you need to provide name for the block, enter webhook link for the Ibexa Connect webhook and select the template to be used to present the webhook.
+
+For more information, see [Ibexa Connect scenario block](https://doc.ibexa.co/en/master/content_management/pages/ibexa_connect_scenario_block/).
 
 ### DDEV
 
