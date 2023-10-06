@@ -76,12 +76,33 @@ Quick order form is available to both registered and guest users.
 
 For more information, see [Quick order documentation](https://doc.ibexa.co/en/master/commerce/cart/quick_order/).
 
-#### Shipments
+#### Virtual products
+
+With this feature, you can create virtual products - non-tangible items such as memberships, services, warranties.
+To create a virtual product, first, you have to create a virtual Product Type.
+Virtual products don’t require shipment when they are purchased without other physical products.
+
+For more information, see [Create virtual products](https://doc.ibexa.co/projects/userguide/en/master/pim/create_virtual_product/.)
+
+#### IsVirtual Criterion
+
+Product search now supports product virutal and physical product type:
+
+- `IsVirtual` - searches for virtual or physical products. 
+
+#### Shipping management
 
 Shipping management allows you to work with the shipments: view and modify their status, filter shipments in shipment lists and check all the details.
 You can access shipments for your own orders or all the shipments that exist in the system, depending on your permissions.
 
 For more information, see [Work with shipments](https://doc.ibexa.co/projects/userguide/en/master/commerce/shipping_management/work_with_shipments/).
+
+#### Owner criterion
+
+Orders and shipments search now supports user reference:
+
+- `OwnerCriterion` Criterion searches for orders based on the user reference.
+- `Owner` Criterion searches for shipments based on the user reference.
 
 ## Other changes
 
