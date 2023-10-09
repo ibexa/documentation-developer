@@ -108,7 +108,7 @@ The default list of blocked file types contains: `hta htm html jar js jse pgif p
 ### Block the execution of scripts in the `var` directory
 
 Make sure the web server blocks the execution of PHP files and other scripts in the `var` directory.
-See [vhost.template.](https://github.com/ezsystems/ezplatform/blob/master/doc/apache2/vhost.template#L80)
+See the line below `# Disable .php(3) and other executable extensions in the var directory` in the example virtual host files for Apache and Nginx, provided in the [installation documentation](install_ez_platform.md#set-up-virtual-host).
 
 ### Use secure password hashing
 
