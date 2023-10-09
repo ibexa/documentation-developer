@@ -1,9 +1,8 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Command;
 
 use Ibexa\Contracts\ActivityLog\ActivityLogServiceInterface;
-use Ibexa\Contracts\ActivityLog\Values\ActivityLog\ActivityLogInterface;
 use Ibexa\Contracts\ActivityLog\Values\ActivityLog\Criterion;
 use Ibexa\Contracts\ActivityLog\Values\ActivityLog\Query;
 use Ibexa\Contracts\ActivityLog\Values\ActivityLog\SortClause\LoggedAtSortClause;
