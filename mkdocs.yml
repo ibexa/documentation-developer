@@ -162,6 +162,7 @@ nav:
             - Binary and Media download: content_management/file_management/binary_and_media_download.md
             - File URL handling: content_management/file_management/file_url_handling.md
         - Pages:
+            - Page Builder guide: content_management/pages/page_builder_guide.md
             - Pages: content_management/pages/pages.md
             - Page blocks: content_management/pages/page_blocks.md
             - Page block attributes: content_management/pages/page_block_attributes.md
