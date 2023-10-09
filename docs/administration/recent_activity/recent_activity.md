@@ -12,49 +12,16 @@ The ActivityLogService PHP API can be used to browse activity logs and write new
 
 ### Searching in the Activity Log entries
 
-TODO: Move to a PHP file
+You can search among the activity log entries using `ActivityLogService::find` by passing an `Ibexa\Contracts\ActivityLog\Values\ActivityLog\Query`
+This `Query` constructor has four arguments:
+
+1. `$criteria`: an array of criterion from `Ibexa\Contracts\ActivityLog\Values\ActivityLog\Criterion` related as a logical AND.
+2. `$sortClauses`: an array of `Ibexa\Contracts\ActivityLog\Values\ActivityLog\SortClause`.
+3. `$offset`: a zero-based index integer indicating at which entry to start, its default value is `0` (zero, nothing skipped).
+4. `$limit`: a integer as the maximum returned entry count, default is 25.
 
 ```php
-<?php
-
-namespace App\Command;
-
-use Ibexa\Contracts\ActivityLog\ActivityLogServiceInterface;
-use Ibexa\Contracts\ActivityLog\Values\ActivityLog\ActivityLogInterface;
-use Ibexa\Contracts\ActivityLog\Values\ActivityLog\Criterion;
-use Ibexa\Contracts\ActivityLog\Values\ActivityLog\Query;
-use Ibexa\Contracts\ActivityLog\Values\ActivityLog\SortClause\LoggedAtSortClause;
-use Ibexa\Contracts\Core\Repository\Values\Content\Content;
-use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
-
-class MonitorRecentContentCreationCommand extends Command {
-    
-    private ActivityLogServiceInterface $activityLogService;
-
-    public function __construct(ActivityLogServiceInterface $activityLogService)
-    {
-        $this->activityLogService = $activityLogService;
-    }
-
-    protected function configure(): void {
-        $this->setDescription('List last 25 Content item creations in the last hour');
-    }
-
-    protected function execute(InputInterface $input, OutputInterface $output): int
-    {
-        $query = new Query(new Criterion\LogicalAnd([
-            new Criterion\ObjectCriterion(Content::class),
-            new Criterion\ActionCriterion('create'),
-            new Criterion\LoggedAtCriterion(new DateTime('- 1 hour'), Criterion\LoggedAtCriterion::GTE),
-        ]), new LoggedAtSortClause(LoggedAtSortClause::DESC), 0, 25);
-        /** @var ActivityLogInterface $activityLog */
-        foreach ($this->activityLogService->find($query) as $activityLog) {
-            $output->writeln("{$activityLog->getUser()->login} created Content {$activityLog->getObjectId()} at {$activityLog->getLoggedAt()}");
-        }
-    }
-}
+[[= include_file('code_samples/recent_activity/MonitorRecentContentCreationCommand.php') =]]
 ```
 
 See [Activity Log Search Criteria reference](activity_log_search.md) to discover query possibilities.
