@@ -13,8 +13,21 @@ TODO: List and describe criteria from Ibexa\Contracts\ActivityLog\Values\Activit
 
 ### Value Criterion
 
+| Search Criterion  | Search based on                                             |
+|-------------------|-------------------------------------------------------------|
+| ActionCriterion   | Performed action name(s)                                    |
+| LoggedAtCriterion | Before, after or at a given date and time                   |
+| ObjectCriterion   | Manipulated object's classname, and optionally objects' IDs |
+| UserCriterion     | User performing the action                                  |
+
 ### Logical Criterion
+
+- LogicalNot: Logical NOT criterion that matches if the provided Criteria doesn't match.
+- LogicalAnd: Logical AND criterion that matches if all the provided Criteria match.
+- LogicalOr: Logical OR criterion that matches if at least one of the provided Criteria matches.
 
 ## Activity Log Search Sort Clauses reference
 
 TODO: List and describe sort clauses from Ibexa\Contracts\ActivityLog\Values\ActivityLog\SortClause\ namespace
+
+- LoggedAtSortClause: Sort Activity Log entries by their date and time, descending or ascending.
