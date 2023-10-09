@@ -1,0 +1,7 @@
+{
+    "ActivityLogList": {
+        "_media-type": "application\/vnd.ibexa.api.ActivityLogList+json",
+        "_href": "\/api\/ibexa\/v2\/activity-log\/list",
+        "ActivityLog": []
+    }
+}

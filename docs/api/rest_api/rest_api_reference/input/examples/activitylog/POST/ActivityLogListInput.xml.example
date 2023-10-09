@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ActivityLogListInput>
+    <offset>0</offset>
+    <limit>10</limit>
+</ActivityLogListInput>
