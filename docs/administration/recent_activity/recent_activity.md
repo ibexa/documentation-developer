@@ -21,7 +21,7 @@ This `Query`'s constructor has four arguments:
 4. `$limit`: an integer as the maximum returned entry count, default is 25.
 
 ```php
-[[= include_file('code_samples/recent_activity/MonitorRecentContentCreationCommand.php') =]]
+[[= include_file('code_samples/recent_activity/Command/MonitorRecentContentCreationCommand.php') =]]
 ```
 
 See [Activity Log Search Criteria reference](activity_log_search.md) to discover query possibilities.
@@ -35,7 +35,7 @@ First, inject `Ibexa\Contracts\ActivityLog\ActivityLogServiceInterface` into you
 In the following example, an event subscriber is subscribing to an event dispatched by a custom feature. This event has the information needed by a log entry (see details after the example).
 
 ```php
-[[= include_file('code_samples/recent_activity/MyFeatureEventSubscriber.php') =]]
+[[= include_file('code_samples/recent_activity/EventSubscriber/MyFeatureEventSubscriber.php') =]]
 ```
 
 `ActivityLogService::build` function returns an `Ibexa\Contracts\ActivityLog\Values\CreateActivityLogStruct` which can then be passed to `ActivityLogService::save`.
