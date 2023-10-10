@@ -4,7 +4,19 @@ description: Log and monitor activity through UI, PHP API and REST API.
 
 # Recent activity
 
-TODO: Feature introduction and description, link to the user doc, …
+Recent activity log summaries last actions on the database (whatever their origin, such as Back Office, REST, CLI or CRON).
+
+The following activities are recorded by default:
+
+* Create, update or delete (send to trash) a Content item
+* Create, update or delete a [Product](products.md)
+* Hide or show a [Location](locations.md#location-visibility) or [Content item]([[= user_doc =]]/content_management/content_organization/copy_move_hide_content/#hide-content)
+* Create, update or delete a [Site Factory](site_factory.md) site
+
+## Configuration
+
+* `ibexa.site_access.config.<scope>.activity_log.pagination.activity_logs_limit`: Set the number of log entries per page shown in the Back Office
+* TODO: Period kept (30 days)
 
 ## PHP API
 
