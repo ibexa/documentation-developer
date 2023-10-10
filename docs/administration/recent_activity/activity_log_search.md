@@ -28,6 +28,6 @@ Criteria are found in the `Ibexa\Contracts\ActivityLog\Values\ActivityLog\Criter
 
 ## Activity Log Search Sort Clauses reference
 
-Sort clauses are found in the `Ibexa\Contracts\ActivityLog\Values\ActivityLog\SortClause\` namespace.
+Sort Clauses are found in the `Ibexa\Contracts\ActivityLog\Values\ActivityLog\SortClause\` namespace.
 
 - LoggedAtSortClause: Sort Activity Log entries by their date and time, descending or ascending.

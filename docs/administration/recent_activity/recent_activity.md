@@ -50,6 +50,4 @@ The returned `CreateActivityLogStruct` is, by default, related to the currently 
 
 ## REST API
 
-REST API can be used to browse activity logs or write new entries.
-
-See in the [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#activity-log) routes starting with `/activity-log/`.
+REST API can be used to browse activity logs, see in the [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#monitoring-activity-log).
