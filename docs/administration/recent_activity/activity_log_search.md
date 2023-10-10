@@ -5,11 +5,11 @@ page_type: reference
 
 # Activity Log Search reference
 
-Activity Log Search Criteria and Sort Clauses are used to build `Ibexa\Contracts\ActivityLog\Values\ActivityLog\Query` for `ActivityLogService::find`.
+Activity Log Search Criteria and Sort Clauses are used to build `Ibexa\Contracts\ActivityLog\Values\ActivityLog\Query` for `Ibexa\Contracts\ActivityLog\ActivityLogServiceInterface::find`.
 
 ## Activity Log Search Criteria reference
 
-TODO: List and describe criteria from Ibexa\Contracts\ActivityLog\Values\ActivityLog\Criterion\ namespace
+Criteria are found in the `Ibexa\Contracts\ActivityLog\Values\ActivityLog\Criterion\` namespace.
 
 ### Value Criterion
 
@@ -28,6 +28,6 @@ TODO: List and describe criteria from Ibexa\Contracts\ActivityLog\Values\Activit
 
 ## Activity Log Search Sort Clauses reference
 
-TODO: List and describe sort clauses from Ibexa\Contracts\ActivityLog\Values\ActivityLog\SortClause\ namespace
+Sort clauses are found in the `Ibexa\Contracts\ActivityLog\Values\ActivityLog\SortClause\` namespace.
 
 - LoggedAtSortClause: Sort Activity Log entries by their date and time, descending or ascending.
