@@ -73,7 +73,7 @@ High quality recommendations can only be delivered if the underlying data is cor
 For consistent tracking it is crucial to choose and use a consistent identifier for a user. 
 A user usually visits a website anonymously. 
 Therefore, their identifier is either a first-party cookie or a session ID provided by the website. 
-If there is no existing user ID handling that can be re-used, it is recommended that 
+If there is no existing user ID handling that we can re-use, it is recommended that 
 you use your own cookie and set the expiry date to at least 90 days from the last usage. 
 If there is a login mechanism, the user is usually tracked with a temporary identifier before the login. 
 Immediately after a successful login process a Login event must be sent.
@@ -165,19 +165,6 @@ Multiple category locations of an item (multi-homing) are therefore possible.
     Make sure that all embedded and query string parameters are URL encoded and do not use a backslash 
     [encoded as %5C\].
 
-### Event parameters
-
-For a list of embedded parameters that each of the events may use, see the following table. 
-
-|Name|Description|Values|
-|---|---|---|
-|`customerid`|A customer ID (for example "00000"). Can be used to identify a website in installations that [hosts multiple SiteAccesses]([[= user_doc =]]/personalization/use_cases/#multiple-website-hosting).|alphanumeric|
-|userid|A user's ID on the website of the customer. It could be an internal customer code, a session code or a cookie for anonymous users.|URL-encoded alphanumeric|
-|`itemtypeid`|Item type ID.|1 to 2147483647|
-|`itemid`|A unique ID of the item the user has clicked.</br>String-based identifiers are also supported as item IDs to track content on a website, but it is discouraged due to fraud and security issues. If you are unable to provide numeric identifiers for the tracking process, contact Ibexa for further information and implementation notes.|1 to 2147483647|
-|`sourceuserid`|User identifier valid up to now(usually some anonymous session ID)|URL-encoded alphanumeric|
-|`targetuserid`|User identifier valid from now on (usually an account ID or login name)|URL-encoded alphanumeric|
-
 ### Click event
 
 When the end user opens an item/article detail, a Click events is sent. 
@@ -192,8 +179,15 @@ The URL to track user clicks has the following format:
 
 `GET https://event.yoochoose.net/api/[customerid]/click/[userid]/[itemtypeid]/[itemid]`
 
+
+|Name|Description|Values|
+|---|---|---|
+|`customerid`|Your customer ID (for example "00000").|alphanumeric|
+|userid|A user's ID on the website of the customer. It could be an internal customer code, a session code or a cookie for anonymous users.|URL-encoded alphanumeric|
+|`itemtypeid`|Item type ID.|1 to 2147483647|
+|`itemid`|A unique ID of the item the user has clicked.</br>String-based identifiers are also supported as item IDs to track content on a website, but it is discouraged due to fraud and security issues. If you are unable to provide numeric identifiers for the tracking process, contact Ibexa for further information and implementation notes.|1 to 2147483647|
+
 All embedded parameters are required for the request. 
-For a detailed description of embedded parameters, see [event parameters](#event-parameters).
 Some optional request parameters can be set over query string parameters (GET parameters).
 
 `GET https://event.yoochoose.net/api/[customerid]/click/[userid]/[itemtypeid]/[itemid]?parameter1=value1&parameter2=value2`
@@ -216,7 +210,7 @@ The URL has the following format:
 
 `GET https://event.yoochoose.net/api/[customerid]/consume/[userid]/[itemtypeid]/[itemid]`
 
-For a detailed description of embedded parameters, see [event parameters](#event-parameters).
+All embedded parameters are the same as for a Click event. 
 The following table lists the request parameters:
 
 |Name|Description|Values|
@@ -248,7 +242,6 @@ The URL has the following format: 
 
 `GET https://event.yoochoose.net/api/[customerid]/buy/[userid]/[itemtypeid]/[itemid]?fullprice=2.50EUR&quantity=4`
 
-For a detailed description of embedded parameters, see [event parameters](#event-parameters).
 In addition to the fact that an item is bought, this event should provide information about 
 the product price and quantity.
 
@@ -296,7 +289,10 @@ The format of the URL is: 
 
 `GET https://event.yoochoose.net/api/[customerid]/login/[sourceuserid]/[targetuserid]`
 
-For a detailed description of embedded parameters, see [event parameters](#event-parameters).
+|Name|Description|Values|
+|---|---|---|
+|sourceuserid|User identifier valid up to now(usually some anonymous session ID)|URL-encoded alphanumeric|
+|targetuserid|User identifier valid from now on (usually an account ID or login name)|URL-encoded alphanumeric|
 
 ### Basket event
 
@@ -314,19 +310,7 @@ in the whole shop.
 
 `GET https://event.yoochoose.net/api/[customerid]/basket/[userid]/[itemtypeid]/[itemid]`
 
-For a detailed description of embedded parameters, see [event parameters](#event-parameters).
 There are no query string parameters for this event. 
-
-### Deletefrombasket event
-
-The Deletefrombasket is issued when the end user removes items from their shopping cart. 
-It could signify that the user has lost interest in the product. 
-Based on this information, recommendations presented by the store can be more accurate.
-
-`GET https://event.perso.ibexa.co/api/[customerid]/deletefrombasket/[userid]/[itemtypeid]/[itemid]`
-
-For a detailed description of embedded parameters, see [event parameters](#event-parameters).
-There are no query string parameters for this event.
 
 ### Rate event
 
@@ -338,9 +322,7 @@ The format of the URL is:
 
 `GET https://event.yoochoose.net/api/[customerid]/rate/[userid]/[itemtypeid]/[itemid]?rating=50`
 
-For a detailed description of embedded parameters, see [event parameters](#event-parameters).
-
-Rate event can also be used for explicit ratings like a five-star rating for hotels. 
+This can also be used for explicit ratings like a five-star rating for hotels. 
 A predefined rating can be submitted when the user comments on an item.
 
 |Name|Description|Values|
@@ -356,101 +338,47 @@ The format of the URL is:
 
 `GET https://event.yoochoose.net/api/[customerid]/blacklist/[userid]/[itemtypeid]/[itemid]`
 
-For a detailed description of embedded parameters, see [event parameters](#event-parameters).
 There are no query string parameters for this event. 
 
 ## Tracking events based on recommendations
 
-Tracking events based on integrated recommendations are the only way to measure the accuracy 
-and effectiveness of recommendations. 
-Both recommendation response and trigger message include requests to generate these events.
-Events of this type inform the Personalization server about the recommendations that 
-were shown to the user and which of those recommendations were clicked. 
-Otherwise, it would be impossible to calculate reliable statistics that could be checked 
-against the customer's KPIs.
+Tracking events based on integrated recommendations are the only way to measure success of recommendations. 
+It is crucial to inform the recommendation engine about which recommendations were shown and 
+what recommendations were clicked. 
+Otherwise, reliable statistics cannot be calculated and used to check against a customer's KPIs.
 
-A recommendation response includes requests to generate a Rendered and Clickrecommended event. 
-The first one is executed when a recommendation is shown to the user.
-The second is called when a recommendation is clicked or otherwise accepted.  
+A recommendation response already includes the requests to generate a Clickrecommended or Rendered event. 
+They are used and executed when a recommendation is clicked/accepted or a recommendation is shown. 
 Sending Rendered events causes as many requests as recommendations to be displayed, 
 a Clickrecommended event is usually sent only once (when a user clicks on a specific recommendation item).
 
 Example of a recommendation response:
 
-``` json
+``` jsonp
 "recommendationItems": [
     {
       "relevance": 23,
       "itemType": 1,
       "itemId": 100175717,
       "origin": {
-        "itemIds" : [10, 11],
+        "itemIds" : [10, 11], // these are the items that the recommendations are based on (context or user history items), multiple values are possible
         "itemType" : 1,
-        "source" : "REQUEST" 
+        "source" : "REQUEST" // Possible options: REQUEST (parameter "contextitems") or CLICK, CONSUME, BUY, BASKET, RATE (user history)
       },
-      "category" : "Men/Shirts",
+      "category" : "Men/Shirts", // Provided only, if category suggestion is requested
       "links" : {
-         "clickRecommended" : "//event.perso.ibexa.co/clickrecommended/johndoe/1/100175717?scenario=also_clicked&modelId=37",
-         "rendered" : "//event.perso.ibexa.co/rendered/johndoe/1/100175717"
+         "clickRecommended" : "//event.yoochoose.net/clickrecommended/johndoe/1/100175717?scenario=also_clicked&modelId=37",
+         "rendered" : "//event.yoochoose.net/rendered/johndoe/1/100175717"
       },
-    }
-]
 ```
 
-| Field name | Description |
-|---|---|
-| `itemIds` |Items that the recommendations are based on (context or user history items), multiple values are possible.|
-| `source` |Event that initiated the response: REQUEST (parameter "contextitems") or CLICK, CONSUME, BUY, BASKET, RATE (user history).|
-| `category` |A recommended item category. Provided only if category suggestion is requested.|
-| `links` | Requests for events that are executed when the end user displays or clicks a recommendation.|
+In the `links` field, the delivered request string is visible, which is executed when the end user 
+displays or clicks a recommendations. 
+See [Recommendation API](recommendation_api.md) for more details.
 
-See [Recommendation API](recommendation_api.md) for more details.
-
-A trigger message includes requests for a Triggeropened and Clicktriggered event. 
-The first is executed once, when the end user opens a trigger message (for example, embedded into a newsletter).
-The second is called each time the user follows a link to see the recommended item. 
-Both requests provide the `triggername` parameter, which passes a unique alphanumerical identifier of the trigger that initiated the message.
-
-Example of a trigger message:
-
-``` json
-   "customerID":"177751",
-   "userExternalId":"user@ibexa.co",
-   "triggerType":"REACTIVATION|ABANDAONED_SHOPPING_CART",
-   "triggerName":"trigger_ref_code",
-   "triggerOpenedLink":"//tracker.ibexa.co/api/17751/triggeropened/johndoe?triggername=action_trigger_ref_code",
-   "recommendations":[
-      {
-         "itemId":959,
-         "itemType":46,
-         "clickRecommended":"//tracker.ibexa.co/api/17751/clicktriggered/johndoe/46/959?triggername=action_trigger_ref_code",
-         "attributes":{
-            "ses_name":"Minimalista Coffee Table",
-			"ses_image":["img_1", "img_2"]
-         }
-      }
-   ]
-```
-
-For more information, see [Sending messages with recommendations](../basic_integration.md#sending-messages-with-recommendations).
-
-### Rendered event
-
-This event is sent when the website uses the recommendation provided by the recommendation 
-engine and renders it on the webpage. 
-In combination with a predefined threshold, it allows the recommender engine to 
-exclude this item from future results and avoid recommending the same item to the 
-same user multiple times during a session.
-
-The URL for a Rendered event has the following format:
-
-`GET https://event.perso.ibexa.co/api/[customerid]/rendered/[userid]/[itemtypeid]/[itemid[,itemid]]`
-
-For a detailed description of embedded parameters, see [event parameters](#event-parameters).
-
-It is common that recommendations are rendered as a block with multiple items. 
-To save traffic and speed up the process, you can bundle multiple recommendations in one request. 
-Several item IDs must be comma-separated.
+You can still implement the traditional way as mentioned below but it is strongly recommended against this. 
+If you do so, remember to examine it together with the Ibexa team because it is crucial 
+for statistical analysis.
 
 ### Clickrecommended event
 
@@ -461,7 +389,8 @@ The URL has the following format:
 
 `GET https://event.yoochoose.net/api/[customerid]/clickrecommended/[userid]/[itemtypeid]/[itemid]?scenario=<scenarioid>`
 
-For a detailed description of embedded parameters, see [event parameters](#event-parameters).
+The embedded parameters are the same as for a Click event. 
+
 The request parameters are:
 
 |Name|Description|Values|
@@ -475,39 +404,21 @@ This information comes with the recommendation from the recommendation controlle
 The event is used for providing statistics about how often recommendations of 
 the configured recommendation scenario were accepted or considered as useful by users. 
 
-### Triggeropened event
+### Rendered event
 
-The Triggeropened event is sent when the end user opens a trigger message, for example, by opening an email message with recommendations. 
+This event sent when the website uses the recommendation provided by the recommendation 
+engine and renders it on the webpage. 
+In combination with a predefined threshold, it allows the recommender engine to exclude this item 
+from future results and avoid recommending the same item to the same user multiple times during a session.
 
-The URL has the following format:
+The URL for a Rendered event has the following format:
 
-`GET https://tracker.ibexa.co/api/[customerid]/triggeropened/[userid]?triggername=<action_trigger_reference_code>`
+`GET https://event.yoochoose.net/api/[customerid]/rendered/[userid]/[itemtypeid]/[itemid[,itemid]]`
 
-For a detailed description of embedded parameters, see [event parameters](#event-parameters).
-The request parameter is:
-
-|Name|Description|Values|
-|---|---|---|
-|`triggername`|Identifier of the trigger that the message originates from. This parameter is required.|URL-encoded alphanumeric|
-
-The event is used for providing statistics about how often trigger messages are considered valuable by the users. 
-
-### Clicktriggered event
-
-The Clicktriggered event is sent when the end user clicks the link delivered in a trigger message to see the recommended item.
-
-The URL has the following format:
-
-`GET https://tracker.ibexa.co/api/[customerid]/clicktriggered/[userid]/[itemtypeid]/[itemid]?triggername=<action_trigger_reference_code>`
-
-For a detailed description of embedded parameters, see [event parameters](#event-parameters).
-The request parameter is:
-
-|Name|Description|Values|
-|---|---|---|
-|`triggername`|Identifier of the trigger that the recommendation originates from. This parameter is required.|URL-encoded alphanumeric|
-
-The event is used for providing statistics about how often a specific recommendation from the trigger message is considered useful by the user. 
+The Rendered event has the same embedded parameters as the Click event,except for the item ID. 
+It is common that recommendations are rendered as a block with multiple items. 
+To save traffic and reduce latency, you can bundle multiple recommendations in one request. 
+Several item IDs must be comma-separated.
 
 ## Tracking event examples
 
