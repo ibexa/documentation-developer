@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\EventSubscriber;
 
@@ -8,7 +8,6 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class MyFeatureEventSubscriber implements EventSubscriberInterface
 {
-
     private ActivityLogServiceInterface $activityLogService;
 
     public function __construct(ActivityLogServiceInterface $activityLogService)
