@@ -7,11 +7,11 @@ edition: experience
 
 ## Availability
 
-Page Builder is available in Ibexa Experience and Ibexa Commerce.
+Page Builder is available in [[=product_name_exp=]] and [[=product_name_com=]].
 
 ## What is page
 
-Page is a block-based type of content. You can create and modify it with a visual drag-and-drop editor - Page Builder.
+[Page](pages.md) is a block-based type of content. You can create it and modify with a visual drag-and-drop editor - Page Builder.
 Page is divided into zones into which you can drop various dynamic blocks. 
 By editing pages you can customize the layout and content of your website.
 
@@ -23,20 +23,20 @@ To create a new page:
 
 2\. Select **Content structure**. 
 
-3\. On the right-side toolbar, click **Create content** and from the list of Content items select Landing page. 
+3\. On the right-side toolbar, click **Create content** and from the list of Content items select Landing Page. 
 
-4\. Select the layout and click Create draft.
+4\. Select the layout and click **Create draft**.
 
-You can also add a new Page in the Page Builder. Check 'Create page in Page Builder' section below.
+You can also add a new page in the Page Builder. Check 'Create page in Page Builder' section below.
 
 ### Edit page
 
 You can edit any existing page by using Page Builder. To do it, in the Back Office go to **Content** and select **Content structure**. 
-Then, from the Content tree choose the page that you want you edit and click **Edit** button.
+Then, from the Content Tree choose the page that you want you edit and click **Edit** button.
 
 ## What is Page Builder
 
-Page Builder is a visual tool that allows you to create and edit any page with [[= product_name =]].
+Page Builder is a visual tool that allows you to create and edit any page in [[= product_name =]].
 It is more than managing: it is about building pages, creating customized content and fully-targeted landing pages.
 
 ### How does Page Builder work
@@ -49,40 +49,61 @@ A. Drop zone
 
 B. Elements toolbar
 
-C. **Close** button
+C. Buttons:
 
-D. **Send to review** button
+- **Close**
+- **Send to review** 
+- **Publish**
+- **Save draft**
+- **Delete draft**
+- **Undo**
+- **Redo**
 
-E. **Publish** button
+D. Settings toolbar (including Fields, Visibility and Schedule settings)
 
-G. **Save draft** button
+E. Mode toolbar (including PC, tablet and mobile mode)
 
-H. **Delete draft** button
-
-I. Settings toolbar (including Fields, Visibility and Schedule settings)
-
-J. Preview mode buttons (including PC, tablet and mobile mode)
-
-K. **Undo** and **Redo** buttons
-
-L. On/Off Elements toolbar button
+F. View toolbar
 
 #### Create page in Page Builder
 
 To open the Page Builder, click **Site** and select a website from the list that appears next to the List icon. 
-On the Page Builder toolbar click the plus button and from the list select Landing page. 
-On the Page creation modal, select the layout and click Create draft.
+On the Page Builder toolbar click the plus button and from the list select Landing Page. 
+On the Page creation modal, select the layout and click **Create draft**.
 
 #### Add blocks
 
-To customize your page in Page Builder you need to add blocks. To do it, access Elements toolbar, drag page block that you want to use from the menu and drop it on the empty place on a drop zone. Ready-to-use blocks available in [[= product_name =]] have their own, unique functions, but you can also (add your own, custom blocks)[https://doc.ibexa.co/en/latest/content_management/pages/create_custom_page_block/]. All available tools and settings, that Page Builder comes with, enable you to customize the content appearing on the page.
+To customize your page in Page Builder you need to add blocks. You can do it in two ways: 
+
+A. Access Elements toolbar, drag page block that you want to use from the menu and drop it on the empty place on a drop zone. 
+
+B. Choose available drop zone and use 'Click to select' option.
+
+Ready-to-use blocks available in [[= product_name =]] have their own, unique functions, but you can also [add your own, custom blocks](create_custom_page_block.md). All available tools and settings, that Page Builder comes with, enable you to customize the content appearing on the page.
+
+#### Work with blocks
+
+Page Builder has two main views that you can use while creating a page:
+
+- Elements toolbar - consists of all available elements that you can use by dragging them and dropping on a drop zone.
+- Structure view - shows a structure of your page, including their division into zones and the blocks that they contain.
 
 Working with blocks is intuitive. You don't have to worry about placing blocks in the proper place from the start - you can reorder the at any time.
-You can reorder blocks in few ways:
+You can reorder blocks in a few ways:
 
 - drag and drop block in the desired location on a drop zone
 - select block and use up and down arrow on the keyboard
 - access Structure view and use 'Move up' and 'Move down' function in the settings of the block
+
+You can manage each block by accessing its settings. To do it, click settings icon next to the block's name.
+Available settings are:
+
+- Move up - allows you to change position of the block on the page by moving it up
+- Move down - allows you to change position of the block on the page by moving it down
+- Configuration - allows you to access configuration window
+- Duplicate - duplicates existing block by creating its copy
+- Refresh - refreshes preview of the block
+- Delete - deletes existing block
 
 ## Benefits
 
@@ -99,7 +120,7 @@ One of the most important tool that Page Builder offers, is a Scheduler. It allo
 
 Page Builder allows you to create highly customizable websites. You can build modifiable and targeted landing pages, that meet your needs.
 Each dynamic blocks has its own settings, properties and design that you can set up in your way to customize the content appearing on the page. 
-Additionaly, if you feel comfortable with your technical skills, you can configure your own elements, for example, new customized layout. 
+Additionaly, if you feel comfortable with your technical skills, you can configure your own elements, for example, new customized layout or block. 
 
 ### Increase sales with highly personalized campaigns
 
@@ -123,5 +144,3 @@ C. Commerce:
 
 - Bestsellers - displays a list of products from PIM that were recently a bestseller. 
 - Orders - displays a list of orders associated with a particular company or individual customer.
-
-
