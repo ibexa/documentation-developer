@@ -30,7 +30,7 @@ See [Activity Log Search Criteria reference](activity_log_search.md) to discover
 
 Your custom features could write into the activity log.
 
-First, inject `Ibexa\Contracts\ActivityLog\ActivityLogServiceInterface` into your custom event subscriber, event listener, service, controller or whatever PHP class that will have to log an activity.
+First, inject `Ibexa\Contracts\ActivityLog\ActivityLogServiceInterface` into your custom event subscriber, event listener, service, controller or whatever PHP class having to log an activity.
 
 In the following example, an event subscriber is subscribing to an event dispatched by a custom feature. 
 
