@@ -37,7 +37,7 @@ and enables the user to reload the code (line 5).
 
 ![Custom captcha field](extending_form_builder_captcha_result.png)
 
-For information about available options, see [Gregwar/CaptchaBundle's documentation.](https://github.com/Gregwar/CaptchaBundle#options)
+For information about available options, see [Gregwar/CaptchaBundle's documentation](https://github.com/Gregwar/CaptchaBundle#options).
 
 !!! note
 

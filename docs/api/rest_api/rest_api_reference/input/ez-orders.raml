@@ -75,6 +75,7 @@ displayName: Orders
                     description: Error - the user has no permission to read orders.
                 404:
                     description: Error - the order does not exist.
+                    
         /shipments:
             get:
                 displayName: Load shipments
@@ -102,6 +103,7 @@ displayName: Orders
                         description: Error - the user has no permission to read shipment list.
                     404:
                         description: Error - the shipment does not exist.
+
     /{id}:
         get:
             displayName: Load order by ID
@@ -156,11 +158,12 @@ displayName: Orders
                     description: Error - the order with the given ID does not exist.
                 406:
                     description: Error - the order cannot be cancelled due to not-allowed workflow transition
+    /cancel/{id}:
         post:
             displayName: Cancel order
             description: Cancels the given order.
             responses:
-                200:
+                204:
                     description: No content - the given order is cancelled.
                 401:
                     description: Error - the user is not authorized to delete this order.

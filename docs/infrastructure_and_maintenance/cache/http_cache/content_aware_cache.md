@@ -92,7 +92,7 @@ Apache has a [hard](https://github.com/apache/httpd/blob/5f32ea94af5f1e7ea68d6fc
 1\. For inline rendering just displaying the content name, image attribute, and/or link, it would be enough to:
 
 - Look into how many inline (non ESI) render calls for content rendering you are doing, and see if you can organize it differently.
-- Consider inlining the views not used elsewhere in the given template and [tagging the response in Twig](#response-tagging-in-twig) with "relation" tags.
+- Consider inlining the views not used elsewhere in the given template and [tagging the response in Twig](#response-tagging-in-templates) with "relation" tags.
     - (Optional) You can set reduced cache TTL for the given view, to reduce the risk of stale cache on subtree operations affecting the inlined content.
 
 2\. You can opt in to set a max length parameter (in bytes) and corresponding ttl (in seconds) 
@@ -197,7 +197,7 @@ but parent response needs these tags to get refreshed if they are deleted:
 $responseTagger->addTags([ContentTagInterface::RELATION_PREFIX . '33', ContentTagInterface::RELATION_PREFIX . '34']);
 ```
 
-See [Tagging from code](https://foshttpcachebundle.readthedocs.io/en/2.8.0/features/tagging.html#tagging-and-invalidating-from-php-code) in FOSHttpCacheBundle doc.
+See [Tagging from code](https://foshttpcachebundle.readthedocs.io/en/latest/features/tagging.html#tagging-from-twig-templates) in FOSHttpCacheBundle doc.
 
 4\. Use deprecated `X-Location-Id` header.
 
@@ -399,7 +399,7 @@ To find a valid route, click an element in the **URLs** drop-down for the specif
 A route may look like this:
 `https://www.staging.foobar.com.us-2.platformsh.site/`
 
-In this case the region is `us-2` and you can find the public IP list on [Platform.sh documentation page](https://docs.platform.sh/development/public-ips.html)
+In this case the region is `us-2` and you can find the public IP list on [Platform.sh documentation page](https://docs.platform.sh/development/regions.html#public-ip-addresses)
 Typically, you can add a `gw` to the hostname and use nslookup to find it.
 
 ```bash
@@ -409,10 +409,13 @@ Typically, you can add a `gw` to the hostname and use nslookup to find it.
    Address:  1.2.3.4
 ```
 
-You can also use the [Platform.sh CLI command](https://docs.platform.sh/development/cli.html) to find [the endpoint](https://docs.platform.sh/domains/steps/dns.html?#where-should-the-cname-point-to):
+You can also use the [Platform.sh CLI command](https://docs.platform.sh/administration/cli.html) to find [the endpoint](https://docs.platform.sh/domains/steps/dns.html):
 
 ```bash
-    $ platform environment:info edge_hostname
+    # Define ibexa_cloud alias if it not already exists:
+    alias ibexa_cloud='PLATFORMSH_CLI_API_URL=https://api.cloud.ibexa.co PLATFORMSH_CLI_SESSION_ID=ibexa_cloud platform'
+    # Get the endpoint:
+    ibexa_cloud environment:info edge_hostname
 ```
 
 #### Finding Nginx endpoint on dedicated cloud
@@ -446,17 +449,18 @@ To obtain it, use `curl`.
 ```
 
 Some notes about each of these parameters:
+
 - `-IXGET`, one of many ways to tell curl that we want to send a GET request, but we are only interested in outputting the headers
 - `--resolve www.staging.foobar.com.us-2.platformsh.site:443:1.2.3.4`
-  - We tell curl not to do a DNS lookup for `www.staging.foobar.com.us-2.platformsh.site`. We do that because in our case
+    - We tell curl not to do a DNS lookup for `www.staging.foobar.com.us-2.platformsh.site`. We do that because in our case
     that will resolve to the Fastly endpoint, not our origin (nginx)
-  - We specify `443` because we are using `https`
-  - We provide the IP of the nginx endpoint at platform.sh (`1.2.3.4` in this example)
+    - We specify `443` because we are using `https`
+    - We provide the IP of the nginx endpoint at platform.sh (`1.2.3.4` in this example)
 - `--header "Surrogate-Capability: abc=ESI/1.0"`, strictly speaking not needed when fetching the user-context-hash, but this tells [[= product_name =]] that client understands ESI tags.
   It is good practice to always include this header when imitating the HTTP Cache.
 - `--header "accept: application/vnd.fos.user-context-hash"` tells [[= product_name =]] that the client wants to receive the user-context-hash
 - `--header "x-fos-original-url: /"` is required by the fos-http-cache bundle in order to deliver the user-context-hash
-- `https://your-page-blah-blah.us-2.platformsh.site/_fos_user_context_hash` : here we use the hostname we earlier told
+- `https://www.staging.foobar.com.us-2.platformsh.site/_fos_user_context_hash` : here we use the hostname we earlier told
   curl how to resolve using `---resolve`. `/_fos_user_context_hash` is the route to the controller that are able to
   deliver the user-context-hash.
 - You may also provide the session cookie (`--cookie ".....=....") for a logged-in-user if you are interested in

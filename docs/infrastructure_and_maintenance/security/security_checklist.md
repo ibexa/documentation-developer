@@ -10,7 +10,7 @@ make sure that your setup is secure.
 !!! caution
 
     Security is an ongoing process. After going live, you should pay attention to security advisories
-    released via [your service portal,](https://support.ibexa.co/)
+    released via [your service portal](https://support.ibexa.co/),
     or via [Security advisories](https://developers.ibexa.co/security-advisories) if you're not a subscriber.
     
 ## Symfony
@@ -31,7 +31,7 @@ make sure that your setup is secure.
     
 !!! note
 
-    On Ibexa Cloud, if `APP_SECRET` is not set, the system sets it to [`PLATFORM_PROJECT_ENTROPY`](https://docs.platform.sh/development/variables.html#platformsh-provided-variables)
+    On Ibexa Cloud, if `APP_SECRET` is not set, the system sets it to [`PLATFORM_PROJECT_ENTROPY`](https://docs.platform.sh/guides/symfony/environment-variables.html#symfony-environment-variables)
 
 ### Symfony production mode
 
@@ -75,6 +75,7 @@ This is specially important for admin accounts and other privileged users.
 - Never go online with admin password set to `publish` or any other default value.
 - Introduce password quality checks. Make sure the checks are strict enough (length/complexity).
 - 16 characters is a quite secure minimum length. Do not go below 10.
+- If using Ibexa DXP v4.5 or newer, enable the password rule that rejects any password which has been exposed in a public breach.
 
 !!! tip "Password rules"
 
@@ -87,26 +88,50 @@ and any other application-specific secrets.
 
 ### Protect against brute force attacks
 
-Introduce a measure against brute force login attacks (captcha, etc.).
+Consider introducing a measure against brute force login attacks, like CAPTCHA. Adjust timeout limits to your needs:
+
+When using the "forgot password" feature, a token is created which expires if the user doesn't click the password reset
+link that gets mailed to them in time. The time before it expires is set in the parameter
+`ibexa.site_access.config.default.security.token_interval_spec`. By nature this feature must be available to users
+before they have logged in, including would-be attackers. If an attacker uses this feature with someone else's email
+address, the attacker does not receive the email. But they could still try to guess the password reset link. That's why
+this interval should be as short as possible. 5 minutes is often enough.
+
+Ibexa DXP allows you to create and send invitations to create an account in the frontend as a customer, the Back Office
+as an employee, or the Corporate Portal as a business partner. You can send invitations to individual users or in
+bulk. These invitations time out according to the parameter
+`ibexa.site_access.config.default.user_invitation.hash_expiration_time`. This can safely be longer than the "forgot password" time,
+since attackers cannot generate invitations. Don't leave it longer than it needs to be, though.
+
+These timeouts are both entered as [PHP DateInterval duration strings](https://www.php.net/manual/en/dateinterval.construct.php).
+The forgot password feature defaults to "PT1H" (one hour).
+The account invitation feature defaults to "P7D" (seven days).
 
 ### Disable Varnish when using Fastly
 
 If you are using Fastly, disable Varnish.
-See [Security advisory: EZSA-2020-002.](https://developers.ibexa.co/security-advisories/ezsa-2020-002-unauthorised-cache-purge-with-misconfigured-fastly)
+See [Security advisory: EZSA-2020-002](https://developers.ibexa.co/security-advisories/ezsa-2020-002-unauthorised-cache-purge-with-misconfigured-fastly).
+
+### Block upload of unwanted file types
+
+The `ibexa.site_access.config.default.io.file_storage.file_type_blacklist` setting is defined in the config file `src/bundle/Core/Resources/config/default_settings.yml` in the Core bundle.
+It prevents uploading files that might be executed on the server, a Remote Code Execution (RCE) vulnerability. The setting lists filename extensions for files that shouldn't be uploaded.
+Attempting to upload files from the list results in an error message.
+There are also other safety measures in place, like using the web server configuration to block execution of uploaded scripts, see the next point.
+
+You should adapt this list to your needs. Note that `svg` images are blocked because they may contain JavaScript code.
+If you opt to allow them, make sure you take steps to mitigate the risk.
+
+The default list of blocked file types contains: `hta htm html jar js jse pgif phar php php3 php4 php5 phps phpt pht phtml svg swf xhtm xhtml`.
 
 ### Block execution of scripts in `var` directory
 
 Make sure the web server blocks the execution of PHP files and other scripts in the `var` directory.
-See the line below `# Disable .php(3) and other executable extensions in the var directory` in the
-[virtual host configuration](https://raw.githubusercontent.com/ibexa/post-install/main/resources/templates/apache2/vhost.template).
+See the line below `# Disable .php(3) and other executable extensions in the var directory` in the example virtual host files for Apache and Nginx, provided in the [installation documentation](install_ibexa_dxp.md#set-up-virtual-host).
 
 ### Use secure password hashing
 
-Use the most secure supported password hashing method. This is currently `bcrypt`.
-
-### Restrict access to the Back Office
-
-If possible, make the Back Office unavailable on the open internet.
+Use the most secure supported password hashing method. This is currently `bcrypt`, and it is enabled by default.
 
 ### Use UTF8MB4 with MySQL/MariaDB
 
@@ -127,25 +152,45 @@ Use the following checklist to ensure the Roles and Policies are secure:
 - Is there a clear Role separation between the organisation's internal and external users?
 - Is access to user data properly restricted, in accordance with GDPR?
 
-## Underlying stack
+### Do not use "hide" for read access restriction
 
-Once you have properly configured secure user roles and permissions, to avoid exposing your application to any DDOS vulnerabilities or other yet unknown security threats, make sure that you do the following:
+The [visibility switcher](https://doc.ibexa.co/en/latest/content_management/locations/#location-visibility) is a convenient feature for withdrawing content from the frontend.
+It acts as a filter in the frontend by default. You can choose to respect it or ignore it in your code.
+It isn't permission-based, and doesn't restrict read access to content. Hidden content can be read through other means, like the REST API or GraphQL.
 
-- Avoid exposing servers on the open internet when not strictly required.
-- Ensure any servers, services, ports and virtual hosts that were opened for testing purposes are locked down before going live.
-- Secure the database with a good password, keys, firewall, etc. Ensure that the database user used by the web app only has access to do the operations needed by Ibexa DXP. The Data Definition Language (DDL) commands (create, alter, drop, truncate, comment) are not needed for running Ibexa DXP, only for installing and upgrading it. If the web app user does not have these rights, then that reduces the damage that can be done if there is a security breach.
-- Consider whether certain interfaces must be left available on the open internet. Roles protect your content on all interfaces, but you may prefer to reduce your attack surface. For example:
+If you need to restrict read access to a given Content item, you could create a role that grants read access for a given
+[**Section**](https://doc.ibexa.co/en/latest/administration/content_organization/sections/)
+or [**Object State**](https://doc.ibexa.co/en/latest/administration/content_organization/object_states/),
+and set a different Section or Object State for the given Content.
+Or use other permission-based [**Limitations**](https://doc.ibexa.co/en/latest/permissions/limitations/).
+
+### Minimize exposure
+
+Security should be a multi-layered exercise. It is wise to minimize what features you make available to the world, even if there are no known or suspected vulnerabilities in those features, and even if your content is properly protected by roles and policies. Reduce your attack surface by exposing only what you must.
+
+- If possible, make the Back Office unavailable on the open internet.
+- [Symfony FOSJsRoutingBundle](https://github.com/FriendsOfSymfony/FOSJsRoutingBundle) is required in those releases where it is included, to expose routes to JavaScript. It exposes only the required routes, nothing more. It is only required in the Back Office site access though, so you can consider blocking it in other site accesses. You should also go through your own custom routes, and decide for each if you need to expose them or not. See the documentation on [YAML route definitions for exposure](https://github.com/FriendsOfSymfony/FOSJsRoutingBundle/blob/master/Resources/doc/usage.rst#generating-uris).
+- By default, a [Powered-By header](https://doc.ibexa.co/en/latest/update_and_migration/from_1.x_2.x/update_db_to_2.5/#powered-by-header) is set. It specifies what version of the DXP is running. For example, `x-powered-by: Ibexa Experience v4`. This doesn't expose anything that couldn't be detected through other means. But if you wish to obscure this, you can either omit the version number, or disable the header entirely.
+- Consider whether certain interfaces must be left available on the open internet. For example:
     - The `/search` and `/graphql` endpoints
     - The REST API endpoints
 
 !!! tip "Access control"
-    One way to lock down an endpoint that should not be openly available is to restrict access to logged-in users, by using the [`access_control`](https://symfony.com/doc/5.4/security/access_control.html) feature. In your YAML configuration, under the `security` key, add an entry similar to the following one, which redirects requests to a login page:
+    One way to lock down an endpoint that should not be openly available is to restrict access to logged-in users, by using the [`access_control`]([[= symfony_doc =]]/security/access_control.html) feature. In your YAML configuration, under the `security` key, add an entry similar to the following one, which redirects requests to a login page:
 
     ```yaml
     security:
         access_control:
             - { path: ^/search, roles: ROLE_USER}
     ```
+
+## Underlying stack
+
+Once you have properly configured secure user roles and permissions, to avoid exposing your application to any DDOS vulnerabilities or other yet unknown security threats, make sure that you do the following:
+
+- Avoid exposing servers on the open internet when not strictly required.
+- Ensure any servers, services, ports and virtual hosts that were opened for testing purposes are shut down before going live.
+- Secure the database with a good password, keys, firewall, etc. Ensure that the database user used by the web app only has access to do the operations needed by Ibexa DXP. The Data Definition Language (DDL) commands (create, alter, drop, truncate, comment) are not needed for running Ibexa DXP, only for installing and upgrading it. If the web app user does not have these rights, then that reduces the damage that can be done if there is a security breach.
 
 ### Security headers
 
@@ -176,7 +221,7 @@ For example, if someone succeeds in injecting their JavaScript into your site, t
 
 - Run servers on a recent operating system and install security patches for dependencies.
 - Configure servers to alert you about security updates from vendors. Pay special attention to dependencies used by your project directly, or by PHP. The provider of the operating system usually has a service for this.
-- Enable [GitHub Dependabot](https://docs.github.com/en/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)
+- Enable [GitHub Dependabot](https://docs.github.com/en/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)
 to receive notifications when a security fix is released in a Github-hosted dependency.
 - If you're not using Github for your project, you can create a dummy project on Github with the same dependencies as your real project, and enable Dependabot notifications for that.
 - Ensure you get notifications about security fixes in JavaScript dependencies.

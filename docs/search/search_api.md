@@ -113,7 +113,7 @@ You can use the `ContentService::find(Filter)` method to find Content items or
 `LocationService::find(Filter)` to find Locations using a defined Filter.
 
 `ContentService::find` returns an iterable [`ContentList`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentList.php)
-while `LocationService::find` returns an iterable [`LocationList`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/LocationList).
+while `LocationService::find` returns an iterable [`LocationList`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/LocationList.php).
 
 Filtering differs from search. It does not use the `SearchService` and is not based on indexed data.
 
@@ -223,7 +223,7 @@ Pagination can then be rendered for example using the following template:
 [[= include_file('code_samples/api/public_php_api/templates/themes/standard/full/custom_pagination.html.twig') =]]
 ```
 
-For more information and examples, see [PagerFanta documentation.](https://www.babdev.com/open-source/packages/pagerfanta/docs/2.x/usage)
+For more information and examples, see [PagerFanta documentation](https://www.babdev.com/open-source/packages/pagerfanta/docs/2.x/usage).
 
 #### Pagerfanta adapters
 

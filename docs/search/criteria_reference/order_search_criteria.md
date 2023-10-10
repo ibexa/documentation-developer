@@ -19,6 +19,7 @@ With these Criteria you can filter orders by their order identifier, order creat
 |[CustomerNameCriterion](order_customer_name_criterion.md)|Customer's user name|
 |[IdentifierCriterion](order_identifier_criterion.md)|Order identifier|
 |[IsCompanyAssociatedCriterion](order_company_associated_criterion.md)|Whether the customer represents a company|
+|[OwnerCriterion](order_owner_criterion.md)|Owner based on the user reference|
 |[PriceCriterion](order_price_criterion.md)|Total value of the order|
 |[SourceCriterion](order_source_criterion.md)|Source of the order|
 |[StatusCriterion](order_status_criterion.md)|Status of the order|

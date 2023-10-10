@@ -16,7 +16,7 @@ Each storage engine needs to implement its own handlers for the corresponding Cr
 which will be used to translate the value object into a storage-specific search query.
 
 As an example take a look at the [`ContentId` Criterion handler](https://github.com/ibexa/core/blob/main/src/lib/Search/Legacy/Content/Common/Gateway/CriterionHandler/ContentId.php) in Legacy search engine
-or [`ContentId` Criterion handler](https://github.com/ibexa/solr-search-engine/blob/main/lib/Query/Common/CriterionVisitor/ContentIdIn.php) in Solr search engine.
+or [`ContentId` Criterion handler](https://github.com/ibexa/solr/blob/main/src/lib/Query/Common/CriterionVisitor/ContentIdIn.php) in Solr search engine.
 
 ## Custom Criteria and Sort Clauses
 

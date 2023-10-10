@@ -7,7 +7,7 @@ edition: commerce
 
 !!! tip "Cart REST API"
 
-    To learn how to manage carts with the REST API, see the [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#managing-ecommerce-carts).
+    To learn how to manage carts with the REST API, see the [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#managing-commerce-carts).
 
 To get carts and work with them, use the `Ibexa\Contracts\Cart\CartServiceInterface` interface.
 
@@ -150,4 +150,15 @@ and provide it with `Ibexa\Contracts\Cart\Value\EntryUpdateStruct`.
 [[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 73, 74) =]]
 [[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 119, 120) =]]
 [[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 124, 132) =]]
+```
+
+## Merge carts
+
+To combine the contents of multiple shopping carts into a target cart, use the `CartServiceInterface::mergeCarts` method. 
+This operation is helpful when you want to consolidate items from a reorder cart and a current cart into a single order.
+
+```php
+[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 138, 142) =]]
+[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 142, 149) =]]
+[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 149, 152) =]]
 ```

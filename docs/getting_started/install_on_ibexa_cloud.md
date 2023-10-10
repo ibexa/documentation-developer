@@ -23,7 +23,7 @@ You can adapt the configuration in the following places:
 - `.platform/routes.yml` - routes to additional services, for example Fastly
 
 For details about available configuration settings,
-refer to [Platform.sh documentation.](https://docs.platform.sh/configuration/app.html)
+refer to [Platform.sh documentation](https://docs.platform.sh/create-apps.html).
 
 ### Disk space
 
@@ -48,7 +48,7 @@ Configuration under `hooks` defines the process of building and deploying your p
 to enable services such as Solr or Elasticsearch, or persistent Redis session storage.
 
 For information about available services,
-see [Platform.sh documentation.](https://docs.platform.sh/configuration/services.html)
+see [Platform.sh documentation](https://docs.platform.sh/add-services.html#available-services).
 
 If you enable any of the services, you must uncomment the relevant relationship
 under the `relationship` key in `.platform.app.yaml` as well.
@@ -58,6 +58,11 @@ under the `relationship` key in `.platform.app.yaml` as well.
 Log in to https://cloud.ibexa.co or create an account if you do not have one yet.
 
 Create a project and select its region.
+
+!!! caution
+
+    Don't use https://console.platform.sh/ which doesn't list Ibexa Cloud projects.
+    Use https://cloud.ibexa.co to manage your Ibexa Cloud projects.
 
 ## 3. Prepare for hosting
 
@@ -83,3 +88,13 @@ git push -u <platform.sh-remote> master
 !!! note
 
     `master` is the Platform.sh name for the production branch.
+
+!!! caution
+
+    If you want to use the [Platform.sh CLI](https://docs.platform.sh/administration/cli.html), you have to set it up for Ibexa Cloud.
+    Consider using the following alias `ibexa_cloud` with a dedicated setup instead of `platform`:
+    ```bash
+    alias ibexa_cloud="PLATFORMSH_CLI_SESSION_ID=ibexa_cloud \
+        PLATFORMSH_CLI_API_URL=https://api.cloud.ibexa.co \
+        platform"
+    ```
