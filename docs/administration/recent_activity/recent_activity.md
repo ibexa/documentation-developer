@@ -34,40 +34,8 @@ First, inject `Ibexa\Contracts\ActivityLog\ActivityLogServiceInterface` into you
 
 In the following example, an event subscriber is subscribing to an event dispatched by a custom feature. 
 
-TODO: Move to a PHP file
-
 ```php
-<?php
-
-namespace App\EventSubscriber;
-
-use App\Event\MyFeatureEvent;
-use Ibexa\Contracts\ActivityLog\ActivityLogServiceInterface;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-
-class MyFeatureEventSubscriber extends EventSubscriberInterface {
-
-    private ActivityLogServiceInterface $activityLogService;
-
-    public function __construct(ActivityLogServiceInterface $activityLogService)
-    {
-        $this->activityLogService = $activityLogService;
-    }
-
-    public static function getSubscribedEvents(): array
-    {
-        MyFeatureEvent::class => 'onMyFeatureEvent',
-    }
-
-    public function onMyFeatureEvent(MyFeatureEvent $event): void
-    {
-        $className = MyFeature::class;
-        $id = (string)$event->getId();
-        $action = $event->getAction();
-        $activityLog = $this->activityLogService->build($className, $id, $action);
-        $this->activityLogService->save($activityLog);
-    }
-}
+[[= include_file('code_samples/recent_activity/MyFeatureEventSubscriber.php') =]]
 ```
 
 `ActivityLogService::build` function returns an `Ibexa\Contracts\ActivityLog\Values\CreateActivityLogStruct` which can then be passed to `ActivityLogService::save`.
