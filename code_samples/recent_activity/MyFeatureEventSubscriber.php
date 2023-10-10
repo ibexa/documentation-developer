@@ -24,8 +24,8 @@ class MyFeatureEventSubscriber implements EventSubscriberInterface
 
     public function onMyFeatureEvent(MyFeatureEvent $event): void
     {
-        $className = MyFeature::class;
-        $id = (string)$event->getId();
+        $className = get_class($event->getObject());
+        $id = (string)$event->getObject()->id;
         $action = $event->getAction();
         $activityLog = $this->activityLogService->build($className, $id, $action);
         $this->activityLogService->save($activityLog);

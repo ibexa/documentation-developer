@@ -32,7 +32,7 @@ Your custom features could write into the activity log.
 
 First, inject `Ibexa\Contracts\ActivityLog\ActivityLogServiceInterface` into your custom event subscriber, event listener, service, controller or whatever PHP class having to log an activity.
 
-In the following example, an event subscriber is subscribing to an event dispatched by a custom feature. 
+In the following example, an event subscriber is subscribing to an event dispatched by a custom feature. This event has the information needed by a log entry (see details after the example).
 
 ```php
 [[= include_file('code_samples/recent_activity/MyFeatureEventSubscriber.php') =]]
@@ -40,10 +40,10 @@ In the following example, an event subscriber is subscribing to an event dispatc
 
 `ActivityLogService::build` function returns an `Ibexa\Contracts\ActivityLog\Values\CreateActivityLogStruct` which can then be passed to `ActivityLogService::save`.
 
-ActivityLogService::build has three arguments:
+`ActivityLogService::build` has three arguments:
 
-* `$className` is the PHP class name of the object actually manipulated by the feature. For example `Ibexa\Contracts\Core\Repository\Values\Content\Content::class`
-* `$id` is the ID or identifier of the manipulated object. For example, the Content ID.
+* `$className` is the FQCN of the object actually manipulated by the feature. For example `Ibexa\Contracts\Core\Repository\Values\Content\Content::class`
+* `$id` is the ID or identifier of the manipulated object. For example, the Content ID cast to string.
 * `$action` is the identifier of the performed object manipulation. For example, `create`, `update` or `delete`.
 
 The returned `CreateActivityLogStruct` is, by default, related to the currently logged-in user.
