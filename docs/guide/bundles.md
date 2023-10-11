@@ -396,7 +396,7 @@ The following tables give an overview of the main eZ Platform bundles.
 
 |Bundle|Description|
 |------|-----------|
-|[CookbookBundle](https://github.com/ezsystems/CookbookBundle)|working examples for using eZ Platform Public API|
+|[CookbookBundle](https://github.com/ezsystems/CookbookBundle)|working examples for using eZ Platform public PHP API|
 |[ezplatform-com](https://github.com/ezsystems/ezplatform-com)|the Ibexa Developer Hub for the Open Source PHP CMS eZ Platform (example site)|
 |[ezplatform-ee-demo](https://github.com/ezsystems/ezplatform-ee-demo)|fork of the "ezplatform-ee" meta repository, contains changes to composer.json, AppKernel.php and config necessary to enable eZ Platform Enterprise Edition Demo. Not recommended for a clean install for new projects, but great for observation and learning (example site)|
 |[ezplatform-demo](https://github.com/ezsystems/ezplatform-demo)|fork of "ezplatform" meta repository, contains code and dependencies for demo distribution of eZ Platform. Not recommended for a clean installation for new projects, but great for observation and learning(example site)|

@@ -195,12 +195,12 @@ You can also extend the command by the following parameters:
 
 ## URL wildcards
 
-Using the Public API you can set up global URL wildcards for redirections.
+Using the public PHP API you can set up global URL wildcards for redirections.
 
 For example, a URL wildcard called `pictures/*/*` can use `media/images/{1}/{2}` as destination.
 In this case, accessing `<yourdomain>/pictures/home/photo/` will load `<yourdomain>/media/images/home/photo/`.
 
-URL wildcards can be created with the Public API with the help of the `URLWildcardService`:
+URL wildcards can be created with the public PHP API with the help of the `URLWildcardService`:
 
 ``` php
 $source = 'pictures/*/*';

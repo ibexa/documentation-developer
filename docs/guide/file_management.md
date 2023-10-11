@@ -134,7 +134,7 @@ Optional parameter `inLanguage` may be used to specify File content translation.
 
 ### REST API: `uri` property
 
-The `uri` property of Binary Fields in REST contains a valid download URL, of the same format as the Public API, prefixed with the same host as the REST Request.
+The `uri` property of Binary Fields in REST contains a valid download URL, of the same format as the public PHP API, prefixed with the same host as the REST Request.
 
 For [more information about REST API see the documentation](../api/rest_api_guide).
 
@@ -184,7 +184,7 @@ ezpublish:
 
 ### Internals
 
-Any `BinaryFile` returned by the public API is prefixed with the value of this setting, internally stored as `ezsettings.scope.io.url_prefix`.
+Any `BinaryFile` returned by the public PHP API is prefixed with the value of this setting, internally stored as `ezsettings.scope.io.url_prefix`.
 
 #### `io.url_prefix` dynamic container setting
 
