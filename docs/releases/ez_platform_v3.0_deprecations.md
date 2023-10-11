@@ -762,7 +762,7 @@ Users can request a new, valid password using the "Forgot password" feature.
 
 ### Strict types for PHP API
 
-Strict types have been added to Public API methods.
+Strict types have been added to public PHP API methods.
 
 ### Zeta Components (eZc) Database handler
 
