@@ -25,7 +25,7 @@ class MonitorRecentContentCreationCommand extends Command
 
     protected function configure(): void
     {
-        $this->setDescription('List last 30 Content item creations in the last hour');
+        $this->setDescription('List last 10 Content item creations in the last hour');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
@@ -34,7 +34,7 @@ class MonitorRecentContentCreationCommand extends Command
             new Criterion\ObjectCriterion(Content::class),
             new Criterion\ActionCriterion(['create']),
             new Criterion\LoggedAtCriterion(new \DateTime('- 1 hour'), Criterion\LoggedAtCriterion::GTE),
-        ], [new LoggedAtSortClause(LoggedAtSortClause::DESC)], 0, 30);
+        ], [new LoggedAtSortClause(LoggedAtSortClause::DESC)], 0, 10);
 
         foreach ($this->activityLogService->find($query) as $activityLog) {
             $output->writeln("{$activityLog->getUser()->login} created Content {$activityLog->getObjectId()} at {$activityLog->getLoggedAt()->format(\DateTime::ATOM)}");
