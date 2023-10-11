@@ -2,6 +2,16 @@
     "ActivityLogList": {
         "_media-type": "application\/vnd.ibexa.api.ActivityLogList+json",
         "_href": "\/api\/ibexa\/v2\/activity-log\/list",
-        "ActivityLog": []
+        "ActivityLog": [
+            {
+                "_media-type": "application\/vnd.ibexa.api.ActivityLog+json",
+                "object_id": "67",
+                "object_class": "Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Content",
+                "action": "create",
+                "user_id": 14,
+                "logged_at": 1697029742,
+                "data": {}
+            }
+        ]
     }
 }
