@@ -16,5 +16,5 @@
         <sortClause type="logged_at">DESC</sortClause>
     </sortClauses>
     <offset>0</offset>
-    <limit>30</limit>
+    <limit>10</limit>
 </ActivityLogListInput>
