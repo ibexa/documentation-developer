@@ -66,7 +66,7 @@ while `Content` enables you to retrieve Fields, Content Type, or previous versio
 
 !!! note
 
-    The Public API value objects should not be serialized.
+    The public PHP API value objects should not be serialized.
 
     Serialization of value objects, for example, `eZ\Publish\API\Repository\Values\Content\ContentInfo` /  `eZ\Publish\API\Repository\Values\Content\VersionInfo` 
     or `eZ\Publish\API\Repository\Values\Content\Location` results in memory limit exceeded error.
