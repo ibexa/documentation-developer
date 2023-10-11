@@ -27,6 +27,8 @@ To create a new page:
 
 4\. Select the layout and click **Create draft**.
 
+![Create page](create_page.png)
+
 You can also add a new page in the Page Builder. Check 'Create page in Page Builder' section below.
 
 ### Edit page
