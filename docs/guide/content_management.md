@@ -222,7 +222,7 @@ These Fields allow you to select one or more other Content items in the Field va
 
 *Relations at Content item level* can be of three different types:
 
-- *Common relations* are created between two Content items using the Public API.
+- *Common relations* are created between two Content items using the public PHP API.
 - *RichText linked relations* are created using a Field of the RichText type.
 When an internal link (a link to another Location or Content item) is placed in a RichText Field,
 the system automatically creates a Relation.

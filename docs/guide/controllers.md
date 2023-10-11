@@ -299,7 +299,7 @@ The Query is configured in a `query` hash in `params`, you could specify the Que
 
 #### QueryType objects
 
-QueryType is an object that build a Query. It is different from [Public API queries](../api/public_php_api.md).
+QueryType is an object that build a Query. It is different from [public PHP API queries](../api/public_php_api.md).
 
 To make a new QueryType available to the Query Controller, you need to create a PHP class that implements the QueryType interface, then register it as such in the Service Container.
 

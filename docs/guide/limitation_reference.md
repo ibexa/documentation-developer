@@ -231,7 +231,7 @@ A Limitation to specify that only the owner of the Content item gets the selecte
 |Value|UI value|Description|
 |------|------|------|
 |`1`|"self"|Only the User who is the owner gets access|
-|`2`|"session"|Deprecated and works exactly like "self" in Public API since it has no knowledge of user Sessions|
+|`2`|"session"|Deprecated and works exactly like "self" in public PHP API since it has no knowledge of user Sessions|
 
 ## Owner of Parent Limitation
 
@@ -250,7 +250,7 @@ A Limitation to specify that only the Users who own all parent Locations of a Co
 |Value|UI value|Description|
 |------|------|------|
 |`1`|"self"|Only the User who is the owner of all parent Locations gets access|
-|`2`|"session"|Deprecated and works exactly like "self" in Public API since it has no knowledge of user Sessions|
+|`2`|"session"|Deprecated and works exactly like "self" in public PHP API since it has no knowledge of user Sessions|
 
 ## Parent Depth Limitation
 
@@ -308,7 +308,7 @@ A Limitation to specify to which SiteAccesses a certain permission applies, used
 
 ### Legacy compatibility notes
 
-`SiteAccess` Limitation is deprecated and is not used actively in Public API, but is allowed for being able to read / create Limitations for legacy.
+`SiteAccess` Limitation is deprecated and is not used actively in public PHP API, but is allowed for being able to read / create Limitations for legacy.
 
 ## Subtree of Location Limitation
 

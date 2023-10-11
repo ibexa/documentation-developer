@@ -107,12 +107,12 @@ Load ContentInfo response body, expand source:
 ```
 
 The XML body is a serialized version of a [ContentInfo](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/Values/Content/ContentInfo.php) struct.
-Most of the REST API calls will involve exchanging XML or JSON representations of the public API.
+Most of the REST API calls will involve exchanging XML or JSON representations of the public PHP API.
 
 The example above shows that Content item 23 can be modified by sending a `vendor/application/vnd.ez.ContentUpdate+xml`.
 This media type again matches a Value in the API, [ContentUpdateStruct](https://github.com/ezsystems/ezpublish-kernel/blob/v7.5.5/eZ/Publish/API/Repository/Values/Content/ContentUpdateStruct.php).
 
-The REST API data structs mostly match a PHP Public API value object.
+The REST API data structs mostly match a PHP public PHP API value object.
 
 #### Value objects representation
 
@@ -154,7 +154,7 @@ Accept: application/vnd.ez.api.RelationList+xml
 
 ### Working with value objects IDs
 
-Resources that accept a reference to another resource expect reference to be given as a REST ID, not a Public API ID.
+Resources that accept a reference to another resource expect reference to be given as a REST ID, not a public PHP API ID.
 For example, the URI requesting list of users assigned to the role with ID 1 is:
 
 `GET /api/ezp/v2/user/users?roleId=/api/ezp/v2/user/roles/1`

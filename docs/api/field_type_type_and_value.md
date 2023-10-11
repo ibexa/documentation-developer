@@ -12,7 +12,7 @@ The Type class of a Field Type provides an implementation of the [`eZ\Publish\SP
 
 A custom Field Type is used in a Field definition of a custom Content Type.
 You can additionally provide [settings for the Field Type](#field-type-settings) and a [validator configuration](field_type_validation.md).
-Since the Public API cannot know anything about these, their handling is delegated to the Field Type itself through the following methods:
+Since the public PHP API cannot know anything about these, their handling is delegated to the Field Type itself through the following methods:
 
 #### `getFieldTypeIdentifier()`
 
@@ -21,7 +21,7 @@ By convention it should be prefixed by a unique vendor shortcut (e.g. `ez` for e
 
 #### `getSettingsSchema()`
 
-This method retrieves via Public API a schema for the Field Type settings. A typical setting would be e.g. default value. The settings structure defined by this schema is stored in the `FieldDefinition`. Since it is not possible to define a generic format for such a schema, the Field Type is free to return any serializable data structure from this method.
+This method retrieves via public PHP API a schema for the Field Type settings. A typical setting would be e.g. default value. The settings structure defined by this schema is stored in the `FieldDefinition`. Since it is not possible to define a generic format for such a schema, the Field Type is free to return any serializable data structure from this method.
 
 #### `getValidatorConfigurationSchema()`
 
@@ -29,7 +29,7 @@ In addition to normal settings, the Field Type should provide schema settings fo
 
 #### `validateFieldSettings()`
 
-The type is asked to validate the settings (provided by the user) before the Public API stores those settings for the Field Type in a `FieldDefinition`. As a result, the Field Type must return if the given settings comply to the schema defined by `getSettingsSchema()`.
+The type is asked to validate the settings (provided by the user) before the public PHP API stores those settings for the Field Type in a `FieldDefinition`. As a result, the Field Type must return if the given settings comply to the schema defined by `getSettingsSchema()`.
 
 #### `validateValidatorConfiguration()`
 
@@ -61,7 +61,7 @@ ezpublish.fieldType.ezobjectrelation.nameable_field:
 
 ## Value handling
 
-A Field Type needs to deal with the custom value format provided by it. In order for the public API to work properly, it delegates working with such custom Field values to the corresponding Field Type. The `ez\Publish\SPI\FieldType\FieldType` interface therefore provides the following methods:
+A Field Type needs to deal with the custom value format provided by it. In order for the public PHP API to work properly, it delegates working with such custom Field values to the corresponding Field Type. The `ez\Publish\SPI\FieldType\FieldType` interface therefore provides the following methods:
 
 #### `acceptValue()`
 

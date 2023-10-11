@@ -21,7 +21,7 @@ In order to work properly with asynchronous processing, Signals must not consist
 
 !!! note
 
-    Signals can theoretically be sent by any object that gets hold of a SignalDispatcher (`eZ\Publish\Core\SignalSlot\SignalDispatcher`). However, at a first stage, **Signals are only sent by special implementations of the Public API to indicate core events**. These services must and will be used by default and will wrap the original service implementations.
+    Signals can theoretically be sent by any object that gets hold of a SignalDispatcher (`eZ\Publish\Core\SignalSlot\SignalDispatcher`). However, at a first stage, **Signals are only sent by special implementations of the public PHP API to indicate core events**. These services must and will be used by default and will wrap the original service implementations.
 
 ## Slot
 
@@ -120,7 +120,7 @@ class CreateUrlAliasesOnPublishSlot extends BaseSlot
 
 ## Listening to Core events
 
-When you interact with the Public API, and with the content repository in particular, **Signals** may be sent out,
+When you interact with the public PHP API, and with the content repository in particular, **Signals** may be sent out,
 allowing you to react to actions triggered by the repository.
 Those signals can be received by dedicated services called **Slots**.
 
