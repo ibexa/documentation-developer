@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace App\EventSubscriber;
+namespace App\src\EventSubscriber;
 
-use App\Event\MyFeatureEvent;
+use App\src\Event\MyFeatureEvent;
 use Ibexa\Contracts\ActivityLog\ActivityLogServiceInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 

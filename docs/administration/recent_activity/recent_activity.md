@@ -21,7 +21,7 @@ This `Query`'s constructor has four arguments:
 4. `$limit`: an integer as the maximum returned entry count, default is 25.
 
 ```php
-[[= include_file('code_samples/recent_activity/Command/MonitorRecentContentCreationCommand.php') =]]
+[[= include_file('code_samples/recent_activity/src/Command/MonitorRecentContentCreationCommand.php') =]]
 ```
 
 See [Activity Log Search Criteria reference](activity_log_search.md) to discover query possibilities.
@@ -35,7 +35,7 @@ First, inject `Ibexa\Contracts\ActivityLog\ActivityLogServiceInterface` into you
 In the following example, an event subscriber is subscribing to an event dispatched by a custom feature. This event has the information needed by a log entry (see details after the example).
 
 ```php
-[[= include_file('code_samples/recent_activity/EventSubscriber/MyFeatureEventSubscriber.php') =]]
+[[= include_file('code_samples/recent_activity/src/EventSubscriber/MyFeatureEventSubscriber.php') =]]
 ```
 
 `ActivityLogService::build` function returns an `Ibexa\Contracts\ActivityLog\Values\CreateActivityLogStruct` which can then be passed to `ActivityLogService::save`.
@@ -47,6 +47,24 @@ In the following example, an event subscriber is subscribing to an event dispatc
 * `$action` is the identifier of the performed object manipulation. For example, `create`, `update` or `delete`.
 
 The returned `CreateActivityLogStruct` is, by default, related to the currently logged-in user.
+
+If your object PHP class is not already covered, you'll have to set up a template to display its log entry.
+
+TODO: FQCN=>identifier map
+
+You can have a template
+
+* specific to the identifier plus an action and placed in `templates/themes/admin/activity_log/ui/<identifier>/<action>.html.twig`
+* just specific to the identifier and placed in `templates/themes/admin/activity_log/ui/<identifier>.html.twig`
+* common to every className not having a mapped identifier at `templates/themes/admin/activity_log/ui/common.html.twig`
+
+Your template can extend `@ibexadesign/activity_log/ui/default.html.twig` and just redefine the `activity_log_description_widget` for your objects.
+
+Follow an example of common template working whatever the object class is. It is not very user-friendly but can be used at development time as a fallback for classes not yet mapped.
+
+```twig
+[[= include_file('code_samples/recent_activity/templates/themes/admin/activity_log/ui/common.html.twig') =]]
+```
 
 ## REST API
 
