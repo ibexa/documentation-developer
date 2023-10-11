@@ -82,7 +82,7 @@ To return products that are most probably interesting for users interested in pr
 
 `https://reco.yoochoose.net/api/v2/00000/<user_ID>/cross_sell.json?contextitems=123`
 
-A response with two recommendations will resemble the following object:
+A response with two recommendations resembles the following object:
 
 ``` json
 {
@@ -149,12 +149,73 @@ if ($recommendations && isset($recommendations->recommendationResponseList)) {
 curl_close($curl);
 ```
 
+## Sending messages with recommendations
+
+Triggers are push messages with recommendations.
+With this feature, your organization can invite individual visitors to return to the website or remind them of items abandoned in a cart by delivering a message, for example, by sending emails.
+Before you can start [using triggers]([[= user_doc =]]/personalization/triggers), you must contact Ibexa and define specific conditions, for example:
+
+- the time that must pass before messages start being sent
+- Content Types and attributes that are included in a response
+- a number of repetitions
+
+Triggers are then processed on the Personalization server and responses are delivered to a dedicated endpoint.
+
+To let your visitors receive emails with recommendations:
+
+1\. With the [User API](user_api.md#post-requests), add the `e-mail` attribute (or another identifier) to the user record.
+
+2\. Prepare an endpoint to intercept push messages and pass them on, for example, to your mailing system.
+Out of many options, it could be an Ibexa Connect [webhook](https://doc.ibexa.co/projects/connect/en/latest/tools/webhooks/). 
+The endpoint must meet the following requirements:
+
+ - must support POST requests
+ - must accept JSON objects in a format that resembles the following example:
+
+``` json
+{
+   "customerID":"1234567",
+   "userExternalId":"user@domain.com",
+   "triggerType":"REACTIVATION|ABANDONED_SHOPPING_CART",
+   "triggerName":"TRIGGER_REF_CODE",
+   "triggerOpenedLink":"NEW_EVENT_FOR_TRIGGER_OPENED",
+   "recommendations":[
+      {
+         "itemId":959,
+         "itemType":46,
+         "clickRecommended":"CLICK_RECOMMENDED_LINK_WITH_TRIGGER_REF_CODE",
+         "attributes":{
+            "ses_name":"Minimalista Coffee Table", 
+            "ses_image":["img_1", "img_2"]
+         }
+      },
+      {
+         "itemId":123,
+         "itemType":55,
+         "clickRecommended":"CLICK_RECOMMENDED_LINK_WITH_TRIGGER_REF_CODE",
+         "attributes":{
+            "ses_name_for_type_55":"Minimalista Coffee Table"
+         }
+      }
+   ]
+}
+```
+
+The object contains links to the recommended items (`triggerOpenedLink`, `clickRecommended`), which are monitored by the Personalization server to gather statistical data.
+
+!!! note "Support for endpoints with authorization"
+
+    The trigger service supports additional Basic/Bearer token authentication to secure communication between the Personalization server and the endpoint. 
+    If your endpoint requires authentication, you must provide Ibexa with the token.
+
+3\. Contact `support@ibexa.co` with your organization's requirements to have the email triggers enabled.
+
 ## Advanced integration
 
 You can configure integration at a more advanced level to track more events, 
 use additional parameters, apply custom scenario configurations, apply filters, 
 and enable additional features.
 
-For more information about available functionalities, see the [User Documentation]([[= user_doc =]]/personalization/personalization).
+For more information about available functionalities, see the [User Documentation]([[= user_doc =]]/personalization/personalization).
 
 For more information about integrating the Personalization service, see [Developer guide](developer_guide/tracking_api.md) and [Best practices](best_practices/tracking_integration.md).
