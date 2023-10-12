@@ -814,7 +814,7 @@ extra:
       url: '/projects/connect'
   # Global variables
   site_display_name: 'Ibexa Documentation'
-  product_base_name: 'Ibexa'
+  product_name_base: 'Ibexa'
   product_name: 'Ibexa DXP'
   product_name_content: 'Ibexa Content'
   product_name_headless: 'Ibexa Headless'

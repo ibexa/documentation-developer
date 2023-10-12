@@ -162,7 +162,7 @@ Next, you can fill in **Ibexa information** they must match the ones provided in
 
 - **Client Secret** and **Client ID** - are used to authenticate against Webhook endpoint. In the configuration they are taken from environment variables in `.env` file.
 
-- **Segment Group Identifier** - identifier of the segment group in[[= product_name =]]. It points to a segment group where all the CDP audiences will be stored.
+- **Segment Group Identifier** - identifier of the segment group in [[= product_name =]]. It points to a segment group where all the CDP audiences will be stored.
 - **Base URL** - URL of your instance with added `/cdp/webhook` at the end.
 
 ![Ibexa Information - Activation](img/cdp_activation_ibexa_info.png)
