@@ -40,6 +40,10 @@ Then, from the Content Tree choose the page that you want you edit and click **E
 
 Page Builder is a visual tool that allows you to create and edit any page in [[= product_name =]].
 It is more than managing: it is about building pages, creating customized content and fully-targeted landing pages.
+Creating pages in Page Builder involves composing content using ready-to-use elements - blocks, properly configured and customized.
+It is also important to choose a layout - it determines the arrangement of drop zones that contain content elements.
+
+![Page Builder - diagram](page_builder_diagram.png)
 
 ### How does Page Builder work
 
@@ -129,20 +133,20 @@ Additionaly, if you feel comfortable with your technical skills, you can configu
 Personalized campaigns are one of the factors that can increase your sales. With Page Builder you can achieve it, by using customization and time Scheduler.
 Anytime you can edit your page and change the position of specific block to make it more visible. What's more, Page Builder offers you ready-to-use page blocks that can help to create content tailored to each individual customer:
 
-A. Default blocks:
+A. **Default** blocks:
 
 - Dynamic targeting - embeds recommended items based on the Segment the user belongs to.
 - Personalized - displays a list of Content items/products that are recommended to end users when specific scenarios are triggered.
 - Targeting - embeds an Content item based on the Segment the user belongs to.
 
-B. PIM blocks:
+B. **PIM** blocks:
 
 - Last purchased - displays a list of products that were recently purchased from PIM.
 - Last viewed - displays a list of products from PIM that were recently viewed.
 - Product collection - displays a list of specifically selected products.
 - Recently added - displays a list of products that were recently added to PIM.
 
-C. Commerce:
+C. **Commerce** blocks:
 
 - Bestsellers - displays a list of products from PIM that were recently a bestseller. 
 - Orders - displays a list of orders associated with a particular company or individual customer.
