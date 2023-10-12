@@ -13,7 +13,7 @@ description: "Ibexa DXP releases new versions periodically in different flavors:
 - [[= product_name_com =]] is a commerce-ready B2B DXP designed to digitalize your business from customer awareness to purchase and beyond.
 
 Additionally, [[= product_name =]] also has an open-source version called [[= product_name_oss =]].
-[[= product_name_oss =]] is developed by [[= product_name_name =]] together with the open source community.
+[[= product_name_oss =]] is developed by [[= product_name_base =]] together with the open source community.
 The [[= product_name_oss =]] code is available on GitHub under the GPLv2 license.
 It comes with no commercial support and maintenance services. 
 
