@@ -1,3 +1,5 @@
+<!-- vale VariablesVersion = NO -->
+
 # Ibexa DXP v3.2
 
 **Version number**: v3.2
@@ -26,7 +28,7 @@ and use assets such as images directly from the DAM in your content.
 
 ### Autosave
 
-Ibexa Platform can now save your edits in a Content item or product automatically to help you preserve the progress in an event of a failure.
+[[= product_name_base =]] Platform can now save your edits in a Content item or product automatically to help you preserve the progress in an event of a failure.
 For more information, see [Autosave](https://doc.ibexa.co/projects/userguide/en/latest/publishing/publishing/#autosave).
 
 ### Aggregation API

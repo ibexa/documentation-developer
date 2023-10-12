@@ -63,7 +63,7 @@ For example:
 
 !!! note
 
-    Even if item IDs cannot overlap in a customer's system, Ibexa recommends using 
+    Even if item IDs cannot overlap in a customer's system, [[= product_name_base =]] recommends using 
     different item types to provide independent tracking and cross-item type recommendations, 
     such as, for example, "Users who read this article also watched these videos" 
     or "Users who liked this gallery also read these articles".
@@ -154,7 +154,7 @@ Like all other parameters, the category path must be URL-encoded and cannot cont
 
 The "categorypath" parameter offers the possibility to provide category-based 
 recommendations without an explicit export of the structure of a customer's website. 
-If enabled by Ibexa, it is used for on-the-fly updating of item categories. 
+If enabled by [[= product_name_base =]], it is used for on-the-fly updating of item categories. 
 If an item is moved to another category, it is handled as present in both 
 categories until the old category ages out or is forcibly deleted. 
 Multiple category locations of an item (multi-homing) are therefore possible.
@@ -164,7 +164,7 @@ Multiple category locations of an item (multi-homing) are therefore possible.
     When you import your own item metadata by using the Personalization server 
     import interface, you might choose to not provide the category path 
     in the Click event. 
-    Category path is required by default, contact Ibexa to change the default 
+    Category path is required by default, contact [[= product_name_base =]] to change the default 
     configuration.
 
 ## Track events
@@ -186,7 +186,7 @@ For a list of embedded parameters that each of the events may use, see the follo
 |`customerid`|A customer ID (for example "00000"). Can be used to identify a website in installations that [hosts multiple SiteAccesses]([[= user_doc =]]/personalization/use_cases/#multiple-website-hosting).|alphanumeric|
 |userid|A user's ID on the website of the customer. It could be an internal customer code, a session code or a cookie for anonymous users.|URL-encoded alphanumeric|
 |`itemtypeid`|Item type ID.|1 to 2147483647|
-|`itemid`|A unique ID of the item the user has clicked.</br>String-based identifiers are also supported as item IDs to track content on a website, but it is discouraged due to fraud and security issues. If you are unable to provide numeric identifiers for the tracking process, contact Ibexa for further information and implementation notes.|1 to 2147483647|
+|`itemid`|A unique ID of the item the user has clicked.</br>String-based identifiers are also supported as item IDs to track content on a website, but it is discouraged due to fraud and security issues. If you are unable to provide numeric identifiers for the tracking process, contact [[= product_name_base =]] for further information and implementation notes.|1 to 2147483647|
 |`sourceuserid`|User identifier valid up to now(usually some anonymous session ID)|URL-encoded alphanumeric|
 |`targetuserid`|User identifier valid from now on (usually an account ID or login name)|URL-encoded alphanumeric|
 

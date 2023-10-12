@@ -815,10 +815,16 @@ extra:
       url: '/projects/connect'
   # Global variables
   site_display_name: 'Ibexa Documentation'
+  product_name_base: 'Ibexa'
   product_name: 'Ibexa DXP'
-  product_name_content: 'Ibexa Headless'
+  product_name_content: 'Ibexa Content'
+  product_name_headless: 'Ibexa Headless'
   product_name_exp: 'Ibexa Experience'
   product_name_com: 'Ibexa Commerce'
+  product_name_cdp: 'Ibexa CDP'
+  product_name_connect: 'Ibexa Connect'
+  product_name_cloud: 'Ibexa Cloud'
+  product_name_oss: 'Ibexa OSS'
   # Global variables - latest tag versions
   latest_tag_2_5: '2.5.31'
   latest_tag_3_3: '3.3.35'

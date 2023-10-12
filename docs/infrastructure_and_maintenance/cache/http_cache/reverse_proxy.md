@@ -122,7 +122,7 @@ ibexa:
 
 !!! note "Invalidating Varnish cache using tokens"
 
-    In setups where the Varnish server IP can change (for example, on Ibexa Cloud),
+    In setups where the Varnish server IP can change (for example, on [[= product_name_cloud =]]),
     you can use token-based cache invalidation through [`ez_purge_acl`](https://github.com/ibexa/http-cache/blob/main/docs/varnish/vcl/varnish5.vcl#L174).
  
     In such situation, use strong, secure hash and make sure to keep the token secret.

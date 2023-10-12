@@ -29,7 +29,7 @@ To publish, they must send the content for review to another User with proper pe
 - `content/edit`
 
 Use this setup with [[= product_name_exp =]] or [[= product_name_com =]] only,
-as [[= product_name_content =]] does not allow the User to continue working with their content.
+as [[= product_name_headless =]] does not allow the User to continue working with their content.
 
 ## Create and publish content
 
