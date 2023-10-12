@@ -4,22 +4,22 @@ post:
     description: Creates Cart from payload.
     headers:
         Content-Type:
-            description: The CartCreateStruct schema encoded in XML or JSON format.
+            description: The CartCreate schema encoded in XML or JSON format.
             example: |
                 application/vnd.ibexa.api.CartCreate+xml
                 application/vnd.ibexa.api.CartCreate+json
-    #body:
-    #    application/vnd.ibexa.api.CartCreateStruct+xml:
-    #        type: CartCreateStruct
-    #        example: !include examples/cart/POST/CartCreateStruct.json.example
-    #responses:
-    #    200:
-    #        body:
-    #            application/vnd.ibexa.api.Cart+json:
-    #                type: Cart
-    #                example: !include examples/cart/POST/Cart.json.example
-    #    400:
-    #        description: Error - The input does not match the input schema definition.
+    body:
+        application/vnd.ibexa.api.CartCreate+json:
+            type: CartCreate
+            example: !include examples/cart/POST/CartCreate.json.example
+    responses:
+        200:
+            body:
+                application/vnd.ibexa.api.Cart+json:
+                    type: Cart
+                    example: !include examples/cart/POST/Cart.json.example
+        400:
+            description: Error - The input does not match the input schema definition.
 /view:
     post:
         displayName: Filter carts
