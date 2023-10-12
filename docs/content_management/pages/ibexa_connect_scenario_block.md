@@ -46,7 +46,7 @@ Then, in `templates/blocks` directory under `default.html.twig`, provide your bl
 [[= include_file('code_samples/page/ibexa_connect_scenario_block/templates/blocks/default.html.twig') =]]
 ```
 
-In the following example, the configuration of the block is non-complex - block is only used to display the content transferred from an Ibexa Connect webhook.
+In the following example, the configuration of the block is non-complex - block is only used to display the content transferred from an [[= product_name_connect =]] webhook.
 At this point the [[= product_name_connect =]] scenario block is ready to be used in Page Builder.
 
 ### Configure Ibexa Connect scenario block in Page Builder
@@ -65,6 +65,6 @@ To do it, extend drop-down list in the **View** field and choose one of the avai
 ![Ibexa Connect Design tab](ibexa_connect_design_tab.png)
 
 Click **Submit** button to confirm.
-After submitting the block, Page refreshes and [[= product_name_connect =]] block displays data from provided Ibexa Connect webhook. 
+After submitting the block, Page refreshes and [[= product_name_connect =]] block displays data from provided [[= product_name_connect =]] webhook. 
 
 ![Ibexa Connect webhook preview](ibexa_connect_webhook_preview.png)
