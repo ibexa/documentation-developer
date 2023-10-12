@@ -1,6 +1,6 @@
 displayName: Shipping methods
 
-/methods
+/methods:
     get:
         displayName: Load shipping methods
         description: Loads shipping methods.
@@ -8,42 +8,40 @@ displayName: Shipping methods
             Accept:
                 description: Shipping method reference - If set, the shipping method returned in XML or JSON format.
                 example:  |
-                    application/vnd.ibexa.api.ShippingMethodsRefList+json
-            Content-Type:
-                description: The shipping method schema encoded in XML or JSON format.
-                example:  |
-                    application/vnd.ibexa.api.ShippingMethodsRefList+json
+                    application/vnd.ibexa.api.ShippingMethodRefList+xml
+                    application/vnd.ibexa.api.ShippingMethodRefList+json
         responses:
             200:
-                description: OK - loads the shipping method.
+                description: OK - list the shipping methods.
                 body:
-                    application/vnd.ibexa.api.ShippingMethod+json:
-                        type: ShippingMethod
-                        example: !include examples/shipping/methods/GET/ShippingMethodList.json.example
+                    application/vnd.ibexa.api.ShippingMethodRefList+xml:
+                        type: ShippingMethodRefList
+                        example: !include examples/shipping/methods/GET/ShippingMethodRefList.xml.example
+                    application/vnd.ibexa.api.ShippingMethodRefList+json:
+                        type: ShippingMethodRefList
+                        example: !include examples/shipping/methods/GET/ShippingMethodRefList.json.example
             401:
                 description: Error - the user has no permission to read shipping methods.
-            404:
-                description: Error - the shipping methods does not exist.
-   /identifier
+    /{identifier}:
         get:
             displayName: Load shipping method based on its identifier
-            description: Loads shipping methods based on their identifiers.
+            description: Loads shipping method based on its identifier.
             headers:
                 Accept:
                     description: Shipping method - If set, the shipping method returned in XML or JSON format.
                     example:  |
-                        application/vnd.ibexa.api.ShippingMethod+json
-                Content-Type:
-                    description: The shipping method schema encoded in XML or JSON format.
-                    example:  |
+                        application/vnd.ibexa.api.ShippingMethod+xml
                         application/vnd.ibexa.api.ShippingMethod+json
             responses:
                 200:
                     description: OK - loads the shipping method.
                     body:
-                        application/vnd.ibexa.api.ShippingMethod+json:
+                        application/vnd.ibexa.api.ShippingMethod+xml:
                             type: ShippingMethod
                             example: !include examples/shipping/methods/identifier/GET/ShippingMethod.xml.example
+                        application/vnd.ibexa.api.ShippingMethod+json:
+                            type: ShippingMethod
+                            example: !include examples/shipping/methods/identifier/GET/ShippingMethod.json.example
                 401:
                     description: Error - the user has no permission to read shipping method.
                 404:
@@ -57,18 +55,18 @@ displayName: Shipping methods
             Accept:
                 description: Shipping method type reference - If set, the shipping method returned in XML or JSON format.
                 example:  |
-                    application/vnd.ibexa.api.ShippingMethodTypesRefList+json
-            Content-Type:
-                description: The shipping method schema encoded in XML or JSON format.
-                example:  |
-                    application/vnd.ibexa.api.ShippingMethodTypesRefList+json
+                    application/vnd.ibexa.api.ShippingMethodTypesList+xml
+                    application/vnd.ibexa.api.ShippingMethodTypesList+json
         responses:
             200:
                 description: OK - loads the shipping method.
                 body:
-                    application/vnd.ibexa.api.ShippingMethodType+json:
-                        type: ShippingMethodType
+                    application/vnd.ibexa.api.ShippingMethodTypesList+xml:
+                        type: ShippingMethodTypesList
                         example: !include examples/shipping/method-types/GET/ShippingMethodTypesList.xml.example
+                    application/vnd.ibexa.api.ShippingMethodTypesList+json:
+                        type: ShippingMethodTypesList
+                        example: !include examples/shipping/method-types/GET/ShippingMethodTypesList.json.example
             401:
                 description: Error - the user has no permission to read shipping methods type.
             404:
