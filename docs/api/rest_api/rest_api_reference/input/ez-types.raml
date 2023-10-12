@@ -3692,24 +3692,34 @@ Shipment:
     description: 'This class represents a single shipment.'
     type: object
     properties:
+        id:
+            type: integer
         identifier:
             type: string
         status:
             type: string
         transitions:
-            type: TransitionList[]
-        Order:
             type: object
+            properties:
+                transitionList:
+                    type: string[]
+        Order:
+            type: Order
         Amount:
             type: object
+            properties:
+                value:
+                    type: integer
+                currency:
+                    type: string
         createdAt:
             type: datetime
         updatedAt:
             type: datetime
         Owner:
-            type: object
+            type: User
         Method:
-            type: object
+            type: ShippingMethod
 
 ShipmentUpdate:
     description: 'This class represents the update of a shipment.'
