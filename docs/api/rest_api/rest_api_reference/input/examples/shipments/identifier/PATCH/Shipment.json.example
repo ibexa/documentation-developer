@@ -4,7 +4,7 @@
     "_href": "\/api\/ibexa\/v2\/shipments\/new_identifier",
     "id": 1,
     "identifier": "new_identifier",
-    "status": "pending",
+    "status": "prepared",
     "transitions": {
       "transitionList": [
         "send-to-carrier",

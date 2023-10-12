@@ -2,7 +2,7 @@
 <Shipment media-type="application/vnd.ibexa.api.Shipment+xml" href="/api/ibexa/v2/shipments/new_identifier">
     <id>1</id>
     <identifier>new_identifier</identifier>
-    <status>pending</status>
+    <status>prepared</status>
     <transitions>
         <transition>send-to-carrier</transition>
         <transition>cancel</transition>
