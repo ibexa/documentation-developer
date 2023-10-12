@@ -214,7 +214,7 @@ and then use it when creating the article.
 The following example shows how to migrate
 a `public/var/site/storage/images/3/8/3/0/383-1-eng-GB/example-image.png` image between two instances.
 
-To prevent the manual addition of images to specific DFS or local locations, such as `public/var/site/storage/images/` you can move image files to `src/Migrations/images`.
+To prevent the manual addition of images to specific DFS or local locations, such as `public/var/site/storage/images/` you can move image files to, for example `src/Migrations/images`.
 Adjust the migration file and configure the `image` field data as follows:
 
 ```yaml
