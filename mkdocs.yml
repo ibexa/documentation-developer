@@ -382,6 +382,7 @@ nav:
         - Custom Policies: permissions/custom_policies.md
     - Users:
         - Users: users/users.md
+        - User management guide: users/user_management_guide.md
         - User management: users/user_management.md
         - Customer groups: users/customer_groups.md
         - Invitations: users/invitations.md
