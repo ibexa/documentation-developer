@@ -3711,22 +3711,31 @@ Shipment:
         Method:
             type: object
 
+ShippingMethod:
+    description: 'This class represents a shipping method.'
+    #TODO
+
+ShippingMethodRefList:
+    description: 'This class represents a list of shipping methods'
+    type: object
+    properties:
+        ShippingMethodRefs:
+            type: ShippingMethod[]
+
 ShippingMethodType:
     description: 'This class represents a shipping method type.'
     type: object
     properties:
         identifier:
             type: string
-            required: true
         name:
             type: string
-            required: true
 
 ShippingMethodTypesList:
     description: 'This class represents a list of shipping method types.'
     type: object
     properties:
-        ShippingMethodType:
+        ShippingMethodTypes:
             type: ShippingMethodType[]
 
 SalesRepresentativesList:

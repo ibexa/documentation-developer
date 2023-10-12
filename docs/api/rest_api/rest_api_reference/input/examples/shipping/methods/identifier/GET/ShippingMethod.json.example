@@ -1,0 +1,58 @@
+{
+    "ShippingMethod": {
+        "_media-type": "application\/vnd.ibexa.api.ShippingMethod+json",
+        "_href": "\/api\/ibexa\/v2\/shipping\/method-types\/method1",
+        "identifier": "method1",
+        "name": "AmE Method 1",
+        "names": {
+            "value": [
+                {
+                    "_languageCode": "eng-US",
+                    "#text": "AmE Method 1"
+                },
+                {
+                    "_languageCode": "eng-GB",
+                    "#text": "BrE Method 1"
+                }
+            ]
+        },
+        "description": "AmE Description of Method 1",
+        "descriptions": {
+            "value": [
+                {
+                    "_languageCode": "eng-US",
+                    "#text": "AmE Description of Method 1"
+                },
+                {
+                    "_languageCode": "eng-GB",
+                    "#text": "BrE Description of Method 1"
+                }
+            ]
+        },
+        "enabled": true,
+        "options": {
+            "option": [
+                {
+                    "_key": "price",
+                    "#text": "20.0000"
+                },
+                {
+                    "_key": "currency",
+                    "#text": "EUR"
+                }
+            ]
+        },
+        "regions": {
+            "RegionRefList": [
+                {
+                    "_media-type": "application\/vnd.ibexa.api.Region+json",
+                    "_href": "\/api\/ibexa\/v2\/product\/catalog\/regions\/default"
+                }
+            ]
+        },
+        "type": {
+            "_media-type": "application\/vnd.ibexa.api.ShippingMethodType+json",
+            "_href": "\/api\/ibexa\/v2\/shipping\/method-types\/flat_rate"
+        }
+    }
+}
