@@ -228,7 +228,7 @@ Adjust the migration file and configure the `image` field data as follows:
 
 This migration copies the image to the appropriate directory, 
 in this case `public/var/site/storage/images/3/8/3/0/254-1-eng-GB/example-image.png`,
-enabling swift file migration between instances and DFS.
+enabling swift file migration between instances regardless of storage (local, DFS).
 
 ### Roles
 
