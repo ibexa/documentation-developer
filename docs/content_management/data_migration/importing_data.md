@@ -211,8 +211,8 @@ and then use it when creating the article.
 
 ### Images
 
-The following example shows how to migrate
-a `public/var/site/storage/images/3/8/3/0/383-1-eng-GB/example-image.png` image between two instances.
+The following example shows how to migrate an `example-image.png` located in
+`public/var/site/storage/images/3/8/3/0/383-1-eng-GB` without manually placing it in the appropriate path.
 
 To prevent the manual addition of images to specific DFS or local locations, such as `public/var/site/storage/images/` you can move image files to, for example `src/Migrations/images`.
 Adjust the migration file and configure the `image` field data as follows:
@@ -228,7 +228,7 @@ Adjust the migration file and configure the `image` field data as follows:
 
 This migration copies the image to the appropriate directory, 
 in this case `public/var/site/storage/images/3/8/3/0/254-1-eng-GB/example-image.png`,
-enabling swift file migration between instances regardless of storage (local, DFS).
+enabling swift file migration regardless of storage (local, DFS).
 
 ### Roles
 
