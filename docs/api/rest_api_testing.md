@@ -66,6 +66,6 @@ request.onload = function () {
 request.send();
 ```
 
-On a freshly installed Ibexa DXP, `52` is the Content ID of the home page. If necessary, substitute `52` with the Content ID of an item from your database.
+On a freshly installed [[= product_name =]], `52` is the Content ID of the home page. If necessary, substitute `52` with the Content ID of an item from your database.
 
 You can edit the `resource` URI to address another domain, but [cross-origin requests](rest_api_responses.md#cross-origin) must be allowed first.

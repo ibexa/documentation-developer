@@ -431,4 +431,4 @@ and use the generated secret.
 
 ## Ibexa Cloud
 
-If you want to host your application on Ibexa Cloud, follow the [Install on Ibexa Cloud](install_on_ibexa_cloud.md) procedure.
+If you want to host your application on [[= product_name_cloud =]], follow the [Install on Ibexa Cloud](install_on_ibexa_cloud.md) procedure.

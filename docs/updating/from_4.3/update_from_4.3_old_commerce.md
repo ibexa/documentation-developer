@@ -7,7 +7,7 @@ description: Update procedure to v4.4 for people who use deprecated Commerce pac
 This update procedure applies if you have a v4.3 installation, you use Commerce packages and would like to continue to use them.
 
 Note that all commerce packages as of v4.4 are deprecated and will be removed in v5.
-Until that time, they will be maintained by Ibexa with fixes, including security fixes, but they won't be further developed.
+Until that time, they will be maintained by [[= product_name_base =]] with fixes, including security fixes, but they won't be further developed.
 Old packages are replaced by [the all-new Ibexa Commerce packages](ibexa_dxp_v4.4.md#all-new-ibexa-commerce-packages).
 
 ## Update from v4.3.x to v4.3.latest
@@ -172,8 +172,8 @@ ibexa:
 
 ### Update the database
 
-Next, update the database if you are using Ibexa Commerce.
-Ibexa Content and Ibexa Experience do not require the database update.
+Next, update the database if you are using [[= product_name_com =]].
+[[= product_name_content =]] and [[= product_name_exp =]] do not require the database update.
 
 [[% include 'snippets/update/db/db_backup_warning.md' %]]
 
@@ -193,7 +193,7 @@ Apply the following database update scripts:
 
 #### Ibexa Open Source
 
-If you have no access to Ibexa DXP's `ibexa/installer` package, database upgrade is not necessary.
+If you have no access to [[= product_name =]]'s `ibexa/installer` package, database upgrade is not necessary.
 
 ## Ensure password safety
 
@@ -213,7 +213,7 @@ composer run post-install-cmd
 
 ### Customer Portal self-registration
 
-If you are using Ibexa Experience or Ibexa Commerce,
+If you are using [[= product_name_exp =]] or [[= product_name_com =]],
 run data migration required by the Customer Portal applications feature:
 
 ```bash

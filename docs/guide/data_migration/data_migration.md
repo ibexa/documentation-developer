@@ -4,7 +4,7 @@ description: Data migration enables you to import and export Repository data by 
 
 # Data migration
 
-Data migration allows exporting and importing selected data from an Ibexa DXP installation.
+Data migration allows exporting and importing selected data from an [[= product_name =]] installation.
 
 *Exporting* data consists in saving selected Repository information in YAML format.
 *Importing* reads migration YAML files and creates or modifies Repository content based on them.

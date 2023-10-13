@@ -1,3 +1,5 @@
+<!-- vale VariablesVersion = NO -->
+
 # Ibexa DXP v4.1
 
 **Version number**: v4.1

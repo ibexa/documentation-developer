@@ -153,7 +153,7 @@ curl_close($curl);
 
 Triggers are push messages with recommendations.
 With this feature, your organization can invite individual visitors to return to the website or remind them of items abandoned in a cart by delivering a message, for example, by sending emails.
-Before you can start [using triggers]([[= user_doc =]]/personalization/triggers), you must contact Ibexa and define specific conditions, for example:
+Before you can start [using triggers]([[= user_doc =]]/personalization/triggers), you must contact [[= product_name_base =]] and define specific conditions, for example:
 
 - the time that must pass before messages start being sent
 - Content Types and attributes that are included in a response
@@ -166,7 +166,7 @@ To let your visitors receive emails with recommendations:
 1\. With the [User API](user_api.md#post-requests), add the `e-mail` attribute (or another identifier) to the user record.
 
 2\. Prepare an endpoint to intercept push messages and pass them on, for example, to your mailing system.
-Out of many options, it could be an Ibexa Connect [webhook](https://doc.ibexa.co/projects/connect/en/latest/tools/webhooks/). 
+Out of many options, it could be an I[[= product_name_connect =]] [webhook](https://doc.ibexa.co/projects/connect/en/latest/tools/webhooks/). 
 The endpoint must meet the following requirements:
 
  - must support POST requests

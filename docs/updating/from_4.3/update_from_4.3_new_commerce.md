@@ -297,8 +297,8 @@ Finally, remove related routes by deleting `config/routes/ibexa_commerce.yaml` f
 
 ### Update the database
 
-Next, update the database if you are using Ibexa Commerce.
-Ibexa Content and Ibexa Experience do not require the database update.
+Next, update the database if you are using [[= product_name_com =]]e.
+[[= product_name_content =]] and [[= product_name_exp =]] do not require the database update.
 
 [[% include 'snippets/update/db/db_backup_warning.md' %]]
 
@@ -318,7 +318,7 @@ Apply the following database update scripts:
 
 #### Ibexa Open Source
 
-If you have no access to Ibexa DXP's `ibexa/installer` package, database upgrade is not necessary.
+If you have no access to [[= product_name =]]'s `ibexa/installer` package, database upgrade is not necessary.
 
 ## Ensure password safety
 
@@ -337,7 +337,7 @@ composer run post-install-cmd
 
 ### Customer Portal self-registration
 
-If you are using Ibexa Experience or Ibexa Commerce,
+If you are using [[= product_name_exp =]] or [[= product_name_com =]],
 you can now run data migration required by the Customer Portal applications feature to finish the update process:
 
 ```bash

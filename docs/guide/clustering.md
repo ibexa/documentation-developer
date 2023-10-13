@@ -52,7 +52,7 @@ To avoid concurrent access to session data from front-end nodes, if possible you
 
 Session locking is available with `php-memcached`, and with `php-redis` (v4.2.0 and higher).
 
-On Ibexa Cloud (and Platform.sh) Redis is preferred and supported.
+On [[= product_name_cloud =]] (and Platform.sh) Redis is preferred and supported.
 
 ### Shared binary files
 

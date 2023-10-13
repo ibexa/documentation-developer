@@ -229,7 +229,7 @@ Run the following scripts:
 
 ### Ibexa Open Source
 
-If you have no access to Ibexa DXP's `ibexa/installer` package, apply the following database upgrade script:
+If you have no access to [[= product_name =]]'s `ibexa/installer` package, apply the following database upgrade script:
 
 === "MySQL"
 
@@ -359,7 +359,7 @@ See [Update Flex server](#update-flex-server).
 
 #### VCL configuration for Fastly
 
-Ibexa DXP now supports Fastly shielding. If you are using Fastly and want to use shielding, you need to update your VCL files.
+[[= product_name =]] now supports Fastly shielding. If you are using Fastly and want to use shielding, you need to update your VCL files.
 
 !!! tip
 
