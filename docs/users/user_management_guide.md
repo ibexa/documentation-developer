@@ -18,34 +18,42 @@ User management is available in all [[= product_name =]] versions.
 
 ## How does user management work
 
-[[= product-name =]] simplifies user management with an intuitive and powerful system. 
+[[= product-name =]] simplifies user management with an intuitive and powerful system of accounts, roles, permissions, groups and segments. 
 Here's how it works:
 
-- user accounts - allow you to create and manage user accounts. This includes capturing user information, such as name, email, and profile details.
+- user accounts - create and manage user accounts. This includes capturing user information, such as name, email, and profile details.
 
-- roles and permissions - User management in Ibexa involves defining roles and assigning permissions to them. This ensures that users have appropriate access to content and functionality. Roles can be customized to match the organization's specific needs.
+- roles and permissions - define roles and assign permissions to them. This ensures that users have appropriate access to content and functionalities. Roles can be customized to match the organization's specific needs.
 
-- authentication methods - Ibexa supports multiple authentication methods, including traditional username and password, OAuth, and external service logins. This flexibility allows organizations to adapt to various user authentication requirements.
+- authentication methods - enable multiple authentication methods, including traditional username and password, OAuth, and external service logins. This flexibility allows organizations to adapt to various user authentication requirements.
 
-- user segmentation - Users can be segmented based on criteria such as demographics, behavior, or preferences. This segmentation enables personalized content delivery and targeted marketing.
+- user segmentation - segment users based on criteria such as demographics, behavior, or preferences. This segmentation enables personalized content delivery and targeted marketing.
 
-- invitations - Ibexa provides a feature for inviting users to join a platform. This is useful for onboarding new users or sending invitations for exclusive content or events.
+- invitations - invite users to join a platform. This is useful for onboarding new users or sending invitations for exclusive content or events.
 
-- Customer Groups - Users can be organized into customer groups, which helps in delivering tailored experiences and content to specific segments.
+- Customer Groups - organize users into customer groups, which helps in delivering tailored experiences and content to specific segments.
 
 ## Capabilities
 
-### Role-Based Access Control (RBAC)
+### User Roles and Permissions
 
-Ibexa's RBAC is a robust system that enables organizations to define and manage roles and permissions. 
-It allows for the precise control of access and functionality within the system.
-It uses a hierarchical permission structure, where permissions can be assigned to roles, and roles can inherit permissions from other roles.
+Ibexa allows you to define custom user roles with granular permissions, ensuring that users have access to only the specific parts of the system they need. This helps maintain security and control.
 
-Use Cases:
+User Groups: Create user groups to simplify permissions management. Assign multiple users to a group to ensure consistency and ease of access control.
 
-Administrator: An administrator role can manage users, content, and system settings, ensuring that essential tasks are executed without error.
-Editor: Editors have the ability to manage content, making them responsible for creating, editing, and publishing articles, pages, and other resources.
-Contributor: Contributors can create content, but their access is limited to this particular task, reducing the risk of unauthorized changes.
+### Custom Policies
+
+Tailor user access control to your unique requirements using custom policies. Define complex rules and access criteria for different users or groups.
+
+Content Permissions: Define who can view, edit, or publish content. Ibexa provides fine-grained control over content access and actions.
+
+### Limitations and Policies:
+
+Implement limitations on user actions based on specific criteria, such as time-based restrictions or geographic locations.
+
+### Synchronization with External Systems
+
+Integrate Ibexa with your existing systems, such as LDAP or SAML, to ensure seamless user management across your organization.
 
 ### Authentication Methods
 
@@ -106,6 +114,8 @@ With role-based access control and personalized content, users have a more engag
 
 The flexible authentication methods and permission management help safeguard sensitive data and maintain security.
 
+With the ability to define and manage user roles and permissions, clients can ensure that sensitive data and actions are protected. User management helps prevent unauthorized access.
+
 ### Efficient User Onboarding
 
 Invitations and easy account creation streamline the process of onboarding new users.
@@ -114,9 +124,17 @@ Invitations and easy account creation streamline the process of onboarding new u
 
 Customer groups and user segmentation capabilities allow for targeted and effective marketing campaigns.
 
+### Content Governance
+
+Clients can enforce content governance by controlling who can edit and publish content. This ensures quality and consistency in their digital properties.
+
 ### Content Relevance
 
 By delivering content that resonates with different user segments, clients can increase user engagement and retention.
+
+### Customizability
+
+Clients can adapt the user management system to their unique needs. Custom policies and limitations enable tailored solutions that align with their specific use cases.
 
 ### Versatile tool
 
