@@ -102,7 +102,7 @@ Default values:
 
 ##### Adapter
 
-To be able to rely on dynamic SiteAccess-aware paths, you need to use Ibexa custom `nfs_adapter`. A basic configuration might look like the following:
+To be able to rely on dynamic SiteAccess-aware paths, you need to use [[= product_name =]] custom `nfs_adapter`. A basic configuration might look like the following:
 
 ``` yaml
 oneup_flysystem:

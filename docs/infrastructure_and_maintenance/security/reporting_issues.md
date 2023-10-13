@@ -11,8 +11,8 @@ No engineering team is perfect though, and if you do discover a security issue i
 
 ## Channels
 
-- If you're a customer or partner, please log in to your Service Portal at <https://support.ibexa.co/>, click "New Ticket", and report the issue as you would report a normal support request. Ibexa Product Support will respond, take care of the report, and keep you informed of the developments.
-- If you're not a customer or partner, please log in to the Ibexa JIRA issue tracker: <https://issues.ibexa.co/>. Create an account if you don't have one, it's free. Click the "Create" button in the top menu to create your report. For "Project", select "Ibexa IBX", or "eZ Publish / Platform", or "eZ Platform Enterprise Edition", depending on which product is affected by the bug. **Important: Select "Security Level": "Security"!** The engineering team will take care of your report.
+- If you're a customer or partner, please log in to your Service Portal at <https://support.ibexa.co/>, click "New Ticket", and report the issue as you would report a normal support request. [[= product_name_base =]] Product Support will respond, take care of the report, and keep you informed of the developments.
+- If you're not a customer or partner, please log in to the [[= product_name_base =]] JIRA issue tracker: <https://issues.ibexa.co/>. Create an account if you don't have one, it's free. Click the "Create" button in the top menu to create your report. For "Project", select "[[= product_name_base =]] IBX", or "eZ Publish / Platform", or "eZ Platform Enterprise Edition", depending on which product is affected by the bug. **Important: Select "Security Level": "Security"!** The engineering team will take care of your report.
 - It is also possible to report security issues by email to <security@ibexa.co> - this requires no account.
 
 ## Verbosity

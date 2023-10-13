@@ -5,7 +5,7 @@ page_type: landing_page
 
 # Personalization
 
-Ibexa Personalization is a service that allows you to track the visitors of your website and offers personalized recommendations or serves targeted content, based on their preferences and behavior.
+[[= product_name_base =]] Personalization is a service that allows you to track the visitors of your website and offers personalized recommendations or serves targeted content, based on their preferences and behavior.
 
 Personalization can be used both by publishers, for example, to track content consumption 
 and promote content, and in e-commerce, to drive purchases.

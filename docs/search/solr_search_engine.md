@@ -78,7 +78,7 @@ This setting is **required** if you want to see the changes after publish. It is
 #### Generating configuration
 
 The command line tool `bin/generate-solr-config.sh` generates Solr 7 configuration automatically.
-It can be used for deploying to Ibexa Cloud (Platform.sh) and on-premise installs.
+It can be used for deploying to [[= product_name_cloud =]] (Platform.sh) and on-premise installs.
 
 Execute the script from the [[= product_name =]] root directory for further information:
 
@@ -521,7 +521,7 @@ Connect to the Solr slave interface (http://localhost:8983/solr), go to your cor
 
 ## Configuring HTTP Client for Solr queries
 
-Ibexa Solr Bundle uses Symfony HTTP Client to fetch and update Solr index.
+[[= product_name_base =]] Solr Bundle uses Symfony HTTP Client to fetch and update Solr index.
 You can configure timeout and maximum number of retries for that client using Solr Bundle's Semantic configuration:
 
 ```yaml

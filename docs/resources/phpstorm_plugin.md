@@ -4,7 +4,7 @@ description: The Ibexa DXP PHPStorm plugin helps you speed up your development b
 
 # Ibexa DXP plugin for PhpStorm
 
-Ibexa DXP plugin for PhpStorm helps you to work with Ibexa DXP by speeding up installation
+[[= product_name =]] plugin for PhpStorm helps you to work with [[= product_name =]] by speeding up installation
 and providing file templates, intentions, autocompletion, and other features.
 
 ## Requirements
@@ -14,14 +14,14 @@ and providing file templates, intentions, autocompletion, and other features.
 
 ## Install PhpStorm plugin
 
-You can install the Ibexa DXP plugin for PhpStorm from the JetBrains Marketplace,
+You can install the [[= product_name =]] plugin for PhpStorm from the JetBrains Marketplace,
 or manually, from a downloaded .jar file.
 
 ### Install from JetBrains Marketplace
 
 To install plugin from JetBrains marketplace:
 
-Look for "Ibexa DXP" in the plugin browser and click **Install**.
+Look for "[[= product_name =]]" in the plugin browser and click **Install**.
 
 ### Install from file
 
@@ -49,23 +49,23 @@ You can use it to:
     Some plugin features depends on the selected product edition and version. 
     For example, "deprecated namespaces usage" inspection is enabled only if the project uses v4.x.  
 
-Plugin configuration is automatically resolved when opening Ibexa DXP project for the first time.
-If detection is successful, a notification appears with an "Enable Ibexa DXP support for this project" link.
+Plugin configuration is automatically resolved when opening [[= product_name =]] project for the first time.
+If detection is successful, a notification appears with an "Enable [[= product_name =]] support for this project" link.
 
-If you created your project by using Ibexa DXP project wizard, the plugin is automatically enabled and configured based 
+If you created your project by using [[= product_name =]] project wizard, the plugin is automatically enabled and configured based 
 on wizard data.
 
 ## Features
 
 ### Project wizard
 
-The plugin enables creating a new Ibexa DXP project directly from PhpStorm.
+The plugin enables creating a new [[= product_name =]] project directly from PhpStorm.
 To do it, select **File** > **New Project...** > **Ibexa DXP**.
 
 In project settings form you can choose:
 
 - Location of the project
-- Product edition: Ibexa OSS, Ibexa Content, Ibexa Experience, Ibexa Commerce
+- Product edition: [[= product_name_oss =]], [[= product_name_content =]], [[= product_name_exp =]], [[= product_name_com =]]
 - Authentication token (for Content, Experience and Commerce editions)
 - Product version: Default (latest LTS version), Latest (fast track or LTS), Latest LTS and "Next 3.x" (unstable, based on the 3.x branch) and "Next 4.x" (unstable, based on the 4.x branch)
 - Generate [Ibexa Cloud configuration](install_on_ibexa_cloud) 
@@ -106,7 +106,7 @@ The plugin provides the following built-in file templates:
 
 The templates are available in, for example, the context menu in **Project window** > **New** > **Ibexa DXP**.
 
-The list of available file templates depends on the Ibexa DXP edition used by the project.
+The list of available file templates depends on the[[= product_name =]] edition used by the project.
 
 For all file templates you can customize:
 
@@ -170,7 +170,7 @@ To customize live templates, go to **File** > **Settings**/**Preferences** > **E
 
 ### Autocompletion in configuration files
 
-Plugin provides autocompletion for Ibexa DXP configuration structure in YAML files placed in `config/packages/`.
+Plugin provides autocompletion for [[= product_name =]] configuration structure in YAML files placed in `config/packages/`.
 
 Besides configuration structure, for the following YAML keys addition suggestions are available:
 

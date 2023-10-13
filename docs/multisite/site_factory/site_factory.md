@@ -168,7 +168,7 @@ ibexa:
                 sites_location_id: 42
 ```
 
-Now, all new directories are created under "Ibexa DXP".
+Now, all new directories are created under "[[= product_name =]]".
 
 ### Provide access
 

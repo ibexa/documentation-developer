@@ -114,17 +114,17 @@ Optionally if you intend to edit [PNG, SVG, GIF or WEBP files in the Image Edito
 
     ### Cloud hosting with Ibexa Cloud and Platform.sh
 
-    In general, Ibexa Cloud supports all features and services of [Platform.sh](https://platform.sh/hosting/php/ez) that are compatible and supported by the [[= product_name =]] version you use.  
+    In general, [[= product_name_cloud =]] supports all features and services of [Platform.sh](https://platform.sh/hosting/php/ez) that are compatible and supported by the [[= product_name =]] version you use.  
 
     For example:
 
-    - Platform.sh provides Redis support for versions 3.2, 4.0 and 5.0. [[= product_name =]] supports Redis version 4.0 or higher, and recommends 5.0. As a result, Redis is supported on Ibexa Cloud in versions 4.0 and 5.0, but 5.0 is recommended.
+    - Platform.sh provides Redis support for versions 3.2, 4.0 and 5.0. [[= product_name =]] supports Redis version 4.0 or higher, and recommends 5.0. As a result, Redis is supported on [[= product_name_cloud =]] in versions 4.0 and 5.0, but 5.0 is recommended.
 
     Features or services supported by [[= product_name =]] but not covered by Platform.sh may be possible by means of a [custom integration](#custom-integrations).
 
     ### Ibexa Cloud Setup support matrix
 
-    All [[= product_name =]] features are supported in accordance with the example above. For example: As Legacy Bridge is not supported with v3, it is not supported on Ibexa Cloud either.
+    All [[= product_name =]] features are supported in accordance with the example above. For example: As Legacy Bridge is not supported with v3, it is not supported on [[= product_name_cloud =]] either.
 
     !!! note
 
@@ -145,9 +145,9 @@ Optionally if you intend to edit [PNG, SVG, GIF or WEBP files in the Image Edito
 
     - Verifying your requirements and ensuring they are supported by Platform.sh
     - Additional time for adaptation and configuration work, and testing by your development team
-    - Additional consulting/onboarding time with Platform.sh, Ibexa technical services, and/or one of the many partners with prior experience using Platform.sh with [[= product_name =]]
+    - Additional consulting/onboarding time with Platform.sh, [[= product_name_base =]] technical services, and/or one of the many partners with prior experience using Platform.sh with [[= product_name =]]
 
-    The cost and effort of this is not included in Ibexa Cloud subscription and will vary depending on the project.
+    The cost and effort of this is not included in [[= product_name_cloud =]] subscription and will vary depending on the project.
 
     ### Custom integrations
 

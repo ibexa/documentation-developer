@@ -95,7 +95,7 @@ For details, see the tables below.
 |--------------------|---------------------------------------------------------------------|---------------|
 | enabled            | Enables link validation.                                            | true          |
 
-For more information about Ibexa configuration, see [Configuration](configuration.md).
+For more information about [[= product_name =]] configuration, see [Configuration](configuration.md).
 
 ### Custom protocol support
 
@@ -137,7 +137,7 @@ The `scheme` attribute is mandatory and has to correspond to the name of the pro
 ## URL aliases
 
 You can define URL aliases for individual Content items, for example, when you reorganize the content, and want to provide users with continuity.
-For each URL alias definition the history of changes is preserved, so that users who have bookmarked the URL addresses of content items can still find he information they desire.
+For each URL alias definition the history of changes is preserved, so that users who have bookmarked the URL addresses of content items can still find the information they desire.
 
 !!! note
 
