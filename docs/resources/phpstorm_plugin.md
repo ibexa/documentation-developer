@@ -106,7 +106,7 @@ The plugin provides the following built-in file templates:
 
 The templates are available in, for example, the context menu in **Project window** > **New** > **Ibexa DXP**.
 
-The list of available file templates depends on the[[= product_name =]] edition used by the project.
+The list of available file templates depends on the [[= product_name =]] edition used by the project.
 
 For all file templates you can customize:
 

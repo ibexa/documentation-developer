@@ -95,7 +95,7 @@ For details, see the tables below.
 |--------------------|---------------------------------------------------------------------|---------------|
 | enabled            | Enables link validation.                                            | true          |
 
-For more information about [[= product_name =]] configuration, see [Configuration](configuration.md).
+For more information about [[= product_name_base =]] configuration, see [Configuration](configuration.md).
 
 ### Custom protocol support
 
