@@ -12,7 +12,7 @@ The `ibexa:migrations:import` command automatically places migration files in th
 Alternatively, you can place the files manually in the `src/Migrations/Ibexa/migrations` folder
 or in [a custom folder that you configure](managing_migrations.md#migration-folders), 
 and specify the file name within this folder as parameter.
-If you do not specify the file, all files within this directory are used.
+If you don't specify the file, all files within this directory are used.
 
 ``` bash
 php bin/console ibexa:migrations:migrate --file=my_data_export.yaml
@@ -119,7 +119,7 @@ This step generates Field values with fake personal names.
 ### Expression syntax
 
 You can use [Symfony expression syntax]([[= symfony_doc =]]/reference/formats/expression_language.html) in data migrations.
-It is especially useful in [repeatable steps](#repeatable-steps),
+It's especially useful in [repeatable steps](#repeatable-steps),
 where you can use it to generate varied content in migration steps.
 
 The expression syntax uses the following structure: `###<IDENTIFIER> <EXPRESSION> <IDENTIFIER>###`
@@ -299,7 +299,7 @@ You can also update attributes, including changing which attribute group they be
 [[= include_file('code_samples/data_migration/examples/update_attribute.yaml') =]]
 ```
 
-You cannot change the attribute type of an existing attribute.
+You can't change the attribute type of an existing attribute.
 
 #### Product type
 
@@ -368,7 +368,7 @@ When updating a segment group or segment, you can match the object to update by 
 
 ### Settings
 
-The following example shows how you can create and update a setting that is stored in the database:
+The following example shows how you can create and update a setting stored in the database:
 
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/create_update_setting.yaml') =]]
