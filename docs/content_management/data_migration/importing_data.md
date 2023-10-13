@@ -22,12 +22,27 @@ Migrations store execution metadata in the `ibexa_migrations` database table.
 This allows incremental upgrades:
 the `ibexa:migrations:migrate` command ignores files that it had previously executed.
 
+## Migration step
+
+A migration step is an item starting with the mandatory properties `type` and `mode`, for example:
+
+```yaml
+-
+    type: content
+    mode: create
+```
+
+Then, the step will be described by additional properties depending on its type and mode.
+
+* See [Available migrations](#available-migrations) for the modes available for each type.
+* See [Migration examples](#migration-examples) to explore what you can do with each type.
+
 ## Available migrations
 
-The following data migration steps are available:
+The following data migration step modes are available:
 
-|                      | `create` | `update` | `delete` |
-|----------------------|:--------:|:--------:|:--------:|
+| `type`                 | `create` | `update` | `delete` |
+|------------------------|:--------:|:--------:|:--------:|
 | `content`              | &#10004; | &#10004; | &#10004; |
 | `content_type`         | &#10004; | &#10004; | &#10004; |
 | `role`                 | &#10004; | &#10004; | &#10004; |
