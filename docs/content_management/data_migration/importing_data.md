@@ -24,7 +24,9 @@ the `ibexa:migrations:migrate` command ignores files that it had previously exec
 
 ## Migration step
 
-A migration step is an item starting with the mandatory properties `type` and `mode`, for example:
+A migration is a list of steps. A step is an action mode on a type of objects.
+
+In a migration file, a step is an array item starting with the mandatory properties `type` and `mode`, for example:
 
 ```yaml
 -
