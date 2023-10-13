@@ -13,8 +13,8 @@ description: Install Ibexa DXP on a Linux system and prepare your installation f
 
 !!! note "Installing Ibexa OSS"
 
-    This installation guide details the steps to install Ibexa DXP for users who have a subscription agreement with Ibexa.
-    If you want to install Ibexa OSS, you do not need authentication tokens or an account on updates.ibexa.co,
+    This installation guide details the steps to install [[= product_name =]] for users who have a subscription agreement with [[= product_name_base =]].
+    If you want to install [[= product_name_oss =]], you do not need authentication tokens or an account on updates.ibexa.co,
     but must adapt the steps shown here to the product edition and the `ibexa/oss-skeleton` repository.
 
 ## Prepare work environment
@@ -452,4 +452,4 @@ and use the generated secret.
 
 ## Ibexa Cloud
 
-If you want to host your application on Ibexa Cloud, follow the [Install on Ibexa Cloud](install_on_ibexa_cloud.md) procedure.
+If you want to host your application on [[= product_name_cloud =]], follow the [Install on Ibexa Cloud](install_on_ibexa_cloud.md) procedure.

@@ -2,6 +2,7 @@
 description: Ibexa DXP v4.4 adds the improvements to the Welcome Page, All-new Ibexa Commerce packages and Fastly IO.
 ---
 
+<!-- vale VariablesVersion = NO -->
 # Ibexa DXP v4.4
 
 **Version number**: v4.4
@@ -91,8 +92,8 @@ provide the best recommendations.
 ## Ibexa Connect
 
 You can now take advantage of [Ibexa Connect](https://www.ibexa.co/products/ibexa-connect),
-an iPaaS (integration platform-as-a-service) which allows you to connect Ibexa DXP with third-party applications.
-Ibexa Connect features a low-code drag-and-drop interface and hundreds of connectors to different services
+an iPaaS (integration platform-as-a-service) which allows you to connect [[= product_name =]] with third-party applications.
+[[= product_name_connect =]] features a low-code drag-and-drop interface and hundreds of connectors to different services
 that help you automate business processes.
 
 See [Ibexa Connect documentation](https://doc.ibexa.co/projects/connect/en/latest/).
@@ -143,7 +144,7 @@ The following Commerce packages are deprecated as of this release and will be re
 - `ibexa/commerce-shop`
 - `ibexa/commerce-shop-ui`
 
-They will be maintained by Ibexa with fixes, including security fixes, but they won't be further developed.
+They will be maintained by [[= product_name_base =]] with fixes, including security fixes, but they won't be further developed.
 Old packages are replaced by [the all-new Ibexa Commerce packages](#all-new-ibexa-commerce-packages) with more
 to come in the upcoming releases.
 

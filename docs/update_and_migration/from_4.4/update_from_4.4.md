@@ -106,7 +106,7 @@ php bin/console ibexa:migrate:richtext-namespaces
 
 #### Ibexa Open Source
 
-If you have no access to Ibexa DXP's `ibexa/installer` package, apply the following database update:
+If you have no access to [[= product_name =]]'s `ibexa/installer` package, apply the following database update:
 
 === "MySQL"
 
@@ -168,7 +168,7 @@ composer run post-install-cmd
 
 ## Run data migration
 
-If you are using Ibexa Experience or Ibexa Commerce,
+If you are using [[= product_name_exp =]] or [[= product_name_com =]],
 you can now run data migration required by the Customer Portal and Commerce features to finish the update process:
 
 - Customer Portal [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]

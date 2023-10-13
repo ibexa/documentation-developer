@@ -2,6 +2,7 @@
 description: Ibexa DXP v4.5 adds new features to Ibexa Commerce, translation comparison, and a number of improvements to Customer Portal and Personalization.
 ---
 
+<!-- vale VariablesVersion = NO -->
 # Ibexa DXP v4.5
 
 **Version number**: v4.5
@@ -121,7 +122,7 @@ In this release, the CDP configuration becomes more generic
 and allows supporting other transport types accepted by CDP.
 Currently, only `stream_file` transport is supported and can be initialized from the configuration.
 
-Ibexa DXP v4.5 adds the abstraction that allows you to implement other transport types from third parties.
+[[= product_name =]] v4.5 adds the abstraction that allows you to implement other transport types from third parties.
 For more information, see [CDP configuration](https://doc.ibexa.co/en/4.5/cdp/cdp_activation/#configuration).
 
 ### API improvements

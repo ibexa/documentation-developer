@@ -30,7 +30,7 @@ Click **Create** at the top of the bugtracker window and fill in the following f
 |**Issue type**|Choose **Bug** or **Improvement** depending on what you are reporting, do not use other issue types (they are for internal use only).|
 |**Summary**|Write a short sentence describing what you are reporting.|
 |**Priority**|Select the priority you consider the issue to be. Please try to keep a cool head while selecting it. A 1 pixel alignment bug is not a "blocker".|
-|**Component/s**|This is important, as it will make your issue appear on the radar (dashboards, filters) of people dealing with various parts of Ibexa projects.|
+|**Component/s**|This is important, as it will make your issue appear on the radar (dashboards, filters) of people dealing with various parts of [[= product_name_base =]] projects.|
 |**Affect version/s**|Add the versions of the application you experienced the issue on.|
 |**Assignee**|Leave blank, unless you are willing to work on the issue yourself.|
 |**Reporter**|Leave as is (yourself).|
