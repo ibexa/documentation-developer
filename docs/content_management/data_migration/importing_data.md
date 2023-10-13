@@ -28,27 +28,27 @@ The following data migration steps are available:
 
 |                      | `create` | `update` | `delete` |
 |----------------------|:--------:|:--------:|:--------:|
-| `content`            | &#10004; | &#10004; | &#10004; |
-| `content_type`       | &#10004; | &#10004; | &#10004; |
-| `role`               | &#10004; | &#10004; | &#10004; |
-| `content_type_group` | &#10004; | &#10004; | &#10004; |
-| `user`               | &#10004; | &#10004; |          |
-| `user_group`         | &#10004; | &#10004; | &#10004; |
-| `language`           | &#10004; |          |          |
-| `object_state_group` | &#10004; |          |          |
-| `object_state`       | &#10004; |          |          |
-| `section`            | &#10004; | &#10004; |          |
-| `location`           |          | &#10004; |          |
-| `attribute_group`    | &#10004; | &#10004; | &#10004; |
-| `attribute`          | &#10004; | &#10004; | &#10004; |
-| `customer_group`     | &#10004; | &#10004; | &#10004; |
-| `currency`           | &#10004; | &#10004; | &#10004; |
-| `product_price`      | &#10004; |          |          |
+| `content`              | &#10004; | &#10004; | &#10004; |
+| `content_type`         | &#10004; | &#10004; | &#10004; |
+| `role`                 | &#10004; | &#10004; | &#10004; |
+| `content_type_group`   | &#10004; | &#10004; | &#10004; |
+| `user`                 | &#10004; | &#10004; |          |
+| `user_group`           | &#10004; | &#10004; | &#10004; |
+| `language`             | &#10004; |          |          |
+| `object_state_group`   | &#10004; |          |          |
+| `object_state`         | &#10004; |          |          |
+| `section`              | &#10004; | &#10004; |          |
+| `location`             |          | &#10004; |          |
+| `attribute_group`      | &#10004; | &#10004; | &#10004; |
+| `attribute`            | &#10004; | &#10004; | &#10004; |
+| `customer_group`       | &#10004; | &#10004; | &#10004; |
+| `currency`             | &#10004; | &#10004; | &#10004; |
+| `product_price`        | &#10004; |          |          |
 | `product_availability` | &#10004; |          |          |
-| `payment_method`     | &#10004; |          |          |
-| `segment_group`      | &#10004; | &#10004; | &#10004; |
-| `segment`            | &#10004; | &#10004; | &#10004; |
-| `setting`            | &#10004; | &#10004; | &#10004; |
+| `payment_method`       | &#10004; |          |          |
+| `segment_group`        | &#10004; | &#10004; | &#10004; |
+| `segment`              | &#10004; | &#10004; | &#10004; |
+| `setting`              | &#10004; | &#10004; | &#10004; |
 
 ### Repeatable steps
 
@@ -216,8 +216,33 @@ A Role requires the `identifier` metadata key.
 
 For each Policy assigned to the Role, you select the module and function, with optional Limitations.
 
+The following example shows the creation of a `Contributor` Role:
+
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/create_role.yaml') =]]
+```
+
+To update an existing Role, 2 policies' modes are available:
+
+- `replace`: (default) All existing policies are replaced by the ones from the migration.
+- `append`: Migration policies are added while already existing ones are kept.
+
+The following example shows how to replace the policies of the existing `Editor` Role:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/update_role.yaml', 0, 16) =]]
+```
+
+The following example shows the addition of a policy to the `Anonymous` Role:
+
+``` yaml hl_lines="7"
+[[= include_file('code_samples/data_migration/examples/update_role.yaml', 18, 32) =]]
+```
+
+The following example shows how to delete the `Contributor` Role:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/delete_role.yaml') =]]
 ```
 
 ### Users
