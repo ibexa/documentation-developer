@@ -1,5 +1,5 @@
 ---
-description: Step-by-step data export procedure of [[= product_name_cdp =]].
+description: Step-by-step data export procedure in [[= product_name_cdp =]].
 ---
 
 # Data export

@@ -1,5 +1,5 @@
 ---
-description: Step-by-step configuration procedure of [[= product_name_cdp =]]
+description: Step-by-step configuration procedure of [[= product_name_cdp =]].
 ---
 
 # Configuration
