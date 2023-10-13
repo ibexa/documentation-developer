@@ -34,7 +34,7 @@ In a migration file, a step is an array item starting with the mandatory propert
     mode: create
 ```
 
-Then, the step will be described by additional properties depending on its type and mode.
+Then, the step is described by additional properties depending on its type and mode.
 
 * See [Available migrations](#available-migrations) for the modes available for each type.
 * See [Migration examples](#migration-examples) to explore what you can do with each type.
