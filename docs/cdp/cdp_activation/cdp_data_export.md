@@ -21,11 +21,25 @@ In the **Download** section, select **Stream file**.
 Copy generated steam ID and paste it into the configuration file under `stream_id`.
 It allows you to establish a datastream from the Streaming API into the Data Manager.
 
-Next, you need to export your user data to the CDP.
+Next, you need to export your data to the CDP.
 Go to your installation and use this command:
+
+- user:
 
 ```bash
 php bin/console ibexa:cdp:stream-user-data --draft
+```
+
+- product:
+
+```bash
+php bin/console ibexa:cdp:stream-product-data --draft
+```
+
+- content:
+
+```bash
+php bin/console ibexa:cdp:stream-content-data --draft
 ```
 
 There are two versions of this command `--draft/--no-draft`.
