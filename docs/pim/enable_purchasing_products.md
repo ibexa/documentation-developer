@@ -87,7 +87,7 @@ ibexa:
             product_catalog:
                 engine: default
                 regions:
-                    germany: # Legacy VAT configuration format
+                    germany: # Shorthand VAT configuration format
                         vat_categories:
                             standard: 19
                             reduced: 7
