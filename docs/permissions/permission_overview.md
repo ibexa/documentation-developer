@@ -63,7 +63,7 @@ For example, to check if content can be assigned to a Section:
 
 ``` php
 $hasAccess = $this->isGranted(
-    new Attribute( 'section', 'assign', [ 'valueObject' => $contentInfo, 'targets' => [$section] ] )
+    new Attribute('section', 'assign', ['valueObject' => $contentInfo, 'targets' => [$section]])
 );
 ```
 
