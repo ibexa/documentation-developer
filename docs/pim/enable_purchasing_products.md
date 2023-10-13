@@ -118,10 +118,10 @@ ibexa:
                                         not_applicable: true
     ```
 
-You can then configure which VAT rate to use per product type in the Back Office.
-In the product type editing mode, access the definition of the Product Specification Field.
+You can then assign VAT rates that apply to each product type in the supported regions.
+To do it, in the Back Office, edit the product type, and navigate to the **VAT rates** area.
 
-![Setting up VAT rates for product type](catalog_vat_rates.png)
+![Assigning VAT rates to a product type](catalog_vat_rates.png "Assigning VAT rates to a product type")
 
 ## Product price
 
