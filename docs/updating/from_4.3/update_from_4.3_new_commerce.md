@@ -297,7 +297,7 @@ Finally, remove related routes by deleting `config/routes/ibexa_commerce.yaml` f
 
 ### Update the database
 
-Next, update the database if you are using [[= product_name_com =]]e.
+Next, update the database if you are using [[= product_name_com =]].
 [[= product_name_content =]] and [[= product_name_exp =]] do not require the database update.
 
 [[% include 'snippets/update/db/db_backup_warning.md' %]]
