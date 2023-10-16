@@ -24,7 +24,10 @@ the `ibexa:migrations:migrate` command ignores files that it had previously exec
 
 ## Migration step
 
-A migration is a list of steps. A step is an action mode on a type of objects.
+A data migration step is a single operation in data migration process
+that combines a mode (for example: `create`, `update`, `delete`)
+and a type (for example: `content`, `section`, `currency`),
+with optional additional information depending on the specific step.
 
 In a migration file, a step is an array item starting with the mandatory properties `type` and `mode`, for example:
 
@@ -38,6 +41,7 @@ Then, the step is described by additional properties depending on its type and m
 
 * See [Available migrations](#available-migrations) for the modes available for each type.
 * See [Migration examples](#migration-examples) to explore what you can do with each type.
+* For a custom migration step, see [Create data migration step](create_data_migration_step.md).
 
 ## Available migrations
 
