@@ -10,7 +10,7 @@ Before you start this procedure, make sure you have completed the previous step,
 
 ## 5. Update to v3.3
 
-Ibexa DXP v3.3 uses [Symfony Flex]([[= symfony_doc =]]/quick_tour/flex_recipes.html).
+[[= product_name =]] v3.3 uses [Symfony Flex]([[= symfony_doc =]]/quick_tour/flex_recipes.html).
 When updating from v3.2 to v3.3, you need to follow a special update procedure.
 
 !!! note
@@ -47,7 +47,7 @@ If you have not done it before, add the relevant meta-repository as an `upstream
 
 Merge the current skeleton into your project:
 
-=== "Ibexa Content"
+=== "[[= product_name_content =]]"
 
     ``` bash
     git remote add content-skeleton https://github.com/ibexa/content-skeleton.git
@@ -55,7 +55,7 @@ Merge the current skeleton into your project:
     git merge v[[= latest_tag =]] --allow-unrelated-histories
     ```
 
-=== "Ibexa Experience"
+=== "[[= product_name_exp =]]"
 
     ``` bash
     git remote add experience-skeleton https://github.com/ibexa/experience-skeleton.git
@@ -63,7 +63,7 @@ Merge the current skeleton into your project:
     git merge v[[= latest_tag =]] --allow-unrelated-histories
     ```
 
-=== "Ibexa Commerce"
+=== "[[= product_name_com =]]"
 
     ``` bash
     git remote add commerce-skeleton https://github.com/ibexa/commerce-skeleton.git

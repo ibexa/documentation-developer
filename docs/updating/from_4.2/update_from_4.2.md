@@ -14,19 +14,19 @@ Before you update to v4.3, you need to go through the following steps to update 
 
 Run:
 
-=== "Ibexa Content"
+=== "[[= product_name_content =]]"
 
     ``` bash
     composer require ibexa/content:[[= latest_tag_4_2 =]] --with-all-dependencies --no-scripts
     ```
 
-=== "Ibexa Experience"
+=== "[[= product_name_exp =]]"
 
     ``` bash
     composer require ibexa/experience:[[= latest_tag_4_2 =]] --with-all-dependencies --no-scripts
     ```
 
-=== "Ibexa Commerce"
+=== "[[= product_name_com =]]"
 
     ``` bash
     composer require ibexa/commerce:[[= latest_tag_4_2 =]] --with-all-dependencies --no-scripts
@@ -40,21 +40,21 @@ When you have the latest version of v4.2, you can update to v4.3.
 
 First, run:
 
-=== "Ibexa Content"
+=== "[[= product_name_content =]]"
 
     ``` bash
     composer require ibexa/content:[[= latest_tag_4_3 =]] --with-all-dependencies --no-scripts
     composer recipes:install ibexa/content --force -v
     ```
 
-=== "Ibexa Experience"
+=== "[[= product_name_exp =]]"
 
     ``` bash
     composer require ibexa/experience:[[= latest_tag_4_3 =]] --with-all-dependencies --no-scripts
     composer recipes:install ibexa/experience --force -v
     ```
 
-=== "Ibexa Commerce"
+=== "[[= product_name_com =]]"
 
     ``` bash
     composer require ibexa/commerce:[[= latest_tag_4_3 =]] --with-all-dependencies --no-scripts
@@ -68,7 +68,7 @@ Review the old YAML files and move your custom configuration to the relevant new
 
 #### Customer Portal self-registration
 
-If you are using Ibexa Experience or Ibexa Commerce,
+If you are using [[= product_name_exp =]] or [[= product_name_com =]],
 run data migration required by the Customer Portal self-registration feature:
 
 ```bash
@@ -142,7 +142,7 @@ Apply the following database update scripts:
 
 #### Ibexa Open Source
 
-If you have no access to Ibexa DXP's `ibexa/installer` package, database upgrade is not necessary.
+If you have no access to [[= product_name =]]'s `ibexa/installer` package, database upgrade is not necessary.
 
 ## Ensure password safety
 

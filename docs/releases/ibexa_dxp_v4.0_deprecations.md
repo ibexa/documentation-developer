@@ -1,3 +1,5 @@
+<!-- vale off -->
+
 # Ibexa DXP v4.0 deprecations and backwards compatibility breaks
 
 Ibexa DXP v4.0 introduces changes to significant parts of the code

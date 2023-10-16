@@ -372,7 +372,7 @@ This section describes to how to debug problems related to HTTP cache.
 	the HTTP cache sends to the client (web browser).
 	It means you must be able to send requests to your origin (web server) that do not go through Varnish or Fastly.
 	If you run Nginx and Varnish on premise, you should know what host and port number both Varnish and Nginx runs on. If you
-	perform tests on Fastly enabled environment on Ibexa Cloud provided by Platform.sh, you need to use the Platform.sh
+	perform tests on Fastly enabled environment on [[= product_name_cloud =]] provided by Platform.sh, you need to use the Platform.sh
 	Dashboard to obtain the endpoint for Nginx.
 
 The following example shows how to debug and check why Fastly does not cache the front page properly. 

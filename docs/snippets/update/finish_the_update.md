@@ -1,6 +1,6 @@
 ### A. Platform.sh changes
 
-If you are hosting your site on Ibexa Cloud be aware of the fact that Varnish is enabled by default as of v1.13.5, v2.4.3 and v2.5.0.
+If you are hosting your site on [[= product_name_cloud =]] be aware of the fact that Varnish is enabled by default as of v1.13.5, v2.4.3 and v2.5.0.
 If you are using Fastly, read about [how to disable Varnish](https://docs.platform.sh/frameworks/ibexa/fastly.html#remove-varnish-configuration).
 
 ### B. Dump assets

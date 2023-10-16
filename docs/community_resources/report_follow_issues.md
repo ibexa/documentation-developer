@@ -1,6 +1,6 @@
 # Report and follow issues
 
-Ibexa DXP / eZ Platform uses [JIRA](https://issues.ibexa.co) to track product development, improvements, and bugs.
+[[= product_name =]] / eZ Platform uses [JIRA](https://issues.ibexa.co) to track product development, improvements, and bugs.
 
 ## How to find an existing issue
 
@@ -14,7 +14,7 @@ If you find any, update them with your comment or additional information instead
 
     If you discover a security issue, please do not report it using regular channels, but instead take a look at [Security section](../guide/reporting_issues.md).
 
-If you have an Ibexa DXP / eZ Platform subscription, report your issues through the [support portal](https://support.ibexa.co) instead of JIRA.
+If you have an [[= product_name =]] / eZ Platform subscription, report your issues through the [support portal](https://support.ibexa.co) instead of JIRA.
 This ensures the issue can be quickly prioritized according to its impact.
 
 If you cannot find an existing ticket matching what your issue, you can create a new one.
@@ -32,4 +32,4 @@ Click **Create** at the top of the bugtracker window and fill in the following f
 |**Reporter**|Leave as is (yourself).|
 |**Environment**|Enter specific information regarding your environment that could be relevant in the context of the issues.|
 |**Description**|This is the most important part of the issue report. In case of a bug, it **must** contain explicit steps to reproduce your issue. Anybody should be able to reproduce it at first try. In case of an improvement, it needs to contain use cases and detailed information regarding the expected behavior.|
-|**Product**|Select which flavor of Ibexa DXP / eZ Platform the issue concerns.|
+|**Product**|Select which flavor of [[= product_name =]] / eZ Platform the issue concerns.|

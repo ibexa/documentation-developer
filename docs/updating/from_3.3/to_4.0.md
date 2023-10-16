@@ -20,19 +20,19 @@ An additional compatibility layer makes the process of updating your code easier
 
 First, run:
 
-=== "Ibexa Content"
+=== "[[= product_name_content =]]"
 
     ``` bash
     composer require ibexa/content:[[= latest_tag_4_0 =]] --with-all-dependencies --no-scripts
     ```
 
-=== "Ibexa Experience"
+=== "[[= product_name_exp =]]"
 
     ``` bash
     composer require ibexa/experience:[[= latest_tag_4_0 =]] --with-all-dependencies --no-scripts
     ```
 
-=== "Ibexa Commerce"
+=== "[[= product_name_com =]]"
 
     ``` bash
     composer require ibexa/commerce:[[= latest_tag_4_0 =]] --with-all-dependencies --no-scripts
@@ -57,19 +57,19 @@ composer config extra.symfony.endpoint "https://api.github.com/repos/ibexa/recip
 
 Next, continue with updating the app:
 
-=== "Ibexa Content"
+=== "[[= product_name_content =]]"
 
     ``` bash
     composer recipes:install ibexa/content --force -v
     ```
 
-=== "Ibexa Experience"
+=== "[[= product_name_exp =]]"
 
     ``` bash
     composer recipes:install ibexa/experience --force -v
     ```
 
-=== "Ibexa Commerce"
+=== "[[= product_name_com =]]"
 
     ``` bash
     composer recipes:install ibexa/commerce --force -v

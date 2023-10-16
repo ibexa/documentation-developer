@@ -74,7 +74,7 @@ The XHTML5 format is used by the Online Editor.
     The custom DocBook format described below is subject to change
     and is not covered by backwards compatibility promise.
 
-You can use the Ibexa flavor of the DocBook format in PHP API and in REST API requests
+You can use the [[= product_nam_base_ =]] flavor of the DocBook format in PHP API and in REST API requests
 by providing the DocBook content as a string.
 
 The following example shows how to pass DocBook content to a [create struct](../public_php_api_creating_content.md#creating-content-item-draft):

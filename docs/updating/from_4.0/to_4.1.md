@@ -33,21 +33,21 @@ composer config extra.symfony.endpoint "https://api.github.com/repos/ibexa/recip
 
 Perform the update:
 
-=== "Ibexa Content"
+=== "[[= product_name_content =]]"
 
     ``` bash
     composer require ibexa/content:[[= latest_tag_4_0 =]] --with-all-dependencies --no-scripts
     composer recipes:install ibexa/content --force -v
     ```
 
-=== "Ibexa Experience"
+=== "[[= product_name_exp =]]"
 
     ``` bash
     composer require ibexa/experience:[[= latest_tag_4_0 =]] --with-all-dependencies --no-scripts
     composer recipes:install ibexa/experience --force -v
     ```
 
-=== "Ibexa Commerce"
+=== "[[= product_name_com =]]"
 
     ``` bash
     composer require ibexa/commerce:[[= latest_tag_4_0 =]] --with-all-dependencies --no-scripts
@@ -65,21 +65,21 @@ mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgra
 
 When you have the v4.0 version, you can update to v4.1.0:
 
-=== "Ibexa Content"
+=== "[[= product_name_content =]]"
 
     ``` bash
     composer require ibexa/content:4.1.0 --with-all-dependencies --no-scripts
     composer recipes:install ibexa/content --force -v
     ```
 
-=== "Ibexa Experience"
+=== "[[= product_name_exp =]]"
 
     ``` bash
     composer require ibexa/experience:4.1.0 --with-all-dependencies --no-scripts
     composer recipes:install ibexa/experience --force -v
     ```
 
-=== "Ibexa Commerce"
+=== "[[= product_name_com =]]"
 
     ``` bash
     composer require ibexa/commerce:4.1.0 --with-all-dependencies --no-scripts
@@ -113,27 +113,27 @@ Apply the following database update scripts:
 
 #### Ibexa Open Source
 
-If you are using Ibexa OSS and have no access to Ibexa DXP's `ibexa/installer` package, database upgrade is not necessary.
+If you are using [[= product_name_oss =]] and have no access to [[= product_name =]]'s `ibexa/installer` package, database upgrade is not necessary.
 
 ## Update the app to latest version of v4.1
 
 Now, update the application to the latest version of v4.1: [[= latest_tag_4_1 =]].
 
-=== "Ibexa Content"
+=== "[[= product_name_content =]]"
 
     ``` bash
     composer require ibexa/content:[[= latest_tag_4_1 =]] --with-all-dependencies --no-scripts
     composer recipes:install ibexa/content --force -v
     ```
 
-=== "Ibexa Experience"
+=== "[[= product_name_exp =]]"
 
     ``` bash
     composer require ibexa/experience:[[= latest_tag_4_1 =]] --with-all-dependencies --no-scripts
     composer recipes:install ibexa/experience --force -v
     ```
 
-=== "Ibexa Commerce"
+=== "[[= product_name_com =]]"
 
     ``` bash
     composer require ibexa/commerce:[[= latest_tag_4_1 =]] --with-all-dependencies --no-scripts
