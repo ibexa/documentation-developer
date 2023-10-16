@@ -2,6 +2,7 @@
 description: Ibexa DXP v4.4 adds the improvements to the Welcome Page, All-new Ibexa Commerce packages and Fastly IO.
 ---
 
+<!-- vale VariablesVersion = NO -->
 # Ibexa DXP v4.4
 
 **Version number**: v4.4
