@@ -1,3 +1,5 @@
+<!-- vale off -->
+
 # Ibexa DXP v3.3
 
 **Version number**: v3.3

@@ -2,6 +2,8 @@
 description: Ibexa DXP v4.5 adds new features to Ibexa Commerce, translation comparison, and a number of improvements to Customer Portal and Personalization.
 ---
 
+
+<!-- vale off -->
 # Ibexa DXP v4.5
 
 **Version number**: v4.5

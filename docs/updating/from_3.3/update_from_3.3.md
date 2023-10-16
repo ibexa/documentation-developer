@@ -16,19 +16,19 @@ Go through the following steps to update to the latest maintenance release of v3
 
 Run:
 
-=== "Ibexa Content"
+=== "[[= product_name_content =]]"
 
     ``` bash
     composer require ibexa/content:[[= latest_tag_3_3 =]] --with-all-dependencies --no-scripts
     ```
 
-=== "Ibexa Experience"
+=== "[[= product_name_exp =]]"
 
     ``` bash
     composer require ibexa/experience:[[= latest_tag_3_3 =]] --with-all-dependencies --no-scripts
     ```
 
-=== "Ibexa Commerce"
+=== "[[= product_name_com =]]"
 
     ``` bash
     composer require ibexa/commerce:[[= latest_tag_3_3 =]] --with-all-dependencies --no-scripts
@@ -57,21 +57,21 @@ composer config extra.symfony.endpoint "https://api.github.com/repos/ibexa/recip
 
 Next, continue with updating the app:
 
-=== "Ibexa Content"
+=== "[[= product_name_content =]]"
 
     ``` bash
     composer recipes:install ibexa/content --force -v
     composer run post-install-cmd
     ```
 
-=== "Ibexa Experience"
+=== "[[= product_name_exp =]]"
 
     ``` bash
     composer recipes:install ibexa/experience --force -v
     composer run post-install-cmd
     ```
 
-=== "Ibexa Commerce"
+=== "[[= product_name_com =]]"
 
     ``` bash
     composer recipes:install ibexa/commerce --force -v
@@ -225,7 +225,7 @@ Run the following scripts:
 
 ### Ibexa Open Source
 
-If you have no access to Ibexa DXP's `ibexa/installer` package, apply the following database upgrade script:
+If you have no access to [[= product_name =]]'s `ibexa/installer` package, apply the following database upgrade script:
 
 === "MySQL"
 
@@ -355,7 +355,7 @@ See [Update Flex server](#update-flex-server).
 
 #### VCL configuration for Fastly
 
-Ibexa DXP now supports Fastly shielding. If you are using Fastly and want to use shielding, you need to update your VCL files.
+[[= product_name =]] now supports Fastly shielding. If you are using Fastly and want to use shielding, you need to update your VCL files.
 
 !!! tip
 

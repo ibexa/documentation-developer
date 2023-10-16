@@ -13,17 +13,17 @@ Before you update to v4.4, you need to go through the following steps to update 
 
 Run:
 
-=== "Ibexa Content"
+=== "[[= product_name_content =]]"
 
     ``` bash
     composer require ibexa/content:[[= latest_tag_4_3 =]] --with-all-dependencies --no-scripts
     ```
-=== "Ibexa Experience"
+=== "[[= product_name_exp =]]"
 
     ``` bash
     composer require ibexa/experience:[[= latest_tag_4_3 =]] --with-all-dependencies --no-scripts
     ```
-=== "Ibexa Commerce"
+=== "[[= product_name_com =]]"
 
     ``` bash
     composer require ibexa/commerce:[[= latest_tag_4_3 =]] --with-all-dependencies --no-scripts
@@ -99,19 +99,19 @@ When you have the latest version of v4.3, you can update to v4.4.
 
 First, run:
 
-=== "Ibexa Content"
+=== "[[= product_name_content =]]"
 
     ``` bash
     composer require ibexa/content:[[= latest_tag_4_4 =]] --with-all-dependencies --no-scripts
     composer recipes:install ibexa/content --force -v
     ```
-=== "Ibexa Experience"
+=== "[[= product_name_exp =]]"
 
     ``` bash
     composer require ibexa/experience:[[= latest_tag_4_4 =]] --with-all-dependencies --no-scripts
     composer recipes:install ibexa/experience --force -v
     ```
-=== "Ibexa Commerce"
+=== "[[= product_name_com =]]"
 
     ``` bash
     composer require ibexa/commerce:[[= latest_tag_4_4 =]] --with-all-dependencies --no-scripts
@@ -145,7 +145,7 @@ composer recipe:install --force --reset -- oneup/flysystem-bundle
 Remove the following bundles from `config/bundles.php`.
 You do not have to remove third-party bundles (`FOS\` to `JMS\`) if they are used by your installation.
 
-=== "Ibexa Content"
+=== "[[= product_name_content =]]"
 
     ``` php
     FOS\CommentBundle\FOSCommentBundle
@@ -172,7 +172,7 @@ You do not have to remove third-party bundles (`FOS\` to `JMS\`) if they are use
     Ibexa\Bundle\Commerce\ShopUi\IbexaCommerceShopUiBundle
     ```
 
-=== "Ibexa Experience"
+=== "[[= product_name_exp =]]"
 
     ``` php
     FOS\CommentBundle\FOSCommentBundle
@@ -199,7 +199,7 @@ You do not have to remove third-party bundles (`FOS\` to `JMS\`) if they are use
     Ibexa\Bundle\Commerce\ShopUi\IbexaCommerceShopUiBundle
     ```
 
-=== "Ibexa Commerce"
+=== "[[= product_name_com =]]"
 
     ``` php
     FOS\CommentBundle\FOSCommentBundle
@@ -246,7 +246,7 @@ You do not have to remove third-party bundles (`FOS\` to `JMS\`) if they are use
 Next, remove related extensions' configuration.
 You do not have to remove third-party bundles (for example `config/packages/fos_rest.yaml`) if they are used by your installation.
 
-=== "Ibexa Content"
+=== "[[= product_name_content =]]"
 
     ``` 
     config/packages/commerce.yaml
@@ -259,7 +259,7 @@ You do not have to remove third-party bundles (for example `config/packages/fos_
     config/packages/nelmio_solarium.yaml
     ```
 
-=== "Ibexa Experience"
+=== "[[= product_name_exp =]]"
 
     ```
     config/packages/commerce.yaml
@@ -272,7 +272,7 @@ You do not have to remove third-party bundles (for example `config/packages/fos_
     config/packages/nelmio_solarium.yaml
     ```
 
-=== "Ibexa Commerce"
+=== "[[= product_name_com =]]"
 
     ```
     config/packages/commerce.yaml
@@ -297,8 +297,8 @@ Finally, remove related routes by deleting `config/routes/ibexa_commerce.yaml` f
 
 ### Update the database
 
-Next, update the database if you are using Ibexa Commerce.
-Ibexa Content and Ibexa Experience do not require the database update.
+Next, update the database if you are using [[= product_name_com =]].
+[[= product_name_content =]] and [[= product_name_exp =]] do not require the database update.
 
 [[% include 'snippets/update/db/db_backup_warning.md' %]]
 
@@ -337,7 +337,7 @@ composer run post-install-cmd
 
 ### Customer Portal self-registration
 
-If you are using Ibexa Experience or Ibexa Commerce,
+If you are using [[= product_name_exp =]] or [[= product_name_com =]],
 you can now run data migration required by the Customer Portal applications feature to finish the update process:
 
 ```bash

@@ -2,6 +2,8 @@
 description: Ibexa DXP v4.3 adds the improvements to the Customer Portal, PIM and SEO.
 ---
 
+
+<!-- vale off -->
 # Ibexa DXP v4.3
 
 **Version number**: v4.3

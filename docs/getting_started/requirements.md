@@ -87,7 +87,7 @@ event MPM is recommended, if you need to use prefork you also need the `mod_php`
 
 ## Browser
 
-Ibexa software is developed to work with *any* web browser that supports modern standards, on *any* screen resolution suitable for web, running on *any* device. However for the Editorial and Administration User Interfaces you'll need; a minimum of 1366-by-768 screen resolution, a desktop or tablet device, and a recommended/supported browser among the ones found below.
+[[= product_name_base =]] software is developed to work with *any* web browser that supports modern standards, on *any* screen resolution suitable for web, running on *any* device. However for the Editorial and Administration User Interfaces you'll need; a minimum of 1366-by-768 screen resolution, a desktop or tablet device, and a recommended/supported browser among the ones found below.
 
 - Mozilla® Firefox® most recent stable version (recommended)
 - Google Chrome™ most recent stable version (recommended)
@@ -122,7 +122,7 @@ Ibexa software is developed to work with *any* web browser that supports modern 
 
     - Verifying your legacy configuration and ensuring it is supported by Platform.sh
     - Additional time for adaptation and configuration work, and testing by your own team
-    - Additional consulting/onboarding time with Platform.sh, Ibexa technical services, and/or one of the many partners with prior experience using Platform.sh with eZ Publish legacy
+    - Additional consulting/onboarding time with Platform.sh, [[= product_name_base =]] technical services, and/or one of the many partners with prior experience using Platform.sh with eZ Publish legacy
 
     The cost and effort of this is not included in eZ Platform Cloud subscription and will vary depending on the project.
 
