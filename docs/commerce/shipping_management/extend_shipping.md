@@ -61,7 +61,7 @@ At this point you should be able to create a shipping method based on a custom s
 
 !!! note
 
-    To use this example, you must have regions. If you don't have them, refer to [Enable purchasing products](enable_purchasing_products.md) for instructions on how to add them..
+    To use this example, you must have regions. If you don't have regions, refer to [Enable purchasing products](enable_purchasing_products.md) for instructions on how to add them.
 
 ### Create options validator
 
