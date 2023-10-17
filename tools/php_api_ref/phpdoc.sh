@@ -9,9 +9,10 @@ DXP_EDITION='commerce'; # Edition from and for which the Reference is built
 DXP_VERSION='4.6.*@dev'; # Version from and for which the Reference is built
 DXP_EDITIONS=(oss headless experience commerce); # Available editions ordered by ascending capabilities
 TMP_DXP_DIR=/tmp/ibexa-dxp-phpdoc; # Absolute path of the temporary directory in which Ibexa DXP will be installed and the PHP API Reference built
-PHPDOC_CONF="$(pwd)/tools/php_api_ref/phpdoc.dist.xml"; # Absolute path to phpDocumentor configuration file
-PHPDOC_DIR="$(pwd)/tools/php_api_ref/.phpdoc"; # Absolute path to phpDocumentor resource directory (containing the template set)
 PHPDOC_VERSION='3.4.1'; # Version of phpDocumentor used to build the Reference
+PHPDOC_CONF="$(pwd)/tools/php_api_ref/phpdoc.dist.xml"; # Absolute path to phpDocumentor configuration file
+PHPDOC_TEMPLATE_VERSION='3.3.1'; # Version of the phpDocumentor base template set
+PHPDOC_DIR="$(pwd)/tools/php_api_ref/.phpdoc"; # Absolute path to phpDocumentor resource directory (containing the override template set)
 
 if [ ! -d $OUTPUT_DIR ]; then
   echo -n "Creating ${OUTPUT_DIR}… ";
@@ -64,9 +65,23 @@ done;
 echo "} %}{% block content %}{% endblock %}" >> $map;
 echo 'OK';
 
-echo "Set and run phpDocumentor…";
+echo "Set up phpDocumentor…";
 sed "s/version number=\".*\"/version number=\"$DXP_VERSION\"/" $PHPDOC_CONF > ./phpdoc.dist.xml;
+mkdir .phpdoc;
+
+echo "Set phpDocumentor base templates…"
+git clone -n -b "v$PHPDOC_TEMPLATE_VERSION" --depth=1 --filter=tree:0 https://github.com/phpDocumentor/phpDocumentor
+cd phpDocumentor;
+git sparse-checkout set --no-cone data/templates/default/;
+git checkout;
+mv data/templates/default ../.phpdoc/template;
+cd -;
+rm -rf phpDocumentor;
+
+echo "Set phpDocumentor override templates…"
 cp -R $PHPDOC_DIR ./;
+
+echo "Run phpDocumentor…"
 curl -LO "https://github.com/phpDocumentor/phpDocumentor/releases/download/v$PHPDOC_VERSION/phpDocumentor.phar";
 php phpDocumentor.phar -t php_api_reference;
 if [ $? -eq 0 ]; then
@@ -81,9 +96,13 @@ if [ $? -eq 0 ]; then
       rm -rf $file;
     fi;
   done <<< "$(diff -qr ./php_api_reference $OUTPUT_DIR | grep 'Only in ' | grep -v ': images')";
-  echo 'OK.';
 else
   echo 'A phpDocumentor error prevents reference update.';
+  exit 3;
 fi;
 
+echo 'Remove temporary directory…';
 rm -rf $TMP_DXP_DIR;
+
+echo 'Done.';
+exit 0;
