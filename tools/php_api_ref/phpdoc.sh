@@ -83,7 +83,7 @@ cp -R $PHPDOC_DIR ./;
 
 echo "Run phpDocumentor…"
 curl -LO "https://github.com/phpDocumentor/phpDocumentor/releases/download/v$PHPDOC_VERSION/phpDocumentor.phar";
-php phpDocumentor.phar -t php_api_reference;
+php phpDocumentor.phar run -t php_api_reference;
 if [ $? -eq 0 ]; then
   echo -n "Remove unneeded from phpDocumentor output… ";
   rm -rf ./php_api_reference/files ./php_api_reference/graphs ./php_api_reference/indices ./php_api_reference/packages;
@@ -96,6 +96,7 @@ if [ $? -eq 0 ]; then
       rm -rf $file;
     fi;
   done <<< "$(diff -qr ./php_api_reference $OUTPUT_DIR | grep 'Only in ' | grep -v ': images')";
+  echo "OK.";
 else
   echo 'A phpDocumentor error prevents reference update.';
   exit 3;
