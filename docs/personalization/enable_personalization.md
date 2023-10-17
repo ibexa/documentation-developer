@@ -5,11 +5,11 @@ description: Configure your project files to enable Personalization and set up i
 # Enable Personalization
 
 The Personalization service is based on a client-server architecture.
-To enable it, you must set up authentication parameters that you receive from Ibexa.
+To enable it, you must set up authentication parameters that you receive from [[= product_name_base =]].
 
 ## Get authentication parameters
 
-First, either you or another Ibexa user responsible for managing the [[= product_name =]]  
+First, either you or another [[= product_name_base =]] user responsible for managing the [[= product_name =]]  
 instance must [request access to the service]([[= user_doc =]]/personalization/enabling_personalization/#request-access-to-the-server).
 
 ## Set up customer credentials
@@ -268,7 +268,7 @@ There are three ways to check whether content was transferred and stored success
 
 To get the data of an imported item you can request the following REST resource:
 
-`GET https://https://admin.perso.ibexa.co/api/<your_customer_id>/item/<your_item_type_id>/<your_item_id>`
+`GET https://admin.perso.ibexa.co/api/<your_customer_id>/item/<your_item_type_id>/<your_item_id>`
 
 This way uses basic authentication. 
 The username is the customer ID and the password is the license key.
@@ -325,7 +325,7 @@ In the Back Office, go to **Personalization** > **Import** and review the list o
 The Personalization server is automatically kept in sync with the content in [[= product_name =]].
 
 Every time an editor creates, updates or deletes content in the Back Office,
-a notification is sent to https://admin.perso.ibexa.co.
+a notification is sent to https://admin.perso.ibexa.co/.
 The personalization service also notifies other components of the Personalization server
 and it eventually fetches the affected content and updates it internally.
 
@@ -407,7 +407,7 @@ This response data can be used in templates to render and style recommendations.
 For example, the following GET request should deliver the response below
 if the content Fields were previously exported by the export script.
 
-`GET https://https://reco.perso.ibexa.co/api/v2/<your_customer_id>/someuser/popular.json?contextitems=71&numrecs=5&categorypath=/&outputtypeid=<your_item_type>&attribute=name,author,uri,image`
+`GET https://reco.perso.ibexa.co/api/v2/<your_customer_id>/someuser/popular.json?contextitems=71&numrecs=5&categorypath=/&outputtypeid=<your_item_type>&attribute=name,author,uri,image`
 
 ??? note "Example response"
 
@@ -535,7 +535,7 @@ For example, to retrieve the `rss` variation of the image, use:
 
 #### Logging
 
-Most operations are logged by using the `ibexa-personalization` [Monolog channel](http://symfony.com/doc/5.0/cookbook/logging/channels_handlers.html).
+Most operations are logged by using the `ibexa-personalization` [Monolog channel](https://symfony.com/doc/5.4/logging/channels_handlers.html).
 To log everything about Personalization to `dev.recommendation.log`, add the following configuration:
 
 ``` yaml

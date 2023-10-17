@@ -7,7 +7,7 @@ This Field represents and handles a table of rows and columns of data.
 | `Matrix` | `ezmatrix`    | `array`        |
 
 The Matrix Field Type is available via the Matrix Bundle
-provided by the [ibexa/matrix-fieldtype](https://github.com/ibexa/matrix-fieldtype) package.
+provided by the [ibexa/fieldtype-matrix](https://github.com/ibexa/fieldtype-matrix) package.
 
 ## PHP API Field Type
 

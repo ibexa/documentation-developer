@@ -19,7 +19,7 @@ is up to you and your performance needs.
 
 The minimal requirements are:
 
-- [Shared HTTP cache (using Varnish)](reverse_proxy.md/#using-varnish-or-fastly)
+- [Shared HTTP cache (using Varnish)](reverse_proxy.md#using-varnish-or-fastly)
 - [Shared persistence cache](#shared-persistence-cache) and [sessions](#shared-sessions) (using Redis or Memcached)
 - Shared database (using MySQL/MariaDB)
 - [Shared binary files](#shared-binary-files) (using NFS, or S3)
@@ -47,16 +47,16 @@ The main options out of the box in Symfony are the native PHP Memcached or PHP R
 
 To avoid concurrent access to session data from front-end nodes, if possible you should either:
 
-- Enable [Session locking](http://php.net/manual/en/features.session.security.management.php#features.session.security.management.session-locking)
-- Use "Sticky Session", aka [Load Balancer Persistence](https://en.wikipedia.org/wiki/Load_balancing_(computing)#Persistence)
+- Enable [Session locking](https://www.php.net/manual/en/features.session.security.management.php#features.session.security.management.session-locking)
+- Use "Sticky Session", aka [Load Balancer Persistence](https://en.wikipedia.org/wiki/Load_balancing_%28computing%29#Persistence)
 
 Session locking is available with `php-memcached`, and with `php-redis` (v4.2.0 and higher).
 
-On Ibexa Cloud (and Platform.sh) Redis is preferred and supported.
+On [[= product_name_cloud =]] (and Platform.sh) Redis is preferred and supported.
 
 ### Shared binary files
 
-[[= product_name =]] supports multi-server setups by means of [custom IO handlers](file_management.md#the-dfs-cluster-handler).
+[[= product_name =]] supports multi-server setups by means of [custom IO handlers](file_management.md#dfs-cluster-handler).
 They make sure that files are correctly synchronized among the multiple clients using the data.
 
 ## DFS IO handler
@@ -141,7 +141,7 @@ manually importing its schema definition:
     ```
 
 !!! note
-    On Ibexa Cloud (and Platform.sh) a separate DFS database is supported for MySQL only.
+    On [[= product_name_cloud =]] (and Platform.sh) a separate DFS database is supported for MySQL only.
 
 This example uses Doctrine connection named `dfs`:
 
@@ -200,7 +200,7 @@ ibexa:
 
 !!! tip
 
-    If you are looking to [set up S3](clustering_with_aws_s3.md) or other [Flysystem v2](https://flysystem.thephpleague.com/)/third-party adapters like Google Cloud Storage, this needs to be configured as binary handler. The rest here will still stay the same, the DFS metadata handler will take care of caching the lookups to avoid slow IO lookups.
+    If you are looking to [set up S3](clustering_with_aws_s3.md) or other [Flysystem](https://flysystem.thephpleague.com/docs/)/third-party adapters like Google Cloud Storage, this needs to be configured as binary handler. The rest here will still stay the same, the DFS metadata handler will take care of caching the lookups to avoid slow IO lookups.
 
 #### Customizing the storage directory
 

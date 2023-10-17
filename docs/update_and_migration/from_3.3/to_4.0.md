@@ -121,7 +121,7 @@ Apply the following database update script:
 
 ### Ibexa Open Source
 
-If you have no access to Ibexa DXP's `ibexa/installer` package, apply the following database upgrade script:
+If you have no access to [[= product_name =]]'s `ibexa/installer` package, apply the following database upgrade script:
 
 === "MySQL"
     ``` sql
@@ -166,7 +166,7 @@ php bin/console ibexa:migrations:migrate
 #### Custom plugins and buttons
 
 If you added your own Online Editor plugins or buttons, you need to rewrite them
-using [CKEditor 5's extensibility](https://ckeditor.com/docs/ckeditor5/latest/framework/guides/plugins/creating-simple-plugin.html).
+using [CKEditor 5's extensibility](https://ckeditor.com/docs/ckeditor5/latest/tutorials/crash-course/plugins.html#creating-custom-plugins).
 
 #### Custom tags
 

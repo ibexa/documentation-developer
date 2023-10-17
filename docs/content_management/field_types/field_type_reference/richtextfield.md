@@ -1,6 +1,6 @@
 # RichText Field Type
 
-The RichText Field Type is available via the RichText Field Type Bundle provided by the [ibexa/richtext](https://github.com/ibexa/richtext) package.
+The RichText Field Type is available via the RichText Field Type Bundle provided by the [ibexa/fieldtype-richtext](https://github.com/ibexa/fieldtype-richtext) package.
 
 This Field Type validates and stores structured rich text, and exposes it in several formats.
 
@@ -67,7 +67,7 @@ The XHTML5 format is used by the Online Editor.
     The custom DocBook format described below is subject to change
     and is not covered by backwards compatibility promise.
 
-You can use the Ibexa flavor of the DocBook format in PHP API and in REST API requests
+You can use the [[= product_name_base =]] flavor of the DocBook format in PHP API and in REST API requests
 by providing the DocBook content as a string.
 
 The following example shows how to pass DocBook content to a [create struct](creating_content.md#creating-content-item-draft):
@@ -118,7 +118,7 @@ The RichText format enriches [DocBook](https://docbook.org/) with the following 
 !!! note "Unsupported DocBook elements"
 
     Some DocBook elements are not supported by RichText.
-    Refer to [`ezpublish.rng`](https://github.com/ibexa/richtext/blob/main/src/bundle/Resources/richtext/schemas/docbook/ezpublish.rng#L120) for a full list.
+    Refer to [`ezpublish.rng`](https://github.com/ibexa/fieldtype-richtext/blob/main/src/bundle/Resources/richtext/schemas/docbook/ezpublish.rng#L137) for a full list.
 
 ### Online Editor elements
 

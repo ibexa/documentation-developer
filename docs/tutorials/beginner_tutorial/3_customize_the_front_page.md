@@ -193,7 +193,7 @@ Before proceeding, ensure that the structure of the added files looks like this:
 
 In [[= product_name =]], you can add assets by using [Symfony Webpack Encore]([[= symfony_doc =]]/frontend.html#webpack-encore)
 — an integration of Webpack that enables you to build bundles of CSS stylesheets and JS scripts and add them to the project.
-For more details, see [importing assets from a bundle](project_organization.md#importing-assets-from-a-bundle).
+For more details, see [Importing assets from a bundle](importing_assets_from_bundle.md).
 
 To create bundles, first, indicate which files to include in them.
 
@@ -235,7 +235,7 @@ To add one template to another, edit `templates/full/home_page.html.twig` and re
 {% endblock %}
 ```
 
-The templating language Twig supports [template inheritance](http://twig.sensiolabs.org/doc/templates.html#template-inheritance).
+The templating language Twig supports [template inheritance](https://twig.symfony.com/doc/3.x/tags/extends.html).
 Templates can contain named blocks. Any template can extend other templates, and modify the blocks defined by its parents.
 
 The code above points to `main_layout.html.twig` in line 1. It also wraps your "Hello world" message in a `content` block.

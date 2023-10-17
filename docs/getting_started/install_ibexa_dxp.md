@@ -11,10 +11,10 @@ description: Install Ibexa DXP on a Linux system and prepare your installation f
     To install [[= product_name =]] for development on macOS or Windows,
     see the [installation guide for macOS and Windows](install_on_mac_os_and_windows.md).
 
-!!! note "Installing Ibexa OSS"
+!!! note "Installing [[= product_name_oss =]]"
 
-    This installation guide details the steps to install Ibexa DXP for users who have a subscription agreement with Ibexa.
-    If you want to install Ibexa OSS, you do not need authentication tokens or an account on updates.ibexa.co,
+    This installation guide details the steps to install[[= product_name =]] for users who have a subscription agreement with [[= product_name_base =]].
+    If you want to install [[= product_name_oss =]], you do not need authentication tokens or an account on updates.ibexa.co,
     but must adapt the steps shown here to the product edition and the `ibexa/oss-skeleton` repository.
 
 ## Prepare work environment
@@ -25,7 +25,7 @@ You can install it by following your favorite tutorial, for example: [Install LA
 
 Additional requirements:
 
-- [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/lang/en/docs/install/#debian-stable) for asset management.
+- [Node.js](https://nodejs.org/en) and [Yarn](https://classic.yarnpkg.com/en/docs/install/#debian-stable) for asset management.
 - `git` for version control.
 - to use search in the shop front end, you must [install a search engine](#install-and-configure-a-search-engine).
 
@@ -68,7 +68,7 @@ composer -V
 The site is password-protected. 
 You must set up authentication tokens to access the site.
 
-Log in to your service portal on [support.ibexa.co](https://support.ibexa.co), go to your **Service Portal**, and look for the following on the **Maintenance and Support agreement details** screen:
+Log in to your service portal on [support.ibexa.co](https://support.ibexa.co/), go to your **Service Portal**, and look for the following on the **Maintenance and Support agreement details** screen:
 
 ![Authentication token](using_composer_auth_token.png)
 
@@ -119,7 +119,7 @@ After this, when running Composer to get updates, you will be asked for a userna
 To use Composer to instantly create a project in the current folder with all the dependencies,
 run the following command:
 
-=== "[[= product_name_content =]]"
+=== "[[= product_name_headless =]]"
 
     ``` bash
     composer create-project ibexa/headless-skeleton .
@@ -141,7 +141,7 @@ run the following command:
 
     If you are using PHP 7.4 or 8.0, use a different set of commands:
 
-    === "[[= product_name_content =]]"
+    === "[[= product_name_headless =]]"
 
         ``` bash
         composer create-project ibexa/headless-skeleton --no-install .
@@ -178,7 +178,7 @@ run the following command:
 
 !!! note "Platform.sh"
 
-    If you are deploying your installation on [Platform.sh](https://docs.platform.sh/frameworks/ibexa.html),
+    If you are deploying your installation on [Platform.sh](https://docs.platform.sh/guides/ibexa/deploy.html),
     run the following command:
     
     ``` bash
@@ -251,7 +251,7 @@ In `DATABASE_VERSION` you can also configure the database server version (for a 
 
 #### Install and configure a search engine
 
-You may choose to replace the [default search engine](search.md#legacy-search-engine) with either Solr or Elasticsearch.
+You may choose to replace the [default search engine](legacy_search_overview.md) with either Solr or Elasticsearch.
 
 !!! note "Shop front end requirement [[% include 'snippets/commerce_badge.md' %]]"
 
@@ -314,6 +314,27 @@ You can also use [Symfony CLI](https://symfony.com/download):
 
 ```bash
 symfony serve
+```
+
+## Prepare installation for development
+
+Consider adding the Symfony DebugBundle which fixes memory outage when dumping objects with circular references.
+The DebugBundle contains the [VarDumper]([[= symfony_doc =]]/components/var_dumper.html) and [its Twig integration]([[= symfony_doc =]]/components/var_dumper.html#debugbundle-and-twig-integration).
+
+``` bash
+composer require --dev symfony/debug-bundle
+```
+
+For detailed information about request treatment, you can eventually install [Symfony Profiler]([[= symfony_doc =]]/profiler.html):
+
+``` bash
+composer require --dev symfony/profiler-pack
+```
+
+To get both features in one go use:
+
+``` bash
+composer require --dev symfony/debug-pack
 ```
 
 ## Prepare installation for production
@@ -422,7 +443,7 @@ Finally, remove the temporary file:
 
 ### Enable the Link manager
 
-To make use of the [Link Manager](url_management.md#enable-automatic-url-validation).
+To make use of the [Link Manager](url_management.md#enabling-automatic-url-validation).
 
 #### JMS payment secret [[% include 'snippets/commerce_badge.md' %]]
 
@@ -431,4 +452,4 @@ and use the generated secret.
 
 ## Ibexa Cloud
 
-If you want to host your application on Ibexa Cloud, follow the [Install on Ibexa Cloud](install_on_ibexa_cloud.md) procedure.
+If you want to host your application on [[= product_name_cloud =]], follow the [Install on Ibexa Cloud](install_on_ibexa_cloud.md) procedure.

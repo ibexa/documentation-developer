@@ -106,7 +106,7 @@ php bin/console ibexa:migrate:richtext-namespaces
 
 #### Ibexa Open Source
 
-If you have no access to Ibexa DXP's `ibexa/installer` package, apply the following database update:
+If you have no access to [[= product_name =]]'s `ibexa/installer` package, apply the following database update:
 
 === "MySQL"
 
@@ -214,3 +214,21 @@ php bin/console ibexa:migrations:migrate --file=shipment_permissions.yaml
 php bin/console ibexa:migrations:import vendor/ibexa/order-management/src/bundle/Resources/install/migrations/order_permissions.yaml --name=order_permissions.yaml
 php bin/console ibexa:migrations:migrate --file=order_permissions.yaml
 ```
+
+### v4.5.2
+
+#### Database update
+
+Run the following scripts:
+
+=== "MySQL"
+
+    ``` sql
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.5.1-to-4.5.2.sql
+    ```
+
+=== "PostgreSQL"
+
+    ``` sql
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.5.1-to-4.5.2.sql
+    ```

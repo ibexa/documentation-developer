@@ -92,7 +92,7 @@ Apache has a [hard](https://github.com/apache/httpd/blob/5f32ea94af5f1e7ea68d6fc
 1\. For inline rendering just displaying the content name, image attribute, and/or link, it would be enough to:
 
 - Look into how many inline (non ESI) render calls for content rendering you are doing, and see if you can organize it differently.
-- Consider inlining the views not used elsewhere in the given template and [tagging the response in Twig](#response-tagging-in-twig) with "relation" tags.
+- Consider inlining the views not used elsewhere in the given template and [tagging the response in Twig](#response-tagging-in-templates) with "relation" tags.
     - (Optional) You can set reduced cache TTL for the given view, to reduce the risk of stale cache on subtree operations affecting the inlined content.
 
 2\. You can opt in to set a max length parameter (in bytes) and corresponding ttl (in seconds) 
@@ -197,7 +197,7 @@ but parent response needs these tags to get refreshed if they are deleted:
 $responseTagger->addTags([ContentTagInterface::RELATION_PREFIX . '33', ContentTagInterface::RELATION_PREFIX . '34']);
 ```
 
-See [Tagging from code](https://foshttpcachebundle.readthedocs.io/en/2.8.0/features/tagging.html#tagging-and-invalidating-from-php-code) in FOSHttpCacheBundle doc.
+See [Tagging from code](https://foshttpcachebundle.readthedocs.io/en/latest/features/tagging.html#tagging-from-twig-templates) in FOSHttpCacheBundle doc.
 
 4\. Use deprecated `X-Location-Id` header.
 
@@ -374,7 +374,7 @@ This section describes to how to debug problems related to HTTP cache.
 	the HTTP cache sends to the client (web browser).
 	It means you must be able to send requests to your origin (web server) that do not go through Varnish or Fastly.
 	If you run Nginx and Varnish on premise, you should know what host and port number both Varnish and Nginx runs on. If you
-	perform tests on Fastly enabled environment on Ibexa Cloud provided by Platform.sh, you need to use the Platform.sh
+	perform tests on Fastly enabled environment on [[= product_name_cloud =]] provided by Platform.sh, you need to use the Platform.sh
 	Dashboard to obtain the endpoint for Nginx.
 
 The following example shows how to debug and check why Fastly does not cache the front page properly. 
@@ -399,7 +399,7 @@ To find a valid route, click an element in the **URLs** drop-down for the specif
 A route may look like this:
 `https://www.staging.foobar.com.us-2.platformsh.site/`
 
-In this case the region is `us-2` and you can find the public IP list on [Platform.sh documentation page](https://docs.platform.sh/development/public-ips.html)
+In this case the region is `us-2` and you can find the public IP list on [Platform.sh documentation page](https://docs.platform.sh/development/regions.html#public-ip-addresses)
 Typically, you can add a `gw` to the hostname and use nslookup to find it.
 
 ```bash
@@ -409,7 +409,7 @@ Typically, you can add a `gw` to the hostname and use nslookup to find it.
    Address:  1.2.3.4
 ```
 
-You can also use the [Platform.sh CLI command](https://docs.platform.sh/development/cli.html) to find [the endpoint](https://docs.platform.sh/domains/steps/dns.html?#where-should-the-cname-point-to):
+You can also use the [Platform.sh CLI command](https://docs.platform.sh/administration/cli.html) to find [the endpoint](https://docs.platform.sh/domains/steps/dns.html):
 
 ```bash
     # Define ibexa_cloud alias if it not already exists:
@@ -460,7 +460,7 @@ Some notes about each of these parameters:
   It is good practice to always include this header when imitating the HTTP Cache.
 - `--header "accept: application/vnd.fos.user-context-hash"` tells [[= product_name =]] that the client wants to receive the user-context-hash
 - `--header "x-fos-original-url: /"` is required by the fos-http-cache bundle in order to deliver the user-context-hash
-- `https://your-page-blah-blah.us-2.platformsh.site/_fos_user_context_hash` : here we use the hostname we earlier told
+- `https://www.staging.foobar.com.us-2.platformsh.site/_fos_user_context_hash` : here we use the hostname we earlier told
   curl how to resolve using `---resolve`. `/_fos_user_context_hash` is the route to the controller that are able to
   deliver the user-context-hash.
 - You may also provide the session cookie (`--cookie ".....=....") for a logged-in-user if you are interested in

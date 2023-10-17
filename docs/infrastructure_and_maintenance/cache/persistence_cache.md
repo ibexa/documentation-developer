@@ -68,7 +68,7 @@ You can select a different cache backend and configure its parameters in the rel
 
 ### Multi Repository setup
 
-You can [configure multisite to work with multiple Repositories](multisite_configuration.md#location-id).
+You can [configure multisite to work with multiple Repositories](repository_configuration.md#defining-custom-connection).
 Then, in configuration you can specify which cache pool you want to use on a SiteAccess or SiteAccess group level.
 
 The following example shows use in a SiteAccess group:
@@ -126,7 +126,7 @@ parameters:
 
 ### Redis
 
-[Redis](http://redis.io/), an in-memory data structure store, is one of the supported cache solutions for clustering.
+[Redis](https://redis.io/), an in-memory data structure store, is one of the supported cache solutions for clustering.
 Redis is used via [Redis pecl extension](https://pecl.php.net/package/redis).
 
 See [Redis Cache Adapter in Symfony documentation]([[= symfony_doc =]]/components/cache/adapters/redis_adapter.html#configure-the-connection)
@@ -138,7 +138,7 @@ There are two Redis adapters available out of the box that fit different needs.
 
 ##### `Symfony\Component\Cache\Adapter\RedisTagAwareAdapter`
 
-**Requirement**: Redis server configured with eviction [`maxmemory-policy`](https://redis.io/topics/lru-cache#eviction-policies):
+**Requirement**: Redis server configured with eviction [`maxmemory-policy`](https://redis.io/docs/reference/eviction/#eviction-policies):
 `volatile-ttl`, `volatile-lru` or `volatile-lfu` (Redis 4.0+).
 Use of LRU or LFU is recommended. It is also possible to use `noeviction`, but it is usually not practical.
 
@@ -191,20 +191,20 @@ See `.env`, `config/packages/ibexa.yaml` and `config/packages/cache_pool/cache.r
 Persistence cache depends on all involved web servers, each of them seeing the same view of the cache because it's shared among them.
 With that in mind, the following configurations of Redis are possible:
 
-- [Redis Cluster](https://redis.io/topics/cluster-tutorial)
+- [Redis Cluster](https://redis.io/docs/management/scaling/)
     - Shards cache across several instances in order to be able to cache more than memory of one server allows
-    - Shard slaves can improve availability, however [they use asynchronous replication](https://redis.io/topics/cluster-tutorial#redis-cluster-consistency-guarantees) so they can't be used for reads
-    - Unsupported Redis features that can affect performance: [pipelining](https://github.com/phpredis/phpredis/blob/develop/cluster.markdown#pipelining) and [most multiple key commands](https://github.com/phpredis/phpredis/blob/develop/cluster.markdown#multiple-key-commands)
-- [Redis Sentinel](https://redis.io/topics/sentinel)
+    - Shard slaves can improve availability, however [they use asynchronous replication](https://redis.io/docs/management/scaling/#redis-cluster-consistency-guarantees) so they can't be used for reads
+    - Unsupported Redis features that can affect performance: [pipelining](https://github.com/phpredis/phpredis/blob/develop/cluster.md#pipelining) and [most multiple key commands](https://github.com/phpredis/phpredis/blob/develop/cluster.md#multiple-key-commands)
+- [Redis Sentinel](https://redis.io/docs/management/sentinel/)
     - Provides high availability by providing one or several slaves (ideally 2 slaves or more, e.g. minimum 3 servers), and handle failover
-    - [Slaves are asynchronously replicated](https://redis.io/topics/sentinel#fundamental-things-to-know-about-sentinel-before-deploying), so they can't be used for reads
+    - [Slaves are asynchronously replicated](https://redis.io/docs/management/sentinel/#fundamental-things-to-know-about-sentinel-before-deploying), so they can't be used for reads
     - Typically used with a load balancer (e.g. HAproxy with occasional calls to Redis Sentinel API) in the front in order to only speak to elected master
     - As of v3 you can also configure this [directly on the connection string]([[= symfony_doc =]]/components/cache/adapters/redis_adapter.html#configure-the-connection), **if** you use `Predis` instead of `php-redis` 
 
 Several cloud providers have managed services that are easier to set up, handle replication and scalability for you, and might perform better. Notable services include:
 
 - [Amazon ElastiCache](https://aws.amazon.com/elasticache/)
-- [Azure Redis Cache](https://azure.microsoft.com/en-us/services/cache/)
+- [Azure Redis Cache](https://azure.microsoft.com/en-us/products/cache/)
 - [Google Cloud Memorystore](https://cloud.google.com/memorystore/)
 
 ###### Ibexa Cloud / Platform.sh usage

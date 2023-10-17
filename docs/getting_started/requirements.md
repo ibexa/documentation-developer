@@ -83,8 +83,8 @@ Optionally if you intend to edit [PNG, SVG, GIF or WEBP files in the Image Edito
 ## [Clustering](clustering.md)
 
 - Linux NFS or S3/EFS (for IO, aka binary files stored in content repository, not supported with legacy)
-- Redis 4.0+, 5.0 or higher (separate instances for session and cache, both using a `volatile-*` [eviction policy](https://redis.io/topics/lru-cache), session instance configured for persistence) or [Memcached](https://memcached.org/) 1.5 or higher
-- [Varnish](http://varnish-cache.org/) 6.0LTS or 7.1 with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.md) or [Fastly](https://www.fastly.com/) using [the provided bundle](http_cache.md#serving-varnish-through-fastly) (for HttpCache)
+- Redis 4.0+, 5.0 or higher (separate instances for session and cache, both using a `volatile-*` [eviction policy](https://redis.io/docs/reference/eviction/), session instance configured for persistence) or [Memcached](https://memcached.org/) 1.5 or higher
+- [Varnish](http://varnish-cache.org/) 6.0LTS or 7.1 with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.md) or [Fastly](https://www.fastly.com/) using [the provided bundle](http_cache.md) (for HTTP Cache)
 
 ## Filesystem
 
@@ -96,7 +96,7 @@ Optionally if you intend to edit [PNG, SVG, GIF or WEBP files in the Image Edito
 
 ## Asset manager
 
-- `Node.js` 14+, 16+ (`Node.js` 14+ has reached its End of Life. We strongly recommend using the newer version to ensure you receive security updates.)
+- `Node.js` 14+, 16+, 18+ (`Node.js` 14+ has reached its End of Life. We strongly recommend using a newer version to ensure you receive security updates.)
 - `yarn` 1.15.2+
 
 ## Browser
@@ -112,24 +112,24 @@ Optionally if you intend to edit [PNG, SVG, GIF or WEBP files in the Image Edito
 
 !!! note "Ibexa Cloud"
 
-    ### Cloud hosting with Ibexa Cloud and Platform.sh
+    ### Cloud hosting with [[= product_name_cloud =]] and Platform.sh
 
-    In general, Ibexa Cloud supports all features and services of [Platform.sh](https://platform.sh/hosting/php/ez) that are compatible and supported by the [[= product_name =]] version you use.  
+    In general, [[= product_name_cloud =]] supports all features and services of [Platform.sh](https://platform.sh/marketplace/ibexa/) that are compatible and supported by the [[= product_name =]] version you use.  
 
     For example:
 
-    - Platform.sh provides Redis support for versions 3.2, 4.0 and 5.0. [[= product_name =]] supports Redis version 4.0 or higher, and recommends 5.0. As a result, Redis is supported on Ibexa Cloud in versions 4.0 and 5.0, but 5.0 is recommended.
+    - Platform.sh provides Redis support for versions 3.2, 4.0 and 5.0. [[= product_name =]] supports Redis version 4.0 or higher, and recommends 5.0. As a result, Redis is supported on [[= product_name_cloud =]] in versions 4.0 and 5.0, but 5.0 is recommended.
 
     Features or services supported by [[= product_name =]] but not covered by Platform.sh may be possible by means of a [custom integration](#custom-integrations).
 
     ### Ibexa Cloud Setup support matrix
 
-    All [[= product_name =]] features are supported in accordance with the example above. For example: As Legacy Bridge is not supported with v3, it is not supported on Ibexa Cloud either.
+    All [[= product_name =]] features are supported in accordance with the example above. For example: As Legacy Bridge is not supported with v3, it is not supported on [[= product_name_cloud =]] either.
 
     !!! note
 
         As Platform.sh does not support a configuration with multiple PostgreSQL databases,
-        for Ibexa Cloud / Platform.sh it is impossible to have a DFS table in a separate database.
+        for [[= product_name_cloud =]] / Platform.sh it is impossible to have a DFS table in a separate database.
 
     ### Recommended Ibexa Cloud setup
 
@@ -145,9 +145,9 @@ Optionally if you intend to edit [PNG, SVG, GIF or WEBP files in the Image Edito
 
     - Verifying your requirements and ensuring they are supported by Platform.sh
     - Additional time for adaptation and configuration work, and testing by your development team
-    - Additional consulting/onboarding time with Platform.sh, Ibexa technical services, and/or one of the many partners with prior experience using Platform.sh with [[= product_name =]]
+    - Additional consulting/onboarding time with Platform.sh, [[= product_name_base =]] technical services, and/or one of the many partners with prior experience using Platform.sh with [[= product_name =]]
 
-    The cost and effort of this is not included in Ibexa Cloud subscription and will vary depending on the project.
+    The cost and effort of this is not included in [[= product_name_cloud =]] subscription and will vary depending on the project.
 
     ### Custom integrations
 

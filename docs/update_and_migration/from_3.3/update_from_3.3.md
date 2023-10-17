@@ -14,7 +14,11 @@ Go through the following steps to update to the latest maintenance release of v3
 
 ## Update the application
 
-First, run:
+!!! note
+
+    If you are using v3.3.15 or earlier v3.3 version, or encounter an error related to flex.ibexa.co, you need to [update your Flex server](#update-flex-server) first.
+
+Run:
 
 === "[[= product_name_content =]]"
 
@@ -38,13 +42,20 @@ First, run:
 
 The `flex.ibexa.co` Flex server has been disabled.
 If you are using v3.3.15 or earlier v3.3 version, you need to update your Flex server.
+In your `composer.json` check whether the `https://flex.ibexa.co` endpoint is still listed in `extra.symfony.endpoint`.
+If that's the case, you need to perform the following update procedure.
 
-To do it, in your `composer.json` check whether the `https://flex.ibexa.co` endpoint is still listed in `extra.symfony.endpoint`. 
-If so, replace it with the new [`https://api.github.com/repos/ibexa/recipes/contents/index.json?ref=flex/main`](https://github.com/ibexa/website-skeleton/blob/v3.3.20/composer.json#L98) endpoint.
+First, update the `symfony/flex` bundle to handle the new endpoint:
+
+```bash
+composer update symfony/flex --no-plugins --no-scripts;
+```
+
+Then, replace the `https://flex.ibexa.co` endpoint with the new [`https://api.github.com/repos/ibexa/recipes/contents/index.json?ref=flex/main`](https://github.com/ibexa/website-skeleton/blob/v3.3.20/composer.json#L98) endpoint in `composer.json` under `extra.symfony.endpoint`.
 
 You can do it manually, or by running the following command:
 
-``` bash
+```bash
 composer config extra.symfony.endpoint "https://api.github.com/repos/ibexa/recipes/contents/index.json?ref=flex/main"
 ```
 
@@ -71,7 +82,7 @@ Next, continue with updating the app:
     composer run post-install-cmd
     ```
     
-Review the changes to make sure your custom configuration was not affected.
+Review the changes to make sure your custom configuration wasn't affected.
 
 Remove the `vendor` folder to prevent issues related to the [new Flex server](#update-flex-server).
 
@@ -149,7 +160,7 @@ php bin/console ibexa:upgrade --force
 If you are using MySQL, run the following update script:
 
 ``` sql
-mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-3.3.1-to-3.3.2.sql
+mysql -u<username> -p<password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-3.3.1-to-3.3.2.sql
 ```
 
 ### v3.3.4
@@ -195,58 +206,30 @@ See https://github.com/ibexa/website-skeleton/pull/5/files for details of the pa
 If you are using Commerce, run the following migration action to update the way Commerce configuration is stored:
 
 ``` bash
-php bin/console ibexa:migrations:migrate --file=src/bundle/Resources/install/migrations/content/Components/move_configuration_to_settings.yaml
+mkdir --parent src/Migrations/Ibexa/migrations
+cp vendor/ibexa/installer/src/bundle/Resources/install/migrations/content/Components/move_configuration_to_settings.yaml src/Migrations/Ibexa/migrations/
+php bin/console ibexa:migrations:migrate --file=move_configuration_to_settings.yaml
 ```
 
 #### Database update
 
-Run the following SQL commands:
+Run the following scripts:
 
 === "MySQL"
 
-    ``` sql
-    CREATE TABLE IF NOT EXISTS `ibexa_workflow_version_lock` (
-        `id` INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-        `content_id` INT(11) NOT NULL,
-        `version` INT(11) NOT NULL,
-        `user_id` INT(11) NOT NULL,
-        `created` INT(11) NOT NULL DEFAULT 0,
-        `modified` INT(11) NOT NULL DEFAULT 0,
-        `is_locked` BOOLEAN NOT NULL DEFAULT true,
-        KEY `ibexa_workflow_version_lock_content_id_index` (`content_id`) USING BTREE,
-        KEY `ibexa_workflow_version_lock_user_id_index` (`user_id`) USING BTREE,
-        UNIQUE KEY `ibexa_workflow_version_lock_content_id_version_uindex` (`content_id`,`version`) USING BTREE
-    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+    ``` shell
+    mysql -u<username> -p<password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-3.3.6-to-3.3.7.sql
     ```
 
 === "PostgreSQL"
 
-    ``` sql
-    CREATE TABLE IF NOT EXISTS ibexa_workflow_version_lock
-    (
-        "id" SERIAL,
-        "content_id" INTEGER,
-        "version" INTEGER,
-        "user_id" INTEGER,
-        "created" INTEGER DEFAULT 0 NOT NULL,
-        "modified" INTEGER DEFAULT 0 NOT NULL,
-        "is_locked" boolean DEFAULT TRUE NOT NULL,
-        CONSTRAINT "ibexa_workflow_version_lock_pk" PRIMARY KEY ("id")
-    );
-
-    CREATE INDEX IF NOT EXISTS "ibexa_workflow_version_lock_content_id_index"
-        ON "ibexa_workflow_version_lock" ("content_id");
-
-    CREATE INDEX IF NOT EXISTS "ibexa_workflow_version_lock_user_id_index"
-        ON "ibexa_workflow_version_lock" ("user_id");
-
-    CREATE UNIQUE INDEX IF NOT EXISTS "ibexa_workflow_version_lock_content_id_version_uindex"
-        ON "ibexa_workflow_version_lock" ("content_id", "version");
+    ``` shell
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-3.3.6-to-3.3.7.sql
     ```
 
 ### Ibexa Open Source
 
-If you have no access to Ibexa DXP's `ibexa/installer` package, apply the following database upgrade script:
+If you have no access to [[= product_name =]]'s `ibexa/installer` package, apply the following database upgrade script:
 
 === "MySQL"
 
@@ -284,14 +267,43 @@ Run the following scripts:
 
 === "MySQL"
 
-    ``` sql
-    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-3.3.8-to-3.3.9.sql
+    ``` shell
+    mysql -u<username> -p<password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-3.3.8-to-3.3.9.sql
     ```
 
 === "PostgreSQL"
 
-    ``` sql
+    ``` shell
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-3.3.8-to-3.3.9.sql
+    ```
+
+### v3.3.13
+
+!!! note "Symfony 5.4"
+
+    Prior to v3.3.13, Symfony 5.3 was used by default.
+
+    If you are still using Symfony 5.3, you need to update your installation to Symfony 5.4.
+    To do this, update your `composer.json` to refer to `5.4.*` instead or `5.3.*`.
+
+    Refer to the relevant website skeleton: [content](https://github.com/ibexa/content-skeleton/blob/v3.3.13/composer.json), [experience](https://github.com/ibexa/experience-skeleton/blob/v3.3.13/composer.json), [commerce](https://github.com/ibexa/commerce-skeleton/blob/v3.3.13/composer.json).
+
+    The following `sed` commands should update the relevant lines.
+    Use them with caution and properly check the result:
+
+    ```shell
+    sed -i -E 's/"symfony\/(.+)": "5.3.*"/"symfony\/\1": "5.4.*"/' composer.json;
+    sed -i -E 's/"require": "5.3.*"/"require": "5.4.*"/' composer.json;
+    ```
+
+    After this `composer.json` update, run `composer update "symfony/*"`.
+
+    You may need to adapt configuration to fit the new minor version of Symfony.
+    For example, you might have to remove `timeout` related config from `nelmio_solarium` bundle config:
+    
+    ```shell
+    sed -i -E '/ *timeout: [0-9]+/d' ./config/packages/nelmio_solarium.yaml ./config/packages/ezcommerce/ezcommerce_advanced.yaml
+    composer update "symfony/*"
     ```
 
 ### v3.3.14
@@ -323,23 +335,25 @@ if (client.ip ~ debuggers) {
 }
 ```
 
-### 3.3.15
+### v3.3.15
 
-!!! note "Symfony 5.4"
+Adapt your `composer.json` file according to [`manifest.json`](https://github.com/ibexa/recipes/blob/master/ibexa/commerce/3.3/manifest.json#L167-L168), by adding and moving the following lines:
 
-    If you are using Symfony 5.3, you need to update your installation to Symfony 5.4.
-    To do this, update your composer.json to refer to `5.4.*` instead or `5.3.*`.
-
-    Refer to the relevant website skeleton for an example: [content](https://github.com/ibexa/content-skeleton/blob/v3.3.15/composer.json), [experience](https://github.com/ibexa/experience-skeleton/blob/v3.3.15/composer.json), [commerce](https://github.com/ibexa/commerce-skeleton/blob/v3.3.15/composer.json).
-
-Adapt your `composer.json` file according to [`manifest.json`](https://github.com/ibexa/recipes/blob/master/ibexa/commerce/3.3/manifest.json#L167-L168), by adding the following lines:
-
-``` json hl_lines="2-3"
-"yarn install": "script",
-"ibexa:encore:compile --config-name app": "symfony-cmd",
-"bazinga:js-translation:dump %PUBLIC_DIR%/assets --merge-domains": "symfony-cmd",
-"ibexa:encore:compile": "symfony-cmd"
+``` diff
+  "composer-scripts": {
+    "cache:clear": "symfony-cmd",
+    "assets:install %PUBLIC_DIR%": "symfony-cmd",
+-    "bazinga:js-translation:dump %PUBLIC_DIR%/assets --merge-domains": "symfony-cmd",
+    "yarn install": "script",
++    "ibexa:encore:compile --config-name app": "symfony-cmd",
++    "bazinga:js-translation:dump %PUBLIC_DIR%/assets --merge-domains": "symfony-cmd",
+    "ibexa:encore:compile": "symfony-cmd"
+  }
 ```
+
+### v3.3.16
+
+See [Update Flex server](#update-flex-server).
 
 ### v3.3.24
 
@@ -355,10 +369,46 @@ Ibexa DXP now supports Fastly shielding. If you are using Fastly and want to use
 2. Do the same with `vendor/ezsystems/ezplatform-http-cache-fastly/fastly/ez_user_hash.vcl`.
 3. Upload a new `snippet_re_enable_shielding.vcl` snippet file, based on `vendor/ezsystems/ezplatform-http-cache-fastly/fastly/snippet_re_enable_shielding.vcl`.
 
+### v3.3.25
+
+#### Database update
+
+On Experience or Commerce edition, run the following scripts:
+
+=== "MySQL"
+
+    ``` shell
+    mysql -u<username> -p<password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-3.3.24-to-3.3.25.sql
+    ```
+
+=== "PostgreSQL"
+
+    ``` shell
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-3.3.24-to-3.3.25.sql
+    ```
+
 ### v3.3.28
 
 #### Ensure password safety
 
 Following [Security advisory: IBEXA-SA-2022-009](https://developers.ibexa.co/security-advisories/ibexa-sa-2022-009-critical-vulnerabilities-in-graphql-role-assignment-ct-editing-and-drafts-tooltips),
-unless you can verify based on your log files that the vulnerability has not been exploited,
+unless you can verify based on your log files that the vulnerability hasn't been exploited,
 you should [revoke passwords](https://doc.ibexa.co/en/latest/users/user_management/#revoking-passwords) for all affected users.
+
+### v3.3.34
+
+#### Database update
+
+Run the following scripts:
+
+=== "MySQL"
+
+    ``` sql
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-3.3.33-to-3.3.34.sql
+    ```
+
+=== "PostgreSQL"
+
+    ``` sql
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-3.3.33-to-3.3.34.sql
+    ```

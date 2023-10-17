@@ -20,5 +20,6 @@ With these Criteria you can filter payment methods by their payment method ident
 |[Identifier](payment_method_identifier_criterion.md)|Payment method identifier|
 |[LogicalAnd](payment_method_logicaland_criterion.md)|Logical AND criterion that matches if all the provided Criteria match|
 |[LogicalOr](payment_method_logicalor_criterion.md)|Logical OR criterion that matches if at least one of the provided Criteria matches|
+|[Name](payment_method_name_criterion.md)|Payment method name|
 |[Type](payment_method_type_criterion.md)|Type of the payment method|
 |[UpdatedAt](payment_method_updatedat_criterion.md)|Date and time when payment method status was updated|

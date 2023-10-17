@@ -32,14 +32,14 @@ HTTP Cache.
     - `snippet_re_enable_shielding.vcl` as snippet
 
 The provided `.vcl` files work both with [Fastly Shielding](https://docs.fastly.com/en/guides/shielding) enabled and without it.
-If you decide to use Fastly VCL, consider using [Fastly CLI](https://developer.fastly.com/learning/tools/cli#installing) with it to manage VCL files from the command line.
+If you decide to use Fastly VCL, consider using [Fastly CLI](https://developer.fastly.com/learning/tools/cli/#installing) with it to manage VCL files from the command line.
 To learn more, see [Prepare to use Fastly locally](fastly.md#prepare-for-using-fastly-locally) and [Introduction to Fastly CLI](fastly.md#quick-introduction-to-fastly-cli).
 
 !!! tip
     Support for Fastly Shielding was added in Ibexa DXP v3.3.24 and v4.1.6
 
-    When you extend [FOSHttpCacheBundle](https://foshttpcachebundle.readthedocs.io/en/2.9.1/),
-    you can also adapt your VCL further with [FOSHttpCache documentation](http://foshttpcache.readthedocs.org/en/latest/varnish-configuration.html)
+    When you extend [FOSHttpCacheBundle](https://foshttpcachebundle.readthedocs.io/en/latest/),
+    you can also adapt your VCL further with [FOSHttpCache documentation](https://foshttpcache.readthedocs.io/en/latest/varnish-configuration.html)
     to use additional features.
 
 ## Configure Varnish and Fastly
@@ -54,7 +54,7 @@ Failing to configure reverse proxies correctly may introduce several problems, i
 
 ### Configure Symfony front controller
 
-You need to consider your `TrustedProxy` configuration when you use Symfony [behind a load balancer or a reverse proxy.](https://symfony.com/doc/5.1/deployment/proxies.html)
+You need to consider your `TrustedProxy` configuration when you use Symfony [behind a load balancer or a reverse proxy](https://symfony.com/doc/5.1/deployment/proxies.html).
 
 To configure trusted proxies, use [Symfony semantic configuration]([[= symfony_doc =]]/deployment/proxies.html#solution-settrustedproxies) under
 the `framework.trusted_proxies` [configuration key](configuration.md#configuration-files), for example:
@@ -79,7 +79,7 @@ framework:
     Make sure that **all** traffic always comes from the trusted proxy/load balancer,
     and that there is no other way to configure it.
 
-When using Fastly, you need to set `trusted_proxies` according to the [IP ranges used by Fastly](https://docs.fastly.com/en/guides/accessing-fastlys-ip-ranges).
+When using Fastly, you need to set `trusted_proxies` according to the [IP ranges used by Fastly](https://api.fastly.com/public-ip-list).
 
 !!! tip
 
@@ -122,7 +122,7 @@ ibexa:
 
 !!! note "Invalidating Varnish cache using tokens"
 
-    In setups where the Varnish server IP can change (for example, on Ibexa Cloud),
+    In setups where the Varnish server IP can change (for example, on [[= product_name_cloud =]]),
     you can use token-based cache invalidation through [`ez_purge_acl`](https://github.com/ibexa/http-cache/blob/main/docs/varnish/vcl/varnish5.vcl#L174).
  
     In such situation, use strong, secure hash and make sure to keep the token secret.
@@ -162,14 +162,14 @@ you must make the following changes to the custom block template file:
 data-field-id="{{ field.id }}"
 ```
 
-As a result, your file should be similar to [this example.](https://github.com/ibexa/form-builder/blob/main/src/bundle/Resources/views/themes/standard/fields/captcha.html.twig)
+As a result, your file should be similar to [this example](https://github.com/ibexa/form-builder/blob/main/src/bundle/Resources/views/themes/standard/fields/captcha.html.twig).
 
 For more information about configuring Captcha fields, see [Captcha field](forms.md#captcha-field).
 
 ### Use Fastly as HttpCache proxy
 
 [Fastly](https://www.fastly.com/) delivers Varnish as a CDN service and is supported with [[= product_name =]].
-To learn how it works, see [Fastly documentation](https://docs.fastly.com/guides/basic-concepts/how-fastlys-cdn-service-works).
+To learn how it works, see [Fastly documentation](https://docs.fastly.com/en/guides/using-fastlys-global-pop-network).
 
 #### Configure Fastly in YML
 
@@ -205,16 +205,16 @@ FASTLY_KEY="token"
 
 #### Configure Fastly on Platform.sh
 
-If you use Platform.sh, it is recommended to configure all environment variables through [Platform.sh variables](https://docs.platform.sh/frameworks/ibexa/fastly.html).
+If you use Platform.sh, it is recommended to configure all environment variables through [Platform.sh variables](https://docs.platform.sh/guides/ibexa/fastly.html).
 In [[= product_name =]], Varnish is enabled by default. To use Fastly, first you must 
-[disable Varnish](https://docs.platform.sh/frameworks/ibexa/fastly.html#remove-varnish-configuration) 
+[disable Varnish](https://docs.platform.sh/guides/ibexa/fastly.html#remove-varnish-configuration) 
 
 #### Get Fastly service ID and API token
 
-To get the service ID, log in to http://fastly.com. In the upper menu, click the **CONFIGURE** tab.
+To get the service ID, log in to https://www.fastly.com/. In the upper menu, click the **CONFIGURE** tab.
 The service ID is displayed next to the name of your service on any page.
 
-For instructions on how to generate a Fastly API token, see [the Fastly guide](https://docs.fastly.com/guides/account-management-and-security/using-api-tokens).
+For instructions on how to generate a Fastly API token, see [the Fastly guide](https://docs.fastly.com/en/guides/using-api-tokens).
 The API token needs the `purge_all` an `purge_select` scopes.
 
 ### Configuration examples
@@ -244,7 +244,7 @@ fastcgi_param HTTPCACHE_PURGE_SERVER "http://varnish:80";
 
 Example for Platform.sh:
 
-You can configure environment variables through [Platform.sh variables](https://docs.platform.sh/frameworks/ibexa/fastly.html).
+You can configure environment variables through [Platform.sh variables](https://docs.platform.sh/guides/ibexa/fastly.html).
 
 !!! tip
 

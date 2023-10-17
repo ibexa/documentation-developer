@@ -151,24 +151,24 @@ if ($recommendations && isset($recommendations->recommendationResponseList)) {
 curl_close($curl);
 ```
 
-## Send emails with recommendations
+## Send messages with recommendations
 
-Email triggers are push messages with recommendations.
-With this feature, your organization can invite individual visitors to return to the website or remind them of items abandoned in a cart, for example by sending emails.
-Before you can start [using email triggers]([[= user_doc =]]/personalization/triggers), you must contact Ibexa and define specific conditions, for example:
+Triggers are push messages with recommendations.
+With this feature, your organization can invite individual visitors to return to the website or remind them of items abandoned in a cart by delivering a message, for example, by sending emails.
+Before you can start [using triggers]([[= user_doc =]]/personalization/triggers), you must contact Ibexa and define specific conditions, for example:
 
-- the time that must pass before emails start being sent
+- the time that must pass before messages start being sent
 - Content Types and attributes that are included in a response
 - a number of repetitions
 
-Email triggers are then processed on the Personalization server and responses are delivered to a dedicated endpoint.
+Triggers are then processed on the Personalization server and responses are delivered to a dedicated endpoint.
 
 To let your visitors receive emails with recommendations:
 
 1\. With the [User API](api_reference/user_api.md#post-requests), add the `e-mail` attribute (or another identifier) to the user record.
 
 2\. Prepare an endpoint to intercept push messages and pass them on, for example, to your mailing system.
-Out of many options, it could be an Ibexa Connect [webhook](https://doc.ibexa.co/projects/connect/en/latest/tools/webhooks/). 
+Out of many options, it could be an [[= product_name_connect =]] [webhook](https://doc.ibexa.co/projects/connect/en/latest/tools/webhooks/). 
 The endpoint must meet the following requirements:
 
  - must support POST requests
@@ -202,6 +202,13 @@ The endpoint must meet the following requirements:
    ]
 }
 ```
+
+The object contains links to the recommended items (`triggerOpenedLink`, `clickRecommended`), which are monitored by the Personalization server to gather statistical data.
+
+!!! note "Support for endpoints with authorization"
+
+    The trigger service supports additional Basic/Bearer token authentication to secure communication between the Personalization server and the endpoint. 
+    If your endpoint requires authentication, you must provide Ibexa with the token.
 
 3\. Contact `support@ibexa.co` with your organization's requirements to have the email triggers enabled.
 

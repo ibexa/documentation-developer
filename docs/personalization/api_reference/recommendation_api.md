@@ -235,7 +235,7 @@ The following HTTP response codes are used by the recommendation controller:
 |403 Forbidden|Access denied.|
 |404 Not Found|The requested element was't found. It could be customer ID (or "mandator ID"), model ID, or scenario ID.|
 |409 Conflict|The requested combination of models and recommendation parameters can't return recommendations. This could happen, for example, if you request personalized recommendations for a user who has no history.|
-|500 Internal Server Error|Unspecified error. Contact Ibexa support if this error is recurring.|
+|500 Internal Server Error|Unspecified error. Contact [[= product_name_base =]] support if this error is recurring.|
 
 In case of errors, the response body contains human-readable error messages.
 Error messages can change, don't use them for automated processing.
@@ -253,7 +253,7 @@ Depending on the recommendation model and context, it can drastically reduce
 the number of recommendation requests. 
 The recommendation service supports the following HTTP headers to enable cache 
 control on the client side (all date values must follow the "HTTP-date" format 
-as defined by [RFC 2616](https://tools.ietf.org/html/rfc2616)):
+as defined by [RFC 2616](https://datatracker.ietf.org/doc/html/rfc2616)):
 
 |Scope|Header|Description|Example|
 |---|---|---|---|

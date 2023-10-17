@@ -13,6 +13,8 @@ reduces the number of classes which must be created, and simplifies the tagging 
 
     You should not use the Generic Field Type when you need a very specific implementation or complete control over the way data is stored.
 
+[[= include_file('docs/snippets/simple_hash_value_caution.md') =]]
+
 ## Define value object
 
 First, create `Value.php` in the `src/FieldType/HelloWorld` directory.
@@ -108,4 +110,4 @@ After saving, your **Hello World** Content Type should be available under **Cont
 
 ![Creating Hello World](extending_field_type_hello_world.png)
 
-For more detailed tutorial on Generic Field Type follow [Creating a Point 2D Field Type ](creating_a_point2d_field_type.md).
+For more detailed tutorial on Generic Field Type follow [Creating a Point 2D Field Type](creating_a_point2d_field_type.md).

@@ -76,3 +76,12 @@ then the main category for "Office" is "Furniture".
 <p>Active currency code: {{ currency.code }}</p>
 ```
 
+## `ibexa_storefront_get_language_name_by_code()`
+
+`ibexa_storefront_get_language_name_by_code()` displays language name based on its code or locale.
+
+``` html+twig
+{% set languageName = ibexa_storefront_get_language_name_by_code(languageCode) %}
+
+<p>Language name: {{ languageName }}</p>
+```

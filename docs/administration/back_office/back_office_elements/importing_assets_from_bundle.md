@@ -78,7 +78,7 @@ module.exports = (IbexaConfig, IbexaConfigManager) => {
     After you add new files, run `php bin/console cache:clear`.
 
     For a full example of overriding configuration,
-    see [`ibexa.config.manager.js`](https://github.com/ibexa/matrix-fieldtype/blob/main/src/bundle/Resources/encore/ibexa.config.manager.js).
+    see [`ibexa.config.manager.js`](https://github.com/ibexa/fieldtype-matrix/blob/main/src/bundle/Resources/encore/ibexa.config.manager.js).
 
 To add a new configuration under your own namespace and with its own dependencies, 
 create an `ibexa.webpack.custom.config.js` file that you create either in the bundle's `Resources/encore/` folder, 

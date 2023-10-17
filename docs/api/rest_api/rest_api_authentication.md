@@ -348,7 +348,7 @@ you can get the JWT token through the following request:
 
 ## HTTP basic authentication
 
-For more information, see [HTTP Authentication: Basic and Digest Access Authentication](http://tools.ietf.org/html/rfc2617).
+For more information, see [HTTP Authentication: Basic and Digest Access Authentication](https://datatracker.ietf.org/doc/html/rfc2617).
 
 ### Configuration
 
@@ -373,7 +373,7 @@ If the installation has a dedicated host for REST, you can enable HTTP basic aut
 ### Usage example
 
 Basic authentication requires the username and password to be sent *(username:password)*, base64 encoded, with each request.
-For details, see [RFC 2617](http://tools.ietf.org/html/rfc2617).
+For details, see [RFC 2617](https://datatracker.ietf.org/doc/html/rfc2617).
 
 Most HTTP client libraries as well as REST libraries support this method.
 [Creating content with binary attachments](rest_requests.md#creating-content-with-binary-attachments) has an example using basic authentication with [cURL](https://www.php.net/manual/en/book.curl.php) and its `CURLOPT_USERPWD`. 
@@ -389,7 +389,7 @@ Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==
 
 ## OAuth
 
-For more information, see [OAuth 2.0 protocol for authorization.](https://oauth.net/2/)
+For more information, see [OAuth 2.0 protocol for authorization](https://oauth.net/2/).
 
 ## SSL client authentication
 

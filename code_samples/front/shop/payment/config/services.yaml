@@ -1,4 +1,4 @@
- services:
+services:
     App\Payment\PayPal: 
         tags: 
             name: ibexa.payment.payment_method.type 

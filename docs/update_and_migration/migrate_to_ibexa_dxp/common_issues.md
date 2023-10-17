@@ -54,7 +54,7 @@ The command can be executed in two modes:
 - list / dry-run - prints table with all corrupted Relations that will be deleted (to be executed first)
 - fix - executes clean up
 
-You can read more about this issue here: [EZP-27254](https://jira.ez.no/browse/EZP-27254)
+You can read more about this issue here: [EZP-27254](https://issues.ibexa.co/browse/EZP-27254)
 
 ## Always available flag set on all Fields
 
@@ -69,7 +69,7 @@ php bin/console ezpublish:update:legacy_storage_fix_fields_always_available_flag
 
 Only affected Fields will be processed by the cleanup command.
 
-You can read more about this issue here: [EZP-24882](https://jira.ez.no/browse/EZP-24882)
+You can read more about this issue here: [EZP-24882](https://issues.ibexa.co/browse/EZP-24882)
 
 ## Listing sub-content
 
@@ -83,4 +83,4 @@ Execute the following command from the installation root directory:
 php bin/console ezpublish:update:legacy_storage_update_sort_keys
 ```
 
-You can read more about this issue here: [EZP-23924](https://jira.ez.no/browse/EZP-23924)
+You can read more about this issue here: [EZP-23924](https://issues.ibexa.co/browse/EZP-23924)

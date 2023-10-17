@@ -22,6 +22,7 @@ Those services are obtained using `get[ServiceName]()` methods: `getContentServi
 
 The full list of available services covers:
 
+- BatchOrderService
 - CorporateAccountService (recommended for company creation)
 - CompanyService
 - [ContentService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php)
@@ -37,6 +38,7 @@ The full list of available services covers:
 - [SearchService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/SearchService.php)
 - [SectionService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/SectionService.php)
 - ShippingAddressService
+- SpreadsheetProcessorInterface (`\Ibexa\Contracts\Cart\FileProcessor\SpreadsheetProcessorInterface`)
 - TaxonomyService
 - [TranslationService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/TranslationService.php)
 - [TrashService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/TrashService.php)
@@ -66,14 +68,14 @@ To create and modify Repository values you need to use structs, such as `getCont
 
 Some complex value objects have an `Info` counterpart,
 for example [`ContentInfo`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentInfo.php)
-for [`Content`.](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Content.php)
+for [`Content`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Content.php).
 These objects provide you with lower-level information.
 For instance, `ContentInfo` contains `currentVersionNo` or `remoteId`,
 while `Content` enables you to retrieve Fields, Content Type, or previous versions.
 
 !!! note
 
-    The Public API value objects should not be serialized.
+    The public PHP API value objects should not be serialized.
 
     Serialization of value objects, for example, `Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo` /  `Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo` 
     or `Ibexa\Contracts\Core\Repository\Values\Content\Location` results in memory limit exceeded error.
@@ -143,7 +145,7 @@ $permissionResolver->setCurrentUserReference($user);
 
 ## Exception handling
 
-PHP API uses [Exceptions](http://php.net/exceptions) to handle errors.
+PHP API uses [Exceptions](https://www.php.net/exceptions) to handle errors.
 Each API method may throw different exceptions, depending on what it does.
 
 It is good practice to cover every exception you expect to happen.
@@ -165,9 +167,9 @@ try {
 
 ## Service container
 
-[[= product_name =]] uses the [Symfony service container]([[=symfony_doc=]]/service_container.html) for dependency resolution.
+[[= product_name =]] uses the [Symfony service container]([[= symfony_doc =]]/service_container.html) for dependency resolution.
 
-[Symfony dependency injection]([[=symfony_doc=]]/components/dependency_injection.html) ensures that any required services are available in your custom code
+[Symfony dependency injection]([[= symfony_doc =]]/components/dependency_injection.html) ensures that any required services are available in your custom code
 (for example, controllers) when you inject them into the constructor.
 
 Symfony service container uses service tags to dedicate services to a specific purpose. They are usually used for extension points.
@@ -176,4 +178,4 @@ Symfony service container uses service tags to dedicate services to a specific p
 
 !!! tip
 
-    For a list of all service tags exposed by Symfony, see its [reference documentation]([[=symfony_doc=]]/reference/dic_tags.html).
+    For a list of all service tags exposed by Symfony, see its [reference documentation]([[= symfony_doc =]]/reference/dic_tags.html).

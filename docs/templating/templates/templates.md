@@ -9,7 +9,7 @@ Templates use the Twig template engine.
 
 !!! tip
 
-    Learn more about Twig templates from [Twig documentation](https://twig.symfony.com/doc/2.x/templates.html).
+    Learn more about Twig templates from [Twig documentation](https://twig.symfony.com/doc/3.x/templates.html).
 
 ## Connecting templates
 
