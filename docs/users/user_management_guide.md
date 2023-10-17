@@ -26,17 +26,17 @@ Here, you can manage users, their relations, Roles and Policies.
 
 Here's how it works:
 
-- user accounts - create and manage user accounts. This includes capturing user information, such as name, email, and profile details.
+- User accounts — create and manage user accounts. This includes capturing user information, such as name, email, and profile details.
 
-- Roles and Permissions - define Roles and assign Permissions to them. This ensures that users have appropriate access to content and functionalities. Roles can be customized to match the organization's specific needs.
+- Roles and Permissions — define Roles and assign Permissions to them. This ensures that users have appropriate access to content and functionalities. Roles can be customized to match the organization's specific needs.
 
-- authentication methods - enable multiple authentication methods, including traditional username and password, OAuth, and external service logins. This flexibility allows organizations to adapt to various user authentication requirements.
+- Authentication methods — enable multiple authentication methods, including traditional username and password, OAuth, and external service logins. This flexibility allows organizations to adapt to various user authentication requirements.
 
-- user segmentation - Segment users based on criteria such as demographics, behavior, or preferences. This segmentation enables personalized content delivery and targeted marketing.
+- User segmentation — segment users based on criteria such as demographics, behavior, or preferences. This segmentation enables personalized content delivery and targeted marketing.
 
-- invitations - invite users to join a platform. This is useful for onboarding new users or sending invitations for exclusive content or events.
+- Invitations — invite users to join a platform. This is useful for onboarding new users or sending invitations for exclusive content or events.
 
-- customer groups - organize users into customer groups, which helps in delivering tailored experiences and content to specific segments.
+- Customer groups — organize users into customer groups, which helps in delivering tailored experiences and content to specific segments.
 
 ![User management](user_management.png)
 
@@ -79,15 +79,13 @@ Policies allow for fine-grained control of access based on various factors, such
 
 [[= product_name_base =]] offers flexibility in authentication methods to cater to different user bases and security requirements.
 
-The system's OAuth integration allows users to log in with their existing social media or third-party credentials, supporting OAuth 2.0 for easy integration with services like Google, Facebook, and Twitter.
-
 ![Log in via Google](log_in_via_google.png)
 
 Available options:
 
-- [Username and password](user_management.md) - ideal for most users, this traditional method offers a secure login process with username and password.
-- [OAuth](oauth_authentication.md) - integrating OAuth authentication allows users to log in using their existing social media or third-party credentials, streamlining the registration process.
-- [external service](add_login_through_external_service.md) - for enterprise users, integration with an external service like Active Directory or LDAP ensures that user authentication aligns with the organization's existing systems.
+- [Username and password](user_management.md) — ideal for most users, this traditional method offers a secure login process with username and password.
+- [OAuth](oauth_authentication.md) — integrating OAuth authentication allows users to log in using their existing social media or third-party credentials like Google, Facebook, and Twitter, streamlining the registration process.
+- [external service](add_login_through_external_service.md) — for enterprise users, integration with an external service like Active Directory or LDAP ensures that user authentication aligns with the organization's existing systems.
 
 ### Invitations
 
@@ -105,9 +103,9 @@ Track user behavior, such as page views, search queries, and interactions, to cr
 
 Possible uses:
 
-- Demographics - Segment users based on demographic data such as age, location, and gender to personalize content, promotions, and recommendations.
-- Behavior - Tailor content based on user behavior, such as frequent content consumption, shopping patterns, or search history, ensuring users see what they're interested in.
-- Preferences - Utilize user preferences to offer a customized experience, from language preferences to Content Type preferences.
+- Demographics - segment users based on demographic data such as age, location, and gender to personalize content, promotions, and recommendations.
+- Behavior - tailor content based on user behavior, such as frequent content consumption, shopping patterns, or search history, ensuring users see what they're interested in.
+- Preferences - utilize user preferences to offer a customized experience, from language preferences to Content Type preferences.
 
 ### Customer groups
 
@@ -116,11 +114,8 @@ Set specific permissions for customer groups to control who can access and edit 
 
 Possible uses:
 
-- product recommendations - Create customer groups based on product preferences and offer tailored product recommendations.
-
-- targeted marketing campaigns - Segment users by demographics or behavior and deliver targeted marketing campaigns that resonate with specific groups.
-
-- content access control - Restrict access to premium or specialized content to specific customer groups, such as paid subscribers or loyal customers.
+- Product recommendations — create customer groups based on product preferences and offer tailored product recommendations.
+- Content access control — restrict access to premium or specialized content to specific customer groups, such as paid subscribers or loyal customers.
 
 ## Benefits
 
