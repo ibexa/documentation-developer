@@ -60,9 +60,9 @@ Examples:
 
 ### Troubleshooting - Cache header too long errors
 
-In case of complex content, for example, Pages with many blocks, or RichText with a lot of embeds/links, 
-you can encounter problems with too long cache header on responses. 
-It happens because necessary cache entries may not be tagged properly. 
+In case of complex content, for example, Pages with many blocks, or RichText with a lot of embeds/links,
+you can encounter problems with too long cache header on responses.
+It happens because necessary cache entries may not be tagged properly.
 You may also see `502 Headers too long` errors, and webserver refusing to serve the page.
 
 You can solve this issue in one of the following ways:
@@ -89,14 +89,14 @@ Apache has a [hard](https://github.com/apache/httpd/blob/5f32ea94af5f1e7ea68d6fc
 
 #### B. Limit tags header output by system
 
-1\. For inline rendering just displaying the content name, image attribute, and/or link, it would be enough to:
+1\. For inline rendering displaying the content name, image attribute, and/or link only, it would be enough to:
 
 - Look into how many inline (non ESI) render calls for content rendering you are doing, and see if you can organize it differently.
 - Consider inlining the views not used elsewhere in the given template and [tagging the response in Twig](#response-tagging-in-templates) with "relation" tags.
     - (Optional) You can set reduced cache TTL for the given view, to reduce the risk of stale cache on subtree operations affecting the inlined content.
 
-2\. You can opt in to set a max length parameter (in bytes) and corresponding ttl (in seconds) 
-for cases when the limit is reached. The system logs a warning where the limit is reached, and when needed, you can optimize 
+2\. You can opt in to set a max length parameter (in bytes) and corresponding ttl (in seconds)
+for cases when the limit is reached. The system logs a warning where the limit is reached, and when needed, you can optimize
 these cases as described above.
 
 ```yaml
@@ -111,7 +111,7 @@ parameters:
 
 For content views response tagging is done automatically, and cache system outputs headers as follows:
 
-```bash
+```http
 HTTP/1.1 200 OK
 Cache-Control: public, max-age=86400
 xkey: ez-all c1 ct1 l2 pl1 p1 p2
@@ -122,19 +122,19 @@ If the given content has several Locations, you can see several `l<location-id>`
 !!! note "How response tagging for ContentView is done internally"
 
     In `ibexa/http-cache` there is a dedicated response listener `HttpCacheResponseSubscriber` that checks if:
-    
+
     - the response has attribute `view`
     - the view implements `Ibexa\Core\MVC\Symfony\View\CachableView`
     - cache is not disabled on the individual view
 
     If that checks out, the response is adapted with the following:
-    
+
     - `ResponseCacheConfigurator` applies SiteAccess settings for enabled/disabled cache and default TTL.
     - `DispatcherTagger` dispatches the built-in ResponseTaggers which generate the tags as described above.
 
 ### ResponseConfigurator
 
-A `ReponseCacheConfigurator` configures an HTTP Response object, makes the response public, adds tags and sets the shared max age. 
+A `ReponseCacheConfigurator` configures an HTTP Response object, makes the response public, adds tags, and sets the shared max age.
 It is provided to `ReponseTaggers` that use it to add the tags to the response.
 
 The `ConfigurableResponseCacheConfigurator` (`Ibexa\HttpCache\ResponseConfigurator\ConfigurableResponseCacheConfigurator`) follows the `view_cache` configuration and only enables cache if it is enabled in the configuration.
@@ -265,7 +265,7 @@ All event subscribers can be found in `ezplatform-http-cache/src/EventSubscriber
 Below is an example of a Content structure. The tags which the content view controller adds to each location are
 also listed:
 
-```bash
+```
    - [Home] (content-id=52, location-id=2)
      ez-all c52 ct42 l2 pl1 p1 p2
      |
@@ -288,7 +288,7 @@ In the event when a new version of `Child` is published, the following keys are 
 - `l20`, because cache for parent of `[Child]` should be purged
 - `pl20`, because cache for siblings of `[Child]` should be purged
 
-In summary, HTTP Cache for any location representing `[Child]`, any Content that relates to the Content `[Child]`, the 
+In summary, HTTP Cache for any location representing `[Child]`, any Content that relates to the Content `[Child]`, the
 location for `[Child]`, any children of `[Child]`, any Location that relates to the Location `[Child]`, location for
 `[Parent1]`, any children on `[Parent1]`.
 Effectively, in this example HTTP cache for `[Parent1]` and `[Child]` are cleared.
@@ -300,7 +300,7 @@ With the same Content structure as above, the `[Child]` location is moved below 
 
 The new structure is then:
 
-```bash
+```
    - [Home] (content-id=52, location-id=2)
      ez-all c52 ct42 l2 pl1 p1 p2
      |
@@ -355,7 +355,7 @@ bin/console fos:httpcache:invalidate:tag ez-all
 
 !!! tip "Purge is done on the current Repository"
 
-    Similarly to purging from code, the tags you purge on, are prefixed to match the currently configured SiteAccess. 
+    Similarly to purging from code, the tags you purge on, are prefixed to match the currently configured SiteAccess.
     When you use this command in combination with multi-repository setup, make sure to specify SiteAccess argument.
 
 ## Testing and debugging HTTP cache
@@ -366,27 +366,27 @@ Fastly in production, you are likely ending up some (bad) surprises. Due to the 
 quite different from Varnish and Fastly in some aspects.
 If you are going to use Varnish in production, make sure you also test your code with Varnish.
 If you are going to use Fastly in production, testing with Fastly in your developer install is likely not feasible
-(you're local development environment must then be accessible for Fastly). Testing with Varnish instead does the job in most cases. 
+(you're local development environment must then be accessible for Fastly). Testing with Varnish instead does the job in most cases.
 But if you need to change the varnish configuration to make your site work, be aware that Varnish and Fastly uses different dialects, and
 that .vcl code for Varnish V6.x is unlikely to work as-is on Fastly.
 
-This section describes to how to debug problems related to HTTP cache. 
-	In order to that, you must be able to look both at
+This section describes to how to debug problems related to HTTP cache.
+	To do that, you must be able to look both at
 	responses and headers [[= product_name =]] sends to HTTP cache, and not so much at responses and headers
 	the HTTP cache sends to the client (web browser).
 	It means you must be able to send requests to your origin (web server) that do not go through Varnish or Fastly.
 	If you run Nginx and Varnish on premise, you should know what host and port number both Varnish and Nginx runs on. If you
-	perform tests on Fastly enabled environment on Ibexa Cloud provided by Platform.sh, you need to use the Platform.sh
+	perform tests on Fastly enabled environment on [[= product_name_cloud =]] provided by Platform.sh, you need to use the Platform.sh
 	dashboard to obtain the endpoint for Nginx.
 
-The following example shows how to debug and check why Fastly does not cache the front page properly. 
+The following example shows how to debug and check why Fastly does not cache the front page properly.
 If you run the command multiple times:
 
 `curl -IXGET https://www.staging.foobar.com.us-2.platformsh.site`
 
 it always outputs:
 
-```bash
+```http
 HTTP/2 200
 (...)
 x-cache: MISS
@@ -424,9 +424,9 @@ You can also use the [Platform.sh CLI command](https://docs.platform.sh/administ
 
 #### Finding Nginx endpoint on dedicated cloud
 
-If you have a dedicated 3-node cluster on Platform.sh, the procedure for getting the endpoint to environments that are 
+If you have a dedicated 3-node cluster on Platform.sh, the procedure for getting the endpoint to environments that are
 located on that cluster (`production` and sometimes also `staging`) is slightly different.
-In the **URLs** drop-down in the Platform.sh dashboard, find the route that has the format 
+In the **URLs** drop-down in the Platform.sh dashboard, find the route that has the format
 `somecontent.[clusterid].ent.platform.sh/`, for example, `myenvironment.abcdfg2323.ent.platform.sh/`
 
 The endpoint in case has the format `c.[clusterid].ent.platform.sh`, for example, `c.asddfs2323.ent.platform.sh/`
@@ -445,7 +445,7 @@ As explained in [User Context Hash caching](context_aware_cache.md#user-context-
 user-context-hash. Users with the same user-context-hash here the same cache (as long as [[= product_name =]]
 responds with `Vary: X-Context-User-Hash`).
 
-In order to simulate the requests the HTTP cache sends to [[= product_name =]], you need this user-context-hash.
+To simulate the requests the HTTP cache sends to [[= product_name =]], you need this user-context-hash.
 To obtain it, use `curl`.
 
 ```bash
@@ -463,7 +463,7 @@ Some notes about each of these parameters:
 - `--header "Surrogate-Capability: abc=ESI/1.0"`, strictly speaking not needed when fetching the user-context-hash, but this tells [[= product_name =]] that client understands ESI tags.
   It is good practice to always include this header when imitating the HTTP Cache.
 - `--header "accept: application/vnd.fos.user-context-hash"` tells [[= product_name =]] that the client wants to receive the user-context-hash
-- `--header "x-fos-original-url: /"` is required by the fos-http-cache bundle in order to deliver the user-context-hash
+- `--header "x-fos-original-url: /"` is required by the fos-http-cache bundle to deliver the user-context-hash
 - `https://www.staging.foobar.com.us-2.platformsh.site/_fos_user_context_hash`: here you use the hostname you earlier told
   curl how to resolve using `---resolve`. `/_fos_user_context_hash` is the route to the controller that are able to
   deliver the user-context-hash.
@@ -472,7 +472,7 @@ Some notes about each of these parameters:
 
 The output for this command should look similar to this:
 
-```bash
+```http
     HTTP/1.1 200 OK
     Server: nginx/1.20.0
     Content-Type: application/vnd.fos.user-context-hash
@@ -501,7 +501,7 @@ Now you have the user-context-hash, and you can ask origin for the actual resour
 
 The output:
 
-```bash
+```http
 HTTP/1.1 200 OK
 Server: nginx/1.20.0
 Content-Type: text/html; charset=UTF-8
@@ -525,7 +525,7 @@ So back to the original problem here. This resource is for some reason not cache
 `x-cache: MISS` you started with). But origin says this page can be cached for 1 day. How can that be?
 The likely reason is that this page also contains some ESI fragments and that one or more of these are not cacheable.
 
-So, first let's see if there are any ESIs here: remove the `-IXGET` options (in order to see content of the response,
+So, first let's see if there are any ESIs here: remove the `-IXGET` options (to see content of the response,
 not only headers) to curl and search for esi:
 
 ```bash
@@ -550,11 +550,11 @@ shell.
     $ curl -IXGET --resolve www.staging.foobar.com.us-2.platformsh.site:443:1.2.3.4 --header "Surrogate-Capability: abc=ESI/1.0" --header "x-user-context-hash: daea248406c0043e62997b37292bf93a8c91434e8661484983408897acd93814" 'https://www.staging.foobar.com.us-2.platformsh.site/_fragment?_hash=B%2BLUWB2kxTCc6nc5aEEn0eEqBSFar%2Br6jNm8fvSKdWU%3D&_path=locationId%3D2%26contentId%3D52%26blockId%3D11%26versionNo%3D3%26languageCode%3Deng-GB%26serialized_siteaccess%3D%257B%2522name%2522%253A%2522site%2522%252C%2522matchingType%2522%253A%2522default%2522%252C%2522matcher%2522%253Anull%252C%2522provider%2522%253Anull%257D%26serialized_siteaccess_matcher%3Dnull%26_format%3Dhtml%26_locale%3Den_GB%26_controller%3DEzSystems%255CEzPlatformPageFieldTypeBundle%255CController%255CBlockController%253A%253ArenderAction'
 ```
 
-You can also note that this ESI is handled by a controller in the `EzPlatformPageFieldTypeBundle` bundle provided by [[= product_name =]].
+This ESI is handled by a controller in the `EzPlatformPageFieldTypeBundle` bundle provided by [[= product_name =]].
 
 The output is:
 
-```bash
+```http
 HTTP/1.1 200 OK
 Server: nginx/1.20.0
 Content-Type: text/html; charset=UTF-8
@@ -582,7 +582,7 @@ This ESI is handled by a custom `FooController::customAction` and the output of 
 
 Output:
 
-```bash
+```http
 HTTP/1.1 200 OK
 Server: nginx/1.20.0
 Content-Type: text/html; charset=UTF-8
@@ -598,7 +598,7 @@ X-Cache-Debug: 1
 Surrogate-Key: ez-all
 ```
 
-The `Cache-Control` and `Vary` headers look correct. The request is handled by a custom controller and the `Surrogate-Key` only contains the default `ez-all` value. 
+The `Cache-Control` and `Vary` headers look correct. The request is handled by a custom controller and the `Surrogate-Key` only contains the default `ez-all` value.
 This is not a problem as long as the controller
 does not return values from any Content in the [[= product_name =]] Repository. If it does, the controller should also add
 the corresponding IDs to such objects in that header.
@@ -607,14 +607,14 @@ The `Set-Cookie` here may cause the problem. A ESI fragment should never set a c
 - Clients only receive the headers set in the "mother" document (the headers in the "/" response in this case).
 
 - Only the content of ESIs responses is returned to the client. **No headers set in the ESI response ever reach the client**. ESI headers are only seen by the HTTP cache.
-  
+
 - Symfony reverse proxy does not support ESIs at all, and any ESI calls (`render_esi()`) are implicitly replaced by
   sub-requests (`render()`). So any `Set-Cookie` **is sent** to the client when using Symfony reverse proxy.
-  
+
 - Fastly flags its resource as "not cacheable" because it set a cookie at least once. Even though that endpoint
   stops setting cookies, Fastly still does not cache that fragment. Any document referring to that ESI is a `MISS`.
-  Fastly cache needs to be purged (`Purge-all` request) in order to remove this flag.
-  
+  Fastly cache needs to be purged (`Purge-all` request) to remove this flag.
+
 - It means that it is not recommended to always initiate a session when loading the front page.
 
 You must ensure that you do not unintendedly start a session in a controller used by ESIs, for example, when trying to access as session variable before a session has been initiated yet.
