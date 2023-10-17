@@ -5,7 +5,7 @@ description: The user management product guide provides a full description of it
 # User management product guide
 
 User management is a fundamental aspect of any system. 
-[[= product-name =]] offers a comprehensive and feature-rich user management system that allows organizations to efficiently manage their digital ecosystem.
+[[= product_name =]] offers a comprehensive and feature-rich user management system that allows organizations to efficiently manage their digital ecosystem.
 
 ## What is user management
 
@@ -18,11 +18,11 @@ User management is available in all [[= product_name =]] versions.
 
 ## How does user management work
 
-[[= product-name =]] simplifies user management with an intuitive and powerful system of accounts, Roles, Permissions, groups and Segments.
+[[= product_name =]] simplifies user management with an intuitive and powerful system of accounts, Roles, Permissions, groups and Segments.
 You can find all User Groups and Users in the **Admin Panel** by selecting **Users**. 
 Here, you can manage users, their relations, Roles and Policies.
 
-![User's section](img/users_section.png)
+![User's section](users_section.png)
 
 Here's how it works:
 
@@ -36,43 +36,44 @@ Here's how it works:
 
 - invitations - invite users to join a platform. This is useful for onboarding new users or sending invitations for exclusive content or events.
 
-- Customer Groups - organize users into Customer Groups, which helps in delivering tailored experiences and content to specific segments.
+- customer groups - organize users into customer groups, which helps in delivering tailored experiences and content to specific segments.
+
+![User management](user_management.png)
 
 ## Capabilities
 
+The detailed capabilities of [[= product_name_base =]] User Management, 
+which provide organizations with the tools they need to deliver personalized, secure, 
+and efficient user experiences while ensuring that user access and content delivery align with their business goals and strategies.
+
 ### User Roles and Permissions
 
-Ibexa allows you to define custom user Roles with granular Permissions, ensuring that users have access to only the specific parts of the system they need. 
+Ibexa allows you to define custom user [Roles with granular Permissions](permission_overview.md), ensuring that users have access to only the specific parts of the system they need. 
 Furthermore, you can create user groups to simplify Permission management.
 Assign multiple users to a group to ensure consistency and ease of access control.
 This helps maintain effortless security and control.
 
-### Customer Groups
+**Permission:**
 
-The customer group functionality allows for targeted content delivery and service offerings.
-Set specific permissions for customer groups to control who can access and edit certain content ot get specific recommendations.
+A Permission defines a specific action or access level that can be granted or denied within the system.
 
-Possible uses:
+**Role:**
 
-Product Recommendations - Create customer groups based on product preferences and offer tailored product recommendations.
+A Role represents a collection of Permissions that can be assigned to users or user groups.
+Roles streamline permission management by grouping related Permissions together.
 
-Targeted Marketing Campaigns - Segment users by demographics or behavior and deliver targeted marketing campaigns that resonate with specific groups.
+**Policy:**
 
-Content Access Control - Restrict access to premium or specialized content to specific customer groups, such as paid subscribers or loyal customers.
-
-The detailed capabilities of [[= product_name_base =]] User Management, along with these practical use cases, provide organizations with the tools they need to deliver personalized, secure, and efficient user experiences while ensuring that user access and content delivery align with their business goals and strategies.
+A Policy is a set of rules or conditions that determine under what circumstances a specific permission is granted or denied by applying Limitations.
+Policies allow for fine-grained control of access based on various factors, such as user attributes or system states.
 
 ### Custom Policies
 
-Tailor user access control to your unique requirements using custom policies. Define complex rules and access criteria for different users or groups.
+[Tailor user access control](custom_policies.md) to your unique requirements using custom policies. Define complex rules and access criteria for different users or groups.
 
 ### Limitations
 
-Implement limitations on user actions based on specific criteria, such as time-based restrictions or geographic locations.
-
-### Synchronization with external systems
-
-Integrate Ibexa with your existing systems, such as LDAP or SAML, to ensure seamless user management across your organization.
+[Implement Limitations](limitations.md) on user actions based on specific criteria, such as time-based restrictions or geographic locations.
 
 ### Authentication methods
 
@@ -80,7 +81,7 @@ Ibexa offers flexibility in authentication methods to cater to different user ba
 
 The system's OAuth integration allows users to log in with their existing social media or third-party credentials, supporting OAuth 2.0 for easy integration with services like Google, Facebook, and Twitter.
 
-![Log in via Google](img/log_in_via_google.png)
+![Log in via Google](log_in_via_google.png)
 
 Available options:
 
@@ -93,7 +94,7 @@ Available options:
 The [invitation system](invitations.md) streamlines user onboarding and engagement.
 Track the status of invitations, including when they were sent, whether they were accepted, and the actions taken by users who accepted them.
 
-![Invitations](img/users_invitation.png)
+![Invitations](users_invitation.png)
 
 ### User segmentation and personalization
 
@@ -107,6 +108,19 @@ Possible uses:
 - Demographics - Segment users based on demographic data such as age, location, and gender to personalize content, promotions, and recommendations.
 - Behavior - Tailor content based on user behavior, such as frequent content consumption, shopping patterns, or search history, ensuring users see what they're interested in.
 - Preferences - Utilize user preferences to offer a customized experience, from language preferences to content type preferences.
+
+### Customer groups
+
+The customer group functionality allows for targeted content delivery and service offerings.
+Set specific permissions for customer groups to control who can access and edit certain content ot get specific recommendations.
+
+Possible uses:
+
+- product recommendations - Create customer groups based on product preferences and offer tailored product recommendations.
+
+- targeted marketing campaigns - Segment users by demographics or behavior and deliver targeted marketing campaigns that resonate with specific groups.
+
+- content access control - Restrict access to premium or specialized content to specific customer groups, such as paid subscribers or loyal customers.
 
 ## Benefits
 
