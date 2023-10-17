@@ -99,7 +99,7 @@ Track the status of invitations, including when they were sent, whether they wer
 ### User segmentation and personalization
 
 [[= product_name_base =]]'s segmentation and personalization features allow organizations to deliver customized user experiences.
-Track user behavior, such as page views, search queries, and interactions, to create Segments and Segment Groups for users who share similar actions.
+Track user behavior, such as page views, search queries, and interactions, to create Segments and Segment Groups for users who share similar behaviors.
 
 ![Segment Groups](../administration/img/admin_panel_segment_groups.png)
 
@@ -112,7 +112,7 @@ Possible uses:
 ### Customer groups
 
 The customer group functionality allows for targeted content delivery and service offerings.
-Set specific permissions for customer groups to control who can access and edit certain content ot get specific recommendations.
+Set specific permissions for customer groups to control who can access and edit certain content to get respective recommendations.
 
 Possible uses:
 
