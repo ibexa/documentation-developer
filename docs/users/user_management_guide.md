@@ -19,7 +19,7 @@ User management is available in all [[= product_name =]] versions.
 ## How does user management work
 
 [[= product_name =]] simplifies user management with an intuitive and powerful system of accounts, Roles, Permissions, groups and Segments.
-You can find all User Groups and Users in the **Admin Panel** by selecting **Users**. 
+You can find all user groups and Users in the **Admin Panel** by selecting **Users**. 
 Here, you can manage users, their relations, Roles and Policies.
 
 ![User's section](users_section.png)
@@ -48,7 +48,7 @@ and efficient user experiences while ensuring that user access and content deliv
 
 ### User Roles and Permissions
 
-Ibexa allows you to define custom user [Roles with granular Permissions](permission_overview.md), ensuring that users have access to only the specific parts of the system they need. 
+[[= product_name_base =]] allows you to define custom user [Roles with granular Permissions](permission_overview.md), ensuring that users have access to only the specific parts of the system they need. 
 Furthermore, you can create user groups to simplify Permission management.
 Assign multiple users to a group to ensure consistency and ease of access control.
 This helps maintain effortless security and control.
@@ -77,7 +77,7 @@ Policies allow for fine-grained control of access based on various factors, such
 
 ### Authentication methods
 
-Ibexa offers flexibility in authentication methods to cater to different user bases and security requirements.
+[[= product_name_base =]] offers flexibility in authentication methods to cater to different user bases and security requirements.
 
 The system's OAuth integration allows users to log in with their existing social media or third-party credentials, supporting OAuth 2.0 for easy integration with services like Google, Facebook, and Twitter.
 
@@ -107,7 +107,7 @@ Possible uses:
 
 - Demographics - Segment users based on demographic data such as age, location, and gender to personalize content, promotions, and recommendations.
 - Behavior - Tailor content based on user behavior, such as frequent content consumption, shopping patterns, or search history, ensuring users see what they're interested in.
-- Preferences - Utilize user preferences to offer a customized experience, from language preferences to content type preferences.
+- Preferences - Utilize user preferences to offer a customized experience, from language preferences to Content Type preferences.
 
 ### Customer groups
 
