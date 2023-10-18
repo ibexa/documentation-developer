@@ -209,6 +209,27 @@ and then use it when creating the article.
 [[= include_file('code_samples/data_migration/examples/create_parent_and_child_content.yaml') =]]
 ```
 
+### Images
+
+The following example shows how to migrate an `example-image.png` located in
+`public/var/site/storage/images/3/8/3/0/383-1-eng-GB` without manually placing it in the appropriate path.
+
+To prevent the manual addition of images to specific DFS or local locations, such as `public/var/site/storage/images/` you can move image files to, for example `src/Migrations/images`.
+Adjust the migration file and configure the `image` field data as follows:
+
+```yaml
+        -   fieldDefIdentifier: image
+            languageCode: eng-GB
+            value:
+                alternativeText: ''
+                fileName: example-image.png
+                path: src/Migrations/images/example-image.png
+```
+
+This migration copies the image to the appropriate directory, 
+in this case `public/var/site/storage/images/3/8/3/0/254-1-eng-GB/example-image.png`,
+enabling swift file migration regardless of storage (local, DFS).
+
 ### Roles
 
 The following example shows how to create a Role.
