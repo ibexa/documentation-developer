@@ -20,6 +20,15 @@ Ibexa Content changes name to Ibexa Headless to emphasize Ibexa's capacity for h
 
 The feature set and capabilities of the product remain the same.
 
+### UI/UX improvements (working title)
+
+#### Draft section added to Content
+
+For streamlining purpose, the **Draft** section is now situated under **Content**.
+Users can now easily find and manage their drafts and published content from one area.
+
+![Draft section added to Content](img/4.6_drafts.png)
+
 ### New features and improvements in Personalization
 
 #### Email triggers
