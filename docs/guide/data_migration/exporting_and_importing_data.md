@@ -330,6 +330,31 @@ Then, you can use `faker()` in expressions, for example:
 
 This step generates Field values with fake personal names.
 
+## Migration examples
+
+The following examples show what data you can import using data migrations.
+
+### Images
+
+The following example shows how to migrate an `example-image.png` located in
+`public/var/site/storage/images/3/8/3/0/383-1-eng-GB` without manually placing it in the appropriate path.
+
+To prevent the manual addition of images to specific DFS or local locations, such as `public/var/site/storage/images/` you can move image files to, for example `src/Migrations/images`.
+Adjust the migration file and configure the `image` field data as follows:
+
+```yaml
+        -   fieldDefIdentifier: image
+            languageCode: eng-GB
+            value:
+                alternativeText: ''
+                fileName: example-image.png
+                path: src/Migrations/images/example-image.png
+```
+
+This migration copies the image to the appropriate directory,
+in this case `public/var/site/storage/images/3/8/3/0/254-1-eng-GB/example-image.png`,
+enabling swift file migration regardless of storage (local, DFS).
+
 ## Expression syntax
 
 You can use [Symfony expression syntax](https://symfony.com/doc/current/components/expression_language/syntax.html) in data migrations.
