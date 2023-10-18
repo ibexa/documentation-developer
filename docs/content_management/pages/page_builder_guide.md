@@ -3,12 +3,12 @@ description: The Page Builder product guide provides a full description of its f
 edition: experience
 ---
 
-# Page Builder product guide 
+# Page Builder product guide
 
 ## What is page
 
 [Page](pages.md) is a block-based type of content. You can create it and modify with a visual drag-and-drop editor - Page Builder.
-Page is divided into zones into which you can drop various dynamic blocks. 
+Page is divided into zones into which you can drop various dynamic blocks.
 By editing pages you can customize the layout and content of your website.
 
 ### Create page
@@ -17,9 +17,9 @@ To create a new page:
 
 1\. In the upper toolbar click **Content**.
 
-2\. Select **Content structure**. 
+2\. Select **Content structure**.
 
-3\. On the right-side toolbar, click **Create content** and from the list of Content items select Landing Page. 
+3\. On the right-side toolbar, click **Create content** and from the list of Content items select Landing Page.
 
 4\. Select the layout and click **Create draft**.
 
@@ -29,7 +29,7 @@ You can also add a new page in the Page Builder. Check 'Create page in Page Buil
 
 ### Edit page
 
-You can edit any existing page by using Page Builder. To do it, in the Back Office go to **Content** and select **Content structure**. 
+You can edit any existing page by using Page Builder. To do it, in the Back Office go to **Content** and select **Content structure**.
 Then, from the Content Tree choose the page that you want you edit and click **Edit** button.
 
 ## What is Page Builder
@@ -87,8 +87,8 @@ F. View toolbar
 
 #### Create page in Page Builder
 
-To open the Page Builder, click **Site** and select a website from the list that appears next to the List icon. 
-On the Page Builder toolbar click the plus button and from the list select Landing Page. 
+To open the Page Builder, click **Site** and select a website from the list that appears next to the List icon.
+On the Page Builder toolbar click the plus button and from the list select Landing Page.
 
 ##### Choose layout
 
@@ -106,9 +106,9 @@ In the `Select layouts` section, you can select layouts that you want to be avai
 
 #### Add blocks
 
-To customize your page in Page Builder you need to add blocks. You can do it in two ways: 
+To customize your page in Page Builder you need to add blocks. You can do it in two ways:
 
-A. Access Elements toolbar, drag page block that you want to use and drop it on the empty place on a drop zone. 
+A. Access Elements toolbar, drag page block that you want to use and drop it on the empty place on a drop zone.
 
 B. Choose available drop zone and use `Click to select` option.
 
@@ -145,17 +145,17 @@ Available settings are:
 ### Manage your pages without technical skills
 
 Thanks to intuitive and plain Page Builder interface, you can create and manage your website without the need of having advanced technical skills.
-Drag-and-drop elements toolbar, separated page zones and transparent sections - these are the elements that make working with Page Builder really easy and quick.
+Drag-and-drop elements toolbar, separated page zones and transparent sections - these are the elements that make working with Page Builder really simple and quick.
 
 ### Self schedule content, special offers and campaigns
 
-One of the most important tool that Page Builder offers, is a Scheduler. It allows you to set and schedule specific date and time, when content has to be published. In result, you can easily plan timeline of your new publications, without the need of manual publishing each of them.
+One of the most important tool that Page Builder offers, is a Scheduler. It allows you to set and schedule specific date and time, when content has to be published. In result, you can plan timeline of your new publications, without the need of manual publishing each of them.
 
 ### Create high-converting and fully-targeted landing pages
 
 Page Builder allows you to create highly customizable websites. You can build modifiable and targeted landing pages, that meet your needs.
-Each dynamic blocks has its own settings, properties and design that you can set up in your way to customize the content appearing on the page. 
-Additionaly, if you feel comfortable with your technical skills, you can configure your own elements, for example, new customized layout or block. 
+Each dynamic blocks has its own settings, properties and design that you can set up in your way to customize the content appearing on the page.
+Additionaly, if you feel comfortable with your technical skills, you can configure your own elements, for example, new customized layout, or block.
 
 ### Increase sales with highly personalized campaigns
 
