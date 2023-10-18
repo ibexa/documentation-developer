@@ -81,7 +81,7 @@ F. View toolbar
 |![Edit and preview switch](page_builder_toolbar_editpreview.png)|Switch between previewing and editing the Page.|
 |![Layout switch](page_builder_switch_layout.png)|Switch between Page layouts.|
 |![Preview segments](page_builder_toolbar_preview_segment.png)|Access preview of the Page for a given Segment.|
-|![Timeline button](page_builder_toolbartimelinetoggler.png)|Access the timeline to preview how the Page changes with time. You can also view the list of all upcoming scheduled events. For details, see [Timeline](schedule_publishing.md#timeline).|
+|![Timeline button](page_builder_toolbartimelinetoggler.png)|Access the timeline to preview how the Page changes with time. You can also view the list of all upcoming scheduled events.|
 |![View toggler](page_builder_toolbar_devicestoggler.png)|Toggle through to see how the Page is rendered on different devices.|
 |![Elements menu](page_builder_toolbarelements.png)|Access menu with Elements.|
 
@@ -92,7 +92,7 @@ On the Page Builder toolbar click the plus button and from the list select Landi
 
 ##### Choose layout
 
-For newly created Page you can choose a [layout](configure_ct_field_settings.md#available-page-layouts) which defines the available zones.
+For newly created Page you can choose a [layout](https://doc.ibexa.co/projects/userguide/en/latest/content_management/configure_ct_field_settings/#available-page-layouts) which defines the available zones.
 
 ![Switch layout](switch_layout_window.png)
 
