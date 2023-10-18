@@ -26,17 +26,17 @@ Here, you can manage users, their relations, Roles, and Policies.
 
 Here's how it works:
 
-- User accounts — create and manage user accounts. This includes capturing user information, such as name, email, and profile details.
+- User accounts - create and manage user accounts. This includes capturing user information, such as name, email, and profile details.
 
-- Roles and Permissions — define Roles and assign Permissions to them. This ensures that users have appropriate access to content and functionalities. Roles can be customized to match the organization's specific needs.
+- Roles and Permissions - define Roles and assign Permissions to them. This ensures that users have appropriate access to content and functionalities. Roles can be customized to match the organization's specific needs.
 
-- Authentication methods — enable multiple authentication methods, including traditional username and password, OAuth, and external service logins. This flexibility allows organizations to adapt to various user authentication requirements.
+- Authentication methods - enable multiple authentication methods, including traditional username and password, OAuth, and external service logins. This flexibility allows organizations to adapt to various user authentication requirements.
 
-- User segmentation — segment users based on criteria such as demographics, behavior, or preferences. This segmentation enables personalized content delivery and targeted marketing.
+- User segmentation - segment users based on criteria such as demographics, behavior, or preferences. This segmentation enables personalized content delivery and targeted marketing.
 
-- Invitations — invite users to join a platform streamlining an onboarding process, sending invitations for exclusive content or events.
+- Invitations - invite users to join a platform streamlining an onboarding process, sending invitations for exclusive content or events.
 
-- Customer groups — organize users into customer groups, which helps in delivering tailored experiences and content to specific segments.
+- Customer groups - organize users into customer groups, which helps in delivering tailored experiences and content to specific segments.
 
 ![User management](user_management.png)
 
@@ -53,18 +53,11 @@ Furthermore, you can create user groups to simplify Permission management.
 Assign multiple users to a group to ensure consistency and ease of access control.
 This helps maintain effortless security and control.
 
-**Permission:**
+To help you understand further the role each element serves, here's a brief summary: 
 
-A Permission defines a specific action or access level that can be granted or denied within the system.
-
-**Role:**
-
-A Role represents a collection of Permissions that can be assigned to users or user groups.
-Roles streamline permission management by grouping related Permissions together.
-
-**Policy:**
-
-A Policy is a set of rules or conditions that determine under what circumstances a specific permission is granted or denied by applying Limitations.
+- Role - represents a collection of Permissions that can be assigned to users or user groups. Roles streamline permission management by grouping related Permissions together.
+- Permission - defines a specific action or access level that can be granted or denied within the system.
+- Policy - is a set of rules or conditions that determine under what circumstances a specific permission is granted or denied by applying Limitations.
 Policies allow for fine-grained control of access based on various factors, such as user attributes or system states.
 
 ### Custom Policies
@@ -83,9 +76,9 @@ Policies allow for fine-grained control of access based on various factors, such
 
 Available options:
 
-- [Username and password](user_management.md) — ideal for most users, this traditional method offers a secure login process with username and password.
-- [OAuth](oauth_authentication.md) — integrating OAuth authentication allows users to log in using their existing social media or third-party credentials like Google, Facebook, and Twitter, streamlining the registration process.
-- [external service](add_login_through_external_service.md) — for enterprise users, integration with an external service like Active Directory or LDAP ensures that user authentication aligns with the organization's existing systems.
+- [Username and password](user_management.md) - ideal for most users, this traditional method offers a secure login process with username and password.
+- [OAuth](oauth_authentication.md) - integrating OAuth authentication allows users to log in using their existing social media or third-party credentials like Google, Facebook, and Twitter, streamlining the registration process.
+- [external service](add_login_through_external_service.md) - for enterprise users, integration with an external service like Active Directory or LDAP ensures that user authentication aligns with the organization's existing systems.
 
 ### Invitations
 
@@ -114,8 +107,8 @@ Set specific permissions for customer groups to control who can access and edit 
 
 Possible uses:
 
-- Product recommendations — create customer groups based on product preferences and offer tailored product recommendations.
-- Content access control — restrict access to premium or specialized content to specific customer groups, such as paid subscribers or loyal customers.
+- Product recommendations - create customer groups based on product preferences and offer tailored product recommendations.
+- Content access control - restrict access to premium or specialized content to specific customer groups, such as paid subscribers or loyal customers.
 
 ## Benefits
 
