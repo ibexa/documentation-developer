@@ -5,10 +5,6 @@ edition: experience
 
 # Page Builder product guide 
 
-## Availability
-
-Page Builder is available in [[=product_name_exp=]] and [[=product_name_com=]].
-
 ## What is page
 
 [Page](pages.md) is a block-based type of content. You can create it and modify with a visual drag-and-drop editor - Page Builder.
@@ -45,6 +41,10 @@ It is also important to choose a layout - it determines the arrangement of drop 
 
 ![Page Builder - diagram](page_builder_diagram.png)
 
+### Availability
+
+Page Builder is available in [[=product_name_exp=]] and [[=product_name_com=]].
+
 ### How does Page Builder work
 
 #### Page Builder interface
@@ -57,13 +57,18 @@ B. Elements toolbar
 
 C. Buttons:
 
-- **Close**
-- **Send to review** 
-- **Publish**
-- **Save draft**
-- **Delete draft**
-- **Undo**
-- **Redo**
+|Button|Description|
+|------|-----------|
+|![Close](page_builder_close.png)|Close the page without saving it.|
+|![Send to review](page_builder_review.png)|Save the page and send it to review.|
+|![Publish](page_builder_publish.png)|Publish the page.|
+|![Publish later](page_builder_publish_later.png)|Schedule publishing the page.|
+|![Save draft](page_builder_save.png)|Save the page draft*.|
+|![Delete draft](page_builder_delete.png)|Delete the page draft.|
+|![Undo](page_builder_undo.png)|Undo latest change.|
+|![Redo](page_builder_redo.png)|Redo latest change.|
+
+* To help you preserve your work, system saves drafts of Content items automatically. For more information, see [Autosave](https://doc.ibexa.co/projects/userguide/en/master/content_management/content_versions/#autosave).
 
 D. Settings toolbar (including Fields, Visibility and Schedule settings)
 
@@ -71,21 +76,45 @@ E. Mode toolbar (including PC, tablet and mobile mode)
 
 F. View toolbar
 
+|Button|Description|
+|------|-----------|
+|![Edit and preview switch](page_builder_toolbar_editpreview.png)|Switch between previewing and editing the Page.|
+|![Layout switch](page_builder_switch_layout.png)|Switch between Page layouts.|
+|![Preview segments](page_builder_toolbar_preview_segment.png)|Access preview of the Page for a given Segment.|
+|![Timeline button](page_builder_toolbartimelinetoggler.png)|Access the timeline to preview how the Page changes with time. You can also view the list of all upcoming scheduled events. For details, see [Timeline](schedule_publishing.md#timeline).|
+|![View toggler](page_builder_toolbar_devicestoggler.png)|Toggle through to see how the Page is rendered on different devices.|
+|![Elements menu](page_builder_toolbarelements.png)|Access menu with Elements.|
+
 #### Create page in Page Builder
 
 To open the Page Builder, click **Site** and select a website from the list that appears next to the List icon. 
 On the Page Builder toolbar click the plus button and from the list select Landing Page. 
+
+##### Choose layout
+
+For newly created Page you can choose a [layout](configure_ct_field_settings.md#available-page-layouts) which defines the available zones.
+
+![Switch layout](switch_layout_window.png)
+
+Applying a layout divides the Page into the defined zones. The zones are placeholders for Content items.
+
 On the Page creation modal, select the layout and click **Create draft**.
+Now you are ready to add blocks of content to the Page.
+
+The page layouts that an editor has access to are up to you to choose.
+In the `Select layouts` section, you can select layouts that you want to be available for the Page.
 
 #### Add blocks
 
 To customize your page in Page Builder you need to add blocks. You can do it in two ways: 
 
-A. Access Elements toolbar, drag page block that you want to use from the menu and drop it on the empty place on a drop zone. 
+A. Access Elements toolbar, drag page block that you want to use and drop it on the empty place on a drop zone. 
 
-B. Choose available drop zone and use 'Click to select' option.
+B. Choose available drop zone and use `Click to select` option.
 
 Ready-to-use blocks available in [[= product_name =]] have their own, unique functions, but you can also [add your own, custom blocks](create_custom_page_block.md). All available tools and settings, that Page Builder comes with, enable you to customize the content appearing on the page.
+
+You can check all ready-to-use blocks available in Page Builder in User Documentation, [Block reference page](https://doc.ibexa.co/projects/userguide/en/latest/content_management/block_reference/).
 
 #### Work with blocks
 
