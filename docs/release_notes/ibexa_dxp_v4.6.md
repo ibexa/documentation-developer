@@ -135,6 +135,20 @@ Customized URLs are easy to remember, help with SEO optimization and reduce boun
 
 For more information, see [Product page URLs](https://doc.ibexa.co/projects/userguide/en/master/pim/work_with_product_page_urls/).
 
+#### Updated VAT configuration
+
+VAT rates configuration has been extended to accept additional flags under the `extras` key. You can use them, for example, to pass additional information to the UI or define special exclusion rules.
+
+For more information, see [VAT rates](https://doc.ibexa.co/en/master/pim/pim_configuration/#vat-rates).
+
+#### VAT assignment moved to a new place
+
+Users who are creating or editing a product type are less likely to forget about setting VAT rates, because they now have a more prominent place.
+
+![Assigning VAT rates to a product type](img/4.6_catalog_vat_rates.png)
+
+For more information, see [Create product types](https://doc.ibexa.co/projects/userguide/en/master/pim/create_product_types/).
+
 ## Other changes
 
 ### Expression Language
