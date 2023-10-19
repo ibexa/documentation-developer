@@ -149,6 +149,16 @@ Users who are creating or editing a product type are less likely to forget about
 
 For more information, see [Create product types](https://doc.ibexa.co/projects/userguide/en/master/pim/create_product_types/).
 
+### User interface improvements
+
+Several improvements to the Back Office interface enhance the user experience.
+
+#### Simplified user actions
+
+Button text now precisely describes actions, so that users who create or edit content understand the purpose of each button.
+
+![Improved button text](img/4.6_publishing_options.png)
+
 ## Other changes
 
 ### Expression Language
