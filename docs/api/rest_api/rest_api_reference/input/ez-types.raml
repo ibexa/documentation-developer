@@ -2405,6 +2405,37 @@ PriceResponse:
     description: 'Removed'
     type: BaseCommerceResponse
 
+Cart:
+    description: 'This class represents a Cart'
+    type: object
+    properties:
+        id:
+            description: 'Cart ID'
+            type: integer
+        identifier:
+            description: 'Cart unique identifier'
+            type: string
+        owner:
+            description: 'User reference'
+            type: User
+        Currency:
+            type: Currency
+        entries:
+            type: array
+
+CartCreate:
+    description: 'This class represents a new Cart to create'
+    type: object
+    properties:
+        name:
+            description: the name of the new Cart
+            type: string
+            required: true
+        currencyCode:
+            description: the currency code such as `EUR`
+            type: string
+            required: true
+
 CartSummary:
     description: 'This class represents a cart summary.'
     type: object

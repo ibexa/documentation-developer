@@ -219,7 +219,7 @@ For example, you can build Pages that contain different recommendations, dependi
 
 ## How to get started
 
-Once you have integrated the headless implementation, installed a local instance of [[= product_name =]] or set up an instance on Ibexa Cloud, you are ready to employ the content management features to good use.
+Once you have integrated the headless implementation, installed a local instance of [[= product_name =]] or set up an instance on [[= product_name_cloud =]], you are ready to employ the content management features to good use.
 
 Since content management is an ongoing process, and, in your implementation, you might prefer focusing on other areas of configuration, the order of operations below is by all means conventional.
 

@@ -109,6 +109,76 @@ The expression syntax uses the following structure: `###<IDENTIFIER> <EXPRESSION
 
 The `IDENTIFIER` can be any repeated string that encloses the actual expression.
 
+#### Built-in functions
+
+Built-in expression language functions that are tagged with `ibexa.migrations.template.expression_language.function`:
+
+- `to_bool`, `to_int`, `to_float`, `to_string` - convert various data types by passing them into PHP casting functions (like `floatval`, `intval`, and others).
+
+```yaml
+                -   fieldDefIdentifier: show_children
+                    languageCode: eng-US
+                    value: '###XXX to_bool(i % 3) XXX###'
+
+                -   fieldDefIdentifier: quantity
+                    languageCode: eng-US
+                    value: '###XXX to_int("42") XXX###'
+
+                -   fieldDefIdentifier: price
+                    languageCode: eng-US
+                    value: '###XXX to_float("19.99") XXX###'
+
+                -   fieldDefIdentifier: description
+                    languageCode: eng-US
+                    value: '###XXX to_string(123) XXX###'
+```
+
+- `ibexa.migrations.template.reference` - references a specific object or resource within your application or configuration. Learn more about [migration references](managing_migrations.md#references).
+
+```yaml
+                -   fieldDefIdentifier: some_field
+                    languageCode: eng-US
+                    value: '###XXX reference("example_reference") XXX###'
+```
+
+- `ibexa.migrations.template.project_dir` - retrieves the project's root directory path, making it useful for constructing file paths and accessing project-specific resources.
+
+```yaml
+                -   fieldDefIdentifier: project_directory
+                    languageCode: eng-US
+                    value: '###XXX project_dir() XXX###'
+```
+
+#### Custom functions
+
+To add custom functionality into Migration's expression language declare it as a service 
+and tag it with `ibexa.migrations.template.expression_language.function`.
+
+Example:
+
+```yaml
+ibexa.migrations.template.to_bool:
+    class: Closure
+    factory: [ Closure, fromCallable ]
+    arguments:
+        - 'boolval'
+    tags:
+        -   name: 'ibexa.migrations.template.expression_language.function'
+            function: to_bool
+
+ibexa.migrations.template.faker:
+    class: Closure
+    factory: [ Closure, fromCallable ]
+    arguments:
+        - 'Faker\Factory::create'
+    tags:
+        -   name: 'ibexa.migrations.template.expression_language.function'
+            function: faker
+```
+
+Service-based functions can be also added, but they must be callable, 
+requiring either an `__invoke` function or a wrapping service with one.
+
 ## Migration examples
 
 The following examples show what data you can import using data migrations.
@@ -138,6 +208,27 @@ and then use it when creating the article.
 ``` yaml hl_lines="15 24"
 [[= include_file('code_samples/data_migration/examples/create_parent_and_child_content.yaml') =]]
 ```
+
+### Images
+
+The following example shows how to migrate an `example-image.png` located in
+`public/var/site/storage/images/3/8/3/0/383-1-eng-GB` without manually placing it in the appropriate path.
+
+To prevent the manual addition of images to specific DFS or local locations, such as `public/var/site/storage/images/` you can move image files to, for example `src/Migrations/images`.
+Adjust the migration file and configure the `image` field data as follows:
+
+```yaml
+        -   fieldDefIdentifier: image
+            languageCode: eng-GB
+            value:
+                alternativeText: ''
+                fileName: example-image.png
+                path: src/Migrations/images/example-image.png
+```
+
+This migration copies the image to the appropriate directory, 
+in this case `public/var/site/storage/images/3/8/3/0/254-1-eng-GB/example-image.png`,
+enabling swift file migration regardless of storage (local, DFS).
 
 ### Roles
 

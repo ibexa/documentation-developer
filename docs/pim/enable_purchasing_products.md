@@ -87,28 +87,41 @@ ibexa:
             product_catalog:
                 engine: default
                 regions:
-                    germany:
+                    germany: # Shorthand VAT configuration format
                         vat_categories:
                             standard: 19
                             reduced: 7
                             none: ~
-                    uk:                                               
-                        vat_categories:                            
-                            standard: 20                            
-                            reduced: 5                            
-                            none: ~
-                    poland:                                               
-                        vat_categories:                            
-                            standard: 23                            
-                            reduced: 8                            
-                            none: ~
+                    poland: # Current VAT configuration format
+                        vat_categories:
+                            standard:
+                                value: 23
+                            reduced:
+                                value: 8
+                            zero:
+                                value: 0
+                            none:
+                                value: 0
+                                extras:
+                                    not_applicable: true
 ```
 
-You can configure which VAT rate to use per product type in the Back Office.
+!!! note
 
-In the product type editing mode, access the definition of the Product Specification Field.
+    The above example presents two acceptable formats of VAT configuration.
+    For each VAT category, setting a value to "null" (`~`) is equal to making the following setting:
 
-![Setting up VAT rates for product type](catalog_vat_rates.png)
+    ``` yaml
+                                none:
+                                    value: 0
+                                    extras:
+                                        not_applicable: true
+    ```
+
+You can then assign VAT rates that apply to each product type in the supported regions.
+To do it, in the Back Office, edit the product type, and navigate to the **VAT rates** area.
+
+![Assigning VAT rates to a product type](catalog_vat_rates.png "Assigning VAT rates to a product type")
 
 ## Product price
 

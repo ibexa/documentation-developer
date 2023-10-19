@@ -59,6 +59,10 @@ At this point you should be able to create a shipping method based on a custom s
 
 ![Creating a shipping method of custom type](img/custom_shipping_method_type.png "Creating a shipping method of custom type")
 
+!!! note
+
+    To use this example, you must have regions. If you don't have regions, refer to [Enable purchasing products](enable_purchasing_products.md) for instructions on how to add them.
+
 ### Create options validator
 
 You might want to validate the data provided by the user against certain constraints. 
@@ -163,7 +167,7 @@ Then register the formatter as a service:
 [[= include_file('code_samples/front/shop/shipping/config/services.yaml', 0, 1) =]][[= include_file('code_samples/front/shop/shipping/config/services.yaml', 34, 38) =]]
 ```
 
-You should now see the parameter, in this case it is a customer identifier, displayed on the **Cost** tab of the shipping method's details view.
+You should now see the parameter, in this case it's a customer identifier, displayed on the **Cost** tab of the shipping method's details view.
 
 ![Shipping method parameters in the Cost tab](img/shipping_method_cost_tab.png "Shipping method parameters in the Cost tab")
 
