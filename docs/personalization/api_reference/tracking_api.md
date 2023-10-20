@@ -350,7 +350,7 @@ This event is issued when the end user removes items from their wishlist.
 It could signify that the user has lost interest in the product.
 Based on this information, recommendations presented by the store can be more accurate.
 
-`GET https://event.perso.ibexa.co/api/[customerid]/deletefromwishlist/[userid]/[itemtypeid]/[itemid]`
+`GET https://event.perso.ibexa.co/api/[customerid]/deletefromwishlist/[userid]/[itemtypeid]/[itemid]?`
 
 For a detailed description of embedded parameters, see [event parameters](#event-parameters).
 This event has no query string parameters. 
@@ -404,10 +404,15 @@ It means that they are interested in the product but plan to buy it later.
 This information can help return better recommendations.
 It can also be used as a basis for the price drop trigger.
 
-`GET https://event.perso.ibexa.co/api/[customerid]/wishlist/[userid]/[itemtypeid]/[itemid]`
+`GET https://event.perso.ibexa.co/api/[customerid]/wishlist/[userid]/[itemtypeid]/[itemid]?price=2.50EUR`
 
 For a detailed description of embedded parameters, see [event parameters](#event-parameters).
-This event has no query string parameters.
+In addition to the fact that an item is placed on the shopping list, this event can provide information
+about the product price at the time it was saved.
+
+|Name|Description|
+|---|---|
+|`price`|A price for a single product. It contains the price in decimal format and the currency code. If the price has a decimal part, the point must be used. There can be no space between price and currency. This parameter is optional.|
 
 ## Tracking events based on recommendations
 
