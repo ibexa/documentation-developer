@@ -140,6 +140,22 @@ Available settings are:
 - Refresh - refreshes preview of the block
 - Delete - deletes existing block
 
+#### Schedule content
+
+Page Builder comes with a Scheduler - is a tool that allows you to schedule content publication. 
+
+You can schedule to be published, or hidden in Page Builder in two ways with:
+
+- **Scheduler tab** - it's available in the configuration of all Page blocks. In this tab you can set the date and time when the block becomes visible and when it disappears from a Page.
+
+![Scheduler tab](scheduler_tab.png)
+
+- **Content Scheduler** - it's one of the block available in Page Builder Elements menu. To proceed with the schedule, go to **Basic** tab of the block, then click **Select contennt** and confirm your choice, and set date and time in the Content airtime settings window.
+
+![Content Scheduler](content_scheduler.png)
+
+For more information, see [Schedule publication](https://doc.ibexa.co/projects/userguide/en/latest/content_management/schedule_publishing/). 
+
 ## Benefits
 
 ### Manage your pages without technical skills
