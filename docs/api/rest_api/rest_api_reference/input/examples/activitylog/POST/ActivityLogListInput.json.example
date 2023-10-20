@@ -1,5 +1,7 @@
 {
     "ActivityLogViewInput": {
+        "offset": 0,
+        "limit": 10,
         "criteria": [
             {"type": "object_class", "class": "Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Content"},
             {"type": "action", "value": ["create"]},
@@ -7,8 +9,6 @@
         ],
         "sortClauses": [
             {"type":  "logged_at", "direction": "DESC"}
-        ],
-        "offset": 0,
-        "limit": 10
+        ]
     }
 }

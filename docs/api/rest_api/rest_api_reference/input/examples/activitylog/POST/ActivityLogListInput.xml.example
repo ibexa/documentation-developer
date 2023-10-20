@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <ActivityLogListInput>
+    <offset>0</offset>
+    <limit>10</limit>
     <criteria>
         <criterion type="object_class">
             <class>Ibexa\Contracts\Core\Repository\Values\Content\Content</class>
@@ -15,6 +17,4 @@
     <sortClauses>
         <sortClause type="logged_at">DESC</sortClause>
     </sortClauses>
-    <offset>0</offset>
-    <limit>10</limit>
 </ActivityLogListInput>
