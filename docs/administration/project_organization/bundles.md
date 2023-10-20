@@ -114,6 +114,7 @@ see the [How to Remove a Bundle]([[= symfony_doc =]]/bundles/remove.html) instru
 |ibexa/permissions|Additional permission functionalities|
 |ibexa/segmentation|Segment functionality for profiling the content displayed to specific users|
 |ibexa/site-factory|Enables configuration of sites from UI|
+|ibexa/connector-seenthis|Enables displaying video with exceeded standard video restrictions|
 
 
 ## Ibexa Commerce packages
