@@ -11,7 +11,7 @@
         </criterion>
         <criterion type="logged_at">
             <value>- 1 hour</value>
-            <operator>&lt;=</operator>
+            <operator>&gt;=</operator>
         </criterion>
     </criteria>
     <sortClauses>
