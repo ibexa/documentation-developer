@@ -165,19 +165,19 @@ If you do not provide the `--mode` option, the command asks you to select the mo
 
 The following data migration steps are available:
 
-||`create`|`update`|`delete`|
-|---|:---:|:---:|:---:|
-|`content`|&#10004;|&#10004;|&#10004;|
-|`content_type`|&#10004;|&#10004;||
-|`role`|&#10004;|&#10004;|&#10004;|
-|`content_type_group`|&#10004;|&#10004;||
-|`user`|&#10004;|&#10004;||
-|`user_group`|&#10004;||&#10004;|
-|`language`|&#10004;|||
-|`object_state_group`|&#10004;|||
-|`object_state`|&#10004;|||
-|`section`|&#10004;|&#10004;||
-|`location`||&#10004;||
+| `type`               | `create` | `update` | `delete` |
+|----------------------|:--------:|:--------:|:--------:|
+| `content_type`       | &#10004; | &#10004; |          |
+| `content_type_group` | &#10004; | &#10004; |          |
+| `content`            | &#10004; | &#10004; | &#10004; |
+| `language`           | &#10004; |          |          |
+| `location`           |          | &#10004; |          |
+| `object_state`       | &#10004; |          |          |
+| `object_state_group` | &#10004; |          |          |
+| `role`               | &#10004; | &#10004; | &#10004; |
+| `section`            | &#10004; | &#10004; |          |
+| `user_group`         | &#10004; |          | &#10004; |
+| `user`               | &#10004; | &#10004; |          |
 
 ## match-property
 
