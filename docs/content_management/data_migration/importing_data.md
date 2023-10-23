@@ -10,7 +10,7 @@ To import data from YAML migration files into Repository, you run the `ibexa:mig
 The `ibexa:migrations:import` command automatically places migration files in the correct folder.
 
 Alternatively, you can place the files manually in the `src/Migrations/Ibexa/migrations` folder
-or in [a custom folder that you configure](managing_migrations.md#migration-folders), 
+or in [a custom folder that you configure](managing_migrations.md#migration-folders),
 and specify the file name within this folder as parameter.
 If you don't specify the file, all files within this directory are used.
 
@@ -18,7 +18,7 @@ If you don't specify the file, all files within this directory are used.
 php bin/console ibexa:migrations:migrate --file=my_data_export.yaml
 ```
 
-Migrations store execution metadata in the `ibexa_migrations` database table. 
+Migrations store execution metadata in the `ibexa_migrations` database table.
 This allows incremental upgrades:
 the `ibexa:migrations:migrate` command ignores files that it had previously executed.
 
@@ -98,7 +98,7 @@ To vary the content name, the migration above uses [Symfony expression syntax](#
 
 In the example above, the expression is enclosed in `###` and the repeated string `SSS`.
 
-!!! note 
+!!! note
 
     Iteration counter is assigned to `i` by default, but you can modify it in the `iteration_counter_name` setting.
 
