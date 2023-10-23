@@ -99,7 +99,7 @@ To vary the content name, the migration above uses [Symfony expression syntax](#
 In the example above, the expression is enclosed in `###` and the repeated string `SSS`.
 
 !!! note 
-    
+
     Iteration counter is assigned to `i` by default, but you can modify it in the `iteration_counter_name` setting.
 
 #### Generating fake data
@@ -171,7 +171,7 @@ Built-in expression language functions that are tagged with `ibexa.migrations.te
 
 #### Custom functions
 
-To add custom functionality into Migration's expression language declare it as a service 
+To add custom functionality into Migration's expression language declare it as a service
 and tag it with `ibexa.migrations.template.expression_language.function`.
 
 Example:
@@ -196,7 +196,7 @@ ibexa.migrations.template.faker:
             function: faker
 ```
 
-Service-based functions can be also added, but they must be callable, 
+Service-based functions can be also added, but they must be callable,
 requiring either an `__invoke` function or a wrapping service with one.
 
 ## Migration examples
@@ -399,7 +399,7 @@ You can use the following example to assign tags to a Content (Content Type Arti
 [[= include_file('code_samples/data_migration/examples/assign_tag.yaml') =]]
 ```
 
-When updating a Content Type, use: 
+When updating a Content Type, use:
 
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/update_tag.yaml') =]]
