@@ -31,10 +31,12 @@ Users can now easily find and manage their drafts and published content from one
 
 ### New features and improvements in Personalization
 
-#### Email triggers
+#### Triggers
 
-You can increase the engagement and increase retention of your visitors and customers by delivering recommendations straight to their mailboxes.
-The feature requires that you expose an endpoint that passes data to an internal mailing system and supports the following two use cases:
+Triggers are push messages delivered to end users.
+With triggers, store managers can increase the engagement of their visitors and customers by delivering recommendations straight to their devices or mailboxes.
+While they experience improved fulfillment of their needs, more engaged customers mean bigger income for the store.
+The feature requires that your organization exposes an endpoint that passes data to an internal message delivery system and supports the following use cases:
 
 - Inducing a purchase by pushing a message with cart contents or equivalents, when the customer's cart status remains unchanged for a set time.
 
