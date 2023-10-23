@@ -350,7 +350,7 @@ This event is issued when the end user removes items from their wishlist.
 It could signify that the user has lost interest in the product.
 Based on this information, recommendations presented by the store can be more accurate.
 
-`GET https://event.perso.ibexa.co/api/[customerid]/deletefromwishlist/[userid]/[itemtypeid]/[itemid]?`
+`GET https://event.perso.ibexa.co/api/[customerid]/deletefromwishlist/[userid]/[itemtypeid]/[itemid]`
 
 For a detailed description of embedded parameters, see [event parameters](#event-parameters).
 This event has no query string parameters. 
