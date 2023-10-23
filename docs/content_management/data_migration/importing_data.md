@@ -161,7 +161,7 @@ Built-in expression language functions that are tagged with `ibexa.migrations.te
                     value: '###XXX reference("example_reference") XXX###'
 ```
 
-- `ibexa.migrations.template.project_dir` - retrieves the project's root directory path, making it useful for constructing file paths and accessing project-specific resources.
+- `ibexa.migrations.template.project_dir` - retrieves the project's root directory path, for example to construct file paths or access project-specific resources.
 
 ```yaml
                 -   fieldDefIdentifier: project_directory
