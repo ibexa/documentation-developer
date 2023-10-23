@@ -49,27 +49,27 @@ The following data migration step modes are available:
 
 | `type`                 | `create` | `update` | `delete` |
 |------------------------|:--------:|:--------:|:--------:|
-| `content`              | &#10004; | &#10004; | &#10004; |
+| `attribute`            | &#10004; | &#10004; | &#10004; |
+| `attribute_group`      | &#10004; | &#10004; | &#10004; |
 | `content_type`         | &#10004; | &#10004; | &#10004; |
-| `role`                 | &#10004; | &#10004; | &#10004; |
 | `content_type_group`   | &#10004; | &#10004; | &#10004; |
+| `content`              | &#10004; | &#10004; | &#10004; |
+| `currency`             | &#10004; | &#10004; | &#10004; |
+| `customer_group`       | &#10004; | &#10004; | &#10004; |
+| `language`             | &#10004; |          |          |
+| `location`             |          | &#10004; |          |
+| `object_state`         | &#10004; |          |          |
+| `object_state_group`   | &#10004; |          |          |
+| `payment_method`       | &#10004; |          |          |
+| `product_availability` | &#10004; |          |          |
+| `product_price`        | &#10004; |          |          |
+| `role`                 | &#10004; | &#10004; | &#10004; |
+| `section`              | &#10004; | &#10004; |          |
+| `segment`              | &#10004; | &#10004; | &#10004; |
+| `segment_group`        | &#10004; | &#10004; | &#10004; |
+| `setting`              | &#10004; | &#10004; | &#10004; |
 | `user`                 | &#10004; | &#10004; |          |
 | `user_group`           | &#10004; | &#10004; | &#10004; |
-| `language`             | &#10004; |          |          |
-| `object_state_group`   | &#10004; |          |          |
-| `object_state`         | &#10004; |          |          |
-| `section`              | &#10004; | &#10004; |          |
-| `location`             |          | &#10004; |          |
-| `attribute_group`      | &#10004; | &#10004; | &#10004; |
-| `attribute`            | &#10004; | &#10004; | &#10004; |
-| `customer_group`       | &#10004; | &#10004; | &#10004; |
-| `currency`             | &#10004; | &#10004; | &#10004; |
-| `product_price`        | &#10004; |          |          |
-| `product_availability` | &#10004; |          |          |
-| `payment_method`       | &#10004; |          |          |
-| `segment_group`        | &#10004; | &#10004; | &#10004; |
-| `segment`              | &#10004; | &#10004; | &#10004; |
-| `setting`              | &#10004; | &#10004; | &#10004; |
 
 ### Repeatable steps
 
