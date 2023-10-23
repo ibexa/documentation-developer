@@ -217,8 +217,8 @@ The required metadata keys are: `identifier`, `mainTranslation`, `contentTypeGro
 
 The following example shows how to create two Content items: a folder and an article inside it.
 
-When creating a Content item, two metadata keys are required: `contentType` and `mainTranslation`,
-as well as `parentLocationId`.
+When creating a Content item, three metadata keys are required:
+`contentType`, `mainTranslation`, and `parentLocationId`.
 
 To use the Location ID of the folder, which is created automatically by the system,
 you can use a [reference](managing_migrations.md#references).
