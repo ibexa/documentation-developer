@@ -165,19 +165,19 @@ If you do not provide the `--mode` option, the command asks you to select the mo
 
 The following data migration steps are available:
 
-||`create`|`update`|`delete`|
-|---|:---:|:---:|:---:|
-|`content`|&#10004;|&#10004;|&#10004;|
-|`content_type`|&#10004;|&#10004;||
-|`role`|&#10004;|&#10004;|&#10004;|
-|`content_type_group`|&#10004;|&#10004;||
-|`user`|&#10004;|&#10004;||
-|`user_group`|&#10004;||&#10004;|
-|`language`|&#10004;|||
-|`object_state_group`|&#10004;|||
-|`object_state`|&#10004;|||
-|`section`|&#10004;|&#10004;||
-|`location`||&#10004;||
+| `type`               | `create` | `update` | `delete` |
+|----------------------|:--------:|:--------:|:--------:|
+| `content_type`       | &#10004; | &#10004; |          |
+| `content_type_group` | &#10004; | &#10004; |          |
+| `content`            | &#10004; | &#10004; | &#10004; |
+| `language`           | &#10004; |          |          |
+| `location`           |          | &#10004; |          |
+| `object_state`       | &#10004; |          |          |
+| `object_state_group` | &#10004; |          |          |
+| `role`               | &#10004; | &#10004; | &#10004; |
+| `section`            | &#10004; | &#10004; |          |
+| `user`               | &#10004; | &#10004; |          |
+| `user_group`         | &#10004; |          | &#10004; |
 
 ## match-property
 
@@ -334,6 +334,16 @@ This step generates Field values with fake personal names.
 
 The following examples show what data you can import using data migrations.
 
+### Content Types
+
+The following example shows how to create a Content Type with two Field definitions.
+
+The required metadata keys are: `identifier`, `mainTranslation`, `contentTypeGroups` and `translations`.
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/create_blog_post_ct.yaml') =]]
+```
+
 ### Images
 
 The following example shows how to migrate an `example-image.png` located in
@@ -354,6 +364,42 @@ Adjust the migration file and configure the `image` field data as follows:
 This migration copies the image to the appropriate directory,
 in this case `public/var/site/storage/images/3/8/3/0/254-1-eng-GB/example-image.png`,
 enabling swift file migration regardless of storage (local, DFS).
+
+### Roles
+
+The following example shows how to create a Role.
+A Role requires the `identifier` metadata key.
+
+For each Policy assigned to the Role, you select the module and function, with optional Limitations.
+
+The following example shows the creation of a `Contributor` Role:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/create_role.yaml') =]]
+```
+
+To update an existing Role, two policies' modes are available:
+
+- `replace`: (default) All existing policies are replaced by the ones from the migration.
+- `append`: Migration policies are added while already existing ones are kept.
+
+The following example shows how to replace the policies of the existing `Editor` Role:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/update_role.yaml', 0, 16) =]]
+```
+
+The following example shows the addition of a policy to the `Anonymous` Role:
+
+``` yaml hl_lines="7"
+[[= include_file('code_samples/data_migration/examples/update_role.yaml', 18, 32) =]]
+```
+
+The following example shows how to delete the `Contributor` Role:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/delete_role.yaml') =]]
+```
 
 ## Expression syntax
 
