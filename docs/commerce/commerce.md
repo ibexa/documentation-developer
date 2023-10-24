@@ -30,6 +30,7 @@ The commerce component of [[= product_name =]] covers various areas of managing 
 ## Extend
 
 [[= cards([
+"commerce/cart/extend_cart",
 "commerce/checkout/customize_checkout",
 "commerce/payment/extend_payment",
 "commerce/shipping_management/extend_shipping",
