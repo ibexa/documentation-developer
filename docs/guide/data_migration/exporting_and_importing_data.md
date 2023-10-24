@@ -176,8 +176,8 @@ The following data migration steps are available:
 | `object_state_group` | &#10004; |          |          |
 | `role`               | &#10004; | &#10004; | &#10004; |
 | `section`            | &#10004; | &#10004; |          |
-| `user_group`         | &#10004; |          | &#10004; |
 | `user`               | &#10004; | &#10004; |          |
+| `user_group`         | &#10004; |          | &#10004; |
 
 ## match-property
 
