@@ -378,7 +378,7 @@ The following example shows the creation of a `Contributor` Role:
 [[= include_file('code_samples/data_migration/examples/create_role.yaml') =]]
 ```
 
-To update an existing Role, 2 policies' modes are available:
+To update an existing Role, two policies' modes are available:
 
 - `replace`: (default) All existing policies are replaced by the ones from the migration.
 - `append`: Migration policies are added while already existing ones are kept.
