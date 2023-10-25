@@ -68,7 +68,7 @@ Content of `app/Resources/assets` has been moved to `assets`.
 !!! note "Full list of deprecations"
 
     If you encounter any issue during the upgrade,
-    see [eZ Platform v3.0 deprecations](../../releases/ez_platform_v3.0_deprecations.md#template-organization)
+    see [eZ Platform v3.0 deprecations](../../release_notes/ez_platform_v3.0_deprecations.md#template-organization)
     for details of all required changes to your code.
 
 ### Third-party dependencies
