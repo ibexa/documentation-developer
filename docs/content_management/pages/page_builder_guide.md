@@ -49,6 +49,8 @@ Page Builder is available in [[=product_name_exp=]] and [[=product_name_com=]].
 
 #### Page Builder interface
 
+Page Builder has plain and intuitive interface. It is easy to create a Page without having advanced technical skills.
+
 ![Page Builder interface](page_builder_interface.png)
 
 Page Builder user interface consists of:
@@ -103,6 +105,9 @@ Now you are ready to add blocks of content to the Page.
 
 The page layouts that an editor has access to are up to you to choose.
 In the `Select layouts` section, you can select layouts that you want to be available for the Page.
+
+The default, built-in Page layout has only one zone, but developers can create other layouts in configuration.
+For more information, see [Configure layout](https://doc.ibexa.co/en/latest/templating/render_content/render_page/#configure-layout).
 
 #### Add blocks
 
