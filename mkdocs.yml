@@ -613,7 +613,7 @@ nav:
             - 'Migrate from eZ Publish Platform': 'migrating/migrating_from_ez_publish_platform.md'
             - 'Migrate from eZ Publish': 'migrating/migrating_from_ez_publish.md'
             - 'Common migration issues': 'migrating/common_issues.md'
-    - Releases:
+    - Release notes:
         - 'Ibexa DXP v4.5': 'release_notes/ibexa_dxp_v4.5.md'
         - 'Ibexa DXP v4.4': 'release_notes/ibexa_dxp_v4.4.md'
         - 'Ibexa DXP v4.3': 'release_notes/ibexa_dxp_v4.3.md'
