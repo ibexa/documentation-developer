@@ -49,41 +49,41 @@ Page Builder is available in [[=product_name_exp=]] and [[=product_name_com=]].
 
 #### Page Builder interface
 
+![Page Builder interface](page_builder_interface.png)
+
 Page Builder user interface consists of:
 
 A. Drop zone
 
-B. Elements toolbar
+B. Elements / Structure view toolbar
 
-C. Buttons:
+C. Settings toolbar (including Fields, Visibility and Schedule settings)
 
-|Button|Description|
-|------|-----------|
-|![Close](page_builder_close.png)|Close the page without saving it.|
-|![Send to review](page_builder_review.png)|Save the page and send it to review.|
-|![Publish](page_builder_publish.png)|Publish the page.|
-|![Publish later](page_builder_publish_later.png)|Schedule publishing the page.|
-|![Save draft](page_builder_save.png)|Save the page draft*.|
-|![Delete draft](page_builder_delete.png)|Delete the page draft.|
-|![Undo](page_builder_undo.png)|Undo latest change.|
-|![Redo](page_builder_redo.png)|Redo latest change.|
+D. Mode toolbar (including PC, tablet and mobile mode)
 
-* To help you preserve your work, system saves drafts of Content items automatically. For more information, see [Autosave](https://doc.ibexa.co/projects/userguide/en/master/content_management/content_versions/#autosave).
-
-D. Settings toolbar (including Fields, Visibility and Schedule settings)
-
-E. Mode toolbar (including PC, tablet and mobile mode)
-
-F. View toolbar
+E. Buttons:
 
 |Button|Description|
 |------|-----------|
 |![Edit and preview switch](page_builder_toolbar_editpreview.png)|Switch between previewing and editing the Page.|
-|![Layout switch](page_builder_switch_layout.png)|Switch between Page layouts.|
 |![Preview segments](page_builder_toolbar_preview_segment.png)|Access preview of the Page for a given Segment.|
 |![Timeline button](page_builder_toolbartimelinetoggler.png)|Access the timeline to preview how the Page changes with time. You can also view the list of all upcoming scheduled events.|
 |![View toggler](page_builder_toolbar_devicestoggler.png)|Toggle through to see how the Page is rendered on different devices.|
-|![Elements menu](page_builder_toolbarelements.png)|Access menu with Elements.|
+|![Elements menu](page_builder_toolbarelements.png)|Move Elements / Structure view to the other side of the screen.|
+|![Undo](page_builder_undo.png)|Undo latest change.|
+|![Redo](page_builder_redo.png)|Redo latest change.|
+
+F. Saving options
+
+|Option|Description|
+|------|-----------|
+|Close|Close the page without saving it.|
+|Send to review|Save the page and send it to review.|
+|Publish / Publish later|Publish the page or schedule publishing for later.|
+|Save draft|Save the page draft*.|
+|Delete draft|Delete the page draft.|
+
+* To help you preserve your work, system saves drafts of Content items automatically. For more information, see [Autosave](https://doc.ibexa.co/projects/userguide/en/master/content_management/content_versions/#autosave).
 
 #### Create page in Page Builder
 
@@ -121,7 +121,12 @@ You can check all ready-to-use blocks available in Page Builder in User Document
 Page Builder has two main views that you can use while creating a page:
 
 - Elements toolbar - consists of all available elements that you can use by dragging them and dropping on a drop zone.
+
+![Elements toolbar](elements_toolbar.png)
+
 - Structure view - shows a structure of your page, including their division into zones and the blocks that they contain.
+
+![Structure view](structure_view.png)
 
 Working with blocks is intuitive. You don't have to worry about placing blocks in the proper place from the start - you can reorder the at any time.
 You can reorder blocks in a few ways:
@@ -131,6 +136,9 @@ You can reorder blocks in a few ways:
 - access Structure view and use 'Move up' and 'Move down' function in the settings of the block
 
 You can manage each block by accessing its settings. To do it, click settings icon next to the block's name.
+
+![Block settings](block_settings.png)
+
 Available settings are:
 
 - Move up - allows you to change position of the block on the page by moving it up
