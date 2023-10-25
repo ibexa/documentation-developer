@@ -19,7 +19,7 @@ To enable purchasing from the catalog, the following configuration is required:
 
     This page shows which tasks are finished for the given product, and which are still awaiting completion.
 
-    Click the edit button next to an unfinished task to move directly to the screen where you can add the missing information.
+    Click the **Edit** icon next to an unfinished task to move directly to the screen where you can add the missing information.
 
 [[% include 'snippets/catalog_permissions_note.md' %]]
 

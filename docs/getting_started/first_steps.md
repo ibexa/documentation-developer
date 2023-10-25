@@ -44,7 +44,7 @@ module.exports = [ eZConfig, ibexaConfig, ...customConfigs ];
     For more information about passwords, see [Passwords](user_management.md#passwords).
     For more information about production security, see [Security checklist](security_checklist.md).
 
-2\. Select Admin and go to Content Types.
+2\. Select Content and go to Content Types.
 
 3\. Enter the Content group and create a new Content Type.
 
@@ -97,7 +97,7 @@ Content view templates use the [Twig templating engine](https://twig.symfony.com
 
 ## Create content and test view templates
 
-1\. Go to the Back Office, activate Content/Content structure and create a new Content item using the button in the right menu.
+1\. Go to the Back Office, activate Content/Content structure and create a new Content item by clicking **Create content**.
 
 ![Creating a Blog Post](first-steps-create-content.png)
 
