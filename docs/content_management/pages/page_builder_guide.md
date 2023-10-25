@@ -87,6 +87,16 @@ F. Saving options
 
 * To help you preserve your work, system saves drafts of Content items automatically. For more information, see [Autosave](https://doc.ibexa.co/projects/userguide/en/master/content_management/content_versions/#autosave).
 
+Page Builder has two main views that you can use while creating a page:
+
+- Elements toolbar - consists of all available elements that you can use by dragging them and dropping on a drop zone.
+
+![Elements toolbar](elements_toolbar.png)
+
+- Structure view - shows a structure of your page, including their division into zones and the blocks that they contain.
+
+![Structure view](structure_view.png)
+
 #### Create page in Page Builder
 
 To open the Page Builder, click **Site** and select a website from the list that appears next to the List icon.
@@ -122,16 +132,6 @@ Ready-to-use blocks available in [[= product_name =]] have their own, unique fun
 You can check all ready-to-use blocks available in Page Builder in User Documentation, [Block reference page](https://doc.ibexa.co/projects/userguide/en/latest/content_management/block_reference/).
 
 #### Work with blocks
-
-Page Builder has two main views that you can use while creating a page:
-
-- Elements toolbar - consists of all available elements that you can use by dragging them and dropping on a drop zone.
-
-![Elements toolbar](elements_toolbar.png)
-
-- Structure view - shows a structure of your page, including their division into zones and the blocks that they contain.
-
-![Structure view](structure_view.png)
 
 Working with blocks is intuitive. You don't have to worry about placing blocks in the proper place from the start - you can reorder the at any time.
 You can reorder blocks in a few ways:
