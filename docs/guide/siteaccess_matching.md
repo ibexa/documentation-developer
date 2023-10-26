@@ -172,7 +172,7 @@ Matched SiteAccess: `foo_front`
 !!! note
 
     If you encounter problems with the `Map\Host` matcher, make sure that your installation is
-    [properly configured to use token-based authentication](../releases/ez_platform_v2.4.md#update-ez-enterprise-v24-to-v242).
+    [properly configured to use token-based authentication](../release_notes/ez_platform_v2.4.md#update-ez-enterprise-v24-to-v242).
 
 ### Map\\URI
 

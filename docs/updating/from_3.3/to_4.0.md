@@ -5,7 +5,7 @@ This update procedure applies if you are using v3.3.
 Go through the following steps to update to v4.0.
 
 Besides updating the application and database, you need to account for changes related to code refactoring and numerous namespace changes.
-See [a list of all changed namespaces, configuration key, service names, and other changes](../../releases/ibexa_dxp_v4.0_deprecations.md).
+See [a list of all changed namespaces, configuration key, service names, and other changes](../../release_notes/ibexa_dxp_v4.0_deprecations.md).
 
 An additional compatibility layer makes the process of updating your code easier.
 
@@ -76,7 +76,7 @@ Next, continue with updating the app:
     ```
 
 The `recipes:install` command installs new YAML configuration files,
-which have been [renamed in this release](../../releases/ibexa_dxp_v4.0_deprecations.md#configuration-file-names).
+which have been [renamed in this release](../../release_notes/ibexa_dxp_v4.0_deprecations.md#configuration-file-names).
 
 Look through the old YAML files and move your custom configuration to the relevant new files.
 
