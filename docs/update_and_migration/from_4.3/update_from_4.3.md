@@ -17,6 +17,6 @@ A. If you do not use Commerce functionalities, you can proceed with removing the
 B. If you use Commerce functionalities based on the deprecated packages, you can continue to use them for the time being.
 
 [[= cards([
-"updating/from_4.3/update_from_4.3_new_commerce",
-"updating/from_4.3/update_from_4.3_old_commerce",
+"update_and_migration/from_4.3/update_from_4.3_new_commerce",
+"update_and_migration/from_4.3/update_from_4.3_old_commerce",
 ], force_version="3.3") =]]
