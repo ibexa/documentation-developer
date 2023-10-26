@@ -74,7 +74,7 @@
             <div class="notification" id="tile2">
                 <div class="notification__content">
                     <h2>The latest release is v4.5</h2>
-                    <div>The <a href="releases/ibexa_dxp_v4.5/">latest version of Ibexa DXP is v4.5</a>. You can now update your application to the latest version.</div>
+                    <div>The <a href="release_notes/ibexa_dxp_v4.5/">latest version of Ibexa DXP is v4.5</a>. You can now update your application to the latest version.</div>
                 </div>
                 <div class="notification__cta">
                     <a href="updating/from_4.4/update_from_4.4/">Update your application</a>
@@ -96,16 +96,16 @@
                     <div class="row">
                         <div class="col-12 col-lg-6 col-fhd-3">
                             <ul>
-                                <li><a href="releases/ibexa_dxp_v4.5/#all-new-ibexa-commerce-packages">All-new Ibexa Commerce packages</a></li>
-                                <li><a href="releases/ibexa_dxp_v4.5/#new-commerce-page-blocks">New commerce page blocks</a></li>
-                                <li><a href="releases/ibexa_dxp_v4.5/#page-builder-for-b2b-portals">Page Builder for B2B portals</a></li>
+                                <li><a href="release_notes/ibexa_dxp_v4.5/#all-new-ibexa-commerce-packages">All-new Ibexa Commerce packages</a></li>
+                                <li><a href="release_notes/ibexa_dxp_v4.5/#new-commerce-page-blocks">New commerce page blocks</a></li>
+                                <li><a href="release_notes/ibexa_dxp_v4.5/#page-builder-for-b2b-portals">Page Builder for B2B portals</a></li>
                             </ul>
                         </div>
                         <div class="col-12 col-lg-6 col-fhd-3">
                             <ul>
-                                <li><a href="releases/ibexa_dxp_v4.5/#personalization-improvements">Personalization improvements</a></li>
-                                <li><a href="releases/ibexa_dxp_v4.5/#customer-data-platform-cdp-configuration">Customer Data Platform (CDP) configuration</a></li>
-                                <li><a href="releases/ibexa_dxp_v4.5/#api-improvements">API improvements</a></li>
+                                <li><a href="release_notes/ibexa_dxp_v4.5/#personalization-improvements">Personalization improvements</a></li>
+                                <li><a href="release_notes/ibexa_dxp_v4.5/#customer-data-platform-cdp-configuration">Customer Data Platform (CDP) configuration</a></li>
+                                <li><a href="release_notes/ibexa_dxp_v4.5/#api-improvements">API improvements</a></li>
                             </ul>
                         </div>
                     </div>
