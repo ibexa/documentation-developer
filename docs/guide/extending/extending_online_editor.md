@@ -212,7 +212,7 @@ The default value is `false`, so if it is not set, the custom tag will be treate
 !!! caution "Incorrect configuration"
 
     Newer configuration options, such as `is_inline`, only work with the configuration provided above.
-    If your project uses [configuration from version prior to 2.4](../../updating/from_1.x_2.x/update_db_to_2.5.md#changes-to-custom-tags),
+    If your project uses [configuration from version prior to 2.4](../../update_and_migration/from_1.x_2.x/update_db_to_2.5.md#changes-to-custom-tags),
     these options will not work.
     You need to update your configuration to be placed under the `ezrichtext` key.
 
