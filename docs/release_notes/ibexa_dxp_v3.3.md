@@ -87,4 +87,4 @@ See [list of changes in Symfony 5.2.](https://symfony.com/blog/symfony-5-2-curat
 ### Symfony 5.4
 
 The version v3.3.15 moves Ibexa DXP to Symfony 5.4.
-For more information, see [Symfony 5.4 documentation](https://symfony.com/releases/5.4) and [update documentation](../updating/from_3.3/update_from_3.3.md#3315).
+For more information, see [Symfony 5.4 documentation](https://symfony.com/releases/5.4) and [update documentation](../update_and_migration/from_3.3/update_from_3.3.md#3315).
