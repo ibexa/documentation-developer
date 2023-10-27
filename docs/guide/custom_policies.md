@@ -39,6 +39,8 @@ Name provided in the hash for each Limitation is the same value set in the `alia
 For example:
 
 ``` php
+<?php
+
 namespace App\Security;
 
 use eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Configuration\ConfigBuilderInterface;
@@ -65,28 +67,14 @@ It defines an abstract `getFiles()` method.
 
 Extend `YamlPolicyProvider` and implement `getFiles()` to return absolute paths to your YAML files.
 
-```php
-namespace App\Security;
-
-use eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Security\PolicyProvider\YamlPolicyProvider;
-
-class MyPolicyProvider extends YamlPolicyProvider
-{
-    protected function getFiles()
-    {
-        return [
-             __DIR__ . '/../Resources/config/policies.yaml',
-         ];
-    }
-}
+``` php
+[[= include_file('code_samples/back_office/limitation/src/Security/MyPolicyProvider.php') =]]
 ```
 
-In `config/packages/policies.yaml`:
+In `src/Resources/config/policies.yaml`:
 
-```yaml
-custom_module:
-    custom_function_1: ~
-    custom_function_2: [CustomLimitation]
+``` yaml
+[[= include_file('code_samples/back_office/limitation/src/Resources/config/policies.yaml') =]]
 ```
 
 ### Extending existing Policies
@@ -123,66 +111,16 @@ class Kernel extends BaseKernel
 }
 ```
 
-## Custom Limitation Type
+## Custom Limitation type
 
 For a custom module function, existing limitation types can be used or custom ones can be created.
 
-```php
-<?php
-
-namespace App\Security\Limitation;
-
-use eZ\Publish\API\Repository\Values\User\Limitation;
-
-class CustomLimitationValue extends Limitation
-{
-    public function getIdentifier(): string
-    {
-        return 'CustomLimitation';
-    }
-}
+``` php
+[[= include_file('code_samples/back_office/limitation/src/Security/Limitation/CustomLimitationValue.php') =]]
 ```
 
 ```php
-<?php
-
-namespace App\Security\Limitation;
-
-use eZ\Publish\API\Repository\Values\User\Limitation;
-use eZ\Publish\Core\Base\Exceptions\InvalidArgumentType;
-use eZ\Publish\SPI\Limitation\Type;
-
-class CustomLimitationType extends Type
-{
-    public function acceptValue(Limitation $limitationValue)
-    {
-        if (!$limitationValue instanceof CustomLimitationValue) {
-            throw new InvalidArgumentType(
-                '$limitationValue',
-                FieldGroupLimitation::class,
-                $limitationValue
-            );
-        }
-    }
-    
-    public function validate(Limitation $limitationValue)
-    {
-        return [];
-    }
-    
-    public function buildValue(array $limitationValues)
-    {
-        $value = false;
-        if (array_key_exists('value', $limitationValues)) {
-            $value = $limitationValues['value'];
-        } elseif (count($limitationValues)) {
-            $value = (bool)$limitationValues[0];
-        }
-        return new CustomLimitationValue(['limitationValues' => ['value' => $value]]);
-    }
-
-    //TODO: evaluate(APILimitationValue $value, APIUserReference $currentUser, APIValueObject $object, array $targets = null)
-}
+[[= include_file('code_samples/back_office/limitation/src/Security/Limitation/CustomLimitationType.php') =]]
 ```
 
 ```yaml
@@ -194,77 +132,38 @@ services:
             - { name: 'ezpublish.limitationType', alias: 'CustomLimitation' }
 ```
 
-TODO: Talk absolutely about MultipleSelectionBasedMapper and maybe about UDWBasedMapper
+### Custom Limitation type form
 
-## Integrating custom Limitation types with the UI
+TODO: Talk absolutely about MultipleSelectionBasedMapper and maybe about UDWBasedMapper
 
 To provide support for editing custom policies in the Back Office, you need to implement [`EzSystems\EzPlatformAdminUi\Limitation\LimitationFormMapperInterface`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/lib/Limitation/LimitationFormMapperInterface.php).
 
-```php
-<?php
-
-namespace App\Security\Limitation\Mapper;
-
-use eZ\Publish\API\Repository\Values\User\Limitation;
-use EzSystems\EzPlatformAdminUi\Translation\Extractor\LimitationTranslationExtractor;
-use EzSystems\RepositoryForms\Limitation\LimitationFormMapperInterface;
-use Symfony\Component\Form\FormInterface;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-
-class CustomLimitationFormMapper implements LimitationFormMapperInterface
-{
-    public function mapLimitationForm(FormInterface $form, Limitation $data)
-    {
-        $form->add('limitationValues', CheckboxType::class, [
-            'label' => LimitationTranslationExtractor::identifierToLabel($data->getIdentifier()),
-            'required' => false,
-            'data' => $data->limitationValues['value'],
-            'property_path' => 'limitationValues[value]'
-        ]);
-    }
-
-    public function getFormTemplate()
-    {
-        return '@ezdesign/limitation/custom_limitation_form.html.twig';
-    }
-
-    //TODO: public function filterLimitationValues(Limitation $limitation)
-}
+``` php
+[[= include_file('code_samples/back_office/limitation/src/Security/Limitation/Mapper/CustomLimitationFormMapper.php') =]]
 ```
 
-```html+twig
-{# templates/themes/standard/limitation/custom_limitation_form.html.twig #}
-{{ form_label(form.limitationValues) }}
-{{ form_widget(form.limitationValues) }}
+And provide a template corresponding to `getFormTemplate`.
+
+``` html+twig
+[[= include_file('code_samples/back_office/limitation/templates/themes/admin/limitation/custom_limitation_form.html.twig') =]]
 ```
 
 Next, register the service with the `ez.limitation.formMapper` tag and set the `limitationType` attribute to the Limitation type's identifier:
 
-```yaml
-App\Security\Limitation\Mapper\CustomLimitationFormMapper:
-    arguments:
-        # ...
-    tags:
-        - { name: 'ez.limitation.formMapper', limitationType: 'CustomLimitation' }
+``` yaml
+service:
+    # …
+    App\Security\Limitation\Mapper\CustomLimitationFormMapper:
+        arguments:
+            # …
+        tags:
+            - { name: 'ez.limitation.formMapper', limitationType: 'CustomLimitation' }
 ```
 
-If you want to provide human-readable names of the custom Limitation values, you need to implement [`EzSystems\EzPlatformAdminUi\Limitation\LimitationValueMapperInterface`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/lib/Limitation/LimitationValueMapperInterface.php).
+To provide human-readable names for the custom Limitation values, you need to implement [`EzSystems\EzPlatformAdminUi\Limitation\LimitationValueMapperInterface`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/lib/Limitation/LimitationValueMapperInterface.php).
 
-```php
-<?php
-
-namespace App\Security\Limitation\Mapper;
-
-use eZ\Publish\API\Repository\Values\User\Limitation;
-use EzSystems\EzPlatformAdminUi\Limitation\LimitationValueMapperInterface;
-
-class CustomLimitationValueMapper implements LimitationValueMapperInterface
-{
-    public function mapLimitationValue(Limitation $limitation)
-    {
-        return $limitation->limitationValues['value'];
-    }
-}
+``` php
+[[= include_file('code_samples/back_office/limitation/src/Security/Limitation/Mapper/CustomLimitationValueMapper.php') =]]
 ```
 
 Then register the service with the `ez.limitation.valueMapper` tag and set the `limitationType` attribute to Limitation type's identifier:
@@ -282,10 +181,7 @@ create a Twig template containing block definition which follows the naming conv
 `ez_limitation_<LIMITATION TYPE>_value`. For example:
 
 ``` html+twig
-{# templates/themes/standard/limitation/custom_limitation_value.html.twig #}
-{% block ez_limitation_customlimitation_value %}
-    <span style="color: {{ values ? 'green' : 'red' }};">{{ values ? 'Yes' : 'No' }}</span>
-{% endblock %}
+[[= include_file('code_samples/back_office/limitation/templates/themes/standard/limitation/custom_limitation_value.html.twig') =]]
 ```
 
 Add it to the configuration under `ezplatform.system.<SCOPE>.limitation_value_templates`:
@@ -297,6 +193,8 @@ ezplatform:
             limitation_value_templates:
                 - { template: '@ezdesign/limitation/custom_limitation_value.html.twig', priority: 0 }
 ```
+
+### Checking user custom Limitation
 
 To check if current user has this custom limitation set to true from a custom controller:
 ```php
