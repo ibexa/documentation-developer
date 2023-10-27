@@ -132,7 +132,7 @@ Use the most secure supported password hashing method. This is currently `bcrypt
 If you are using MySQL/MariaDB, use the UTF8MB4 database character set and related collation.
 The older UTF8 can lead to truncation with 4-byte characters, like some emoji, which may have unpredictable side effects.
 
-See [Change from UTF8 to UTF8MB4](../updating/from_1.x_2.x/update_db_to_2.5.md#change-from-utf8-to-utf8mb4).
+See [Change from UTF8 to UTF8MB4](../update_and_migration/from_1.x_2.x/update_db_to_2.5.md#change-from-utf8-to-utf8mb4).
 
 ### Use secure Roles and Policies
 
