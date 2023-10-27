@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Security\Limitation;
 
@@ -32,6 +32,7 @@ class CustomLimitationType implements Type
         } elseif (count($limitationValues)) {
             $value = (bool)$limitationValues[0];
         }
+
         return new CustomLimitationValue(['limitationValues' => ['value' => $value]]);
     }
 
