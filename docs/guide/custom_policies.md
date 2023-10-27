@@ -253,20 +253,3 @@ class CustomController extends Controller
     }
 }
 ```
-
-## Translations
-
-`form` domain for policy creation and module display:
-```yaml
-# form.en.yaml
-role.policy.custom_module: 'Custom Module'
-role.policy.custom_module.all_functions: 'Custom Module / All functions'
-role.policy.custom_module.custom_function_1: 'Custom Module / Custom function #1'
-role.policy.custom_module.custom_function_2: 'Custom Module / Custom function #2'
-```
-
-`ezplatform_content_forms_role` domain for policy edition and limitation display:
-```yaml
-# ezplatform_content_forms_policies.en.yaml
-policy.limitation.identifier.customlimitation: 'Custom Limitation'
-```
