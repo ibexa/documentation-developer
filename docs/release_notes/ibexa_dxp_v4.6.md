@@ -1,3 +1,4 @@
+<!-- vale VariablesVersion = NO -->
 ---
 description: Ibexa DXP v4.6 brings improvements to Commerce, PIM and Personalization offerings, and a number of changes in CDP and Ibexa Connect.
 ---
@@ -16,7 +17,7 @@ description: Ibexa DXP v4.6 brings improvements to Commerce, PIM and Personaliza
 
 ### Ibexa Headless
 
-Ibexa Content changes name to Ibexa Headless to emphasize Ibexa's capacity for headless architecture.
+[[= product_name_content =]] changes name to [[= product_name_headless =]] to emphasize [[= product_name_base =]]'s capacity for headless architecture.
 
 The feature set and capabilities of the product remain the same.
 
@@ -52,20 +53,20 @@ The feature requires that your organization exposes an endpoint that passes data
 
 - Reviving the customer's interest by pushing a message with products that are similar to the ones the customer has already seen.
 
-- Inducing a purchase by pushing a message when a price of the product from the customer's wishlist decreases. 
+- Inducing a purchase by pushing a message when a price of the product from the customer's wishlist decreases.
 
 For more information, see [Email triggers](https://doc.ibexa.co/projects/userguide/en/4.5/personalization/triggers.md).
 
 #### Multiple attributes in recommendation computation
 
-With this feature, you get an option to combine several attribute types when computing recommendations. 
+With this feature, you get an option to combine several attribute types when computing recommendations.
 As a result, users can be presented with recommendations from an intersection of submodel results.
 
 For more information, see [Submodel parameters](recommendation_api.md#submodel-parameters) and [Submodels]https://doc.ibexa.co/projects/userguide/en/latest/personalization/recommendation_models/#submodels).
 
 #### New scenario filter
 
-Depending on a setting that you make when defining a scenario, the recommendation response can now include either product variants or base products only. 
+Depending on a setting that you make when defining a scenario, the recommendation response can now include either product variants or base products only.
 This way you can deliver more accurate recommendations and avoid showing multiple variants of the same product to the client.
 
 For more information, see [Commerce-specific filters](https://doc.ibexa.co/projects/userguide/en/latest/personalization/filters/#commerce-specific-filters).
@@ -90,11 +91,11 @@ For more information, see [Orders block documentation](https://doc.ibexa.co/proj
 
 #### Quick order
 
-The quick order form allows users to streamlines the process of placing orders 
+The quick order form allows users to streamlines the process of placing orders
 with multiple items in bulk directly from the storefront.
-Customers don't need to look for products, 
-they can fill in a provided form with products' SKU number and quantity, 
-or upload their own list directly into the system. 
+Customers don't need to look for products,
+they can fill in a provided form with products' SKU number and quantity,
+or upload their own list directly into the system.
 Quick order form is available to both registered and guest users.
 
 For more information, see [Quick order documentation](https://doc.ibexa.co/en/master/commerce/cart/quick_order/).
@@ -115,7 +116,7 @@ Orders and shipments search now supports user reference:
 
 #### Customize checkout workflow
 
-You can create a PHP definition of the new strategy that allows for workflow manipulation. 
+You can create a PHP definition of the new strategy that allows for workflow manipulation.
 Defining strategy allows to add conditional steps for workflow if needed.
 When a conditional step is added, the checkout process uses the specified workflow and proceeds to the defined step.
 
@@ -123,7 +124,7 @@ For more information, see (https://doc.ibexa.co/en/master/commerce/checkout/cust
 
 #### Adding context data to cart
 
-Attach context data to both the Cart and its individual Cart Entries. 
+Attach context data to both the Cart and its individual Cart Entries.
 This feature enhances the flexibility and customization of your e-commerce application,
 enabling you to associate additional information with your cart and its contents.
 By leveraging context data, such as promo codes or custom texts,
@@ -134,7 +135,7 @@ you can tailor the e-commerce experience for your customers and enhance the capa
 #### Virtual products
 
 With this feature, you can create virtual products - non-tangible items such as memberships, services, warranties.
-To create a virtual product, first, you have to create a virtual Product Type.
+To create a virtual product, first, you have to create a virtual product type.
 Virtual products don’t require shipment when they are purchased without other physical products.
 
 For more information, see [Create virtual products](https://doc.ibexa.co/projects/userguide/en/master/pim/create_virtual_product/.)
@@ -143,19 +144,19 @@ For more information, see [Create virtual products](https://doc.ibexa.co/project
 
 Product search now supports product virutal and physical product type:
 
-- `IsVirtual` - searches for virtual or physical products. 
+- `IsVirtual` - searches for virtual or physical products.
 
 #### Product page URLs
 
-When you are creating new product type you can set up product URL alias name pattern.
+When you are creating a new product type, you can set up a product URL alias name pattern.
 With this feature, you can also create custom URL and URL alias name pattern field based on product attributes.
-Customized URLs are easy to remember, help with SEO optimization and reduce bounce rates on the website. 
+Customized URLs are easier to remember, help with SEO optimization and reduce bounce rates on the website.
 
 For more information, see [Product page URLs](https://doc.ibexa.co/projects/userguide/en/master/pim/work_with_product_page_urls/).
 
 #### Updated VAT configuration
 
-VAT rates configuration has been extended to accept additional flags under the `extras` key. You can use them, for example, to pass additional information to the UI or define special exclusion rules.
+VAT rates configuration has been extended to accept additional flags under the `extras` key. You can use them, for example, to pass additional information to the UI, or define special exclusion rules.
 
 For more information, see [VAT rates](https://doc.ibexa.co/en/master/pim/pim_configuration/#vat-rates).
 
@@ -197,21 +198,18 @@ Endpoints that allow you to manage companies in your platform with REST API:
 
 - GET `/sales-representatives` - returns paginated list of available sales representatives
 
-#### PHP API 
+#### PHP API
 
-### 
-
-### 
 
 ### Ibexa Connect
 
-For a list of changes in Ibexa Connect, see [Ibexa app release notes](https://doc.ibexa.co/projects/connect/en/latest/general/ibexa_app_release_notes/).
+For a list of changes in [[= product_name_connect =]], see [Ibexa app release notes](https://doc.ibexa.co/projects/connect/en/latest/general/ibexa_app_release_notes/).
 
 #### Scenario block
 
-New Ibexa Connect scenario block retrieves and displays data from an Ibexa Connect webhook. 
+New [[= product_name_connect =]] scenario block retrieves and displays data from an [[= product_name_connect =]] webhook.
 Scenario block is a regular Page block and can be configured on field definition level as any other block.
-You also need to configure scenario block in the Page Builder. To do it, you need to provide name for the block, enter webhook link for the Ibexa Connect webhook and select the template to be used to present the webhook.
+You also need to configure scenario block in the Page Builder. To do it, you need to provide name for the block, enter webhook link for the [[= product_name_connect =]] webhook and select the template to be used to present the webhook.
 
 For more information, see [Ibexa Connect scenario block](https://doc.ibexa.co/en/master/content_management/pages/ibexa_connect_scenario_block/).
 
@@ -221,7 +219,7 @@ For more information, see [Ibexa Connect scenario block](https://doc.ibexa.co/en
 
 ### Deprecations
 
-#### 
+####
 
 ## Full changelog
 
