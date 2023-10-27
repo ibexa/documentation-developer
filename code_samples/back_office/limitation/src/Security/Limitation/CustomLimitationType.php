@@ -41,7 +41,8 @@ class CustomLimitationType implements Type
     }
 
     /**
-     * @param ValueObject[]|null $targets
+     * @param \eZ\Publish\API\Repository\Values\ValueObject[]|null $targets
+     *
      * @return bool|null
      */
     public function evaluate(Limitation $value, UserReference $currentUser, ValueObject $object, array $targets = null)
@@ -50,6 +51,7 @@ class CustomLimitationType implements Type
         if (false) {
             return Type::ACCESS_GRANTED;
         }
+
         return Type::ACCESS_DENIED;
     }
 
