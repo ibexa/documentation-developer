@@ -25,5 +25,7 @@ class CustomLimitationFormMapper implements LimitationFormMapperInterface
         return '@ezdesign/limitation/custom_limitation_form.html.twig';
     }
 
-    //TODO: public function filterLimitationValues(Limitation $limitation)
+    public function filterLimitationValues(Limitation $limitation)
+    {
+    }
 }

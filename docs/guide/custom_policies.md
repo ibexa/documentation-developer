@@ -137,6 +137,10 @@ services:
 
 To provide support for editing custom policies in the Back Office, you need to implement [`EzSystems\EzPlatformAdminUi\Limitation\LimitationFormMapperInterface`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/lib/Limitation/LimitationFormMapperInterface.php).
 
+- `mapLimitationForm` adds the limitation field as a child to a provided Symfony form.
+- `getFormTemplate` returns the path to the template to use for rendering the limitation form. Here it use [`form_label`](https://symfony.com/doc/5.4/form/form_customization.html#reference-forms-twig-label) and [`form_widget`](https://symfony.com/doc/5.4/form/form_customization.html#reference-forms-twig-widget) to do so.
+- `filterLimitationValues` is triggered when the form is submitted and can manipulate the limitation values, such as normalizing them.
+
 ``` php
 [[= include_file('code_samples/back_office/limitation/src/Security/Limitation/Mapper/CustomLimitationFormMapper.php') =]]
 ```
@@ -192,7 +196,7 @@ ezplatform:
                 - { template: '@ezdesign/limitation/custom_limitation_value.html.twig', priority: 0 }
 ```
 
-Provide translations for your custom limitations in the `ezplatform_content_forms_policies` domain. For example, `translations/ezplatform_content_forms_policies.en.yaml`:
+Provide translations for your custom limitation form in the `ezplatform_content_forms_policies` domain. For example, `translations/ezplatform_content_forms_policies.en.yaml`:
 
 ``` yaml
 [[= include_file('code_samples/back_office/limitation/translations/ezplatform_content_forms_policies.en.yaml') =]]
