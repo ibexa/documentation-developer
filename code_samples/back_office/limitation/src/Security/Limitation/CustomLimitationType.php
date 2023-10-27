@@ -3,6 +3,7 @@
 namespace App\Security\Limitation;
 
 use eZ\Publish\API\Repository\Exceptions\NotImplementedException;
+use eZ\Publish\API\Repository\Values\ContentType\ContentType;
 use eZ\Publish\API\Repository\Values\Content\Query\CriterionInterface;
 use eZ\Publish\API\Repository\Values\User\Limitation;
 use eZ\Publish\API\Repository\Values\User\UserReference;
@@ -47,8 +48,26 @@ class CustomLimitationType implements Type
      */
     public function evaluate(Limitation $value, UserReference $currentUser, ValueObject $object, array $targets = null)
     {
-        //TODO
-        if (false) {
+        if (!$value instanceof CustomLimitationValue) {
+            throw new InvalidArgumentException('$value', 'Must be of type: CustomLimitationValue');
+        }
+
+        if ($value->limitationValues['value']) {
+            return Type::ACCESS_GRANTED;
+        }
+
+        /** @var ContentType $contentType */
+        $contentType = $object;
+        if (method_exists($object, 'getContentType')) { // Content, ContentInfo
+            $contentType = $object->getContentType();
+        } else if (method_exists($object, 'getContentInfo')) { // VersionInfo, Location
+            $contentType = $object->getContentInfo()->getContentType();
+        }
+        if (!$contentType instanceof ContentType) {
+            throw new InvalidArgumentException('$object', 'Must be of type: ContentType, Content, ContentInfo, VersionInfo or Location');
+        }
+
+        if ('user' !== $contentType->identifier) {
             return Type::ACCESS_GRANTED;
         }
 
