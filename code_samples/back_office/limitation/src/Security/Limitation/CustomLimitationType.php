@@ -29,9 +29,10 @@ class CustomLimitationType implements Type
         $validationErrors = [];
         if (!array_key_exists('value', $limitationValue->limitationValues)) {
             $validationErrors[] = new ValidationError("limitationValues['value'] is missing.");
-        } else if (!is_bool($limitationValue->limitationValues['value'])) {
+        } elseif (!is_bool($limitationValue->limitationValues['value'])) {
             $validationErrors[] = new ValidationError("limitationValues['value'] is not a boolean.");
         }
+
         return $validationErrors;
     }
 
