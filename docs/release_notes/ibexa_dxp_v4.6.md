@@ -80,7 +80,7 @@ directly from their order history with a single click, eliminating the need for 
 The system streamlines the process by recreating the cart, retrieving shipping information, and pre-filling payment details from past orders.
 This feature is exclusively accessible to logged-in users, ensuring a secure and personalized shopping experience.
 
-For more information, see [reorder documentation](TODO add link).
+For more information, see [reorder documentation](https://doc.ibexa.co/en/master/commerce/checkout/reorder/).
 
 #### Orders block
 
@@ -99,6 +99,12 @@ or upload their own list directly into the system.
 Quick order form is available to both registered and guest users.
 
 For more information, see [Quick order documentation](https://doc.ibexa.co/en/master/commerce/cart/quick_order/).
+
+#### Cancel order
+
+This version allows you to customize order cancellations by defining a specific order status and related transition.
+
+For more information, see [Define cancel order](https://doc.ibexa.co/en/master/commerce/order_management/configure_order_management/#define-cancel-order).
 
 #### Shipping management
 
