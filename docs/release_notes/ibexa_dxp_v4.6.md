@@ -20,7 +20,15 @@ Ibexa Content changes name to Ibexa Headless to emphasize Ibexa's capacity for h
 
 The feature set and capabilities of the product remain the same.
 
-### UI/UX improvements (working title)
+### User interface improvements
+
+Several improvements to the Back Office interface enhance the user experience.
+
+#### Simplified user actions
+
+Button text now precisely describes actions, so that users who create or edit content understand the purpose of each button.
+
+![Improved button text](img/4.6_publishing_options.png)
 
 #### Draft section added to Content
 
@@ -113,6 +121,14 @@ When a conditional step is added, the checkout process uses the specified workfl
 
 For more information, see (https://doc.ibexa.co/en/master/commerce/checkout/customize_checkout/#create-custom-strategy)
 
+#### Adding context data to cart
+
+Attach context data to both the Cart and its individual Cart Entries. 
+This feature enhances the flexibility and customization of your e-commerce application,
+enabling you to associate additional information with your cart and its contents.
+By leveraging context data, such as promo codes or custom texts,
+you can tailor the e-commerce experience for your customers and enhance the capabilities of your application.
+
 ### New features and improvements in PIM
 
 #### Virtual products
@@ -151,15 +167,8 @@ Users who are creating or editing a product type are less likely to forget about
 
 For more information, see [Create product types](https://doc.ibexa.co/projects/userguide/en/master/pim/create_product_types/).
 
-### User interface improvements
 
-Several improvements to the Back Office interface enhance the user experience.
 
-#### Simplified user actions
-
-Button text now precisely describes actions, so that users who create or edit content understand the purpose of each button.
-
-![Improved button text](img/4.6_publishing_options.png)
 
 ## Other changes
 
