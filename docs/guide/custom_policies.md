@@ -106,9 +106,17 @@ For a `PolicyProvider` to be active, you have to register it in the class `src/K
 
 For a custom module function, existing limitation types can be used or custom ones can be created.
 
+The base of a custom limitation is a class to store values for the usage of this limitation in roles, and a class to implement the limitation's logic.
+
+The value class extends `eZ\Publish\API\Repository\Values\User\Limitation` and says for which limitation it's used:
+
 ``` php
 [[= include_file('code_samples/back_office/limitation/src/Security/Limitation/CustomLimitationValue.php') =]]
 ```
+
+The type class implements `eZ\Publish\SPI\Limitation\Type`.
+`accept`, `validate` and `buildValue` implement the value class usage logic.
+`evaluate` challenge a limitation value against the current user, the subject object and other context objects to return is the limitation is satisfied or not. `evaluate` is, among others, used by `PermissionResolver::canUser` (to check if a user having access to a function can use it in its limitations) and `PermissionResolver::lookupLimitations`.
 
 ```php
 [[= include_file('code_samples/back_office/limitation/src/Security/Limitation/CustomLimitationType.php') =]]
