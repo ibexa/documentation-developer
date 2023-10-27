@@ -3,8 +3,8 @@
 namespace App\Security\Limitation;
 
 use eZ\Publish\API\Repository\Exceptions\NotImplementedException;
-use eZ\Publish\API\Repository\Values\ContentType\ContentType;
 use eZ\Publish\API\Repository\Values\Content\Query\CriterionInterface;
+use eZ\Publish\API\Repository\Values\ContentType\ContentType;
 use eZ\Publish\API\Repository\Values\User\Limitation;
 use eZ\Publish\API\Repository\Values\User\UserReference;
 use eZ\Publish\API\Repository\Values\ValueObject;
@@ -56,11 +56,11 @@ class CustomLimitationType implements Type
             return Type::ACCESS_GRANTED;
         }
 
-        /** @var ContentType $contentType */
+        /** @var \eZ\Publish\API\Repository\Values\ContentType\ContentType $contentType */
         $contentType = $object;
         if (method_exists($object, 'getContentType')) { // Content, ContentInfo
             $contentType = $object->getContentType();
-        } else if (method_exists($object, 'getContentInfo')) { // VersionInfo, Location
+        } elseif (method_exists($object, 'getContentInfo')) { // VersionInfo, Location
             $contentType = $object->getContentInfo()->getContentType();
         }
         if (!$contentType instanceof ContentType) {
