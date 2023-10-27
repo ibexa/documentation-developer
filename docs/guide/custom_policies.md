@@ -115,20 +115,25 @@ The value class extends `eZ\Publish\API\Repository\Values\User\Limitation` and s
 ```
 
 The type class implements `eZ\Publish\SPI\Limitation\Type`.
+
 - `accept`, `validate` and `buildValue` implement the value class usage logic.
-- `evaluate` challenge a limitation value against the current user, the subject object and other context objects to return if the limitation is satisfied or not. `evaluate` is, among others, used by `PermissionResolver::canUser` (to check if a user having access to a function can use it in its limitations) and `PermissionResolver::lookupLimitations`.
+- `evaluate` challenges a limitation value against the current user, the subject object and other context objects to return if the limitation is satisfied or not. `evaluate` is, among others, used by `PermissionResolver::canUser` (to check if a user having access to a function can use it in its limitations) and `PermissionResolver::lookupLimitations`.
 
 ```php
 [[= include_file('code_samples/back_office/limitation/src/Security/Limitation/CustomLimitationType.php') =]]
 ```
 
-```yaml
+The type class is set as a service tagged `ezpublish.limitationType` with an alias to identify it, and to link it to the value.
+
+``` yaml
+services:
+    # …
 [[= include_file('code_samples/back_office/limitation/config/append_to_services.yaml', 1, 4) =]]
 ```
 
 ### Custom Limitation type form
 
-TODO: Talk absolutely about MultipleSelectionBasedMapper and maybe about UDWBasedMapper
+#### Form mapper
 
 To provide support for editing custom policies in the Back Office, you need to implement [`EzSystems\EzPlatformAdminUi\Limitation\LimitationFormMapperInterface`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/lib/Limitation/LimitationFormMapperInterface.php).
 
@@ -147,6 +152,15 @@ Next, register the service with the `ez.limitation.formMapper` tag and set the `
 ``` yaml
 [[= include_file('code_samples/back_office/limitation/config/append_to_services.yaml', 5, 8) =]]
 ```
+
+#### Notable form mappers to extend
+
+Some abstract Limitation type form mapper classes are provided to help implementing common complexe Limitations.
+
+- `MultipleSelectionBasedMapper` is mapper to build form for Limitation based on checkbox list where multiple items can be choosen. For example, it is used to build forms for [Content Type Limitation](limitation_reference.md#content-type-limitation), [Language Limitation](limitation_reference.md#language-limitation) or [Section Limitation](limitation_reference.md#section-limitation).
+- `UDWBasedMapper` is to build Limitation form where a Content/Location must be selected. For example, it is used by the [Subtree Limitation](limitation_reference.md#subtree-of-location-limitation) form.
+
+#### Value mapper
 
 To provide human-readable names for the custom Limitation values, you need to implement [`EzSystems\EzPlatformAdminUi\Limitation\LimitationValueMapperInterface`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/lib/Limitation/LimitationValueMapperInterface.php).
 
