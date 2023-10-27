@@ -322,7 +322,6 @@ nav:
             - Cart: commerce/cart/cart.md
             - Cart API: commerce/cart/cart_api.md
             - Quick order: commerce/cart/quick_order.md
-            - Extend Cart: commerce/cart/extend_cart.md
         - Checkout:
             - Checkout: commerce/checkout/checkout.md
             - Configure checkout: commerce/checkout/configure_checkout.md
