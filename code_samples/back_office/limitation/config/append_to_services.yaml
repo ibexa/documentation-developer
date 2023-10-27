@@ -1,0 +1,12 @@
+
+    App\Security\Limitation\CustomLimitationType:
+        tags:
+            - { name: 'ezpublish.limitationType', alias: 'CustomLimitation' }
+
+    App\Security\Limitation\Mapper\CustomLimitationFormMapper:
+        tags:
+            - { name: 'ez.limitation.formMapper', limitationType: 'CustomLimitation' }
+
+    App\Security\Limitation\Mapper\CustomLimitationValueMapper:
+        tags:
+            - { name: 'ez.limitation.valueMapper', limitationType: 'CustomLimitation' }

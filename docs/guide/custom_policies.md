@@ -6,14 +6,14 @@ description: Create a custom Policy to cover non-standard permission needs.
 
 The content Repository uses [Roles and Policies](permissions.md) to give Users access to different functions of the system.
 
-Any bundle can expose available Policies via a `PolicyProvider` which can be added to EzPublishCoreBundle's [service container](../api/public_php_api.md#service-container) extension.
+Any bundle can expose available Policies via a `PolicyProvider` which can be added to EzPublishCoreBundle's [service container](../api/public_php_api.md#service-container) extension.
 
 ## PolicyProvider
 
-A `PolicyProvider` object provides a hash containing declared modules, functions and Limitations.
+A `PolicyProvider` object provides a hash containing declared modules, functions and Limitations.
 
-- Each Policy provider provides a collection of permission *modules*.
-- Each module can provide *functions* (e.g. in `content/read` "content" is the module, "read" is the function)
+- Each Policy provider provides a collection of permission *modules*.
+- Each module can provide *functions* (e.g. in `content/read` "content" is the module, "read" is the function)
 - Each function can provide a collection of Limitations.
 
 First level key is the module name which is limited to characters within the set `A-Za-z0-9_`, value is a hash of
@@ -33,7 +33,7 @@ by the alias declared in `LimitationType` service tag. If no Limitation is provi
 ]
 ```
 
-Limitations need to be implemented as *Limitation types* and declared as services identified with `ezpublish.limitationType` tag.
+Limitations need to be implemented as *Limitation types* and declared as services identified with `ezpublish.limitationType` tag.
 Name provided in the hash for each Limitation is the same value set in the `alias` attribute in the service tag.
 
 For example:
@@ -60,10 +60,10 @@ class MyPolicyProvider implements PolicyProviderInterface
 }
 ```
 
-## YamlPolicyProvider
+### YamlPolicyProvider
 
-An abstract class based on YAML is provided: `eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Security\PolicyProvider\YamlPolicyProvider`.
-It defines an abstract `getFiles()` method.
+An abstract class based on YAML is provided: `eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Security\PolicyProvider\YamlPolicyProvider`.
+It defines an abstract `getFiles()` method.
 
 Extend `YamlPolicyProvider` and implement `getFiles()` to return absolute paths to your YAML files.
 
@@ -77,9 +77,19 @@ In `src/Resources/config/policies.yaml`:
 [[= include_file('code_samples/back_office/limitation/src/Resources/config/policies.yaml') =]]
 ```
 
+### Translations
+
+Provide translations for your custom policies in the `forms` domain.
+
+For example, `translations/forms.en.yaml`:
+
+``` yaml
+[[= include_file('code_samples/back_office/limitation/translations/forms.en.yaml') =]]
+```
+
 ### Extending existing Policies
 
-A `PolicyProvider` may provide new functions to a module, and additional Limitations to an existing function. 
+A `PolicyProvider` may provide new functions to a module, and additional Limitations to an existing function. 
 **It is however strongly encouraged to add functions to your own Policy modules.**
 
 It is not possible to remove an existing module, function or limitation from a Policy.
@@ -88,27 +98,8 @@ It is not possible to remove an existing module, function or limitation from a P
 
 For a `PolicyProvider` to be active, you have to register it in the class `src/Kernel.php`:
 
-```php
-namespace App;
-
-use App\Security\MyPolicyProvider;
-use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
-use Symfony\Component\HttpKernel\Kernel as BaseKernel;
-
-class Kernel extends BaseKernel
-{
-    use MicroKernelTrait;
-
-    protected function build(ContainerBuilder $container): void
-    {
-        // ...
-        
-        // Retrieve "ezpublish" container extension
-        $eZExtension = $container->getExtension('ezpublish');
-        // Add the policy provider
-        $eZExtension->addPolicyProvider(new MyPolicyProvider());
-    }
-}
+``` php
+[[= include_file('code_samples/back_office/limitation/src/Kernel.php') =]]
 ```
 
 ## Custom Limitation type
@@ -124,12 +115,7 @@ For a custom module function, existing limitation types can be used or custom on
 ```
 
 ```yaml
-services:
-    # ...
-    App\Security\Limitation\CustomLimitationType:
-        # ...
-        tags:
-            - { name: 'ezpublish.limitationType', alias: 'CustomLimitation' }
+[[= include_file('code_samples/back_office/limitation/config/append_to_services.yaml', 1, 4) =]]
 ```
 
 ### Custom Limitation type form
@@ -151,13 +137,7 @@ And provide a template corresponding to `getFormTemplate`.
 Next, register the service with the `ez.limitation.formMapper` tag and set the `limitationType` attribute to the Limitation type's identifier:
 
 ``` yaml
-service:
-    # …
-    App\Security\Limitation\Mapper\CustomLimitationFormMapper:
-        arguments:
-            # …
-        tags:
-            - { name: 'ez.limitation.formMapper', limitationType: 'CustomLimitation' }
+[[= include_file('code_samples/back_office/limitation/config/append_to_services.yaml', 5, 8) =]]
 ```
 
 To provide human-readable names for the custom Limitation values, you need to implement [`EzSystems\EzPlatformAdminUi\Limitation\LimitationValueMapperInterface`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/lib/Limitation/LimitationValueMapperInterface.php).
@@ -168,12 +148,8 @@ To provide human-readable names for the custom Limitation values, you need to im
 
 Then register the service with the `ez.limitation.valueMapper` tag and set the `limitationType` attribute to Limitation type's identifier:
 
-```yaml
-App\Security\Limitation\Mapper\CustomLimitationValueMapper:
-    arguments:
-        # ...
-    tags:
-        - { name: 'ez.limitation.valueMapper', limitationType: 'CustomLimitation' }
+``` yaml
+[[= include_file('code_samples/back_office/limitation/config/append_to_services.yaml', 9, 12) =]]
 ```
 
 To render this custom limitation values in the role view,
@@ -192,6 +168,12 @@ ezplatform:
         default:
             limitation_value_templates:
                 - { template: '@ezdesign/limitation/custom_limitation_value.html.twig', priority: 0 }
+```
+
+Provide translations for your custom limitations in the `ezplatform_content_forms_policies` domain. For example, `translations/ezplatform_content_forms_policies.en.yaml`:
+
+``` yaml
+[[= include_file('code_samples/back_office/limitation/translations/ezplatform_content_forms_policies.en.yaml') =]]
 ```
 
 ### Checking user custom Limitation

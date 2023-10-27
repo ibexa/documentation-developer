@@ -1,0 +1,5 @@
+ezplatform:
+    system:
+        default:
+            limitation_value_templates:
+                - { template: '@ezdesign/limitation/custom_limitation_value.html.twig', priority: 0 }
