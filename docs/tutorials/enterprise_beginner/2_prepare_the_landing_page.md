@@ -1,4 +1,9 @@
-# Step 2 — Prepare the Page [[% include 'snippets/experience_badge.md' %]]
+---
+description: Learn how to build a Page with a custom layout.
+edition: experience
+---
+
+# Step 2 — Prepare the Page
 
 !!! tip
 
@@ -44,7 +49,7 @@ Preparing a new layout requires three things:
 - thumbnail
 - template
 
-#### Create entry in configuration
+#### Add entry in configuration
 
 First create a new file for layout configuration, `config/packages/ezplatform_page_fieldtype.yaml`:
 

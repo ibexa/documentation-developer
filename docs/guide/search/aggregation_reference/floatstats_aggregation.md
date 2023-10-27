@@ -1,13 +1,13 @@
 # FloatStatsAggregation
 
 The Field-based [FloatStatsAggregation](https://github.com/ezsystems/ezplatform-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/Query/Aggregation/Field/FloatStatsAggregation.php) aggregates search results by the value of the Float Field
-and provides statistical information for the values including:
+and provides statistical information for the values. You can use the provided getters to access the values:
 
-- sum
-- count of values
-- minimum value
-- maximum value
-- average
+- sum (`getSum()`)
+- count of values (`getCount()`)
+- minimum value (`getMin()`)
+- maximum value (`getMax()`)
+- average (`getAvg()`)
 
 ## Arguments
 

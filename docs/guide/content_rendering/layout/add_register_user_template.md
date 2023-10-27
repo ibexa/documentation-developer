@@ -1,9 +1,13 @@
-# Add user registration form
+---
+description: Customize the registration form for new users in your site front end.
+---
 
-You can add a registration form for users to your website.
+# Create user registration form
+
+You can create a registration form for users to your website.
 Follow the instructions below to create and customize templates for a registration form, and a registration confirmation page.
 
-First, make sure you [enabled user registration](../../permissions.md#registering-users).
+First, make sure you [enabled user registration](../../permission_use_cases.md#register-users).
 
 Next, in the `config/packages/views.yaml` file add the following configuration:
 

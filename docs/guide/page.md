@@ -1,4 +1,8 @@
-# Pages in the shop [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+---
+edition: experience
+---
+
+# Pages in the shop
 
 [[= product_name_exp =]] adds the following blocks to the Page Builder:
 

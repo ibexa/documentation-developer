@@ -1,3 +1,7 @@
+---
+description: Configure Elasticsearch to use with Ibexa DXP.
+---
+
 # Elasticsearch search engine
 
 Elasticsearch is an open-source, distributed, Java-based search engine that responds to queries
@@ -16,12 +20,12 @@ To proceed you need to be familiar with how indexing, filtering and queries work
 For example, use the following [Docker](https://docs.docker.com/get-started/overview/) command:
 
 ```
-docker run -d --name ibexa-dxp-elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.7.1
+docker run -d --name ibexa-dxp-elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.16.2
 ```
 
 !!! note
 
-    [[= product_name =]] supports Elasticsearch in version 7.7.
+    [[= product_name =]] supports Elasticsearch in version 7.16.2 or higher.
 
 ## Step 2: Verify that the Elasticsearch instance is up
 
@@ -70,9 +74,9 @@ All configuration is made in the `/config/packages/ezplatform_elastic_search_eng
     the Elasticsearch documentation.
 
 First, decide how [[= product_name =]] connects to Elasticsearch and configure other connection settings.
-For more information, see [Configuring connections](#configuring-connections).
+For more information, see [Configuring connections](#connections).
 
-Then, define a field type mappings template that instructs Elasticsearch to interpret [[= product_name =]] fields as specific types. For more information, see [Configuring field type mappings](#configuring-field-type-mapping-templates).
+Then, define a field type mappings template that instructs Elasticsearch to interpret [[= product_name =]] fields as specific types. For more information, see [Configuring field type mappings](#field-type-mapping-templates).
 
 ## Step 5: Push the templates
 
@@ -97,12 +101,12 @@ php bin/console ibexa:reindex
     Do not reindex your data before you create index templates.
     Otherwise Elasticsearch attempts to use its [dynamic field mapping](https://www.elastic.co/guide/en/elasticsearch/reference/7.7/dynamic-field-mapping.html) feature to create type mappings automatically.
 
-## Elasticsearch configuration reference
+## Elasticsearch configuration
 
-### Configuring connections
+### Connections
 
 When you configure the Elasticsearch integration, you must first configure the connections.
-You either connect to a [cluster of Elasticsearch nodes](#configure-a-cluster) or the [Elasticsearch Cloud](#configure-elasticsearch-cloud).
+You either connect to a [cluster of Elasticsearch nodes](#cluster) or the [Elasticsearch Cloud](#elasticsearch-cloud).
 
 Define the connection settings under the `connections` key. First, set a name of the connection:
 
@@ -114,8 +118,8 @@ ez_platform_elastic_search_engine:
 
 Then decide whether to add a cluster that you administer and manage yourself, or use a cloud
 solution from Elastic, as well as configure additional parameters.
-You can then decide how the cluster [handles communication with individual nodes](#configure-the-multi-node-cluster-behavior),
-and configure the [security settings](#configure-security).
+You can then decide how the cluster [handles communication with individual nodes](#multi-node-cluster-behavior),
+and configure the [security settings](#security).
 
 !!! tip "A default connection"
 
@@ -128,7 +132,7 @@ and configure the [security settings](#configure-security).
         default_connection: <connection_name>
     ```
 
-### Configuring a cluster
+### Cluster
 
 A cluster consists of a number of nodes.
 You might start with just one node and add more nodes if you need more processing power.
@@ -200,7 +204,7 @@ ezplatform_elastic_search_engine:
     default_connection: simple
 ```
 
-#### Configuring the multi-node cluster behavior
+#### Multi-node cluster behavior
 
 When you configure a cluster-based connection, and the cluster consists of many nodes, you can
 choose strategies that govern how the cluster reacts to changing operating conditions, or how
@@ -262,7 +266,7 @@ number of retries might differ.
 
 For more information, see [Set retries](https://www.elastic.co/guide/en/elasticsearch/client/php-api/7.x/configuration.html#_set_retries).
 
-### Configuring Elasticsearch Cloud
+### Elasticsearch Cloud
 
 As an alternative to using your own cluster, you can use Elasticsearch Cloud, a commercial SaaS solution.
 With Elasticsearch Cloud you do not have to build or manage your own Elasticsearch cluster.
@@ -278,7 +282,7 @@ providing an alphanumerical ID string that you obtain from the cloud's user inte
 
 With the ID set, you must configure authentication to be able to access the remote environment.
 
-### Configuring security
+### Security
 
 Elasticsearch instances support `basic` and `api_key` authentication methods.
 You select authentication type and configure the settings under the `authentication` key. By default, authentication is disabled:
@@ -292,7 +296,7 @@ You select authentication type and configure the settings under the `authenticat
 
 If you connect to Elasticsearch hosts outside of your local network, you might also need to configure SSL encryption.
 
-#### Configuring basic authentication
+#### Basic authentication
 
 If your Elasticsearch server is protected by HTTP authentication, you must provide [[= product_name =]] with the credentials.
 When using basic authentication, you must pass the following parameters:
@@ -318,7 +322,7 @@ ezplatform_elastic_search_engine:
                 credentials: ['elastic', '1htFY83VvX2JRDw88MOkOejk']
 ```
 
-#### Configuring API key authentication
+#### API key authentication
 
 If your Elasticsearch cluster is protected by API keys, you must provide the key and secret in authentication configuration to
 connect [[= product_name =]] with the cluster. With API key authentication you can define different
@@ -351,7 +355,7 @@ ezplatform_elastic_search_engine:
                 credentials: ['8Ek5f3IBGQlWj6v4M7zG', 'rmI6IechSnSJymWJ4LZqUw']
 ```
 
-#### Configuring SSL
+#### SSL
 
 When you need to protect your communication with the Elasticsearch server, you can use SSL encryption.
 When configuring SSL for your internal infrastructure, you can use your own client certificates signed by a public CA.
@@ -425,7 +429,7 @@ By default, debugging is disabled. To enable debugging, you can toggle either of
 
     Make sure that you disable debugging in a production environment.
 
-### Configuring field type mapping templates
+### Field Type mapping templates
 
 Before you can re-index the [[= product_name =]] data, so that Elasticsearch can search through its contents, you must define an index template.
 Templates instruct Elasticsearch to recognize [[= product_name =]] Fields as specific data types, based on, for example, a field name.
@@ -507,7 +511,8 @@ For more information about mappings, see [Elasticsearch documentation](https://w
 
     When you create a custom index template, with settings for your own field and document
     types, make sure that it contains mappings for all searchable fields that are available in [[= product_name =]].
-    For an example of default configuration with a list of searchable fields, see [Default configuration](https://github.com/ezsystems/ezplatform-elastic-search-engine/blob/v1.0.0/src/bundle/Resources/config/default-config.yaml).
+    For an example of default configuration with a list of searchable fields.
+    To see the default configuration, go to `vendor/ezsystems/ezplatform-elastic-search-engine/src/bundle/Resources/config/` and open the `default-config.yaml` file.
 
 #### Fine-tuning the search results
 
@@ -587,5 +592,5 @@ For more information about how Elasticsearch handles settings and mappings from 
 
 ## Extending Elasticsearch
 
-To learn how to create custom Search Criteria, Sort Clauses and Facets for use with Elasticsearch,
-and how to index custom data and manipulate the query, see [Elasticsearch extensibility](extend_elasticsearch.md).
+To learn how you can create document field mappers, custom Search Criteria, 
+custom Sort Clauses and Aggregations, see [Search extensibility](extensibility/create_custom_search_criterion.md).

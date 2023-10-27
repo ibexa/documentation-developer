@@ -1,4 +1,8 @@
-# Extending Back Office
+---
+description: Back Office holds the administrator and editor interface and allows creating, publishing and managing content, users, settings and so on.
+---
+
+# Back Office
 
 The Back Office interface is produced by the [`ezplatform-admin-ui` bundle](https://github.com/ezsystems/ezplatform-admin-ui).
 Additionally, it uses React-based modules that make each part of the UI extensible, and Bootstrap for styling.
@@ -9,11 +13,8 @@ The interface is accessible in your browser at `http://<yourdomain>/admin`.
 To extend the Back Office with PHP code, you can use [events]([[= symfony_doc =]]/event_dispatcher.html),
 either built-in Symfony events or events dispatched by the application.
 
-Some extensibility, such as [adding custom tags](extending_online_editor.md#custom-tags),
+Some extensibility, such as [adding custom tags](extending_online_editor.md#configure-custom-tags),
 is possible without writing your own code, with configuration and templating only.
-
-To learn more, take a look at the [Extending Admin UI tutorial](../tutorials/extending_admin_ui/extending_admin_ui.md)
-or at the more specific cases in Extending Back Office section.
 
 !!! note "String translations"
 

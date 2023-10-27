@@ -1,4 +1,9 @@
-# Step 1 — Get a starter website [[% include 'snippets/experience_badge.md' %]]
+---
+description: Start the tutorial by getting a clean installation of Ibexa Experience and preparing initial content.
+edition: experience
+---
+
+# Step 1 — Get a starter website
 
 !!! tip
 
@@ -6,13 +11,13 @@
 
 To set up the starter website, you need to follow these steps:
 
-## Get a clean [[= product_name_exp =]] installation
+## Get a clean [[= product_name =]] installation
 
 To begin the tutorial, you need a clean installation of [[= product_name_exp =]].
 
 Get it by following the [Install [[= product_name =]]](../../getting_started/install_ez_platform.md) guide.
 
-## Create Content Types
+## Add Content Types
 
 Log in to the Back Office – add `/admin` to your installation's address (`<yourdomain>/admin`) and log in using `admin` as the login and `publish` as the password. In Admin go to Content types tab and (under the Content category) create two Content Types with the following settings:
 

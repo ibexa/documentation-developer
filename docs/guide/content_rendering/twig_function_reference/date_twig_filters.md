@@ -1,7 +1,11 @@
+---
+description: Use date Twig filters to select the date and time format used in templates.
+---
+
 # Date Twig filters
 
 Date and time Twig filters format a date and time object (`DateTimeInterface`)
-in one of the formats defined in [user preferences](../../config_back_office.md#date-and-time-formats).
+in one of the formats defined in [user preferences](../../../extending/extending_date_and_time.md#using-user-settings-menu).
 
 - `ez_full_datetime`
 - `ez_full_date`

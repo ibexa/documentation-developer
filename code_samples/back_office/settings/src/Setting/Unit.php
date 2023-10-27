@@ -3,9 +3,9 @@ declare(strict_types=1);
 
 namespace App\Setting;
 
+use eZ\Publish\Core\Base\Exceptions\InvalidArgumentException;
 use EzSystems\EzPlatformUser\UserSetting\FormMapperInterface;
 use EzSystems\EzPlatformUser\UserSetting\ValueDefinitionInterface;
-use eZ\Publish\Core\Base\Exceptions\InvalidArgumentException;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 
@@ -26,7 +26,7 @@ class Unit implements ValueDefinitionInterface, FormMapperInterface
 
     public function getDisplayValue(string $storageValue): string
     {
-        switch($storageValue) {
+        switch ($storageValue) {
             case self::METRIC_OPTION:
                 return 'Metric';
             case self::IMPERIAL_OPTION:

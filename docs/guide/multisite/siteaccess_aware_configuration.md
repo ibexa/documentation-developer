@@ -1,3 +1,7 @@
+---
+description: Make sure your custom development's configuration can be used with SiteAccesses.
+---
+
 # SiteAccess-aware configuration
 
 The [Symfony Config component]([[= symfony_doc =]]/components/config.html) makes it possible to define semantic configuration, exposed to the end developer.
@@ -8,14 +12,14 @@ Usually, after it is validated and processed, this semantic configuration is the
 For each defined SiteAccess, you need to be able to use the same configuration tree to define SiteAccess-specific config.
 
 These settings then need to be mapped to SiteAccess-aware internal parameters 
-that you can retrieve with the [ConfigResolver](../config_dynamic.md#configresolver).
+that you can retrieve with the [ConfigResolver](../configuration/config_dynamic.md#configresolver).
 For this, internal keys need to follow the format `<namespace>.<scope>.<parameter_name>`. where:
 
 - `namespace` is specific to your app or bundle
 - `scope` is the SiteAccess, SiteAccess group, `default` or `global`
 - `parameter_name` is the actual setting *identifier*
 
-For more information about the ConfigResolver, namespaces and scopes, see [[[= product_name =]] configuration basics](../configuration.md).
+For more information about the ConfigResolver, namespaces and scopes, see [[[= product_name =]] configuration basics](../configuration/configuration.md).
 
 The example below assumes you are using an `Acme\ExampleBundle`.
 Remember to register the bundle by adding it to `config/bundles.php`:
@@ -24,7 +28,7 @@ Remember to register the bundle by adding it to `config/bundles.php`:
 Acme\ExampleBundle\AcmeExampleBundle::class => ['all' => true],
 ```
 
-### Semantic configuration parsing
+### Parsing semantic configuration
 
 To parse semantic configuration, create a `Configuration` class which extends
 `eZ\Bundle\EzPublishCoreBundle\DependencyInjection\Configuration\SiteAccessAware\Configuration`
@@ -88,7 +92,7 @@ acme_example:
 ### Mapping to internal settings
 
 Semantic configuration must always be mapped to internal key/value settings within the service container.
-You usually do it in the [service container](../../api/service_container.md) extension.
+You usually do it in the [service container](../../api/public_php_api.md#service-container) extension.
 
 ``` php
 <?php
@@ -213,7 +217,7 @@ parameters:
         language: javascript
 ```
 
-##### Merge from second level
+##### Merging from second level
 
 In the example above, entries were merged in respect to the scope order of precedence.
 However, because you defined the `os_types` key for `siteaccess1`, it completely overrode the default value,

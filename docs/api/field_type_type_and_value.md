@@ -1,12 +1,16 @@
-# Type and Value classes
+---
+description: The basis of all Field Types are their Type and Value classes, containing, respectively, the logic and the data for the Fields.
+---
+
+# Type and Value
 
 A Field Type must contain a Type class which contains the logic of the Field Type: validating data, transforming from various formats, describing the validators, etc.
 A Type class must implement `eZ\Publish\SPI\FieldType\FieldType` ("Field Type interface").
 All native Field Types also extend the `eZ\Publish\SPI\FieldType\FieldType` abstract class that implements this interface and provides implementation facilities through a set of abstract methods of its own.
 
-You should also provide a Value object class for storing the custom Field value provided by the Field Type.
+You should also provide a value object class for storing the custom Field value provided by the Field Type.
 The Value is used to represent an instance of the Field Type within a Content item.
-Each Field will present its data using an instance of the Type's Value class.
+Each Field presents its data using an instance of the Type's Value class.
 A Value class must implement the `eZ\Publish\SPI\FieldType\Value` interface.
 It may also extend the `eZ\Publish\Core\FieldType\Value` abstract class.
 It is meant to be stateless and as lightweight as possible.
@@ -20,7 +24,7 @@ The Type class of a Field Type provides an implementation of the [`eZ\Publish\SP
 
 A custom Field Type is used in a Field definition of a custom Content Type.
 You can additionally provide [settings for the Field Type](#field-type-settings) and a [validator configuration](field_type_validation.md).
-Since the Public API cannot know anything about these, their handling is delegated to the Field Type itself through the following methods:
+Since the public PHP API cannot know anything about these, their handling is delegated to the Field Type itself through the following methods:
 
 #### `getFieldTypeIdentifier()`
 
@@ -29,7 +33,7 @@ By convention it should be prefixed by a unique vendor shortcut (e.g. `ibexa` fo
 
 #### `getSettingsSchema()`
 
-This method retrieves via Public API a schema for the Field Type settings. A typical setting would be e.g. default value. The settings structure defined by this schema is stored in the `FieldDefinition`. Since it is not possible to define a generic format for such a schema, the Field Type is free to return any serializable data structure from this method.
+This method retrieves via public PHP API a schema for the Field Type settings. A typical setting would be e.g. default value. The settings structure defined by this schema is stored in the `FieldDefinition`. Since it is not possible to define a generic format for such a schema, the Field Type is free to return any serializable data structure from this method.
 
 #### `getValidatorConfigurationSchema()`
 
@@ -37,7 +41,7 @@ In addition to normal settings, the Field Type should provide schema settings fo
 
 #### `validateFieldSettings()`
 
-The type is asked to validate the settings (provided by the user) before the Public API stores those settings for the Field Type in a `FieldDefinition`. As a result, the Field Type must return if the given settings comply to the schema defined by `getSettingsSchema()`.
+The type is asked to validate the settings (provided by the user) before the public PHP API stores those settings for the Field Type in a `FieldDefinition`. As a result, the Field Type must return if the given settings comply to the schema defined by `getSettingsSchema()`.
 
 #### `validateValidatorConfiguration()`
 
@@ -49,7 +53,7 @@ It is important to note that the schema definitions of the Field Type can be bot
 
     Since it is not possible to enforce a schema format, the code using a specific Field Type must basically know all Field Types it deals with.
 
-This will also apply to all user interfaces and the REST API, which therefore must provide extension points to register handling code for custom Field Type. These extensions are not defined yet.
+This also applies to all user interfaces and the REST API, which therefore must provide extension points to register handling code for custom Field Type. These extensions are not defined yet.
 
 ### Field Type name
 
@@ -58,7 +62,7 @@ To generate Content item name or URL alias the Field Type name must be a part of
 
 ## Value handling
 
-A Field Type needs to deal with the custom value format provided by it. In order for the public API to work properly, it delegates working with such custom Field values to the corresponding Field Type. The `ez\Publish\SPI\FieldType\FieldType` interface therefore provides the following methods:
+A Field Type needs to deal with the custom value format provided by it. In order for the public PHP API to work properly, it delegates working with such custom Field values to the corresponding Field Type. The `ez\Publish\SPI\FieldType\FieldType` interface therefore provides the following methods:
 
 #### `acceptValue()`
 
@@ -87,22 +91,23 @@ It is based on the Field Type settings and validator configuration and stored in
 
 ### Serialization
 
-When [REST API](rest_api_guide.md) is used, conversion needs to be done for Field Type values, settings and validator configurations. These are converted to and from a simple hash format that can be encoded in REST payload. As conversion needs to be done both when transmitting and receiving data through REST, Field Type implements the following pairs of methods:
+When [REST API](rest_api_usage.md) is used, conversion needs to be done for Field Type values, settings and validator configurations. These are converted to and from a simple hash format that can be encoded in REST payload. As conversion needs to be done both when transmitting and receiving data through REST, Field Type implements the following pairs of methods:
 
 |Method|Description|
 |------|-----------|
-|`toHash()`|Converts Field Type Value into a plain hash format.|
+|`toHash()`|Converts Field Type Value into a simple hash format.|
 |`fromHash()`|Converts the other way around.|
 |`fieldSettingsToHash()`|Converts Field Type settings to a simple hash format.|
 |`fieldSettingsFromHash()`|Converts the other way around.|
 |`validatorConfigurationToHash()`|Converts Field Type validator configuration to a simple hash format.|
 |`validatorConfigurationFromHash()`|Converts the other way around.|
 
+[[= include_file('docs/snippets/simple_hash_value_caution.md') =]]
+
 ## Registration
 
-A Field Type needs to have an indexable class defined.
-If you are using Solr Bundle, each Field Type must be registered in `config/services.yml`:
-
+The Field Type must be registered in `config/services.yml`:
+ 
 ``` yaml
 services:
     EzSystems\EzPlatformMatrixFieldtype\FieldType\Type:
@@ -111,26 +116,17 @@ services:
             - {name: ezplatform.field_type, alias: ezmatrix}
 ```
 
-Items that are not to be indexed should be registered with the `unindexed` class with the parameter `ezpublish.fieldType.indexable.unindexed.class`:
-
-```yaml
-services:
-    EzSystems\EzPlatformMatrixFieldtype\FieldType\Type:
-        class: %ezpublish.fieldType.indexable.unindexed.class%
-        tags:
-            - {name: ezplatform.field_type, alias: ezmatrix}
-```
-
 #### `parent`
 
 As described in the [Symfony service container documentation]([[= symfony_doc =]]/components/dependency_injection/parentservices.html), the `parent` config key indicates that you want your service to inherit from the parent's dependencies, including constructor arguments and method calls. This helps avoiding repetition in your Field Type configuration and keeps consistency between all Field Types.
+If you need to inject other services into your Type class, skip using the `parent` config key.
 
 #### `tags`
 
 Like most API components, Field Types use the [Symfony service tag mechanism]([[= symfony_doc =]]/service_container/tags.html).
 
 A service can be assigned one or several tags, with specific parameters.
-When the [service container](../api/service_container.md) is compiled into a PHP file, 
+When the [service container](../api/public_php_api.md#service-container) is compiled into a PHP file, 
 tags are read by `CompilerPass` implementations that add extra handling for tagged services.
 Each service tagged as `ezplatform.field_type` is added to a [registry](http://martinfowler.com/eaaCatalog/registry.html) using the `alias` key as its unique `fieldTypeIdentifier` e.g. `ezstring`.
 Each Field Type must also inherit from the abstract `ezplatform.field_type` service.
@@ -139,6 +135,10 @@ This ensures that the initialization steps shared by all Field Types are execute
 !!! tip
 
     The configuration of built-in Field Types is located in [`EzPublishCoreBundle/Resources/config/fieldtypes.yaml`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/Core/settings/fieldtypes.yml).
+
+### Indexing
+
+To make the search engine aware of the data stored in a Field Type, register it as [indexable](field_type_search.md)
 
 ## Field Type settings
 
@@ -168,7 +168,7 @@ The settings are mapped into Symfony forms via the [FormMapper](field_type_form_
 
 ## Extensibility points
 
-Some Field Types will require additional processing, for example a Field Type storing a binary file, or one having more complex settings or validator configuration. For this purpose specific implementations of an abstract class `EzSystems\EzPlatformRest\FieldTypeProcessor` are used.
+Some Field Types require additional processing, for example a Field Type storing a binary file, or one having more complex settings or validator configuration. For this purpose specific implementations of an abstract class `EzSystems\EzPlatformRest\FieldTypeProcessor` are used.
 
 This class provides the following methods:
 

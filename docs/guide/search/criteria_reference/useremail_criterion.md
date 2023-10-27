@@ -10,7 +10,7 @@ searches for content based on the email assigned to the User account.
 
 ## Limitations
 
-The `UserEmail` Criterion is not available in Elastic search engine.
+Solr search engine and Elasticsearch support IN and EQ operators only.
 
 ## Example
 

@@ -1,4 +1,8 @@
-# Step 4 — Display a single content item
+---
+description: Learn how to render content details with a custom template.
+---
+
+# Step 4 — Display a single Content item
 
 You'll render a list of all Rides here in the next step.
 But before that, you can use the existing page layout to render the content of a single Ride.

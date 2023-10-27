@@ -29,24 +29,24 @@ get:
                     type: UserList
                     example: !include examples/user/users/GET/UserList.json.example
         404:
-            description: If there are no visibile Users matching the filter.
+            description: If there are no visible Users matching the filter.
 head:
     displayName: Verify Users
     description: Verifies if there are Users matching given filter.
     queryParameters:
         roleId:
-            description: Lists Users assigned to the given Role (e.g. GET /user/users?roleId=/user/roles/1).
+            description: Checks if there are Users directly assigned to the given Role (e.g. HEAD /user/users?roleId=/user/roles/1).
         remoteId:
-            description: Retrieves the User for the given remote ID (e.g. GET /user/users?remoteId=55dd9713db75145f374bbd0b4f60ad29).
+            description: Checks if there is a User for the given remote ID (e.g. HEAD /user/users?remoteId=55dd9713db75145f374bbd0b4f60ad29).
         login:
-            description: Retrieves the User for the given login (e.g. GET /user/users?login=editor).
+            description: Checks if there is a User for the given login (e.g. HEAD /user/users?login=editor).
         email:
-            description: Lists Users with the given email (e.g. GET /user/users?email=editor@example.com).
+            description: Checks if there is a User with the given email (e.g. HEAD /user/users?email=editor@example.com).
     responses:
         200:
             description: OK - verifies if there are Users matching the given filter.
         404:
-            description: Error - there are no visibile Users matching the filter.
+            description: Error - there are no visible Users matching the filter.
 /{userId}:
     get:
         displayName: Load User
@@ -90,13 +90,13 @@ head:
             If-Match:
                 description: Performs a PATCH only if the specified ETag is the current one.
                 example: ETag
-                body:
-                    application/vnd.ez.api.UserUpdate+xml:
-                        type: UserUpdate
-                        example: !include examples/user/users/user_id/PATCH/UserUpdate.xml.example
-                    application/vnd.ez.api.UserUpdate+json:
-                        type: UserUpdate
-                        example: !include examples/user/users/user_id/PATCH/UserUpdate.json.example
+        body:
+            application/vnd.ez.api.UserUpdate+xml:
+                type: UserUpdate
+                example: !include examples/user/users/user_id/PATCH/UserUpdate.xml.example
+            application/vnd.ez.api.UserUpdate+json:
+                type: UserUpdate
+                example: !include examples/user/users/user_id/PATCH/UserUpdate.json.example
         responses:
             200:
                 description: OK - User updated.

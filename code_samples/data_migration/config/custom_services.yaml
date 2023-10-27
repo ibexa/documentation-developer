@@ -1,0 +1,26 @@
+services:
+    App\Migrations\Action\AssignSectionDenormalizer:
+        autoconfigure: false
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer' }
+
+    App\Migrations\Action\AssignSectionExecutor:
+        tags:
+            - { name: 'ibexa.migrations.executor.action.content', key: !php/const App\Migrations\Action\AssignSection::TYPE }
+
+    App\Migrations\Matcher\SectionIdentifierNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer' }
+            
+    App\Migrations\Matcher\SectionIdentifierGenerator:
+        tags:
+            - { name: 'ibexa.migrations.generator.criterion_generator.content' }
+
+    App\Migrations\Step\ReplaceNameStepNormalizer:
+        tags:
+            - 'ibexa.migrations.serializer.step_normalizer'
+            - 'ibexa.migrations.serializer.normalizer'
+
+    App\Migrations\Step\ReplaceNameStepExecutor:
+        tags:
+            - 'ibexa.migrations.step_executor'

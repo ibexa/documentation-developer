@@ -1,3 +1,7 @@
+---
+description: Persistence cache caches SPI\Persistence calls used in common page loads.
+---
+
 # Persistence cache
 
 ![SPI cache diagram](img/spi_cache.png)
@@ -29,7 +33,7 @@ Notes:
   order to allow clearing cache by alternative indexes.
   For instance tree operations or changes to Content Types are
   examples of operations that also need to invalidate content cache by tags.
-- Search is not defined as persistence and the queries themselves are not planned to be cached as they are too complex by design (full text, facets, etc.).
+- Search is not defined as persistence and the queries themselves are not planned to be cached as they are too complex by design (for example, full text).
   Use [Solr](search/solr.md) which caches this for you to improve scale/performance, and to offload your database.
 
 For further details on which calls are cached or not, see details in the [Symfony Web Debug Toolbar](devops.md#web-debug-toolbar)
@@ -56,16 +60,13 @@ Filesystem adapters, for example, are **not** intended to be used over a shared 
 
 The underlying cache system is exposed as an `ezpublish.cache_pool` service, and can be reused by any other service as described in the [Using Cache service](#using-cache-service) section.
 
-### Configuration
-
 By default, configuration uses the `cache.tagaware.filesystem` service to store cache files.
-The service is defined in `bin/config/cache_pool/cache.tagaware.filesystem.yml`
+The service is defined in `config/packages/cache_pool/cache.tagaware.filesystem.yaml`
 to use [FilesystemTagAwareAdapter](https://github.com/ezsystems/ezplatform/blob/master/config/packages/cache_pool/cache.tagaware.filesystem.yaml#L8).
-This service is loaded through `bin/config/env/generic.php`.
 
 You can select a different cache backend and configure its parameters in the relevant file in the `cache_pool` folder.
 
-#### Multi Repository setup
+### Multi Repository setup
 
 You can [configure multisite to work with multiple Repositories](multisite/multisite_configuration.md#location-id).
 Then, in `ezplatform.yaml` you can specify which cache pool you want to use on a SiteAccess or SiteAccess group level.
@@ -78,7 +79,7 @@ ezplatform:
         # "site_group" refers to the group configured in site access
         site_group:
             # cache_pool is set to '%env(CACHE_POOL)%'
-            # env(CACHE_POOL) is set to 'cache.tagaware.filesystem' (a Symfony service) by default, for more examples see bin/config/cache_pool/*
+            # env(CACHE_POOL) is set to 'cache.tagaware.filesystem' (a Symfony service) by default, for more examples see config/packages/cache_pool/*
             cache_service_name: '%cache_pool%'
 ```
 
@@ -86,7 +87,7 @@ ezplatform:
 
     If your installation has several Repositories *(databases)*, make sure every group of sites using different Repositories also uses a different cache pool.
 
-#### In-Memory cache configuration
+### In-Memory cache configuration
 
 Persistence cache layer caches selected objects in-memory for a short time.
 It avoids loading repeatedly the same data from e.g. a remote Redis instance, which can take up to 4-5ms per call due to the network latency and Redis instance load.
@@ -159,26 +160,26 @@ Out of the box in `config/packages/cache_pool/cache.redis.yaml` you'll find a de
 
 !!! note "Ibexa Cloud"
 
-    For Ibexa Cloud/Platform.sh: This is automatically configured in `bin/config/env/platformsh.php` if you have enabled Redis as `rediscache` Platform.sh service.
+    For Ibexa Cloud/Platform.sh: This is automatically configured in `vendor/ezsystems/ezplatform-core/src/EzPlatformCoreBundle/bundle/DependencyInjection/EzPlatformCoreExtension.php` if you have enabled Redis as `rediscache` Platform.sh service.
 
-For anything else, you can enable it with environment variables detected automatically by `bin/config/env/generic.php`.
+For anything else, you can enable it with environment variables.
 For instance, if you set the following environment variables `export CACHE_POOL="cache.redis" CACHE_DSN="secret@example.com:1234/13"`, it will result in config like this:
 
 ``` yaml
 services:
     cache.redis:
-        # NOTE: This optimized Redis Adapter is avaiable as of 2.5LTS via https://github.com/ezsystems/symfony-tools
-        class: Symfony\Component\Cache\Adapter\TagAware\RedisTagAwareAdapter
+        # NOTE: Available via https://github.com/symfony/cache
+        class: Symfony\Component\Cache\Adapter\RedisTagAwareAdapter
         parent: cache.adapter.redis
         tags:
             - name: cache.pool
               clearer: cache.app_clearer
               provider: 'redis://secret@example.com:1234/13'
-              # Default CACHE_NAMESPACE value, see bin/config/cache_pool/cache.redis.yaml for usage with e.g. multi repo.
-              namespace: 'ez'
+              # Default CACHE_NAMESPACE value, see config/cache_pool/cache.redis.yaml for usage with e.g. multi repo.
+              namespace: 'ezp'
 ```
 
-See `config/packages/ezplatform.yaml` and `config/packages/cache_pool/cache.redis.yaml` for further details on `CACHE_POOL`, `CACHE_DSN` and `CACHE_NAMESPACE`.
+See `.env`, `config/packages/ezplatform.yaml` and `config/packages/cache_pool/cache.redis.yaml` for further details on `CACHE_POOL`, `CACHE_DSN` and `CACHE_NAMESPACE`.
 
 !!! caution "Clearing Redis cache"
 
@@ -237,9 +238,9 @@ Out of the box in `config/packages/cache_pool/cache.memcached.yaml` you'll find 
 
 !!! note "Ibexa Cloud"
 
-    For Ibexa Cloud/Platform.sh: This is automatically configured in `config/env/platformsh.php` if you have enabled Memcached as `cache` Platform.sh service.
+    For Ibexa Cloud/Platform.sh: This is automatically configured in `vendor/ezsystems/ezplatform-core/src/EzPlatformCoreBundle/bundle/DependencyInjection/EzPlatformCoreExtension.php` if you have enabled Memcached as `cache` Platform.sh service.
 
-For anything else, you can enable it with environment variables detected automatically by `config/env/generic.php`.
+For anything else, you can enable it with environment variables detected automatically by `vendor/ezsystems/ezplatform-core/src/EzPlatformCoreBundle/bundle/DependencyInjection/EzPlatformCoreExtension.php`.
 For instance, if you set the following environment variables `export CACHE_POOL="cache.memcached" CACHE_DSN="user:pass@localhost?weight=33"`, it will result in config like this:
 
 ``` yaml
@@ -279,7 +280,7 @@ See `config/default_parameters.yaml` and `config/cache_pool/cache.memcached.yaml
 
     > Listen on &lt;addr&gt;; default to INADDR\_ANY. &lt;addr&gt; may be specified as host:port. If you don't specify a port number, the value you specified with -p or -U is used. You may specify multiple addresses separated by comma or by using -l multiple times. This is an important option to consider as there is no other way to secure the installation. Binding to an internal or firewalled network interface is suggested.
 
-## Using Cache Service
+## Using cache service
 
 Using the internal cache service allows you to use an interface and without caring whether the system is configured to place the cache in Memcached or on File system.
 And as [[= product_name =]] requires that instances use a cluster-aware cache in Cluster setup, you can safely assume your cache is shared *(and invalidated)* across all web servers.
@@ -295,7 +296,7 @@ And as [[= product_name =]] requires that instances use a cluster-aware cache in
     That is why the example of usage below starts with a unique `myApp` key.
     For the namespace of your own cache, you must do the same.
 
-#### Getting Cache service
+#### Getting cache service
 
 ##### With dependency injection
 
@@ -313,7 +314,7 @@ This service is an instance of `Symfony\Component\Cache\Adapter\TagAwareAdapterI
 
 ##### With service container
 
-Like any other service, you can also get the cache service with the [service container](../api/service_container.md) like so:
+Like any other service, you can also get the cache service with the [service container](../api/public_php_api.md#service-container) like so:
 
 ``` php
 // Getting the cache service in PHP
@@ -343,17 +344,17 @@ return $myObject;
 
 For more info on usage, see [Symfony Cache's documentation]([[= symfony_doc =]]/components/cache.html).
 
-### Clearing Persistence cache
+### Clearing persistence cache
 
-Persistence cache prefixes it's cache using "ez-". Clearing persistence cache can thus be done in the following ways:
+Persistence cache prefixes it's cache using "ibx-". Clearing persistence cache can thus be done in the following ways:
 
 ``` php
 // To clear all cache (not recommended without a good reason)
 $pool->clear();
 
 // To clear a specific cache item (check source for more examples in eZ\Publish\Core\Persistence\Cache\*)
-$pool->deleteItems(["ez-content-info-$contentId"]);
+$pool->deleteItems(["ibx-ci-$contentId"]);
 
 // Symfony cache is tag-based, so you can clear all cache related to a Content item like this:
-$pool->invalidateTags(["content-$contentId"]);
+$pool->invalidateTags(["c-$contentId"]);
 ```

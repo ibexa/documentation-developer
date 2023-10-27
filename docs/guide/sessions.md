@@ -1,3 +1,7 @@
+---
+description: Ibexa DXP uses Symfony to handle user sessions, with support for SiteAccess-aware session cookie configuration.
+---
+
 # Sessions
 
 Sessions are handled by the Symfony framework, specifically API and underlying session handlers provided by the HttpFoundation component.
@@ -59,7 +63,7 @@ Symfony can be configured to use custom handlers, or just fall back to what is 
 framework:
     session:
         # handler_id can be set to null (~) like default in Symfony, if it so will use default session handler from php.ini
-        # But in order to use %ezplatform.session.save_path%, default eZ Platform instead sets %ezplatform.session.handler_id% to:
+        # But in order to use %ezplatform.session.save_path%, default Ibexa DXP instead sets %ezplatform.session.handler_id% to:
         # - session.handler.native_file (default)
         # - ezplatform.core.session.handler.native_redis (recommended value for Cluster usage, using php-redis session handler )
         handler_id: '%ezplatform.session.handler_id%'
@@ -117,8 +121,6 @@ Alternatively if you have needs to configure Redis servers dynamically:
     For Ibexa Cloud (and Platform.sh), this is already configured in `config/env/platformsh.php` based on `.platform.yaml` config.
 
 If you are on `php-redis` v4.2.0 and higher, you can optionally tweak [`php-redis` settings](https://github.com/phpredis/phpredis#session-locking) for session locking.
-
-###### Additional notes on using Redis for Sessions
 
 Ideally keep [persistence cache](persistence_cache.md) and session data separated:
 

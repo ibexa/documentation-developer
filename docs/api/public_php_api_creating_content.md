@@ -1,3 +1,7 @@
+---
+description: Create, publish, update and translate Content items by using the PHP API.
+---
+
 # Creating content
 
 !!! note
@@ -12,34 +16,8 @@ Value objects such as Content items are read-only, so to create or modify them y
 [`ContentService::newContentCreateStruct`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ContentService.php#L526)
 returns a new [`ContentCreateStruct`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/ContentCreateStruct.php) object.
 
-``` php hl_lines="17 18 21"
-//...
-use eZ\Publish\API\Repository\ContentService;
-use eZ\Publish\API\Repository\ContentTypeService;
-use eZ\Publish\API\Repository\LocationService;
-
-class CreateContentCommand extends Command
-{
-    //...
-    protected function execute(InputInterface $input, OutputInterface $output)
-    {
-        $parentLocationId = $input->getArgument('parentLocationId');
-        $contentTypeIdentifier = $input->getArgument('contentType');
-        $title = $input->getArgument('title');
-
-        try {
-            $contentType = $this->contentTypeService->loadContentTypeByIdentifier($contentTypeIdentifier);
-            $contentCreateStruct = $this->contentService->newContentCreateStruct($contentType, 'eng-GB');
-            $contentCreateStruct->setField('title', $title);
-            $locationCreateStruct = $this->locationService->newLocationCreateStruct($parentLocationId);
-
-            $draft = $this->contentService->createContent($contentCreateStruct, [$locationCreateStruct]);
-
-            $output->writeln("Created a draft of " . $contentType->getName() . " with name " . $draft->getName());
-
-        } catch //..
-    }
-}
+``` php hl_lines="2-3 5"
+[[= include_file('code_samples/api/public_php_api/src/Command/CreateContentCommand.php', 57, 66) =]]
 ```
 
 This command creates a draft using [`ContentService::createContent`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ContentService.php#L206) (line 21).
@@ -60,21 +38,7 @@ Therefore, when creating a Content item of the Image type (or any other Content 
 the `ContentCreateStruct` is slightly more complex than in the previous example:
 
 ``` php
-$file = '/path/to/image.png';
-$name = 'Image name';
-
-$contentType = $this->contentTypeService->loadContentTypeByIdentifier('image');
-$contentCreateStruct = $this->contentService->newContentCreateStruct($contentType, 'eng-GB');
-$contentCreateStruct->setField('name', $name);
-$imageValue = new \eZ\Publish\Core\FieldType\Image\Value(
-    array(
-        'path' => $file,
-        'fileSize' => filesize($file),
-        'fileName' => basename($file),
-        'alternativeText' => $name
-    )
-);
-$contentCreateStruct->setField('image', $imageValue);
+[[= include_file('code_samples/api/public_php_api/src/Command/CreateImageCommand.php', 56, 68) =]]
 ```
 
 Value of the Image Field Type contains the path to the image file, as well as other basic information
@@ -99,7 +63,7 @@ To publish it, use [`ContentService::publishVersion`](https://github.com/ezsyste
 This method must get the [`VersionInfo`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/VersionInfo.php) object of a draft version.
 
 ``` php
-$content = $this->contentService->publishVersion($draft->versionInfo);
+[[= include_file('code_samples/api/public_php_api/src/Command/CreateContentCommand.php', 68, 69) =]]
 ```
 
 ## Updating content
@@ -109,18 +73,7 @@ and pass it to [`ContentService::updateContent`.](https://github.com/ezsystems/e
 This method works on a draft, so to publish your changes you need to use [`ContentService::publishVersion`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ContentService.php#L336) as well:
 
 ``` php
-try {
-    $contentDraft = $this->contentService->createContentDraft($contentInfo);
-    $newName = 'New content name';
-
-    $contentUpdateStruct = $this->contentService->newContentUpdateStruct();
-    $contentUpdateStruct->initialLanguageCode = 'eng-GB';
-    $contentUpdateStruct->setField('name', $newName);
-
-    $contentDraft = $this->contentService->updateContent($contentDraft->versionInfo, $contentUpdateStruct);
-    $this->contentService->publishVersion($contentDraft->versionInfo);
-
-} catch //...
+[[= include_file('code_samples/api/public_php_api/src/Command/UpdateContentCommand.php', 47, 55) =]]
 ```
 
 ## Translating content
@@ -130,29 +83,15 @@ Content [translations](../guide/internationalization.md#language-versions) are c
 To translate a Content item to a new language, you need to update it and provide a new `initialLanguageCode`:
 
 ``` php
-$contentDraft = $this->contentService->createContentDraft($contentInfo);
-$newLanguage = 'ger-DE';
-$translatedName = 'Name in German';
-
-$contentUpdateStruct = $this->contentService->newContentUpdateStruct();
-$contentUpdateStruct->initialLanguageCode = $newLanguage;
-$contentUpdateStruct->setField('name', $translatedName);
-
-$contentDraft = $this->contentService->updateContent($contentDraft->versionInfo, $contentUpdateStruct);
-$this->contentService->publishVersion($contentDraft->versionInfo);
+[[= include_file('code_samples/api/public_php_api/src/Command/TranslateContentCommand.php', 52, 57) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/TranslateContentCommand.php', 62, 64) =]]
 ```
 
 You can also update content in multiple languages at once using the `setField` method's third argument.
 Only one language can still be set as a version's initial language:
 
 ``` php
-$anotherLanguagee = 'fre-FR';
-$newNameInAnotherLanguage = "Name in French";
-
-$contentUpdateStruct = $this->contentService->newContentUpdateStruct();
-$contentUpdateStruct->initialLanguageCode = $newLanguage;
-$contentUpdateStruct->setField('name', $newName);
-$contentUpdateStruct->setField('name', $newNameInAnotherLanguage, $anotherLanguage);
+[[= include_file('code_samples/api/public_php_api/src/Command/TranslateContentCommand.php', 59, 60) =]]
 ```
 
 ### Deleting a translation

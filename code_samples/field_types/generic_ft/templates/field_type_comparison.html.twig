@@ -1,0 +1,13 @@
+{% extends '@ezdesign/version_comparison/comparison_result_blocks.html.twig' %}
+
+{% block hello_world_field_comparison %}
+    {% apply spaceless %}
+        <span {{ block( 'field_attributes' ) }}>
+            {% with {
+                'comparison_result': comparison_result.getHelloWorldDiff()
+                } %}
+                {{ block('string_diff_render') }}
+            {% endwith %}
+        </span>
+    {% endapply %}
+{% endblock %}

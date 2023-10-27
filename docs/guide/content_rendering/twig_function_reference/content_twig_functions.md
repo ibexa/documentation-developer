@@ -1,3 +1,7 @@
+---
+description: Content Twig function enable rendering whole Content items and their information.
+---
+
 # Content Twig functions
 
 - [`ez_render()`](#ez_render) renders a Content item.

@@ -1,3 +1,7 @@
+---
+description: The language of the Back Office is selected automatically based on browser language, or you can choose it manually in user settings.
+---
+
 # Back Office translations
 
 ## Changing Back Office languages
@@ -28,7 +32,7 @@ If your browser language is set to French, the Back Office will be displayed in 
 
     Then, run `composer run post-update-cmd` and clear the cache.
 
-##### Contributing Back Office translations
+### Contributing Back Office translations
 
 To learn how to contribute to a translation, see [Contributing translations](../community_resources/translations.md).
 

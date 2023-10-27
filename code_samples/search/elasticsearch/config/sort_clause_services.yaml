@@ -1,0 +1,5 @@
+services:
+    App\Query\SortClause\Elasticsearch\ScoreVisitor:
+        tags:
+            - { name: ezpublish.search.elasticsearch.query.content.sort_clause_visitor }
+            - { name: ezpublish.search.elasticsearch.query.location.sort_clause_visitor }

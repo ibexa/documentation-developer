@@ -1,3 +1,7 @@
+---
+description: Use HTTP GET request method to render recommendations.
+---
+
 # Recommendation API
 
 Recommendations are retrieved from the recommendation engine with RESTful requests that rely on the HTTP GET method. 
@@ -67,7 +71,7 @@ For more information, see [Submodels]([[= user_doc =]]/personalization/recommend
 |attribute key|`&color=red`|Applicable if a submodel with the same name and value is configured.|string|
 |`userattribute`|gender|If defined, the recommendation engine tries to find the attribute value for the current user and, if found, "prefers" recommendations that are typically followed by users with the same value of the attribute. The default value is null.|string, csv list|
 
-## Response handling
+## Responses
 
 The recommendation request returns information about the currently used context items and an array of recommendation objects in JSON or JSONP format. 
 The result can be integrated into any webpage on the client side by using script code. 
@@ -211,7 +215,7 @@ The following HTTP response codes are used by the recommendation controller:
 |403 Forbidden|Access denied.|
 |404 Not Found|The requested element was not found. It could be customer ID (or "mandator ID"), model ID, or scenario ID.|
 |409 Conflict|The requested combination of models and recommendation parameters cannot return recommendations. This could happen, for example, if you request personalized recommendations for a user who has no history.|
-|500 Internal Server Error|Unspecified error. Contact Ibexa support if this error is recurring.|
+|500 Internal Server Error|Unspecified error. Contact [[= product_name_base =]] support if this error is recurring.|
 
 In case of errors, the response body contains human-readable error messages.
 Error messages can change, do not use them for automated processing.

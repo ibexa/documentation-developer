@@ -1,6 +1,18 @@
-# Forms [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+---
+description: Form Builder enables creating dynamic forms to use in surveys, questionnaires, sign-up forms and others.
+edition: experience
+---
+
+# Forms
 
 You can build forms consisting of different fields in the Form Builder.
+
+!!! tip
+
+    To learn how to get, create, and delete form submissions by using the PHP API,
+    see [Managing forms](../../api/public_php_api_managing_forms.md).
+
+[[% include 'snippets/forms_caution.md' %]]
 
 ## Existing Form fields
 

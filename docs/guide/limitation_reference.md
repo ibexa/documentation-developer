@@ -1,3 +1,7 @@
+---
+description: Limitations let you fine-tune the permission system by specifying limits to Roles granted to users.
+---
+
 # Limitation reference
 
 ## Blocking Limitation
@@ -251,7 +255,7 @@ A Limitation to specify that only the owner of the Content item gets the selecte
 |Value|UI value|Description|
 |------|------|------|
 |`1`|"self"|Only the User who is the owner gets access|
-|`2`|"session"|Deprecated and works exactly like "self" in Public API since it has no knowledge of user Sessions|
+|`2`|"session"|Deprecated and works exactly like "self" in public PHP API since it has no knowledge of user Sessions|
 
 ## Owner of Parent Limitation
 
@@ -270,7 +274,7 @@ A Limitation to specify that only the Users who own all parent Locations of a Co
 |Value|UI value|Description|
 |------|------|------|
 |`1`|"self"|Only the User who is the owner of all parent Locations gets access|
-|`2`|"session"|Deprecated and works exactly like "self" in Public API since it has no knowledge of user Sessions|
+|`2`|"session"|Deprecated and works exactly like "self" in public PHP API since it has no knowledge of user Sessions|
 
 ## Parent Depth Limitation
 
@@ -308,7 +312,7 @@ A Limitation to specify if the User has access to content within a specific Sect
 |------|------|------|
 |`<Session_id>`|`<Session_name>`|All valid session IDs can be set as value(s)|
 
-## Segment Group Limitation
+## Segment Group Limitation [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 A Limitation to specify whether the User has access Segments within a specific Segment Group.
 
@@ -346,7 +350,7 @@ A Limitation to specify to which SiteAccesses a certain permission applies, used
 
 ### Legacy compatibility notes
 
-`SiteAccess` Limitation is deprecated and is not used actively in Public API, but is allowed for being able to read / create Limitations for legacy.
+`SiteAccess` Limitation is deprecated and is not used actively in public PHP API, but is allowed for being able to read / create Limitations for legacy.
 
 ## Subtree of Location Limitation
 
@@ -368,7 +372,8 @@ A Limitation to specify if the User has access to content within a specific Subt
 
 ### Usage notes
 
-For more information on how to restrict User's access to part of the Subtree follow [the example in the Admin management section](admin_panel.md#restrict-editing-to-part-of-the-tree).
+For more information on how to restrict User's access to part of the Subtree 
+follow [the example in the Admin management section](permission_use_cases.md#restrict-editing-to-part-of-the-tree).
 
 ## Version Lock Limitation
 

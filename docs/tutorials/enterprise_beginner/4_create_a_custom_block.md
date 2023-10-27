@@ -1,4 +1,9 @@
-# Step 4 — Create a custom block [[% include 'snippets/experience_badge.md' %]]
+---
+description: Try creating a custom Page block with specific logic.
+edition: experience
+---
+
+# Step 4 — Create a custom block
 
 !!! tip
 

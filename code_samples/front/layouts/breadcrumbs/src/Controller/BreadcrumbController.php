@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Controller;
 
@@ -31,7 +31,9 @@ class BreadcrumbController extends Controller
             $breadcrumbs[] = $searchHit;
         }
 
-        return $this->render('@ezdesign/parts/breadcrumbs.html.twig', [
+        return $this->render(
+            '@ezdesign/parts/breadcrumbs.html.twig',
+            [
                 'breadcrumbs' => $breadcrumbs,
             ]
         );

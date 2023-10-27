@@ -1,3 +1,7 @@
+---
+description: Events that are triggered when working with Roles.
+---
+
 # Role events
 
 | Event | Dispatched by | Properties |

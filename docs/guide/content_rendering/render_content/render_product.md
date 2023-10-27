@@ -1,3 +1,7 @@
+---
+description: Prepare templates for rendering products from the catalog.
+---
+
 # Render a product
 
 To customize the template for a product, first, you need to [override the existing shop templates](../templates/overriding_shop_templates.md):

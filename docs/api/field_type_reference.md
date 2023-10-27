@@ -1,4 +1,8 @@
-# Field Types reference
+---
+description: Ibexa DXP offers a range of built-in Field Types that cover most common needs when creating content.
+---
+
+# Field Type reference
 
 A Field Type is the underlying building block of the content model. It consists of two entities: Field value and Field definition. Field value is determined by values entered into the Content Field. Field definition is provided by the Content Type, and holds any user defined rules used by Field Type to determine how a Field Value is validated, stored, retrieved, formatted and so on.
 
@@ -56,22 +60,4 @@ Legacy Search/Storage Engine index is limited to 255 characters in database desi
 so formatted and unformatted text blocks will only index the first part.
 In case of multiple selection Field Types like Keyword, Selection, Country, etc.,
 only the first choices are indexed. They are indexed only as a text blob separated by string separator.
-Proper indexing of these Field Types is done with [Solr Search Bundle](../guide/search/solr.md).
-
-### Other Field Types
-
-|FieldType|Description|Searchable|Editing support in Platform UI|Planned to be included in the future|
-|------|------|------|------|------|
-| [XmlText](field_types_reference/xmltextfield.md)|Validates and stores multiple lines of formatted text using XML format.|Yes|Partial *(Raw XML editing)*|No *(has been superseded by [RichText](field_types_reference/richtextfield.md))*</br>The XmlText Field Type is not enabled by default in [[= product_name =]].|
-
-### Field Types provided by Community
-
-|FieldType|Description|Searchable|Editing support in Platform UI|Planned to be included in the future|
-|------|------|------|------|------|
-|[Tags](https://github.com/netgen/TagsBundle)|Tags Field and full-fledged taxonomy management|Yes|Yes, since Netgen Tags v3.0.0|No (but can be previewed in Studio Demo)|
-|[Price](https://github.com/ezcommunity/EzPriceBundle)|Price Field for use in product catalogs|Yes|No|Yes|
-
-### Generate new Field Type
-
-You can also make use of the [Field Type Generator Bundle](https://github.com/Smile-SA/EzFieldTypeGeneratorBundle) from our partner Smile.
-It helps you get started by creating a skeleton for a Field Type, including templates for the editorial interface. 
+Proper indexing of these Field Types is done with [Solr Search engine](../guide/search/solr.md).

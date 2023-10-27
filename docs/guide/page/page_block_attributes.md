@@ -1,3 +1,7 @@
+---
+description: Page blocks can contain multiple attributes, of both built-in and custom types.
+---
+
 # Page block attributes
 
 A block has attributes that the editor fills in when adding th block to a Page.
@@ -30,6 +34,7 @@ The following attribute types are available:
 |`locationlist`|Location selection|-|
 |`contenttypelist`|List of Content Types|-|
 |`schedule_events`,</br>`schedule_snapshots`,</br>`schedule_initial_items`,</br>`schedule_slots`,</br>`schedule_loaded_snapshot`|Used in the Content Scheduler block|-|
+|`nested_attribute`|Defines a group of attributes in a block.|`attributes` - a list of attributes in the group. The attributes in the group are [configured](#page-block-attributes) as regular attributes. </br>`multiple`, when set to true. New groups are added dynamically with the **Add field group** button.|
 
 When you define attributes, you can omit most keys as long as you use simple types that do not require additional options:
 
@@ -128,3 +133,66 @@ Now, you can create a block containing your custom attribute:
 ``` yaml hl_lines="12-16"
 [[= include_file('code_samples/page/custom_attribute/config/packages/page_blocks.yaml') =]]
 ```
+
+### Nested attribute configuration
+
+The `nested_attribute` attribute is used when you want to create a group of attributes.
+
+First, make sure you have configured the attributes you want to use in the group. 
+
+Next, provide the configuration. See the example:
+
+``` yaml
+[[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 0,16) =]][[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 19,23) =]]
+```
+
+To set validation for each nested attribute:
+
+``` yaml
+[[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 9,19) =]]
+```
+
+Validators can be also set on a parent attribute (group defining level), it means all validators apply to each nested attribute:
+
+``` yaml
+[[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 9,16) =]] [[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 19,26) =]]
+```
+
+!!! caution "Moving attributes between groups"
+
+    If you move an attribute between groups or add an ungrouped attribute to a group,
+    the block values are removed.
+
+## Help messages for form fields
+
+With the `help`, `help_attr`, and `help_html` field options, you can set help messages for fields in the Page block.
+
+You can set options with the following configuration:
+
+```yaml
+ezplatform_page_fieldtype:
+    blocks:
+        block_name:
+            attributes:
+                attribute_name:
+                    options:
+                        help:
+                            text: 'Some example text'
+                            html: true|false
+                            attr:
+                                class: 'class1 class2'
+```
+
+- `help` - defines a help message which is rendered below the field.
+- `help_attr` - sets the HTML attributes for the element which displays the help message.
+- `help_html` - set this option to `true` to disable escaping the contents of the `help` option when rendering in the template.
+
+### Help message in nested attributes
+
+You can set the options for root or nested attribute, see the example configuration:
+
+```yaml
+[[= include_file('code_samples/page/custom_attribute/config/packages/help_messages.yaml') =]]
+```
+
+![Help message](page_block_help_message.png "Help message")

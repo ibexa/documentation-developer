@@ -1,0 +1,3 @@
+{% set svgField = ez_field(content, 'file') %}
+
+<img src="{{ ibexa_svg_link(content.versionInfo.contentInfo.id, 'file', svgField.value.fileName) }}" alt="">

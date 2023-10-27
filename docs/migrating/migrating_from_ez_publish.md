@@ -1,3 +1,7 @@
+---
+description: Migrate an older eZ Publish installation to eZ Platform.
+---
+
 # Migrating from eZ Publish
 
 eZ Publish was eZ Platform's predecessor, a CMS in development for five major versions and several years.
@@ -38,13 +42,22 @@ If you are coming directly from legacy (4.x), you need to follow the best practi
 - Rewrite custom admin modules to use the new Platform/Symfony stack
     - And if you do this while on 5.x, you can use several of the [available legacy migration features](https://doc.ez.no/display/EZP/Legacy+code+and+features) to make the new code appear in legacy admin
 
-See Upgrade documentation on how to perform the actual upgrade: [Upgrade (eZ Publish Platform page)](https://doc.ez.no/display/EZP/Upgrade)
+See Upgrade documentation on how to perform the actual upgrade: [Upgrade (eZ Publish Platform page)](https://doc.ez.no/display/EZP/Upgrade).
+
+!!! caution "Avoid exception when migrating the database"
+
+    If you plan to migrate from from eZ Publish through eZ Publish Platform 5.4 to eZ Platform and further, an exception may occur when you try to migrate the database while it contains internal drafts of Landing Pages.
+    This can happen because such drafts do not have an expected row in the `ezcontentobject_name` table.<a id="migration_exception"></a> 
+    
+    To avoid this exception, you must remove all internal drafts before you migrate. 
+    First, in `content.ini`, set the `InternalDraftsCleanUpLimit` and `InternalDraftsDuration` values to 0. 
+    Then run the [internal drafts cleanup](https://github.com/ezsystems/ezpublish-legacy/blob/2019.03/cronjobs/internal_drafts_cleanup.php) cron job. 
 
 ### From Platform stack (5.4/2014.11) to eZ Platform
 
 As eZ Platform introduced completely new user interfaces with greatly improved user experience, the following custom developments needs to be made if you have customization needs:
 
-- Write UI code for custom Field Types for the new JavaScript-based editorial interface, (see [Extending Admin UI](../tutorials/extending_admin_ui/extending_admin_ui.md)) and [Page blocks](../guide/content_rendering/render_content/render_page.md)
+- Write UI code for custom Field Types for the new JavaScript-based editorial interface, (see [Page blocks](../guide/content_rendering/render_content/render_page.md)
 - Adjust custom admin modules for the new Symfony-based admin interface
 
 For a detailed guide through these developments see [Upgrading from 5.4.x and 2014.11 to 16.xx](migrating_from_ez_publish_platform.md#upgrading-from-54x-and-201411-to-16xx) 

@@ -1,7 +1,9 @@
+INHERIT: plugins.yml
+
 site_name: Developer Documentation
 repo_url: https://github.com/ezsystems/developer-documentation
 site_url: https://doc.ibexa.co/en/latest/
-copyright: "Copyright 1999-2021 Ibexa AS and others"
+copyright: "Copyright 1999-2023 Ibexa AS and others"
 nav:
     - 'Ibexa Developer Documentation': 'index.md'
     - Getting started:
@@ -17,13 +19,13 @@ nav:
             - '1. Get ready': 'tutorials/platform_beginner/1_get_ready.md'
             - '2. Create the content model': 'tutorials/platform_beginner/2_create_the_content_model.md'
             - '3. Customize the front page': 'tutorials/platform_beginner/3_customize_the_front_page.md'
-            - '4. Display a single content item': 'tutorials/platform_beginner/4_display_single_content_item.md'
-            - '5. Display a list of content items': 'tutorials/platform_beginner/5_display_a_list_of_content_items.md'
+            - '4. Display a single Content item': 'tutorials/platform_beginner/4_display_single_content_item.md'
+            - '5. Display a list of Content items': 'tutorials/platform_beginner/5_display_a_list_of_content_items.md'
             - '6. Improve configuration': 'tutorials/platform_beginner/6_improve_configuration.md'
             - '7. Embed content': 'tutorials/platform_beginner/7_embed_content.md'
             - '8. Enable account registration': 'tutorials/platform_beginner/8_enable_account_registration.md'
-        - Ibexa Experience beginner tutorial:
-            - 'Ibexa Experience beginner tutorial': 'tutorials/enterprise_beginner/ez_enterprise_beginner_tutorial_-_its_a_dogs_world.md'
+        - Page and Form tutorial:
+            - 'Page and Form tutorial': 'tutorials/enterprise_beginner/ez_enterprise_beginner_tutorial_-_its_a_dogs_world.md'
             - '1. Get a starter website': 'tutorials/enterprise_beginner/1_get_a_starter_website.md'
             - '2. Prepare the Landing Page': 'tutorials/enterprise_beginner/2_prepare_the_landing_page.md'
             - '3. Use existing blocks': 'tutorials/enterprise_beginner/3_use_existing_blocks.md'
@@ -35,54 +37,34 @@ nav:
             - '2. Define Field Type': 'tutorials/generic_field_type/2_define_point2d_field_type.md'
             - '3. Create a form': 'tutorials/generic_field_type/3_create_form_for_point2d.md'
             - '4. Introduce a template': 'tutorials/generic_field_type/4_introduce_a_template.md'
-            - '5. Add a new field': 'tutorials/generic_field_type/5_add_a_field.md'
+            - '5. Add a new Field': 'tutorials/generic_field_type/5_add_a_field.md'
             - '6. Implement settings': 'tutorials/generic_field_type/6_settings.md'
             - '7. Add basic validation': 'tutorials/generic_field_type/7_add_a_validation.md'
             - '8. Data migration': 'tutorials/generic_field_type/8_data_migration.md'
-        - Extending Back Office:
-            - 'Extending Back Office': 'tutorials/extending_admin_ui/extending_admin_ui.md'
-            - '1. Creating a My dashboard tab': 'tutorials/extending_admin_ui/1_creating_a_dashboard_tab.md'
-            - '2. Creating a top menu item': 'tutorials/extending_admin_ui/2_creating_a_content_list.md'
-            - '3a. Filtering query results': 'tutorials/extending_admin_ui/3_filtering_the_content_list.md'
-            - '3b. Adding an edit button': 'tutorials/extending_admin_ui/3b_adding_edit_button_content_list.md'
-            - '4. Creating a custom tag': 'tutorials/extending_admin_ui/4_adding_a_custom_tag.md'
     - API:
-        - REST API guide:
-            - 'REST API guide': 'api/rest_api_guide.md'
-            - 'REST API usage': 'api/general_rest_usage.md'
-            - 'Extending the REST API': 'api/extending_the_rest_api.md'
-            - REST API reference:
-                - 'REST API reference': 'api/rest_api_reference/rest_api_reference.html'
-                - 'REST API best practices': 'api/rest_api_best_practices.md'
-                - 'REST API authentication': 'api/rest_api_authentication.md'
-            - 'Accept header-based REST API response': 'api/creating_custom_rest_api_response.md'
-            - 'Binary attachments via REST API': 'api/creating_content_with_binary_attachments_via_rest_api.md'
-            - 'Cross-origin HTTP requests': 'api/making_cross_origin_http_requests.md'
-        - Public PHP API:
-            - 'Public PHP API': 'api/public_php_api.md'
-            - 'Browsing Content': 'api/public_php_api_browsing.md'
-            - 'Content search': 'api/public_php_api_search.md'
-            - 'Creating Content': 'api/public_php_api_creating_content.md'
-            - 'Managing Content': 'api/public_php_api_managing_content.md'
-            - 'Managing Repository': 'api/public_php_api_managing_repository.md'
-            - 'Managing migrations': 'api/public_php_api_managing_migrations.md'
-            - 'Managing Users': 'api/public_php_api_managing_users.md'
+        - REST API:
+            - 'REST API usage':
+              - 'REST API usage': 'api/rest_api_usage.md'
+              - 'REST requests': 'api/rest_api_requests.md'
+              - 'REST responses': 'api/rest_api_responses.md'
+              - 'Testing REST API': 'api/rest_api_testing.md'
+            - 'REST API reference': 'api/rest_api_reference/rest_api_reference.html'
+            - 'Extending REST API':
+              - 'Adding custom media type': 'api/rest_api_extension_media_type.md'
+              - 'Creating new REST resource': 'api/rest_api_extension_resource.md'
+            - 'REST API authentication': 'api/rest_api_authentication.md'
+        - PHP API:
+            - 'PHP API': 'api/public_php_api.md'
+            - 'Browsing content': 'api/public_php_api_browsing.md'
+            - 'Search API': 'api/public_php_api_search.md'
+            - 'Creating content': 'api/public_php_api_creating_content.md'
+            - 'Managing content': 'api/public_php_api_managing_content.md'
+            - 'Form API': 'api/public_php_api_managing_forms.md'
+            - 'Repository API': 'api/public_php_api_managing_repository.md'
+            - 'Data migration API': 'api/public_php_api_managing_migrations.md'
+            - 'User API': 'api/public_php_api_managing_users.md'
             - 'Shop API': 'api/shop_business_api.md'
-            - 'URL Service': 'api/public_php_api_url_service.md'
-            - URL reference:
-                - 'Id Sort Clause': 'api/url_reference/id_sort_clause.md'
-                - 'Url Sort Clause': 'api/url_reference/url_sort_clause.md'
-                - 'MatchAll Criterion': 'api/url_reference/matchall_criterion.md'
-                - 'MatchNone Criterion': 'api/url_reference/matchnone_criterion.md'
-                - 'Pattern Criterion': 'api/url_reference/pattern_criterion.md'
-                - 'SectionId Criterion': 'api/url_reference/sectionid_criterion.md'
-                - 'SectionIdentifier Criterion': 'api/url_reference/sectionidentifier_criterion.md'
-                - 'Validity Criterion': 'api/url_reference/validity_criterion.md'
-                - 'VisibleOnly Criterion': 'api/url_reference/visibleonly_criterion.md'
-                - 'LogicalAnd Criterion': 'api/url_reference/logicaland_criterion.md'
-                - 'LogicalNot Criterion': 'api/url_reference/logicalnot_criterion.md'
-                - 'LogicalOr Criterion': 'api/url_reference/logicalor_criterion.md'      
-        - 'Service container': 'api/service_container.md'
+            - 'URL API': 'api/public_php_api_url_service.md'
         - Field Type:
             - 'Field Type API': 'api/field_type_api.md'
             - 'Type and Value': 'api/field_type_type_and_value.md'
@@ -90,8 +72,10 @@ nav:
             - 'Storage': 'api/field_type_storage.md'
             - 'Validation': 'api/field_type_validation.md'
             - 'Searching': 'api/field_type_search.md'
-            - 'Field Types reference': 'api/field_type_reference.md'
-            - Field Types reference:
+            - 'Create custom generic Field Type': 'api/field_type/create_custom_generic_field_type.md'
+            - 'Create custom Field Type comparison': 'api/field_type/create_custom_field_type_comparison.md'
+            - 'Field Type reference': 'api/field_type_reference.md'
+            - Field Type reference:
                - 'Author Field Type': 'api/field_types_reference/authorfield.md'
                - 'BinaryFile Field Type': 'api/field_types_reference/binaryfilefield.md'
                - 'Checkbox Field Type': 'api/field_types_reference/checkboxfield.md'
@@ -126,7 +110,6 @@ nav:
                - 'URL Field Type': 'api/field_types_reference/urlfield.md'
                - 'User Field Type': 'api/field_types_reference/userfield.md'
                - 'VariantType': 'api/field_types_reference/varianttype.md'
-               - 'XmlText Field Type': 'api/field_types_reference/xmltextfield.md'
         - GraphQL:
             - 'GraphQL': 'api/graphql.md'
             - 'GraphQL queries': 'api/graphql_queries.md'
@@ -139,23 +122,20 @@ nav:
             - 'Bundles': 'guide/bundles.md'
             - 'Content model': 'guide/content_model.md'
         - Configuration:
-            - 'Configuration': 'guide/configuration.md'
-            - 'Dynamic config': 'guide/config_dynamic.md'
-            - 'Back Office config': 'guide/config_back_office.md'
-            - 'Repository config': 'guide/config_repository.md'
-            - 'Connector config': 'guide/config_connector.md'
-            - 'Shop configuration': 'guide/shop_configuration.md'
-        - 'Admin management': 'guide/admin_panel.md'
+            - 'Configuration': 'guide/configuration/configuration.md'
+            - 'Dynamic configuration': 'guide/configuration/config_dynamic.md'
+            - 'Repository configuration': 'guide/configuration/config_repository.md'
+        - 'Admin panel': 'guide/admin_panel.md'
         - Content rendering:
             - Render content:
                 - 'Render content': 'guide/content_rendering/render_content/render_content.md'
-                - 'Render page': 'guide/content_rendering/render_content/render_page.md'
+                - 'Render Page': 'guide/content_rendering/render_content/render_page.md'
                 - 'Render product': 'guide/content_rendering/render_content/render_product.md'
             - Templates:
                 - 'Templates': 'guide/content_rendering/templates/templates.md'
                 - 'Template configuration': 'guide/content_rendering/templates/template_configuration.md'
                 - 'View matcher reference': 'guide/content_rendering/templates/view_matcher_reference.md'
-                - 'Add custom view matcher': 'guide/content_rendering/templates/custom_view_matcher.md'
+                - 'Create custom view matcher': 'guide/content_rendering/templates/custom_view_matcher.md'
                 - 'Shop templates': 'guide/content_rendering/templates/overriding_shop_templates.md'
             - 'Assets': 'guide/content_rendering/assets.md'
             - 'Image variations': 'guide/content_rendering/image_variations.md'
@@ -187,13 +167,24 @@ nav:
                 - 'Add forgot password option': 'guide/content_rendering/layout/add_forgot_password.md'
                 - 'Add login form': 'guide/content_rendering/layout/add_login_form.md'
                 - 'Add navigation menu': 'guide/content_rendering/layout/add_menu.md'
-                - 'Add user registration form': 'guide/content_rendering/layout/add_register_user_template.md'
+                - 'Create user registration form': 'guide/content_rendering/layout/add_register_user_template.md'
                 - 'Customize basket': 'guide/content_rendering/layout/customize_basket.md'
         - Content management:
             - 'Content management': 'guide/content_management.md'
-            - 'Images': 'guide/images.md'
-            - 'Configuring the Image Editor': 'guide/image_editor.md'
-            - 'File management': 'guide/file_management.md'
+            - Images:
+              - 'Images': 'guide/images/images.md'
+              - 'Configure Image Editor': 'guide/images/image_editor.md'
+              - 'Extend Image Editor': 'guide/images/extending_image_editor.md'
+              - 'Add Image Asset': 'guide/images/config_connector.md'
+            - Rich Text:
+                - 'Extend Online Editor': 'extending/extending_online_editor.md'
+                - 'Create Online Editor button': 'extending/online_editor_button.md'
+                - 'Create Online Editor plugin': 'extending/online_editor_plugin.md'
+                - 'Create custom RichText block': 'extending/richtext_block.md'
+            - File management:
+                - 'File management': 'guide/file_management/file_management.md'
+                - 'Binary and Media download': 'guide/file_management/binary_media_download.md'
+                - 'File URL handling': 'guide/file_management/handling_file_url.md'
             - Page:
                 - 'Page blocks': 'guide/page/page_blocks.md'
                 - 'Page block attributes': 'guide/page/page_block_attributes.md'
@@ -202,6 +193,7 @@ nav:
             - Forms:
                 - 'Forms': 'guide/form_builder/forms.md'
                 - 'Create custom Form field': 'guide/form_builder/create_custom_form_field.md'
+                - 'Create Form attribute': 'guide/form_builder/create_form_attribute.md'
                 - 'Customize email notifications': 'guide/form_builder/customize_email_notifications.md'
             - Workflow:
                 - 'Workflow': 'guide/workflow/workflow.md'
@@ -210,6 +202,7 @@ nav:
             - 'User-generated content': 'guide/user_generated_content.md'
         - Permissions:
             - 'Permissions': 'guide/permissions.md'
+            - 'Permission use cases': 'guide/permission_use_cases.md'
             - 'Limitations': 'guide/limitations.md'
             - 'Limitation reference': 'guide/limitation_reference.md'
             - 'Custom Policies': 'guide/custom_policies.md'
@@ -217,7 +210,7 @@ nav:
             - 'User management': 'guide/user_management/user_management.md'
             - 'Login and registration': 'guide/user_management/login_and_registration.md'
             - 'OAuth authentication': 'guide/user_management/oauth.md'
-            - 'Adding login through external service': 'guide/user_management/login_via_external_service.md'
+            - 'Add login through external service': 'guide/user_management/login_via_external_service.md'
             - 'Token': 'guide/user_management/token.md'
             - 'Delegate function': 'guide/user_management/delegate_function.md'
             - Customers:
@@ -227,8 +220,9 @@ nav:
                 - 'VAT handling': 'guide/customers/vat_handling.md'
                 - 'Customer API': 'guide/customers/customer_api/customer_api.md'
                 - 'Customer profile data': 'guide/customers/customer_api/customer_profile_data.md'
-                - 'Configuration for customer data': 'guide/customers/customer_api/configuration_for_customer_data.md'
+                - 'Customer data configuration': 'guide/customers/customer_api/configuration_for_customer_data.md'
         - Shop process:
+            - Shop process: 'guide/shop_process.md'
             - Basket:
                 - 'Basket': 'guide/basket/basket.md'
                 - 'Basket configuration': 'guide/basket/basket_configuration.md'
@@ -334,8 +328,8 @@ nav:
                 - 'Staging system': 'guide/econtent/staging_system.md'
         - Search:
             - 'Search': 'guide/search/search.md'
-            - 'Search Criteria reference': 'guide/search/search_criteria_reference.md'
             - Search Criteria reference:
+                - 'Search Criteria reference': 'guide/search/criteria_reference/search_criteria_reference.md'
                 - 'Ancestor': 'guide/search/criteria_reference/ancestor_criterion.md'
                 - 'ContentId': 'guide/search/criteria_reference/contentid_criterion.md'
                 - 'ContentTypeGroupId': 'guide/search/criteria_reference/contenttypegroupid_criterion.md'
@@ -373,8 +367,8 @@ nav:
                 - 'LogicalAnd Criterion': 'guide/search/criteria_reference/logicaland_criterion.md'
                 - 'LogicalNot Criterion': 'guide/search/criteria_reference/logicalnot_criterion.md'
                 - 'LogicalOr Criterion': 'guide/search/criteria_reference/logicalor_criterion.md'
-            - 'Sort Clause reference': 'guide/search/sort_clause_reference.md'
-            - Sort Clause Reference:
+            - Sort Clause reference:
+                - 'Sort Clause reference': 'guide/search/sort_clause_reference/sort_clause_reference.md'
                 - 'ContentId': 'guide/search/sort_clause_reference/contentid_sort_clause.md'
                 - 'ContentName': 'guide/search/sort_clause_reference/contentname_sort_clause.md'
                 - 'ContentTranslatedName': 'guide/search/sort_clause_reference/contenttranslatedname_sort_clause.md'
@@ -396,8 +390,8 @@ nav:
                 - 'SectionName': 'guide/search/sort_clause_reference/sectionname_sort_clause.md'
                 - 'UserLogin': 'guide/search/sort_clause_reference/userlogin_sort_clause.md'
                 - 'Visibility': 'guide/search/sort_clause_reference/visibility_sort_clause.md'
-            - 'Aggregation reference': 'guide/search/aggregation_reference.md'
             - Aggregation reference:
+                - 'Aggregation reference': 'guide/search/aggregation_reference/aggregation_reference.md'
                 - 'ContentTypeTermAggregation': 'guide/search/aggregation_reference/contenttypeterm_aggregation.md'
                 - 'ContentTypeGroupTermAggregation': 'guide/search/aggregation_reference/contenttypegroupterm_aggregation.md'
                 - 'DateMetadataRangeAggregation': 'guide/search/aggregation_reference/datemetadatarange_aggregation.md'
@@ -423,12 +417,31 @@ nav:
                 - 'KeywordTermAggregation': 'guide/search/aggregation_reference/keywordterm_aggregation.md'
                 - 'SelectionTermAggregation': 'guide/search/aggregation_reference/selectionterm_aggregation.md'
                 - 'TimeRangeAggregation': 'guide/search/aggregation_reference/timerange_aggregation.md'
-            - 'Searching in trash reference': 'guide/search/search_in_trash_reference.md'
+            - URL search reference:
+                - 'URL search reference': 'guide/search/url_search_reference/url_search_reference.md'
+                - 'Id Sort Clause': 'guide/search/url_search_reference/id_url_sort_clause.md'
+                - 'Url Sort Clause': 'guide/search/url_search_reference/url_url_sort_clause.md'
+                - 'MatchAll Criterion': 'guide/search/url_search_reference/matchall_url_criterion.md'
+                - 'MatchNone Criterion': 'guide/search/url_search_reference/matchnone_url_criterion.md'
+                - 'Pattern Criterion': 'guide/search/url_search_reference/pattern_url_criterion.md'
+                - 'SectionId Criterion': 'guide/search/url_search_reference/sectionid_url_criterion.md'
+                - 'SectionIdentifier Criterion': 'guide/search/url_search_reference/sectionidentifier_url_criterion.md'
+                - 'Validity Criterion': 'guide/search/url_search_reference/validity_url_criterion.md'
+                - 'VisibleOnly Criterion': 'guide/search/url_search_reference/visibleonly_url_criterion.md'
+                - 'LogicalAnd Criterion': 'guide/search/url_search_reference/logicaland_url_criterion.md'
+                - 'LogicalNot Criterion': 'guide/search/url_search_reference/logicalnot_url_criterion.md'
+                - 'LogicalOr Criterion': 'guide/search/url_search_reference/logicalor_url_criterion.md'
+            - 'Search in trash reference': 'guide/search/search_in_trash_reference.md'
             - 'Elasticsearch search engine': 'guide/search/elastic.md'
-            - 'Elasticsearch extensibility': 'guide/search/extend_elasticsearch.md'
             - 'Solr search engine': 'guide/search/solr.md'
-            - 'Solr extensibility': 'guide/search/extend_solr.md'
-            - 'Other search engines': 'guide/search/search_engines.md'
+            - Extend search:
+                - 'Create custom Search Criterion': 'guide/search/extensibility/create_custom_search_criterion.md'
+                - 'Create custom Sort Clause': 'guide/search/extensibility/create_custom_sort_clause.md'
+                - 'Create custom Aggregation': 'guide/search/extensibility/create_custom_aggregation.md'
+                - 'Solr document field mappers': 'guide/search/extensibility/solr_document_field_mappers.md'
+                - 'Index custom Elasticsearch data': 'guide/search/extensibility/index_custom_elasticsearch_data.md'
+                - 'Customize Elasticsearch index structure': 'guide/search/extensibility/customize_elasticsearch_index_structure.md'
+                - 'Manipulate Elasticsearch query': 'guide/search/extensibility/manipulate_elasticsearch_query.md'
             - Shop search:
                 - 'Shop search': 'guide/search/shop_search/shop_search.md'
                 - 'Search templates': 'guide/search/shop_search/search_templates.md'
@@ -455,12 +468,12 @@ nav:
             - 'Shop translations': 'guide/shop_translations.md'
         - Personalization:
             - 'Personalization': 'guide/personalization/personalization.md'
-            - 'Enabling personalization': 'guide/personalization/enabling_personalization.md'
-            - 'Basic service integration': 'guide/personalization/basic_integration.md'
+            - 'Enable personalization': 'guide/personalization/enabling_personalization.md'
+            - 'Integrate recommendation service': 'guide/personalization/basic_integration.md'
             - Developer guide:
                 - 'Tracking API': 'guide/personalization/developer_guide/tracking_api.md'
                 - 'Importing historical user tracking data': 'guide/personalization/developer_guide/importing_historical_user_tracking_data.md'
-                - 'Tracking with yct.js': 'guide/personalization/developer_guide/tracking_with_yct.md'
+                - 'Track with yct.js': 'guide/personalization/developer_guide/tracking_with_yct.md'
                 - 'Recommendation API': 'guide/personalization/developer_guide/recommendation_api.md'
                 - 'Content API': 'guide/personalization/developer_guide/content_api.md'
                 - 'User API': 'guide/personalization/developer_guide/user_api.md'
@@ -472,7 +485,14 @@ nav:
             - 'Repository': 'guide/repository.md'
             - 'Request lifecycle': 'guide/request_lifecycle.md'
             - 'Databases': 'guide/databases.md'
-            - 'Data migration': 'guide/data_migration.md'
+            - Data migration:
+                - 'Data migration': 'guide/data_migration/data_migration.md'
+                - 'Exporting and importing data': 'guide/data_migration/exporting_and_importing_data.md'
+                - 'Migration management': 'guide/data_migration/migration_management.md'
+                - 'Data migration actions': 'guide/data_migration/data_migration_actions.md'
+                - 'Create data migration action': 'guide/data_migration/create_migration_action.md'
+                - 'Create data migration step': 'guide/data_migration/create_migration_step.md'
+                - 'Add data migration matcher': 'guide/data_migration/add_data_migration_matcher.md'
             - Event reference:
                 - 'Event reference': 'guide/repository/event_reference/event_reference.md'
                 - 'Content events': 'guide/repository/event_reference/content_events.md'
@@ -489,13 +509,13 @@ nav:
                 - 'Trash events': 'guide/repository/event_reference/trash_events.md'
                 - 'Other events': 'guide/repository/event_reference/other_events.md'
         - Cache:
-            - 'HTTP cache': 
+            - 'HTTP cache':
               - 'HTTP cache': 'guide/cache/http_cache.md'
               - 'HTTP cache configuration': 'guide/cache/http_cache_config.md'
               - 'Reverse proxy': 'guide/cache/symfony_reverse_proxy.md'
               - 'Context-aware HTTP cache': 'guide/cache/context_aware_cache.md'
               - 'Content-aware HTTP cache': 'guide/cache/content_aware_cache.md'
-            
+              - 'Configure and customize Fastly': 'guide/cache/fastly.md'
             - 'Persistence cache': 'guide/persistence_cache.md'
             - 'Shop caching': 'guide/cache/shop_caching.md'
         - Clustering:
@@ -510,111 +530,125 @@ nav:
             - 'Logging': 'guide/logging/logging.md'
             - 'Logfile rotation': 'guide/logging/logfile_rotation.md'
         - Security:
-            - 'Development Security': 'guide/security.md'
+            - 'Development security': 'guide/security.md'
             - 'Security checklist': 'guide/security_checklist.md'
-            - 'Reporting Issues': 'guide/reporting_issues.md'
+            - 'Reporting issues': 'guide/reporting_issues.md'
         - 'Notifications': 'guide/sending_notifications.md'
-    - Extending Ibexa DXP:
-        - Extending Back Office:
-            - 'Extending Back Office': 'extending/extending_back_office.md'
-            - 'Extending date and time': 'extending/extending_date_and_time.md'
-            - 'Creating custom RichText blocks': 'extending/richtext_block.md'
-            - 'Creating custom drop-downs': 'extending/creating_custom_dropdowns.md'
-            - 'Creating custom icons': 'extending/custom_icons.md'
+    - Extend Back Office:
+        - 'Back Office': 'extending/extending_back_office.md'
+        - 'Configuration': 'extending/config_back_office.md'
+        - 'Content Tree': 'extending/content_tree.md'
+        - Back Office elements:
+            - 'Add drop-downs': 'extending/creating_custom_dropdowns.md'
+            - 'Custom icons': 'extending/custom_icons.md'
+            - 'Add drag and drop': 'extending/drag_and_drop.md'
+            - 'Custom components': 'extending/custom_components.md'
+            - 'Formatting date and time': 'extending/extending_date_and_time.md'
             - 'Extending thumbnails': 'extending/extending_thumbnails.md'
-            - 'Injecting custom components': 'extending/custom_components.md'
-            - 'Import assets from a bundle': 'extending/import_assets_from_bundle.md'
+            - 'Importing assets from a bundle': 'extending/import_assets_from_bundle.md'
         - Back Office tabs:
             - 'Back Office tabs':  'extending/tabs/back_office_tabs.md'
-            - 'Add dashboard tab': 'extending/tabs/add_dashboard_tab.md'
+            - 'Create dashboard tab': 'extending/tabs/add_dashboard_tab.md'
         - Back Office menus:
             - 'Back Office menus': 'extending/menus/back_office_menus.md'
             - 'Add menu item': 'extending/menus/add_menu_item.md'
         - 'Add user setting': 'extending/add_user_setting.md'
         - 'Customize calendar': 'extending/customize_calendar.md'
-        - 'Extending Image Editor': 'extending/extending_image_editor.md'
-        - 'Extending Online Editor':
-            - 'Extending Online Editor': 'extending/extending_online_editor.md'
-            - 'Creating Online Editor button': 'extending/online_editor_button.md'
-            - 'Creating Online Editor plugin': 'extending/online_editor_plugin.md'
-        - 'Extending Modules':
-            - 'Extending UDW': 'extending/extending_udw.md'
-            - 'Creating a UDW tab': 'extending/adding_tab_to_udw.md'
-            - 'Extending Multi-file Upload': 'extending/extending_multifile_upload.md'
-            - 'Extending Sub-items List': 'extending/extending_subitems_list.md'
-            - 'Creating drag and drop interface': 'extending/drag_and_drop.md'
-        - 'Field Types':
-            - 'Creating custom Field Type': 'extending/extending_field_type.md'
-            - 'Creating custom Field Type comparison': 'extending/custom_fieldtype_comparison.md'
+        - Browser:
+            - 'Browser': 'extending/extending_udw.md'
+            - 'Add browser tab': 'extending/adding_tab_to_udw.md'
+        - 'Multi-file upload': 'extending/extending_multifile_upload.md'
+        - 'Sub-items list': 'extending/extending_subitems_list.md'
+    - CDP (Customer Data Platform):
+        - Customer Data Platform: cdp/cdp.md
+        - CDP installation: cdp/cdp_installation.md
+        - CDP activation: cdp/cdp_activation.md
     - Resources and community:
-        - 'Resources': 'community_resources/resources.md'
         - 'Release process and roadmap': 'community_resources/release_process.md'
-        - 'Support and Maintenance FAQ': 'community_resources/support_maintenance_faq.md'
+        - 'Support and maintenance FAQ': 'community_resources/support_maintenance_faq.md'
         - 'Ibexa DXP PhpStorm plugin': 'community_resources/phpstorm_plugin.md'
+        - New in documentation: community_resources/new_in_doc.md
         - Contributing:
-            - 'How to contribute': 'community_resources/contributing.md'
             - 'Report and follow issues': 'community_resources/report_follow_issues.md'
-            - 'Contribute code': 'community_resources/code.md'
-            - 'Development guidelines': 'community_resources/development_guidelines.md'
             - 'Contribute translations': 'community_resources/translations.md'
-            - 'Contribute to documentation': 'community_resources/documentation.md'
             - 'Package structure': 'community_resources/package_structure.md'
     - Update and migration:
-        - Updating Ibexa DXP:
-            - 'Updating to v3.3': 'updating/updating_to_3.3.md'
-            - 'Updating Ibexa DXP': 'updating/updating.md'
-            - '1. Check out a version': 'updating/1_check_out_version.md'
-            - '2. Resolve conflicts': 'updating/2_merge_composer.md'
-            - '3. Update the app': 'updating/3_update_app.md'
-            - '4. Upgrade the code':
-                - '4. Upgrade the code': 'updating/4_upgrade_the_code.md'
-                - '4.1. Upgrade templates': 'updating/4_1_upgrade_templates.md'
-                - '4.2. Upgrade configuration': 'updating/4_2_upgrade_configuration.md'
-                - '4.3. Upgrade Field Types': 'updating/4_3_upgrade_field_types.md'
-                - '4.4. Upgrade Signal Slots': 'updating/4_4_upgrade_signal_slots.md'
-                - '4.5. Upgrade Online Editor': 'updating/4_5_upgrade_online_editor.md'
-                - '4.6. Upgrade workflow': 'updating/4_6_upgrade_workflow.md'
-                - '4.7. Upgrade extended code': 'updating/4_7_upgrade_extensions.md'
-                - '4.8. Upgrade REST': 'updating/4_8_upgrade_rest.md'
-                - '4.9 Other code upgrades': 'updating/4_9_upgrade_other.md'
-            - '5. Update the database':
-                - 'Update database': 'updating/5_update_database.md'
-                - 'Update database to v1.13': 'updating/5_update_1.13.md'
-                - 'Update database to v2.2': 'updating/5_update_2.2.md'
-                - 'Update database to v2.3': 'updating/5_update_2.3.md'
-                - 'Update database to v2.4': 'updating/5_update_2.4.md'
-                - 'Update database to v2.5': 'updating/5_update_2.5.md'
-                - 'Update database to v3.0': 'updating/5_update_3.0.md'
-                - 'Update database to v3.1': 'updating/5_update_3.1.md'
-                - 'Update database to v3.2': 'updating/5_update_3.2.md'
-            - '6. Finish the update': 'updating/6_finish_the_update.md'
-        - Migrating to Ibexa DXP:
-            - 'Migrating from eZ Publish Platform': 'migrating/migrating_from_ez_publish_platform.md'
-            - 'Migrating from eZ Publish': 'migrating/migrating_from_ez_publish.md'
-            - 'Common issues': 'migrating/common_issues.md'
-    - Releases:
-        - 'Ibexa DXP v3.3 LTS': 'releases/ibexa_dxp_v3.3.md'
-        - 'Ibexa DXP v3.2': 'releases/ibexa_dxp_v3.2.md'
-        - 'eZ Platform v3.1': 'releases/ez_platform_v3.1.md'
-        - 'eZ Platform v3.0': 'releases/ez_platform_v3.0.md'
-        - 'eZ Platform v3.0 deprecations and BC breaks': 'releases/ez_platform_v3.0_deprecations.md'
-        - 'eZ Platform v2.5 LTS': 'releases/ez_platform_v2.5.md'
-        - 'eZ Platform v2.4': 'releases/ez_platform_v2.4.md'
-        - 'eZ Platform v2.3': 'releases/ez_platform_v2.3.md'
-        - 'eZ Platform v2.2.0': 'releases/ez_platform_v2.2.0.md'
-        - 'eZ Platform v2.1.0': 'releases/ez_platform_v2.1.0.md'
-        - 'eZ Platform v2.0.0': 'releases/ez_platform_v2.0.0.md'
-        - 'eZ Platform v1.13.0 LTS': 'releases/ez_platform_v1.13.0_lts.md'
-        - 'eZ Platform v1.12.0': 'releases/ez_platform_v1.12.0.md'
-        - 'eZ Platform v1.11.0': 'releases/ez_platform_v1.11.0.md'
-        - 'eZ Platform v1.10.0': 'releases/ez_platform_v1.10.0.md'
-        - 'eZ Platform v1.9.0': 'releases/ez_platform_v1.9.0.md'
-        - 'eZ Platform v1.8.0': 'releases/ez_platform_v1.8.0.md'
-        - 'eZ Platform v1.7.0 LTS': 'releases/ez_platform_v1.7.0_lts.md'
+        - 'Update Ibexa DXP': 'updating/update_ibexa_dxp.md'
+        - Update from v1.13 and v2.x:
+            - 'Update from v1.13 and v2.x': 'updating/from_1.x_2.x/update_from_1.x_2.x.md'
+            - 'Update app to v2.5': 'updating/from_1.x_2.x/update_app_to_2.5.md'
+            - 'Update database to v2.5': 'updating/from_1.x_2.x/update_db_to_2.5.md'
+        - Update from v2.5:
+            - 'Update from v2.5': 'updating/from_2.5/update_from_2.5.md'
+            - 'Update to v3.2': 'updating/from_2.5/to_3.2.md'
+            - Adapt code to v3:
+                - 'Adapt code to v3': 'updating/from_2.5/adapt_code_to_v3.md'
+                - '1. Update templates': 'updating/from_2.5/update_code/1_update_templates.md'
+                - '2. Update configuration': 'updating/from_2.5/update_code/2_update_configuration.md'
+                - '3. Update Field Types': 'updating/from_2.5/update_code/3_update_field_types.md'
+                - '4. Update Signal Slots': 'updating/from_2.5/update_code/4_update_signal_slots.md'
+                - '5. Update Online Editor': 'updating/from_2.5/update_code/5_update_online_editor.md'
+                - '6. Update workflow': 'updating/from_2.5/update_code/6_update_workflow.md'
+                - '7. Update extended code': 'updating/from_2.5/update_code/7_update_extensions.md'
+                - '8. Update REST': 'updating/from_2.5/update_code/8_update_rest.md'
+                - '9. Other code updates': 'updating/from_2.5/update_code/9_update_other.md'
+            - 'Update to v3.3': 'updating/from_2.5/to_3.3.md'
+            - 'Update to latest v3.3': 'updating/from_2.5/to_3.3.latest.md'
+        - Update from v3.3:
+            - 'Update to v3.3.latest': 'updating/from_3.3/update_from_3.3.md'
+            - 'Update to v4.0': 'updating/from_3.3/to_4.0.md'
+        - Update from v4.0:
+            - 'Update to v4.1': 'updating/from_4.0/to_4.1.md'
+        - Update from v4.1:
+            - 'Update to v4.2': 'updating/from_4.1/update_from_4.1.md'
+        - Update from v4.2:
+            - 'Update to v4.3': 'updating/from_4.2/update_from_4.2.md'
+        - Update from v4.3:
+              - Update to v4.4: 'updating/from_4.3/update_from_4.3.md'
+              - Use new Commerce packages: 'updating/from_4.3/update_from_4.3_new_commerce.md'
+              - Keep old Commerce packages: 'updating/from_4.3/update_from_4.3_old_commerce.md'
+        - Update from v4.4:
+              - 'Update to v4.5': 'updating/from_4.4/update_from_4.4.md'
+        - Migrate to Ibexa DXP:
+            - 'Migrate from eZ Publish Platform': 'migrating/migrating_from_ez_publish_platform.md'
+            - 'Migrate from eZ Publish': 'migrating/migrating_from_ez_publish.md'
+            - 'Common migration issues': 'migrating/common_issues.md'
+    - Release notes:
+        - 'Ibexa DXP v4.5': 'release_notes/ibexa_dxp_v4.5.md'
+        - 'Ibexa DXP v4.4': 'release_notes/ibexa_dxp_v4.4.md'
+        - 'Ibexa DXP v4.3': 'release_notes/ibexa_dxp_v4.3.md'
+        - 'Ibexa DXP v4.2': 'release_notes/ibexa_dxp_v4.2.md'
+        - 'Ibexa DXP v4.1': 'release_notes/ibexa_dxp_v4.1.md'
+        - 'Ibexa DXP v4.0': 'release_notes/ibexa_dxp_v4.0.md'
+        - 'Ibexa DXP v4.0 deprecations and BC breaks': 'release_notes/ibexa_dxp_v4.0_deprecations.md'
+        - 'Ibexa DXP v3.3 LTS': 'release_notes/ibexa_dxp_v3.3.md'
+        - 'Ibexa DXP v3.2': 'release_notes/ibexa_dxp_v3.2.md'
+        - 'eZ Platform v3.1': 'release_notes/ez_platform_v3.1.md'
+        - 'eZ Platform v3.0': 'release_notes/ez_platform_v3.0.md'
+        - 'eZ Platform v3.0 deprecations and BC breaks': 'release_notes/ez_platform_v3.0_deprecations.md'
+        - 'eZ Platform v2.5 LTS': 'release_notes/ez_platform_v2.5.md'
+        - 'eZ Platform v2.4': 'release_notes/ez_platform_v2.4.md'
+        - 'eZ Platform v2.3': 'release_notes/ez_platform_v2.3.md'
+        - 'eZ Platform v2.2.0': 'release_notes/ez_platform_v2.2.0.md'
+        - 'eZ Platform v2.1.0': 'release_notes/ez_platform_v2.1.0.md'
+        - 'eZ Platform v2.0.0': 'release_notes/ez_platform_v2.0.0.md'
+        - 'eZ Platform v1.13.0 LTS': 'release_notes/ez_platform_v1.13.0_lts.md'
+        - 'eZ Platform v1.12.0': 'release_notes/ez_platform_v1.12.0.md'
+        - 'eZ Platform v1.11.0': 'release_notes/ez_platform_v1.11.0.md'
+        - 'eZ Platform v1.10.0': 'release_notes/ez_platform_v1.10.0.md'
+        - 'eZ Platform v1.9.0': 'release_notes/ez_platform_v1.9.0.md'
+        - 'eZ Platform v1.8.0': 'release_notes/ez_platform_v1.8.0.md'
+        - 'eZ Platform v1.7.0 LTS': 'release_notes/ez_platform_v1.7.0_lts.md'
     - 'References': 'references.md'
 
 theme:
     name: material
+    features:
+        - content.code.annotate 
+        - content.code.copy
+        - navigation.tracking
+        - navigation.top
+        - content.tabs.link
     custom_dir: 'theme'
     favicon: 'images/favicon.png'
     language: 'en'
@@ -622,14 +656,6 @@ theme:
         primary: 'blue grey'
         accent: 'deep orange'
     logo: 'images/ibexa-dxp-logo.svg'
-
-plugins:
-    - search
-    - macros:
-        j2_block_start_string: '[[%'
-        j2_block_end_string: '%]]'
-        j2_variable_start_string: '[[='
-        j2_variable_end_string: '=]]'
 
 extra:
   append_bootstrap:
@@ -642,12 +668,28 @@ extra:
     - title: 'User Documentation'
       url: '/projects/userguide'
   # Global variables
+  site_display_name: 'Ibexa Documentation'
+  product_name_base: 'Ibexa'
   product_name: 'Ibexa DXP'
   product_name_content: 'Ibexa Content'
+  product_name_headless: 'Ibexa Headless'
   product_name_exp: 'Ibexa Experience'
   product_name_com: 'Ibexa Commerce'
+  product_name_cdp: 'Ibexa CDP'
+  product_name_connect: 'Ibexa Connect'
+  product_name_cloud: 'Ibexa Cloud'
+  product_name_oss: 'Ibexa OSS'
+  # Global variables - latest tag versions
+  latest_tag_2_5: '2.5.31'
+  latest_tag_3_3: '3.3.35'
+  latest_tag_4_0: '4.0.8'
+  latest_tag_4_1: '4.1.5'
+  latest_tag_4_2: '4.2.4'
+  latest_tag_4_3: '4.3.5'
+  latest_tag_4_4: '4.4.4'
+  latest_tag_4_5: '4.5.3'
 
-  symfony_doc: 'http://symfony.com/doc/5.3'
+  symfony_doc: 'http://symfony.com/doc/5.4'
   user_doc: 'https://doc.ibexa.co/projects/userguide/en/master'
 
 extra_css:
@@ -666,9 +708,6 @@ extra_javascript:
   - js/jquery-ui.min.js
   - js/custom.js
   - js/docs.switcher.js
-  - js/ez-guidelines-switchers.js
-  - js/ez-guidelines-modals.js
-  - js/ez-guidelines-tooltips.js
   - '//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js'
 
 markdown_extensions:
@@ -677,6 +716,7 @@ markdown_extensions:
   - def_list
   - footnotes
   - meta
+  - md_in_html
   - toc:
       permalink: true
   - pymdownx.arithmatex
@@ -688,7 +728,6 @@ markdown_extensions:
   - pymdownx.highlight:
       guess_lang: false
       linenums: true
-      css_class: codehilite
       extend_pygments_lang:
         - name: php
           lang: php
@@ -697,10 +736,11 @@ markdown_extensions:
   - pymdownx.magiclink
   - pymdownx.mark
   - pymdownx.smartsymbols
+  - pymdownx.snippets
   - pymdownx.superfences
-  - pymdownx.tabbed
+  - pymdownx.tabbed:
+      alternate_style: true
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
   - pymdownx.details
-  - ez_code_example

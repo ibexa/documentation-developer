@@ -1,16 +1,16 @@
-# Public PHP API
+---
+description: Public PHP API exposes the Repository in a number of services and allows creating, reading, updating, managing, and deleting objects.
+---
 
-The Public PHP API enables you to interact with [[= product_name =]]'s Repository and content model from your PHP code.
+# PHP API
+
+The public PHP API enables you to interact with [[= product_name =]]'s Repository and content model from your PHP code.
 
 You can use it to create, read, update, manage, and delete all objects available in [[= product_name =]], namely
 content and related objects such as Sections, Locations, Content Types, languages, etc.
 
 The PHP API is built on top of a layered architecture, including a persistence SPI that abstracts storage.
 Using the API ensures that your code will be forward compatible with future releases based on other storage engines.
-
-!!! tip
-
-    For more information see a [presentation about [[= product_name =]] API.](https://alongosz.github.io/ezconf2018-api/)
 
 ## Using API services
 
@@ -64,6 +64,12 @@ These objects provide you with lower-level information.
 For instance, `ContentInfo` contains `currentVersionNo` or `remoteId`,
 while `Content` enables you to retrieve Fields, Content Type, or previous versions.
 
+!!! note
+
+    The public PHP API value objects should not be serialized.
+
+    Serialization of value objects, for example, `eZ\Publish\API\Repository\Values\Content\ContentInfo` /  `eZ\Publish\API\Repository\Values\Content\VersionInfo` 
+    or `eZ\Publish\API\Repository\Values\Content\Location` results in memory limit exceeded error.
 ## Authentication
 
 One of the responsibilities of the Repository is user authentication. Every action is executed *as* a user.
@@ -109,8 +115,7 @@ In order to identify as a different user, you need to use the `UserService` toge
 (in the example `admin` is the login of the administrator user):
 
 ``` php
-$user = $userService->loadUserByLogin('admin');
-$permissionResolver->setCurrentUserReference($user);
+[[= include_file('code_samples/api/public_php_api/src/Command/CreateContentCommand.php', 50, 52) =]]
 ```
 
 !!! tip
@@ -148,3 +153,18 @@ try {
         $output->writeln("<error>Permission denied on content with id $contentId</error>");
     }
 ```
+
+## Service container
+
+[[= product_name =]] uses the [Symfony service container]([[=symfony_doc=]]/service_container.html) for dependency resolution.
+
+[Symfony dependency injection]([[=symfony_doc=]]/components/dependency_injection.html) ensures that any required services are available in your custom code
+(for example, controllers) when you inject them into the constructor.
+
+Symfony service container uses service tags to dedicate services to a specific purpose. They are usually used for extension points.
+
+[[= product_name =]] exposes multiple features using service tags, for example, Field Types.
+
+!!! tip
+
+    For a list of all service tags exposed by Symfony, see its [reference documentation]([[=symfony_doc=]]/reference/dic_tags.html).

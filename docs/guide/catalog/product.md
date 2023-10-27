@@ -34,20 +34,32 @@ The built-in Product Content Type contains the following Fields:
 
 ## Custom product Content Type
 
-`Ez5CatalogDataProvider` defines which Content Type is treated as products
-and which Field in Product Content items is treated as SKU:
-
-``` php
-const EZ_PRODUCT_CONTENT_TYPE_IDENTIFIER = 'ses_product';
-const EZ_PRODUCT_SKU_FIELD_IDENTIFIER = 'ses_sku';
-```
-
-If you replace the built-in product with a custom Content Type, you need to replace these constants.
-
-You also need to configure the Content Type to be treated as `createOrderableProductNode`:
+To create a custom Content Type that acts like a product, add its identifier to the following configuration:
 
 ``` yaml
-parameters.silver_eshop.default.catalog_factory.<content_type_identifier>: createOrderableProductNode
+silversolutions_eshop:
+    product_content_type_identifiers:
+        default:
+            - my_custom_product_type
+```
+
+The custom Content Type must mirror the structure of the built-in `ses_product` Content Type,
+by having Fields with the same identifiers,
+but you can add other Fields to it.
+
+!!! tip
+
+    To ensure that all the Fields are set up correctly, you can copy the `ses_product` Content Type
+    and add your custom Field to the copy.
+
+Additionally, add the following parameters for your custom Content Type's identifier:
+
+``` yaml
+parameters:
+    # Enable buying the product in the shop
+    silver_eshop.default.catalog_factory.my_custom_product_type: createOrderableProductNode
+    # Enable price export in the Back Office
+    siso_price.default.price_export.product_type_filter: [ ses_product, my_custom_product_type ]
 ```
 
 ## Product specifications

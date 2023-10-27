@@ -2,9 +2,9 @@
 
 namespace App\Block\Attribute;
 
+use EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Attribute\FormTypeMapper\AttributeFormTypeMapperInterface;
 use EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Definition\BlockAttributeDefinition;
 use EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Definition\BlockDefinition;
-use EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Attribute\FormTypeMapper\AttributeFormTypeMapperInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 
 class MyStringAttributeMapper implements AttributeFormTypeMapperInterface
@@ -16,6 +16,7 @@ class MyStringAttributeMapper implements AttributeFormTypeMapperInterface
      * @param array $constraints
      *
      * @return \Symfony\Component\Form\FormBuilderInterface
+     *
      * @throws \Exception
      */
     public function map(

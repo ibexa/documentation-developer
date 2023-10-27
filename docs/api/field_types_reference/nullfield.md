@@ -34,6 +34,6 @@ services:
         class: eZ\Publish\Core\Persistence\Legacy\Content\FieldValue\Converter\NullConverter
         tags: [{name: ezplatform.field_type.legacy_storage.converter, alias: example}]
     ezpublish.fieldType.example.indexable:
-    class: '%ezpublish.fieldType.indexable.unindexed.class%'
-    tags: [{name: ezplatform.field_type.indexable, alias: example}]
+        class: '%ezpublish.fieldType.indexable.unindexed.class%'
+        tags: [{name: ezplatform.field_type.indexable, alias: example}]
 ```

@@ -1,3 +1,7 @@
+---
+description: Manage URL aliases and wildcards, and validate external URLs.
+---
+
 # URL management
 
 You can manage external URL addresses and URL wildcards in the Back Office, **Admin** tab, the **URL Management** node.
@@ -91,7 +95,7 @@ For details, see the tables below.
 |--------------------|---------------------------------------------------------------------|---------------|
 | enabled            | Enables link validation.                                            | true          |
 
-For more information about ezPlatform configuration, see [Configuration](configuration.md).
+For more information about ezPlatform configuration, see [Configuration](configuration/configuration.md).
 
 ### Custom protocol support
 
@@ -227,7 +231,7 @@ Also, you can decide whether the user sees the content at the address that uses 
 For example, a URL wildcard called `pictures/*/*` can use `media/images/{1}/{2}` as destination.
 In this case, accessing `<yourdomain>/pictures/home/photo/` loads `<yourdomain>/media/images/home/photo/`.
 
-You can configure URL wildcards either in the Back Office, or with the Public API.
+You can configure URL wildcards either in the Back Office, or with the public PHP API.
 
 Before you configure URL wildcards, you must enable the feature in configuration in the `config/packages/ezplatform.yaml` file:
 
@@ -246,9 +250,9 @@ The URL wildcards tab contains all the information about each URL wildcard. You 
     To be able to modify wildcard support settings in the user interface, you must have the `content/urltranslator` Policy. For more information about permissions, see [Permissions](permissions.md).
 
 
-### Configuring URL wildcards with the Public API
+### Configuring URL wildcards with the public PHP API
 
-You can create URL wildcards with the Public API by using the `URLWildcardService` service:
+You can create URL wildcards with the public PHP API by using the `URLWildcardService` service:
 
 ``` php
 $source = 'pictures/*/*';

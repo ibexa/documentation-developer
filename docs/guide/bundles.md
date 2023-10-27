@@ -1,3 +1,7 @@
+---
+description: Ibexa DXP is composed of bundles containing different parts of the application.
+---
+
 # Bundles
 
 A bundle in Symfony (and [[= product_name =]]) is a separate part of your application that implements a feature.
@@ -7,7 +11,7 @@ You can also reuse the bundles you create in other projects or share them with t
 Many [[= product_name =]] functionalities are provided through separate bundles included in the installation.
 You can see the bundles that are automatically installed with [[= product_name =]]
 in the respective `composer.json` files.
-For example, for Ibexa Content, see the [JSON file on GitHub](https://github.com/ibexa/content/blob/master/composer.json).
+For example, for [[= product_name_content =]], see the [JSON file on GitHub](https://github.com/ibexa/content/blob/master/composer.json).
 
 ## Working with bundles
 
@@ -74,9 +78,9 @@ see the [How to Remove a Bundle]([[= symfony_doc =]]/bundles/remove.html) instru
 |ezsystems/ezplatform-version-comparison|Enables comparing between two versions of the same Field|
 |ezsystems/ezplatform-workflow|Collaboration feature that enables you to send content draft to any user for a review or rewriting|
 |ezsystems/ezrecommendation-client|Client for connecting with the personalization engine|
-|ibexa/image-editor|[Image Editor](image_editor.md)|
+|ibexa/image-editor|[Image Editor](images/image_editor.md)|
 |ibexa/installer|Provides the `ibexa:install` command|
-|ibexa/migrations|[Migration of Repository data](data_migration.md)|
+|ibexa/migrations|[Migration of Repository data](data_migration/data_migration.md)|
 |ibexa/oauth2-client|Integration with [`knpuniversity/oauth2-client-bundle`](https://github.com/knpuniversity/oauth2-client-bundle)|
 
 ## Ibexa Experience packages

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\EventSubscriber;
 
@@ -12,7 +12,7 @@ class MyMenuSubscriber implements EventSubscriberInterface
     {
         return [
             ConfigureMenuEvent::MAIN_MENU => ['onMainMenuConfigure', 0],
-            ConfigureMenuEvent::CONTENT_SIDEBAR_RIGHT => ['onContentSidebarConfigure', 0]
+            ConfigureMenuEvent::CONTENT_SIDEBAR_RIGHT => ['onContentSidebarConfigure', 0],
         ];
     }
 
@@ -35,7 +35,7 @@ class MyMenuSubscriber implements EventSubscriberInterface
         );
     }
 
-    public function onContentSidebarConfigure (ConfigureMenuEvent $event)
+    public function onContentSidebarConfigure(ConfigureMenuEvent $event)
     {
         $menu = $event->getMenu();
 

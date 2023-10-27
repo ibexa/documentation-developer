@@ -1,0 +1,6 @@
+ezplatform:
+    image_placeholder:
+        default:
+            provider: remote
+            options:
+                url_pattern: 'https://placekitten.com/%%width%%/%%height%%'

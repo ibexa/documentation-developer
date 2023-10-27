@@ -1,10 +1,14 @@
+---
+description: You can use Symfony HttpCache Proxy, Varnish or Fastly as reverse proxies with Ibexa DXP.
+---
+
 # Reverse proxy
 
 Before you start using Symfony reverse proxy, you must change your kernel to use `EzSystems\PlatformHttpCacheBundle\AppCache` instead of `Symfony\Bundle\FrameworkBundle\HttpCache\HttpCache`.
 
 Next, to use Symfony reverse proxy, follow the [Symfony documentation](https://symfony.com/doc/current/http_cache.html#symfony-reverse-proxy).
 
-## Use Varnish or Fastly
+## Using Varnish or Fastly
 
 As [[= product_name =]] is built on top of Symfony, it uses standard HTTP cache headers.
 By default, the Symfony reverse proxy is used to handle cache.
@@ -16,14 +20,24 @@ Using a different proxy is highly recommended as they provide better performance
 
     Use of Varnish or Fastly is a requirement for a [Clustering](../clustering.md) setup, as Symfony Proxy does not support sharing cache between several application servers.
 
-## Recommended VCL base files
+## VCL base files
 
-For reverse proxies to work properly with your installation, you need to adapt one of the provided VCL files as the basis:
+For reverse proxies to work properly with your installation, you need to add the corresponding VCL files for your
+HTTP Cache.
 
-- [Varnish VCL xkey example](https://github.com/ezsystems/ezplatform-http-cache/blob/2.0/docs/varnish/vcl/varnish5.vcl)
-- Fastly VCL can be found in `vendor/ezsystems/ezplatform-http-cache-fastly/fastly`
+- [Varnish VCL xkey example](https://github.com/ezsystems/ezplatform-http-cache/tree/2.3/docs/varnish/vcl)
+- Fastly VCLs can be found in `vendor/ezsystems/ezplatform-http-cache-fastly/fastly`. You must install the following to use Fastly:
+    - `ez_main.vcl` as the **main** custom VCL
+    - `ez_user_hash.vcl` as another custom VCL
+    - `snippet_re_enable_shielding.vcl` as snippet
+
+The provided `.vcl` files will work both with [Fastly Shielding](https://docs.fastly.com/en/guides/shielding) enabled and without it.
+
+For more information on how to configure Fastly with [[= product_name =]], see [Configure and customize Fastly](fastly.md). 
 
 !!! tip
+
+    Support for Fastly Shielding was added in [[= product_name =]] v3.3.24 and v4.1.6.
 
     When you extend [FOSHttpCacheBundle](https://foshttpcachebundle.readthedocs.io/en/2.9.1/),
     you can also adapt your VCL further with [FOSHttpCache documentation](http://foshttpcache.readthedocs.org/en/latest/varnish-configuration.html)
@@ -33,10 +47,15 @@ For reverse proxies to work properly with your installation, you need to adapt o
 
 The configuration of [[= product_name =]] for using Varnish or Fastly requires a few steps, starting with configuring proxy.
 
+Failing to configure reverse proxies correctly may introduce several problems, including, but not limited to:
+
+- [[= product_name =]] generating links with a wrong protocol schema (HTTP instead of HTTPS) if HTTPS termination is done before the web server due to the `X-Forward-Proto` headers being ignored
+- [[= product_name =]] generating links with wrong port numbers due to the `X-Forward-Port` headers being ignored
+- Back Office showing the login screen because JWT tokens are not accepted due to the `X-Forward-For` headers being ignored
+
 ### Configure Symfony front controller
 
-Before you configure Symfony to [work behind a load balancer or a reverse proxy](https://symfony.com/doc/5.1/deployment/proxies.html),
-make sure that [Symfony reverse proxy](#symfony-reverse-proxy) is enabled.
+You need to consider your `TrustedProxy` configuration when you use Symfony [behind a load balancer or a reverse proxy.](https://symfony.com/doc/5.1/deployment/proxies.html)
 
 Set the following environment variable:
 - `TRUSTED_PROXIES`: String with trusted IP, multiple proxies can be configured with a comma, for example, `TRUSTED_PROXIES="192.0.0.1,10.0.0.0/8"`
@@ -63,7 +82,15 @@ framework:
     Make sure that **all** traffic always comes from the trusted proxy/load balancer,
     and that there is no other way to configure it.
 
-For more information about setting these variables, see [Examples for configuring [[= product_name =]]](#examples-for-configuring-ibexa-dxp).
+When using Fastly, you need to set `trusted_proxies` according to the [IP ranges used by Fastly](https://docs.fastly.com/en/guides/accessing-fastlys-ip-ranges).
+
+!!! tip
+
+    You don't have to set `trusted_proxies` when using Fastly on Platform.sh.
+    The Platform.sh router automatically changes the source IP of requests coming from Fastly,
+    replacing the source IP with the actual client IP and removing any `X-FORWARD-...` header in the request before it reaches Ibexa DXP.
+
+For more information about setting these variables, see [Configuration examples](#configuration-examples).
 
 ### Update YML configuration
 
@@ -120,7 +147,7 @@ ezplatform:
                     use_ajax: true
 ```
 
-### Custom Captcha block [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+### Update custom Captcha block [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 If you created a custom Captcha block for your site by overriding the default file (`vendor/gregwar/captcha-bundle/Resources/views/captcha.html.twig`),
 you must make the following changes to the custom block template file:
@@ -193,7 +220,7 @@ The service ID is displayed next to the name of your service on any page.
 For instructions on how to generate a Fastly API token, see [the Fastly guide](https://docs.fastly.com/guides/account-management-and-security/using-api-tokens).
 The API token needs the `purge_all` an `purge_select` scopes.
 
-### Examples for configuring [[= product_name =]]
+### Configuration examples
 
 See below the most common configuration examples for the system, using environment variables.
 
@@ -230,7 +257,7 @@ You can configure environment variables through [Platform.sh variables](https://
     For HTTP cache, you will most likely only use this for configuring Fastly for production and optionally staging,
     allowing `variables:env:` in `.platform.app.yaml` to, for example, specify Varnish or Symfony proxy as default for dev environment.
 
-#### Example for Apache with Varnish
+#### Apache with Varnish
 
 ```apacheconfig
 # mysite_com.conf
@@ -244,7 +271,7 @@ SetEnv HTTPCACHE_PURGE_SERVER "http://varnish:80"
 SetEnv TRUSTED_PROXIES "193.22.44.22"
 ```
 
-#### Example for Nginx with Fastly
+#### Nginx with Fastly
 
 ```nginx
 # mysite_com.conf
@@ -258,7 +285,7 @@ fastcgi_param FASTLY_SERVICE_ID "ID"
 fastcgi_param FASTLY_KEY "token"
 ```
 
-## Understand stale cache
+## Stale cache
 
 Stale cache, or grace mode in Varnish, occurs when:
 - Cache is served some time after the TTL expired.

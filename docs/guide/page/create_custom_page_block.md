@@ -1,3 +1,7 @@
+---
+description: Create and configure custom Page blocks to add customized content to Pages.
+---
+
 # Create custom Page block
 
 In addition to existing blocks which you can use in a Page, you can also create custom blocks.
@@ -66,3 +70,6 @@ Place the edit template in `templates/themes/<your_theme>/blocks/event/config.ht
 ``` html+twig
 [[= include_file('code_samples/page/custom_page_block/templates/themes/standard/blocks/event/config.html.twig') =]]
 ```
+
+Your custom page block is now ready. 
+Before you can use it in Page Builder, you must [enable it in Page field settings]([[= user_doc =]]/content_management/configure_ct_field_settings/#block-display).

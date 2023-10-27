@@ -1,0 +1,5 @@
+services:
+    App\Query\Criterion\Elasticsearch\CameraManufacturerVisitor:
+        tags:
+            - { name: ezpublish.search.elasticsearch.query.content.criterion_visitor }
+            - { name: ezpublish.search.elasticsearch.query.location.criterion_visitor }

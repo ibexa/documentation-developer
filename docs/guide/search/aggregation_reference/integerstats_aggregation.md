@@ -1,13 +1,13 @@
 # IntegerStatsAggregation
 
 The Field-based [IntegerStatsAggregation](https://github.com/ezsystems/ezplatform-kernel/blob/master/eZ/Publish/API/Repository/Values/Content/Query/Aggregation/Field/IntegerStatsAggregation.php) aggregates search results by the value of the Integer Field
-and provides statistical information for the values including:
+and provides statistical information for the values. You can use the provided getters to access the values:
 
-- sum
-- count of values
-- minimum value
-- maximum value
-- average
+- sum (`getSum()`)
+- count of values (`getCount()`)
+- minimum value (`getMin()`)
+- maximum value (`getMax()`)
+- average (`getAvg()`)
 
 ## Arguments
 
@@ -19,5 +19,6 @@ and provides statistical information for the values including:
 
 ``` php
 $query = new Query();
-$query->aggregations[] = new Aggregation\Field\IntegerRangeAggregation('integer', 'product', 'amount');
+$query->aggregations[] = new Aggregation\Field\IntegerStatsAggregation('integer', 'product', 'amount');
 ```
+

@@ -1,11 +1,15 @@
+---
+description: Configure your project files to enable Personalization and set up items you want to track.
+---
+
 # Enabling personalization
 
 The personalization service is based on a client-server architecture.
-To enable it, you must set up authentication parameters that you receive from Ibexa.
+To enable it, you must set up authentication parameters that you receive from [[= product_name_base =]].
 
 ## Getting authentication parameters
 
-First, either you or another Ibexa user responsible for managing the website 
+First, either you or another [[= product_name_base =]] user responsible for managing the website 
 must [request access to the service]([[= user_doc =]]/personalization/enabling_personalization/#requesting-access-to-the-server).
 
 ## Setting up customer credentials
@@ -17,6 +21,7 @@ by adding the following lines with your customer ID and license key:
 ```
 RECOMMENDATION_CUSTOMER_ID=12345
 RECOMMENDATION_LICENSE_KEY=67890-1234-5678-90123-4567
+RECOMMENDATION_HOST_URI=https://server_uri
 ```
 
 ## Configuring event tracking

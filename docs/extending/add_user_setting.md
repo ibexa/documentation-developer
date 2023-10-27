@@ -1,3 +1,7 @@
+---
+description: Add the option to select a custom preference in user menu.
+---
+
 # Add user setting
 
 ## Create new User setting
@@ -24,7 +28,7 @@ You can order the settings in the User menu by setting their `priority`.
 
 The value of the setting is accessible with `ez_user_settings['unit']`.
 
-## Create setting edit for template
+## Create template for editing settings
 
 You can override a template used when editing the new setting:
 

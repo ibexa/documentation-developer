@@ -1,3 +1,8 @@
+---
+description: Translate the shop interface by editing special text modules in the Back Office.
+edition: commerce
+---
+
 # Shop translations
 
 You can use special translation Content items called "text modules" to create translations of the interface.

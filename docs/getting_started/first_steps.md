@@ -1,3 +1,7 @@
+---
+description: Start off working with Ibexa DXP by doing initial configuration and testing system capabilities.
+---
+
 # First steps
 
 This page lists first steps you can take after installing [[= product_name =]].
@@ -33,14 +37,16 @@ so that the end of the file looks like this:
 module.exports = [ eZConfig, ...customConfigs ];
 ```
 
-## Create a Content Type
+## Add a Content Type
 
 1\. In your browser, go to the Back Office: `<your_domain>/admin`, and use the default credentials to log in: `admin/publish`.
 
-!!! note "Password change"
+!!! caution "Password change"
 
-    You will be requested to change your password at first login. 
+    Make sure that you change the default password before you switch your installation 
+    from development to production. 
     For more information about passwords, see [Passwords](../guide/user_management/user_management.md#passwords).
+    For more information about production security, see [Security checklist](../guide/security_checklist.md).
 
 2\. Select Admin and go to Content Types.
 
@@ -137,8 +143,8 @@ For now the new SiteAccess does not differ from the main site.
 
 !!! tip "More information"
 
-    - [SiteAccess](../guide/multisite/multisite.md)
-    - [SiteAccess matchers](../guide/multisite/siteaccess_matching.md#available-matchers)
+    - [Multisite](../guide/multisite/multisite.md)
+    - [SiteAccess matchers](../guide/multisite/siteaccess_matching.md#available-siteaccess-matchers)
 
 ## Add a language and translate Content
 

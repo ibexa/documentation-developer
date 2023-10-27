@@ -1,3 +1,7 @@
+---
+description: Add links to Content items or specific built-in and custom routes in your templates.
+---
+
 # URLs and routes
 
 To link to a [Location](../content_management.md#locations) or [Content item](../content_model.md#content-items), use the [`ez_path()`](twig_function_reference/url_twig_functions.md#ez_path) Twig function.
@@ -106,7 +110,7 @@ The following built-in routes are available for the front of the website.
 | `ezplatform.user.forgot_password.login` | `/user/forgot-password/login` | Form for resetting password based on login instead of email address |
 | `ezplatform.user.reset_password` | `/user/reset-password/{hashKey}` | Form for resetting password based on a generated link |
 
-### Shop
+### Shop [[% include 'snippets/commerce_badge.md' %]]
 
 |Route name|Path|Description|
 |---|---|---|

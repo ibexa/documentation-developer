@@ -10,7 +10,7 @@ searches for content based on the User ID.
 
 ## Limitations
 
-The `UserLogin` Criterion is not available in Elastic search engine.
+Solr search engine and Elasticsearch support IN and EQ operators only.
 
 ## Example
 

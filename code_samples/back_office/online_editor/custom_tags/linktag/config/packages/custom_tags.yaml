@@ -1,0 +1,41 @@
+ezplatform:
+    system:
+        admin_group:
+            fieldtypes:
+                ezrichtext:
+                    custom_tags: [linktag]
+                    toolbars:
+                        text:
+                            buttons:
+                                linktag:
+                                    priority: 5
+                        linktag:
+                            buttons:
+                                ezmoveup:
+                                    priority: 40
+                                ezmovedown:
+                                    priority: 30
+                                ezcustomtagedit:
+                                    priority: 20
+                                ezblockremove:
+                                    priority: 10
+ezrichtext:
+    custom_tags:
+        linktag:
+            template: '@ezdesign/field_type/ezrichtext/custom_tags/linktag.html.twig'
+            icon: '/bundles/ezplatformadminui/img/ez-icons.svg#link'
+            is_inline: true
+            attributes:
+                title:
+                    type: string
+                    required: false
+                description:
+                    type: string
+                    required: false
+                color:
+                    type: choice
+                    required: false
+                    choices: [Red, Blue, Green]
+                url:
+                    type: link
+                    required: false

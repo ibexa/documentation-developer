@@ -1,3 +1,8 @@
+---
+description: One-page checkout form covers providing customer information, addresses, payment and shipping methods.
+edition: commerce
+---
+
 # Checkout
 
 [[= product_name =]] provides a multi-step checkout process that takes place on one page.

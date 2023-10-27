@@ -1,3 +1,7 @@
+---
+description: Use GraphQL to query for content and Locations.
+---
+
 # GraphQL queries
 
 ## Querying content
@@ -42,6 +46,39 @@ Response:
 ```
 
 You can request any Fields of the Content item. In the example above, these are `title` and `author`.
+
+#### Get language versions
+
+To get Fields of a Content item in a specific language, use the `language` argument.
+The language must be configured for the current SiteAccess.
+
+```
+{
+  content {
+    article(id: 57) {
+      title: title(language: eng_GB)
+      title_PL: title(language: pol_PL)
+    }
+  }
+}
+```
+
+Response:
+
+```
+{
+  "data": {
+    "content": {
+      "article": {
+        "title": "Most interesting cat breeds",
+        "title_PL": "Najciekawsze rasy kotów"
+      }
+    }
+  }
+}
+```
+
+When you do not specify a language, the response contains the most prioritized translation.
 
 ### Get a group of Content items
 
@@ -182,12 +219,6 @@ Response:
 ```
 
 ## Querying Locations
-
-!!! tip
-
-    To make use of enhanced Location handling, you can add the beta 3.0 version of [ezplatform-graphql](https://github.com/ezsystems/ezplatform-graphql/tree/3.0) to your project.
-
-    See [overview of the upcoming changes](https://github.com/ezsystems/ezplatform-graphql/pull/90).
 
 To query a Location and its children, use the repository schema:
 

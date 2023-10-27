@@ -1,4 +1,8 @@
-# Step 3 - Create form for editing Field Type
+---
+description: Learn how to create a form used for editing a custom Field definition.
+---
+
+# Step 3 - Create a form for editing Field Type
 
 ## Create a form
 
@@ -8,7 +12,7 @@ This method adds fields for `x` and `y` coordinates.
 
 ```php
 [[= include_file('code_samples/field_types/2dpoint_ft/steps/step_3/Point2DType.php', 0, 18) =]]
-[[= include_file('code_samples/field_types/2dpoint_ft/steps/step_3/Point2DType.php', 24, 25) =]]
+[[= include_file('code_samples/field_types/2dpoint_ft/steps/step_3/Point2DType.php', 25, 26) =]]
 ```
 
 ## Add a Form Mapper Interface
@@ -34,7 +38,7 @@ Final version of the Type class should have the following statements and functio
 Finally, add a `configureOptions` method and set default value of `data_class` to `Value::class` in `src/Form/Type/Point2DType.php`.
 It will allow your form to work on this object.
 
-```php hl_lines="19 20 21 22 23 24"
+```php hl_lines="20 21 22 23 24 25"
 [[= include_file('code_samples/field_types/2dpoint_ft/src/Form/Type/Point2DType.php') =]]
 ```
 

@@ -1,10 +1,17 @@
-# Step 5 — Create a newsletter form [[% include 'snippets/experience_badge.md' %]]
+---
+description: Learn how to create a sign-up form and how to view and manage its submissions.
+edition: experience
+---
+
+# Step 5 — Create a newsletter form
 
 !!! tip
     You can find all files used and modified in this step on [GitHub.](https://github.com/ezsystems/ezplatform-ee-beginner-tutorial/tree/v3-master)
 
 The final step of this tutorial assists you in adding to the home page a Form block for signing up to a newsletter.
 
+[[% include 'snippets/forms_caution.md' %]]
+    
 ### Add a Form block
 
 Start with creating a Form Content item.
@@ -199,7 +206,7 @@ To see details about a submission, click **View**.
 
 ![Collect Form Submissions](img/enterprise_tut_form_collect_sub.png "Collect Form Submissions")
 
-For more details, see [viewing form results.](https://doc.ezplatform.com/projects/userguide/en/latest/creating_content_advanced/#viewing-results)
+For more details, see [viewing form results.](https://doc.ezplatform.com/projects/userguide/en/latest/creating_forms/#viewing-results)
 
 ## Congratulations!
 

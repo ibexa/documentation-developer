@@ -1,3 +1,7 @@
+---
+description: When you are using a clustering configuration, you can store binary files on Amazon AWS S3.
+---
+
 # Clustering with Amazon AWS S3
 
 When setting up clustering, you can use Amazon AWS S3 as a binary handler,
@@ -30,7 +34,7 @@ The secret key cannot be retrieved again after the key has been created, so don'
     
 ## Set up [[= product_name =]] for AWS S3
 
-In your [[= product_name =]] root directory, run `php composer.phar require league/flysystem-aws-s3-v3`.
+In your [[= product_name =]] root directory, run `php composer.phar require league/flysystem-aws-s3-v3:^1.0`.
 In your [[= product_name =]] configuration, e.g. `config/packages/ezplatform.yaml`, set up the AWS S3 client:
 
 ``` yaml

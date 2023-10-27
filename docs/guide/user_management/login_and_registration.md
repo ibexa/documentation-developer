@@ -1,14 +1,12 @@
+---
+description: Configure registering and activating customers.
+---
+
 # Login and registration
 
 ## Login
 
-In [[= product_name =]], users can log in not only with their user name or email, but also with the customer number.
-
-To enable logging in with customer number, use the `enable_customer_number_login` configuration parameter:
-
-``` yaml
-siso_core.default.enable_customer_number_login: true
-```
+In [[= product_name =]], users can log in with their user name or email.
 
 ## Registration
 
@@ -48,7 +46,7 @@ The shop owner checks the provided data and creates a customer record in the ERP
 The shop checks this data by sending a request to the ERP. There are two options:
 
     - activate a business account - the customer is created using their customer number and can immediately see their special discounts in the shop.
-    - create the main contact in Customer Center - if Customer Center is enabled, the company is created in the shop, and the account is created as the main contact.  
+    - in [[= product_name_com =]], create the main contact in Customer Center. If Customer Center is enabled, the company is created in the shop, and the account is created as the main contact.  
 
 ## Configuration
 

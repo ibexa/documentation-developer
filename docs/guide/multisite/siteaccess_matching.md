@@ -1,3 +1,7 @@
+---
+description: Use SiteAccess matchers to control which site is served when and to which user.
+---
+
 # SiteAccess matching
 
 To be usable, every SiteAccess must be matched by one of configured matchers.
@@ -20,7 +24,23 @@ ezplatform:
 
 `ezplatform.siteaccess.match` can contain multiple matchers.
 
-The first matcher succeeding always wins, so be careful when using catch-all matchers like `URIElement`.
+The first matcher succeeding always wins, so be careful when using catch-all matchers like `URIElement`. In the following example, `Compound\LogicalAnd` is placed before the `Map\Host` for `my.site/corporate` to be reachable:
+
+```yaml
+ibexa:
+    siteaccess:
+        match:
+            Compound\LogicalAnd:
+                corporate:
+                    matchers:
+                        Map\URI:
+                            corporate: true
+                        Map\Host:
+                            my.site: true
+                    match: corporate
+            Map\Host:
+                my.site: mysite
+```
 
 If the matcher class does not start with a backslash (`\`), it is relative to `eZ\Publish\MVC\SiteAccess\Matcher`
 (for example, `Map\URI` refers to `eZ\Publish\MVC\SiteAccess\Matcher\Map\URI`)
@@ -31,7 +51,7 @@ In the case of a fully qualified class name, the matching configuration is passe
 In the case of a service, it must implement `eZ\Bundle\EzPublishCoreBundle\SiteAccess\Matcher`.
 The matching configuration is passed to `setMatchingConfiguration()`.
 
-## Available matchers
+## Available SiteAccess matchers
 
 - [`URIElement`](#urielement)
 - [`URIText`](#uritext)
@@ -130,7 +150,7 @@ Example host name `www.page.com` matches SiteAccess `event`.
 !!! note
 
     If you encounter problems with the `Map\Host` matcher, make sure that your installation is
-    [properly configured to use token-based authentication](../../releases/ez_platform_v2.4.md#update-ez-enterprise-v24-to-v242).
+    [properly configured to use token-based authentication](../../release_notes/ez_platform_v2.4.md#update-ez-enterprise-v24-to-v242).
 
 ### `Map\URI`
 
@@ -166,7 +186,7 @@ ezplatform:
 
 Example URL `http://my_site.com:8080/content` matches SiteAccess `site`.
 
-### `EzSystems\EzPlatformSiteFactory\SiteAccessMatcher`
+### `EzSystems\EzPlatformSiteFactory\SiteAccessMatcher` [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 Enables the use of [Site Factory](site_factory.md).
 Does not take any parameters in configuration:

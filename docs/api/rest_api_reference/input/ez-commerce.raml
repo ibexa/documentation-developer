@@ -166,6 +166,16 @@ displayName: eCommerce API
                         application/vnd.ez.api.Basket+json:
                             type: Basket
                             example: !include examples/commerce/basket/_id_/GET/Basket.json.example
+        delete:
+            displayName: Delete Basket by ID (removed)
+            description: Deletes basket by ID. Removed as of Ibexa DXP 4.4, use DELETE /cart/{identifier} instead.
+            responses:
+                200:
+                    description: OK - The basket has been deleted
+                400:
+                    description: Error - The basket does not exist
+                403:
+                    description: Error - Access denied
 
         /name:
             patch:
@@ -199,41 +209,40 @@ displayName: eCommerce API
                                 type: Basket
                                 example: !include examples/commerce/basket/Basket.json.example
 
-        /{basketId}:
-            /line:
-                post:
-                    displayName: Add products to stored basket
-                    description: Adds products to the stored basket.
-                    body:
-                        application/vnd.ez.api.BasketLineData+json:
-                            type: BasketLineData
-                            example: !include examples/commerce/basket/current/lines/POST/BasketLineData.json.example
-                    responses:
-                        200:
-                            body:
-                                application/vnd.ez.api.Basket+json:
-                                    type: Basket
-                                    example: !include examples/commerce/basket/Basket.json.example
-                        400:
-                            body:
-                                application/vnd.ez.api.ValidationResponse+json:
-                                    type: ValidationResponse
-                                    example: !include examples/commerce/basket/current/lines/POST/ValidationResponse.json.example
+        /line:
+            post:
+                displayName: Add products to stored basket
+                description: Adds products to the stored basket.
+                body:
+                    application/vnd.ez.api.BasketLineData+json:
+                        type: BasketLineData
+                        example: !include examples/commerce/basket/current/lines/POST/BasketLineData.json.example
+                responses:
+                    200:
+                        body:
+                            application/vnd.ez.api.Basket+json:
+                                type: Basket
+                                example: !include examples/commerce/basket/Basket.json.example
+                    400:
+                        body:
+                            application/vnd.ez.api.ValidationResponse+json:
+                                type: ValidationResponse
+                                example: !include examples/commerce/basket/current/lines/POST/ValidationResponse.json.example
 
-            /line/{lineId}:
-                delete:
-                    displayName: Delete a line from a stored basket
-                    responses:
-                        200:
-                            body:
-                                application/vnd.ez.api.Basket+json:
-                                    type: Basket
-                                    example: !include examples/commerce/basket/Basket.json.example
-                        400:
-                            body:
-                                application/vnd.ez.api.ValidationResponse+json:
-                                    type: ValidationResponse
-                                    example: !include examples/commerce/basket/_id_/line/_line_id_/DELETE/ValidationResponse.json.example
+        /line/{lineId}:
+            delete:
+                displayName: Delete a line from a stored basket
+                responses:
+                    200:
+                        body:
+                            application/vnd.ez.api.Basket+json:
+                                type: Basket
+                                example: !include examples/commerce/basket/Basket.json.example
+                    400:
+                        body:
+                            application/vnd.ez.api.ValidationResponse+json:
+                                type: ValidationResponse
+                                example: !include examples/commerce/basket/_id_/line/_line_id_/DELETE/ValidationResponse.json.example
 
     /{basketName}:
         post:
@@ -298,7 +307,7 @@ displayName: eCommerce API
                         example: !include examples/commerce/customerprice/POST/PriceResponse.json.example
 
 
-/common/check_sku_file:/{mode}:
+/common/check_sku_file/{mode}:
     post:
         displayName: Add to basket from CSV or Excel
         description: Adds to basket a line from a CSV or Excel file.

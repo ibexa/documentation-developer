@@ -1,4 +1,8 @@
-# Adding login through external service
+---
+description: Allow users to log in to Ibexa DXP through external services by using OAuth2.
+---
+
+# Add login through external service
 
 To add an option to log in to the system through an external service, you can use [OAuth2](oauth.md) to authorize your users.
 

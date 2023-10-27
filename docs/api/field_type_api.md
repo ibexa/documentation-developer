@@ -1,6 +1,8 @@
-# Field Type API
+---
+description: Field Types define the Fields that a Content item is built of.
+---
 
-## Basic information
+# Field Type API
 
 Field Types are the smallest building blocks of content.
 [[= product_name =]] comes with many [built-in Field Types](field_type_reference.md#available-field-types) that cover most common needs e.g. Text line, Email address, Author list, Content relation, Map location, Float, etc.
@@ -23,7 +25,7 @@ available in the [`eZ\Publish\SPI\FieldType`](https://github.com/ezsystems/ezpla
 !!! note "Registration"
 
     Remember that all your custom Field Types must be registered in `config/services.yml`.
-    For more information see [Registration section](field_type_type_and_value.md#registration).
+    For more information see [Registration](field_type_type_and_value.md#registration).
 
 In order to provide custom functionality for a Field Type, the SPI interacts with multiple layers of the [[= product_name =]] architecture:
 
@@ -31,7 +33,9 @@ In order to provide custom functionality for a Field Type, the SPI interacts wit
 
 On the top layer, the Field Type needs to provide conversion from and to a simple PHP hash value to support the **REST API**. The generated hash value may only consist of scalar values and hashes. It must not contain objects or arrays with numerical indexes that aren't sequential and/or don't start with zero.
 
-Below that, the Field Type must support the **Public API** implementation regarding:
+[[= include_file('docs/snippets/simple_hash_value_caution.md') =]]
+
+Below that, the Field Type must support the **public PHP API** implementation regarding:
 
 - Settings definition for `FieldDefinition`
 - Value creation and validation
@@ -40,27 +44,27 @@ Below that, the Field Type must support the **Public API** implementation regard
 On the bottom level, a Field Type can additionally hook into the **Persistence SPI**
 in order to store data from a `FieldValue` in an external service.
 Note that all non-standard [[= product_name =]] database tables (e.g. `ezurl`)
-will be treated as [external storage](field_type_storage.md#external-storage).
+are treated as [external storage](field_type_storage.md#storing-external-data).
 
 The following sequence diagrams visualize the process of creating and publishing new content across all layers, especially focused on the interaction with a Field Type.
 
-## Create Content Sequence
+## Creating content
 
-![Create Content Sequence](img/create_content_sequence.png)
+![Create content sequence](img/create_content_sequence.png)
 
-## Publish Content Sequence
+## Publishing content
 
 !!! note "indexLocation()"
 
     For **Solr** Locations are indexed during Content indexing.
     For **Legacy/SQL** indexing is not required as Location data already exists in a database.
 
-![Publish Content Sequence](img/publish_content_sequence.png)
+![Publish content sequence](img/publish_content_sequence.png)
 
-## Update Content Sequence
+## Updating content
 
-![Update Content Sequence](img/update_content_sequence.png)
+![Update content sequence](img/update_content_sequence.png)
 
-## Load Content Sequence
+## Loading content
 
-![Load Content Sequence](img/load_content_sequence.png)
+![Load content sequence](img/load_content_sequence.png)

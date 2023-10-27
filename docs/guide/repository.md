@@ -1,10 +1,14 @@
+---
+description: Ibexa DXP's content Repository stores all content and its related information and exposes a set of services to interact with via API.
+---
+
 # Repository
 
 The content Repository is where all your content is stored.
 
-## Services: Public API
+## Services: public PHP API
 
-The Public API exposes Symfony services for all of its Repository services.
+The public PHP API exposes Symfony services for all of its Repository services.
 
 | Service ID                             | Type                                             |
 |----------------------------------------|--------------------------------------------------|
@@ -28,7 +32,7 @@ The Public API exposes Symfony services for all of its Repository services.
 
 ## API
 
-Every Public API Service interface and value object defined in `eZ\Publish\API` namespace strictly follows [Semantic Versioning](https://semver.org/) backward compatibility (BC) promise for API consumers.
+Every public PHP API Service interface and value object defined in `eZ\Publish\API` namespace strictly follows [Semantic Versioning](https://semver.org/) backward compatibility (BC) promise for API consumers.
 It means that every usage of API (API call) is guaranteed to work between minor releases.
 
 What can change between minor releases is the API method signature. Because of that, implementation of API interfaces by third party packages (except for the ones implemented with built-in bundles) is not directly supported.

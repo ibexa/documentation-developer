@@ -1,6 +1,11 @@
-# [[= product_name_exp =]] beginner tutorial [[% include 'snippets/experience_badge.md' %]]
+---
+description: Go through a Page and Form tutorial to learn how to create modular Sites and how to manage forms and their submissions.
+edition: experience
+---
 
-This tutorial is a step-by-step guide to building a website with [[= product_name_exp =]].
+# Page and Form tutorial
+
+This tutorial is a step-by-step guide to building an advanced website with [[= product_name_exp =]].
 It focuses on creating a front page using a feature called **Page Builder**.
 
 ### Intended audience

@@ -1,15 +1,15 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Tab\Dashboard\Everyone;
 
 use eZ\Publish\API\Repository\SearchService;
-use eZ\Publish\Core\Pagination\Pagerfanta\ContentSearchAdapter;
-use EzSystems\EzPlatformAdminUi\Tab\AbstractTab;
-use EzSystems\EzPlatformAdminUi\Tab\OrderedTabInterface;
-use EzSystems\EzPlatformAdminUi\Tab\Dashboard\PagerContentToDataMapper;
+use eZ\Publish\API\Repository\Values\Content\LocationQuery;
 use eZ\Publish\API\Repository\Values\Content\Query\Criterion;
 use eZ\Publish\API\Repository\Values\Content\Query\SortClause;
-use eZ\Publish\API\Repository\Values\Content\LocationQuery;
+use eZ\Publish\Core\Pagination\Pagerfanta\ContentSearchAdapter;
+use EzSystems\EzPlatformAdminUi\Tab\AbstractTab;
+use EzSystems\EzPlatformAdminUi\Tab\Dashboard\PagerContentToDataMapper;
+use EzSystems\EzPlatformAdminUi\Tab\OrderedTabInterface;
 use Pagerfanta\Pagerfanta;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Twig\Environment;
@@ -60,7 +60,8 @@ class EveryoneArticleTab extends AbstractTab implements OrderedTabInterface
         ]);
 
         $pager = new Pagerfanta(
-            new ContentSearchAdapter($query,
+            new ContentSearchAdapter(
+                $query,
                 $this->searchService
             )
         );

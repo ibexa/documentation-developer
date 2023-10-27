@@ -1,3 +1,7 @@
+---
+description: Personalization server can use external information about the items. Use HTTP methods to create, update or get items from the data store.
+---
+
 # Content API
 
 Apart from the [events]([[= user_doc =]]/personalization/event_types) 
@@ -150,11 +154,6 @@ or you want to want to apply ad-hoc boosting and filtering of recommendations.
 As a result, the recommendation engine randomly recommends the imported items/products.
 This can prove useful for a news agency, where new items are published very often.
 
-#### Free-form data
-
-You can upload any data under the `<content>` key of the XML object.
-This data is used in full-text analysis models only.
-
 #### Custom attributes
 
 You can also define custom attributes under the `<attributes>` key.
@@ -184,7 +183,7 @@ To upload the value to the data store, add the following line under the `<attrib
 You can have multiple attributes with the same name and different type. 
 For example, `size` can be expressed as a number (40.5) or as a code ("L").
 
-## Response handling
+## Responses
 
 ### HTTP response codes
 

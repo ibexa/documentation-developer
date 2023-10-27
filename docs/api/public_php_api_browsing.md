@@ -1,8 +1,12 @@
+---
+description: Use PHP API to get Content items and their information, as well as content Fields, Location, and others.
+---
+
 # Browsing and viewing content
 
 To retrieve a Content item and its information, you need to make use of the [`ContentService`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ContentService.php).
 
-The service should be [injected into the constructor of your command or controller](../api/service_container.md).
+The service should be [injected into the constructor of your command or controller](../api/public_php_api.md#service-container).
 
 !!! tip "Console commands"
 
@@ -18,33 +22,16 @@ as well as methods for retrieving selected properties.
 
 You can also use it to request other Content-related value objects from various services:
 
-``` php hl_lines="13"
-//...
-use eZ\Publish\API\Repository\ContentService;
-
-class ViewContentMetaDataCommand extends Command
-{
-    //...
-    protected function execute(InputInterface $input, OutputInterface $output)
-    {
-        $contentId = $input->getArgument('contentId');
-
-        try
-        {
-            $contentInfo = $this->contentService->loadContentInfo($contentId);
-
-            $output->writeln("Name: $contentInfo->name");
-            $output->writeln("Last modified: " . $contentInfo->modificationDate->format('Y-m-d'));
-            $output->writeln("Published: ". $contentInfo->publishedDate->format('Y-m-d'));
-            $output->writeln("RemoteId: $contentInfo->remoteId");
-            $output->writeln("Main Language: " . $contentInfo->getMainLanguage()->name);
-            $output->writeln("Always available: " . ($contentInfo->alwaysAvailable ? 'Yes' : 'No'));
-        } catch //..
-    }
-}
+``` php hl_lines="9"
+// ...
+[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 8, 9) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 16, 17) =]]
+// ...
+[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 50, 52) =]][[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 58, 59) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 60, 66) =]]
 ```
 
-`ContentInfo` is loaded from the [`ContentService`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ContentService.php) (line 13).
+`ContentInfo` is loaded from the [`ContentService`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ContentService.php) (line 9).
 It provides you with basic content metadata such as modification and publication dates or main language code.
 
 !!! note "Retrieving content information in a controller"
@@ -58,10 +45,7 @@ It provides you with basic content metadata such as modification and publication
 To get the Locations of a Content item you need to make use of the [`LocationService`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/LocationService.php):
 
 ``` php
-$locations = $this->locationService->loadLocations($contentInfo);
-foreach ($locations as $location) {
-    $output->writeln($location->pathString);
-}
+[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 68, 72) =]]
 ```
 
 [`LocationService::loadLocations`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/LocationService.php#L94)
@@ -78,11 +62,7 @@ additionally enables you to retrieve the human-readable [URL alias](../guide/url
 gets the Location's main [URL alias](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/URLAlias.php):
 
 ``` php
-$locations = $this->locationService->loadLocations($contentInfo);
-foreach ($locations as $location) {
-    $urlAlias = $this->urlAliasService->reverseLookup($location);
-    $output->writeln($location->pathString ($urlAlias->path));
-}
+[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 68, 71) =]][[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 72, 75) =]]
 ```
 
 ### Content Type
@@ -91,8 +71,7 @@ You can retrieve the Content Type of a Content item
 through the [`getContentType`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/Content/ContentInfo.php#L188) method of the ContentInfo object:
 
 ``` php
-$content = $this->contentService->loadContent($contentId);
-$output->writeln("Content Type: " . $contentInfo->getContentType()->identifier);
+[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 77, 79) =]]
 ```
 
 ### Versions
@@ -101,19 +80,14 @@ To iterate over the versions of a Content item,
 use the [`ContentService::loadVersions`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ContentService.php#L360) method, which returns an array of `VersionInfo` value objects.
 
 ``` php
-$versionInfos = $this->contentService->loadVersions($contentInfo);
-foreach ($versionInfos as $versionInfo) {
-    $output->write("Version $versionInfo->versionNo ");
-    $output->write(" by " . $versionInfo->getCreator()->getName());
-    $output->writeln(" in " . $versionInfo->getInitialLanguage()->name);
-}
+[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 81, 87) =]]
 ```
 
 You can additionally provide the `loadVersions` method with the version status
 to get only versions of a specific status, e.g.:
 
 ``` php
-$versionInfoArray = $this->contentService->loadVersions($contentInfo, VersionInfo::STATUS_DRAFT);
+[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 88, 89) =]]
 ```
 
 !!! note
@@ -129,12 +103,7 @@ you need to pass a `VersionInfo` object to the [`ContentService::loadRelations`]
 You can get the current version's `VersionInfo` using [`ContentService::loadVersionInfo`.](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ContentService.php#L82)
 
 ``` php
-$versionInfo = $this->contentService->loadVersionInfo($contentInfo);
-$relations = $this->contentService->loadRelations($versionInfo);
-foreach ($relations as $relation) {
-    $name = $relation->destinationContentInfo->name;
-    $output->write('Relation to content ' . $name);
-}
+[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 100, 106) =]]
 ```
 
 You can also specify the version number as the second argument to get Relations for a specific version:
@@ -153,7 +122,7 @@ and the optional Field this relation is made with.
 You can use the `getOwner` method of the `ContentInfo` object to load the Content item's owner as a `User` value object.
 
 ``` php
-$output->writeln("Owner: " . $contentInfo->getOwner()->getName());
+[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 108, 109) =]]
 ```
 
 To get the creator of the current version and not the Content item's owner,
@@ -166,7 +135,7 @@ the [`getSection`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ
 of the ContentInfo object:
 
 ``` php
-$output->writeln("Section: " . $contentInfo->getSection()->name);
+[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 111, 112) =]]
 ```
 
 !!! note
@@ -182,45 +151,16 @@ You need to provide it with the Object state group.
 All Object state groups can be retrieved through [`loadObjectStateGroups`.](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ObjectStateService.php#L59)
 
 ``` php
-$stateGroups = $this->objectStateService->loadObjectStateGroups();
-foreach ($stateGroups as $stateGroup) {
-    $state = $this->objectStateService->getContentState($contentInfo, $stateGroup);
-    $output->writeln('Object state: ' . $state->identifier);
-}
+[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 114, 119) =]]
 ```
 
 ## Viewing content with Fields
 
 To retrieve the Fields of the selected Content item, you can use the following command:
 
-```php hl_lines="16 17 19 20 21 22 23 24"
-//...
-use eZ\Publish\API\Repository\ContentService;
-use eZ\Publish\API\Repository\ContentTypeService;
-use eZ\Publish\API\Repository\FieldTypeService;
-
-class ViewContentCommand extends Command
-{
-    // ...
-
-    protected function execute(InputInterface $input, OutputInterface $output)
-    {
-
-        $contentId = $input->getArgument('contentId');
-
-        try {
-            $content = $this->contentService->loadContent($contentId);
-            $contentType = $this->contentTypeService->loadContentType($content->contentInfo->contentTypeId);
-
-            foreach ($contentType->fieldDefinitions as $fieldDefinition) {
-                $output->writeln("<info>" . $fieldDefinition->identifier . "</info>");
-                $fieldType = $this->fieldTypeService->getFieldType($fieldDefinition->fieldTypeIdentifier);
-                $field = $content->getFieldValue($fieldDefinition->identifier);
-                $valueHash = $fieldType->toHash($field);
-                $output->writeln($valueHash);
-            }
-        } catch //...
-    }
+```php hl_lines="11-12 14-21"
+[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentCommand.php', 8, 14) =]]    // ...
+[[= include_file('code_samples/api/public_php_api/src/Command/ViewContentCommand.php', 38, 57) =]]
 }
 ```
 
@@ -251,34 +191,8 @@ $contentService->loadContent($content->id, Language::ALL);
 To go through all the Content items contained in a subtree,
 you need to use the [`LocationService`.](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/LocationService.php)
 
-``` php hl_lines="14 23"
-//...
-use eZ\Publish\API\Repository\LocationService;
-use eZ\Publish\API\Repository\Values\Content\Location;
-
-class BrowseContentCommand extends Command
-
-    //...
-
-    protected function execute(InputInterface $input, OutputInterface $output)
-    {
-        $locationId = $input->getArgument('locationId');
-
-        try {
-            $location = $this->locationService->loadLocation($locationId);
-            $this->browseLocation($location, $output);
-        } catch //...
-    }
-
-    private function browseLocation(Location $location, OutputInterface $output, $depth = 0)
-    {
-        $output->writeln($location->contentInfo->name);
-
-        $childLocations = $this->locationService->loadLocationChildren($location);
-        foreach ($childLocations->locations as $childLocation) {
-            $this->browseLocation($childLocation, $output, $depth + 1);
-        }
-    }
+``` php hl_lines="5 15"
+[[= include_file('code_samples/api/public_php_api/src/Command/BrowseLocationsCommand.php', 30, 49) =]]
 ```
 
 `loadLocation` (line 14) returns a value object, here a `Location`.

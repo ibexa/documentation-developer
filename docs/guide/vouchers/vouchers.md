@@ -1,4 +1,10 @@
-# Vouchers [[% include 'snippets/commerce_badge.md' %]]
+---
+description: Manage vouchers and provide your customers with discounts.
+
+edition: commerce
+---
+
+# Vouchers
 
 [[= product_name_com =]] supports vouchers that are managed in ERP. The customer can enter a voucher number in the basket.
 Then the voucher is sent to the ERP and, if it is valid, the customer gets a discount.

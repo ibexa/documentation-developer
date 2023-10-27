@@ -1,3 +1,7 @@
+---
+description: Embed a Content item in another using query types or controllers.
+---
+
 # Embed related content
 
 To embed content in another Content item, you query for it in the Repository.

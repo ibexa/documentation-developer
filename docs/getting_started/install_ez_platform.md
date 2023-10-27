@@ -1,3 +1,7 @@
+---
+description: Install Ibexa DXP on a Linux system and prepare your installation for production.
+---
+
 # Install [[= product_name =]]
 
 !!! note
@@ -7,7 +11,13 @@
     To install [[= product_name =]] for development on macOS or Windows,
     see the [installation guide for macOS and Windows](install-on-mac-os-and-windows.md).
 
-## Prepare the work environment
+!!! note "Installing Ibexa OSS"
+
+    This installation guide details the steps to install Ibexa DXP for users who have a subscription agreement with Ibexa.
+    If you want to install Ibexa OSS, you do not need authentication tokens or an account on updates.ibexa.co,
+    but must adapt the steps shown here to the product edition and the `ibexa/oss-skeleton` repository.
+
+## Prepare work environment
 
 To install [[= product_name =]] you need a stack with your operating system, MySQL and PHP.
 
@@ -112,20 +122,45 @@ run the following command:
 === "[[= product_name_content =]]"
 
     ``` bash
-    composer create-project ibexa/content-skeleton .
+    composer create-project ibexa/content-skeleton:^3.3 .
     ```
 
 === "[[= product_name_exp =]]"
 
     ``` bash
-    composer create-project ibexa/experience-skeleton .
+    composer create-project ibexa/experience-skeleton:^3.3 .
     ```
 
 === "[[= product_name_com =]]"
 
     ``` bash
-    composer create-project ibexa/commerce-skeleton .
+    composer create-project ibexa/commerce-skeleton:^3.3 .
     ```
+
+??? note "Using PHP 8.0, 7.4 or 7.3"
+
+    If you're using version lower than PHP 8.1, use a different set of commands:
+
+    === "[[= product_name_content =]]"
+
+        ``` bash
+        composer create-project ibexa/content-skeleton:^3.3 --no-install .
+        composer update
+        ```
+
+    === "[[= product_name_exp =]]"
+
+        ``` bash
+        composer create-project ibexa/experience-skeleton:^3.3 --no-install .
+        composer update
+        ```
+
+    === "[[= product_name_com =]]"
+
+        ``` bash
+        composer create-project ibexa/commerce-skeleton:^3.3 --no-install .
+        composer update
+        ```
 
 !!! tip "Authentication token"
 
@@ -175,6 +210,14 @@ or
 
 `DATABASE_URL=postgresql://user:password@host:port/database_name`.
 
+!!! tip "Encoding database password"
+
+    The password entered in `DATABASE_URL` must either be URL encoded, or not contain any special characters that would require URL encoding.
+
+    For more information, see [Encoding database password](troubleshooting.md#encoding-database-password).
+
+### Add entropy to improve cryptographic randomness
+
 Choose a [secret]([[= symfony_doc =]]/reference/configuration/framework.html#secret)
 and provide it in the `APP_SECRET` parameter in `.env`.
 It should be a random string, made up of at least 32 characters, numbers, and symbols.
@@ -206,9 +249,13 @@ In `DATABASE_VERSION` you can also configure the database server version (for a 
 
     If you want an installation with PostgreSQL instead of MySQL, refer to [Using PostgreSQL](../guide/databases.md#using-postgresql).
 
-#### Install and configure a search engine [[% include 'snippets/commerce_badge.md' %]]
+#### Install and configure a search engine
 
-Search in the shop front end requires that you have either Solr or Elasticsearch installed as a search engine.
+You may choose to replace the [default search engine](../guide/search/search.md#legacy-search-engine) with either Solr or Elasticsearch.
+
+!!! note "Shop front end requirement [[% include 'snippets/commerce_badge.md' %]]"
+
+    Search in the shop front end requires that you have either Solr or Elasticsearch as a search engine.
 
 === "Solr"
 
@@ -269,7 +316,7 @@ You can also use [Symfony CLI](https://symfony.com/download):
 symfony serve
 ```
 
-## Prepare the installation for production
+## Prepare installation for production
 
 To use [[= product_name =]] with an HTTP server, you need to [set up directory permissions](#set-up-permissions) and [prepare a virtual host](#set-up-virtual-host).
 
@@ -296,43 +343,54 @@ To set up permissions for production, it is recommended to use an ACL (Access Co
 See [Setting up or Fixing File Permissions]([[= symfony_doc =]]/setup/file_permissions.html) in Symfony documentation
 for information on how to do it on different systems.
 
-### Set up a virtual host
+### Set up virtual host
 
-Prepare a [virtual host configuration](https://httpd.apache.org/docs/2.4/vhosts/) for your site.
+Prepare a [virtual host configuration](https://en.wikipedia.org/wiki/Virtual_hosting) for your site.
 
-Specify `/<your installation directory>/public` as the `DocumentRoot` and `Directory`.
-Uncomment the line that starts with `#if [SYMFONY_ENV]` and set the value to `prod` or `dev`,
-depending on the environment that you are configuring:
+=== "Apache"
 
-```
-SetEnvIf Request_URI ".*" SYMFONY_ENV=prod
-```
+    You can copy [the example vhost file](https://raw.githubusercontent.com/ibexa/post-install/main/resources/templates/apache2/vhost.template)
+    to `/etc/apache2/sites-available` as a `.conf` file and modify it to fit your project.
 
-#### Enable the virtual host
+    Specify `/<your installation directory>/public` as the `DocumentRoot` and `Directory`, or ensure `BASEDIR` is set in the environment.
+    Uncomment the line that starts with `#if [APP_ENV]` and set the value to `prod` or `dev`, depending on the environment that you are configuring,
+    or ensure `APP_ENV` is set in the environment.
 
-When the virtual host file is ready, enable the virtual host and disable the default:
+    ```
+    SetEnvIf Request_URI ".*" APP_ENV=prod
+    ```
 
-``` bash
-a2ensite ibexa
-a2dissite 000-default.conf
-```
+    When the virtual host file is ready, enable the virtual host and disable the default:
 
-Finally, restart the Apache server.
-The command may vary depending on your Linux distribution.
-For example, on Ubuntu use:
+    ``` bash
+    a2ensite ibexa
+    a2dissite 000-default.conf
+    ```
 
-``` bash
-service apache2 restart
-```
+    Finally, restart the Apache server.
+    The command may vary depending on your Linux distribution.
+    For example, on Ubuntu use:
+
+    ``` bash
+    service apache2 restart
+    ```
+
+=== "nginx"
+
+    You can use [this example vhost file](https://raw.githubusercontent.com/ibexa/post-install/main/resources/templates/nginx/vhost.template)
+    and modify it to fit your project. You will also need the `ibexa_params.d` files that should reside in a subdirectory below where the main file is,
+    [as is shown here](https://github.com/ibexa/post-install/tree/main/resources/templates/nginx).
+
+
+    Specify `/<your installation directory>/public` as the `root`, or ensure `BASEDIR` is set in the environment.
+    Ensure `APP_ENV` is set to `prod` or `dev` in the environment, depending on the environment that you are configuring, and uncomment the line that starts with `#if[APP_ENV`.
+
+    When the virtual host file is ready, enable the virtual host and disable the default.
+    Finally, restart the nginx server.
+    The command may vary depending on your Linux distribution.
 
 Open your project in the browser by visiting the domain address, for example `http://localhost:8080`.
 You should see the welcome page.
-
-!!! tip "eZ Launchpad for quick deployment"
-
-    To get your [[= product_name =]] installation up and running quickly,
-    use the Docker-based [eZ Launchpad](https://ezsystems.github.io/launchpad/), which takes care of the whole setup for you.
-    eZ Launchpad is supported by the Ibexa Community.
 
 ## Post-installation steps
 
@@ -362,7 +420,7 @@ Finally, remove the temporary file:
 
 `rm ezp_cron.txt`
 
-### Enable the Link manager [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+### Enable the Link manager
 
 To make use of the [Link Manager](../guide/url_management.md), you must [set up cron](../guide/url_management.md#enable-automatic-url-validation).
 
@@ -373,4 +431,4 @@ and use the generated secret.
 
 ## Ibexa Cloud
 
-If you want to host your application on Ibexa Cloud, follow the [Install on Ibexa Cloud](install_on_ibexa_cloud.md) procedure.
+If you want to host your application on [[= product_name_cloud =]], follow the [Install on Ibexa Cloud](install_on_ibexa_cloud.md) procedure.

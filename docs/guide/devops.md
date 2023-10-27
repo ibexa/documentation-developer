@@ -1,10 +1,14 @@
+---
+description: See various tools that can help you debug your Ibexa DXP installation.
+---
+
 # Devops
 
 ## Cache clearing
 
 ### Clearing file cache using the Symfony cache:clear command
 
-Symfony provides a command for clearing cache. It will delete all file-based caches, which mainly consist of a Twig template, a [service container](../api/service_container.md), and the Symfony route cache, but also everything else stored in the cache folder. Out of the box on a single-server setup this includes Content cache. For further information on the command's use, see its help text:
+Symfony provides a command for clearing cache. It will delete all file-based caches, which mainly consist of a Twig template, a [service container](../api/public_php_api.md#service-container), and the Symfony route cache, but also everything else stored in the cache folder. Out of the box on a single-server setup this includes Content cache. For further information on the command's use, see its help text:
 
 ``` bash
 php bin/console --env=prod cache:clear -h
@@ -37,7 +41,7 @@ This section provides the number of non-cached [SPI](repository.md#spi) calls a
 
 #### SiteAccess
 
-Here you can see the name of the current SiteAccess and how it was matched. For reference see the [list of possible SiteAccess matchers](multisite/siteaccess_matching.md#available-matchers).
+Here you can see the name of the current SiteAccess and how it was matched. For reference see the [list of possible SiteAccess matchers](multisite/siteaccess_matching.md#available-siteaccess-matchers).
 
 ## Logging and debug configuration
 

@@ -1,4 +1,9 @@
-# Site Factory [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+---
+description: Site Factory allows creating multiple sites (SiteAccesses) from the Back Office.
+edition: experience
+---
+
+# Site Factory
 
 Site Factory is a site management interface, integrated with the Back Office.
 It enables you to configure new sites without editing [YAML-based SiteAccess configuration](multisite_configuration.md).
@@ -11,7 +16,6 @@ It enables you to configure new sites without editing [YAML-based SiteAccess con
     and then create a site that uses the `fr` path in Site Factory, matchers ignore the second site.
 
 Site Factory is disabled by default after installation.
-If you are not working on a clean installation, follow the [update guide to v3](../../updating/5_update_3.0.md#site-factory-upgrade).
 
 If you plan to use Site Factory, you need to enable and configure it.
 To enable or disable Site Factory, follow respectively:
@@ -162,7 +166,7 @@ ezplatform:
                 sites_location_id: 42
 ```
 
-Now, all new directories are created under "Ibexa DXP".
+Now, all new directories are created under "[[= product_name =]]".
 
 ### Provide access
 
@@ -178,13 +182,13 @@ Set the below Policies to allow Users to:
 
 For full documentation on how Permissions work and how to set them up, see [the Permissions section](../permissions.md).
 
-To learn how to use Site Factory, see [User documentation.]([[= user_doc =]]/site_organization/site_factory/#site-factory)
+To learn how to use Site Factory, see [User documentation.]([[= user_doc =]]/site_organization/site_factory/)
 
 ## Disable Site Factory
 
 Enabled Site Factory may cause following performance issues:
 
-- [ConfigResolver](../config_dynamic.md#configresolver) looks for SiteAccesses in the database
+- [ConfigResolver](../configuration/config_dynamic.md#configresolver) looks for SiteAccesses in the database
 - Site Factory matchers are connected to the database in search for new SiteAccesses
 
 You can disable Site Factory to boost ConfigResolver performance.

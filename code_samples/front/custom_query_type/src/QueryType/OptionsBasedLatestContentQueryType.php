@@ -1,9 +1,9 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\QueryType;
 
-use eZ\Publish\API\Repository\Values\Content\Query;
 use eZ\Publish\API\Repository\Values\Content\LocationQuery;
+use eZ\Publish\API\Repository\Values\Content\Query;
 use eZ\Publish\Core\QueryType\OptionsResolverBasedQueryType;
 use eZ\Publish\Core\QueryType\QueryType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -25,7 +25,7 @@ class OptionsBasedLatestContentQueryType extends OptionsResolverBasedQueryType i
         return new LocationQuery([
             'filter' => new Query\Criterion\LogicalAnd($criteria),
             'sortClauses' => [
-                new Query\SortClause\DatePublished(Query::SORT_DESC)
+                new Query\SortClause\DatePublished(Query::SORT_DESC),
             ],
             'limit' => isset($parameters['limit']) ? $parameters['limit'] : 10,
         ]);

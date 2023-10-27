@@ -1,3 +1,8 @@
+---
+description: A finished order sends out a configurable confirmation email.
+edition: commerce
+---
+
 # Order confirmation
 
 After finishing the checkout (in case of an electronic payment transaction after redirection from the payment provider) the user is redirected to the confirmation page.

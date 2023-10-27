@@ -118,31 +118,53 @@ get:
                 description: Error - There are object instances of this Content Type.
             404:
                 description: Error - The Content Type does not exist.
-    /{fieldDefinitionId}:
+    /fieldDefinitions:
+        /{fieldDefinitionId}:
+            get:
+                displayName: Get Field definition
+                description: Returns the Field definition by the given ID.
+                headers:
+                    Accept:
+                        description: If set, the Field definition is returned in XML or JSON format.
+                        example: |
+                            application/vnd.ez.api.FieldDefinition+xml
+                            application/vnd.ez.api.FieldDefinition+json
+                responses:
+                    200:
+                        description: OK - returns the Field definition.
+                        body:
+                            application/vnd.ez.api.FieldDefinition+xml:
+                                type: FieldDefinition
+                                example: !include examples/content/types/content_type_id/field_definition_id/GET/FieldDefinition.xml.example
+                            application/vnd.ez.api.FieldDefinition+json:
+                                type: FieldDefinition
+                                example: !include examples/content/types/content_type_id/field_definition_id/GET/FieldDefinition.json.example
+                    401:
+                        description: Error - The user is not authorized to read the Content Type.
+                    404:
+                        description: Error - The Content Type does not exist.
+    /draft:
         get:
-            displayName: Get Field definition
-            description: Returns the Field definition by the given ID.
+            displayName: Get Content Type draft
+            description: Returns the draft of the Content Type with the provided ID.
             headers:
                 Accept:
-                    description: If set, the Field definition is returned in XML or JSON format.
+                    description: If set, the Content Type is returned in XML or JSON format.
                     example: |
-                        application/vnd.ez.api.FieldDefinition+xml
-                        application/vnd.ez.api.FieldDefinition+json
+                        application/vnd.ez.api.ContentType+xml
+                        application/vnd.ez.api.ContentType+json
             responses:
                 200:
-                    description: OK - returns the Field definition.
                     body:
-                        application/vnd.ez.api.FieldDefinition+xml:
-                            type: FieldDefinition
-                            example: !include examples/content/types/content_type_id/field_definition_id/GET/FieldDefinition.xml.example
-                        application/vnd.ez.api.FieldDefinition+json:
-                            type: FieldDefinition
-                            example: !include examples/content/types/content_type_id/field_definition_id/GET/FieldDefinition.json.example
+                        application/vnd.ibexa.api.ContentType+xml:
+                            type: ContentType
+                        application/vnd.ibexa.api.ContentType+json:
+                            type: ContentType
+                    description: OK - returns the Content Type.
                 401:
-                    description: Error - The user is not authorized to read the Content Type.
+                    description: Error - The user is not authorized to read this Content Type.
                 404:
-                    description: Error - The Content Type does not exist.
-    /draft:
+                    description: Error - The Content Type does not exist or does not have a draft.
         patch:
             displayName: Update Content Type draft
             description: Updates metadata of a draft. This method does not handle Field definitions. PATCH or POST with header X-HTTP-Method-Override PATCH.
@@ -210,6 +232,14 @@ get:
                 404:
                     description: Error - The Content Type draft does not exist.
         /fieldDefinitions:
+            get:
+                displayName: Get Draft Field definition list
+                description: Returns all Field definitions of the provided Content Type Draft.
+                responses:
+                    200:
+                        description: OK - return a list of Field definitions.
+                    404:
+                        description: Error - The Content Type draft does not exist.
             post:
                 displayName: Add Content Type Draft Field definition
                 description: Creates a new Field definition for the given Content Type.

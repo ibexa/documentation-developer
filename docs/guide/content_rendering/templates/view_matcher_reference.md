@@ -1,3 +1,7 @@
+---
+description: View matchers are used in template configuration to decide when to use which template and controller.
+---
+
 # View matcher reference
 
 You can use the following matchers to [match content views](template_configuration.md#view-rules-and-matching):

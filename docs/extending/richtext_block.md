@@ -1,108 +1,56 @@
-# Creating custom RichText blocks [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+---
+description: Create a custom Page block containing rich text.
+edition: experience
+---
 
-To create a RichText [custom Page block](../guide/page/create_custom_page_block.md), you need to define its layout, provide templates, add a subscriber and register it as a service.
+# Create custom RichText block
 
-Start with providing the block configuration in `config/packages/ezplatform_page_fieldtype.yaml`:
+A RichText block is a specific example of a [custom block](../guide/page/create_custom_page_block.md) that you can use when 
+you create a Page. 
+To create a custom block, you must define the block's layout, provide templates, add a subscriber 
+and register the subscriber as a service.
+
+Follow the procedure below to create a RichText Page block.
+
+First, provide the block configuration in `config/packages/ezplatform_page_fieldtype.yaml`. 
+The following code defines a new block, its view and configuration 
+templates.
+It also sets the attribute type to `richtext` (line 15):
 
 ``` yaml hl_lines="3 15"
-ezplatform_page_fieldtype:
-    blocks:
-        my_block:
-            name: My Richtext Block
-            thumbnail: assets/images/blocks/richtext_block_icon.svg
-            configuration_template: blocks/my_block/config.html.twig
-            views:
-                default:
-                    template: blocks/my_block/default.html.twig
-                    name: My block view
-                    priority: -255                    
-            attributes:
-                content:
-                    name: Content
-                    type: richtext
-
+[[= include_file('code_samples/back_office/online_editor/config/packages/ezplatform_page_fieldtype.yaml') =]]
 ```
 
-This configuration defines a new block, its view and configuration templates, and attribute type `richtext` (line 15).
-Remember to provide an icon for the block in the `assets/images/blocks/` folder.
+!!! note
 
-Next, create a subscriber that converts a string of data into XML.
-Create a `src/Event/Subscriber/RichTextBlockSubscriber.php` file containing:
+    Make sure that you provide an icon for the block in the `assets/images/blocks/` folder.
+
+Then, create a subscriber that converts a string of data into XML code.
+Create a `src/Event/Subscriber/RichTextBlockSubscriber.php` file.
+
+In line 32, `my_block` is the same name of the block that you defined in line 3 
+of the `ezplatform_page_fieldtype.yaml` file above.
+Line 32 also implements the `PreRender` method.
+Lines 41-51 handle the conversion of content into an XML string:
+
 
 ``` php hl_lines="32 41 42 43 44 45 46 47 48 49 50 51"
-<?php
-
-declare(strict_types=1);
-
-namespace App\Event\Subscriber;
-
-use EzSystems\EzPlatformRichText\eZ\RichText\DOMDocumentFactory;
-use EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Renderer\BlockRenderEvents;
-use EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Renderer\Event\PreRenderEvent;
-use EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Renderer\Twig\TwigRenderRequest;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-
-class RichTextBlockSubscriber implements EventSubscriberInterface
-{
-    /** @var \EzSystems\EzPlatformRichText\eZ\RichText\DOMDocumentFactory */
-    private $domDocumentFactory;
-
-    /**
-     * @param \EzSystems\EzPlatformRichText\eZ\RichText\DOMDocumentFactory $domDocumentFactory
-     */
-    public function __construct(DOMDocumentFactory $domDocumentFactory)
-    {
-        $this->domDocumentFactory = $domDocumentFactory;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public static function getSubscribedEvents(): array
-    {
-        return [
-            BlockRenderEvents::getBlockPreRenderEventName('my_block') => 'onBlockPreRender',
-        ];
-    }
-
-    /**
-     * @param \EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Renderer\Event\PreRenderEvent $event
-     */
-    public function onBlockPreRender(PreRenderEvent $event): void
-    {
-        $renderRequest = $event->getRenderRequest();
-        if (!$renderRequest instanceof TwigRenderRequest) {
-            return;
-        }
-        $parameters = $renderRequest->getParameters();
-        $parameters['document'] = null;
-        $xml = $event->getBlockValue()->getAttribute('content')->getValue();
-        if (!empty($xml)) {
-            $parameters['document'] = $this->domDocumentFactory->loadXMLString($xml);
-        }
-        $renderRequest->setParameters($parameters);
-    }
- }
-
+[[= include_file('code_samples/back_office/online_editor/src/event/subscriber/RichTextBlockSubscriber.php') =]]
 ```
 
-Note that in the line 32, `my_block` is the name of the block defined in the `ezplatform_page_fieldtype.yaml` file (line 3).
-This line also implements the `PreRender` method.
-Lines 41-51 handle the conversion of content into XML string.
+Now you can create [templates](../guide/content_rendering/templates/templates.md) that are used 
+for displaying and configuring your block.
 
-At this point you need to create [templates](../guide/content_rendering/templates/templates.md) for displaying and configuring your block.
-
-Start with creating the view template in `templates/blocks/my_block/richtext.html.twig`:
+Create the view template in `templates/blocks/my_block/richtext.html.twig`.
+Line 2 is responsible for rendering the content from XML to HTML5:
 
 ``` html+twig hl_lines="2"
 <div class="block-richtext {{ block_class }}">
             {{ document | ez_richtext_to_html5 }}
 </div>
-
 ```
-Here, line 2 is responsible for rendering the content from XML to HTML5.
 
-Proceed with creating a separate `templates/blocks/my_block/config.html.twig` template:
+Then, create a separate `templates/blocks/my_block/config.html.twig` template:
 
 ``` html+twig
 {% extends '@EzPlatformPageBuilder/page_builder/block/config.html.twig' %}
@@ -111,10 +59,9 @@ Proceed with creating a separate `templates/blocks/my_block/config.html.twig` te
     {{ parent() }}
     <meta name="LanguageCode" content="{{ language_code }}" />
 {% endblock %}
-
 ```
 
-Complete the procedure with registering the subscriber as a service in `config/services.yaml`:
+Finally, register the subscriber as a service in `config/services.yaml`:
 
 ``` yaml
 services:
@@ -124,8 +71,10 @@ services:
 ```
 
 
-Now, you can add your custom RichText block in the Site tab.
+You have successfully created a custom RichText block. 
+You can now add your block in the Site tab.
 
 ![RichText block](img/extending_richtext_block.png)
 
-For details on customizing additional options of the block or creating custom blocks with other attribute types, see [Create custom Page block](../guide/page/create_custom_page_block.md).
+For more information about customizing additional options of the block or creating 
+custom blocks with other attribute types, see [Create custom Page block](../guide/page/create_custom_page_block.md).

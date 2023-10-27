@@ -1,3 +1,7 @@
+---
+description: System, component and package requirements for running Ibexa DXP.
+---
+
 # Requirements
 
 The following server requirements cover both running the software on-premise and on third-party PaaS providers.
@@ -14,7 +18,7 @@ Using the latest listed version of each product or component is always recommend
 ## Operating system
 
 - Debian 10.x "Buster"
-- Ubuntu 20.04 "Focal Fossa"
+- Ubuntu 20.04 "Focal Fossa" or Ubuntu 22.04 "Jammy Jellyfish"
 - RHEL / CentOS 8.1+
 
 ## Web server
@@ -31,8 +35,10 @@ event MPM is recommended, if you need to use prefork you also need the `mod_php`
 
 ## PHP
 
-- 7.3
-- 7.4
+- 8.1
+- 8.0
+- 7.4 (PHP 7.4 has reached its End of Life. Unless you have extended support from vendors like Debian or Zend, you should use PHP 8.1)
+- 7.3 (PHP 7.3 has reached its End of Life. Unless you have extended support from vendors like Debian or Zend, you should use PHP 8.1)
 
 ### PHP packages
 
@@ -47,6 +53,7 @@ event MPM is recommended, if you need to use prefork you also need the `mod_php`
 - `php-curl`
 - `php-pear` (optional, provides pecl)
 - `php-gd` or `php-imagick` (via pecl on RHEL/CentOS)
+- `php-sodium`
 
 ### Cluster PHP packages
 
@@ -54,14 +61,24 @@ event MPM is recommended, if you need to use prefork you also need the `mod_php`
 
 ## Search
 
-- Solr 7.7LTS or Solr 8
-- Elasticsearch 7.7, using Oracle Java/Open JDK 8 or higher
+- For content search, Solr 7.7 LTS or Solr 8, recommended 8.11.1 or higher. Alternatively, Elasticsearch 7.16.2 or higher 7.x version.
+- For BinaryFile Field indexing, Apache Tika 1.20 or higher 1.x version, recommended 1.28.1 or higher.
+- The above solutions require Oracle Java/Open JDK. The minimum requirement is 8 LTS, recommended 11 LTS. Newer versions are not supported.
 
 ## Graphic Handler
 
 - GraphicsMagick
 - ImageMagick
 - GD
+
+Optionally if you intend to edit [PNG, SVG, GIF or WEBP files in the Image Editor](../guide/images/images.md#image-optimization):
+
+- JpegOptim
+- Optipng
+- Pngquant 2
+- SVGO 1
+- Gifsicle
+- cwebp
 
 ## [Clustering](../guide/clustering.md)
 
@@ -75,12 +92,12 @@ event MPM is recommended, if you need to use prefork you also need the `mod_php`
 
 ## Package manager
 
-- Composer 2.0.13 or higher
+- Composer: recent 2.1 version
 
 ## Asset manager
 
-- `Node.js` 10 or higher
-- `yarn` 1.15.2 or higher
+- `Node.js` 12, 14+, 16+, 18+ (`Node.js` 12 and 14+ has reached its End of Life. We strongly recommend using a newer version to ensure you receive security updates.)
+- `yarn` 1.15.2+
 
 ## Browser
 

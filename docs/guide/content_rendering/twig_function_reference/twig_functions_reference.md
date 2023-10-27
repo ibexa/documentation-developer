@@ -1,3 +1,7 @@
+---
+description: Built-in Twig functions speed up rendering content in Twig templates.
+---
+
 # Twig function reference
 
 In addition to the [native functions provided by Twig](http://twig.sensiolabs.org/doc/functions/index.html),

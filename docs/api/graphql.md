@@ -1,3 +1,7 @@
+---
+description: GraphQL enables making concise, readable requests to Ibexa DXP APIs.
+---
+
 # GraphQL
 
 [GraphQL](https://graphql.org/) is a query language for the API.
@@ -19,11 +23,16 @@ YAML files with the schema are located in `config/graphql/types/ezplatform`.
 They contain information about the domain objects and the fields
 you can [query](graphql_queries.md) and [operate on](graphql_operations.md).
 
-!!! tip
+### Schema generation limitations
 
-    To make use of enhanced Location handling, you can add the beta 3.0 version of [ezplatform-graphql](https://github.com/ezsystems/ezplatform-graphql/tree/3.0) to your project.
+GraphQL schema cannot be generated for names that do not follow the [GraphQL specification](http://spec.graphql.org/June2018/#sec-Names),
+for example names that start with a digit.
 
-    See [overview of the upcoming changes](https://github.com/ezsystems/ezplatform-graphql/pull/90).
+This concerns image variations, Content Types, Content Type groups, and Field definition identifiers.
+
+It is recommended to rename the relevant identifiers. Failure to generate schema is registered in logs.
+To find identifiers that are not included in the schema, look for "Skipped schema generation" log messages, for example:
+`Skipped schema generation for Image Variation`.
 
 ## Domain schema
 

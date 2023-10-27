@@ -1,8 +1,12 @@
-# Recommendation Integration
+---
+description: Methods for REST call with Personalization server.
+---
+
+# Recommendation integration
 
 There are several ways to integrate the REST calls with the Recommendation engine and to avoid blocking web page rendering, if the communication with the Recommender is distrusted or interrupted.
 
-## Simple Way
+## Simple way
 
 The simplest way to load recommendations is to synchronously request the Recommendation Engine for recommendations as they are needed. This way is sufficient in most cases. The most important drawback is that the request time increases by the time of the recommendation request. If the network is overloaded or the Recommendation Engine is not available it can lock the request.
 

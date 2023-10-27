@@ -1,3 +1,7 @@
+---
+description: Add a new design for a special marketing campaign site.
+---
+
 # Add new design
 
 To create different designs for different version of the website,
@@ -26,7 +30,7 @@ Adding the `campaign` SiteAccess to [`site_group`](../../multisite/multisite_con
 
     For details about configuring different site roots and matching SiteAccesses, see [Set up campaign SiteAccess](../../multisite/set_up_campaign_siteaccess.md).
 
-## Create themes
+## Add themes
 
 Next, configure a new `summersale` design for this theme, also named `summersale`:
 

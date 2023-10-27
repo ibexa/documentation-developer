@@ -1,4 +1,8 @@
-# Lost orders [[% include 'snippets/commerce_badge.md' %]]
+---
+edition: commerce
+---
+
+# Lost orders
 
 ## Sending lost orders from the Back Office
 

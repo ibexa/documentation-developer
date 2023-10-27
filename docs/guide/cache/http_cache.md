@@ -1,3 +1,7 @@
+---
+description: Ibexa DXP's HTTP cache functionalities enable using reverse proxies: Symfony HttpCache Proxy, Varnish or Fastly.
+---
+
 # HTTP cache
 
 [[= product_name =]] provides advanced caching features needed for its own content views,
@@ -15,7 +19,7 @@ For content view responses coming from [[= product_name =]] itself, this means t
 
 All of this works across all the supported reverse proxies:
 
-- [Symfony HttpCache Proxy](#symfony-reverse-proxy) - limited to a single server, and with limited performance/features
+- [Symfony HttpCache Proxy](symfony_reverse_proxy.md) - limited to a single server, and with limited performance/features
 - [Varnish](https://varnish-cache.org/) - high performance reverse proxy
 - [Fastly](https://www.fastly.com/) - Varnish-based CDN service
 

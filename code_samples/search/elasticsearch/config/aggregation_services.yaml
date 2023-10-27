@@ -1,0 +1,10 @@
+services:
+    App\Query\Aggregation\Elasticsearch\PriorityAggregationVisitor:
+        tags:
+            - { name: ezplatform.search.elasticsearch.query.location.aggregation_visitor }
+            - { name: ezplatform.search.elasticsearch.query.content.aggregation_visitor }
+    
+    App\Query\Aggregation\Elasticsearch\PriorityAggregationResultExtractor:
+        tags:
+            - { name: ezplatform.search.elasticsearch.query.location.aggregation_result_extractor }
+            - { name: ezplatform.search.elasticsearch.query.content.aggregation_result_extractor }

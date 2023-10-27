@@ -1,8 +1,14 @@
+---
+description: Configure Site Factory, including site skeletons.
+edition: experience
+---
+
 # Site Factory configuration
 
 ## Parent Location
 
-You can define the parent Location for a new site in the configuration.
+When working with the [Site Factory](site_factory.md), you can define the parent 
+Location for a new site in the configuration.
 Each new site is created in the designated Location.
 
 To define a parent Location, add a new configuration key to the site template definition.
@@ -41,12 +47,6 @@ You can create as many skeletons as you need and assign them to templates.
 Remember that one template can only have one Site skeleton.
 
 If the design does not have a defined Site skeleton, a directory of the new site is created in a standard Site Factory process.
-
-!!! caution "Update from v3.0"
-
-    To be able to create a Location for the Site skeletons, run the [update procedure](../../updating/5_update_3.1.md#site-factory).
-
-    Now, you should be able to see **Site skeletons** tab under **Admin** tab. The tab is only visible after the update procedure.
 
 To define a Site skeleton, add the `site_skeleton_id` or `site_skeleton_remote_id` key to the site template definition.
 This can be either a Location ID (e.g. `5966`), or a remote Location ID (e.g. `3bed95afb1f8126f06a3c464e461e1ae66`).

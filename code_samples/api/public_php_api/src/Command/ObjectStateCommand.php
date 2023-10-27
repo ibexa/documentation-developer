@@ -1,0 +1,88 @@
+<?php declare(strict_types=1);
+
+namespace App\Command;
+
+use eZ\Publish\API\Repository\ContentService;
+use eZ\Publish\API\Repository\ObjectStateService;
+use eZ\Publish\API\Repository\PermissionResolver;
+use eZ\Publish\API\Repository\UserService;
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+
+class ObjectStateCommand extends Command
+{
+    private $contentService;
+
+    private $userService;
+
+    private $objectStateService;
+
+    private $permissionResolver;
+
+    public function __construct(ContentService $contentService, UserService $userService, ObjectStateService $objectStateService, PermissionResolver $permissionResolver)
+    {
+        $this->contentService = $contentService;
+        $this->userService = $userService;
+        $this->objectStateService = $objectStateService;
+        $this->permissionResolver = $permissionResolver;
+        parent::__construct('doc:object_state');
+    }
+
+    protected function configure()
+    {
+        $this
+            ->setDescription('Creates OS group with provided States and assigned the Lock OS to provided Content item')
+            ->setDefinition([
+                new InputArgument('objectStateGroupIdentifier', InputArgument::REQUIRED, 'Identifier of new OG group to create'),
+                new InputArgument('objectStateIdentifier', InputArgument::REQUIRED, 'Identifier(s) of a new Object State'),
+                new InputArgument('contentID', InputArgument::OPTIONAL, 'Content ID'),
+            ]);
+    }
+
+    protected function execute(InputInterface $input, OutputInterface $output)
+    {
+        $user = $this->userService->loadUserByLogin('admin');
+        $this->permissionResolver->setCurrentUserReference($user);
+
+        $objectStateGroup = $this->objectStateService->loadObjectStateGroupByIdentifier('ez_lock');
+        $objectState = $this->objectStateService->loadObjectStateByIdentifier($objectStateGroup, 'locked');
+
+        $output->writeln($objectStateGroup->getName());
+        $output->writeln($objectState->getName());
+
+        $objectStateGroupIdentifier = $input->getArgument('objectStateGroupIdentifier');
+        $objectStateIdentifierList = explode(',', $input->getArgument('objectStateIdentifier'));
+
+        $objectStateGroupStruct = $this->objectStateService->newObjectStateGroupCreateStruct($objectStateGroupIdentifier);
+        $objectStateGroupStruct->defaultLanguageCode = 'eng-GB';
+        $objectStateGroupStruct->names = ['eng-GB' => $objectStateGroupIdentifier];
+        $newObjectStateGroup = $this->objectStateService->createObjectStateGroup($objectStateGroupStruct);
+
+        foreach ($objectStateIdentifierList as $objectStateIdentifier) {
+            $stateStruct = $this->objectStateService->newObjectStateCreateStruct($objectStateIdentifier);
+            $stateStruct->defaultLanguageCode = 'eng-GB';
+            $stateStruct->names = ['eng-GB' => $objectStateIdentifier];
+            $this->objectStateService->createObjectState($newObjectStateGroup, $stateStruct);
+        }
+
+        $output->writeln('Created new Object state group ' . $newObjectStateGroup->identifier . ' with Object states:');
+        foreach ($this->objectStateService->loadObjectStates($newObjectStateGroup) as $objectState) {
+            $output->writeln('* ' . $objectState->identifier);
+        }
+
+        if ($input->getArgument('contentID')) {
+            $contentId = $input->getArgument('contentID');
+            $objectStateToAssign = $objectStateIdentifierList[0];
+            $contentInfo = $this->contentService->loadContentInfo($contentId);
+            $objectStateGroup = $this->objectStateService->loadObjectStateGroupByIdentifier($objectStateGroupIdentifier);
+            $objectState = $this->objectStateService->loadObjectStateByIdentifier($objectStateGroup, $objectStateToAssign);
+
+            $this->objectStateService->setContentState($contentInfo, $objectStateGroup, $objectState);
+            $output->writeln('Content ' . $contentInfo->name . ' assigned state ' . $objectState->getName());
+        }
+
+        return self::SUCCESS;
+    }
+}

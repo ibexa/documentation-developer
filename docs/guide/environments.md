@@ -1,3 +1,7 @@
+---
+description: In Ibexa DXP you can use environment provided by Symfony in virtual host configuration, as well as to create custom environments.
+---
+
 # Environments
 
 Environment configuration is provided by Symfony. [[= product_name =]] additionally enables you to specify environments in virtual host configuration.
@@ -9,16 +13,16 @@ You can configure several environments, such as production, development or stagi
     
 ## Web server configuration
 
-For example, using Apache, in the `VirtualHost` example in [doc/apache2/](https://github.com/ezsystems/ezplatform/tree/master/doc/apache2) in your installation, the required `VirtualHost` configurations have been already included. You can switch to the desired environment by setting the `ENVIRONMENT` variable to `prod`, `dev` or another custom value, like in the following example:
+For example, using Apache, in the [`VirtualHost` example](https://raw.githubusercontent.com/ibexa/post-install/main/resources/templates/apache2/vhost.template) in your installation, the required `VirtualHost` configurations have been already included. You can switch to the desired environment by setting the `ENVIRONMENT` variable to `prod`, `dev` or another custom value, like in the following example:
 
 ```
 # Environment.
 # Possible values: "prod" and "dev" out-of-the-box, other values possible with proper configuration
 # Defaults to "prod" if omitted (uses SetEnvIf so value can be used in rewrite rules)
-SetEnvIf Request_URI ".*" SYMFONY_ENV="dev"
+SetEnvIf Request_URI ".*" APP_ENV="dev"
 ```
 
-## Using custom environments
+## Custom environments
 
 If you want to use a custom environment (something other than `prod` and `dev`), you need to place dedicated configuration files in a separate folder:
 `config/packages/<env_name>/config_<env_name>.yaml`

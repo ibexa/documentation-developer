@@ -1,4 +1,8 @@
-# Product comparison templates [[% include 'snippets/commerce_badge.md' %]]
+---
+edition: commerce
+---
+
+# Product comparison templates
 
 ## Template list
 

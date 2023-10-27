@@ -1,3 +1,7 @@
+---
+description: Add and render a breadcrumbs element on your site.
+---
+
 # Add breadcrumbs
 
 To add breadcrumbs to your website, first prepare a general layout template in a `templates/themes/<theme_name>/pagelayout.html.twig` file.

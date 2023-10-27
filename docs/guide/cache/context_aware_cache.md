@@ -1,3 +1,7 @@
+---
+description: Context-aware HTTP cache caches requests depending on the logged-in user context.
+---
+
 # Context-aware HTTP cache
 
 [[= product_name =]] allows caching requests made by logged-in users.
@@ -14,7 +18,7 @@ A similar but internal logic is done in the provided enhanced Symfony Proxy (App
 
 ## Request lifecycle
 
-This expands steps covered in [FOSHttpCacheBundle documentation on user context feature](https://foshttpcachebundle.readthedocs.io/en/2.8.0/features/user-context.html#how-it-works):
+This expands steps covered in [FOSHttpCacheBundle documentation on user context feature](https://foshttpcachebundle.readthedocs.io/en/latest/features/user-context.html#how-it-works):
 
 1. A client (browser) requests URI `/foo`.
 1. The caching proxy receives the request and holds it. It first sends a hash request to the application's context hash route: `/_fos_user_context_hash`.
@@ -26,7 +30,7 @@ This expands steps covered in [FOSHttpCacheBundle documentation on user context 
 The next time a request comes in from the same user, application lookup for the hash (step 3) does not take place,
 as the hash lookup itself is cached by the cache proxy as described below.
 
-### User Context Hash caching
+### User context hash caching
 
 Example of a response sent to reverse proxy from `/_fos_user_context_hash` with [[[= product_name =]]'s default config](#default-options-for-FOSHttpCacheBundle-defined-in-ibexa-dxp):
 
@@ -62,28 +66,28 @@ It also varies on `Authorization` to cover any possible basic authorization head
     The only known workaround is to make it SiteAccess aware, and have custom VCL logic tied to your SiteAccess
     matching with Varnish/Fastly, to send the SiteAccess prefix as URI.
 
-### Default options for FOSHttpCacheBundle defined in [[= product_name =]]
+!!! caution "Default options for FOSHttpCacheBundle"
 
-The following configuration is defined by default for FOSHttpCacheBundle.
-You should not override these settings unless you know what you are doing.
+    The following configuration is defined by default for FOSHttpCacheBundle.
+    You should not override these settings unless you know what you are doing.
 
-``` yaml
-fos_http_cache:
-    proxy_client:
-        default: varnish
-        varnish:
-            http:
-                servers: ['$http_cache.purge_servers$']
-            tag_mode: 'purgekeys'
+    ``` yaml
+    fos_http_cache:
+        proxy_client:
+            default: varnish
+            varnish:
+                http:
+                    servers: ['$http_cache.purge_servers$']
+                tag_mode: 'purgekeys'
 
-    user_context:
-        enabled: true
-        hash_cache_ttl: 600
-        # NOTE: These are also defined/used in AppCache, in Varnish VCL, and Fastly VCL
-        session_name_prefix: eZSESSID
-```
+        user_context:
+            enabled: true
+            hash_cache_ttl: 600
+            # NOTE: These are also defined/used in AppCache, in Varnish VCL, and Fastly VCL
+            session_name_prefix: eZSESSID
+    ```
 
-##  Personalize responses
+## Personalize responses
 
 Here are some generic recommendations on how to approach personalized content with [[= product_name =]] / Symfony:
 
@@ -123,9 +127,9 @@ This solution requires more effort (controller, VCL logic and adapting your own 
 
     You can find an example for paywall authorization in [FOSHTTPCache documentation.](https://foshttpcache.readthedocs.io/en/latest/user-context.html#alternative-for-paywalls-authorization-request)
 
-### Dos and don'ts of custom vary by logic
+### Best practices for custom vary by logic
 
-For information on how user context hashes are generated, see [FOSHttpCacheBundle documentation](https://foshttpcachebundle.readthedocs.io/en/2.8.0/features/user-context.html#generating-hashes).
+For information on how user context hashes are generated, see [FOSHttpCacheBundle documentation](https://foshttpcachebundle.readthedocs.io/en/latest/features/user-context.html#generating-hashes).
 
 [[= product_name =]] implements a custom context provider in order to make user context hash reflect the current User's Roles and Limitations.
 This is needed given [[= product_name =]]'s more complex permission model compared to Symfony's.
@@ -147,7 +151,7 @@ needs, and adapt the user context hash VCL logic to use the additional header.
 
 To avoid overloading any application code, take advantage of Symfony's event system:
 
-1\. Add a Response [event listener or subscriber](https://symfony.com/doc/5.1/event_dispatcher.html) to add your own hash to `/_fos_user_context_hash`:
+1\. Add a [Response event (`kernel.response`)](https://symfony.com/doc/5.4/reference/events.html#kernel-response) [listener or subscriber](https://symfony.com/doc/5.4/event_dispatcher.html) to add your own hash to `/_fos_user_context_hash`:
 
 ```php
 public function addPreferenceHash(FilterResponseEvent $event)

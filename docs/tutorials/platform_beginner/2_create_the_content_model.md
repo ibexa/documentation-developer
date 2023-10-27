@@ -1,3 +1,7 @@
+---
+description: Learn how to create a content model consisting of Content Types and a few sample Content items.
+---
+
 # Step 2 — Create the content model
 
 How your content is structured is a very important part of an [[= product_name =]] project. Think of it as the database design of your application.
@@ -17,13 +21,13 @@ Each Field Type is built to represent a specific type of data: a text line, a bl
 You can find a complete list in the [Field Types reference](../../api/field_type_reference.md) section.
 Every Field Type may have its own options, and comes with its own editing and viewing interfaces.
 
-## Create a Content Type
+## Add a Content Type
 
 The site will use two Content Types: **Ride** and **Landmark**.
 A Ride is a route of a bike trip. It can include one or more Landmarks - interesting places you can see along the way.
 More than one Ride can visit the same Landmark, so it is similar to an N-N relationship model in a database.
 
-In this step you'll create the first Content Type, Ride.
+In this step you'll add the first Content Type, Ride.
 
 Go to the admin interface (`<yourdomain>/admin`) and log in with the default username: `admin` and the default password: `publish`. 
 
@@ -35,7 +39,7 @@ You will see a list of **Content Type Groups**. They are used to group Content 
 
 Select **Content** and then click the plus icon. 
 
-![Create a content type button](img/bike_tutorial_create_content_type.png)
+![Add a Content Type button](img/bike_tutorial_create_content_type.png)
 
 Fill the form with this basic info: 
 

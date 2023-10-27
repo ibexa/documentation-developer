@@ -1,14 +1,13 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\View\Matcher;
 
-use eZ\Publish\API\Repository\Repository;
 use eZ\Publish\API\Repository\Values\Content\ContentInfo;
 use eZ\Publish\API\Repository\Values\Content\Location;
+use eZ\Publish\Core\MVC\Symfony\Matcher\ContentBased\MultipleValued;
 use eZ\Publish\Core\MVC\Symfony\View\ContentValueView;
 use eZ\Publish\Core\MVC\Symfony\View\LocationValueView;
 use eZ\Publish\Core\MVC\Symfony\View\View;
-use eZ\Publish\Core\MVC\Symfony\Matcher\ContentBased\MultipleValued;
 
 class Owner extends MultipleValued
 {

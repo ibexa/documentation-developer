@@ -1,3 +1,7 @@
+---
+description: Create a custom menu in the Back Office.
+---
+
 # Add menu item
 
 To add a new menu entry in the Back Office, you need to use an event subscriber

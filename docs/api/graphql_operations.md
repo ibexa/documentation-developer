@@ -1,3 +1,7 @@
+---
+description: Use GraphQL operations to create, update, and delete content.
+---
+
 # GraphQL operations
 
 Operations on content in GraphQL are performed using [mutations](https://graphql.org/learn/queries/#mutations).

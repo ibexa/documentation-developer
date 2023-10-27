@@ -1,7 +1,11 @@
-# Add custom view matcher
+---
+description: You can create custom view matchers to configure template and controller usage for specific custom cases.
+---
+
+# Create custom view matcher
 
 In addition to the [built-in view matchers](view_matcher_reference.md),
-you can also add custom matchers to use in [template configuration](template_configuration.md#view-rules-and-matching).
+you can also create custom matchers to use in [template configuration](template_configuration.md#view-rules-and-matching).
 
 To do it, create a matcher class that extends `eZ\Publish\Core\MVC\Symfony\Matcher\ContentBased\MultipleValued`.
 

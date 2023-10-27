@@ -1,3 +1,7 @@
+---
+description: You can contribute Back Office translations to Ibexa DXP by using Crowdin.
+---
+
 # Contribute translations
 
 If you'd like to see [[= product_name =]] in your language, you can contribute to the translations.
@@ -5,7 +9,7 @@ If you'd like to see [[= product_name =]] in your language, you can contribute t
 [`ezplatform-i18n`](https://github.com/ezsystems/ezplatform-i18n) contains the XLIFF files providing translations.
 You can use an XLIFF editor of your choice to contribute strings in your language.
 
-## How to translate the interface using Crowdin
+## Translating interface using Crowdin
 
 If you wish to contribute to an existing translation of Back Office or start a new one you can:
 - [translate in-context with bookmarks](#using-bookmarks)
@@ -38,7 +42,7 @@ To enable in-context translation you need to create Crowdin account and join [[[
 
 Strings in the interface that can be translated will be outlined in red (untranslated), blue (translated) or green (approved). When moving over them, an edit button will show up on the top left corner of the outline. Click on it, and edit the string in the window that shows up.
 
-![In-context translation of Admin UI](img/crowdin_translation.png "In-context translation of Admin UI")
+![In-context translation of Back Office](img/crowdin_translation.png "In-context translation of Back Office")
 
 #### Troubleshooting
 

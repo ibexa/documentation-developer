@@ -1,0 +1,52 @@
+parameters:
+    app.rest.output.visitor.xml.regexps: ['(^application/app\.api\.[A-Za-z]+\+xml$)']
+    app.rest.output.visitor.json.regexps: ['(^application/app\.api\.[A-Za-z]+\+json$)']
+
+services:
+
+    app.rest.output.visitor.xml:
+        class: '%ezpublish_rest.output.visitor.class%'
+        arguments:
+            - '@ezpublish_rest.output.generator.xml'
+            - '@App\Rest\Output\ValueObjectVisitorDispatcher'
+        tags:
+            - { name: ezpublish_rest.output.visitor, regexps: app.rest.output.visitor.xml.regexps, priority: 20 }
+
+    app.rest.output.visitor.json:
+        class: '%ezpublish_rest.output.visitor.class%'
+        arguments:
+            - '@ezpublish_rest.output.generator.json'
+            - '@App\Rest\Output\ValueObjectVisitorDispatcher'
+        tags:
+            - { name: ezpublish_rest.output.visitor, regexps: app.rest.output.visitor.json.regexps, priority: 20 }
+
+    App\Rest\Output\ValueObjectVisitorDispatcher:
+        class: App\Rest\Output\ValueObjectVisitorDispatcher
+        arguments:
+            - !tagged_iterator { tag: 'app.rest.output.value_object.visitor', index_by: 'type' }
+            - '@ezpublish_rest.output.value_object_visitor.dispatcher'
+
+    App\Rest\ValueObjectVisitor\RestLocation:
+        class: App\Rest\ValueObjectVisitor\RestLocation
+        parent: ezpublish_rest.output.value_object_visitor.base
+        arguments:
+            $urlAliasService:  '@ezpublish.api.service.url_alias'
+        tags:
+            - { name: app.rest.output.value_object.visitor, type: EzSystems\EzPlatformRest\Server\Values\RestLocation }
+
+    App\Rest\Controller\:
+        resource: '../src/Rest/Controller/'
+        parent: ezpublish_rest.controller.base
+        autowire: true
+        autoconfigure: true
+        tags: [ 'controller.service_arguments' ]
+
+    App\Rest\ValueObjectVisitor\Greeting:
+        parent: ezpublish_rest.output.value_object_visitor.base
+        tags:
+            - { name: ezpublish_rest.output.value_object_visitor, type: App\Rest\Values\Greeting }
+
+    App\Rest\InputParser\GreetingInput:
+        parent: ezpublish_rest.input.parser
+        tags:
+            - { name: ezpublish_rest.input.parser, mediaType: application/vnd.ez.api.GreetingInput }

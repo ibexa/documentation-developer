@@ -1,0 +1,59 @@
+.c-images-list {
+    display: grid;
+    grid-template-areas: 'prev list next';
+    grid-template-columns: 32px 1fr 32px;
+    grid-gap: 16px;
+    overflow: hidden;
+}
+
+.c-images-list__items-wrapper {
+    overflow: hidden;
+    max-width: 1564px;
+}
+
+[class*='c-images-list__btn--'] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f15a10;
+    transition: background 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+[class*='c-images-list__btn--']:focus,
+[class*='c-images-list__btn--']:hover {
+    background: #ab3f0a;
+}
+
+[class*='c-images-list__btn--'][disabled],
+[class*='c-images-list__btn--'][disabled]:focus,
+[class*='c-images-list__btn--'][disabled]:hover {
+    background: #f15a10;
+    opacity: 0.5;
+}
+
+[class*='c-images-list__btn--'] .ez-icon {
+    fill: #fff;
+}
+
+.c-images-list__btn--prev {
+    grid-area: prev;
+}
+
+.c-images-list__btn--next {
+    grid-area: next;
+}
+
+.c-images-list__items {
+    grid-area: list;
+    display: flex;
+    flex-wrap: nowrap;
+    transition: transform 0.3s ease-in-out;
+}
+
+.c-images-list__items .c-image {
+    flex: 0 0 300px;
+}
+
+.c-images-list__items .c-image + .c-image {
+    margin-left: 1rem;
+}

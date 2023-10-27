@@ -1,3 +1,7 @@
+---
+description: Ensure that your Ibexa DXP installation performs well by following our set of recommendations.
+---
+
 # Performance
 
 [[= product_name =]] can be set up to run efficiently on almost any modern configuration.
@@ -38,10 +42,6 @@ In production setups:
 - Avoid shared filesystems for code (Docker for Mac/Win, VirtualBox/*, Vagrant, etc.), because they typically slow down the application 10x or more, compared to native Linux filesystem.
 - VM in itself also adds 10-30% of overhead. However when it comes to production, e.g. AWS vs barebones, it also comes down to cost and convenience factors.
 
-!!! tip "For Development use, try eZ Launchpad"
-
-    For a ready solution that allows you to share code between your host and the underlying running VM system without this performance hit, try [eZ Launchpad](https://ezsystems.github.io/launchpad/), made by and supported by the eZ Community.
-
 ### Web server
 
 - Use Nginx/Apache even for development, as PHP's built-in web server (as exposed via Symfony's `server:*` commands) is only able to handle one request at a time (including JS/CSS/* asset loading, etc.).
@@ -80,7 +80,7 @@ In production setups:
 
 - Use [Solr Bundle and Solr](search/solr.md) to greatly offload your database and get more stable performance on your installation.
 
-## Executing long-running console commands
+## Long-running console commands
 
 Executing long-running console commands can result in running out of memory.
 Two examples of such commands are a custom import command and the indexing command provided by the [Solr Bundle](search/solr.md).

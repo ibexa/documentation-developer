@@ -1,3 +1,7 @@
+---
+description: Clustering enables you to host one installation of Ibexa DXP on multiple servers.
+---
+
 # Clustering
 
 Clustering in [[= product_name =]] refers to setting up your installation with several web servers for handling more load and/or for failover.
@@ -15,7 +19,7 @@ is up to you and your performance needs.
 
 The minimal requirements are:
 
-- [Shared HTTP cache (using Varnish)](cache/http_cache.md#using-varnish)
+- [Shared HTTP cache (using Varnish)](cache/symfony_reverse_proxy/#using-varnish-or-fastly)
 - [Shared persistence cache](#shared-persistence-cache) and [sessions](#shared-sessions) (using Redis or Memcached)
 - Shared database (using MySQL/MariaDB)
 - [Shared binary files](#shared-binary-files) (using NFS, or S3)
@@ -24,7 +28,7 @@ For further details on requirements, see [Requirements page](../getting_started/
 
 It is also recommended to use:
 
-- [Solr](search/solr.md) for better search and performance
+- [Solr](search/solr.md) or [Elasticsearch](search/elastic.md) for better search and performance
 - a CDN for improved performance and faster ping time worldwide
     - you can use Fastly, which has native support as HTTP cache and CDN.
 - active/passive database for failover
@@ -48,11 +52,11 @@ To avoid concurrent access to session data from front-end nodes, if possible you
 
 Session locking is available with `php-memcached`, and with `php-redis` (v4.2.0 and higher).
 
-On Ibexa Cloud (and Platform.sh) Redis is preferred and supported.
+On [[= product_name_cloud =]] (and Platform.sh) Redis is preferred and supported.
 
 ### Shared binary files
 
-[[= product_name =]] supports multi-server setups by means of [custom IO handlers](file_management.md#the-dfs-cluster-handler).
+[[= product_name =]] supports multi-server setups by means of [custom IO handlers](file_management/file_management.md#the-dfs-cluster-handler).
 They make sure that files are correctly synchronized among the multiple clients using the data.
 
 ## DFS IO handler
@@ -211,7 +215,7 @@ ezplatform:
                 url_prefix: 'http://static.example.com/'
 ```
 
-You can read more about that on [Binary files URL handling](file_management.md#url-handling).
+You can read more about that on [Binary files URL handling](file_management/handling_file_url.md#file-url-handling).
 
 ### Web server rewrite rules
 
@@ -268,7 +272,3 @@ While the command is running, the files should not be modified.
 To avoid surprises you should create a [backup](backup.md) and/or execute a dry run before doing the actual update, using the `--dry-run` switch.
 
 Since this command can run for a very long time, to avoid memory exhaustion run it in the production environment using the `--env=prod` switch.
-
-## Clustering using Amazon AWS S3
-
-See [AWS S3 clustering](clustering_aws_s3.md).

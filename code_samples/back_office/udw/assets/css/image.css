@@ -1,0 +1,43 @@
+.c-image {
+    width: 300px;
+    height: 200px;
+    background: #fff;
+    transition: box-shadow 0.3s ease-in-out;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+}
+
+.c-image:before {
+    content: attr(data-title);
+    display: flex;
+    background: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    width: 300px;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    padding: 1rem;
+    transition: opacity 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+.c-image:hover:before,
+.c-image:focus:before {
+    opacity: 1;
+}
+
+.c-image__thumb {
+    display: block;
+    max-width: 300px;
+    max-height: 200px;
+    width: auto;
+    height: auto;
+    margin: auto;
+}

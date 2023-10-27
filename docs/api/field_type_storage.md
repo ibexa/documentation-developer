@@ -1,3 +1,7 @@
+---
+description: To be able to store the data saved to a Field, you must configure storage conversion for the Field Type.
+---
+
 # Field Type storage
 
 ## Storage conversion
@@ -56,7 +60,7 @@ which you must implement in your Field Type. The interface contains the followin
 |`toFieldDefinition`|Converts the other way around.|
 |`getIndexColumn()`|Returns the storage column which is used for indexing either `sort_key_string` or `sort_key_int`.|
 
-Just like a Type, a Legacy Converter needs to be registered and tagged in the [service container](../api/service_container.md).
+Just like a Type, a Legacy Converter needs to be registered and tagged in the [service container](../api/public_php_api.md#service-container).
 
 #### Registering a converter
 
@@ -150,11 +154,9 @@ services:
             - {name: ezplatform.field_type.external_storage_handler, alias: myfield}
 ```
 
-The configuration requires providing the `ezplatform.field_type.external_storage_handler` tag, with the `alias` attribute being the *fieldTypeIdentifier*. You also have to inject the gateway in `arguments`, [see below](#gateway-based-storage).
+The configuration requires providing the `ezplatform.field_type.external_storage_handler` tag, with the `alias` attribute being the *fieldTypeIdentifier*. You also have to inject the gateway in `arguments`, [see Gateway-based storage](#gateway-based-storage).
 
 External storage configuration for basic Field Types is located in [eZ/Publish/Core/settings/fieldtype_external_storages.yaml](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/Core/settings/fieldtype_external_storages.yml).
-
-#### Registration
 
 Using gateway-based storage requires another service implementing `eZ\Publish\SPI\FieldType\StorageGateway` to be injected into the [external storage handler](#storing-external-data)).
 

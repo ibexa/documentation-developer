@@ -1,4 +1,8 @@
-# Local orders [[% include 'snippets/commerce_badge.md' %]]
+---
+edition: commerce
+---
+
+# Local orders
 
 You can display user documents even if the shop is not connected to an ERP system.
 In this case, the user sees the documents [stored locally in the shop](../../guide/checkout/local_orders.md).

@@ -35,7 +35,7 @@ ezrecommendation:
                 license_key: 1234-5678-9012-3456-7890
             included_content_types: [blog, article]
             random_content_types: [blog]
-            host_uri: http://example.com
+            host_uri: https://server_uri
 ```
 
 !!! tip
@@ -100,6 +100,17 @@ ezrecommendation:
                     endpoint: 'https://admin.yoochoose.net'
 ```
 
+You can use an alphanumeric content identificator `remoteId` instead of a numeric `id`. To enable it, add the following code to the configuration file:
+
+``` yaml
+ezrecommendation:
+    system:
+        <scope>:
+            repository:
+                content:
+                    use_remote_id: true
+```
+
 !!! caution
 
     Changing any of these parameters without a valid reason breaks all calls to the Recommendation engine.
@@ -112,7 +123,7 @@ Place the following code snippet in the `<head>` section of your header template
 
 ``` html+twig
 {% if content is defined %}
-    {{ ez_recommendation_track_user(content.id) }}
+    {{ ez_recommendation_track_user(content) }}
 {% endif %}
 ```
 
@@ -196,7 +207,6 @@ You do it either with the `ibexa:recommendation:run-export` command...
 php bin/console ibexa:recommendation:run-export
     --contentTypeIdList=<contentTypeId>,<contentTypeId>
     --webHook=https://admin.yoochoose.net/api/<your_customer_id>/items
-    --hidden=1 --mandatorId=<your_customer_id>
     --host=<your_ezplatform_host_with_scheme>
 ```
 
@@ -298,12 +308,10 @@ and it eventually fetches the affected content (4) and updates it internally (5)
     If the export fails, the Recommendation engine does not have full content information.
     As a result, even if the recommendations are displayed, they might miss images, titles or deeplinks.
 
-To display recommendations on your site, you must add the following JavaScript assets to your header template:
+To display recommendations on your site, you must include the asset in the template using the following code:
 
 ``` html+twig
-{% javascripts
-    '@EzRecommendationClientBundle/Resources/public/js/EzRecommendationClient.js'
-%}
+{{ encore_entry_script_tags('ezrecommendation-client-js', null, 'ezplatform') }}
 ```
 
 This file is responsible for sending notifications to the [Recommendation API](developer_guide/recommendation_api.md) after the user clicks on a tracking element.
@@ -311,10 +319,10 @@ This file is responsible for sending notifications to the [Recommendation API](d
 To render recommended content, use a dedicated `showRecommendationsAction` from the `RecommendationController.php`:
 
 ``` html+twig
-render_esi(controller('ez_recommendation::showRecommendationsAction', {
-        'contextItems': content.id,
+render(controller('ez_recommendation::showRecommendationsAction', {
+        'contextItems': content,
         'scenario': 'front',
-        'outputTypeId': 'blog_post',
+        'outputTypeId': 57,
         'limit': 3,
         'template': 'EzRecommendationClientBundle::recommendations.html.twig',
         'attributes': ['title', 'intro', 'image', 'uri']
@@ -338,9 +346,9 @@ render_esi(controller('ez_recommendation::showRecommendationsAction', {
 
 | Parameter        | Type   | Description   |
 |------------------|--------|---------------|
-| `contextItems`   | int    | ID of the content you want to get recommendations for. |
+| `contextItems`   | int    | instance of eZ\Publish\API\Repository\Values\Content\Content   | Content you want to get recommendations for. |
 | `scenario`       | string | Scenario used to display recommendations. You can create custom scenarios in the Back Office. |
-| `outputTypeId`   | string | Content Type you are expecting in response, for example, `blog_post`. |
+| `outputTypeId`   | int | Content Type you are expecting in response, for example, 10. |
 | `limit`          | int    | Number of recommendations to fetch. |
 | `template`       | string | Template name. |
 | `attributes`     | array  | Fields that are required and are requested from the Recommendation engine. These Field names are also used inside Handlebars templates. |

@@ -1,4 +1,8 @@
-# Product comparison API [[% include 'snippets/commerce_badge.md' %]]
+---
+edition: commerce
+---
+
+# Product comparison API
 
 ## Basket type
 

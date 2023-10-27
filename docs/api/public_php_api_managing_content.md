@@ -1,3 +1,7 @@
+---
+description: PHP API enables managing content Locations, Content Types, as well as content in Trash and Calendar events.
+---
+
 # Managing content
 
 ## Locations
@@ -19,9 +23,8 @@ a [`LocationCreateStruct`](https://github.com/ezsystems/ezplatform-kernel/blob/v
 and pass it to the [`LocationService::createLocation`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/LocationService.php#L140) method:
 
 ``` php
-$locationCreateStruct = $this->locationService->newLocationCreateStruct($parentLocationId);
-$contentInfo = $this->contentService->loadContentInfo($contentId);
-$newLocation = $this->locationService->createLocation($contentInfo, $locationCreateStruct);
+[[= include_file('code_samples/api/public_php_api/src/Command/AddLocationToContentCommand.php', 51, 52) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/AddLocationToContentCommand.php', 56, 58) =]]
 ```
 
 `LocationCreateStruct` must receive the parent Location ID.
@@ -30,8 +33,7 @@ It sets the `parentLocationId` property of the new Location.
 You can also provide other properties for the Location, otherwise they will be set to their defaults:
 
 ``` php
-$locationCreateStruct->priority = 500;
-$locationCreateStruct->hidden = true;
+[[= include_file('code_samples/api/public_php_api/src/Command/AddLocationToContentCommand.php', 53, 55) =]]
 ```
 
 ### Changing the main Location
@@ -42,10 +44,7 @@ by updating the `ContentInfo` with a [`ContentUpdateStruct`](https://github.com/
 that sets the new main Location:
 
 ``` php
-$contentUpdateStruct = $this->contentService->newContentMetadataUpdateStruct();
-$contentUpdateStruct->mainLocationId = $locationId;
-
-$this->contentService->updateContentMetadata($contentInfo, $contentUpdateStruct);
+[[= include_file('code_samples/api/public_php_api/src/Command/SetMainLocationCommand.php', 48, 52) =]]
 ```
 
 ### Hiding and revealing Locations
@@ -55,8 +54,7 @@ To hide or reveal (unhide) a Location you need to make use of
 or [`LocationService::unhideLocation`:](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/LocationService.php#L188)
 
 ``` php
-$hiddenLocation = $locationService->hideLocation($location);
-$visibleLocation = $locationService->unhideLocation($location);
+[[= include_file('code_samples/api/public_php_api/src/Command/HideLocationCommand.php', 46, 47) =]][[= include_file('code_samples/api/public_php_api/src/Command/HideLocationCommand.php', 49, 50) =]]
 ```
 
 See [Location visibility](../guide/content_management/#location-visibility) for detailed information
@@ -75,7 +73,7 @@ If you delete the [main Location](#changing-the-main-location) of a Content item
 another Location will become the main one.
 
 ``` php
-$this->locationService->deleteLocation($location);
+[[= include_file('code_samples/api/public_php_api/src/Command/DeleteContentCommand.php', 44, 45) =]]
 ```
 
 To send the Location and its subtree to Trash,
@@ -83,7 +81,7 @@ use [`TrashService::trash`.](https://github.com/ezsystems/ezplatform-kernel/blob
 Items in Trash can be later [restored, or deleted permanently](#trash).
 
 ``` php
-$this->trashService->trash($location);
+[[= include_file('code_samples/api/public_php_api/src/Command/TrashContentCommand.php', 54, 55) =]]
 ```
 
 ### Moving and copying a subtree
@@ -91,9 +89,7 @@ $this->trashService->trash($location);
 You can move a Location with its whole subtree using [`LocationService::moveSubtree`:](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/LocationService.php#L203)
 
 ``` php
-$sourceLocation = $this->locationService->loadLocation($sourceLocationId);
-$targetLocation = $this->locationService->loadLocation($targetLocationId);
-$this->locationService->moveSubtree($sourceLocation, $targetLocation);
+[[= include_file('code_samples/api/public_php_api/src/Command/MoveContentCommand.php', 47, 50) =]]
 ```
 
 [`LocationService::copySubtree`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/LocationService.php#L37) is used in the same way,
@@ -119,7 +115,7 @@ You must provide the method with the ID of the object in Trash.
 Trash Location is identical to the origin Location of the object.
 
 ``` php
-$this->trashService->recover($trashItem);
+[[= include_file('code_samples/api/public_php_api/src/Command/TrashContentCommand.php', 64, 65) =]]
 ```
 
 The Content item will be restored under its previous Location.
@@ -135,7 +131,7 @@ For more information, see [Searching in trash](public_php_api_search.md#searchin
 
 ## Content Types
 
-### Creating Content Types
+### Adding Content Types
 
 To operate on Content Types, you need to make use of [`ContentTypeService`.](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ContentTypeService.php)
 
@@ -145,40 +141,13 @@ In this case you use [`ContentTypeCreateStruct`.](https://github.com/ezsystems/e
 A Content Type must have at least one name, in the main language, and at least one Field definition.
 
 ``` php
-$contentTypeCreateStruct = $this->contentTypeService->newContentTypeCreateStruct($contentTypeIdentifier);
-$contentTypeCreateStruct->mainLanguageCode = 'eng-GB';
-$contentTypeCreateStruct->nameSchema = '<title>';
-
-$contentTypeCreateStruct->names = [
-    'eng-GB' => $contentTypeIdentifier,
-];
-
-$titleFieldCreateStruct = $this->contentTypeService->newFieldDefinitionCreateStruct('title', 'ezstring');
-$titleFieldCreateStruct->names = ['eng-GB' => 'Title'];
-$contentTypeCreateStruct->addFieldDefinition($titleFieldCreateStruct);
-
-try {
-    $contentTypeDraft = $this->contentTypeService->createContentType(
-        $contentTypeCreateStruct,
-        [$contentTypeGroup]
-    );
-    $this->contentTypeService->publishContentTypeDraft($contentTypeDraft);
-    $output->writeln("Content type '$contentTypeIdentifier' with ID $contentTypeDraft->id created");
-} catch //...
+[[= include_file('code_samples/api/public_php_api/src/Command/CreateContentTypeCommand.php', 58, 68) =]][[= include_file('code_samples/api/public_php_api/src/Command/CreateContentTypeCommand.php', 75, 84) =]]
 ```
 
 You can specify more details of the Field definition in the create struct, for example:
 
 ``` php
-$titleFieldCreateStruct = $this->contentTypeService->newFieldDefinitionCreateStruct('title', 'ezstring');
-$titleFieldCreateStruct->names = ['eng-GB' => 'Title'];
-$titleFieldCreateStruct->descriptions = ['eng-GB' => 'The Title'];
-$titleFieldCreateStruct->fieldGroup = 'content';
-$titleFieldCreateStruct->position = 10;
-$titleFieldCreateStruct->isTranslatable = true;
-$titleFieldCreateStruct->isRequired = true;
-$titleFieldCreateStruct->isSearchable = true;
-$contentTypeCreateStruct->addFieldDefinition($titleFieldCreateStruct);
+[[= include_file('code_samples/api/public_php_api/src/Command/CreateContentTypeCommand.php', 66, 76) =]]
 ```
 
 ### Copying Content Types
@@ -186,7 +155,7 @@ $contentTypeCreateStruct->addFieldDefinition($titleFieldCreateStruct);
 To copy a Content Type, use [`ContentTypeService::copyContentType`:](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/ContentTypeService.php#L241)
 
 ``` php
-$copy = $this->contentTypeService->copyContentType($contentType);
+[[= include_file('code_samples/api/public_php_api/src/Command/CreateContentTypeCommand.php', 89, 90) =]]
 ```
 
 The copy will automatically be given an identifier based on the original Content Type identifier
@@ -195,11 +164,7 @@ and the copy's ID, for example: `copy_of_folder_21`.
 To change the identifier of the copy, use a [`ContentTypeUpdateStruct`:](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/API/Repository/Values/ContentType/ContentTypeUpdateStruct.php)
 
 ``` php
-$copyDraft = $this->contentTypeService->createContentTypeDraft($copiedContentType);
-$copyUpdateStruct = $this->contentTypeService->newContentTypeUpdateStruct();
-$copyUpdateStruct->identifier = $newIdentifier;
-$this->contentTypeService->updateContentTypeDraft($copyDraft, $copyUpdateStruct);
-$this->contentTypeService->publishContentTypeDraft($copyDraft);
+[[= include_file('code_samples/api/public_php_api/src/Command/CreateContentTypeCommand.php', 90, 96) =]]
 ```
 
 ## Calendar events
@@ -212,34 +177,20 @@ To get a list of events for a specified time period, use the `CalendarServiceInt
 You need to provide the method with an EventQuery, which takes a date range and a count as the minimum of parameters:
 
 ``` php
-$dateFrom = new \DateTimeImmutable('2020-08-01T10:00:00+00:00');
-$dateTo = new \DateTimeImmutable('2020-10-31T10:0:00+00:00');
-$dateRange = new Calendar\DateRange($dateFrom, $dateTo);
-
-$eventQuery = new Calendar\EventQuery($dateRange, 10);
-
-$eventList = $this->calendarService->getEvents($eventQuery);
-
-foreach ($eventList as $event) {
-    $output->writeln($event->getName() . '; date: ' . $event->getDateTime()->format('T Y-m-d H:i:s') );
-}
+[[= include_file('code_samples/api/public_php_api/src/Command/CalendarCommand.php', 39, 50) =]]
 ```
 
 You can also get the first and last event in the list by using the `first()` and `last()` methods of an `EventCollection` (`EzSystems\EzPlatformCalendar\Calendar\EventCollection`) respectively:
 
 ``` php
-$eventCollection = $eventList->getEvents();
-$output->writeln('First event: ' . $eventCollection->first()->getName() . '; date: ' . $eventCollection->first()->getDateTime()->format('T Y-m-d H:i:s') );
+[[= include_file('code_samples/api/public_php_api/src/Command/CalendarCommand.php', 51, 53) =]]
 ```
 
 You can process the events in a collection using the `find(Closure $predicate)`, `filter(Closure $predicate)`,
 `map(Closure $callback)` or `slice(int $offset, ?int $length = null)` methods of `EventCollection`, for example:
 
 ``` php
-$newCollection = $eventCollection->slice(3, 5);
-foreach ($newCollection as $event) {
-    $output->writeln('New collection: '. $event->getName() . '; date: ' . $event->getDateTime()->format('T Y-m-d H:i:s') );
-}
+[[= include_file('code_samples/api/public_php_api/src/Command/CalendarCommand.php', 54, 57) =]]
 ```
 
 ### Performing calendar actions
@@ -249,8 +200,7 @@ You must pass an `EzSystems\EzPlatformCalendar\Calendar\EventAction\EventActionC
 `EventActionContext` defines events on which the action is performed, as well as action-specific parameters e.g. a new date:
 
 ``` php
-$newDate = new \DateTimeImmutable('2020-08-12T10:10:01+00:00');
-$context = new RescheduleEventActionContext($eventCollection, $newDate);
+[[= include_file('code_samples/api/public_php_api/src/Command/CalendarCommand.php', 59, 61) =]]
 ```
 
 ``` php

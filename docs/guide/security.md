@@ -1,4 +1,8 @@
-# Development Security
+---
+description: Ensure the security of your Ibexa DXP installation by using one of the available authentication methods.
+---
+
+# Development security
 
 !!! tip
 
@@ -92,11 +96,11 @@ If you want to use this feature, you must at least extend the login template in 
 
 Symfony provides native support for [multiple user providers]([[= symfony_doc =]]/security/multiple_user_providers.html). This makes it easy to integrate any kind of login handlers, including SSO and existing third-party bundles (e.g. [FR3DLdapBundle](https://github.com/Maks3w/FR3DLdapBundle), [HWIOauthBundle](https://github.com/hwi/HWIOAuthBundle), [FOSUserBundle](https://github.com/FriendsOfSymfony/FOSUserBundle), [BeSimpleSsoAuthBundle](http://github.com/BeSimple/BeSimpleSsoAuthBundle), etc.).
 
-See [Authenticating a user with multiple user provider](user_management/user_management.md#authenticating-user-with-multiple-user-providers) for more information.
+See [Authenticating a user with multiple user provider](user_management/user_management.md#authenticate-user-with-multiple-user-providers) for more information.
 
 ## JWT authentication
 
-To use [JWT authentication](https://jwt.io/) with eZ Platform, in the provided ` config/packages/lexik_jwt_authentication.yaml` file,
+To use [JWT authentication](https://jwt.io/) with [[= product_name =]], in the provided ` config/packages/lexik_jwt_authentication.yaml` file,
 modify the existing configuration by setting `authorization_header` to `enabled`:
 
 ``` yaml hl_lines="8"
@@ -140,42 +144,3 @@ security:
                 entry_point: lexik_jwt_authentication.jwt_token_authenticator
             stateless: true
 ```
-
-## Security advisories
-
-!!! caution
-
-    ### Executable packages with Legacy Bridge
-
-    [This issue](http://share.ez.no/community-project/security-advisories/ezsa-2018-002-the-files-uploaded-via-packages-component-are-executable) affects installations using eZ Publish Legacy, either stand-alone, or as part of eZ Platform 5.x, or in eZ Platform 1.11 and newer using LegacyBridge. If you are not using Legacy in any way, you are not affected.
-
-    The package system, by design, allows you to package an extension into a file, and export/import such packages. Extensions can of course contain PHP scripts, and they usually do. Such scripts can be used in an attack on the server. This problem is fundamental and cannot be fixed by any other means than by removing the feature.
-
-    By default, only the Administrator has the permissions to use the package system. It follows that the Administrator role, and any others granted packaging permissions, can only be held by users who already have access to the server, and/or can be trusted not to exploit this access.
-
-    As a consequence eZ Publish legacy should not be used in the type of shared hosting installation where Administrators are not supposed to have access to the underlying operating system, or to other eZ Publish installations on the same server. The package system is an old part of eZ Publish legacy, and it was not designed for that kind of installation. Currently this is not considered best practice anyway - setups using e.g. Docker and Platform.sh allow you to completely separate installations from each other. This is a better way to keep things secure than relying on PHP scripts being read-only even for administrators. (The package system does not exist in [[= product_name =]] and will not be added there, since extensions are not used there.)
-
-    In summary:
-
-    If you are responsible for legacy installations where administrators cannot be fully trusted not to exploit their privileges, make sure to properly lock down the package system and/or fully separate web sites from each other.
-    Make sure that the administrator password(s) are secure, and not using the default administrator password.
-
-    **Proposed quick solution for those affected:**
-
-    If you are administrating a shared hosting solution of this kind, it may take a while to change the setup. Meanwhile, one quick way to lock down the package system is to use rewrite rules to block all access to package URLs. Apache example:
-
-    `RewriteRule ^/package/.* - [R=403,L]`
-
-    or with URL-based SiteAccess:
-
-    `RewriteRule ^/my_site_access/package/.* - [R=403,L]`
-
-    or supporting both cases, and multiple SiteAccesses:
-
-    `RewriteRule ^(/my_site_access|/my_site_access_admin)?/package/.* - [R=403,L]`
-
-    This can be placed before other rules.
-
-    To be absolutely certain you can also (or instead of this) delete the `/kernel/package` directory in the eZ Publish web root. Please note that this will break the legacy installation wizard, since it relies on the package system to install the demo design.
-
-    Once the situation is resolved these measures should be reversed, to bring back the package features. You may want to do a review of whether the issue may have been exploited on your server(s).

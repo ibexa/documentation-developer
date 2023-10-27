@@ -1,0 +1,7 @@
+{% for item in pagerItems %}
+    <h2><a href={{ ez_path(item) }}>{{ ez_content_name(item) }}</a></h2>
+{% endfor %}
+
+{% if pagerItems.haveToPaginate() %}
+    {{ pagerfanta( pagerItems, 'ez') }}
+{% endif %}

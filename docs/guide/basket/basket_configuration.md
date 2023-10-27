@@ -1,4 +1,8 @@
-# Basket configuration [[% include 'snippets/commerce_badge.md' %]]
+---
+edition: commerce
+---
+
+# Basket configuration
 
 ## Additional data in the basket line
 

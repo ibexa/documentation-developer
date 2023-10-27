@@ -1,3 +1,8 @@
+---
+description: Resolve most common issues with payments in Ibexa DXP shop.
+edition: commerce
+---
+
 # Payment troubleshooting
 
 ## Extending the order size limit

@@ -1,4 +1,9 @@
-# Site events [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+---
+description: Events that are triggered when working with sites.
+edition: experience
+---
+
+# Site events
 
 The following events are dispatched when managing [Sites](../../multisite/site_factory.md).
 

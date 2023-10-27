@@ -1,3 +1,7 @@
+---
+description: Workflow controls how Content items pass between stages and allows setting up editorial flows, for example for reviews and proofreading.
+---
+
 # Workflow
 
 The workflow functionality passes a Content item version through a series of stages.
@@ -18,7 +22,7 @@ The following example configuration defines a workflow where you can optionally 
 ![Diagram of custom workflow](../img/workflow_custom_diagram.png)
 
 ``` yaml
-[[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 0, 32) =]][[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 36, 49) =]][[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 52, 60) =]]
+[[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 0, 32) =]][[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 37, 50) =]][[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 53, 61) =]]
 ```
 
 ### Matchers
@@ -53,13 +57,18 @@ A transition must state between which stages it transitions (lines 3-4),
 or be `reverse` to a different transition (line 9).
 
 ``` yaml hl_lines="3 4 9"
-[[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 23, 30) =]][[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 36, 41) =]]
+[[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 23, 30) =]][[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 37, 42) =]]
 ```
 
 ### Reviewers
 
 When moving a Content item through a transition, the user can select a reviewer.
 Assigning a reviewer is mandatory if you set `reviewers.required` to `true` for this transition.
+
+To be able to search for users for review, the user must have the content/read Policy without any Limitation,
+or with a Limitation that allows reading users.
+This means that, in addition to your own settings for this Policy, 
+you must add the /Users subtree to the Limitation and add Users in the [Content Type Limitation](limitation_reference.md#content-type-limitation).
 
 ``` yaml hl_lines="8 9"
 [[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 23, 32) =]]
@@ -80,13 +89,13 @@ The notification is displayed in the user menu:
 #### Draft locking
 
 You can configure draft assignment in a way that when a user sends a draft to review, 
-only the assigned reviewer can either edit the draft or unlock it for editing, and no 
+only the first editor of the draft can either edit the draft or unlock it for editing, and no 
 other user can take it over. 
 
 Use the [Version Lock Limitation](../limitation_reference.md#version-lock-limitation), 
-set to "Assigned only", together with the `content/edit` and `content/unlock` 
-Policies to prevent users from editing and unlocking drafts that are assigned 
-to other users.
+set to "Assigned only", together with the `content/edit` and `content/unlock`
+Policies to prevent users from editing and unlocking drafts that are locked 
+by another user.
 
 ### Content publishing
 
@@ -94,16 +103,16 @@ You can automatically publish a Content item once it goes through a specific tra
 To do so, configure the `publish` action for the transition:
 
 ``` yaml hl_lines="7 8"
-[[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 52, 60) =]]
+[[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 53, 61) =]]
 ```
 
-### Quick Review disabling
+### Disable Quick Review
 
 You can disable the default workflow, for example, if your project does not use 
 workflows, or Quick Review entries clog your database:
 
 ``` yaml
-[[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 0, 4) =]][[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 60, 64) =]]
+[[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 0, 4) =]][[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 62, 66) =]]
 ```
 
 ## Custom actions
@@ -168,3 +177,24 @@ The methods `apply` and `can` are the same as in Symfony Workflow,
 but the implementation in workflow service extends them, for example by providing messages.
 
 For examples of using the Workflow Service, see [PHP API documentation](../../api/public_php_api_managing_repository.md#workflow).
+
+## Validation
+
+### Validate form before workflow transition
+
+By default, sending content to the next stage of the workflow does not validate the form in UI,
+so with the publish action, the form is not verified for errors in UI.
+However, during the publish action, the sent form is validated in the service.
+
+Therefore, if there are any errors in the form, you return to the edit page but errors aren't triggered,
+which can be confusing when you have two or more tabs.
+
+To enable form validation in UI before sending it to the next stage of the workflow,
+add `validate: true` to the transitions of the stage.
+In the example below the form is validated in two stages:` to_legal` and `done`:
+
+``` yaml hl_lines="14 27"
+[[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 23, 42) =]][[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 54, 62) =]]
+```
+
+You can check validation for a particular stage of the workflow even if the stage doesn't have any actions.

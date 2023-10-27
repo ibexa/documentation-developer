@@ -1,4 +1,8 @@
-# Basket templates [[% include 'snippets/commerce_badge.md' %]]
+---
+edition: commerce
+---
+
+# Basket templates
 
 ## Template list
 

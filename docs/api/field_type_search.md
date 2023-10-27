@@ -1,7 +1,13 @@
+---
+description: To be searchable, a Field Type must implement the Indexable interface.
+---
+
 # Field Type searching
 
 Fields, or a custom Field Type, might contain or maintain data relevant for user searches.
 To make the search engine aware of the data in your Field Type you need to implement an additional interface and register the implementation.
+
+## `Indexable` interface
 
 The `eZ\Publish\SPI\FieldType\Indexable` interface defines the methods below which are required if the Field Type provides data relevant to search engines.
 
@@ -30,7 +36,7 @@ This method retrieves the name of the default Field to be used for matching. As 
 
 This method gets name of the default Field to be used for sorting. As Field Types can index multiple Fields (see [MapLocation](field_types_reference/maplocationfield.md) Field Type's implementation of this interface), this method is used to define default field for sorting. Default Field is typically used by the [`Field` Sort Clause](../guide/search/sort_clause_reference/field_sort_clause.md).
 
-## Register Indexable Implementations
+## Register `Indexable` implementations
 
 Implement `eZ\Publish\SPI\FieldType\Indexable` as an extra service and register this Service using the `ezplatform.field_type.indexable` tag. Example from [`indexable_fieldtypes.yaml`](https://github.com/ezsystems/ezplatform-kernel/blob/v1.0.0/eZ/Publish/Core/settings/indexable_fieldtypes.yml):
 
@@ -43,7 +49,7 @@ ezpublish.fieldType.indexable.ezkeyword:
 
 Note that `alias` should be the same as Field Type ID.
 
-## Search Field Values
+## Search Field values
 
 The search Field values returned by the `getIndexData` method are simple value objects consisting of the following properties:
 

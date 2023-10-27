@@ -1,6 +1,13 @@
+---
+description: All code contributions to Ibexa DXP must follow package and bundle structure and namespace standards.
+---
+
 # Package and bundle structure and namespaces
 
-The following conventions apply to contributions to Ibexa core code, not to third party packages.
+If you wish to contribute to [[= product_name =]] development,
+you need to adhere to the package and bundle structure and namespace standards.
+
+The following conventions apply to contributions to [[= product_name_base =]] core code, not to third party packages.
 
 !!! note
 

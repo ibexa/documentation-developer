@@ -1,0 +1,4 @@
+services:
+    App\GroupResolver\ContentTypeGroupGroupResolver:
+        arguments:
+            $contentTypeHandler: '@ezpublish.spi.persistence.content_type_handler'

@@ -1,8 +1,12 @@
+---
+description: Configure Solr search engine to use with Ibexa DXP.
+---
+
 # Solr search engine
 
 [ezplatform-solr-search-engine](https://github.com/ezsystems/ezplatform-solr-search-engine) aims to be a transparent drop-in replacement for the SQL-based Legacy search engine powering [[= product_name =]] Search API by default. When you enable Solr and re-index your content, all your existing Search queries using `SearchService` will be powered by Solr automatically. This allows you to scale up your [[= product_name =]] installation and be able to continue development locally against SQL engine, and have a test infrastructure, Staging and Prod powered by Solr. This removes considerable load from your database. See [further information on the architecture of [[= product_name =]]](../architecture.md).
 
-## How to set up Solr search engine
+## Set up Solr search engine
 
 !!! note "Installing the bundle"
 
@@ -14,7 +18,7 @@
 
     Symfony Flex will enable the bundle for you when installing the package.
 
-### Step 1: Configuring and starting Solr
+### Step 1: Configure and start Solr
 
 The example presents a configuration with a single core. For configuring Solr in other ways, including examples, see [Solr Cores and `solr.xml`](https://cwiki.apache.org/confluence/display/solr/Solr+Cores+and+solr.xml) and [core administration](https://wiki.apache.org/solr/CoreAdmin).
 
@@ -36,13 +40,17 @@ Copy the necessary configuration files. In the example below from the root of yo
 # Make sure to replace the /opt/solr/ path with where you have placed Solr
 cd /opt/solr
 mkdir -p server/ez/template
-cp -R <ezplatform-solr-search-engine>/lib/Resources/config/solr/* server/ez/template
+cp -R <project_root>/vendor/ezsystems/ezplatform-solr-search-engine/lib/Resources/config/solr/* server/ez/template
 cp server/solr/configsets/_default/conf/{solrconfig.xml,stopwords.txt,synonyms.txt} server/ez/template
 cp server/solr/solr.xml server/ez
 
+# If you are using Ibexa Commerce, additionally copy commerce-specific configuration files:
+cat <project_root>/vendor/ezsystems/ezcommerce-shop/src/Siso/Bundle/SearchBundle/Resources/config/solr/custom-fields-types.xml >> server/ez/template/custom-fields-types.xml
+cat <project_root>/vendor/ezsystems/ezcommerce-shop/src/Siso/Bundle/SearchBundle/Resources/config/solr/language-fieldtypes.xml >> server/ez/template/language-fieldtypes.xml
+
 # Modify solrconfig.xml to remove the section that doesn't agree with your schema
 sed -i.bak '/<updateRequestProcessorChain name="add-unknown-fields-to-the-schema".*/,/<\/updateRequestProcessorChain>/d' server/ez/template/solrconfig.xml
- 
+
 # Start Solr (but apply autocommit settings below first if you need to)
 bin/solr -s ez
 bin/solr create_core -c collection1 -d server/ez/template
@@ -81,7 +89,7 @@ This setting is **required** if you want to see the changes after publish. It is
 #### Generating configuration
 
 The command line tool `bin/generate-solr-config.sh` generates Solr 7 configuration automatically.
-It can be used for deploying to Ibexa Cloud (Platform.sh) and on-premise installs.
+It can be used for deploying to [[= product_name_cloud =]] (Platform.sh) and on-premise installs.
 
 Execute the script from the [[= product_name =]] root directory for further information:
 
@@ -89,7 +97,7 @@ Execute the script from the [[= product_name =]] root directory for further info
 ./vendor/ezsystems/ezplatform-solr-search-engine/bin/generate-solr-config.sh --help
 ```
 
-### Step 2: Configuring the bundle
+### Step 2: Configure the bundle
 
 The Solr Search Engine Bundle can be configured in many ways. The config further below assumes you have parameters set up for Solr DSN and search engine *(however both are optional)*, for example:
 
@@ -252,7 +260,7 @@ ez_search_engine_solr:
 
 Obviously, you should pass credentials for every configured and HTTP Basic secured Solr core. Configuration for multi core setup is exactly the same.
 
-### Step 3: Configuring repository with the specific search engine
+### Step 3: Configure repository with the specific search engine
 
 The following is an example of configuring Solr search engine, where `connection` name is same as in the example above, and engine is set to `solr`:
 
@@ -300,7 +308,7 @@ Here are the most common issues you may encounter:
     - In general make sure to run indexing using the prod environment to avoid debuggers and loggers from filling up memory.
     - Flysystem: You can find further info in https://jira.ez.no/browse/EZP-25325.
 
-## Configuring the Solr Search Engine Bundle
+## Solr configuration
 
 ### Boost configuration
 
@@ -417,8 +425,9 @@ The configuration above will result in the following boosting (Content Type / Fi
     Remember to clear the cache and perform search engine reindex afterwords.
 
     The above configuration will result in the following boosting (Content Type / Field):
+    
     - `folder/name: 20.0`
-    - `folder/title: 10.0`
+    - `folder/description: 10.0`
 
 ### Indexing related objects
 
@@ -440,13 +449,13 @@ ez_search_engine_solr:
                     article: 2
 ```
 
-## Configuring Solr Replication (master/slave)
+### Configuring Solr Replication (master/slave)
 
 !!! note
 
     The configuration below has been tested on Solr 7.7.
 
-### Configuring Master for replication
+#### Configuring Master for replication
 
 First you need to change the core configuration in `solrconfig.xml` (for example `*/opt/solr/server/ez/collection1/conf/solrconfig.xml`).
 You can copy and paste the code below before any other `requestHandler` section.
@@ -473,7 +482,7 @@ Then restart the master with:
 sudo su - solr -c "/opt/solr/bin/solr restart"
 ```
 
-### Configuring Slave for replication
+#### Configuring Slave for replication
 
 You have to edit the same file on the slave server, and use the code below:
 
@@ -521,7 +530,22 @@ Connect to the Solr slave interface (http://localhost:8983/solr), go to your cor
 
 ![Solr Slave](../img/solr.PNG)
 
+## Configuring HTTP Client for Solr queries
+
+Ibexa Solr Bundle uses Symfony HTTP Client to fetch and update Solr index.
+You can configure timeout and maximum number of retries for that client using Solr Bundle's Semantic configuration:
+
+```yaml
+ez_search_engine_solr:
+    # ...
+    http_client:
+        # ...
+        timeout: 30
+        max_retries: 5
+```
+
+
 ## Extending Solr
 
-To learn how you can create document field mappers, custom search criteria, 
-custom sort clauses and aggregations, see [Solr extensibility](extend_solr.md).
+To learn how you can create document field mappers, custom Search Criteria, 
+custom Sort Clauses and Aggregations, see [Search extensibility](extensibility/create_custom_search_criterion.md).

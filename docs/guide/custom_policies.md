@@ -1,8 +1,12 @@
+---
+description: Create a custom Policy to cover non-standard permission needs.
+---
+
 # Custom Policies
 
 The content Repository uses [Roles and Policies](permissions.md) to give Users access to different functions of the system.
 
-Any bundle can expose available Policies via a `PolicyProvider` which can be added to EzPublishCoreBundle's [service container](../api/service_container.md) extension.
+Any bundle can expose available Policies via a `PolicyProvider` which can be added to EzPublishCoreBundle's [service container](../api/public_php_api.md#service-container) extension.
 
 ## PolicyProvider
 
@@ -12,9 +16,9 @@ A `PolicyProvider` object provides a hash containing declared modules, functio
 - Each module can provide *functions* (e.g. in `content/read` "content" is the module, "read" is the function)
 - Each function can provide a collection of Limitations.
 
-First level key is the module name, value is a hash of available functions, with function name as key.
-Function value is an array of available Limitations, identified by the alias declared in `LimitationType` service tag.
-If no Limitation is provided, value can be `null` or an empty array.
+First level key is the module name which is limited to characters within the set `A-Za-z0-9_`, value is a hash of
+available functions, with function name as key. Function value is an array of available Limitations, identified
+by the alias declared in `LimitationType` service tag. If no Limitation is provided, value can be `null` or an empty array.
 
 ``` php
 [

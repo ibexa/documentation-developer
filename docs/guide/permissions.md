@@ -1,3 +1,7 @@
+---
+description: Use granular permission system to grant access to various parts of the system using Roles, Policies, and Limitations.
+---
+
 # Permissions
 
 ## Permission overview
@@ -15,7 +19,8 @@ For example, a `content/publish` Policy with a `ContentType` Limitation on the "
 A Limitation, like a Policy, specifies what a User *can* do, not what they *can't do*.
 A `Section` Limitation, for example, *gives* the User access to the selected Section, not *prohibits* it.
 
-See [Available Limitations](limitations.md#available-limitations) for further information.
+See [Available Limitations](limitations.md#available-limitations) for further information
+and [Permission use cases](permission_use_cases.md) for example permission setups.
 
 ### Combining Policies
 
@@ -34,156 +39,6 @@ Instead, try to organize your content so that it can be covered with general Rol
 
 Using Groups is easier to manage and more secure. It also improves system performance.
 The more Role assignments and complex Policies you add for a given User, the more complex the search/load queries will be, because they always take permissions into account.
-
-### Use Cases
-
-Here are a few examples of sets of Policies you can use to get some common permission configurations.
-
-#### Enter back end interface
-
-To allow the User to enter the Back Office interface and view all content, you need to set the following Policies:
-
-- `user/login`
-- `content/read`
-- `content/versionread`
-- `section/view`
-- `content/reverserelatedlist`
-
-These Policies will be necessary for all other cases below that require access to the content structure.
-
-#### Create and publish content
-
-To create and publish content, the user must additionally have the following Policies:
-
-- `content/create`
-- `content/edit`
-- `content/publish`
-
-This also lets the user copy and move content, as well as add new Locations to a Content item (but not remove them!).
-
-#### Create content without publishing
-
-This option can be used together with [[= product_name_exp =]]'s content review options.
-Using the following Policies, the User is able to create content, but can't publish it; instead, they must send it for review to another User with proper permissions (for example, senior editor, proofreader, etc.).
-
-- `content/create`
-- `content/edit`
-
-Note that without [[= product_name_exp =]] this setup should not be used, as it will not allow the User to continue working with their content.
-
-#### Restrict editing to part of the tree
-
-If you want to let the User create or edit content, but only in one part of the content tree, you need to use Limitations.
-Three Limitations that could be used here are `Section` Limitation, `Location` Limitation and `Subtree of Location` Limitation.
-
-Let's assume you have two Folders under your Home: Blog and Articles.
-You can let a User create content for the blogs, but not in Articles by adding a `Subtree of Location` Limitation on the Blog Content item.
-This will allow the User to publish content anywhere under this Location in the structure.
-
-A `Section` Limitation can be used similarly, but a Section does not have to belong to the same Subtree of Location in the content structure, any Locations can be assigned to it.
-
-If you add a `Location` Limitation and point to the same Location, the User will be able to publish content directly under the selected Location, but not anywhere deeper in its Subtree of Location.
-
-#### Multi-file upload
-
-Creating content through multi-file upload is treated in the same way as regular creation.
-To enable upload, you need you set the following permissions:
-
-- `content/create`
-- `content/read`
-- `content/publish`
-
-You can control what Content items can be uploaded and where using Limitations on the `content/create` and `content/publish` Policies.
-
-A Location Limitation limits uploading to a specific Location in the tree. A Content Type Limitation controls the Content Types that are allowed.
-For example, you can set the Location Limitation on a **Pictures** Folder, and add a Content Type Limitation
-which only allows Content items of type **Image**. This ensures that only files of type `image` can be uploaded,
-and only to the **Pictures** Folder.
-
-#### Manage Locations
-
-To add a new Location to a Content item, the Policies required for publishing content are enough.
-To allow the User to remove a Location, you need to grant them the following Policies:
-
-- `content/remove`
-- `content/manage_locations`
-
-Hiding and revealing Location requires one more Policy: `content/hide`.
-
-#### Removing content
-
-To send content to Trash, the User needs to have the `content/remove` Policy.
-If content has more than one language, the User must have access to all the languages.
-That is, the `content/remove` Policy must have either no Limitation, or a Limitation for all languages of the Content item.
-
-To remove an archived version of content, the User must have the `content/versionremove` Policy.
-
-Further manipulation of Trash requires the `content/restore` Policy to restore items from Trash, and `content/cleantrash` to completely delete all content from the Trash.
-
-!!! caution
-
-    With the `content/cleantrash` Policy, the User can empty the Trash even if they do not have access to the trashed content,
-    e.g. because it belonged to a Section they do not have permissions for.
-
-#### Registering Users
-
-To allow anonymous users to register through the `/register` route, you need to grant the `user/register` Policy to the Anonymous User Group.
-
-#### Admin
-
-To access the [administration panel](admin_panel.md) in the Back Office the User must have the `setup/administrate` Policy.
-This will allow the User to view the languages and Content Types.
-
-Additional Policies are needed for each section of the Admin.
-
-##### System Information
-
-- `setup/system_info` to view the System Information tab
-
-##### Sections
-
-- `section/view` to see and access the Section list
-- `section/edit` to add and edit Sections
-- `section/assign` to assign Sections to content
-
-##### Languages
-
-- `content/translations` to add and edit languages
-
-##### Content Types/action
-
-- `Content Type/create`, `Content Type/update`, `Content Type/delete` to add, modify and remove Content Types
-
-##### Object states
-
-- `state/administrate` to view a list of Object states, add and edit them
-- `state/assign` to assign Objects states to Content
-
-##### Roles
-
-- `role/read` to view the list of Roles in Admin
-- `role/create`, `role/update`, `role/assign` and `role/delete` to manage Roles
-
-##### Users
-
-- `content/view` to view the list of Users
-
-Users are treated like other content, so to create and modify them the User needs to have the same permissions as for managing other Content items.
-
-#### Editorial workflows 
-
-You can control which stages in an [editorial workflow](workflow/workflow.md) the user can work with.
-
-Do this by adding the `WorkflowStageLimitation` to `content` Policies such as `content/edit` or `content/publish`.
-
-You can also control which transitions the user can pass content through.
-Do this by using the `workflow/change_stage` Policy together with the `WorkflowTransitionLimitation`.
-
-For example, to enable the user to edit only content in the "Design" stage
-and to pass it after creating design to the "Proofread stage", use following permissions:
-
-- `content/edit` with `WorkflowStageLimitation` set to "Design".
-- `workflow/change_stage` with `WorkflowTransitionLimitation` set to `to_proofreading`
 
 ## Available Policies
 
@@ -226,11 +81,11 @@ and to pass it after creating design to the "Proofread stage", use following per
 |               | `install`            | unused                                                                                                                                  |
 |               | `setup`              | unused                                                                                                                                  |
 |               | `system_info`        | view the System Information tab in Admin                                                                                      |
-|`site`|`view`|view the "Sites" in the top navigation|
-|               |`create`|create sites in the Site Factory|
-|               |`edit`|edit sites in the Site Factory|
-|               |`delete`|delete sites from the Site Factory|
-|               |`change_status`|change status of the public accesses of sites to `Live` or `Offline` in the Site Factory|
+|`site` <br/> [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]|`view`|view the "Sites" in the top navigation|
+|               |`create`|create sites in the Site Factory</br>|
+|               |`edit`|edit sites in the Site Factory</br>[[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]|
+|               |`delete`|delete sites from the Site Factory</br>[[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]|
+|               |`change_status`|change status of the public accesses of sites to `Live` or `Offline` in the Site Factory</br>[[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]|
 | `user`        | `login`              | log in to the application                                                                                                               |
 |               | `password`           | unused                                                                                                                                  |
 |               | `preferences`        | access and set user preferences                                                                                                                                  |
@@ -239,12 +94,12 @@ and to pass it after creating design to the "Proofread stage", use following per
 |               | `activation`         | unused                                                                                                                                  |
 | `workflow`    | `change_stage`       | change stage in the specified workflow                                                                                                  |
 | `comparison` | `view` | view version comparison |
-| `segment` | `read`|load Segment information|
+| `segment`</br>[[% include 'snippets/commerce_badge.md' %]] | `read`|load Segment information|
 || `create`|create Segments|
 || `update`|update Segments|
 || `remove`|remove Segments|
 || `assign_to_user` |assign Segments to Users|
-| `segment_group` | `read` |load Segment Group information|
+| `segment_group`</br>[[% include 'snippets/commerce_badge.md' %]] | `read` |load Segment Group information|
 || `create` |create Segment Groups|
 || `update` |update Segment Groups|
 || `remove` |remove Segment Groups|
@@ -323,14 +178,14 @@ For example, to check if content can be assigned to a Section:
 
 ``` php
 $hasAccess = $this->isGranted(
-    new Attribute( 'section', 'assign', array( 'valueObject' => $contentInfo, 'targets' => $section ) )
+    new Attribute( 'section', 'assign', [ 'valueObject' => $contentInfo, 'targets' => [$section] ] )
 );
 ```
 
 You can also use the permission resolver (`eZ\Publish\API\Repository\PermissionResolver`).
 The `canUser()` method checks if the user can perform a given action with the selected object.
 
-For example: `canUser('content', 'edit', $content, $location );`
+For example: `canUser('content', 'edit', $content, [$location] );`
 checks the `content/edit` permission for the provided Content item at the provided Location.
 
 ### Blocking access to controller action

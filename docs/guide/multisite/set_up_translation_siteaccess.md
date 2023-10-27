@@ -1,12 +1,16 @@
+---
+description: Set up SiteAccesses to hold different language versions of a site.
+---
+
 # Set up translation SiteAccess
 
 One of common uses for multisite installations is serving different language versions of a website.
 To do this, set up multiple SiteAccesses, each corresponding to one language.
 Proper configuration means avoiding duplicate content that could affect SEO.
 
-## Create a language
+## Add a language
 
-First, create a new language for the whole installation.
+First, add a new language for the whole installation.
 
 !!! tip
 

@@ -1,3 +1,7 @@
+---
+description: Control access to parts of the system by fine-tuning permissions with the use of Limitations.
+---
+
 # Limitations
 
 Limitations are part of the permissions system.

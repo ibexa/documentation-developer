@@ -1,3 +1,8 @@
+---
+description: Payments in Ibexa DXP's shop use JMSPaymentCoreBundle and allow using different payment methods.
+edition: commerce
+---
+
 # Payment
 
 Payment in [[= product_name =]] depends on the [JMSPaymentCoreBundle.](http://jmsyst.com/bundles/JMSPaymentCoreBundle)

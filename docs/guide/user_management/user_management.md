@@ -1,3 +1,7 @@
+---
+description: Set up user login methods, password rules, and customize user authentication.
+---
+
 # User management
 
 ## Passwords
@@ -14,10 +18,40 @@ It allows them to create a new password.
 For information about how to create and configure the template, see [Add forgot password option](../content_rendering/layout/add_forgot_password.md)
 
 The template for this email is located in `templates/Security/mail/forgot_user_password.html.twig` in `ezsystems/ezplatform-user`.
-You can [customize it according to your needs](#customize-login-form).
+You can [customize it according to your needs](../content_rendering/layout/add_login_form.md#customize-login-form).
 
 The validity of the password recovery token can be set using the `ezplatform.system.<siteaccess>.security.token_interval_spec` parameter.
 By default, it is set to `PT1H` (one hour).
+
+### Revoking passwords
+
+In case of a security situation such as a data leakage, you may need to force users to change their passwords.
+You can do it with the help of the `ibexa:user:expire-password` command,
+which revokes the passwords for specific users, User Groups or users belonging to the chosen Content Type.
+
+To select which users to revoke passwords for, use one of the following options with the command:
+
+- `--user-id|-u` - the ID of the user. Accepts multiple user IDs
+- `--user-group-id|-ug` - the ID of the User Group. Accepts multiple group IDs
+- `--user-content-type-identifier|-ct` - the identifier of the user Content Type. Accepts multiple Content Types
+
+You can use the following additional options with the command:
+
+- `--force|-f` - commits the change, otherwise the command only performs a dry run
+- `--iteration-count|-c` - defines how many users are fetched at once. Lowering this value helps with memory issues
+- `--password-ttl|-t` - number of days after which new passwords expire. Used when the command enables password expiration for user Content Types that do not use it yet.
+
+For example, to revoke the passwords of all users of the `user` Content Type, run:
+
+``` bash
+php bin/console ibexa:user:expire-password --user-content-type-identifier=user --force
+```
+
+To perform a dry run (without saving the results) of revoking passwords of all users from User Group 13, run:
+
+``` bash
+php bin/console ibexa:user:expire-password --user-group-id=13
+```
 
 ## Password rules
 
@@ -35,7 +69,7 @@ To access the password settings:
 !!! tip
 
     There can be other Content Types that function as users, beyond the built-in User Content Type.
-    For details, see [User Identifiers](../config_repository.md#user-identifiers).
+    For details, see [User Identifiers](../configuration/config_repository.md#user-identifiers).
 
 ### Password attributes
 
@@ -185,7 +219,7 @@ ezsettings.<siteaccess>.user_settings.templates.list
 ezsettings.<siteaccess>.user_settings.templates.update
 ```
 
-## Authenticating user with multiple user providers
+## Authenticate user with multiple user providers
 
 Symfony provides native support for [multiple user providers]([[= symfony_doc =]]/security/multiple_user_providers.html).
 This makes it easy to integrate any kind of login handlers, including SSO and existing third party bundles (e.g. [FR3DLdapBundle](https://github.com/Maks3w/FR3DLdapBundle), [HWIOauthBundle](https://github.com/hwi/HWIOAuthBundle), [FOSUserBundle](https://github.com/FriendsOfSymfony/FOSUserBundle), [BeSimpleSsoAuthBundle](http://github.com/BeSimple/BeSimpleSsoAuthBundle), etc.).
@@ -210,7 +244,7 @@ This token holds a `UserWrapped` instance which contains the originally matche
 
 Note that the *API user* is mainly used for permission checks against the repository and thus stays *under the hood*.
 
-### Customizing the User class
+### Customize the User class
 
 It is possible to customize the user class used by extending `ezpublish.security.login_listener` service, which defaults to `eZ\Publish\Core\MVC\Symfony\Security\EventListener\SecurityListener`.
 
@@ -238,7 +272,7 @@ security:
         Symfony\Component\Security\Core\User\User: plaintext
 ```
 
-### Implementing the listener
+### Implement the listener
 
 In the `config/services.yaml` file:
 

@@ -1,4 +1,8 @@
-# Page Field Type [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+---
+edition: experience
+---
+
+# Page Field Type
 
 Page Field Type represents a Page with a layout consisting of multiple zones. Each zone can in turn contain blocks.
 

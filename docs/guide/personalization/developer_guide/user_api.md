@@ -1,4 +1,8 @@
-# User API
+---
+description: 
+---
+
+# User API [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 When generating recommendations, it is useful to have the ability to correlate metadata 
 with user data and combine users into clusters of certain type.
@@ -19,7 +23,7 @@ Use the following request to fetch user attributes for the specified users:
 
 `GET: https://import.yoochoose.net/api/[customerid]/[source]/user/[userid[,userid[...]]]`
 
-User data is returned as an [XML object](#metadata-object-format).
+User data is returned as an XML object.
 Make sure that you use the **HTTP Content-Type=text/xml** header.
 
 ## POST requests
@@ -34,7 +38,7 @@ For the requests to function, you must provide the following parameters:
 
 |Parameter|Description|Value|
 |---|---|---|
-|`customerid`|Your customer ID, as defined when [enabling Personalization](../enabling_personalization.md#configuring-customer-credentials) (for example, "00000").|alphanumeric|
+|`customerid`|Your customer ID, as defined when [enabling Personalization](../enabling_personalization.md#set-up-customer-credentials) (for example, "00000").|alphanumeric|
 |`source`|An ID of the source of the specified user's metadata.|alphanumeric|
 |`userid`|An ID of the tracked user in the website (for example, an internal customer code, a session code or a cookie for anonymous users.|alphanumeric|
   
@@ -56,7 +60,7 @@ If you need to get all the available attributes for all sources, apply the `allS
 
 `GET: https://import.yoochoose.net/api/00000/facebook/user/CUSTOMER_1234?allSources=true`
 
-When you do that, and the source returned is different from the source passed in the request (in this case, "facebook"), an additional attribute `source` is added to the [XML object](#metadata-object-format).
+When you do that, and the source returned is different from the source passed in the request (in this case, "facebook"), an additional attribute `source` is added to the XML object.
 
 ##### User ID
 
@@ -71,7 +75,7 @@ For example:
 | `Customer<12.2014>` | `Customer%3C12.2014%3E` | `Customer&lt;12.2014&gt;` |
 
 
-## Response handling
+## Responses
 
 ### Response object format
 

@@ -1,4 +1,9 @@
-# Order history configuration [[% include 'snippets/commerce_badge.md' %]]
+---
+description: Configure the order history functionality to define document types and table data.
+edition: commerce
+---
+
+# Order history configuration
 
 You can change a number of different parameters to configure the behavior of the **Order History** page.
 

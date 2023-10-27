@@ -1,3 +1,8 @@
+---
+description: The PHP API exposes a PaymentServiceInterface to access and work with payments.
+edition: commerce
+---
+
 # Payment API
 
 ## Payment bundle
@@ -36,7 +41,7 @@ that was provided by the payment gateway. For this, the interface provides the `
 A payment plugin (and most payment gateways) requires storing the return URLs in the extended data of the `PaymentInstruction` entity.
 This is because the related basket/order ID needs to be appended to the URL to determine the basket
 and the related payment instruction for further processing in the returning URL requests.
-It is impossible to configure the URLs via the [service container](../../api/service_container.md), as the basket ID is determined dynamically.
+It is impossible to configure the URLs via the [service container](../../api/public_php_api.md#service-container), as the basket ID is determined dynamically.
 
 You must implement this interface for every payment plugin,
 if more than the standard fields like amount are necessary for the payment process.

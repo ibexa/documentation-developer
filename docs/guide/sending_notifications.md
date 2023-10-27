@@ -1,8 +1,12 @@
-# Sending notifications
+---
+description: You can send notifications to users who work with the Back Office by using notification bars or notifications in the user menu.
+---
+
+# Notifications
 
 You can send two types on notifications to the users.
 
-[Notification bar](#display-notification-bars) is displayed in specific situations as a message bar appearing at the bottom of the page.
+[Notification bar](#notification-bars) is displayed in specific situations as a message bar appearing at the bottom of the page.
 It appears to whoever is doing a specific operation in the Back Office.
 
 ![Example of an info notification](img/notification2.png "Example of the notification bar")
@@ -12,12 +16,12 @@ They will appear in their profile in the Back Office.
 
 ![Notification in profile](img/notification3.png)
 
-## Display notification bars
+## Notification bars
 
 Notifications are displayed as a message bar in the Back Office.
 There are four types of notifications: `info`, `success`, `warning` and `error`.
 
-### Display notifications from PHP
+### Displaying notifications from PHP
 
 To send a notification from PHP, inject the `TranslatableNotificationHandlerInterface` into your class.
 
@@ -32,7 +36,7 @@ $this->notificationHandler->info(
 
 To have the notification translated, provide the message strings in the translation files under the correct domain and key.
 
-### Display notifications from front end
+### Displaying notifications from front end
 
 To create a notification from the front end (in this example, of type `info`), use the following code:
 
@@ -189,3 +193,25 @@ services:
         tags:
             - { name: ezpublish.notification.renderer, alias: MyNotification:TypeName }
 ```
+
+## Notification timeout
+
+To define the timeout for hiding Back-Office notification bars, per notification type,
+use the following configuration (times are provided in milliseconds):
+
+``` yaml
+ibexa:
+    system:
+        admin:
+            notifications:
+                error:
+                    timeout: 0
+                warning:
+                    timeout: 0
+                success:
+                    timeout: 5000
+                info:
+                    timeout: 0
+```
+
+The values shown above are the defaults. `0` means the notification does not hide automatically.

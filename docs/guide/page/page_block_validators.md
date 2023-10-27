@@ -1,3 +1,7 @@
+---
+description: Set up rules for validating Page block content.
+---
+
 # Page block validators
 
 Validators check values passed to Page block attributes.
@@ -6,8 +10,14 @@ The following block validators are available:
 - `required` - checks whether the attribute is provided
 - `regexp` - validates attribute according to the provided regular expression
 - `not_blank` - checks whether the attribute is not left empty
+- `not_blank_richtext` - checks whether a `richtext` attribute is not left empty
 - `content_type` - checks whether the selected Content Types match the provided values
 - `content_container` - checks whether the selected Content item is a container
+
+!!! note
+
+    Do not use the `required` and `not_blank` validators for `richtext` attributes.
+    Instead, use `not_blank_richtext`.
 
 For each validator you can provide a message that displays in the Page Builder
 when an attribute field does not fulfil the criteria.

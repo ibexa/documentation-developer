@@ -1,8 +1,9 @@
-mkdocs>=1.2
-Pygments>=2.9
-pymdown-extensions>=8.2
-Markdown>=3.2.1
-mkdocs-material>=7.2.4
-mkdocs-macros-plugin>=0.5.12
-Jinja2>=2.10
-file:./extension#egg=mdx_ez_code_example
+mkdocs==1.5.1
+Pygments==2.15.0
+pymdown-extensions==10.0.1
+Markdown==3.2.1
+mkdocs-material==9.1.1
+mkdocs-macros-plugin==0.7.0
+mkdocs-redirects==1.2.0
+mkdocs-autolinks-plugin==0.7.0
+Jinja2==3.1.2

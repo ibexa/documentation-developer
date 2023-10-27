@@ -1,4 +1,9 @@
-# Render a Page [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+---
+description: Prepare templates for Page layouts and render Page blocks.
+edition: experience
+---
+
+# Render a Page
 
 Page is a special Content Type that contains a [Page Field](../../../api/field_types_reference/pagefield.md).
 
