@@ -4,11 +4,11 @@ namespace App\Security\Limitation;
 
 use eZ\Publish\API\Repository\Exceptions\NotImplementedException;
 use eZ\Publish\API\Repository\Values\Content\Query\CriterionInterface;
-use eZ\Publish\API\Repository\Values\ContentType\ContentType;
 use eZ\Publish\API\Repository\Values\User\Limitation;
 use eZ\Publish\API\Repository\Values\User\UserReference;
 use eZ\Publish\API\Repository\Values\ValueObject;
 use eZ\Publish\Core\Base\Exceptions\InvalidArgumentType;
+use eZ\Publish\Core\FieldType\ValidationError;
 use eZ\Publish\SPI\Limitation\Type;
 
 class CustomLimitationType implements Type
@@ -26,7 +26,13 @@ class CustomLimitationType implements Type
 
     public function validate(Limitation $limitationValue)
     {
-        return [];
+        $validationErrors = [];
+        if (!array_key_exists('value', $limitationValue->limitationValues)) {
+            $validationErrors[] = new ValidationError("limitationValues['value'] is missing.");
+        } else if (!is_bool($limitationValue->limitationValues['value'])) {
+            $validationErrors[] = new ValidationError("limitationValues['value'] is not a boolean.");
+        }
+        return $validationErrors;
     }
 
     public function buildValue(array $limitationValues)
@@ -56,20 +62,7 @@ class CustomLimitationType implements Type
             return Type::ACCESS_GRANTED;
         }
 
-        /** @var \eZ\Publish\API\Repository\Values\ContentType\ContentType $contentType */
-        $contentType = $object;
-        if (method_exists($object, 'getContentType')) { // Content, ContentInfo
-            $contentType = $object->getContentType();
-        } elseif (method_exists($object, 'getContentInfo')) { // VersionInfo, Location
-            $contentType = $object->getContentInfo()->getContentType();
-        }
-        if (!$contentType instanceof ContentType) {
-            throw new InvalidArgumentException('$object', 'Must be of type: ContentType, Content, ContentInfo, VersionInfo or Location');
-        }
-
-        if ('user' !== $contentType->identifier) {
-            return Type::ACCESS_GRANTED;
-        }
+        // If the limitation value is not set to `true`, then $currentUser, $object and/or $targets could be challenged to determine if the access is granted or not.
 
         return Type::ACCESS_DENIED;
     }

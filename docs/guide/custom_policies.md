@@ -106,10 +106,6 @@ For a `PolicyProvider` to be active, you have to register it in the class `src/K
 
 For a custom module function, existing limitation types can be used or custom ones can be created.
 
-A custom limitation is a value class to store value for this limitation and type class to implement the logic.
-
-This primitive example just store a boolean. It could the right to access the advanced/extended version of a custom module function, to use it in a specific scope or whatever. Here, it's the right to perform whatever the `custom_module/custom_function_2` action is also on User.
-
 ``` php
 [[= include_file('code_samples/back_office/limitation/src/Security/Limitation/CustomLimitationValue.php') =]]
 ```
