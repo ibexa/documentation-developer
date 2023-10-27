@@ -168,14 +168,19 @@ Users who are creating or editing a product type are less likely to forget about
 
 For more information, see [Create product types](https://doc.ibexa.co/projects/userguide/en/master/pim/create_product_types/).
 
-
-
-
 ## Other changes
 
 ### Expression Language
 
 New `project_dir()` expression language function that allows you to reference current project directory.
+
+### Site Factory events
+
+Site Factory events have been moved from the `lib` directory to `contracts`.
+For a full list of events, see [Site events](https://doc.ibexa.co/en/latest/api/event_reference/site_events/).
+
+Event handling system was improved with the addition of listeners based on `CreateSiteEvent`, `DeleteSiteEvent`, and `UpdateSiteEvent`.
+New listeners automatically grant permissions to log in to a site, providing a more seamless site management experience.
 
 ### API improvements
 
