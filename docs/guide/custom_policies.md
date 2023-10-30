@@ -39,7 +39,7 @@ Name provided in the hash for each Limitation is the same value set in the `alia
 For example:
 
 ``` php
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Security;
 
@@ -209,7 +209,7 @@ Provide translations for your custom limitation form in the `ezplatform_content_
 
 To check if current user has this custom limitation set to true from a custom controller:
 ```php
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Controller;
 
