@@ -31,7 +31,7 @@ The following attribute types are available:
 |`text`|Text block|-|
 |`richtext`|Rich text block (see [creating RichText block](create_custom_richtext_block.md))|-|
 |`embed`|Embedded Content item|-|
-|`select`|Drop-down with options to select|`choices` lists the available options in `label: value` form.</br>`multiple`, when set to true, allows selecting more than one option.
+|`select`|Drop-down with options to select|`choices` lists the available options in `label: value` form</br>`multiple`, when set to true, allows selecting more than one option.
 |`multiple`|Checkbox(es)|`choices` lists the available options in `label: value` form.|
 |`radio`|Radio buttons|`choices` lists the available options in `label: value` form.|
 |`locationlist`|Location selection|-|
