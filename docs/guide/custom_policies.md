@@ -6,7 +6,7 @@ description: Create a custom Policy to cover non-standard permission needs.
 
 The content Repository uses [Roles and Policies](permissions.md) to give Users access to different functions of the system.
 
-Any bundle can expose available Policies via a `PolicyProvider` which can be added to EzPublishCoreBundle's [service container](../api/public_php_api.md#service-container) extension.
+Any bundle can expose available Policies via a `PolicyProvider` which can be added to EzPublishCoreBundle's [service container](public_php_api.md#service-container) extension.
 
 ## PolicyProvider
 
@@ -138,7 +138,7 @@ services:
 To provide support for editing custom policies in the Back Office, you need to implement [`EzSystems\EzPlatformAdminUi\Limitation\LimitationFormMapperInterface`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/lib/Limitation/LimitationFormMapperInterface.php).
 
 - `mapLimitationForm` adds the limitation field as a child to a provided Symfony form.
-- `getFormTemplate` returns the path to the template to use for rendering the limitation form. Here it use [`form_label`](https://symfony.com/doc/5.4/form/form_customization.html#reference-forms-twig-label) and [`form_widget`](https://symfony.com/doc/5.4/form/form_customization.html#reference-forms-twig-widget) to do so.
+- `getFormTemplate` returns the path to the template to use for rendering the limitation form. Here it use [`form_label`]([[= symfony_doc =]]/form/form_customization.html#reference-forms-twig-label) and [`form_widget`]([[= symfony_doc =]]/form/form_customization.html#reference-forms-twig-widget) to do so.
 - `filterLimitationValues` is triggered when the form is submitted and can manipulate the limitation values, such as normalizing them.
 
 ``` php
