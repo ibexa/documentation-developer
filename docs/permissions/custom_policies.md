@@ -102,6 +102,35 @@ For a `PolicyProvider` to be active, you have to register it in the class `src/K
 [[= include_file('code_samples/back_office/limitation/src/Kernel.php') =]]
 ```
 
+## Custom Limitation type
+
+For a custom module function, existing limitation types can be used or custom ones can be created.
+
+The base of a custom limitation is a class to store values for the usage of this limitation in roles, and a class to implement the limitation's logic.
+
+The value class extends `Ibexa\Contracts\Core\Repository\Values\User\Limitation` and says for which limitation it's used:
+
+``` php
+[[= include_file('code_samples/back_office/limitation/src/Security/Limitation/CustomLimitationValue.php') =]]
+```
+
+The type class implements `Ibexa\Contracts\Core\Limitation\Type`.
+
+- `accept`, `validate` and `buildValue` implement the value class usage logic.
+- `evaluate` challenges a limitation value against the current user, the subject object and other context objects to return if the limitation is satisfied or not. `evaluate` is, among others, used by `PermissionResolver::canUser` (to check if a user having access to a function can use it in its limitations) and `PermissionResolver::lookupLimitations`.
+
+```php
+[[= include_file('code_samples/back_office/limitation/src/Security/Limitation/CustomLimitationType.php') =]]
+```
+
+The type class is set as a service tagged `ibexa.permissions.limitation_type` with an alias to identify it, and to link it to the value.
+
+``` yaml
+services:
+    # …
+[[= include_file('code_samples/back_office/limitation/config/append_to_services.yaml', 1, 4) =]]
+```
+
 ## Integrating custom Limitation types with the UI
 
 To provide support for editing custom policies in the Back Office, you need to implement [`Ibexa\AdminUi\Limitation\LimitationFormMapperInterface`](https://github.com/ibexa/admin-ui/blob/main/src/lib/Limitation/LimitationFormMapperInterface.php).
