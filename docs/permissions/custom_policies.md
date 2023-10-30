@@ -80,9 +80,9 @@ In `src/Resources/config/policies.yaml`:
 ### Extending existing Policies
 
 A `PolicyProvider` may provide new functions to a module, and additional Limitations to an existing function.
-**It is however strongly encouraged to add functions to your own Policy modules.**
+**It's however strongly encouraged to add functions to your own Policy modules.**
 
-It is not possible to remove an existing module, function or limitation from a Policy.
+It's impossible to remove an existing module, function or limitation from a Policy.
 
 ## Integrating the `PolicyProvider` into IbexaCoreBundle
 
