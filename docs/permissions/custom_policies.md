@@ -6,14 +6,14 @@ description: Create a custom Policy to cover non-standard permission needs.
 
 The content Repository uses [Roles and Policies](permissions.md) to give Users access to different functions of the system.
 
-Any bundle can expose available Policies via a `PolicyProvider` which can be added to IbexaCoreBundle's [service container](php_api.md#service-container) extension.
+Any bundle can expose available Policies via a `PolicyProvider` which can be added to IbexaCoreBundle's [service container](php_api.md#service-container) extension.
 
 ## PolicyProvider
 
-A `PolicyProvider` object provides a hash containing declared modules, functions and Limitations.
+A `PolicyProvider` object provides a hash containing declared modules, functions and Limitations.
 
-- Each Policy provider provides a collection of permission *modules*.
-- Each module can provide *functions* (e.g. in `content/read` "content" is the module, "read" is the function)
+- Each Policy provider provides a collection of permission *modules*.
+- Each module can provide *functions* (For example, in `content/read`, "content" is the module, and "read" is the function)
 - Each function can provide a collection of Limitations.
 
 First level key is the module name which is limited to characters within the set `A-Za-z0-9_`, value is a hash of
@@ -33,7 +33,7 @@ by the alias declared in `LimitationType` service tag. If no Limitation is provi
 ]
 ```
 
-Limitations need to be implemented as *Limitation types* and declared as services identified with `ibexa.permissions.limitation_type` tag.
+Limitations need to be implemented as *Limitation types* and declared as services identified with `ibexa.permissions.limitation_type` tag.
 Name provided in the hash for each Limitation is the same value set in the `alias` attribute in the service tag.
 
 For example:
@@ -60,8 +60,8 @@ class MyPolicyProvider implements PolicyProviderInterface
 
 ## YamlPolicyProvider
 
-An abstract class based on YAML is provided: `Ibexa\Bundle\Core\DependencyInjection\Security\PolicyProvider\YamlPolicyProvider`.
-It defines an abstract `getFiles()` method.
+An abstract class based on YAML is provided: `Ibexa\Bundle\Core\DependencyInjection\Security\PolicyProvider\YamlPolicyProvider`.
+It defines an abstract `getFiles()` method.
 
 Extend `YamlPolicyProvider` and implement `getFiles()` to return absolute paths to your YAML files.
 
@@ -79,7 +79,7 @@ custom_module:
 
 ### Extending existing Policies
 
-A `PolicyProvider` may provide new functions to a module, and additional Limitations to an existing function. 
+A `PolicyProvider` may provide new functions to a module, and additional Limitations to an existing function.
 **It is however strongly encouraged to add functions to your own Policy modules.**
 
 It is not possible to remove an existing module, function or limitation from a Policy.
