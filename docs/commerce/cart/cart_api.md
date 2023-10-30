@@ -154,10 +154,10 @@ and provide it with `Ibexa\Contracts\Cart\Value\EntryUpdateStruct`.
 
 ## Adding context data
 
-Context data is extra information that you can attach to the cart or cart entries to provide additional details or attributes related to the shopping experience.
+Context data is an extra information that you can attach to the cart or cart entries to provide additional details or attributes related to the shopping experience.
 It can include any relevant information that you want to associate with a particular cart or cart entry, for example, coupon codes, custom products attributes, or user preferences.
 
-### Adding context data to a cart
+### Adding context data to cart
 
 To add context data to a cart, follow this example:
 
@@ -189,7 +189,7 @@ $entryAddStruct->setContext(new ArrayMap([
 
 In the above example, you create a cart entry using the `EntryAddStruct`.
 The `setContext` method allows you to attach context data to the cart entry.
-In this case, you've attached a "tshirt_text" attributed to the cart entry, which might represent custom text for a T-shirt.
+In this case, you've attached a "tshirt_text" attribute to the cart entry, which might represent custom text for a T-shirt.
 
 ## Merge carts
 
