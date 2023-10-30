@@ -131,9 +131,25 @@ services:
 [[= include_file('code_samples/back_office/limitation/config/append_to_services.yaml', 1, 4) =]]
 ```
 
-## Integrating custom Limitation types with the UI
+### Custom Limitation type form
 
-To provide support for editing custom policies in the Back Office, you need to implement [`Ibexa\AdminUi\Limitation\LimitationFormMapperInterface`](https://github.com/ibexa/admin-ui/blob/main/src/lib/Limitation/LimitationFormMapperInterface.php).
+#### Form mapper
+
+To provide support for editing custom policies in the Back Office, you need to implement [`Ibexa\AdminUi\Limitation\LimitationFormMapperInterface`](https://github.com/ibexa/admin-ui/blob/4.5/src/lib/Limitation/LimitationFormMapperInterface.php).
+
+- `mapLimitationForm` adds the limitation field as a child to a provided Symfony form.
+- `getFormTemplate` returns the path to the template to use for rendering the limitation form. Here it use [`form_label`]([[= symfony_doc =]]/form/form_customization.html#reference-forms-twig-label) and [`form_widget`]([[= symfony_doc =]]/form/form_customization.html#reference-forms-twig-widget) to do so.
+- `filterLimitationValues` is triggered when the form is submitted and can manipulate the limitation values, such as normalizing them.
+
+``` php
+[[= include_file('code_samples/back_office/limitation/src/Security/Limitation/Mapper/CustomLimitationFormMapper.php') =]]
+```
+
+And provide a template corresponding to `getFormTemplate`.
+
+``` html+twig
+[[= include_file('code_samples/back_office/limitation/templates/themes/admin/limitation/custom_limitation_form.html.twig') =]]
+```
 
 Next, register the service with the `ibexa.admin_ui.limitation.mapper.form` tag and set the `limitationType` attribute to the Limitation type's identifier:
 
@@ -141,31 +157,50 @@ Next, register the service with the `ibexa.admin_ui.limitation.mapper.form` tag 
 [[= include_file('code_samples/back_office/limitation/config/append_to_services.yaml', 5, 8) =]]
 ```
 
-If you want to provide human-readable names of the custom Limitation values, you need to implement [`Ibexa\AdminUi\Limitation\LimitationValueMapperInterface`](https://github.com/ibexa/admin-ui/blob/main/src/lib/Limitation/LimitationValueMapperInterface.php).
+#### Notable form mappers to extend
 
-Then register the service with the `ibexa.admin_ui.limitation.mapper.form` tag and set the `limitationType` attribute to Limitation type's identifier:
+Some abstract Limitation type form mapper classes are provided to help implementing common complex Limitations.
+
+- `MultipleSelectionBasedMapper` is mapper to build form for Limitation based on checkbox list where multiple items can be chosen. For example, it's used to build forms for [Content Type Limitation](limitation_reference.md#content-type-limitation), [Language Limitation](limitation_reference.md#language-limitation) or [Section Limitation](limitation_reference.md#section-limitation).
+- `UDWBasedMapper` is to build Limitation form where a Content/Location must be selected. For example, it's used by the [Subtree Limitation](limitation_reference.md#subtree-limitation) form.
+
+#### Value mapper
+
+By default, without a value mapper, the Limitation value is rendered using the block `ez_limitation_value_fallback` of the template [`vendor/ibexa/admin-ui/src/bundle/Resources/views/themes/admin/limitation/limitation_values.html.twig`](https://github.com/ibexa/admin-ui/blob/4.5/src/bundle/Resources/views/themes/admin/limitation/limitation_values.html.twig#L1-L6).
+
+To customize the rendering, a value mapper eventually transforms the Limitation value and send it to a custom template.
+
+The value mapper implements [`Ibexa\AdminUi\Limitation\LimitationValueMapperInterface`](https://github.com/ibexa/admin-ui/blob/4.5/src/lib/Limitation/LimitationValueMapperInterface.php).
+
+Its `mapLimitationValue` function returns the Limitation value transformed for the needs of the template.
+
+``` php
+[[= include_file('code_samples/back_office/limitation/src/Security/Limitation/Mapper/CustomLimitationValueMapper.php') =]]
+```
+
+Then register the service with the `ibexa.admin_ui.limitation.mapper.value` tag and set the `limitationType` attribute to Limitation type's identifier:
 
 ``` yaml
 [[= include_file('code_samples/back_office/limitation/config/append_to_services.yaml', 9, 12) =]]
 ```
 
-If you want to completely override the way of rendering custom Limitation values in the role view,
-create a Twig template containing block definition which follows the naming convention:
-`ez_limitation_<LIMITATION TYPE>_value`. For example:
+When a value mapper exists for a Limitation, the rendering uses a Twig block named `ez_limitation_<lower_case_identifier>_value` where `<lower_case_identifier>` is the Limitation identifier in lower case.
+In this example, block name is `ez_limitation_customlimitation_value` as the identifier is `CustomLimitation`.
+
+This template receive a `values` variable which is the return of the `mapLimitationValue` function from the corresponding value mapper.
 
 ``` html+twig
-{# This file contains block definition which is used to render custom Limitation values #}
-{% block ez_limitation_custom_value %}
-    <span style="color: red">{{ values }}</span>
-{% endblock %}
+[[= include_file('code_samples/back_office/limitation/templates/themes/standard/limitation/custom_limitation_value.html.twig') =]]
 ```
 
-Add it to the configuration under `ibexa.system.<SCOPE>.limitation_value_templates`:
+To have your block found, you have to register its template. Add the template to the configuration under `ezplatform.system.<SCOPE>.limitation_value_templates`:
 
 ``` yaml
-[[= include_file('code_samples/back_office/limitation/config/packages/ibexa_security.yaml') =]]
+[[= include_file('code_samples/back_office/limitation/config/packages/ezplatform_security.yaml') =]]
 ```
 
-!!! note
+Provide translations for your custom limitation form in the `ezplatform_content_forms_policies` domain. For example, `translations/ezplatform_content_forms_policies.en.yaml`:
 
-    If you skip this part, Limitation values will be rendered using an [`ez_limitation_value_fallback`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/views/themes/admin/limitation/limitation_values.html.twig#L1-L6) block as comma-separated list.
+``` yaml
+[[= include_file('code_samples/back_office/limitation/translations/ezplatform_content_forms_policies.en.yaml') =]]
+```
