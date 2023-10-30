@@ -30,7 +30,7 @@ You can also add a new page in the Page Builder. Check 'Create page in Page Buil
 ### Edit page
 
 You can edit any existing page by using Page Builder. To do it, in the Back Office go to **Content** and select **Content structure**.
-Then, from the Content Tree choose the page that you want you edit and click **Edit** button.
+Then, from the Content Tree choose the page that you want you edit and click **Edit**.
 
 ## What is Page Builder
 
@@ -49,7 +49,7 @@ Page Builder is available in [[=product_name_exp=]] and [[=product_name_com=]].
 
 #### Page Builder interface
 
-Page Builder has plain and intuitive interface. It is easy to create a Page without having advanced technical skills.
+Page Builder has plain and intuitive interface. You can create a Page without having advanced technical skills.
 
 ![Page Builder interface](page_builder_interface.png)
 
@@ -142,7 +142,7 @@ You can reorder blocks in a few ways:
 
 - drag and drop block in the desired location on a drop zone
 - select block and use up and down arrow on the keyboard
-- access Structure view and use 'Move up' and 'Move down' function in the settings of the block or simply drag and drop to change the position in the structure
+- access Structure view and use 'Move up' and 'Move down' function in the settings of the block or drag and drop to change the position in the structure
 
 ![Structure view - drag and drop](structure_view_drag_drop.png)
 
@@ -161,7 +161,7 @@ Available settings are:
 
 #### Schedule content
 
-Page Builder comes with a Scheduler - is a tool that allows you to schedule content publication. 
+Page Builder comes with a Scheduler - is a tool that allows you to schedule content publication.
 
 You can schedule to be published, or hidden in Page Builder in two ways with:
 
@@ -173,14 +173,14 @@ You can schedule to be published, or hidden in Page Builder in two ways with:
 
 ![Content Scheduler](content_scheduler.png)
 
-For more information, see [Schedule publication](https://doc.ibexa.co/projects/userguide/en/latest/content_management/schedule_publishing/). 
+For more information, see [Schedule publication](https://doc.ibexa.co/projects/userguide/en/latest/content_management/schedule_publishing/).
 
 ## Benefits
 
 ### Manage your pages without technical skills
 
 Thanks to intuitive and plain Page Builder interface, you can create and manage your website without the need of having advanced technical skills.
-Drag-and-drop elements toolbar, separated page zones and transparent sections - these are the elements that make working with Page Builder really simple and quick.
+Drag-and-drop elements toolbar, separated page zones and transparent sections - these are the elements that make working with Page Builder really intuitive and quick.
 
 ### Self schedule content, special offers and campaigns
 
@@ -212,5 +212,5 @@ B. **PIM** blocks:
 
 C. **Commerce** blocks:
 
-- Bestsellers - displays a list of products from PIM that were recently a bestseller. 
+- Bestsellers - displays a list of products from PIM that were recently a bestseller.
 - Orders - displays a list of orders associated with a particular company or individual customer.
