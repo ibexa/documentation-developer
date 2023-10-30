@@ -13,7 +13,7 @@ Any bundle can expose available Policies via a `PolicyProvider` which can be add
 A `PolicyProvider` object provides a hash containing declared modules, functions and Limitations.
 
 - Each Policy provider provides a collection of permission *modules*.
-- Each module can provide *functions* (e.g. in `content/read` "content" is the module, "read" is the function)
+- Each module can provide *functions* (For example, in `content/read`, "content" is the module, and "read" is the function)
 - Each function can provide a collection of Limitations.
 
 First level key is the module name which is limited to characters within the set `A-Za-z0-9_`, value is a hash of
@@ -89,10 +89,10 @@ For example, `translations/forms.en.yaml`:
 
 ### Extending existing Policies
 
-A `PolicyProvider` may provide new functions to a module, and additional Limitations to an existing function. 
-**It is however strongly encouraged to add functions to your own Policy modules.**
+A `PolicyProvider` may provide new functions to a module, and additional Limitations to an existing function.
+**It's however strongly encouraged to add functions to your own Policy modules.**
 
-It is not possible to remove an existing module, function or limitation from a Policy.
+It's impossible to remove an existing module, function or limitation from a Policy.
 
 ## Integrating the `PolicyProvider` into EzPublishCoreBundle
 
@@ -161,14 +161,14 @@ Next, register the service with the `ez.limitation.formMapper` tag and set the `
 
 Some abstract Limitation type form mapper classes are provided to help implementing common complexe Limitations.
 
-- `MultipleSelectionBasedMapper` is mapper to build form for Limitation based on checkbox list where multiple items can be choosen. For example, it is used to build forms for [Content Type Limitation](limitation_reference.md#content-type-limitation), [Language Limitation](limitation_reference.md#language-limitation) or [Section Limitation](limitation_reference.md#section-limitation).
-- `UDWBasedMapper` is to build Limitation form where a Content/Location must be selected. For example, it is used by the [Subtree Limitation](limitation_reference.md#subtree-of-location-limitation) form.
+- `MultipleSelectionBasedMapper` is mapper to build form for Limitation based on checkbox list where multiple items can be chosen. For example, it's used to build forms for [Content Type Limitation](limitation_reference.md#content-type-limitation), [Language Limitation](limitation_reference.md#language-limitation) or [Section Limitation](limitation_reference.md#section-limitation).
+- `UDWBasedMapper` is to build Limitation form where a Content/Location must be selected. For example, it's used by the [Subtree Limitation](limitation_reference.md#subtree-of-location-limitation) form.
 
 #### Value mapper
 
 By default, without a value mapper, the Limitation value is rendered using the block `ez_limitation_value_fallback` of the template [`vendor/ezsystems/ezplatform-admin-ui/src/bundle/Resources/views/themes/admin/limitation/limitation_values.html.twig`](https://github.com/ezsystems/ezplatform-admin-ui/blob/2.3/src/bundle/Resources/views/themes/admin/limitation/limitation_values.html.twig#L1-L6).
 
-To customize the rendering, a value mapper eventually transforms the Limitation value and send it to a custom template. 
+To customize the rendering, a value mapper eventually transforms the Limitation value and send it to a custom template.
 
 The value mapper implements [`EzSystems\EzPlatformAdminUi\Limitation\LimitationValueMapperInterface`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/lib/Limitation/LimitationValueMapperInterface.php).
 
