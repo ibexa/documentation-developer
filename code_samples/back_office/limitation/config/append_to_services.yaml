@@ -1,0 +1,12 @@
+
+    App\Security\Limitation\CustomLimitationType:
+        tags:
+            - { name: 'ibexa.permissions.limitation_type', alias: 'CustomLimitation' }
+
+    App\Security\Limitation\Mapper\CustomLimitationFormMapper:
+        tags:
+            - { name: 'ibexa.admin_ui.limitation.mapper.form', limitationType: 'CustomLimitation' }
+
+    App\Security\Limitation\Mapper\CustomLimitationValueMapper:
+        tags:
+            - { name: 'ibexa.admin_ui.limitation.mapper.value', limitationType: 'CustomLimitation' }

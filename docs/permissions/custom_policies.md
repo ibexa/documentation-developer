@@ -66,19 +66,7 @@ It defines an abstract `getFiles()` method.
 Extend `YamlPolicyProvider` and implement `getFiles()` to return absolute paths to your YAML files.
 
 ``` php
-namespace App\Security;
-
-use Ibexa\Bundle\Core\DependencyInjection\Security\PolicyProvider\YamlPolicyProvider;
-
-class MyPolicyProvider extends YamlPolicyProvider
-{
-    protected function getFiles()
-    {
-        return [
-             __DIR__ . '/../Resources/config/policies.yaml',
-         ];
-    }
-}
+[[= include_file('code_samples/back_office/limitation/src/Security/MyPolicyProvider.php') =]]
 ```
 
 In `config/packages/policies.yaml`:
@@ -100,27 +88,8 @@ It is not possible to remove an existing module, function or limitation from a P
 
 For a `PolicyProvider` to be active, you have to register it in the class `src/Kernel.php`:
 
-```php
-namespace App;
-
-use App\Security\MyPolicyProvider;
-use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
-use Symfony\Component\HttpKernel\Kernel as BaseKernel;
-
-class Kernel extends BaseKernel
-{
-    use MicroKernelTrait;
-
-    protected function build(ContainerBuilder $container): void
-    {
-        // ...
-        
-        // Retrieve "ibexa" container extension
-        $eZExtension = $container->getExtension('ibexa');
-        // Add the policy provider
-        $eZExtension->addPolicyProvider(new MyPolicyProvider());
-    }
-}
+``` php
+[[= include_file('code_samples/back_office/limitation/src/Kernel.php') =]]
 ```
 
 ## Integrating custom Limitation types with the UI
@@ -129,24 +98,16 @@ To provide support for editing custom policies in the Back Office, you need to i
 
 Next, register the service with the `ibexa.admin_ui.limitation.mapper.form` tag and set the `limitationType` attribute to the Limitation type's identifier:
 
-```yaml
-App\Security\Limitation\Mapper\CustomLimitationFormMapper:
-    arguments:
-        # ...
-    tags:
-        - { name: 'ibexa.admin_ui.limitation.mapper.form', limitationType: 'Custom' }
+``` yaml
+[[= include_file('code_samples/back_office/limitation/config/append_to_services.yaml', 5, 8) =]]
 ```
 
 If you want to provide human-readable names of the custom Limitation values, you need to implement [`Ibexa\AdminUi\Limitation\LimitationValueMapperInterface`](https://github.com/ibexa/admin-ui/blob/main/src/lib/Limitation/LimitationValueMapperInterface.php).
 
 Then register the service with the `ibexa.admin_ui.limitation.mapper.form` tag and set the `limitationType` attribute to Limitation type's identifier:
 
-```yaml
-App\Security\Limitation\Mapper\CustomLimitationValueMapper:
-    arguments:
-        # ...
-    tags:
-        - { name: 'ibexa.admin_ui.limitation.mapper.form', limitationType: 'Custom' }
+``` yaml
+[[= include_file('code_samples/back_office/limitation/config/append_to_services.yaml', 9, 12) =]]
 ```
 
 If you want to completely override the way of rendering custom Limitation values in the role view,
@@ -162,13 +123,8 @@ create a Twig template containing block definition which follows the naming conv
 
 Add it to the configuration under `ibexa.system.<SCOPE>.limitation_value_templates`:
 
-```yaml
-ibexa:
-    system:
-        default:
-            limitation_value_templates:
-                - { template: limitation/custom_limitation_value.html.twig, priority: 0 }
-
+``` yaml
+[[= include_file('code_samples/back_office/limitation/config/packages/ibexa_security.yaml') =]]
 ```
 
 !!! note
