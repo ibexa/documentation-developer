@@ -159,7 +159,7 @@ Next, register the service with the `ez.limitation.formMapper` tag and set the `
 
 #### Notable form mappers to extend
 
-Some abstract Limitation type form mapper classes are provided to help implementing common complexe Limitations.
+Some abstract Limitation type form mapper classes are provided to help implementing common complex Limitations.
 
 - `MultipleSelectionBasedMapper` is mapper to build form for Limitation based on checkbox list where multiple items can be chosen. For example, it's used to build forms for [Content Type Limitation](limitation_reference.md#content-type-limitation), [Language Limitation](limitation_reference.md#language-limitation) or [Section Limitation](limitation_reference.md#section-limitation).
 - `UDWBasedMapper` is to build Limitation form where a Content/Location must be selected. For example, it's used by the [Subtree Limitation](limitation_reference.md#subtree-of-location-limitation) form.
