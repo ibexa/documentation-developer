@@ -60,7 +60,7 @@ class MyPolicyProvider implements PolicyProviderInterface
 }
 ```
 
-## YamlPolicyProvider
+### YamlPolicyProvider
 
 An abstract class based on YAML is provided: `Ibexa\Bundle\Core\DependencyInjection\Security\PolicyProvider\YamlPolicyProvider`.
 It defines an abstract `getFiles()` method.
@@ -71,12 +71,10 @@ Extend `YamlPolicyProvider` and implement `getFiles()` to return absolute paths 
 [[= include_file('code_samples/back_office/limitation/src/Security/MyPolicyProvider.php') =]]
 ```
 
-In `config/packages/policies.yaml`:
+In `src/Resources/config/policies.yaml`:
 
 ``` yaml
-custom_module:
-    custom_function_1: ~
-    custom_function_2: [CustomLimitation]
+[[= include_file('code_samples/back_office/limitation/src/Resources/config/policies.yaml') =]]
 ```
 
 ### Extending existing Policies
