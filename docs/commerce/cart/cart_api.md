@@ -174,7 +174,7 @@ In the above example, you create a cart using the `CartCreateStruct`,
 and set the context data using the `setContext` method.
 You've also added "X1MF7699" coupon code as context data to the cart.
 
-### Adding context data to a cart entry
+### Adding context data to cart entry
 
 To attach context data to a cart entry, proceed as follows:
 
