@@ -49,7 +49,7 @@ class CustomLimitationType implements Type
     }
 
     /**
-     * @param Ibexa\Contracts\Core\Repository\Values\ValueObject[]|null $targets
+     * @param \Ibexa\Contracts\Core\Repository\Values\ValueObject[]|null $targets
      *
      * @return bool|null
      */
