@@ -85,7 +85,7 @@ F. Saving options
 |Save draft|Save the page draft*.|
 |Delete draft|Delete the page draft.|
 
-* To help you preserve your work, system saves drafts of Content items automatically. For more information, see [Autosave](https://doc.ibexa.co/projects/userguide/en/master/content_management/content_versions/#autosave).
+*To help you preserve your work, system saves drafts of Content items automatically. For more information, see [Autosave](https://doc.ibexa.co/projects/userguide/en/master/content_management/content_versions/#autosave).
 
 Page Builder has two main views that you can use while creating a page:
 
@@ -93,7 +93,7 @@ Page Builder has two main views that you can use while creating a page:
 
 ![Elements toolbar](elements_toolbar.png)
 
-- Structure view - shows a structure of your page, including their division into zones and the blocks that they contain.
+- Structure view - shows a structure of your page, including their division into zones and the blocks that they contain. It follows the behavior of the content tree. Structure view has ability to reorder blocks using drag and drop.
 
 ![Structure view](structure_view.png)
 
@@ -127,6 +127,10 @@ A. Access Elements toolbar, drag page block that you want to use and drop it on 
 
 B. Choose available drop zone and use `Click to select` option.
 
+When you add a new block to the drop zone, before you drop it, a blue line appears  - it helps you see the position of the newly added block in relation to other, already added blocks.
+
+![Drop zone line](drop_zone_line.png)
+
 Ready-to-use blocks available in [[= product_name =]] have their own, unique functions, but you can also [add your own, custom blocks](create_custom_page_block.md). All available tools and settings, that Page Builder comes with, enable you to customize the content appearing on the page.
 
 You can check all ready-to-use blocks available in Page Builder in User Documentation, [Block reference page](https://doc.ibexa.co/projects/userguide/en/latest/content_management/block_reference/).
@@ -138,7 +142,9 @@ You can reorder blocks in a few ways:
 
 - drag and drop block in the desired location on a drop zone
 - select block and use up and down arrow on the keyboard
-- access Structure view and use 'Move up' and 'Move down' function in the settings of the block
+- access Structure view and use 'Move up' and 'Move down' function in the settings of the block or simply drag and drop to change the position in the structure
+
+![Structure view - drag and drop](structure_view_drag_drop.png)
 
 You can manage each block by accessing its settings. To do it, click settings icon next to the block's name.
 
