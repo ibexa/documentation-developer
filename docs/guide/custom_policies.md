@@ -166,7 +166,13 @@ Some abstract Limitation type form mapper classes are provided to help implement
 
 #### Value mapper
 
-To provide human-readable names for the custom Limitation values, you need to implement [`EzSystems\EzPlatformAdminUi\Limitation\LimitationValueMapperInterface`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/lib/Limitation/LimitationValueMapperInterface.php).
+By default, without a value mapper, the Limitation value is rendered using the block `ez_limitation_value_fallback` of the template [`vendor/ezsystems/ezplatform-admin-ui/src/bundle/Resources/views/themes/admin/limitation/limitation_values.html.twig`](https://github.com/ezsystems/ezplatform-admin-ui/blob/2.3/src/bundle/Resources/views/themes/admin/limitation/limitation_values.html.twig#L1-L6).
+
+To customize the rendering, a value mapper eventually transforms the Limitation value and send it to a custom template. 
+
+The value mapper implements [`EzSystems\EzPlatformAdminUi\Limitation\LimitationValueMapperInterface`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/lib/Limitation/LimitationValueMapperInterface.php).
+
+Its `mapLimitationValue` function returns the Limitation value transformed for the needs of the template.
 
 ``` php
 [[= include_file('code_samples/back_office/limitation/src/Security/Limitation/Mapper/CustomLimitationValueMapper.php') =]]
@@ -178,22 +184,19 @@ Then register the service with the `ez.limitation.valueMapper` tag and set the `
 [[= include_file('code_samples/back_office/limitation/config/append_to_services.yaml', 9, 12) =]]
 ```
 
-To render this custom limitation values in the role view,
-create a Twig template containing block definition which follows the naming convention:
-`ez_limitation_<LIMITATION TYPE>_value`. For example:
+When a value mapper exists for a Limitation, the rendering uses a Twig block named `ez_limitation_<lower_case_identifier>_value` where `<lower_case_identifier>` is the Limitation identifier in lower case.
+In this example, block name is `ez_limitation_customlimitation_value` as the identifier is `CustomLimitation`.
+
+This template receive a `values` variable which is the return of the `mapLimitationValue` function from the corresponding value mapper.
 
 ``` html+twig
 [[= include_file('code_samples/back_office/limitation/templates/themes/standard/limitation/custom_limitation_value.html.twig') =]]
 ```
 
-Add it to the configuration under `ezplatform.system.<SCOPE>.limitation_value_templates`:
+To have your block found, you have to register its template. Add the template to the configuration under `ezplatform.system.<SCOPE>.limitation_value_templates`:
 
-```yaml
-ezplatform:
-    system:
-        default:
-            limitation_value_templates:
-                - { template: '@ezdesign/limitation/custom_limitation_value.html.twig', priority: 0 }
+``` yaml
+[[= include_file('code_samples/back_office/limitation/config/packages/ezplatform_security.yaml') =]]
 ```
 
 Provide translations for your custom limitation form in the `ezplatform_content_forms_policies` domain. For example, `translations/ezplatform_content_forms_policies.en.yaml`:
