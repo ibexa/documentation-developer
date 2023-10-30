@@ -39,6 +39,8 @@ Name provided in the hash for each Limitation is the same value set in the `alia
 For example:
 
 ``` php
+<?php declare(strict_types=1);
+
 namespace App\Security;
 
 use Ibexa\Bundle\Core\DependencyInjection\Configuration\ConfigBuilderInterface;
