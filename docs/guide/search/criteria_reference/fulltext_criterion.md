@@ -11,11 +11,11 @@ searches for content based on the full text content of its Fields.
 
 | Feature                                              | Elasticsearch | Apache Solr | Legacy Search Engine (SQL) |
 |------------------------------------------------------|---------------|-------------|----------------------------|
-| Boolean operators:<br/>AND (&&), OR ( \|\|), NOT (!) | no\*          | yes         | no\*\*                     |
-| Require/exclude operators: +, -                      | no            | yes         | no                         |
-| Grouping with parentheses                            | no            | Yes         | no                         |
-| Phrase search with double quotes                     | no            | yes         | no                         |
-| Asterisks (\*) as wildcards                          | no            | Yes         | Yes, limited\*\*\*         |
+| Boolean operators:<br/>AND (&&), OR ( \|\|), NOT (!) | No\*          | Yes         | No\*\*                     |
+| Require/exclude operators: +, -                      | No            | Yes         | No                         |
+| Grouping with parentheses                            | No            | Yes         | No                         |
+| Phrase search with double quotes                     | No            | Yes         | No                         |
+| Asterisks (\*) as wildcards                          | No            | Yes         | Yes, limited\*\*\*         |
 
 \* When using the Elasticsearch search engine, a full text query performs an OR query by default, while the OR and AND operators return unexpected results.
 \*\* When using the Legacy search engine, a full text query performs an OR query.
