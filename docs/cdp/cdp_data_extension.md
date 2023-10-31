@@ -1,10 +1,8 @@
 ---
-description: Data export in Ibexa CDP.
+description: Data extension in [[= product_name_cdp =]].
 ---
 
-# Data export
-
-## Extensibility
+# Data extension
 ​
 You can customize Content, User and Product data exported to CDP and you can control what Field Type information you want to export.
 By default, custom Field Types have basic export functionality. It casts their `Value` object to string, thanks to `\Stringable` implementation. 

@@ -1,12 +1,12 @@
 ---
-description: Data export schedule in Ibexa CDP.
+description: Data export schedule in [[= product_name_cdp =]].
 ---
 
 # CDP data export schedule
 
 ## Configuration key
 
-Configuration in Ibexa CDP allows you to automate the process of exporting Content, Users and Products.
+Configuration in [[= product_name_cdp =]] allows you to automate the process of exporting Content, Users and Products.
 Global `ibexa_cdp` [configuration key](configuration.md#configuration-files) looks as below:
 
 ```yaml
