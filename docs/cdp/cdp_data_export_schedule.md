@@ -39,7 +39,7 @@ ibexa_cdp:
 Under `schedule` setting you can find separate sections for exporting User, Content, and Product. 
 Structure of each section is exactly the same and includes `interval` and `options` elements:
 
-- **Interval** - sets the frequency of the command invoke, for example, '*/30 * * * *' - every 30 minutes, '0 */12 * * *' - every 12 hours. 
+- **Interval** - sets the frequency of the command invoke, for example, '*/30 * * * *' - every 30 minutes, '0 */12 * * *' - every 12 hours.
 It uses standard `crontab` format (see: https://crontab.guru/examples.html).
 - **Options** - allows you to add arguments that have to be passed to the export command.
 

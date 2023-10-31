@@ -5,7 +5,7 @@ description: Data customization in [[= product_name_cdp =]].
 # Data customization
 ​
 You can customize Content and Product data exported to CDP and you can control what Field Type information you want to export.
-By default, custom Field Types have basic export functionality. It casts their `Value` object to string, thanks to `\Stringable` implementation. 
+By default, custom Field Types have basic export functionality. It casts their `Value` object to string, thanks to `\Stringable` implementation.
 ​
 ## Exporting Field Types
 ​
@@ -38,7 +38,7 @@ Field identifier is a prefix that is automatically added to each key. You can on
 ​
 ### Built in Field Processors for custom Field Types
 ​
-You may provide your own CDP export functionality by using one of the system Field Processors: 
+You may provide your own CDP export functionality by using one of the system Field Processors:
 
 #### `\Ibexa\Cdp\Export\Content\FieldProcessor\SkippingFieldProcessor`.
 ​
@@ -57,11 +57,13 @@ custom_fieldtype.cdp.export.field_processor:
 ​
 ## Exporting Field Type values
 ​
-To customize export of Field Type values, provide your own `\Ibexa\Contracts\Cdp\Export\Content\FieldValueProcessorInterface` instance. 
+To customize export of Field Type values, provide your own `\Ibexa\Contracts\Cdp\Export\Content\FieldValueProcessorInterface` instance.
 YNew implementation has to be registered as a service manually or by using autoconfiguration. The service has to use the tag `ibexa.cdp.export.content.field_value_processor`, you can also provide `priority` property to override other Field Value Processors.
 ​
-* `FieldValueProcessorInterface::process` - takes `Field` instance and returns an `array` with scalar values that are applied to export data payload. If th Field Type returns single value, provide `value` key in the array. You can return multiple values. 
-* `FieldValueProcessorInterface::supports` - decides whether `FieldValueProcessor` can work with the `Field`. 
+* `FieldValueProcessorInterface::process` - takes `Field` instance and returns an `array` with scalar values that are applied to export data payload.
+If the Field Type returns single value, provide `value` key in the array. You can return multiple values.
+
+* `FieldValueProcessorInterface::supports` - decides whether `FieldValueProcessor` can work with the `Field`.
 ​
 ### Built in Field Value Processors for custom Field Types
 ​
