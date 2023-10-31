@@ -414,7 +414,7 @@ nav:
             - CDP data export: cdp/cdp_activation/cdp_data_export.md
             - CDP add client-side tracking: cdp/cdp_activation/cdp_add_clientside_tracking.md
         - CDP data export schedule: cdp/cdp_data_export_schedule.md
-        - CDP data export: cdp/cdp_data_extension.md
+        - CDP data customization: cdp/cdp_data_customization.md
     - Search:
         - Search: search/search.md
         - Search engines: 

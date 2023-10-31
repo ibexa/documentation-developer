@@ -45,7 +45,7 @@ Go to **Admin** -> **Segments** and select **Create**.
 Fill in name and identifier for a segment group.
 Choose wisely, as once connected to CDP Segment Group cannot be changed.
 
-![Creating a new segment group](img/cdp_create_segment_group.png)
+![Creating a new segment group](cdp_create_segment_group.png)
 
 Next, add a segment group identifier to the configuration.
 
@@ -58,8 +58,8 @@ Next, add a segment group identifier to the configuration.
 Now, fill in the account number.
 Log in to [[= product_name_cdp =]] and in the top right corner, select available accounts.
 
-![List of available accounts](img/cdp_accounts.png)
+![List of available accounts](cdp_accounts.png)
 
 A pop-up window displays with a list of all available accounts and their numbers.
 
-![Account number](img/cdp_account_number.png)
+![Account number](cdp_account_number.png)

@@ -24,19 +24,19 @@ It allows you to establish a datastream from the Streaming API into the Data Man
 Next, you need to export your data to the CDP.
 Go to your installation and use this command:
 
-- user:
+- for User:
 
 ```bash
 php bin/console ibexa:cdp:stream-user-data --draft
 ```
 
-- product:
+- for Product:
 
 ```bash
 php bin/console ibexa:cdp:stream-product-data --draft
 ```
 
-- content:
+- for Content:
 
 ```bash
 php bin/console ibexa:cdp:stream-content-data --draft
@@ -68,11 +68,11 @@ Next, select **Create schema based on the downloaded columns**.
 It will move you to Schema Creator.
 There, choose **PersonalData** as a parent and name the schema. 
 
-![Create new schema](img/cdp_create_new_schema.png)
+![Create new schema](cdp_create_new_schema.png)
 
 Next, select all the columns and set Person Identifier as **userid**.
 
-![Person Identifier](img/cdp_person_identifier.png)
+![Person Identifier](cdp_person_identifier.png)
 
 If you used PersonData or Catalog type schemas, the system will require
 specifying the Write Mode that will be applied to them.
@@ -116,7 +116,7 @@ You can configure multiple activations based data flows.
 First, from the menu bar, select **Activations** and create a new **Ibexa** activation.
 Specify name of your activation, select `userid` as **Person Identifier** and click **Next**.
 
-![General Information - Activation](img/cdp_activation_general_info.png)
+![General Information - Activation](cdp_activation_general_info.png)
 
 Next, you can fill in **Ibexa information** they must match the ones provided in the YAML configuration:
 
@@ -125,7 +125,7 @@ Next, you can fill in **Ibexa information** they must match the ones provided in
 - **Segment Group Identifier** - identifier of the segment group in [[= product_name =]]. It points to a segment group where all the CDP audiences will be stored.
 - **Base URL** - URL of your instance with added `/cdp/webhook` at the end.
 
-![Ibexa Information - Activation](img/cdp_activation_ibexa_info.png)
+![Ibexa Information - Activation](cdp_activation_ibexa_info.png)
 
 Finally, you can specify the audiences you wish to include.
 

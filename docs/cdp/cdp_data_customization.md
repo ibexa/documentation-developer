@@ -1,10 +1,10 @@
 ---
-description: Data extension in [[= product_name_cdp =]].
+description: Data customization in [[= product_name_cdp =]].
 ---
 
-# Data extension
+# Data customization
 ​
-You can customize Content, User and Product data exported to CDP and you can control what Field Type information you want to export.
+You can customize Content and Product data exported to CDP and you can control what Field Type information you want to export.
 By default, custom Field Types have basic export functionality. It casts their `Value` object to string, thanks to `\Stringable` implementation. 
 ​
 ## Exporting Field Types

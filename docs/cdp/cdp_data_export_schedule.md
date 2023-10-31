@@ -43,10 +43,24 @@ Structure of each section is exactly the same and includes `interval` and `optio
 It uses standard `crontab` format (see: https://crontab.guru/examples.html).
 - **Options** - allows you to add arguments that have to be passed to the export command.
 
-This configuration allows you to provide multiple export tools with parameters. It's important, because each type of content/product must have its own parameters on the CDP website, where each has a different Stream ID key and different required values, for example, `--content-type`.
+This configuration allows you to provide multiple export workflows with parameters. It's important, because each type of content/product must have its own parameters on the CDP side, where each has a different Stream ID key and different required values, which are configured per data source.
 
-Accepted options can be listed with this command:
+Accepted options can be listed with the command below:
+
+* for User:
 
 ```bash
 php bin/console ibexa:cdp:stream-user-data --help
+```
+
+* for Product:
+
+```bash
+php bin/console ibexa:cdp:stream-product-data --help
+```
+
+* for Content:
+
+```bash
+php bin/console ibexa:cdp:stream-content-data --help
 ```
