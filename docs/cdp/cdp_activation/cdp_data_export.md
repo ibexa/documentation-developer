@@ -84,7 +84,7 @@ For example, if a customer unsubscribes a newsletter, their email will remain in
 
 Next, select **userid** from a **Schema columns section** on the right and map it to **id**.
 
-![Map userid to id](img/cdp_userid_mapid.png)
+![Map userid to id](cdp_userid_mapid.png)
 
 ## Activation
 
