@@ -192,7 +192,23 @@ New listeners automatically grant permissions to log in to a site, providing a m
 
 ### API improvements
 
-#### REST API for shipping [[% include 'snippets/commerce_badge.md' %]]
+#### REST API
+
+##### New method signature
+
+The method signature for `\Ibexa\Contracts\Rest\Output\Generator::startValueElement` has been updated to the following:
+
+```php
+    /**
+     * @phpstan-param scalar $value
+     * @phpstan-param array<string, scalar> $attributes
+     */
+    abstract public function startValueElement(string $name, $value, array $attributes = []): void;
+```
+
+Any third party code that extends `\Ibexa\Contracts\Rest\Output\Generator` needs to update the method signature accordingly.
+
+##### REST API for shipping [[% include 'snippets/commerce_badge.md' %]]
 
 Endpoints that allow you to manage orders by using REST API:
 
@@ -205,7 +221,7 @@ Endpoints that allow you to manage orders by using REST API:
 - GET `/shipping/method-types/{identifier}` - loads shipping methods type based on their identifiers
 - GET `/orders/order/{identifier}/shipments` - loads a list of shipments.
 
-#### REST API for company accounts [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+##### REST API for company accounts [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 Endpoints that allow you to manage companies in your platform with REST API:
 
