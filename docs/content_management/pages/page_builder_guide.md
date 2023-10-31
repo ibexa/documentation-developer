@@ -21,7 +21,7 @@ To create a new page:
 
 3\. On the right-side toolbar, click **Create content** and from the list of Content items select Landing Page.
 
-4\. Select the layout and click **Create draft**.
+4\. Select the layout and click **Create**.
 
 ![Create page](create_page.png)
 
@@ -30,7 +30,7 @@ You can also add a new page in the Page Builder. Check 'Create page in Page Buil
 ### Edit page
 
 You can edit any existing page by using Page Builder. To do it, in the Back Office go to **Content** and select **Content structure**.
-Then, from the Content Tree choose the page that you want you edit and click **Edit**.
+Then, from the Content Tree choose the page that you want to edit and click **Edit**.
 
 ## What is Page Builder
 
@@ -67,7 +67,7 @@ E. Buttons:
 
 |Button|Description|
 |------|-----------|
-|![Edit and preview switch](page_builder_toolbar_editpreview.png)|Switch between previewing and editing the Page.|
+|![Edit and preview switch](page_builder_toolbar_editpreview.png)|Access main properties of the Page, like title and description.|
 |![Preview segments](page_builder_toolbar_preview_segment.png)|Access preview of the Page for a given Segment.|
 |![Timeline button](page_builder_toolbartimelinetoggler.png)|Access the timeline to preview how the Page changes with time. You can also view the list of all upcoming scheduled events.|
 |![View toggler](page_builder_toolbar_devicestoggler.png)|Toggle through to see how the Page is rendered on different devices.|
@@ -93,7 +93,7 @@ Page Builder has two main views that you can use while creating a page:
 
 ![Elements toolbar](elements_toolbar.png)
 
-- Structure view - shows a structure of your page, including their division into zones and the blocks that they contain. It follows the behavior of the content tree. Structure view has ability to reorder blocks using drag and drop.
+- Structure view - shows a structure of the page, including its division into zones and the blocks that it contains. It follows the behavior of the content tree. Structure view has ability to reorder blocks using drag and drop.
 
 ![Structure view](structure_view.png)
 
@@ -121,11 +121,8 @@ For more information, see [Configure layout](https://doc.ibexa.co/en/latest/temp
 
 #### Add blocks
 
-To customize your page in Page Builder you need to add blocks. You can do it in two ways:
-
-A. Access Elements toolbar, drag page block that you want to use and drop it on the empty place on a drop zone.
-
-B. Choose available drop zone and use `Click to select` option.
+To customize your page in Page Builder you need to add blocks.
+To do it, access Elements toolbar, drag page block that you want to use and drop it on the empty place on a drop zone.
 
 When you add a new block to the drop zone, before you drop it, a blue line appears  - it helps you see the position of the newly added block in relation to other, already added blocks.
 
