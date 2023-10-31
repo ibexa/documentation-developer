@@ -114,7 +114,7 @@ Such rules can be found in the [default template configuration](https://github.c
                 # …
                 # Rule for other Content items not meant to be displayed in full view:
                 no_full_view:
-                    controller: App\Controller\ViewController:noFullViewAction
+                    controller: App\Controller\ViewController::noFullViewAction
                     template: '@ibexadesign/full/no_full_view.html.twig'
                     match: ~
     ```
