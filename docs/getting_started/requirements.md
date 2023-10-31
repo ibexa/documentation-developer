@@ -9,7 +9,11 @@ The following server requirements cover both running the software on-premise and
 The minimal setup requires PHP,  MySQL/MariaDB, Apache/Nginx, Node.js and `yarn`.
 Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, NFS/EFS/S3 and Solr in a [clustered setup](../guide/clustering.md).
 
-Using the latest listed version of each product or component is always recommended.
+!!! caution "Recommended versions"
+
+    Review all the recommended versions carefully. If you see a "+" next to the product version, it means that we recommend this version or higher within the same major release. For example, "Nginx 1.18+" means any 1.x version higher or equal to 1.18, but not 2.x.
+
+    Using the latest listed version of each product or component is recommended. Always use a version that receives security updates, either by the vendor themselves or by a trusted third party, such as the distribution vendor.
 
 ## Operating system
 
@@ -25,9 +29,9 @@ event MPM is recommended, if you need to use prefork you also need the `mod_php`
 
 ## DBMS
 
-- MariaDB 10.0, 10.1, 10.2, 10.3
-- MySQL 5.7 or 8.0 (with legacy authentication, or new caching ssh2 authentication)
-- PostgreSQL 10+
+- MariaDB 10.3, 10.4 (optionally 10.2 - deprecated)
+- MySQL 8.0 (optionally 5.7 - deprecated)
+- PostgreSQL 10+ (PostgreSQL 10 has reached its End of Life. We highly recommend using PostgreSQL 14 for optimal performance and security)
 
 ## PHP
 
