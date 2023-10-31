@@ -117,10 +117,10 @@ Now, you should see new `Calculator` block in the Page Builder blocks list:
 
 ![Calculator](calculator.png "Calculator - React App Block")
 
-Then, add new block configuration in the `templates` directory:
+Then, make sure that your [Page layout template](template_configuration.md#page-layout) (like `templates/themes/standard/pagelayout.html.twig`) has the following Twig code in its `{% block javascripts %}`:
 
 ``` twig
 {% if encore_entry_exists('react-blocks-js') %}
-    { encore_entry_script_tags('react-blocks-js') }}
+    {{ encore_entry_script_tags('react-blocks-js') }}
 {% endif %}
 ```
