@@ -82,7 +82,10 @@ In the following example, you learn how to create `Calculator` React App block.
 
 ### Configure React App Block
 
-First, create a .jsx file which describes your component.
+First, install the react.
+Run `yarn add react` command.
+
+Next, create a .jsx file which describes your component.
 You can place it in any location.
 
 In the following example, create `Calculator.jsx` file in `assets/page-builder/components/` directory:
@@ -103,7 +106,7 @@ Files in this directory create a map of Components which then are imported to `r
 As a result, the components are rendered on the page. 
 
 ``` js
-import Calculator from "../../components/Calculator";
+import Calculator from "assets/page-builder/components/Calculator";
 
 export default {
     Calculator: Calculator,
@@ -113,3 +116,11 @@ export default {
 Now, you should see new `Calculator` block in the Page Builder blocks list:
 
 ![Calculator](calculator.png "Calculator - React App Block")
+
+Then, add new block configuration in the `templates` directory:
+
+``` twig
+{% if encore_entry_exists('react-blocks-js') %}
+    { encore_entry_script_tags('react-blocks-js') }}
+{% endif %}
+```
