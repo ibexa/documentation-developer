@@ -4,7 +4,7 @@ description: You can use Symfony HttpCache Proxy, Varnish or Fastly as reverse p
 
 # Reverse proxy
 
-In order to use the Symfony reverse proxy, you must change your `public/index.php` front controller script and wrap `EzSystems\PlatformHttpCacheBundle\AppCache` instead of `Symfony\Bundle\FrameworkBundle\HttpCache\HttpCache` around the kernel.
+To use the Symfony reverse proxy, you must change your `public/index.php` front controller script and wrap `EzSystems\PlatformHttpCacheBundle\AppCache` instead of `Symfony\Bundle\FrameworkBundle\HttpCache\HttpCache` around the kernel.
 
 ```diff
 --- a/public/index.php
