@@ -126,7 +126,7 @@ You can create a PHP definition of the new strategy that allows for workflow man
 Defining strategy allows to add conditional steps for workflow if needed.
 When a conditional step is added, the checkout process uses the specified workflow and proceeds to the defined step.
 
-For more information, see (https://doc.ibexa.co/en/master/commerce/checkout/customize_checkout/#create-custom-strategy)
+For more information, see [Create custom strategy](https://doc.ibexa.co/en/master/commerce/checkout/customize_checkout/#create-custom-strategy).
 
 #### Adding context data to cart
 
@@ -135,6 +135,8 @@ This feature enhances the flexibility and customization of your e-commerce appli
 enabling you to associate additional information with your cart and its contents.
 By leveraging context data, such as promo codes or custom texts,
 you can tailor the e-commerce experience for your customers and enhance the capabilities of your application.
+
+For more information, see [https://doc.ibexa.co/en/master/commerce/cart/cart_api/#adding-context-data].
 
 ### New features and improvements in PIM
 
