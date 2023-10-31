@@ -4,9 +4,33 @@ description: You can use Symfony HttpCache Proxy, Varnish or Fastly as reverse p
 
 # Reverse proxy
 
-Before you start using Symfony reverse proxy, you must change your kernel to use `EzSystems\PlatformHttpCacheBundle\AppCache` instead of `Symfony\Bundle\FrameworkBundle\HttpCache\HttpCache`.
+In order to use the Symfony reverse proxy, you must change your `public/index.php` front controller script and wrap `EzSystems\PlatformHttpCacheBundle\AppCache` instead of `Symfony\Bundle\FrameworkBundle\HttpCache\HttpCache` around the kernel.
 
-Next, to use Symfony reverse proxy, follow the [Symfony documentation](https://symfony.com/doc/current/http_cache.html#symfony-reverse-proxy).
+```diff
+--- a/public/index.php
++++ b/public/index.php
+@@ -4,6 +4,7 @@ use App\Kernel;
+ use Symfony\Component\Dotenv\Dotenv;
+ use Symfony\Component\ErrorHandler\Debug;
+ use Symfony\Component\HttpFoundation\Request;
++use EzSystems\PlatformHttpCacheBundle\AppCache;
+
+ require dirname(__DIR__).'/vendor/autoload.php';
+
+@@ -15,8 +16,26 @@ if ($_SERVER['APP_DEBUG']) {
+     Debug::enable();
+ }
+
+-$kernel = new Kernel($_SERVER['APP_ENV'], (bool) $_SERVER['APP_DEBUG']);
++$kernel = new AppCache(new Kernel($_SERVER['APP_ENV'], (bool)$_SERVER['APP_DEBUG']));
+ $request = Request::createFromGlobals();
+ $response = $kernel->handle($request);
+ $response->send();
+ $kernel->terminate($request, $response);
+```
+
+Do not enable the Symfony reverse proxy in `public/index.php` if you intend to use Varnish or Fastly. You may only use
+one HTTP cache at a time.
 
 ## Using Varnish or Fastly
 
