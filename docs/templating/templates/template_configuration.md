@@ -105,7 +105,7 @@ Such rules can be found in the [default template configuration](https://github.c
 
 !!! tip
 
-    For example, you can prevent every Content item not having a dedicated template to be seen in `full` view but sent to a custom controller.
+    For example, you can ensure that any Content item lacking a dedicated template isn't displayed in `full` view but is instead sent to a custom controller.
     ```yaml
     site_group:
         content_view:
@@ -118,4 +118,4 @@ Such rules can be found in the [default template configuration](https://github.c
                     template: '@ibexadesign/full/no_full_view.html.twig'
                     match: ~
     ```
-    Still for example, this custom controller could set the response status code as 404 (`$view->setResponse((new Response())->setStatusCode(404));`) and fetch some reverse relations to make suggestions in this error page.
+    This custom controller can also set the response status code to 404 using the following code: `$view->setResponse((new Response())->setStatusCode(404));`, and fetch reverse relations to provide suggestions on the error page.

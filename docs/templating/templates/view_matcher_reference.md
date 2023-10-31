@@ -32,7 +32,7 @@ You can use the following matchers to [match content views](template_configurati
 
 !!! tip
 
-    Each matcher can has a scalar value or an array of scalar values. When an array is passed, it matches on one of its values.
+    Each matcher has a scalar value or an array of scalar values. When an array is passed, it matches on one of its values.
 
     You can also create [custom view matchers](create_custom_view_matcher.md).
 
