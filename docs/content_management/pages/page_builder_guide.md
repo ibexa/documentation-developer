@@ -7,7 +7,7 @@ edition: experience
 
 ## What is page
 
-[Page](pages.md) is a block-based type of content. You can create it and modify with a visual drag-and-drop editor - Page Builder.
+[Page](pages.md) is a block-based type of content. You can create and modify it with a visual drag-and-drop editor - Page Builder.
 Page is divided into zones into which you can drop various dynamic blocks.
 By editing pages you can customize the layout and content of your website.
 
@@ -15,22 +15,20 @@ By editing pages you can customize the layout and content of your website.
 
 To create a new page:
 
-1\. In the upper toolbar click **Content**.
+A\. In the left panel, go to **Content**.
 
-2\. Select **Content structure**.
+B\. Select **Content structure**.
 
-3\. On the right-side toolbar, click **Create content** and from the list of Content items select Landing Page.
+C\. On the right-side toolbar, click **Create content** and from the list of Content items select **Landing Page**.
 
-4\. Select the layout and click **Create**.
+D\. Select the layout and click **Create**.
 
 ![Create page](create_page.png)
-
-You can also add a new page in the Page Builder. Check 'Create page in Page Builder' section below.
 
 ### Edit page
 
 You can edit any existing page by using Page Builder. To do it, in the Back Office go to **Content** and select **Content structure**.
-Then, from the Content Tree choose the page that you want to edit and click **Edit**.
+Then, from the Content Tree choose the page and click **Edit**.
 
 ## What is Page Builder
 
@@ -85,7 +83,7 @@ F. Saving options
 |Save draft|Save the page draft*.|
 |Delete draft|Delete the page draft.|
 
-*To help you preserve your work, system saves drafts of Content items automatically. For more information, see [Autosave](https://doc.ibexa.co/projects/userguide/en/master/content_management/content_versions/#autosave).
+*To help you preserve your work, system saves drafts of Content items automatically. For more information, see [Autosave]([[= user_doc =]]/content_management/content_versions/#autosave).
 
 Page Builder has two main views that you can use while creating a page:
 
@@ -93,20 +91,13 @@ Page Builder has two main views that you can use while creating a page:
 
 ![Elements toolbar](elements_toolbar.png)
 
-- Structure view - shows a structure of the page, including its division into zones and the blocks that it contains. It follows the behavior of the content tree. Structure view has ability to reorder blocks using drag and drop.
+- Structure view - shows a structure of the page, including its division into zones and the blocks that it contains. It follows the behavior of the Content Tree. Structure view has ability to reorder blocks using drag and drop.
 
 ![Structure view](structure_view.png)
 
-#### Create page in Page Builder
-
-To open the Page Builder, click **Site** and select a website from the list that appears next to the List icon.
-On the Page Builder toolbar click the plus button and from the list select Landing Page.
-
 ##### Choose layout
 
-For newly created Page you can choose a [layout](https://doc.ibexa.co/projects/userguide/en/latest/content_management/configure_ct_field_settings/#available-page-layouts) which defines the available zones.
-
-![Switch layout](switch_layout_window.png)
+For newly created Page you can choose a [layout]([[= user_doc =]]/content_management/configure_ct_field_settings/#available-page-layouts) which defines the available zones.
 
 Applying a layout divides the Page into the defined zones. The zones are placeholders for Content items.
 
@@ -116,25 +107,27 @@ Now you are ready to add blocks of content to the Page.
 The page layouts that an editor has access to are up to you to choose.
 In the `Select layouts` section, you can select layouts that you want to be available for the Page.
 
+![Switch layout](switch_layout_window.png)
+
 The default, built-in Page layout has only one zone, but developers can create other layouts in configuration.
-For more information, see [Configure layout](https://doc.ibexa.co/en/latest/templating/render_content/render_page/#configure-layout).
+For more information, see [Configure layout](render_page.md#configure-layout).
 
 #### Add blocks
 
 To customize your page in Page Builder you need to add blocks.
 To do it, access Elements toolbar, drag page block that you want to use and drop it on the empty place on a drop zone.
 
-When you add a new block to the drop zone, before you drop it, a blue line appears  - it helps you see the position of the newly added block in relation to other, already added blocks.
+When you add a new block to the drop zone, drop it in the blue highlighted area. Before you drop it, a bold line appears  - it helps you see the position of the newly added block in relation to other, already added blocks.
 
 ![Drop zone line](drop_zone_line.png)
 
 Ready-to-use blocks available in [[= product_name =]] have their own, unique functions, but you can also [add your own, custom blocks](create_custom_page_block.md). All available tools and settings, that Page Builder comes with, enable you to customize the content appearing on the page.
 
-You can check all ready-to-use blocks available in Page Builder in User Documentation, [Block reference page](https://doc.ibexa.co/projects/userguide/en/latest/content_management/block_reference/).
+You can check all ready-to-use blocks available in Page Builder in User Documentation, [Block reference page]([[= user_doc =]]/content_management/block_reference/).
 
 #### Work with blocks
 
-Working with blocks is intuitive. You don't have to worry about placing blocks in the proper place from the start - you can reorder the at any time.
+Working with blocks is intuitive. You don't have to worry about placing blocks in the proper place from the start - you can reorder them at any time.
 You can reorder blocks in a few ways:
 
 - drag and drop block in the desired location on a drop zone
@@ -152,53 +145,55 @@ Available settings are:
 - Move up - allows you to change position of the block on the page by moving it up
 - Move down - allows you to change position of the block on the page by moving it down
 - Configuration - allows you to access configuration window
-- Duplicate - duplicates existing block by creating its copy
+- Duplicate - duplicates a block with its settings, by creating a copy of it that appears below the original block
 - Refresh - refreshes preview of the block
 - Delete - deletes existing block
 
 #### Schedule content
 
-Page Builder comes with a Scheduler - is a tool that allows you to schedule content publication.
+Page Builder comes with a Scheduler, it allows you to schedule content appearance.
 
-You can schedule to be published, or hidden in Page Builder in two ways with:
+You can schedule content to be revealed, or hidden in Page Builder in two ways with:
 
 - **Scheduler tab** - it's available in the configuration of all Page blocks. In this tab you can set the date and time when the block becomes visible and when it disappears from a Page.
 
 ![Scheduler tab](scheduler_tab.png)
 
-- **Content Scheduler** - it's one of the block available in Page Builder Elements menu. To proceed with the schedule, go to **Basic** tab of the block, then click **Select contennt** and confirm your choice, and set date and time in the Content airtime settings window.
+- **Content Scheduler** - it's one of the blocks available in Page Builder Elements menu. To proceed with the schedule, go to **Basic** tab of the block, then click **Select content** and confirm your choice. Then set date and time in the **Content airtime settings** window.
 
 ![Content Scheduler](content_scheduler.png)
 
-For more information, see [Schedule publication](https://doc.ibexa.co/projects/userguide/en/latest/content_management/schedule_publishing/).
+For more information, see [Schedule publication]([[= user_doc =]]/content_management/schedule_publishing/).
 
 ## Benefits
 
 ### Manage your pages without technical skills
 
 Thanks to intuitive and plain Page Builder interface, you can create and manage your website without the need of having advanced technical skills.
-Drag-and-drop elements toolbar, separated page zones and transparent sections - these are the elements that make working with Page Builder really intuitive and quick.
+Elements toolbar, visible page zones and Structure view - these are the elements that make working with Page Builder really intuitive and quick.
 
 ### Self schedule content, special offers and campaigns
 
-One of the most important tool that Page Builder offers, is a Scheduler. It allows you to set and schedule specific date and time, when content has to be published. In result, you can plan timeline of your new publications, without the need of manual publishing each of them.
+One of the most important tools that Page Builder offers, is a Scheduler. It allows you to set and schedule a specific date and time for the content to be published or hidden. As a result, you can manage timeline of publications, without the need of manual publishing or hiding each of them.
 
 ### Create high-converting and fully-targeted landing pages
 
-Page Builder allows you to create highly customizable websites. You can build modifiable and targeted landing pages, that meet your needs.
+Page Builder allows you to create highly customizable websites. You can build modifiable and targeted landing pages that meet your needs.
 Each dynamic blocks has its own settings, properties and design that you can set up in your way to customize the content appearing on the page.
-Additionaly, if you feel comfortable with your technical skills, you can configure your own elements, for example, new customized layout, or block.
+Additionaly, if you feel comfortable with your technical skills, you can configure your own elements, for example, a new customized layout, or block.
 
 ### Increase sales with highly personalized campaigns
 
-Personalized campaigns are one of the factors that can increase your sales. With Page Builder you can achieve it, by using customization and time Scheduler.
-Anytime you can edit your page and change the position of specific block to make it more visible. What's more, Page Builder offers you ready-to-use page blocks that can help to create content tailored to each individual customer:
+Personalized campaigns are one of the factors that can increase your sales. 
+With Page Builder you can achieve it, by using customization and time Scheduler.
+Anytime you can edit your page and change a position of a block to enhance visibility. 
+Additionaly, Page Builder offers you a selection of ready-to-use page blocks that can help you to create content tailored to each individual customer:
 
 A. **Default** blocks:
 
 - Dynamic targeting - embeds recommended items based on the Segment the user belongs to.
 - Personalized - displays a list of Content items/products that are recommended to end users when specific scenarios are triggered.
-- Targeting - embeds an Content item based on the Segment the user belongs to.
+- Targeting - embeds a Content item based on the Segment the user belongs to.
 
 B. **PIM** blocks:
 
