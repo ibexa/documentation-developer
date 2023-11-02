@@ -128,6 +128,12 @@ When a conditional step is added, the checkout process uses the specified workfl
 
 For more information, see [Create custom strategy](https://doc.ibexa.co/en/master/commerce/checkout/customize_checkout/#create-custom-strategy).
 
+## Manage multiple workflows
+
+When working with multiple checkout workflows, you can now specify the desired workflow by passing its name as an argument to the checkout initiation button or link.
+
+For more information, see [Manage multiple workflows](https://doc.ibexa.co/en/master/commerce/checkout/customize_checkout/#manage-multiple-workflows).
+
 #### Adding context data to cart
 
 Attach context data to both the Cart and its individual Cart Entries.
