@@ -7,7 +7,7 @@ page_type: reference
 
 - [`ibexa_path()`](#ibexa_path) returns the relative URL to a Content item or Location.
 - [`ibexa_url()`](#ibexa_url) returns the absolute URL to a Content item or Location.
-- [`ibexa.url.alias`](#ibexa.url.alias) generates URLs for a Location from the given arguments.
+- [`ibexa.url.alias`](#ibexaurlalias) generates URLs for a Location from the given arguments.
 - [`ibexa_route()`](#ibexa_route) generates a RouteReference object from the given parameters.
 - [`ibexa_oauth2_connect_path()`](#ibexa_oauth2_connect_path) generates a relative path for the given OAuth2 route.
 - [`ibexa_oauth2_connect_url()`](#ibexa_oauth2_connect_url) generates an absolute URL for the given OAuth2 route.
