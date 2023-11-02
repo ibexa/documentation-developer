@@ -18,8 +18,10 @@ searches for content based on the full text content of its Fields.
 | Asterisks (\*) as wildcards                          | No            | Yes         | Yes, limited\*\*\*         |
 
 \* When using the Elasticsearch search engine, a full text query performs an OR query by default, while the OR and AND operators return unexpected results.
+
 \*\* When using the Legacy search engine, a full text query performs an OR query.
-\*\*\* Asteriks may only be located at beginning or end of a query.
+
+\*\*\* Asteriks may only be located at the beginning or end of a query.
 
 
 ## Limitations
