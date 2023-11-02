@@ -7,8 +7,8 @@ page_type: reference
 
 - [`ibexa_path()`](#ibexa_path) returns the relative URL to a Content item or Location.
 - [`ibexa_url()`](#ibexa_url) returns the absolute URL to a Content item or Location.
-- [`ibexa.url.alias()`](#ibexa.url.alias) generates URLs for a Location from the given arguments.
-- [`ibexa_route()`](#ibexa_route)  generates a RouteReference object from the given parameters.
+- [`ibexa.url.alias`](#ibexa.url.alias) generates URLs for a Location from the given arguments.
+- [`ibexa_route()`](#ibexa_route) generates a RouteReference object from the given parameters.
 - [`ibexa_oauth2_connect_path()`](#ibexa_oauth2_connect_path) generates a relative path for the given OAuth2 route.
 - [`ibexa_oauth2_connect_url()`](#ibexa_oauth2_connect_url) generates an absolute URL for the given OAuth2 route.
 
@@ -42,15 +42,19 @@ page_type: reference
 {{ ibexa_url(location, {}, false) }}
 ```
 
-### `ibexa.url.alias()`
+### `ibexa.url.alias`
 
-`ibexa.url.alias()` generates URLs for a Location from the given parameters.
+`ibexa.url.alias` generates URLs for a Location from the given parameters.
 
 !!! note
 
     `ibexa.url.alias` is a not a Twig function, but a special route name.
 
 For more information about the use of `ibexa.url.alias` as a parameter of the [Symfony `path` Twig function]([[= symfony_doc =]]/reference/twig_reference.html#path), see [Links to other locations](urls_and_routes.md).
+
+``` html+twig
+{% set href = path('ibexa.url.alias', { 'locationId': 2 }) %}
+```
 
 ### `ibexa_route()`
 
