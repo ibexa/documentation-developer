@@ -115,7 +115,7 @@ For more information, see [Configure layout](render_page.md#configure-layout).
 #### Add blocks
 
 To customize your page in Page Builder you need to add blocks.
-To do it, access Elements toolbar, drag page block that you want to use and drop it on the empty place on a drop zone.
+To do it, access Elements toolbar, drag page block that you want to use, and drop it on the empty place on a drop zone.
 
 When you add a new block to the drop zone, drop it in the blue highlighted area. Before you drop it, a bold line appears  - it helps you see the position of the newly added block in relation to other, already added blocks.
 
@@ -174,7 +174,7 @@ Elements toolbar, visible page zones and Structure view - these are the elements
 
 ### Self schedule content, special offers and campaigns
 
-One of the most important tools that Page Builder offers, is a Scheduler. It allows you to set and schedule a specific date and time for the content to be published or hidden. As a result, you can manage timeline of publications, without the need of manual publishing or hiding each of them.
+One of the most important tools that Page Builder offers, is a Scheduler. It allows you to set and schedule a specific date and time for the content to be published or hidden. As a result, you can manage timeline of publications, without the need of manual publishing, or hiding each of them.
 
 ### Create high-converting and fully-targeted landing pages
 
@@ -186,7 +186,7 @@ Additionaly, if you feel comfortable with your technical skills, you can configu
 
 Personalized campaigns are one of the factors that can increase your sales. 
 With Page Builder you can achieve it, by using customization and time Scheduler.
-Anytime you can edit your page and change a position of a block to enhance visibility. 
+Anytime you can edit your page and change a position of a block to enhance visibility.
 Additionaly, Page Builder offers you a selection of ready-to-use page blocks that can help you to create content tailored to each individual customer:
 
 A. **Default** blocks:
