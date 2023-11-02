@@ -40,6 +40,13 @@ The resulting link points to the Content item's main Location.
 <p><a href="{{ ibexa_path(routeReference) }}">Route</a></p>
 ```
 
+For cross-SiteAccess links, you can pass the parameter `siteaccess` with a SiteAccess identifier.
+
+``` html+twig
+{% set routeReference = ibexa_route("ibexa.url.alias", { 'contentId': 456, 'siteaccess': 'shop' }) %}
+<p><a href="{{ ibexa_path(routeReference) }}">Route</a></p>
+```
+
 With `ibexa_route()` you can modify the route contained in RouteReference after creation, for example, by providing additional parameters:
 
 ``` html+twig
