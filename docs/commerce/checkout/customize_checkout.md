@@ -274,7 +274,7 @@ When you have multiple checkout workflows, you can specify which one to use by p
 
 ```
 
-With this setup, you can specify which workflow to use simply by clicking the button or link that starts the checkout. 
+With this setup, you can specify which workflow to use by clicking the button or link that starts the checkout. 
 The argument passed determines which workflow is used, providing flexibility in workflow selection.
 
 ## Define custom Address Field Type formats 
