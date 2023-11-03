@@ -68,7 +68,7 @@ Parameters passed as props must be converted so that they can be used as the con
 
 ## Create React App block
 
-"In the following example, you learn how to create the `Calculator` React App block [configured in the previous section's example](#react-app-block-configuration)."
+In the following example, you learn how to create the `Calculator` React App block [configured in the previous section's example](#react-app-block-configuration).
 
 ### Configure React App Block
 
