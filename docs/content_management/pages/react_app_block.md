@@ -72,7 +72,7 @@ In the following example, you learn how to create the `Calculator` React App blo
 
 ### Configure React App Block
 
-First, install the react.
+First, install React.
 Run `yarn add react` command.
 
 Next, create a .jsx file which describes your component.
