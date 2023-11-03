@@ -37,17 +37,7 @@ Each configured React app block has an identifier and the following settings:
 For example:
 
 ``` yaml
-ibexa_fieldtype_page:
-    react_blocks:
-        calculator:
-          name: Calculator
-          category: Demo
-          thumbnail: /bundles/ibexaicons/img/all-icons.svg#date
-          component: Calculator
-          attributes:
-            a:
-              type: integer
-            b: integer 
+[[= include_file('code_samples/page/react_app_block/config/packages/react_blocks.yaml') =]]
 ```
 
 Each entry below `react_blocks` adds one block to the Page Builder with the defined name, category and thumbnail.
@@ -91,13 +81,7 @@ You can place it in any location.
 In the following example, create `Calculator.jsx` file in `assets/page-builder/components/` directory:
 
 ``` js
-import React from 'react';
-
-export default function (props) {
-    // a * b = ...
-    console.log("Hello React!");
-    return <div>{props.a} × {props.b} = {parseInt(props.a) * parseInt(props.b)}</div>;
-}
+[[= include_file('code_samples/page/react_app_block/assets/page-builder/components/Calculator.jsx') =]]
 ```
 
 Then, create a `Calculator.js` file in `assets/page-builder/react/blocks` directory.
@@ -106,11 +90,7 @@ Files in this directory create a map of Components which then are imported to `r
 As a result, the components are rendered on the page. 
 
 ``` js
-import Calculator from "assets/page-builder/components/Calculator";
-
-export default {
-    Calculator: Calculator,
-};
+[[= include_file('code_samples/page/react_app_block/assets/page-builder/react/blocks/Calculator.js') =]]
 ```
 
 Now, you should see new `Calculator` block in the Page Builder blocks list:
