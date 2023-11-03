@@ -115,6 +115,7 @@ see the [How to Remove a Bundle]([[= symfony_doc =]]/bundles/remove.html) instru
 |ibexa/segmentation|Segment functionality for profiling the content displayed to specific users|
 |ibexa/site-factory|Enables configuration of sites from UI|
 |ibexa/connector-seenthis|Enables displaying video with exceeded standard video restrictions|
+|ibexa/connector-qualifio|Enables integration with [Qualifio Engage platform](https://developers.qualifio.com/docs/engage/)|
 
 
 ## Ibexa Commerce packages
