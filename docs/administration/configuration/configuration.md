@@ -36,6 +36,10 @@ These files contain additional settings and point to the general (not environmen
 
     Read more about [how configuration is handled in Symfony]([[= symfony_doc =]]/best_practices/configuration.html).
 
+!!! caution
+
+    Avoid using special characters in your configuration files. Make sure your IDE displays them. Be careful when copy-pasting from a word processing software or a PDF (it might content hidden character like [soft hyphen](https://en.wikipedia.org/wiki/Soft_hyphen).
+
 ### Configuration handling
 
 !!! note
