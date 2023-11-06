@@ -196,7 +196,7 @@ This template receive a `values` variable which is the return of the `mapLimitat
 To have your block found, you have to register its template. Add the template to the configuration under `ezplatform.system.<SCOPE>.limitation_value_templates`:
 
 ``` yaml
-[[= include_file('code_samples/back_office/limitation/config/packages/ezplatform_security.yaml') =]]
+[[= include_file('code_samples/back_office/limitation/config/packages/ibexa_security.yaml') =]]
 ```
 
 Provide translations for your custom limitation form in the `ezplatform_content_forms_policies` domain. For example, `translations/ezplatform_content_forms_policies.en.yaml`:
