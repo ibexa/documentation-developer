@@ -26,11 +26,12 @@ To get all entries in a taxonomy, use `TaxonomyServiceInterface::loadAllEntries(
 and optionally specify the limit of results and their offset.
 The default taxonomy identifier is given by `TaxonomyConfiguration::getDefaultTaxonomyName` and is `'tags'` on a fresh installation.
 The default limit is 30.
-To know how many entries there is, use `TaxonomyServiceInterface::countAllEntries()` with optionally a taxonomy identifier.
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/TaxonomyCommand.php', 41, 42) =]]
 ```
+
+To know how many entries there is, use `TaxonomyServiceInterface::countAllEntries()` with optionally a taxonomy identifier.
 
 To get all children of a specific taxonomy entry, use `TaxonomyServiceInterface::loadEntryChildren()`,
 provide it with the entry object, and optionally specify the limit of results and their offset.
