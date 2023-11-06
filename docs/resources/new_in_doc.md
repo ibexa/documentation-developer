@@ -14,7 +14,9 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Personalization
 
-- [Post visit and price drop events](https://doc.ibexa.co/en/master/personalization/api_reference/tracking_api/#tracking-api)
+- [Post visit and price drop triggers](https://doc.ibexa.co/projects/userguide/en/master/personalization/triggers/#trigger-types)
+- [Wishlist and Deletefromwishlist events](https://doc.ibexa.co/en/master/personalization/api_reference/tracking_api/#track-events)
+- ```
 
 ### PIM
 
