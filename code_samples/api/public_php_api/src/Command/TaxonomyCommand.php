@@ -41,7 +41,7 @@ class TaxonomyCommand extends Command
 
         $allEntries = $this->taxonomyService->loadAllEntries('tags', 30, 0);
 
-        $entry = $this->taxonomyService->loadEntryByIdentifier('desks');
+        $entry = $this->taxonomyService->loadEntryByIdentifier('desks', 'tags');
 
         $output->writeln($entry->name . ' with parent ' . $entry->parent->name);
 
@@ -52,12 +52,12 @@ class TaxonomyCommand extends Command
             $output->writeln($child->name);
         }
 
-        $entryToMove = $this->taxonomyService->loadEntryByIdentifier('standing_desks');
-        $newParent = $this->taxonomyService->loadEntryByIdentifier('desks');
+        $entryToMove = $this->taxonomyService->loadEntryByIdentifier('standing_desks', 'tags');
+        $newParent = $this->taxonomyService->loadEntryByIdentifier('desks', 'tags');
 
         $this->taxonomyService->moveEntry($entryToMove, $newParent);
 
-        $sibling = $this->taxonomyService->loadEntryByIdentifier('school_desks');
+        $sibling = $this->taxonomyService->loadEntryByIdentifier('school_desks', 'tags');
         $this->taxonomyService->moveEntryRelativeToSibling($entryToMove, $sibling, TaxonomyServiceInterface::MOVE_POSITION_PREV);
 
         return self::SUCCESS;

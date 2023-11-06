@@ -9,18 +9,20 @@ To manage taxonomies, use `Ibexa\Contracts\Taxonomy\Service\TaxonomyServiceInter
 ## Getting taxonomy entries
 
 To get a single taxonomy entry, you can use `TaxonomyServiceInterface::loadEntryById()`
-and provide it with the numerical entry ID, or pass entry identifier and use `TaxonomyServiceInterface::loadEntryByIdentifier()`:
+and provide it with the numerical entry ID, or pass the entry identifier and taxonomy name to `TaxonomyServiceInterface::loadEntryByIdentifier()`:
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/TaxonomyCommand.php', 43, 46) =]]
 ```
+
+If no taxonomy name is given, it defaults to `Ibexa\Taxonomy\Service\TaxonomyConfiguration::getDefaultTaxonomyName()`.
 
 You can also get a taxonomy entry from the ID of its underlying Content item, by using `TaxonomyServiceInterface::loadEntryByContentId()`.
 
 To get the root (main) entry of a given taxonomy, use `TaxonomyServiceInterface::loadRootEntry()`
 and provide it with the taxonomy name.
 
-To get all entries in a taxonomy, use `TaxonomyServiceInterface::loadAllEntries()`, provide it with the taxonomy identifier,
+To get all entries in a taxonomy, use `TaxonomyServiceInterface::loadAllEntries()`, provide it with the taxonomy name,
 and optionally specify the limit of results and their offset. The default limit is 30.
 
 ``` php
