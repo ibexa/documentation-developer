@@ -6,7 +6,34 @@ description: Overview of major recent additions to Ibexa DXP documentation.
 
 This page contains recent highlights and notable changes in [[= product_name =]] documentation.
 
+## October 2023
+
+### Commerce
+
+- [Adding context data to cart](https://doc.ibexa.co/en/master/commerce/cart/cart_api/#adding-context-data-to-cart)
+
+### Personalization
+
+- [Post visit and price drop events](https://doc.ibexa.co/en/master/personalization/api_reference/tracking_api/#tracking-api)
+
+### PIM
+
+- [VAT category configuration update](https://doc.ibexa.co/en/master/pim/pim_configuration/#vat-rates)
+- [Payment Method Name Criterion](https://doc.ibexa.co/en/master/search/criteria_reference/payment_method_name_criterion/)
+
+### Product guides
+
+- [User management product guide](https://doc.ibexa.co/en/master/users/user_management_guide/)
+- 
+### Migration
+
+- [Enhance data migration doc](https://doc.ibexa.co/en/master/content_management/data_migration/importing_data/)
+- [Images migration example](https://doc.ibexa.co/en/master/content_management/data_migration/importing_data/#images)
+- [Expression language functions](https://doc.ibexa.co/en/master/content_management/data_migration/importing_data/#built-in-functions)
+
 ## September 2023
+
+### Others
 
 ### Commerce
 
