@@ -37,7 +37,7 @@ class MonitorRecentContentCreationCommand extends Command
         ], [new LoggedAtSortClause(LoggedAtSortClause::DESC)], 0, 10);
 
         foreach ($this->activityLogService->find($query) as $activityLog) {
-            $output->writeln("{$activityLog->getUser()->login} created Content {$activityLog->getObjectId()} at {$activityLog->getLoggedAt()->format(\DateTime::ATOM)}");
+            $output->writeln("[{$activityLog->getLoggedAt()->format(\DateTime::ATOM)}] Content #{$activityLog->getObjectId()} <info>{$activityLog->getObjectName()}</info> created by <comment>{$activityLog->getUser()->login}</comment>");
         }
 
         return Command::SUCCESS;
