@@ -58,6 +58,57 @@ class MyPolicyProvider implements PolicyProviderInterface
 }
 ```
 
+You can also implement `TranslationContainerInterface` to provide all necessary translations for the UI:
+
+``` php
+namespace App\Security;
+
+use Ibexa\Bundle\Core\DependencyInjection\Configuration\ConfigBuilderInterface;
+use Ibexa\Bundle\Core\DependencyInjection\Security\PolicyProvider\PolicyProviderInterface;
+use JMS\TranslationBundle\Model\Message;
+use JMS\TranslationBundle\Translation\TranslationContainerInterface;
+
+class MyPolicyProvider implements PolicyProviderInterface, TranslationContainerInterface
+{
+    // ...
+
+    public static function getTranslationMessages(): array
+    {
+        return [
+            (new Message('role.policy.custom_module', 'forms'))->setDesc('Custom module'),
+            (new Message('role.policy.custom_module.all_functions', 'forms'))->setDesc('Custom module / All functions'),
+            (new Message('role.policy.custom_module.custom_function_1', 'forms'))->setDesc('Custom module / Custom function 1'),
+            (new Message('role.policy.custom_module.custom_function_2', 'forms'))->setDesc('Custom module / Change function 2'),
+        ];
+    }
+}
+```
+
+with translations in `translations/forms.en.xlf`:
+
+```xml
+<trans-unit id="23df829c599a57867d5847e55162dcfaa1da3cf4" resname="role.policy.custom_module">
+  <source>Custom module</source>
+  <target>Custom module</target>
+  <note>key: role.policy.custom_module</note>
+</trans-unit>
+<trans-unit id="c37eb5559cf586e13c02042393250719e0706353" resname="role.policy.custom_module.all_functions">
+  <source>Custom module / All functions</source>
+  <target>Custom module / All functions</target>
+  <note>key: role.policy.custom_module.all_functions</note>
+</trans-unit>
+<trans-unit id="741d047cc8da3fba2ce798289b3262d5879a35e6" resname="role.policy.custom_module.custom_function_1">
+  <source>Custom module / Custom function 1</source>
+  <target>Custom module / Custom function 1</target>
+  <note>key: role.policy.custom_module.custom_function_1</note>
+</trans-unit>
+<trans-unit id="6c7532b517d3606ce055687be108a1e3a9621310" resname="role.policy.custom_module.custom_function_2">
+  <source>Custom module / Change function 2</source>
+  <target>Custom module / Change function 2</target>
+  <note>key: role.policy.custom_module.custom_function_2</note>
+</trans-unit>
+```
+
 ## YamlPolicyProvider
 
 An abstract class based on YAML is provided: `Ibexa\Bundle\Core\DependencyInjection\Security\PolicyProvider\YamlPolicyProvider`.
