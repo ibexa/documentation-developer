@@ -139,14 +139,14 @@ App\Security\Limitation\Mapper\CustomLimitationFormMapper:
 
 If you want to provide human-readable names of the custom Limitation values, you need to implement [`Ibexa\AdminUi\Limitation\LimitationValueMapperInterface`](https://github.com/ibexa/admin-ui/blob/main/src/lib/Limitation/LimitationValueMapperInterface.php).
 
-Then register the service with the `ibexa.admin_ui.limitation.mapper.form` tag and set the `limitationType` attribute to Limitation type's identifier:
+Then register the service with the `ibexa.admin_ui.limitation.mapper.value` tag and set the `limitationType` attribute to Limitation type's identifier:
 
 ```yaml
 App\Security\Limitation\Mapper\CustomLimitationValueMapper:
     arguments:
         # ...
     tags:
-        - { name: 'ibexa.admin_ui.limitation.mapper.form', limitationType: 'Custom' }
+        - { name: 'ibexa.admin_ui.limitation.mapper.value', limitationType: 'Custom' }
 ```
 
 If you want to completely override the way of rendering custom Limitation values in the role view,
