@@ -28,6 +28,7 @@ class MyFeatureEventSubscriber implements EventSubscriberInterface
         $id = (string)$event->getObject()->id;
         $action = $event->getAction();
         $activityLog = $this->activityLogService->build($className, $id, $action);
+        $activityLog->setObjectName($event->getObject()->name);
         $this->activityLogService->save($activityLog);
     }
 }

@@ -27,7 +27,7 @@ class DispatchMyFeatureEventCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $event = new MyFeatureEvent((object) ['id' => 123], 'simulate');
+        $event = new MyFeatureEvent((object) ['id' => 123, 'name' => 'Some Name'], 'simulate');
         $this->eventDispatcher->dispatch($event);
 
         return Command::SUCCESS;

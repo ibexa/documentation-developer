@@ -48,6 +48,12 @@ In the following example, an event subscriber is subscribing to an event dispatc
 
 The returned `CreateActivityLogStruct` is, by default, related to the currently logged-in user.
 
+If the object you log an activity on can become unavailable (like after a `delete` action), you might want to also log the name the object has at log time to be able to display it even when the object becomes unavailable. To add this name, use `CreateActivityLogStruct::setName` before saving the log entry.
+
+!!! caution
+
+    Keep activity logging as light as possible. Do not make database request or heavy computation at logging time. Keep them for activity log list display time.
+
 If your object PHP class is not already covered, you'll have to set up a template to display its log entry.
 
 TODO: FQCN=>identifier map
