@@ -175,7 +175,7 @@ ibexa:
 
     If you skip this part, Limitation values will be rendered using an [`ez_limitation_value_fallback`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/views/themes/admin/limitation/limitation_values.html.twig#L1-L6) block as comma-separated list.
 
-You can also provide translation of the Limitation type identifier by adding an entry to the translation file under the `ezrepoforms_policies` domain.
+You can also provide translation of the Limitation type identifier by adding an entry to the translation file under the `ezplatform_content_forms_policies` domain.
 The key must follow the naming convention: `policy.limitation.identifier.<LIMITATION TYPE>`.
 For example:
 
