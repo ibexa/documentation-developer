@@ -33,8 +33,6 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ## September 2023
 
-### Others
-
 ### Commerce
 
 - Cart
