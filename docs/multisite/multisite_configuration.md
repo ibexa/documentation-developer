@@ -49,6 +49,7 @@ and ideally also separate Varnish/Fastly configuration.
 !!! caution
 
     Different SiteAccesses can only have different `var_dir` if they also have different repositories.
+    Make sure you don't have special characters in your `var_dir` values.
 
 ### Default SiteAccess
 
