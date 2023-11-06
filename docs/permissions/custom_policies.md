@@ -104,6 +104,7 @@ For a `PolicyProvider` to be active, you have to register it in the class `src/K
 namespace App;
 
 use App\Security\MyPolicyProvider;
+use Ibexa\Bundle\Core\DependencyInjection\IbexaCoreExtension;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\HttpKernel\Kernel as BaseKernel;
 
@@ -116,9 +117,10 @@ class Kernel extends BaseKernel
         // ...
         
         // Retrieve "ibexa" container extension
-        $eZExtension = $container->getExtension('ibexa');
+        /** @var IbexaCoreExtension $ibexaExtension */
+        $ibexaExtension = $container->getExtension('ibexa');
         // Add the policy provider
-        $eZExtension->addPolicyProvider(new MyPolicyProvider());
+        $ibexaExtension->addPolicyProvider(new MyPolicyProvider());
     }
 }
 ```
