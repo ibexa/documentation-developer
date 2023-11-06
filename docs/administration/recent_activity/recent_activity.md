@@ -54,7 +54,10 @@ If the object you log an activity on can become unavailable (like after a `delet
 
     Keep activity logging as light as possible. Do not make database request or heavy computation at logging time. Keep them for activity log list display time.
 
-If your object PHP class is not already covered, you'll have to set up a template to display its log entry.
+If your object PHP class is not already covered, you'll have to
+
+* set up a template to display its log entry,
+* implement a `PostActivityListLoadEvent` subscriber if you need to load the object.
 
 TODO: FQCN=>identifier map
 
@@ -68,8 +71,20 @@ Your template can extend `@ibexadesign/activity_log/ui/default.html.twig` and ju
 
 Follow an example of common template working whatever the object class is. It is not very user-friendly but can be used at development time as a fallback for classes not yet mapped.
 
-```twig
+``` twig
 [[= include_file('code_samples/recent_activity/templates/themes/admin/activity_log/ui/common.html.twig') =]]
+```
+
+And here is an example of a `PostActivityListLoadEvent` subscriber which load the related object when it can, and attach it to the log entry:
+
+``` php
+[[= include_file('code_samples/recent_activity/src/EventSubscriber/MyFeaturePostActivityListLoadEventSubscriber.php') =]]
+```
+
+Thanks to this subscriber, the related object is now available at display time:
+
+``` twig
+[[= include_file('code_samples/recent_activity/templates/themes/admin/activity_log/ui/my_feature/simulate.html.twig') =]]
 ```
 
 ## REST API
