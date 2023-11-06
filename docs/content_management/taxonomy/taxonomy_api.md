@@ -32,7 +32,7 @@ To know how many entries there is, use `TaxonomyServiceInterface::countAllEntrie
 [[= include_file('code_samples/api/public_php_api/src/Command/TaxonomyCommand.php', 41, 42) =]]
 ```
 
-To get all children of a specific taxonomy entry, use `TaxonomyServiceInterface::loadEntryChildren()`, 
+To get all children of a specific taxonomy entry, use `TaxonomyServiceInterface::loadEntryChildren()`,
 provide it with the entry object, and optionally specify the limit of results and their offset.
 The default limit is 30:
 
