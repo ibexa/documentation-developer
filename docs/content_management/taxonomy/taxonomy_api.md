@@ -10,7 +10,7 @@ To manage taxonomies, use `Ibexa\Contracts\Taxonomy\Service\TaxonomyServiceInter
 
 To get a single taxonomy entry, you can use `TaxonomyServiceInterface::loadEntryById()`,
 and provide it with the numerical entry ID.
-Or pass entry identifier (with optionally a taxonomy),
+Or pass entry identifier (with optionally a taxonomy identifier),
 and use `TaxonomyServiceInterface::loadEntryByIdentifier()`:
 
 ``` php
