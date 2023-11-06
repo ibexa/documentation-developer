@@ -151,7 +151,7 @@ App\Security\Limitation\Mapper\CustomLimitationValueMapper:
 
 If you want to completely override the way of rendering custom Limitation values in the role view,
 create a Twig template containing block definition which follows the naming convention:
-`ez_limitation_<LIMITATION TYPE>_value`. For example:
+`ez_limitation_<LIMITATION TYPE>_value`. For example, create the template `templates/themes/admin/limitation/custom_limitation_value.html.twig`:
 
 ``` html+twig
 {# This file contains block definition which is used to render custom Limitation values #}
@@ -167,7 +167,7 @@ ibexa:
     system:
         default:
             limitation_value_templates:
-                - { template: limitation/custom_limitation_value.html.twig, priority: 0 }
+                - { template: '@ibexadesign/limitation/custom_limitation_value.html.twig', priority: 0 }
 
 ```
 
