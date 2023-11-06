@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace App\src\Command;
+namespace App\Command;
 
 use Ibexa\Contracts\ActivityLog\ActivityLogServiceInterface;
 use Ibexa\Contracts\ActivityLog\Values\ActivityLog\Criterion;
