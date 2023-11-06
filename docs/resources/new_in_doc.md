@@ -24,7 +24,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 ### Product guides
 
 - [User management product guide](https://doc.ibexa.co/en/master/users/user_management_guide/)
-- 
+
 ### Migration
 
 - [Enhance data migration doc](https://doc.ibexa.co/en/master/content_management/data_migration/importing_data/)
