@@ -8,7 +8,7 @@ When you extend the Back Office, you can use base Twig templates for commonly us
 
 The available templates are:
 
-- `@ibexadesign/ui/component/table/alert.html.twig`
+- `@ibexadesign/ui/component/alert/alert.html.twig`
 - `@ibexadesign/ui/component/table/table.html.twig`
 - `@ibexadesign/ui/component/tab/tabs.html.twig`
 
