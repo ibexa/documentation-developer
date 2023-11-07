@@ -125,7 +125,7 @@ To modify the parameters of an existing menu item, use the `setExtra()` method.
 ### Custom icons
 
 You can use the `extras.icon` parameter to define an icon for a menu item.
-For example, the following code changes the default icon for the "Create" button in content view:
+For example, the following code changes the default icon for the **Create content** button in content view:
 
 ``` php
 [[= include_file('code_samples/back_office/menu/menu_item/src/EventSubscriber/MyMenuSubscriber.php', 46, 48) =]]

@@ -4,7 +4,7 @@ description: Page blocks can contain multiple attributes, of both built-in and c
 
 # Page block attributes
 
-A block has attributes that the editor fills in when adding th block to a Page.
+A block has attributes that the editor fills in when adding the block to a Page.
 
 [[% include 'snippets/page_block_cache_clear.md' %]]
 
@@ -37,7 +37,7 @@ The following attribute types are available:
 |`locationlist`|Location selection|-|
 |`contenttypelist`|List of Content Types|-|
 |`schedule_events`,</br>`schedule_snapshots`,</br>`schedule_initial_items`,</br>`schedule_slots`,</br>`schedule_loaded_snapshot`|Used in the Content Scheduler block|-|
-|`nested_attribute`|Defines a group of attributes in a block.|`attributes` - a list of attributes in the group. The attributes in the group are [configured](#page-block-attributes) as regular attributes. </br>`multiple`, when set to true. New groups are added dynamically with the **Add field group** button.|
+|`nested_attribute`|Defines a group of attributes in a block.|`attributes` - a list of attributes in the group. The attributes in the group are [configured](#page-block-attributes) as regular attributes. </br>`multiple`, when set to true. New groups are added dynamically with the **+ Add** button.|
 
 When you define attributes, you can omit most keys as long as you use simple types that don't require additional options:
 
