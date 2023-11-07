@@ -19,7 +19,7 @@ and use `TaxonomyServiceInterface::loadEntryByIdentifier()`:
 
 !!! note
 
-    A taxonomy entry identifier is unique per taxonomy. If you have [several taxonomies](taxonomy.md#customize-taxonomy-structure), you can increase code readability by always pass the taxonomy identifier even when it is the default one.
+    A taxonomy entry identifier is unique per taxonomy. If you have [several taxonomies](taxonomy.md#customize-taxonomy-structure), you can increase code readability by always passing the taxonomy identifier even when it's the default one.
     ``` php
     $springs[] = $this->taxonomyService->loadEntryByIdentifier('spring', 'tags');
     $springs[] = $this->taxonomyService->loadEntryByIdentifier('spring', 'events');
