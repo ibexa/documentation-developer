@@ -10,6 +10,7 @@ services:
             $eventType: '@App\Calendar\Holidays\EventType'
 
     App\Calendar\Holidays\EventSource:
+        class: Ibexa\Calendar\EventSource\InMemoryEventSource
         factory: [ '@App\Calendar\Holidays\EventSourceFactory', 'createEventSource' ]
         tags:
             - { name: ibexa.calendar.event.source }
