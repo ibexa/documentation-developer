@@ -26,7 +26,7 @@ The alert component has the following properties:
 - `subtitle` - displays subtitle content
 - `show_subtitle_below` - default set to `false`, the subtitle is displayed next to the title
 - `extra_content` - use to add custom elements, such as buttons or additional text
-- `show_close_btn` - by default set to `false`, if set to `true`, the "Close" button is displayed but requires additional JavaScript configuration on your side to work
+- `show_close_btn` - by default set to `false`, if set to `true`, the **Close** button is displayed but requires additional JavaScript configuration on your side to work
 - `is_toast` - default set to `false`, applies the toast design
 - `class` - additional CSS classes
 - `attributes` - additional HTML attributes

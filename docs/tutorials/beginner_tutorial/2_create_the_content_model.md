@@ -56,7 +56,7 @@ Then create all Fields with the following information: 
 | Map location | Ending point     | `ending_point`   | yes       | yes        | no           |
 | Integer      | Length           | `length`         | yes       | yes        | no           |
 
-Confirm the creation of the Content Type by selecting **Save and close**.
+Confirm the creation of the Content Type by clicking **Save and close**.
 
 ## Create Rides
 
