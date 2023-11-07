@@ -39,14 +39,14 @@ class TaxonomyCommand extends Command
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
 
-        $allEntries = $this->taxonomyService->loadAllEntries('tags', 30, 0);
+        $allEntries = $this->taxonomyService->loadAllEntries(null, 50);
 
         $entry = $this->taxonomyService->loadEntryByIdentifier('desks');
 
         $output->writeln($entry->name . ' with parent ' . $entry->parent->name);
 
         // Loads first 10 children
-        $entryChildren = $this->taxonomyService->loadEntryChildren($entry, 10, 0);
+        $entryChildren = $this->taxonomyService->loadEntryChildren($entry, 10);
 
         foreach ($entryChildren as $child) {
             $output->writeln($child->name);
