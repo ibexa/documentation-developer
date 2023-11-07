@@ -3,11 +3,23 @@
         "identifier": "TitleView",
         "Query": {
             "Filter": {
-                "ContentTypeIdentifierCriterion": "image",
-                "SectionIdentifierCriterion": "media",
+                "FullTextCriterion": "Platform",
+                "OR": {
+                    "SubtreeCriterion": "/1/2/",
+                    "LocationIdCriterion": 2
+                },
+                "AND": {
+                    "OR": {
+                        "ContentTypeIdCriterion": 1,
+                        "ContentTypeIdentifierCriterion": [
+                            "landing_page",
+                            "article"
+                        ]
+                    }
+                },
                 "DateMetadataCriterion": {
                     "Target": "modified",
-                    "Value": 1675681020,
+                    "Value": 1033567890,
                     "Operator": "gte"
                 }
             },

@@ -1,0 +1,40 @@
+{
+    "ViewInput": {
+        "identifier": "TitleView",
+        "LocationQuery": {
+            "Filter": {
+                "FullTextCriterion": "Platform",
+                "OR": {
+                    "SubtreeCriterion": "/1/2/",
+                    "LocationIdCriterion": 2
+                },
+                "AND": {
+                    "OR": {
+                        "ContentTypeIdCriterion": 1,
+                        "ContentTypeIdentifierCriterion": [
+                            "landing_page",
+                            "article"
+                        ]
+                    }
+                },
+                "DateMetadataCriterion": {
+                    "Target": "modified",
+                    "Value": 1033567890,
+                    "Operator": "gte"
+                }
+            },
+            "limit": 10,
+            "offset": 0,
+            "SortClauses": {
+                "ContentName": "ascending"
+            },
+            "Aggregations": [
+                {
+                    "ContentTypeTermAggregation": {
+                        "name": "some name"
+                    }
+                }
+            ]
+        }
+    }
+}

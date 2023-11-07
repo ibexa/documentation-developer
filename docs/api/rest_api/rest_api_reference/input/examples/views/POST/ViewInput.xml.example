@@ -3,11 +3,21 @@
   <identifier>TitleView</identifier>
   <Query>
     <Filter>
-      <ContentTypeIdentifierCriterion>image</ContentTypeIdentifierCriterion>
-      <SectionIdentifierCriterion>media</SectionIdentifierCriterion>
+      <FullTextCriterion>Platform</FullTextCriterion>
+      <AND>
+        <OR>
+          <SubtreeCriterion>/1/2/</SubtreeCriterion>
+          <LocationIdCriterion>2</LocationIdCriterion>
+        </OR>
+        <OR>
+          <ContentTypeIdCriterion>1</ContentTypeIdCriterion>
+          <ContentTypeIdentifierCriterion>landing_page</ContentTypeIdentifierCriterion>
+          <ContentTypeIdentifierCriterion>article</ContentTypeIdentifierCriterion>
+        </OR>
+      </AND>
       <DateMetadataCriterion>
         <Target>modified</Target>
-        <Value>1675681020</Value>
+        <Value>1033567890</Value>
         <Operator>gte</Operator>
       </DateMetadataCriterion>
     </Filter>
