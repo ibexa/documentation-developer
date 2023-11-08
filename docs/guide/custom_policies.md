@@ -185,7 +185,7 @@ Then register the service with the `ez.limitation.valueMapper` tag and set the `
 ```
 
 When a value mapper exists for a Limitation, the rendering uses a Twig block named `ez_limitation_<lower_case_identifier>_value` where `<lower_case_identifier>` is the Limitation identifier in a lower case.
-In this example, block name is `ez_limitation_customlimitation_value` as the identifier is `CustomLimitation`.
+In this example, `ez_limitation_customlimitation_value` is the block name, and `CustomLimitation` is the identifier.
 
 This template receive a `values` variable which is the return of the `mapLimitationValue` function from the corresponding value mapper.
 
