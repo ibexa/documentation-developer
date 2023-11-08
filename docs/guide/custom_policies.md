@@ -106,9 +106,9 @@ For a `PolicyProvider` to be active, you have to register it in the class `src/K
 
 For a custom module function, existing limitation types can be used or custom ones can be created.
 
-The base of a custom limitation is a class to store values for the usage of this limitation in roles, and a class to implement the limitation's logic.
+The base of a custom limitation is a class to store values related to the usage of this limitation in roles, and another class to implement the limitation's logic.
 
-The value class extends `eZ\Publish\API\Repository\Values\User\Limitation` and says for which limitation it's used:
+The value class extends `eZ\Publish\API\Repository\Values\User\Limitation` and specifies the limitation for which it's used:
 
 ``` php
 [[= include_file('code_samples/back_office/limitation/src/Security/Limitation/CustomLimitationValue.php') =]]
@@ -116,14 +116,14 @@ The value class extends `eZ\Publish\API\Repository\Values\User\Limitation` and s
 
 The type class implements `eZ\Publish\SPI\Limitation\Type`.
 
-- `accept`, `validate` and `buildValue` implement the value class usage logic.
-- `evaluate` challenges a limitation value against the current user, the subject object and other context objects to return if the limitation is satisfied or not. `evaluate` is, among others, used by `PermissionResolver::canUser` (to check if a user having access to a function can use it in its limitations) and `PermissionResolver::lookupLimitations`.
+- `accept`, `validate` and `buildValue` implement the logic for using the value class.
+- `evaluate` assesses a limitation value against the current user, the subject object, and other context objects to determine if the limitation is satisfied or not. `evaluate` is used, among others places, by `PermissionResolver::canUser` (to check if a user with access to a function can use it in its limitations) and `PermissionResolver::lookupLimitations`.
 
 ```php
 [[= include_file('code_samples/back_office/limitation/src/Security/Limitation/CustomLimitationType.php') =]]
 ```
 
-The type class is set as a service tagged `ezpublish.limitationType` with an alias to identify it, and to link it to the value.
+The type class is registered as a service tagged with `ezpublish.limitationType` and given an alias to identify it, as well as to link it to the value.
 
 ``` yaml
 services:
@@ -138,7 +138,7 @@ services:
 To provide support for editing custom policies in the Back Office, you need to implement [`EzSystems\EzPlatformAdminUi\Limitation\LimitationFormMapperInterface`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/lib/Limitation/LimitationFormMapperInterface.php).
 
 - `mapLimitationForm` adds the limitation field as a child to a provided Symfony form.
-- `getFormTemplate` returns the path to the template to use for rendering the limitation form. Here it use [`form_label`]([[= symfony_doc =]]/form/form_customization.html#reference-forms-twig-label) and [`form_widget`]([[= symfony_doc =]]/form/form_customization.html#reference-forms-twig-widget) to do so.
+- `getFormTemplate` returns the path to the template to use for rendering the limitation form. Here it uses [`form_label`]([[= symfony_doc =]]/form/form_customization.html#reference-forms-twig-label) and [`form_widget`]([[= symfony_doc =]]/form/form_customization.html#reference-forms-twig-widget) to do so.
 - `filterLimitationValues` is triggered when the form is submitted and can manipulate the limitation values, such as normalizing them.
 
 ``` php
@@ -161,18 +161,18 @@ Next, register the service with the `ez.limitation.formMapper` tag and set the `
 
 Some abstract Limitation type form mapper classes are provided to help implementing common complex Limitations.
 
-- `MultipleSelectionBasedMapper` is mapper to build form for Limitation based on checkbox list where multiple items can be chosen. For example, it's used to build forms for [Content Type Limitation](limitation_reference.md#content-type-limitation), [Language Limitation](limitation_reference.md#language-limitation) or [Section Limitation](limitation_reference.md#section-limitation).
-- `UDWBasedMapper` is to build Limitation form where a Content/Location must be selected. For example, it's used by the [Subtree Limitation](limitation_reference.md#subtree-of-location-limitation) form.
+- `MultipleSelectionBasedMapper` is a mapper used to build forms for Limitation based on checkbox lists, where multiple items can be chosen. For example, it's used to build forms for [Content Type Limitation](limitation_reference.md#content-type-limitation), [Language Limitation](limitation_reference.md#language-limitation) or [Section Limitation](limitation_reference.md#section-limitation).
+- `UDWBasedMapper` is used to build Limitation form where a Content/Location must be selected. For example, it's used by the [Subtree Limitation](limitation_reference.md#subtree-of-location-limitation) form.
 
 #### Value mapper
 
 By default, without a value mapper, the Limitation value is rendered using the block `ez_limitation_value_fallback` of the template [`vendor/ezsystems/ezplatform-admin-ui/src/bundle/Resources/views/themes/admin/limitation/limitation_values.html.twig`](https://github.com/ezsystems/ezplatform-admin-ui/blob/2.3/src/bundle/Resources/views/themes/admin/limitation/limitation_values.html.twig#L1-L6).
 
-To customize the rendering, a value mapper eventually transforms the Limitation value and send it to a custom template.
+To customize the rendering, a value mapper eventually transforms the Limitation value and sends it to a custom template.
 
 The value mapper implements [`EzSystems\EzPlatformAdminUi\Limitation\LimitationValueMapperInterface`](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/lib/Limitation/LimitationValueMapperInterface.php).
 
-Its `mapLimitationValue` function returns the Limitation value transformed for the needs of the template.
+Its `mapLimitationValue` function returns the Limitation value transformed to meet the requirements of the template.
 
 ``` php
 [[= include_file('code_samples/back_office/limitation/src/Security/Limitation/Mapper/CustomLimitationValueMapper.php') =]]
@@ -184,7 +184,7 @@ Then register the service with the `ez.limitation.valueMapper` tag and set the `
 [[= include_file('code_samples/back_office/limitation/config/append_to_services.yaml', 9, 12) =]]
 ```
 
-When a value mapper exists for a Limitation, the rendering uses a Twig block named `ez_limitation_<lower_case_identifier>_value` where `<lower_case_identifier>` is the Limitation identifier in lower case.
+When a value mapper exists for a Limitation, the rendering uses a Twig block named `ez_limitation_<lower_case_identifier>_value` where `<lower_case_identifier>` is the Limitation identifier in a lower case.
 In this example, block name is `ez_limitation_customlimitation_value` as the identifier is `CustomLimitation`.
 
 This template receive a `values` variable which is the return of the `mapLimitationValue` function from the corresponding value mapper.
@@ -207,7 +207,8 @@ Provide translations for your custom limitation form in the `ezplatform_content_
 
 ### Checking user custom Limitation
 
-To check if current user has this custom limitation set to true from a custom controller:
+To check if the current user has this custom limitation set to true from a custom controller:
+
 ```php
 <?php declare(strict_types=1);
 
