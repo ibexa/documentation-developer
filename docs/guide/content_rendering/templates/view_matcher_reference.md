@@ -25,6 +25,8 @@ You can use the following matchers to [match content views](template_configurati
 
 !!! tip
 
+    Each matcher has a scalar value or an array of scalar values. When an array is passed, it matches on one of its values.
+
     You can also create [custom view matchers](custom_view_matcher.md).
 
 ## Id\Content
