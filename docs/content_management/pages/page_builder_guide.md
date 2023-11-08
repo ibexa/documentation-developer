@@ -149,6 +149,23 @@ Available settings are:
 - Refresh - refreshes preview of the block
 - Delete - deletes existing block
 
+#### Focus mode
+
+While configuring blocks that include Rich Text section, for example, Text block, you can switch to focus mode.
+
+Focus mode expands the workspace to full screen and shows only editor toolbar.
+It's helpful when you need to work with longer texts that take more space and when you want to focus your attention on the editing content.
+
+![Focus mode](focus_mode.png)
+
+To access focus mode, click **Focus mode** on the right side above the workspace.
+
+![Access focus mode](access_focus_mode_PB.png)
+
+To exit focus mode, click **Default mode** or press Esc on the keyboard.
+
+![Exit focus mode](exit_focus_mode.png)
+
 #### Schedule content
 
 Page Builder comes with a Scheduler, it allows you to schedule content appearance.
