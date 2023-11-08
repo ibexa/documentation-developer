@@ -1,5 +1,5 @@
 ---
-description: Data customization in [[= product_name_cdp =]].
+description: Data customization in Ibexa CDP.
 ---
 
 # Data customization
@@ -9,7 +9,11 @@ By default, custom Field Types have basic export functionality. It casts their `
 ​
 ## Exporting Field Types
 ​
-Field Types are exported with metadata, for example, ID, Field Definition name, type, value. You can also provide your own  `\Ibexa\Contracts\Cdp\Export\Content\FieldProcessorInterface` instance to extend metadata. Provided implementation has to be defined as a service and tagged with `ibexa.cdp.export.content.field_processor`. Additionally, you can specify `priority` to override default behavior. All system Field Processors use `-100` priority, and any higher priority value overrides them.
+Field Types are exported with metadata, for example, ID, Field Definition name, type, value. 
+You can also provide your own  `\Ibexa\Contracts\Cdp\Export\Content\FieldProcessorInterface` instance to extend metadata. 
+Provided implementation has to be defined as a service and tagged with `ibexa.cdp.export.content.field_processor`. 
+Additionally, you can specify `priority` to override default behavior. 
+All system Field Processors use `-100` priority, and any higher priority value overrides them.
 
 The interface is plain and has two methods that you need to provide:
 
@@ -58,16 +62,17 @@ custom_fieldtype.cdp.export.field_processor:
 ## Exporting Field Type values
 ​
 To customize export of Field Type values, provide your own `\Ibexa\Contracts\Cdp\Export\Content\FieldValueProcessorInterface` instance.
-YNew implementation has to be registered as a service manually or by using autoconfiguration. The service has to use the tag `ibexa.cdp.export.content.field_value_processor`, you can also provide `priority` property to override other Field Value Processors.
+New implementation has to be registered as a service manually or by using autoconfiguration. 
+The service has to use the tag `ibexa.cdp.export.content.field_value_processor`, you can also provide `priority` property to override other Field Value Processors.
 ​
 * `FieldValueProcessorInterface::process` - takes `Field` instance and returns an `array` with scalar values that are applied to export data payload.
-If the Field Type returns single value, provide `value` key in the array. You can return multiple values.
+If the Field Type returns single value, provided `value` key in the array. You can return multiple values.
 
 * `FieldValueProcessorInterface::supports` - decides whether `FieldValueProcessor` can work with the `Field`.
 ​
 ### Built in Field Value Processors for custom Field Types
 ​
-There are few system Field Value Processors that either work by default or can be registered for custom Field Types:
+Several system Field Value Processors either work by default or can be registered for custom Field Types:
 ​
 #### `\Ibexa\Cdp\Export\Content\FieldValueProcessor\CastToStringFieldValueProcessor`
 ​

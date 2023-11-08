@@ -1,5 +1,5 @@
 ---
-description: Data export schedule in [[= product_name_cdp =]].
+description: Data export schedule in Ibexa CDP.
 ---
 
 # CDP data export schedule
@@ -40,7 +40,7 @@ Under `schedule` setting you can find separate sections for exporting User, Cont
 Structure of each section is exactly the same and includes `interval` and `options` elements:
 
 - **Interval** - sets the frequency of the command invoke, for example, '*/30 * * * *' - every 30 minutes, '0 */12 * * *' - every 12 hours.
-It uses standard `crontab` format (see: https://crontab.guru/examples.html).
+It uses standard `crontab` format, see [examples](https://crontab.guru/examples.html).
 - **Options** - allows you to add arguments that have to be passed to the export command.
 
 This configuration allows you to provide multiple export workflows with parameters. It's important, because each type of content/product must have its own parameters on the CDP side, where each has a different Stream ID key and different required values, which are configured per data source.

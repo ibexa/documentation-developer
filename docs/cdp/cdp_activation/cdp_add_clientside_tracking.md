@@ -1,5 +1,5 @@
 ---
-description: Client-side Tracking in [[= product_name_cdp =]].
+description: Client-side Tracking in Ibexa CDP.
 ---
 
 # Add Client-side Tracking
