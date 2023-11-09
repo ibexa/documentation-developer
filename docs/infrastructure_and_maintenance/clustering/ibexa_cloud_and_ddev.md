@@ -11,13 +11,13 @@ Two ways are available to run an [[= product_name_cloud =]] project locally with
 
 !!! note
 
-    The following examples will use [Ibexa Cloud CLI](https://cli.ibexa.co/)
+    The following examples will use [Ibexa Cloud CLI (`ibexa_cloud`)](https://cli.ibexa.co/).
 
 ## With the `ddev-platformsh` add-on
 
 To configure the [`ddev/ddev-platformsh` add-on](https://github.com/ddev/ddev-platformsh), you need a [Platform.sh API Token](https://docs.platform.sh/administration/cli/api-tokens.html).
 
-The `ddev/ddev-platformsh` add-on configures the document root, the PHP version, the database and the cache pool according to the [[= product_name_cloud =]] configuration. About the search engine, the add-on can configure Elasticsearch but can't configure Solr. If you use Solr on [[= product_name_cloud =]] and want to add it to your DDEV stack, see [clustering with DDEV and `ibexa/ddev-solr` add-on](clustering_with_ddev.md#solr).
+The `ddev/ddev-platformsh` add-on configures the document root, the PHP version, the database, and the cache pool according to the [[= product_name_cloud =]] configuration. About the search engine, the add-on can configure Elasticsearch but can't configure Solr. If you use Solr on [[= product_name_cloud =]] and want to add it to your DDEV stack, see [clustering with DDEV and `ibexa/ddev-solr` add-on](clustering_with_ddev.md#solr).
 
 `COMPOSER_AUTH` from Platform.sh can't be used, because JSON commas are incorrectly interpreted by `--web-environment-add`, which sees them as multiple variable separators.
 But the variable must exist for Platform.sh `hooks` scripts to work. To use an `auth.json` file for this purpose, see [Using `auth.json`](install_with_ddev.md#using-authjson).
