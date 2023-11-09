@@ -39,7 +39,7 @@ Configuration under `hooks` defines the process of building and deploying your p
 !!! note
 
     During the build phase (defined in the `hooks.build` configuration), files in the project have read/write permissions (can be modified).
-    
+
     During deployment (defined in the `hooks.deploy` configuration), all files in the project are read-only.
 
 ### Additional services
@@ -55,7 +55,7 @@ under the `relationship` key in `.platform.app.yaml` as well.
 
 ## 2. Create an account
 
-Log in to https://cloud.ibexa.co or create an account if you do not have one yet.
+Log in to https://cloud.ibexa.co or create an account if you don't have one yet.
 
 Create a project and select its region.
 
@@ -73,7 +73,7 @@ Add your Composer authentication token to the project before pushing it to Platf
 You can set this token as an environment variable.
 
 When you do, make sure the **Visible during runtime** box in Platform.sh configuration is unchecked.
-This ensures that the token is not exposed.
+This ensures that the token isn't exposed.
 
 ![Setting token to be invisible during runtime](psh_addvariable.png)
 
@@ -95,4 +95,4 @@ git push -u <platform.sh-remote> master
 
     To install Ibexa Cloud CLI, follow https://cli.ibexa.co/ "Installation instructions"
 
-    If you have previously set up an alias to use Platform.sh CLI with Ibexa Cloud, it is outdated. Please, remove the alias and install Ibexa Cloud CLI instead.  
+    If you have previously set up an alias to use Platform.sh CLI with Ibexa Cloud, it is outdated. Please, remove the alias and install Ibexa Cloud CLI instead.
