@@ -11,13 +11,7 @@ Two ways are available to run an [[= product_name_cloud =]] project locally with
 
 !!! note
 
-    The following examples will use [Platform.sh CLI](https://docs.platform.sh/administration/cli.html) set up for Ibexa Cloud
-    thanks to the following dedicated alias `ibexa_cloud`:
-    ```bash
-    alias ibexa_cloud="PLATFORMSH_CLI_SESSION_ID=ibexa_cloud \
-        PLATFORMSH_CLI_API_URL=https://api.cloud.ibexa.co \
-        platform"
-    ```
+    The following examples will use [Ibexa Cloud CLI](https://cli.ibexa.co/)
 
 ## With the `ddev-platformsh` add-on
 
