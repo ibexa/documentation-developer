@@ -412,9 +412,6 @@ Typically, you can add a `gw` to the hostname and use nslookup to find it.
 You can also use the [Ibexa Cloud CLI](https://cli.ibexa.co/) (which has same command as the Platform.sh CLI) to find [the endpoint](https://docs.platform.sh/domains/steps/dns.html):
 
 ```bash
-    # Install ibexa_cloud CLI if it not already exists:
-    curl -sfS https://cli.ibexa.co/installer | php
-    # Get the endpoint:
     ibexa_cloud environment:info edge_hostname
 ```
 
