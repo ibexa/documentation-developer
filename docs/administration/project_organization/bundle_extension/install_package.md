@@ -1,7 +1,9 @@
+---
+description: Install created bundle extension into Ibexa DXP.
+---
+
 # Install bundle
  
-
-
 ## Add repository to composer
 
 To be able to install the bundle to your [[= product_name_base =]] project, first, update the requirements.
@@ -33,6 +35,7 @@ Next, add the repository to the `composer.json`:
     }
 ```
 
+## Install bundle into application
 
 On your [[= product_name_base =]] root project run:
  
@@ -71,4 +74,7 @@ The newly installed bundle should be visible in the **Composer** tab in **Admin*
 
 ## Add currency exchange page block
 
+Go to Page Builder edit mode. The Currency exchange block should be visible and available in the **Elements** panel.
 
+
+![Currency exchange page block](bundle_page_block.png)

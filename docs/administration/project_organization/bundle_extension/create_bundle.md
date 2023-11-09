@@ -1,13 +1,12 @@
 ---
-description: All code contributions to Ibexa DXP must follow package and bundle structure and namespace standards.
+description: Create a bundle extension for Ibexa DXP.
 ---
 
 # Create bundle
 
-The following section explains the whole process from creating a bundle from scratch to uploading it on the [packagist.org](https://packagist.org/) website.
-
-A bundle is modular structure that contain related functionality and can be integrated into an application.
-[Follow specific strucutre](package_structure.md/#package-and-bundle-structure-and-namespaces).
+A bundle is a reusable [[= product_name =]] extension that can be integrated.
+To ensure full compatibility, follow the structure specifications described in the 
+[package strucutre](package_structure.md/#package-and-bundle-structure-and-namespaces) section.
 
 The bundle extension described here is called `AcmeCurrencyExchangeRate` and enables a new page block which displays a currency exchange rate on your site.
 
@@ -70,20 +69,23 @@ php bin/ibexa-bundle-generator currency-exchange-rate currency-exchange-rate-di
 
 ## Use GitHub template
 
-https://github.com/ibexa/bundle-template
+1\. Go to the [[= product_name_base =]] [GitHub repository](https://github.com/ibexa/bundle-template).
 
-Directory structure for AcmeCurrencyExchangeRate
-podac url
-button use template
-<!-- ekran gdzie podac parametry dla repozytorium -->
-<!-- [dodac strukture katalogu, screen albo diagram] -->
+2\. In the upper-right corner, click the **Use this template** button, and select **Create a new repository**.
+
+3\. Provide repository name. Optionally, you can add description for the bundle.
+Next, click **Create repository**.
+
+![GitHub template](bundle_github_template.png)
 
 
 Once the repository is created, a workflow starts which generates a bundle structure.
-- Vendor namespace is generated from the orgnization name: github/github user name.
+
+Vendor namespace is generated from the orgnization name: github/github username.
 Package and bundle name inherits from repository name.
 
-<!-- screenshot z rezultatem -->
+![GitHub template](bundle_github_structure.png)
+
 
 ### Bundle directory structure
 
@@ -122,16 +124,14 @@ Generated bundle consists of the following structure:
 Where:
 
 
-- LICENSE - a license file, GPL v2 by default
-- README.md - a readme file with bundle description, its version and install instructions
+- `LICENSE` - a license file, GPL v2 by default
+- `README.md` - a readme file with bundle description, its version and install instructions
 - `composer.json` - a package definition
 - `deptrac.yaml` - a tool for static code analysis for PHP, checks the coherence of package architecture, for more information see [deptrac](https://qossmic.github.io/deptrac/) documentation.
 - `package.json` - frontend dependencies, for more information, see [about packages and modules](https://docs.npmjs.com/about-packages-and-modules).
 - `phpstan.neon` - phpstan configuration, a tool for static code analysis for PHP, scans, and evaluates codebase to find errors, and bugs, for more information, see the [documentation](https://phpstan.org/user-guide/getting-started).
 - `phpunit.xml.dist` - config for phpunit, unit and integration tests - see [documentation](https://phpunit.de/getting-started/phpunit-10.html).
 - src and tests follow the base catalog structure, according to [package structure](https://phpunit.de/getting-started/phpunit-10.html) docs.
-<!-- - `src/` - delivers a default configuration, how to extract translation from code, generate xlif files,
-          contains classes related to the bundle logic -->
 
 To fully use the possibilities of the bundle, get familiar with the structure:
 
@@ -191,7 +191,7 @@ For more information, see [bundles](../../../administration/project_organization
 
 !!! note
 
-  Make sure you follow naming convention to ensure clarity.
+    Make sure you follow naming convention to ensure clarity.
 
 In the `/src` create a ACMECurrencyExchangeRateBundle class:
 
