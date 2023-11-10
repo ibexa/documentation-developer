@@ -296,7 +296,7 @@ The following examples search for `article` and `news` typed Content items every
 
     ``` http
     POST /views HTTP/1.1
-    Content-Type: application/vnd.ibexa.api.ViewInput+json
+    Content-Type: application/vnd.ibexa.api.ViewInput+json; version=1.1
     ```
 
     ``` json
