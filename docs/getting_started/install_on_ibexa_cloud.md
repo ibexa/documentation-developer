@@ -85,6 +85,12 @@ When you are done with configuration, push your project to the Platform.sh remot
 git push -u <platform.sh-remote> master
 ```
 
+You can also use the [Ibexa Cloud CLI](https://cli.ibexa.co/) to push your code.
+
+``` bash
+ibexa_cloud push master
+```
+
 !!! note
 
     `master` is the Platform.sh name for the production branch.
