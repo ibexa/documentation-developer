@@ -1,3 +1,4 @@
+services:
 
     App\Security\Limitation\CustomLimitationType:
         tags:

@@ -128,7 +128,7 @@ The type class is set as a service tagged `ibexa.permissions.limitation_type` wi
 ``` yaml
 services:
     # …
-[[= include_file('code_samples/back_office/limitation/config/append_to_services.yaml', 1, 4) =]]
+[[= include_file('code_samples/back_office/limitation/config/append_to_services.yaml', 2, 5) =]]
 ```
 
 ### Custom Limitation type form
@@ -154,7 +154,7 @@ And provide a template corresponding to `getFormTemplate`.
 Next, register the service with the `ibexa.admin_ui.limitation.mapper.form` tag and set the `limitationType` attribute to the Limitation type's identifier:
 
 ``` yaml
-[[= include_file('code_samples/back_office/limitation/config/append_to_services.yaml', 5, 8) =]]
+[[= include_file('code_samples/back_office/limitation/config/append_to_services.yaml', 6, 9) =]]
 ```
 
 #### Notable form mappers to extend
@@ -181,7 +181,7 @@ Its `mapLimitationValue` function returns the Limitation value transformed for t
 Then register the service with the `ibexa.admin_ui.limitation.mapper.value` tag and set the `limitationType` attribute to Limitation type's identifier:
 
 ``` yaml
-[[= include_file('code_samples/back_office/limitation/config/append_to_services.yaml', 9, 12) =]]
+[[= include_file('code_samples/back_office/limitation/config/append_to_services.yaml', 10, 13) =]]
 ```
 
 When a value mapper exists for a Limitation, the rendering uses a Twig block named `ez_limitation_<lower_case_identifier>_value` where `<lower_case_identifier>` is the Limitation identifier in lower case.
