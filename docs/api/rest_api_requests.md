@@ -282,7 +282,7 @@ The following examples search for `article` and `news` typed Content items every
 === "JSON; 1.1"
 
     ```
-    Content-Type: application/vnd.ez.api.ViewInput+json
+    Content-Type: application/vnd.ez.api.ViewInput+json; version=1.1
     ```
 
     ``` json
