@@ -87,6 +87,46 @@ For example, `translations/forms.en.yaml`:
 [[= include_file('code_samples/back_office/limitation/translations/forms.en.yaml') =]]
 ```
 
+You can also implement `TranslationContainerInterface` to provide those translations in your policy provider class:
+
+``` php
+<?php declare(strict_types=1);
+
+namespace App\Security;
+
+use Ibexa\Bundle\Core\DependencyInjection\Configuration\ConfigBuilderInterface;
+use Ibexa\Bundle\Core\DependencyInjection\Security\PolicyProvider\PolicyProviderInterface;
+
+class MyPolicyProvider implements PolicyProviderInterface, TranslationContainerInterface
+{
+    public function addPolicies(ConfigBuilderInterface $configBuilder)
+    {
+        $configBuilder->addConfig([
+             "custom_module" => [
+                 "custom_function_1" => null,
+                 "custom_function_2" => ["CustomLimitation"],
+             ],
+         ]);
+    }
+
+    public static function getTranslationMessages(): array
+    {
+        return [
+            (new Message('role.policy.custom_module', 'forms'))->setDesc('Custom module'),
+            (new Message('role.policy.custom_module.all_functions', 'forms'))->setDesc('Custom module / All functions'),
+            (new Message('role.policy.custom_module.custom_function_1', 'forms'))->setDesc('Custom module / Function #1'),
+            (new Message('role.policy.custom_module.custom_function_2', 'forms'))->setDesc('Custom module / Function #2'),
+        ];
+    }
+}
+```
+
+Then, extract those translation to generate the English translation file `translations/forms.en.xlf`:
+
+``` bash
+php bin/console translation:extract en --domain=forms --dir=src --output-dir=translations
+```
+
 ### Extending existing Policies
 
 A `PolicyProvider` may provide new functions to a module, and additional Limitations to an existing function.
