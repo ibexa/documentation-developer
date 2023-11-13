@@ -197,7 +197,7 @@ The new [TaxonomyEntryIdAggregation](https://doc.ibexa.co/en/4.5/search/aggregat
 
 ### Tag identifiers
 
-The taxonomy entry identifier uniqueness as been changed from globally unique to unique per taxonomy.
+The taxonomy entry identifier uniqueness has been changed from globally unique to unique per taxonomy.
 It's no longer necessary to take other taxonomies into account when creating tags in a taxonomy.
 
 ### Password security
