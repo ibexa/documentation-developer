@@ -24,11 +24,13 @@ class MyFeatureEventSubscriber implements EventSubscriberInterface
 
     public function onMyFeatureEvent(MyFeatureEvent $event): void
     {
-        $className = get_class($event->getObject());
-        $id = (string)$event->getObject()->id;
+        /** @var App\MyFeature\MyFeature $object */
+        $object = $event->getObject();
+        $className = get_class($object);
+        $id = (string)$object->id;
         $action = $event->getAction();
         $activityLog = $this->activityLogService->build($className, $id, $action);
-        $activityLog->setObjectName($event->getObject()->name);
+        $activityLog->setObjectName($object->name);
         $this->activityLogService->save($activityLog);
     }
 }

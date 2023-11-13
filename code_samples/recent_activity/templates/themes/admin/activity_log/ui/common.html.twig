@@ -1,7 +1,0 @@
-{% extends '@ibexadesign/activity_log/ui/default.html.twig' %}
-
-{%- block activity_log_description_widget -%}
-    {{ log.getObjectClass() }}
-    #{{ log.getObjectId() }}
-    &ldquo;{{ log.getObjectName() }}&rdquo;
-{%- endblock activity_log_description_widget -%}
