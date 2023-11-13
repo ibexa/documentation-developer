@@ -27,7 +27,7 @@ To use the Symfony reverse proxy, you must change your `public/index.php` front 
 
 !!! caution
 
-    Do not enable the Symfony reverse proxy in `public/index.php` if you intend to use Varnish or Fastly.
+    Don't enable the Symfony reverse proxy in `public/index.php` if you intend to use Varnish or Fastly.
     You may only use one HTTP cache at a time.
 
 ## Using Varnish or Fastly
