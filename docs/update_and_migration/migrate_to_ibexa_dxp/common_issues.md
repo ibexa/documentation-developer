@@ -40,7 +40,7 @@ php bin/console ezplatform:images:normalize-path
 
 !!! note
 
-    If you have a corrupted path detected, check if you have special character in the `var_dir` configuration.
+    If you have a corrupted path detected, check if you have special or Unicode character in the `var_dir` configuration.
 
 ## Unknown relation type 0
 
