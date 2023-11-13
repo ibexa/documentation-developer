@@ -3,9 +3,9 @@ description: Step-by-step activation procedure of Ibexa CDP.
 page_type: landing_page
 ---
 
-# Adctivation
+# CDP Activation
 
-Follow step-by-step activation procedure of [[= product_name_cdp =]].
+Follow a step-by-step procedure that allows you to activate [[= product_name_cdp =]].
 
 Activation includes configuration, data export and adding Client-side Tracking.
 
