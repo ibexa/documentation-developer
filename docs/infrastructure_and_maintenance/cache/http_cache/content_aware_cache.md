@@ -409,7 +409,7 @@ Typically, you can add a `gw` to the hostname and use nslookup to find it.
    Address:  1.2.3.4
 ```
 
-You can also use the [Ibexa Cloud CLI](https://cli.ibexa.co/) (which has same command as the Platform.sh CLI) to find [the endpoint](https://docs.platform.sh/domains/steps/dns.html):
+You can also use the [Ibexa Cloud CLI](https://cli.ibexa.co/) (which has the same command as the Platform.sh CLI) to find [the endpoint](https://docs.platform.sh/domains/steps/dns.html):
 
 ```bash
     ibexa_cloud environment:info edge_hostname

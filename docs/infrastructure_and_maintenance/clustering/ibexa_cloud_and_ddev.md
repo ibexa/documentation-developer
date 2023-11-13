@@ -11,7 +11,7 @@ Two ways are available to run an [[= product_name_cloud =]] project locally with
 
 !!! note
 
-    The following examples will use [Ibexa Cloud CLI (`ibexa_cloud`)](https://cli.ibexa.co/).
+    The following examples use [Ibexa Cloud CLI (`ibexa_cloud`)](https://cli.ibexa.co/).
 
 ## With the `ddev-platformsh` add-on
 
