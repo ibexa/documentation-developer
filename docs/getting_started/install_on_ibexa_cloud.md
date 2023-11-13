@@ -85,16 +85,23 @@ When you are done with configuration, push your project to the Platform.sh remot
 git push -u <platform.sh-remote> master
 ```
 
+You can also use the [Ibexa Cloud CLI](https://cli.ibexa.co/) to push your code.
+
+``` bash
+ibexa_cloud push master
+```
+
 !!! note
 
     `master` is the Platform.sh name for the production branch.
 
 !!! caution
 
-    If you want to use the [Platform.sh CLI](https://docs.platform.sh/development/cli.html), you have to set it up for Ibexa Cloud.
-    Consider using the following alias `ibexa_cloud` with a dedicated setup instead of `platform`:
-    ```bash
-    alias ibexa_cloud="PLATFORMSH_CLI_SESSION_ID=ibexa_cloud \
-        PLATFORMSH_CLI_API_URL=https://api.cloud.ibexa.co \
-        platform"
-    ```
+    Do not use Platform.sh CLI (`platform`), instead, use the [Ibexa Cloud CLI (`ibexa_cloud`)](https://cli.ibexa.co/).
+
+    To install Ibexa Cloud CLI, follow https://cli.ibexa.co/ "Installation instructions".
+
+    Ibexa Cloud CLI and Platform.sh CLI share the same commands and the [same documentation](https://docs.platform.sh/administration/cli.html#3-use), but you have to replace `platform` with `ibexa_cloud`.
+
+    If you have previously set up an alias to use Platform.sh CLI with Ibexa Cloud, it is outdated.
+    Remove the alias and install Ibexa Cloud CLI instead.

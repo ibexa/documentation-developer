@@ -409,12 +409,9 @@ Typically, you can add a `gw` to the hostname and use nslookup to find it.
    Address:  1.2.3.4
 ```
 
-You can also use the [Platform.sh CLI command](https://docs.platform.sh/development/cli.html) to find [the endpoint](https://docs.platform.sh/domains/steps/dns.html?#where-should-the-cname-point-to):
+You can also use the [Ibexa Cloud CLI](https://cli.ibexa.co/) (which has the same command as the Platform.sh CLI) to find [the endpoint](https://docs.platform.sh/domains/steps/dns.html):
 
 ```bash
-    # Define ibexa_cloud alias if it not already exists:
-    alias ibexa_cloud='PLATFORMSH_CLI_API_URL=https://api.cloud.ibexa.co PLATFORMSH_CLI_SESSION_ID=ibexa_cloud platform'
-    # Get the endpoint:
     ibexa_cloud environment:info edge_hostname
 ```
 
