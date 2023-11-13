@@ -97,10 +97,11 @@ ibexa_cloud push master
 
 !!! caution
 
-    Do not use Platform.sh CLI (`platform`) but [Ibexa Cloud CLI (`ibexa_cloud`)](https://cli.ibexa.co/).
+    Do not use Platform.sh CLI (`platform`), instead, use the [Ibexa Cloud CLI (`ibexa_cloud`)](https://cli.ibexa.co/).
 
     To install Ibexa Cloud CLI, follow https://cli.ibexa.co/ "Installation instructions".
 
-    Ibexa Cloud CLI and Platform.sh CLI share the same commands and the [same documentation](https://docs.platform.sh/administration/cli.html#3-use) whre you just have to replace `platform` with `ibexa_cloud`.
+    Ibexa Cloud CLI and Platform.sh CLI share the same commands and the [same documentation](https://docs.platform.sh/administration/cli.html#3-use) where you have to replace `platform` with `ibexa_cloud`.
 
-    If you have previously set up an alias to use Platform.sh CLI with Ibexa Cloud, it is outdated. Please, remove the alias and install Ibexa Cloud CLI instead.
+    If you have previously set up an alias to use Platform.sh CLI with Ibexa Cloud, it is outdated. 
+    Remove the alias and install Ibexa Cloud CLI instead.
