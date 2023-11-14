@@ -54,7 +54,7 @@ If the object you log an activity on can become unavailable (like after a `delet
 
     Keep activity logging as light as possible. Do not make database request or heavy computation at logging time. Keep them for activity log list display time.
 
-To properly display your log entry, if your object's PHP class is not already covered, you'll have to:
+To display your log entry, if your object's PHP class isn't already covered, you'll have to:
 
 * implement `ClassNameMapperInterface` to associate the class name with an identifier,
 * eventually create a `PostActivityListLoadEvent` subscriber if you need to load the object for the template,
@@ -62,12 +62,14 @@ To properly display your log entry, if your object's PHP class is not already co
 
 You can have a template:
 
-* specific to the identifier plus an action and placed in `templates/themes/admin/activity_log/ui/<identifier>/<action>.html.twig`
-* just specific to the identifier and placed in `templates/themes/admin/activity_log/ui/<identifier>.html.twig`
+* specific to an action on an identifier and placed in `templates/themes/<theme>/activity_log/ui/<identifier>/<action>.html.twig`
+* specific to an identifier and placed in `templates/themes/<theme>/activity_log/ui/<identifier>.html.twig`
 
-Your template can extend `@ibexadesign/activity_log/ui/default.html.twig` and just redefine the `activity_log_description_widget` for your objects.
+Template existence is tested in this order. For the same identifier, you could have one template for several actions and some templates for other actions.
 
-But first, follows an example of default template working whatever the object class is. It is not very user-friendly but can be used at development time as a fallback for classes not yet mapped.
+Your template can extend `@ibexadesign/activity_log/ui/default.html.twig` and only redefine the `activity_log_description_widget` block for your objects. This default template is itself used if no template is found for the identifier and the action, or the identifier alone. The built-in default template has an empty `activity_log_description_widget` block and display nothing for unknown objects.
+
+First, follows an example of a default template overriding the one from the bundle. It can be used at development time as a fallback for classes not yet mapped.
 
 ``` twig
 [[= include_file('code_samples/recent_activity/templates/themes/admin/activity_log/ui/default.html.twig') =]]
