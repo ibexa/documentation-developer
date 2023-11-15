@@ -4,8 +4,8 @@ namespace App\EventSubscriber;
 
 use Ibexa\Contracts\ProductCatalog\ProductServiceInterface;
 use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
-use Ibexa\Contracts\Search\Event\BuildSuggestionCollectionEvent;
 use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion;
+use Ibexa\Contracts\Search\Event\BuildSuggestionCollectionEvent;
 use Ibexa\Contracts\Search\Model\Suggestion\ContentSuggestion;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
@@ -39,7 +39,7 @@ class MySuggestionEventSubscriber implements EventSubscriberInterface
             $productQuery = new ProductQuery(null, new Criterion\LogicalOr([
                 new Criterion\ProductName("$text*"),
                 new Criterion\ProductCode($words),
-                new Criterion\ProductType($words)
+                new Criterion\ProductType($words),
             ]), [], 0, $limit);
             $searchResult = $this->productService->findProducts($productQuery);
 
