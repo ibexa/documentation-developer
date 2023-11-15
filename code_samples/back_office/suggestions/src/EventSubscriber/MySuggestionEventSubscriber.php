@@ -46,9 +46,8 @@ class MySuggestionEventSubscriber implements EventSubscriberInterface
             $searchResult = $this->productService->findProducts($productQuery);
 
             if ($searchResult->getTotalCount()) {
-
                 $maxScore = 0.0;
-                /** @var ContentSuggestion $suggestion */
+                /** @var \Ibexa\Contracts\Search\Model\Suggestion\ContentSuggestion $suggestion */
                 foreach ($suggestionCollection as $suggestion) {
                     $maxScore = max($suggestion->getScore(), $maxScore);
                 }
@@ -58,7 +57,7 @@ class MySuggestionEventSubscriber implements EventSubscriberInterface
                     $content = $result->getContent();
 
                     $contentSuggestion = new ContentSuggestion(
-                        $maxScore+1,
+                        $maxScore + 1,
                         $content,
                         $content->getContentType(),
                         $content->contentInfo->getMainLocation()->pathString,
