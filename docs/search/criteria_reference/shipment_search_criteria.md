@@ -5,7 +5,7 @@ edition: commerce
 
 # Shipment Search Criteria reference
 
-Shipment Search Criteria are supported only by [Shipment Search (`ShipmentService::findShipments`)](shipment_api.md#get-multiple-shipments).
+Shipment Search Criteria are only supported by [Shipment Search (`ShipmentService::findShipments`)](shipment_api.md#get-multiple-shipments).
 
 With these Criteria you can filter shipments by their shipment identifier, shipment creation date, shipment status, shipping method, and so on.
 

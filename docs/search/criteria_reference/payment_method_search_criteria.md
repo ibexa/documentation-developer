@@ -6,7 +6,7 @@ page_type: reference
 
 # Payment Method Search Criteria reference
 
-Payment Method Search Criteria are supported only by [Payment Method Search (`PaymentMethodService::findPaymentMethods`)](payment_method_api.md#get-multiple-payment-methods).
+Payment Method Search Criteria are only supported by [Payment Method Search (`PaymentMethodService::findPaymentMethods`)](payment_method_api.md#get-multiple-payment-methods).
 
 With these Criteria you can filter payment methods by their payment method identifier, payment method creation date, payment method type, status, and so on.
 

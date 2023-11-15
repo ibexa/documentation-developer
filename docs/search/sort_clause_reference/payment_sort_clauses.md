@@ -6,7 +6,7 @@ edition: commerce
 
 # Payment Sort Clauses
 
-Payment Sort Clauses are supported only by [Payment Search (`PaymentServiceInterface::findPayments`)](payment_api.md#get-multiple-payments).
+Payment Sort Clauses are only supported by [Payment Search (`PaymentServiceInterface::findPayments`)](payment_api.md#get-multiple-payments).
 
 By using Sort Clauses you can filter payments by specific attributes, for example: creation date, status, and so on.
 
