@@ -21,7 +21,7 @@ class MySuggestionEventSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents(): array
     {
         return [
-            BuildSuggestionCollectionEvent::class => ['onBuildSuggestionCollectionEvent'],
+            BuildSuggestionCollectionEvent::class => 'onBuildSuggestionCollectionEvent',
         ];
     }
 
@@ -48,7 +48,7 @@ class MySuggestionEventSubscriber implements EventSubscriberInterface
                 $content = $result->getContent();
 
                 $contentSuggestion = new ContentSuggestion(
-                    1,
+                    100,
                     $content,
                     $content->getContentType(),
                     '',
@@ -56,7 +56,8 @@ class MySuggestionEventSubscriber implements EventSubscriberInterface
                 );
                 $suggestionCollection->append($contentSuggestion);
             }
-        } catch (\Throwable $throwable) {/*TODO*/
+        } catch (\Throwable $throwable) {
+            //TODO
             dump($throwable);
         }
 
