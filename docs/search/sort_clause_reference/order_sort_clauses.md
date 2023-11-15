@@ -7,7 +7,7 @@ edition: commerce
 
 # Order Sort Clauses
 
-Order Sort Clauses are part of [Sort Clauses](sort_clause_reference.md) and they are supported only by Order Search.
+Order Sort Clauses are supported only by Order Search.
 
 By using Sort Clauses you can filter orders by specific attributes, for example: creation date, status, etc.
 

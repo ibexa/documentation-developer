@@ -5,7 +5,7 @@ page_type: reference
 
 # Price Search Criteria reference
 
-Price Search Criteria are part of [Search Criteria](search_criteria_reference.md) and they are supported only by Price Search.
+Price Search Criteria are supported only by Price Search.
 
 With these Criteria you can filter prices by currency, customer group, product, and so on.
 

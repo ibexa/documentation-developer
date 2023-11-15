@@ -5,7 +5,7 @@ page_type: reference
 
 # Product Search Criteria reference
 
-Product Search Criteria are part of [Search Criteria](search_criteria_reference.md) and they are supported only by Product Search.
+Product Search Criteria are supported only by Product Search.
 
 Search Criterion let you to filter product by specific attributes, for example: color, availability, price etc.
 

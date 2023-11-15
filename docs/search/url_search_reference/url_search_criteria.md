@@ -5,7 +5,7 @@ page_type: reference
 
 # URL Search Criteria reference
 
-URL Search Criteria are part of Search Criteria and they are supported only by URL Search.
+URL Search Criteria are supported only by URL Search.
 
 |URL criteria|URL based on|
 |------------|------------|
