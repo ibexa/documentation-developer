@@ -6,7 +6,7 @@ description: Create a bundle extension for Ibexa DXP.
 
 A bundle is a reusable [[= product_name =]] extension that can be integrated.
 To ensure full compatibility, follow the structure specifications described in the 
-[package strucutre](package_structure.md/#package-and-bundle-structure-and-namespaces) section.
+[package structure](package_structure.md/#package-and-bundle-structure-and-namespaces) section.
 
 The bundle extension described here is called `AcmeCurrencyExchangeRate` and enables a new page block which displays a currency exchange rate on your site.
 
@@ -67,7 +67,7 @@ Or you can use a command with all available options:
 php bin/ibexa-bundle-generator currency-exchange-rate currency-exchange-rate-dir  --vendor-name=acme --vendor-namespace=ACME --bundle-name=CurrencyExchangeRate  --skeleton-name=extension
 ```
 
-## Use GitHub template
+## Create bundle with GitHub template
 
 1\. Go to the [[= product_name_base =]] [GitHub repository](https://github.com/ibexa/bundle-template).
 
@@ -81,10 +81,8 @@ Next, click **Create repository**.
 
 Once the repository is created, a workflow starts which generates a bundle structure.
 
-Vendor namespace is generated from the orgnization name: github/github username.
+Vendor namespace is generated from the orgnization name.
 Package and bundle name inherits from repository name.
-
-![GitHub template](bundle_github_structure.png)
 
 
 ### Bundle directory structure
@@ -123,15 +121,14 @@ Generated bundle consists of the following structure:
 ```
 Where:
 
-
-- `LICENSE` - a license file, GPL v2 by default
-- `README.md` - a readme file with bundle description, its version and install instructions
-- `composer.json` - a package definition
+- `LICENSE` - a license file, GPL v2 by default.
+- `README.md` - a readme file with bundle description, its version and install instructions.
+- `composer.json` - a package definition.
 - `deptrac.yaml` - a tool for static code analysis for PHP, checks the coherence of package architecture, for more information see [deptrac](https://qossmic.github.io/deptrac/) documentation.
 - `package.json` - frontend dependencies, for more information, see [about packages and modules](https://docs.npmjs.com/about-packages-and-modules).
 - `phpstan.neon` - phpstan configuration, a tool for static code analysis for PHP, scans, and evaluates codebase to find errors, and bugs, for more information, see the [documentation](https://phpstan.org/user-guide/getting-started).
 - `phpunit.xml.dist` - config for phpunit, unit and integration tests - see [documentation](https://phpunit.de/getting-started/phpunit-10.html).
-- src and tests follow the base catalog structure, according to [package structure](https://phpunit.de/getting-started/phpunit-10.html) docs.
+- `src` and `tests` follow the base catalog structure, according to [package structure](https://phpunit.de/getting-started/phpunit-10.html) docs.
 
 To fully use the possibilities of the bundle, get familiar with the structure:
 
@@ -143,11 +140,13 @@ To fully use the possibilities of the bundle, get familiar with the structure:
     - `views/` - handles the [design engine](../../../templating/design_engine/design_engine.md)
 - `tests` - contains all tests for the bundle. For more information, see [continuous integration](#continuous-integration).
 
-### Add the dependencies to the composer.json
+## Build page block
 
-1. In composer.json add the Page Builder depency to be able to create a page block.
+This section presents an example of how to create an extension that add a new page block in Page Builder.
 
-```json hl_lines="156"
+1\. In `composer.json` add the Page Builder depency to be able to create a page block:
+
+```json
  "require": {
     "php": "^7.4 || ^8.0",
     "ibexa/core": "^4.5",
@@ -162,95 +161,40 @@ To fully use the possibilities of the bundle, get familiar with the structure:
     "http-interop/http-factory-guzzle": "^1.2"
   },
 ```
-2. Run the following command:
+
+2\. Page Builder isn't an open-source package, so to be able to use this dependency, add `repositories`:
+
+```json
+"repositories": {
+    "ibexa": {
+      "type": "composer",
+      "url": "https://updates.ibexa.co"
+    }
+  }
+```
+
+3\. Next, run the following command to fetch the Page Builder dependency:
 
 ```bash
     composer update
 ```
 
-```json
-  "scripts-descriptions": {
-    "fix-cs": "Automatically fixes code style in all files",
-    "check-cs": "Run code style checker for all files",
-    "test": "Run automatic tests",
-    "phpstan": "Run static code analysis",
-    "deptrac": "Run Deptrac architecture testing"
-  },
-```
-
-- `composer.json` - defines your project requirements, contains the following sections:
-
-    - `php-cs-fixer` - defines method of verifying/checking code style, by default as internal package `for Ibexa style`
-    - `eslintrc` - a tool for static code analysis for JavaScript
- 
-
 For more information, see [bundles](../../../administration/project_organization/bundles.md) documentation.
 
 
-### Create class
+### Create bundle example
 
 !!! note
 
     Make sure you follow naming convention to ensure clarity.
 
-In the `/src` create a ACMECurrencyExchangeRateBundle class:
 
+### Define block
 
-```php
-<?php
+Define specific settings for the page block bundle. Files should follow the Symfony configuration convention. Define various aspects of the bundle, include services, 
+parameters, routess, and security.
 
-/**
- * @copyright Copyright (C) Ibexa AS. All rights reserved.
- * @license For full copyright and license information view LICENSE file distributed with this source code.
- */
-declare(strict_types=1);
-
-namespace Acme\Bundle\CurrencyExchangeRate;
-
-use Symfony\Component\HttpKernel\Bundle\Bundle;
-
-final class AcmeCurrencyExchangeRateBundle extends Bundle
-{
-}
-```
-
-
-
-### Service configuration
-
-In `services.yaml`, create in `src` directory an extension class in the `DependencyInjection` namespace.
-This class is responsible for loading the configuration settings of the bundle and making them available in the app container.
-Make sure, the DependecyInjection class name is the same as the bundle name.
-
-
-### Routing
-
-!!! note
-
-    When creating a bundle for a Symfony it's the best practice to perfect the route's name with a bundle alias.
-
-
-Bundle alias as a prefix for parameters that are defined in the bundles configuration files.
-
-The following `yaml` configuration specifies a routing collection named `acme_currency_exchange_rate.routes` that uses annotation type routine.
-
-Next, to define routes within your bundle, provide the routing configuration. To do this, implement the `Interface.php`:
-
-```yaml
-imports:
-    - { resource: services/**.yaml }
-services:
-    ACME\Bundle\CurrencyExchangeRate\Controller\AcmeCurrencyExchangeRateController:
-        tags:
-            - {name: controller.service_arguments}
-```
-
-### Configuration files
-
-Define specific settings for this bundle. Files should follow the Symfony configuration convention. Define various aspects of the bundle, include services, 
-parameters, roads, and security.
-
-In the prepend.yaml, provide the following page block configuration:
+To define a page block, in the `prepend.yaml` file, add the following page block configuration:
 
 ```yaml
 ibexa_fieldtype_page:
@@ -275,6 +219,7 @@ ibexa_fieldtype_page:
               'EURO': EUR
               'Polish Zloty': PLN
 ```
+This file contains all configuration provided for 3rd party extension packages.
 
 ### Implement view
 
@@ -292,25 +237,29 @@ var am = {{ amount }}</script><script src="//currencyrate.today/exchangerates"><
 <div style="text-align:right"><a href="https://currencyrate.today">CurrencyRate</a></div>
 ```
 
+Next, commit all changes to the GitHub.
+
 ### Continuous integration
 
-Before releasing the newly created bundle:
-run php cs fixer
-run unit tests
+To ensure quality requirements of your code in the newly created bundle, run:
+
+- `composer php cs fixer`
+- `composer tests`
+
+Before releasing the newly created bundle: to ensure your source follows quality reqwuiremet run:
+run  composer php cs fixer
+run composer test unit tests
 
 [GitHub actions](https://docs.github.com/en/actions)
 
 To ensure delivery of working code, use CI/CD pipeline right from the GitHub repository.
 
-Best practices for testing your bundle encompas::
+Best practices for testing your bundle encompas:
 
 - supported Symfony versions
 - supported PHP versions
-
-
-### Continuous development
-
+- unit tests
 
 ## License and readme
 
-Choose license type, modify readme doc.
+Before you publish the bundle, choose the license type and modify the readme file respectively.

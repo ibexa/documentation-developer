@@ -6,21 +6,8 @@ description: Install created bundle extension into Ibexa DXP.
  
 ## Add repository to composer
 
-To be able to install the bundle to your [[= product_name_base =]] project, first, update the requirements.
 
-
-```json
-    "require": {
-        "php": ">=7.4",
-        "ext-ctype": "*",
-        "ext-iconv": "*",
-        "acme/video-editor": "dev-master",
-        "ibexa/commerce": "4.6.x-dev",
-        "ibexa/connector-seenthis": "^4.6@dev",
-```
-
-
-Next, add the repository to the `composer.json`:
+To be able to install the bundle to your [[= product_name_base =]] project, add the repository to the `composer.json`:
 
 ```json hl_lines="17"
     "repositories": {
@@ -37,10 +24,10 @@ Next, add the repository to the `composer.json`:
 
 ## Install bundle into application
 
-On your [[= product_name_base =]] root project run:
+On your [[= product_name_base =]] project root run:
  
 ```bash
-composer require acme/currency-exchange-rate:dev-master
+composer require acme/currency-exchange-rate:dev-main
 ```
 
 !!! note
