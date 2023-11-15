@@ -7,10 +7,13 @@ use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
 use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion;
 use Ibexa\Contracts\Search\Event\BuildSuggestionCollectionEvent;
 use Ibexa\Contracts\Search\Model\Suggestion\ContentSuggestion;
+use Psr\Log\LoggerAwareTrait;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class MySuggestionEventSubscriber implements EventSubscriberInterface
 {
+    use LoggerAwareTrait;
+
     private ProductServiceInterface $productService;
 
     public function __construct(ProductServiceInterface $productService)
@@ -33,7 +36,6 @@ class MySuggestionEventSubscriber implements EventSubscriberInterface
         $text = $suggestionQuery->getQuery();
         $words = explode(' ', preg_replace('/\s+/', ' ', $text));
         $limit = $suggestionQuery->getLimit();
-        //$language = $suggestionQuery->getLanguageCode();
 
         try {
             $productQuery = new ProductQuery(null, new Criterion\LogicalOr([
@@ -51,14 +53,13 @@ class MySuggestionEventSubscriber implements EventSubscriberInterface
                     100,
                     $content,
                     $content->getContentType(),
-                    '',
+                    $content->contentInfo->getMainLocation()->pathString,
                     []
                 );
                 $suggestionCollection->append($contentSuggestion);
             }
         } catch (\Throwable $throwable) {
-            //TODO
-            dump($throwable);
+            $this->logger->error($throwable);
         }
 
         return $event;
