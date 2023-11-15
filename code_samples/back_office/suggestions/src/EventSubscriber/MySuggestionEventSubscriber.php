@@ -24,7 +24,7 @@ class MySuggestionEventSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents(): array
     {
         return [
-            BuildSuggestionCollectionEvent::class => 'onBuildSuggestionCollectionEvent',
+            BuildSuggestionCollectionEvent::class => ['onBuildSuggestionCollectionEvent', -1],
         ];
     }
 
@@ -45,18 +45,27 @@ class MySuggestionEventSubscriber implements EventSubscriberInterface
             ]), [], 0, $limit);
             $searchResult = $this->productService->findProducts($productQuery);
 
-            /** @var \Ibexa\ProductCatalog\Local\Repository\Values\Product $result */
-            foreach ($searchResult as $result) {
-                $content = $result->getContent();
+            if ($searchResult->getTotalCount()) {
 
-                $contentSuggestion = new ContentSuggestion(
-                    100,
-                    $content,
-                    $content->getContentType(),
-                    $content->contentInfo->getMainLocation()->pathString,
-                    []
-                );
-                $suggestionCollection->append($contentSuggestion);
+                $maxScore = 0.0;
+                /** @var ContentSuggestion $suggestion */
+                foreach ($suggestionCollection as $suggestion) {
+                    $maxScore = max($suggestion->getScore(), $maxScore);
+                }
+
+                /** @var \Ibexa\ProductCatalog\Local\Repository\Values\Product $result */
+                foreach ($searchResult as $result) {
+                    $content = $result->getContent();
+
+                    $contentSuggestion = new ContentSuggestion(
+                        $maxScore+1,
+                        $content,
+                        $content->getContentType(),
+                        $content->contentInfo->getMainLocation()->pathString,
+                        []
+                    );
+                    $suggestionCollection->append($contentSuggestion);
+                }
             }
         } catch (\Throwable $throwable) {
             $this->logger->error($throwable);
