@@ -7,7 +7,7 @@ edition: commerce
 
 # Order Sort Clauses
 
-Order Sort Clauses are supported only by Order Search.
+Order Sort Clauses are supported only by [Order Search (`OrderService::findOrders`)](order_management_api.md#get-multiple-orders).
 
 By using Sort Clauses you can filter orders by specific attributes, for example: creation date, status, etc.
 

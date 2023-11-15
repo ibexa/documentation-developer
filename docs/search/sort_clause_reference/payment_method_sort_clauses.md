@@ -7,7 +7,7 @@ page_type: reference
 
 # Payment Method Sort Clauses
 
-Payment Method Sort Clauses are supported only by Payment Method Search.
+Payment Method Sort Clauses are supported only by [Payment Method Search (`PaymentMethodService::findPaymentMethods`)](payment_method_api.md#get-multiple-payment-methods).
 
 By using Sort Clauses you can filter payment methods by specific attributes, for example: creation date, ID, and so on.
 

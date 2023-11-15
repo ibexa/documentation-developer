@@ -5,7 +5,7 @@ edition: commerce
 
 # Order Search Criteria reference
 
-Order Search Criteria are supported only by Order Search.
+Order Search Criteria are supported only by [Order Search (`OrderService::findOrders`)](order_management_api.md#get-multiple-orders).
 
 With these Criteria you can filter orders by their order identifier, order creation date, order status, customer name, customer status, etc.
 
