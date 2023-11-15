@@ -58,7 +58,7 @@ class MySuggestionEventSubscriber implements EventSubscriberInterface
                     $content = $result->getContent();
 
                     $contentSuggestion = new ContentSuggestion(
-                        $maxScore+1,
+                        $maxScore + 1,
                         $content,
                         $content->getContentType(),
                         $content->contentInfo->getMainLocation()->pathString,
