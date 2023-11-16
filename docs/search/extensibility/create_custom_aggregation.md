@@ -66,7 +66,7 @@ The example below uses `RangeAggregationVisitor`:
         class: Ibexa\Solr\Query\Common\AggregationVisitor\RangeAggregationVisitor
         factory: [ '@Ibexa\Solr\Query\Common\AggregationVisitor\Factory\ContentFieldAggregationVisitorFactory', 'createRangeAggregationVisitor' ]
         arguments:
-            $aggregationClass: 'App\Query\Aggregation\PriorityRangeAggregation'
+            $aggregationClass: 'App\Query\Aggregation\Solr\PriorityRangeAggregation'
             $searchIndexFieldName: 'priority_i'
         tags:
             - { name: ibexa.search.solr.query.content.aggregation.visitor }
@@ -112,7 +112,7 @@ and provide it with the aggregation class in the `aggregationClass` parameter.
     app.search.solr.query.aggregation_result_extractor.priority_range_aggregation:
         class: Ibexa\Solr\ResultExtractor\AggregationResultExtractor\RangeAggregationResultExtractor
         arguments:
-            $aggregationClass: 'App\Query\Aggregation\PriorityRangeAggregation'
+            $aggregationClass: 'App\Query\Aggregation\Solr\PriorityRangeAggregation'
             $keyMapper: 'Ibexa\Solr\ResultExtractor\AggregationResultExtractor\RangeAggregationKeyMapper\IntRangeAggregationKeyMapper'
         tags:
             - { name: ibexa.search.solr.query.location.aggregation.result.extractor }
