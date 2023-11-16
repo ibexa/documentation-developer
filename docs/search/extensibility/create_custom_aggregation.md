@@ -62,7 +62,7 @@ The example below uses `RangeAggregationVisitor`:
 === "Solr"
 
     ``` yaml
-    App\Query\Aggregation\Solr\PriorityRangeAggregationVisitor:
+    app.search.solr.query.aggregation_visitor.priority_range_aggregation:
         class: Ibexa\Solr\Query\Common\AggregationVisitor\RangeAggregationVisitor
         factory: [ '@Ibexa\Solr\Query\Common\AggregationVisitor\Factory\ContentFieldAggregationVisitorFactory', 'createRangeAggregationVisitor' ]
         arguments:
@@ -109,10 +109,11 @@ and provide it with the aggregation class in the `aggregationClass` parameter.
     Tag the service with `ibexa.search.solr.query.location.aggregation.result.extractor`.
 
     ``` yaml
-    App\Query\Aggregation\Solr\PriorityAggregationResultExtractor:
+    app.search.solr.query.aggregation_result_extractor.priority_range_aggregation:
         class: Ibexa\Solr\ResultExtractor\AggregationResultExtractor\RangeAggregationResultExtractor
         arguments:
             $aggregationClass: 'App\Query\Aggregation\PriorityRangeAggregation'
+            $keyMapper: 'Ibexa\Solr\ResultExtractor\AggregationResultExtractor\RangeAggregationKeyMapper\IntRangeAggregationKeyMapper'
         tags:
             - { name: ibexa.search.solr.query.location.aggregation.result.extractor }
             - { name: ibexa.search.solr.query.content.aggregation.result.extractor }
