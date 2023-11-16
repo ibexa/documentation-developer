@@ -4,7 +4,7 @@ description: Customize search suggestions configuration and sources.
 
 # Customize search suggestions
 
-In the Back Office, when typing some text in the search bar, some suggestions about what you could be looking for are made directly under this bar.
+In the Back Office, when typing some text in the search bar, some suggestions about what you could be looking for are made directly under this bar. See [user documentation about content search]([[= user_doc =]]/search/search_for_content) for feature usage.
 
 ## Configuration
 
@@ -27,6 +27,20 @@ The following example is boosting Product suggestions, it's a subscriber passing
 [[= include_file(code_samples/back_office/suggestions/src/EventSubscriber/MySuggestionEventSubscriber.php) =]]
 ```
 
-## Replace default suggestion source
+!!! tip
 
-TODO
+    You can list listener and subscriber with the following command:
+    ``` shell
+    php bin/console debug:event BuildSuggestionCollectionEvent
+    ```
+
+## Replace the default suggestion source
+
+To replace the default suggestion source, [decorate]([[= symfony_doc =]]/service_container/service_decoration.html) the built-in `BuildSuggestionCollectionEvent` subscriber with your own:
+
+```yaml
+services:
+    #…
+    App\EventSubscriber\MySuggestionEventSubscriber:
+        decorates: Ibexa\Search\EventDispatcher\EventListener\ContentSuggestionSubscriber
+```
