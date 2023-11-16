@@ -16,7 +16,7 @@ The following section explains how to upload created bundle  on the [packagist.o
 
 
 !!! note
-    When you add a new feature, you need to create a tag. 
+    When you add a new feature, you need to create a tag.
 
 
 3\. To create a new tag, in GitHub, go to **Tags** section, and click **Create a new release**.

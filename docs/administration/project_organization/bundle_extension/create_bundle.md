@@ -5,7 +5,7 @@ description: Create a bundle extension for Ibexa DXP.
 # Create bundle
 
 A bundle is a reusable [[= product_name =]] extension that can be integrated.
-To ensure full compatibility, follow the structure specifications described in the 
+To ensure full compatibility, follow the structure specifications described in the
 [package structure](package_structure.md/#package-and-bundle-structure-and-namespaces) section.
 
 The bundle extension described here is called `AcmeCurrencyExchangeRate` and enables a new page block which displays a currency exchange rate on your site.
@@ -47,7 +47,7 @@ php bin/ibexa-bundle-generator currency-exchange-rate --skeleton-name=extension
 ```
 
 5\. Adjust the bundle to your needs providing the following parameters.
-    The command runs with an interactive mode. 
+    The command runs with an interactive mode.
 
 - Package vendor name - acme
 - Bundle vendor namespace - Acme
@@ -191,8 +191,7 @@ For more information, see [bundles](../../../administration/project_organization
 
 ### Define block
 
-Define specific settings for the page block bundle. Files should follow the Symfony configuration convention. Define various aspects of the bundle, include services, 
-parameters, routess, and security.
+Define specific settings for the page block bundle. Files should follow the Symfony configuration convention. Define various aspects of the bundle, include services, parameters, routess, and security.
 
 To define a page block, in the `prepend.yaml` file, add the following page block configuration:
 
@@ -262,4 +261,4 @@ Best practices for testing your bundle encompas:
 
 ## License and readme
 
-Before you publish the bundle, choose the license type and modify the readme file respectively.
+Before you publish the bundle, choose the license type and modify the readme file according to your needs.
