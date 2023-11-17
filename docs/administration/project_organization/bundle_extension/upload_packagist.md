@@ -4,7 +4,7 @@ description: Upload created bundle extension to Packagist.
 
 # Upload bundle to Packagist
 
-The following section explains how to upload created bundle  on the [packagist.org](https://packagist.org/) website.
+The following section explains how to upload created bundle on the [packagist.org](https://packagist.org/) website.
 
 1\. Go to the Packagist website and click **Submit**.
 
@@ -13,12 +13,8 @@ The following section explains how to upload created bundle  on the [packagist.o
 2\. Provide the repository URL to your package, for example:
 
 `https://github.com/acme/example-3rd-party-extension`
-
-
 !!! note
     When you add a new feature, you need to create a tag.
-
-
 3\. To create a new tag, in GitHub, go to **Tags** section, and click **Create a new release**.
 
 ![New tag](new_tag.png)

@@ -60,7 +60,7 @@ This creates a bundle files structure in the  `./target` directory.
 
 You can rename the target directory according to your needs.
 
-Or you can use a command with all available options:
+You can also use a command with all available options:
 
 
 ```bash
@@ -77,14 +77,10 @@ php bin/ibexa-bundle-generator currency-exchange-rate currency-exchange-rate-di
 Next, click **Create repository**.
 
 ![GitHub template](bundle_github_template.png)
-
-
-Once the repository is created, a workflow starts which generates a bundle structure.
+Once the repository is created, a workflow starts and generates the bundle structure.
 
 Vendor namespace is generated from the orgnization name.
 Package and bundle name inherits from repository name.
-
-
 ### Bundle directory structure
 
 Generated bundle consists of the following structure:
@@ -133,16 +129,15 @@ Where:
 To fully use the possibilities of the bundle, get familiar with the structure:
 
 - `resources/`
-    - `config/` - contains configuration for the environment/ governs budle configuration
-        - `services/` - recommended place for services definition files
-        all services definitions must be split into separate files
-        - `prepend.yaml` - houses additional configuration for other extensions
-    - `views/` - handles the [design engine](../../../templating/design_engine/design_engine.md)
+    - `config/` - contains configuration for the environment and governs budle configuration.
+        - `services/` - recommended place for services definition files, all services definitions must be split into separate files.
+        - `prepend.yaml` - houses additional configuration for other extensions.
+    - `views/` - handles the [design engine](../../../templating/design_engine/design_engine.md).
 - `tests` - contains all tests for the bundle. For more information, see [continuous integration](#continuous-integration).
 
 ## Build page block
 
-This section presents an example of how to create an extension that add a new page block in Page Builder.
+This section presents an example of how to create an extension that adds a new page block to Page Builder.
 
 1\. In `composer.json` add the Page Builder depency to be able to create a page block:
 
@@ -179,7 +174,7 @@ This section presents an example of how to create an extension that add a new pa
     composer update
 ```
 
-For more information, see [bundles](../../../administration/project_organization/bundles.md) documentation.
+For more information, see [bundles documentation](../../../administration/project_organization/bundles.md).
 
 
 ### Create bundle example
@@ -245,9 +240,9 @@ To ensure quality requirements of your code in the newly created bundle, run:
 - `composer php cs fixer`
 - `composer tests`
 
-Before releasing the newly created bundle: to ensure your source follows quality reqwuiremet run:
-run  composer php cs fixer
-run composer test unit tests
+Before releasing the newly created bundle, ensure your source meets quality requirements by running:
+- run  composer php cs fixer
+- run composer test unit tests
 
 [GitHub actions](https://docs.github.com/en/actions)
 
