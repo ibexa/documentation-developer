@@ -34,6 +34,7 @@ composer require acme/currency-exchange-rate:dev-main
 
     If your application uses Symfony Flex, the bundle is registered automatically after you install it.
 Check whether the bundle is enabled, if not, you must enable it per environment in the `config/bundles.php` file:
+
 ```php
 return [
     Symfony\Bundle\FrameworkBundle\FrameworkBundle::class => ['all' => true],
@@ -51,7 +52,9 @@ php bin/console cache:clear
 The newly installed bundle should be visible in the **Composer** tab in **Admin** -> **System information**.
 
 ![Installed bundles](sys_info_composer_tab.png)
+
 ## Add currency exchange page block
 
 Go to Page Builder edit mode. The Currency exchange block should be visible and available in the **Elements** panel.
+
 ![Currency exchange page block](bundle_page_block.png)

@@ -74,13 +74,16 @@ php bin/ibexa-bundle-generator currency-exchange-rate currency-exchange-rate-di
 2\. In the upper-right corner, click the **Use this template** button, and select **Create a new repository**.
 
 3\. Provide repository name. Optionally, you can add description for the bundle.
+
 Next, click **Create repository**.
 
 ![GitHub template](bundle_github_template.png)
+
 Once the repository is created, a workflow starts and generates the bundle structure.
 
 Vendor namespace is generated from the orgnization name.
 Package and bundle name inherits from repository name.
+
 ### Bundle directory structure
 
 Generated bundle consists of the following structure:

@@ -13,6 +13,7 @@ The following section explains how to upload created bundle on the [packagist.or
 2\. Provide the repository URL to your package, for example:
 
 `https://github.com/acme/example-3rd-party-extension`
+
 !!! note
     When you add a new feature, you need to create a tag.
 3\. To create a new tag, in GitHub, go to **Tags** section, and click **Create a new release**.
