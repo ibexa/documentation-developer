@@ -25,7 +25,7 @@ During this event, you can add, remove, or replace suggestions by updating its `
 The following example is boosting Product suggestions, it's a subscriber passing after the default one (thanks to a priority below zero) and adding matching products at a score above the previous Content suggestions.
 
 ``` php
-[[= include_file(code_samples/back_office/suggestions/src/EventSubscriber/MySuggestionEventSubscriber.php) =]]
+[[= include_file(code_samples/back_office/search/src/EventSubscriber/MySuggestionEventSubscriber.php) =]]
 ```
 
 !!! tip
