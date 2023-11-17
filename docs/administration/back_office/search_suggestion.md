@@ -1,5 +1,5 @@
 ---
-description: Customize search suggestions configuration and sources.
+description: Customize search suggestion configuration and sources.
 ---
 
 # Customize search suggestion
