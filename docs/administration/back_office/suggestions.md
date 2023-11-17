@@ -29,7 +29,7 @@ The following example is boosting Product suggestions, it's a subscriber passing
 
 !!! tip
 
-    You can list listener and subscriber with the following command:
+    You can list listeners and subscribers with the following command:
     ``` shell
     php bin/console debug:event BuildSuggestionCollectionEvent
     ```
