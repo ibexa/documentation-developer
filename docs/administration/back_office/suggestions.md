@@ -8,12 +8,13 @@ In the Back Office, when typing some text in the search bar, some suggestions ab
 
 ## Configuration
 
-By default, the suggestions start to be made when the typed text is at least 3 characters long, and 5 suggestions are made. This can be changed by setting the following parameters:
+By default, the suggestions start to be made when the typed text is at least 3 characters long, and 5 suggestions are made.
+This can be changed with [SiteAccess aware dynamic configuration](dynamic_configuration.md) by setting the following [scoped](multisite_configuration.md#scope) parameters:
 
 ```yaml
 parameters:
-    ibexa.site_access.config.default.search.suggestion.min_query_length: 3
-    ibexa.site_access.config.default.search.suggestion.result_limit: 5
+    ibexa.site_access.config.<scope>.search.suggestion.min_query_length: 3
+    ibexa.site_access.config.<scope>.search.suggestion.result_limit: 5
 ```
 
 ## Add a suggestion source
