@@ -2,7 +2,7 @@
 description: Customize search suggestions configuration and sources.
 ---
 
-# Customize search suggestions
+# Customize search suggestion
 
 In the Back Office, when typing some text in the search bar, some suggestions about what you could be looking for are made directly under this bar. See [user documentation about content search]([[= user_doc =]]/search/search_for_content) for feature usage.
 

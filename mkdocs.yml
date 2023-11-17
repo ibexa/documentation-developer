@@ -137,7 +137,7 @@ nav:
             - Multi-file upload: administration/back_office/multifile_upload.md
             - Sub-items list: administration/back_office/subitems_list.md
             - Notifications: administration/back_office/notifications.md
-            - Customize search suggestions: administration/back_office/search_suggestions.md
+            - Customize search suggestion: administration/back_office/search_suggestion.md
     - Content management:
         - Content management: content_management/content_management.md
         - Content management guide: content_management/content_management_guide.md
