@@ -371,7 +371,7 @@ If the installation has a dedicated host for REST, you can enable HTTP basic aut
     If you set up basic authentification for `pattern: ^/api/ibexa/v2` to have it on your front office on both production and developments environments, your development environment's Back Office doesn't work properly anymore.
     This Back Office will try to access REST through the same URL than front office. Even if you're logged in your Back Office and the [X-SiteAccess header](rest_requests.md#siteaccess) is used, the firewall denies access to REST as you're not logged through basic authentification. Some 
     
-    If basic authentication is used only for REST API, it is better to have a dedicated domain even on a development environment. For example, add a api.localhost to your hosts file and set the firewall for `host: ^api\.(example\.com|localhost)$`.
+    If basic authentication is used only for REST API, it is better to have a dedicated domain even on a development environment. For example, map an `api.localhost` in your `hosts` file and set the firewall for `host: ^api\.(example\.com|localhost)$`.
 
 ### Usage example
 
