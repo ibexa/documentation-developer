@@ -2,23 +2,31 @@
 
 namespace App\EventSubscriber;
 
+use Ibexa\Contracts\Core\Repository\Values\Content\Search\SearchHit;
 use Ibexa\Contracts\ProductCatalog\ProductServiceInterface;
 use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
 use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion;
 use Ibexa\Contracts\Search\Event\BuildSuggestionCollectionEvent;
-use Ibexa\Contracts\Search\Model\Suggestion\ContentSuggestion;
+use Ibexa\Contracts\Search\Mapper\SearchHitToContentSuggestionMapperInterface;
+use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerAwareTrait;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-class MySuggestionEventSubscriber implements EventSubscriberInterface
+class MySuggestionEventSubscriber implements EventSubscriberInterface, LoggerAwareInterface
 {
     use LoggerAwareTrait;
 
     private ProductServiceInterface $productService;
 
-    public function __construct(ProductServiceInterface $productService)
+    private SearchHitToContentSuggestionMapperInterface $contentSuggestionMapper;
+
+    public function __construct(
+        ProductServiceInterface                     $productService,
+        SearchHitToContentSuggestionMapperInterface $contentSuggestionMapper
+    )
     {
         $this->productService = $productService;
+        $this->contentSuggestionMapper = $contentSuggestionMapper;
     }
 
     public static function getSubscribedEvents(): array
@@ -39,7 +47,9 @@ class MySuggestionEventSubscriber implements EventSubscriberInterface
 
         try {
             $productQuery = new ProductQuery(null, new Criterion\LogicalOr([
-                new Criterion\ProductName("$text*"),
+                new Criterion\ProductName(implode(' ', array_map(function (string $word) {
+                    return "$word*";
+                }, $words))),
                 new Criterion\ProductCode($words),
                 new Criterion\ProductType($words),
             ]), [], 0, $limit);
@@ -47,22 +57,22 @@ class MySuggestionEventSubscriber implements EventSubscriberInterface
 
             if ($searchResult->getTotalCount()) {
                 $maxScore = 0.0;
+                $suggestionsByContentIds = [];
                 /** @var \Ibexa\Contracts\Search\Model\Suggestion\ContentSuggestion $suggestion */
                 foreach ($suggestionCollection as $suggestion) {
                     $maxScore = max($suggestion->getScore(), $maxScore);
+                    $suggestionsByContentIds[$suggestion->getContent()->id] = $suggestion;
                 }
 
                 /** @var \Ibexa\ProductCatalog\Local\Repository\Values\Product $result */
                 foreach ($searchResult as $result) {
                     $content = $result->getContent();
 
-                    $contentSuggestion = new ContentSuggestion(
-                        $maxScore + 1,
-                        $content,
-                        $content->getContentType(),
-                        $content->contentInfo->getMainLocation()->pathString,
-                        []
-                    );
+                    if (array_key_exists($content->id, $suggestionsByContentIds)) {
+                        $suggestionCollection->remove($suggestionsByContentIds[$content->id]);
+                    }
+
+                    $contentSuggestion = $this->contentSuggestionMapper->map(new SearchHit(['valueObject' => $content, 'score' => $maxScore + 1]));
                     $suggestionCollection->append($contentSuggestion);
                 }
             }
