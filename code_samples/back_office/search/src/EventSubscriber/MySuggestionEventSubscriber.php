@@ -21,10 +21,9 @@ class MySuggestionEventSubscriber implements EventSubscriberInterface, LoggerAwa
     private SearchHitToContentSuggestionMapperInterface $contentSuggestionMapper;
 
     public function __construct(
-        ProductServiceInterface                     $productService,
+        ProductServiceInterface $productService,
         SearchHitToContentSuggestionMapperInterface $contentSuggestionMapper
-    )
-    {
+    ) {
         $this->productService = $productService;
         $this->contentSuggestionMapper = $contentSuggestionMapper;
     }
@@ -47,7 +46,7 @@ class MySuggestionEventSubscriber implements EventSubscriberInterface, LoggerAwa
 
         try {
             $productQuery = new ProductQuery(null, new Criterion\LogicalOr([
-                new Criterion\ProductName(implode(' ', array_map(function (string $word) {
+                new Criterion\ProductName(implode(' ', array_map(static function (string $word) {
                     return "$word*";
                 }, $words))),
                 new Criterion\ProductCode($words),
