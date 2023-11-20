@@ -20,9 +20,15 @@ parameters:
 ## Add a suggestion source
 
 You can add a suggestion source by listening or subscribing to the `Ibexa\Contracts\Search\Event\BuildSuggestionCollectionEvent`.
-During this event, you can add, remove, or replace suggestions by updating its `SuggestionCollection`. After this event, the suggestion collection is sorted by score and truncated to [`result_limit`](#configuration) items.
+During this event, you can add, remove, or replace suggestions by updating its `SuggestionCollection`.
+After this event, the suggestion collection is sorted by score and truncated to [`result_limit`](#configuration) items.
 
-The following example is boosting Product suggestions, it's a subscriber passing after the default one (thanks to a priority below zero) and adding matching products at a score above the previous Content suggestions.
+The following example is boosting Product suggestions.
+It's a subscriber passing after the default one (thanks to a priority below zero) and adding matching products at a score above the previous Content suggestions.
+
+- If this suggestion source find a count of `result_limit` matching products or more, there is only those products in the suggestion.
+- If it finds less than `result_limit` products, those products are on top of the suggestion followed by other suggestion source items to reach the limit.
+- If it doesn't find any matching product, only default source suggestion is shown.
 
 ``` php
 [[= include_file(code_samples/back_office/search/src/EventSubscriber/MySuggestionEventSubscriber.php) =]]
