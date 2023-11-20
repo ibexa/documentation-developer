@@ -34,6 +34,12 @@ Due to this storage limitation, searching content using the Country Field Type o
 |[Field](field_criterion.md)|Content of one of Content item's Fields|&#10004; |&#10004; | |
 |[FieldRelation](fieldrelation_criterion.md)|Content items the content in question has Relations to|&#10004; |&#10004; | |
 |[FullText](fulltext_criterion.md)|Full text content of a Content item's Fields|&#10004; |&#10004; | |
+|[ImageDimensions](imagedimensions_criterion.md)|Image dimensions: height and width||||
+|[ImageFileSize](imagefilesize_criterion.md)|Image size in MB||||
+|[ImageHeight](imageheight_criterion.md)|Image height in pixels|||
+|[ImageMimeType](imagemimetype_criterion.md)|Image type|||
+|[ImageOrientation](imageorientation_criterion.md)|Image orientation|||
+|[ImageWidth](imagewidth_criterion.md)|Image widht in pixels|||
 |[IsCurrencyEnabledCriterion](iscurrencyenabled_criterion.md)|Whether a specified currency is enabled in the system| | | |
 |[IsFieldEmpty](isfieldempty_criterion.md)|Whether a specified Field of a Content item is empty or not|&#10004; |&#10004; | |
 |[IsMainLocation](ismainlocation_criterion.md)|Whether a Location is the main Location of a Content item| |&#10004; |&#10004; |

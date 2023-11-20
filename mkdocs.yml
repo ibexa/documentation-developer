@@ -447,6 +447,12 @@ nav:
             - Field: search/criteria_reference/field_criterion.md
             - FieldRelation: search/criteria_reference/fieldrelation_criterion.md
             - FullText: search/criteria_reference/fulltext_criterion.md
+            - ImageDimensions: search/criteria_reference/imagedimensions_criterion.md
+            - ImageFileSize: search/criteria_reference/imagefilesize_criterion.md
+            - ImageHeight: search/criteria_reference/imageheight_criterion.md
+            - ImageMimeType: search/criteria_reference/imagemimetype_criterion.md
+            - ImageOrientation: search/criteria_reference/imageorientation_criterion.md
+            - ImageWidth: search/criteria_reference/imagewidth_criterion.md
             - IsCurrencyEnabled: search/criteria_reference/iscurrencyenabled_criterion.md
             - IsFieldEmpty: search/criteria_reference/isfieldempty_criterion.md
             - IsMainLocation: search/criteria_reference/ismainlocation_criterion.md
