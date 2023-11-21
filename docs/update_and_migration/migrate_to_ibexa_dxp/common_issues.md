@@ -38,9 +38,9 @@ In that case, run the `ezplatform:images:normalize-path` command to normalize th
 php bin/console ezplatform:images:normalize-path
 ```
 
-!!! note
+!!! note "Special characters"
 
-    If you have a corrupted path detected, check if you have special or Unicode character in the `var_dir` configuration.
+    If a corrupted path is detected, check the `var_dir` configuration for any special or Unicode characters.
 
 ## Unknown relation type 0
 

@@ -36,7 +36,7 @@ These files contain additional settings and point to the general (not environmen
 
     Read more about [how configuration is handled in Symfony]([[= symfony_doc =]]/best_practices/configuration.html).
 
-!!! caution
+!!! caution "Special characters"
 
     Avoid using special characters in your configuration files, avoid especially Unicode characters from the ["Other" (`C`) categories (such as control or format characters)](https://en.wikipedia.org/wiki/Unicode#General_Category_property). Make sure your IDE displays them. Be careful when copy-pasting from a word processing software or a PDF (it might content hidden character like [soft hyphen](https://en.wikipedia.org/wiki/Soft_hyphen).
 
