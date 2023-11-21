@@ -7,7 +7,7 @@ page_type: reference
 
 Product Search Criteria are only supported by [Product Search (`ProductServiceInterface::findProduct`)](product_api.md#products).
 
-Search Criterion let you to filter product by specific attributes, for example: color, availability, price etc.
+Search Criterion let you filter product by specific attributes, for example: color, availability, price etc.
 
 ## Product Search Criteria
 
