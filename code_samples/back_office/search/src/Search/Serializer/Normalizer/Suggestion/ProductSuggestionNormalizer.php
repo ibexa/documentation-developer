@@ -15,11 +15,6 @@ class ProductSuggestionNormalizer implements
 {
     use NormalizerAwareTrait;
 
-    public function hasCacheableSupportsMethod(): bool
-    {
-        return true;
-    }
-
     public function normalize($object, string $format = null, array $context = [])
     {
         /** @var \App\Search\Model\Suggestion\ProductSuggestion $object */
@@ -36,4 +31,10 @@ class ProductSuggestionNormalizer implements
     {
         return $data instanceof ProductSuggestion;
     }
+
+    public function hasCacheableSupportsMethod(): bool
+    {
+        return true;
+    }
+
 }

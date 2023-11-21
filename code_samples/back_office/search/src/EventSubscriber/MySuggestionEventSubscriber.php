@@ -3,7 +3,6 @@
 namespace App\EventSubscriber;
 
 use App\Search\Model\Suggestion\ProductSuggestion;
-use Ibexa\Contracts\Core\Repository\Values\Content\Search\SearchHit;
 use Ibexa\Contracts\ProductCatalog\ProductServiceInterface;
 use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
 use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion;
@@ -71,9 +70,6 @@ class MySuggestionEventSubscriber implements EventSubscriberInterface, LoggerAwa
                     if (array_key_exists($content->id, $suggestionsByContentIds)) {
                         $suggestionCollection->remove($suggestionsByContentIds[$content->id]);
                     }
-
-                    //$contentSuggestion = $this->contentSuggestionMapper->map(new SearchHit(['valueObject' => $content, 'score' => $maxScore + 1]));
-                    //$suggestionCollection->append($contentSuggestion);
 
                     $productSuggestion = new ProductSuggestion($maxScore + 1, $result);
                     $suggestionCollection->append($productSuggestion);
