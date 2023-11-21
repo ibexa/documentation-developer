@@ -17,6 +17,15 @@ and use `TaxonomyServiceInterface::loadEntryByIdentifier()`:
 [[= include_file('code_samples/api/public_php_api/src/Command/TaxonomyCommand.php', 43, 46) =]]
 ```
 
+!!! note
+
+    A taxonomy entry identifier is unique per taxonomy. If you have [several taxonomies](taxonomy.md#customize-taxonomy-structure), you can increase code readability by always passing the taxonomy identifier even when it's the default one. The default taxonomy is `tags` if it exists, else the first configured taxonomy (see `\Ibexa\Taxonomy\Service\TaxonomyConfiguration::getDefaultTaxonomyName` for details).
+    ``` php
+    $springs[] = $this->taxonomyService->loadEntryByIdentifier('spring', 'tags');
+    $springs[] = $this->taxonomyService->loadEntryByIdentifier('spring', 'events');
+    $springs[] = $this->taxonomyService->loadEntryByIdentifier('spring', 'devices');
+    ```
+
 You can also get a taxonomy entry from the ID of its underlying Content item, by using `TaxonomyServiceInterface::loadEntryByContentId()`.
 
 To get the root (main) entry of a given taxonomy, use `TaxonomyServiceInterface::loadRootEntry()`
