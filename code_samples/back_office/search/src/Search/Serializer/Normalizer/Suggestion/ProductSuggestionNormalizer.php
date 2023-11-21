@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Search\Serializer\Normalizer\Suggestion;
 
@@ -22,7 +22,7 @@ class ProductSuggestionNormalizer implements
 
     public function normalize($object, string $format = null, array $context = [])
     {
-        /** @var ProductSuggestion $object */
+        /** @var \App\Search\Model\Suggestion\ProductSuggestion $object */
         return [
             'type' => 'product',
             'name' => $object->getName(),

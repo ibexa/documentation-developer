@@ -5,7 +5,8 @@ namespace App\Search\Model\Suggestion;
 use Ibexa\Contracts\Search\Model\Suggestion\Suggestion;
 use Ibexa\ProductCatalog\Local\Repository\Values\Product;
 
-class ProductSuggestion extends Suggestion {
+class ProductSuggestion extends Suggestion
+{
     private Product $product;
 
     public function __construct(

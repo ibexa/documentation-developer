@@ -24,8 +24,7 @@ class MySuggestionEventSubscriber implements EventSubscriberInterface, LoggerAwa
     public function __construct(
         ProductServiceInterface $productService,
         SearchHitToContentSuggestionMapperInterface $contentSuggestionMapper
-    )
-    {
+    ) {
         $this->productService = $productService;
         $this->contentSuggestionMapper = $contentSuggestionMapper;
     }
@@ -76,7 +75,7 @@ class MySuggestionEventSubscriber implements EventSubscriberInterface, LoggerAwa
                     //$contentSuggestion = $this->contentSuggestionMapper->map(new SearchHit(['valueObject' => $content, 'score' => $maxScore + 1]));
                     //$suggestionCollection->append($contentSuggestion);
 
-                    $productSuggestion = new ProductSuggestion($maxScore+1, $result);
+                    $productSuggestion = new ProductSuggestion($maxScore + 1, $result);
                     $suggestionCollection->append($productSuggestion);
                 }
             }
