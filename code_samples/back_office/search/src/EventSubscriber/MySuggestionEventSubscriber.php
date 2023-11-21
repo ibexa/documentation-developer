@@ -2,6 +2,7 @@
 
 namespace App\EventSubscriber;
 
+use App\Search\Model\Suggestion\ProductSuggestion;
 use Ibexa\Contracts\Core\Repository\Values\Content\Search\SearchHit;
 use Ibexa\Contracts\ProductCatalog\ProductServiceInterface;
 use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
@@ -23,7 +24,8 @@ class MySuggestionEventSubscriber implements EventSubscriberInterface, LoggerAwa
     public function __construct(
         ProductServiceInterface $productService,
         SearchHitToContentSuggestionMapperInterface $contentSuggestionMapper
-    ) {
+    )
+    {
         $this->productService = $productService;
         $this->contentSuggestionMapper = $contentSuggestionMapper;
     }
@@ -71,8 +73,11 @@ class MySuggestionEventSubscriber implements EventSubscriberInterface, LoggerAwa
                         $suggestionCollection->remove($suggestionsByContentIds[$content->id]);
                     }
 
-                    $contentSuggestion = $this->contentSuggestionMapper->map(new SearchHit(['valueObject' => $content, 'score' => $maxScore + 1]));
-                    $suggestionCollection->append($contentSuggestion);
+                    //$contentSuggestion = $this->contentSuggestionMapper->map(new SearchHit(['valueObject' => $content, 'score' => $maxScore + 1]));
+                    //$suggestionCollection->append($contentSuggestion);
+
+                    $productSuggestion = new ProductSuggestion($maxScore+1, $result);
+                    $suggestionCollection->append($productSuggestion);
                 }
             }
         } catch (\Throwable $throwable) {

@@ -1,3 +1,19 @@
 services:
 
     App\EventSubscriber\MySuggestionEventSubscriber: ~
+
+    App\Search\Serializer\Normalizer\Suggestion\ProductSuggestionNormalizer:
+        autoconfigure: false
+
+    app.search.suggestion.serializer:
+        decorates: ibexa.search.suggestion.serializer
+        class: Symfony\Component\Serializer\Serializer
+        autoconfigure: false
+        arguments:
+            $normalizers:
+                - '@App\Search\Serializer\Normalizer\Suggestion\ProductSuggestionNormalizer'
+                - '@Ibexa\Search\Serializer\Normalizer\Suggestion\ContentSuggestionNormalizer'
+                - '@Ibexa\Search\Serializer\Normalizer\Suggestion\LocationNormalizer'
+                - '@Ibexa\Search\Serializer\Normalizer\Suggestion\ParentLocationCollectionNormalizer'
+            $encoders:
+                - '@serializer.encoder.json'
