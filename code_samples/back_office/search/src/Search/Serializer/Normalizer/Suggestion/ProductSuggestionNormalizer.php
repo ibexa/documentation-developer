@@ -36,5 +36,4 @@ class ProductSuggestionNormalizer implements
     {
         return true;
     }
-
 }
