@@ -17,3 +17,11 @@ services:
                 - '@Ibexa\Search\Serializer\Normalizer\Suggestion\ParentLocationCollectionNormalizer'
             $encoders:
                 - '@serializer.encoder.json'
+
+    ibexa.search.autocomplete.product_template:
+        parent: Ibexa\AdminUi\Component\TabsComponent
+        arguments:
+            $template: '@@ibexadesign/ui/global_search_autocomplete_product_template.html.twig'
+            $groupIdentifier: 'global-search-autocomplete-product'
+        tags:
+            - { name: ibexa.admin_ui.component, group: global-search-autocomplete-templates }

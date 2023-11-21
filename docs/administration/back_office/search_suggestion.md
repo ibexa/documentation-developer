@@ -24,7 +24,7 @@ During this event, you can add, remove, or replace suggestions by updating its `
 After this event, the suggestion collection is sorted by score and truncated to [`result_limit`](#configuration) items.
 
 !!! tip
-    
+
     You can list listeners and subscribers with the following command:
     ``` shell
     php bin/console debug:event BuildSuggestionCollectionEvent
@@ -74,7 +74,7 @@ services:
 ```
 
 !!! tip
-    
+
     At this point, it's possible to test the suggestion JSON. The route is `/suggestion` with a `query` GET parameter worth the searched text.
     Log in your Back Office to have a session cookie, then access to the route through the Back Office siteaccess, such as `http://localhost/admin/suggestion?query=platform`.
 
@@ -93,19 +93,48 @@ It's registered as `autocomplete.renderers.<type>` using the type identifier def
  })(window, document, window.ibexa, window.Routing);
 ```
 
+To fit into the Back Office design, you can take HTML structure and CSS class names from existing suggestion template `vendor/ibexa/admin-ui/src/bundle/Resources/views/themes/admin/ui/global_search_autocomplete_content_item.html.twig`.
+
+To allow template override and ease HTML writing, the example is also loading a template to render the HTML.
+
 Here is the complete `assets/js/admin.search.autocomplete.product.js`from the product suggestion example:
 
-TODO: Move template to Twig
-
-``` js
+``` js hl_lines="8"
 [[= include_file('code_samples/back_office/search/assets/js/admin.search.autocomplete.product.js') =]]
 ```
 
-To be loaded in Back Office layout, this file must be added to `ibexa-admin-ui-layout-js` entry using Webpack. This is appended to `webpack.config.js`:
+To be loaded in Back Office layout, this file must be added to `ibexa-admin-ui-layout-js` entry using Webpack. Appended to `webpack.config.js`, it's added using the `ibexaConfigManager`:
 
 ``` javascript
 //…
 [[= include_file('code_samples/back_office/search/append_to_webpack.config.js') =]]
+```
+
+The renderer, `admin.search.autocomplete.product.js`' `renderItem` function, loads an HTML template from a wrapping DOM node [dataset](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset).
+This wrapping node exists only once and the renderer loads the template several times.
+
+The example template for this wrapping node is stored in `templates/themes/admin/ui/global_search_autocomplete_product_template.html.twig` (notice the CSS class name used by the renderer to reach it):
+
+``` html+twig hl_lines="2 3 9"
+[[= include_file('code_samples/back_office/search/templates/themes/admin/ui/global_search_autocomplete_product_template.html.twig') =]]
+```
+
+- At HTML level, it wraps the product item template in its HTML tag dataset attribute `data-template-item`.
+- At Twig level, it includes the item template, replaces Twig variables with the strings used by the JS renderer,
+  and pass it to the [`escape` filter](https://twig.symfony.com/doc/3.x/filters/escape.html) with the HTML attribute strategy.
+
+To be present, this wrapping node template must be added to the `global-search-autocomplete-templates` group of tabs components:
+
+``` yaml
+services:
+    #…
+[[= include_file('code_samples/back_office/search/config/append_to_services.yaml', 21, 27) =]]
+```
+
+The product suggestion item template itself, as `templates/themes/admin/ui/global_search_autocomplete_product_item.html.twig`:
+
+``` html+twig
+[[= include_file('code_samples/back_office/search/templates/themes/admin/ui/global_search_autocomplete_product_item.html.twig') =]]
 ```
 
 ## Replace the default suggestion source
