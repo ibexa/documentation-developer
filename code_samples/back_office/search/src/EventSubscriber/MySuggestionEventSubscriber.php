@@ -63,15 +63,14 @@ class MySuggestionEventSubscriber implements EventSubscriberInterface, LoggerAwa
                     $suggestionsByContentIds[$suggestion->getContent()->id] = $suggestion;
                 }
 
-                /** @var \Ibexa\ProductCatalog\Local\Repository\Values\Product $result */
-                foreach ($searchResult as $result) {
-                    $content = $result->getContent();
-
-                    if (array_key_exists($content->id, $suggestionsByContentIds)) {
-                        $suggestionCollection->remove($suggestionsByContentIds[$content->id]);
+                /** @var \Ibexa\ProductCatalog\Local\Repository\Values\Product $product */
+                foreach ($searchResult as $product) {
+                    $contentId = $product->getContent()->id;
+                    if (array_key_exists($contentId, $suggestionsByContentIds)) {
+                        $suggestionCollection->remove($suggestionsByContentIds[$contentId]);
                     }
 
-                    $productSuggestion = new ProductSuggestion($maxScore + 1, $result);
+                    $productSuggestion = new ProductSuggestion($maxScore + 1, $product);
                     $suggestionCollection->append($productSuggestion);
                 }
             }

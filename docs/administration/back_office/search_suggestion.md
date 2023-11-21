@@ -31,13 +31,13 @@ After this event, the suggestion collection is sorted by score and truncated to 
     ```
 
 The following example is boosting Product suggestions.
-It's a subscriber passing after the default one (thanks to a priority below zero) and adding matching products at a score above the previous Content suggestions.
+It's a subscriber passing after the default one (thanks to a priority below zero), adding matching products at a score above the previous Content suggestions, and avoiding duplicates.
 
 - If this suggestion source find a count of `result_limit` matching products or more, there is only those products in the suggestion.
 - If it finds less than `result_limit` products, those products are on top of the suggestion followed by other suggestion source items to reach the limit.
 - If it doesn't find any matching product, only default source suggestion is shown.
 
-This the event subscriber itself in the file `src/EventSubscriber/MySuggestionEventSubscriber.php`:
+This example event subscriber is implemented in the file `src/EventSubscriber/MySuggestionEventSubscriber.php`, uses [`ProductService::findProducts`](product_api.md#products), and return the received event after having manipulated it `SuggestionCollection`:
 ``` php
 [[= include_file('code_samples/back_office/search/src/EventSubscriber/MySuggestionEventSubscriber.php') =]]
 ```
@@ -48,7 +48,6 @@ services:
     #…
 [[= include_file('code_samples/back_office/search/config/append_to_services.yaml', 2, 3) =]]
 ```
-
 
 To represent the product suggestion data, a ProductSuggestion class is created in `src/Search/Model/Suggestion/ProductSuggestion.php`:
 ``` php
@@ -119,7 +118,7 @@ The example template for this wrapping node is stored in `templates/themes/admin
 [[= include_file('code_samples/back_office/search/templates/themes/admin/ui/global_search_autocomplete_product_template.html.twig') =]]
 ```
 
-- At HTML level, it wraps the product item template in its HTML tag dataset attribute `data-template-item`.
+- At HTML level, it wraps the product item template in its dataset attribute `data-template-item`.
 - At Twig level, it includes the item template, replaces Twig variables with the strings used by the JS renderer,
   and pass it to the [`escape` filter](https://twig.symfony.com/doc/3.x/filters/escape.html) with the HTML attribute strategy.
 
