@@ -1,0 +1,5 @@
+services:
+
+    App\Search\SortingDefinition\Provider\RandomSortingDefinitionProvider:
+        tags:
+            -   name: ibexa.search.sorting_definition.provider
