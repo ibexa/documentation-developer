@@ -142,6 +142,65 @@ To have a better overview for a specific group of products, you can filter the l
 Catalog filters let you narrow down the products from the PIM that are available in the given catalog.
 Besides, the built-in catalog filters, you can also [create custom ones](create_custom_catalog_filter.md).
 
+### Remote PIM support
+
+In [[= product_name =]], products are traditionally created and maintained by using the REST API or the Back Office.
+And product data is stored in a local database.
+However, in your project or organization, you might have an existing product database, or be specifically concerned about product information security.
+To address such needs, [[= product_name =]] provides a foundation for remote PIM support.
+You can build upon it to connect to a remote PIM or ERP system, pull product data and present it on your website.
+
+![Remote PIM](img/remote_pim.png)
+
+Remote PIM support is available in all [[= product_name =]] editions as of version v.4.6.0.
+An example implementation is delivered as an optional package that you can [install and customize](install_remote_pim.md) to fulfill your requirements.
+
+#### Capabilities
+
+With Remote PIM support, you can take advantage of the following capabilities:
+
+##### Purchasing
+
+Yes. Cart, checkout, order management work just like with local PIM products, including quick orders.
+
+##### Pricing, stock and availability
+
+A product can only be ordered when it has defined [availability]([[= user_doc =]]/pim/manage_prices_and_stock/#set-product-availability), stock and [pricing information]([[= user_doc =]]/pim/manage_prices/).
+By default, such information is held in [[= product_name =]]'s database.
+In your specific scenario, you can implement the support form availability and pricing information coming from an external source as well, by using a price/availability matching strategy that makes an extension point in the Product catalog module.
+
+##### Filtering
+
+Filtering and pagination work as with local PIM, based on product attributes
+
+##### Catalogues
+
+Catalogues can be created as with local PIM, but the criteria are limited to type, availability and attributes.
+
+#### Limitations
+
+In the default implementation, used as a basis of the example Remote PIM package, the following functionalities either do not work, or work within certain limits.
+
+##### Editing products
+
+##### Content-model-based features
+
+- Product variants
+- Product categories
+- Taxonomy
+- Assets
+- URL aliases / URL tab
+
+##### Limited HTTP Caching
+
+For remote PIM, there is no way to use [content-aware HTTP caching](content_aware_cache.md) with `ibexa_http_cache_tag_relation_ids`.
+
+##### Simplified presentation of PIM-related blocks for Page Builder
+
+When you enable Remote PIM, numerous application views, such as Product view, Product list, or Catalog and Product Collection are simplified.
+For example, they do not include thumbnails or other assets.
+You can customize them by extending the default implementation.
+
 ## How to get started
 
 To start working with the products, you need to enable purchasing from the catalog. 
