@@ -310,12 +310,15 @@ nav:
         - Catalogs: pim/catalogs.md
         - Catalog API: pim/catalog_api.md
         - Enable purchasing products: pim/enable_purchasing_products.md
-        - Create custom attribute type: pim/create_custom_attribute_type.md
-        - Create product code generator: pim/create_product_code_generator.md
-        - Create custom catalog filter: pim/create_custom_catalog_filter.md
-        - Create custom name schema: pim/create_custom_name_schema_strategy.md
         - Prices: pim/prices.md
         - Price API: pim/price_api.md
+        - Customize PIM: 
+            - Custmize PIM: pim/customize_pim.md
+            - Create custom attribute type: pim/create_custom_attribute_type.md
+            - Create product code generator: pim/create_product_code_generator.md
+            - Create custom catalog filter: pim/create_custom_catalog_filter.md
+            - Create custom name schema: pim/create_custom_name_schema_strategy.md
+        - Add remote PIM support: pim/install_remote_pim.md
     - Commerce:
         - Commerce: commerce/commerce.md
         - Cart:
@@ -760,6 +763,7 @@ nav:
             - Package structure: resources/contributing/package_structure.md
     - Release notes:
         - Release notes: release_notes/release_notes.md
+        - Ibexa DXP v4.6: release_notes/ibexa_dxp_v4.6_draft.md
         - Ibexa DXP v4.5: release_notes/ibexa_dxp_v4.5.md
         - Ibexa DXP v4.4: release_notes/ibexa_dxp_v4.4.md
         - Ibexa DXP v4.3: release_notes/ibexa_dxp_v4.3.md
