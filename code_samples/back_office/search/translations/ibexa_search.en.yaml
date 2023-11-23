@@ -1,2 +1,2 @@
-sort_definition.version_count_asc.label: 'Version Count (Less)'
-sort_definition.version_count_desc.label: 'Version Count (More)'
+sort_definition.version_number_asc.label: 'Sort by version number (Less)'
+sort_definition.version_number_desc.label: 'Sort by version number (More)'

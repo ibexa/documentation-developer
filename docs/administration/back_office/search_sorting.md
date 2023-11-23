@@ -2,6 +2,25 @@
 description: Add a "sort by" method to the Back Office search result page.
 ---
 
-- Implements `SortingDefinitionProviderInterface::getSortingDefinitions`
-- Implements `TranslationContainerInterface::getTranslationMessages`
-- Tag as `ibexa.search.sorting_definition.provider`
+# Customize search sorting
+
+To add an entry to the "Sort by" to the Back Office search result page, create a service implementing the `SortingDefinitionProviderInterface` and tagged `ibexa.search.sorting_definition.provider`.
+
+The following example class implements `SortingDefinitionProviderInterface::getSortingDefinitions`, and add two definitions to sort by "Version number".
+A sorting definition is an identifier, a label, a list of sort clauses, and a priority to position it in the menu.
+For the user interface, its also implements `TranslationContainerInterface::getTranslationMessages` to provide two default English translations in the `ibexa_search` namespace.
+This example is coded in `src/Search/SortingDefinition/Provider/VersionNoSortingDefinitionProvider.php`:
+``` php hl_lines="22"
+[[= include_file('code_samples/back_office/search/src/Search/SortingDefinition/Provider/VersionNoSortingDefinitionProvider.php') =]]
+```
+
+Its service definition is appended to `config/services.yaml`:
+``` yaml hl_lines="5"
+[[= include_file('code_samples/back_office/search/config/append_to_services.yaml') =]]
+```
+
+Translation file can be extracted with a `translation:extract` command, such as `php bin/console translation:extract en --domain=ibexa_search --dir=src --output-dir=translations` to obtain an `translations/ibexa_search.en.xlf` file.
+Or translation file can be manually produced, like the following `translations/ibexa_search.en.yaml`:
+``` yaml
+[[= include_file('code_samples/back_office/search/translations/ibexa_search.en.yaml') =]]
+```

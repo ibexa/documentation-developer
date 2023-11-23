@@ -23,20 +23,20 @@ final class VersionNoSortingDefinitionProvider implements SortingDefinitionProvi
     {
         return [
             new SortingDefinition(
-                'version_count_asc',
-                $this->translator->trans('sort_definition.version_count_asc.label'),
+                'version_number_asc',
+                $this->translator->trans('sort_definition.version_number_asc.label'),
                 [
                     new SortClause\CustomField('content_version_no_i', Query::SORT_ASC),
                 ],
-                400
+                333
             ),
             new SortingDefinition(
-                'version_count_desc',
-                $this->translator->trans('sort_definition.version_count_desc.label'),
+                'version_number_desc',
+                $this->translator->trans('sort_definition.version_number_desc.label'),
                 [
                     new SortClause\CustomField('content_version_no_i', Query::SORT_DESC),
                 ],
-                400
+                369
             ),
         ];
     }
@@ -44,8 +44,8 @@ final class VersionNoSortingDefinitionProvider implements SortingDefinitionProvi
     public static function getTranslationMessages(): array
     {
         return [
-            (new Message('sort_definition.version_count_asc.label', 'ibexa_search'))->setDesc('Version Count (Less)'),
-            (new Message('sort_definition.version_count_desc.label', 'ibexa_search'))->setDesc('Version Count (More)'),
+            (new Message('sort_definition.version_number_asc.label', 'ibexa_search'))->setDesc('Sort by version number (Less)'),
+            (new Message('sort_definition.version_number_desc.label', 'ibexa_search'))->setDesc('Sort by version number (More)'),
         ];
     }
 }
