@@ -15,6 +15,39 @@ description: Ibexa DXP v4.6 brings improvements to Commerce, PIM and Personaliza
 
 ## Notable changes
 
+### Remote PIM support
+
+Historically, [[= product_name =]] was configured to fetch objects and products from a local database, where they were created through the Back Office or with the REST API.
+This release introduces a foundation for connecting [[= product_name =]] to other sources of product data.
+Based on this foundation, you can implement a custom solution, and connect to external PIM or ERP systems, import product data and present it side-by-side with your organization's existing content, while managing product data in a remote system of your choice.
+
+Here are the most important benefits of Remote PIM support:
+
+- Integration with external data sources: your organization can utilize [[= product_name =]]'s features, without having to migrate data to a new environment.
+- Increased accessibility of product information: customers and users can access product data through different channels, including [[= product_name =]].
+- Centralized product data management: product information can be maintained and edited in one place, which then serves as a single source of truth for different applications.
+
+Among other things, the Remote PIM support feature allows [[= product_name =]] customers to:
+
+- let their users purchase products by following a regular or quick order path,
+- manage certain aspects of product data,
+- define and use product types,
+- use product attributes for filtering,
+- build product catalogs based on certain criteria, such as type, availability or product attributes
+- use Customer Groups to apply different prices to products, 
+- define and use currencies.
+
+For more information about Remote PIM support and the solution's limitations, see [PIM product guide](pim_guide.md#limitations).
+
+#### New Twig functions
+
+The `ibexa_is_pim_local` Twig helper has been introduced, which is used in templates to [check whether product data comes from a local or remote data source](storefront_twig_functions.mx#ibexa_is_pim_local), and adjust their behavior accordingly.
+Also, several new Twig functions have been implemented that help [get product availability information](product_twig_functions.md#ibexa_has_product_availability).
+
+#### New query type
+
+The `ProductContentAwareListQueryType` has been created to allow finding products that come from a local database, while `ProductListQueryType` has been modified to find products from an external source of truth.
+
 ### Ibexa Headless
 
 [[= product_name_content =]] changes name to [[= product_name_headless =]] to emphasize [[= product_name_base =]]'s capacity for headless architecture.
