@@ -6,12 +6,12 @@ description: Add a "sort by" method to the Back Office search result page.
 
 To add an entry to the "Sort by" to the Back Office search result page, create a service implementing the `SortingDefinitionProviderInterface` and tagged `ibexa.search.sorting_definition.provider`.
 
-The following example class implements `SortingDefinitionProviderInterface::getSortingDefinitions`, and add two definitions to sort by "Version number".
-A sorting definition is an identifier, a label, a list of sort clauses, and a priority to position it in the menu.
-For the user interface, its also implements `TranslationContainerInterface::getTranslationMessages` to provide two default English translations in the `ibexa_search` namespace.
-This example is coded in `src/Search/SortingDefinition/Provider/VersionNoSortingDefinitionProvider.php`:
+The following example class implements `SortingDefinitionProviderInterface::getSortingDefinitions`, and add two definitions to sort by section name.
+A sorting definition is an identifier, a menu label, a list of [Content Search's Sort Clauses](sort_clause_reference.md#sort-clauses), and a priority to position it in the menu.
+For the menu label, its also implements `TranslationContainerInterface::getTranslationMessages` to provide two default English translations in the `ibexa_search` namespace.
+This example is coded in `src/Search/SortingDefinition/Provider/SectionNameSortingDefinitionProvider.php`:
 ``` php hl_lines="22"
-[[= include_file('code_samples/back_office/search/src/Search/SortingDefinition/Provider/VersionNoSortingDefinitionProvider.php') =]]
+[[= include_file('code_samples/back_office/search/src/Search/SortingDefinition/Provider/SectionNameSortingDefinitionProvider.php') =]]
 ```
 
 Its service definition is appended to `config/services.yaml`:

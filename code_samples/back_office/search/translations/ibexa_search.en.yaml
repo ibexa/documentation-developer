@@ -1,2 +1,2 @@
-sort_definition.version_number_asc.label: 'Sort by version number (Less)'
-sort_definition.version_number_desc.label: 'Sort by version number (More)'
+sort_definition.section_name_asc.label: 'Sort by section A-Z'
+sort_definition.section_name_desc.label: 'Sort by section Z-A'

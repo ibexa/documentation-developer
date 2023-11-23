@@ -10,7 +10,7 @@ use JMS\TranslationBundle\Model\Message;
 use JMS\TranslationBundle\Translation\TranslationContainerInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
-final class VersionNoSortingDefinitionProvider implements SortingDefinitionProviderInterface, TranslationContainerInterface
+final class SectionNameSortingDefinitionProvider implements SortingDefinitionProviderInterface, TranslationContainerInterface
 {
     private TranslatorInterface $translator;
 
@@ -24,17 +24,17 @@ final class VersionNoSortingDefinitionProvider implements SortingDefinitionProvi
         return [
             new SortingDefinition(
                 'version_number_asc',
-                $this->translator->trans('sort_definition.version_number_asc.label'),
+                $this->translator->trans('sort_definition.section_name_asc.label'),
                 [
-                    new SortClause\CustomField('content_version_no_i', Query::SORT_ASC),
+                    new SortClause\SectionName(Query::SORT_ASC),
                 ],
                 333
             ),
             new SortingDefinition(
                 'version_number_desc',
-                $this->translator->trans('sort_definition.version_number_desc.label'),
+                $this->translator->trans('sort_definition.section_name_desc.label'),
                 [
-                    new SortClause\CustomField('content_version_no_i', Query::SORT_DESC),
+                    new SortClause\SectionName(Query::SORT_DESC),
                 ],
                 369
             ),
@@ -44,8 +44,8 @@ final class VersionNoSortingDefinitionProvider implements SortingDefinitionProvi
     public static function getTranslationMessages(): array
     {
         return [
-            (new Message('sort_definition.version_number_asc.label', 'ibexa_search'))->setDesc('Sort by version number (Less)'),
-            (new Message('sort_definition.version_number_desc.label', 'ibexa_search'))->setDesc('Sort by version number (More)'),
+            (new Message('sort_definition.section_name_asc.label', 'ibexa_search'))->setDesc('Sort by section A-Z'),
+            (new Message('sort_definition.section_name_desc.label', 'ibexa_search'))->setDesc('Sort by section Z-A'),
         ];
     }
 }
