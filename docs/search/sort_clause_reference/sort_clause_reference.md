@@ -14,9 +14,9 @@ All Sort Clauses can take the following optional argument:
 
 - `sortDirection` - the direction of the sorting, either `Query::SORT_ASC` (default) or `Query::SORT_DESC`
 
-## Sort Clauses 
+## Sort Clauses
 
-| Sort Clause                                                   | Sorting based on                                                                            | Content Search | Location Search | Filtering | 
+| Sort Clause                                                   | Sorting based on                                                                            | Content Search | Location Search | Filtering |
 |---------------------------------------------------------------|---------------------------------------------------------------------------------------------|----------------|-----------------|-----------|
 | [ContentId](contentid_sort_clause.md)                         | Content items' ID                                                                           | &#10004;       | &#10004;        | &#10004;  |
 | [ContentName](contentname_sort_clause.md)                     | Content names                                                                               | &#10004;       | &#10004;        | &#10004;  |
