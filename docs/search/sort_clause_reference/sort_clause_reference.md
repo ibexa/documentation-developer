@@ -24,7 +24,7 @@ All Sort Clauses can take the following optional argument:
 | [CustomField](customfield_sort_clause.md)                     | Raw search index fields                                                                     | &#10004;       | &#10004;        |           |
 | [DateModified](datemodified_sort_clause.md)                   | The date when content was last modified                                                     | &#10004;       | &#10004;        | &#10004;  |
 | [DatePublished](datepublished_sort_clause.md)                 | The date when content was created                                                           | &#10004;       | &#10004;        | &#10004;  |
-| [Depth](depth_sort_clause.md)                                 | Location depth in the Content tree                                                          |                | &#10004;        | &#10004;  |
+| [Depth](depth_sort_clause.md)                                 | Location depth in the Content Tree                                                          |                | &#10004;        | &#10004;  |
 | [Field](field_sort_clause.md)                                 | Content of one of Content item's Fields                                                     | &#10004;       | &#10004;        |           |
 | [Id](id_sort_clause.md)                                       | Location ID                                                                                 |                | &#10004;        | &#10004;  |
 | [IsMainLocation](ismainlocation_sort_clause.md)               | Whether a Location is the main Location of a Content item                                   |                | &#10004;        |           |
