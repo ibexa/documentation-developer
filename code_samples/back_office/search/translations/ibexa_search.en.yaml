@@ -1,1 +1,2 @@
-sort_definition.random.label: 'Shuffle'
+sort_definition.version_count_asc.label: 'Version Count (Less)'
+sort_definition.version_count_desc.label: 'Version Count (More)'
