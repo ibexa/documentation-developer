@@ -15,39 +15,6 @@ description: Ibexa DXP v4.6 brings improvements to Commerce, PIM and Personaliza
 
 ## Notable changes
 
-### Remote PIM support
-
-Historically, [[= product_name =]] was configured to fetch objects and products from a local database, where they were created through the Back Office or with the REST API.
-This release introduces a foundation for connecting [[= product_name =]] to other sources of product data.
-Based on this foundation, you can implement a custom solution, and connect to external PIM or ERP systems, import product data and present it side-by-side with your organization's existing content, while managing product data in a remote system of your choice.
-
-Here are the most important benefits of Remote PIM support:
-
-- Integration with external data sources: your organization can utilize [[= product_name =]]'s features, without having to migrate data to a new environment.
-- Increased accessibility of product information: customers and users can access product data through different channels, including [[= product_name =]].
-- Centralized product data management: product information can be maintained and edited in one place, which then serves as a single source of truth for different applications.
-
-Among other things, the Remote PIM support feature allows [[= product_name =]] customers to:
-
-- let their users purchase products by following a regular or quick order path,
-- manage certain aspects of product data,
-- define and use product types,
-- use product attributes for filtering,
-- build product catalogs based on certain criteria, such as type, availability or product attributes
-- use Customer Groups to apply different prices to products, 
-- define and use currencies.
-
-For more information about Remote PIM support and the solution's limitations, see [PIM product guide](pim_guide.md#limitations).
-
-#### New Twig functions
-
-The `ibexa_is_pim_local` Twig helper has been introduced, which is used in templates to [check whether product data comes from a local or remote data source](storefront_twig_functions.mx#ibexa_is_pim_local), and adjust their behavior accordingly.
-Also, several new Twig functions have been implemented that help [get product availability information](product_twig_functions.md#ibexa_has_product_availability).
-
-#### New query type
-
-The `ProductContentAwareListQueryType` has been created to allow finding products that come from a local database, while `ProductListQueryType` has been modified to find products from an external source of truth.
-
 ### Ibexa Headless
 
 [[= product_name_content =]] changes name to [[= product_name_headless =]] to emphasize [[= product_name_base =]]'s capacity for headless architecture.
@@ -71,38 +38,76 @@ Users can now easily find and manage their drafts and published content from one
 
 ![Draft section added to Content](img/4.6_drafts.png)
 
-### New features and improvements in Personalization
+### New features and improvements in PIM
 
-#### Triggers
+#### Remote PIM support
 
-Triggers are push messages delivered to end users.
-With triggers, store managers can increase the engagement of their visitors and customers by delivering recommendations straight to their devices or mailboxes.
-While they experience improved fulfillment of their needs, more engaged customers mean bigger income for the store.
-The feature requires that your organization exposes an endpoint that passes data to an internal message delivery system and supports the following use cases:
+Historically, [[= product_name =]] was configured to fetch objects and products from a local database, where they were created through the Back Office or with the REST API.
+This release introduces a foundation for connecting [[= product_name =]] to other sources of product data.
+Based on this foundation, you can implement a custom solution, and connect to external PIM or ERP systems, import product data and present it side-by-side with your organization's existing content, while managing product data in a remote system of your choice.
 
-- Inducing a purchase by pushing a message with cart contents or equivalents, when the customer's cart status remains unchanged for a set time.
+Here are the most important benefits of Remote PIM support:
 
-- Inviting a customer to come back to the site by pushing a message with recommendations, when they haven't returned to the site for a set time.
+- Integration with external data sources: your organization can utilize [[= product_name =]]'s features, without having to migrate data to a new environment.
+- Increased accessibility of product information: customers and users can access product data through different channels, including [[= product_name =]].
+- Centralized product data management: product information can be maintained and edited in one place, which then serves as a single source of truth for different applications.
 
-- Reviving the customer's interest by pushing a message with products that are similar to the ones the customer has already seen.
+Among other things, the Remote PIM support feature allows [[= product_name =]] customers to:
 
-- Inducing a purchase by pushing a message when a price of the product from the customer's wishlist decreases.
+- let their users purchase products by following a regular or quick order path,
+- manage certain aspects of product data,
+- define and use product types,
+- use product attributes for filtering,
+- build product catalogs based on certain criteria, such as type, availability or product attributes
+- use Customer Groups to apply different prices to products, 
+- define and use currencies.
 
-For more information, see [Email triggers](https://doc.ibexa.co/projects/userguide/en/4.5/personalization/triggers.md).
+For more information about Remote PIM support and the solution's limitations, see [PIM product guide](pim_guide.md#limitations).
 
-#### Multiple attributes in recommendation computation
+##### New Twig functions
 
-With this feature, you get an option to combine several attribute types when computing recommendations.
-As a result, users can be presented with recommendations from an intersection of submodel results.
+The `ibexa_is_pim_local` Twig helper has been introduced, which is used in templates to [check whether product data comes from a local or remote data source](storefront_twig_functions.mx#ibexa_is_pim_local), and adjust their behavior accordingly.
+Also, several new Twig functions have been implemented that help [get product availability information](product_twig_functions.md#ibexa_has_product_availability).
 
-For more information, see [Submodel parameters](recommendation_api.md#submodel-parameters) and [Submodels]https://doc.ibexa.co/projects/userguide/en/latest/personalization/recommendation_models/#submodels).
+##### New query type
 
-#### New scenario filter
+The `ProductContentAwareListQueryType` has been created to allow finding products that come from a local database, while `ProductListQueryType` has been modified to find products from an external source of truth.
 
-Depending on a setting that you make when defining a scenario, the recommendation response can now include either product variants or base products only.
-This way you can deliver more accurate recommendations and avoid showing multiple variants of the same product to the client.
+#### Virtual products
 
-For more information, see [Commerce-specific filters](https://doc.ibexa.co/projects/userguide/en/latest/personalization/filters/#commerce-specific-filters).
+With this feature, you can create virtual products - non-tangible items such as memberships, services, warranties.
+To create a virtual product, first, you have to create a virtual product type.
+Virtual products don’t require shipment when they are purchased without other physical products.
+
+For more information, see [Create virtual products](https://doc.ibexa.co/projects/userguide/en/master/pim/create_virtual_product/.)
+
+##### IsVirtual Criterion
+
+Product search now supports product virutal and physical product type:
+
+- `IsVirtual` - searches for virtual or physical products.
+
+#### Product page URLs
+
+When you are creating a new product type, you can set up a product URL alias name pattern.
+With this feature, you can also create custom URL and URL alias name pattern field based on product attributes.
+Customized URLs are easier to remember, help with SEO optimization and reduce bounce rates on the website.
+
+For more information, see [Product page URLs](https://doc.ibexa.co/projects/userguide/en/master/pim/work_with_product_page_urls/).
+
+#### Updated VAT configuration
+
+VAT rates configuration has been extended to accept additional flags under the `extras` key. You can use them, for example, to pass additional information to the UI, or define special exclusion rules.
+
+For more information, see [VAT rates](https://doc.ibexa.co/en/master/pim/pim_configuration/#vat-rates).
+
+#### VAT assignment moved to a new place
+
+Users who are creating or editing a product type are less likely to forget about setting VAT rates, because they now have a more prominent place.
+
+![Assigning VAT rates to a product type](img/4.6_catalog_vat_rates.png)
+
+For more information, see [Create product types](https://doc.ibexa.co/projects/userguide/en/master/pim/create_product_types/).
 
 ###  New features and improvements in Commerce [[% include 'snippets/commerce_badge.md' %]]
 
@@ -161,7 +166,7 @@ When a conditional step is added, the checkout process uses the specified workfl
 
 For more information, see [Create custom strategy](https://doc.ibexa.co/en/master/commerce/checkout/customize_checkout/#create-custom-strategy).
 
-## Manage multiple workflows
+#### Manage multiple checkout workflows
 
 When working with multiple checkout workflows, you can now specify the desired workflow by passing its name as an argument to the checkout initiation button or link.
 
@@ -177,43 +182,38 @@ you can tailor the e-commerce experience for your customers and enhance the capa
 
 For more information, see [https://doc.ibexa.co/en/master/commerce/cart/cart_api/#adding-context-data].
 
-### New features and improvements in PIM
+### New features and improvements in Personalization
 
-#### Virtual products
+#### Triggers
 
-With this feature, you can create virtual products - non-tangible items such as memberships, services, warranties.
-To create a virtual product, first, you have to create a virtual product type.
-Virtual products don’t require shipment when they are purchased without other physical products.
+Triggers are push messages delivered to end users.
+With triggers, store managers can increase the engagement of their visitors and customers by delivering recommendations straight to their devices or mailboxes.
+While they experience improved fulfillment of their needs, more engaged customers mean bigger income for the store.
+The feature requires that your organization exposes an endpoint that passes data to an internal message delivery system and supports the following use cases:
 
-For more information, see [Create virtual products](https://doc.ibexa.co/projects/userguide/en/master/pim/create_virtual_product/.)
+- Inducing a purchase by pushing a message with cart contents or equivalents, when the customer's cart status remains unchanged for a set time.
 
-#### IsVirtual Criterion
+- Inviting a customer to come back to the site by pushing a message with recommendations, when they haven't returned to the site for a set time.
 
-Product search now supports product virutal and physical product type:
+- Reviving the customer's interest by pushing a message with products that are similar to the ones the customer has already seen.
 
-- `IsVirtual` - searches for virtual or physical products.
+- Inducing a purchase by pushing a message when a price of the product from the customer's wishlist decreases.
 
-#### Product page URLs
+For more information, see [Email triggers](https://doc.ibexa.co/projects/userguide/en/4.5/personalization/triggers.md).
 
-When you are creating a new product type, you can set up a product URL alias name pattern.
-With this feature, you can also create custom URL and URL alias name pattern field based on product attributes.
-Customized URLs are easier to remember, help with SEO optimization and reduce bounce rates on the website.
+#### Multiple attributes in recommendation computation
 
-For more information, see [Product page URLs](https://doc.ibexa.co/projects/userguide/en/master/pim/work_with_product_page_urls/).
+With this feature, you get an option to combine several attribute types when computing recommendations.
+As a result, users can be presented with recommendations from an intersection of submodel results.
 
-#### Updated VAT configuration
+For more information, see [Submodel parameters](recommendation_api.md#submodel-parameters) and [Submodels]https://doc.ibexa.co/projects/userguide/en/latest/personalization/recommendation_models/#submodels).
 
-VAT rates configuration has been extended to accept additional flags under the `extras` key. You can use them, for example, to pass additional information to the UI, or define special exclusion rules.
+#### New scenario filter
 
-For more information, see [VAT rates](https://doc.ibexa.co/en/master/pim/pim_configuration/#vat-rates).
+Depending on a setting that you make when defining a scenario, the recommendation response can now include either product variants or base products only.
+This way you can deliver more accurate recommendations and avoid showing multiple variants of the same product to the client.
 
-#### VAT assignment moved to a new place
-
-Users who are creating or editing a product type are less likely to forget about setting VAT rates, because they now have a more prominent place.
-
-![Assigning VAT rates to a product type](img/4.6_catalog_vat_rates.png)
-
-For more information, see [Create product types](https://doc.ibexa.co/projects/userguide/en/master/pim/create_product_types/).
+For more information, see [Commerce-specific filters](https://doc.ibexa.co/projects/userguide/en/latest/personalization/filters/#commerce-specific-filters).
 
 ## Other changes
 
