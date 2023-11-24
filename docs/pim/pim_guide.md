@@ -150,7 +150,7 @@ However, in your project or organization, you might have an existing product dat
 To address such needs, [[= product_name =]] provides a foundation for remote PIM support.
 You can build upon it to connect to a remote PIM or ERP system, pull product data and present it on your website.
 
-![Remote PIM](img/remote_pim.png)
+![Remote PIM](img/remote_pim_support.png)
 
 Remote PIM support is available in all [[= product_name =]] editions as of version v.4.6.0.
 An example implementation is delivered as an optional package that you can [install and customize](install_remote_pim.md) to fulfill your requirements.
