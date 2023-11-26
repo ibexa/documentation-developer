@@ -834,6 +834,7 @@ extra:
   product_name_connect: 'Ibexa Connect'
   product_name_cloud: 'Ibexa Cloud'
   product_name_oss: 'Ibexa OSS'
+  ez_platform: 'eZ Platform'
   # Global variables - latest tag versions
   latest_tag_2_5: '2.5.32'
   latest_tag_3_3: '3.3.36'
