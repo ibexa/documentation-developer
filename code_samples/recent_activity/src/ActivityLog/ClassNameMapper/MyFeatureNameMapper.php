@@ -4,6 +4,7 @@ namespace App\ActivityLog\ClassNameMapper;
 
 use App\MyFeature\MyFeature;
 use Ibexa\Contracts\ActivityLog\ClassNameMapperInterface;
+use JMS\TranslationBundle\Model\Message;
 use JMS\TranslationBundle\Translation\TranslationContainerInterface;
 
 class MyFeatureNameMapper implements ClassNameMapperInterface, TranslationContainerInterface
