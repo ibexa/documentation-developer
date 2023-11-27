@@ -6,7 +6,7 @@ description: System, component and package requirements for running Ibexa DXP.
 
 # Requirements
 
-This document covers all live versions of the product.
+This document covers all supported versions of the product.
 To review the requirements, select the specific version of Ibexa DXP you are interested in.
 
 The following server requirements cover both running the software on-premise and on third-party PaaS providers.
