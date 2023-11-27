@@ -81,7 +81,7 @@ Here is an example of a `ClassNameMapperInterface` associating the class `App\My
 [[= include_file('code_samples/recent_activity/src/ActivityLog/ClassNameMapper/MyFeatureNameMapper.php') =]]
 ```
 
-This mapper is also providing a translation for the class name in the Filters menu.
+This mapper is also providing a translation for the class name in the Filters menu. This translation can be extracted with `php bin/console translation:extract en --domain=ibexa_activity_log --dir=src --output-dir=translations`.
 
 To be taken into account, this mapper must be registered as a service:
 
