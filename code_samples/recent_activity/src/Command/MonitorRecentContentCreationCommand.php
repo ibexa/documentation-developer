@@ -47,7 +47,7 @@ class MonitorRecentContentCreationCommand extends Command
                 $output->writeln("[{$activityLogGroup->getLoggedAt()->format(\DateTime::ATOM)}] Content #{$activityLog->getObjectId()} <info>{$activityLog->getObjectName()}</info> created by <comment>{$activityLogGroup->getUser()->login}</comment>");
             }
             if ($activityLogGroup->getSource() || $activityLogGroup->getDescription()) {
-                $output->writeln("--- = ---");
+                $output->writeln('--- = ---');
             }
         }
 

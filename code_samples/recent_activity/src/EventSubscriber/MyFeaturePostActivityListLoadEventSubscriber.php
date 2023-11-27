@@ -15,8 +15,7 @@ class MyFeaturePostActivityListLoadEventSubscriber implements EventSubscriberInt
 
     public function __construct(
         MyFeatureService $myFeatureService
-    )
-    {
+    ) {
         $this->myFeatureService = $myFeatureService;
     }
 
