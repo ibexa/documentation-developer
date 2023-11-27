@@ -53,9 +53,9 @@ If the object you log an activity on can become unavailable (like after a `delet
 If you log several entries at once, you can group them into a context:
 ```php
 $this->activityLogService->prepareContext('my_feature', 'Operation description');
-$this->activityLogService->save($activityLog_0)
-$this->activityLogService->save($activityLog_1)
-$this->activityLogService->save($activityLog_2)
+$this->activityLogService->save($activityLog_0);
+$this->activityLogService->save($activityLog_1);
+$this->activityLogService->save($activityLog_2);
 $this->activityLogService->dismissContext();
 ```
 
