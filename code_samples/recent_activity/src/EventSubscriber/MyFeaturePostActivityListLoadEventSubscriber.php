@@ -15,7 +15,8 @@ class MyFeaturePostActivityListLoadEventSubscriber implements EventSubscriberInt
 
     public function __construct(
         MyFeatureService $myFeatureService
-    ) {
+    )
+    {
         $this->myFeatureService = $myFeatureService;
     }
 
@@ -30,24 +31,26 @@ class MyFeaturePostActivityListLoadEventSubscriber implements EventSubscriberInt
     {
         $visitedIds = [];
         $list = $event->getList();
-        foreach ($list as $log) {
-            if ($log->getObjectClass() !== MyFeature::class) {
-                continue;
-            }
-
-            $id = (int)$log->getObjectId();
-            try {
-                if (!array_key_exists($id, $visitedIds)) {
-                    $visitedIds[$id] = $this->myFeatureService->load($id);
-                }
-
-                if ($visitedIds[$id] === null) {
+        foreach ($list as $logGroup) {
+            foreach ($logGroup->getActivityLogs() as $log) {
+                if ($log->getObjectClass() !== MyFeature::class) {
                     continue;
                 }
 
-                $log->setRelatedObject($visitedIds[$id]);
-            } catch (NotFoundException|UnauthorizedException $e) {
-                $visitedIds[$id] = null;
+                $id = (int)$log->getObjectId();
+                try {
+                    if (!array_key_exists($id, $visitedIds)) {
+                        $visitedIds[$id] = $this->myFeatureService->load($id);
+                    }
+
+                    if ($visitedIds[$id] === null) {
+                        continue;
+                    }
+
+                    $log->setRelatedObject($visitedIds[$id]);
+                } catch (NotFoundException|UnauthorizedException $e) {
+                    $visitedIds[$id] = null;
+                }
             }
         }
     }

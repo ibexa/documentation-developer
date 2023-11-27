@@ -36,8 +36,19 @@ class MonitorRecentContentCreationCommand extends Command
             new Criterion\LoggedAtCriterion(new \DateTime('- 1 hour'), Criterion\LoggedAtCriterion::GTE),
         ], [new LoggedAtSortClause(LoggedAtSortClause::DESC)], 0, 10);
 
-        foreach ($this->activityLogService->find($query) as $activityLog) {
-            $output->writeln("[{$activityLog->getLoggedAt()->format(\DateTime::ATOM)}] Content #{$activityLog->getObjectId()} <info>{$activityLog->getObjectName()}</info> created by <comment>{$activityLog->getUser()->login}</comment>");
+        foreach ($this->activityLogService->find($query) as $activityLogGroup) {
+            if ($activityLogGroup->getSource()) {
+                $output->writeln("--- {$activityLogGroup->getSource()->getName()} ---");
+            }
+            if ($activityLogGroup->getDescription()) {
+                $output->writeln("--- {$activityLogGroup->getDescription()} ---");
+            }
+            foreach ($activityLogGroup->getActivityLogs() as $activityLog) {
+                $output->writeln("[{$activityLogGroup->getLoggedAt()->format(\DateTime::ATOM)}] Content #{$activityLog->getObjectId()} <info>{$activityLog->getObjectName()}</info> created by <comment>{$activityLogGroup->getUser()->login}</comment>");
+            }
+            if ($activityLogGroup->getSource() || $activityLogGroup->getDescription()) {
+                $output->writeln("--- = ---");
+            }
         }
 
         return Command::SUCCESS;
