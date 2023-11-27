@@ -2,7 +2,7 @@
 description: System, component and package requirements for running Ibexa DXP.
 ---
 
-<!-- vale VariablesVersion = NO -->
+<!-- vale off -->
 
 # Requirements
 
@@ -27,7 +27,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 ## Operating system
 
 === "Ibexa DXP v4.5"
-    
+
     |Name|Version|
     |---|---|
     |Debian 10 "Buster" |10.0-10.13+|
@@ -359,7 +359,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
     ### Cloud hosting with Ibexa Cloud and Platform.sh
 
-    In general, Ibexa Cloud supports all features and services of [Platform.sh](https://platform.sh/marketplace/ibexa/) that are compatible and supported by the Ibexa DXP version you use.  
+    In general, Ibexa Cloud supports all features and services of [Platform.sh](https://platform.sh/marketplace/ibexa/) that are compatible and supported by the Ibexa DXP version you use.
 
     For example:
 
@@ -379,13 +379,13 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
     ### Recommended Ibexa Cloud setup
 
     For more details on recommended setup configuration see bundled `.platform.app.yaml` and `.platform/` configuration files.
-    
+
     These files are kept up-to-date with latest recommendations and can be improved through contributions.
 
     ### Supported Ibexa Cloud setup
-    
+
     Because of the large range of possible configurations of Ibexa DXP, there are many possibilities beyond what is provided in the default recommended configuration.
-    
+
     Make sure to set aside time and budget for:
 
     - Verifying your requirements and ensuring they are supported by Platform.sh
@@ -395,9 +395,9 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
     The cost and effort of this is not included in Ibexa Cloud subscription and will vary depending on the project.
 
     ### Custom integrations
-    
+
     Features supported by Ibexa DXP, but not natively by Platform.sh, can in many cases be used by means of custom integrations with external services.
-    
+
     For example, you can create an integration with S3 by means of setting up your own S3 bucket and configuring the relevant parts of Ibexa DXP.
     We recommend giving the development team working on the project access to the bucket
     to ensure work is done in a DevOps way without depending on external teams when changes are needed.
@@ -406,7 +406,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
     ### Cloud hosting with Ibexa Cloud and Platform.sh
 
-    In general, Ibexa Cloud supports all features and services of [Platform.sh](https://platform.sh/marketplace/ibexa/) that are compatible and supported by the Ibexa DXP version you use.  
+    In general, Ibexa Cloud supports all features and services of [Platform.sh](https://platform.sh/marketplace/ibexa/) that are compatible and supported by the Ibexa DXP version you use.
 
     For example:
 
@@ -426,13 +426,13 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
     ### Recommended Ibexa Cloud setup
 
     For more details on recommended setup configuration see bundled `.platform.app.yaml` and `.platform/` configuration files.
-    
+
     These files are kept up-to-date with latest recommendations and can be improved through contributions.
 
     ### Supported Ibexa Cloud setup
-    
+
     Because of the large range of possible configurations of Ibexa DXP, there are many possibilities beyond what is provided in the default recommended configuration.
-    
+
     Make sure to set aside time and budget for:
 
     - Verifying your requirements and ensuring they are supported by Platform.sh
@@ -442,9 +442,9 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
     The cost and effort of this is not included in Ibexa Cloud subscription and will vary depending on the project.
 
     ### Custom integrations
-    
+
     Features supported by Ibexa DXP, but not natively by Platform.sh, can in many cases be used by means of custom integrations with external services.
-    
+
     For example, you can create an integration with S3 by means of setting up your own S3 bucket and configuring the relevant parts of Ibexa DXP.
     We recommend giving the development team working on the project access to the bucket
     to ensure work is done in a DevOps way without depending on external teams when changes are needed.
@@ -453,7 +453,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
     ### Cloud hosting with eZ Platform Cloud and Platform.sh
 
-    In general, eZ Platform Cloud supports all features and services of [Platform.sh](https://platform.sh/hosting/php/ez) that are compatible and supported by the eZ Platform version you use.  
+    In general, eZ Platform Cloud supports all features and services of [Platform.sh](https://platform.sh/hosting/php/ez) that are compatible and supported by the eZ Platform version you use.
 
     For example:
 
