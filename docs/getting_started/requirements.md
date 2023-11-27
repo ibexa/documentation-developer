@@ -30,45 +30,45 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
     
     |Name|Version|
     |---|---|
-    |Debian 10 "Buster" |10.0-10.13+*|
-    |Debian 11 "Bullseye"|11.0-11.7+*|
+    |Debian 10 "Buster" |10.0-10.13+|
+    |Debian 11 "Bullseye"|11.0-11.7+|
     |Ubuntu  "Focal Fossa" | 20.04 |
     |Ubuntu "Jammy Jellyfish"| 22.04 |
-    |RHEL / CentOS | 8.1-8.5+* |
+    |RHEL / CentOS | 8.1-8.5+ |
 
-    *If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release. For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
+    If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release. For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
 
 === "Ibexa DXP v3.3"
 
     |Name|Version|
     |---|---|
-    |Debian 10 "Buster" |10.0-10.13+*|
-    |Debian 11 "Bullseye"|11.0-11.7+*|
+    |Debian 10 "Buster" |10.0-10.13+|
+    |Debian 11 "Bullseye"|11.0-11.7+|
     |Ubuntu  "Focal Fossa" | 20.04 |
     |Ubuntu "Jammy Jellyfish"| 22.04 |
-    |RHEL / CentOS | 8.1-8.5+* |
+    |RHEL / CentOS | 8.1-8.5+ |
 
-    *If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release. For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
+    If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release. For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
 
 === "eZ Platform v2.5"
 
     |Name|Version|
     |---|---|
-    |Debian 10 "Buster" |10.0-10.13+*|
+    |Debian 10 "Buster" |10.0-10.13+|
     |Ubuntu  "Bionic" | 18.04 LTS  |
-    |RHEL / CentOS | 8.0-8.5+* |
+    |RHEL / CentOS | 8.0-8.5+ |
 
-    *If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release. For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
+    If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release. For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
 
 ## Web server
 
 === "Ibexa DXP v4.5"
 
-    - Nginx 1.18-1.25+*
+    - Nginx 1.18-1.25+
     - Apache 2.4 (with required modules `mod_rewrite`, `mod_env` and recommended: `mod_setenvif`, `mod_expires`;
     event MPM is recommended, if you need to use prefork you also need the `mod_php` module)
 
-    *If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release. For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
+    If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release. For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
 
 === "Ibexa DXP v3.3"
 
@@ -86,11 +86,11 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
 === "Ibexa DXP v4.5"
 
-    - MariaDB 10.3-10.11+*
+    - MariaDB 10.3-10.11+
     - MySQL 8.0
     - PostgreSQL 14
 
-    *If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release. For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
+    If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release. For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
 
 === "Ibexa DXP v3.3"
 
@@ -98,7 +98,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
     - MySQL  8.0 (optionally 5.7 - deprecated)
     - PostgreSQL 10+ (PostgreSQL 10 has reached its End of Life. We highly recommend using PostgreSQL 14 for optimal performance and security)
 
-    * If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release. For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
+    If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release. For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
 
 === "eZ Platform v2.5"
 
@@ -106,7 +106,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
     - MySQL  8.0 (optionally 5.7 - deprecated)
     - PostgreSQL 10+ (PostgreSQL 10 has reached its End of Life. We highly recommend using PostgreSQL 14 for optimal performance and security)
 
-    *If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release. For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
+    If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release. For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
 
 ## PHP
 
@@ -190,7 +190,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
     - `php-redis` 3.1.3+ or `php-memcached` 3.x+*
 
-    *If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release. For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
+    If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release. For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
 
 ## Search
 
@@ -257,7 +257,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
     - Redis 4.0+, 5.0 or higher (separate instances for session and cache, both using a `volatile-*` [eviction policy](https://redis.io/docs/reference/eviction/), session instance configured for persistence) or [Memcached](https://memcached.org/) 1.5 or higher
     - [Varnish](http://varnish-cache.org/) 6.0LTS or 7.1 with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.md) or [Fastly](https://www.fastly.com/) using [the provided bundle](http_cache.md) (for HTTP Cache)
 
-    *If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release. For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
+    If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release. For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
 
 === "Ibexa DXP v3.3"
 
@@ -265,13 +265,13 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
     - Redis 4.0+, 5.0 or higher (separate instances for session and cache, both using a `volatile-*` [eviction policy](https://redis.io/docs/reference/eviction/), session instance configured for persistence) or [Memcached](https://memcached.org/) 1.5 or higher
     - [Varnish](http://varnish-cache.org/) 6.0LTS with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.md) or [Fastly](https://www.fastly.com/) using [the provided bundle](https://doc.ibexa.co/en/3.3/guide/cache/http_cache/#serving-varnish-through-fastly) (for HTTP Cache)
 
-    *If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release. For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
+    If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release. For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
 
 === "eZ Platform v2.5"
 
     - php-redis 3.1.3+ or php-memcached 3.x+
 
-    *If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release. For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
+    If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release. For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
 
 ## Filesystem
 
@@ -308,21 +308,21 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
     - `Node.js` 14+, 16+, 18+ (`Node.js` 14+ has reached its End of Life. We strongly recommend using a newer version to ensure you receive security updates.)
     - `yarn` 1.15.2+
 
-    *If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release. For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
+    If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release. For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
 
 === "Ibexa DXP v3.3"
 
     - `Node.js` 14+, 16+, 18+ (`Node.js` 14+ has reached its End of Life. We strongly recommend using a newer version to ensure you receive security updates.)
     - `yarn` 1.15.2+
 
-    *If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release. For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
+    If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release. For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
 
 === "eZ Platform v2.5"
 
     - `Node.js` 10, 12 or 14
     - `yarn` 1.15.2+
 
-    *If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release. For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
+    If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release. For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
 
 ## Browser
 
