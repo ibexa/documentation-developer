@@ -17,7 +17,7 @@ parameters:
     ibexa.site_access.config.<scope>.search.suggestion.result_limit: 5
 ```
 
-## Add a suggestion source
+## Add custom suggestion source
 
 You can add a suggestion source by listening or subscribing to the `Ibexa\Contracts\Search\Event\BuildSuggestionCollectionEvent`.
 During this event, you can add, remove, or replace suggestions by updating its `SuggestionCollection`.
@@ -31,7 +31,7 @@ After this event, the suggestion collection is sorted by score and truncated to 
     ```
 
 The following example is boosting Product suggestions.
-It's a subscriber passing after the default one (thanks to a priority below zero), adding matching products at a score above the previous Content suggestions, and avoiding duplicates.
+It's a subscriber passing after the default one (thanks to a priority below zero), adding matching products at a score above the earlier Content suggestions, and avoiding duplicates.
 
 - If this suggestion source find a count of `result_limit` matching products or more, there is only those products in the suggestion.
 - If it finds less than `result_limit` products, those products are on top of the suggestion followed by other suggestion source items to reach the limit.
@@ -102,7 +102,7 @@ Here is the complete `assets/js/admin.search.autocomplete.product.js`from the pr
 [[= include_file('code_samples/back_office/search/assets/js/admin.search.autocomplete.product.js') =]]
 ```
 
-To be loaded in Back Office layout, this file must be added to `ibexa-admin-ui-layout-js` entry using Webpack. Appended to `webpack.config.js`, it's added using the `ibexaConfigManager`:
+To be loaded in Back Office layout, this file must be added to Webpack entry `ibexa-admin-ui-layout-js`. At the end of `webpack.config.js`, add it by using the `ibexaConfigManager`:
 
 ``` javascript
 //…
@@ -136,7 +136,7 @@ The product suggestion item template itself, as `templates/themes/admin/ui/globa
 [[= include_file('code_samples/back_office/search/templates/themes/admin/ui/global_search_autocomplete_product_item.html.twig') =]]
 ```
 
-## Replace the default suggestion source
+## Replace default suggestion source
 
 To replace the default suggestion source, [decorate]([[= symfony_doc =]]/service_container/service_decoration.html) the built-in `BuildSuggestionCollectionEvent` subscriber with your own:
 
