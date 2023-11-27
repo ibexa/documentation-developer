@@ -4,24 +4,17 @@ description: Ensure your product catalog is ready for use with full configuratio
 
 # Enable purchasing products
 
-To enable purchasing from the catalog, the following configuration is required:
+To enable adding product to cart and purchasing from the catalog, the following configuration is required:
 
 - at least [one region and one currency for the shop](#region-and-currency)
-- [VAT rates for the product type](#vat-rates)
-- at least [one price for the product](#product-price)
-- [availability with positive or infinite stock for the product](#product-availability)
+- [VAT rates per region and for each product type](#vat-rates)
+- at least one [price](prices.md) for the product
+- [availability](products.md#product-availability-and-stock) with positive or infinite stock for the product or product variant
 
-!!! tip "Product completeness"
+!!! note "Configuring product details in the UI"
 
-    You can track required tasks related to product configuration in product view's **Completeness** tab.
-
-    ![Product completeness](product_completeness.png)
-
-    This page shows which tasks are finished for the given product, and which are still awaiting completion.
-
-    Click the **Edit** icon next to an unfinished task to move directly to the screen where you can add the missing information.
-
-[[% include 'snippets/catalog_permissions_note.md' %]]
+    After you configure the region, currency and VAT rates for regions, the store manager must set up the remaining parameters in the UI, such as, for example, VAT rates per product type, descriptions, attributes, assets, prices and availability per product, and so on.
+    For more information, see [User Documentation]([[= user_doc =]]/pim/products/#product-completeness).
 
 ## Region and currency
 
@@ -118,16 +111,7 @@ ibexa:
                                         not_applicable: true
     ```
 
-You can then assign VAT rates that apply to each product type in the supported regions.
-To do it, in the Back Office, edit the product type, and navigate to the **VAT rates** area.
+Users with sufficient permissions, such as Administrators or Store managers, can then assign VAT rates that apply to every product type in each of the supported regions.
+To do it, in the Back Office, they [open the product type for editing]([[= user_doc =]]/pim/create_product_types/), and navigate to the **VAT rates** area.
 
 ![Assigning VAT rates to a product type](catalog_vat_rates.png "Assigning VAT rates to a product type")
-
-## Product price
-
-The product must have at least one [price](prices.md) configured.
-
-## Product availability
-
-To enable adding a product to cart, you must configure product [availability](products.md#product-availability-and-stock)
-with positive or infinite stock.
