@@ -38,16 +38,16 @@ class MonitorRecentContentCreationCommand extends Command
 
         foreach ($this->activityLogService->find($query) as $activityLogGroup) {
             if ($activityLogGroup->getSource()) {
-                $output->writeln("--- {$activityLogGroup->getSource()->getName()} ---");
+                $output->writeln("[{$activityLogGroup->getLoggedAt()->format(\DateTime::ATOM)}] --- {$activityLogGroup->getSource()->getName()} ---");
             }
             if ($activityLogGroup->getDescription()) {
-                $output->writeln("--- {$activityLogGroup->getDescription()} ---");
+                $output->writeln("[{$activityLogGroup->getLoggedAt()->format(\DateTime::ATOM)}] --- {$activityLogGroup->getDescription()} ---");
             }
             foreach ($activityLogGroup->getActivityLogs() as $activityLog) {
                 $output->writeln("[{$activityLogGroup->getLoggedAt()->format(\DateTime::ATOM)}] Content #{$activityLog->getObjectId()} <info>{$activityLog->getObjectName()}</info> created by <comment>{$activityLogGroup->getUser()->login}</comment>");
             }
             if ($activityLogGroup->getSource() || $activityLogGroup->getDescription()) {
-                $output->writeln('--- = ---');
+                $output->writeln("[{$activityLogGroup->getLoggedAt()->format(\DateTime::ATOM)}] --- = ---");
             }
         }
 

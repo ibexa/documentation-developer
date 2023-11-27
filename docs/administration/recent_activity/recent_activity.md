@@ -50,6 +50,15 @@ The returned `CreateActivityLogStruct` is always related to the currently logged
 
 If the object you log an activity on can become unavailable (like after a `delete` action), you might want to also log the name the object has at log time to be able to display it even when the object becomes unavailable. To add this name, use `CreateActivityLogStruct::setName` before saving the log entry.
 
+If you log several entries at once, you can group them into a context:
+```php
+$this->activityLogService->prepareContext('my_feature', 'Operation description');
+$this->activityLogService->save($activityLog_0)
+$this->activityLogService->save($activityLog_1)
+$this->activityLogService->save($activityLog_2)
+$this->activityLogService->dismissContext();
+```
+
 !!! caution
 
     Keep activity logging as light as possible. Do not make database request or heavy computation at logging time. Keep them for activity log list display time.
