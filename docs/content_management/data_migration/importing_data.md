@@ -61,8 +61,10 @@ The following data migration step modes are available:
 | `object_state`         | &#10004; |          |          |
 | `object_state_group`   | &#10004; |          |          |
 | `payment_method`       | &#10004; |          |          |
+| `product_asset`        | &#10004; |          |          |
 | `product_availability` | &#10004; |          |          |
 | `product_price`        | &#10004; |          |          |
+| `product_variant`      | &#10004; |          |          |
 | `role`                 | &#10004; | &#10004; | &#10004; |
 | `section`              | &#10004; | &#10004; |          |
 | `segment`              | &#10004; | &#10004; | &#10004; |
@@ -246,7 +248,7 @@ Adjust the migration file and configure the `image` field data as follows:
                 path: src/Migrations/images/example-image.png
 ```
 
-This migration copies the image to the appropriate directory, 
+This migration copies the image to the appropriate directory,
 in this case `public/var/site/storage/images/3/8/3/0/254-1-eng-GB/example-image.png`,
 enabling swift file migration regardless of storage (local, DFS).
 
@@ -263,7 +265,7 @@ The following example shows the creation of a `Contributor` Role:
 [[= include_file('code_samples/data_migration/examples/create_role.yaml') =]]
 ```
 
-To update an existing Role, 2 policies' modes are available:
+To update an existing Role, two policies' modes are available:
 
 - `replace`: (default) All existing policies are replaced by the ones from the migration.
 - `append`: Migration policies are added while already existing ones are kept.
@@ -299,7 +301,7 @@ You can use an [action](data_migration_actions.md) to assign a Role to the user.
 [[= include_file('code_samples/data_migration/examples/create_user.yaml') =]]
 ```
 
-### Language
+### Languages
 
 The following example shows how to create a language.
 
@@ -310,6 +312,8 @@ The required metadata keys are: `languageCode`, `name`, and `enabled`.
 ```
 
 ### Product catalog
+
+#### Attributes and attribute groups
 
 The following example shows how to create an attribute group with two attributes:
 
@@ -325,7 +329,7 @@ You can also update attributes, including changing which attribute group they be
 
 You can't change the attribute type of an existing attribute.
 
-#### Product type
+#### Product types
 
 The following example shows how to create a product type.
 
@@ -336,6 +340,42 @@ A product type must also contain the definition for an `ibexa_product_specificat
 
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/create_product_type.yaml') =]]
+```
+
+#### Products
+
+The following example shows how to create a product:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/create_product_variant.yaml', 1, 18) =]]
+```
+
+#### Product variants
+
+The following example shows how to create variants for a product identified by its code:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/create_product_variant.yaml', 20, 29) =]]
+```
+
+#### Product assets
+
+The following example creates an image [Content item](#content-items) from a local image file, and then uses it as a product asset for a variant ([created in previous example](#product-variant)):
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/create_product_asset.yaml') =]]
+```
+
+This migration uses a [reference](managing_migrations.md#references) to store the created image Content ID, and then uses it while creating the asset.
+It uses an [expression syntax](#expression-syntax) to [concat (`~`)]([[= symfony_doc =]]/reference/formats/expression_language.html#string-operators)
+the mandatory scheme `ezcontent://` and the image content ID through the [`reference` function](#built-in-functions) used on the reference's name.
+
+#### Product prices
+
+The following example shows how to create a price for a product identified by its code:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/create_product_price.yaml') =]]
 ```
 
 #### Customer groups
@@ -354,21 +394,17 @@ The following example shows how to create a currency:
 [[= include_file('code_samples/data_migration/examples/create_currency.yaml') =]]
 ```
 
-#### Prices
-
-The following example shows how to create a price for a product identified by its code:
-
-``` yaml
-[[= include_file('code_samples/data_migration/examples/create_price.yaml') =]]
-```
-
 ### Commerce [[% include 'snippets/commerce_badge.md' %]]
+
+#### Payment methods
 
 The following example shows how to create a payment method:
 
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/create_payment_method.yaml') =]]
 ```
+
+#### Shipping methods
 
 The following example shows how to create a shipping method:
 

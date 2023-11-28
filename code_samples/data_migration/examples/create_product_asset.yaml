@@ -1,0 +1,27 @@
+-   type: content
+    mode: create
+    metadata:
+        contentType: image
+        mainTranslation: eng-GB
+    location:
+        parentLocationId: 51 # Media/Images
+    fields:
+        -   fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: 'Top hat 58cm Black'
+        -   fieldDefIdentifier: image
+            languageCode: eng-GB
+            value:
+                alternativeText: 'Top hat 58cm Black'
+                fileName: 'top_hat_58cm_black.jpg'
+                path: top_hat_58cm_black.jpg
+    references:
+        -   name: top_hat_58cm_black_image_content_id
+            type: content_id
+
+-   type: product_asset
+    mode: create
+    product_code: top_hat__58__black
+    uri: '### "ezcontent://"~reference("top_hat_58cm_black_image_content_id") ###'
+    tags:
+        foo: foo
