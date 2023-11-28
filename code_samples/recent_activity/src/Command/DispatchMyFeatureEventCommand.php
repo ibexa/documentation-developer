@@ -31,7 +31,7 @@ class DispatchMyFeatureEventCommand extends Command
         $event = new MyFeatureEvent(new MyFeature(['id' => 123, 'name' => 'Logged Name']), 'simulate');
         $this->eventDispatcher->dispatch($event);
 
-        $event = new MyFeatureEvent((object) ['id' => 123, 'name' => 'Some Name'], 'simulate');
+        $event = new MyFeatureEvent((object) ['id' => 456, 'name' => 'Some Name'], 'simulate');
         $this->eventDispatcher->dispatch($event);
 
         return Command::SUCCESS;

@@ -50,12 +50,33 @@ The returned `CreateActivityLogStruct` is always related to the currently logged
 
 If the object you log an activity on can become unavailable (like after a `delete` action), you might want to also log the name the object has at log time to be able to display it even when the object becomes unavailable. To add this name, use `CreateActivityLogStruct::setName` before saving the log entry.
 
-If you log several entries at once, you can group them into a context:
+If you log several entries at once, you can group them into a context. In the following example, several actions are logged into one context group, even actions triggered outside the piece of code:
+
+- `init`
+- `create`
+- `publish`
+- `simulate`
+- `complete`
+
 ```php
 $this->activityLogService->prepareContext('my_feature', 'Operation description');
-$this->activityLogService->save($activityLog_0);
-$this->activityLogService->save($activityLog_1);
-$this->activityLogService->save($activityLog_2);
+
+$this->activityLogService->save($this->activityLogService->build(MyFeature::class, $id, 'init'));
+
+$contentCreateStruct = $this->contentService->newContentCreateStruct(
+    $this->repository->getContentTypeService()->loadContentTypeByIdentifier('folder'),
+    'eng-GB'
+);
+$contentCreateStruct->setField('name', "My Feature Folder #$id", 'eng-GB');
+$locationCreateStruct = new LocationCreateStruct(['parentLocationId' => 2]);
+$draft = $this->contentService->createContent($contentCreateStruct, [$locationCreateStruct]);
+$this->contentService->publishVersion($draft->versionInfo);
+
+$event = new MyFeatureEvent(new MyFeature(['id' => $id, 'name' => "My Feature #$id"]), 'simulate');
+$this->eventDispatcher->dispatch($event);
+        
+$this->activityLogService->save($this->activityLogService->build(MyFeature::class, $id, 'complete'));
+
 $this->activityLogService->dismissContext();
 ```
 
