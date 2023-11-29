@@ -169,7 +169,7 @@ mode: Create and Update
 
 !!! note
 
-    In the `assign_user_group_to_role` action, Limitation type Section can only use Section ID:
+    In the `assign_user_group_to_role` action, Limitation type Section can only use Section ID.
 
 mode: Update
 ``` yaml
