@@ -44,6 +44,12 @@ ibexa:
                 engine: in_memory
 ```
 
+!!! note "Enabling the remote PIM support"
+
+    Changing the `default.product_catalog.engine` setting from `default` to your custom value, you inform [[= product_name =]] that you are using a remote PIM.
+    Various application services monitor this setting and change their behavior accordingly.
+
+
 ## Implement services
 
 Replace the default services that process product data with services that check in the configuration, which product data engine should be used.
