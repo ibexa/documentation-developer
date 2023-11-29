@@ -7,13 +7,14 @@ description: Ensure your product catalog is ready for use with full configuratio
 To enable adding product to cart and purchasing from the catalog, the following configuration is required:
 
 - at least [one region and one currency for the shop](#region-and-currency)
-- [VAT rates per region and for each product type](#vat-rates)
+- [VAT rates per region](#vat-rates) and for each product type
 - at least one [price](prices.md) for the product
 - [availability](products.md#product-availability-and-stock) with positive or infinite stock for the product or product variant
 
-!!! note "Configuring product details in the UI"
+!!! note "Configuring products in the UI"
 
-    After you configure the region, currency and VAT rates for regions, the store manager must set up the remaining parameters in the UI, such as, for example, VAT rates per product type, descriptions, attributes, assets, prices and availability per product, and so on.
+    After you configure the region, currency and VAT rates for regions in settings, the store manager must set up the remaining parameters in the UI, such as, for example, [VAT rates per product type]([[= user_doc =]]/pim/create_product_types/#vat), descriptions, attributes, assets, [prices]([[= user_doc =]]/pim/manage_prices/) and [availability]([[= user_doc =]]/pim/manage_availability_and_stock/) per product, and so on.
+
     For more information, see [User Documentation]([[= user_doc =]]/pim/products/#product-completeness).
 
 ## Region and currency
@@ -50,7 +51,7 @@ ibexa:
                     - PLN
                 regions:
                     - germany
-                    - poland 
+                    - poland
         another_storefront_group:
             product_catalog:
                 currencies:
@@ -112,6 +113,6 @@ ibexa:
     ```
 
 Users with sufficient permissions, such as Administrators or Store managers, can then assign VAT rates that apply to every product type in each of the supported regions.
-To do it, in the Back Office, they [open the product type for editing]([[= user_doc =]]/pim/create_product_types/), and navigate to the **VAT rates** area.
+To do it, in the Back Office, they [open the product type for editing]([[= user_doc =]]/pim/create_product_types/#vat), and navigate to the **VAT rates** area.
 
 ![Assigning VAT rates to a product type](catalog_vat_rates.png "Assigning VAT rates to a product type")
