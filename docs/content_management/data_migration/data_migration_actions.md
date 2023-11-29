@@ -166,6 +166,7 @@ mode: Create and Update
                 values:
                     - 1
 ```
+
 !!! note
 
     In the `assign_user_group_to_role` action, Limitation type Section can only use Section ID:
