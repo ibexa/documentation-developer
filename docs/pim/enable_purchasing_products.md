@@ -13,7 +13,7 @@ To enable adding product to cart and purchasing from the catalog, the following 
 
 !!! note "Configuring products in the UI"
 
-    After you configure the region, currency and VAT rates for regions in settings, the store manager must set up the remaining parameters in the UI, such as, for example, [VAT rates per product type]([[= user_doc =]]/pim/create_product_types/#vat), descriptions, attributes, assets, [prices]([[= user_doc =]]/pim/manage_prices/) and [availability]([[= user_doc =]]/pim/manage_availability_and_stock/) per product, and so on.
+    After you configure the region, currency and VAT rates for regions in settings, the store manager must set up the remaining parameters in the UI, such as, [VAT rates per product type]([[= user_doc =]]/pim/create_product_types/#vat), descriptions, attributes, assets, [prices]([[= user_doc =]]/pim/manage_prices/) and [availability]([[= user_doc =]]/pim/manage_availability_and_stock/) per product, and so on.
 
     For more information, see [User Documentation]([[= user_doc =]]/pim/products/#product-completeness).
 
@@ -112,7 +112,7 @@ ibexa:
                                         not_applicable: true
     ```
 
-Users with sufficient permissions, such as Administrators or Store managers, can then assign VAT rates that apply to every product type in each of the supported regions.
-To do it, in the Back Office, they [open the product type for editing]([[= user_doc =]]/pim/create_product_types/#vat), and navigate to the **VAT rates** area.
+You can then assign VAT rates that apply to every product type in each of the supported regions.
+To do it, in the Back Office, [open the product type for editing]([[= user_doc =]]/pim/create_product_types/#vat), and navigate to the **VAT rates** area.
 
 ![Assigning VAT rates to a product type](catalog_vat_rates.png "Assigning VAT rates to a product type")
