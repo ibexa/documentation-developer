@@ -79,6 +79,7 @@ nav:
             - Taxonomy events: api/event_reference/taxonomy_events.md
             - Role events: api/event_reference/role_events.md
             - User events: api/event_reference/user_events.md
+            - Segmentation events: api/event_reference/segmentation_events.md
             - Page events: api/event_reference/page_events.md
             - Site events: api/event_reference/site_events.md
             - URL events: api/event_reference/url_events.md
