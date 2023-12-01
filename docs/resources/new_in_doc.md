@@ -6,6 +6,31 @@ description: Overview of major recent additions to Ibexa DXP documentation.
 
 This page contains recent highlights and notable changes in [[= product_name =]] documentation.
 
+## November 2023
+
+### Commerce
+
+- [Option to handle multiple checkout workflows](https://doc.ibexa.co/en/master/commerce/checkout/customize_checkout/#manage-multiple-workflows)
+
+### CDP
+
+- [CDP activation](https://doc.ibexa.co/en/master/cdp/cdp_activation/cdp_activation/)
+
+### Product guides
+
+- [Page Builder product guide](https://doc.ibexa.co/en/master/content_management/pages/page_builder_guide/)
+
+### Infrastructure and maintenance
+
+- [Updated enable Symfony Reverse Proxy](https://doc.ibexa.co/en/master/infrastructure_and_maintenance/cache/http_cache/reverse_proxy/#using-symfony-reverse-proxy)
+
+### Others
+
+- [Redesigned requirements page](https://doc.ibexa.co/en/master/getting_started/requirements/)
+- [Updated Ibexa Cloud CLI](https://doc.ibexa.co/en/master/getting_started/install_on_ibexa_cloud/)
+- [Updated React app block procedure](https://doc.ibexa.co/en/master/content_management/pages/react_app_block/)
+- [Added fulltext features in search](https://doc.ibexa.co/en/master/search/criteria_reference/fulltext_criterion/#supported-syntax)
+
 ## October 2023
 
 ### Commerce
@@ -16,7 +41,6 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 - [Post visit and price drop triggers](https://doc.ibexa.co/projects/userguide/en/master/personalization/triggers/#trigger-types)
 - [Wishlist and Deletefromwishlist events](https://doc.ibexa.co/en/master/personalization/api_reference/tracking_api/#track-events)
-- ```
 
 ### PIM
 
