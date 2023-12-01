@@ -34,6 +34,10 @@ In that case, run the `ezplatform:images:normalize-path` command to normalize th
 php bin/console ezplatform:images:normalize-path
 ```
 
+!!! note "Special characters"
+
+    If a corrupted path is detected, check the `var_dir` configuration for any special or Unicode characters.
+
 ## Unknown relation type 0
 
 "Unknown relation type 0." error occurs only when using REST API. The issue does not occur
