@@ -13,10 +13,28 @@ The following activities are recorded by default:
 * Hide or show a [Location](locations.md#location-visibility) or [Content item]([[= user_doc =]]/content_management/content_organization/copy_move_hide_content/#hide-content)
 * Create, update or delete a [Site Factory](site_factory.md) site
 
-## Configuration
+## Configuration and cronjob
 
-* `ibexa.site_access.config.<scope>.activity_log.pagination.activity_logs_limit`: Set the number of log entries per page shown in the Back Office.
-* TODO: Period kept (30 days)
+* The parameter `ibexa.site_access.config.<scope>.activity_log.pagination.activity_logs_limit` set the number of log entries shown per page in the Back Office (default: 25 entries per page).
+* The configuration `ibexa.repositories.<repository>.activity_log.truncate_after_days` set the number of days a log entry is kept before being deleted by the `ibexa:activity-log:truncate` command (default: 30 days).
+
+For example, the following set 20 log entries per page for the `admin` SiteAccess, and 15 days of life to the log entries on the `default` repository:
+
+```yaml
+parameters:
+    ibexa.site_access.config.admin.activity_log.pagination.activity_logs_limit: 20
+ibexa:
+    repositories:
+        default:
+            activity_log:
+                truncate_after_days: 15
+```
+
+To automate a regular truncation, the command `ibexa:activity-log:truncate` must be added to a crontab.
+To minimize the number of entries to delete, it is recommended to execute the command more than one time a day.
+
+For every exact hour, the cronjob line is:
+`0 * * * * cd [path-to-ibexa]; php bin/console ibexa:activity-log:truncate --quiet --env=prod`
 
 ## PHP API
 
