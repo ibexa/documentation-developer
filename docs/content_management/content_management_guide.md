@@ -70,7 +70,7 @@ Their role is to:
 - make the data searchable
 - display Fields of a given Field Type
 
-For a complete list of available Field Types, see [Field Type reference](field_type_reference).
+For a complete list of available Field Types, see [Field Type reference](field_type_reference.md).
 
 ![Field Types and Fields](img/field_types.png)
 
