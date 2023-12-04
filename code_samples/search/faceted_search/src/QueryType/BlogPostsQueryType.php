@@ -98,9 +98,9 @@ final class BlogPostsQueryType extends OptionsResolverBasedQueryType
     {
         $ranges = [];
 
-        $current = new DateTimeImmutable("last day of this month");
-        for ($i = 0; $i < 12; $i++) {
-            $previous = $current->sub(new DateInterval("P1M"));
+        $current = new DateTimeImmutable('last day of this month');
+        for ($i = 0; $i < 12; ++$i) {
+            $previous = $current->sub(new DateInterval('P1M'));
             $ranges[] = Range::ofDateTime($previous, $current);
             $current = $previous;
         }

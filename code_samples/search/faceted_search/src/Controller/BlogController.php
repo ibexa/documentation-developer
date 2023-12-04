@@ -21,7 +21,8 @@ final class BlogController extends AbstractController
         private readonly TaxonomyServiceInterface $taxonomyService,
         private readonly SearchService $searchService,
         private readonly BlogPostsQueryType $queryType
-    ) {}
+    ) {
+    }
 
     public function __invoke(Request $request, ContentView $view, int $page = 1): ContentView
     {

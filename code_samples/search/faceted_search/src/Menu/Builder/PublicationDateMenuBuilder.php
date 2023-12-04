@@ -44,7 +44,7 @@ final class PublicationDateMenuBuilder extends AbstractFacetsMenuBuilder
             [
                 'label' => $this->getLabel($range, $count),
                 'route' => $route->getRoute(),
-                'routeParameters' =>$parameters,
+                'routeParameters' => $parameters,
             ]
         );
     }
