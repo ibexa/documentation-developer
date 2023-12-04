@@ -53,3 +53,62 @@ You can implement different types of facets. In the following example, you can l
 - **category**: searching by category (News, Editorial insights, Product, Marketer insights)
 
 ![Blog overview](blog.png)
+
+### Define facets
+
+Define specific settings for the faceted search. Files should follow the Symfony configuration convention. Define various aspects of the searcg, include services, templates
+
+### Create templates
+
+Create a templates for the facets, including sidebar template, and general layout.
+In the `templates`, add the following files:
+
+- `blog` template defining the preview of the blog:
+
+``` html+twig
+[[= include_file('code_samples/search/faceted_search/templates/themes/storefront/full/blog.html.twig') =]]
+```
+
+- `blog_post` template defining the preview of the post published on the blog in the post view:
+
+``` html+twig
+[[= include_file('code_samples/search/faceted_search/templates/themes/storefront/full/blog_post.html.twig') =]]
+```
+
+- `blog_sidebar` template defining the preview of the sidebar on the blog:
+
+``` html+twig
+[[= include_file('code_samples/search/faceted_search/templates/themes/storefront/full/blog_sidebar.html.twig') =]]
+```
+
+- `layout` template:
+
+``` html+twig
+[[= include_file('code_samples/search/faceted_search/templates/themes/storefront/line/layout.html.twig') =]]
+```
+
+- `blog_post` template defining the preview of the post published on the blog in the list view:
+
+``` html+twig
+[[= include_file('code_samples/search/faceted_search/templates/themes/storefront/line/blog_post.html.twig') =]]
+```
+
+- `facets_menu` template defining the preview of the facets menu:
+
+``` html+twig
+[[= include_file('code_samples/search/faceted_search/templates/themes/storefront/facets_menu.html.twig') =]]
+```
+
+### Register facets
+
+Then, register a configuration in `services`:
+
+``` yaml
+[[= include_file('code_samples/search/faceted_search/config/services.yaml') =]]
+```
+
+Next, clear the cache by runnig the following command:
+
+```bash
+php bin/console cache:clear
+```
