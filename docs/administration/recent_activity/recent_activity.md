@@ -4,14 +4,9 @@ description: Log and monitor activity through UI, PHP API and REST API.
 
 # Recent activity
 
-Recent activity log summaries last actions on the database (whatever their origin, such as Back Office, REST, CLI or CRON).
+Recent activity log summaries last actions on the repository (whatever their origin, such as Back Office, REST, CLI or CRON).
 
-The following activities are recorded by default:
-
-* Create, update or delete (send to trash) a Content item
-* Create, update or delete a [Product](products.md) or a product variant
-* Hide or show a [Location](locations.md#location-visibility) or [Content item]([[= user_doc =]]/content_management/content_organization/copy_move_hide_content/#hide-content)
-* Create, update or delete a [Site Factory](site_factory.md) site
+To learn more about its interface usage and the actions logged by default, see [Recent activity in the User documentation]([[= user_doc =]]/recent_activity/recent_activity/).
 
 ## Configuration and cronjob
 
