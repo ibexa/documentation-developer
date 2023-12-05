@@ -53,6 +53,14 @@ The templates for the forms should look as follows:
 [[= include_file('code_samples/forms/custom_form_attribute/templates/themes/standard/formtheme/formbuilder_checkbox_with_richtext_description.html.twig') =]]
 ```
 
+Then, specify the new template in configuration, under the `twig.form_themes` configuration key:
+
+``` yaml
+twig:
+    form_themes:
+        - 'themes/<your-theme>/formtheme/formbuilder_checkbox_with_richtext_description.html.twig'
+```
+
 ## Add scripts
 
 Now you need to enable the RichText editor. Provide the required script in a new `public/js/formbuilder-richtext-checkbox.js` file:
