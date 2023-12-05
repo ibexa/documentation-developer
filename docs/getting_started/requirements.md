@@ -113,22 +113,22 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 === "Ibexa DXP v4.5"
 
     - 8.1
-    - 8.0
+    - 8.0 (PHP 8.0 has reached its End of Life. Unless you have extended support from vendors like Debian or Zend, you should use PHP 8.1)
     - 7.4 (PHP 7.4 has reached its End of Life. Unless you have extended support from vendors like Debian or Zend, you should use PHP 8.1)
 
 === "Ibexa DXP v3.3"
 
     - 8.1
-    - 8.0
+    - 8.0 (PHP 8.0 has reached its End of Life. Unless you have extended support from vendors like Debian or Zend, you should use PHP 8.1)
     - 7.4 (PHP 7.4 has reached its End of Life. Unless you have extended support from vendors like Debian or Zend, you should use PHP 8.1)
     - 7.3 (PHP 7.3 has reached its End of Life. Unless you have extended support from vendors like Debian or Zend, you should use PHP 8.1)
 
 === "eZ Platform v2.5"
 
-    - 7.1 (PHP 7.1 has reached its End of Life. Unless you have extended support from vendors like Debian or Zend, you should use PHP 8.1)
-    - 7.2 (PHP 7.2 has reached its End of Life. Unless you have extended support from vendors like Debian or Zend, you should use PHP 8.1)
-    - 7.3 (PHP 7.3 has reached its End of Life. Unless you have extended support from vendors like Debian or Zend, you should use PHP 8.1)
-    - 7.4 (PHP 7.4 has reached its End of Life. Unless you have extended support from vendors like Debian or Zend, you should use PHP 8.1)
+    - 7.1 (PHP 7.1 has reached its End of Life. Unless you have extended support from vendors like Debian or Zend, you should upgrade to Ibexa DXP v3.3 or v4.x)
+    - 7.2 (PHP 7.2 has reached its End of Life. Unless you have extended support from vendors like Debian or Zend, you should upgrade to Ibexa DXP v3.3 or v4.x)
+    - 7.3 (PHP 7.3 has reached its End of Life. Unless you have extended support from vendors like Debian or Zend, you should upgrade to Ibexa DXP v3.3 or v4.x)
+    - 7.4 (PHP 7.4 has reached its End of Life. Unless you have extended support from vendors like Debian or Zend, you should upgrade to Ibexa DXP v3.3 or v4.x)
 
 ### PHP packages
 
