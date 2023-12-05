@@ -1,0 +1,43 @@
+---
+description: User Twig functions enable getting repository user information.
+page_type: reference
+---
+
+# User Twig functions
+
+### `ibexa_user_get_current()`
+
+`ibexa_user_get_current()` returns the User object (`Ibexa\Contracts\Core\Repository\Values\User\User`) of the current user.
+
+``` html+twig
+{{ ibexa_user_get_current().login }}
+```
+
+You can get the underlying Content item, for example the user's name,
+by accessing the `content` property:
+
+``` html+twig
+{{ ibexa_render(ibexa_user_get_current().content) }}
+```
+
+### `ibexa_get_current_user`
+
+The `ibexa_get_current_user()` function returns an ID of the current repository user.
+
+#### Examples
+
+``` html+twig
+Current user: {{ ibexa_get_current_user().login }}
+```
+
+### `ibexa_is_current_user`
+
+The `ibexa_is_current_user()` Twig function checks whether a user is the current repository user.
+
+#### Examples
+
+```html+twig
+{% if ibexa_is_current_user(version_info.author) %}
+    <!-- Display edit link -->
+{% endif %}
+```
