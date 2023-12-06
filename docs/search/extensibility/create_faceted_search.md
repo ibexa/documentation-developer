@@ -54,9 +54,35 @@ You can implement different types of facets. In the following example, you can l
 
 ![Blog overview](blog.png)
 
-### Define facets
+### Define strategy
 
-Define specific settings for the faceted search. Files should follow the Symfony configuration convention. Define various aspects of the searcg, include services, templates
+Define specific settings for the faceted search. Files should follow the Symfony configuration convention. Define various aspects of the search, including services, templates, and controllers.
+
+Following example shows, how to implement three different facets. You need to define strategy for each of them.
+
+#### Publication date facet
+
+This facet finds results based on publication date. 
+To implement it, in the `src/Menu/Builder` add `PublicationDateMenuBuilder.php` file with the following code:
+
+``` php
+[[= include_file('code_samples/search/faceted_search/src/Menu/Builder/PublicationDateMenuBuilder.php') =]]
+```
+
+#### Rate range facet
+
+To define a facet that searches by rate range, in the `src/Menu/Builder`, add the following configuration:
+
+
+#### Category facet
+
+Last type of facets in this example, is the one, that looks for the results depending on the category.
+In the `src/Menu/Builder` add `CategoriesMenuBuilder.php` file with the following configuration:
+
+
+``` php
+[[= include_file('code_samples/search/faceted_search/src/Menu/Builder/CategoriesMenuBuilder.php') =]]
+```
 
 ### Create templates
 
@@ -96,7 +122,18 @@ In the `templates`, add the following files:
 - `facets_menu` template defining the preview of the facets menu:
 
 ``` html+twig
-[[= include_file('code_samples/search/faceted_search/templates/themes/storefront/facets_menu.html.twig') =]]
+{% set menu = knp_menu_get(menu, [], menu_params) %}
+
+{% if menu.hasChildren() %}
+<div class="ibexa-blog-sidebar-facet">
+    <h3 class="ibexa-blog-sidebar-facet__name">
+        {{ name }}
+    </h3>
+    <div class="ibexa-blog-sidebar-facet__body">
+        {{ knp_menu_render(menu) }}
+    </div>
+</div>
+{% endif %}
 ```
 
 ### Register facets
@@ -105,6 +142,16 @@ Then, register a configuration in `services`:
 
 ``` yaml
 [[= include_file('code_samples/search/faceted_search/config/services.yaml') =]]
+```
+
+### Add styling
+
+Last step is to add styling for the project.
+To do it, in the `assets/styles` find `app.css` file, and change its extension to `scss`.
+Then, paste a code that includes styling, for example:
+
+``` scss
+[[= include_file('code_samples/search/faceted_search/assets/styles/app.scss') =]]
 ```
 
 Next, clear the cache by runnig the following command:
