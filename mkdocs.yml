@@ -6,6 +6,9 @@ site_url: https://doc.ibexa.co/en/latest/
 copyright: "Copyright 1999-2023 Ibexa AS and others"
 nav:
     - Ibexa Developer Documentation: index.md
+    - Ibexa products:
+        - Ibexa DXP editions: ibexa_products/editions.md
+        - Ibexa Headless: ibexa_products/headless.md
     - Getting started:
         - Getting started: getting_started/getting_started.md
         - Requirements: getting_started/requirements.md
