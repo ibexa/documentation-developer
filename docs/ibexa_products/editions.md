@@ -3,7 +3,7 @@ description: Learn more about various Ibexa DXP editions' features to help yours
 page_type: landing_page
 ---
 
-# Ibexa DXP Editions
+# Ibexa DXP editions
 
 [[= cards([
 "ibexa_products/headless",
