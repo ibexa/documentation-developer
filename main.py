@@ -87,7 +87,8 @@ def define_env(env):
                         **default_meta,
                         **meta.get_data(doc)[1]
                     }
-                    href = '//'.join((
+                    href = '/'.join((
+                        '/',
                         site,
                         language,
                         version,
