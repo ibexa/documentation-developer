@@ -850,6 +850,7 @@ extra:
 
   symfony_doc: 'https://symfony.com/doc/5.4'
   user_doc: 'https://doc.ibexa.co/projects/userguide/en/master'
+  connect_doc: 'https://doc.ibexa.co/projects/connect/en/latest'
 
 extra_css:
   - fonts/MavenPro.css
