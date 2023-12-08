@@ -54,11 +54,146 @@ You can implement different types of facets. In the following example, you can l
 
 ![Blog overview](blog.png)
 
-### Define strategy
+### Create tags
 
-Define specific settings for the faceted search. Files should follow the Symfony configuration convention. Define various aspects of the search, including services, templates, and controllers.
+One of the types of facets that is implemented in the following example, is searching by category.
+To be able to search for created posts by their category, you must first create tags 
+and then assign them to individual content types - blog posts.
 
-Following example shows, how to implement three different facets. You need to define strategy for each of them.
+One of the elements of the blog post is **Categories** - this field works with taxonomy entry assignment.
+Thanks to this mechanism, user can search by category: News, Editorial insights, Product, Marketer insights.
+
+To create new tag:
+
+1\. Go to the Back Office -> **Tags**.
+
+2\. Click **Create**.
+
+3\. Input the Tag's name and identifier:
+
+- Name: News, identifier: news
+- Name: Editorial insights, identifier: editorial_insights
+- Name: Product, identifier: product
+- Name: Marketer insights, identifier: marketer_insights
+
+4\. Click **Save and close**.
+
+### Create blog and blog posts
+
+Next step in this example, is to create two new content types:
+
+-`Blog` - defining all the structure for the blog.
+-`Blog Post` - defining the entire post structure, including all components, selection of required or optional fields, and any additional elements.
+
+To create new content type:
+
+1\. Go to the Back Office -> **Content Types**.
+
+2\. Enter the Content group and click **Create**.
+
+3\. Input the Content Type's name and identifier:
+
+=== "Blog"
+
+    - **Name**: Blog
+    - **Identifier**: blog
+
+=== "Blog Post"
+
+    - **Name**: Blog Post
+    - **Identifier**: blog_post
+
+4\. In the Field definitions area, add following Fields with settings:
+
+- **Blog**
+
+|Field|Name|Identifier|Description|Required|Searchable|Translatable|
+|----|----|----|----|----|----|----|
+|`Text line`|Title|title|Insert title of the blog|Yes|Yes|Yes|
+
+- **Blog Post**
+
+|Field|Name|Identifier|Description|Required|Searchable|Translatable|
+|----|----|----|----|----|----|----|
+|`Text line`|Title|title|Insert title of the post|Yes|Yes|Yes|
+|`Rich Text`|Content|content|Isert content body of the post|Yes|Yes|Yes|
+|`Image`|Image|image|Upload selected image|No|Yes|Yes|
+|`Taxonomy Entry Assignment`|Categories|categories|Assign one or more tag to allow searching by category|No|Yes|Yes|
+|`Date and time`|Publication date|publication_date|Select publication date to allow searching by publication date|No|Yes|Yes|
+|`Authors`|Author|author|Insert author's name|No|Yes|Yes|
+|`Float`|Rate|rate|Choose rate number for the post|No|Yes|Yes|
+
+5\. Click **Save and close**.
+
+## Create templates
+
+Create a templates for post and blog posts, including full layout, and line preview.
+
+In the `templates/themes/storefront` directory, add the following file:
+
+- `layout` template:
+
+``` html+twig
+[[= include_file('code_samples/search/faceted_search/templates/themes/storefront/layout.html.twig') =]]
+```
+
+Then, in `storefront` add two new folders: `full` or `line`. 
+
+`Full` folder includes templates, that define full view of the blog. 
+In this folder create two templates:
+
+- `blog` template defining the preview of the blog:
+
+``` html+twig
+[[= include_file('code_samples/search/faceted_search/templates/themes/storefront/full/blog.html.twig') =]]
+```
+
+- `blog_post` template defining the preview of the post published on the blog in the post view:
+
+``` html+twig
+[[= include_file('code_samples/search/faceted_search/templates/themes/storefront/full/blog_post.html.twig') =]]
+```
+
+`Line` folder includes template, that defines line view of the blog post, so how the blog posts look like in the list. 
+In this folder create new template:
+
+- `blog_post` template defining the preview of the post published on the blog in the list view:
+
+``` html+twig
+[[= include_file('code_samples/search/faceted_search/templates/themes/storefront/line/blog_post.html.twig') =]]
+```
+
+### Create QueryType
+
+``` php
+[[= include_file('code_samples/search/faceted_search/src/QueryType/BlogPostsQueryType.php') =]]
+```
+
+### Create aggregations
+
+#### Publication date aggregation
+
+#### Rate range aggregation
+
+#### Category aggregation
+
+### Add styling
+
+Next step is to add styling for the project.
+To do it, in the `assets/styles` add `app.scss` file.
+Then, paste a code that includes styling:
+
+``` scss
+[[= include_file('code_samples/search/faceted_search/assets/styles/app.scss') =]]
+```
+
+Next, clear the cache by runnig the following command:
+
+```bash
+php bin/console cache:clear
+```
+
+### Implement facets
 
 #### Publication date facet
 
@@ -67,6 +202,12 @@ To implement it, in the `src/Menu/Builder` add `PublicationDateMenuBuilder.php` 
 
 ``` php
 [[= include_file('code_samples/search/faceted_search/src/Menu/Builder/PublicationDateMenuBuilder.php') =]]
+```
+
+Then, register a configuration in `services`:
+
+``` yaml
+[[= include_file('code_samples/search/faceted_search/config/services.yaml') =]]
 ```
 
 #### Rate range facet
@@ -82,80 +223,4 @@ In the `src/Menu/Builder` add `CategoriesMenuBuilder.php` file with the followin
 
 ``` php
 [[= include_file('code_samples/search/faceted_search/src/Menu/Builder/CategoriesMenuBuilder.php') =]]
-```
-
-### Create templates
-
-Create a templates for the facets, including sidebar template, and general layout.
-In the `templates`, add the following files:
-
-- `blog` template defining the preview of the blog:
-
-``` html+twig
-[[= include_file('code_samples/search/faceted_search/templates/themes/storefront/full/blog.html.twig') =]]
-```
-
-- `blog_post` template defining the preview of the post published on the blog in the post view:
-
-``` html+twig
-[[= include_file('code_samples/search/faceted_search/templates/themes/storefront/full/blog_post.html.twig') =]]
-```
-
-- `blog_sidebar` template defining the preview of the sidebar on the blog:
-
-``` html+twig
-[[= include_file('code_samples/search/faceted_search/templates/themes/storefront/full/blog_sidebar.html.twig') =]]
-```
-
-- `layout` template:
-
-``` html+twig
-[[= include_file('code_samples/search/faceted_search/templates/themes/storefront/line/layout.html.twig') =]]
-```
-
-- `blog_post` template defining the preview of the post published on the blog in the list view:
-
-``` html+twig
-[[= include_file('code_samples/search/faceted_search/templates/themes/storefront/line/blog_post.html.twig') =]]
-```
-
-- `facets_menu` template defining the preview of the facets menu:
-
-``` html+twig
-{% set menu = knp_menu_get(menu, [], menu_params) %}
-
-{% if menu.hasChildren() %}
-<div class="ibexa-blog-sidebar-facet">
-    <h3 class="ibexa-blog-sidebar-facet__name">
-        {{ name }}
-    </h3>
-    <div class="ibexa-blog-sidebar-facet__body">
-        {{ knp_menu_render(menu) }}
-    </div>
-</div>
-{% endif %}
-```
-
-### Register facets
-
-Then, register a configuration in `services`:
-
-``` yaml
-[[= include_file('code_samples/search/faceted_search/config/services.yaml') =]]
-```
-
-### Add styling
-
-Last step is to add styling for the project.
-To do it, in the `assets/styles` find `app.css` file, and change its extension to `scss`.
-Then, paste a code that includes styling, for example:
-
-``` scss
-[[= include_file('code_samples/search/faceted_search/assets/styles/app.scss') =]]
-```
-
-Next, clear the cache by runnig the following command:
-
-```bash
-php bin/console cache:clear
 ```

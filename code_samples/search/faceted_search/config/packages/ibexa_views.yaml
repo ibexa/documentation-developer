@@ -1,0 +1,24 @@
+ibexa:
+    system:
+        site:
+            content_view:
+                full:
+                    blog:
+                        match:
+                            Identifier\ContentType: ['blog']
+                        controller: 'App\Controller\BlogController'
+                        template: '@ibexadesign/full/blog.html.twig'
+                    blog_post:
+                        match:
+                            Identifier\ContentType: ['blog_post']
+                        template: '@ibexadesign/full/blog_post.html.twig'
+                    category:
+                        match:
+                            Identifier\ContentType: ['tag']
+                        controller: 'App\Controller\BlogController'
+                        template: '@ibexadesign/full/blog.html.twig'
+                line:
+                    blog_post:
+                        match:
+                            Identifier\ContentType: ['blog_post']
+                        template: '@ibexadesign/line/blog_post.html.twig'
