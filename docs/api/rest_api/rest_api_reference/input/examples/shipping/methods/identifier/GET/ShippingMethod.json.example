@@ -1,7 +1,7 @@
 {
     "ShippingMethod": {
         "_media-type": "application\/vnd.ibexa.api.ShippingMethod+json",
-        "_href": "\/api\/ibexa\/v2\/shipping\/method-types\/method1",
+        "_href": "\/api\/ibexa\/v2\/shipping\/methods\/method1",
         "identifier": "method1",
         "name": "AmE Method 1",
         "names": {

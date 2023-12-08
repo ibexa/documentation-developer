@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ShippingMethod media-type="application/vnd.ibexa.api.ShippingMethod+xml" href="/api/ibexa/v2/shipping/method-types/method1">
+<ShippingMethod media-type="application/vnd.ibexa.api.ShippingMethod+xml" href="/api/ibexa/v2/shipping/methods/method1">
     <identifier>method1</identifier>
     <name>AmE Method 1</name>
     <names>
