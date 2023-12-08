@@ -7,7 +7,7 @@ edition: commerce
 
 [Payum](https://payum.gitbook.io/payum/) simplifies the integration of various payment gateways like Stripe and PayPal into your application.
 These gateways are vital for secure online transactions, allowing you to accept multiple payment methods and ensure a seamless experience for customers.
-By configuring gateways and translating payment methods, Payum streamlines the process, enabling you to offer a diverse payment experience effortlessly.
+By configuring gateways and translating payment methods, Payum streamlines the process, enabling you to offer a diverse payment experience.
 
 ## Payum configuration
 
