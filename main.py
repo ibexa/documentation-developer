@@ -56,7 +56,8 @@ def define_env(env):
             pages = [pages]
         cards = []
         for page in pages:
-            if page.startswith("https://") or page.startswith("http://"):
+            match = re.search("https://[^@/]+.ibexa.co", page)
+            if match:
                 with urllib.request.urlopen(page) as file:
                     content = file.read().decode('utf-8')
                     match = re.search("<meta property=\"og:title\" content=\"(.*)\"", content, re.MULTILINE)
