@@ -15,7 +15,7 @@ It is provided without a default front office but with a complete back office, a
 
 ## Availability
 
-Ibexa Headless license is available from 30k€/year.
+See [Ibexa Headless license pricing](https://www.ibexa.co/products/pricing?tab=1).
 You can [contact us](https://www.ibexa.co/products/pricing) or [contact one of our partners](https://www.ibexa.co/partners).
 
 ## How it works
