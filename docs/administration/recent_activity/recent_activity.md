@@ -53,11 +53,11 @@ If the object you log an activity on can become unavailable (like after a `delet
 If you log several entries at once, you can group them into a context. In the following example, several actions are logged into one context group, even actions triggered by cascade outside the piece of code:
 
 - `my_feature`
-  - `init`
-  - `create`
-  - `publish`
-  - `simulate`
-  - `complete`
+    - `init`
+    - `create`
+    - `publish`
+    - `simulate`
+    - `complete`
 
 ```php
 $this->activityLogService->prepareContext('my_feature', 'Operation description');
@@ -75,7 +75,7 @@ $this->contentService->publishVersion($draft->versionInfo);
 
 $event = new MyFeatureEvent(new MyFeature(['id' => $id, 'name' => "My Feature #$id"]), 'simulate');
 $this->eventDispatcher->dispatch($event);
-        
+
 $this->activityLogService->save($this->activityLogService->build(MyFeature::class, $id, 'complete'));
 
 $this->activityLogService->dismissContext();
