@@ -18,7 +18,7 @@ This `Query`'s constructor has four arguments:
 1. `$criteria`: an array of criterion from `Ibexa\Contracts\ActivityLog\Values\ActivityLog\Criterion` related as a logical AND.
 2. `$sortClauses`: an array of `Ibexa\Contracts\ActivityLog\Values\ActivityLog\SortClause`.
 3. `$offset`: a zero-based index integer indicating at which entry to start, its default value is `0` (zero, nothing skipped).
-4. `$limit`: an integer as the maximum returned entry count, default is 25.
+4. `$limit`: an integer as the maximum returned item count, default is 25.
 
 ```php
 [[= include_file('code_samples/recent_activity/src/Command/MonitorRecentContentCreationCommand.php') =]]
@@ -27,6 +27,12 @@ This `Query`'s constructor has four arguments:
 See [Activity Log Search Criteria reference](activity_log_search.md) to discover query possibilities.
 
 ### Adding custom Activity Log entries
+
+!!! caution
+
+    Keep activity logging as light as possible. Do not make database request or heavy computation at logging time. Keep them for activity log list display time.
+
+#### Entry
 
 Your custom features could write into the activity log.
 
@@ -50,7 +56,10 @@ The returned `CreateActivityLogStruct` is always related to the currently logged
 
 If the object you log an activity on can become unavailable (like after a `delete` action), you might want to also log the name the object has at log time to be able to display it even when the object becomes unavailable. To add this name, use `CreateActivityLogStruct::setName` before saving the log entry.
 
-If you log several entries at once, you can group them into a context. In the following example, several actions are logged into one context group, even actions triggered by cascade outside the piece of code:
+#### Context group
+
+If you log several entries at once, you can group them into a context. A context group counts as one item in regard to `activity_logs_limit` configuration and `ActivityLogService::find`'s `$limit` argument.
+In the following example, several actions are logged into one context group, even actions triggered by cascade outside the piece of code:
 
 - `my_feature`
     - `init`
@@ -81,9 +90,9 @@ $this->activityLogService->save($this->activityLogService->build(MyFeature::clas
 $this->activityLogService->dismissContext();
 ```
 
-!!! caution
+TODO: Groups can't be nested. If a new context group is prepared while a context is already grouping log entries, this new context group will be ignored. To start a new context group, make sure to dismiss the existing one.
 
-    Keep activity logging as light as possible. Do not make database request or heavy computation at logging time. Keep them for activity log list display time.
+#### List
 
 To display your log entry, if your object's PHP class isn't already covered, you'll have to:
 
