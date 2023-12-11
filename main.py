@@ -59,12 +59,12 @@ def define_env(env):
             if page.startswith("https://") or page.startswith("http://"):
                 with urllib.request.urlopen(page) as file:
                     content = file.read().decode('utf-8')
-                    match = re.search("<title>(.*)</title>", content, re.MULTILINE)
+                    match = re.search("<meta property=\"og:title\" content=\"(.*)\"", content, re.MULTILINE)
                     if match:
                         title = match.groups()[0]
                     else:
                         title = ""
-                    match = re.search("<meta name=\"description\" content=\"(.*)\"", content, re.MULTILINE)
+                    match = re.search("<meta property=\"og:description\" content=\"(.*)\"", content, re.MULTILINE)
                     if match:
                         description = match.groups()[0]
                     else:
