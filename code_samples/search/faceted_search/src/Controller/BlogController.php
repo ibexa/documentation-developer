@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace App\Controller;
 
 use App\QueryType\BlogPostsQueryType;
@@ -24,36 +22,28 @@ final class BlogController extends AbstractController
     ) {
     }
 
-    public function __invoke(Request $request, ContentView $view, int $page = 1): ContentView
+    public function __invoke(Request $request, ContentView $view): ContentView
     {
         /** @var \Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery $query */
         $query = $this->queryType->getQuery($this->getQueryParams($request, $view));
 
         $posts = new Pagerfanta(new LocationSearchAdapter($query, $this->searchService));
-        $posts->setCurrentPage($page);
+        $posts->setCurrentPage($request->query->getInt("page"));
         $posts->setMaxPerPage(10);
 
         $view->addParameters([
-           'blog_posts' => $posts,
+            'blog_posts' => $posts,
         ]);
 
         return $view;
     }
 
+    /**
+     * Creates query parameters from current request.
+     */
     private function getQueryParams(Request $request, ContentView $view): array
     {
         $parameters = [];
-        if ($request->query->has('start')) {
-            $parameters['start'] = $request->query->getInt('start');
-        }
-
-        if ($request->query->has('end')) {
-            $parameters['end'] = $request->query->getInt('end');
-        }
-
-        if ($request->query->has('min_rate')) {
-            $parameters['min_rate'] = (float) $request->query->get('min_rate');
-        }
 
         $content = $view->getContent();
         if ($content->getContentType()->identifier === 'tag') {

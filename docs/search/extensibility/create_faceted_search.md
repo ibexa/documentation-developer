@@ -5,7 +5,7 @@ description: Create faceted search with aggregation API.
 # Search for the results
 
 [[= product_name =]] supports many search methods, using [search engines](search_engines.md) and several built-in [Search Criteria and Sort Clauses](search_criteria_and_sort_clauses.md).
-While searching for content you can also use filters and facets to narrow down the results. 
+While searching for content you can also use filters and facets to narrow down the results.
 
 ## Filters vs facets
 
@@ -13,19 +13,19 @@ Both filters and facets are used to limit large set of search results to smaller
 
 ![Filters vs facets](filters_vs_facets.png)
 
-### Filters 
+### Filters
 
 Filters use a certain attribute and they are typically used as predetermined list of products based on one specific criterion.
 As a result, users can narrow a wide range of search results to just that ones that meet their needs.
 
-Filters are frequently used while restricted search is needed for internal reasons and hidden for end-user. 
+Filters are frequently used while restricted search is needed for internal reasons and hidden for end-user.
 
 ### Facets
 
-Facets are a subset of filtering and they're used to group results based on shared characteristics. 
+Facets are a subset of filtering and they're used to group results based on shared characteristics.
 
-Facets are used to create a user experience - end-user can interact with them to narrow down search results. 
-Comparing to filters, facets go one step further and let users narrow results by multiple dimensions at once. 
+Facets are used to create a user experience - end-user can interact with them to narrow down search results.
+Comparing to filters, facets go one step further and let users narrow results by multiple dimensions at once.
 
 ## Aggregation API
 
@@ -36,12 +36,12 @@ You can define limits for the results and group them into categories based on th
 ## Create faceted search
 
 Faceted search allows you to focus and lower the amount of search results by using multiple filters at the same time.
-You can find the content you're looking for without having to run multiple searches. 
+You can find the content you're looking for without having to run multiple searches.
 What's more, you never have an empty search result set, because narrowing attributes are obtained from the search result set.
 
 ### Faceted search in business
 
-In the following example, you can see the usage of faceted search in the business model - company blog. 
+In the following example, you can see the usage of faceted search in the business model - company blog.
 
 In the blog, user can search for articles and documents using available filters and facets.
 Facets are important when it comes to customer experience - they are more flexible and exclude any content parts that don’t meet certain criteria.
@@ -57,7 +57,7 @@ You can implement different types of facets. In the following example, you can l
 ### Create tags
 
 One of the types of facets that is implemented in the following example, is searching by category.
-To be able to search for created posts by their category, you must first create tags 
+To be able to search for created posts by their category, you must first create tags
 and then assign them to individual content types - blog posts.
 
 One of the elements of the blog post is **Categories** - this field works with taxonomy entry assignment.
@@ -85,7 +85,7 @@ Next step in this example, is to create two new content types:
 -`Blog` - defining all the structure for the blog.
 -`Blog Post` - defining the entire post structure, including all components, selection of required or optional fields, and any additional elements.
 
-To create new content type:
+To create new Content Type:
 
 1\. Go to the Back Office -> **Content Types**.
 
@@ -137,9 +137,9 @@ In the `templates/themes/storefront` directory, add the following file:
 [[= include_file('code_samples/search/faceted_search/templates/themes/storefront/layout.html.twig') =]]
 ```
 
-Then, in `storefront` add two new folders: `full` or `line`. 
+Then, in `storefront` add two new folders: `full` and `line`.
 
-`Full` folder includes templates, that define full view of the blog. 
+`Full` folder includes templates, that define full view of the blog.
 In this folder create two templates:
 
 - `blog` template defining the preview of the blog:
@@ -154,7 +154,7 @@ In this folder create two templates:
 [[= include_file('code_samples/search/faceted_search/templates/themes/storefront/full/blog_post.html.twig') =]]
 ```
 
-`Line` folder includes template, that defines line view of the blog post, so how the blog posts look like in the list. 
+`Line` folder includes template, that defines line view of the blog post, so how the blog posts look like in the list.
 In this folder create new template:
 
 - `blog_post` template defining the preview of the post published on the blog in the list view:
@@ -163,19 +163,38 @@ In this folder create new template:
 [[= include_file('code_samples/search/faceted_search/templates/themes/storefront/line/blog_post.html.twig') =]]
 ```
 
-### Create QueryType
+### Create QueryType class
+
+Next step in the process of creating faceted search, is to create QueryType class.
+Query allows to quickly find specific data by filtering on requested criteria.
+Seleted class facilitates parameters handling by using Symfony's `OptionsResolver`.
+This component that enables you to build an options system that includes validation, normalization, required options, defaults, and more.
+
+Created QueryType class consists of number of functions:
+
+- `configureOptions` - configures the OptionsResolver for the QueryType.
+- `doGetQuery` - builds and returns the Query object.
+- `getName` - returns the QueryType name.
+- `createFilters` - creates filters based on specific Criterion.
+- `createPublicationDateAggregation` - creates aggregation that collects related items depending on publication date.
+
+In the `src/QueryType` directory, create `BlogPostsQueryType` class with the following code:
 
 ``` php
 [[= include_file('code_samples/search/faceted_search/src/QueryType/BlogPostsQueryType.php') =]]
 ```
+### Create controller
 
-### Create aggregations
+A controller is a PHP function you write that constructs and returns a `Response` object after reading data from the `Request` object.
 
-#### Publication date aggregation
+`BlogController` class from the following example, uses a PHP package called Pagerfanta - it aids in the computation
+and presentation of paginated lists.
 
-#### Rate range aggregation
+Controller creates query parameters from current request.
 
-#### Category aggregation
+``` php
+[[= include_file('code_samples/search/faceted_search/src/Controller/BlogController.php') =]]
+```
 
 ### Add styling
 
