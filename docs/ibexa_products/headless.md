@@ -11,7 +11,7 @@ and interfaces (API) to distribute this content.
 
 Multilingual, multichannel, extensible, Ibexa Headless is an advanced Content Management Framework (CMF),
 a Product Information Management (PIM) platform, and even a Digital Asset Management (DAM) repository.
-It is provided without a default front office but with a complete back office, and several APIs to manage and access content.
+It's provided without a default front office but with a complete back office, and several APIs to manage and access content.
 
 ## Availability
 
@@ -25,20 +25,20 @@ You can [contact us](https://www.ibexa.co/products/pricing) or [contact one of o
 You access with any web browser from any platform to a rich back office, the main place to
 
 - define users and their rights (customers, subscribers, editors, etc.),
-- organize content (content types, fields, tree, tags, languages and more),
+- organize content (content types, fields, tree, tags, languages, and more),
 - edit content in a collaborative workplace with versions and workflows.
 
-Then, content is available to end users through REST, GraphQL or every output you can imagine like websites or apps.
+Then, content is available to end users through REST, GraphQL, or every output you can imagine like websites or apps.
 
 ### Technical backstage
 
 When you have a license, you install Ibexa Headless through Composer
-on an architecture including at least a web server with PHP and a relational database server
-(for performance, several bricks can be added to your stack such as a reverse proxy or a search engine).
+on an architecture including at least a web server with PHP and a relational database server.
+For performance, several bricks can be added to your stack such as a reverse proxy or a search engine.
 
-By using a version control system and environment variables, you can deploy your configuration and extensions on several environments including Ibexa Cloud.
+By using a version control system and environment variables, you can deploy your configuration and extensions on several environments including [[= product_name_cloud =]].
 
-Standard web APIs and Ibexa Connect help, even non-developers, to establish interoperability.
+Standard web APIs and [[= product_name_connect =]] help, even non-developers, to establish interoperability.
 
 Ibexa Headless is based on Symfony. Any Symfony developer, or even PHP developer, can quickly learn how to extend it with the help of an online documentation.
 
@@ -69,7 +69,7 @@ The core of Ibexa DXP Headless edition is already awesome as it offers everythin
 - Content items are typed.
 - Content types are sets of typed data fields, with eventually conditions on the possible values.
 - Rich Text field type comes with an online editor. See [Online Editor product guide](online_editor_guide.md) for more.
-- Multilingual, it can store a content in several languages, the content model define which field must be translated and which do not vary.
+- Multilingual, it can store a content in several languages, the content model define which field must be translated, and which don't vary.
 
 See [Content management product guide](content_management_guide.md) for more.
 
@@ -82,11 +82,11 @@ See [User management product guide](user_management_guide.md) for more.
 
 #### Content access
 
-- The REST API and GraphQL API allow to access and edit the content.
+- The REST API and GraphQL API support access to and edition of the content.
 - Ibexa Headless offers a complete PHP API to extend the ways to access content.
-- A design engine and a view controller allow to create plain text content views (such as HTML, JSON, XML, CSS, JS, CSV or Markdown),
-  and to factorize those views using theme cascades.
-  This very design engine is used in the back office which is equally extendable.
+- A design engine and a view controller offer to create plain text content views (such as HTML, JSON, XML, CSS, JS, CSV, or Markdown),
+  and to factorize those views by using theme cascades.
+  This design engine is used in the back office which is equally extendable.
 - Multichannel, content can be accessed through several channel configurations,
   such as the domain name it replies to, the sub-part of the content tree it starts from, the users rights, or the design theme.
   The back office itself is such a channel.
@@ -105,7 +105,7 @@ On top of this strong core, Ibexa DXP Headless edition brings tools to increase 
 #### Ibexa Headless adds more ways to structure and organize your content
 
 - Ibexa Headless has specific feature to organise complex products and their catalogs, making it a strong Product Information Management (PIM) software.
-  - Product are organised per product types × variants × catalogs × categories × tags.
+  - Product are organized per product types × variants × catalogs × categories × tags.
   - Product attributes are grouped and factorized among product types. For example, fabric + color + size can be shared by many clothing product types.
   - Product variants can rapidly be created by the automatic declination of attributes having a defined set of values.
   - See [PIM product guide](pim_guide.md) for more.
@@ -131,9 +131,9 @@ On top of this strong core, Ibexa DXP Headless edition brings tools to increase 
 
 - Ibexa Connect is to create application interconnections with low code, drag-and-drop and a very visual interface.
   Complex data flows can be easily implemented with a huge library of connectors and actions for famous to specific applications.
-  See [Ibexa Connect product guide]([[= connect_doc =]]/general/ibexa_connect/) for more. 
+  See [Ibexa Connect product guide]([[= connect_doc =]]/general/ibexa_connect/) for more.
 - An OAuth 2 server offers the possibility to use the DXP as the authentification service for other applications.
-- An OAuth 2 client allows authentication with a third-party OAuth 2 server.
+- An OAuth 2 client supports authentication with a third-party OAuth 2 server.
 - A DAM Connector, previously mentioned, helps to access any image repository when needing to illustrate a content.
 - Ibexa Headless supports Elasticsearch and Solr.
   It gives the choice between using Solr or Elasticsearch as a search engine, whether hosted on Ibexa Cloud or on-premises.
@@ -141,7 +141,7 @@ On top of this strong core, Ibexa DXP Headless edition brings tools to increase 
 - Ibexa Headless offers to export and import from command line part of the content model or content items.
   For example, it can be used to move new content types and items from a staging instance to the production one.
 
-##### Internet, delivery, web search engines and social networks
+##### Internet, delivery, web search engines, and social networks
 
 - Ibexa Headless comes with the support of Fastly content delivery network (CDN).
   The HTTP cache varies on current user's role and is purged when content change.
