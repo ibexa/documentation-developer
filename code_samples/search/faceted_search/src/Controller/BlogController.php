@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Controller;
 
@@ -28,7 +28,7 @@ final class BlogController extends AbstractController
         $query = $this->queryType->getQuery($this->getQueryParams($request, $view));
 
         $posts = new Pagerfanta(new LocationSearchAdapter($query, $this->searchService));
-        $posts->setCurrentPage($request->query->getInt("page"));
+        $posts->setCurrentPage($request->query->getInt('page'));
         $posts->setMaxPerPage(10);
 
         $view->addParameters([

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\QueryType;
 
@@ -15,7 +15,6 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 final class BlogPostsQueryType extends OptionsResolverBasedQueryType
 {
-
     protected function configureOptions(OptionsResolver $optionsResolver)
     {
         $optionsResolver->define('category')->default(null)->allowedTypes(TaxonomyEntry::class, 'null');
