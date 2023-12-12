@@ -4,7 +4,7 @@ description: [[= product_name =]] Headless edition features, capabilities and be
 
 # Ibexa DXP Headless edition product guide
 
-## What is [[= product_name_headless =]]
+## What's [[= product_name_headless =]]
 
 [[= product_name =]] Headless edition focuses on content management. It provides tools to collaboratively create content,
 and interfaces (API) to distribute this content.
@@ -47,7 +47,8 @@ APIs summary:
 - The REST and GraphQL APIs give access to access the content in standardized ways.
 - The OAuth 2 Client and Server allow to connect to an SSO or be the SSO.
 - The design engine and its theme templates mechanism allows to serve the content in several shapes.
-- The PHP API allows to extend [[= product_name_headless =]] and fit your needs. For example, content can be manipulated or served in specific ways (such as scheduled/live imports/exports, automated edition tasks, specific output controllers to feed a mobile app, etc.)
+- The PHP API opens [[= product_name_headless =]] to extendability to fit your needs.
+  For example, content can be computed, edited or served in specific ways such as scheduled/live imports/exports, automated edition tasks, or specific output controllers to feed a mobile app.
 
 ## Capabilities and benefits
 
@@ -104,7 +105,7 @@ On top of this strong core, [[= product_name =]] Headless edition brings tools t
 
 #### [[= product_name_headless =]] adds more ways to structure and organize your content
 
-- [[= product_name_headless =]] has specific feature to organise complex products and their catalogs, making it a strong Product Information Management (PIM) software.
+- [[= product_name_headless =]] has specific feature to organize complex products and their catalogs, making it a strong Product Information Management (PIM) software.
   - Product are organized per product types × variants × catalogs × categories × tags.
   - Product attributes are grouped and factorized among product types. For example, fabric + color + size can be shared by many clothing product types.
   - Product variants can rapidly be created by the automatic declination of attributes having a defined set of values.
@@ -182,14 +183,14 @@ At last and not least, [[= product_name =]] Headless edition can be upgraded to 
 
 ## Use cases
 
-- A corporate website to inform about your organization
+- A website to inform about your organization
 - An online catalog to expose your products and convince potential customer to contact you
-- A feed providing contents to a partner or parent company's network
+- A feed providing contents to a partner or parent organization's network
 - A structuring first step to create online presence, before increasing user experience with [[= product_name_experience =]], and finally becoming an online store with [[= product_name_commerce =]].
-- A smartphone app feed allowing to consult instructions manual with mobility while using your product
+- A feed to a smartphone app allowing to consult instruction manuals with mobility while using your products
 
 ### Brick and mortar, but with an online showcase
 
 If you prefer the human warmth of a retail store, if your products' numerous options should be discussed, or if you're simply not ready yet to sell online,
 [[= product_name_headless =]] helps to build an exposition of your product catalog and your philosophy,
-an online presence to keep previous customers interested and gather new ones.
+an online presence to keep earlier customers interested and gather new ones.
