@@ -14,7 +14,7 @@ or in [a custom folder that you configure](managing_migrations.md#migration-fold
 You can later use this file to import the data.
 
 ``` bash
-php bin/console ibexa:migrations:generate --type=content --mode=create
+php bin/console ibexa:migrations:generate --type=content --mode=create --siteaccess=admin
 ```
 
 This generates a file containing all Content items.
@@ -133,6 +133,12 @@ Note that you should test your migrations. See [Importing data](importing_data.m
 !!! tip
 
     Migration command can be executed with database rollback at the end with the `--dry-run` option.
+
+!!! caution
+
+    `--siteaccess` option usage can be relevant on multi-languages repository.
+    You must export with the SiteAccess supporting all the languages, or migration skips translations in non-supported languages.
+    It is recommended to use the SiteAccess of the Back Office of the targeted repository.
 
 ## type
 
