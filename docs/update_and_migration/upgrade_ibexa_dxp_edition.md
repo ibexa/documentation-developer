@@ -84,7 +84,7 @@ for package in $packageList; do
   fi;
   schema="vendor/$package/src/bundle/Resources/config/storage/legacy/schema.yaml";
   if [ -f $schema ]; then
-    bin/console ibexa:doctrine:schema:dump-sql $schema | mysql $database";
+    bin/console ibexa:doctrine:schema:dump-sql $schema | mysql $database;
   fi;
 done;
 ```
