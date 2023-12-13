@@ -152,7 +152,7 @@ On top of this strong core, [[= product_name =]] Headless edition brings tools t
 
 ## Feature summary
 
-To summarize, here is a list of the main [[= product_name_headless =]] features:
+To summarize, here is a non-exhaustive list of the main [[= product_name_headless =]] features:
 
 * Structured content
 * PIM/Product catalog
@@ -179,18 +179,29 @@ To summarize, here is a list of the main [[= product_name_headless =]] features:
 * PHP API
 * Extendability
 
-At last and not least, [[= product_name =]] Headless edition can be upgraded to Experience and Commerce editions with minimal effort (for example, to start selling online what you exposed in your product catalog).
+At last and not least, [[= product_name =]] Headless edition can be upgraded to Experience and Commerce editions with minimal effort
+(for example, to start selling online what you exposed in your product catalog).
 
 ## Use cases
 
 - A website to inform about your organization
 - An online catalog to expose your products and convince potential customer to contact you
-- A feed providing contents to a partner or parent organization's network
-- A structuring first step to create online presence, before increasing user experience with [[= product_name_experience =]], and finally becoming an online store with [[= product_name_commerce =]].
+- A collaborative workspace to produce content, and feeds providing content to partners' or parent organization's network
 - A feed to a smartphone app allowing to consult instruction manuals with mobility while using your products
+- A structuring first step to create online presence, before increasing user experience with [[= product_name_experience =]], and finally becoming an online store with [[= product_name_commerce =]].
 
 ### Brick and mortar, but with an online showcase
 
-If you prefer the human warmth of a retail store, if your products' numerous options should be discussed, or if you're simply not ready yet to sell online,
+If you prefer the human warmth of a retail store,
+if your products' numerous complex options should be discussed,
+or if you're simply not ready yet to sell online,
 [[= product_name_headless =]] helps to build an exposition of your product catalog and your philosophy,
 an online presence to keep earlier customers interested and gather new ones.
+
+### Large network with multiple inputs and outputs
+
+Departments, subsidiaries, and even partners produce content in the same repository.
+Fine-tuned user rights and workflows ensure that each collaborator can focus on their own tasks without the risk to disturb the content model or organization.
+Content is distributed on several websites and applications, some running on the Ibexa Headless platform itself, some on third parties' servers, some as native mobile apps.
+Part of the content has multiple locations or is translated, and reused from place to place.
+While the back office offers to search into the whole repository, the front end apps have correctly circumscribed search capabilities.
