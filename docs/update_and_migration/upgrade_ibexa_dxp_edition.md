@@ -68,8 +68,6 @@ The composer.json of an edition gives the dependency packages to add to the edit
 This package list help to find the schemas to apply to the already existing database.
 
 ```bash
-cd vendor/ibexa/doctrine-schema/ && curl -s https://patch-diff.githubusercontent.com/raw/ibexa/doctrine-schema/pull/17.diff | git apply
-
 departure=content;
 arrival=experience;
 version=v4.4.2;
