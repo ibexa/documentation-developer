@@ -269,6 +269,10 @@ Endpoints that allow you to manage companies in your platform with REST API:
 #### PHP API
 
 
+### Helpers
+
+A new helper method `ibexa.helpers.contentType.getContentTypeDataByHref` has been introduced to help you get content type data in JavaScript.
+
 ### Ibexa Connect
 
 For a list of changes in [[= product_name_connect =]], see [Ibexa app release notes](https://doc.ibexa.co/projects/connect/en/latest/general/ibexa_app_release_notes/).
