@@ -185,7 +185,7 @@ For example, use `ibexa_field_is_empty()` to check whether a Field is empty or f
 
 | Argument | Type | Description |
 |---------------|------|-------------|
-| `content` | `Ibexa\Contracts\Core\Repository\Values\Content\Content` | Content item the Field group belongs to. |
+| `fieldGroupIdentifier` | `string` | Field group [identifier](repository_configuration.md#field-groups-configuration). |
 
 
 ``` html+twig
@@ -194,7 +194,7 @@ For example, use `ibexa_field_is_empty()` to check whether a Field is empty or f
 
 ### `ibexa_has_field()`
 
-`ibexa_field_group_name()` returns Boolean information whether a Field is present in the Content item.
+`ibexa_has_field()` returns Boolean information whether a Field is present in the Content item.
 
 | Argument | Type | Description |
 |---------------|------|-------------|
