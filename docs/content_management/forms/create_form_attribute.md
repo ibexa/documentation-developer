@@ -58,7 +58,7 @@ Then, specify the new template in configuration, under the `twig.form_themes` co
 ``` yaml
 twig:
     form_themes:
-        - 'themes/<your-theme>/formtheme/formbuilder_checkbox_with_richtext_description.html.twig'
+        - '@ibexadesign/formtheme/formbuilder_checkbox_with_richtext_description.html.twig'
 ```
 
 ## Add scripts
