@@ -136,9 +136,7 @@ Note that you should test your migrations. See [Importing data](importing_data.m
 
 !!! caution
 
-    `--siteaccess` option usage can be relevant on multi-languages repository.
-    You must export with the SiteAccess supporting all the languages, or migration skips translations in non-supported languages.
-    It is recommended to use the SiteAccess of the Back Office of the targeted repository.
+    [`--siteaccess` option](#siteaccess) usage can be relevant when multiple languages or multiple repositories are used.
 
 ## type
 
@@ -195,6 +193,17 @@ The following combinations of types are modes are available:
 |`segment`|&#10004;|&#10004;|&#10004;|
 |`segment_group`|&#10004;|&#10004;|&#10004;|
 |`company`|&#10004;|||
+
+## siteaccess
+
+The optional `--siteaccess` option enables to export (or import) in a SiteAccess configuration's context.
+
+It is recommended to use the SiteAccess of the Back Office of the targeted repository.
+
+To precise the SiteAccess can be mandatory when using several languages.
+You must export with the SiteAccess supporting all the languages, or migration skips non-supported languages' translations.
+
+This option is also important if you use [several repositories with their own dabases](repository_configuration.md#defining-custom-connection).
 
 ## match-property
 
