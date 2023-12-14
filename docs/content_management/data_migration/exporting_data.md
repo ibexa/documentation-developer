@@ -137,6 +137,7 @@ Note that you should test your migrations. See [Importing data](importing_data.m
 !!! caution
 
     [`--siteaccess` option](#siteaccess) usage can be relevant when multiple languages or multiple repositories are used.
+    Translations could be lost if a SiteAccess not supporting all your languages is used.
 
 ## type
 
