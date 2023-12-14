@@ -201,7 +201,7 @@ If not provided, the [default SiteAccess](multisite_configuration.md#default-sit
 
 It is recommended to use the SiteAccess of the Back Office of the targeted repository.
 
-To precise the SiteAccess can be mandatory when using several languages.
+To precise the SiteAccess can be mandatory when using [several languages](languages.md#using-siteaccesses-for-handling-translations).
 Export and import commands only work with languages supported by the context SiteAccess.
 You must export and import with the SiteAccess supporting all used languages to not loose translations.
 
