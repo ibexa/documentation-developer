@@ -197,14 +197,14 @@ The following combinations of types are modes are available:
 
 ## siteaccess
 
-The optional `--siteaccess` option enables to export (or import) in a SiteAccess configuration's context.
+The optional `--siteaccess` option enables you to export (or import) data in a SiteAccess configuration's context.
 If not provided, the [default SiteAccess](multisite_configuration.md#default-siteaccess) is used.
 
-It is recommended to use the SiteAccess of the Back Office of the targeted repository.
+It is recommended that you use the SiteAccess of the target repository's Back Office.
 
-To precise the SiteAccess can be mandatory when using [several languages](languages.md#using-siteaccesses-for-handling-translations).
+Specifying the SiteAccess can be mandatory, for example, when you use several SiteAccesses to handle [several languages](languages.md#using-siteaccesses-for-handling-translations).
 Export and import commands only work with languages supported by the context SiteAccess.
-You must export and import with the SiteAccess supporting all used languages to not loose translations.
+You must export and import with the SiteAccess supporting all the languages to preserve translations.
 
 This option is also important if you use [several repositories with their own dabases](repository_configuration.md#defining-custom-connection).
 

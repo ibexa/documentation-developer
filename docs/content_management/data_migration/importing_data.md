@@ -22,7 +22,7 @@ Migrations store execution metadata in the `ibexa_migrations` database table.
 This allows incremental upgrades:
 the `ibexa:migrations:migrate` command ignores files that it had previously executed.
 
-Notice that [`--siteaccess` option](exporting_data.md#siteaccess) usage can be relevant when multiple languages or multiple repositories are used.
+The [`--siteaccess` option](exporting_data.md#siteaccess) usage can be relevant when multiple languages or multiple repositories are used.
 
 ## Migration step
 
