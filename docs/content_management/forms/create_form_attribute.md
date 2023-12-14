@@ -30,7 +30,7 @@ The new Form attribute requires a `FieldAttributeTypeMapper`. Register the mappe
 
 ## Add Symfony form type
 
-The attribute needs to be editable for the form creator, so it needs to have a Symfony form type. 
+The attribute needs to be editable for the form creator, so it needs to have a Symfony form type.
 Add an `AttributeRichtextDescriptionType.php` file with the form type in the `src/FormBuilder/Form/Type/FieldAttribute` directory:
 
 ``` php
