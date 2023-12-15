@@ -59,7 +59,7 @@ Uncomment the SiteAccess matcher (`Ibexa\SiteFactory\SiteAccessMatcher`):
 ibexa:
     siteaccess:
         match:
-        '@Ibexa\SiteFactory\SiteAccessMatcher': ~
+            '@Ibexa\SiteFactory\SiteAccessMatcher': ~
 ```
 
 `ibexadesign` defines templates for your sites, so add them before continuing.

@@ -4,7 +4,7 @@ description: Page blocks can contain multiple attributes, of both built-in and c
 
 # Page block attributes
 
-A block has attributes that the editor fills in when adding th block to a Page.
+A block has attributes that the editor fills in when adding the block to a Page.
 
 [[% include 'snippets/page_block_cache_clear.md' %]]
 
@@ -31,13 +31,14 @@ The following attribute types are available:
 |`text`|Text block|-|
 |`richtext`|Rich text block (see [creating RichText block](create_custom_richtext_block.md))|-|
 |`embed`|Embedded Content item|-|
-|`select`|Drop-down with options to select|`choices` lists the available options</br>`multiple`, when set to true, allows selecting more than one option.
-|`multiple`|Checkbox(es)|`choices` lists the available options.|
-|`radio`|Radio buttons|`choices` lists the available options.|
+|`select`|Drop-down with options to select|`choices` lists the available options in `label: value` form</br>`multiple`, when set to true, allows selecting more than one option.
+|`checkbox`|Checkbox|Selects available option if `value: true`.|
+|`multiple`|Checkbox(es)|`choices` lists the available options in `label: value` form.|
+|`radio`|Radio buttons|`choices` lists the available options in `label: value` form.|
 |`locationlist`|Location selection|-|
 |`contenttypelist`|List of Content Types|-|
 |`schedule_events`,</br>`schedule_snapshots`,</br>`schedule_initial_items`,</br>`schedule_slots`,</br>`schedule_loaded_snapshot`|Used in the Content Scheduler block|-|
-|`nested_attribute`|Defines a group of attributes in a block.|`attributes` - a list of attributes in the group. The attributes in the group are [configured](#page-block-attributes) as regular attributes. </br>`multiple`, when set to true. New groups are added dynamically with the **Add field group** button.|
+|`nested_attribute`|Defines a group of attributes in a block.|`attributes` - a list of attributes in the group. The attributes in the group are [configured](#page-block-attributes) as regular attributes. </br>`multiple`, when set to true. New groups are added dynamically with the **+ Add** button.|
 
 When you define attributes, you can omit most keys as long as you use simple types that don't require additional options:
 

@@ -346,3 +346,39 @@ get:
                             description: Error - the input does not match the input schema definition.
                         401:
                             description: Error - the user is not authorized to create this company member.
+/sales-representatives:
+    get:
+        displayName: Read list of sales representatives
+        description: |
+            Returns paginated list of available sales representatives.
+        queryParameters:
+            offset:
+                description: The offset of the result set.
+                type: integer
+                default: 0
+            limit:
+                description: The number of returned representatives.
+                type: integer
+                default: 25
+        headers:
+            Accept:
+                description: If set, helps to determine response format.
+                example: |
+                    application/vnd.ibexa.api.SalesRepresentativesList+xml
+                    application/vnd.ibexa.api.SalesRepresentativesList+json
+
+        responses:
+            200:
+                description: Sales representatives list containing Company objects.
+                body:
+                    application/vnd.ibexa.api.SalesRepresentativesList+xml:
+                        type: SalesRepresentativesList
+                        example: !include examples/corporate/sales-representatives/GET/SalesRepresentativesList.xml.example
+                    application/vnd.ibexa.api.SalesRepresentativesList+json:
+                        type: SalesRepresentativesList
+                        example: !include examples/corporate/sales-representatives/GET/SalesRepresentativesList.json.example
+            401:
+                description: Error - the user is not authorized to read Sales Representatives List.
+                body:
+                    application/vnd.ibexa.api.ErrorMessage:
+                        type: ErrorMessage

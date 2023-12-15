@@ -41,7 +41,7 @@ Create a new **Content relations (multiple)** Field called "Landmarks" with iden
 
 ![Adding Landmarks to the Ride Content Type](bike_ride_adding_landmarks_to_the_ride_content_type.png "Adding a relation between the Ride and the Landmark using Content Relations (multiple)")
 
-Confirm by clicking **Save**.
+Confirm by clicking **Save and close**.
 
 Go back to one of your existing Rides, edit it and link some Landmarks to it.
 Click **Publish**.

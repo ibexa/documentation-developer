@@ -30,7 +30,7 @@ The new Form attribute requires a `FieldAttributeTypeMapper`. Register the mappe
 
 ## Add Symfony form type
 
-The attribute needs to be editable for the form creator, so it needs to have a Symfony form type. 
+The attribute must be editable for the form creator, so it needs to have a Symfony form type.
 Add an `AttributeRichtextDescriptionType.php` file with the form type in the `src/FormBuilder/Form/Type/FieldAttribute` directory:
 
 ``` php
@@ -51,6 +51,14 @@ The templates for the forms should look as follows:
 
 ``` html+twig
 [[= include_file('code_samples/forms/custom_form_attribute/templates/themes/standard/formtheme/formbuilder_checkbox_with_richtext_description.html.twig') =]]
+```
+
+Then, specify the new template in configuration, under the `twig.form_themes` configuration key:
+
+``` yaml
+twig:
+    form_themes:
+        - '@ibexadesign/formtheme/formbuilder_checkbox_with_richtext_description.html.twig'
 ```
 
 ## Add scripts

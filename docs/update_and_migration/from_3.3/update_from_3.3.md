@@ -229,7 +229,7 @@ Run the following scripts:
 
 ### Ibexa Open Source
 
-If you have no access to Ibexa DXP's `ibexa/installer` package, apply the following database upgrade script:
+If you have no access to [[= product_name =]]'s `ibexa/installer` package, apply the following database upgrade script:
 
 === "MySQL"
 

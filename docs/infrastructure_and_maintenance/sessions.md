@@ -119,7 +119,7 @@ Alternatively if you have needs to configure Redis servers dynamically:
 
 !!! note "Ibexa Cloud"
 
-    For Ibexa Cloud (and Platform.sh), this is already configured in `config/env/platformsh.php` based on `.platform.yaml` config.
+    For [[= product_name_cloud =]] (and Platform.sh), this is already configured in `config/env/platformsh.php` based on `.platform.yaml` config.
 
 If you are on `php-redis` v4.2.0 and higher, you can optionally tweak [`php-redis` settings](https://github.com/phpredis/phpredis#session-locking) for session locking.
 
