@@ -106,7 +106,7 @@ php bin/console ibexa:migrate:richtext-namespaces
 
 #### Ibexa Open Source
 
-If you have no access to Ibexa DXP's `ibexa/installer` package, apply the following database update:
+If you have no access to [[= product_name =]]'s `ibexa/installer` package, apply the following database update:
 
 === "MySQL"
 

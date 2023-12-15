@@ -235,7 +235,7 @@ The following HTTP response codes are used by the recommendation controller:
 |403 Forbidden|Access denied.|
 |404 Not Found|The requested element was't found. It could be customer ID (or "mandator ID"), model ID, or scenario ID.|
 |409 Conflict|The requested combination of models and recommendation parameters can't return recommendations. This could happen, for example, if you request personalized recommendations for a user who has no history.|
-|500 Internal Server Error|Unspecified error. Contact Ibexa support if this error is recurring.|
+|500 Internal Server Error|Unspecified error. Contact [[= product_name_base =]] support if this error is recurring.|
 
 In case of errors, the response body contains human-readable error messages.
 Error messages can change, don't use them for automated processing.

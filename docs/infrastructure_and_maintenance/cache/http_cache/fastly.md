@@ -378,7 +378,7 @@ In the example above, the ID is `ltC6Rg4pqw4qaNKF5tEW`.
 Add username and password to the dictionary:
 
 ``` bash
-fastly dictionary-item create --dictionary-id=ltC6Rg4pqw4qaNKF5tEW --key=user1 --value=foobar1
+fastly dictionary-entry create --dictionary-id=ltC6Rg4pqw4qaNKF5tEW --key=user1 --value=foobar1
 ```
 
 ### List dictionary records
@@ -386,7 +386,7 @@ fastly dictionary-item create --dictionary-id=ltC6Rg4pqw4qaNKF5tEW --key=user1 -
 You can list the records from a dictionary by using the following command:
 
 ``` bash
-fastly dictionary-item list --dictionary-id=ltC6Rg4pqw4qaNKF5tEW33
+fastly dictionary-entry list --dictionary-id=ltC6Rg4pqw4qaNKF5tEW33
 ```
 
 Now your dictionary stores new username and password. The next thing to do is to alter the Fastly VCL configuration

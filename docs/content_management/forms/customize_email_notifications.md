@@ -5,7 +5,7 @@ edition: experience
 
 # Customize email notifications
 
-Email is one of the Submit button options you can add to a form in the Form Builder.
+Email is one of the **Submit** button options you can add to a form in the Form Builder.
 Use it to configure a list of email addresses that get notifications about newly filled forms.
 
 ![Email notification](email_notification.png)

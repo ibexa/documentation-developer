@@ -374,7 +374,7 @@ This section describes to how to debug problems related to HTTP cache.
 	the HTTP cache sends to the client (web browser).
 	It means you must be able to send requests to your origin (web server) that do not go through Varnish or Fastly.
 	If you run Nginx and Varnish on premise, you should know what host and port number both Varnish and Nginx runs on. If you
-	perform tests on Fastly enabled environment on Ibexa Cloud provided by Platform.sh, you need to use the Platform.sh
+	perform tests on Fastly enabled environment on [[= product_name_cloud =]] provided by Platform.sh, you need to use the Platform.sh
 	Dashboard to obtain the endpoint for Nginx.
 
 The following example shows how to debug and check why Fastly does not cache the front page properly. 
@@ -409,12 +409,9 @@ Typically, you can add a `gw` to the hostname and use nslookup to find it.
    Address:  1.2.3.4
 ```
 
-You can also use the [Platform.sh CLI command](https://docs.platform.sh/administration/cli.html) to find [the endpoint](https://docs.platform.sh/domains/steps/dns.html):
+You can also use the [Ibexa Cloud CLI](https://cli.ibexa.co/) (which has the same command as the Platform.sh CLI) to find [the endpoint](https://docs.platform.sh/domains/steps/dns.html):
 
 ```bash
-    # Define ibexa_cloud alias if it not already exists:
-    alias ibexa_cloud='PLATFORMSH_CLI_API_URL=https://api.cloud.ibexa.co PLATFORMSH_CLI_SESSION_ID=ibexa_cloud platform'
-    # Get the endpoint:
     ibexa_cloud environment:info edge_hostname
 ```
 

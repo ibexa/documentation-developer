@@ -1,3 +1,5 @@
+<!-- vale off -->
+
 # Ibexa DXP Developer Documentation
 
 This repository is the source for the [developer documentation for Ibexa](https://doc.ibexa.co/en/latest),

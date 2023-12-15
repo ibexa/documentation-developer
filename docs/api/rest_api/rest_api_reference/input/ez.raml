@@ -1,8 +1,7 @@
 #%RAML 1.0
 ---
 title: Ibexa REST API
-baseUri: https://ezsystems.github.io/ezplatform-rest-reference
-version: v3.3.2
+baseUri: ../rest_api_usage/rest_api_usage/
 
 /: !include ez-root.raml
 
@@ -23,9 +22,10 @@ version: v3.3.2
     # /assets: !include ez-content-assets.raml
     #/binary: !include ez-content-binary.raml
 
+/views: !include ez-views.raml
+
 /calendar: !include ez-calendar.raml
 
-/views: !include ez-views.raml
 
 /user:
     displayName: Managing users
