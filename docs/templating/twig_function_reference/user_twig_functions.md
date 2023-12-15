@@ -20,14 +20,14 @@ by accessing the `content` property:
 {{ ibexa_render(ibexa_user_get_current().content) }}
 ```
 
-### `ibexa_get_current_user`
+### `ibexa_current_user`
 
-The `ibexa_get_current_user()` function returns the User object (`Ibexa\Contracts\Core\Repository\Values\User\User`) of the current repository user.
+The `ibexa_current_user()` function returns the User object (`Ibexa\Contracts\Core\Repository\Values\User\User`) of the current repository user.
 
 #### Examples
 
 ``` html+twig
-Current user: {{ ibexa_get_current_user().login }}
+Current user: {{ ibexa_current_user().login }}
 ```
 
 ### `ibexa_is_current_user`
