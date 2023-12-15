@@ -244,6 +244,7 @@ match:
 ## Taxonomy entry level
 
 `Ibexa\Taxonomy\View\Matcher\TaxonomyEntryBased\Level` matches based on a level of the taxonomy entry.
+With this matcher, you can apply view rules based on a selection of taxonomy entry levels, by using the following logical operators: `<` , `>` , `<=`, `>=`.
 
 ``` yaml
 match:
