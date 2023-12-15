@@ -229,7 +229,7 @@ ul.phpdocumentor-table-of-contents {
     border-left-width: 0;
 }
 .phpdocumentor .phpdocumentor-sidebar {
-    overflow-x: scroll;
+    overflow-x: auto;
 }
 .phpdocumentor .phpdocumentor-sidebar .phpdocumentor-list.depth-2 .phpdocumentor-list {
     display: none;
