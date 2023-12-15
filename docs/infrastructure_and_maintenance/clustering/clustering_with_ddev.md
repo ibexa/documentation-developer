@@ -25,7 +25,7 @@ The `ddev config --php-version` option should set the same PHP version as the pr
 
    Discover more commands in [DDEV documentation](https://ddev.readthedocs.io/en/latest/users/usage/commands/).
 
-To run an Ibexa Cloud project locally, you may refer to [Ibexa Cloud and DDEV](ibexa_cloud_and_ddev.md) instead.
+To run an [[= product_name_cloud =]] project locally, you may refer to [Ibexa Cloud and DDEV](ibexa_cloud_and_ddev.md) instead.
 
 ## Install search engine
 

@@ -125,6 +125,29 @@ You should be able to see a different checkout applied after you have added prod
 
 ![Additional checkout step](img/additional_checkout_step.png "Additional checkout step")
 
+## Hide checkout step
+
+By default, [[= product_name =]] comes with a multi-step checkout process, which you can scale down by hiding steps.
+To do it, modify workflow under the `framework.workflows` [configuration key](configuration.md#configuration-files).
+
+This example shows how to hide a 'Billing & shipping address' step. 
+It can be used for logged-in users with billing data stored in their accounts.
+
+```yaml hl_lines="14"
+framework:
+    workflows:
+        ibexa_checkout:
+            transitions:
+                select_address:
+                    metadata:
+                        next_step: select_shipping
+                        controller: Ibexa\Bundle\Checkout\Controller\CheckoutStep\AddressStepController::renderStepView
+                        label: 'Billing & shipping address'
+                        translation_domain: checkout
+                        physical_products_step: true
+                        hidden: true
+```
+
 ## Create a one page checkout
 
 Another way of customizing the process would be to implement a one page checkout.
@@ -238,6 +261,21 @@ ibexa:
             checkout:
                 workflow: new_workflow
 ```
+
+## Manage multiple workflows
+
+When you have multiple checkout workflows, you can specify which one to use by passing an argument with the name of the selected checkout workflow to a button or link that triggers the checkout process.
+
+```twig
+{% set checkout_path = path('ibexa.checkout.init', {
+    cartIdentifier: cart_identifier,
+    checkoutName: 'selected_checkout_name'  # Reference your workflow name here
+}) %}
+
+```
+
+With this setup, you can specify which workflow to use by clicking the button or link that starts the checkout. 
+The argument passed determines which workflow is used, providing flexibility in workflow selection.
 
 ## Define custom Address Field Type formats 
 

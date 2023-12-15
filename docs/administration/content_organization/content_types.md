@@ -46,7 +46,7 @@ Each Content Type is characterized by a set of metadata which define the general
 
     The old URL aliases will continue to redirect to the same Content items.
 
-**Container** – a flag which indicates if Content items based on this Content Type are allowed to have sub-items or not.
+**Container** – a flag which indicates if Content items based on this Content Type are allowed to have sub-items or not (mainly relevant for actions via the UI, not validated by every PHP API).
 
 !!! note
 

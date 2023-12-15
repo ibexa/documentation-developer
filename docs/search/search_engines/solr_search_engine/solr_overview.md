@@ -10,4 +10,4 @@ When you enable Solr and re-index your content, all your existing Search queries
 This allows you to scale up your [[= product_name =]] installation and be able to continue development locally against SQL engine, and have a test infrastructure, Staging and Prod powered by Solr. 
 By this, it also removes considerable load from your database. 
 
-For further information on the architecture of Ibexa DXP, see [Architecture](architecture.md).
+For further information on the architecture of [[= product_name =]], see [Architecture](architecture.md).

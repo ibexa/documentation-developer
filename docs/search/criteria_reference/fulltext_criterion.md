@@ -9,14 +9,20 @@ searches for content based on the full text content of its Fields.
 
 ## Supported syntax
 
-All features of full text search syntax are available when using Solr search engine.
-You can use the following features:
+| Feature                                              | Elasticsearch | Apache Solr | Legacy Search Engine (SQL) |
+|------------------------------------------------------|---------------|-------------|----------------------------|
+| Boolean operators:<br/>AND (&&), OR ( \|\|), NOT (!) | No\*          | Yes         | No\*\*                     |
+| Require/exclude operators: +, -                      | No            | Yes         | No                         |
+| Grouping with parentheses                            | No            | Yes         | No                         |
+| Phrase search with double quotes                     | No            | Yes         | No                         |
+| Asterisks (\*) as wildcards                          | No            | Yes         | Yes, limited\*\*\*         |
 
-- Boolean operators: AND (&&), OR (||), NOT (!)
-- Require/exclude operators: +, -
-- Grouping with parentheses
-- Phrase search with double quotes
-- Asterisks (\*) as wildcards, located anywhere within a query
+\* When using the Elasticsearch search engine, a full text query performs an OR query by default, while the OR and AND operators return unexpected results.
+
+\*\* When using the Legacy search engine, a full text query performs an OR query.
+
+\*\*\* Asteriks may only be located at the beginning or end of a query.
+
 
 ## Limitations
 

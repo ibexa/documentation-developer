@@ -36,7 +36,7 @@ Create the command in `src/Command/ViewCommand.php`:
 
 !!! caution
 
-    As `Ibexa\Core\MVC\Symfony\View\Builder\ContentViewBuilder` and `Ibexa\Core\MVC\Symfony\View\Renderer\TemplateRenderer` are not part of the public API's `Ibexa\Contracts` namespace, they might change without notice.
+    As `Ibexa\Core\MVC\Symfony\View\Builder\ContentViewBuilder` and `Ibexa\Core\MVC\Symfony\View\Renderer\TemplateRenderer` are not part of the public PHP API's `Ibexa\Contracts` namespace, they might change without notice.
 
 Use the command with some simple views:
 

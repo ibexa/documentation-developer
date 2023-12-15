@@ -4,8 +4,107 @@ description: Overview of major recent additions to Ibexa DXP documentation.
 
 # New in documentation
 
-This page contains recent highlights and notable changes in Ibexa DXP documentation.
+This page contains recent highlights and notable changes in [[= product_name =]] documentation.
 
+## November 2023
+
+### Commerce
+
+- [Option to handle multiple checkout workflows](https://doc.ibexa.co/en/master/commerce/checkout/customize_checkout/#manage-multiple-workflows)
+
+### CDP
+
+- [CDP activation](https://doc.ibexa.co/en/master/cdp/cdp_activation/cdp_activation/)
+
+### Product guides
+
+- [Page Builder product guide](https://doc.ibexa.co/en/master/content_management/pages/page_builder_guide/)
+
+### Infrastructure and maintenance
+
+- [Updated enable Symfony Reverse Proxy](https://doc.ibexa.co/en/master/infrastructure_and_maintenance/cache/http_cache/reverse_proxy/#using-symfony-reverse-proxy)
+
+### Others
+
+- [Redesigned requirements page](https://doc.ibexa.co/en/master/getting_started/requirements/)
+- [Updated Ibexa Cloud CLI](https://doc.ibexa.co/en/master/getting_started/install_on_ibexa_cloud/)
+- [Updated React app block procedure](https://doc.ibexa.co/en/master/content_management/pages/react_app_block/)
+- [Added fulltext features in search](https://doc.ibexa.co/en/master/search/criteria_reference/fulltext_criterion/#supported-syntax)
+
+## October 2023
+
+### Commerce
+
+- [Adding context data to cart](https://doc.ibexa.co/en/master/commerce/cart/cart_api/#adding-context-data-to-cart)
+
+### Personalization
+
+- [Post visit and price drop triggers](https://doc.ibexa.co/projects/userguide/en/master/personalization/triggers/#trigger-types)
+- [Wishlist and Deletefromwishlist events](https://doc.ibexa.co/en/master/personalization/api_reference/tracking_api/#track-events)
+
+### PIM
+
+- [VAT category configuration update](https://doc.ibexa.co/en/master/pim/pim_configuration/#vat-rates)
+- [Payment Method Name Criterion](https://doc.ibexa.co/en/master/search/criteria_reference/payment_method_name_criterion/)
+
+### Product guides
+
+- [User management product guide](https://doc.ibexa.co/en/master/users/user_management_guide/)
+
+### Migration
+
+- [Enhance data migration doc](https://doc.ibexa.co/en/master/content_management/data_migration/importing_data/)
+- [Images migration example](https://doc.ibexa.co/en/master/content_management/data_migration/importing_data/#images)
+- [Expression language functions](https://doc.ibexa.co/en/master/content_management/data_migration/importing_data/#built-in-functions)
+
+## September 2023
+
+### Commerce
+
+- Cart
+    - [Merge carts API](https://doc.ibexa.co/en/master/commerce/cart/cart_api/#merge-carts)
+- Checkout
+    - [Reorder](https://doc.ibexa.co/en/master/commerce/checkout/reorder/)
+    - [Hide checkout step](https://doc.ibexa.co/en/master/commerce/checkout/customize_checkout/#hide-checkout-step)
+- Order management
+    - [Define cancel order](https://doc.ibexa.co/en/master/commerce/order_management/configure_order_management/#define-cancel-order)
+
+### Personalization
+
+- [Updated configuration for triggers](https://doc.ibexa.co/en/master/personalization/api_reference/tracking_api/#tracking-events-based-on-recommendations)
+- [Send messages with recommendations](https://doc.ibexa.co/en/master/personalization/integrate_recommendation_service/#send-messages-with-recommendations)
+- [Email triggers](https://doc.ibexa.co/projects/userguide/en/master/personalization/triggers/) in user documentation 
+
+### PIM
+
+- [Product availability Twig extension](https://doc.ibexa.co/en/master/templating/twig_function_reference/product_twig_functions/#ibexa_has_product_availability)
+- [PriceQuery with its criteria](https://doc.ibexa.co/en/master/search/criteria_reference/price_search_criteria/)
+    - [Price API](https://doc.ibexa.co/en/master/pim/price_api/#prices)
+
+### REST API
+
+- Added GET endpoint for all available [Sales Representatives Users](https://doc.ibexa.co/en/master/api/rest_api/rest_api_reference/rest_api_reference.html#corporate-account-read-list-of-sales-representatives)
+
+### Storefront
+
+- [Display language name instead of its code in language swticher](https://doc.ibexa.co/en/master/templating/twig_function_reference/storefront_twig_functions/#ibexa_storefront_get_language_name_by_code)
+
+### Templating
+
+- [Render content in PHP](https://doc.ibexa.co/en/master/templating/render_content/render_content_in_php/)
+
+### Others
+
+- Product guides integrated into developer documentation
+    - [Content management](https://doc.ibexa.co/en/master/content_management/content_management_guide/)
+    - [Customer portal](https://doc.ibexa.co/en/master/customer_management/customer_portal/)
+    - [Form Builder](https://doc.ibexa.co/en/master/content_management/forms/form_builder_guide/)
+    - [Online editor](https://doc.ibexa.co/en/master/content_management/rich_text/online_editor_guide/)
+    - [Personalization](https://doc.ibexa.co/en/master/personalization/personalization_brochure/)
+    - [PIM](https://doc.ibexa.co/en/master/pim/pim_guide/)
+
+- [Updated bundles list](https://doc.ibexa.co/en/master/administration/project_organization/bundles/)
+   
 ## August 2023
 
 ### New home page
