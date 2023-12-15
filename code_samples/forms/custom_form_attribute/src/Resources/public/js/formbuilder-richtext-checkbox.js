@@ -13,8 +13,16 @@
                     return;
                 }
 
-                const CKEditor = richtext.init(richtextContainer);
+                richtext.init(richtextContainer);
             }
         );
     });
+
+    const openUdw = (config) => {
+        const openUdwEvent = new CustomEvent('ez-open-udw', { detail: config });
+
+        doc.body.dispatchEvent(openUdwEvent);
+    };
+
+    eZ.addConfig('richText.alloyEditor.callbacks.selectContent', openUdw);
 })(window, window.document, window.eZ);

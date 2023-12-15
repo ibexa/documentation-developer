@@ -1,5 +1,5 @@
 ---
-description: Create Form Builder form attribute 
+description: Create Form Builder form attribute
 edition: experience
 ---
 
@@ -53,6 +53,14 @@ The template files for the front end should look as follows:
 [[= include_file('code_samples/templates/formtheme/formbuilder_checkbox_with_richtext_description.html.twig') =]]
 ```
 
+Then, specify the new template in configuration, under the `twig.form_themes` configuration key:
+
+``` yaml
+twig:
+    form_themes:
+        - 'themes/<your-theme>/formtheme/formbuilder_checkbox_with_richtext_description.html.twig'
+```
+
 ## Add scripts
 
 Now you need to enable the RichText editor. Provide the required script in a new `src/Resources/public/js/formbuilder-richtext-checkbox.js` file:
@@ -63,7 +71,7 @@ Now you need to enable the RichText editor. Provide the required script in a new
 
 Then, paste the highlighted part of the code into the `webpack.config.js` file:
 
-``` js hl_lines="39-42"
+``` js hl_lines="39-41"
 [[= include_file('code_samples/forms/custom_form_attribute/webpack.config.js') =]]
 ```
 
