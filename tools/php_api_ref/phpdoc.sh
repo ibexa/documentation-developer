@@ -49,7 +49,7 @@ map=$PHPDOC_DIR/template/package-edition-map.twig;
 if [[ -f $map ]]; then
   rm $map;
 fi;
-echo "{% set package_edition_map = {" >> $map;
+echo '{% set package_edition_map = {' >> $map;
 for edition in ${DXP_EDITIONS[@]}; do
   echo -n "${edition}… ";
   while IFS= read -r line; do
@@ -62,14 +62,14 @@ for edition in ${DXP_EDITIONS[@]}; do
     break;
   fi;
 done;
-echo "} %}{% block content %}{% endblock %}" >> $map;
+echo '} %}{% block content %}{% endblock %}' >> $map;
 echo 'OK';
 
-echo "Set up phpDocumentor…";
+echo 'Set up phpDocumentor…';
 sed "s/version number=\".*\"/version number=\"$DXP_VERSION\"/" $PHPDOC_CONF > ./phpdoc.dist.xml;
 mkdir .phpdoc;
 
-echo "Set phpDocumentor base templates…"
+echo 'Set phpDocumentor base templates…';
 git clone -n -b "v$PHPDOC_TEMPLATE_VERSION" --depth=1 --filter=tree:0 https://github.com/phpDocumentor/phpDocumentor
 cd phpDocumentor;
 git sparse-checkout set --no-cone data/templates/default/;
@@ -78,25 +78,25 @@ mv data/templates/default ../.phpdoc/template;
 cd -;
 rm -rf phpDocumentor;
 
-echo "Set phpDocumentor override templates…"
+echo 'Set phpDocumentor override templates…';
 cp -R $PHPDOC_DIR ./;
 
-echo "Run phpDocumentor…"
+echo 'Run phpDocumentor…';
 curl -LO "https://github.com/phpDocumentor/phpDocumentor/releases/download/v$PHPDOC_VERSION/phpDocumentor.phar";
 php phpDocumentor.phar run -t php_api_reference;
 if [ $? -eq 0 ]; then
-  echo -n "Remove unneeded from phpDocumentor output… ";
+  echo -n 'Remove unneeded from phpDocumentor output… ';
   rm -rf ./php_api_reference/files ./php_api_reference/graphs ./php_api_reference/indices ./php_api_reference/packages;
   echo -n "Copy phpDocumentor output to ${OUTPUT_DIR}… ";
   cp -rf ./php_api_reference/* $OUTPUT_DIR;
-  echo -n "Remove surplus… ";
+  echo -n 'Remove surplus… ';
   while IFS= read -r line; do
     file="$(echo $line | sed -r 's/Only in (.*): (.*)/\1\/\2/')";
     if [[ $file = $OUTPUT_DIR/* ]]; then
       rm -rf $file;
     fi;
   done <<< "$(diff -qr ./php_api_reference $OUTPUT_DIR | grep 'Only in ' | grep -v ': images')";
-  echo "OK.";
+  echo 'OK.';
 else
   echo 'A phpDocumentor error prevents reference update.';
   exit 3;
