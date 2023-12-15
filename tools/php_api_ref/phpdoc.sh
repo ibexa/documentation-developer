@@ -69,14 +69,16 @@ echo 'Set up phpDocumentor…';
 sed "s/version number=\".*\"/version number=\"$DXP_VERSION\"/" $PHPDOC_CONF > ./phpdoc.dist.xml;
 mkdir .phpdoc;
 
-echo 'Set phpDocumentor base templates…';
-git clone -n -b "v$PHPDOC_TEMPLATE_VERSION" --depth=1 --filter=tree:0 https://github.com/phpDocumentor/phpDocumentor
-cd phpDocumentor;
-git sparse-checkout set --no-cone data/templates/default/;
-git checkout;
-mv data/templates/default ../.phpdoc/template;
-cd -;
-rm -rf phpDocumentor;
+if [ "$PHPDOC_VERSION" != "$PHPDOC_TEMPLATE_VERSION" ]; then
+  echo 'Set phpDocumentor base templates…';
+  git clone -n -b "v$PHPDOC_TEMPLATE_VERSION" --depth=1 --filter=tree:0 https://github.com/phpDocumentor/phpDocumentor
+  cd phpDocumentor;
+  git sparse-checkout set --no-cone data/templates/default/;
+  git checkout;
+  mv data/templates/default ../.phpdoc/template;
+  cd -;
+  rm -rf phpDocumentor;
+fi;
 
 echo 'Set phpDocumentor override templates…';
 cp -R $PHPDOC_DIR ./;
