@@ -61,6 +61,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-ActivityLog-ActivityLogServiceInterface.html#method_truncate"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\ActivityLog\\ActivityLogServiceInterface\u003A\u003AprepareContext\u0028\u0029",
+            "name": "prepareContext",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ActivityLog-ActivityLogServiceInterface.html#method_prepareContext"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ActivityLog\\ActivityLogServiceInterface\u003A\u003AdismissContext\u0028\u0029",
+            "name": "dismissContext",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ActivityLog-ActivityLogServiceInterface.html#method_dismissContext"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\ActivityLog\\ActivityLogServiceInterface\u003A\u003AACTION_COPY",
             "name": "ACTION_COPY",
             "summary": "",
@@ -206,6 +216,46 @@ Search.appendIndex(
             "summary": "Partial\u0020list\u0020of\u0020activity\u0020logs.",
             "url": "classes/Ibexa-Contracts-ActivityLog-Values-ActivityLog-ActivityListInterface.html#method_getActivityLogs"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\ActivityLog\\Values\\ActivityLog\\ActivityLogGroupInterface",
+            "name": "ActivityLogGroupInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ActivityLog-Values-ActivityLog-ActivityLogGroupInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ActivityLog\\Values\\ActivityLog\\ActivityLogGroupInterface\u003A\u003AgetSource\u0028\u0029",
+            "name": "getSource",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ActivityLog-Values-ActivityLog-ActivityLogGroupInterface.html#method_getSource"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ActivityLog\\Values\\ActivityLog\\ActivityLogGroupInterface\u003A\u003AgetDescription\u0028\u0029",
+            "name": "getDescription",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ActivityLog-Values-ActivityLog-ActivityLogGroupInterface.html#method_getDescription"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ActivityLog\\Values\\ActivityLog\\ActivityLogGroupInterface\u003A\u003AgetActivityLogs\u0028\u0029",
+            "name": "getActivityLogs",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ActivityLog-Values-ActivityLog-ActivityLogGroupInterface.html#method_getActivityLogs"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ActivityLog\\Values\\ActivityLog\\ActivityLogGroupInterface\u003A\u003AsetUser\u0028\u0029",
+            "name": "setUser",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ActivityLog-Values-ActivityLog-ActivityLogGroupInterface.html#method_setUser"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ActivityLog\\Values\\ActivityLog\\ActivityLogGroupInterface\u003A\u003AgetUser\u0028\u0029",
+            "name": "getUser",
+            "summary": "This\u0020method\u0020can\u0020return\u0020null\u0020if\u0020the\u0020user\u0020is\u0020not\u0020accessible\u0020anymore,\u0020or\u0020current\u0020user\u0020does\u0020not\u0020have\u0020permissions\u0020to\naccess\u0020it.",
+            "url": "classes/Ibexa-Contracts-ActivityLog-Values-ActivityLog-ActivityLogGroupInterface.html#method_getUser"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ActivityLog\\Values\\ActivityLog\\ActivityLogGroupInterface\u003A\u003AgetUserId\u0028\u0029",
+            "name": "getUserId",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ActivityLog-Values-ActivityLog-ActivityLogGroupInterface.html#method_getUserId"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ActivityLog\\Values\\ActivityLog\\ActivityLogGroupInterface\u003A\u003AgetLoggedAt\u0028\u0029",
+            "name": "getLoggedAt",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ActivityLog-Values-ActivityLog-ActivityLogGroupInterface.html#method_getLoggedAt"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\ActivityLog\\Values\\ActivityLog\\ActivityLogInterface",
             "name": "ActivityLogInterface",
             "summary": "",
@@ -221,35 +271,15 @@ Search.appendIndex(
             "summary": "This\u0020method\u0020can\u0020return\u0020null\u0020if\u0020the\u0020object\u0020is\u0020not\u0020accessible\u0020anymore,\u0020or\u0020current\u0020user\u0020does\u0020not\u0020have\u0020permissions\u0020to\naccess\u0020it.",
             "url": "classes/Ibexa-Contracts-ActivityLog-Values-ActivityLog-ActivityLogInterface.html#method_getRelatedObject"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\ActivityLog\\Values\\ActivityLog\\ActivityLogInterface\u003A\u003AsetUser\u0028\u0029",
-            "name": "setUser",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ActivityLog-Values-ActivityLog-ActivityLogInterface.html#method_setUser"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ActivityLog\\Values\\ActivityLog\\ActivityLogInterface\u003A\u003AgetUser\u0028\u0029",
-            "name": "getUser",
-            "summary": "This\u0020method\u0020can\u0020return\u0020null\u0020if\u0020the\u0020user\u0020is\u0020not\u0020accessible\u0020anymore,\u0020or\u0020current\u0020user\u0020does\u0020not\u0020have\u0020permissions\u0020to\naccess\u0020it.",
-            "url": "classes/Ibexa-Contracts-ActivityLog-Values-ActivityLog-ActivityLogInterface.html#method_getUser"
-        },                {
             "fqsen": "\\Ibexa\\Contracts\\ActivityLog\\Values\\ActivityLog\\ActivityLogInterface\u003A\u003AgetAction\u0028\u0029",
             "name": "getAction",
             "summary": "",
             "url": "classes/Ibexa-Contracts-ActivityLog-Values-ActivityLog-ActivityLogInterface.html#method_getAction"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\ActivityLog\\Values\\ActivityLog\\ActivityLogInterface\u003A\u003AgetUserId\u0028\u0029",
-            "name": "getUserId",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ActivityLog-Values-ActivityLog-ActivityLogInterface.html#method_getUserId"
-        },                {
             "fqsen": "\\Ibexa\\Contracts\\ActivityLog\\Values\\ActivityLog\\ActivityLogInterface\u003A\u003AgetObjectClass\u0028\u0029",
             "name": "getObjectClass",
             "summary": "",
             "url": "classes/Ibexa-Contracts-ActivityLog-Values-ActivityLog-ActivityLogInterface.html#method_getObjectClass"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\ActivityLog\\Values\\ActivityLog\\ActivityLogInterface\u003A\u003AgetLoggedAt\u0028\u0029",
-            "name": "getLoggedAt",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-ActivityLog-Values-ActivityLog-ActivityLogInterface.html#method_getLoggedAt"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ActivityLog\\Values\\ActivityLog\\ActivityLogInterface\u003A\u003AgetObjectId\u0028\u0029",
             "name": "getObjectId",
@@ -265,6 +295,16 @@ Search.appendIndex(
             "name": "getData",
             "summary": "",
             "url": "classes/Ibexa-Contracts-ActivityLog-Values-ActivityLog-ActivityLogInterface.html#method_getData"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ActivityLog\\Values\\ActivityLog\\ActivityLogSourceInterface",
+            "name": "ActivityLogSourceInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ActivityLog-Values-ActivityLog-ActivityLogSourceInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ActivityLog\\Values\\ActivityLog\\ActivityLogSourceInterface\u003A\u003AgetName\u0028\u0029",
+            "name": "getName",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ActivityLog-Values-ActivityLog-ActivityLogSourceInterface.html#method_getName"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ActivityLog\\Values\\ActivityLog\\Criterion\\ActionCriterion",
             "name": "ActionCriterion",
@@ -1000,6 +1040,96 @@ Search.appendIndex(
             "name": "resolve",
             "summary": "",
             "url": "classes/Ibexa-Contracts-AdminUi-Resolver-IconPathResolverInterface.html#method_resolve"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\REST\\ApplicationConfigRestGeneratorInterface",
+            "name": "ApplicationConfigRestGeneratorInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-REST-ApplicationConfigRestGeneratorInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\REST\\ApplicationConfigRestGeneratorInterface\u003A\u003AsupportsNamespace\u0028\u0029",
+            "name": "supportsNamespace",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-REST-ApplicationConfigRestGeneratorInterface.html#method_supportsNamespace"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\REST\\ApplicationConfigRestGeneratorInterface\u003A\u003AsupportsParameter\u0028\u0029",
+            "name": "supportsParameter",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-REST-ApplicationConfigRestGeneratorInterface.html#method_supportsParameter"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\REST\\ApplicationConfigRestGeneratorInterface\u003A\u003Agenerate\u0028\u0029",
+            "name": "generate",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-REST-ApplicationConfigRestGeneratorInterface.html#method_generate"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\REST\\ApplicationConfigRestGeneratorRegistryInterface",
+            "name": "ApplicationConfigRestGeneratorRegistryInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-REST-ApplicationConfigRestGeneratorRegistryInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\REST\\ApplicationConfigRestGeneratorRegistryInterface\u003A\u003AhasGenerator\u0028\u0029",
+            "name": "hasGenerator",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-REST-ApplicationConfigRestGeneratorRegistryInterface.html#method_hasGenerator"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\REST\\ApplicationConfigRestGeneratorRegistryInterface\u003A\u003AhasGenerators\u0028\u0029",
+            "name": "hasGenerators",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-REST-ApplicationConfigRestGeneratorRegistryInterface.html#method_hasGenerators"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\REST\\ApplicationConfigRestGeneratorRegistryInterface\u003A\u003AgetGenerator\u0028\u0029",
+            "name": "getGenerator",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-REST-ApplicationConfigRestGeneratorRegistryInterface.html#method_getGenerator"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\REST\\ApplicationConfigRestGeneratorRegistryInterface\u003A\u003AgetGenerators\u0028\u0029",
+            "name": "getGenerators",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-REST-ApplicationConfigRestGeneratorRegistryInterface.html#method_getGenerators"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\REST\\ApplicationConfigRestResolverInterface",
+            "name": "ApplicationConfigRestResolverInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-REST-ApplicationConfigRestResolverInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\REST\\ApplicationConfigRestResolverInterface\u003A\u003AsupportsNamespace\u0028\u0029",
+            "name": "supportsNamespace",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-REST-ApplicationConfigRestResolverInterface.html#method_supportsNamespace"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\REST\\ApplicationConfigRestResolverInterface\u003A\u003AsupportsParameter\u0028\u0029",
+            "name": "supportsParameter",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-REST-ApplicationConfigRestResolverInterface.html#method_supportsParameter"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\REST\\ApplicationConfigRestResolverInterface\u003A\u003Aresolve\u0028\u0029",
+            "name": "resolve",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-REST-ApplicationConfigRestResolverInterface.html#method_resolve"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\REST\\ApplicationConfigRestResolverRegistryInterface",
+            "name": "ApplicationConfigRestResolverRegistryInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-REST-ApplicationConfigRestResolverRegistryInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\REST\\ApplicationConfigRestResolverRegistryInterface\u003A\u003AhasResolver\u0028\u0029",
+            "name": "hasResolver",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-REST-ApplicationConfigRestResolverRegistryInterface.html#method_hasResolver"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\REST\\ApplicationConfigRestResolverRegistryInterface\u003A\u003AhasResolvers\u0028\u0029",
+            "name": "hasResolvers",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-REST-ApplicationConfigRestResolverRegistryInterface.html#method_hasResolvers"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\REST\\ApplicationConfigRestResolverRegistryInterface\u003A\u003AgetResolver\u0028\u0029",
+            "name": "getResolver",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-REST-ApplicationConfigRestResolverRegistryInterface.html#method_getResolver"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\REST\\ApplicationConfigRestResolverRegistryInterface\u003A\u003AgetResolvers\u0028\u0029",
+            "name": "getResolvers",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AdminUi-REST-ApplicationConfigRestResolverRegistryInterface.html#method_getResolvers"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Tab\\AbstractControllerBasedTab",
             "name": "AbstractControllerBasedTab",
@@ -5065,6 +5195,16 @@ Search.appendIndex(
             "name": "onConfigScopeChange",
             "summary": "",
             "url": "classes/Ibexa-Contracts-Core-MVC-EventSubscriber-ConfigScopeChangeSubscriber.html#method_onConfigScopeChange"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\MVC\\Symfony\\ErrorHandler\\Php82HideDeprecationsErrorHandler",
+            "name": "Php82HideDeprecationsErrorHandler",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-MVC-Symfony-ErrorHandler-Php82HideDeprecationsErrorHandler.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\MVC\\Symfony\\ErrorHandler\\Php82HideDeprecationsErrorHandler\u003A\u003Aregister\u0028\u0029",
+            "name": "register",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-MVC-Symfony-ErrorHandler-Php82HideDeprecationsErrorHandler.html#method_register"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\MVC\\Templating\\BaseRenderStrategy",
             "name": "BaseRenderStrategy",
@@ -18581,6 +18721,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-DateMetadataRangeAggregation.html#method_getType"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\DateMetadataRangeAggregation\u003A\u003AfromGenerator\u0028\u0029",
+            "name": "fromGenerator",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-DateMetadataRangeAggregation.html#method_fromGenerator"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\DateMetadataRangeAggregation\u003A\u003AMODIFIED",
             "name": "MODIFIED",
             "summary": "",
@@ -18676,10 +18821,20 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Field-DateRangeAggregation.html"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Field\\DateRangeAggregation\u003A\u003AfromGenerator\u0028\u0029",
+            "name": "fromGenerator",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Field-DateRangeAggregation.html#method_fromGenerator"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Field\\DateTimeRangeAggregation",
             "name": "DateTimeRangeAggregation",
             "summary": "",
             "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Field-DateTimeRangeAggregation.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Field\\DateTimeRangeAggregation\u003A\u003AfromGenerator\u0028\u0029",
+            "name": "fromGenerator",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Field-DateTimeRangeAggregation.html#method_fromGenerator"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Field\\FieldAggregationTrait",
             "name": "FieldAggregationTrait",
@@ -18711,6 +18866,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Field-FloatRangeAggregation.html"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Field\\FloatRangeAggregation\u003A\u003AfromGenerator\u0028\u0029",
+            "name": "fromGenerator",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Field-FloatRangeAggregation.html#method_fromGenerator"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Field\\FloatStatsAggregation",
             "name": "FloatStatsAggregation",
             "summary": "",
@@ -18720,6 +18880,11 @@ Search.appendIndex(
             "name": "IntegerRangeAggregation",
             "summary": "",
             "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Field-IntegerRangeAggregation.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Field\\IntegerRangeAggregation\u003A\u003AfromGenerator\u0028\u0029",
+            "name": "fromGenerator",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Field-IntegerRangeAggregation.html#method_fromGenerator"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Field\\IntegerStatsAggregation",
             "name": "IntegerStatsAggregation",
@@ -18740,6 +18905,11 @@ Search.appendIndex(
             "name": "TimeRangeAggregation",
             "summary": "",
             "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Field-TimeRangeAggregation.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Field\\TimeRangeAggregation\u003A\u003AfromGenerator\u0028\u0029",
+            "name": "fromGenerator",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Field-TimeRangeAggregation.html#method_fromGenerator"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\FieldAggregation",
             "name": "FieldAggregation",
@@ -18826,10 +18996,25 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Range.html#method_getTo"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Range\u003A\u003AgetLabel\u0028\u0029",
+            "name": "getLabel",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Range.html#method_getLabel"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Range\u003A\u003AsetLabel\u0028\u0029",
+            "name": "setLabel",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Range.html#method_setLabel"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Range\u003A\u003A__toString\u0028\u0029",
             "name": "__toString",
             "summary": "",
             "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Range.html#method___toString"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Range\u003A\u003AequalsTo\u0028\u0029",
+            "name": "equalsTo",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Range.html#method_equalsTo"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Range\u003A\u003AofInt\u0028\u0029",
             "name": "ofInt",
@@ -18845,6 +19030,216 @@ Search.appendIndex(
             "name": "ofDateTime",
             "summary": "",
             "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Range.html#method_ofDateTime"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Range\u003A\u003AINF",
+            "name": "INF",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Range.html#constant_INF"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Ranges\\DateTimeStepRangesGenerator",
+            "name": "DateTimeStepRangesGenerator",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Ranges-DateTimeStepRangesGenerator.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Ranges\\DateTimeStepRangesGenerator\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Ranges-DateTimeStepRangesGenerator.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Ranges\\DateTimeStepRangesGenerator\u003A\u003AgetStart\u0028\u0029",
+            "name": "getStart",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Ranges-DateTimeStepRangesGenerator.html#method_getStart"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Ranges\\DateTimeStepRangesGenerator\u003A\u003AsetStart\u0028\u0029",
+            "name": "setStart",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Ranges-DateTimeStepRangesGenerator.html#method_setStart"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Ranges\\DateTimeStepRangesGenerator\u003A\u003AgetEnd\u0028\u0029",
+            "name": "getEnd",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Ranges-DateTimeStepRangesGenerator.html#method_getEnd"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Ranges\\DateTimeStepRangesGenerator\u003A\u003AsetEnd\u0028\u0029",
+            "name": "setEnd",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Ranges-DateTimeStepRangesGenerator.html#method_setEnd"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Ranges\\DateTimeStepRangesGenerator\u003A\u003AgetStep\u0028\u0029",
+            "name": "getStep",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Ranges-DateTimeStepRangesGenerator.html#method_getStep"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Ranges\\DateTimeStepRangesGenerator\u003A\u003AsetStep\u0028\u0029",
+            "name": "setStep",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Ranges-DateTimeStepRangesGenerator.html#method_setStep"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Ranges\\DateTimeStepRangesGenerator\u003A\u003AisLeftOpen\u0028\u0029",
+            "name": "isLeftOpen",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Ranges-DateTimeStepRangesGenerator.html#method_isLeftOpen"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Ranges\\DateTimeStepRangesGenerator\u003A\u003AsetLeftOpen\u0028\u0029",
+            "name": "setLeftOpen",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Ranges-DateTimeStepRangesGenerator.html#method_setLeftOpen"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Ranges\\DateTimeStepRangesGenerator\u003A\u003AisRightOpen\u0028\u0029",
+            "name": "isRightOpen",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Ranges-DateTimeStepRangesGenerator.html#method_isRightOpen"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Ranges\\DateTimeStepRangesGenerator\u003A\u003AsetRightOpen\u0028\u0029",
+            "name": "setRightOpen",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Ranges-DateTimeStepRangesGenerator.html#method_setRightOpen"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Ranges\\DateTimeStepRangesGenerator\u003A\u003Agenerate\u0028\u0029",
+            "name": "generate",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Ranges-DateTimeStepRangesGenerator.html#method_generate"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Ranges\\FloatStepRangesGenerator",
+            "name": "FloatStepRangesGenerator",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Ranges-FloatStepRangesGenerator.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Ranges\\FloatStepRangesGenerator\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Ranges-FloatStepRangesGenerator.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Ranges\\FloatStepRangesGenerator\u003A\u003AgetStart\u0028\u0029",
+            "name": "getStart",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Ranges-FloatStepRangesGenerator.html#method_getStart"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Ranges\\FloatStepRangesGenerator\u003A\u003AsetStart\u0028\u0029",
+            "name": "setStart",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Ranges-FloatStepRangesGenerator.html#method_setStart"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Ranges\\FloatStepRangesGenerator\u003A\u003AgetEnd\u0028\u0029",
+            "name": "getEnd",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Ranges-FloatStepRangesGenerator.html#method_getEnd"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Ranges\\FloatStepRangesGenerator\u003A\u003AsetEnd\u0028\u0029",
+            "name": "setEnd",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Ranges-FloatStepRangesGenerator.html#method_setEnd"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Ranges\\FloatStepRangesGenerator\u003A\u003AgetStep\u0028\u0029",
+            "name": "getStep",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Ranges-FloatStepRangesGenerator.html#method_getStep"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Ranges\\FloatStepRangesGenerator\u003A\u003AsetStep\u0028\u0029",
+            "name": "setStep",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Ranges-FloatStepRangesGenerator.html#method_setStep"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Ranges\\FloatStepRangesGenerator\u003A\u003AisLeftOpen\u0028\u0029",
+            "name": "isLeftOpen",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Ranges-FloatStepRangesGenerator.html#method_isLeftOpen"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Ranges\\FloatStepRangesGenerator\u003A\u003AsetLeftOpen\u0028\u0029",
+            "name": "setLeftOpen",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Ranges-FloatStepRangesGenerator.html#method_setLeftOpen"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Ranges\\FloatStepRangesGenerator\u003A\u003AisRightOpen\u0028\u0029",
+            "name": "isRightOpen",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Ranges-FloatStepRangesGenerator.html#method_isRightOpen"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Ranges\\FloatStepRangesGenerator\u003A\u003AsetRightOpen\u0028\u0029",
+            "name": "setRightOpen",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Ranges-FloatStepRangesGenerator.html#method_setRightOpen"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Ranges\\FloatStepRangesGenerator\u003A\u003Agenerate\u0028\u0029",
+            "name": "generate",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Ranges-FloatStepRangesGenerator.html#method_generate"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Ranges\\IntegerStepRangesGenerator",
+            "name": "IntegerStepRangesGenerator",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Ranges-IntegerStepRangesGenerator.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Ranges\\IntegerStepRangesGenerator\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Ranges-IntegerStepRangesGenerator.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Ranges\\IntegerStepRangesGenerator\u003A\u003AgetStart\u0028\u0029",
+            "name": "getStart",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Ranges-IntegerStepRangesGenerator.html#method_getStart"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Ranges\\IntegerStepRangesGenerator\u003A\u003AsetStart\u0028\u0029",
+            "name": "setStart",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Ranges-IntegerStepRangesGenerator.html#method_setStart"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Ranges\\IntegerStepRangesGenerator\u003A\u003AgetEnd\u0028\u0029",
+            "name": "getEnd",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Ranges-IntegerStepRangesGenerator.html#method_getEnd"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Ranges\\IntegerStepRangesGenerator\u003A\u003AsetEnd\u0028\u0029",
+            "name": "setEnd",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Ranges-IntegerStepRangesGenerator.html#method_setEnd"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Ranges\\IntegerStepRangesGenerator\u003A\u003AgetStep\u0028\u0029",
+            "name": "getStep",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Ranges-IntegerStepRangesGenerator.html#method_getStep"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Ranges\\IntegerStepRangesGenerator\u003A\u003AsetStep\u0028\u0029",
+            "name": "setStep",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Ranges-IntegerStepRangesGenerator.html#method_setStep"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Ranges\\IntegerStepRangesGenerator\u003A\u003AisLeftOpen\u0028\u0029",
+            "name": "isLeftOpen",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Ranges-IntegerStepRangesGenerator.html#method_isLeftOpen"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Ranges\\IntegerStepRangesGenerator\u003A\u003AsetLeftOpen\u0028\u0029",
+            "name": "setLeftOpen",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Ranges-IntegerStepRangesGenerator.html#method_setLeftOpen"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Ranges\\IntegerStepRangesGenerator\u003A\u003AisRightOpen\u0028\u0029",
+            "name": "isRightOpen",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Ranges-IntegerStepRangesGenerator.html#method_isRightOpen"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Ranges\\IntegerStepRangesGenerator\u003A\u003AsetRightOpen\u0028\u0029",
+            "name": "setRightOpen",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Ranges-IntegerStepRangesGenerator.html#method_setRightOpen"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Ranges\\IntegerStepRangesGenerator\u003A\u003Agenerate\u0028\u0029",
+            "name": "generate",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Ranges-IntegerStepRangesGenerator.html#method_generate"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Ranges\\RangesGeneratorInterface",
+            "name": "RangesGeneratorInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Ranges-RangesGeneratorInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Ranges\\RangesGeneratorInterface\u003A\u003Agenerate\u0028\u0029",
+            "name": "generate",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Ranges-RangesGeneratorInterface.html#method_generate"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\RawAggregation",
             "name": "RawAggregation",
@@ -18870,6 +19265,11 @@ Search.appendIndex(
             "name": "getFieldName",
             "summary": "",
             "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-RawRangeAggregation.html#method_getFieldName"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\RawRangeAggregation\u003A\u003AfromGenerator\u0028\u0029",
+            "name": "fromGenerator",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-RawRangeAggregation.html#method_fromGenerator"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\RawStatsAggregation",
             "name": "RawStatsAggregation",
@@ -20601,6 +21001,21 @@ Search.appendIndex(
             "summary": "Extra\u0020target\u0020data,\u0020required\u0020by\u0020some\u0020sort\u0020clauses,\u0020field\u0020for\u0020instance.",
             "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause.html#property_targetData"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Spellcheck",
+            "name": "Spellcheck",
+            "summary": "The\u0020base\u0020class\u0020for\u0020all\u0020value\u0020objects\u0020and\u0020structs.",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Spellcheck.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Spellcheck\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Construct\u0020object\u0020optionally\u0020with\u0020a\u0020set\u0020of\u0020properties.",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Spellcheck.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Spellcheck\u003A\u003AgetQuery\u0028\u0029",
+            "name": "getQuery",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Spellcheck.html#method_getQuery"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query",
             "name": "Query",
             "summary": "This\u0020class\u0020is\u0020used\u0020to\u0020perform\u0020a\u0020Content\u0020query.",
@@ -20653,7 +21068,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\u003A\u003A\u0024spellcheck",
             "name": "spellcheck",
-            "summary": "If\u0020true\u0020spellcheck\u0020suggestions\u0020are\u0020returned.",
+            "summary": "Spellcheck\u0020suggestions\u0020are\u0020returned.",
             "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query.html#property_spellcheck"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\u003A\u003A\u0024performCount",
@@ -20816,6 +21231,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Search-AggregationResult-RangeAggregationResult.html#method_hasEntry"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Search\\AggregationResult\\RangeAggregationResult\u003A\u003AgetKeys\u0028\u0029",
+            "name": "getKeys",
+            "summary": "Return\u0020available\u0020keys\u0020\u0028ranges\u0029.",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Search-AggregationResult-RangeAggregationResult.html#method_getKeys"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Search\\AggregationResult\\RangeAggregationResult\u003A\u003Acount\u0028\u0029",
             "name": "count",
             "summary": "",
@@ -20915,6 +21335,11 @@ Search.appendIndex(
             "name": "hasEntry",
             "summary": "",
             "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Search-AggregationResult-TermAggregationResult.html#method_hasEntry"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Search\\AggregationResult\\TermAggregationResult\u003A\u003AgetKeys\u0028\u0029",
+            "name": "getKeys",
+            "summary": "Returns\u0020available\u0020keys\u0020\u0028terms\u0029.",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Search-AggregationResult-TermAggregationResult.html#method_getKeys"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Search\\AggregationResult\\TermAggregationResult\u003A\u003Acount\u0028\u0029",
             "name": "count",
@@ -21231,6 +21656,11 @@ Search.appendIndex(
             "summary": "Construct\u0020object\u0020optionally\u0020with\u0020a\u0020set\u0020of\u0020properties.",
             "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Search-SearchResult.html#method___construct"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Search\\SearchResult\u003A\u003AgetSpellcheck\u0028\u0029",
+            "name": "getSpellcheck",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Search-SearchResult.html#method_getSpellcheck"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Search\\SearchResult\u003A\u003AgetAggregations\u0028\u0029",
             "name": "getAggregations",
             "summary": "",
@@ -21261,6 +21691,11 @@ Search.appendIndex(
             "summary": "If\u0020spellcheck\u0020is\u0020on\u0020this\u0020field\u0020contains\u0020a\u0020collated\u0020query\u0020suggestion\u0020where\u0020in\u0020the\u0020appropriate\ncriterions\u0020the\u0020wrong\u0020spelled\u0020value\u0020is\u0020replaced\u0020by\u0020a\u0020corrected\u0020one\u0020\u0028TBD\u0029.",
             "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Search-SearchResult.html#property_spellSuggestion"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Search\\SearchResult\u003A\u003A\u0024spellcheck",
+            "name": "spellcheck",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Search-SearchResult.html#property_spellcheck"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Search\\SearchResult\u003A\u003A\u0024time",
             "name": "time",
             "summary": "The\u0020duration\u0020of\u0020the\u0020search\u0020processing\u0020in\u0020ms.",
@@ -21280,6 +21715,26 @@ Search.appendIndex(
             "name": "totalCount",
             "summary": "The\u0020total\u0020number\u0020of\u0020searchHits.",
             "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Search-SearchResult.html#property_totalCount"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Search\\SpellcheckResult",
+            "name": "SpellcheckResult",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Search-SpellcheckResult.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Search\\SpellcheckResult\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Search-SpellcheckResult.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Search\\SpellcheckResult\u003A\u003AgetQuery\u0028\u0029",
+            "name": "getQuery",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Search-SpellcheckResult.html#method_getQuery"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Search\\SpellcheckResult\u003A\u003AisIncorrect\u0028\u0029",
+            "name": "isIncorrect",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Search-SpellcheckResult.html#method_isIncorrect"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Section",
             "name": "Section",
@@ -28291,6 +28746,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-FieldTypePage-FieldType-LandingPage-Model-Page.html#method_getZoneByIdentifier"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\FieldTypePage\\FieldType\\LandingPage\\Model\\Page\u003A\u003AgetZoneByName\u0028\u0029",
+            "name": "getZoneByName",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-FieldTypePage-FieldType-LandingPage-Model-Page.html#method_getZoneByName"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\FieldTypePage\\FieldType\\LandingPage\\Model\\Page\u003A\u003AgetBlockById\u0028\u0029",
             "name": "getBlockById",
             "summary": "Returns\u0020block\u0020by\u0020its\u0020ID.",
@@ -29610,6 +30070,31 @@ Search.appendIndex(
             "name": "getUnit",
             "summary": "",
             "url": "classes/Ibexa-Contracts-Measurement-Value-ValueInterface.html#method_getUnit"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Migration\\Event\\AbstractMigrationEvent",
+            "name": "AbstractMigrationEvent",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Migration-Event-AbstractMigrationEvent.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Migration\\Event\\AbstractMigrationEvent\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Migration-Event-AbstractMigrationEvent.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Migration\\Event\\AbstractMigrationEvent\u003A\u003AgetMigration\u0028\u0029",
+            "name": "getMigration",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Migration-Event-AbstractMigrationEvent.html#method_getMigration"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Migration\\Event\\BeforeMigrationEvent",
+            "name": "BeforeMigrationEvent",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Migration-Event-BeforeMigrationEvent.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Migration\\Event\\MigrationEvent",
+            "name": "MigrationEvent",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Migration-Event-MigrationEvent.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Migration\\Exception\\InvalidMigrationException",
             "name": "InvalidMigrationException",
@@ -40651,6 +41136,11 @@ Search.appendIndex(
             "summary": "This\u0020class\u0020is\u0020the\u0020base\u0020for\u0020SortClause\u0020classes,\u0020used\u0020to\u0020set\u0020sorting\u0020of\u0020product\u0020queries.",
             "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-SortClause-ProductName.html"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\SortClause\\ProductStock",
+            "name": "ProductStock",
+            "summary": "This\u0020class\u0020is\u0020the\u0020base\u0020for\u0020SortClause\u0020classes,\u0020used\u0020to\u0020set\u0020sorting\u0020of\u0020product\u0020queries.",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-SortClause-ProductStock.html"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Values\\Product\\Query\\SortClause",
             "name": "SortClause",
             "summary": "This\u0020class\u0020is\u0020the\u0020base\u0020for\u0020SortClause\u0020classes,\u0020used\u0020to\u0020set\u0020sorting\u0020of\u0020product\u0020queries.",
@@ -47426,6 +47916,11 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/ibexa-contracts-adminui-resolver.html"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\AdminUi\\REST",
+            "name": "REST",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-adminui-rest.html"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\AdminUi\\Tab",
             "name": "Tab",
             "summary": "",
@@ -47740,6 +48235,16 @@ Search.appendIndex(
             "name": "MVC",
             "summary": "",
             "url": "namespaces/ibexa-contracts-core-mvc.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\MVC\\Symfony\\ErrorHandler",
+            "name": "ErrorHandler",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-core-mvc-symfony-errorhandler.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\MVC\\Symfony",
+            "name": "Symfony",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-core-mvc-symfony.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\MVC\\Templating",
             "name": "Templating",
@@ -48065,6 +48570,11 @@ Search.appendIndex(
             "name": "Location",
             "summary": "",
             "url": "namespaces/ibexa-contracts-core-repository-values-content-query-aggregation-location.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Aggregation\\Ranges",
+            "name": "Ranges",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-core-repository-values-content-query-aggregation-ranges.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query",
             "name": "Query",
@@ -48845,6 +49355,11 @@ Search.appendIndex(
             "name": "Value",
             "summary": "",
             "url": "namespaces/ibexa-contracts-measurement-value.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Migration\\Event",
+            "name": "Event",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-migration-event.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Migration\\Exception",
             "name": "Exception",
