@@ -30,7 +30,7 @@ which revokes the passwords for specific users, User Groups or users belonging t
 To select which users to revoke passwords for, use one of the following options with the command:
 
 - `--user-id|-u` - the ID of the user. Accepts multiple user IDs
-- `--user-group-id|-ug` - the ID of the User Group. Accepts multiple group IDs
+- `--user-group-id|-ug` - the ID of the user group. Accepts multiple group IDs
 - `--user-content-type-identifier|-ct` - the identifier of the user Content Type. Accepts multiple Content Types
 
 You can use the following additional options with the command:
@@ -45,7 +45,7 @@ For example, to revoke the passwords of all users of the `user` Content Type, ru
 php bin/console ibexa:user:expire-password --user-content-type-identifier=user --force
 ```
 
-To perform a dry run (without saving the results) of revoking passwords of all users from User Group 13, run:
+To perform a dry run (without saving the results) of revoking passwords of all users from user group 13, run:
 
 ``` bash
 php bin/console ibexa:user:expire-password --user-group-id=13
@@ -82,12 +82,12 @@ You can also set the minimum password length.
 
 ## Password expiration
 
-In the **User account (ezuser)** Field definition, you can set password expiration rules, which will force users to change their passwords periodically.
+In the **User account (ezuser)** Field definition, you can set password expiration rules, which forces users to change their passwords periodically.
 
 ![Password expiry settings](password_expiry.png)
 
-You can also decide when the user will be notified that they need to change their password.
-The notification will be displayed in the Back Office after login and in the User Content item's preview.
+You can also decide when the user is notified that they need to change their password.
+The notification is displayed in the Back Office after login and in the User Content item's preview.
 
 ## Repeating passwords
 
@@ -109,7 +109,7 @@ To do this, in the **User account (ezuser)** Field definition, select "Password 
 ![Protection against using breached passwords](password_breached.png)
 
 This rule checks the password against known password dumps by using the https://haveibeenpwned.com/ API.
-It does not check existing passwords, so it will not block login for anyone. It applies only to new passwords when users change them.
+It does not check existing passwords, so it won't block login for anyone. It applies only to new passwords when users change them.
 
 !!! note
 

@@ -7,27 +7,27 @@ description: Customize user authentication.
 ## Authenticate user with multiple user providers
 
 Symfony provides native support for [multiple user providers]([[= symfony_doc =]]/security/multiple_user_providers.html).
-This makes it easy to integrate any kind of login handlers, including SSO and existing third party bundles (e.g. [FR3DLdapBundle](https://github.com/Maks3w/FR3DLdapBundle), [HWIOauthBundle](https://github.com/hwi/HWIOAuthBundle), [FOSUserBundle](https://github.com/FriendsOfSymfony/FOSUserBundle), [BeSimpleSsoAuthBundle](https://github.com/BeSimple/BeSimpleSsoAuthBundle), etc.).
+This makes it easier to integrate any kind of login handlers, including SSO and existing third party bundles (e.g. [FR3DLdapBundle](https://github.com/Maks3w/FR3DLdapBundle), [HWIOauthBundle](https://github.com/hwi/HWIOAuthBundle), [FOSUserBundle](https://github.com/FriendsOfSymfony/FOSUserBundle), [BeSimpleSsoAuthBundle](https://github.com/BeSimple/BeSimpleSsoAuthBundle), etc.).
 
 However, to be able to use *external* user providers with [[= product_name =]], a valid Platform user needs to be injected into the Repository.
 This is mainly for the kernel to be able to manage content-related permissions (but not limited to this).
 
-Depending on your context, you will either want to create a Platform User, return an existing User, or even always use a generic User.
+Depending on your context, you either want to create a Platform User, return an existing User, or even always use a generic User.
 
 Whenever an *external* user is matched (i.e. one that does not come from Platform repository, like coming from LDAP), [[= product_name =]] kernel initiates an `MVCEvents::INTERACTIVE_LOGIN` event.
 Every service listening to this event receives an `Ibexa\Core\MVC\Symfony\Event\InteractiveLoginEvent` object which contains the original security token (that holds the matched user) and the request.
 
 Then, it is up to the listener to retrieve a Platform User from the Repository and to assign it back to the event object.
-This user will be injected into the repository and used for the rest of the request.
+This user is injected into the repository and used for the rest of the request.
 
-If no [[= product_name =]] User is returned, the Anonymous User will be used.
+If no [[= product_name =]] User is returned, the Anonymous User is used.
 
 ### User exposed and security token
 
-When an *external* user is matched, a different token will be injected into the security context, the `InteractiveLoginToken`.
+When an *external* user is matched, a different token is injected into the security context, the `InteractiveLoginToken`.
 This token holds a `UserWrapped` instance which contains the originally matched User and the *API user* (the one from the [[= product_name =]] Repository).
 
-Note that the *API user* is mainly used for permission checks against the repository and thus stays *under the hood*.
+The *API user* is mainly used for permission checks against the repository and thus stays *under the hood*.
 
 ### Customize the User class
 

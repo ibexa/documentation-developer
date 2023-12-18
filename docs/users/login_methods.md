@@ -7,7 +7,7 @@ description: Set up user login methods.
 Two login methods are available: with User name or with email.
 
 Providers for these two methods are `ibexa.security.user_provider.username`
-and `ibexa.security.user_provider.email`, respectively.
+and `ibexa.security.user_provider.email`.
 
 You can configure which method is allowed under the `security` [configuration key](configuration.md#configuration-files):
 
@@ -25,7 +25,7 @@ security:
             id: ibexa.security.user_provider.email
 
     firewalls:
-        #...    
+        #...
         ibexa_front:
             # ...
             provider: ibexa
@@ -35,16 +35,16 @@ You can customize per User Field whether the email address used as a login metho
 
 To check that all existing User accounts have unique emails,
 run the `ibexa:user:audit-database` command.
-It will list all User accounts with duplicate emails.
+It lists all User accounts with duplicate emails.
 
 !!! caution
 
     Because logging in with email was not available until version v3.0,
     you can come across issues if you use the option on an existing database.
-    
+
     This may happen if more than one account uses the same email address.
     Login through the User name will still be available.
-    
+
     To resolve the issues, run `ibexa:user:audit-database`
     and manually modify accounts that have duplicate emails.
 
@@ -60,4 +60,4 @@ set `[a-z]+$` as **Username pattern**:
 
 To check that all existing User accounts have names that fit the current pattern,
 run the `ibexa:user:audit-database` command.
-It will check all User accounts in the database and list those that do not fit the pattern.
+It checks all User accounts in the database and lists those that do not fit the pattern.
