@@ -263,7 +263,7 @@ plugins:
             'guide/limitation_reference.md': 'permissions/limitation_reference.md'
             'guide/custom_policies.md': 'permissions/custom_policies.md'
 
-            'guide/user_management/user_management.md': 'users/users'
+            'guide/user_management/user_management.md': 'users/users.md'
             'api/public_php_api_managing_users.md': 'users/segment_api.md'
             'guide/user_management/customer_groups.md': 'users/customer_groups.md'
             'guide/user_management/login_and_registration.md': 'users/users.md'
