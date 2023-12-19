@@ -11,7 +11,7 @@ and interfaces (API) to distribute this content.
 
 Multilingual, multichannel, extensible, [[= product_name_headless =]] is an advanced Content Management Framework (CMF),
 a Product Information Management (PIM) platform, and even a Digital Asset Management (DAM) repository.
-It's provided without a default front office but with a complete back office, and several APIs to manage and access content.
+It's provided without a default front office but with a complete Back Office, and several APIs to manage and access content.
 
 ## Availability
 
@@ -22,7 +22,7 @@ You can [contact us](https://www.ibexa.co/products/pricing) or [contact one of o
 
 ### Contributor's practical usage
 
-You access with any web browser from any platform to a rich back office, the main place to
+You access with any web browser from any platform to a rich Back Office, the main place to
 
 - define users and their rights (customers, subscribers, editors, etc.),
 - organize content (content types, fields, tree, tags, languages, and more),
@@ -52,7 +52,7 @@ APIs summary:
 
 ## Capabilities and benefits
 
-[[= product_name_headless =]] is a tool box with a back office.
+[[= product_name_headless =]] is a tool box with a Back Office.
 It comes without a default front office.
 You don't lose time to develop a theme for a provided front office before discovering it won't fit your needs.
 No distraction.
@@ -87,21 +87,21 @@ See [User management product guide](user_management_guide.md) for more.
 - [[= product_name_headless =]] offers a complete PHP API to extend the ways to access content.
 - A design engine and a view controller offer to create plain text content views (such as HTML, JSON, XML, CSS, JS, CSV, or Markdown),
   and to factorize those views by using theme cascades.
-  This design engine is used in the back office which is equally extendable.
+  This design engine is used in the Back Office which is equally extendable.
 - Multichannel, content can be accessed through several channel configurations,
   such as the domain name it replies to, the sub-part of the content tree it starts from, the users rights, or the design theme.
-  The back office itself is such a channel.
+  The Back Office itself is such a channel.
 - Multi-repository, the same platform can use separate databases if impermeability is needed between channel groups.
 
 ### Advanced features
 
-On top of this strong core, [[= product_name =]] Headless edition brings tools to increase user experience, from final front users to back office contributors.
+On top of this strong core, [[= product_name =]] Headless edition brings tools to increase user experience, from final front users to Back Office contributors.
 
 #### [[= product_name_headless =]] is a complete Digital Experience Platform (DXP)
 
 - [[= product_name_headless =]] comes with a personalization engine, allowing to recommend content to the front user according to its behavior,
   or, when authenticated, contents matching user's segment/group. See [Personalization product guide](personalization_brochure.md) for more.
-- [[= product_name_headless =]]' scheduler allows to establish the future of the content and having a living front application with events even when the editorial team is absent or reduced. At midnight, during weekends or vacations, front users can discover new contents. A calendar summaries those scheduled content event. The calendar is extendable as everything in the back office, some event source could be added to coordinate content events with other company events.
+- [[= product_name_headless =]]' scheduler allows to establish the future of the content and having a living front application with events even when the editorial team is absent or reduced. At midnight, during weekends or vacations, front users can discover new contents. A calendar summaries those scheduled content event. The calendar is extendable as everything in the Back Office, some event source could be added to coordinate content events with other company events.
 
 #### [[= product_name_headless =]] adds more ways to structure and organize your content
 
@@ -172,4 +172,4 @@ Departments, subsidiaries, and even partners produce content in the same reposit
 Fine-tuned user rights and workflows ensure that each collaborator can focus on their own tasks without the risk to disturb the content model or organization.
 Content is distributed on several websites and applications, some running on the Ibexa Headless platform itself, some on third parties' servers, some as native mobile apps.
 Part of the content has multiple locations or is translated, and reused from place to place.
-While the back office offers to search into the whole repository, the front end apps have correctly circumscribed search capabilities.
+While the Back Office offers to search into the whole repository, the front end apps have correctly circumscribed search capabilities.
