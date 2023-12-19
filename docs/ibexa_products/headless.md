@@ -69,7 +69,7 @@ The core of [[= product_name =]] Headless edition is already awesome as it offer
 - An item can have multiple locations in this tree.
 - Content items are typed.
 - Content types are sets of typed data fields, with eventually conditions on the possible values.
-- Rich Text field type comes with an online editor. See [Online Editor product guide](online_editor_guide.md) for more.
+- Rich Text Field Type comes with an online editor. See [Online Editor product guide](online_editor_guide.md) for more.
 - Multilingual, it can store a content in several languages, the content model define which field must be translated, and which don't vary.
 
 See [Content management product guide](content_management_guide.md) for more.
@@ -148,7 +148,8 @@ On top of this strong core, [[= product_name =]] Headless edition brings tools t
   The HTTP cache varies on current user's role and is purged when content change.
   With is huge network of points of presence (POP) around the world, Fastly is quickly delivering cached content from nearest server for a better user experience.
 - A Search Engine Optimization (SEO) field implements best practices about web search engine indexing and social network sharing.
-  It covers canonical URLs which are mandatory if multiple locations are used for a same content item to avoid duplicate content, Open Graph protocol to better describe a content item to social networks and search engine, and Twitter Cards.
+  It covers canonical URLs which are mandatory if multiple locations are used for a same Content item to avoid duplicate content,
+  Open Graph protocol to better describe a Content item to social networks and search engine, and Twitter Cards.
 
 ## Use cases
 
