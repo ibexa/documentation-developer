@@ -1,6 +1,6 @@
 # VisibilityTermAggregation
 
-The [VisibilityTermAggregation](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/Aggregation/VisibilityTermAggregation.php) aggregates search results by the Content item's visibility.
+The [VisibilityTermAggregation](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-VisibilityTermAggregation.html) aggregates search results by the Content item's visibility.
 
 ## Arguments
 

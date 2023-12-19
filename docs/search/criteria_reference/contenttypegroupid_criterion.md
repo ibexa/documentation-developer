@@ -1,6 +1,6 @@
 # ContentTypeGroupId Criterion
 
-The [`ContentTypeGroupId` Search Criterion](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/Criterion/ContentTypeGroupId.php)
+The [`ContentTypeGroupId` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-ContentTypeGroupId.html)
 searches for content based on the ID of its Content Type group.
 
 ## Arguments

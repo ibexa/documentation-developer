@@ -1,6 +1,6 @@
 # LanguageTermAggregation
 
-The [LanguageTermAggregation](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/Aggregation/LanguageTermAggregation.php) aggregates search results by the Content item's language.
+The [LanguageTermAggregation](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-LanguageTermAggregation.html) aggregates search results by the Content item's language.
 
 ## Arguments
 
