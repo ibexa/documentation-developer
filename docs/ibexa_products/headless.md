@@ -156,7 +156,7 @@ On top of this strong core, [[= product_name =]] Headless edition brings tools t
 - A website to inform about your organization
 - An online catalog to expose your products and convince potential customer to contact you
 - A collaborative workspace to produce content, and feeds providing content to partners' or parent organization's network
-- A feed to a smartphone app allowing to consult instruction manuals with mobility while using your products
+- A feed to a phone app allowing to consult instruction manuals with mobility while using your products
 - A structuring first step to create online presence, before increasing user experience with [[= product_name_experience =]], and finally becoming an online store with [[= product_name_commerce =]].
 
 ### Brick and mortar, but with an online showcase
