@@ -170,6 +170,6 @@ an online presence to keep earlier customers interested and gather new ones.
 
 Departments, subsidiaries, and even partners produce content in the same repository.
 Fine-tuned user rights and workflows ensure that each collaborator can focus on their own tasks without the risk to disturb the content model or organization.
-Content is distributed on several websites and applications, some running on the Ibexa Headless platform itself, some on third parties' servers, some as native mobile apps.
+Content is distributed on several websites and applications, some running on the [[= product_name_base =]] platform itself, some on third parties' servers, some as native mobile apps.
 Part of the content has multiple locations or is translated, and reused from place to place.
 While the Back Office offers to search into the whole repository, the front end apps have correctly circumscribed search capabilities.
