@@ -1,6 +1,6 @@
 # SectionTermAggregation
 
-The [SectionTermAggregation](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/Aggregation/SectionTermAggregation.php) aggregates search results by the Content item's Section.
+The [SectionTermAggregation](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-SectionTermAggregation.html) aggregates search results by the Content item's Section.
 
 ## Arguments
 
