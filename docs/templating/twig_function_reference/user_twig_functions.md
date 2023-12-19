@@ -20,17 +20,12 @@ by accessing the `content` property:
 {{ ibexa_render_field(ibexa_user_get_current().content, 'last_name') }}
 ```
 
-### `ibexa_current_user`
+### `ibexa_current_user()`
 
-The `ibexa_current_user()` function returns the User object (`Ibexa\Contracts\Core\Repository\Values\User\User`) of the current repository user.
+`ibexa_current_user()` is a deprecated alias of `ibexa_user_get_current()`.
 
-#### Examples
 
-``` html+twig
-Current user: {{ ibexa_current_user().login }}
-```
-
-### `ibexa_is_current_user`
+### `ibexa_is_current_user()`
 
 The `ibexa_is_current_user()` Twig function checks whether a user is the current repository user.
 
