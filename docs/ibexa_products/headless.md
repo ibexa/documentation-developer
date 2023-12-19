@@ -150,38 +150,6 @@ On top of this strong core, [[= product_name =]] Headless edition brings tools t
 - A Search Engine Optimization (SEO) field implements best practices about web search engine indexing and social network sharing.
   It covers canonical URLs which are mandatory if multiple locations are used for a same content item to avoid duplicate content, Open Graph protocol to better describe a content item to social networks and search engine, and Twitter Cards.
 
-## Feature summary
-
-To summarize, here is a non-exhaustive list of the main [[= product_name_headless =]] features:
-
-* Structured content
-* PIM/Product catalog
-* Multilingual
-* Taxonomy
-* Collaboration and Workflow
-* Version comparison
-* Rich text editor
-* Image Editor
-* Scheduler and Calendar
-* SEO
-* Behavioral-driven personalization
-* Recommendations
-* Interoperability
-* DAM Connector
-* [[= product_name_connect =]]
-* REST and GraphQL APIs
-* Continuous Deployment
-* Oauth2 Client & Server
-* Fastly/Varnish
-* Elasticsearch/Solr
-* Data migrations
-* Web development framework
-* PHP API
-* Extendability
-
-At last and not least, [[= product_name =]] Headless edition can be upgraded to Experience and Commerce editions with minimal effort
-(for example, to start selling online what you exposed in your product catalog).
-
 ## Use cases
 
 - A website to inform about your organization
