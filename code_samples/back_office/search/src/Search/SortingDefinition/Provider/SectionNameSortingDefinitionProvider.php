@@ -23,7 +23,7 @@ final class SectionNameSortingDefinitionProvider implements SortingDefinitionPro
     {
         return [
             new SortingDefinition(
-                'version_number_asc',
+                'section_asc',
                 $this->translator->trans('sort_definition.section_name_asc.label'),
                 [
                     new SortClause\SectionName(Query::SORT_ASC),
@@ -31,7 +31,7 @@ final class SectionNameSortingDefinitionProvider implements SortingDefinitionPro
                 333
             ),
             new SortingDefinition(
-                'version_number_desc',
+                'section_desc',
                 $this->translator->trans('sort_definition.section_name_desc.label'),
                 [
                     new SortClause\SectionName(Query::SORT_DESC),
@@ -44,8 +44,8 @@ final class SectionNameSortingDefinitionProvider implements SortingDefinitionPro
     public static function getTranslationMessages(): array
     {
         return [
-            (new Message('sort_definition.section_name_asc.label', 'ibexa_search'))->setDesc('Sort by section A-Z'),
-            (new Message('sort_definition.section_name_desc.label', 'ibexa_search'))->setDesc('Sort by section Z-A'),
+            (new Message('sort_definition.section_name_asc.label'))->setDesc('Sort by section A-Z'),
+            (new Message('sort_definition.section_name_desc.label'))->setDesc('Sort by section Z-A'),
         ];
     }
 }

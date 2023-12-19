@@ -4,7 +4,7 @@ description: Add a "sort by" method to the Back Office search result page.
 
 # Customize search sorting
 
-To add an entry to the "Sort by" to the Back Office search result page, create a service implementing the `SortingDefinitionProviderInterface` and tagged `ibexa.search.sorting_definition.provider`.
+To add an entry to the "Sort by" to the Back Office search result page, create a service implementing the `Ibexa\Contracts\Search\SortingDefinition\SortingDefintionProviderInterface` and tagged `ibexa.search.sorting_definition.provider`.
 
 The following example class implements `SortingDefinitionProviderInterface::getSortingDefinitions`, and add two definitions to sort by section name.
 A sorting definition is an identifier, a menu label, a list of [Content Search's Sort Clauses](sort_clause_reference.md#sort-clauses), even [custom ones](create_custom_sort_clause.md), and a priority to position it in the menu.
