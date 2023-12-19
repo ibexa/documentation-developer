@@ -50,6 +50,8 @@ APIs summary:
 - The PHP API opens [[= product_name_headless =]] to extendability to fit your needs.
   For example, content can be computed, edited or served in specific ways such as scheduled/live imports/exports, automated edition tasks, or specific output controllers to feed a mobile app.
 
+![Ibexa Headless data inputs and outputs](img/headless.png)
+
 ## Capabilities and benefits
 
 [[= product_name_headless =]] is a tool box with a Back Office.
@@ -169,7 +171,8 @@ an online presence to keep earlier customers interested and gather new ones.
 
 ### Large network with multiple inputs and outputs
 
-Departments, subsidiaries, and even partners produce content in the same repository.
+Departments, subsidiaries, and even partners now produce content in the same repository.
+Thanks to migration feature and PHP API, existing content has been imported from previous repositories.
 Fine-tuned user rights and workflows ensure that each collaborator can focus on their own tasks without the risk to disturb the content model or organization.
 Content is distributed on several websites and applications, some running on the [[= product_name_base =]] platform itself, some on third parties' servers, some as native mobile apps.
 Part of the content has multiple locations or is translated, and reused from place to place.
