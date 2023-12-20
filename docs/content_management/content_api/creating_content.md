@@ -24,7 +24,7 @@ returns a new [`ContentCreateStruct`](https://github.com/ibexa/core/blob/main/sr
 [[= include_file('code_samples/api/public_php_api/src/Command/CreateContentCommand.php', 57, 66) =]]
 ```
 
-This command creates a draft using [`ContentService::createContent`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php#L210) (line 9).
+This command creates a draft using [`ContentService::createContent`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php#L210) (line 7).
 This method must receive a `ContentCreateStruct` and an array of Location structs.
 
 `ContentCreateStruct` (which extends `ContentStruct`) is created through [`ContentService::newContentCreateStruct`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php#L533) (line 2),
