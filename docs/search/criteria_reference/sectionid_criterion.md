@@ -1,6 +1,6 @@
 # SectionId Criterion
 
-The [`SectionId` Search Criterion](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/Criterion/SectionId.php)
+The [`SectionId` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-SectionId.html)
 searches for content based on the ID of the Section it is assigned to.
 
 ## Arguments
