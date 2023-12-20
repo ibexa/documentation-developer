@@ -1,6 +1,6 @@
 # Id Sort Clause
 
-The [`SortClause\Id` Sort Clause](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/URL/Query/SortClause/Id.php)
+The [`SortClause\Id` Sort Clause](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-URL-Query-SortClause-Id.html)
 sorts search results by the ID of the URL.
 
 ## Arguments
