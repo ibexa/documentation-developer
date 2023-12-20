@@ -48,7 +48,8 @@ APIs summary:
 - The OAuth 2 Client and Server allow to connect to an SSO or be the SSO.
 - The design engine and its theme templates mechanism allows to serve the content in several shapes.
 - The PHP API opens [[= product_name_headless =]] to extendability to fit your needs.
-  For example, content can be computed, edited or served in specific ways such as scheduled/live imports/exports, automated edition tasks, or specific output controllers to feed a mobile app.
+  For example, content can be computed, edited or served in specific ways such as
+  scheduled/live imports/exports, automated edition tasks, or specific controllers to communicate with other applications.
 
 ![Ibexa Headless data inputs and outputs](img/headless.png)
 
