@@ -249,6 +249,16 @@ Thanks to splitting SQL upgrade files into separate product editions, the produc
 
 Now, Events are sent while performing operations within Taxonomy, which considerably extends the Taxonomy feature.
 
-### Protected Segment Groups
+### Protected segment groups
 
-You can now set existing Segment Groups as protected and make them unable to be modified through the user interface.
+You can now set existing [segment groups](https://doc.ibexa.co/en/latest/administration/admin_panel/segments_admin_panel/) as protected, and prevent them from being modified through the user interface.
+It's intended to stop users from breaking data integrity of segments/segment groups maintained by other features or external system integrations, such as [Customer Portal](https://doc.ibexa.co/en/latest/customer_management/customer_portal/) and [CDP](https://doc.ibexa.co/en/latest/cdp/cdp/).
+
+To do it, in your configuration, add the following key for each segment group that you intend to protect:
+
+`ibexa.system.default.segmentation.segment_groups.list.<segment_group_name>.protected`
+
+When you change a value of the setting to `true`, users are no longer able to:
+
+- remove the segment group or change its name or identifier
+- add/remove/modify segments that belong to the segment group
