@@ -1,6 +1,6 @@
 # ContentId Sort Clause
 
-The [`ContentId` Sort Clause](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/SortClause/ContentId.php)
+The [`ContentId` Sort Clause](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-ContentId.html)
 sorts search results by the Content items' IDs.
 
 ## Arguments

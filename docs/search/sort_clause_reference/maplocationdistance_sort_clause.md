@@ -1,6 +1,6 @@
 # MapLocationDistance Sort Clause
 
-The [`MapLocationDistance` Sort Clause](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/SortClause/MapLocationDistance.php)
+The [`MapLocationDistance` Sort Clause](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-MapLocationDistance.html)
 sorts search results by the distance of the indicated MapLocation Field to the provided location.
 
 ## Arguments
