@@ -199,9 +199,9 @@ you need to use the [`LocationService`](https://github.com/ibexa/core/blob/main/
 [[= include_file('code_samples/api/public_php_api/src/Command/BrowseLocationsCommand.php', 30, 49) =]]
 ```
 
-`loadLocation` (line 14) returns a value object, here a `Location`.
+`loadLocation` (line 15) returns a value object, here a `Location`.
 
-[`LocationService::loadLocationChildren`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/LocationService.php#L106) (line 23)
+[`LocationService::loadLocationChildren`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/LocationService.php#L106) (line 5)
 returns a [`LocationList`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/LocationList.php) value object that you can iterate over.
 
 !!! note
