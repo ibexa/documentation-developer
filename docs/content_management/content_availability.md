@@ -22,7 +22,7 @@ corresponding to the current SiteAccess.
     There is currently no way in the Back Office to edit the Content availability flag
     for an already published Content item.
     
-    To do this via [PHP API](creating_content.md#updating-content), set the [`alwaysAvailable` property](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentMetadataUpdateStruct.php#L52) of the Content metadata.
+    To do this via [PHP API](creating_content.md#updating-content), set the [`alwaysAvailable` property](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentMetadataUpdateStruct.html#property_alwaysAvailable) of the Content metadata.
 
 The Default availability flag is used for the out-of-the box Content Types representing content
 that should always be visible to the user, such as media files or user Content items.
