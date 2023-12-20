@@ -24,14 +24,14 @@ returns a new [`ContentCreateStruct`](https://github.com/ibexa/core/blob/main/sr
 [[= include_file('code_samples/api/public_php_api/src/Command/CreateContentCommand.php', 57, 66) =]]
 ```
 
-This command creates a draft using [`ContentService::createContent`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php#L210) (line 21).
+This command creates a draft using [`ContentService::createContent`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php#L210) (line 9).
 This method must receive a `ContentCreateStruct` and an array of Location structs.
 
-`ContentCreateStruct` (which extends `ContentStruct`) is created through [`ContentService::newContentCreateStruct`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php#L533) (line 17),
+`ContentCreateStruct` (which extends `ContentStruct`) is created through [`ContentService::newContentCreateStruct`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php#L533) (line 2),
 which receives the Content Type and the primary language for the Content item.
 For information about translating a Content item into other languages, see [Translating content](#translating-content).
 
-[`ContentStruct::setField`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentStruct.php#L32) (line 18) enables you to define the Field values.
+[`ContentStruct::setField`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentStruct.php#L32) (line 3) enables you to define the Field values.
 When the Field accepts a simple value, you can provide it directly, as in the example above.
 For some Field Types, for example [images](#creating-an-image), you need to provide an instance of a Value type.
 
