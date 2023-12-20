@@ -14,7 +14,7 @@ First, make sure you [enabled user registration](permission_use_cases.md#registe
 In your configuration, under `allowed_field_definitions_identifiers` [configuration key](configuration.md#configuration-files),
 specify the fields that should be part of your registration form.
 You can also define what kind of user you want to create under `user_type_identifier` e.g. frontend user.
-To learn more about available users, see [user types documentation](user_management.md#user-types). 
+To learn more about available users, see [user types documentation](user_registration#user-types). 
 
 ``` yaml
 ibexa:
