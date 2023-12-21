@@ -177,7 +177,6 @@ if your products' numerous complex options should be discussed,
 or if you're simply not ready yet to sell online,
 [[= product_name_headless =]] helps to build an exposition of your product catalog and your philosophy,
 an online presence to keep earlier customers interested and gather new ones.
-A feed to a phone app allowing to consult instruction manuals with mobility while using your products.
 It can be a structuring first step to test customer's adoption of your website,
 before increasing user experience with [[= product_name_exp =]],
 and finally becoming an online store with [[= product_name_com =]].
