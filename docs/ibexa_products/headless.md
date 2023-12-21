@@ -106,7 +106,7 @@ On top of this strong core, [[= product_name =]] Headless edition brings tools t
 
 [[= product_name_headless =]] is a complete Digital Experience Platform (DXP), which comes with the following components to enhance user's journey:
 
-- [Personalization](personalization_brochure.md) engine, which allows you recommend content to end users according to their behavior,
+- [Personalization](personalization_brochure.md) engine, which allows you to recommend content to end users according to their behavior,
   or, when authenticated, by matching with their segment/group.
 - Content scheduler, which allows you to establish the future of the content and use events to have a living front application, even when the editorial team is absent or reduced.
 This way, visitors can discover new content at midnight, during weekends or vacations.
@@ -164,11 +164,11 @@ Several features help end users collaborate on the content:
 
 ## Use cases
 
-- A website to inform about your organization
-- An online catalog to expose your products and convince potential customer to contact you
-- A collaborative workspace to produce content, and feeds providing content to partners' or parent organization's network
-- A feed to a phone app allowing to consult instruction manuals with mobility while using your products
-- A structuring first step to create online presence, before increasing user experience with [[= product_name_exp =]], and finally becoming an online store with [[= product_name_com =]].
+As a content repository with an omnipotent Back Office,
+many APIs to absorb, compute and distribute content,
+even a recommendation engine to deliver the right content to various readers,
+[[= product_name_headless =]] can be used in several cases.
+Let's have few examples.
 
 ### Brick and mortar, but with an online showcase
 
@@ -177,12 +177,16 @@ if your products' numerous complex options should be discussed,
 or if you're simply not ready yet to sell online,
 [[= product_name_headless =]] helps to build an exposition of your product catalog and your philosophy,
 an online presence to keep earlier customers interested and gather new ones.
+A feed to a phone app allowing to consult instruction manuals with mobility while using your products.
+It can be a structuring first step to test customer's adoption of your website,
+before increasing user experience with [[= product_name_exp =]],
+and finally becoming an online store with [[= product_name_com =]].
 
 ### Large network with multiple inputs and outputs
 
-Departments, subsidiaries, and even partners now produce content in the same repository.
+Departments, subsidiaries, and even partners now produce content in the same repository from the same collaborative workspace.
 Thanks to migration feature and PHP API, existing content has been imported from previous repositories.
-Fine-tuned user rights and workflows ensure that each collaborator can focus on their own tasks without the risk to disturb the content model or organization.
+Fine-tuned user rights and workflows ensure that each collaborator can focus on their own tasks without the risk to disturb the content model or content organization.
 Content is distributed on several websites and applications, some running on the [[= product_name_base =]] platform itself, some on third parties' servers, some as native mobile apps.
 Part of the content has multiple locations or is translated, and reused from place to place.
 While the Back Office offers to search into the whole repository, the front end apps have correctly circumscribed search capabilities.
