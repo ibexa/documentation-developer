@@ -79,7 +79,7 @@ This is specially important for admin accounts and other privileged users.
 
 !!! tip "Password rules"
 
-    See [setting up password rules](user_management/user_management.md#password-rules).
+    See [setting up password rules](users/passwords.md#password-rules).
 
 ### Secure secrets
 

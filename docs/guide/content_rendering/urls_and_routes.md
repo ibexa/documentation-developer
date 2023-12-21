@@ -115,8 +115,8 @@ The following built-in routes are available for the front of the website.
 |Route name|Path|Description|
 |---|---|---|
 | `silversolutions_bestsellers` | `/bestsellers` | [Bestseller page](../bestsellers.md) |
-| `silversolutions_delegate` | `/delegate` | [Delegate function](../user_management/delegate_function.md) |
-| `silversolutions_undelegate` | `/undelegate` | [Undelegate function](../user_management/delegate_function.md) |
+| `silversolutions_delegate` | `/delegate` | [Delegate function](../users/delegate_function.md) |
+| `silversolutions_undelegate` | `/undelegate` | [Undelegate function](../users/delegate_function.md) |
 
 ### Content
 
