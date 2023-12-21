@@ -142,7 +142,7 @@ Several features help end users collaborate on the content:
 
 ##### Intranets and extranets
 
-- [[= product_name_connect =]] is to create application interconnections with low code, drag-and-drop and a very visual interface.
+- [[= product_name_connect =]]'s role is to create application interconnections with low code and drag-and-drop, in a compelling visual interface.
   Complex data flows can be easily implemented with a huge library of connectors and actions for famous to specific applications.
   See [[[= product_name_connect =]] product guide]([[= connect_doc =]]/general/ibexa_connect/) for more.
 - An OAuth 2 server offers the possibility to use the DXP as the authentication service for other applications.
