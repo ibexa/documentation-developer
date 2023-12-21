@@ -14,7 +14,7 @@ It's provided without a default front office, but with a complete Back Office an
 
 ## Availability
 
-To start using Ibexa Headless you must purchase a product license.
+To start using [[= product_name_headless =]] you must purchase a product license.
 For more information, see [[[= product_name_headless =]] license pricing](https://www.ibexa.co/products/pricing?tab=1).
 You can [contact us](https://www.ibexa.co/products/pricing) or [contact one of our partners](https://www.ibexa.co/partners).
 
@@ -40,7 +40,7 @@ For performance, several bricks can be added to your stack such as a reverse pro
 
 By using a version control system and environment variables, you can deploy your configuration and extensions on several environments including [[= product_name_cloud =]].
 
-Standard web APIs and [[= product_name_connect =]] help establish interoperability, even if you are not an advanced developer.
+Standard web APIs and [[= product_name_connect =]] help establish interoperability, even if you aren't an advanced developer.
 
 ![Ibexa Headless data inputs and outputs](img/headless.png)
 
@@ -168,7 +168,7 @@ As a content repository with an omnipotent Back Office,
 many APIs to absorb, compute and distribute content,
 even a recommendation engine to deliver the right content to various readers,
 [[= product_name_headless =]] can be used in several cases.
-Let's have few examples.
+Here are few examples.
 
 ### Brick and mortar, but with an online showcase
 
