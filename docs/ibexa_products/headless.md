@@ -74,10 +74,10 @@ Content modeling and management are the foundation of [[= product_name =]] with 
 - An item can have multiple locations in this tree.
 - Content items are typed.
 - Content types are sets of typed data fields, with eventually conditions on the possible values.
-- Rich Text Field Type comes with an online editor. See [Online Editor product guide](online_editor_guide.md) for more.
+- Rich Text Field Type comes with an [online editor](online_editor_guide.md).
 - Multilingual, it can store a content in several languages, the content model define which field must be translated, and which don't vary.
 
-See [Content management product guide](content_management_guide.md) for more.
+For more information, see [Content management product guide](content_management_guide.md).
 
 #### User management
 
@@ -106,8 +106,8 @@ On top of this strong core, [[= product_name =]] Headless edition brings tools t
 
 [[= product_name_headless =]] is a complete Digital Experience Platform (DXP), which comes with the following components to enhance user's journey:
 
-- [[= product_name_headless =]] comes with a personalization engine, allowing to recommend content to the front user according to its behavior,
-  or, when authenticated, contents matching user's segment/group. See [Personalization product guide](personalization_brochure.md) for more.
+- [Personalization](personalization_brochure.md) engine, which allows you recommend content to end users according to their behavior,
+  or, when authenticated, by matching with their segment/group.
 - Content scheduler, which allows you to establish the future of the content and use events to have a living front application, even when the editorial team is absent or reduced.
 This way, visitors can discover new content at midnight, during weekends or vacations.
 A calendar summarises those scheduled content events.
@@ -115,11 +115,10 @@ Like everything in the Back Office, the calendar is extendable: you can add an e
 
 #### Many ways to structure and organize content
 
-- [[= product_name_headless =]] has specific feature to organize complex products and their catalogs, making it a strong Product Information Management (PIM) software.
+[Product Information Management](pim_guide.md) (PIM) helps organize complex products and their catalogs:
     - Product are organized per product types × variants × catalogs × categories × tags.
     - Product attributes are grouped and factorized among product types. For example, fabric + color + size can be shared by many clothing product types.
     - Product variants can rapidly be created by the automatic declination of attributes having a defined set of values.
-    - See [PIM product guide](pim_guide.md) for more.
 - [[= product_name_headless =]]' taxonomy feature allows to tag content items to organize them by topics in a much intuitive way for the editor than a content tree with multiple locations would.
   Tags themselves are organized in a tree, and synonyms are linked to a favorite terms. This tags organization can be the task of a supervisor who won't need to move content items around a corporate content tree. At search time, tags can be keywords with a high value in relevance score to help the end user having results closer to the searched topic.
 
