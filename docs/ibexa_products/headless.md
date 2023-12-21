@@ -35,11 +35,13 @@ When you have a license, you install [[= product_name_headless =]] through Compo
 on an architecture including at least a web server with PHP and a relational database server.
 For performance, several bricks can be added to your stack such as a reverse proxy or a search engine.
 
+[[= product_name_headless =]] is based on Symfony. Any Symfony developer, or even PHP developer, can quickly learn how to extend it with the help of an online documentation.
+
 By using a version control system and environment variables, you can deploy your configuration and extensions on several environments including [[= product_name_cloud =]].
 
 Standard web APIs and [[= product_name_connect =]] help establish interoperability, even if you are not an advanced developer.
 
-[[= product_name_headless =]] is based on Symfony. Any Symfony developer, or even PHP developer, can quickly learn how to extend it with the help of an online documentation.
+![Ibexa Headless data inputs and outputs](img/headless.png)
 
 APIs summary:
 
@@ -49,8 +51,6 @@ APIs summary:
 - The PHP API opens [[= product_name_headless =]] to extendability to fit your needs.
   For example, content can be computed, edited or served in specific ways such as
   scheduled/live imports/exports, automated edition tasks, or specific controllers to communicate with other applications.
-
-![Ibexa Headless data inputs and outputs](img/headless.png)
 
 ## Capabilities and benefits
 
