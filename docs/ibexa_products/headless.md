@@ -67,6 +67,8 @@ The core of [[= product_name =]] Headless edition is already awesome as it offer
 
 #### Content model
 
+Content modeling and management are the foundation of [[= product_name =]] with the following main layers:
+
 - Content items are organized as a tree in a repository.
 - An item can have multiple locations in this tree.
 - Content items are typed.
@@ -78,8 +80,8 @@ See [Content management product guide](content_management_guide.md) for more.
 
 #### User management
 
-- User and user group rights are set by roles with thin granular limited permission policies in a safe deny-by-default security system.
-- Users are content items as well, so your knowledge about content management is reused.
+User and user group rights are set by roles with thin granular limited permission policies in a safe deny-by-default security system.
+Users are content items as well, so your knowledge about content management is reused.
 
 See [User management product guide](user_management_guide.md) for more.
 
@@ -99,7 +101,9 @@ See [User management product guide](user_management_guide.md) for more.
 
 On top of this strong core, [[= product_name =]] Headless edition brings tools to increase user experience, from final front users to Back Office contributors.
 
-#### [[= product_name_headless =]] is a complete Digital Experience Platform (DXP)
+#### Complete DXP
+
+[[= product_name_headless =]] is a complete Digital Experience Platform (DXP), which comes with the following components to enhance user's journey:
 
 - [[= product_name_headless =]] comes with a personalization engine, allowing to recommend content to the front user according to its behavior,
   or, when authenticated, contents matching user's segment/group. See [Personalization product guide](personalization_brochure.md) for more.
@@ -118,7 +122,7 @@ Like everything in the Back Office, the calendar is extendable: you can add an e
 - [[= product_name_headless =]]' taxonomy feature allows to tag content items to organize them by topics in a much intuitive way for the editor than a content tree with multiple locations would.
   Tags themselves are organized in a tree, and synonyms are linked to a favorite terms. This tags organization can be the task of a supervisor who won't need to move content items around a corporate content tree. At search time, tags can be keywords with a high value in relevance score to help the end user having results closer to the searched topic.
 
-#### [[= product_name_headless =]] is a collaborative workplace
+#### Collaboration
 
 Several features help end users collaborate on the content:
 
@@ -127,13 +131,13 @@ Several features help end users collaborate on the content:
   A built-in “Quick review“ workflow allows an editor to send a content draft to a colleague for review, and comment or publishing.
   But, as a framework, more complex workflows can be imagined, with several steps and paths, even some automated tasks.
 
-#### [[= product_name_headless =]] accelerates content editing
+#### Accelerated content editing
 
 - [[= product_name_headless =]]'s content tree has several actions available directly on its items. For example, no need to open a content to hide it, you can do it directly from the content tree.
 - An Image Editor offers to crop and flip images. When serving the image in various context, you can even set a focal point to indicate to automated cropping which part of the image should be kept.
 - A Digital Asset Management (DAM) help to crawl in your image ressources to use and reuse them in your content. And a DAM connector allows to also search in your images hosted on third party DAM servers.
 
-#### [[= product_name_headless =]] integrates into the networks
+#### Network integration
 
 ##### Intranets and extranets
 
