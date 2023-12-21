@@ -4,14 +4,13 @@ description: [[= product_name =]] Headless edition features, capabilities and be
 
 # Ibexa DXP Headless edition product guide
 
-## What's [[= product_name_headless =]]
+## What is [[= product_name_headless =]]
 
-[[= product_name =]] Headless edition focuses on content management. It provides tools to collaboratively create content,
-and interfaces (API) to distribute this content.
+[[= product_name =]] Headless edition focuses on content management.
+It provides tools to collaboratively create content, and interfaces (API) to distribute this content.
 
-Multilingual, multichannel, extensible, [[= product_name_headless =]] is an advanced Content Management Framework (CMF),
-a Product Information Management (PIM) platform, and even a Digital Asset Management (DAM) repository.
-It's provided without a default front office but with a complete Back Office, and several APIs to manage and access content.
+Multilingual, multichannel, extensible, [[= product_name_headless =]] is an advanced Content Management Framework (CMF), a Product Information Management (PIM) platform, and even a Digital Asset Management (DAM) repository.
+It's provided without a default front office, but with a complete Back Office and several APIs to manage and access content.
 
 ## Availability
 
@@ -38,7 +37,7 @@ For performance, several bricks can be added to your stack such as a reverse pro
 
 By using a version control system and environment variables, you can deploy your configuration and extensions on several environments including [[= product_name_cloud =]].
 
-Standard web APIs and [[= product_name_connect =]] help, even non-developers, to establish interoperability.
+Standard web APIs and [[= product_name_connect =]] help establish interoperability, even if you are not an advanced developer.
 
 [[= product_name_headless =]] is based on Symfony. Any Symfony developer, or even PHP developer, can quickly learn how to extend it with the help of an online documentation.
 
@@ -104,9 +103,12 @@ On top of this strong core, [[= product_name =]] Headless edition brings tools t
 
 - [[= product_name_headless =]] comes with a personalization engine, allowing to recommend content to the front user according to its behavior,
   or, when authenticated, contents matching user's segment/group. See [Personalization product guide](personalization_brochure.md) for more.
-- [[= product_name_headless =]]' scheduler allows to establish the future of the content and having a living front application with events even when the editorial team is absent or reduced. At midnight, during weekends or vacations, front users can discover new contents. A calendar summaries those scheduled content event. The calendar is extendable as everything in the Back Office, some event source could be added to coordinate content events with other company events.
+- Content scheduler, which allows you to establish the future of the content and use events to have a living front application, even when the editorial team is absent or reduced.
+This way, visitors can discover new content at midnight, during weekends or vacations.
+A calendar summarises those scheduled content events.
+Like everything in the Back Office, the calendar is extendable: you can add an event source to coordinate content events with other company events.
 
-#### [[= product_name_headless =]] adds more ways to structure and organize your content
+#### Many ways to structure and organize content
 
 - [[= product_name_headless =]] has specific feature to organize complex products and their catalogs, making it a strong Product Information Management (PIM) software.
     - Product are organized per product types × variants × catalogs × categories × tags.
@@ -114,11 +116,13 @@ On top of this strong core, [[= product_name =]] Headless edition brings tools t
     - Product variants can rapidly be created by the automatic declination of attributes having a defined set of values.
     - See [PIM product guide](pim_guide.md) for more.
 - [[= product_name_headless =]]' taxonomy feature allows to tag content items to organize them by topics in a much intuitive way for the editor than a content tree with multiple locations would.
-  Tags themselves are organized in a tree, and synonyms are linked to a favorite terms. This tags organisation can be the task of a supervisor who won't need to move content items around a corporate content tree. At search time, tags can be keywords with a high value in relevance score to help the end user having results closer to the searched topic.
+  Tags themselves are organized in a tree, and synonyms are linked to a favorite terms. This tags organization can be the task of a supervisor who won't need to move content items around a corporate content tree. At search time, tags can be keywords with a high value in relevance score to help the end user having results closer to the searched topic.
 
 #### [[= product_name_headless =]] is a collaborative workplace
 
-- Version comparison helps to track changes and to solve concurrent editing conflicts.
+Several features help end users collaborate on the content:
+
+- Version comparison helps track changes and solve concurrent editing conflicts.
 - Workflows helps with collaborative editing chain.
   A built-in “Quick review“ workflow allows an editor to send a content draft to a colleague for review, and comment or publishing.
   But, as a framework, more complex workflows can be imagined, with several steps and paths, even some automated tasks.
@@ -136,7 +140,7 @@ On top of this strong core, [[= product_name =]] Headless edition brings tools t
 - [[= product_name_connect =]] is to create application interconnections with low code, drag-and-drop and a very visual interface.
   Complex data flows can be easily implemented with a huge library of connectors and actions for famous to specific applications.
   See [[[= product_name_connect =]] product guide]([[= connect_doc =]]/general/ibexa_connect/) for more.
-- An OAuth 2 server offers the possibility to use the DXP as the authentification service for other applications.
+- An OAuth 2 server offers the possibility to use the DXP as the authentication service for other applications.
 - An OAuth 2 client supports authentication with a third-party OAuth 2 server.
 - A DAM Connector, previously mentioned, helps to access any image repository when needing to illustrate a content.
 - [[= product_name_headless =]] supports Elasticsearch and Solr.
