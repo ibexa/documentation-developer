@@ -14,12 +14,13 @@ It's provided without a default front office, but with a complete Back Office an
 
 ## Availability
 
-See [[[= product_name_headless =]] license pricing](https://www.ibexa.co/products/pricing?tab=1).
+To start using Ibexa Headless you must purchase a product license.
+For more information, see [[[= product_name_headless =]] license pricing](https://www.ibexa.co/products/pricing?tab=1).
 You can [contact us](https://www.ibexa.co/products/pricing) or [contact one of our partners](https://www.ibexa.co/partners).
 
 ## How it works
 
-### Contributor's practical usage
+### Editorial stage
 
 You access with any web browser from any platform to a rich Back Office, the main place to
 
@@ -135,7 +136,7 @@ Several features help end users collaborate on the content:
 
 - [[= product_name_headless =]]'s content tree has several actions available directly on its items. For example, no need to open a content to hide it, you can do it directly from the content tree.
 - An Image Editor offers to crop and flip images. When serving the image in various context, you can even set a focal point to indicate to automated cropping which part of the image should be kept.
-- A Digital Asset Management (DAM) help to crawl in your image ressources to use and reuse them in your content. And a DAM connector allows to also search in your images hosted on third party DAM servers.
+- A Digital Asset Management (DAM) helps you crawl through your image resources to use and reuse them in your content. And a DAM connector allows you to search for images hosted on third party DAM servers.
 
 #### Network integration
 
