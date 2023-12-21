@@ -34,7 +34,7 @@ by accessing the `content` property:
 </svg>
 ```
 
-### Icons size variants
+#### Icon size variants
 
 The default icon size in the Back Office is `32px`. To change the default size, in the template add the modifier to the class name.
 
@@ -56,3 +56,15 @@ The list of available icon sizes:
 |`38px`|`--medium-large`|
 |`48px`|`--large`|
 |`64px`|`--extra-large`|
+
+### `ibexa_taxonomy_entries_for_content()`
+
+`ibexa_taxonomy_entries_for_content()` fetches names of content categories.
+
+| Argument | Type | Description |
+|---------------|------|-------------|
+| `content` | `Ibexa\Contracts\Core\Repository\Values\Content\Content` | Content item to display the category name for. |
+
+```html+twig
+{{ content|ibexa_taxonomy_entries_for_content|map(entry => "#{entry.name}")|join(', ') }} 
+```
