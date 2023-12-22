@@ -19,7 +19,7 @@ is up to you and your performance needs.
 
 The minimal requirements are:
 
-- [Shared HTTP cache (using Varnish)](reverse_proxy.md/#using-varnish-or-fastly)
+- [Shared HTTP cache (using Varnish)](reverse_proxy.md#using-varnish-or-fastly)
 - [Shared persistence cache](#shared-persistence-cache) and [sessions](#shared-sessions) (using Redis or Memcached)
 - Shared database (using MySQL/MariaDB)
 - [Shared binary files](#shared-binary-files) (using NFS, or S3)
