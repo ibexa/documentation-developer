@@ -68,7 +68,7 @@ For more information about the use of `ez_urlalias` as a parameter of the [Symfo
 
 ### `ibexa_oauth2_connect_path()`
 
-`ibexa_oauth2_connect_path()` generates a relative path for the given [OAuth2 route](../../user_management/oauth.md).
+`ibexa_oauth2_connect_path()` generates a relative path for the given [OAuth2 route](../../users/oauth.md).
 
 |Argument|Type|Description|
 |------|------|------|
@@ -78,7 +78,7 @@ For more information about the use of `ez_urlalias` as a parameter of the [Symfo
 
 ### `ibexa_oauth2_connect_url()`
 
-`ibexa_oauth2_connect_url()` generates an absolute URL for the given [OAuth2 route](../../user_management/oauth.md).
+`ibexa_oauth2_connect_url()` generates an absolute URL for the given [OAuth2 route](../../users/oauth.md).
 
 |Argument|Type|Description|
 |------|------|------|

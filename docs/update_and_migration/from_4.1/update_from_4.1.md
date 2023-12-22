@@ -133,7 +133,7 @@ If you have no access to [[= product_name =]]'s `ibexa/installer` package, datab
 
 Following [Security advisory: IBEXA-SA-2022-009](https://developers.ibexa.co/security-advisories/ibexa-sa-2022-009-critical-vulnerabilities-in-graphql-role-assignment-ct-editing-and-drafts-tooltips),
 unless you can verify based on your log files that the vulnerability has not been exploited,
-you should [revoke passwords](https://doc.ibexa.co/en/latest/users/user_management/#revoking-passwords) for all affected users.
+you should [revoke passwords](https://doc.ibexa.co/en/latest/users/passwords/#revoking-passwords) for all affected users.
 
 ### Remove `node_modules` and `yarn.lock`
 

@@ -206,13 +206,19 @@ nav:
             - 'Limitations': 'guide/limitations.md'
             - 'Limitation reference': 'guide/limitation_reference.md'
             - 'Custom Policies': 'guide/custom_policies.md'
-        - User management:
-            - 'User management': 'guide/user_management/user_management.md'
-            - 'Login and registration': 'guide/user_management/login_and_registration.md'
-            - 'OAuth authentication': 'guide/user_management/oauth.md'
-            - 'Add login through external service': 'guide/user_management/login_via_external_service.md'
-            - 'Token': 'guide/user_management/token.md'
-            - 'Delegate function': 'guide/user_management/delegate_function.md'
+        - Users:
+            - 'Users': 'guide/users/users.md'
+            - 'User setup':
+                  - 'Basic user setup': 'guide/users/login_and_registration.md'
+                  - 'Registration': 'guide/users/user_registration.md'
+                  - 'Delegate function': 'guide/users/delegate_function.md'
+            - User authentication:
+                - 'Login methods': 'guide/users/login_methods.md'
+                - 'Passwords': 'guide/users/passwords.md'
+                - 'User authentication': 'guide/users/user_authentication.md'
+                - 'OAuth authentication': 'guide/users/oauth.md'
+                - 'Add login through external service': 'guide/users/login_via_external_service.md'
+                - 'Token': 'guide/users/token.md'
             - Customers:
                 - 'Customers': 'guide/customers/customers.md'
                 - 'Customer templates': 'guide/customers/customer_templates.md'

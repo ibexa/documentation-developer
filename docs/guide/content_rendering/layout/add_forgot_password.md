@@ -27,7 +27,7 @@ which users receive after they request a password change.
 The [default templates](https://github.com/ezsystems/ezplatform-user/tree/master/src/bundle/Resources/views) for forgot password form and email are located in `ezplatform-user/src/bundle/Resources/views`.
 The [templates](https://github.com/ezsystems/ezplatform-admin-ui/blob/master/src/bundle/Resources/views/themes/admin/account/forgot_password/) specific for the Back Office are in `ezplatform-admin-ui/src/bundle/Resources/views/themes/admin/account`.
 
-You can also modify [other user management templates](../../user_management/user_management.md#other-user-management-templates).
+You can also modify [other user management templates](../../users/user_registration.md#other-user-management-templates).
 
 To add a link redirecting to the reset password form, in the page layout template, provide the following code:
 

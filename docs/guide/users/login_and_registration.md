@@ -1,16 +1,18 @@
 ---
-description: Configure registering and activating customers.
+description: Learn basic information about user logging and registration processes.
 ---
 
-# Login and registration
+# Basic user setup
 
 ## Login
 
 In [[= product_name =]], users can log in with their user name or email.
+For more information, see [Login methods](login_methods.md).
 
 ## Registration
 
 [[= product_name =]] provides different registration options for private and business customers.
+For more information, see [Register new users](user_registration.md).
 
 ### Private customers
 
