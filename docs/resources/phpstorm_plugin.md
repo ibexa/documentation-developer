@@ -68,7 +68,7 @@ In project settings form you can choose:
 - Product edition: [[= product_name_oss =]], [[= product_name_content =]], [[= product_name_exp =]], [[= product_name_com =]]
 - Authentication token (for Content, Experience and Commerce editions)
 - Product version: Default (latest LTS version), Latest (fast track or LTS), Latest LTS and "Next 3.x" (unstable, based on the 3.x branch) and "Next 4.x" (unstable, based on the 4.x branch)
-- Generate [Ibexa Cloud configuration](install_on_ibexa_cloud) 
+- Generate [Ibexa Cloud configuration](install_on_ibexa_cloud.md) 
 - Composer settings
 
 ![Create a project](phpstorm_plugin_create_project.png)
