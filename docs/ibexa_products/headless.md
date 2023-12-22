@@ -88,7 +88,9 @@ See [User management product guide](user_management_guide.md) for more.
 
 #### Content access
 
-- The REST API and GraphQL API support access to and edition of the content.
+There is many paths to access the content in many shapes:
+
+- The REST API and GraphQL API support access to, and edition of the content.
 - [[= product_name_headless =]] offers a complete PHP API to extend the ways to access content.
 - A design engine and a view controller offer to create plain text content views (such as HTML, JSON, XML, CSS, JS, CSV, or Markdown),
   and to factorize those views by using theme cascades.
