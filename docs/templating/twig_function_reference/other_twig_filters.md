@@ -4,21 +4,6 @@ page_type: reference
 
 # Other Twig filters
 
-### `ibexa_user_get_current()`
-
-`ibexa_user_get_current()` returns the User object (`Ibexa\Contracts\Core\Repository\Values\User\User`) of the current user.
-
-``` html+twig
-{{ ibexa_user_get_current().login }}
-```
-
-You can get the underlying Content item, for example the user's name,
-by accessing the `content` property:
-
-``` html+twig
-{{ ibexa_render(ibexa_user_get_current().content) }}
-```
-
 ### `ibexa_icon_path()`
 
 `ibexa_icon_path()` generates a path to the selected icon from an icon set.
