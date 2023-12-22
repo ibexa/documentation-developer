@@ -1,5 +1,5 @@
 ---
-description: [[= product_name =]] Headless edition features, capabilities and benefits.
+description: Ibexa DXP Headless edition features, capabilities and benefits.
 ---
 
 # Ibexa DXP Headless edition product guide
