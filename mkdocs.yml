@@ -385,12 +385,18 @@ nav:
     - Users:
         - Users: users/users.md
         - User management guide: users/user_management_guide.md
-        - User management: users/user_management.md
-        - Customer groups: users/customer_groups.md
-        - Invitations: users/invitations.md
-        - OAuth authentication: users/oauth_authentication.md
-        - Add login through external service: users/add_login_through_external_service.md
-        - Segment API: users/segment_api.md
+        - User setup:
+          - Invitations: users/invitations.md
+          - Registration: users/user_registration.md
+        - User authentication:
+          - Login methods: users/login_methods.md
+          - Passwords: users/passwords.md
+          - User authentication: users/user_authentication.md
+          - OAuth authentication: users/oauth_authentication.md
+          - Add login through external service: users/add_login_through_external_service.md
+        - User grouping:
+          - Customer groups: users/customer_groups.md
+          - Segment API: users/segment_api.md
     - Personalization:
         - Personalization: personalization/personalization.md
         - Personalization guide : personalization/personalization_brochure.md
