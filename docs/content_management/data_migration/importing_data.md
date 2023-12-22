@@ -22,10 +22,9 @@ Migrations store execution metadata in the `ibexa_migrations` database table.
 This allows incremental upgrades:
 the `ibexa:migrations:migrate` command ignores files that it had previously executed.
 
-Notice the `--siteaccess` option usage.
-This can be important, especially when several languages are used.
-You must import with the SiteAccess supporting all the languages, or migration skips translations in non-supported languages.
-It's recommended to use the SiteAccess of the Back Office of the targeted repository.
+Notice that `--siteaccess` option usage is important when several languages are used.
+You must import with a SiteAccess that supports all languages, or the migration skips translations in non-supported languages.
+It's recommended to use the SiteAccess from the Back Office of the targeted repository.
 
 ## Migration step
 

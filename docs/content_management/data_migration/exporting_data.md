@@ -136,9 +136,9 @@ Note that you should test your migrations. See [Importing data](importing_data.m
 
 !!! caution
 
-    `--siteaccess` option usage can be relevant on multi-languages repository.
-    You must export with the SiteAccess supporting all the languages, or migration skips translations in non-supported languages.
-    It is recommended to use the SiteAccess of the Back Office of the targeted repository.
+    The `--siteaccess` option usage can be relevant for a multi-language repository.
+    You must export with a SiteAccess that supports all languages, or the migration skips translations in non-supported languages. 
+    It is recommended to use the SiteAccess from the Back Office of the targeted repository.
 
 ## type
 
