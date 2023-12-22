@@ -168,10 +168,10 @@ To retrieve the Fields of the selected Content item, you can use the following c
 }
 ```
 
-Line 16 shows how [`ContentService::loadContent`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php#L147) loads the Content item provided to the command.
-Line 17 makes use of the [`ContentTypeService`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentTypeService.php) to retrieve the Content Type of the requested item.
+Line 9 shows how [`ContentService::loadContent`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php#L147) loads the Content item provided to the command.
+Line 14 makes use of the [`ContentTypeService`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentTypeService.php) to retrieve the Content Type of the requested item.
 
-Lines 19-24 iterate over Fields defined by the Content Type.
+Lines 12-19 iterate over Fields defined by the Content Type.
 For each Field they print out its identifier, and then using [`FieldTypeService`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/FieldTypeService.php) retrieve the Field's value and print it out to the console.
 
 ## Viewing content in different languages
@@ -199,9 +199,9 @@ you need to use the [`LocationService`.](https://github.com/ibexa/core/blob/main
 [[= include_file('code_samples/api/public_php_api/src/Command/BrowseLocationsCommand.php', 30, 49) =]]
 ```
 
-`loadLocation` (line 14) returns a value object, here a `Location`.
+`loadLocation` (line 15) returns a value object, here a `Location`.
 
-[`LocationService::loadLocationChildren`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/LocationService.php#L106) (line 23)
+[`LocationService::loadLocationChildren`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/LocationService.php#L106) (line 5)
 returns a [`LocationList`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/LocationList.php) value object that you can iterate over.
 
 !!! note
