@@ -1,6 +1,6 @@
 # SectionIdentifier Sort Clause
 
-The [`SectionIdentifier` Sort Clause](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/SortClause/SectionIdentifier.php)
+The [`SectionIdentifier` Sort Clause](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-SectionIdentifier.html)
 sorts search results by the Section IDs of the Content items.
 
 ## Arguments

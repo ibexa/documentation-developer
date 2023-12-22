@@ -4,12 +4,12 @@ description: The PHP API URLService enables searching for external URLs used in 
 
 # URL API
 
-[`URLService`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/URLService.php)
+[`URLService`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-URLService.html)
 enables you to find, load and update external URLs used in RichText and URL Fields.
 
-To view a list of all URLs, use [`URLService::findUrls`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/URLService.php#L38)
+To view a list of all URLs, use [`URLService::findUrls`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-URLService.html#method_findUrls)
 
-`URLService::findUrls` takes as argument a [`URLQuery`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/URL/URLQuery.php),
+`URLService::findUrls` takes as argument a [`URLQuery`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-URL-URLQuery.html),
 in which you need to specify:
 
 - query filter e.g. Section

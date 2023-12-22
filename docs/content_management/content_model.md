@@ -24,7 +24,7 @@ The Fields can cover data ranging from single variables and text lines to media 
 
 #### Content information
 
-General information about a Content item is stored in a [`ContentInfo`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentInfo.php) object.
+General information about a Content item is stored in a [`ContentInfo`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html) object.
 `ContentInfo` does not include Fields. It contains following information:
 
 **`id`** - the unique ID of the Content object. These numbers are not recycled, so if an item is deleted, its ID will not be reused when a new one is created.

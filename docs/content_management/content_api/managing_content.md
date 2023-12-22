@@ -7,7 +7,7 @@ description: PHP API enables managing content Locations, Content Types, as well 
 ## Locations
 
 You can manage [Locations](locations.md) that hold content
-using [`LocationService`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/LocationService.php).
+using [`LocationService`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-LocationService.html).
 
 !!! tip "Location REST API"
 
@@ -23,8 +23,8 @@ Creating a new Location, like creating content, requires using a struct,
 because a Location value object is read-only.
 
 To add a new Location to existing content you need to create
-a [`LocationCreateStruct`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/LocationCreateStruct.php)
-and pass it to the [`LocationService::createLocation`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/LocationService.php#L141) method:
+a [`LocationCreateStruct`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-LocationCreateStruct.html)
+and pass it to the [`LocationService::createLocation`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-LocationService.html#method_createLocation) method:
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/AddLocationToContentCommand.php', 50, 51) =]]
@@ -43,8 +43,8 @@ You can also provide other properties for the Location, otherwise they will be s
 ### Changing the main Location
 
 When a Content item has more that one Location, one Location is always considered the main one.
-You can change the main Location using [`ContentService`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php),
-by updating the `ContentInfo` with a [`ContentUpdateStruct`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentUpdateStruct.php)
+You can change the main Location using [`ContentService`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html),
+by updating the `ContentInfo` with a [`ContentUpdateStruct`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentUpdateStruct.html)
 that sets the new main Location:
 
 ``` php
@@ -54,8 +54,8 @@ that sets the new main Location:
 ### Hiding and revealing Locations
 
 To hide or reveal (unhide) a Location you need to make use of
-[`LocationService::hideLocation`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/LocationService.php#L175)
-or [`LocationService::unhideLocation`:](https://github.com/ibexa/core/blob/main/src/contracts/Repository/LocationService.php#L189)
+[`LocationService::hideLocation`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-LocationService.html#method_hideLocation)
+or [`LocationService::unhideLocation`:](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-LocationService.html#method_unhideLocation)
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/HideLocationCommand.php', 46, 47) =]][[= include_file('code_samples/api/public_php_api/src/Command/HideLocationCommand.php', 49, 50) =]]
@@ -68,7 +68,7 @@ on the behavior of visible and hidden Locations.
 
 You can remove a Location either by deleting it, or sending it to Trash.
 
-Deleting makes use of [`LocationService::deleteLocation()`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/LocationService.php#L215).
+Deleting makes use of [`LocationService::deleteLocation()`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-LocationService.html#method_deleteLocation).
 It permanently deletes the Location, together with its whole subtree.
 
 Content which has only this one Location will be permanently deleted as well.
@@ -81,7 +81,7 @@ another Location will become the main one.
 ```
 
 To send the Location and its subtree to Trash,
-use [`TrashService::trash`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/TrashService.php#L49).
+use [`TrashService::trash`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-TrashService.html#).
 Items in Trash can be later [restored, or deleted permanently](#trash).
 
 ``` php
@@ -90,13 +90,13 @@ Items in Trash can be later [restored, or deleted permanently](#trash).
 
 ### Moving and copying a subtree
 
-You can move a Location with its whole subtree using [`LocationService::moveSubtree`:](https://github.com/ibexa/core/blob/main/src/contracts/Repository/LocationService.php#L206)
+You can move a Location with its whole subtree using [`LocationService::moveSubtree`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-LocationService.html#method_moveSubtree):
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/MoveContentCommand.php', 46, 49) =]]
 ```
 
-[`LocationService::copySubtree`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/LocationService.php#L38) is used in the same way,
+[`LocationService::copySubtree`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-LocationService.html#method_copySubtree) is used in the same way,
 but it copies the Location and its subtree instead of moving it.
 
 !!! tip
@@ -115,10 +115,10 @@ but it copies the Location and its subtree instead of moving it.
 
     To learn how to manage Trash using the REST API, see [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#managing-content-list-trash-items).
 
-To empty the Trash (remove all Locations in Trash), use [`TrashService::emptyTrash`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/TrashService.php#L75),
+To empty the Trash (remove all Locations in Trash), use [`TrashService::emptyTrash`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-TrashService.html#method_emptyTrash),
 which takes no arguments.
 
-You can recover an item from Trash using [`TrashService::recover`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/TrashService.php#L63).
+You can recover an item from Trash using [`TrashService::recover`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-TrashService.html#method_recover).
 You must provide the method with the ID of the object in Trash.
 Trash Location is identical to the origin Location of the object.
 
@@ -145,10 +145,10 @@ For more information, see [Searching in trash](search_api.md#searching-in-trash)
 
 ### Adding Content Types
 
-To operate on Content Types, you need to make use of [`ContentTypeService`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentTypeService.php).
+To operate on Content Types, you need to make use of [`ContentTypeService`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentTypeService.html).
 
 Adding a new Content Type, like creating content, must happen with the use of a struct, because a Content Type value object is read-only.
-In this case you use [`ContentTypeCreateStruct`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/ContentType/ContentTypeCreateStruct.php).
+In this case you use [`ContentTypeCreateStruct`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-ContentTypeCreateStruct.html).
 
 A Content Type must have at least one name, in the main language, and at least one Field definition.
 
@@ -164,7 +164,7 @@ You can specify more details of the Field definition in the create struct, for e
 
 ### Copying Content Types
 
-To copy a Content Type, use [`ContentTypeService::copyContentType`:](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentTypeService.php#L241)
+To copy a Content Type, use [`ContentTypeService::copyContentType`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentTypeService.html#method_copyContentType):
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/CreateContentTypeCommand.php', 88, 89) =]]
@@ -173,7 +173,7 @@ To copy a Content Type, use [`ContentTypeService::copyContentType`:](https://git
 The copy will automatically be given an identifier based on the original Content Type identifier
 and the copy's ID, for example: `copy_of_folder_21`.
 
-To change the identifier of the copy, use a [`ContentTypeUpdateStruct`:](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/ContentType/ContentTypeUpdateStruct.php)
+To change the identifier of the copy, use a [`ContentTypeUpdateStruct`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-ContentTypeUpdateStruct.html):
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/CreateContentTypeCommand.php', 89, 95) =]]

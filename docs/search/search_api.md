@@ -10,7 +10,7 @@ To do this, you can use the [`SearchService`](#searchservice) or [Repository fil
 
 ## SearchService
 
-[`SearchService`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/SearchService.php)
+[`SearchService`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-SearchService.html)
 enables you to perform search queries using the PHP API.
 
 The service should be [injected into the constructor of your command or controller](php_api.md#service-container).
@@ -22,7 +22,7 @@ The service should be [injected into the constructor of your command or controll
 
 ### Performing a search
 
-To search through content you need to create a [`LocationQuery`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/LocationQuery.php)
+To search through content you need to create a [`LocationQuery`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-LocationQuery.html)
 and provide your search criteria as a series of Criterion objects.
 
 For example, to search for all content of a selected Content Type, use one Criterion,
@@ -173,8 +173,8 @@ $filter
 
     Not all Search Criteria and Sort Clauses are available for use in Repository filtering.
 
-    Only Criteria implementing [`FilteringCriterion`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Filter/FilteringCriterion.php)
-    and Sort Clauses implementing [`FilteringSortClause`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Filter/FilteringSortClause.php)
+    Only Criteria implementing [`FilteringCriterion`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Filter-FilteringCriterion.html)
+    and Sort Clauses implementing [`FilteringSortClause`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Filter-FilteringSortClause.html)
     are supported.
 
     See [Search Criteria](search_criteria_reference.md)

@@ -1,6 +1,6 @@
 # IsMainLocation Criterion
 
-The [`IsMainLocation` Search Criterion](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/Criterion/LanguageCode.php)
+The [`IsMainLocation` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-LanguageCode.html)
 searches for Locations based on whether they are the main Location of a Content item or not.
 
 This Criterion is available only for Location Search.

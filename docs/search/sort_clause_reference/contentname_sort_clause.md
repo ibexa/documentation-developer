@@ -1,6 +1,6 @@
 # ContentName Sort Clause
 
-The [`ContentName` Sort Clause](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/SortClause/ContentName.php)
+The [`ContentName` Sort Clause](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-ContentName.html)
 sorts search results by the Content items' names.
 
 ## Arguments

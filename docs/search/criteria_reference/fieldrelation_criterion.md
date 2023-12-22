@@ -1,6 +1,6 @@
 # FieldRelation Criterion
 
-The [`FieldRelation` Search Criterion](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/Criterion/FieldRelation.php)
+The [`FieldRelation` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-FieldRelation.html)
 searches for content based on the Content items it has Relations to.
 
 ## Arguments

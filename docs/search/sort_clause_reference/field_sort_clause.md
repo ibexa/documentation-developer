@@ -1,6 +1,6 @@
 # Field Sort Clause
 
-The [`Field` Sort Clause](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/SortClause/Field.php)
+The [`Field` Sort Clause](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-Field.html)
 sorts search results by the value of one of the Content items' Fields.
 
 Search results of the provided Content Type are sorted in Field value order.
