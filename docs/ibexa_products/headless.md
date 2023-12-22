@@ -126,7 +126,7 @@ Like everything in the Back Office, the calendar is extendable: you can add an e
 
 #### Collaboration
 
-Several features help end users collaborate on the content:
+Several features help end users collaborate on the content, such as:
 
 - Version comparison helps track changes and solve concurrent editing conflicts.
 - Workflows helps with collaborative editing chain.
