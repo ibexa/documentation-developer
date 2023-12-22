@@ -5,8 +5,6 @@ edition: commerce
 
 # Configuring PayPal payments with Payum
 
-## Integration via Payum Configuration
-
 PayPal offers a versatile payment gateway that supports various payment methods, including credit cards, debit cards, Pay Later options, and alternative payment methods like Venmo.
 Integrating PayPal allows for a secure and convenient checkout experience.
 

@@ -76,7 +76,3 @@ Ensure to replace "Stripe Payment Method" with the translated name in the respec
 
 - Verify that the provided API keys (publishable and secret) are from your Stripe account and are correctly configured within your application.
 - Maintain consistency between the payment method identifiers used in the Payum configuration and the corresponding translations in your language files.
-
-### Conclusion
-
-By configuring Stripe payments in line with the Payum documentation and incorporating translations for payment method names, you can enhance the user experience by presenting a localized interface while securely processing payments using Stripe's robust platform.
