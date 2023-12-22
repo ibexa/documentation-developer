@@ -8,7 +8,7 @@ edition: commerce
 The Payment component enables users to define and manage payment methods, as well as create and manage payments, search for payment methods and payments and filter payment search results. 
 Depending on their role, users can also enable or disable payment methods, modify payment information, as well as cancel payments.
 
-There are few payment method types is available: 
+Available payment method types : 
 
 - offline – out of the box
 - payment gateways – integration with Payum

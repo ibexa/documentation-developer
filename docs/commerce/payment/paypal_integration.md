@@ -1,8 +1,13 @@
-# Configuring PayPal Payments with Payum
+---
+description: Configuring PayPal payments with Payum.
+edition: commerce
+---
+
+# Configuring PayPal payments with Payum
 
 ## Integration via Payum Configuration
 
-PayPal offers a versatile payment gateway that supports various payment methods, including credit cards, debit cards, Pay Later options, and alternative payment methods like Venmo. 
+PayPal offers a versatile payment gateway that supports various payment methods, including credit cards, debit cards, Pay Later options, and alternative payment methods like Venmo.
 Integrating PayPal allows for a secure and convenient checkout experience.
 
 ## Account setup
@@ -23,7 +28,7 @@ payum:
             signature: <paypal_signature>
 ```
 
-Replace `<method_identifier>` with a unique identifier for the PayPal payment method. 
+Replace `<method_identifier>` with a unique identifier for the PayPal payment method.
 The username, password, and signature fields should contain your PayPal API credentials obtained from your PayPal business account.
 
 ## Translations for payment methods
@@ -39,7 +44,7 @@ ibexa:
 
 ```
 
-Replace `<method_identifier>` with the identifier used in the Payum configuration. 
+Replace `<method_identifier>` with the identifier used in the Payum configuration.
 Add translations for each PayPal payment method identifier within the `ibexa_payment_type` namespace in your translation files.
 
 ### Implementation

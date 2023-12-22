@@ -13,7 +13,7 @@ You can also [customize the payment processing workflow](configure_payment.md#cu
 
 ## Create custom payment method type
 
-If your application needs payment methods of other type than the default `offline` one, or ones offered by Payum, you can create custom payment method types. 
+If your application needs payment methods of other type than the default `offline` one, or ones offered by Payum, you can create custom payment method types.
 Code samples below show how this could be done if your organization wants to use PayPal independently.
 
 !!! note "Gateway integration requirement"

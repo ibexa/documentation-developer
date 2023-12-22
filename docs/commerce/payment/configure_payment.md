@@ -1,6 +1,5 @@
 ---
 description: Configure payments, modify the default payment processing workflow.
-
 edition: commerce
 ---
 

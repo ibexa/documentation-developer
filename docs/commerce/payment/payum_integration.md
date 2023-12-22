@@ -25,7 +25,7 @@ payum:
 
 ```
 
-Replace `<method_identifier>` with a unique identifier for the payment method. 
+Replace `<method_identifier>` with a unique identifier for the payment method.
 Define the factory based on the supported gateway.
 Include the necessary credentials and settings required by the specific gateway.
 
@@ -42,7 +42,7 @@ ibexa:
 
 ```
 
-Replace `<method_identifier>` with the identifier used in the Payum configuration. 
+Replace `<method_identifier>` with the identifier used in the Payum configuration.
 Add translations for each payment method identifier within the ibexa_payment_type namespace in your translation files.
 
 ## Implementation
