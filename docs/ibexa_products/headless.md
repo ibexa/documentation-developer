@@ -84,7 +84,7 @@ For more information, see [Content management product guide](content_management_
 User and user group rights are set by roles with thin granular limited permission policies in a safe deny-by-default security system.
 Users are content items as well, so your knowledge about content management is reused.
 
-See [User management product guide](user_management_guide.md) for more.
+For more information, see [User management product guide](user_management_guide.md).
 
 #### Content access
 
@@ -145,7 +145,7 @@ Several features help end users collaborate on the content, such as:
 
 - [[= product_name_connect =]]'s role is to create application interconnections with low code and drag-and-drop, in a compelling visual interface.
   Complex data flows can be easily implemented with a huge library of connectors and actions for famous to specific applications.
-  See [[[= product_name_connect =]] product guide]([[= connect_doc =]]/general/ibexa_connect/) for more.
+  For more information, see [[[= product_name_connect =]] product guide]([[= connect_doc =]]/general/ibexa_connect/).
 - An OAuth 2 server offers the possibility to use the DXP as the authentication service for other applications.
 - An OAuth 2 client supports authentication with a third-party OAuth 2 server.
 - A DAM Connector, previously mentioned, helps to access any image repository when needing to illustrate a content.
