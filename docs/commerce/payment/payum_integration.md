@@ -26,7 +26,8 @@ payum:
 ```
 
 Replace `<method_identifier>` with a unique identifier for the payment method. 
-Define the factory based on the supported gateway. Include the necessary credentials and settings required by the specific gateway.
+Define the factory based on the supported gateway.
+Include the necessary credentials and settings required by the specific gateway.
 
 ## Translations for payment methods
 
