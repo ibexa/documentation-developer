@@ -12,7 +12,7 @@ and provides statistical information for the values. You can use the provided ge
 ## Arguments
 
 - `name` - name of the Aggregation
-- `currencyCode` - currency code of the price
+- `\Ibexa\Contracts\ProductCatalog\Values\CurrencyInterface` - currency of the price
 
 ## Example
 
