@@ -64,7 +64,7 @@ imagine its inputs/outputs, and implement them with its various layers' APIs.
 
 ### Core features
 
-The core of [[= product_name =]] Headless edition is already awesome as it offers everything to structure your content repositories and access them.
+The core of [[= product_name_headless =]] offers everything to structure your content repositories and access them.
 
 #### Content model
 
