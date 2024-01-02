@@ -71,7 +71,7 @@ class TestableUrl
     public function test(bool $testLocations = true, bool $testFragment = true, bool $cache = true): self
     {
         if (!$this->isTested() || !$cache) {
-            $test = self::testUrl($this->getSolvedUrl(), $this->isExternal(), $testFragment, $this->getFile());
+            $test = self::testUrl($this->getSolvedUrl(), $this->isExternal(), $testFragment);
             $this->headers = $test['headers'];
             $this->code = $test['code'];
             $this->location = null === $test['location'] ? null : new TestableUrl($test['location'], null, $this->getFile(), $this->getLine(), null, false, $testLocations);
@@ -249,9 +249,12 @@ class TestableUrl
      * @param string $url The URL istsel
      * @param bool|null $external If it's an external URL or not
      * @param bool $testFragment If the eventual fragment/hash/anchor part should be tested
+     * @param int $retryCount Number of retries on time out
+     * @param int $retryDelay Delay in seconds before retrying
+     * @param int $tryNumber Try number (first try is numbered 1)
      * @return array ['headers' => null|array, 'code' => int, 'location' => null|string, 'fragment_found' => null|bool]
      */
-    public static function testUrl(string $url, bool $external = null, bool $testFragment = true): array
+    public static function testUrl(string $url, bool $external = null, bool $testFragment = true, int $retryCount = 1, int $retryDelay = 300, int $tryNumber = 1): array
     {
         $headers = null;
         $code = self::NOT_TESTABLE_CODE;
@@ -324,6 +327,11 @@ class TestableUrl
                     }
                 }
                 break;
+            case 522: // Connection Timed Out
+                if ($tryNumber <= $retryCount+1) {
+                    sleep($retryDelay);
+                    return testUrl($url, $external, $testFragment, $retryCount, $retryDelay, $tryNumber++);
+                }
             case 400: // Bad Request
             case 401: // Unauthorized
             case 403: // Forbidden
