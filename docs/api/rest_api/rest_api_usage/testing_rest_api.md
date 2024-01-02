@@ -32,7 +32,7 @@ Open a PHP shell in a terminal with <nobr>`php -a`</nobr> and copy-paste this co
 
 `$resource` URI should be edited to address the right domain.
 
-On a freshly installed Ibexa DXP, `52` is the Content ID of the home page. If necessary, substitute `52` with the Content ID of an item from your database.
+On a freshly installed [[= product_name =]], `52` is the Content ID of the home page. If necessary, substitute `52` with the Content ID of an item from your database.
 
 For a content creation example using PHP, see [Creating content with binary attachments](rest_requests.md#creating-content-with-binary-attachments)
 
@@ -72,6 +72,6 @@ To test it, copy-paste this code into your browser console alongside a page from
     request.send();
     ```
 
-On a freshly installed Ibexa DXP, `52` is the Content ID of the home page. If necessary, substitute `52` with the Content ID of an item from your database.
+On a freshly installed [[= product_name =]], `52` is the Content ID of the home page. If necessary, substitute `52` with the Content ID of an item from your database.
 
 You can edit the `resource` URI to address another domain, but [cross-origin requests](rest_responses.md#cross-origin) must be allowed first.

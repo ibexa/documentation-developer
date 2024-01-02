@@ -115,7 +115,7 @@ In the **Sub-items** section, select all the current sub-items and click the **H
 ![Hiding Content items you do not need](enterprise_tut_hide_content.png)
 
 Next, under "Ibexa Digital Experience Platform", create three Folders. Call them 'All Articles', 'Dog Breed Catalog' and 'All Tips'.
-Remember that you save and close them by using the 'Publish' button.
+Remember that you can **Save and close** them, but you should use the **Publish** button.
 
 Next, create a few Content items of proper Content Types in each of these folders:
 

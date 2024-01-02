@@ -18,7 +18,7 @@ php bin/console ibexa:migrations:generate --type=content --mode=create
 ```
 
 This generates a file containing all Content items.
-Below you can see part of the output of the default Ibexa DXP installation.
+Below you can see part of the output of the default [[= product_name =]] installation.
 
 ``` yaml
 -

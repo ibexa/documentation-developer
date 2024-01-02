@@ -8,18 +8,18 @@ description: "Ibexa DXP releases new versions periodically in different flavors:
 
 [[= product_name =]] has three distributions:
 
-- [[= product_name_content =]] is a multichannel and headless content management system.
+- [[= product_name_headless =]] is a multichannel and headless content management system.
 - [[= product_name_exp =]] is a modern modular Digital Experience Platform to build outstanding customer experiences
 - [[= product_name_com =]] is a commerce-ready B2B DXP designed to digitalize your business from customer awareness to purchase and beyond.
 
-Additionally, [[= product_name =]] also has an open-source version called Ibexa OSS.
-Ibexa OSS is developed by Ibexa together with the open source community.
-The Ibexa OSS code is available on GitHub under the GPLv2 license.
+Additionally, [[= product_name =]] also has an open-source version called [[= product_name_oss =]].
+[[= product_name_oss =]] is developed by [[= product_name_base =]] together with the open source community.
+The [[= product_name_oss =]] code is available on GitHub under the GPLv2 license.
 It comes with no commercial support and maintenance services. 
 
 We manage the release of [[= product_name =]] using an agile iterative process and a continuous software development model, which is why we provide two kinds of [[= product_name =]] releases:
 
-- Long Term Support releases (LTS) which are supported by Ibexa for a long period of time.
+- Long Term Support releases (LTS) which are supported by [[= product_name_base =]] for a long period of time.
 - Fast Track releases (FT) give access to the latest features and are supported for a short period of time. They are maintained only until the next FT release is introduced.
 
 FT releases are tailored for those who want to stay up-to-date with newest functionalities,
@@ -37,7 +37,7 @@ The version number of [[= product_name =]] and all its internal components follo
 
 Distribution files of our three editions are as follows:
 
-- for [[= product_name_content =]]: ibexa-content-vX.Y.Z.tgz
+- for [[= product_name_headless =]]: ibexa-headless-vX.Y.Z.tgz
 - for [[= product_name_exp =]]: ibexa-experience-vX.Y.Z.tgz
 - for [[= product_name_com =]]: ibexa-commerce-vX.Y.Z.tgz
 

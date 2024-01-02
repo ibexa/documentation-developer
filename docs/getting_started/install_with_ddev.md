@@ -258,7 +258,7 @@ sed -i 's/ibexa_params.d/sites-enabled\/ibexa_params.d/' .ddev/nginx_full/ibexa.
 
 If you want to use HTTPS, you must add the following rule to avoid mixed content (HTTPS pages linking to HTTP resources): `fastcgi_param HTTPS $fcgi_https;`
 
-For example, you can append it to Ibexa's FastCGI config:
+For example, you can append it to [[= product_name_base =]]'s FastCGI config:
 
 ```bash
 echo 'fastcgi_param HTTPS $fcgi_https;' >> .ddev/nginx_full/ibexa_params.d/ibexa_fastcgi_params

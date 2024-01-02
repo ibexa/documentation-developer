@@ -2,6 +2,8 @@
 description: Ibexa DXP v4.5 adds new features to Ibexa Commerce, translation comparison, and a number of improvements to Customer Portal and Personalization.
 ---
 
+<!-- vale off -->
+
 # Ibexa DXP v4.5
 
 **Version number**: v4.5
@@ -121,7 +123,7 @@ In this release, the CDP configuration becomes more generic
 and allows supporting other transport types accepted by CDP.
 Currently, only `stream_file` transport is supported and can be initialized from the configuration.
 
-Ibexa DXP v4.5 adds the abstraction that allows you to implement other transport types from third parties.
+[[= product_name =]] v4.5 adds the abstraction that allows you to implement other transport types from third parties.
 For more information, see [CDP configuration](https://doc.ibexa.co/en/4.5/cdp/cdp_activation/#configuration).
 
 ### API improvements
@@ -193,6 +195,11 @@ Product search now supports aggregations, with the following aggregations availa
 
 The new [TaxonomyEntryIdAggregation](https://doc.ibexa.co/en/4.5/search/aggregation_reference/taxonomyentryid_aggregation/) aggregates results based on content taxonomy entries or product categories.
 
+### Tag identifiers
+
+The taxonomy entry identifier uniqueness has been changed from globally unique to unique per taxonomy.
+It's no longer necessary to take other taxonomies into account when creating tags in a taxonomy.
+
 ### Password security
 
 You can now enhance password security with a setting that prevents using passwords that have been exposed in a public breach.
@@ -202,7 +209,7 @@ See [Breached passwords](https://doc.ibexa.co/en/4.5/users/user_management/#brea
 
 ### Ibexa Connect
 
-For list of changes in Ibexa Connect, see [Ibexa app release notes](https://doc.ibexa.co/projects/connect/en/latest/general/ibexa_app_release_notes/).
+For list of changes in [[= product_name_connect =]], see [Ibexa app release notes](https://doc.ibexa.co/projects/connect/en/latest/general/ibexa_app_release_notes/).
 
 ### Deprecations
 

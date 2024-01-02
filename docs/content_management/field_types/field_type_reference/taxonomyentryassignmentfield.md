@@ -4,6 +4,11 @@
 It allows you to select tags or categories and assign them to content. 
 This Field Type assigns tags to the content in the data action, so then you can use `TaxonomyService` on this Content item. 
 
+!!! caution "Duplicate taxonomy fields"
+
+    Because tags are assigned per content item, not per Field, you cannot use two **Taxonomy Entry Assignment** Fields with the same taxonomy type in one Content Type.
+
+
 To be able to assign tags to the content, first, you need to add a `TaxonomyEntryAssignment` Field to the Content Type definition.
 
 | Name                     | Internal name                    | Expected input |

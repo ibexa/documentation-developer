@@ -57,3 +57,13 @@ Virtual products don’t require shipment when they're purchased individually.
 While purchasing virtual product, you only have to fill in the billing address and select relevant payment method. 
 
 ![`Virtual product purchasing`](virtual_product_purchase.png "Virtual product purchasing")
+
+## Reorder
+
+Reorder functions as the variant for the checkout workflow and is accessible solely to logged-in users.
+It initiates from the user's order history, where they can click **Reorder** and trigger the flow. 
+Next, the user is moved to cart where the system validates the order against existing stock.  
+If everything is available, customer can move to payment and summary.
+The system pre-fills address, shipping method, and payment details using information from the past order.
+
+For more information, see [reorder documentation](reorder.md).

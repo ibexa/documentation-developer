@@ -167,7 +167,7 @@ class JohnDoeCanSelectMore implements EventSubscriberInterface
      */
     public function onUdwConfigResolve(ConfigResolveEvent $event)
     {
-        if ($event->getConfigName !== self::CONFIGURATION_NAME) {
+        if ($event->getConfigName() !== self::CONFIGURATION_NAME) {
 		    return;
 		}
 
