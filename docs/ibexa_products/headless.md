@@ -1,5 +1,5 @@
 ---
-description: Ibexa Headless' features, capabilities and benefits.
+description: Explore Ibexa Headless' features, capabilities and benefits.
 ---
 
 # Ibexa DXP Headless edition product guide
