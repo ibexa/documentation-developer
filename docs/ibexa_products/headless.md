@@ -6,7 +6,7 @@ description: Ibexa DXP Headless edition features, capabilities and benefits.
 
 ## What is [[= product_name_headless =]]
 
-[[= product_name =]] Headless edition focuses on content management.
+The Headless edition of [[= product_name =]] focuses on content management.
 It provides tools to collaboratively create content, and interfaces (API) to distribute this content.
 
 Multilingual, multichannel, extensible, [[= product_name_headless =]] is an advanced Content Management Framework (CMF), a Product Information Management (PIM) platform, and even a Digital Asset Management (DAM) repository.
@@ -102,7 +102,7 @@ There is many paths to access the content in many shapes:
 
 ### Advanced features
 
-On top of this strong core, [[= product_name =]] Headless edition brings tools to increase user experience, from final front users to Back Office contributors.
+On top of this strong core, [[= product_name_headless =]] brings tools to increase user experience, from final front users to Back Office contributors.
 
 #### Complete DXP
 
