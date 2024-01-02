@@ -1,4 +1,5 @@
 ---
+title: Ibexa Headless
 description: Explore Ibexa Headless' features, capabilities and benefits.
 ---
 
