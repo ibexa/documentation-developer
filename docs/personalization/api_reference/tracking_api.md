@@ -199,7 +199,7 @@ By using the shopping cart products as input for getting recommendations, proble
 with an empty profile or no buy history for the user can be solved.
 The more valuable Basket events instead of recent user clicks can be used to provide
 personalized recommendations.
-It also happens quite often that users "store" products on their shopping [wishlist](#wishlist)
+It also happens quite often that users "store" products on their shopping [wishlist](#wishlist-event)
 and plan to buy them later.
 With the help of this information, personalized shopping cart-based recommendations
 can be provided in the whole shop.
