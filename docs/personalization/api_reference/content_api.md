@@ -75,7 +75,7 @@ An XML representation of the data object used for item import can look like this
     <!-- Version is mandatory and must always be set to 1 -->
     <item id="102" type="1">
         <description>the item's description</description>
-        <price currency="EUR">122</price>
+        <price currency="EUR">123</price>
         <validfrom>2011-01-01T00:00:00</validfrom>
         <validto>2021-01-01T00:00:00</validto>
         <categorypaths>
@@ -125,11 +125,16 @@ The following keys and attributes used in the XML object are available:
     Keys and their values can only contain letters, digits and underscore characters.
     Attribute keys are case-sensitive.
 
-##### Currency
+##### Price and currency
 
-If the currency does not have a fractional unit, the main unit is used, 
-for example 12 for 12 Japanese Yen.
-To check whether the currency has fractional units, see the [ISO 4217 standard](https://en.wikipedia.org/wiki/ISO_4217#cite_note-ReferenceA-6).
+The price is given as an integer in the fractional unit of the currency, which ends as removing the decimal separators.
+For example:
+
+- 123 for 1.23 Euro: `<price currency="EUR">123</price>`
+- 12 for 12 Japanese Yen: `<price currency="JPY">12</price>`
+- 12345 for 12.345 Tunisian Dinar: `<price currency="TND">12345</price>`
+
+To check how many digits the fractional unit of a currency has, see the [ISO 4217 standard](https://en.wikipedia.org/wiki/ISO_4217#List_of_ISO_4217_currency_codes).
 
 ##### Validity
 
