@@ -216,7 +216,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Personalization
 
-- [Email triggers](https://doc.ibexa.co/en/master/personalization/integrate_recommendation_service/#send-emails-with-recommendations)
+- [Email triggers](https://doc.ibexa.co/en/master/personalization/integrate_recommendation_service/#send-messages-with-recommendations)
 - [Email triggers](https://doc.ibexa.co/projects/userguide/en/master/personalization/triggers/) in user documentation
 
 ### Search
