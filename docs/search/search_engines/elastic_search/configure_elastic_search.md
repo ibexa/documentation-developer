@@ -149,7 +149,7 @@ If you prefer a different strategy, or have created your own, custom strategy, y
     connection_selector: Elasticsearch\ConnectionPool\Selectors\<selector_name>
 ```
 
-For more information and a list of available choices, see [Selectors](https://www.elastic.co/guide/en/elasticsearch/client/php-api/current/selectors.html).
+For more information and a list of available choices, see [Selectors](https://www.elastic.co/guide/en/elasticsearch/client/php-api/7.x/selectors.html).
 
 ##### Number of retries
 
@@ -166,7 +166,7 @@ By default, `null` is used, which means that the number of retries equals to the
 Depending on the connection pool that you select, [[= product_name =]]'s reaction to reaching the maximum
 number of retries might differ.
 
-For more information, see [Set retries](https://www.elastic.co/guide/en/elasticsearch/client/php-api/7.x/configuration.html#_set_retries).
+For more information, see [Set retries](https://www.elastic.co/guide/en/elasticsearch/client/php-api/7.x/set-retries.html).
 
 ## Configure Elasticsearch Cloud
 
@@ -308,7 +308,7 @@ To do this, pass the following setting under the `ssl` key:
 verification: false
 ```
 
-For more information, see [Elasticsearch: SSL Encryption](https://www.elastic.co/guide/en/elasticsearch/client/php-api/7.x/security.html#_ssl_encryption_2).
+For more information, see [Elasticsearch: SSL Encryption](https://www.elastic.co/guide/en/elasticsearch/client/php-api/7.x/connceting.html#ssl-encryption).
 
 ### Enable debugging
 
