@@ -115,7 +115,7 @@ The following keys and attributes used in the XML object are available:
 | `type` | An ID of the type of item/product. This parameter is required. | integer |
 | `description`| Additional information about the item. | alphanumeric |
 | `currency` | Currency used for the price. By default, prices are expressed in EUR. | ISO 4217 |
-| `price` | The item's price in the currency's fractional units (for example, cents).<br/>See below for more information. | integer |
+| `price` | The item's price in the currency's fractional units (for example, cents).<br/>[See below for more information.](#price-and-currency) | integer |
 | `validfrom` | Together with `validto`, defines the lifespan of an item.<br/>If NULL or not available, the item is considered valid immediately.<br/>See below for more information. | ISO 8601 |
 | `validto` | Together with `validfrom`, defines the lifespan of an item.<br/>If NULL or not available, the item is considered valid indefinitely.<br/>See below for more information. | ISO 8601 |
 | `categorypath` | A logical (website) navigation path through which the end user can reach the item/product in your website.<br/>You can define multiple paths for the product.| alphanumeric, separated with "/" ("%2F") characters |
