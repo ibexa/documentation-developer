@@ -76,8 +76,8 @@ ibexa_io:
     `aws_s3` is an arbitrary handler identifier that is used in the config block below.
     You can configure multiple handlers.
 
-    For example, you could configure one called `gcloud_storage` for a third-party (community-supported)
-    [Google Cloud Storage adapter](https://github.com/thephpleague/flysystem#community-supported).
+    For example, you could configure one called `gcloud_storage` for a
+    [Google Cloud Storage adapter](https://packagist.org/packages/league/flysystem-google-cloud-storage).
 
 Under the `ibexa.system.<scope>.io` [configuration key](configuration.md#configuration-files), enable the binary data handler:
 
