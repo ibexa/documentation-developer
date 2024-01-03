@@ -9,8 +9,8 @@ description: Configure Elasticsearch to use it with Ibexa DXP.
 To configure Elasticsearch, first, you need to configure the connections. 
 
 There are two possibilities of connection:
-- using [cluster of Elasticsearch nodes](#cluster)
-- using [Elasticsearch Cloud](#elasticsearch-cloud)
+- using [cluster of Elasticsearch nodes](#configure-clustering)
+- using [Elasticsearch Cloud](#configure-elasticsearch-cloud)
 
 No matter which option you choose, you have to define the connection settings under the `connections` key. 
 Set a name of the connection:
@@ -35,8 +35,8 @@ ibexa_elasticsearch:
 Now, you need to decide whether to add a cluster that you administer and manage yourself, or use a cloud
 solution from Elastic, as well as configure additional parameters.
 
-If you want to connect by using a cluster, follow the instructions below in the [Cluster](#cluster) section.
-If you want to use Elasticsearch Cloud, skip to [Elasticsearch Cloud](#elasticsearch-cloud) section.
+If you want to connect by using a cluster, follow the instructions below in the [Cluster](#configure-clustering) section.
+If you want to use Elasticsearch Cloud, skip to [Elasticsearch Cloud](#configure-elasticsearch-cloud) section.
 
 ## Configure clustering
 
