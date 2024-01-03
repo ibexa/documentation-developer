@@ -75,7 +75,7 @@ An XML representation of the data object used for item import can look like this
     <!-- Version is mandatory and must always be set to 1 -->
     <item id="102" type="1">
         <description>the item's description</description>
-        <price currency="EUR">123</price>
+        <price currency="EUR">1234</price>
         <validfrom>2011-01-01T00:00:00</validfrom>
         <validto>2021-01-01T00:00:00</validto>
         <categorypaths>
@@ -130,7 +130,7 @@ The following keys and attributes used in the XML object are available:
 The price is given as an integer in the fractional unit of the currency, which ends as removing the decimal separators.
 For example:
 
-- 123 for 1.23 Euro: `<price currency="EUR">123</price>`
+- 1234 for 12.34 Euro: `<price currency="EUR">1234</price>`
 - 12 for 12 Japanese Yen: `<price currency="JPY">12</price>`
 - 12345 for 12.345 Tunisian Dinar: `<price currency="TND">12345</price>`
 
