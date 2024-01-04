@@ -77,7 +77,7 @@ ibexa_io:
     You can configure multiple handlers.
 
     For example, you could configure one called `gcloud_storage` for a
-    [Google Cloud Storage adapter](https://packagist.org/packages/league/flysystem-google-cloud-storage).
+    [Google Cloud Storage adapter](https://github.com/thephpleague/flysystem#officially-supported-adapters).
 
 Under the `ibexa.system.<scope>.io` [configuration key](configuration.md#configuration-files), enable the binary data handler:
 
