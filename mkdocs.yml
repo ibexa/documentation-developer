@@ -643,6 +643,7 @@ nav:
                 - Url Sort Clause: search/url_search_reference/url_url_sort_clause.md
         - Search API: search/search_api.md
         - Aggregation reference:
+              # Content aggregations
             - Aggregation reference: search/aggregation_reference/aggregation_reference.md
             - ContentTypeTermAggregation: search/aggregation_reference/contenttypeterm_aggregation.md
             - ContentTypeGroupTermAggregation: search/aggregation_reference/contenttypegroupterm_aggregation.md
@@ -655,8 +656,10 @@ nav:
             - RawTermAggregation: search/aggregation_reference/rawterm_aggregation.md
             - SectionTermAggregation: search/aggregation_reference/sectionterm_aggregation.md
             - SubtreeTermAggregation: search/aggregation_reference/subtreeterm_aggregation.md
+            - TaxonomyEntryIdAggregation: search/aggregation_reference/taxonomyentryid_aggregation.md
             - UserMetadataTermAggregation: search/aggregation_reference/usermetadataterm_aggregation.md
             - VisibilityTermAggregation: search/aggregation_reference/visibilityterm_aggregation.md
+              # Field aggregations
             - AuthorTermAggregation: search/aggregation_reference/authorterm_aggregation.md
             - CheckboxTermAggregation: search/aggregation_reference/checkboxterm_aggregation.md
             - CountryTermAggregation: search/aggregation_reference/countryterm_aggregation.md
@@ -667,6 +670,9 @@ nav:
             - IntegerRangeAggregation: search/aggregation_reference/integerrange_aggregation.md
             - IntegerStatsAggregation: search/aggregation_reference/integerstats_aggregation.md
             - KeywordTermAggregation: search/aggregation_reference/keywordterm_aggregation.md
+            - SelectionTermAggregation: search/aggregation_reference/selectionterm_aggregation.md
+            - TimeRangeAggregation: search/aggregation_reference/timerange_aggregation.md
+            # Product aggregations
             - Product attribute aggregations: search/aggregation_reference/product_attribute_aggregations.md
             - BasePriceStatsAggregation: search/aggregation_reference/basepricestats_aggregation.md
             - CustomPriceStatsAggregation: search/aggregation_reference/custompricestats_aggregation.md
@@ -675,9 +681,7 @@ nav:
             - ProductStockRangeAggregation: search/aggregation_reference/productstockrange_aggregation.md
             - ProductPriceRangeAggregation: search/aggregation_reference/productpricerange_aggregation.md
             - ProductTypeTermAggregation: search/aggregation_reference/producttypeterm_aggregation.md
-            - SelectionTermAggregation: search/aggregation_reference/selectionterm_aggregation.md
             - TaxonomyEntryIdAggregation: search/aggregation_reference/taxonomyentryid_aggregation.md
-            - TimeRangeAggregation: search/aggregation_reference/timerange_aggregation.md
         - Search in trash reference: search/search_in_trash_reference.md
         - Extend search:
             - Create custom Search Criterion: search/extensibility/create_custom_search_criterion.md
