@@ -15,12 +15,16 @@ and specify the file name within this folder as parameter.
 If you don't specify the file, all files within this directory are used.
 
 ``` bash
-php bin/console ibexa:migrations:migrate --file=my_data_export.yaml
+php bin/console ibexa:migrations:migrate --file=my_data_export.yaml --siteaccess=admin
 ```
 
 Migrations store execution metadata in the `ibexa_migrations` database table.
 This allows incremental upgrades:
 the `ibexa:migrations:migrate` command ignores files that it had previously executed.
+
+Notice that `--siteaccess` option usage is important when several languages are used.
+You must import with a SiteAccess that supports all languages, or the migration skips translations in non-supported languages.
+It's recommended to use the SiteAccess from the Back Office of the targeted repository.
 
 ## Migration step
 
