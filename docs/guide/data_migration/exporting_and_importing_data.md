@@ -13,7 +13,7 @@ or in [a custom folder that you configure](migration_management.md#migration-fol
 You can later use this file to import the data.
 
 ``` bash
-php bin/console ibexa:migrations:generate --type=content --mode=create
+php bin/console ibexa:migrations:generate --type=content --mode=create --siteaccess=admin
 ```
 
 This generates a file containing all Content items.
@@ -132,6 +132,12 @@ Note that you should test your migrations. See [Executing migrations](#executing
 !!! tip
 
     Migration command can be executed with database rollback at the end with the `--dry-run` option.
+
+!!! caution
+
+    The `--siteaccess` option usage can be relevant for a multi-language repository.
+    You must export with a SiteAccess that supports all languages, or the migration skips translations in non-supported languages.
+    It is recommended to use the SiteAccess from the Back Office of the targeted repository.
 
 ## type
 
@@ -275,11 +281,15 @@ The command takes the file name within this folder as parameter.
 If file is not specified, all files within this directory are used.
 
 ``` bash
-php bin/console ibexa:migrations:migrate --file=my_data_export.yaml
+php bin/console ibexa:migrations:migrate --file=my_data_export.yaml --siteaccess=admin
 ```
 
 Ibexa Migrations store execution metadata in `ibexa_migrations` database table. This allows incremental upgrades:
 the `ibexa:migrations:migrate` command ignores files that it had previously executed.
+
+Notice that `--siteaccess` option usage is important when several languages are used.
+You must import with a SiteAccess that supports all languages, or the migration skips translations in non-supported languages.
+It's recommended to use the SiteAccess from the Back Office of the targeted repository.
 
 ## Repeatable steps
 
