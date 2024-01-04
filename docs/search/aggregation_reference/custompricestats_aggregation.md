@@ -13,7 +13,7 @@ and provides statistical information for the values. You can use the provided ge
 
 - `name` - name of the Aggregation
 - `\Ibexa\Contracts\ProductCatalog\Values\CurrencyInterface` - currency of the price
-- `customerGroup` - customer group that defines custom pricing, by default it is the one assigned to current user
+- `\Ibexa\Contracts\ProductCatalog\Values\CustomerGroupInterface|null` - customer group that defines custom pricing, by default it is the one assigned to current user
 
 ## Example
 
