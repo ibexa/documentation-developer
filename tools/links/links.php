@@ -1097,7 +1097,7 @@ class UrlTester
             }
             $this->output('');
         }
-var_dump(array_keys($this->urls));
+
         return $valid;
     }
 
