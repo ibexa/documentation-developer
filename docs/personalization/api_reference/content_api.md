@@ -75,7 +75,7 @@ An XML representation of the data object used for item import can look like this
     <!-- Version is mandatory and must always be set to 1 -->
     <item id="102" type="1">
         <description>the item's description</description>
-        <price currency="EUR">122</price>
+        <price currency="EUR">1234</price>
         <validfrom>2011-01-01T00:00:00</validfrom>
         <validto>2021-01-01T00:00:00</validto>
         <categorypaths>
@@ -115,7 +115,7 @@ The following keys and attributes used in the XML object are available:
 | `type` | An ID of the type of item/product. This parameter is required. | integer |
 | `description`| Additional information about the item. | alphanumeric |
 | `currency` | Currency used for the price. By default, prices are expressed in EUR. | ISO 4217 |
-| `price` | The item's price in the currency's fractional units (for example, cents).<br/>See below for more information. | integer |
+| `price` | The item's price in the currency's fractional units (for example, cents).<br/>[See below for more information.](#price-and-currency) | integer |
 | `validfrom` | Together with `validto`, defines the lifespan of an item.<br/>If NULL or not available, the item is considered valid immediately.<br/>See below for more information. | ISO 8601 |
 | `validto` | Together with `validfrom`, defines the lifespan of an item.<br/>If NULL or not available, the item is considered valid indefinitely.<br/>See below for more information. | ISO 8601 |
 | `categorypath` | A logical (website) navigation path through which the end user can reach the item/product in your website.<br/>You can define multiple paths for the product.| alphanumeric, separated with "/" ("%2F") characters |
@@ -125,11 +125,16 @@ The following keys and attributes used in the XML object are available:
     Keys and their values can only contain letters, digits and underscore characters.
     Attribute keys are case-sensitive.
 
-##### Currency
+##### Price and currency
 
-If the currency does not have a fractional unit, the main unit is used, 
-for example 12 for 12 Japanese Yen.
-To check whether the currency has fractional units, see the [ISO 4217 standard](https://en.wikipedia.org/wiki/ISO_4217#cite_note-ReferenceA-6).
+The price is given as an integer in the fractional unit of the currency, which ends as removing the decimal separators.
+For example:
+
+- 1234 for 12.34 Euro: `<price currency="EUR">1234</price>`
+- 12 for 12 Japanese Yen: `<price currency="JPY">12</price>`
+- 12345 for 12.345 Tunisian Dinar: `<price currency="TND">12345</price>`
+
+To check how many digits the fractional unit of a currency has, see the [ISO 4217 standard](https://en.wikipedia.org/wiki/ISO_4217#List_of_ISO_4217_currency_codes).
 
 ##### Validity
 
