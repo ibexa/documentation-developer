@@ -23,32 +23,48 @@ class TestableUrl
     /** @var null|array */
     private $replacements;
 
-    /** @var null|bool */
+    /** @var null|bool|string */
     private $find;
 
     /** @var null|bool */
-    private $external = null;
+    private $external;
+
+    /** @var null|string */
+    private $transformedUrl;
+
+    /** @var null|string */
+    private $solvedUrl;
 
     /** @var bool */
     private $tested = false;
 
     /** @var null|string[] */
-    private $headers = null;
+    private $headers;
 
     /** @var null|int */
-    private $code = null;
+    private $code;
 
     /** @var null|TestableUrl */
-    private $location = null;
+    private $location;
 
     /** @var null|bool */
-    private $fragmentFound = null;
+    private $fragmentFound;
 
     private const EXTERNAL_PATTERN = '^(https?:)?//';
     private const PATTERN_DELIMITER = '@';
     public const DEFAULT_SCHEME = 'https';
 
-    public function __construct(string $url, string $text = null, string $file = null, string $line = null, array $replacements = null, bool $find = false, bool $test = false)
+    /**
+     * Represent a URL, potentially extracted from a file, which can be tested
+     * @param string $url The URL itself
+     * @param string|null $text The text of the link to the URL
+     * @param string|null $file The file in which the URL has been found
+     * @param string|null $line The file line the URL has been found at
+     * @param string[]|null $replacements Some replacements to execute on the URL before testing it, like variables to replace by their values
+     * @param bool|string|null $find By default, URL is considered absolute or relative; If true, the URL will be considered partial and the target must be searched to solve the URL; If a string is given, this string will be used as a search prefix
+     * @param bool $test Set to true to test the URL immediately at construction time
+     */
+    public function __construct(string $url, string $text = null, string $file = null, string $line = null, array $replacements = null, mixed $find = false, bool $test = false)
     {
         $this->url = $url;
         $this->text = $text;
@@ -102,10 +118,15 @@ class TestableUrl
 
     public function getTransformedUrl(): string
     {
-        if (is_array($this->replacements)) {
-            return str_replace(array_keys($this->replacements), array_values($this->replacements), $this->getUrl());
+        if (null === $this->transformedUrl) {
+            if (is_array($this->replacements)) {
+                $this->transformedUrl = str_replace(array_keys($this->replacements), array_values($this->replacements), $this->getUrl());
+            } else {
+                $this->transformedUrl = $this->getUrl();
+            }
         }
-        return $this->getUrl();
+
+        return $this->transformedUrl;
     }
 
     public static function getRelativePath($sourcePath, $targetPath): string
@@ -170,24 +191,29 @@ class TestableUrl
      */
     public function getSolvedUrl(): string
     {
-        $url = $this->getTransformedUrl();
-        if ($this->isFragment()) {
-            return $this->getFile() . $url;
-        } else if (!$this->isExternal() && $this->hasFile() && !$this->find) {
-            return self::solveRelativePath($this->getFile(), $url);
-        } else if (!$this->isExternal() && $this->find) {
-            $urlWithoutFragment = self::getUrlWithoutFragment($url);
-            $candidates = (new Finder('.'))->includeWholeName("*/$urlWithoutFragment")->find();
-            if (1 === count($candidates)) {
-                return $candidates[0] . ($this->hasFragment() ? '#' . $this->getFragment() : '');
-            } else if ($this->hasFile()) {
+        if (null === $this->solvedUrl) {
+            $url = $this->getTransformedUrl();
+            if ($this->isFragment()) {
+                return $this->solvedUrl = $this->getFile() . $url;
+            } else if (!$this->isExternal() && $this->hasFile() && !$this->find) {
                 return self::solveRelativePath($this->getFile(), $url);
+            } else if (!$this->isExternal() && $this->find) {
+                $findPrefix = is_string($this->find) ? $this->find : '*/';
+                $urlWithoutFragment = self::getUrlWithoutFragment($url);
+                $candidates = (new Finder('.'))->includeWholeName("{$findPrefix}{$urlWithoutFragment}")->find();
+                if (1 === count($candidates)) {
+                    return $this->solvedUrl = $candidates[0] . ($this->hasFragment() ? '#' . $this->getFragment() : '');
+                } else if ($this->hasFile()) {
+                    return $this->solvedUrl = self::solveRelativePath($this->getFile(), $url);
+                } else {
+                    return $this->solvedUrl = $url;
+                }
             } else {
-                return $url;
+                return $this->solvedUrl = $url;
             }
-        } else {
-            return $url;
         }
+
+        return $this->solvedUrl;
     }
 
 
@@ -290,7 +316,7 @@ class TestableUrl
                     $fragmentFound = $contents && 1 === preg_match("@(id|name)=\"$fragment\"@", $contents);
                     if (!$fragmentFound && !self::isExternalUrl($url)) {
                         if ('md' === pathinfo(TestableUrl::getUrlWithoutFragment($url), PATHINFO_EXTENSION)) {
-                            $pattern = '@^#+ *' . str_replace('-', '.+', $fragment) . ' *$@mi';
+                            $pattern = '@^#+\W*' . str_replace('-', '\W+', $fragment) . '\W*$@mi';
                             $fragmentFound = (bool)preg_match($pattern, $contents);
                         }
                     }
@@ -330,7 +356,7 @@ class TestableUrl
             case 522: // Connection Timed Out
                 if ($tryNumber <= $retryCount+1) {
                     sleep($retryDelay);
-                    return testUrl($url, $external, $testFragment, $retryCount, $retryDelay, $tryNumber++);
+                    return self::testUrl($url, $external, $testFragment, $retryCount, $retryDelay, $tryNumber++);
                 }
             case 400: // Bad Request
             case 401: // Unauthorized
@@ -453,10 +479,10 @@ class UrlExtractor
     /**
      * @param array[]|null $patterns A map of file extensions and pattern lists.
      * @param string[]|null $replacements A map of replacements ['what_to_replace'=>'by_what_to replace']
-     * @param bool $find If the file must be searched for instead of just being considered as a relative path.
+     * @param bool|string $find If the URL target must be searched for instead of just being considered as a relative path; If a string is given, it will be used as search prefix
      * @see UrlExtractor::getDefaultPatterns For an example of pattern map.
      */
-    public function __construct(array $patterns = null, array $replacements = null, bool $find = false)
+    public function __construct(array $patterns = null, array $replacements = null, mixed $find = false)
     {
         $this->patterns = null === $patterns ? self::getDefaultPatterns() : $patterns;
         $this->flattenPatterns();
@@ -783,10 +809,12 @@ class UrlTester
      * @param string[] $usageFiles The list of files to extract URLs from
      * @param string[] $resourceFiles The list of files that should be used by those URLs
      * @param array[]|null $exclusionTests An associative array of arrays of functions testing if a URL should be excluded from test
+     * @param array|null $replacements A replacement map to apply on each URL
+     * @param bool|string $find If the URL target must be searched for instead of just being considered as a relative path; If a string is given, it will be used as search prefix
      * @param $output
      * @param $error
      */
-    public function __construct(array $usageFiles = [], array $resourceFiles = [], array $exclusionTests = null, array $replacements = null, bool $find = false, $output = null, $error = null)
+    public function __construct(array $usageFiles = [], array $resourceFiles = [], array $exclusionTests = null, array $replacements = null, mixed $find = false, $output = null, $error = null)
     {
         $this->setUsageFiles($usageFiles);
         $this->setResourceFiles($resourceFiles);
@@ -1342,7 +1370,7 @@ class UrlTestCommand
         return $finder;
     }
 
-    static function newUrlTesterFromCommand(array $argv, array $exclusionTests = null, array $replacements = null, bool $find = false): UrlTester
+    static function newUrlTesterFromCommand(array $argv, array $exclusionTests = null, array $replacements = null, mixed $find = false): UrlTester
     {
         $finders = [
             'usage' => [],

@@ -113,4 +113,4 @@ $replacements = [//TODO Get from mkdocs.yml
     '[[= user_doc =]]' => 'https://doc.ibexa.co/projects/userguide/en/master',
 ];
 
-$find = true;
+$find = './docs/*/';
