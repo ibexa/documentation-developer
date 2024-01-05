@@ -10,7 +10,7 @@ description: Explore Ibexa Headless' features, capabilities and benefits.
 The Headless edition of [[= product_name =]] focuses on content management.
 It provides tools to collaboratively create content, and interfaces (API) to distribute this content.
 
-Multilingual, multichannel, extensible, [[= product_name_headless =]] is an advanced Content Management Framework (CMF), a Product Information Management (PIM) platform, and even a Digital Asset Management (DAM) repository.
+Multilingual, multichannel, extensible, [[= product_name_headless =]] is an advanced Content Management Framework (CMF), a Product Information Management (PIM) platform, as well as a Digital Asset Management (DAM) repository.
 It's provided without a default front office, but with a complete Back Office and several APIs to manage and access content.
 
 ## Availability
