@@ -1,7 +1,9 @@
-<!-- vale VariablesVersion = NO -->
 ---
 description: Ibexa DXP v4.6 brings improvements to Commerce, PIM and Personalization offerings, and a number of changes in CDP and Ibexa Connect.
 ---
+
+<!-- vale VariablesVersion = NO -->
+
 
 # Ibexa DXP v4.6
 
@@ -37,6 +39,18 @@ For streamlining purpose, the **Draft** section is now situated under **Content*
 Users can now easily find and manage their drafts and published content from one area.
 
 ![Draft section added to Content](img/4.6_drafts.png)
+
+### UX and UI improvements
+
+#### User avatar and new options in user profile
+
+#### Reordered tabs in Location view
+
+#### Content types got icons
+
+### Ibexa Image picker
+
+Digital Asset Management is a platform dedicated to editors. It enables storing in central location, organizing, distributing, and sharing media assets across many channels.
 
 ### New features and improvements in PIM
 
@@ -79,7 +93,7 @@ With this feature, you can create virtual products - non-tangible items such as 
 To create a virtual product, first, you have to create a virtual product type.
 Virtual products don’t require shipment when they are purchased without other physical products.
 
-For more information, see [Create virtual products](https://doc.ibexa.co/projects/userguide/en/master/pim/create_virtual_product/.)
+For more information, see [Create virtual products](https://doc.ibexa.co/projects/userguide/en/master/pim/create_virtual_product/).
 
 ##### IsVirtual Criterion
 
@@ -180,7 +194,7 @@ enabling you to associate additional information with your cart and its contents
 By leveraging context data, such as promo codes or custom texts,
 you can tailor the e-commerce experience for your customers and enhance the capabilities of your application.
 
-For more information, see [https://doc.ibexa.co/en/master/commerce/cart/cart_api/#adding-context-data].
+For more information, see [Adding context data](https://doc.ibexa.co/en/master/commerce/cart/cart_api/#adding-context-data).
 
 ### New features and improvements in Personalization
 
@@ -206,7 +220,7 @@ For more information, see [Email triggers](https://doc.ibexa.co/projects/usergui
 With this feature, you get an option to combine several attribute types when computing recommendations.
 As a result, users can be presented with recommendations from an intersection of submodel results.
 
-For more information, see [Submodel parameters](recommendation_api.md#submodel-parameters) and [Submodels]https://doc.ibexa.co/projects/userguide/en/latest/personalization/recommendation_models/#submodels).
+For more information, see [Submodel parameters](recommendation_api.md#submodel-parameters) and [Submodels](https://doc.ibexa.co/projects/userguide/en/latest/personalization/recommendation_models/#submodels).
 
 #### New scenario filter
 
@@ -228,6 +242,12 @@ For a full list of events, see [Site events](https://doc.ibexa.co/en/latest/api/
 
 Event handling system was improved with the addition of listeners based on `CreateSiteEvent`, `DeleteSiteEvent`, and `UpdateSiteEvent`.
 New listeners automatically grant permissions to log in to a site, providing a more seamless site management experience.
+
+### Integration with Qualifio Engage
+
+### Integration with SeenThis!
+
+For more information, see [SeenThis! block](https://doc.ibexa.co/projects/userguide/en/latest/content_management/block_reference/#sales-representative).
 
 ### API improvements
 
