@@ -44,6 +44,8 @@ Users can now easily find and manage their drafts and published content from one
 
 #### User avatar and new options in user profile
 
+Enhance end-user profile with avatar photo. 
+
 #### Reordered tabs in Location view
 
 #### Content types got icons
@@ -245,7 +247,12 @@ New listeners automatically grant permissions to log in to a site, providing a m
 
 ### Integration with Qualifio Engage
 
+Use Qualifio Engagne integration to create engaging marketing experiences to your customers.
+
 ### Integration with SeenThis!
+
+Integration with SeenThis! service provides an adaptive streaming technology with no limitations as conventional streaming service. 
+It allows to preserve the best video quality with minimum amount of data transfer.
 
 For more information, see [SeenThis! block](https://doc.ibexa.co/projects/userguide/en/latest/content_management/block_reference/#sales-representative).
 
