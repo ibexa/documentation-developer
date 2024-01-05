@@ -646,6 +646,7 @@ class UrlExtractor
             ],
             'md' => [
                 '\[(?P<text>[^[]*)\]\((?P<url>[^ )]+)\)',
+                '!\[[^[]*\]\((?P<url>[^ )]+) "(?P<text>[^"]+)"\)',
                 self::getXmlTagPattern('img', 'src'),
                 self::getXmlTagPattern('a', 'href', true),//TODO: shouldn't be there
                 'txt',
@@ -1096,7 +1097,7 @@ class UrlTester
             }
             $this->output('');
         }
-
+var_dump(array_keys($this->urls));
         return $valid;
     }
 
