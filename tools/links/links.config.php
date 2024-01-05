@@ -23,6 +23,7 @@ $resourceFiles = call_user_func(function (array $a): array {
 $exclusionTests = array_merge_recursive(UrlTester::getDefaultExclusionTests(), [
     'url' => [
         function (string $url, string $file = null): bool {
+            // docs/index.md content is not Markdown but HTML with server URLs
             return 'docs/index.md' === $file && str_starts_with($url, 'docs/');
         },
         function (string $url, string $file = null): bool {
