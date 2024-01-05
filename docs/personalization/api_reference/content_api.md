@@ -61,7 +61,7 @@ The following call attributes are available:
 
 | Parameter name | Description | Value |
 |---|---|---|
-| `customerid` |A customer ID (for example "00000"), as defined when [enabling Personalization](#multiple-website-hosting).| alphanumeric |
+| `customerid` | A customer ID (for example "00000"), as defined when [enabling Personalization](enable_personalization.md#get-authentication-parameters). Can be used to identify a website in installations that [hosts multiple SiteAccesses]([[= user_doc =]]/personalization/use_cases/#multiple-website-hosting). | alphanumeric |
 | `itemid` | A unique ID of the Content item/product. Used to identify the item in the database. | integer |
 | `itemtypeid` | An ID of the type of Content item/product. In most cases, the value is 1 but you might have items/products of more than one type. | integer |
 | `lang` | A [language code](languages.md) of the Content item/product (for example, "ger-DE"). This parameter is optional. | string |
