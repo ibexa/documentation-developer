@@ -99,7 +99,10 @@ $exclusionTests = array_merge_recursive(UrlTester::getDefaultExclusionTests(), [
         },
         function (string $url, string $location, string $file = null): bool {
             return str_starts_with($url, 'https://www.facebook.com/') && str_starts_with($location, 'https://www.facebook.com/unsupportedbrowser');
-        }
+        },
+        function (string $url, string $location, string $file = null): bool {
+            return 'https://www.json.org/' === $url && 'https://www.JSON.org/json-en.html' === $location;
+        },
     ],
     'fragment' => [
         function (string $url, string $file = null): bool {
