@@ -79,6 +79,17 @@ For more information, see [Submodels]([[= user_doc =]]/personalization/recommend
 |attribute key|`&color=red`|Applicable if a submodel with the same name and value is configured.|string|
 |`userattribute`|gender|If defined, the Personalization server tries to find the attribute value for the current user and, if found, "prefers" recommendations that are typically followed by users with the same value of the attribute. The default value is null.|string, csv list|
 
+##### Segment parameters
+
+If you have configured segments, you can use them in the recommendation model. Pass the following parameter
+to request recommendations for a specific segment or segment group.
+
+Parameter|Example|Description|Value|
+|---|---|---|---|
+|`segments`|`&segments=7,8,10,11`|ID from segment group management|string|
+
+For more information, see [Segments]([[= user_doc =]]/personalization/segment_management).
+
 ## Responses
 
 The recommendation request returns information about the currently used context 
