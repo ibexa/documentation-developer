@@ -109,7 +109,7 @@ composer update
     See [Composer authentication documentation](https://getcomposer.org/doc/articles/authentication-for-private-packages.md) to find the precedure suiting the way you're passing credentials.
 
    In production, replace the old one by the new one.
-   But as a developer, you may have to go back to previous version, to keep the old repository as well is suggested.
+   But as a developer, you may have to go back to earlier version, and should keep the old repository as well.
    For example, your `auth.json` may looks like this:
 
    ```json
