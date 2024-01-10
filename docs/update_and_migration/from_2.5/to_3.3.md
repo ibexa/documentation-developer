@@ -101,19 +101,19 @@ composer update
 
 !!! caution
 
-    Composer repository changes between 3.2 and 3.3 from `updates.ez.no` to `updates.ibexa.co`, so you're credential might be outdated.
+    Composer repository changes between 3.2 and 3.3 from `updates.ez.no` to `updates.ibexa.co`, therefore your credentials might be outdated.
 
     `username` and `password` don't change.
     The repository they're used on changes.
 
-    See [Composer authentication documentation](https://getcomposer.org/doc/articles/authentication-for-private-packages.md) to find the precedure suiting the way you're passing credentials.
+    See [Composer authentication documentation](https://getcomposer.org/doc/articles/authentication-for-private-packages.md) to find the precedure that suits the way you're passing credentials.
 
-   In production, replace the old one by the new one.
-   But as a developer, you may have to go back to earlier version, and should keep the old repository as well.
-   For example, your `auth.json` may looks like this:
+    In production, replace the old repository with the new one.
+    But as a developer, you may need to go back to an earlier version, and should keep the old repository as well.
+    For example, your `auth.json` may look like this:
 
-   ```json
-   {
+    ```json
+    {
         "http-basic": {
             "updates.ibexa.co": {
                 "username": "abcdefghijklmnopqrstuvwxyz012345",
@@ -125,7 +125,7 @@ composer update
             }
         }
     }
-   ```
+    ```
 
 ### C. Configure the web server
 
