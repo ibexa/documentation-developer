@@ -102,13 +102,13 @@ composer update
 !!! caution
 
     Composer repository changes between 3.2 and 3.3 from `updates.ez.no` to `updates.ibexa.co`, so you're credential might be outdated.
-    
+
     `username` and `password` don't change.
     The repository they're used on changes.
 
     See [Composer authentication documentation](https://getcomposer.org/doc/articles/authentication-for-private-packages.md) to find the precedure suiting the way you're passing credentials.
 
-   In production, simply replace the old one by the new one.
+   In production, replace the old one by the new one.
    But as a developer, you may have to go back to previous version, to keep the old repository as well is suggested.
    For example, your `auth.json` may looks like this:
 
