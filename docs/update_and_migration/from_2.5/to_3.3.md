@@ -91,6 +91,14 @@ Resolve the conflicts in the following way:
     It is impossible to update an Enterprise edition (`ezsystems/ezplatform-ee`)
     to an [[= product_name_content =]] edition.
 
+    Make sure that composer.json has the following `repositories` entry:
+    ```json
+    "ibexa": {
+        "type": "composer",
+        "url": "https://updates.ibexa.co"
+    }
+    ```
+
 ### B. Update the app
 
 Run `composer update` to update the dependencies:
