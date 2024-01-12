@@ -83,7 +83,7 @@ ibexa:
         default: # or a SiteAccess, or a SiteAccess group
             taxonomy:
                 admin_ui:
-                    delete_subtree_size_limit: 100
+                    delete_subtree_size_limit: 20
 ```
 
 ## Remove orphaned Content items
