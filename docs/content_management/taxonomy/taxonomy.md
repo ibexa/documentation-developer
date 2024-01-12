@@ -57,7 +57,7 @@ To use this new taxonomy, add an `ibexa_taxonomy_entry_assignement` Field to a C
 
 ### Hide Content tab
 
-The **Content** tab in taxonomy objects, for example, tags and categories, lists all Content assigned to the current taxonomy. 
+The **Content** tab in taxonomy objects, for example, tags and categories, lists all Content assigned to the current taxonomy.
 You can hide the **Content** tab in the **Categories** view.
 
 In configuration add `assigned_content_tab` with the flag `false` (for other taxonomies this flag is by default set to `true`):
@@ -68,3 +68,19 @@ In configuration add `assigned_content_tab` with the flag `false` (for other tax
 ```
 
 For more information about available functionalities of tags, see [User Documentation]([[= user_doc =]]/taxonomy).
+
+## Hide delete button on large subtree
+
+The "Delete" button can be hidden when a taxonomy entry has many children. By default, the entry's "Delete" button is hidden when there are 100 children or more.
+
+The `delete_subtree_size_limit` configuration is [SiteAccess-aware](siteaccess_aware_configuration.md), and can be set per SiteAccess, per SiteAccess group, or globally per default.
+For example:
+
+```yaml
+ibexa:
+    system:
+        default: # or a SiteAccess, or a SiteAccess group
+            taxonomy:
+                admin_ui:
+                    delete_subtree_size_limit: 100
+```
