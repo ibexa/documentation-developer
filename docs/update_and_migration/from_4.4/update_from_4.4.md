@@ -158,6 +158,20 @@ If you have no access to [[= product_name =]]'s `ibexa/installer` package, apply
     );
     ```
 
+### Clean-up taxonomy database
+
+If you didn't run it already when [migrating from 4.2 to 4.3](update_from_4.2.md#clean-up-taxonomy-database),
+run the following command for each of your taxonomy,
+to be sure you don't have [Content items orphaned during deletions of subtrees](taxonomy.md#remove-orphaned-content-items) inherited from earlier version's database:
+`php bin/console ibexa:taxonomy:remove-orphaned-content <taxonomy> --force`
+
+For example:
+
+```bash
+php bin/console ibexa:taxonomy:remove-orphaned-content tags --force
+php bin/console ibexa:taxonomy:remove-orphaned-content product_categories --force
+```
+
 ## Finish code update
 
 Finish the code update by running:
