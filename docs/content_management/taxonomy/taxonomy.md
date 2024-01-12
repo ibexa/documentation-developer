@@ -84,3 +84,20 @@ ibexa:
                 admin_ui:
                     delete_subtree_size_limit: 100
 ```
+
+## Remove orphaned Content item
+
+In some rare case, especially in Ibexa DXP 4.2 and older versions, when deleting parent of huge subtrees, some Taxonomy entries are not properly deleted, leaving Content items pointing a non-existing parent.
+The command `ibexa:taxonomy:remove-orphaned-content` delete those orphaned Content item. This command works on one taxonomy passed as an argument. It has two options, one should always be used:
+
+- `--dry-run` to list Content items that will be deleted without performing the deletion.
+- `--force` to effectively delete the orphaned Content items.
+
+The following example,
+first, list the orphaned Content items for taxonomy `tags`,
+second, delete them:
+
+```bash
+php bin/console ibexa:taxonomy:remove-orphaned-content tags --dry-run
+php bin/console ibexa:taxonomy:remove-orphaned-content tags --force
+```
