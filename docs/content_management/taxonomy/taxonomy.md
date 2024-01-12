@@ -71,7 +71,8 @@ For more information about available functionalities of tags, see [User Document
 
 ## Hide delete button on large subtree
 
-The "Delete" button can be hidden when a taxonomy entry has many children. By default, the entry's "Delete" button is hidden when there are 100 children or more.
+The **Delete** button can be hidden when a taxonomy entry has many children.
+By default, the button is hidden when there are 100 children or more.
 
 The `delete_subtree_size_limit` configuration is [SiteAccess-aware](siteaccess_aware_configuration.md), and can be set per SiteAccess, per SiteAccess group, or globally per default.
 For example:
@@ -87,15 +88,15 @@ ibexa:
 
 ## Remove orphaned Content items
 
-In some rare case, especially in Ibexa DXP 4.2 and older versions, when deleting parent of huge subtrees, some Taxonomy entries are not properly deleted, leaving Content items pointing a non-existing parent.
-The command `ibexa:taxonomy:remove-orphaned-content` delete those orphaned Content item. This command works on one taxonomy passed as an argument. It has two options, one should always be used:
+In some rare case, especially in I[[= product_name =]] v4.2 and older, when deleting parent of huge subtrees, some Taxonomy entries are not properly deleted, leaving Content items that point to a non-existing parent.
+The command `ibexa:taxonomy:remove-orphaned-content` deletes those orphaned Content item. 
+It works on a taxonomy passed as an argument, and has two options that act as a protective measure against deleting data by mistake:
 
-- `--dry-run` to list Content items that will be deleted without performing the deletion.
+- `--dry-run` to list Content items that will be deleted, without performing the deletion.
 - `--force` to effectively delete the orphaned Content items.
 
-The following example,
-first, list the orphaned Content items for taxonomy `tags`,
-second, delete them:
+The following example first lists the orphaned Content items for taxonomy `tags`,
+and then deletes them:
 
 ```bash
 php bin/console ibexa:taxonomy:remove-orphaned-content tags --dry-run
