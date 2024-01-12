@@ -472,12 +472,12 @@ Example of a trigger message:
    "userExternalId":"user@ibexa.co",
    "triggerType":"REACTIVATION|ABANDAONED_SHOPPING_CART",
    "triggerName":"trigger_ref_code",
-   "triggerOpenedLink":"//tracker.ibexa.co/api/17751/triggeropened/johndoe?triggername=action_trigger_ref_code",
+   "triggerOpenedLink":"//event.perso.ibexa.co/api/17751/triggeropened/johndoe?triggername=action_trigger_ref_code",
    "recommendations":[
       {
          "itemId":959,
          "itemType":46,
-         "clickRecommended":"//tracker.ibexa.co/api/17751/clicktriggered/johndoe/46/959?triggername=action_trigger_ref_code",
+         "clickRecommended":"//event.perso.ibexa.co/api/17751/clicktriggered/johndoe/46/959?triggername=action_trigger_ref_code",
          "attributes":{
             "ses_name":"Minimalista Coffee Table",
 			"ses_image":["img_1", "img_2"]
@@ -536,7 +536,7 @@ The Triggeropened event is sent when the end user opens a trigger message, for e
 
 The URL has the following format:
 
-`GET https://tracker.ibexa.co/api/[customerid]/triggeropened/[userid]?triggername=<action_trigger_reference_code>`
+`GET https://event.perso.ibexa.co/api/[customerid]/triggeropened/[userid]?triggername=<action_trigger_reference_code>`
 
 For a detailed description of embedded parameters, see [event parameters](#event-parameters).
 The request parameter is:
@@ -553,7 +553,7 @@ The Clicktriggered event is sent when the end user clicks the link delivered in 
 
 The URL has the following format:
 
-`GET https://tracker.ibexa.co/api/[customerid]/clicktriggered/[userid]/[itemtypeid]/[itemid]?triggername=<action_trigger_reference_code>`
+`GET https://event.perso.ibexa.co/api/[customerid]/clicktriggered/[userid]/[itemtypeid]/[itemid]?triggername=<action_trigger_reference_code>`
 
 For a detailed description of embedded parameters, see [event parameters](#event-parameters).
 The request parameter is:
