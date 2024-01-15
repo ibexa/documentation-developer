@@ -89,14 +89,13 @@ ibexa:
 ## Remove orphaned Content items
 
 In some rare case, especially in I[[= product_name =]] v4.2 and older, when deleting parent of huge subtrees, some Taxonomy entries are not properly deleted, leaving Content items that point to a non-existing parent.
-The command `ibexa:taxonomy:remove-orphaned-content` deletes those orphaned Content item. 
+The command `ibexa:taxonomy:remove-orphaned-content` deletes those orphaned Content item.
 It works on a taxonomy passed as an argument, and has two options that act as a protective measure against deleting data by mistake:
 
-- `--dry-run` to list Content items that will be deleted, without performing the deletion.
+- `--dry-run` to list deletable Content items, without performing the deletion.
 - `--force` to effectively delete the orphaned Content items.
 
-The following example first lists the orphaned Content items for taxonomy `tags`,
-and then deletes them:
+The following example first lists the orphaned Content items for taxonomy `tags`, and then deletes them:
 
 ```bash
 php bin/console ibexa:taxonomy:remove-orphaned-content tags --dry-run
