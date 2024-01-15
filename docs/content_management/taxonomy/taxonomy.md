@@ -57,7 +57,7 @@ To use this new taxonomy, add an `ibexa_taxonomy_entry_assignement` Field to a C
 
 ### Hide Content tab
 
-The **Content** tab in taxonomy objects, for example, tags and categories, lists all Content assigned to the current taxonomy. 
+The **Content** tab in taxonomy objects, for example, tags and categories, lists all Content assigned to the current taxonomy.
 You can hide the **Content** tab in the **Categories** view.
 
 In configuration add `assigned_content_tab` with the flag `false` (for other taxonomies this flag is by default set to `true`):
@@ -68,3 +68,36 @@ In configuration add `assigned_content_tab` with the flag `false` (for other tax
 ```
 
 For more information about available functionalities of tags, see [User Documentation]([[= user_doc =]]/taxonomy).
+
+## Hide delete button on large subtree
+
+The **Delete** button can be hidden when a taxonomy entry has many children.
+By default, the button is hidden when there are 100 children or more.
+
+The `delete_subtree_size_limit` configuration is [SiteAccess-aware](siteaccess_aware_configuration.md), and can be set per SiteAccess, per SiteAccess group, or globally per default.
+For example:
+
+```yaml
+ibexa:
+    system:
+        default: # or a SiteAccess, or a SiteAccess group
+            taxonomy:
+                admin_ui:
+                    delete_subtree_size_limit: 20
+```
+
+## Remove orphaned Content items
+
+In some rare case, especially in I[[= product_name =]] v4.2 and older, when deleting parent of huge subtrees, some Taxonomy entries are not properly deleted, leaving Content items that point to a non-existing parent.
+The command `ibexa:taxonomy:remove-orphaned-content` deletes those orphaned Content item.
+It works on a taxonomy passed as an argument, and has two options that act as a protective measure against deleting data by mistake:
+
+- `--dry-run` to list deletable Content items, without performing the deletion.
+- `--force` to effectively delete the orphaned Content items.
+
+The following example first lists the orphaned Content items for taxonomy `tags`, and then deletes them:
+
+```bash
+php bin/console ibexa:taxonomy:remove-orphaned-content tags --dry-run
+php bin/console ibexa:taxonomy:remove-orphaned-content tags --force
+```
