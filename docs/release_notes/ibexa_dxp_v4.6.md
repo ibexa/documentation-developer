@@ -57,6 +57,25 @@ For more information, see [Customizable dashboard](https://doc.ibexa.co/projects
 
 Enhance end-user profile with avatar photo. 
 
+#### Page Builder improvements
+
+Page Builder user interface has new functionalities and improvements.
+
+Here are the most important changes:
+
+- new design of Page Builder interface, including block settings window,
+- two main toolboxes: **Elements** and **Structure view**,
+- quick preview of a structure of the page with the possibility of reorganizing the blocks, 
+- new visual feedback indicates the correct drop locations,
+- intuitive dragging makes it easier for users to interact with the Page Builder,
+- new actions added in the block settings toolbox,
+- user can now adjust the size of the block settings window,
+- **Undo** and **Redo** buttons.
+
+![Page Builder interface](img/4.6_page_builder_interface.png)
+
+For more information, see [Page Builder interface](https://doc.ibexa.co/projects/userguide/en/master/content_management/create_edit_pages/#page-builder-interface).
+
 #### Reordered tabs in Location view
 
 #### Content types got icons
