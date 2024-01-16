@@ -365,6 +365,13 @@ For more information, see [Ibexa Connect scenario block](https://doc.ibexa.co/en
 
 [Ibexa DXP can officially be run on DDEV](https://ddev.readthedocs.io/en/latest/users/quickstart/#ibexa-dxp). For more information, see the [DDEV guide](https://doc.ibexa.co/en/master/getting_started/install_with_ddev/), which offers a step-by-step walkthrough for installing Ibexa DXP.
 
+### Customer Data Platform (CDP)
+
+In this release, the CDP configuration allows you to automate the process of exporting data.
+Users can now export not only Content, but also Users and Products data.
+
+For more information, see [CDP Activation](https://doc.ibexa.co/en/master/cdp/cdp_activation/cdp_activation/).
+
 ### Deprecations
 
 ####
