@@ -114,9 +114,12 @@ $exclusionTests = array_merge_recursive(UrlTester::getDefaultExclusionTests(), [
     ],
     'fragment' => [
         function (string $url, string $file = null): bool {
-            // ## Commerce [[% include 'snippets/commerce_badge.md' %]]
-            return str_ends_with($file, '.md')
-                && str_ends_with($url, 'permission_use_cases.md#commerce');
+            return str_ends_with($file, '.md') && (
+                    // ## Commerce [[% include 'snippets/commerce_badge.md' %]]
+                    str_ends_with($url, '/permission_use_cases.md#commerce')
+                    // ### Ensure proper Captcha behavior [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+                    || str_ends_with($url, '/reverse_proxy.md#ensure-proper-captcha-behavior')
+                );
         },
         function (string $url, string $file = null): bool {
             return str_starts_with($url, 'https://classic.yarnpkg.com/en/docs/')
