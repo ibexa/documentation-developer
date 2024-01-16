@@ -40,6 +40,17 @@ Users can now easily find and manage their drafts and published content from one
 
 ![Draft section added to Content](img/4.6_drafts.png)
 
+#### Customizable dashboard
+
+Users can now customize the dashboard depending on their needs. 
+This solution uses an online editor - Dashboard Builder. 
+It improves productivity, allows to enhance the default dashboard with additional widgets, 
+and helps to make better business decisions based on data.
+
+![Customizable dashboard](img/4.6_customizable_dashboard.png)
+
+For more information, see [Customizable dashboard](https://doc.ibexa.co/projects/userguide/en/master/getting_started/discover_ui/#customizable-dashboard).
+
 ### UX and UI improvements
 
 #### User avatar and new options in user profile
