@@ -76,6 +76,14 @@ Here are the most important changes:
 
 For more information, see [Page Builder interface](https://doc.ibexa.co/projects/userguide/en/master/content_management/create_edit_pages/#page-builder-interface).
 
+#### Editing embedded Content items
+
+User can now edit embedded Content items without leaving current window.
+This function is available in the Rich Text Field when creating Content items, for selected blocks in the Page Builder,
+and while adding or modifying a Content relation.
+
+For more information, see [Edit embedded Content items](https://doc.ibexa.co/projects/userguide/en/master/content_management/create_edit_content_items/#edit-embedded-content-items).
+
 #### Reordered tabs in Location view
 
 #### Content types got icons
