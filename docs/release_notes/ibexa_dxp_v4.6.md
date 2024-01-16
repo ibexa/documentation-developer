@@ -51,6 +51,15 @@ and helps to make better business decisions based on data.
 
 For more information, see [Customizable dashboard](https://doc.ibexa.co/projects/userguide/en/master/getting_started/discover_ui/#customizable-dashboard).
 
+#### Distraction free mode
+
+While editing Rich Text Fields, user can switch to distraction free mode.
+It expands the workspace to full screen and shows only editor toolbar.
+
+![Distraction free mode](img/4.6_distraction_free_mode.png)
+
+For more information, see [Distraction free mode](https://doc.ibexa.co/projects/userguide/en/master/content_management/create_edit_content_items/#distraction-free-mode).
+
 ### UX and UI improvements
 
 #### User avatar and new options in user profile
@@ -81,6 +90,8 @@ For more information, see [Page Builder interface](https://doc.ibexa.co/projects
 User can now edit embedded Content items without leaving current window.
 This function is available in the Rich Text Field when creating Content items, for selected blocks in the Page Builder,
 and while adding or modifying a Content relation.
+
+![Editing embedded Content items](img/4.6_editing_embedded_content_items.png)
 
 For more information, see [Edit embedded Content items](https://doc.ibexa.co/projects/userguide/en/master/content_management/create_edit_content_items/#edit-embedded-content-items).
 
