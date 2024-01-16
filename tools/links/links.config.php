@@ -90,8 +90,12 @@ $exclusionTests = array_merge_recursive(UrlTester::getDefaultExclusionTests(), [
                 ;
         },
         function (string $url, string $file = null): bool {
-            return str_ends_with($file, 'rest_api_authentication.md')
+            return str_ends_with($file, '/rest_api_authentication.md')
                 && str_ends_with($url, 'web+ez:DELETE /content/locations/1/2');
+        },
+        function (string $url, string $file = null): bool {
+            return str_ends_with($file, '/file_url_handling.md')
+                && (str_contains($url, 'http://`') || str_contains($url, 'ftp://`'));
         },
     ],
     'location' => [
@@ -109,6 +113,11 @@ $exclusionTests = array_merge_recursive(UrlTester::getDefaultExclusionTests(), [
         },
     ],
     'fragment' => [
+        function (string $url, string $file = null): bool {
+            // ## Commerce [[% include 'snippets/commerce_badge.md' %]]
+            return str_ends_with($file, '.md')
+                && str_ends_with($url, 'permission_use_cases.md#commerce');
+        },
         function (string $url, string $file = null): bool {
             return str_starts_with($url, 'https://classic.yarnpkg.com/en/docs/')
                 || str_starts_with($url, 'https://ddev.readthedocs.io/');
