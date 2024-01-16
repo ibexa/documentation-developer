@@ -89,6 +89,10 @@ $exclusionTests = array_merge_recursive(UrlTester::getDefaultExclusionTests(), [
                 || str_contains($url, '{{ ibexa_checkout_step_url(')
                 ;
         },
+        function (string $url, string $file = null): bool {
+            return str_ends_with($file, 'rest_api_authentication.md')
+                && str_ends_with($url, 'web+ez:DELETE /content/locations/1/2');
+        },
     ],
     'location' => [
         function (string $url, string $location, string $file = null): bool {
