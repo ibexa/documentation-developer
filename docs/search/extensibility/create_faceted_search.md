@@ -196,6 +196,15 @@ Controller creates query parameters from current request.
 [[= include_file('code_samples/search/faceted_search/src/Controller/BlogController.php') =]]
 ```
 
+### Add new abstract class
+
+You need to add an abstract class - it is a class that is designed to be specifically used as a base class.
+Add it in the `src/Menu/Builder` localization. Create a `AbstractFacetsMenuBuilder.php` file with the following code:
+
+``` php
+[[= include_file('code_samples/search/faceted_search/src/Menu/Builder/AbstractFacetsMenuBuilder.php') =]]
+```
+
 ### Add styling
 
 Next step is to add styling for the project.
@@ -242,4 +251,27 @@ In the `src/Menu/Builder` add `CategoriesMenuBuilder.php` file with the followin
 
 ``` php
 [[= include_file('code_samples/search/faceted_search/src/Menu/Builder/CategoriesMenuBuilder.php') =]]
+```
+
+### Add templates
+
+In order to display and render properly the side bar menu, you need to add templates.
+
+The first file, `facets_menu.html.twig`, includes a template that defines, to the facets menu is rendered. 
+It searches the page to check whether it contains relevant search results that meet the criteria, that is they belong to one of the given facets categories.
+In case that there are no search results, specific category is not displayed in the menu.
+
+Add the following code in the `templates/themes/storefront/full` localization:
+
+``` html+twig
+[[= include_file('code_samples/search/faceted_search/templates/themes/storefront/full/facets_menu.html.twig') =]]
+```
+
+The second file, `blog_sidebar.hmtl.twig`, creates a template for three categories: Publication Date, Categories and Rate.
+It includes `facets_menu` file for menu rendering.
+
+Add the following code in the `templates/themes/storefront/full` localization:
+
+``` html+twig
+[[= include_file('code_samples/search/faceted_search/templates/themes/storefront/full/blog_sidebar.html.twig', 1, 10) =]]
 ```

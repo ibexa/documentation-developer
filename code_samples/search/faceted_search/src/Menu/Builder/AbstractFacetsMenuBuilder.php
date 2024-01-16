@@ -19,24 +19,22 @@ abstract class AbstractFacetsMenuBuilder
     public function __construct(
         protected readonly FactoryInterface $itemFactory,
         protected readonly RequestStack $requestStack
-    ) {
-    }
+    ) {}
 
     /**
      * @param array<string, mixed> $options
      */
-    final public function build(array $options): ItemInterface
+    public final function build(array $options): ItemInterface
     {
         $menu = $this->itemFactory->createItem('root');
         $this->doBuild($menu, $this->resolveOptions($options));
-
         return $menu;
     }
 
     /**
      * @param TOptions $options
      */
-    abstract protected function doBuild(ItemInterface $menu, array $options): void;
+    protected abstract function doBuild(ItemInterface $menu, array $options): void;
 
     protected function configureOptions(OptionsResolver $resolver): void
     {
@@ -45,7 +43,6 @@ abstract class AbstractFacetsMenuBuilder
 
     /**
      * @param array<string, mixed> $options
-     *
      * @return TOptions
      */
     private function resolveOptions(array $options): array

@@ -1,13 +1,3 @@
-{% if aggregations.has('content_by_tag') %}
-    {% include '@ibexadesign/facets_menu.html.twig' with {
-        name: 'Categories',
-        menu: 'app.menu.categories_facets',
-        menu_params: {
-            aggregation_result: aggregations.get('content_by_tag')
-        }
-    } %}
-{% endif %}
-
 {% if aggregations.has('content_by_publication_date') %}
     {% include '@ibexadesign/facets_menu.html.twig' with {
         name: 'Publication Date',
@@ -15,6 +5,16 @@
         menu_params: {
             route: ibexa_route(null, app.request.query.all()),
             aggregation_result: aggregations.get('content_by_publication_date'),
+        }
+    } %}
+{% endif %}
+
+{% if aggregations.has('content_by_tag') %}
+    {% include '@ibexadesign/facets_menu.html.twig' with {
+        name: 'Categories',
+        menu: 'app.menu.categories_facets',
+        menu_params: {
+            aggregation_result: aggregations.get('content_by_tag')
         }
     } %}
 {% endif %}
