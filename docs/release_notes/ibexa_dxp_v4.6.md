@@ -62,9 +62,40 @@ For more information, see [Distraction free mode](https://doc.ibexa.co/projects/
 
 ### UX and UI improvements
 
-#### User avatar and new options in user profile
+#### User avatar and new options in user settings
 
-Enhance end-user profile with avatar photo. 
+User can now fully customize their profile in the Back Office with avatar photo and edit profile information by adding:
+
+- Email
+- Department
+- Position
+- Location
+- Signature
+
+New configuration options has beed added to user settings.
+
+For more information, see [user profile and settings documentation]().
+
+#### Reordered tabs in Location view
+
+#### Content types got icons
+
+Content type references now have been enhanced with icons which helps users quickly identify different content types in the Back Office sections.
+
+![Content type icons](img/4.6_content_type_icons.png)
+
+#### Improvements in Sub-items
+
+Sub-items are now as separate tab in content items.
+
+![Content type icons](img/4.6_sub_items_tab.png)
+
+
+### Ibexa Image picker
+
+Digital Asset Management is a platform dedicated to editors. It enables storing in central location, organizing, distributing, and sharing media assets across many channels.
+
+For more information see, [link to docs]().
 
 #### Page Builder improvements
 
@@ -94,14 +125,6 @@ and while adding or modifying a Content relation.
 ![Editing embedded Content items](img/4.6_editing_embedded_content_items.png)
 
 For more information, see [Edit embedded Content items](https://doc.ibexa.co/projects/userguide/en/master/content_management/create_edit_content_items/#edit-embedded-content-items).
-
-#### Reordered tabs in Location view
-
-#### Content types got icons
-
-### Ibexa Image picker
-
-Digital Asset Management is a platform dedicated to editors. It enables storing in central location, organizing, distributing, and sharing media assets across many channels.
 
 ### New features and improvements in PIM
 
