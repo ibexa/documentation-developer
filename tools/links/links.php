@@ -316,8 +316,11 @@ class TestableUrl
                     $fragmentFound = $contents && 1 === preg_match("@(id|name)=\"$fragment\"@", $contents);
                     if (!$fragmentFound && !self::isExternalUrl($url)) {
                         if ('md' === pathinfo(TestableUrl::getUrlWithoutFragment($url), PATHINFO_EXTENSION)) {
-                            $pattern = '@^#+\W*' . str_replace('-', '\W+', $fragment) . '\W*$@mi';
+                            //TODO: MarkDown fragment search pattern should be a config.
+                            //$pattern = '@^#+\W*' . str_replace('-', '\W+', $fragment) . '\W*$@mi';
+                            $pattern = '@^#+\W*' . str_replace('-', '\W+', $fragment) . '\W*( \[\[% include \'.+_badge.md\' %\]\])*$@mi';
                             $fragmentFound = (bool)preg_match($pattern, $contents);
+                            //TODO: Alternatively, Markdown headers could extracted, converted to anchors, and then compared
                         }
                     }
                 }
