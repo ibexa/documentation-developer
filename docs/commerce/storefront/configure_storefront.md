@@ -85,7 +85,7 @@ interface CatalogResolverInterface
 
 The following user settings mechanisms used in `ibexa/storefront` are reused from `ibexa/user` package:
 
-- [change password feature](user_management.md)
+- [change password feature](passwords.md)
 - user avatar
 
 Settings for a Storefront user are configured under the `ibexa.system.<scope>.storefront.user_settings_groups` [configuration key](configuration.md#configuration-files):

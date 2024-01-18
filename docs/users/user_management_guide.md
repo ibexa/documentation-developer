@@ -76,7 +76,7 @@ Policies allow for fine-grained control of access based on various factors, such
 
 Available options:
 
-- [Username and password](user_management.md) - ideal for most users, this traditional method offers a secure login process with username and password.
+- [Username and password](passwords.md) - ideal for most users, this traditional method offers a secure login process with username and password.
 - [OAuth](oauth_authentication.md) - integrating OAuth authentication allows users to log in using their existing social media or third-party credentials like Google, Facebook, and Twitter, streamlining the registration process.
 - [external service](add_login_through_external_service.md) - for enterprise users, integration with an external service like Active Directory or LDAP ensures that user authentication aligns with the organization's existing systems.
 
