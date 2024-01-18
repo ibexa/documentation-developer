@@ -89,7 +89,7 @@ For more information, see [User management product guide](user_management_guide.
 
 #### Content access
 
-There is many paths to access the content in many shapes:
+There are many paths to access the content in many shapes:
 
 - The REST API and GraphQL API support access to, and edition of the content.
 - [[= product_name_headless =]] offers a complete PHP API to extend the ways to access content.
