@@ -357,7 +357,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
 ## Ibexa Cloud requirements and setup
 
-=== "Ibexa Cloud v4.5 "
+=== "Ibexa Cloud v4.5"
 
     ### Cloud hosting with Ibexa Cloud and Platform.sh
 
@@ -404,7 +404,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
     We recommend giving the development team working on the project access to the bucket
     to ensure work is done in a DevOps way without depending on external teams when changes are needed.
 
-=== "Ibexa Cloud v3.3 "
+=== "Ibexa Cloud v3.3"
 
     ### Cloud hosting with Ibexa Cloud and Platform.sh
 
@@ -451,7 +451,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
     We recommend giving the development team working on the project access to the bucket
     to ensure work is done in a DevOps way without depending on external teams when changes are needed.
 
-=== "eZ Platform Cloud v2.5 "
+=== "eZ Platform Cloud v2.5"
 
     ### Cloud hosting with eZ Platform Cloud and Platform.sh
 
