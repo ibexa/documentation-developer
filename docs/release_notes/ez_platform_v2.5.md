@@ -2,6 +2,7 @@
 description: eZ Platform v2.5 is the last Long Term Support release in the v2 line, currently after End of Maintenance.
 ---
 
+<!-- vale VariablesVersion = NO -->
 # eZ Platform v2.5
 
 **Version number**: v2.5

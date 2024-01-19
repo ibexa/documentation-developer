@@ -87,6 +87,17 @@ For more information, see [Submodels]([[= user_doc =]]/personalization/recommend
     
     `GET https://reco.perso.ibexa.co/api/v2/00000/john.doe/landing_page.json?numrecs=50&outputtypeid=1&width-range=10:30&color=green`
 
+##### Segment parameters
+
+If you have configured segments, you can use them in the recommendation model. Pass the following parameter
+to request recommendations for a specific segment or segment group.
+
+Parameter|Example|Description|Value|
+|---|---|---|---|
+|`segments`|`&segments=7,8,10,11`|ID from segment group management|string|
+
+For more information, see [Segments]([[= user_doc =]]/personalization/segment_management).
+
 ## Responses
 
 The recommendation request returns information about the currently used context 
@@ -235,7 +246,7 @@ The following HTTP response codes are used by the recommendation controller:
 |403 Forbidden|Access denied.|
 |404 Not Found|The requested element was't found. It could be customer ID (or "mandator ID"), model ID, or scenario ID.|
 |409 Conflict|The requested combination of models and recommendation parameters can't return recommendations. This could happen, for example, if you request personalized recommendations for a user who has no history.|
-|500 Internal Server Error|Unspecified error. Contact Ibexa support if this error is recurring.|
+|500 Internal Server Error|Unspecified error. Contact [[= product_name_base =]] support if this error is recurring.|
 
 In case of errors, the response body contains human-readable error messages.
 Error messages can change, don't use them for automated processing.

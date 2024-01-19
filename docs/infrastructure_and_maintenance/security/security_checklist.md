@@ -31,7 +31,7 @@ make sure that your setup is secure.
     
 !!! note
 
-    On Ibexa Cloud, if `APP_SECRET` is not set, the system sets it to [`PLATFORM_PROJECT_ENTROPY`](https://docs.platform.sh/guides/symfony/environment-variables.html#symfony-environment-variables)
+    On [[= product_name_cloud =]], if `APP_SECRET` is not set, the system sets it to [`PLATFORM_PROJECT_ENTROPY`](https://docs.platform.sh/guides/symfony/environment-variables.html#symfony-environment-variables)
 
 ### Symfony production mode
 
@@ -75,11 +75,11 @@ This is specially important for admin accounts and other privileged users.
 - Never go online with admin password set to `publish` or any other default value.
 - Introduce password quality checks. Make sure the checks are strict enough (length/complexity).
 - 16 characters is a quite secure minimum length. Do not go below 10.
-- If using Ibexa DXP v4.5 or newer, enable the password rule that rejects any password which has been exposed in a public breach.
+- If using [[= product_name =]] v4.5 or newer, enable the password rule that rejects any password which has been exposed in a public breach.
 
 !!! tip "Password rules"
 
-    See [setting up password rules](user_management.md#password-rules).
+    See [setting up password rules](passwords.md#password-rules).
 
 ### Secure secrets
 
@@ -97,7 +97,7 @@ before they have logged in, including would-be attackers. If an attacker uses th
 address, the attacker does not receive the email. But they could still try to guess the password reset link. That's why
 this interval should be as short as possible. 5 minutes is often enough.
 
-Ibexa DXP allows you to create and send invitations to create an account in the frontend as a customer, the Back Office
+[[= product_name =]] allows you to create and send invitations to create an account in the frontend as a customer, the Back Office
 as an employee, or the Corporate Portal as a business partner. You can send invitations to individual users or in
 bulk. These invitations time out according to the parameter
 `ibexa.site_access.config.default.user_invitation.hash_expiration_time`. This can safely be longer than the "forgot password" time,
@@ -190,7 +190,7 @@ Once you have properly configured secure user roles and permissions, to avoid ex
 
 - Avoid exposing servers on the open internet when not strictly required.
 - Ensure any servers, services, ports and virtual hosts that were opened for testing purposes are shut down before going live.
-- Secure the database with a good password, keys, firewall, etc. Ensure that the database user used by the web app only has access to do the operations needed by Ibexa DXP. The Data Definition Language (DDL) commands (create, alter, drop, truncate, comment) are not needed for running Ibexa DXP, only for installing and upgrading it. If the web app user does not have these rights, then that reduces the damage that can be done if there is a security breach.
+- Secure the database with a good password, keys, firewall, etc. Ensure that the database user used by the web app only has access to do the operations needed by [[= product_name =]]. The Data Definition Language (DDL) commands (create, alter, drop, truncate, comment) are not needed for running [[= product_name =]], only for installing and upgrading it. If the web app user does not have these rights, then that reduces the damage that can be done if there is a security breach.
 
 ### Security headers
 

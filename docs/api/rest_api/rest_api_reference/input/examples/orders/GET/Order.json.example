@@ -1,89 +1,127 @@
 {
     "Order": {
         "_media-type": "application/vnd.ibexa.api.Order+json",
-        "id": 3,
-        "identifier": "79b20ac4-fe23-4566-a9c2-b81966431026",
+        "id": 1,
+        "identifier": "02ce9f94-e36b-4acf-92f7-eb93cda6af71",
         "created": {
-            "date": "2023-04-18 09:44:34.000000",
+            "date": "2023-10-18 06:24:00.000000",
             "timezone_type": 3,
             "timezone": "UTC"
         },
         "modified": {
-            "date": "2023-04-18 09:44:34.000000",
+            "date": "2023-10-18 06:24:00.000000",
             "timezone_type": 3,
             "timezone": "UTC"
         },
         "status": "pending",
+        "source": "local_shop",
         "OrderUser": {
             "_media-type": "application/vnd.ibexa.api.OrderUser+json",
-            "id": 14,
-            "name": "Administrator",
-            "email": "aa@aa.aa"
+            "id": null,
+            "name": "Anonymous User",
+            "email": "test@test.com"
         },
         "OrderCurrency": {
             "_media-type": "application/vnd.ibexa.api.OrderCurrency+json",
-            "id": 1,
+            "id": 2,
             "code": "EUR"
         },
         "OrderValue": {
             "_media-type": "application/vnd.ibexa.api.OrderValue+json",
             "vat": {
-                "amount": "10",
+                "amount": "96",
                 "currency": "EUR"
             },
             "total_gross": {
-                "amount": "10",
+                "amount": "1512",
                 "currency": "EUR"
             },
             "total_net": {
-                "amount": "10",
+                "amount": "1200",
+                "currency": "EUR"
+            },
+            "shipping_cost": {
+                "amount": "216",
                 "currency": "EUR"
             }
-        },
-        "OrderCompany": {
-            "_media-type": "application/vnd.ibexa.api.OrderCompany+json",
-            "id": 68,
-            "name": "Apple"
         },
         "OrderItemsList": [
             {
                 "_media-type": "application/vnd.ibexa.api.OrderItem+json",
-                "quantity": 10,
+                "quantity": 1,
                 "OrderItemValue": {
                     "_media-type": "application/vnd.ibexa.api.OrderItemValue+json",
                     "unit_price_gross": {
-                        "amount": "110",
+                        "amount": "1296",
                         "currency": "EUR"
                     },
                     "unit_price_net": {
-                        "amount": "100",
+                        "amount": "1200",
                         "currency": "EUR"
                     },
-                    "vat_rate": "10.00",
+                    "vat_rate": "8.00",
                     "subtotal_price_gross": {
-                        "amount": "1100",
+                        "amount": "1296",
                         "currency": "EUR"
                     },
                     "subtotal_price_net": {
-                        "amount": "1000",
+                        "amount": "1200",
                         "currency": "EUR"
                     }
                 },
                 "OrderItemProduct": {
                     "_media-type": "application/vnd.ibexa.api.OrderItemProduct+json",
-                    "id": 1,
-                    "code": "test",
-                    "name": "Test"
-                },
-                "context": {
-                    "foo": "bar",
-                    "baz": true
+                    "id": 83,
+                    "code": "test123",
+                    "name": "test123"
                 }
             }
         ],
         "context": {
-            "foo": "bar",
-            "baz": 123
+            "shipping_address": {
+                "name": null,
+                "country": "PL",
+                "fields": {
+                    "tax_id": "16",
+                    "region": "Polska",
+                    "locality": "Kraków",
+                    "street": "Krupnicza 16",
+                    "postal_code": "31-123",
+                    "email": "test@test.com",
+                    "phone_number": "123123123"
+                }
+            },
+            "billing_address": {
+                "name": null,
+                "country": "PL",
+                "fields": {
+                    "tax_id": "16",
+                    "region": "Polska",
+                    "locality": "Kraków",
+                    "street": "Krupnicza 16",
+                    "postal_code": "31-123",
+                    "email": "test@test.com",
+                    "phone_number": "123123123"
+                }
+            },
+            "entries_count": 1,
+            "same_for_shipping": true,
+            "select_shipping": {
+                "shipping_method": {
+                    "identifier": "test",
+                    "name": "test"
+                },
+                "payment_method": {
+                    "identifier": "test",
+                    "name": "test",
+                    "type": "online"
+                }
+            },
+            "summary": [],
+            "shipping_cost_incl_vat": {
+                "amount": "216",
+                "currency": "EUR"
+            }
         }
     }
 }
