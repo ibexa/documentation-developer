@@ -20,6 +20,9 @@ You can get additional information about a Field by using the following Twig fun
 - [`ibexa_field_name()`](#ibexa_field_name) returns the name of a Content item's Field.
 - [`ibexa_field_description()`](#ibexa_field_description) returns the description of a Content item's Field.
 - [`ibexa_field_is_empty()`](#ibexa_field_is_empty) returns Boolean information whether a Field of a Content item is empty.
+- [`ibexa_field_group_name()`](#ibexa_field_group_name) returns a human-readable name of the Field group.
+- [`ibexa_has_field()`](#ibexa_has_field) checks whether a Field is present in the Content item.
+
 
 ## Field rendering
 
@@ -173,5 +176,33 @@ For example, use `ibexa_field_is_empty()` to check whether a Field is empty or f
 ``` html+twig
 {% if not ibexa_field_is_empty(content, 'image') %}
     {{ ibexa_render_field(content, 'image') }}
+{% endif %}
+```
+
+### `ibexa_field_group_name()`
+
+`ibexa_field_group_name()` returns a human-readable name of a Field group.
+
+| Argument | Type | Description |
+|---------------|------|-------------|
+| `fieldGroupIdentifier` | `string` | Field group [identifier](repository_configuration.md#field-groups-configuration). |
+
+
+``` html+twig
+{{ ibexa_field_group_name('content') }}
+```
+
+### `ibexa_has_field()`
+
+`ibexa_has_field()` returns Boolean information whether a Field is present in the Content item.
+
+| Argument | Type | Description |
+|---------------|------|-------------|
+| `content` | `Ibexa\Contracts\Core\Repository\Values\Content\Content` | Content item the Field may belong to. |
+| `fieldDefIdentifier` | `string` | Identifier of the Field. |
+
+``` html+twig
+{% if ibexa_has_field(content, 'existing') %}
+    {{ ibexa_render_field(content, 'existing') }}
 {% endif %}
 ```

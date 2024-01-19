@@ -6,6 +6,9 @@ site_url: https://doc.ibexa.co/en/latest/
 copyright: "Copyright 1999-2023 Ibexa AS and others"
 nav:
     - Ibexa Developer Documentation: index.md
+    - Ibexa DXP editions:
+        - Editions: ibexa_products/editions.md
+        - Ibexa Headless: ibexa_products/headless.md
     - Getting started:
         - Getting started: getting_started/getting_started.md
         - Requirements: getting_started/requirements.md
@@ -274,12 +277,13 @@ nav:
             - Catalog Twig functions: templating/twig_function_reference/catalog_twig_functions.md
             - Checkout Twig functions: templating/twig_function_reference/checkout_twig_functions.md
             - Content Twig functions: templating/twig_function_reference/content_twig_functions.md
+            - Date Twig filters: templating/twig_function_reference/date_twig_filters.md
             - Field Twig functions: templating/twig_function_reference/field_twig_functions.md
+            - Image Twig functions: templating/twig_function_reference/image_twig_functions.md
             - Product Twig functions: templating/twig_function_reference/product_twig_functions.md
             - Storefront Twig functions: templating/twig_function_reference/storefront_twig_functions.md
-            - Image Twig functions: templating/twig_function_reference/image_twig_functions.md
             - URL Twig functions: templating/twig_function_reference/url_twig_functions.md
-            - Date Twig filters: templating/twig_function_reference/date_twig_filters.md
+            - User Twig functions: templating/twig_function_reference/user_twig_functions.md
             - Other Twig filters: templating/twig_function_reference/other_twig_filters.md
         - URLs and routes:
             - URLs and routes: templating/urls_and_routes/urls_and_routes.md
@@ -385,12 +389,18 @@ nav:
     - Users:
         - Users: users/users.md
         - User management guide: users/user_management_guide.md
-        - User management: users/user_management.md
-        - Customer groups: users/customer_groups.md
-        - Invitations: users/invitations.md
-        - OAuth authentication: users/oauth_authentication.md
-        - Add login through external service: users/add_login_through_external_service.md
-        - Segment API: users/segment_api.md
+        - User setup:
+          - Invitations: users/invitations.md
+          - Registration: users/user_registration.md
+        - User authentication:
+          - Login methods: users/login_methods.md
+          - Passwords: users/passwords.md
+          - User authentication: users/user_authentication.md
+          - OAuth authentication: users/oauth_authentication.md
+          - Add login through external service: users/add_login_through_external_service.md
+        - User grouping:
+          - Customer groups: users/customer_groups.md
+          - Segment API: users/segment_api.md
     - Personalization:
         - Personalization: personalization/personalization.md
         - Personalization guide : personalization/personalization_brochure.md
@@ -668,6 +678,8 @@ nav:
             - IntegerStatsAggregation: search/aggregation_reference/integerstats_aggregation.md
             - KeywordTermAggregation: search/aggregation_reference/keywordterm_aggregation.md
             - Product attribute aggregations: search/aggregation_reference/product_attribute_aggregations.md
+            - BasePriceStatsAggregation: search/aggregation_reference/basepricestats_aggregation.md
+            - CustomPriceStatsAggregation: search/aggregation_reference/custompricestats_aggregation.md
             - ProductAvailabilityTermAggregation: search/aggregation_reference/productavailabilityterm_aggregation.md
             - ProductStockRangeAggregation: search/aggregation_reference/productstockrange_aggregation.md
             - ProductStockRangeAggregation: search/aggregation_reference/productstockrange_aggregation.md
@@ -847,6 +859,7 @@ extra:
 
   symfony_doc: 'https://symfony.com/doc/5.4'
   user_doc: 'https://doc.ibexa.co/projects/userguide/en/master'
+  connect_doc: 'https://doc.ibexa.co/projects/connect/en/latest'
 
 extra_css:
   - fonts/MavenPro.css
