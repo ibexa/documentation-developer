@@ -6,6 +6,9 @@ site_url: https://doc.ibexa.co/en/latest/
 copyright: "Copyright 1999-2023 Ibexa AS and others"
 nav:
     - Ibexa Developer Documentation: index.md
+    - Ibexa DXP editions:
+        - Editions: ibexa_products/editions.md
+        - Ibexa Headless: ibexa_products/headless.md
     - Getting started:
         - Getting started: getting_started/getting_started.md
         - Requirements: getting_started/requirements.md
@@ -856,6 +859,7 @@ extra:
 
   symfony_doc: 'https://symfony.com/doc/5.4'
   user_doc: 'https://doc.ibexa.co/projects/userguide/en/master'
+  connect_doc: 'https://doc.ibexa.co/projects/connect/en/latest'
 
 extra_css:
   - fonts/MavenPro.css
