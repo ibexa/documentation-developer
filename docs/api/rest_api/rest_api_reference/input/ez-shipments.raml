@@ -1,3 +1,5 @@
+displayName: Shipments
+
 get:
     displayName: Load shipments
     description: Loads a list of shipments.
@@ -25,7 +27,7 @@ get:
         404:
             description: Error - the shipment does not exist.
 
-/identifier:
+/{identifier}:
     get:
         displayName: Load a single shipment based on its identifier
         description: Loads a single shipment based on its identifier.
