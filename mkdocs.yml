@@ -344,7 +344,7 @@ nav:
             - Extend Payment: commerce/payment/extend_payment.md 
             - Payment method API: commerce/payment/payment_method_api.md 
             - Payment method filtering: commerce/payment/payment_method_filtering.md
-            - Payment API: commerce/payment/payment_api.md 
+            - Payment API: commerce/payment/payment_api.md
         - Shipping management:
             - Shipping management: commerce/shipping_management/shipping_management.md
             - Configure shipping: commerce/shipping_management/configure_shipment.md
@@ -553,7 +553,7 @@ nav:
             - Name: search/criteria_reference/payment_method_name_criterion.md
             - Type: search/criteria_reference/payment_method_type_criterion.md
             - UpdatedAt: search/criteria_reference/payment_method_updatedat_criterion.md
-        - Price Search Criteria: 
+        - Price Search Criteria:
             - Price Search Criteria: search/criteria_reference/price_search_criteria.md
             - Currency: search/criteria_reference/price_currency_criterion.md
             - CustomerGroup: search/criteria_reference/price_customergroup_criterion.md
@@ -710,7 +710,7 @@ nav:
               - Reverse proxy: infrastructure_and_maintenance/cache/http_cache/reverse_proxy.md
               - Context-aware HTTP cache: infrastructure_and_maintenance/cache/http_cache/context_aware_cache.md
               - Content-aware HTTP cache: infrastructure_and_maintenance/cache/http_cache/content_aware_cache.md
-              - Configure and customize Fastly: infrastructure_and_maintenance/cache/http_cache/fastly.md 
+              - Configure and customize Fastly: infrastructure_and_maintenance/cache/http_cache/fastly.md
             - Persistence cache: infrastructure_and_maintenance/cache/persistence_cache.md
         - Clustering:
             - Clustering: infrastructure_and_maintenance/clustering/clustering.md
