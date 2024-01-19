@@ -89,6 +89,9 @@ displayName: Shipping methods
                 200:
                     description: OK - loads the shipping method.
                     body:
+                        application/vnd.ibexa.api.ShippingMethodType+xml:
+                            type: ShippingMethodType
+                            example: !include examples/shipping/method-types/identifier/GET/ShippingMethodType.xml.example
                         application/vnd.ibexa.api.ShippingMethodType+json:
                             type: ShippingMethodType
                             example: !include examples/shipping/method-types/identifier/GET/ShippingMethodType.json.example
