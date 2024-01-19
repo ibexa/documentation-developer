@@ -76,7 +76,9 @@ New configuration options has beed added to user settings.
 
 For more information, see [user profile and settings documentation]().
 
-#### Reordered tabs in Location view
+#### New tabs order
+
+Tabs are now reordered in Location view by their relevance.
 
 #### Content types got icons
 
