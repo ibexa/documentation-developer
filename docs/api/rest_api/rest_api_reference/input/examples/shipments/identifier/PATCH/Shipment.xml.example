@@ -15,5 +15,5 @@
     <createdAt>2023-06-26T15:40:28+02:00</createdAt>
     <updatedAt>2023-06-26T15:40:28+02:00</updatedAt>
     <Owner media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/14"/>
-    <Method media-type="application/vnd.ibexa.api.ShippingMethod+xml" href="/api/ibexa/v2/shipping/methods/inpost_parcel_locker_delivery"/>
+    <Method media-type="application/vnd.ibexa.api.ShippingMethod+xml" href="/api/ibexa/v2/shipping/methods/parcel_locker_delivery"/>
 </Shipment>
