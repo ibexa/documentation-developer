@@ -30,10 +30,6 @@ cp -R <project_root>/vendor/ibexa/solr/src/lib/Resources/config/solr/* server/ib
 cp server/solr/configsets/_default/conf/{solrconfig.xml,stopwords.txt,synonyms.txt} server/ibexa/template
 cp server/solr/solr.xml server/ibexa
 
-# If you are using Ibexa Commerce, additionally copy commerce-specific configuration files:
-cat <project_root>/vendor/ibexa/commerce-shop/src/bundle/Search/Resources/config/solr/custom-fields-types.xml >> server/ibexa/template/custom-fields-types.xml
-cat <project_root>/vendor/ibexa/commerce-shop/src/bundle/Search/Resources/config/solr/language-fieldtypes.xml >> server/ibexa/template/language-fieldtypes.xml
-
 # Modify solrconfig.xml to remove the section that doesn't agree with your schema
 sed -i.bak '/<updateRequestProcessorChain name="add-unknown-fields-to-the-schema".*/,/<\/updateRequestProcessorChain>/d' server/ibexa/template/solrconfig.xml
 
@@ -50,7 +46,7 @@ SolrCloud is a cluster of Solr servers. It enables you to:
 - automatically load balance and fail-over for queries
 - integrate ZooKeeper for cluster coordination and configuration
 
-To set SolrCloud up follow [SolrCloud reference guide.](https://lucene.apache.org/solr/guide/7_7/solrcloud.html)
+To set SolrCloud up follow [SolrCloud reference guide](https://lucene.apache.org/solr/guide/7_7/solrcloud.html).
 
 ### Continue Solr configuration
 
@@ -195,7 +191,7 @@ ibexa_solr:
 
 ### SolrCloud example
 
-To use SolrCloud you need to specify data distribution strategy for connection via the `distribution_strategy` option to [`cloud`.](https://lucene.apache.org/solr/guide/7_7/solrcloud.html)
+To use SolrCloud you need to specify data distribution strategy for connection via the `distribution_strategy` option to [`cloud`](https://lucene.apache.org/solr/guide/7_7/solrcloud.html).
 
 The example is based on multi-core setup so any specific language analysis options could be specified on the collection level.
 
@@ -228,10 +224,10 @@ ibexa_solr:
                 main_translations: main
 ```
 
-This solution uses the default SolrCloud [document routing strategy: `compositeId`.](https://lucene.apache.org/solr/guide/7_7/shards-and-indexing-data-in-solrcloud.html#ShardsandIndexingDatainSolrCloud-DocumentRouting)
+This solution uses the default SolrCloud [document routing strategy: `compositeId`](https://lucene.apache.org/solr/guide/7_7/shards-and-indexing-data-in-solrcloud.html#ShardsandIndexingDatainSolrCloud-DocumentRouting).
 
 ### Solr Basic HTTP Authorization
-Solr core can be secured with Basic HTTP Authorization. See more information here: [Solr Basic Authentication Plugin.](https://cwiki.apache.org/confluence/display/solr/Basic+Authentication+Plugin)
+Solr core can be secured with Basic HTTP Authorization. See more information here: [Solr Basic Authentication Plugin](https://cwiki.apache.org/confluence/display/solr/Basic+Authentication+Plugin).
 In the example below we configured Solr Bundle to work with secured Solr core.
 
 ``` yaml
@@ -292,4 +288,4 @@ Here are the most common issues you may encounter:
     - Solr Bundle on purpose does not commit changes directly on Repository updates *(on indexing)*, but lets you control this using Solr configuration. Adjust Solr's `autoSoftCommit` (visibility of changes to search index) and/or `autoCommit` (hard commit, for durability and replication) to balance performance and load on your Solr instance against needs you have for "[NRT](https://cwiki.apache.org/confluence/display/solr/Near+Real+Time+Searching)".
 - Running out of memory during indexing
     - In general make sure to run indexing using the prod environment to avoid debuggers and loggers from filling up memory.
-    - Flysystem: You can find further info in https://jira.ez.no/browse/EZP-25325.
+    - Flysystem: You can find further info in https://issues.ibexa.co/browse/EZP-25325.

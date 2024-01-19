@@ -14,11 +14,11 @@ or in [a custom folder that you configure](managing_migrations.md#migration-fold
 You can later use this file to import the data.
 
 ``` bash
-php bin/console ibexa:migrations:generate --type=content --mode=create
+php bin/console ibexa:migrations:generate --type=content --mode=create --siteaccess=admin
 ```
 
 This generates a file containing all Content items.
-Below you can see part of the output of the default Ibexa DXP installation.
+Below you can see part of the output of the default [[= product_name =]] installation.
 
 ``` yaml
 -
@@ -133,6 +133,12 @@ Note that you should test your migrations. See [Importing data](importing_data.m
 !!! tip
 
     Migration command can be executed with database rollback at the end with the `--dry-run` option.
+
+!!! caution
+
+    The `--siteaccess` option usage can be relevant for a multi-language repository.
+    You must export with a SiteAccess that supports all languages, or the migration skips translations in non-supported languages.
+    It is recommended to use the SiteAccess from the Back Office of the targeted repository.
 
 ## type
 
@@ -274,7 +280,7 @@ php bin/console ibexa:migrations:generate --type=content --mode=create --file=my
 
 !!! note
 
-    When migrating multiple files at once (for example when calling `ibexa:migration:migrate` without options),
+    When migrating multiple files at once (for example when calling `ibexa:migrations:migrate` without options),
     they are executed in alphabetical order.
 
 ## user-context

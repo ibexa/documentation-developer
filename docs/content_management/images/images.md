@@ -22,7 +22,7 @@ the system that the installation uses.
 ## Reuse images
 
 You can store images in the media library as independent Content items of 
-a generic Image [Content Type](content_model.md#content-types) to reuse them across the system.
+a generic Image [Content Type](content_types.md) to reuse them across the system.
 You do this by uploading images to an [ImageAsset](imageassetfield.md) Field Type.
 
 For an ImageAsset field to be reused, you must publish it. 
@@ -55,13 +55,13 @@ php bin/console liip:imagine:cache:remove
 
 ## Configuring image variations
 
-With image variations (image aliases) you can define and use different versions 
+With [image variations](image_variations.md) (image aliases) you can define and use different versions 
 of the same image. 
-You generate variations based on filters that modify aspects such as size 
+You generate variations based on [filters](image_variations.md#available-variation-filters) that modify aspects such as size 
 and proportions, quality or effects.
 
 Image variations are generated with [LiipImagineBundle](https://github.com/liip/LiipImagineBundle), by using the underlying 
-[Imagine library from avalanche123](http://imagine.readthedocs.org/en/latest/). 
+[Imagine library](https://imagine.readthedocs.io/en/latest/). 
 The LiipImagineBundle bundle supports GD (default), Imagick or Gmagick PHP 
 extensions, and enables you to define flexible filters in PHP. 
 Image files are stored by using the `IOService,` and are completely independent 
@@ -69,7 +69,7 @@ from the Image Field Type.
 They are generated only once and cleared on demand, for example, on content removal).
 
 LiipImagineBundle only works on image blobs, so no command line tool is needed. 
-For more information, see the [bundle's documentation](https://symfony.com/doc/current/bundles/LiipImagineBundle/configuration.html).
+For more information, see the [bundle's documentation](https://symfony.com/bundles/LiipImagineBundle/current/configuration.html).
 
 !!! caution "Code injection in image EXIF"
 
@@ -87,7 +87,7 @@ to image variations that are generated from the original image, with one or more
 paths as arguments. 
 Paths to repository images must be relative to the `var/<site>/storage/images` 
 directory, for example: `7/4/2/0/247-1-eng-GB/test.jpg`.
-For more information, see [LiipImagineBundle documentation](https://symfony.com/bundles/LiipImagineBundle/current/commands.html#resolve-cache).
+For more information, see [LiipImagineBundle documentation](https://symfony.com/bundles/LiipImagineBundle/current/basic-usage.html#resolve-with-the-console).
 
 ## Resizing images
 

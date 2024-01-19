@@ -24,14 +24,14 @@ returns a new [`ContentCreateStruct`](https://github.com/ibexa/core/blob/main/sr
 [[= include_file('code_samples/api/public_php_api/src/Command/CreateContentCommand.php', 57, 66) =]]
 ```
 
-This command creates a draft using [`ContentService::createContent`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php#L210) (line 21).
+This command creates a draft using [`ContentService::createContent`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php#L210) (line 7).
 This method must receive a `ContentCreateStruct` and an array of Location structs.
 
-`ContentCreateStruct` (which extends `ContentStruct`) is created through [`ContentService::newContentCreateStruct`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php#L533) (line 17),
+`ContentCreateStruct` (which extends `ContentStruct`) is created through [`ContentService::newContentCreateStruct`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php#L533) (line 2),
 which receives the Content Type and the primary language for the Content item.
 For information about translating a Content item into other languages, see [Translating content](#translating-content).
 
-[`ContentStruct::setField`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentStruct.php#L32) (line 18) enables you to define the Field values.
+[`ContentStruct::setField`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentStruct.php#L32) (line 3) enables you to define the Field values.
 When the Field accepts a simple value, you can provide it directly, as in the example above.
 For some Field Types, for example [images](#creating-an-image), you need to provide an instance of a Value type.
 
@@ -73,7 +73,7 @@ This method must get the [`VersionInfo`](https://github.com/ibexa/core/blob/main
 ## Updating content
 
 To update an existing Content item, you need to prepare a [`ContentUpdateStruct`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentUpdateStruct.php)
-and pass it to [`ContentService::updateContent`.](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php#L320)
+and pass it to [`ContentService::updateContent`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php#L320).
 This method works on a draft, so to publish your changes you need to use [`ContentService::publishVersion`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php#L343) as well:
 
 ``` php
@@ -100,7 +100,7 @@ Only one language can still be set as a version's initial language:
 
 ### Deleting a translation
 
-You can delete a single translation from a Content item's version using [`ContentService::deleteTranslationFromDraft`.](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php#L499)
+You can delete a single translation from a Content item's version using [`ContentService::deleteTranslationFromDraft`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php#L499).
 The method must be provided with a `VersionInfo` object and the code of the language to delete:
 
 ``` php

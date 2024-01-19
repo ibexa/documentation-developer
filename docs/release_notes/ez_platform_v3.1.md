@@ -1,3 +1,5 @@
+<!-- vale VariablesVersion = NO -->
+
 # eZ Platform v3.1
 
 **Version number**: v3.1
@@ -59,7 +61,7 @@ This release of eZ Platform introduces the following new features:
     - Matrix
     - Media
     
-    For overview of additional Fields, see [User documentation on Comparing versions.]([[= user_doc =]]/publishing/publishing/#comparing-versions)
+    For overview of additional Fields, see [User documentation on Comparing versions]([[= user_doc =]]/publishing/publishing/#comparing-versions).
     
 ### URL management UI
 

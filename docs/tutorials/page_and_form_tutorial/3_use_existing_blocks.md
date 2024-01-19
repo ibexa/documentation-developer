@@ -48,7 +48,7 @@ You'll display the first three Dog Breeds from the database.
 
 ![Window with Content List options](enterprise_tut_content_list_window.png)
 
-Click Submit and you should see a preview of what the block will look like with the dog breed information displayed.
+Click **Submit** and you should see a preview of what the block will look like with the dog breed information displayed.
 
 ![Content List Styled](enterprise_tut_content_list_styled.png "Content List Styled")
 
@@ -119,7 +119,7 @@ Navigate to the "All Articles" folder and select the articles you had created an
 
 ![Selecting Articles for the Schedule Block](enterprise_tut_select_articles.png)
 
-Accept the suggested airtime and click Submit.
+Accept the suggested airtime and click **Submit**.
 
 Now click the Airtime button next to one of the Articles and choose a time in the future.
 This article will be listed in the queue.

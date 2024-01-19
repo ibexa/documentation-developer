@@ -56,7 +56,7 @@ The configuration above will result in the following boosting (Content Type / Fi
     Unfortunately, this doesn't affect search performed in the administration interface.
 
     The following example presents boosting configuration for Folder's `name` and `description` fields.
-    First, in `ibexa_solr.yaml` configure [custom fulltext fields.](https://github.com/Novactive/NovaeZSolrSearchExtraBundle/blob/master/doc/custom_fields.md)
+    First, in `ibexa_solr.yaml` configure [custom fulltext fields](https://github.com/Novactive/NovaeZSolrSearchExtraBundle/blob/master/doc/custom_fields.md).
 
     ```yaml
     ez_solr_search_extra:
@@ -226,7 +226,7 @@ Connect to the Solr slave interface (http://localhost:8983/solr), go to your cor
 
 # Configure HTTP Client for Solr queries
 
-Ibexa Solr Bundle uses Symfony HTTP Client to fetch and update Solr index.
+[[= product_name_base =]] Solr Bundle uses Symfony HTTP Client to fetch and update Solr index.
 You can configure timeout and maximum number of retries for that client using Solr Bundle's Semantic configuration:
 
 ```yaml

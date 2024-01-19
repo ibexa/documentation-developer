@@ -89,7 +89,7 @@ calls `Ibexa\Core\MVC\Symfony\Routing\ChainRouter::matchRequest` and adds its re
 
 #### `ChainRouter`
 
-The [`ChainRouter`](https://symfony.com/doc/current/cmf/components/routing/chain.html) is a Symfony Content Management Framework (CMF) component. [[= product_name =]] makes it a service named `Ibexa\Core\MVC\Symfony\Routing\ChainRouter`.
+The [`ChainRouter`](https://symfony.com/bundles/CMFRoutingBundle/current/routing-component/chain.html) is a Symfony Content Management Framework (CMF) component. [[= product_name =]] makes it a service named `Ibexa\Core\MVC\Symfony\Routing\ChainRouter`.
 It has a collection of prioritized routers where to find one matching the request.
 The `ChainRouter` router collection is built by the `ChainRoutingPass`, collecting the services tagged `router`.
 The `DefaultRouter` is always added to the collection with top priority (priority 255).
@@ -130,7 +130,7 @@ Now, when the `Request` knows its controller, the `HttpKernel` dispatches the `k
 When HttpKernel dispatches the `kernel.controller` event, the following things happen.
 
 Listening to `kernel.controller`, the `ViewControllerListener` (`Ibexa\Bundle\Core\EventListener\ViewControllerListener`) (priority 10) checks if the `_controller` request attribute is associated with a `ViewBuilder` (a service tagged `ibexa.view.builder`) in the `ViewBuilderRegistry` (`Ibexa\Core\MVC\Symfony\View\Builder\Registry\ControllerMatch`).
-The `ContentViewBuilder` (`Ibexa\Core\MVC\Symfony\View\Builder\ContentViewBuildercontent`) matches on controller starting with `ibexa_content:` (see `Ibexa\Core\MVC\Symfony\View\Builder\ContentViewBuilder::matches`).
+The `ContentViewBuilder` (`Ibexa\Core\MVC\Symfony\View\Builder\ContentViewBuilder`) matches on controller starting with `ibexa_content:` (see `Ibexa\Core\MVC\Symfony\View\Builder\ContentViewBuilder::matches`).
 The `ContentViewBuilder` builds a `ContentView`.
 
 First, the `ContentViewBuilder` loads the `Location` and the `Content`, and adds them to the `ContentView` object.
@@ -153,7 +153,7 @@ The `HttpKernel` then dispatches a `kernel.controller_arguments` (`KernelEvents:
 
 ## Controller execution
 
-The `HttpKernel` extracts from the request the controller and the arguments to pass to the controller. [Argument resolvers](https://symfony.com/doc/current/controller/argument_value_resolver.html) work in a way similar to autowiring.
+The `HttpKernel` extracts from the request the controller and the arguments to pass to the controller. [Argument resolvers](https://symfony.com/doc/5.4/controller/argument_value_resolver.html) work in a way similar to autowiring.
 The `HttpKernel` executes the controller with those arguments.
 
 As a reminder, the controller and its argument can be:
@@ -164,7 +164,7 @@ As a reminder, the controller and its argument can be:
 
 !!! caution "Permission control"
 
-    See [Permissions for custom controller](permissions.md#permissions-for-custom-controllers).
+    See [Permissions for custom controller](permission_overview.md#permissions-for-custom-controllers).
 
 
 ## Kernel's view event and `ContentView` rendering
@@ -196,7 +196,7 @@ The `HttpKernel` retrieves the response attached to the event and continues.
     - 10:`Ibexa\Bundle\Core\EventListener\ViewControllerListener`
         - `Ibexa\Core\MVC\Symfony\View\Builder\Registry\ControllerMatch`
             - tag=`ibexa.view.builder`
-                - `Ibexa\Core\MVC\Symfony\View\Builder\ContentViewBuildercontent`
+                - `Ibexa\Core\MVC\Symfony\View\Builder\ContentViewBuilder`
                     - `Ibexa\Core\MVC\Symfony\View\Configurator\ViewProvider`
 * event=`kernel.controller_arguments`
 * event=`kernel.view`
@@ -208,27 +208,27 @@ The `HttpKernel` retrieves the response attached to the event and continues.
 
 ### Examples request attributes timeline
 
-|  Event                  |  Service                              |  Request attribute  |  Example      |
-| ----------------------- | ------------------------------------- | ------------------- | ------------- |
-|                         |  http_kernel                          |  pathInfo           |  /en/about    |
-|  kernel.request         |  ibexa.siteaccess_match_listener  |  siteaccess         |  en           |
-|  Ibexa\Core\MVC\Symfony\SiteAccess   |  Ibexa\Bundle\Core\EventListener\SiteAccessListener        |  semanticPathinfo   |  /about       |
-|  kernel.request         |  router.default                       |  _route             |  N/A          |
-|  kernel.request         |  router.default                       |  _controller        |  N/A          |
-|  kernel.request         |  Ibexa\Bundle\Core\Routing\UrlAliasRouter            |  _route             |  ibexa.url.alias  |
-|  kernel.request         |  Ibexa\Bundle\Core\Routing\UrlAliasRouter            |  _controller        |  <strong>ibexa_content:</strong>viewAction
-|  kernel.request         |  Ibexa\Bundle\Core\Routing\UrlAliasRouter            |  viewType           |  full         |
-|  kernel.request         |  Ibexa\Bundle\Core\Routing\UrlAliasRouter            |  contentId          |  1            |
-|  kernel.request         |  Ibexa\Bundle\Core\Routing\UrlAliasRouter            |  locationId         |  42           |
-|  kernel.request         |  locale_listener                      |  _locale            |  en_GB        |
-|  kernel.controller      |  Ibexa\Core\MVC\Symfony\View\Builder\ContentViewBuildercontent       |  view.content       |  Content      |
-|  kernel.controller      |  Ibexa\Core\MVC\Symfony\View\Builder\ContentViewBuildercontent       |  view.location      |  Location     |
-|  kernel.controller      |  Ibexa\Core\MVC\Symfony\View\Configurator\ViewProvider          |  view.templateIdentifier   |  @IbexaCore/default/content/full.html.twig  |
-|  kernel.controller      |  Ibexa\Core\MVC\Symfony\View\Configurator\ViewProvider          |  view.controllerReference  |  null  |
-|  kernel.controller      |  Ibexa\Bundle\Core\EventListener\ViewControllerListener   |  view               |  ContentView  |
-|  kernel.controller      |  Ibexa\Bundle\Core\EventListener\ViewControllerListener   |  _controller        |  ibexa_content:viewAction  |
-| (controller execution)  |  http_kernel                          |                     |  ContentView  |
-|  kernel.view            |  Ibexa\Bundle\Core\EventListener\ViewRendererListener     |  response           |  Response     |
+| Event                             | Service                                                | Request attribute        | Example                                   |
+|-----------------------------------|--------------------------------------------------------|--------------------------|-------------------------------------------|
+|                                   | http_kernel                                            | pathInfo                 | /en/about                                 |
+| kernel.request                    | ibexa.siteaccess_match_listener                        | siteaccess               | en                                        |
+| Ibexa\Core\MVC\Symfony\SiteAccess | Ibexa\Bundle\Core\EventListener\SiteAccessListener     | semanticPathinfo         | /about                                    |
+| kernel.request                    | router.default                                         | _route                   | N/A                                       |
+| kernel.request                    | router.default                                         | _controller              | N/A                                       |
+| kernel.request                    | Ibexa\Bundle\Core\Routing\UrlAliasRouter               | _route                   | ibexa.url.alias                           |
+| kernel.request                    | Ibexa\Bundle\Core\Routing\UrlAliasRouter               | _controller              | <strong>ibexa_content:</strong>viewAction |
+| kernel.request                    | Ibexa\Bundle\Core\Routing\UrlAliasRouter               | viewType                 | full                                      |
+| kernel.request                    | Ibexa\Bundle\Core\Routing\UrlAliasRouter               | contentId                | 1                                         |
+| kernel.request                    | Ibexa\Bundle\Core\Routing\UrlAliasRouter               | locationId               | 42                                        |
+| kernel.request                    | locale_listener                                        | _locale                  | en_GB                                     |
+| kernel.controller                 | Ibexa\Core\MVC\Symfony\View\Builder\ContentViewBuilder | view.content             | Content                                   |
+| kernel.controller                 | Ibexa\Core\MVC\Symfony\View\Builder\ContentViewBuilder | view.location            | Location                                  |
+| kernel.controller                 | Ibexa\Core\MVC\Symfony\View\Configurator\ViewProvider  | view.templateIdentifier  | @IbexaCore/default/content/full.html.twig |
+| kernel.controller                 | Ibexa\Core\MVC\Symfony\View\Configurator\ViewProvider  | view.controllerReference | null                                      |
+| kernel.controller                 | Ibexa\Bundle\Core\EventListener\ViewControllerListener | view                     | ContentView                               |
+| kernel.controller                 | Ibexa\Bundle\Core\EventListener\ViewControllerListener | _controller              | ibexa_content:viewAction                  |
+| (controller execution)            | http_kernel                                            |                          | ContentView                               |
+| kernel.view                       | Ibexa\Bundle\Core\EventListener\ViewRendererListener   | response                 | Response                                  |
 
 
 ## End of HTTP response

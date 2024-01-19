@@ -103,7 +103,7 @@ Response:
 !!! note
 
     Uploading binary files is not possible through GraphiQL.
-    You can use alternative third-party clients such as [Altair GraphQL](https://altair.sirmuel.design/).
+    You can use alternative third-party clients such as [Altair GraphQL](https://altairgraphql.dev/).
 
 Uploading files makes use of dedicated mutations per Content Type, for example:
 

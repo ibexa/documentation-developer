@@ -6,7 +6,7 @@ description: REST API requests can have a generic or a custom header. It defines
 
 ## Request method
 
-Depending on the HTTP method used, different actions will be possible on the same resource. Example:
+Depending on the HTTP method used, different actions are possible on the same resource. Example:
 
 | Action                                  | Description                                                          |
 |-----------------------------------------|----------------------------------------------------------------------|
@@ -20,18 +20,18 @@ Depending on the HTTP method used, different actions will be possible on the sam
 The following list of available methods gives an overview of the kind of action a method triggers on a resource, if available.
 For method action details per resource, see the [REST API reference](../rest_api_reference/rest_api_reference.html).
 
-| HTTP method                                                | Status   | Description            | Safe |
-|------------------------------------------------------------|----------|------------------------|------|
-| [OPTIONS](https://tools.ietf.org/html/rfc2616#section-9.2) | Standard | List available methods | Yes  |
-| [GET](https://tools.ietf.org/html/rfc2616#section-9.3)     | Standard | Collect data           | Yes  |
-| [HEAD](https://tools.ietf.org/html/rfc2616#section-9.4)    | Standard | Check existence        | Yes  |
-| [POST](https://tools.ietf.org/html/rfc2616#section-9.5)    | Standard | Create an item         | No   |
-| [PATCH](http://tools.ietf.org/html/rfc5789)                | Custom   | Update an item         | No   |
-| COPY                                                       | Custom   | Duplicate an item      | No   |
-| [MOVE](http://tools.ietf.org/html/rfc2518)                 | Custom   | Move an item           | No   |
-| SWAP                                                       | Custom   | Swap two Locations     | No   |
-| PUBLISH                                                    | Custom   | Publish an item        | No   |
-| [DELETE](https://tools.ietf.org/html/rfc2616#section-9.7)  | Standard | Remove an item         | No   |
+| HTTP method                                                          | Status   | Description            | Safe |
+|----------------------------------------------------------------------|----------|------------------------|------|
+| [OPTIONS](https://datatracker.ietf.org/doc/html/rfc2616#section-9.2) | Standard | List available methods | Yes  |
+| [GET](https://datatracker.ietf.org/doc/html/rfc2616#section-9.3)     | Standard | Collect data           | Yes  |
+| [HEAD](https://datatracker.ietf.org/doc/html/rfc2616#section-9.4)    | Standard | Check existence        | Yes  |
+| [POST](https://datatracker.ietf.org/doc/html/rfc2616#section-9.5)    | Standard | Create an item         | No   |
+| [PATCH](https://datatracker.ietf.org/doc/html/rfc5789)               | Custom   | Update an item         | No   |
+| COPY                                                                 | Custom   | Duplicate an item      | No   |
+| [MOVE](https://datatracker.ietf.org/doc/html/rfc2518)                | Custom   | Move an item           | No   |
+| SWAP                                                                 | Custom   | Swap two Locations     | No   |
+| PUBLISH                                                              | Custom   | Publish an item        | No   |
+| [DELETE](https://datatracker.ietf.org/doc/html/rfc2616#section-9.7)  | Standard | Remove an item         | No   |
 
 !!! note "Caution with custom HTTP methods"
 
@@ -41,11 +41,11 @@ For method action details per resource, see the [REST API reference](../rest_api
 
     If applicable, both methods are always mentioned in the specifications.
 
-Unsafe methods will require a CSRF token if [session-based authentication](rest_api_authentication.md#session-based-authentication) is used.
+Unsafe methods require a CSRF token if [session-based authentication](rest_api_authentication.md#session-based-authentication) is used.
 
 ### OPTIONS method
 
-Any URI resource that the REST API responds to will respond to an `OPTIONS` request.
+Any REST API URI responds to an `OPTIONS` request.
 
 The response contains an [`Allow` header](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.7), which lists the methods accepted by the resource.
 
@@ -81,17 +81,18 @@ Allow: GET,PATCH,DELETE,COPY,MOVE,SWAP
 
 You can use the following HTTP headers with a REST request:
 
-- [`Accept`](https://tools.ietf.org/html/rfc2616#section-14.1) describing the desired response type and format;
-- [`Content-Type`](https://toos.ietf.org/html/rfc2616#section-14.17) describing the payload type and format;
-- [`X-Siteaccess`](#siteaccess) specifying the target SiteAccess;
-- `X-HTTP-Method-Override` allowing to pass a custom method while using `POST` method as previously seen in [HTTP method](#request-method).
+- [`Accept`](https://datatracker.ietf.org/doc/html/rfc2616#section-14.1) describing the desired response type and format
+- [`Content-Type`](https://datatracker.ietf.org/doc/html/rfc2616#section-14.17) describing the payload type and format
+- [`X-Siteaccess`](#siteaccess) specifying the target SiteAccess
+- `X-HTTP-Method-Override` allowing to pass a custom method while using `POST` method as previously seen in [HTTP method](#request-method)
 - [`Destination`](#destination) specifying where to move an item
+- [`X-Expected-User`](#expected-user) specifying the user needed for the request execution
 
 Other headers related to authentication methods can be found in [REST API authentication](rest_api_authentication.md).
 
 ### SiteAccess
 
-In order to specify a SiteAccess when communicating with the REST API, provide a custom `X-Siteaccess` header.
+To specify a SiteAccess when communicating with the REST API, provide a custom `X-Siteaccess` header.
 Otherwise, the default SiteAccess is used.
 
 The following example shows what could be a SiteAccess called `restapi` dedicated to REST API accesses:
@@ -106,7 +107,7 @@ X-Siteaccess: restapi
 One of the principles of REST is that the same resource (such as Content item, Location, Content Type) should be unique.
 It allows caching your REST API using a reverse proxy such as Varnish.
 If the same resource is available in multiple locations, cache purging is noticeably more complex.
-This is why SiteAccess matching with REST is not enabled at URL level (or domain).
+This is why SiteAccess matching with REST isn't enabled at URL level (or domain).
 
 ### Media types
 
@@ -114,27 +115,36 @@ On top of methods, HTTP request headers allow you to personalize the request's b
 On every resource, you can use the `Accept` header to indicate which format you want to communicate in, JSON or XML.
 This header is also used to specify the response type you want the server to send when multiple types are available.
 
--   `Accept: application/vnd.ibexa.api.Content+xml` to get `Content` (full data, Fields included) as **[XML](http://www.w3.org/XML/)**
--   `Accept: application/vnd.ibexa.api.ContentInfo+json` to get `ContentInfo` (metadata only) as **[JSON](http://www.json.org/)**
+-   `Accept: application/vnd.ibexa.api.Content+xml` to get `Content` (full data, Fields included) as **[XML](https://www.w3.org/XML/)**
+-   `Accept: application/vnd.ibexa.api.ContentInfo+json` to get `ContentInfo` (metadata only) as **[JSON](https://www.json.org/)**
 
 Media types are also used with the [`Content-Type` header](rest_responses.md#content-type-header) to characterize a [request body](#request-body) or a [response body](rest_responses.md#response-body).
 See [Creating content with binary attachments](#creating-content-with-binary-attachments) below.
 Also see [Creating session](rest_api_authentication.md#creating-session) examples.
 
-If the resource only returns one media type, it is also possible to skip it and to just specify the format using `application/xml` or `application/json`.
+If the resource only returns one media type, it's also possible to skip it and to just specify the format using `application/xml` or `application/json`.
 
 A response indicates `href`s to related resources and their media types.
 
 ### Destination
 
 The `Destination` request header is the request counterpart of the `Location` response header.
-It is used for a `COPY`, `MOVE` or `SWAP` operation to indicate where the resource should be moved, copied to or swapped with by using the ID of the parent or target Location.
+It's used for a `COPY`, `MOVE` or `SWAP` operation to indicate where the resource should be moved, copied to or swapped with by using the ID of the parent or target Location.
 
 Examples of such requests are:
 
-- [copying a Content](../rest_api_reference/rest_api_reference.html#managing-content-copy-content);
+- [copying a Content](../rest_api_reference/rest_api_reference.html#managing-content-copy-content)
 - [moving a Location and its subtree](../rest_api_reference/rest_api_reference.html#managing-content-move-subtree)
 - [swapping a Location with another](../rest_api_reference/rest_api_reference.html#managing-content-swap-location)
+
+### Expected user
+
+The `X-Expected-User` header specifies the user needed for the request execution.
+With this header, if the current username on server side isn't equal to `X-Expected-User` value, a `401 Unauthorized` error is returned.
+Without this header, the request is executed with the current user who might be unexpected (like the Anonymous user if a previous authentication has expired) and an ambiguous response might be returned as a success not informing about a wrong user.
+
+For example, it prevents a Content request to be executed with Anonymous user in the case of an expired authentication,
+and the response being a `200 OK` but missing Content items due to access rights difference with the expected user.
 
 ## Request body
 
@@ -142,20 +152,20 @@ You can pass some short scalar parameters in the URIs or as GET parameters, but 
 in particular the ones to create (`POST`) or update (`PATCH`) items.
 In the [REST API reference](../rest_api_reference/rest_api_reference.html), request payload examples are given when needed.
 
-One example is the [creation of an authentication session](rest_api_authentication.md#establishing-a-session).
+One example is the [creation of an authentication session](rest_api_authentication.md#establishing-session).
 
 When creating a Content item, a special payload is needed if the ContentType has some [Image](imagefield.md) or [BinaryFile](binaryfilefield.md) Fields as files need to be attached. See the example of a [script uploading images](#creating-content-with-binary-attachments) below.
 
-When searching for Content items (or Locations), the query grammar is also particular. See the [Search section](#search-view) below.
+When searching for Content items (or Locations), the query grammar is also particular. See the [Search section](#search-views) below.
 
 ### Creating content with binary attachments
 
-The example below is a command-line script to upload images.
+The example below is a command-line script to upload images. It's based on the [Symfony HttpClient](https://symfony.com/doc/5.4/http_client.html).
 
 This script:
 
 - receives an image path and optionally a name as command-line arguments,
-- uses the [HTTP basic authentication](rest_api_authentication.md#http-basic-authentication), if it is enabled,
+- uses the [HTTP basic authentication](rest_api_authentication.md#http-basic-authentication), if it's enabled,
 - creates a draft in the /Media/Images folder by posting (`POST`) data to [`/content/objects`](../rest_api_reference/rest_api_reference.html#managing-content-create-content-item),
 - and, publishes (`PUBLISH`) the draft through [`/content/objects/{contentId}/versions/{versionNo}`](../rest_api_reference/rest_api_reference.html#managing-content-publish-a-content-version).
 
@@ -177,9 +187,9 @@ The `/views` route allows you to [search in the repository](search.md). It works
 
 The model allows combining criteria using the logical operators `AND`, `OR` and `NOT`.
 
-Almost all [Search Criteria](search_criteria_reference.md#search-criteria) are available in REST API. The suffix `Criterion` is added when used with REST API.
+Most [Search Criteria](search_criteria_reference.md#search-criteria) are available in REST API. The suffix `Criterion` is added when used with REST API.
 
-Almost all [Sort Clauses](sort_clause_reference.md#sort-clauses) are available too. They require no additional prefix or suffix.
+Most [Sort Clauses](sort_clause_reference.md#sort-clauses) are available too. They require no additional prefix or suffix.
 
 The search request has a `Content-Type: application/vnd.ibexa.api.ViewInput+xml` or `+json` header to specify the format of its body's payload.
 The root node is `<ViewInput>` and it has two mandatory children: `<identifier>` and `<Query>`.
@@ -286,7 +296,7 @@ The following examples search for `article` and `news` typed Content items every
 
     ``` http
     POST /views HTTP/1.1
-    Content-Type: application/vnd.ibexa.api.ViewInput+json
+    Content-Type: application/vnd.ibexa.api.ViewInput+json; version=1.1
     ```
 
     ``` json
@@ -319,8 +329,8 @@ The following examples search for `article` and `news` typed Content items every
     In JSON, the structure for `ContentTypeIdentifierCriterion` with multiple values has a slightly different format as keys must be unique.
     In JSON, if there is only one item in `SortClauses`, it can be passed directly without an array to wrap it.
 
-You can omit logical operators. If Criteria are of mixed types, they are wrapped in an implicit `AND`.
-If they are of the same type, they are wrapped in an implicit `OR`.
+You can omit logical operators. If Criteria are of mixed types, they're wrapped in an implicit `AND`.
+If they're of the same type, they're wrapped in an implicit `OR`.
 
 For example, the `AND` operator from previous example's `Filter` could be removed.
 

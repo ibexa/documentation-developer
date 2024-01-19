@@ -17,7 +17,7 @@ Content Types are organized into groups.
 
 You can add your own groups here to keep your Content Types in better order.
 
-For a full tutorial, see [Create a Content Type](first_steps.md#create-a-content-type) or follow [user documentation](https://doc.ibexa.co/projects/userguide/en/latest/organizing_the_site/#content-types).
+For a full tutorial, see [Add a Content Type](first_steps.md#add-a-content-type) or follow [user documentation](https://doc.ibexa.co/projects/userguide/en/latest/content_management/create_edit_content_types/).
 For a detailed overview of the content model, see [Content model overview](content_model.md).
 
 ## Content Type metadata
@@ -46,7 +46,7 @@ Each Content Type is characterized by a set of metadata which define the general
 
     The old URL aliases will continue to redirect to the same Content items.
 
-**Container** – a flag which indicates if Content items based on this Content Type are allowed to have sub-items or not.
+**Container** – a flag which indicates if Content items based on this Content Type are allowed to have sub-items or not (mainly relevant for actions via the UI, not validated by every PHP API).
 
 !!! note
 

@@ -94,13 +94,13 @@ If you want to use this feature, you must at least extend the login template in 
 
 #### Login handlers / SSO
 
-Symfony provides native support for [multiple user providers]([[= symfony_doc =]]/security/multiple_user_providers.html). This makes it easy to integrate any kind of login handlers, including SSO and existing third-party bundles (e.g. [FR3DLdapBundle](https://github.com/Maks3w/FR3DLdapBundle), [HWIOauthBundle](https://github.com/hwi/HWIOAuthBundle), [FOSUserBundle](https://github.com/FriendsOfSymfony/FOSUserBundle), [BeSimpleSsoAuthBundle](http://github.com/BeSimple/BeSimpleSsoAuthBundle), etc.).
+Symfony provides native support for [multiple user providers]([[= symfony_doc =]]/security/multiple_user_providers.html). This makes it easy to integrate any kind of login handlers, including SSO and existing third-party bundles (e.g. [FR3DLdapBundle](https://github.com/Maks3w/FR3DLdapBundle), [HWIOauthBundle](https://github.com/hwi/HWIOAuthBundle), [FOSUserBundle](https://github.com/FriendsOfSymfony/FOSUserBundle), [BeSimpleSsoAuthBundle](https://github.com/BeSimple/BeSimpleSsoAuthBundle), etc.).
 
-See [Authenticating a user with multiple user provider](user_management.md#authenticate-user-with-multiple-user-providers) for more information.
+See [Authenticating a user with multiple user provider](user_authentication.md#authenticate-user-with-multiple-user-providers) for more information.
 
 ## JWT authentication
 
-To use [JWT authentication](https://jwt.io/) with Ibexa DXP, in the provided ` config/packages/lexik_jwt_authentication.yaml` file,
+To use [JWT authentication](https://jwt.io/) with [[= product_name =]], in the provided `config/packages/lexik_jwt_authentication.yaml` file,
 modify the existing configuration by setting `authorization_header` to `enabled`:
 
 ``` yaml hl_lines="8"

@@ -59,7 +59,7 @@ Uncomment the SiteAccess matcher (`Ibexa\SiteFactory\SiteAccessMatcher`):
 ibexa:
     siteaccess:
         match:
-        '@Ibexa\SiteFactory\SiteAccessMatcher': ~
+            '@Ibexa\SiteFactory\SiteAccessMatcher': ~
 ```
 
 `ibexadesign` defines templates for your sites, so add them before continuing.
@@ -184,7 +184,7 @@ Set the below Policies to allow Users to:
 
 For full documentation on how Permissions work and how to set them up, see [the Permissions section](permissions.md).
 
-To learn how to use Site Factory, see [User documentation.]([[= user_doc =]]/site_organization/site_factory/)
+To learn how to use Site Factory, see [User documentation]([[= user_doc =]]/site_organization/site_factory/).
 
 ## Disable Site Factory
 

@@ -1,3 +1,5 @@
+<!-- vale off -->
+
 <div class="front-page">
     <div class="row">
         <div class="col-12">
@@ -200,14 +202,14 @@
             <div class="info-tile info-tile--link-card">
                 <div class="info-tile__content">
                     <h3>
-                        <a href="customer_management/customer_management/">
+                        <a href="customer_management/customer_portal/">
                             <svg><use xlink:href="images/icons.svg#profile" /></svg>
                             Customer
                         </a>
                     </h3>
                     <ul>
-                        <li><a href="customer_management/customer_portal/">Customer portal</a></li>
                         <li><a href="customer_management/cp_configuration/">Configuration</a></li>
+                        <li><a href="customer_management/cp_page_builder/">Build Customer Portal</a></li>
                         <li><a href="customer_management/create_user_registration_form/">Registration form</a></li>
                     </ul>
                 </div>

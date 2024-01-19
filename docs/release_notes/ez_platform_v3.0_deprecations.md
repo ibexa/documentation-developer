@@ -1,3 +1,5 @@
+<!-- vale VariablesVersion = NO -->
+
 # eZ Platform v3.0 deprecations and backwards compatibility breaks
 
 This page lists backwards compatibility breaks and deprecations introduced in eZ Platform v3.0.
@@ -21,7 +23,7 @@ See also [full requirements for installing eZ Platform](https://doc.ibexa.co/en/
 
 ### Template configuration
 
-Following the upgrade to Symfony 5, [the templating component integration is now deprecated.](https://symfony.com/blog/new-in-symfony-4-3-deprecated-the-templating-component-integration)
+Following the upgrade to Symfony 5, [the templating component integration is now deprecated](https://symfony.com/blog/new-in-symfony-4-3-deprecated-the-templating-component-integration).
 As a result, the way to indicate a template path has changed.
 
 Example 1:
@@ -694,7 +696,7 @@ The deprecated `Symfony\Component\HttpFoundation\File\MimeType\ExtensionGuesserI
 The deprecated Symfony [service container](https://doc.ibexa.co/en/latest/api/public_php_api/#service-container) parameters ending with `.class` have been removed, services relying on them now have their classes defined explicitly.
 To properly decorate a Symfony service, use the `decorates` attribute instead.
 For the full list of the dropped parameters, see
-[kernel documentation.](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/bc/1.0/dropped-container-parameters.md)
+[kernel documentation](https://github.com/ezsystems/ezpublish-kernel/blob/master/doc/bc/1.0/dropped-container-parameters.md).
 
 ### Template parameter names
 
@@ -762,7 +764,7 @@ Users can request a new, valid password using the "Forgot password" feature.
 
 ### Strict types for PHP API
 
-Strict types have been added to Public API methods.
+Strict types have been added to public PHP API methods.
 
 ### Zeta Components (eZc) Database handler
 

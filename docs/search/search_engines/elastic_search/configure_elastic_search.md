@@ -9,8 +9,8 @@ description: Configure Elasticsearch to use it with Ibexa DXP.
 To configure Elasticsearch, first, you need to configure the connections. 
 
 There are two possibilities of connection:
-- using [cluster of Elasticsearch nodes](#cluster)
-- using [Elasticsearch Cloud](#elasticsearch-cloud)
+- using [cluster of Elasticsearch nodes](#configure-clustering)
+- using [Elasticsearch Cloud](#configure-elasticsearch-cloud)
 
 No matter which option you choose, you have to define the connection settings under the `connections` key. 
 Set a name of the connection:
@@ -35,8 +35,8 @@ ibexa_elasticsearch:
 Now, you need to decide whether to add a cluster that you administer and manage yourself, or use a cloud
 solution from Elastic, as well as configure additional parameters.
 
-If you want to connect by using a cluster, follow the instructions below in the [Cluster](#cluster) section.
-If you want to use Elasticsearch Cloud, skip to [Elasticsearch Cloud](#elasticsearch-cloud) section.
+If you want to connect by using a cluster, follow the instructions below in the [Cluster](#configure-clustering) section.
+If you want to use Elasticsearch Cloud, skip to [Elasticsearch Cloud](#configure-elasticsearch-cloud) section.
 
 ## Configure clustering
 
@@ -149,7 +149,7 @@ If you prefer a different strategy, or have created your own, custom strategy, y
     connection_selector: Elasticsearch\ConnectionPool\Selectors\<selector_name>
 ```
 
-For more information and a list of available choices, see [Selectors](https://www.elastic.co/guide/en/elasticsearch/client/php-api/current/selectors.html).
+For more information and a list of available choices, see [Selectors](https://www.elastic.co/guide/en/elasticsearch/client/php-api/7.x/selectors.html).
 
 ##### Number of retries
 
@@ -166,7 +166,7 @@ By default, `null` is used, which means that the number of retries equals to the
 Depending on the connection pool that you select, [[= product_name =]]'s reaction to reaching the maximum
 number of retries might differ.
 
-For more information, see [Set retries](https://www.elastic.co/guide/en/elasticsearch/client/php-api/7.x/configuration.html#_set_retries).
+For more information, see [Set retries](https://www.elastic.co/guide/en/elasticsearch/client/php-api/7.x/set-retries.html).
 
 ## Configure Elasticsearch Cloud
 
@@ -228,8 +228,8 @@ ibexa_elasticsearch:
 
 If your Elasticsearch cluster is protected by API keys, you must provide the key and secret in authentication configuration to
 connect [[= product_name =]] with the cluster. With API key authentication you can define different
-authorization levels, such as [`create_index`, `index`, etc.](https://www.elastic.co/guide/en/elasticsearch/reference/7.x/security-privileges.html#privileges-list-indices). Such approach
-proves useful if the cluster is available to the public.
+authorization levels, such as [`create_index`, `index`, etc.](https://www.elastic.co/guide/en/elasticsearch/reference/7.x/security-privileges.html#privileges-list-indices).
+Such approach proves useful if the cluster is available to the public.
 
 For more information, see [Create API key](https://www.elastic.co/guide/en/elasticsearch/reference/7.x/security-api-create-api-key.html).
 
@@ -308,7 +308,7 @@ To do this, pass the following setting under the `ssl` key:
 verification: false
 ```
 
-For more information, see [Elasticsearch: SSL Encyption](https://www.elastic.co/guide/en/elasticsearch/client/php-api/7.x/security.html#_ssl_encryption_2).
+For more information, see [Elasticsearch: SSL Encryption](https://www.elastic.co/guide/en/elasticsearch/client/php-api/7.x/connceting.html#ssl-encryption).
 
 ### Enable debugging
 

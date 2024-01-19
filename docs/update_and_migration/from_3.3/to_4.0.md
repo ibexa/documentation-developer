@@ -121,7 +121,7 @@ Apply the following database update script:
 
 ### Ibexa Open Source
 
-If you have no access to Ibexa DXP's `ibexa/installer` package, apply the following database upgrade script:
+If you have no access to [[= product_name =]]'s `ibexa/installer` package, apply the following database upgrade script:
 
 === "MySQL"
     ``` sql
@@ -159,14 +159,6 @@ If the dry run is successful, run:
 php bin/console ibexa:migrations:migrate
 ```
 
-### Migrate richtext namespaces
-
-Run the upgrade script for updating XML namespaces inside RichText Fields:
-
-```bash
-php bin/console ibexa:migrate:richtext-namespaces
-```
-
 ## Update your custom code
 
 ### Online editor
@@ -174,7 +166,7 @@ php bin/console ibexa:migrate:richtext-namespaces
 #### Custom plugins and buttons
 
 If you added your own Online Editor plugins or buttons, you need to rewrite them
-using [CKEditor 5's extensibility](https://ckeditor.com/docs/ckeditor5/latest/framework/guides/plugins/creating-simple-plugin.html).
+using [CKEditor 5's extensibility](https://ckeditor.com/docs/ckeditor5/latest/tutorials/crash-course/plugins.html#creating-custom-plugins).
 
 #### Custom tags
 
@@ -201,7 +193,7 @@ Update your configuration, if it applies.
 
 ## Finish update
 
-Adapt your `composer.json` file according to [`manifest.json`](https://github.com/ibexa/recipes/blob/master/ibexa/commerce/4.0.x-dev/manifest.json#L170-L171), by adding the following lines:
+Adapt your `composer.json` file according to [`manifest.json`](https://github.com/ibexa/recipes/blob/master/ibexa/commerce/4.0/manifest.json#L170-L171), by adding the following lines:
 
 ``` json hl_lines="2-3"
 "yarn install": "script",

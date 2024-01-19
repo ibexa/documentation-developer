@@ -348,7 +348,7 @@ you can get the JWT token through the following request:
 
 ## HTTP basic authentication
 
-For more information, see [HTTP Authentication: Basic and Digest Access Authentication](http://tools.ietf.org/html/rfc2617).
+For more information, see [HTTP Authentication: Basic and Digest Access Authentication](https://datatracker.ietf.org/doc/html/rfc2617).
 
 ### Configuration
 
@@ -364,16 +364,19 @@ If the installation has a dedicated host for REST, you can enable HTTP basic aut
 !!! caution "Back Office uses REST API"
 
     Back Office uses the REST API too (for some parts like the Location tree or the Calendar) on its own domain.
-    
-    * If the Back Office SiteAccess matches `admin.example.com`, it will call the REST API under `//admin.example.com/api/ibexa/v2`;
-    * If the Back Office SiteAccess matches localhost/admin, it will call the REST API under `//localhost/api/ibexa/v2`.
-    
-    If basic authentication is used only for REST API, it is better to have a dedicated domain even on a development environment.
+
+    * If the Back Office SiteAccess matches `//admin.example.com` (through `Map\Host`, `HostElement` or `HostText`), it calls the REST API under `//admin.example.com/api/ibexa/v2`;
+    * If the Back Office SiteAccess matches `//localhost/admin` (through `URIElement`, `Map\URI` or `Regex\URI`), it calls the REST API under `//localhost/api/ibexa/v2` because SiteAccess matching with REST isn't enabled at URL level.
+
+    If you enable basic authentication for `pattern: ^/api/ibexa/v2` to use it in your front office across both production and development environments, your development environment's Back Office won't work correctly.
+    This Back Office tries to access REST through the same URL as the front office. Even when logged in Back Office and using the [X-SiteAccess header](rest_requests.md#siteaccess), the firewall blocks access to REST as you're not logged through basic authentification. Therefore, some Back Office features don't work.
+
+    If basic authentication is used only for REST API, it's better to have a dedicated domain even on a development environment. For example, map an `api.localhost` in your `hosts` file and set the firewall for `host: ^api\.(example\.com|localhost)$`.
 
 ### Usage example
 
 Basic authentication requires the username and password to be sent *(username:password)*, base64 encoded, with each request.
-For details, see [RFC 2617](http://tools.ietf.org/html/rfc2617).
+For details, see [RFC 2617](https://datatracker.ietf.org/doc/html/rfc2617).
 
 Most HTTP client libraries as well as REST libraries support this method.
 [Creating content with binary attachments](rest_requests.md#creating-content-with-binary-attachments) has an example using basic authentication with [cURL](https://www.php.net/manual/en/book.curl.php) and its `CURLOPT_USERPWD`. 
@@ -389,7 +392,7 @@ Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==
 
 ## OAuth
 
-For more information, see [OAuth 2.0 protocol for authorization.](https://oauth.net/2/)
+For more information, see [OAuth 2.0 protocol for authorization](https://oauth.net/2/).
 
 ## SSL client authentication
 

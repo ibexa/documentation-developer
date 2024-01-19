@@ -36,7 +36,7 @@ Go to the left side menu and choose **Content Types**.
 
 You will see a list of **Content Type groups**. They are used to group Content Types in a logical way.
 
-Select **Content** and then click the **Add new** button. 
+Select **Content** and then click the **Create** button. 
 
 ![Add a Content Type button](bike_tutorial_create_content_type.png)
 
@@ -56,7 +56,7 @@ Then create all Fields with the following information: 
 | Map location | Ending point     | `ending_point`   | yes       | yes        | no           |
 | Integer      | Length           | `length`         | yes       | yes        | no           |
 
-Confirm the creation of the Content Type by selecting **Create**.
+Confirm the creation of the Content Type by clicking **Save and close**.
 
 ## Create Rides
 

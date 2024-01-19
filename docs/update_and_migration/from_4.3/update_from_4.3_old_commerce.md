@@ -199,7 +199,7 @@ If you have no access to Ibexa DXP's `ibexa/installer` package, database upgrade
 
 Following [Security advisory: IBEXA-SA-2022-009](https://developers.ibexa.co/security-advisories/ibexa-sa-2022-009-critical-vulnerabilities-in-graphql-role-assignment-ct-editing-and-drafts-tooltips),
 unless you can verify based on your log files that the vulnerability has not been exploited,
-you should [revoke passwords](https://doc.ibexa.co/en/latest/users/user_management/#revoking-passwords) for all affected users.
+you should [revoke passwords](https://doc.ibexa.co/en/latest/users/passwords/#revoking-passwords) for all affected users.
 
 ## Finish code update
 
@@ -218,5 +218,5 @@ run data migration required by the Customer Portal applications feature:
 
 ```bash
 php bin/console ibexa:migrations:import vendor/ibexa/corporate-account/src/bundle/Resources/migrations/application_internal_fields.yaml --name=2022_11_07_22_46_application_internal_fields.yaml
-php bin/console ibexa:migration:migrate --file=2022_11_07_22_46_application_internal_fields.yaml
+php bin/console ibexa:migrations:migrate --file=2022_11_07_22_46_application_internal_fields.yaml
 ```

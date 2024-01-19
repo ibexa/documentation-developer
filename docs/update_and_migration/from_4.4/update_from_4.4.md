@@ -106,7 +106,7 @@ php bin/console ibexa:migrate:richtext-namespaces
 
 #### Ibexa Open Source
 
-If you have no access to Ibexa DXP's `ibexa/installer` package, apply the following database update:
+If you have no access to [[= product_name =]]'s `ibexa/installer` package, apply the following database update:
 
 === "MySQL"
 
@@ -158,6 +158,19 @@ If you have no access to Ibexa DXP's `ibexa/installer` package, apply the follow
     );
     ```
 
+### Clean-up taxonomy database
+
+If you didn't run it already when [migrating from 4.2 to 4.3](update_from_4.2.md#clean-up-taxonomy-database), run the following command for each of your taxonomies to ensure that there are no [Content items orphaned during deletion of subtrees](taxonomy.md#remove-orphaned-content-items) inherited from the earlier version's database:
+
+`php bin/console ibexa:taxonomy:remove-orphaned-content <taxonomy> --force`
+
+For example:
+
+```bash
+php bin/console ibexa:taxonomy:remove-orphaned-content tags --force
+php bin/console ibexa:taxonomy:remove-orphaned-content product_categories --force
+```
+
 ## Finish code update
 
 Finish the code update by running:
@@ -175,14 +188,14 @@ you can now run data migration required by the Customer Portal and Commerce feat
 
 ```bash
 php bin/console ibexa:migrations:import vendor/ibexa/corporate-account/src/bundle/Resources/migrations/customer_portal.yaml --name=2023_03_06_13_00_customer_portal.yaml
-php bin/console ibexa:migration:migrate --file=2023_03_06_13_00_customer_portal.yaml
+php bin/console ibexa:migrations:migrate --file=2023_03_06_13_00_customer_portal.yaml
 ```
 
 - Corporate access role update [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 ```bash
 php bin/console ibexa:migrations:import vendor/ibexa/corporate-account/src/bundle/Resources/migrations/2023_05_09_12_40_corporate_access_role_update.yaml --name=2023_05_09_12_40_corporate_access_role_update.yaml
-php bin/console ibexa:migration:migrate --file=2023_05_09_12_40_corporate_access_role_update.yaml
+php bin/console ibexa:migrations:migrate --file=2023_05_09_12_40_corporate_access_role_update.yaml
 ```
 
 - Corporate account [[% include 'snippets/commerce_badge.md' %]]
@@ -191,26 +204,44 @@ This migration allows all company members to shop in the frontend shop. If you h
 
 ```bash
 php bin/console ibexa:migrations:import vendor/ibexa/storefront/src/bundle/Resources/migrations/2023_04_27_10_30_corporate_account.yaml --name=2023_04_27_10_30_corporate_account.yaml
-php bin/console ibexa:migration:migrate --file=2023_04_27_10_30_corporate_account.yaml
+php bin/console ibexa:migrations:migrate --file=2023_04_27_10_30_corporate_account.yaml
 ```
 
 - Storefront user update [[% include 'snippets/commerce_badge.md' %]]
 
 ```bash
 php bin/console ibexa:migrations:import vendor/ibexa/storefront/src/bundle/Resources/migrations/2023_04_27_11_20_storefront_user_role_update.yaml --name=2023_04_27_11_20_storefront_user_role_update.yaml
-php bin/console ibexa:migration:migrate --file=2023_04_27_11_20_storefront_user_role_update.yaml
+php bin/console ibexa:migrations:migrate --file=2023_04_27_11_20_storefront_user_role_update.yaml
 ```
 
 - Shipment permissions [[% include 'snippets/commerce_badge.md' %]]
 
 ```bash
 php bin/console ibexa:migrations:import vendor/ibexa/shipping/src/bundle/Resources/install/migrations/shipment_permissions.yaml --name=shipment_permissions.yaml
-php bin/console ibexa:migration:migrate --file=shipment_permissions.yaml
+php bin/console ibexa:migrations:migrate --file=shipment_permissions.yaml
 ```
 
 - Order permissions [[% include 'snippets/commerce_badge.md' %]]
 
 ```bash
 php bin/console ibexa:migrations:import vendor/ibexa/order-management/src/bundle/Resources/install/migrations/order_permissions.yaml --name=order_permissions.yaml
-php bin/console ibexa:migration:migrate --file=order_permissions.yaml
+php bin/console ibexa:migrations:migrate --file=order_permissions.yaml
 ```
+
+### v4.5.2
+
+#### Database update
+
+Run the following scripts:
+
+=== "MySQL"
+
+    ``` sql
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.5.1-to-4.5.2.sql
+    ```
+
+=== "PostgreSQL"
+
+    ``` sql
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.5.1-to-4.5.2.sql
+    ```

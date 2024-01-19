@@ -167,7 +167,7 @@ class JohnDoeCanSelectMore implements EventSubscriberInterface
      */
     public function onUdwConfigResolve(ConfigResolveEvent $event)
     {
-        if ($event->getConfigName !== self::CONFIGURATION_NAME) {
+        if ($event->getConfigName() !== self::CONFIGURATION_NAME) {
 		    return;
 		}
 
@@ -185,4 +185,4 @@ class JohnDoeCanSelectMore implements EventSubscriberInterface
 }
 ```
 
-For more information, see [Symfony Doctrine Event Listeners and Subscribers tutorial.]([[= symfony_doc =]]/event_dispatcher.html#creating-an-event-subscriber)
+For more information, see [Symfony Doctrine Event Listeners and Subscribers tutorial]([[= symfony_doc =]]/event_dispatcher.html#creating-an-event-subscriber).

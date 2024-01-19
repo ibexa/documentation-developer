@@ -9,7 +9,7 @@ Back Office menus are based on the [KnpMenuBundle](https://github.com/KnpLabs/Kn
 !!! tip
 
     For general information on how to use `MenuBuilder`,
-    see [the official KnpMenuBundle documentation](https://symfony.com/doc/current/bundles/KnpMenuBundle/index.html).
+    see [the official KnpMenuBundle documentation](https://symfony.com/bundles/KnpMenuBundle/current/index.html).
 
 Menus are extensible using event subscribers, for example:
 
@@ -125,7 +125,7 @@ To modify the parameters of an existing menu item, use the `setExtra()` method.
 ### Custom icons
 
 You can use the `extras.icon` parameter to define an icon for a menu item.
-For example, the following code changes the default icon for the "Create" button in content view:
+For example, the following code changes the default icon for the **Create content** button in content view:
 
 ``` php
 [[= include_file('code_samples/back_office/menu/menu_item/src/EventSubscriber/MyMenuSubscriber.php', 46, 48) =]]

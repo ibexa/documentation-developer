@@ -392,6 +392,14 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
     - Composer: recent 2.1 version
 
+=== "Ibexa DXP v3.3"
+
+    - Composer: recent 2.1 version
+
+=== "eZ Platform v2.5"
+
+    - Composer: recent 2.1 version
+
 ## Asset manager
 
 === "Ibexa DXP v4.6"

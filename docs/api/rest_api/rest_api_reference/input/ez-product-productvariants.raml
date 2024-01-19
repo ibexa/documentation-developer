@@ -70,20 +70,20 @@
             Accept:
                 description: If set, the updated product variant is returned in XML or JSON format.
                 example:  |
-                    application/vnd.ibexa.api.ProductVariantUpdate+json
+                    application/vnd.ibexa.api.ProductVariant+json
             Content-Type:
-                description: If set, the updated product variant is returned in XML or JSON format.
+                description: The product variant update schema encoded in XML or JSON format.
                 example:  |
                     application/vnd.ibexa.api.ProductVariantUpdate+json
         body:
             application/vnd.ibexa.api.ProductVariantUpdate+json:
-                type: ProductUpdate
+                type: ProductVariantUpdate
                 example: !include examples/product/catalog/product_variants/code/PATCH/ProductVariantUpdate.json.example
         responses:
             201:
                 body:
-                    application/vnd.ibexa.api.Product+json:
-                        type: ProductUpdate
+                    application/vnd.ibexa.api.ProductVariant+json:
+                        type: ProductVariant
                         example: !include examples/product/catalog/product_variants/code/PATCH/ProductVariant.json.example
             400:
                 description: Error - the input does not match the input schema definition.
@@ -96,7 +96,7 @@
 /view/{baseProductCode}:
     post:
         displayName: Filter product variants
-        description: Executes a query and returns a View including the results. The View input reflects the criteria model of the public API.
+        description: Executes a query and returns a View including the results. The View input reflects the criteria model of the public PHP API.
         headers:
             Accept:
                 description: The view in XML or JSON format.

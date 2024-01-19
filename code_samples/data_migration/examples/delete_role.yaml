@@ -1,0 +1,6 @@
+-
+    type: role
+    mode: delete
+    match:
+        field: identifier
+        value: Contributor

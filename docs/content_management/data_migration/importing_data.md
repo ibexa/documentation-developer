@@ -10,44 +10,70 @@ To import data from YAML migration files into Repository, you run the `ibexa:mig
 The `ibexa:migrations:import` command automatically places migration files in the correct folder.
 
 Alternatively, you can place the files manually in the `src/Migrations/Ibexa/migrations` folder
-or in [a custom folder that you configure](managing_migrations.md#migration-folders), 
+or in [a custom folder that you configure](managing_migrations.md#migration-folders),
 and specify the file name within this folder as parameter.
-If you do not specify the file, all files within this directory are used.
+If you don't specify the file, all files within this directory are used.
 
 ``` bash
-php bin/console ibexa:migrations:migrate --file=my_data_export.yaml
+php bin/console ibexa:migrations:migrate --file=my_data_export.yaml --siteaccess=admin
 ```
 
-Migrations store execution metadata in the `ibexa_migrations` database table. 
+Migrations store execution metadata in the `ibexa_migrations` database table.
 This allows incremental upgrades:
-the `ibexa:migration:migrate` command ignores files that it had previously executed.
+the `ibexa:migrations:migrate` command ignores files that it had previously executed.
+
+Notice that `--siteaccess` option usage is important when several languages are used.
+You must import with a SiteAccess that supports all languages, or the migration skips translations in non-supported languages.
+It's recommended to use the SiteAccess from the Back Office of the targeted repository.
+
+## Migration step
+
+A data migration step is a single operation in data migration process
+that combines a mode (for example: `create`, `update`, `delete`)
+and a type (for example: `content`, `section`, `currency`),
+with optional additional information depending on the specific step.
+
+In a migration file, a step is an array item starting with the mandatory properties `type` and `mode`, for example:
+
+```yaml
+-
+    type: content
+    mode: create
+```
+
+Then, the step is described by additional properties depending on its type and mode.
+
+* See [Available migrations](#available-migrations) for the modes available for each type.
+* See [Migration examples](#migration-examples) to explore what you can do with each type.
+* For a custom migration step, see [Create data migration step](create_data_migration_step.md).
 
 ## Available migrations
 
-The following data migration steps are available:
+The following data migration step modes are available:
 
-|                      | `create` | `update` | `delete` |
-|----------------------|:--------:|:--------:|:--------:|
-| `content`            | &#10004; | &#10004; | &#10004; |
-| `content_type`       | &#10004; | &#10004; | &#10004; |
-| `role`               | &#10004; | &#10004; | &#10004; |
-| `content_type_group` | &#10004; | &#10004; | &#10004; |
-| `user`               | &#10004; | &#10004; |          |
-| `user_group`         | &#10004; | &#10004; | &#10004; |
-| `language`           | &#10004; |          |          |
-| `object_state_group` | &#10004; |          |          |
-| `object_state`       | &#10004; |          |          |
-| `section`            | &#10004; | &#10004; |          |
-| `location`           |          | &#10004; |          |
-| `attribute_group`    | &#10004; | &#10004; | &#10004; |
-| `attribute`          | &#10004; | &#10004; | &#10004; |
-| `customer_group`     | &#10004; | &#10004; | &#10004; |
-| `currency`           | &#10004; | &#10004; | &#10004; |
-| `product_price`      | &#10004; |          |          |
+| `type`                 | `create` | `update` | `delete` |
+|------------------------|:--------:|:--------:|:--------:|
+| `attribute`            | &#10004; | &#10004; | &#10004; |
+| `attribute_group`      | &#10004; | &#10004; | &#10004; |
+| `content_type`         | &#10004; | &#10004; | &#10004; |
+| `content_type_group`   | &#10004; | &#10004; | &#10004; |
+| `content`              | &#10004; | &#10004; | &#10004; |
+| `currency`             | &#10004; | &#10004; | &#10004; |
+| `customer_group`       | &#10004; | &#10004; | &#10004; |
+| `language`             | &#10004; |          |          |
+| `location`             |          | &#10004; |          |
+| `object_state`         | &#10004; |          |          |
+| `object_state_group`   | &#10004; |          |          |
+| `payment_method`       | &#10004; |          |          |
 | `product_availability` | &#10004; |          |          |
-| `segment_group`      | &#10004; | &#10004; | &#10004; |
-| `segment`            | &#10004; | &#10004; | &#10004; |
-| `setting`            | &#10004; | &#10004; | &#10004; |
+| `product_price`        | &#10004; |          |          |
+| `role`                 | &#10004; | &#10004; | &#10004; |
+| `section`              | &#10004; | &#10004; |          |
+| `segment`              | &#10004; | &#10004; | &#10004; |
+| `segment_group`        | &#10004; | &#10004; | &#10004; |
+| `setting`              | &#10004; | &#10004; | &#10004; |
+| `user`                 | &#10004; | &#10004; |          |
+| `user_group`           | &#10004; | &#10004; | &#10004; |
 
 ### Repeatable steps
 
@@ -76,8 +102,8 @@ To vary the content name, the migration above uses [Symfony expression syntax](#
 
 In the example above, the expression is enclosed in `###` and the repeated string `SSS`.
 
-!!! note 
-    
+!!! note
+
     Iteration counter is assigned to `i` by default, but you can modify it in the `iteration_counter_name` setting.
 
 #### Generating fake data
@@ -100,13 +126,82 @@ This step generates Field values with fake personal names.
 
 ### Expression syntax
 
-You can use [Symfony expression syntax](https://symfony.com/doc/current/components/expression_language/syntax.html) in data migrations.
-It is especially useful in [repeatable steps](#repeatable-steps),
-where you can use it to generate varied content in migration steps.
+You can use [Symfony expression syntax]([[= symfony_doc =]]/reference/formats/expression_language.html) in data migrations,
+like in [repeatable steps](#repeatable-steps), where you can use it to generate varied content in migration steps.
 
 The expression syntax uses the following structure: `###<IDENTIFIER> <EXPRESSION> <IDENTIFIER>###`
 
 The `IDENTIFIER` can be any repeated string that encloses the actual expression.
+
+#### Built-in functions
+
+Built-in expression language functions that are tagged with `ibexa.migrations.template.expression_language.function`:
+
+- `to_bool`, `to_int`, `to_float`, `to_string` - convert various data types by passing them into PHP casting functions (like `floatval`, `intval`, and others).
+
+```yaml
+                -   fieldDefIdentifier: show_children
+                    languageCode: eng-US
+                    value: '###XXX to_bool(i % 3) XXX###'
+
+                -   fieldDefIdentifier: quantity
+                    languageCode: eng-US
+                    value: '###XXX to_int("42") XXX###'
+
+                -   fieldDefIdentifier: price
+                    languageCode: eng-US
+                    value: '###XXX to_float("19.99") XXX###'
+
+                -   fieldDefIdentifier: description
+                    languageCode: eng-US
+                    value: '###XXX to_string(123) XXX###'
+```
+
+- `ibexa.migrations.template.reference` - references a specific object or resource within your application or configuration. Learn more about [migration references](managing_migrations.md#references).
+
+```yaml
+                -   fieldDefIdentifier: some_field
+                    languageCode: eng-US
+                    value: '###XXX reference("example_reference") XXX###'
+```
+
+- `ibexa.migrations.template.project_dir` - retrieves the project's root directory path, for example to construct file paths or access project-specific resources.
+
+```yaml
+                -   fieldDefIdentifier: project_directory
+                    languageCode: eng-US
+                    value: '###XXX project_dir() XXX###'
+```
+
+#### Custom functions
+
+To add custom functionality into Migration's expression language declare it as a service
+and tag it with `ibexa.migrations.template.expression_language.function`.
+
+Example:
+
+```yaml
+ibexa.migrations.template.to_bool:
+    class: Closure
+    factory: [ Closure, fromCallable ]
+    arguments:
+        - 'boolval'
+    tags:
+        -   name: 'ibexa.migrations.template.expression_language.function'
+            function: to_bool
+
+ibexa.migrations.template.faker:
+    class: Closure
+    factory: [ Closure, fromCallable ]
+    arguments:
+        - 'Faker\Factory::create'
+    tags:
+        -   name: 'ibexa.migrations.template.expression_language.function'
+            function: faker
+```
+
+Service-based functions can be also added, but they must be callable,
+requiring either an `__invoke` function or a wrapping service with one.
 
 ## Migration examples
 
@@ -126,8 +221,8 @@ The required metadata keys are: `identifier`, `mainTranslation`, `contentTypeGro
 
 The following example shows how to create two Content items: a folder and an article inside it.
 
-When creating a Content item, two metadata keys are required: `contentType` and `mainTranslation`,
-as well as `parentLocationId`.
+When creating a Content item, three metadata keys are required:
+`contentType`, `mainTranslation`, and `parentLocationId`.
 
 To use the Location ID of the folder, which is created automatically by the system,
 you can use a [reference](managing_migrations.md#references).
@@ -138,6 +233,27 @@ and then use it when creating the article.
 [[= include_file('code_samples/data_migration/examples/create_parent_and_child_content.yaml') =]]
 ```
 
+### Images
+
+The following example shows how to migrate an `example-image.png` located in
+`public/var/site/storage/images/3/8/3/0/383-1-eng-GB` without manually placing it in the appropriate path.
+
+To prevent the manual addition of images to specific DFS or local locations, such as `public/var/site/storage/images/` you can move image files to, for example `src/Migrations/images`.
+Adjust the migration file and configure the `image` field data as follows:
+
+```yaml
+        -   fieldDefIdentifier: image
+            languageCode: eng-GB
+            value:
+                alternativeText: ''
+                fileName: example-image.png
+                path: src/Migrations/images/example-image.png
+```
+
+This migration copies the image to the appropriate directory, 
+in this case `public/var/site/storage/images/3/8/3/0/254-1-eng-GB/example-image.png`,
+enabling swift file migration regardless of storage (local, DFS).
+
 ### Roles
 
 The following example shows how to create a Role.
@@ -145,8 +261,33 @@ A Role requires the `identifier` metadata key.
 
 For each Policy assigned to the Role, you select the module and function, with optional Limitations.
 
+The following example shows the creation of a `Contributor` Role:
+
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/create_role.yaml') =]]
+```
+
+To update an existing Role, 2 policies' modes are available:
+
+- `replace`: (default) All existing policies are replaced by the ones from the migration.
+- `append`: Migration policies are added while already existing ones are kept.
+
+The following example shows how to replace the policies of the existing `Editor` Role:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/update_role.yaml', 0, 16) =]]
+```
+
+The following example shows the addition of a policy to the `Anonymous` Role:
+
+``` yaml hl_lines="7"
+[[= include_file('code_samples/data_migration/examples/update_role.yaml', 18, 32) =]]
+```
+
+The following example shows how to delete the `Contributor` Role:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/delete_role.yaml') =]]
 ```
 
 ### Users
@@ -186,7 +327,7 @@ You can also update attributes, including changing which attribute group they be
 [[= include_file('code_samples/data_migration/examples/update_attribute.yaml') =]]
 ```
 
-You cannot change the attribute type of an existing attribute.
+You can't change the attribute type of an existing attribute.
 
 #### Product type
 
@@ -225,6 +366,20 @@ The following example shows how to create a price for a product identified by it
 [[= include_file('code_samples/data_migration/examples/create_price.yaml') =]]
 ```
 
+### Commerce [[% include 'snippets/commerce_badge.md' %]]
+
+The following example shows how to create a payment method:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/create_payment_method.yaml') =]]
+```
+
+The following example shows how to create a shipping method:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/create_shipping_method.yaml') =]]
+```
+
 ### Segments [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 The following example shows how to create a segment group and add segments in it:
@@ -241,7 +396,7 @@ When updating a segment group or segment, you can match the object to update by 
 
 ### Settings
 
-The following example shows how you can create and update a setting that is stored in the database:
+The following example shows how you can create and update a setting stored in the database:
 
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/create_update_setting.yaml') =]]
@@ -269,7 +424,7 @@ You can use the following example to assign tags to a Content (Content Type Arti
 [[= include_file('code_samples/data_migration/examples/assign_tag.yaml') =]]
 ```
 
-When updating a Content Type, use: 
+When updating a Content Type, use:
 
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/update_tag.yaml') =]]

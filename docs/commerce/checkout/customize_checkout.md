@@ -105,7 +105,7 @@ In `assets/styles/checkout.css`, add styles required to properly display your te
 
 ### Select supported workflow 
 
-Now, you must inform the application that your repository will use the configured workflow.
+Next, you must inform the application that the configured workflow is used in your repository.
 
 You do it in repository configuration, under the `ibexa.repositories.<repository_name>.checkout.workflow` [configuration key](configuration.md#configuration-files):
 
@@ -124,6 +124,29 @@ Shut down the application, clear browser cache, and restart the application.
 You should be able to see a different checkout applied after you have added products to a cart.
 
 ![Additional checkout step](img/additional_checkout_step.png "Additional checkout step")
+
+## Hide checkout step
+
+By default, [[= product_name =]] comes with a multi-step checkout process, which you can scale down by hiding steps.
+To do it, modify workflow under the `framework.workflows` [configuration key](configuration.md#configuration-files).
+
+This example shows how to hide a 'Billing & shipping address' step. 
+It can be used for logged-in users with billing data stored in their accounts.
+
+```yaml hl_lines="14"
+framework:
+    workflows:
+        ibexa_checkout:
+            transitions:
+                select_address:
+                    metadata:
+                        next_step: select_shipping
+                        controller: Ibexa\Bundle\Checkout\Controller\CheckoutStep\AddressStepController::renderStepView
+                        label: 'Billing & shipping address'
+                        translation_domain: checkout
+                        physical_products_step: true
+                        hidden: true
+```
 
 ## Create a one page checkout
 
@@ -191,6 +214,68 @@ To see the results of your work, shut down the application, clear browser cache,
 You should be able to see a one page checkout applied after you add products to a cart.
 
 ![One page checkout](img/single_page_checkout.png "One page checkout")
+
+## Create custom strategy
+
+Create a PHP definition of the new strategy that allows for workflow manipulation.
+In this example, custom checkout workflow applies when specific currency code ('EUR') is used in the cart. 
+
+``` php
+[[= include_file('code_samples/workflow/strategy/NewWorkflow.php', 0, 25) =]]
+```
+
+### Add conditional step
+
+Defining strategy allows to add conditional step for workflow if needed. 
+If you add conditional step, the checkout process uses provided workflow and goes to defined step if the condition described in the strategy is met.
+By default conditional step is set as null.
+
+To use conditional step you need to pass second argument to constructor in the strategy definition:
+
+``` php hl_lines="18"
+[[= include_file('code_samples/workflow/strategy/NewWorkflowConditionalStep.php', 0, 25) =]]
+```
+
+### Register strategy
+
+Now, register the strategy as a service:
+
+``` yaml
+[[= include_file('code_samples/workflow/services/workflow.yaml', 0, 5) =]]
+```
+
+### Override default workflow 
+
+Next, you must inform the application that the configured workflow is used in your repository.
+
+!!! note
+
+    The configuration allows to override the default workflow, but it's not mandatory. Checkout supports multiple workflows.
+
+You do it in repository configuration, under the `ibexa.repositories.<repository_name>.checkout.workflow` [configuration key](configuration.md#configuration-files):
+
+``` yaml
+ibexa:
+    repositories:
+        <repository_name>: 
+            checkout:
+                workflow: new_workflow
+```
+
+## Manage multiple workflows
+
+When you have multiple checkout workflows, you can specify which one to use by passing an argument with the name of the selected checkout workflow to a button or link that triggers the checkout process.
+
+```twig
+{% set checkout_path = path('ibexa.checkout.init', {
+    cartIdentifier: cart_identifier,
+    checkoutName: 'selected_checkout_name'  # Reference your workflow name here
+}) %}
+
+```
+
+With this setup, you can specify which workflow to use by clicking the button or link that starts the checkout. 
+The argument passed determines which workflow is used, providing flexibility in workflow selection.
 
 ## Define custom Address Field Type formats 
 
