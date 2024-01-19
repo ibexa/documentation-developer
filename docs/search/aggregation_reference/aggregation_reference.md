@@ -24,8 +24,8 @@ There are three types of aggregations:
 |[ContentTypeTermAggregation](contenttypeterm_aggregation.md) | Term | Content Type  |
 |[ContentTypeGroupTermAggregation](contenttypegroupterm_aggregation.md) | Term | Content Type group |
 |[DateMetadataRangeAggregation](datemetadatarange_aggregation.md) | Range | Date metadata |
-|[LocationChildrenTermAggregation](locationchildrenterm_aggregation.md) | Term | Children on a Location |
 |[LanguageTermAggregation](languageterm_aggregation.md) | Term | Content language |
+|[LocationChildrenTermAggregation](locationchildrenterm_aggregation.md) | Term | Children on a Location |
 |[ObjectStateTermAggregation](objectstateterm_aggregation.md) | Term | Object state |
 |[RawRangeAggregation](rawrange_aggregation.md) | Range | Search index field |
 |[RawStatsAggregation](rawstats_aggregation.md) | Stats | Search index field |
