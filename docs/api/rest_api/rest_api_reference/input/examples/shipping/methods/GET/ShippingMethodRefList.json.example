@@ -9,7 +9,7 @@
             },
             {
                 "_media-type": "application\/vnd.ibexa.api.ShippingMethod+json",
-                "_href": "\/api\/ibexa\/v2\/shipping\/methods\/inpost_parcel_locker"
+                "_href": "\/api\/ibexa\/v2\/shipping\/methods\/parcel_locker_delivery"
             }
         ]
     }
