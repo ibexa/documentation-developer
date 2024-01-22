@@ -69,10 +69,12 @@ For more information, see [Edit embedded Content items](https://doc.ibexa.co/pro
 
 #### Focus mode
 
-This release brings multiple changes to the Back Office interface, including the Content item details view, which are intended at exposing information and actions that are the most important from the editor's point of view.
-For a detailed list of changes, see [Focus mode](https://doc.ibexa.co/projects/userguide/en/latest/getting_started/discover_ui/#focus-mode).
+With multiple changes to the Back Office UI, which are intended to expose the most important information and actions, editors can better focus on their work.
+For more information, see [Focus mode](https://doc.ibexa.co/projects/userguide/en/latest/getting_started/discover_ui/#focus-mode).
 
-As part of this effort some other changes were made that apply to both regular and Focus mode:
+![Focus mode](img/4.6_focus_mode.png "Focus mode")
+
+As part of this effort, some other changes were introduced that apply to both regular and Focus mode:
 
 - **Authors** and **Sub-items** are now separate tabs in Content item details view
 - Former **Details** tab is now called **Technical details** and changed its position
