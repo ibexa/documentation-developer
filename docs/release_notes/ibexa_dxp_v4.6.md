@@ -23,22 +23,9 @@ description: Ibexa DXP v4.6 brings improvements to Commerce, PIM and Personaliza
 
 The feature set and capabilities of the product remain the same.
 
-### User interface improvements
+### UX and UI improvements
 
 Several improvements to the Back Office interface enhance the user experience.
-
-#### Simplified user actions
-
-Button text now precisely describes actions, so that users who create or edit content understand the purpose of each button.
-
-![Improved button text](img/4.6_publishing_options.png)
-
-#### Draft section added to Content
-
-For streamlining purpose, the **Draft** section is now situated under **Content**.
-Users can now easily find and manage their drafts and published content from one area.
-
-![Draft section added to Content](img/4.6_drafts.png)
 
 #### Customizable dashboard
 
@@ -50,54 +37,6 @@ and helps to make better business decisions based on data.
 ![Customizable dashboard](img/4.6_customizable_dashboard.png)
 
 For more information, see [Customizable dashboard](https://doc.ibexa.co/projects/userguide/en/master/getting_started/discover_ui/#customizable-dashboard).
-
-#### Distraction free mode
-
-While editing Rich Text Fields, user can switch to distraction free mode.
-It expands the workspace to full screen and shows only editor toolbar.
-
-![Distraction free mode](img/4.6_distraction_free_mode.png)
-
-For more information, see [Distraction free mode](https://doc.ibexa.co/projects/userguide/en/master/content_management/create_edit_content_items/#distraction-free-mode).
-
-### UX and UI improvements
-
-#### User avatar and new options in user settings
-
-User can now fully customize their profile in the Back Office with avatar photo and edit profile information by adding:
-
-- Email
-- Department
-- Position
-- Location
-- Signature
-
-New configuration options has beed added to user settings.
-
-For more information, see [user profile and settings documentation]().
-
-#### New tabs order
-
-Tabs are now reordered in Location view by their relevance.
-
-#### Content types got icons
-
-Content type references now have been enhanced with icons which helps users quickly identify different content types in the Back Office sections.
-
-![Content type icons](img/4.6_content_type_icons.png)
-
-#### Improvements in Sub-items
-
-Sub-items are now as separate tab in content items.
-
-![Content type icons](img/4.6_sub_items_tab.png)
-
-
-### Ibexa Image picker
-
-Digital Asset Management is a platform dedicated to editors. It enables storing in central location, organizing, distributing, and sharing media assets across many channels.
-
-For more information see, [link to docs]().
 
 #### Page Builder improvements
 
@@ -127,6 +66,71 @@ and while adding or modifying a Content relation.
 ![Editing embedded Content items](img/4.6_editing_embedded_content_items.png)
 
 For more information, see [Edit embedded Content items](https://doc.ibexa.co/projects/userguide/en/master/content_management/create_edit_content_items/#edit-embedded-content-items).
+
+#### Focus mode
+
+This release brings multiple changes to the Back Office interface, including the Content item details view, which are intended at exposing information and actions that are the most important from the editor's point of view.
+For a detailed list of changes, see [Focus mode](https://doc.ibexa.co/projects/userguide/en/latest/getting_started/discover_ui/#focus-mode).
+
+As part of this effort some other changes were made that apply to both regular and Focus mode:
+
+- **Authors** and **Sub-items** are now separate tabs in Content item details view
+- Former **Details** tab is now called **Technical details** and changed its position
+- Preview is available in many new places, such as a **View** tab in Content item details view, or when you hover over Content items in the Content Tree
+
+![Sub-items tab](img/4.6_sub_items_tab.png "Sub-items tab")
+
+#### Distraction free mode
+
+While editing Rich Text Fields, user can switch to distraction free mode.
+It expands the workspace to full screen and shows only editor toolbar.
+
+![Distraction free mode](img/4.6_distraction_free_mode.png)
+
+For more information, see [Distraction free mode](https://doc.ibexa.co/projects/userguide/en/master/content_management/create_edit_content_items/#distraction-free-mode).
+
+#### Simplified user actions
+
+Button text now precisely describes actions, so that users who create or edit content understand the purpose of each button.
+
+![Improved button text](img/4.6_publishing_options.png)
+
+#### Draft section added to Content
+
+For streamlining purpose, the **Draft** section is now situated under **Content**.
+Users can now easily find and manage their drafts and published content from one area.
+
+![Draft section added to Content](img/4.6_drafts.png)
+
+#### User avatar and new options in user settings
+
+User can now fully customize their profile in the Back Office with avatar photo and edit profile information by adding:
+
+- Email
+- Department
+- Position
+- Location
+- Signature
+
+New configuration options has been added to user settings.
+
+For more information, see [user profile and settings documentation]().
+
+#### New tabs order
+
+Tabs are now reordered in Location view by their relevance.
+
+#### Content types got icons
+
+Content Type references now have been enhanced with icons which helps users quickly identify different content types in the Back Office sections.
+
+![Content type icons](img/4.6_content_type_icons.png)
+
+### Ibexa Image picker
+
+Digital Asset Management is a platform dedicated to editors. It enables storing in central location, organizing, distributing, and sharing media assets across many channels.
+
+For more information see, [link to docs]().
 
 ### New features and improvements in PIM
 
