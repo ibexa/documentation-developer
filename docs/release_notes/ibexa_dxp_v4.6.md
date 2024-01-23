@@ -173,7 +173,7 @@ The `ProductContentAwareListQueryType` has been created to allow finding product
 
 With this feature, you can create virtual products - non-tangible items such as memberships, services, warranties.
 To create a virtual product, first, you have to create a virtual product type.
-Virtual products don’t require shipment when they are purchased without other physical products.
+Virtual products don’t require shipment when they're purchased without other physical products.
 
 For more information, see [Create virtual products](https://doc.ibexa.co/projects/userguide/en/master/pim/create_virtual_product/).
 
