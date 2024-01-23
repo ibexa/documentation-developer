@@ -162,7 +162,7 @@ For more information about Remote PIM support and the solution's limitations, se
 
 ##### New Twig functions
 
-The `ibexa_is_pim_local` Twig helper has been introduced, which is used in templates to [check whether product data comes from a local or remote data source](storefront_twig_functions.mx#ibexa_is_pim_local), and adjust their behavior accordingly.
+The `ibexa_is_pim_local` Twig helper has been introduced, which is used in templates to [check whether product data comes from a local or remote data source](storefront_twig_functions.md#ibexa_is_pim_local), and adjust their behavior accordingly.
 Also, several new Twig functions have been implemented that help [get product availability information](product_twig_functions.md#ibexa_has_product_availability).
 
 ##### New query type
