@@ -205,6 +205,10 @@ Users who are creating or editing a product type are less likely to forget about
 
 For more information, see [Create product types](https://doc.ibexa.co/projects/userguide/en/master/pim/create_product_types/).
 
+#### Product migration
+
+[Product variant](importing_data.md#product-variants) and [product asset](importing_data.md#product-assets) can be created through [data migration](data_migration.md).
+
 ###  New features and improvements in Commerce [[% include 'snippets/commerce_badge.md' %]]
 
 #### Reorder
