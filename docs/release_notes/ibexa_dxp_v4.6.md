@@ -29,9 +29,9 @@ Several improvements to the Back Office interface enhance the user experience.
 
 #### Customizable dashboard
 
-Users can now customize the dashboard depending on their needs. 
-This solution uses an online editor - Dashboard Builder. 
-It improves productivity, allows to enhance the default dashboard with additional widgets, 
+Users can now customize the dashboard depending on their needs.
+This solution uses an online editor - Dashboard Builder.
+It improves productivity, allows to enhance the default dashboard with additional widgets,
 and helps to make better business decisions based on data.
 
 ![Customizable dashboard](img/4.6_customizable_dashboard.png)
@@ -46,7 +46,7 @@ Here are the most important changes:
 
 - new design of Page Builder interface, including block settings window,
 - two main toolboxes: **Elements** and **Structure view**,
-- quick preview of a structure of the page with the possibility of reorganizing the blocks, 
+- quick preview of a structure of the page with the possibility of reorganizing the blocks,
 - new visual feedback indicates the correct drop locations,
 - intuitive dragging makes it easier for users to interact with the Page Builder,
 - new actions added in the block settings toolbox,
@@ -155,7 +155,7 @@ Among other things, the Remote PIM support feature allows [[= product_name =]] c
 - define and use product types,
 - use product attributes for filtering,
 - build product catalogs based on certain criteria, such as type, availability or product attributes
-- use Customer Groups to apply different prices to products, 
+- use Customer Groups to apply different prices to products,
 - define and use currencies.
 
 For more information about Remote PIM support and the solution's limitations, see [PIM product guide](pim_guide.md#limitations).
@@ -335,7 +335,7 @@ Use Qualifio Engagne integration to create engaging marketing experiences to you
 
 ### Integration with SeenThis!
 
-Integration with SeenThis! service provides an adaptive streaming technology with no limitations as conventional streaming service. 
+Integration with SeenThis! service provides an adaptive streaming technology with no limitations as conventional streaming service.
 It allows to preserve the best video quality with minimum amount of data transfer.
 
 For more information, see [SeenThis! block](https://doc.ibexa.co/projects/userguide/en/latest/content_management/block_reference/#sales-representative).
