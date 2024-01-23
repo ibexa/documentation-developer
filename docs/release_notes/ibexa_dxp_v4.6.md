@@ -413,6 +413,6 @@ For more information, see [CDP Activation](https://doc.ibexa.co/en/master/cdp/cd
 
 ## Full changelog
 
-| Ibexa Headless | Ibexa Experience | Ibexa Commerce|
+| [[= product_name_headless =]] | [[= product_name_exp =]] | [[= product_name_com =]] |
 |---------------|------------------|---------------|
-| [Ibexa Headless v4.6](https://github.com/ibexa/headless/releases/tag/v4.6.0) | [Ibexa Experience v4.6](https://github.com/ibexa/experience/releases/tag/v4.6.0) | [Ibexa Commerce v4.6](https://github.com/ibexa/commerce/releases/tag/v4.6.0) |
+| [[[= product_name_headless =]] v4.6](https://github.com/ibexa/headless/releases/tag/v4.6.0) | [[[= product_name_exp =]] v4.6](https://github.com/ibexa/experience/releases/tag/v4.6.0) | [[[= product_name_com =]] v4.6](https://github.com/ibexa/commerce/releases/tag/v4.6.0) |
