@@ -110,7 +110,7 @@ Now return to the Back Office and create some content for your website.
 First, you can hide unneeded Content items from the project root.
 
 Go to **Content structure** and select "Ibexa Digital Experience Platform".
-In the **Sub-items** section, select all the current sub-items and click the **Hide** icon:
+In the **Sub-items** tab, select all the current sub-items and click the **Hide** icon:
 
 ![Hiding Content items you do not need](enterprise_tut_hide_content.png)
 

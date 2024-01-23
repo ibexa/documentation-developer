@@ -166,7 +166,7 @@ Make sure it is enabled.
 ![Creating a language](first-steps-create-language.png)
 
 3\. Next, go to the Content structure and open the blog post you had created earlier.
-Switch to the Translations tab and add a new translation.
+Switch to the **Translations** tab and add a new translation.
 
 ![Adding a translation](first-steps-add-translation.png)
 
