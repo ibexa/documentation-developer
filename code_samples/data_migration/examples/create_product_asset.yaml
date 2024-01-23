@@ -23,5 +23,4 @@
     mode: create
     product_code: top_hat__58__black
     uri: '### "ezcontent://"~reference("top_hat_58cm_black_image_content_id") ###'
-    tags:
-        foo: foo
+    tags: []
