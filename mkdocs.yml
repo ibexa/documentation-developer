@@ -153,6 +153,7 @@ nav:
             - Taxonomy API: content_management/taxonomy/taxonomy_api.md
         - Images:
             - Images: content_management/images/images.md
+            - Configure Image picker: content_management/images/configure_image_picker.md
             - Configure Image Editor: content_management/images/configure_image_editor.md
             - Extend Image Editor: content_management/images/extend_image_editor.md
             - Add Image Asset from DAM: content_management/images/add_image_asset_from_dam.md
