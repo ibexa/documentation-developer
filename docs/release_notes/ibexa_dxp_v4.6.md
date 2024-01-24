@@ -69,16 +69,17 @@ For more information, see [Edit embedded Content items](https://doc.ibexa.co/pro
 
 #### Focus mode
 
-With multiple changes to the Back Office UI, which are intended to expose the most important information and actions, editors can better focus on their work.
+With multiple changes to the Back Office UI intended to expose the most important information and actions, editors can now better focus on their work.
 For more information, see [Focus mode](https://doc.ibexa.co/projects/userguide/en/latest/getting_started/discover_ui/#focus-mode).
 
 ![Focus mode](img/4.6_focus_mode.png "Focus mode")
 
 As part of this effort, some other changes were introduced that apply to both regular and Focus mode:
 
+- In Content item details view, tabs have been reordered by their relevance
 - **Authors** and **Sub-items** are now separate tabs in Content item details view
 - Former **Details** tab is now called **Technical details** and changed its position
-- Preview is available in many new places, such as a **View** tab in Content item details view, or when you hover over Content items in the Content Tree
+- Preview is available in many new places, such as the **View** tab in Content item details view, or as miniatures when you hover over the Content Tree
 
 ![Sub-items tab](img/4.6_sub_items_tab.png "Sub-items tab")
 
@@ -104,9 +105,9 @@ Users can now easily find and manage their drafts and published content from one
 
 ![Draft section added to Content](img/4.6_drafts.png)
 
-#### User avatar and new options in user settings
+#### User profile and new options in user settings
 
-User can now fully customize their profile in the Back Office with avatar photo and edit profile information by adding:
+With personal touch in mind, editors can now upload their photos, and provide the following information in their user profiles:
 
 - Email
 - Department
@@ -114,25 +115,22 @@ User can now fully customize their profile in the Back Office with avatar photo 
 - Location
 - Signature
 
-New configuration options has been added to user settings.
+Also, editors and other users can customize their experience even better, with new configuration options that have been added to user settings.
 
 For more information, see [user profile and settings documentation]().
 
-#### New tabs order
+#### New and updated Content Type icons
 
-Tabs are now reordered in Location view by their relevance.
-
-#### Content types got icons
-
-Content Type references now have been enhanced with icons which helps users quickly identify different content types in the Back Office sections.
+To help users quickly identify different content types in the Back Office, all Content Type references are now accompanied with icons.
+Also, Content Type icons have changed slightly.
 
 ![Content type icons](img/4.6_content_type_icons.png)
 
 ### Ibexa Image picker
 
-Digital Asset Management is a platform dedicated to editors. It enables storing in central location, organizing, distributing, and sharing media assets across many channels.
+Editors can now use a Digital Asset Management platform that enables storing media assets in a central location, as well as organizing, distributing, and sharing them across many channels.
 
-For more information see, [link to docs]().
+For more information, see [link to docs]().
 
 ### New features and improvements in PIM
 
@@ -160,15 +158,6 @@ Among other things, the Remote PIM support feature allows [[= product_name =]] c
 
 For more information about Remote PIM support and the solution's limitations, see [PIM product guide](pim_guide.md#limitations).
 
-##### New Twig functions
-
-The `ibexa_is_pim_local` Twig helper has been introduced, which is used in templates to [check whether product data comes from a local or remote data source](storefront_twig_functions.md#ibexa_is_pim_local), and adjust their behavior accordingly.
-Also, several new Twig functions have been implemented that help [get product availability information](product_twig_functions.md#ibexa_has_product_availability).
-
-##### New query type
-
-The `ProductContentAwareListQueryType` has been created to allow finding products that come from a local database, while `ProductListQueryType` has been modified to find products from an external source of truth.
-
 #### Virtual products
 
 With this feature, you can create virtual products - non-tangible items such as memberships, services, warranties.
@@ -176,12 +165,6 @@ To create a virtual product, first, you have to create a virtual product type.
 Virtual products don’t require shipment when they're purchased without other physical products.
 
 For more information, see [Create virtual products](https://doc.ibexa.co/projects/userguide/en/master/pim/create_virtual_product/).
-
-##### IsVirtual Criterion
-
-Product search now supports product virutal and physical product type:
-
-- `IsVirtual` - searches for virtual or physical products.
 
 #### Product page URLs
 
@@ -191,12 +174,6 @@ Customized URLs are easier to remember, help with SEO optimization and reduce bo
 
 For more information, see [Product page URLs](https://doc.ibexa.co/projects/userguide/en/master/pim/work_with_product_page_urls/).
 
-#### Updated VAT configuration
-
-VAT rates configuration has been extended to accept additional flags under the `extras` key. You can use them, for example, to pass additional information to the UI, or define special exclusion rules.
-
-For more information, see [VAT rates](https://doc.ibexa.co/en/master/pim/pim_configuration/#vat-rates).
-
 #### VAT assignment moved to a new place
 
 Users who are creating or editing a product type are less likely to forget about setting VAT rates, because they now have a more prominent place.
@@ -205,9 +182,29 @@ Users who are creating or editing a product type are less likely to forget about
 
 For more information, see [Create product types](https://doc.ibexa.co/projects/userguide/en/master/pim/create_product_types/).
 
+#### Updated VAT configuration
+
+VAT rates configuration has been extended to accept additional flags under the `extras` key.
+Developers can use them, for example, to pass additional information to the UI, or define special exclusion rules.
+
+For more information, see [VAT rates](https://doc.ibexa.co/en/master/pim/pim_configuration/#vat-rates).
+
+##### New Twig functions
+
+The `ibexa_is_pim_local` Twig helper has been introduced, which can be used in templates to [check whether product data comes from a local or remote data source](storefront_twig_functions.md#ibexa_is_pim_local), and adjust their behavior accordingly.
+Also, several new Twig functions have been implemented that help [get product availability information](product_twig_functions.md#ibexa_has_product_availability).
+
+##### New and modified query types
+
+The `ProductContentAwareListQueryType` has been created to allow finding products that come from a local database, while `ProductListQueryType` has been modified to find products from an external source of truth.
+
+##### New Search Criterion
+
+With `IsVirtual` criterion that searches for virtual or physical products, product search now supports products of virtual and physical type.
+
 #### Product migration
 
-[Product variant](importing_data.md#product-variants) and [product asset](importing_data.md#product-assets) can be created through [data migration](data_migration.md).
+[Product variants](importing_data.md#product-variants) and [product assets](importing_data.md#product-assets) can now be created through [data migration](data_migration.md).
 
 ###  New features and improvements in Commerce [[% include 'snippets/commerce_badge.md' %]]
 
