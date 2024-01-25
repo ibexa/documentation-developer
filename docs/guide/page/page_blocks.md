@@ -129,10 +129,10 @@ Providing Relations also invalidates HTTP cache for your block response in one o
 
 ## Customizing Universial Discovery Widged (UDW) when working with embed and locationlist attributes
 
-Quite a few of the blocks that are shipped with Ibexa DXP gives the user the possibility to select content using the UDW.
+Quite a few of the blocks that are shipped with [[= product_name_base =]] gives the user the possibility to select content using the UDW.
 Some of those blocks also uses UDW with different configurations. For instance, the UDW opened by the `Banner` block only
 allows the user to select images, while the `Collection` block allows the user to select multiple Content objects in the
-UDW. The examples below will illustrate how to customize the UDW configuration when creating new blocks that uses the
+UDW. The examples below illustrates how to customize the UDW configuration when creating new blocks that uses the
 `embed` (used by `Banner` block) and the `locationlist` (used by 'Collection' block) attributes.
 
 ### The `embed` attribute type
@@ -140,7 +140,7 @@ UDW. The examples below will illustrate how to customize the UDW configuration w
 This example demonstrates how to create a new block with the `embed` attribute where the user may only select folders
 in the UDW.
 
-In order to do this, these things are needed:
+To do this, these things are needed:
  - [Page Builder config](https://doc.ibexa.co/en/3.3/extending/extending_udw/#add-new-tabs-to-udw) for the new block.
  - New [UDW config](https://doc.ibexa.co/en/latest/administration/back_office/browser/browser/#udw-configuration).
  - [Event subscriber](https://doc.ibexa.co/en/3.3/guide/page/page_blocks/#block-events) that adds attributes to the view template.
@@ -189,10 +189,11 @@ ezplatform:
 
 #### Event subscriber
 
-The `embed` attribute will by default only expose one variable to the view template, `contentId`. Usually, an embed block
-needs to show more than just this ID, so an event subscriber is also needed in order to pass additional variables to the
-template. In this example, the event subscriber for the `Banner` block which will expose a `content` variable
-(see `BannerBlockListener` class) in the view template which contains the Content object is reused:
+The `embed` attribute by default only exposes one variable to the view template, `contentId`. Usually, an embed block
+needs to show more than simply this ID, so an event subscriber is also needed in order to pass additional variables to the
+template. In this example, the event subscriber for the `Banner` block is reused. It exposes a `content` variable
+(see `BannerBlockListener` class) in the view template which contains the Content object. This variable is later used 
+in the view template.
 
 ``` php
 <?php
@@ -216,7 +217,7 @@ class EmbedUDWBlockListener extends BannerBlockListener
 
 #### Template code for the view template
 
-The template for viewing the block is as usual defined using the `views` setting in the config. This simple template shows
+The template for viewing the block is as usual defined using the `views` setting in the config. This template shows
 the Content Name and it's id :
 
 ``` html+twig
@@ -235,15 +236,15 @@ their own sets of default template code, see `vendor/ezsystems/ezplatform-page-b
 The default template code for the `embed` attribute is in the block named `block_configuration_attribute_embed_widget`
 in that file.
 Also, each block have a `configuration_template` setting in their yaml configuration which can be used to customize the
-block's edit modal. The default template used by the block's edit modal will ensure that all the attribute templates defined
+block's edit modal. The default template used by the block's edit modal ensures that all the attribute templates defined
 by the block are displayed.
 
 The last step is to customize the embed attribute's template code so it opens the UDW with the custom UDW config named
 `block_embed_udw` which was defined above.
-In order to override the UDW configuration, this example will use the same approach as the `configuration_template` for
+When overriding the UDW configuration, this example uses the same approach as the `configuration_template` for
 the build-in `Banner` block, see `vendor/ezsystems/ezplatform-page-builder/src/bundle/Resources/views/page_builder/block/config/banner.html.twig`
 
-The template for the new `EmbedUDW` block will look like this:
+The template for the new `EmbedUDW` block looks like this:
 
 ``` html+twig
 {% extends '@EzPlatformPageBuilder/page_builder/block/config.html.twig' %}
@@ -269,10 +270,10 @@ The template for the new `EmbedUDW` block will look like this:
 ```
 
 In the `content` block in the template above, the template path to the template itself is added to the variable `form_templates`
-This is done because the parent template (`@EzPlatformPageBuilder/page_builder/block/config.html.twig`) will use all
+This is done because the parent template (`@EzPlatformPageBuilder/page_builder/block/config.html.twig`) uses all
 [form themes](https://symfony.com/doc/current/form/form_themes.html) that are listed in that variable when rendering the
 block configuration modal. In this way it is possible to override the `locationlist` attribute's default template code
-by adding a `block_configuration_attribute_embed_widget` block in this very template.
+by adding a `block_configuration_attribute_embed_widget` block in this template.
 
 The only thing that is changed in the template above, compared to the template for the `Banner` block, is altering the
 class name in the `body_class` block and the value for the `udw_config_name` setting.
@@ -281,7 +282,7 @@ class name in the `body_class` block and the value for the `udw_config_name` set
 ### The `locationlist` attribute type
 
 This example demonstrates how to create a new block with the `locationlist` attribute where the user may select multiple
-folders only (not objects of any content type which is the default behaviour).
+folders only (not objects of any Content Type which is the default behavior).
 
 The steps needed are the same as the ones above when using the embed attribute, except that templates for the block edit
 modal for the locationlist attribute is created slightly different.
@@ -321,9 +322,8 @@ ezplatform:
 
 #### Event subscriber
 
-The `embed` attribute will by default only expose one variable in the view template, `contentId`. Usually, an embed block
-needs to show more than just this ID, so a [event suscriber|todo: link to page event doc] is also needed in order to
-pass additional variables to the template. In this example, the event subscriber for the `Collection` block is reused:
+In this example, the items selected in the location list will be shown in the same way as the `Collection` block.
+Therefore, the event subscriber for the `Collection` block is reused:
 
 ``` php
 <?php
