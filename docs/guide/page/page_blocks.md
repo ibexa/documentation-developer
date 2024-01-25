@@ -190,9 +190,9 @@ ezplatform:
 #### Event subscriber
 
 The `embed` attribute by default only exposes one variable to the view template, `contentId`. Usually, an embed block
-needs to show more than simply this ID, so an event subscriber is also needed in order to pass additional variables to the
+needs to show more than only this ID, so an event subscriber is also needed in order to pass additional variables to the
 template. In this example, the event subscriber for the `Banner` block is reused. It exposes a `content` variable
-(see `BannerBlockListener` class) in the view template which contains the Content object. This variable is later used 
+(see `BannerBlockListener` class) in the view template which contains the Content object. This variable is later used
 in the view template.
 
 ``` php
@@ -322,7 +322,7 @@ ezplatform:
 
 #### Event subscriber
 
-In this example, the items selected in the location list will be shown in the same way as the `Collection` block.
+In this example, the items selected in the location list are shown in the same way as the `Collection` block.
 Therefore, the event subscriber for the `Collection` block is reused:
 
 ``` php
