@@ -3,7 +3,7 @@
 The [`LoggedAtCriterion` Activity Log Criterion](https://github.com/ibexa/activity-log/blob/main/src/contracts/Values/ActivityLog/Criterion/LoggetAtCriterion.php)
 matches activity log group having a log entry created before or after a given date time.
 
-## Argument
+## Arguments
 
 - `dateTime` - a [`DateTimeInterface`](https://www.php.net/manual/en/class.datetimeinterface.php) object, like [`DateTime`](https://www.php.net/manual/en/class.datetime.php).
 - `comparison` - a comparison sign as a string. Available signs can be found as constant in the `LoggedAtCriterion` class itself.
