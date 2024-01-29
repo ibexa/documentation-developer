@@ -1,5 +1,6 @@
 ---
 description: Install and configure Ibexa image picker as a standalone React application.
+edition: headless
 ---
 
 # Configure Ibexa image picker
@@ -8,13 +9,16 @@ description: Install and configure Ibexa image picker as a standalone React appl
 
 ## Requirements
 
+Before you install a standalone Assets Library Widget, you must have:
+
 - React 18
-- Latest version of web browser Chrome, Firefox or Safari
-- Instance can be reached out from external services
+- The latest version of web browser Chrome, Firefox or Safari
+- Instance that can be reached out from external services
+- OAuth2 Server enabled
 
 ## Instalation
 
-Installation should be done through `npm install``.
+Installation should be done through `npm install`.
 
 Go to https://github.com/ibexa/assets-library-widget-dist/pkgs/npm/assets-library-widget.
 
@@ -26,8 +30,40 @@ Install `assets-library-widget` package by running the command:
 
 To get `accessToken`, send a request call:
 
+```bash
+POST http://127.0.0.1:8001/token
+Content-Type: application/json
+```
 
+```json
+{
+  "grant_type": "client_credentials",
+  "client_id": "1234567890",
+  "client_secret": "1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890"
+}
+{
+    "User": {
+        "_media-type": "application\/vnd.ibexa.api.User+json",
+        "_href": "\/api\/ibexa\/v2\/user\/users\/14",
+        "_id": 14,
+        "_remoteId": "1bb4fe25487f05527efa8bfd394cecc7",
+        "ContentType": {
+            "_media-type": "application\/vnd.ibexa.api.ContentType+json",
+            "_href": "\/api\/ibexa\/v2\/content\/types\/4"
+        },
+        "name": "Administrator User",
+        "Versions": {
+            "_media-type": "application\/vnd.ibexa.api.VersionList+json",
+            "_href": "\/api\/ibexa\/v2\/content\/objects\/14\/versions"
+        },
+        ...
+    }
+}
+```
 
+`Authorization: Bearer <token>`
+
+Provide the obtained token in the app config file.
 
 ## Configuration
 
@@ -59,6 +95,10 @@ function App() {
 
 export default App;
 ```
+
+Next, in the terminal run the command:
+
+`npm start`
 
 Available parameters:
 
