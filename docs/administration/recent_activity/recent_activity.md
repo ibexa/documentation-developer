@@ -10,21 +10,62 @@ TODO: Feature introduction and description, link to the user doc, …
 
 The `ActivityLogService` PHP API can be used to browse activity logs and write new entries.
 
-### Searching in the Activity Log entries
+### Searching in the Activity Log groups
 
-You can search among the activity log entries using `ActivityLogService::find` by passing an `Ibexa\Contracts\ActivityLog\Values\ActivityLog\Query`.
+You can search among the activity log entry groups using `ActivityLogService::find` by passing an `Ibexa\Contracts\ActivityLog\Values\ActivityLog\Query`.
 This `Query`'s constructor has four arguments:
 
 1. `$criteria`: an array of criterion from `Ibexa\Contracts\ActivityLog\Values\ActivityLog\Criterion` related as a logical AND.
 2. `$sortClauses`: an array of `Ibexa\Contracts\ActivityLog\Values\ActivityLog\SortClause`.
-3. `$offset`: a zero-based index integer indicating at which entry to start, its default value is `0` (zero, nothing skipped).
-4. `$limit`: an integer as the maximum returned item count, default is 25.
+3. `$offset`: a zero-based index integer indicating at which group to start, its default value is `0` (zero, nothing skipped).
+4. `$limit`: an integer as the maximum returned group count, default is 25.
+
+See [Activity Log Search reference](activity_log_search.md) to discover query possibilities.
+
+In the following example, log groups containing at least one creation of a Content item will be displayed in terminal, with a maximum of 10 groups within the last hour.
 
 ```php
 [[= include_file('code_samples/recent_activity/src/Command/MonitorRecentContentCreationCommand.php') =]]
 ```
 
-See [Activity Log Search Criteria reference](activity_log_search.md) to discover query possibilities.
+```console
+% php bin/console app:monitor-content-creation
+
+web
+---
+
+ --------------------------- --------- ------------- -------- ---------- 
+  Logged at                   Obj. ID   Object Name   Action   User      
+ --------------------------- --------- ------------- -------- ---------- 
+  2024-01-29T15:01:57+00:00   323       Folder        create   jane_doe  
+ --------------------------- --------- ------------- -------- ---------- 
+
+migration
+---------
+
+ Migrating file: create_foo_company
+ --------------------------- --------- ------------------- -------------- ------- 
+  Logged at                   Obj. ID   Object Name         Action         User   
+ --------------------------- --------- ------------------- -------------- ------- 
+  2024-01-29T14:58:53+00:00   317       Foo Company Ltd.    create         admin  
+  2024-01-29T14:58:53+00:00   317       Foo Company Ltd.    publish        admin  
+  2024-01-29T14:58:53+00:00   318       Members             create         admin  
+  2024-01-29T14:58:53+00:00   318       Members             publish        admin  
+  2024-01-29T14:58:53+00:00   317       Foo Company Ltd.    create_draft   admin  
+  2024-01-29T14:58:53+00:00   317       Foo Company Ltd.    update         admin  
+  2024-01-29T14:58:53+00:00   317       Foo Company Ltd.    publish        admin  
+  2024-01-29T14:58:53+00:00   319       Address Book        create         admin  
+  2024-01-29T14:58:53+00:00   319       Address Book        publish        admin  
+  2024-01-29T14:58:53+00:00   317       Foo Company Ltd.    create_draft   admin  
+  2024-01-29T14:58:53+00:00   317       Foo Company Ltd.    update         admin  
+  2024-01-29T14:58:53+00:00   317       Foo Company Ltd.    publish        admin  
+  2024-01-29T14:58:53+00:00   320       HQ                  create         admin  
+  2024-01-29T14:58:53+00:00   320       HQ                  publish        admin  
+  2024-01-29T14:58:53+00:00   317       Foo Company Ltd.    create_draft   admin  
+  2024-01-29T14:58:53+00:00   317       Foo Company Ltd.    update         admin  
+  2024-01-29T14:58:53+00:00   317       Foo Company Ltd.    publish        admin 
+ --------------------------- --------- ------------------- -------------- ------- 
+```
 
 ### Adding custom Activity Log entries
 

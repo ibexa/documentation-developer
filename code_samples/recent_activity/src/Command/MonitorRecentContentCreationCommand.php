@@ -10,6 +10,7 @@ use Ibexa\Contracts\Core\Repository\Values\Content\Content;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Style\SymfonyStyle;
 
 class MonitorRecentContentCreationCommand extends Command
 {
@@ -25,7 +26,7 @@ class MonitorRecentContentCreationCommand extends Command
 
     protected function configure(): void
     {
-        $this->setDescription('List last 10 Content item creations in the last hour');
+        $this->setDescription('List last 10 log entry groups with creations in the last hour');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
@@ -36,19 +37,32 @@ class MonitorRecentContentCreationCommand extends Command
             new Criterion\LoggedAtCriterion(new \DateTime('- 1 hour'), Criterion\LoggedAtCriterion::GTE),
         ], [new LoggedAtSortClause(LoggedAtSortClause::DESC)], 0, 10);
 
+        $io = new SymfonyStyle($input, $output);
+
         foreach ($this->activityLogService->find($query) as $activityLogGroup) {
             if ($activityLogGroup->getSource()) {
-                $output->writeln("[{$activityLogGroup->getLoggedAt()->format(\DateTime::ATOM)}] --- {$activityLogGroup->getSource()->getName()} ---");
+                $io->section($activityLogGroup->getSource()->getName());
             }
             if ($activityLogGroup->getDescription()) {
-                $output->writeln("[{$activityLogGroup->getLoggedAt()->format(\DateTime::ATOM)}] --- {$activityLogGroup->getDescription()} ---");
+                $io->text($activityLogGroup->getDescription());
             }
+            $table = [];
             foreach ($activityLogGroup->getActivityLogs() as $activityLog) {
-                $output->writeln("[{$activityLogGroup->getLoggedAt()->format(\DateTime::ATOM)}] Content #{$activityLog->getObjectId()} <info>{$activityLog->getObjectName()}</info> created by <comment>{$activityLogGroup->getUser()->login}</comment>");
+                $table[] = [
+                    $activityLogGroup->getLoggedAt()->format(\DateTime::ATOM),
+                    $activityLog->getObjectId(),
+                    $activityLog->getObjectName(),
+                    $activityLog->getAction(),
+                    $activityLogGroup->getUser()->login,
+                ];
             }
-            if ($activityLogGroup->getSource() || $activityLogGroup->getDescription()) {
-                $output->writeln("[{$activityLogGroup->getLoggedAt()->format(\DateTime::ATOM)}] --- = ---");
-            }
+            $io->table([
+                'Logged at',
+                'Obj. ID',
+                'Object Name',
+                'Action',
+                'User',
+            ], $table);
         }
 
         return Command::SUCCESS;
