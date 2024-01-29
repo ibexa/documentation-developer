@@ -33,7 +33,7 @@ class MonitorRecentContentCreationCommand extends Command
     {
         $query = new Query([
             new Criterion\ObjectCriterion(Content::class),
-            new Criterion\ActionCriterion(['create']),
+            new Criterion\ActionCriterion([ActivityLogServiceInterface::ACTION_CREATE]),
             new Criterion\LoggedAtCriterion(new \DateTime('- 1 hour'), Criterion\LoggedAtCriterion::GTE),
         ], [new LoggedAtSortClause(LoggedAtSortClause::DESC)], 0, 10);
 
