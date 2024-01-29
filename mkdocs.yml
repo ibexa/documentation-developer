@@ -137,9 +137,7 @@ nav:
             - Multi-file upload: administration/back_office/multifile_upload.md
             - Sub-items list: administration/back_office/subitems_list.md
             - Notifications: administration/back_office/notifications.md
-        - Recent activity:
             - Recent activity: administration/recent_activity/recent_activity.md
-            - Activity Log search reference: administration/recent_activity/activity_log_search.md
     - Content management:
         - Content management: content_management/content_management.md
         - Content management guide: content_management/content_management_guide.md
@@ -570,6 +568,13 @@ nav:
             - LogicalAnd Criterion: search/url_search_reference/logicaland_url_criterion.md
             - LogicalNot Criterion: search/url_search_reference/logicalnot_url_criterion.md
             - LogicalOr Criterion: search/url_search_reference/logicalor_url_criterion.md
+        - Activity Log Search Criteria:
+            - Activity Log Search Criteria: search/criteria_reference/activity_log_criteria.md
+            - ActionCriterion: search/criteria_reference/action_criterion.md
+            - LoggedAtCriterion: search/criteria_reference/logged_at_criterion.md
+            - ObjectCriterion: search/criteria_reference/object_criterion.md
+            - ObjectNameCriterion: search/criteria_reference/object_name_criterion.md
+            - UserCriterion: search/criteria_reference/user_criterion.md
         - Sort Clause reference:
             - General Sort Clauses:
                 - General Sort Clause reference: search/sort_clause_reference/sort_clause_reference.md
@@ -635,6 +640,8 @@ nav:
                 - URL Sort Clauses: search/url_search_reference/url_search_sort_clauses.md
                 - Id Sort Clause: search/url_search_reference/id_url_sort_clause.md
                 - Url Sort Clause: search/url_search_reference/url_url_sort_clause.md
+            - Activity Log Sort Clauses:
+                - Activity Log Sort Clauses: search/sort_clause_reference/activity_log_sort_clauses.md
         - Search API: search/search_api.md
         - Aggregation reference:
             - Aggregation reference: search/aggregation_reference/aggregation_reference.md

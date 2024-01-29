@@ -20,7 +20,7 @@ This `Query`'s constructor has four arguments:
 3. `$offset`: a zero-based index integer indicating at which group to start, its default value is `0` (zero, nothing skipped).
 4. `$limit`: an integer as the maximum returned group count, default is 25.
 
-See [Activity Log Search reference](activity_log_search.md) to discover query possibilities.
+See [Activity Log Search Criteria reference](activity_log_criteria.md) and [Activity Log Search Sort Clauses reference](activity_log_sort_clauses.md) to discover query possibilities.
 
 In the following example, log groups containing at least one creation of a Content item will be displayed in terminal, with a maximum of 10 groups within the last hour.
 
