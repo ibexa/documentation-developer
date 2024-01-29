@@ -36,6 +36,7 @@ class MonitorRecentContentCreationCommand extends Command
             new Criterion\ActionCriterion([ActivityLogServiceInterface::ACTION_CREATE]),
             new Criterion\LoggedAtCriterion(new \DateTime('- 1 hour'), Criterion\LoggedAtCriterion::GTE),
         ], [new LoggedAtSortClause(LoggedAtSortClause::DESC)], 0, 10);
+        $filterLogs = false;
 
         $io = new SymfonyStyle($input, $output);
 
@@ -48,13 +49,15 @@ class MonitorRecentContentCreationCommand extends Command
             }
             $table = [];
             foreach ($activityLogGroup->getActivityLogs() as $activityLog) {
-                $table[] = [
-                    $activityLogGroup->getLoggedAt()->format(\DateTime::ATOM),
-                    $activityLog->getObjectId(),
-                    $activityLog->getObjectName(),
-                    $activityLog->getAction(),
-                    $activityLogGroup->getUser()->login,
-                ];
+                if (!$filterLogs || $activityLog->getAction() === ActivityLogServiceInterface::ACTION_CREATE) {
+                    $table[] = [
+                        $activityLogGroup->getLoggedAt()->format(\DateTime::ATOM),
+                        $activityLog->getObjectId(),
+                        $activityLog->getObjectName(),
+                        $activityLog->getAction(),
+                        $activityLogGroup->getUser()->login,
+                    ];
+                }
             }
             $io->table([
                 'Logged at',
