@@ -32,22 +32,12 @@ Each configured React app block has an identifier and the following settings:
 | `thumbnail`  | Thumbnail used in the Page Builder elements menu.                                                                                                             |
 | `component`  | React App Component name used in `assets/page-builder/react/blocks` directory.                                                                                |
 | `visible`    | (Optional) Toggles the block's visibility in the Page Builder elements menu. Remove the block from the layout before you publish another version of the page. |
-| `attributes` | (Optional) List of [block attributes](page_block_attributes.md).                                                                                              |
+| <nobr>`attributes`</nobr> | (Optional) List of [block attributes](page_block_attributes.md).                                                                                              |
 
 For example:
 
 ``` yaml
-ibexa_fieldtype_page:
-    react_blocks:
-        calculator:
-          name: Calculator
-          category: Demo
-          thumbnail: /bundles/ibexaicons/img/all-icons.svg#date
-          component: Calculator
-          attributes:
-            a:
-              type: integer
-            b: integer 
+[[= include_file('code_samples/page/react_app_block/config/packages/react_blocks.yaml') =]]
 ```
 
 Each entry below `react_blocks` adds one block to the Page Builder with the defined name, category and thumbnail.
@@ -78,23 +68,20 @@ Parameters passed as props must be converted so that they can be used as the con
 
 ## Create React App block
 
-In the following example, you learn how to create `Calculator` React App block.
+In the following example, you learn how to create the `Calculator` React App block [configured in the previous section's example](#react-app-block-configuration).
 
 ### Configure React App Block
 
-First, create a .jsx file which describes your component.
+First, install React.
+Run `yarn add react` command.
+
+Next, create a .jsx file which describes your component.
 You can place it in any location.
 
 In the following example, create `Calculator.jsx` file in `assets/page-builder/components/` directory:
 
 ``` js
-import React from 'react';
-
-export default function (props) {
-    // a * b = ...
-    console.log("Hello React!");
-    return <div>{props.a} × {props.b} = {parseInt(props.a) * parseInt(props.b)}</div>;
-}
+[[= include_file('code_samples/page/react_app_block/assets/page-builder/components/Calculator.jsx') =]]
 ```
 
 Then, create a `Calculator.js` file in `assets/page-builder/react/blocks` directory.
@@ -103,13 +90,17 @@ Files in this directory create a map of Components which then are imported to `r
 As a result, the components are rendered on the page. 
 
 ``` js
-import Calculator from "../../components/Calculator";
-
-export default {
-    Calculator: Calculator,
-};
+[[= include_file('code_samples/page/react_app_block/assets/page-builder/react/blocks/Calculator.js') =]]
 ```
 
 Now, you should see new `Calculator` block in the Page Builder blocks list:
 
 ![Calculator](calculator.png "Calculator - React App Block")
+
+Then, make sure that your [Page layout template](template_configuration.md#page-layout) (like `templates/themes/standard/pagelayout.html.twig`) has the following Twig code in its `{% block javascripts %}`:
+
+``` twig
+{% if encore_entry_exists('react-blocks-js') %}
+    {{ encore_entry_script_tags('react-blocks-js') }}
+{% endif %}
+```

@@ -1,3 +1,5 @@
+<!-- vale VariablesVersion = NO -->
+
 # eZ Platform v3.0
 
 **Version number**: v3.0
@@ -134,7 +136,7 @@ The `keyword` Field Type can now recognize versions of a Content item.
 
 #### Login by User name or email
 
-You can now give your users th ability to [log in with User name or with email](https://doc.ibexa.co/en/latest/guide/user_management/user_management/#login-methods).
+You can now give your users th ability to [log in with User name or with email](https://doc.ibexa.co/en/latest/users/login_methods).
 
 #### Password rules
 
@@ -200,9 +202,9 @@ You can now add custom tooltips to provide more information for the users when t
 The new thumbnails API allows you to easily choose an image for each content.
 For more information, see [Extending thumbnails](https://doc.ibexa.co/en/latest/extending/extending_thumbnails).
 
-### Type hints for Public API
+### Type hints for public PHP API
 
-Strict types have been added to Public API methods. For a complete list, see [backwards compatibility breaks](https://doc.ibexa.co/en/latest/releases/ez_platform_v3.0_deprecations/#strict-types-for-php-api).
+Strict types have been added to public PHP API methods. For a complete list, see [backwards compatibility breaks](https://doc.ibexa.co/en/latest/releases/ez_platform_v3.0_deprecations/#strict-types-for-php-api).
 
 ## Other changes
 

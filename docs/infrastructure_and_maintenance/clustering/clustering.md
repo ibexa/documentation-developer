@@ -52,7 +52,7 @@ To avoid concurrent access to session data from front-end nodes, if possible you
 
 Session locking is available with `php-memcached`, and with `php-redis` (v4.2.0 and higher).
 
-On Ibexa Cloud (and Platform.sh) Redis is preferred and supported.
+On [[= product_name_cloud =]] (and Platform.sh) Redis is preferred and supported.
 
 ### Shared binary files
 
@@ -141,7 +141,7 @@ manually importing its schema definition:
     ```
 
 !!! note
-    On Ibexa Cloud (and Platform.sh) a separate DFS database is supported for MySQL only.
+    On [[= product_name_cloud =]] (and Platform.sh) a separate DFS database is supported for MySQL only.
 
 This example uses Doctrine connection named `dfs`:
 

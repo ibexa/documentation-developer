@@ -29,8 +29,15 @@ You can use the following matchers to [match content views](template_configurati
 | [Product availability](#product-availability) | Product availability. |
 | [Product](#product) | Whether the object is a product. |
 | [Product catalog root](#product-catalog-root) | Whether the Location is the root of a product catalog. |
+| [Taxonomy entry ID](#taxonomy-entry-id) | ID of taxonomy entry. |
+| [Taxonomy entry identifier](#taxonomy-entry-identifier) | Identifier of taxonomy entry. |
+| [Taxonomy entry level](#taxonomy-entry-level) | Level of taxonomy entry. |
+| [Taxonomy type](#taxonomy-type) | Taxonomy type. |
+
 
 !!! tip
+
+    Each matcher has a scalar value or an array of scalar values. When an array is passed, it matches on one of its values.
 
     You can also create [custom view matchers](create_custom_view_matcher.md).
 
@@ -214,4 +221,41 @@ match:
 ``` yaml
 match:
     '@Ibexa\Contracts\ProductCatalog\ViewMatcher\LocationBased\RootLocation': true
+```
+
+## Taxonomy entry ID
+
+`Ibexa\Taxonomy\View\Matcher\TaxonomyEntryBased\Id` matches based on an ID of the taxonomy entry.
+
+``` yaml
+match:
+    '@Ibexa\Taxonomy\View\Matcher\TaxonomyEntryBased\Id': [1, 2, 3]'
+```
+
+## Taxonomy entry identifier
+
+`Ibexa\Taxonomy\View\Matcher\TaxonomyEntryBased\Identifier` matches based on an identifier of the taxonomy entry.
+
+``` yaml
+match:
+    '@Ibexa\Taxonomy\View\Matcher\TaxonomyEntryBased\Identifier': ['spring', 'events', 'devices']
+```
+
+## Taxonomy entry level
+
+`Ibexa\Taxonomy\View\Matcher\TaxonomyEntryBased\Level` matches based on a level of the taxonomy entry.
+With this matcher, you can apply view rules based on a selection of taxonomy entry levels, by using the following logical operators: `<` , `>` , `<=`, `>=`, `=`.
+
+``` yaml
+match:
+    '@@Ibexa\Taxonomy\View\Matcher\TaxonomyEntryBased\Level': '> 2'
+```
+
+## Taxonomy type
+
+`Ibexa\Taxonomy\View\Matcher\TaxonomyEntryBased\Taxonomy` matches based on a type of taxonomy that the taxonomy entry belongs to.
+
+``` yaml
+match:
+    '@Ibexa\Taxonomy\View\Matcher\TaxonomyEntryBased\Taxonomy': 'product_category'
 ```

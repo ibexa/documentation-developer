@@ -1,3 +1,5 @@
+<!-- vale off -->
+
 <div class="front-page">
     <div class="row">
         <div class="col-12">
