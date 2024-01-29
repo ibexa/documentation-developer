@@ -11,10 +11,10 @@ description: Install Ibexa DXP on a Linux system and prepare your installation f
     To install [[= product_name =]] for development on macOS or Windows,
     see the [installation guide for macOS and Windows](install_on_mac_os_and_windows.md).
 
-!!! note "Installing Ibexa OSS"
+!!! note "Installing [[= product_name_oss =]]"
 
-    This installation guide details the steps to install Ibexa DXP for users who have a subscription agreement with Ibexa.
-    If you want to install Ibexa OSS, you do not need authentication tokens or an account on updates.ibexa.co,
+    This installation guide details the steps to install[[= product_name =]] for users who have a subscription agreement with [[= product_name_base =]].
+    If you want to install [[= product_name_oss =]], you do not need authentication tokens or an account on updates.ibexa.co,
     but must adapt the steps shown here to the product edition and the `ibexa/oss-skeleton` repository.
 
 ## Prepare work environment
@@ -119,7 +119,7 @@ After this, when running Composer to get updates, you will be asked for a userna
 To use Composer to instantly create a project in the current folder with all the dependencies,
 run the following command:
 
-=== "[[= product_name_content =]]"
+=== "[[= product_name_headless =]]"
 
     ``` bash
     composer create-project ibexa/headless-skeleton .
@@ -141,7 +141,7 @@ run the following command:
 
     If you are using PHP 7.4 or 8.0, use a different set of commands:
 
-    === "[[= product_name_content =]]"
+    === "[[= product_name_headless =]]"
 
         ``` bash
         composer create-project ibexa/headless-skeleton --no-install .
@@ -452,4 +452,4 @@ and use the generated secret.
 
 ## Ibexa Cloud
 
-If you want to host your application on Ibexa Cloud, follow the [Install on Ibexa Cloud](install_on_ibexa_cloud.md) procedure.
+If you want to host your application on [[= product_name_cloud =]], follow the [Install on Ibexa Cloud](install_on_ibexa_cloud.md) procedure.

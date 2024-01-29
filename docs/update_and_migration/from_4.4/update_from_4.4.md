@@ -106,7 +106,7 @@ php bin/console ibexa:migrate:richtext-namespaces
 
 #### Ibexa Open Source
 
-If you have no access to Ibexa DXP's `ibexa/installer` package, apply the following database update:
+If you have no access to [[= product_name =]]'s `ibexa/installer` package, apply the following database update:
 
 === "MySQL"
 
@@ -157,6 +157,19 @@ If you have no access to Ibexa DXP's `ibexa/installer` package, apply the follow
         expires int NOT NULL DEFAULT 0
     );
     ```
+
+### Clean-up taxonomy database
+
+If you didn't run it already when [migrating from 4.2 to 4.3](update_from_4.2.md#clean-up-taxonomy-database), run the following command for each of your taxonomies to ensure that there are no [Content items orphaned during deletion of subtrees](taxonomy.md#remove-orphaned-content-items) inherited from the earlier version's database:
+
+`php bin/console ibexa:taxonomy:remove-orphaned-content <taxonomy> --force`
+
+For example:
+
+```bash
+php bin/console ibexa:taxonomy:remove-orphaned-content tags --force
+php bin/console ibexa:taxonomy:remove-orphaned-content product_categories --force
+```
 
 ## Finish code update
 

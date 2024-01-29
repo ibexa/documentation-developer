@@ -34,26 +34,46 @@ ibexa_product_catalog:
 
 The `local` type is the built-in type of catalog based on the Repository.
 
-Under `options.product_type_group_identifier` you can define the identifier of the Content Type group used for storing products.
+Under `options.product_type_group_identifier` you can define the identifier of the Content Type Group used for storing products.
 
 `root_location_remote_id` indicates the remote ID of the Location where products are stored.
 
 ## VAT rates
 
-To set up different VAT rates for different regions (countries), you can use the following configuration under the `ibexa.repositories.<repository_name>.product_catalog.regions` [configuration key](configuration.md#configuration-files):
+To set up different VAT rates for different regions (countries), you can use the following configuration under the `ibexa.repositories.<repository_name>.product_catalog.regions` [configuration key](configuration.md#configuration-files), for example:
 
-``` yaml
+``` yaml hl_lines="11 12 17 18"
 ibexa:
     repositories:
         <repository_name>:
             product_catalog:
                 engine: default
                 regions:
-                    region_1:
+                    <region_name>:
                         vat_categories:
-                            standard: 18
-                            reduced: 6
-                            none: ~
+                            standard:
+                                value: 18
+                                extras:
+                                    <custom_flag>: <value>
+                            reduced:
+                                value: 6
+                            zero:
+                                value: 0
+                            none:
+                                value: ~
+```
+
+VAT rates configuration accepts additional flags under the `extras` key.
+It is an extension point that you can build upon to add custom functionalities. 
+You can use it, for example, to pass additional information to the UI or define region-specific exclusions when calculating the tax values.
+
+For each VAT category value, setting a value to "null" (~) is equal to making the following setting:
+
+``` yaml
+                            none:
+                                value: 0
+                                extras:
+                                    not_applicable: true
 ```
 
 ## Code generation strategy
