@@ -9,6 +9,7 @@ use Ibexa\Contracts\ActivityLog\Values\ActivityLog\SortClause\LoggedAtSortClause
 use Ibexa\Contracts\Core\Repository\Values\Content\Content;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
@@ -26,7 +27,8 @@ class MonitorRecentContentCreationCommand extends Command
 
     protected function configure(): void
     {
-        $this->setDescription('List last 10 log entry groups with creations in the last hour');
+        $this->setDescription('List last 10 log entry groups with creations in the last hour')
+            ->addOption('filter', 'f', InputOption::VALUE_NONE, 'If only creation log entries should be shown in log groups');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
@@ -36,7 +38,8 @@ class MonitorRecentContentCreationCommand extends Command
             new Criterion\ActionCriterion([ActivityLogServiceInterface::ACTION_CREATE]),
             new Criterion\LoggedAtCriterion(new \DateTime('- 1 hour'), Criterion\LoggedAtCriterion::GTE),
         ], [new LoggedAtSortClause(LoggedAtSortClause::DESC)], 0, 10);
-        $filterLogs = false;
+
+        $filterLogs = $input->getOption('filter');
 
         $io = new SymfonyStyle($input, $output);
 
