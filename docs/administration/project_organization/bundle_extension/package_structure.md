@@ -4,51 +4,44 @@ description: All code contributions to Ibexa DXP must follow package and bundle 
 
 # Package and bundle structure and namespaces
 
-If you wish to contribute to [[= product_name =]] development,
-you need to adhere to the package and bundle structure and namespace standards.
+Bundle allows you to extend the system by adding new services, routes, controllers, and views, and extend functionality to fully customize your [[= product_name =]] application.
+If you want to contribute to [[= product_name =]] development, you need to adhere to the package and bundle structure and namespace standards.
 
-The following conventions apply to contributions to [[= product_name_base =]] core code, not to third party packages.
+All conventions described here apply to contributions to [[= product_name_base =]] core code, not to third party packages.
 
 !!! note
-
     New code needs to follow the rules outlined here.
     They are being applied progressively to existing code.
-
 ## Root PHP namespace
 
 Define [[= product_name =]] core PHP code in a namespace with the following prefix:
-
 ```php
 namespace Ibexa;
 ```
 
 A package which groups some DXP features can use an additional prefix, for example:
-
 ```php
 namespace Ibexa\Commerce;
-```
-
 ```php
 namespace Ibexa\Personalization;
 ```
 
 ## Packages
 
-The general package directory structure and corresponding PHP namespace mapping are:
-
+The general package directory structure and corresponding PHP namespace mappings are:
 ```
 .
 +-- src
-|   +-- bundle (`Ibexa\Bundle\<PackageName>`)
-|   +-- contracts (`Ibexa\Contracts\<PackageName>`)
-|   +-- lib (`Ibexa\<PackageName>`)
+|   +-- bundle (`Ibexa\Bundle\<PackageName>`)
+|   +-- contracts (`Ibexa\Contracts\<PackageName>`)
+|   +-- lib (`Ibexa\<PackageName>`)
 +-- tests
-|   +-- bundle (`Ibexa\Tests\Bundle\<PackageName>`)
-|   +-- integration (`Ibexa\Tests\Integration\<PackageName>`)
-|   +-- lib (`Ibexa\Tests\<PackageName>`)
+|   +-- bundle (`Ibexa\Tests\Bundle\<PackageName>`)
+|   +-- integration (`Ibexa\Tests\Integration\<PackageName>`)
+|   +-- lib (`Ibexa\Tests\<PackageName>`)
 ```
 
-If a package does not contain some of the described parts, you can skip those directories.
+If a package doesn't contain some of the described parts, you can skip those directories.
 
 ### Implementation (lib)
 
@@ -66,26 +59,24 @@ namespace Ibexa\Commerce\Shop;
 
 ### Bundles
 
-The bundle class definition in the `src/bundle` directory must be:
+The bundle class definition in the `src/bundle` directory must follow the pattern:
 
 ```php
 namespace Ibexa\Bundle\<PackageName>;
-
+ 
 class Ibexa[ProductGroup]<PackageName>Bundle // ...
 ```
 
 Examples:
 
-
 ```php
 namespace Ibexa\Bundle\Search;
-
+ 
 class IbexaSearchBundle // ...
 ```
 
 ```php
 namespace Ibexa\Bundle\Commerce\Shop;
-
 class IbexaCommerceShopBundle // ...
 ```
 
@@ -115,5 +106,4 @@ namespace Ibexa\Contracts\Commerce\Shop;
 That namespace needs to be mapped to the `src/contracts` directory of a package.
 
 !!! note
-
     Backward compatibility for interfaces and objects defined in the `Contracts` namespace is guaranteed.

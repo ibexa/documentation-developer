@@ -467,7 +467,7 @@ plugins:
             'community_resources/phpstorm_plugin.md': 'resources/phpstorm_plugin.md'
             'community_resources/report_follow_issues.md': 'resources/contributing/report_and_follow_issues.md'
             'community_resources/translations.md': 'resources/contributing/contribute_translations.md'
-            'community_resources/package_structure.md': 'resources/contributing/package_structure.md'
+            'community_resources/package_structure.md': 'administration/project_organization/bundle_extension/package_structure.md'
 
             'updating/update_ibexa_dxp.md': 'update_and_migration/update_ibexa_dxp.md'
             'updating/from_1.x_2.x/update_from_1.x_2.x.md': 'update_and_migration/from_1.x_2.x/update_from_1.x_2.x.md'
