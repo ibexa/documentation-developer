@@ -11,6 +11,8 @@ Those Criteria `Ibexa\Contracts\ActivityLog\Values\ActivityLog\Query` for `Ibexa
 
 They are applied to log entry groups. For example, with the criteria `ActionCriterion`, you will obtain log entry groups having an entry with this action, containing all their entries with eventually various actions.
 
+See [Searching in the Activity Log groups](recent_activity.md#searching-in-the-activity-log-groups) for how to use a query, and an example combining several criteria.
+
 ## Value Criterion
 
 | Search Criterion                                  | Search based on                                             |
