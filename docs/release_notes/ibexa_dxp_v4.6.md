@@ -83,6 +83,15 @@ As part of this effort, some other changes were introduced that apply to both re
 
 ![Sub-items tab](img/4.6_sub_items_tab.png "Sub-items tab")
 
+#### Site context selector
+
+With a drop-down list added to the top bar, which changes the site context, editors can choose that the Content Tree shows only those Content items that belong to the selected website.
+And if Content items belong to multiple websites but use different designs or languages depending on the SiteAccess settings, their previews also change.
+
+As part of this effort, the name of the "Sites" area of the main menu has changed to "Site management".
+
+![Site context selector](img/4.6_site_selector.png "Site context selector")
+
 #### Distraction free mode
 
 While editing Rich Text Fields, user can switch to distraction free mode.
