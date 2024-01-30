@@ -44,19 +44,21 @@ module.exports = [ eZConfig, ibexaConfig, ...customConfigs ];
     For more information about passwords, see [Passwords](passwords.md).
     For more information about production security, see [Security checklist](security_checklist.md).
 
-2\. Select Content and go to Content Types.
+2\. In the upper-right corner, click the avatar icon and in the drop-down menu disable the [Focus mode]([[= user_doc =]]/getting_started/#focus-mode).
 
-3\. Enter the Content group and create a new Content Type.
+3\. Select Content and go to Content Types.
+
+4\. Enter the Content group and create a new Content Type.
 
 ![Creating a Content Type](first-steps-create-ct.png)
 
-4\. Input the Content Type's name, for example "Blog Post", and identifier: `blog_post`.
+5\. Input the Content Type's name, for example "Blog Post", and identifier: `blog_post`.
 
-5\. Below, add a Field definition of the type Text Line. Name it "Title" and give it identifier `title`.
+6\. Below, add a Field definition of the type Text Line. Name it "Title" and give it identifier `title`.
 
-6\. Add another Field definition: Text (type Rich text) with identifier `text`.
+7\. Add another Field definition: Text (type Rich text) with identifier `text`.
 
-7\. Save the Content Type.
+8\. Save the Content Type.
 
 !!! tip "More information"
 
