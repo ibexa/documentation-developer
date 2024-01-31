@@ -146,7 +146,7 @@ If you have no access to [[= product_name =]]'s `ibexa/installer` package, datab
 
 ### Clean-up taxonomy database
 
-Run the following command for each of your taxonomies to ensure that there are no [Content items orphaned during deletion of subtrees](taxonomy.md#remove-orphaned-content-items):
+Run the following command for each of your taxonomies to ensure that there are no [Content items orphaned during deletion of subtrees](https://doc.ibexa.co/en/latest/content_management/taxonomy/taxonomy/#remove-orphaned-content-items):
 
 `php bin/console ibexa:taxonomy:remove-orphaned-content <taxonomy> --force`
 
