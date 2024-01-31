@@ -128,6 +128,44 @@ Also, editors and other users can customize their experience even better, with n
 
 For more information, see [user profile and settings documentation]().
 
+#### Recent activity log
+
+Several actions on the repository or the application are logged.
+In the Back Office, last activity logs can be listed
+on a dedicated interface (Admin -> Activity list),
+on the dashboard within Recent activity block,
+or on the user profile.
+
+For more information,
+see feature's [user documentation](https://doc.ibexa.co/projects/userguide/en/master/recent_activity/recent_activity/),
+and [developer documentation](recent_activity.md).
+
+#### Back Office search
+
+##### Search bar, suggestions, autocompletion, and spellcheck
+
+The search bar can be focused with the shortcut Ctrl+/ (Windows, Linux) or Command+/ (Mac).
+
+While typing text in the bar, autocompletion suggestions is made under the bar itself.
+If a relevant suggestion occurs, it can be clicked, or navigated too with up/down keys then selected with Enter, and the content is be directly opened.
+
+In the search result page, a spellcheck suggestion can be made.
+For example, if the searched text is "Comany", the result page may ask "Did you mean company?", which is clickable to relaunch the search with this word.
+
+For more information,
+see [user documentation](https://doc.ibexa.co/projects/userguide/en/master/search/search_for_content/),
+and how to [customize autocompletion suggestions](search_suggestion.md).
+
+##### Filtering and sorting
+
+The search result page can be sorted in other orders than relevance. Name, publication of modification dates, this can be extended.
+
+Filters can be applied to the search page to narrow down the results.
+
+For more information,
+see [user documentation](https://doc.ibexa.co/projects/userguide/en/master/search/search_for_content/#filtered-search),
+and how to [customize search sorting](search_sorting.md).
+
 #### New and updated Content Type icons
 
 To help users quickly identify different content types in the Back Office, all Content Type references are now accompanied with icons.
