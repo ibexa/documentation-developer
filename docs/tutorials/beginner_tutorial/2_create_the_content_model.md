@@ -33,7 +33,7 @@ Go to the admin interface (`<yourdomain>/admin`) and log in with the default use
 
 In the upper-right corner, click the avatar icon to unfold the drop-down menu and disable the [Focus mode]([[= user_doc =]]/getting_started/#focus-mode).
 
-Go to the left side menu and choose **Content** -> **Content Types**.
+Go to main menu, go to **Content** -> **Content Types**.
 
 You will see a list of **Content Type groups**. They are used to group Content Types in a logical way.
 
@@ -68,12 +68,12 @@ Confirm the creation of the Content Type by clicking **Save and close**.
     
     For this tutorial, swap it with its child, a Folder called "Ibexa Platform".
     
-    To do this, go to the left side menu and choose **Content structure** -> **Ibexa Digital Experience Platform**, select the **Locations** tab
+    To do this, in the main menu go to **Content** -> **Content structure** -> **Ibexa Digital Experience Platform**, select the **Locations** tab
     and in the **Swap Locations** section navigate to "Ibexa Platform".
     
     You can learn how to work with Pages in [another tutorial](page_and_form_tutorial.md).
 
-Go back to the content by selecting **Content structure** in the left menu. 
+Go back to the content by selecting **Content structure** in the main menu. 
 Then browse the Content tree and create a Folder named *All Rides* using the **Create content** button on the top right of the screen. 
 Publish the Folder.
 

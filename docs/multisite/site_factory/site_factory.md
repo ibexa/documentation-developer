@@ -100,7 +100,7 @@ ibexa_site_factory:
             thumbnail: /path/to/image/example-thumbnail_2.png
 ```
 
-You can check the results of your work in the Back Office by going to the **Site management** tab and selecting **Sites**.
+You can check the results of your work in the Back Office by going to **Site management** and selecting **Sites**.
 
 There, you should be able to add a new site and choose a design for it.
 
