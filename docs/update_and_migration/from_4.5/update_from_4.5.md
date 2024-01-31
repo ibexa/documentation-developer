@@ -92,8 +92,8 @@ Apply the following database update scripts:
 
 ## Run data migration
 
-If you are using Ibexa Experience or Ibexa Commerce, you must run data migration required by the Dashboard and other features to finish the 
-upgrade process:
+If you are using [[= product_name_exp =]] or [[= product_name_com =]],
+you must run data migration required by the dashboard and other features to finish the upgrade process:
 
 - Dashboard [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
