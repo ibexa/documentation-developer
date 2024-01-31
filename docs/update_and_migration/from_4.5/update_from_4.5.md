@@ -16,10 +16,10 @@ Run:
 
 __TODO: ibexa/headless requires different steps__
 
-=== "[[= product_name_headless =]]"
+=== "[[= product_name_content =]]"
 
     ``` bash
-    composer require ibexa/headless:[[= latest_tag_4_5 =]] --with-all-dependencies --no-scripts
+    composer require ibexa/content:[[= latest_tag_4_5 =]] --with-all-dependencies --no-scripts
     ```
 === "[[= product_name_exp =]]"
 
@@ -40,11 +40,11 @@ When you have the latest version of v4.5, you can update to v4.6.
 
 First, run:
 
-=== "[[= product_name_content =]]"
+=== "[[= product_name_headless =]] (formerly [[= product_name_content =]])"
 
     ``` bash
-    composer require ibexa/content:[[= latest_tag_4_6 =]] --with-all-dependencies --no-scripts
-    composer recipes:install ibexa/content --force -v
+    composer require ibexa/headless:[[= latest_tag_4_6 =]] --with-all-dependencies --no-scripts
+    composer recipes:install ibexa/headless --force -v
     ```
 === "[[= product_name_exp =]]"
 
@@ -90,6 +90,8 @@ Apply the following database update scripts:
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.5.latest-to-4.6.0.sql
     ```
 
+#### Update [[= product_name_com =]] database [[% include 'snippets/commerce_badge.md' %]]
+
 For [[= product_name_com =]] installations, you also need to run:
 
 === "MySQL"
@@ -106,10 +108,10 @@ For [[= product_name_com =]] installations, you also need to run:
 
 ## Run data migration
 
+### Dashboard [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
 If you are using [[= product_name_exp =]] or [[= product_name_com =]],
 you must run data migration required by the dashboard and other features to finish the upgrade process:
-
-- Dashboard [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 ```bash
 php bin/console ibexa:migrations:import vendor/ibexa/dashboard/src/bundle/Resources/migrations/structure.yaml --name=2024_01_30_dashboard_structure.yaml
@@ -134,7 +136,7 @@ ibexa:
                     - 67 # Dashboards (clean installation)
 ```
 
-### User profile [[% include 'snippets/headless_badge.md' %]] [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+### User profile
 
 Ibexa DXP v4.6 introduced user profile for Backoffice users, allowing to ...
 
@@ -174,7 +176,7 @@ php bin/console ibexa:migrations:migrate --file=2024_01_30_editor_content_type.y
 
 More information ...
 
-### Site Context [[% include 'snippets/headless_badge.md' %]] [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+### Site Context
 
 Site context is ...
 
