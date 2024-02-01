@@ -114,7 +114,7 @@ Create a `src/FormBuilder/FormSubmission/Converter/RichtextDescriptionFieldSubmi
 ```
 
 Now you can go to Back Office and build a new form.
-In main menu, click **Content** and **Forms**, then click **Create content** and select **Form**.
+In the main menu, click **Content** -> **Forms** -> **Create content**, and select **Form**.
 
 You should be able to see the new section in the list of available fields:
 

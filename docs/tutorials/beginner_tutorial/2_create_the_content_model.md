@@ -33,7 +33,7 @@ Go to the admin interface (`<yourdomain>/admin`) and log in with the default use
 
 In the upper-right corner, click the avatar icon to unfold the drop-down menu and disable the [Focus mode]([[= user_doc =]]/getting_started/#focus-mode).
 
-Go to main menu, go to **Content** -> **Content Types**.
+In the main menu, go to **Content** -> **Content Types**.
 
 You will see a list of **Content Type groups**. They are used to group Content Types in a logical way.
 

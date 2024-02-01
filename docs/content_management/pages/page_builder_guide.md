@@ -15,7 +15,7 @@ By editing pages you can customize the layout and content of your website.
 
 To create a new page:
 
-A\. In main menu, go to **Content**.
+A\. In the main menu, go to **Content**.
 
 B\. Select **Content structure**.
 
