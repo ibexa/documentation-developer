@@ -375,7 +375,7 @@ New listeners automatically grant permissions to log in to a site, providing a m
 
 ### Integration with Actito
 
-By using the Actito gateway you can send emails to your end-users about changes in the status of various operations in your commerce presence.
+By using the Actito gateway you can send emails to the end-users about changes in the status of various operations in your commerce presence.
 
 ### Integration with Qualifio Engage
 
