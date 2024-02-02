@@ -373,6 +373,10 @@ For a full list of events, see [Site events](https://doc.ibexa.co/en/latest/api/
 Event handling system was improved with the addition of listeners based on `CreateSiteEvent`, `DeleteSiteEvent`, and `UpdateSiteEvent`.
 New listeners automatically grant permissions to log in to a site, providing a more seamless site management experience.
 
+### Integration with Actito
+
+By using the Actito gateway you can send emails to your end-users about changes in the status of various operations in your commerce presence.
+
 ### Integration with Qualifio Engage
 
 Use Qualifio Engagne integration to create engaging marketing experiences to your customers.
