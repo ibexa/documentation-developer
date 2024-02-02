@@ -29,6 +29,6 @@ ibexa:
                     - product_type
                     - product_availability
                     - product_price
-                product_render_action: 'Ibexa\Bundle\Storefront\Controller\Product::renderAction'
+                product_render_action: 'Ibexa\Bundle\Storefront\Controller\ProductRenderController::renderAction'
                 user_settings_groups:
                     - location

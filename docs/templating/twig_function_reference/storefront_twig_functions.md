@@ -89,6 +89,7 @@ then the main category for "Office" is "Furniture".
 ### `ibexa_storefront_get_product_render_action()`
 
 `ibexa_storefront_get_product_render_action()` returns a rendering action to be used, as defined in [settings](configure_storefront.md).
+It serves as an alternative for `ibexa_render` which heavily relies on content objects being not present within context of remote PIM.
 You can use this, for example, to [parametrize the display of products by using a custom controller](extend_storefront.md#generate-custom-product-preview-path).
 
 ``` html+twig

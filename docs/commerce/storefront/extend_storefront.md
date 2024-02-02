@@ -96,7 +96,7 @@ After you modify the controller, it can also pass the following parameters:
 `parameters` - parameters to be used, for example, to render the view.
 `is_relative` - Boolean that decides whether the URL is relative or absolute.
 
-Extend the `ProductRenderController.php` file by replacing the `render` method call with the following code:
+Replace the `ProductRenderController.php` file with one that uses the following `render` method call:
 
 ``` php
     public function renderAction(ProductInterface $product): Response

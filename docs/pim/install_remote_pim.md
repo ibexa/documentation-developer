@@ -7,11 +7,9 @@ description: Install and configure the Remote PIM example package.
 To implement [Remote PIM support](pim_guide.md#remote-pim-support) you can build upon a foundation provided by [[= product_name_base =]].
 You can install the example package and modify it to connect to your external data source.
 
-## Install Remote PIM example package
-
-Before you can create a custom implementation of Remote PIM support, you must install the example package first and configure [[= product_name =]] to use an external source of product information.
-
 In a real-life application, you replace its contents with custom code that connects to your remote product data source.
+
+## Install Remote PIM example package
 
 Install the `ibexa/example-in-memory-product-catalog` package:
 
@@ -64,7 +62,7 @@ You can modify them to suit your needs.
 
 ## Implement the data provider
 
-Create a data provider library that sources product data from your remote system.
+Create a data provider that sources product data from your remote system.
 The example implementation uses the `DataProvider.php` library, which acts as a generator of faux products.
 Each product has a product ID, name and description.
 
