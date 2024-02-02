@@ -186,8 +186,8 @@ Therefore, if your specific requirements are not met, you may need to extend [[=
 
 ##### Editing product types, products and product attributes
 
-Editing product type, product and product attribute information stored in the remote PIM is impossible due to their read-only status.
-In other words, information can only flow in one direction.
+ Editing product type, product and product attribute information stored in the remote PIM is impossible due to their read-only status.
+ This means that, functionally speaking, communication with PIM is uni-directional, and information is pulled from a remote source but cannot be updated.
 
 ##### Content-model-based features
 
