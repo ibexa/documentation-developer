@@ -43,6 +43,8 @@ First, run:
 === "[[= product_name_headless =]] (formerly [[= product_name_content =]])"
 
     ``` bash
+    composer remove ibexa/content --no-update --no-scripts
+    rm symfony.lock # Avoid recipes conflict between configuring ibexa/headless and unconfiguring ibexa/content
     composer require ibexa/headless:[[= latest_tag_4_6 =]] --with-all-dependencies --no-scripts
     composer recipes:install ibexa/headless --force -v
     ```
@@ -119,7 +121,7 @@ php bin/console ibexa:migrations:import vendor/ibexa/dashboard/src/bundle/Resour
 php bin/console ibexa:migrations:migrate --file=2024_01_30_dashboard_structure.yaml --file=2024_01_30_dashboard_permissions.yaml
 ```
 
-## Revisit mandatory configuration 
+## Revisit mandatory configuration
 
 ### Dashboard [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
