@@ -3,9 +3,10 @@ description: Install and configure Ibexa image picker as a standalone React appl
 edition: headless
 ---
 
-# Configure Ibexa image picker
+# Configure Assets library widget
 
-
+Assets Library Widget is a standalone application that can be integratd 
+into your web app or CMS platform. It allows users to comfortably publish, manage and share digital media assets.
 
 ## Requirements
 
@@ -28,7 +29,7 @@ Install `assets-library-widget` package by running the command:
 
 ### Get token
 
-To get `accessToken`, send a request call:
+To get `accessToken`, send a request to authenticate the user credentials.
 
 ```bash
 POST http://127.0.0.1:8001/token
@@ -70,7 +71,6 @@ Provide the obtained token in the app config file.
 You can modify the default settings to change the behavior
 of the Image picker.
 
-
 ```js
 import logo from "./logo.svg";
 import "./App.css";
@@ -96,10 +96,6 @@ function App() {
 export default App;
 ```
 
-Next, in the terminal run the command:
-
-`npm start`
-
 Available parameters:
 
 |React props|Description|
@@ -109,3 +105,12 @@ Available parameters:
 |`language`|Interface language.|
 |`instanceUrl`|Base URL for REST API call.|
 |`onCancel`|A callback to be invoked when user clicks the Cancel button. For more information, see [UDW documentaion](https://doc.ibexa.co/en/latest/administration/back_office/browser/browser/#configuration-available-only-through-js).|
+
+
+## Launch widget
+
+To launch installed Asset Library Widget, in the terminal run command:
+
+```bash
+  npm start
+```
