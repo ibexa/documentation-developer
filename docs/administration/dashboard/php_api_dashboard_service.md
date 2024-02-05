@@ -13,7 +13,7 @@ The service exposes two functions:
   returns a new Content item in draft state of `dashboard` Content Type.
   If no location is given, it creates by copying the current user's active dashboard.
   If a location is given, it creates by copying the given location.
-  This new Content draft is located in the current user custom dashboard container`.`
+  This new Content draft is located in the current user custom dashboard container.
 - `createDashboard(DashboardCreateStruct $dashboardCreateStruct): Content` publishes the given
   dashboard creation structure (`Ibexa\Contracts\Dashboard\Values\DashboardCreateStruct`)
   under `dashboard.predefined_container_remote_id`
