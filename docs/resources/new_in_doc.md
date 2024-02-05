@@ -6,6 +6,53 @@ description: Overview of major recent additions to Ibexa DXP documentation.
 
 This page contains recent highlights and notable changes in [[= product_name =]] documentation.
 
+## January 2024
+
+### Administration
+
+- [Enhance data migration doc](https://doc.ibexa.co/en/master/content_management/data_migration/importing_data/)
+- [Enhance the update to v3.3 procedure ](https://doc.ibexa.co/en/master/update_and_migration/from_2.5/to_3.3/)
+
+### Content management
+
+- New sections in taxonomy documentation:
+    - [How to hide the delete button in large subtrees](https://doc.ibexa.co/en/master/content_management/taxonomy/taxonomy/#hide-delete-button-on-large-subtree)
+    - [How to remove orphaned Content items](https://doc.ibexa.co/en/master/content_management/taxonomy/taxonomy/#remove-orphaned-content-items)
+
+### Getting started
+
+- [[[= product_name_headless =]] product guide](https://doc.ibexa.co/en/master/ibexa_products/headless/)
+
+### Personalization
+
+- [Customize recommendation request with segment parameters](https://doc.ibexa.co/en/master/personalization/api_reference/recommendation_api/#segment-parameters)
+
+### PIM
+
+- Product search Aggregations:
+    - [BasePriceStatsAggregation](https://doc.ibexa.co/en/master/search/aggregation_reference/basepricestats_aggregation/)
+    - [CustomPriceStatsAggregation](https://doc.ibexa.co/en/master/search/aggregation_reference/custompricestats_aggregation/)
+
+## December 2023
+
+### Content management
+
+- [Segmentation events](https://doc.ibexa.co/en/master/api/event_reference/segmentation_events/)
+- [Checkbox page block attribute type](https://doc.ibexa.co/en/master/content_management/pages/page_block_attributes/#block-attribute-types)
+- [Updated Create Form Builder Form attribute procedure](https://doc.ibexa.co/en/master/content_management/forms/create_form_attribute/#create-form-builder-form-attribute)
+
+### Templating
+
+- [Taxonomy view matchers](https://doc.ibexa.co/en/master/templating/templates/view_matcher_reference/#taxonomy-entry-id)
+- [Get content category Twig filter](https://doc.ibexa.co/en/master/templating/twig_function_reference/other_twig_filters/#ibexa_taxonomy_entries_for_content)
+- [Updated arguments list for `ibexa_render()` method](https://doc.ibexa.co/en/master/templating/twig_function_reference/content_twig_functions/#ibexa_render)
+- [New Field information Twig functions](https://doc.ibexa.co/en/master/templating/twig_function_reference/field_twig_functions/#ibexa_field_group_name)
+- [Updated get user Twig functions](https://doc.ibexa.co/en/master/templating/twig_function_reference/user_twig_functions/)
+
+### User management
+
+- [Reorganized information in the User Management area](https://doc.ibexa.co/en/master/users/users/)
+
 ## November 2023
 
 ### Commerce
@@ -104,7 +151,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
     - [PIM](https://doc.ibexa.co/en/master/pim/pim_guide/)
 
 - [Updated bundles list](https://doc.ibexa.co/en/master/administration/project_organization/bundles/)
-   
+
 ## August 2023
 
 ### New home page
