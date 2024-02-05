@@ -24,11 +24,13 @@ then it logs each user in,
 sets a custom dashboard by copying a model into a draft,
 and publishes this dashboard draft.
 First argument is the Content ID of the dashboard to copy.
-Following arguments are the User Group (Content) IDs.
+Following arguments are the User Groups' Content IDs.
 
 ``` php hl_lines="70"
 [[= include_file('code_samples/back_office/dashboard/src/Command/DashboardCommand.php') =]]
 ```
+
+The following line runs this command with `74` as the model dashboard's Content ID, `13` the User Group's Content ID, and on the SiteAccess `admin` to have the right `user_content_type_identifier` config:
 
 ```bash
 php bin/console doc:dashboard 74 13 --siteaccess=admin
