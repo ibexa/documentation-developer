@@ -21,7 +21,7 @@ The matcher class must implement the following methods:
 The following example shows how to implement an `Owner` matcher.
 This matcher identifies Content items that have the provided owner or owners.
 
-``` php hl_lines="44"
+``` php hl_lines="65"
 [[= include_file('code_samples/front/view_matcher/src/View/Matcher/Owner.php') =]]
 ```
 
@@ -30,8 +30,7 @@ matches any of the values passed in configuration (line 44).
 
 ## Matcher service
 
-You can configure your matcher as a service to have the opportunity to give him a matcher identifier easier to use than its fully qualified class name.
-A matcher identifier is associated to its service using the `ibexa.view.matcher` tag as follows:
+You configure your matcher as a service, tag it `ibexa.view.matcher`, and associate it with the identifier to use in view rules:
 
 ``` yaml
 [[= include_file('code_samples/front/view_matcher/config/services.yaml') =]]
@@ -39,15 +38,11 @@ A matcher identifier is associated to its service using the `ibexa.view.matcher`
 
 ## View configuration
 
-To apply the matcher in view configuration, indicate the matcher
+To apply the matcher in view configuration, indicate the matcher by its identifier.
 
-- by its fully qualified class name (FQCN) preceded by `\`,
-- or by its identifier.
+The following configuration uses a special template to render articles owned by the users with provided logins:
 
-The following configuration uses a special template to render articles owned by the users with provided logins
-(the FQCN as been commented to prefer its identifier):
-
-``` yaml
+``` yaml hl_lines="15"
 [[= include_file('code_samples/front/view_matcher/config/packages/views.yaml') =]]
 ```
 
