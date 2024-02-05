@@ -7,7 +7,7 @@ description: You can create custom view matchers to configure template and contr
 In addition to the [built-in view matchers](view_matcher_reference.md),
 you can also create custom matchers to use in [template configuration](template_configuration.md#view-rules-and-matching).
 
-To do it, create a matcher class that extends `Ibexa\Core\MVC\Symfony\Matcher\ContentBased\MultipleValued`.
+To do it, create a matcher class that implements `Ibexa\Core\MVC\Symfony\Matcher\ContentBased\MatcherInterface`.
 
 ## Matcher class
 
