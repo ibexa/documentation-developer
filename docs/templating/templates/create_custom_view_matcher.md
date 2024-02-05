@@ -16,6 +16,7 @@ The matcher class must implement the following methods:
 - `matchLocation` - checks if a Location object matches.
 - `matchContentInfo` - checks if a ContentInfo object matches.
 - `match` - checks if the View object matches.
+- `setMatchingConfig` - receives the matcher's config from the view rule.
 
 The following example shows how to implement an `Owner` matcher.
 This matcher identifies Content items that have the provided owner or owners.
