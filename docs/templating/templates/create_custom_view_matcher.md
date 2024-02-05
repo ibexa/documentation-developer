@@ -26,7 +26,7 @@ This matcher identifies Content items that have the provided owner or owners.
 ```
 
 The matcher checks whether the owner of the current content (by its ContentInfo or Location)
-matches any of the values passed in configuration (line 44).
+matches any of the values passed in configuration.
 
 ## Matcher service
 
