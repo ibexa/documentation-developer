@@ -27,11 +27,24 @@ This matcher identifies Content items that have the provided owner or owners.
 The matcher checks whether the owner of the current content (by its ContentInfo or Location)
 matches any of the values passed in configuration (line 44).
 
+## Matcher service
+
+You can configure your matcher as a service to have the opportunity to give him a matcher identifier easier to use than its fully qualified class name.
+A matcher identifier is associated to its service using the `ibexa.view.matcher` tag as follows:
+
+``` yaml
+[[= include_file('code_samples/front/view_matcher/config/services.yaml') =]]
+```
+
 ## View configuration
 
-To apply the matcher in view configuration, indicate the matcher by its fully qualified class name, preceded by `\`.
+To apply the matcher in view configuration, indicate the matcher
 
-The following configuration uses a special template to render articles owned by the users with provided logins:
+- by its fully qualified class name (FQCN) preceded by `\`,
+- or by its identifier.
+
+The following configuration uses a special template to render articles owned by the users with provided logins
+(the FQCN as been commented to prefer its identifier):
 
 ``` yaml
 [[= include_file('code_samples/front/view_matcher/config/packages/views.yaml') =]]
