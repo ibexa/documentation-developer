@@ -66,8 +66,8 @@ class DashboardCommand extends Command
                 $this->permissionResolver->setCurrentUserReference($admin);
                 foreach ($this->userService->loadUsersOfUserGroup($this->userService->loadUserGroup($userGroupLocationId)) as $user) {
                     $this->permissionResolver->setCurrentUserReference($user);
-                    $dashBoardDraft = $this->dashboardService->createCustomDashboardDraft($this->locationService->loadLocation($dashboardModelLocationId));
-                    $this->contentService->publishVersion($dashBoardDraft->getVersionInfo());
+                    $dashboardDraft = $this->dashboardService->createCustomDashboardDraft($this->locationService->loadLocation($dashboardModelLocationId));
+                    $this->contentService->publishVersion($dashboardDraft->getVersionInfo());
                 }
             } catch (\Throwable $throwable) {
                 dump($throwable);
