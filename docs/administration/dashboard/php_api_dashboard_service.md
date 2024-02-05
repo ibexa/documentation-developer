@@ -3,14 +3,14 @@ title: Dashboard service's PHP API
 description: You can use DashboardService to manage dashboards
 ---
 
-# Dashboard service's PHP API 
+# Dashboard service's PHP API
 
 You can use `DashboardService`'s PHP API to manage custom dashboards.
 To obtain this service, inject the `Ibexa\Contracts\Dashboard\DashboardServiceInterface`.
 The service exposes two functions:
 
 - `createCustomDashboardDraft(?Location $location = null): Content`
-  returns a new Content item in draft state of `dashboard` content type.
+  returns a new Content item in draft state of `dashboard` Content Type.
   If no location is given, it creates by copying the current user's active dashboard.
   If a location is given, it creates by copying the given location.
   This new Content draft is located in the current user custom dashboard container`.`
@@ -24,13 +24,13 @@ then it logs each user in,
 sets a custom dashboard by copying a model into a draft,
 and publishes this dashboard draft.
 First argument is the Content ID of the dashboard to copy.
-Following arguments are the User Groups' Content IDs.
+Following arguments are the user groups' Content IDs.
 
 ``` php hl_lines="70"
 [[= include_file('code_samples/back_office/dashboard/src/Command/DashboardCommand.php') =]]
 ```
 
-The following line runs this command with `74` as the model dashboard's Content ID, `13` the User Group's Content ID, and on the SiteAccess `admin` to have the right `user_content_type_identifier` config:
+The following line runs this command with `74` as the model dashboard's Content ID, `13` the user group's Content ID, and on the SiteAccess `admin` to have the right `user_content_type_identifier` config:
 
 ```bash
 php bin/console doc:dashboard 74 13 --siteaccess=admin
