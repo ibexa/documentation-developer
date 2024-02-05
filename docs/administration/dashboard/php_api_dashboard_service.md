@@ -26,7 +26,7 @@ and publishes this dashboard draft.
 First argument is the Content ID of the dashboard to copy.
 Following arguments are the user groups' Content IDs.
 
-``` php hl_lines="69"
+``` php hl_lines="61"
 [[= include_file('code_samples/back_office/dashboard/src/Command/DashboardCommand.php') =]]
 ```
 

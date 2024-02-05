@@ -30,20 +30,12 @@ class DashboardCommand extends Command
     public function __construct(
         DashboardServiceInterface $dashboardService,
         Repository $repository
-        //LocationService $locationService,
-        //ContentService $contentService,
-        //UserService $userService,
-        //PermissionResolver $permissionResolver
     ) {
         $this->dashboardService = $dashboardService;
         $this->locationService = $repository->getLocationService();
         $this->contentService = $repository->getContentService();
         $this->userService = $repository->getUserService();
         $this->permissionResolver = $repository->getPermissionResolver();
-        //$this->locationService = $locationService;
-        //$this->contentService = $contentService;
-        //$this->userService = $userService;
-        //$this->permissionResolver = $permissionResolver;
 
         parent::__construct(self::$defaultName);
     }
