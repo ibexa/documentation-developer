@@ -6,7 +6,7 @@ edition: headless
 # Configure Assets library widget
 
 Assets Library Widget is a standalone application that can be integratd 
-into your web app or CMS platform. It allows users to comfortably publish, manage and share digital media assets.
+into your web app or CMS platform. It allows browsing media assets.
 
 ## Requirements
 
@@ -15,7 +15,7 @@ Before you install a standalone Assets Library Widget, you must have:
 - React 18
 - The latest version of web browser Chrome, Firefox or Safari
 - Instance that can be reached out from external services
-- OAuth2 Server enabled
+- OAuth2 Server enabled or CSRF token
 
 ## Instalation
 
@@ -100,17 +100,9 @@ Available parameters:
 
 |React props|Description|
 |---------|----------|
-|`accessToken`|Token OAuth, used to authenticate. (Required REST API call).|
+|`accessToken`|Token OAuth, used for authentication. (Required REST API call).|
+|`token`|CSRF token used for authentication. [REST API call](../../api/rest_api/rest_api_reference/rest_api_reference.html#managing-users-create-session-login-a-user). |
 |`windowMode`|If false, Assets Library Widget renders as a fullscreen, if set to true, fills the container for its render.|
 |`language`|Interface language.|
 |`instanceUrl`|Base URL for REST API call.|
 |`onCancel`|A callback to be invoked when user clicks the Cancel button. For more information, see [UDW documentaion](https://doc.ibexa.co/en/latest/administration/back_office/browser/browser/#configuration-available-only-through-js).|
-
-
-## Launch widget
-
-To launch installed Asset Library Widget, in the terminal run command:
-
-```bash
-  npm start
-```
