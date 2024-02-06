@@ -140,6 +140,8 @@ For more information,
 see feature's [user documentation](https://doc.ibexa.co/projects/userguide/en/master/recent_activity/recent_activity/),
 and [developer documentation](https://doc.ibexa.co/en/master/docs/administration/recent_activity/recent_activity/).
 
+![Content type icons](img/4.6_activity_list.png)
+
 #### Back Office search
 
 ##### Search bar, suggestions, autocompletion, and spellcheck
