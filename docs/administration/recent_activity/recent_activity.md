@@ -31,6 +31,15 @@ To minimize the number of entries to delete, it is recommended to execute the co
 For every exact hour, the cronjob line is:
 `0 * * * * cd [path-to-ibexa]; php bin/console ibexa:activity-log:truncate --quiet --env=prod`
 
+## Permission and security
+
+The "Activity Log / Read" policy (`activity_log/read`) gives a role the right to see the activity list, the dashboard activity block and the profile activity log.
+It can be limited to "Only own log".
+
+!!! caution
+
+    Never give `activity_log/read` permission to Anonymous role, even with the limitation, as this role is shared among all unauthenticated users.
+
 ## PHP API
 
 The ActivityLogService PHP API can be used to browse activity logs and write new entries.
