@@ -174,6 +174,9 @@ In your specific scenario, you can implement the support for availability and pr
 ##### Filtering
 
 Filtering and pagination function the same as with the local PIM, relying on product attributes for effective organization of product data.
+However, criteria and sort clauses within local PIM correspond with [[= product_name =]]'s content model.
+Depending on your source of product information, you might need to adjust the implementation to be compatible with your data format.
+For reference, you could review the `CriterionVisitor.php` file that is part of [Remote PIM example package](install_remote_pim.md#install-remote-pim-example-package).
 
 ##### Catalogs
 
