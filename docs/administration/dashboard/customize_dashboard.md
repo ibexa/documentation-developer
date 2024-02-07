@@ -6,7 +6,7 @@ description: Customize dashboard.
 # Customize dashboard
 
 You can customize the dashboard depending on your needs using Dahboard Builder.
-Customized dashboard previews a set of widgets selected by the user.
+Customized dashboard displays a set of widgets selected by the user.
 
 !!! tip
 
@@ -14,7 +14,7 @@ Customized dashboard previews a set of widgets selected by the user.
 
 ## Manage permissions
 
-In order to be able to customize dashboard, you need to have `dashboard/cutomize` [policy](permission_overview.md).
+To customize dashboard, you need to have `dashboard/cutomize` [policy](permission_overview.md).
 
 By default, all the users belonging to the `Editors` User Group, have `Dashboard`[Role](roles_admin_panel.md) assigned, so they can edit, create, or delete dashboard.
 If, by any reason, you want to narrow this permission, you can set up specific [limitations](limitations.md).
