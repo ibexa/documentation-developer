@@ -51,7 +51,7 @@ In the **Technical details** tab it is defined as **Location remote ID**.
 ## Predefined container remote ID
 
 Defines a container that contains all predefined dashboards created by Administrator.
-You can see it in the Admin panel, **Dashboards** section, **User dashboards** folder inside of main **Dashboards** container in the Content Tree. 
+You can see it in the Admin panel, **Dashboards** section, **Predefined dashboards** folder inside of main **Dashboards** container in the Content Tree. 
 In the **Technical details** tab it is defined as **Location remote ID**.
 
 ## Section identifier
@@ -65,7 +65,8 @@ You can find it in the Admin panel, **Dashboard Content Type** section, **View/G
 
 ## Container Content Type identifier
 
-Specifies the Content Type of the container for configured dashboard, by default all the dashboards containers are set as a folders.
+Determines the Content Type identifier of the container for dashboards and let you create additional structure for the predefined dashboards.
+By default all the dashboards containers are set as a folders.
 
 ![Container Content Type](dashboard_container_type.png)
 
