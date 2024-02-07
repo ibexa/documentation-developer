@@ -219,6 +219,8 @@ ibexa:
 
 ## Revisit permissions
 
+### Recent activity
+
 "Activity Log / Read" policy (`activity_log/read`) should be added to every role having access to the Back Office, at least with the "Only own log" limitation.
 This policy is mandatory to display the "Recent activity" block in [dashboards](#dashboard), and the "Recent activity" block in [user profiles](#user-profile). 
 
