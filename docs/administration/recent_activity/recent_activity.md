@@ -33,12 +33,19 @@ For every exact hour, the cronjob line is:
 
 ## Permission and security
 
-The "Activity Log / Read" policy (`activity_log/read`) gives a role the right to see the activity list, the dashboard activity block and the profile activity log.
+The "Activity Log / Read" policy (`activity_log/read`) gives a role the access to
+the "Admin > Activity list", the dashboard's "Recent activity" block, and the user profile's "Recent activity".
 It can be limited to "Only own log".
+
+The "Activity Log / Read" policy should be given to every roles having access to the Back Office,
+at least with the "Only own log" owner limitation,
+to allow them to use the "Recent activity" block in the default dashboard or their custom dashboard.
+This policy is also required by user having a profile to properly view their own.
 
 !!! caution
 
-    Never give `activity_log/read` permission to Anonymous role, even with the limitation, as this role is shared among all unauthenticated users.
+    Never give `activity_log/read` permission to Anonymous role, even with the owner limitation,
+    as this role is shared among all unauthenticated users.
 
 ## PHP API
 
