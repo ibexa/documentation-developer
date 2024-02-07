@@ -216,3 +216,26 @@ ibexa:
             activity_log:
                 truncate_after_days: 10
 ```
+
+## Revisit permissions
+
+"Activity Log / Read" policy (`activity_log/read`) should be added to every role having access to the Back Office, at least with the "Only own log" limitation.
+This policy is mandatory to display the "Recent activity" block in [dashboards](#dashboard), and the "Recent activity" block in [user profiles](#user-profile). 
+
+The following migration example allows `Editor` role to access own activity log:
+
+```yaml
+-   type: role
+    mode: update
+    match:
+        field: identifier
+        value: 'Editor'
+    policies:
+        mode: append
+        list:
+            - module: activity_log
+              function: read
+              limitations:
+                  - identifier: activity_log_owner
+                    values: []
+```
