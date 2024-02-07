@@ -54,14 +54,6 @@ Foreach each module, all functions can be given without limitation.
 |         | `delete` | delete Content Types                                                     |
 |         | `update` | modify existing Content Types. Also required to create new Content Types |
 
-#### Object States
-
-| Module  | Function       | Effect                                | Possible Limitations                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-|---------|----------------|---------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `state` | `*`            | all object state functions            |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|         | `assign`       | assign Object states to Content items | [Content Type](limitation_reference.md#content-type-limitation)</br>[Section](limitation_reference.md#section-limitation)</br>[Owner](limitation_reference.md#owner-limitation)</br>[Content Type Group](limitation_reference.md#content-type-group-limitation)</br>[Location](limitation_reference.md#location-limitation)</br>[Subtree](limitation_reference.md#subtree-limitation)</br>[Object State](limitation_reference.md#object-state-limitation)</br>[New State](limitation_reference.md#new-state-limitation) |
-|         | `administrate` | view, add and edit Object states      |
-
 #### Sections
 
 | Module    | Function | Effect                                                                           | Possible Limitations                                                                                                                                                                                                                              |
@@ -70,6 +62,14 @@ Foreach each module, all functions can be given without limitation.
 |           | `assign` | assign Sections to content                                                       | [Content Type](limitation_reference.md#content-type-limitation)</br>[Section](limitation_reference.md#section-limitation)</br>[Owner](limitation_reference.md#owner-limitation)</br>[New Section](limitation_reference.md#new-section-limitation) |
 |           | `edit`   | edit existing Sections and create new ones                                       |
 |           | `view`   | view the Sections list in Admin. Required for all other section-related Policies |
+
+#### Object States
+
+| Module  | Function       | Effect                                | Possible Limitations                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+|---------|----------------|---------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `state` | `*`            | all object state functions            |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+|         | `assign`       | assign Object states to Content items | [Content Type](limitation_reference.md#content-type-limitation)</br>[Section](limitation_reference.md#section-limitation)</br>[Owner](limitation_reference.md#owner-limitation)</br>[Content Type Group](limitation_reference.md#content-type-group-limitation)</br>[Location](limitation_reference.md#location-limitation)</br>[Subtree](limitation_reference.md#subtree-limitation)</br>[Object State](limitation_reference.md#object-state-limitation)</br>[New State](limitation_reference.md#new-state-limitation) |
+|         | `administrate` | view, add and edit Object states      |
 
 #### Taxonomy
 
@@ -80,7 +80,7 @@ Foreach each module, all functions can be given without limitation.
 |            | `manage` | create, edit, and delete tags |
 |            | `read`   | view the Taxonomy interface   |
 
-#### Collaborative (workflow and comparison)
+#### Workflow and version comparison
 
 | Module       | Function       | Effect                                 | Possible Limitations                                                          |
 |--------------|----------------|----------------------------------------|-------------------------------------------------------------------------------|
@@ -88,19 +88,6 @@ Foreach each module, all functions can be given without limitation.
 | `workflow`   | `change_stage` | change stage in the specified workflow | [Workflow Transition](limitation_reference.md#workflow-transition-limitation) |
 
 ### Administration and user management
-
-#### Users
-
-| Module | Function      | Effect                                           | Possible Limitations |
-|--------|---------------|--------------------------------------------------|----------------------|
-| `user` | `*`           | all user functions                               |
-|        | `activation`  | unused                                           |
-|        | `invite`      | create and send invitations to create an account |
-|        | `login`       | log in to the application                        |
-|        | `password`    | unused                                           |
-|        | `preferences` | access and set user preferences                  |
-|        | `register`    | register using the `/register` route             |
-|        | `selfedit`    | unused                                           |
 
 #### Customer groups
 
@@ -112,6 +99,14 @@ Foreach each module, all functions can be given without limitation.
 |                  | `edit`   | edit a customer group         |
 |                  | `view`   | view customer groups          |
 
+#### Personalization
+
+| Module            | Function | Effect                                                            | Possible Limitations                                                                |
+|-------------------|----------|-------------------------------------------------------------------|-------------------------------------------------------------------------------------|
+| `personalization` | `*`      | all personalization functions                                     |                                                                                     |
+|                   | `edit`   | modify scenario configuration for selected SiteAccesses           | [Personalization access](limitation_reference.md#personalization-access-limitation) |
+|                   | `view`   | view scenario configuration and results for selected SiteAccesses | [Personalization access](limitation_reference.md#personalization-access-limitation) |
+
 #### Roles
 
 | Module | Function | Effect                                                                     | Possible Limitations |
@@ -122,6 +117,16 @@ Foreach each module, all functions can be given without limitation.
 |        | `delete` | delete Roles                                                               |
 |        | `read`   | view the Roles list in Admin. Required for all other role-related Policies |
 |        | `update` | modify existing Roles                                                      |
+
+#### Setup
+
+| Module  | Function       | Effect                                   | Possible Limitations |
+|---------|----------------|------------------------------------------|----------------------|
+| `setup` | `*`            | all setup functions                      |
+|         | `administrate` | access Admin                             |
+|         | `install`      | unused                                   |
+|         | `setup`        | unused                                   |
+|         | `system_info`  | view the System Information tab in Admin |
 
 #### Sites [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
@@ -135,23 +140,18 @@ Foreach each module, all functions can be given without limitation.
 |        | `update`        | update sites in the Site Factory                                                         |
 |        | `view`          | view the "Sites" in the top navigation                                                   |
 
-#### Personalization
+#### Users
 
-| Module            | Function | Effect                                                            | Possible Limitations                                                                |
-|-------------------|----------|-------------------------------------------------------------------|-------------------------------------------------------------------------------------|
-| `personalization` | `*`      | all personalization functions                                     |                                                                                     |
-|                   | `edit`   | modify scenario configuration for selected SiteAccesses           | [Personalization access](limitation_reference.md#personalization-access-limitation) |
-|                   | `view`   | view scenario configuration and results for selected SiteAccesses | [Personalization access](limitation_reference.md#personalization-access-limitation) |
-
-#### Setup
-
-| Module  | Function       | Effect                                   | Possible Limitations |
-|---------|----------------|------------------------------------------|----------------------|
-| `setup` | `*`            | all setup functions                      |
-|         | `administrate` | access Admin                             |
-|         | `install`      | unused                                   |
-|         | `setup`        | unused                                   |
-|         | `system_info`  | view the System Information tab in Admin |
+| Module | Function      | Effect                                           | Possible Limitations |
+|--------|---------------|--------------------------------------------------|----------------------|
+| `user` | `*`           | all user functions                               |
+|        | `activation`  | unused                                           |
+|        | `invite`      | create and send invitations to create an account |
+|        | `login`       | log in to the application                        |
+|        | `password`    | unused                                           |
+|        | `preferences` | access and set user preferences                  |
+|        | `register`    | register using the `/register` route             |
+|        | `selfedit`    | unused                                           |
 
 ### PIM
 
@@ -187,6 +187,64 @@ Foreach each module, all functions can be given without limitation.
 
 ### Commerce
 
+#### Cart [[% include 'snippets/commerce_badge.md' %]]
+
+| Module | Function | Effect                                                              | Possible Limitations                                      |
+|--------|----------|---------------------------------------------------------------------|-----------------------------------------------------------|
+| `cart` | `*`      | all cart functions                                                  |  |
+|        | `create` | create a cart                                                       | [CartOwner](limitation_reference.md#cartowner-limitation) |
+|        | `delete` | delete cart, for example, after successful checkout                 | [CartOwner](limitation_reference.md#cartowner-limitation) |
+|        | `edit`   | change cart metadata (name, currency, owner), add/remove cart items | [CartOwner](limitation_reference.md#cartowner-limitation) |
+|        | `view`   | view a cart                                                         | [CartOwner](limitation_reference.md#cartowner-limitation) |
+
+#### Checkout [[% include 'snippets/commerce_badge.md' %]]
+
+| Module     | Function | Effect                                                              | Possible Limitations |
+|------------|----------|---------------------------------------------------------------------|----------------------|
+| `checkout` | `*`      | all checkout functions                                              |
+|            | `create` | create new checkout, for example, after workflow fails to complete  |
+|            | `delete` | delete checkout, for example, after workflow completes successfully |
+|            | `update` | change currency, quantity                                           |
+|            | `view`   | access checkout                                                     |
+
+#### Currencies and regions
+
+| Module     | Function   | Effect                 | Possible Limitations |
+|------------|------------|------------------------|----------------------|
+| `commerce` | `*`        | All commerce functions |
+|            | `currency` | manage currencies      |
+|            | `region`   | manage regions         |
+
+#### Orders [[% include 'snippets/commerce_badge.md' %]]
+
+| Module  | Function | Effect                    | Possible Limitations                                         |
+|---------|----------|---------------------------|--------------------------------------------------------------|
+| `order` | `*`      | all order functions       |                                                              |
+|         | `cancel` | cancel an order           | [OrderOwner](limitation_reference.md#order-owner-limitation) |
+|         | `create` | create an order           | [OrderOwner](limitation_reference.md#order-owner-limitation) |
+|         | `update` | change status of an order | [OrderOwner](limitation_reference.md#order-owner-limitation) |
+|         | `view`   | view orders               | [OrderOwner](limitation_reference.md#order-owner-limitation) |
+
+#### Payments [[% include 'snippets/commerce_badge.md' %]]
+
+| Module    | Function | Effect                | Possible Limitations                                            |
+|-----------|----------|-----------------------|-----------------------------------------------------------------|
+| `payment` | `*`      | all payment functions |                                                                 |
+|           | `create` | create a payment      | [PaymentOwner](limitation_reference.md#paymentowner-limitation) |
+|           | `delete` | delete a payment      | [PaymentOwner](limitation_reference.md#paymentowner-limitation) |
+|           | `edit`   | modify a payment      | [PaymentOwner](limitation_reference.md#paymentowner-limitation) |
+|           | `view`   | view payments         | [PaymentOwner](limitation_reference.md#paymentowner-limitation) |
+
+#### Payment methods [[% include 'snippets/commerce_badge.md' %]]
+
+| Module           | Function | Effect                       | Possible Limitations |
+|------------------|----------|------------------------------|----------------------|
+| `payment_method` | `*`      | all payment method functions |
+|                  | `create` | create a payment method      |
+|                  | `delete` | delete a payment method      |
+|                  | `edit`   | modify a payment method      |
+|                  | `view`   | view payment methods         |
+
 #### Segments [[% include 'snippets/commerce_badge.md' %]]
 
 | Module    | Function         | Effect                   | Possible Limitations                                              |
@@ -208,45 +266,6 @@ Foreach each module, all functions can be given without limitation.
 |                 | `remove` | remove Segment Groups          |
 |                 | `update` | update Segment Groups          |
 
-#### Cart [[% include 'snippets/commerce_badge.md' %]]
-
-| Module | Function | Effect                                                              | Possible Limitations                                      |
-|--------|----------|---------------------------------------------------------------------|-----------------------------------------------------------|
-| `cart` | `*`      | all cart functions                                                  |  |
-|        | `create` | create a cart                                                       | [CartOwner](limitation_reference.md#cartowner-limitation) |
-|        | `delete` | delete cart, for example, after successful checkout                 | [CartOwner](limitation_reference.md#cartowner-limitation) |
-|        | `edit`   | change cart metadata (name, currency, owner), add/remove cart items | [CartOwner](limitation_reference.md#cartowner-limitation) |
-|        | `view`   | view a cart                                                         | [CartOwner](limitation_reference.md#cartowner-limitation) |
-
-#### Checkout [[% include 'snippets/commerce_badge.md' %]]
-
-| Module     | Function | Effect                                                              | Possible Limitations |
-|------------|----------|---------------------------------------------------------------------|----------------------|
-| `checkout` | `*`      | all checkout functions                                              |
-|            | `create` | create new checkout, for example, after workflow fails to complete  |
-|            | `delete` | delete checkout, for example, after workflow completes successfully |
-|            | `update` | change currency, quantity                                           |
-|            | `view`   | access checkout                                                     |
-
-#### Orders [[% include 'snippets/commerce_badge.md' %]]
-
-| Module  | Function | Effect                    | Possible Limitations                                         |
-|---------|----------|---------------------------|--------------------------------------------------------------|
-| `order` | `*`      | all order functions       |                                                              |
-|         | `cancel` | cancel an order           | [OrderOwner](limitation_reference.md#order-owner-limitation) |
-|         | `create` | create an order           | [OrderOwner](limitation_reference.md#order-owner-limitation) |
-|         | `update` | change status of an order | [OrderOwner](limitation_reference.md#order-owner-limitation) |
-|         | `view`   | view orders               | [OrderOwner](limitation_reference.md#order-owner-limitation) |
-
-#### Shipping methods [[% include 'snippets/commerce_badge.md' %]]
-
-| Module            | Function | Effect                        | Possible Limitations |
-|-------------------|----------|-------------------------------|----------------------|
-| `shipping_method` | `*`      | all shipping method functions |
-|                   | `create` | create a shipping method      |
-|                   | `delete` | delete a shipping method      |
-|                   | `update` | modify a shipping method      |
-|                   | `view`   | view shipping methods         |
 
 #### Shipments [[% include 'snippets/commerce_badge.md' %]]
 
@@ -258,33 +277,15 @@ Foreach each module, all functions can be given without limitation.
 |            | `update` | change status of a shipment | [ShipmentOwner](limitation_reference.md#shipment-owner-limitation) |
 |            | `view`   | view shipments              | [ShipmentOwner](limitation_reference.md#shipment-owner-limitation) |
 
-#### Payment methods [[% include 'snippets/commerce_badge.md' %]]
+#### Shipping methods [[% include 'snippets/commerce_badge.md' %]]
 
-| Module           | Function | Effect                       | Possible Limitations |
-|------------------|----------|------------------------------|----------------------|
-| `payment_method` | `*`      | all payment method functions |
-|                  | `create` | create a payment method      |
-|                  | `delete` | delete a payment method      |
-|                  | `edit`   | modify a payment method      |
-|                  | `view`   | view payment methods         |
-
-#### Payments [[% include 'snippets/commerce_badge.md' %]]
-
-| Module    | Function | Effect                | Possible Limitations                                            |
-|-----------|----------|-----------------------|-----------------------------------------------------------------|
-| `payment` | `*`      | all payment functions |                                                                 |
-|           | `create` | create a payment      | [PaymentOwner](limitation_reference.md#paymentowner-limitation) |
-|           | `delete` | delete a payment      | [PaymentOwner](limitation_reference.md#paymentowner-limitation) |
-|           | `edit`   | modify a payment      | [PaymentOwner](limitation_reference.md#paymentowner-limitation) |
-|           | `view`   | view payments         | [PaymentOwner](limitation_reference.md#paymentowner-limitation) |
-
-#### Currencies and regions
-
-| Module     | Function   | Effect                 | Possible Limitations |
-|------------|------------|------------------------|----------------------|
-| `commerce` | `*`        | All commerce functions |
-|            | `currency` | manage currencies      |
-|            | `region`   | manage regions         |
+| Module            | Function | Effect                        | Possible Limitations |
+|-------------------|----------|-------------------------------|----------------------|
+| `shipping_method` | `*`      | all shipping method functions |
+|                   | `create` | create a shipping method      |
+|                   | `delete` | delete a shipping method      |
+|                   | `update` | modify a shipping method      |
+|                   | `view`   | view shipping methods         |
 
 ## Combining Policies
 
