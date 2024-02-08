@@ -4,9 +4,9 @@ description: Log and monitor activity through UI, PHP API and REST API.
 
 # Recent activity
 
-Recent activity log summaries last actions on the repository (whatever their origin, such as Back Office, REST, CLI or CRON).
+Recent activity log summaries last actions on the repository (whatever their origin, such as Back Office, REST, migration, CLI, or CRON).
 
-To learn more about its interface usage and the actions logged by default, see [Recent activity in the User documentation]([[= user_doc =]]/recent_activity/recent_activity/).
+To learn more about its Back Office usage and the actions logged by default, see [Recent activity in the User documentation]([[= user_doc =]]/recent_activity/recent_activity/).
 
 ## Configuration and cronjob
 
@@ -33,7 +33,7 @@ For every exact hour, the cronjob line is:
 
 ## Permission and security
 
-The "Activity Log / Read" policy (`activity_log/read`) gives a role the access to
+The "Activity Log / Read" policy ([`activity_log/read`](policies.md#activity-log)) gives a role the access to
 the "Admin > Activity list", the dashboard's "Recent activity" block, and the user profile's "Recent activity".
 It can be limited to "Only own log".
 
