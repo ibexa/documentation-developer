@@ -7,7 +7,7 @@ edition: commerce
 
 The following variables are provided with an installation of [[= product_name_base =]].
 You can use them when you create a template within an Actito transactional email campaign.
-If this extensive list of variables is not sufficient, you can [extend it to include additional variables](extend_notifications.md#define-additional-variables).
+If this extensive list of variables is not sufficient, you can [extend it to include additional variables](extend_email_notifications.md#define-additional-variables).
 
 |Category|Variable|Description|Example values|Notes|
 |:----|:----|:----|:----|:----|

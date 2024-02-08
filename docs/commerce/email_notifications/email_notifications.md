@@ -20,7 +20,7 @@ By default, notifications are sent in relation to the following events, to an em
 - Shipment:
     - order is shipped
 
-You can [change the events](extend_notifications.md#configure-workflows) that trigger sending a transactional email.
+You can [change the events](extend_email_notifications.md#configure-workflows) that trigger sending a transactional email.
 
 ## Configure transactional emails
 
@@ -54,13 +54,13 @@ ibexa:
     By default, a trigger message coming from [[= product_name =]] contains the following attributes with information about the end-user: name, surname, and email.
 
     Those attributes can then be used to present statistics in the Actito dashboard.
-    If this set of attributes is insufficient for your needs, you can [add more attributes to the trigger message](extend_notifications.md#customize-actito-end-user-profile-schema).
+    If this set of attributes is insufficient for your needs, you can [add more attributes to the trigger message](extend_email_notifications.md#customize-actito-end-user-profile-schema).
 
 ### Create email campaigns
 
 Create campaigns of transactional email type, one for each notification type that you want to deliver.
 When you build a campaign template, make sure that you use the variables supported by [[= product_name =]].
-For a complete list of parameters, see [Transactional email variables reference](notification_parameters.md)
+For a complete list of parameters, see [Transactional email variables reference](email_notification_parameters.md)
 
 !!! Tip
 
@@ -68,7 +68,7 @@ For a complete list of parameters, see [Transactional email variables reference]
 
 
 Campaign emails can be sent in one language only.
-To send emails in different languages, for example, because your application serves end-users from different locales, for each notification and language pair, you must create a separate campaign and [extend the solution to support that](extend_notifications.md#send-emails-in-language-of-commerce-presence).
+To send emails in different languages, for example, because your application serves end-users from different locales, for each notification and language pair, you must create a separate campaign and [extend the solution to support that](extend_email_notifications.md#send-emails-in-language-of-commerce-presence).
 
 
 ### Configure mapping
