@@ -6,6 +6,8 @@ use Ibexa\Contracts\ActivityLog\ActivityLogServiceInterface;
 use Ibexa\Contracts\ActivityLog\Values\ActivityLog\Criterion;
 use Ibexa\Contracts\ActivityLog\Values\ActivityLog\Query;
 use Ibexa\Contracts\ActivityLog\Values\ActivityLog\SortClause\LoggedAtSortClause;
+use Ibexa\Contracts\Core\Repository\PermissionResolver;
+use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\Core\Repository\Values\Content\Content;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -19,9 +21,15 @@ class MonitorRecentContentCreationCommand extends Command
 
     private ActivityLogServiceInterface $activityLogService;
 
-    public function __construct(ActivityLogServiceInterface $activityLogService)
+    private PermissionResolver $permissionResolver;
+
+    private UserService $userService;
+
+    public function __construct(ActivityLogServiceInterface $activityLogService, PermissionResolver $permissionResolver, UserService $userService)
     {
         parent::__construct(self::$defaultName);
+        $this->permissionResolver = $permissionResolver;
+        $this->userService = $userService;
         $this->activityLogService = $activityLogService;
     }
 
@@ -43,7 +51,9 @@ class MonitorRecentContentCreationCommand extends Command
 
         $io = new SymfonyStyle($input, $output);
 
-        foreach ($this->activityLogService->find($query) as $activityLogGroup) {
+        $this->permissionResolver->setCurrentUserReference($this->userService->loadUserByLogin('admin'));
+
+        foreach ($this->activityLogService->findGroups($query) as $activityLogGroup) {
             if ($activityLogGroup->getSource()) {
                 $io->section($activityLogGroup->getSource()->getName());
             }
