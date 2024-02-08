@@ -92,9 +92,9 @@ All roles and policies associated with them can be fully customized to fit your 
 
 Members can be invited to the organization from:
 
-- the Back Office, go to **Customers** -> **Companies** -> **Select your company** -> **Invitations** -> **Invite member**
+- the Back Office: go to **Customers** -> **Companies** -> **Select your company** -> **Invitations** -> **Invite member**
 
-- the Customer Portal, go to your company admin profile, select **Members** -> **Invite members**
+- the Customer Portal: go to your company admin profile, select **Members** -> **Invite members**
 
 Then, in a pop-up fill out email addresses one by one, or use drag and drop to upload a file with a list of emails. 
 You also have to assign a role to each new member from a drop-down list. 

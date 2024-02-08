@@ -59,9 +59,9 @@ You can change the [password attributes](#password-attributes) or [password expi
 
 To access the password settings:
 
-1. In the Back Office, in the **Admin** Panel, open the **Content Types** tab.
-1. In the **Content Type groups** table, click on **Users**.
-1. Edit the User Content Type.
+1. In the Back Office, go to **Content** -> **Content Types**.
+1. In the **Content Type groups** table, click **Users**.
+1. Edit the **User** Content Type.
 1. In the **Field definitions** list, view the settings for **User account (ezuser)**.
 
 !!! tip

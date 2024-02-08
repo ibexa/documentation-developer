@@ -11,7 +11,7 @@ They are contained in groups.
 
 If a state group contains any states, each Content item is automatically assigned a state from this group.
 
-You can assign states to content in the Back Office in the Content item's Details tab.
+You can assign states to content in the Back Office in the Content item's **Technical details** tab.
 
 ![Assigning an Object state to a Content item](assigning_an_object_state.png "Assigning an Object state to a Content item")
 
