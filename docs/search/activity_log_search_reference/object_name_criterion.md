@@ -7,10 +7,10 @@ matches log groups having a log entry with an object having a given string as na
 
 - `query` - The string searched for.
 - `operator` - How to compare the string to the log entry object names.
-  - `ObjectNameCriterion::OPERATOR_CONTAINS`
-  - `ObjectNameCriterion::OPERATOR_STARTS_WITH`
-  - `ObjectNameCriterion::OPERATOR_ENDS_WITH`
-  - `ObjectNameCriterion::OPERATOR_EQUALS`
+    - `ObjectNameCriterion::OPERATOR_CONTAINS`
+    - `ObjectNameCriterion::OPERATOR_STARTS_WITH`
+    - `ObjectNameCriterion::OPERATOR_ENDS_WITH`
+    - `ObjectNameCriterion::OPERATOR_EQUALS`
 
 ## Example
 
