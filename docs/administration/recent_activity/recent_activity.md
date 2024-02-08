@@ -40,7 +40,7 @@ It can be limited to "Only own log".
 The "Activity Log / Read" policy should be given to every roles having access to the Back Office,
 at least with the "Only own log" owner limitation,
 to allow them to use the "Recent activity" block in the default dashboard or their custom dashboard.
-This policy is also required by user having a profile to properly view their own.
+This policy is also required by user having a profile to view this profile with its activity log.
 
 !!! caution
 
@@ -63,7 +63,7 @@ This `Query`'s constructor has four arguments:
 
 See [Activity Log Search Criteria reference](activity_log_criteria.md) and [Activity Log Search Sort Clauses reference](activity_log_sort_clauses.md) to discover query possibilities.
 
-In the following example, log groups containing at least one creation of a Content item will be displayed in terminal, with a maximum of 10 groups within the last hour.
+In the following example, log groups containing at least one creation of a Content item is displayed in terminal, with a maximum of 10 groups within the last hour.
 This uses the default `admin` user to have the [permission](#permission-and-security) to list everyone entries.
 
 ```php hl_lines="36-40"
@@ -76,37 +76,37 @@ This uses the default `admin` user to have the [permission](#permission-and-secu
 web
 ---
 
- --------------------------- --------- ------------- -------- ---------- 
-  Logged at                   Obj. ID   Object Name   Action   User      
- --------------------------- --------- ------------- -------- ---------- 
-  2024-01-29T15:01:57+00:00   323       Folder        create   jane_doe  
- --------------------------- --------- ------------- -------- ---------- 
+ --------------------------- --------- ------------- -------- ----------
+  Logged at                   Obj. ID   Object Name   Action   User
+ --------------------------- --------- ------------- -------- ----------
+  2024-01-29T15:01:57+00:00   323       Folder        create   jane_doe
+ --------------------------- --------- ------------- -------- ----------
 
 migration
 ---------
 
  Migrating file: create_foo_company
- --------------------------- --------- ------------------- -------------- ------- 
-  Logged at                   Obj. ID   Object Name         Action         User   
- --------------------------- --------- ------------------- -------------- ------- 
-  2024-01-29T14:58:53+00:00   317       Foo Company Ltd.    create         admin  
-  2024-01-29T14:58:53+00:00   317       Foo Company Ltd.    publish        admin  
-  2024-01-29T14:58:53+00:00   318       Members             create         admin  
-  2024-01-29T14:58:53+00:00   318       Members             publish        admin  
-  2024-01-29T14:58:53+00:00   317       Foo Company Ltd.    create_draft   admin  
-  2024-01-29T14:58:53+00:00   317       Foo Company Ltd.    update         admin  
-  2024-01-29T14:58:53+00:00   317       Foo Company Ltd.    publish        admin  
-  2024-01-29T14:58:53+00:00   319       Address Book        create         admin  
-  2024-01-29T14:58:53+00:00   319       Address Book        publish        admin  
-  2024-01-29T14:58:53+00:00   317       Foo Company Ltd.    create_draft   admin  
-  2024-01-29T14:58:53+00:00   317       Foo Company Ltd.    update         admin  
-  2024-01-29T14:58:53+00:00   317       Foo Company Ltd.    publish        admin  
-  2024-01-29T14:58:53+00:00   320       HQ                  create         admin  
-  2024-01-29T14:58:53+00:00   320       HQ                  publish        admin  
-  2024-01-29T14:58:53+00:00   317       Foo Company Ltd.    create_draft   admin  
-  2024-01-29T14:58:53+00:00   317       Foo Company Ltd.    update         admin  
-  2024-01-29T14:58:53+00:00   317       Foo Company Ltd.    publish        admin 
- --------------------------- --------- ------------------- -------------- ------- 
+ --------------------------- --------- ------------------- -------------- -------
+  Logged at                   Obj. ID   Object Name         Action         User
+ --------------------------- --------- ------------------- -------------- -------
+  2024-01-29T14:58:53+00:00   317       Foo Company Ltd.    create         admin
+  2024-01-29T14:58:53+00:00   317       Foo Company Ltd.    publish        admin
+  2024-01-29T14:58:53+00:00   318       Members             create         admin
+  2024-01-29T14:58:53+00:00   318       Members             publish        admin
+  2024-01-29T14:58:53+00:00   317       Foo Company Ltd.    create_draft   admin
+  2024-01-29T14:58:53+00:00   317       Foo Company Ltd.    update         admin
+  2024-01-29T14:58:53+00:00   317       Foo Company Ltd.    publish        admin
+  2024-01-29T14:58:53+00:00   319       Address Book        create         admin
+  2024-01-29T14:58:53+00:00   319       Address Book        publish        admin
+  2024-01-29T14:58:53+00:00   317       Foo Company Ltd.    create_draft   admin
+  2024-01-29T14:58:53+00:00   317       Foo Company Ltd.    update         admin
+  2024-01-29T14:58:53+00:00   317       Foo Company Ltd.    publish        admin
+  2024-01-29T14:58:53+00:00   320       HQ                  create         admin
+  2024-01-29T14:58:53+00:00   320       HQ                  publish        admin
+  2024-01-29T14:58:53+00:00   317       Foo Company Ltd.    create_draft   admin
+  2024-01-29T14:58:53+00:00   317       Foo Company Ltd.    update         admin
+  2024-01-29T14:58:53+00:00   317       Foo Company Ltd.    publish        admin
+ --------------------------- --------- ------------------- -------------- -------
 ```
 
 ### Adding custom Activity Log entries
