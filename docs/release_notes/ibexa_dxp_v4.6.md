@@ -9,7 +9,7 @@ description: Ibexa DXP v4.6 brings improvements to Commerce, PIM and Personaliza
 
 **Version number**: v4.6
 
-**Release date**: July 20, 2023
+**Release date**: February 12, 2024
 
 **Release type**: [LTS](https://support.ibexa.co/Public/service-life)
 
@@ -80,6 +80,7 @@ As part of this effort, some other changes were introduced that apply to both re
 - **Authors** and **Sub-items** are now separate tabs in Content item details view
 - Former **Details** tab is now called **Technical details** and changed its position
 - Preview is available in many new places, such as the **View** tab in Content item details view, or as miniatures when you hover over the Content Tree
+- `ibexa_is_focus_mode_on` and `ibexa_is_focus_mode_off` Twig helpers have been introduced, which check whether focus mode is enabled or not.
 
 ![Sub-items tab](img/4.6_sub_items_tab.png "Sub-items tab")
 
@@ -131,16 +132,14 @@ For more information, see [user profile and settings documentation]().
 #### Recent activity log
 
 Several actions on the repository or the application are logged.
-In the Back Office, last activity logs can be listed
-on a dedicated interface (Admin -> Activity list),
-on the dashboard within Recent activity block,
-or on the user profile.
+In the Back Office, last activity logs can be listed on a dedicated interface (Admin -> Activity list),
+on the dashboard within Recent activity block, or on the user profile.
+
+![Recent activity log](img/4.6_activity_list.png "Recent activity log")
 
 For more information,
 see feature's [user documentation](https://doc.ibexa.co/projects/userguide/en/master/recent_activity/recent_activity/),
 and [developer documentation](https://doc.ibexa.co/en/master/docs/administration/recent_activity/recent_activity/).
-
-![Content type icons](img/4.6_activity_list.png)
 
 #### Back Office search
 
@@ -185,9 +184,8 @@ For more information, see [link to docs]().
 
 #### Remote PIM support
 
-Historically, [[= product_name =]] was configured to fetch objects and products from a local database, where they were created through the Back Office or with the REST API.
 This release introduces a foundation for connecting [[= product_name =]] to other sources of product data.
-Based on this foundation, you can implement a custom solution, and connect to external PIM or ERP systems, import product data and present it side-by-side with your organization's existing content, while managing product data in a remote system of your choice.
+You can use it to implement a custom solution and connect to external PIM or ERP systems, import product data, and present it side-by-side with your organization's existing content, while managing product data in a remote system of your choice.
 
 Here are the most important benefits of Remote PIM support:
 
@@ -201,7 +199,7 @@ Among other things, the Remote PIM support feature allows [[= product_name =]] c
 - manage certain aspects of product data,
 - define and use product types,
 - use product attributes for filtering,
-- build product catalogs based on certain criteria, such as type, availability or product attributes
+- build product catalogs based on certain criteria, such as type, availability or product attributes,
 - use Customer Groups to apply different prices to products,
 - define and use currencies.
 
@@ -365,7 +363,7 @@ For more information, see [Commerce-specific filters](https://doc.ibexa.co/proje
 
 ### Expression Language
 
-New `project_dir()` expression language function that allows you to reference current project directory.
+New `ibexa.migrations.template.project_dir()` expression language function that allows you to reference current project directory.
 
 ### Site Factory events
 
@@ -381,32 +379,18 @@ By using the Actito gateway you can send emails to the end-users about changes i
 
 ### Integration with Qualifio Engage
 
-Use Qualifio Engagne integration to create engaging marketing experiences to your customers.
+Use Qualifio Engage integration to create engaging marketing experiences to your customers.
 
 ### Integration with SeenThis!
 
-Integration with SeenThis! service provides an adaptive streaming technology with no limitations as conventional streaming service.
-It allows to preserve the best video quality with minimum amount of data transfer.
+Unlike conventional streaming services, integration with SeenThis! service provides an adaptive streaming technology with no limitations.
+It allows you to preserve the best video quality with a minimum amount of data transfer.
 
 For more information, see [SeenThis! block](https://doc.ibexa.co/projects/userguide/en/latest/content_management/block_reference/#sales-representative).
 
 ### API improvements
 
 #### REST API
-
-##### New method signature
-
-The method signature for `\Ibexa\Contracts\Rest\Output\Generator::startValueElement` has been updated to the following:
-
-```php
-    /**
-     * @phpstan-param scalar $value
-     * @phpstan-param array<string, scalar> $attributes
-     */
-    abstract public function startValueElement(string $name, $value, array $attributes = []): void;
-```
-
-Any third party code that extends `\Ibexa\Contracts\Rest\Output\Generator` needs to update the method signature accordingly.
 
 ##### REST API for shipping [[% include 'snippets/commerce_badge.md' %]]
 
@@ -426,6 +410,20 @@ Endpoints that allow you to manage orders by using REST API:
 Endpoints that allow you to manage companies in your platform with REST API:
 
 - GET `/sales-representatives` - returns paginated list of available sales representatives
+
+##### New method signature
+
+A signature for the `\Ibexa\Contracts\Rest\Output\Generator::startValueElement` method has been updated to the following:
+
+```php
+    /**
+     * @phpstan-param scalar $value
+     * @phpstan-param array<string, scalar> $attributes
+     */
+    abstract public function startValueElement(string $name, $value, array $attributes = []): void;
+```
+
+Any third party code that extends `\Ibexa\Contracts\Rest\Output\Generator` needs to update the method signature accordingly.
 
 #### PHP API
 
@@ -718,6 +716,7 @@ The following endpoints have been added in the v4.6.0 release (39 events in tota
 - `ibexa_is_user_profile_available`
 - `ibexa_is_focus_mode_on`
 - `ibexa_is_focus_mode_off`
+- `ibexa_is_pim_local`
 - `ibexa_current_user`
 - `ibexa_is_current_user`
 - `ibexa_get_user_preference_value`

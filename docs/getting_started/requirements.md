@@ -615,7 +615,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
     ### Cloud hosting with eZ Platform Cloud and Platform.sh
 
-    In general, eZ Platform Cloud supports all features and services of [Platform.sh](https://platform.sh/hosting/php/ez) that are compatible and supported by the eZ Platform version you use.
+    In general, eZ Platform Cloud supports all features and services of [Platform.sh](https://platform.sh/marketplace/ibexa/) that are compatible and supported by the eZ Platform version you use.
 
     For example:
 
