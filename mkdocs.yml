@@ -344,7 +344,7 @@ nav:
             - Extend Payment: commerce/payment/extend_payment.md 
             - Payment method API: commerce/payment/payment_method_api.md 
             - Payment method filtering: commerce/payment/payment_method_filtering.md
-            - Payment API: commerce/payment/payment_api.md 
+            - Payment API: commerce/payment/payment_api.md
         - Shipping management:
             - Shipping management: commerce/shipping_management/shipping_management.md
             - Configure shipping: commerce/shipping_management/configure_shipment.md
@@ -553,7 +553,7 @@ nav:
             - Name: search/criteria_reference/payment_method_name_criterion.md
             - Type: search/criteria_reference/payment_method_type_criterion.md
             - UpdatedAt: search/criteria_reference/payment_method_updatedat_criterion.md
-        - Price Search Criteria: 
+        - Price Search Criteria:
             - Price Search Criteria: search/criteria_reference/price_search_criteria.md
             - Currency: search/criteria_reference/price_currency_criterion.md
             - CustomerGroup: search/criteria_reference/price_customergroup_criterion.md
@@ -653,6 +653,7 @@ nav:
                 - Url Sort Clause: search/url_search_reference/url_url_sort_clause.md
         - Search API: search/search_api.md
         - Aggregation reference:
+              # Content aggregations
             - Aggregation reference: search/aggregation_reference/aggregation_reference.md
             - ContentTypeTermAggregation: search/aggregation_reference/contenttypeterm_aggregation.md
             - ContentTypeGroupTermAggregation: search/aggregation_reference/contenttypegroupterm_aggregation.md
@@ -665,8 +666,10 @@ nav:
             - RawTermAggregation: search/aggregation_reference/rawterm_aggregation.md
             - SectionTermAggregation: search/aggregation_reference/sectionterm_aggregation.md
             - SubtreeTermAggregation: search/aggregation_reference/subtreeterm_aggregation.md
+            - TaxonomyEntryIdAggregation: search/aggregation_reference/taxonomyentryid_aggregation.md
             - UserMetadataTermAggregation: search/aggregation_reference/usermetadataterm_aggregation.md
             - VisibilityTermAggregation: search/aggregation_reference/visibilityterm_aggregation.md
+              # Field aggregations
             - AuthorTermAggregation: search/aggregation_reference/authorterm_aggregation.md
             - CheckboxTermAggregation: search/aggregation_reference/checkboxterm_aggregation.md
             - CountryTermAggregation: search/aggregation_reference/countryterm_aggregation.md
@@ -677,6 +680,9 @@ nav:
             - IntegerRangeAggregation: search/aggregation_reference/integerrange_aggregation.md
             - IntegerStatsAggregation: search/aggregation_reference/integerstats_aggregation.md
             - KeywordTermAggregation: search/aggregation_reference/keywordterm_aggregation.md
+            - SelectionTermAggregation: search/aggregation_reference/selectionterm_aggregation.md
+            - TimeRangeAggregation: search/aggregation_reference/timerange_aggregation.md
+            # Product aggregations
             - Product attribute aggregations: search/aggregation_reference/product_attribute_aggregations.md
             - BasePriceStatsAggregation: search/aggregation_reference/basepricestats_aggregation.md
             - CustomPriceStatsAggregation: search/aggregation_reference/custompricestats_aggregation.md
@@ -685,9 +691,7 @@ nav:
             - ProductStockRangeAggregation: search/aggregation_reference/productstockrange_aggregation.md
             - ProductPriceRangeAggregation: search/aggregation_reference/productpricerange_aggregation.md
             - ProductTypeTermAggregation: search/aggregation_reference/producttypeterm_aggregation.md
-            - SelectionTermAggregation: search/aggregation_reference/selectionterm_aggregation.md
             - TaxonomyEntryIdAggregation: search/aggregation_reference/taxonomyentryid_aggregation.md
-            - TimeRangeAggregation: search/aggregation_reference/timerange_aggregation.md
         - Search in trash reference: search/search_in_trash_reference.md
         - Extend search:
             - Create custom Search Criterion: search/extensibility/create_custom_search_criterion.md
@@ -710,7 +714,7 @@ nav:
               - Reverse proxy: infrastructure_and_maintenance/cache/http_cache/reverse_proxy.md
               - Context-aware HTTP cache: infrastructure_and_maintenance/cache/http_cache/context_aware_cache.md
               - Content-aware HTTP cache: infrastructure_and_maintenance/cache/http_cache/content_aware_cache.md
-              - Configure and customize Fastly: infrastructure_and_maintenance/cache/http_cache/fastly.md 
+              - Configure and customize Fastly: infrastructure_and_maintenance/cache/http_cache/fastly.md
             - Persistence cache: infrastructure_and_maintenance/cache/persistence_cache.md
         - Clustering:
             - Clustering: infrastructure_and_maintenance/clustering/clustering.md
@@ -855,7 +859,7 @@ extra:
   latest_tag_4_2: '4.2.4'
   latest_tag_4_3: '4.3.5'
   latest_tag_4_4: '4.4.4'
-  latest_tag_4_5: '4.5.4'
+  latest_tag_4_5: '4.5.5'
 
   symfony_doc: 'https://symfony.com/doc/5.4'
   user_doc: 'https://doc.ibexa.co/projects/userguide/en/master'

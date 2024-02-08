@@ -1,0 +1,5 @@
+services:
+    App\View\Matcher\Owner:
+        autowire: true
+        tags:
+            - { name: ibexa.view.matcher, identifier: App\Owner }
