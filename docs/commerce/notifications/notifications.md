@@ -20,7 +20,7 @@ By default, notifications are sent in relation to the following events, to an em
 - Shipment:
     - order is shipped
 
-You can change the events that trigger sending a transactional email.
+You can [change the events](extend_notifications.md#configure-workflows) that trigger sending a transactional email.
 
 ## Configure transactional emails
 

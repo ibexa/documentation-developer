@@ -1,5 +1,5 @@
 ---
-description: Extend transactional emails to meet your specific business requirements.
+description: Customize transactional emails to meet your specific business requirements.
 edition: commerce
 ---
 
