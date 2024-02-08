@@ -2436,8 +2436,8 @@ CartCreate:
             type: string
             required: true
         context:
-            description: array of scalars describing additional, contextual data attached to the cart
-            type: string[]
+            description: associative array of scalars describing additional, contextual data attached to the cart
+            type: object
             required: false
 
 CartEntryAdd:
@@ -2453,8 +2453,8 @@ CartEntryAdd:
             type: CartProduct
             required: true
         context:
-            description: array of scalars describing additional, contextual data attached to the cart entry
-            type: string[]
+            description: associative array of scalars describing additional, contextual data attached to the cart entry
+            type: object
             required: false
 
 CartProduct:
