@@ -461,6 +461,285 @@ For more information, see [CDP Activation](https://doc.ibexa.co/en/master/cdp/cd
 
 ####
 
+## Developer experience
+
+### Github statistics
+
+Git events between v4.5.0 and v4.6.0
+
+| Metric              | Value                      |
+|:--------------------|:---------------------------|
+| Commits             | 4668                       |
+| Pull requests       | 3,413 opened (2,6k merged) |
+| Reviews             | 8323                       |
+| Total contributions | 16404                      |
+
+### Code changes
+
+Code changes between v4.5.0 and v4.6.0
+
+| Repository                              | Files changed | Lines added | Lines removed |
+|:----------------------------------------|--------------:|------------:|--------------:|
+| ibexa/activity-log                      | 295           | 13438       | 157           |
+| ibexa/admin-ui                          | 929           | 19264       | 6770          |
+| ibexa/admin-ui-assets                   | 2             | 10          | 10            |
+| ibexa/automated-translation             | 15            | 116         | 164           |
+| ibexa/calendar                          | 22            | 82          | 77            |
+| ibexa/cart                              | 133           | 3516        | 517           |
+| ibexa/cdp                               | 81            | 4872        | 160           |
+| ibexa/checkout                          | 157           | 7021        | 1012          |
+| ibexa/connect                           | 42            | 2266        | 26            |
+| ibexa/connector-dam                     | 15            | 111         | 59            |
+| ibexa/connector-payum                   | 42            | 1627        | 141           |
+| ibexa/content-forms                     | 28            | 350         | 167           |
+| ibexa/content-tree                      | 19            | 248         | 127           |
+| ibexa/core                              | 277           | 7119        | 1959          |
+| ibexa/core-persistence                  | 41            | 3368        | 70            |
+| ibexa/corporate-account                 | 176           | 1527        | 723           |
+| ibexa/corporate-account-commerce-bridge | 26            | 652         | 143           |
+| ibexa/cron                              | 1             |             |               |
+| ibexa/dashboard                         | 221           | 11278       | 157           |
+| ibexa/design-engine                     | 1             |             |               |
+| ibexa/doctrine-schema                   | 3             | 155         | 1             |
+| ibexa/elasticsearch                     | 24            | 726         | 34            |
+| ibexa/fastly                            | 1             |             |               |
+| ibexa/fieldtype-address                 | 14            | 37          | 28            |
+| ibexa/fieldtype-matrix                  | 13            | 44          | 44            |
+| ibexa/fieldtype-page                    | 68            | 1934        | 843           |
+| ibexa/fieldtype-query                   | 6             | 24          | 16            |
+| ibexa/fieldtype-richtext                | 32            | 934         | 188           |
+| ibexa/form-builder                      | 88            | 146         | 183           |
+| ibexa/graphql                           | 1             |             |               |
+| ibexa/http-cache                        | 4             | 6           | 9             |
+| ibexa/icons                             | 27            | 288         | 7             |
+| ibexa/image-editor                      | 15            | 220         | 204           |
+| ibexa/image-picker                      | 56            | 3144        | 3             |
+| ibexa/installer                         | 26            | 935         | 46            |
+| ibexa/measurement                       | 37            | 1245        | 59            |
+| ibexa/migrations                        | 21            | 141         | 49            |
+| ibexa/notifications                     | 44            | 1397        | 414           |
+| ibexa/oauth2-client                     | 1             |             |               |
+| ibexa/order-management                  | 143           | 3796        | 417           |
+| ibexa/page-builder                      | 187           | 5442        | 1529          |
+| ibexa/payment                           | 65            | 962         | 202           |
+| ibexa/permissions                       | 3             | 16          | 16            |
+| ibexa/personalization                   | 94            | 1641        | 337           |
+| ibexa/post-install                      | 103           | 8           | 6240          |
+| ibexa/product-catalog                   | 694           | 16031       | 3919          |
+| ibexa/rest                              | 48            | 1376        | 438           |
+| ibexa/scheduler                         | 78            | 294         | 224           |
+| ibexa/search                            | 77            | 3821        | 82            |
+| ibexa/segmentation                      | 49            | 1405        | 82            |
+| ibexa/seo                               | 10            | 41          | 25            |
+| ibexa/shipping                          | 281           | 9894        | 405           |
+| ibexa/site-context                      | 101           | 4577        | 144           |
+| ibexa/site-factory                      | 65            | 642         | 401           |
+| ibexa/solr                              | 23            | 593         | 126           |
+| ibexa/standard-design                   | 1             |             |               |
+| ibexa/storefront                        | 125           | 4610        | 598           |
+| ibexa/system-info                       | 19            | 91          | 174           |
+| ibexa/taxonomy                          | 76            | 1564        | 125           |
+| ibexa/tree-builder                      | 46            | 799         | 337           |
+| ibexa/user                              | 56            | 310         | 249           |
+| ibexa/version-comparison                | 32            | 117         | 104           |
+| ibexa/workflow                          | 51            | 335         | 207           |
+| Total                                   | 5431          | 146606      | 30948         |
+
+### New packages 
+
+The following packages has been introduced in Ibexa DXP v4.6.0:
+
+- ibexa/oauth2-server (optional)
+- ibexa/site-context
+- ibexa/activity-log
+- ibexa/notifications
+- ibexa/dashboard
+- ibexa/connector-seenthis (optional)
+- ibexa/connector-actito (optional)
+- ibexa/connector-qualifio (optional)
+- ibexa/connector-payum
+- ibexa/image-picker
+- ibexa/core-persistence
+- ibexa/corporate-account-commerce-bridge
+
+!!! note
+
+    The ibexa/content package has been renamed to ibexa/headless.
+
+### REST APIs
+
+Ibexa DXP v4.6.0 adds REST API coverage for the following features:
+
+- Price engine
+- Shipping
+- Corporate accounts
+- Activity Log
+- UDW configuration (internal)
+
+#### Endpoints list
+
+The following endpoints have been added in 4.6.0 release (27 endpoints in total):
+
+| Endpoint                                                               | Functions |     |     | Parameters                                                                                                          |
+|-:----------------------------------------------------------------------|-:---------|-:---|-:---|-:-------------------------------------------------------------------------------------------------------------------|
+| `ibexa.activity_log.rest.activity_log.list`                              | GET/POST  | ANY | ANY | `/api/ibexa/v2/activity-log/list`                                                                                     |
+| `ibexa.udw.location.data`                                                | GET       | ANY | ANY | `/api/ibexa/v2/module/universal-discovery/location/{locationId}`                                                      |
+| `ibexa.udw.location.gridview.data`                                       | GET       | ANY | ANY | `/api/ibexa/v2/module/universal-discovery/location/{locationId}/gridview`                                             |
+| `ibexa.udw.locations.data`                                               | GET       | ANY | ANY | `/api/ibexa/v2/module/universal-discovery/locations`                                                                  |
+| `ibexa.udw.accordion.data`                                               | GET       | ANY | ANY | `/api/ibexa/v2/module/universal-discovery/accordion/{locationId}`                                                     |
+| `ibexa.udw.accordion.gridview.data`                                      | GET       | ANY | ANY | `/api/ibexa/v2/module/universal-discovery/accordion/{locationId}/gridview`                                            |
+| `ibexa.rest.application_config`                                          | GET       | ANY | ANY | `/api/ibexa/v2/application-config`                                                                                    |
+| `ibexa.cart.authorize`                                                   | POST      | ANY | ANY | `/api/ibexa/v2/cart/authorize`                                                                                        |
+| `ibexa.rest.corporate_account.sales_representatives.get`                 | GET       | ANY | ANY | `/api/ibexa/v2/corporate/sales-representatives`                                                                       |
+| `ibexa.product_catalog.rest.prices.create`                               | POST      | ANY | ANY | `/api/ibexa/v2/product/catalog/products/{productCode}/prices`                                                         |
+| `ibexa.product_catalog.rest.prices.list`                                 | GET       | ANY | ANY | `/api/ibexa/v2/product/catalog/products/{productCode}/prices`                                                        |
+| `ibexa.product_catalog.rest.prices.get.custom_price`                     | GET       | ANY | ANY | `/api/ibexa/v2/product/catalog/products/{productCode}/prices/{currencyCode}/customer-group/{customerGroupIdentifier}` |
+| `ibexa.product_catalog.rest.prices.get.base_price`                       | GET       | ANY | ANY | `/api/ibexa/v2/product/catalog/products/{productCode}/prices/{currencyCode}`                                          |
+| `ibexa.product_catalog.rest.prices.update`                               | PATCH     | ANY | ANY | `/api/ibexa/v2/product/catalog/products/{productCode}/prices/{id}`                                                    |
+| `ibexa.product_catalog.rest.prices.delete`                               | DELETE    | ANY | ANY | `/api/ibexa/v2/product/catalog/products/{productCode}/prices/{id}`                                                    |
+| `ibexa.product_catalog.personalization.rest.product_variant.get_by_code` | GET       | ANY | ANY | `/api/ibexa/v2/personalization/v1/product_variant/code/{code}`                                                        |
+| `ibexa.product_catalog.personalization.rest.product_variant_list`        | GET       | ANY | ANY | `/api/ibexa/v2/personalization/v1/product_variant/list/{codes}`                                                      |
+| `ibexa.shipping.rest.shipping_method.type.list`                          | GET       | ANY | ANY | `/api/ibexa/v2/shipping/method-types`                                                                                 |
+| `ibexa.shipping.rest.shipping_method.type.get`                           | GET       | ANY | ANY | `/api/ibexa/v2/shipping/method-types/{identifier}`                                                                    |
+| `ibexa.shipping.rest.shipping_method.get`                                | GET       | ANY | ANY | `/api/ibexa/v2/shipping/methods/{identifier}`                                                                         |
+| `ibexa.shipping.rest.shipping_method.find`                               | GET       | ANY | ANY | `/api/ibexa/v2/shipping/methods`                                                                                      |
+| `ibexa.shipping.rest.shipment.get`                                       | GET       | ANY | ANY | `/api/ibexa/v2/shipments/{shipmentIdentifier}`                                                                        |
+| `ibexa.shipping.rest.shipment.delete`                                    | DELETE    | ANY | ANY | `/api/ibexa/v2/shipments/{shipmentIdentifier}`                                                                        |
+| `ibexa.shipping.rest.shipment.all.find`                                  | GET       | ANY | ANY | `/api/ibexa/v2/shipments`                                                                                             |
+| `ibexa.shipping.rest.shipment.order.find`                                | GET       | ANY | ANY | `/api/ibexa/v2/orders/order/{orderIdentifier}/shipments`                                                             |
+| `ibexa.shipping.rest.shipment.create`                                    | POST      | ANY | ANY | `/api/ibexa/v2/orders/order/{orderIdentifier}/shipments`                                                              |
+| `ibexa.shipping.rest.shipment.update`                                    | PATCH     | ANY | ANY | `/api/ibexa/v2/shipments/{shipmentIdentifier}`                                                                        |
+
+### PHP API
+
+- Autosave API (`\Ibexa\Contracts\AdminUi\Autosave\AutosaveServiceInterface`)
+- Activity Log API
+- Spellchecking API
+- Site Context API (`\Ibexa\Contracts\SiteContext\SiteContextServiceInterface`)
+- Dashboard API (`\Ibexa\Contracts\Dashboard\DashboardServiceInterface`)
+- Price resolver API (`\Ibexa\Contracts\ProductCatalog\PriceResolverInterface`)
+- Location Preview URL resolver (`\Ibexa\Contracts\SiteContext\PreviewUrlResolver\LocationPreviewUrlResolverInterface`, see [GitHub](https://github.com/ibexa/site-context/pull/25))
+- ContentAware API (`\Ibexa\Contracts\Core\Repository\Values\Content\ContentAwareInterface`)
+- Sorting Definition API (`\Ibexa\Contracts\Search\SortingDefinition`)
+
+### Search Criteria
+
+Content
+
+- `\Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\ContentName`
+- Image criteria:
+    - `\Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\Image\Dimensions`
+    - `\Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\Image\FileSize`
+    - `\Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\Image\Height`
+    - `\Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\Image\MimeType`
+    - `\Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\Image\Orientation`
+    - `\Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\Image\Width`
+
+Product
+
+- `\Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\IsVirtual`
+- `ProductStock` and `ProductStockRange`
+
+### Sort Clauses
+
+- `\Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause\ProductStock`
+
+### Aggregations
+
+- Aggregation API for product catalog
+- Labeled ranges
+- Range::INF to improve readability of unbounded ranges
+- Added support for creating range aggregations from generator (see `\Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\Ranges\RangesGeneratorInterface`) and built-in step generators:
+    - `\Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\Ranges\DateTimeStepRangesGenerator`
+    - `\Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\Ranges\FloatStepRangesGenerator`
+    - `\Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\Ranges\IntegerStepRangesGenerator`
+- Allowed direct access to aggregation keys from results
+    - `\Ibexa\Contracts\Core\Repository\Values\Content\Search\AggregationResult\TermAggregationResult::getKeys`
+    - `\Ibexa\Contracts\Core\Repository\Values\Content\Search\AggregationResult\RangeAggregationResult::getKeys`
+
+### Events
+
+The following endpoints have been added in the v4.6.0 release (39 events in total):
+
+- ibexa/activity-log
+    - `\Ibexa\Contracts\ActivityLog\Event\PostActivityListLoadEvent`
+- ibexa/admin-ui
+    - `\Ibexa\Contracts\AdminUi\Event\FocusModeChangedEvent`
+- ibexa/cart
+    - `\Ibexa\Contracts\AdminUi\Event\FocusModeChangedEvent`
+    - `\Ibexa\Contracts\Cart\Event\BeforeMergeCartsEvent`
+- ibexa/core 
+    - URL and name schema resolving events:
+        - `\Ibexa\Contracts\Core\Event\NameSchema\ResolveUrlAliasSchemaEvent`
+        - `\Ibexa\Contracts\Core\Event\NameSchema\ResolveNameSchemaEvent`
+        - `\Ibexa\Contracts\Core\Event\NameSchema\ResolveContentNameSchemaEvent`
+    - Tokens
+        - `\Ibexa\Contracts\Core\Repository\Events\Token\BeforeRevokeTokenByIdentifierEvent`
+        - `\Ibexa\Contracts\Core\Repository\Events\Token\BeforeRevokeTokenEvent`
+        - `\Ibexa\Contracts\Core\Repository\Events\Token\RevokeTokenByIdentifierEvent`
+        - `\Ibexa\Contracts\Core\Repository\Events\Token\RevokeTokenEvent`
+- ibexa/migration
+    - `\Ibexa\Contracts\Migration\Event\BeforeMigrationEvent`
+    - `\Ibexa\Contracts\Migration\Event\MigrationEvent`
+- ibexa/page-builder
+    - `\Ibexa\Contracts\PageBuilder\Event\GenerateContentPreviewUrlEvent`
+- ibexa/search:
+    - `\Ibexa\Contracts\Search\Event\Service\BeforeSuggestEvent`
+    - `\Ibexa\Contracts\Search\Event\Service\SuggestEvent`
+- ibexa/segmentation
+    - `\Ibexa\Contracts\Segmentation\Event\AssignUserToSegmentEvent`
+    - `\Ibexa\Contracts\Segmentation\Event\BeforeAssignUserToSegmentEvent`
+    - `\Ibexa\Contracts\Segmentation\Event\BeforeCreateSegmentEvent`
+    - `\Ibexa\Contracts\Segmentation\Event\BeforeCreateSegmentGroupEvent`
+    - `\Ibexa\Contracts\Segmentation\Event\BeforeRemoveSegmentEvent`
+    - `\Ibexa\Contracts\Segmentation\Event\BeforeRemoveSegmentGroupEvent`
+    - `\Ibexa\Contracts\Segmentation\Event\BeforeUnassignUserFromSegmentEvent`
+    - `\Ibexa\Contracts\Segmentation\Event\BeforeUpdateSegmentEvent`
+    - `\Ibexa\Contracts\Segmentation\Event\BeforeUpdateSegmentGroupEvent`
+    - `\Ibexa\Contracts\Segmentation\Event\CreateSegmentEvent`
+    - `\Ibexa\Contracts\Segmentation\Event\CreateSegmentGroupEvent`
+    - `\Ibexa\Contracts\Segmentation\Event\RemoveSegmentEvent`
+    - `\Ibexa\Contracts\Segmentation\Event\RemoveSegmentGroupEvent`
+    - `\Ibexa\Contracts\Segmentation\Event\UnassignUserFromSegmentEvent`
+    - `\Ibexa\Contracts\Segmentation\Event\UpdateSegmentEvent`
+    - `\Ibexa\Contracts\Segmentation\Event\UpdateSegmentGroupEvent`
+- ibexa/site-context
+    - `\Ibexa\Contracts\SiteContext\Event\ResolveLocationPreviewUrlEvent`
+- ibexa/site-factory
+    - `\Ibexa\Contracts\SiteFactory\Events\BeforeCreateSiteEvent`
+    - `\Ibexa\Contracts\SiteFactory\Events\BeforeDeleteSiteEvent`
+    - `\Ibexa\Contracts\SiteFactory\Events\BeforeUpdateSiteEvent`
+    - `\Ibexa\Contracts\SiteFactory\Events\CreateSiteEvent`
+    - `\Ibexa\Contracts\SiteFactory\Events\DeleteSiteEvent`
+    - `\Ibexa\Contracts\SiteFactory\Events\UpdateSiteEvent`
+
+### Twig functions
+
+- `ibexa_is_user_profile_available`
+- `ibexa_is_focus_mode_on`
+- `ibexa_is_focus_mode_off`
+- `ibexa_current_user`
+- `ibexa_is_current_user`
+- `ibexa_get_user_preference_value`
+- `ibexa_has_user_preference`
+- `ibexa_has_field`
+- `ibexa_field_group_name`
+- `ibexa_render_activity_log`
+- `ibexa_render_activity_log_group`
+- `ibexa_choices_as_facets`
+- `ibexa_taxonomy_entries_for_content`
+- `ibexa_url` / `ibexa_path` (support for content wrappers)
+
+### View matchers
+
+The following view matchers have been introduced in Ibexa DXP v4.6.0:
+
+- `\Ibexa\Core\MVC\Symfony\Matcher\ContentBased\IsPreview`
+- `\Ibexa\Taxonomy\View\Matcher\TaxonomyEntryBased\Id`
+- `\Ibexa\Taxonomy\View\Matcher\TaxonomyEntryBased\Identifier`
+- `\Ibexa\Taxonomy\View\Matcher\TaxonomyEntryBased\Level`
+- `\Ibexa\Taxonomy\View\Matcher\TaxonomyEntryBased\Taxonomy`
+
 ## Full changelog
 
 | [[= product_name_headless =]] | [[= product_name_exp =]] | [[= product_name_com =]] |
