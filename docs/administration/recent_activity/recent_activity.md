@@ -4,9 +4,9 @@ description: Log and monitor activity through UI, PHP API and REST API.
 
 # Recent activity
 
-Recent activity log summaries last actions on the repository (whatever their origin, such as Back Office, REST, CLI or CRON).
+Recent activity log summaries last actions on the repository (whatever their origin, such as Back Office, REST, migration, CLI, or CRON).
 
-To learn more about its interface usage and the actions logged by default, see [Recent activity in the User documentation]([[= user_doc =]]/recent_activity/recent_activity/).
+To learn more about its Back Office usage and the actions logged by default, see [Recent activity in the User documentation]([[= user_doc =]]/recent_activity/recent_activity/).
 
 ## Configuration and cronjob
 
@@ -30,6 +30,22 @@ To minimize the number of entries to delete, it is recommended to execute the co
 
 For every exact hour, the cronjob line is:
 `0 * * * * cd [path-to-ibexa]; php bin/console ibexa:activity-log:truncate --quiet --env=prod`
+
+## Permission and security
+
+The "Activity Log / Read" policy ([`activity_log/read`](policies.md#activity-log)) gives a role the access to
+the "Admin > Activity list", the dashboard's "Recent activity" block, and the user profile's "Recent activity".
+It can be limited to "Only own log".
+
+The "Activity Log / Read" policy should be given to every roles having access to the Back Office,
+at least with the "Only own log" owner limitation,
+to allow them to use the "Recent activity" block in the default dashboard or their custom dashboard.
+This policy is also required by user having a profile to properly view their own.
+
+!!! caution
+
+    Never give `activity_log/read` permission to Anonymous role, even with the owner limitation,
+    as this role is shared among all unauthenticated users.
 
 ## PHP API
 

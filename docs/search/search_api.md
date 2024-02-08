@@ -308,7 +308,7 @@ and then alphabetically by content name, add the following Sort Clauses to the q
 
 ## Searching in trash
 
-In the user interface, on the Trash screen, you can search for Content items, and then sort the results based on different criteria.
+In the user interface, on the **Trash** screen, you can search for Content items, and then sort the results based on different criteria.
 To search the trash with the API, use the `TrashService::findInTrash` method to submit a query for Content items that are held in trash.
 Searching in trash supports a limited set of Criteria and Sort Clauses.
 For a list of supported Criteria and Sort Clauses, see [Search in trash reference](search_in_trash_reference.md).
