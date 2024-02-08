@@ -63,7 +63,8 @@ This `Query`'s constructor has four arguments:
 
 See [Activity Log Search Criteria reference](activity_log_criteria.md) and [Activity Log Search Sort Clauses reference](activity_log_sort_clauses.md) to discover query possibilities.
 
-In the following example, log groups containing at least one creation of a Content item will be displayed in terminal, with a maximum of 10 groups within the last hour. This uses the default `admin` user to have the [permission](#permission-and-security) to list everyone entries.
+In the following example, log groups containing at least one creation of a Content item will be displayed in terminal, with a maximum of 10 groups within the last hour.
+This uses the default `admin` user to have the [permission](#permission-and-security) to list everyone entries.
 
 ```php hl_lines="36-40"
 [[= include_file('code_samples/recent_activity/src/Command/MonitorRecentContentCreationCommand.php') =]]
