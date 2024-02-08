@@ -142,7 +142,7 @@ ContentCreateStruct:
             required: true
             type: string
         modificationDate:
-            description: 'Modification date. If not given the current integer is used.'
+            description: 'Modification date. If not given, the current integer is used.'
             type: datetime
 ContentImageVariation:
     description: 'This class represents an image.'
@@ -3733,7 +3733,7 @@ Shipment:
             type: object
             properties:
                 transitionList:
-                    description: 'Available next steps in the shipment workflow for the current status'
+                    description: 'Next steps available in the shipment workflow for the current status'
                     type: string[]
         Order:
             type: Order
