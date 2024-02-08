@@ -3,101 +3,59 @@ description: Extend Payment with custom payment method types.
 edition: commerce
 ---
 
-# Extend Payment
+# Transactional email variables reference
 
-There are different ways you can extend your Payment module implementation. 
-One of them is to create a custom payment method type. 
-The other is attaching custom data to a payment.
+The following variables are provided with an installation of [[= product_name_base =]].
+You can use them when you create a template within an Actito transactional email campaign.
+If this extensive list of variables is not sufficient, you can [extend it to include additional variables](extend_notifications.md#define-additional-variables).
 
-You can also [customize the payment processing workflow](configure_payment.md#custom-payment-workflows).
-
-## Create custom payment method type
-
-If your application needs payment methods of other type than the default `offline` one, you must create custom payment method types. 
-Code samples below show how this could be done if your organization wants to use PayPal.
-
-!!! note "Gateway integration requirement"
-
-    [[= product_name =]] does not come with gateway redirects. Whether you are an integrator or an end customer, it is your responsibility to implement payment gateway integration.
-
-### Define custom payment method type
-
-Create a PHP definition of the payment method type.
-
-``` php
-[[= include_file('code_samples/front/shop/payment/src/PaymentMethodType/PayPal/PayPal.php') =]]
-```
-
-Make sure that `getName()` returns a human-readable name of the payment method type, the way you want it to appear on the list of available payment method types.
-
-Now, register the definition as a service:
-
-``` yaml
-[[= include_file('code_samples/front/shop/payment/config/services.yaml', 0, 5) =]]
-```
-
-As an alternative, instead of creating a custom class, you can use a built-in type factory to define the payment method type in the service definition file:
-
-``` yaml
-[[= include_file('code_samples/front/shop/payment/config/services.yaml', 0, 1) =]][[= include_file('code_samples/front/shop/payment/config/services.yaml', 6, 15) =]]
-```
-
-At this point a custom payment method type should be visible in the user interface.
-
-### Create options form
-
-Create a corresponding form type:
-
-``` php
-[[= include_file('code_samples/front/shop/payment/src/Form/Type/PayPalOptionsType.php') =]]
-```
-
-Next, create a mapper that maps the information that the user inputs in the form into attribute definition.
-
-``` php
-[[= include_file('code_samples/front/shop/payment/src/PaymentMethodType/PayPal/OptionsFormMapper.php') =]]
-```
-
-Then, register `OptionsFormMapper` a service:
-
-``` yaml
-[[= include_file('code_samples/front/shop/payment/config/services.yaml', 0, 1) =]][[= include_file('code_samples/front/shop/payment/config/services.yaml', 16, 20) =]]
-```
-
-### Create options validator
-
-You might want to make sure that data provided by the user is validated. 
-To do that, create an options validator that checks user input against the constraints and dispatches an error when needed.
-
-``` php
-[[= include_file('code_samples/front/shop/payment/src/PaymentMethodType/PayPal/UrlOptionValidator.php') =]]
-```
-
-Then, register the validator as a service:
-
-``` yaml
-[[= include_file('code_samples/front/shop/payment/config/services.yaml', 0, 1) =]][[= include_file('code_samples/front/shop/payment/config/services.yaml', 21, 25) =]]
-```
-
-### Restart application
-
-Shut down the application, clear browser cache, and restart the application.
-Then, try creating a payment of the new type.
-
-![Payment method of custom type](custom_paymant_type.png "Payment method of custom type")
-
-## Attach custom data to payments
-
-When you create a payment, you can attach custom data to it, for example, you can pass an invoice number or a proprietary transaction identifier.
-
-You add custom data by using the `setContext` method:
-
-``` php
-[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 89, 101) =]]
-```
-
-Then, you retrieve it with the `getContext` method:
-
-``` php
-[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 66, 69) =]]
-```
+|Category|Variable|Description|Example values|Notes|
+|:----|:----|:----|:----|:----|
+|Order processing|orderId|Order numerical ID|123|
+| |orderIdentifier|Order identifier|660575f7-aa75-47af-b4d3-db2693f7e37c|
+| |orderCurrency|Currency code|EUR|
+| |orderSource|Order source|storefront|
+| |orderValueNet|Total value (net)|€700,00|
+| |orderValueGross|Total value (gross)|€749,50|
+| |orderValueVat|Vat value|€49,50|
+| |shippingAddressCountry|Country code|US|
+| |shippingAddressRegion|Region|California|
+| |shippingAddressLocality|City|Los Angeles|
+| |shippingAddressStreet|Street|10250 Santa Monica Blvd|
+| |shippingAddressPostalCode|Postal code|90067|
+| |shippingAddressEmail|E-mail address|user@example.com|
+| |shippingAddressPhoneNumber|Phone number|123456789|
+| |billingAddressCountry|Country code|US|
+| |billingAddressTaxId|Tax Identification Number i.e. VAT|12345678|
+| |billingAddressRegion|Region|California|
+| |billingAddressLocality|City|Los Angeles|
+| |billingAddressStreet|Street|10250 Santa Monica Blvd|
+| |billingAddressPostalCode|Postal code|90067|
+| |billingAddressEmail|E-mail address|user@example.com|
+| |billingAddressPhoneNumber|Phone number|123456789|
+|Payment|paymentMethodIdentifier|Technical identifier of payment method| | |
+| |paymentMethodName|Human readable name of payment method| | |
+| |paymentMethodDescription|Human readable description of payment method|Prepaid cards and gift cards (offline ver.)| |
+| |paymentMethodTypeName|Human readable name of payment method type|Offline| |
+| |paymentStatus|Technical identifier of payment status|pending, failed|Only available in PaymentStatusChange notification|
+|Shipment|shippingMethodIdentifier|Technical identifier of shipping method| | |
+| |shippingMethodName|Human readable name of shipping method| | |
+| |shippingMethodDescription|Human readable description of shipping method| | |
+| |shippingMethodTypeName|Technical name of shipping method type| | |
+| |shipmentStatus|Technical identifier of shipment status| |Only available in ShipmentStatusChange notification|
+|Product information|products.id|Product numerical ID|123|
+| |products.code|Product code, SKU|123456|
+| |products.name|Product name|iPhone 15 Pro 256GB Space Gray|
+| |products.url|Product view URL|https://example.com/product/iphone-15-pro-256gb-space-gray/|
+| |products.thumbnail|Product thumbnail URL|https://example.com/assets/images/iphone-15-pro-256gb-space-gray.jpg|
+| |products.quantity|Quantity|5|
+| |products.unitPriceNet|Unit price (net)|€700,00|
+| |products.unitPriceGross|Unit Price (gross)|€749,50|
+| |products.subtotalPriceNet|Subtotal price (net), quantity * unit price (net)|€2700,00|
+| |products.subtotalPriceGross|Subtotal price (gross), quantity * unit price (gross)|€2749,50|
+|User information|userId|Numerical ID|255|
+| |userLogin|User login|john.doe|
+| |userEmail|User e-mail address|john.doe@example.com|
+| |userName|User name|John Doe|
+|Password reset|token|Token used to reset password|5bcc871f1a966db58c06187369813447|
+| |passwordResetUrl|Absolute URL to reset password|http://example.com/user/reset-password/5bcc871f1a966db58c06187369813447|
