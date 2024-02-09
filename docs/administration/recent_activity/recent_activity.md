@@ -151,26 +151,8 @@ In the following example, several actions are logged into one context group, eve
     - `simulate`
     - `complete`
 
-```php
-$this->activityLogService->prepareContext('my_feature', 'Operation description');
-
-$this->activityLogService->save($this->activityLogService->build(MyFeature::class, $id, 'init'));
-
-$contentCreateStruct = $this->contentService->newContentCreateStruct(
-    $this->repository->getContentTypeService()->loadContentTypeByIdentifier('folder'),
-    'eng-GB'
-);
-$contentCreateStruct->setField('name', "My Feature Folder #$id", 'eng-GB');
-$locationCreateStruct = new LocationCreateStruct(['parentLocationId' => 2]);
-$draft = $this->contentService->createContent($contentCreateStruct, [$locationCreateStruct]);
-$this->contentService->publishVersion($draft->versionInfo);
-
-$event = new MyFeatureEvent(new MyFeature(['id' => $id, 'name' => "My Feature #$id"]), 'simulate');
-$this->eventDispatcher->dispatch($event);
-
-$this->activityLogService->save($this->activityLogService->build(MyFeature::class, $id, 'complete'));
-
-$this->activityLogService->dismissContext();
+``` php
+[[= include_file('code_samples/recent_activity/src/Command/ActivityLogContextTestCommand.php', 56, 72) =]]
 ```
 
 TODO: Groups can't be nested. If a new context group is prepared while a context is already grouping log entries, this new context group will be ignored. To start a new context group, make sure to dismiss the existing one.
