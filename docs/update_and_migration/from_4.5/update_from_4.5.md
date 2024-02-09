@@ -116,9 +116,9 @@ If you are using [[= product_name_exp =]] or [[= product_name_com =]],
 you must run data migration required by the dashboard and other features to finish the upgrade process:
 
 ```bash
-php bin/console ibexa:migrations:import vendor/ibexa/dashboard/src/bundle/Resources/migrations/structure.yaml --name=2024_01_30_dashboard_structure.yaml
-php bin/console ibexa:migrations:import vendor/ibexa/dashboard/src/bundle/Resources/migrations/permissions.yaml --name=2024_01_30_dashboard_permissions.yaml
-php bin/console ibexa:migrations:migrate --file=2024_01_30_dashboard_structure.yaml --file=2024_01_30_dashboard_permissions.yaml
+php bin/console ibexa:migrations:import vendor/ibexa/dashboard/src/bundle/Resources/migrations/structure.yaml --name=2023_09_23_14_15_dashboard_structure.yaml
+php bin/console ibexa:migrations:import vendor/ibexa/dashboard/src/bundle/Resources/migrations/permissions.yaml --name=2023_10_10_16_14_dashboard_permissions.yaml
+php bin/console ibexa:migrations:migrate --file=2023_09_23_14_15_dashboard_structure.yaml --file=2023_10_10_16_14_dashboard_permissions.yaml
 ```
 
 ## Revisit mandatory configuration
