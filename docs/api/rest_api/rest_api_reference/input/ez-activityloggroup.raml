@@ -1,0 +1,82 @@
+displayName: Monitoring activity
+/list:
+    get:
+        displayName: List of activity log groups
+        description: Lists last activity log groups and their entries.
+        headers:
+            Accept:
+                description: If set, the list is returned in XML or JSON format.
+                example: |
+                    application/vnd.ibexa.api.ActivityLogGroupList+xml
+                    application/vnd.ibexa.api.ActivityLogGroupList+json
+        queryParameters:
+            offset:
+                type: string
+                description: |
+                    (default: <code>offset=0</code>)
+            limit:
+                type: string
+                description: |
+                    Maximum number of returned log groups (default: <code>limit=25</code>)
+                    
+                    Example: <code>limit=10</code>
+            filter:
+                type: array
+                description: |
+                    List of filters (no filter by default).
+                    
+                    Example: <code>
+                    filter[0][type]=object_class&filter[0][class]=Ibexa\Contracts\Core\Repository\Values\Content\Content
+                    &filter[1][type]=action&filter[1][value]=create
+                    &filter[2][type]=logged_at&filter[2][value]=-1hour&filter[2][operator]=>=
+                    </code>
+            sort:
+                type: array
+                description: |
+                    List of sort criterion and direction pairs
+                    (default: <code>sort[0][type]=logged_at&sort[0][direction]=ASC</code>)
+                    
+                    Example: <code>sort[0][type]=logged_at&sort[0][direction]=DESC</code>
+        responses:
+            200:
+                body:
+                    application/vnd.ibexa.api.ActivityLogGroupList+xml:
+                        type: ActivityLogGroupList
+                        example: !include examples/activityloggroup/GET/ActivityLogGroupList.xml.example
+                    application/vnd.ibexa.api.ActivityLogGroupList+json:
+                        type: ActivityLogGroupList
+                        example: !include examples/activityloggroup/GET/ActivityLogGroupList.json.example
+            401:
+                description: Error - the user is not authorized to list activities.
+    post:
+        displayName: List of filtered activity log groups
+        description: Lists activity log groups of entries filtered according to the input payload. List input reflects the criteria model of the PHP API. See Activity Log Search reference.
+        headers:
+            Accept:
+                description: If set, the list is returned in XML or JSON format.
+                example: |
+                    application/vnd.ibexa.api.ActivityLogGroupList+xml
+                    application/vnd.ibexa.api.ActivityLogGroupList+json
+            Content-Type:
+                description: The ActivityLogListInput query schema encoded in XML or JSON format.
+                example: |
+                    application/vnd.ibexa.api.ActivityLogGroupListInput+xml
+                    application/vnd.ibexa.api.ActivityLogGroupListInput+json
+        body:
+            application/vnd.ibexa.api.ActivityLogGroupListInput+xml:
+                type: ActivityLogGroupListInput
+                example: !include examples/activityloggroup/POST/ActivityLogGroupListInput.xml.example
+            application/vnd.ibexa.api.ActivityLogGroupListInput+json:
+                type: ActivityLogGroupListInput
+                example: !include examples/activityloggroup/POST/ActivityLogGroupListInput.json.example
+        responses:
+            200:
+                body:
+                    application/vnd.ibexa.api.ActivityLogGroupList+xml:
+                        type: ActivityLogGroupList
+                        example: !include examples/activityloggroup/POST/ActivityLogGroupList.xml.example
+                    application/vnd.ibexa.api.ActivityLogGroupList+json:
+                        type: ActivityLogGroupList
+                        example: !include examples/activityloggroup/POST/ActivityLogGroupList.json.example
+            401:
+                description: Error - the user is not authorized to list activities.

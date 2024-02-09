@@ -3695,14 +3695,27 @@ SalesRepresentativesList:
         Users:
             type: User[]
 
-ActivityLogListInput:
-    description: "This class represents the Activity Log search query's criteria and sort clauses."
+ActivityLogGroupListInput:
+    description: "This class represents the activity log group search query's criteria and sort clauses."
     type: object
 
-ActivityLogList:
-    description: 'This class represents a list a Activity Log entries.'
-    type: ActivityLog[]
+ActivityLogGroupList:
+    description: "This class represents activity log context groups"
+    type: object
+    properties:
+        ActivityLogGroups:
+            type: object
+            properties:
+                user_id:
+                    type: integer
+                    description: "The ID of the user performing the logged actions"
+                logged_at:
+                    type: integer
+                    description: "Timestamp representig when the group has been logged"
+                ActivityLogEntries:
+                    type: ActivityLog[]
+                    description: "The log entries from the group"
 
 ActivityLog:
-    description: 'This class represents an Activity Log entry.'
+    description: 'This class represents an activity log entry.'
     type: object
