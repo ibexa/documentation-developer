@@ -143,6 +143,14 @@ If the object you log an activity on can become unavailable (like after a `delet
 
 If you log several entries at once, you can group them into a context.
 A context group counts as one item in regard to `activity_logs_limit` configuration and `ActivityLogService::findGroups`'s `$limit` argument.
+
+To open a context group, use `ActivityLogService::prepareContext` which has 2 arguments:
+
+* `$source` is describing (usually through a short identifier) what is triggering the set of actions. For example, some already existing source are `web` (like for actions from the Back Office), `graphql`, `rest` and `migration`.
+* `$description` is an optional more specific contextualisation. For example, `migration` context source is associated with the migration file name in its context description.
+
+To close a context group, use `ActivityLogService::dismissContext`.
+
 In the following example, several actions are logged into one context group, even actions triggered by cascade outside the piece of code:
 
 - `my_feature`
@@ -159,6 +167,8 @@ In the following example, several actions are logged into one context group, eve
 Context groups can't be nested.
 If a new context is prepared while a context is already grouping log entries, this new context will be ignored.
 To start a new context, make sure to previously dismiss the existing one.
+
+As the context are not really user-friendly, contexts are not shown in the Back Office.
 
 #### List
 
