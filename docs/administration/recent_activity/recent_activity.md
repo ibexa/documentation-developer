@@ -168,7 +168,8 @@ Context groups can't be nested.
 If a new context is prepared while a context is already grouping log entries, this new context will be ignored.
 To start a new context, make sure to previously dismiss the existing one.
 
-As the context are not really user-friendly, contexts are not shown in the Back Office.
+As the context are not really user-friendly, by default, contexts are not shown in the Back Office.
+A context group is folded below its first entry.
 
 #### List
 
