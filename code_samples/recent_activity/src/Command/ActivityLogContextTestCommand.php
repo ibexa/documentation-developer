@@ -56,7 +56,9 @@ class ActivityLogContextTestCommand extends Command
 
         $this->activityLogService->prepareContext('my_feature', 'Operation description');
 
-        $this->activityLogService->save($this->activityLogService->build(MyFeature::class, $id, 'init'));
+        $activityLogStruct = $this->activityLogService->build(MyFeature::class, $id, 'init');
+        $activityLogStruct->setObjectName("My Feature #$id");
+        $this->activityLogService->save($activityLogStruct);
 
         $contentCreateStruct = $this->contentService->newContentCreateStruct($this->contentTypeService->loadContentTypeByIdentifier('folder'), 'eng-GB');
         $contentCreateStruct->setField('name', "My Feature Folder #$id", 'eng-GB');
@@ -67,7 +69,9 @@ class ActivityLogContextTestCommand extends Command
         $event = new MyFeatureEvent(new MyFeature(['id' => $id, 'name' => "My Feature #$id"]), 'simulate');
         $this->eventDispatcher->dispatch($event);
 
-        $this->activityLogService->save($this->activityLogService->build(MyFeature::class, $id, 'complete'));
+        $activityLogStruct = $this->activityLogService->build(MyFeature::class, $id, 'complete');
+        $activityLogStruct->setObjectName("My Feature #$id");
+        $this->activityLogService->save($activityLogStruct);
 
         $this->activityLogService->dismissContext();
 

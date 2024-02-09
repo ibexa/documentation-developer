@@ -153,7 +153,7 @@ In the following example, several actions are logged into one context group, eve
     - `complete`
 
 ``` php
-[[= include_file('code_samples/recent_activity/src/Command/ActivityLogContextTestCommand.php', 56, 72) =]]
+[[= include_file('code_samples/recent_activity/src/Command/ActivityLogContextTestCommand.php', 56, 76) =]]
 ```
 
 Context groups can't be nested.
