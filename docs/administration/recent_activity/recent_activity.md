@@ -141,7 +141,8 @@ If the object you log an activity on can become unavailable (like after a `delet
 
 #### Context group
 
-If you log several entries at once, you can group them into a context. A context group counts as one item in regard to `activity_logs_limit` configuration and `ActivityLogService::find`'s `$limit` argument.
+If you log several entries at once, you can group them into a context.
+A context group counts as one item in regard to `activity_logs_limit` configuration and `ActivityLogService::findGroups`'s `$limit` argument.
 In the following example, several actions are logged into one context group, even actions triggered by cascade outside the piece of code:
 
 - `my_feature`
@@ -155,7 +156,9 @@ In the following example, several actions are logged into one context group, eve
 [[= include_file('code_samples/recent_activity/src/Command/ActivityLogContextTestCommand.php', 56, 72) =]]
 ```
 
-TODO: Groups can't be nested. If a new context group is prepared while a context is already grouping log entries, this new context group will be ignored. To start a new context group, make sure to dismiss the existing one.
+Context groups can't be nested.
+If a new context is prepared while a context is already grouping log entries, this new context will be ignored.
+To start a new context, make sure to previously dismiss the existing one.
 
 #### List
 
