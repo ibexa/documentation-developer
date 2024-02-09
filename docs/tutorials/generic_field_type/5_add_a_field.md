@@ -9,7 +9,7 @@ Go to the admin interface (`<yourdomain>/admin`) and log in with the default use
 
 ## Add new Content Type
 
-In the Back Office, in the left menu navigate to the **Content Types** page.
+In the Back Office, the main menu, go to the **Content Types** page.
 Under **Content** category, create a new Content Type:
 
 ![Creating new Content Type](create_new_content_type.png)

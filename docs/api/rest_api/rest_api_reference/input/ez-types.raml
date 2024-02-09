@@ -2435,6 +2435,36 @@ CartCreate:
             description: the currency code such as `EUR`
             type: string
             required: true
+        context:
+            description: array of scalars describing additional, contextual data attached to the cart
+            type: array
+            required: false
+
+CartEntryAdd:
+    description: 'This class represents a cart entry'
+    type: object
+    properties:
+        quantity:
+            description: the quantity of entry items
+            type: integer
+            required: true
+        Product:
+            description: product data
+            type: CartProduct
+            required: true
+        context:
+            description: array of scalars describing additional, contextual data attached to the cart entry
+            type: array
+            required: false
+
+CartProduct:
+    description: 'This class represents a cart entry product'
+    type: object
+    properties:
+        code:
+            description: product's code
+            type: string
+            required: true
 
 CartSummary:
     description: 'This class represents a cart summary.'
