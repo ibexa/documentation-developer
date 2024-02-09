@@ -171,9 +171,9 @@ ibexa:
 You can use your own content type representing backoffice user or use default one provided by Ibexa DXP:
 
 ```bash
-php bin/console ibexa:migrations:import vendor/ibexa/installer/src/bundle/Resources/install/migrations/2023_12_07_20_23_editor_content_type.yaml --name=2024_01_30_editor_content_type.yaml
-php bin/console ibexa:migrations:import vendor/ibexa/installer/src/bundle/Resources/install/migrations/2024_01_09_22_23_editor_permissions.yaml --name=2024_01_30_editor_permissions.yaml
-php bin/console ibexa:migrations:migrate --file=2024_01_30_editor_content_type.yaml --file=2024_01_30_editor_permissions.yaml
+php bin/console ibexa:migrations:import vendor/ibexa/installer/src/bundle/Resources/install/migrations/2023_12_07_20_23_editor_content_type.yaml --name=2023_12_07_20_23_editor_content_type.yaml
+php bin/console ibexa:migrations:import vendor/ibexa/installer/src/bundle/Resources/install/migrations/2024_01_09_22_23_editor_permissions.yaml --name=2024_01_09_22_23_editor_permissions.yaml
+php bin/console ibexa:migrations:migrate --file=2023_12_07_20_23_editor_content_type.yaml --file=2024_01_09_22_23_editor_permissions.yaml
 ```
 
 More information ...
