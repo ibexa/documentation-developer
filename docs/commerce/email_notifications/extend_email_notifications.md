@@ -70,7 +70,7 @@ final class TransactionalMailFactoryEventSubscriber implements EventSubscriberIn
 }
 ```
 
-## Customize Actito end-user profile schema
+## Customize Actito end-user profile
 
 The Actito platform offers many features for customer data collection, including segmentation, subscriptions and interaction tracking.
 This information can be later user for generating statistics, establishing trends, or used to calculate Personalization recommendations.
@@ -104,7 +104,7 @@ final class TransactionalMailFactoryEventSubscriber implements EventSubscriberIn
         $profile = $event->getProfile();
       	$user = $recipient->getUser();
 				
-      	// Provide additional data if your profile schema has more columns:
+      	// Provide additional data if your profile has more attributes:
         $attributes = $profile->getAttributes();
         $attributes[] = new Attribute('name', $user->getName());
         $profile->setAttributes($attributes);

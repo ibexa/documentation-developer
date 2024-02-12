@@ -23,6 +23,8 @@ If this extensive list of variables is not sufficient, you can [extend it to inc
 | |shippingAddressLocality|City|Los Angeles|
 | |shippingAddressStreet|Street|10250 Santa Monica Blvd|
 | |shippingAddressPostalCode|Postal code|90067|
+| |shippingAddressFirstName|Addressee's first name|John|
+| |shippingAddressLastName|Addressee's last name|Doe|
 | |shippingAddressEmail|E-mail address|user@example.com|
 | |shippingAddressPhoneNumber|Phone number|123456789|
 | |billingAddressCountry|Country code|US|
@@ -31,6 +33,8 @@ If this extensive list of variables is not sufficient, you can [extend it to inc
 | |billingAddressLocality|City|Los Angeles|
 | |billingAddressStreet|Street|10250 Santa Monica Blvd|
 | |billingAddressPostalCode|Postal code|90067|
+| |billingAddressFirstName|Payer's first name|John|
+| |billingAddressLastName|Payer's last name|Doe|
 | |billingAddressEmail|E-mail address|user@example.com|
 | |billingAddressPhoneNumber|Phone number|123456789|
 |Payment|paymentMethodIdentifier|Technical identifier of payment method| | |

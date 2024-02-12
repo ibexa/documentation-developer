@@ -1,5 +1,5 @@
 ---
-description: With transactional emails you can notify end users about changes in the status of orders, payments, shipments, and so on.
+description: With transactional emails you can notify end users about changes in the status of user registration, password recovery, orders, payments, shipments, and so on.
 edition: commerce
 ---
 
@@ -24,15 +24,27 @@ You can [change the events](extend_email_notifications.md#configure-workflows) t
 
 ## Configure transactional emails
 
+### Install package
+
+Transactional email support comes as an additional package that needs to be downloaded separately:
+
+```bash
+composer require ibexa/connector-actito
+```
+
+Flex installs and activates the package.
+
 ### Configure Actito integration
 
 Before you can start configuring the notifier engine to process and dispatch notifications to be forwarded as transactional emails, you must first obtain and configure an [Actito license](lihttps://www.actito.com/en-BE/pricing/nk).
 
 Once you gain access to the Actito dashboard:
 
-1. Configure the API to make calls with the GET method.
-2. Get the [API key](https://cdn3.actito.com/fe/actito-documentation/docs/Managing_API_users) and entity name.
-3. Set these values in the YAML configuration files, under the `ibexa.system.default.connector_actito` key:
+1\. Configure the API to make calls with the GET method.
+
+2\. Get the [API key](https://cdn3.actito.com/fe/actito-documentation/docs/Managing_API_users) and entity name.
+
+3\. Set these values in the YAML configuration files, under the `ibexa.system.default.connector_actito` key:
 
 ``` yaml
 ibexa:
@@ -43,11 +55,8 @@ ibexa:
                 entity: <entity_name>
 ```
 
-4\. Set the notification channel.
 
-5\. Set Actito gateway details.
-
-6\. Define columns in Actito database for storing notification attributes.
+4\. Define profile table in Actito database for storing notification attributes.
 
 !!! note
 
@@ -85,4 +94,10 @@ After you create and configure campaigns in Actito user interface, one for each 
 
                     Ibexa\Contracts\Shipping\Notification\ShipmentWorkflowStateChange:
                         campaign: <actito_campaign_name_3>
+
+                    Ibexa\Contracts\User\Notification\UserPasswordReset:
+                        campaign: <actito_campaign_name_4>
+
+                    Ibexa\Contracts\User\Notification\UserRegister:
+                        campaign: <actito_campaign_name_5>
 ```
