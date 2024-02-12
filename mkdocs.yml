@@ -355,7 +355,7 @@ nav:
         - Transactional emails:
             - Transactional emails: commerce/email_notifications/email_notifications.md
             - Transactional email variables reference: commerce/email_notifications/email_notification_parameters.md
-            - Customize emails: commerce/email_notifications/extend_email_notifications.md
+            - Customize transactional emails: commerce/email_notifications/extend_email_notifications.md
     - Customer management:
         - Customer Portal guide: customer_management/customer_portal.md
         - Customer Portal configuration: customer_management/cp_configuration.md

@@ -69,7 +69,7 @@ ibexa:
 
 Create campaigns of transactional email type, one for each notification type that you want to deliver.
 When you build a campaign template, make sure that you use the variables supported by [[= product_name =]].
-For a complete list of parameters, see [Transactional email variables reference](email_notification_parameters.md)
+For a complete list of parameters, see [Transactional email variables reference](email_notification_parameters.md).
 
 !!! Tip
 

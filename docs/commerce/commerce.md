@@ -14,7 +14,8 @@ The commerce component of [[= product_name =]] covers various areas of managing 
 "commerce/order_management/order_management",
 "commerce/payment/payment",
 "commerce/shipping_management/shipping_management",
-"commerce/storefront/storefront"
+"commerce/storefront/storefront",
+"commerce/email_notifications/email_notifications"
 ], columns=4) =]]
 
 ## Configure
@@ -33,7 +34,8 @@ The commerce component of [[= product_name =]] covers various areas of managing 
 "commerce/checkout/customize_checkout",
 "commerce/payment/extend_payment",
 "commerce/shipping_management/extend_shipping",
-"commerce/storefront/extend_storefront"
+"commerce/storefront/extend_storefront",
+"commerce/email_notifications/extend_email_notifications"
 ], columns=4) =]]
 
 ## Explore Commerce API
