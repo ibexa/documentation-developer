@@ -117,7 +117,7 @@ Users can now easily find and manage their drafts and published content from one
 
 #### User profile and new options in user settings
 
-With personal touch in mind, editors can now upload their photos, and provide the following information in their user profiles:
+With personal touch in mind, editors can now upload their photos (avatar), and provide the following information in their user profiles:
 
 - Email
 - Department
