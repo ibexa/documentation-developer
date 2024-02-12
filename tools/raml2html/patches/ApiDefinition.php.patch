@@ -1,0 +1,17 @@
+Index: tools/raml2html/vendor/raml-org/raml-php-parser/src/ApiDefinition.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/ApiDefinition.php b/src/ApiDefinition.php
+--- a/src/ApiDefinition.php
++++ b/src/ApiDefinition.php	(date 1707386266597)
+@@ -810,7 +810,7 @@
+
+     private function setProtocolsFromBaseUri(): void
+     {
+-        $schema = \mb_strtoupper(\parse_url($this->baseUri, PHP_URL_SCHEME));
++        $schema = \mb_strtoupper(\parse_url($this->baseUri, PHP_URL_SCHEME) ?? '');
+
+         $this->protocols = empty($schema) ? [self::PROTOCOL_HTTPS, self::PROTOCOL_HTTP] : [$schema];
+     }
