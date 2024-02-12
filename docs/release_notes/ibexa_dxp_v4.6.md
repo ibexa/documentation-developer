@@ -70,6 +70,7 @@ For more information, see [Edit embedded Content items](https://doc.ibexa.co/pro
 #### Focus mode
 
 With multiple changes to the Back Office UI intended to expose the most important information and actions, editors can now better focus on their work.
+The UI is now more friendly and appealing for marketers and editors, with simplified Content structure, designed with new and non-advanced users in mind.
 For more information, see [Focus mode](https://doc.ibexa.co/projects/userguide/en/latest/getting_started/discover_ui/#focus-mode).
 
 ![Focus mode](img/4.6_focus_mode.png "Focus mode")
@@ -84,7 +85,7 @@ As part of this effort, some other changes were introduced that apply to both re
 
 ![Sub-items tab](img/4.6_sub_items_tab.png "Sub-items tab")
 
-#### Site context selector
+#### Ability to change site context
 
 With a drop-down list added to the top bar, which changes the site context, editors can choose that the Content Tree shows only those Content items that belong to the selected website.
 And if Content items belong to multiple websites but use different designs or languages depending on the SiteAccess settings, their previews also change.
@@ -129,7 +130,7 @@ With personal touch in mind, editors can now upload their photos (avatar), and p
 
 ![User profile](img/user_profile_preview.png)
 
-Also, editors and other users can customize their experience even better, with new configuration options that have been added to user settings.
+Also, editors and other users can customize their experience even better, with new preferences that have been added to user settings.
 
 For more information, see [user profile and settings documentation]().
 
@@ -224,7 +225,7 @@ Customized URLs are easier to remember, help with SEO optimization and reduce bo
 
 For more information, see [Product page URLs](https://doc.ibexa.co/projects/userguide/en/master/pim/work_with_product_page_urls/).
 
-#### VAT assignment moved to a new place
+#### Improved UX of VAT rate assignment
 
 Users who are creating or editing a product type are less likely to forget about setting VAT rates, because they now have a more prominent place.
 
@@ -239,16 +240,16 @@ Developers can use them, for example, to pass additional information to the UI, 
 
 For more information, see [VAT rates](https://doc.ibexa.co/en/master/pim/pim_configuration/#vat-rates).
 
-##### New Twig functions
+#### New Twig functions
 
 The `ibexa_is_pim_local` Twig helper has been introduced, which can be used in templates to [check whether product data comes from a local or remote data source](storefront_twig_functions.md#ibexa_is_pim_local), and adjust their behavior accordingly.
 Also, several new Twig functions have been implemented that help [get product availability information](product_twig_functions.md#ibexa_has_product_availability).
 
-##### New and modified query types
+#### New and modified query types
 
 The `ProductContentAwareListQueryType` has been created to allow finding products that come from a local database, while `ProductListQueryType` has been modified to find products from an external source of truth.
 
-##### New Search Criterion
+#### New Search Criterion
 
 With `IsVirtual` criterion that searches for virtual or physical products, product search now supports products of virtual and physical type.
 
@@ -270,16 +271,16 @@ For more information, see [reorder documentation](https://doc.ibexa.co/en/master
 #### Orders block
 
 Orders block displays a list of orders associated with a specific company or an individual customer.
-This block allows customization of the number of orders shown, sorting order, and placement on the page.
+This block allows users to configure orders statuses, columns, number of orders and sorting order.
 
 For more information, see [Orders block documentation](https://doc.ibexa.co/projects/userguide/en/master/content_management/block_reference/#orders-block).
 
 #### Quick order
 
-The quick order form allows users to streamlines the process of placing orders
+The quick order form allows users to streamline the process of placing orders
 with multiple items in bulk directly from the storefront.
-Customers don't need to look for products,
-they can fill in a provided form with products' SKU number and quantity,
+Customers don't need to browse through products in the catalog.
+They can fill in a provided form with products' code and quantity,
 or upload their own list directly into the system.
 Quick order form is available to both registered and guest users.
 
@@ -327,7 +328,7 @@ Attach context data to both the Cart and its individual Cart Entries.
 This feature enhances the flexibility and customization of your e-commerce application,
 enabling you to associate additional information with your cart and its contents.
 By leveraging context data, such as promo codes or custom texts,
-you can tailor the e-commerce experience for your customers and enhance the capabilities of your application.
+you can tailor the shopping experience for your customers and enhance the capabilities of your application.
 
 For more information, see [Adding context data](https://doc.ibexa.co/en/master/commerce/cart/cart_api/#adding-context-data).
 
@@ -368,11 +369,11 @@ For more information, see [Commerce-specific filters](https://doc.ibexa.co/proje
 
 ### Expression Language
 
-New `ibexa.migrations.template.project_dir()` expression language function that allows you to reference current project directory.
+New `project_dir()` expression language function that allows you to reference current project directory in YAML migration files.
 
 ### Site Factory events
 
-Site Factory events have been moved from the `lib` directory to `contracts`.
+Site Factory events have been moved from the `Ibexa\SiteFactory\ServiceEvent\Events` namespace to the `Ibexa\Contracts\SiteFactory\Events` namespace, keeping the backward compatibility.
 For a full list of events, see [Site events](https://doc.ibexa.co/en/latest/api/event_reference/site_events/).
 
 Event handling system was improved with the addition of listeners based on `CreateSiteEvent`, `DeleteSiteEvent`, and `UpdateSiteEvent`.
@@ -399,7 +400,7 @@ For more information, see [SeenThis! block](https://doc.ibexa.co/projects/usergu
 
 ##### REST API for shipping [[% include 'snippets/commerce_badge.md' %]]
 
-Endpoints that allow you to manage orders by using REST API:
+Endpoints that allow you to manage shipping methods and shipments by using REST API:
 
 - GET `/shipments` -  loads a list of shipments
 - GET `/shipments/{identifier}` - loads a single shipment based on its identifier

@@ -140,6 +140,8 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
 === "Ibexa DXP v4.6"
 
+    - 8.3
+    - 8.2
     - 8.1
     - 8.0 (PHP 8.0 has reached its End of Life. Unless you have extended support from vendors like Debian or Zend, you should use PHP 8.1)
     - 7.4 (PHP 7.4 has reached its End of Life. Unless you have extended support from vendors like Debian or Zend, you should use PHP 8.1)
@@ -378,7 +380,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
 === "Ibexa DXP v4.6"
 
-    - Composer: recent 2.1 version
+    - Composer: recent 2.7 version
 
 === "Ibexa DXP v4.5"
 
