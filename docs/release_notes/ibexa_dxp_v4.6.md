@@ -124,6 +124,10 @@ With personal touch in mind, editors can now upload their photos (avatar), and p
 - Position
 - Location
 - Signature
+- Roles the user is assigned to
+- Recent activity
+
+![User profile](img/user_profile_preview.png)
 
 Also, editors and other users can customize their experience even better, with new configuration options that have been added to user settings.
 
