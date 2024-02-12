@@ -19,6 +19,10 @@ By default, notifications are sent in relation to the following events, to an em
     - payment has been cancelled
 - Shipment:
     - order is shipped
+- User registration:
+    - user has been registered
+- Password reset:
+    - password reset request has been submitted
 
 You can [change the events](extend_email_notifications.md#configure-workflows) that trigger sending a transactional email.
 
@@ -85,19 +89,19 @@ To send emails in different languages, for example, because your application ser
 After you create and configure campaigns in Actito user interface, one for each type of notifications coming from [[= product_name =]], in YAML configuration files, under the `ibexa.system.default.connector_actito.campaign_mapping` key, you define mappings between notifications and email campaigns, for example:
 
 ``` yaml
-                campaign_mapping:
-                    Ibexa\Contracts\Payment\Notification\PaymentWorkflowStateChange:
-                        campaign: <actito_campaign_name_1>
+campaign_mapping:
+    Ibexa\Contracts\Payment\Notification\PaymentWorkflowStateChange:
+        campaign: <actito_campaign_name_1>
 
-                    Ibexa\Contracts\OrderManagement\Notification\OrderWorkflowStateChange:
-                        campaign: <actito_campaign_name_2>
+    Ibexa\Contracts\OrderManagement\Notification\OrderWorkflowStateChange:
+        campaign: <actito_campaign_name_2>
 
-                    Ibexa\Contracts\Shipping\Notification\ShipmentWorkflowStateChange:
-                        campaign: <actito_campaign_name_3>
+    Ibexa\Contracts\Shipping\Notification\ShipmentWorkflowStateChange:
+        campaign: <actito_campaign_name_3>
 
-                    Ibexa\Contracts\User\Notification\UserPasswordReset:
-                        campaign: <actito_campaign_name_4>
+    Ibexa\Contracts\User\Notification\UserPasswordReset:
+        campaign: <actito_campaign_name_4>
 
-                    Ibexa\Contracts\User\Notification\UserRegister:
-                        campaign: <actito_campaign_name_5>
+    Ibexa\Contracts\User\Notification\UserRegister:
+        campaign: <actito_campaign_name_5>
 ```
