@@ -3783,6 +3783,26 @@ Shipment:
         Method:
             type: ShippingMethod
 
+ShipmentRefList:
+    description: 'This class represents a list of Shipments'
+    type: object
+    properties:
+        shipmentRefList:
+            type: Shipment[]
+
+ShipmentCreate:
+    description: 'This class represents the creation of a shipment.'
+    type: object
+    properties:
+        identifier:
+            type: string
+        ShippingMethod:
+            type: ShippingMethod
+        Owner:
+            type: User
+        Context:
+            type: object
+
 ShipmentUpdate:
     description: 'This class represents the update of a shipment.'
     type: object
