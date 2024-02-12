@@ -1,0 +1,21 @@
+{
+  "ShipmentCreate": {
+    "identifier": "abc",
+    "ShippingMethod": {
+      "_media-type": "application/vnd.ibexa.api.ShippingMethod+json",
+      "_href": "/api/ibexa/v2/shipping/methods/inpost_parcel_locker"
+    },
+    "Amount": {
+      "value": "1922",
+      "currency": "EUR"
+    },
+    "Owner": {
+      "_media-type": "application/vnd.ibexa.api.User+json",
+      "_href": "/api/ibexa/v2/user/users/14"
+    },
+    "Context": {
+      "key1": "value1",
+      "key2": "value2"
+    }
+  }
+}
