@@ -74,28 +74,47 @@ of the site, provide the credentials that correspond to each of the sites.
 The configuration can resemble the following example:
 
 ``` yaml
-ibexa_personalization:
+ibexa:
     system:
-        <site_access_name_1>:
-            site_name: '<site_name_1>' # For example 'ENU store'
-            host_uri: '%env(RECOMMENDATION_HOST_URI)%'
-            authentication:
-                customer_id: '%env(RECOMMENDATION_CUSTOMER_ID)%'
-                license_key: '%env(RECOMMENDATION_LICENSE_KEY)%'
-            included_item_types: [product, article]
-
-        <site_access_name_2>:
-            site_name: '<site_name_2>' # For example 'FRA store'
-            host_uri: '%env(FRA_HOST_URI)%'
-            authentication:
-                customer_id: '%env(FRA_CUSTOMER_ID)%'
-                license_key: '%env(FRA_LICENSE_KEY)%'
-            export:
-                authentication:
-                    method: 'user'
-                    login: '%env(FRA_CUSTOM_EXPORT_LOGIN)%'
-                    password: '%env(FRA_CUSTOM_EXPORT_PASSWORD)%'
-                included_item_types: [product, article]
+        default:
+            personalization:
+                <site_access_name_1>:
+                    site_name: '<site_name_1>' # For example 'ENU store'
+                    host_uri: '%env(RECOMMENDATION_HOST_URI)%'
+                    authentication:
+                        customer_id: '%env(RECOMMENDATION_CUSTOMER_ID)%'
+                        license_key: '%env(RECOMMENDATION_LICENSE_KEY)%'
+                    included_item_types: [product, article]
+                    output_type_attributes:
+                        123: # content type ID
+                            title: 'title'
+                            image: 'image_legend'
+                            description: 'sub_title'
+                        456: 
+                            title: 'title'
+                            image: 'image_legend'
+                            description: 'sub_title'   
+                <site_access_name_2>:
+                    site_name: '<site_name_2>' # For example 'FRA store'
+                    host_uri: '%env(FRA_HOST_URI)%'
+                    authentication:
+                        customer_id: '%env(FRA_CUSTOMER_ID)%'
+                        license_key: '%env(FRA_LICENSE_KEY)%'
+                    export:
+                        authentication:
+                            method: 'user'
+                            login: '%env(FRA_CUSTOM_EXPORT_LOGIN)%'
+                            password: '%env(FRA_CUSTOM_EXPORT_PASSWORD)%'
+                        included_item_types: [product, article]
+                        output_type_attributes:
+                            123: # content type ID
+                                title: 'title'
+                                image: 'image_legend'
+                                description: 'sub_title'
+                            456: 
+                                title: 'title'
+                                image: 'image_legend'
+                                description: 'sub_title'
 ```
 
 !!! note "Authentication"
@@ -138,7 +157,7 @@ Place the following code snippet in the `<head>` section of your header template
 
 ``` html+twig
 {% if content is defined %}
-    {{ ibexa_recommendation_track_user(content.id) }}
+    {{ ibexa_recommendation_track_user(content) }}
 {% endif %}
 ```
 
