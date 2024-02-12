@@ -23,20 +23,20 @@ description: Ibexa DXP v4.6 brings improvements to Commerce, PIM and Personaliza
 
 The feature set and capabilities of the product remain the same.
 
-### UX and UI improvements
+### Customizable dashboard [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-Several improvements to the Back Office interface enhance the user experience.
-
-#### Customizable dashboard
-
-Users can now customize the dashboard depending on their needs.
+Users can now customize the dashboard depending on their needs and preferences, select required blocks, and easily access important information.
 This solution uses an online editor - Dashboard Builder.
 It improves productivity, allows to enhance the default dashboard with additional widgets,
 and helps to make better business decisions based on data.
 
 ![Customizable dashboard](img/4.6_customizable_dashboard.png)
 
-For more information, see [Customizable dashboard](https://doc.ibexa.co/projects/userguide/en/master/getting_started/discover_ui/#customizable-dashboard).
+For more information, see [Customizable dashboard](https://doc.ibexa.co/projects/userguide/en/master/getting_started/dashboard/dashboard/#customizable-dashboard).
+
+### UX and UI improvements
+
+Several improvements to the Back Office interface enhance the user experience.
 
 #### Page Builder improvements
 
@@ -208,8 +208,7 @@ For more information about Remote PIM support and the solution's limitations, se
 #### Virtual products
 
 With this feature, you can create virtual products - non-tangible items such as memberships, services, warranties.
-To create a virtual product, first, you have to create a virtual product type.
-Virtual products don’t require shipment when they're purchased without other physical products.
+Default Checkout and Order workflows have been adjusted to allow purchase of virtual products.
 
 For more information, see [Create virtual products](https://doc.ibexa.co/projects/userguide/en/master/pim/create_virtual_product/).
 
@@ -288,10 +287,12 @@ This version allows you to customize order cancellations by defining a specific 
 
 For more information, see [Define cancel order](https://doc.ibexa.co/en/master/commerce/order_management/configure_order_management/#define-cancel-order).
 
-#### Shipping management
+#### Shipments
 
-Shipping management allows you to work with the shipments: view and modify their status, filter shipments in shipment lists and check all the details.
+Users can now work with the shipments: view and modify their status, filter shipments in shipment lists and check all the details.
 You can access shipments for your own orders or all the shipments that exist in the system, depending on your permissions.
+
+![Shipments](img/4.6_shipments.png)
 
 For more information, see [Work with shipments](https://doc.ibexa.co/projects/userguide/en/master/commerce/shipping_management/work_with_shipments/).
 
