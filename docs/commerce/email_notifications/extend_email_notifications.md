@@ -91,7 +91,7 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
   
 final class TransactionalMailFactoryEventSubscriber implements EventSubscriberInterface
 {
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents(): array
     {
         return [
             ProfileFactoryEvent::class => 'onProfileFactoryEvent',
@@ -145,7 +145,7 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 final class ResolveCampaginEventSubscriber implements EventSubscriberInterface
 {
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents(): array
     {
         return [
             ResolveCampaignEvent::class => 'onCampaignResolve',

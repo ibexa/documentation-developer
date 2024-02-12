@@ -1,5 +1,5 @@
 ---
-description: Extend Payment with custom payment method types.
+description: You use transactional email variables when building an Actito campaign template.
 edition: commerce
 ---
 
