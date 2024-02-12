@@ -142,7 +142,7 @@ ContentCreateStruct:
             required: true
             type: string
         modificationDate:
-            descritpion: 'Modification date. If not given the current integer is used.'
+            description: 'Modification date. If not given, the current integer is used.'
             type: datetime
 ContentImageVariation:
     description: 'This class represents an image.'
@@ -280,7 +280,7 @@ ContentType:
             description: 'Modification date of the Content Type.'
             type: datetime
         Creator:
-            descritpion: 'Creator User of the Content Type.'
+            description: 'Creator User of the Content Type.'
             type: BaseObject
         Modifier:
             description: 'Modifier User of the Content Type.'
@@ -1408,7 +1408,7 @@ RelationList:
 Role:
     description: 'This class represents a role.'
     type: BaseObject
-    peoperties:
+    properties:
         identifier:
             description: 'Readable string identifier of a role.'
             type: string
@@ -1689,7 +1689,7 @@ URL:
             description: 'The unique ID of the URL.'
             type: integer
         url:
-            description: 'URL itself e.g. "http://ez.no".'
+            description: 'URL itself e.g. "https://ibexa.co".'
             type: string
         isValid:
             description: 'Is URL valid?'
@@ -1775,7 +1775,7 @@ URLUpdateStruct:
     type: object
     properties:
         url:
-            description: 'URL itself e.g. "http://ez.no".'
+            description: 'URL itself e.g. "https://ibexa.co".'
             type: string
         isValid:
             description: 'Is URL valid?'
@@ -3749,9 +3749,132 @@ PaymentMethodViewInput:
             type: object
             required: true
 
+Shipment:
+    description: 'This class represents a single shipment.'
+    type: object
+    properties:
+        id:
+            type: integer
+        identifier:
+            type: string
+        status:
+            type: string
+        transitions:
+            type: object
+            properties:
+                transitionList:
+                    description: 'Next steps available in the shipment workflow for the current status'
+                    type: string[]
+        Order:
+            type: Order
+        Amount:
+            type: object
+            properties:
+                value:
+                    type: integer
+                currency:
+                    type: string
+        createdAt:
+            type: datetime
+        updatedAt:
+            type: datetime
+        Owner:
+            type: User
+        Method:
+            type: ShippingMethod
+
+ShipmentUpdate:
+    description: 'This class represents the update of a shipment.'
+    type: object
+    properties:
+        identifier:
+            type: string
+        transition:
+            type: string
+        Owner:
+            type: User
+        Context:
+            type: object
+
+ShippingMethod:
+    description: 'This class represents a shipping method.'
+    type: object
+    properties:
+        identifier:
+            type: string
+        name:
+            type: string
+        names:
+            type: object
+            properties:
+                value:
+                    type: MultilingualValue[]
+        description:
+            type: string
+        descriptions:
+            type: object
+            properties:
+                value:
+                    type: MultilingualValue[]
+        enabled:
+            type: boolean
+        options:
+            type: object
+            properties:
+                value:
+                    type: KeyValue[]
+        regions:
+            type: Region[]
+        type:
+            type: ShippingMethodType[]
+
+MultilingualValue:
+    description: 'Object that represents a multilingual (translated) value.'
+    type: object
+    properties:
+        _languageCode:
+            description: 'Language code.'
+            type: string
+        '#text':
+            description: 'Translation contents.'
+            type: string
+
+KeyValue:
+    description: 'Key-value structure'
+    type: object
+    properties:
+        _key:
+            type: string
+        '#text':
+            type: string
+
+ShippingMethodRefList:
+    description: 'This class represents a list of shipping methods'
+    type: object
+    properties:
+        ShippingMethodRefs:
+            type: ShippingMethod[]
+
+ShippingMethodType:
+    description: 'This class represents a shipping method type.'
+    type: object
+    properties:
+        identifier:
+            type: string
+        name:
+            type: string
+
+ShippingMethodTypesList:
+    description: 'This class represents a list of shipping method types.'
+    type: object
+    properties:
+        ShippingMethodTypes:
+            type: ShippingMethodType[]
+
 SalesRepresentativesList:
     description: 'This class represents a list of sales representatives.'
     type: object
     properties:
         Users:
             type: User[]
+
