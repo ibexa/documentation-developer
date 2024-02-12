@@ -6,6 +6,9 @@ site_url: https://doc.ibexa.co/en/latest/
 copyright: "Copyright 1999-2023 Ibexa AS and others"
 nav:
     - Ibexa Developer Documentation: index.md
+    - Ibexa DXP editions:
+        - Editions: ibexa_products/editions.md
+        - Ibexa Headless: ibexa_products/headless.md
     - Getting started:
         - Getting started: getting_started/getting_started.md
         - Requirements: getting_started/requirements.md
@@ -79,6 +82,7 @@ nav:
             - Taxonomy events: api/event_reference/taxonomy_events.md
             - Role events: api/event_reference/role_events.md
             - User events: api/event_reference/user_events.md
+            - Segmentation events: api/event_reference/segmentation_events.md
             - Page events: api/event_reference/page_events.md
             - Site events: api/event_reference/site_events.md
             - URL events: api/event_reference/url_events.md
@@ -162,6 +166,7 @@ nav:
             - Binary and Media download: content_management/file_management/binary_and_media_download.md
             - File URL handling: content_management/file_management/file_url_handling.md
         - Pages:
+            - Page Builder guide: content_management/pages/page_builder_guide.md
             - Pages: content_management/pages/pages.md
             - Page blocks: content_management/pages/page_blocks.md
             - Page block attributes: content_management/pages/page_block_attributes.md
@@ -272,12 +277,13 @@ nav:
             - Catalog Twig functions: templating/twig_function_reference/catalog_twig_functions.md
             - Checkout Twig functions: templating/twig_function_reference/checkout_twig_functions.md
             - Content Twig functions: templating/twig_function_reference/content_twig_functions.md
+            - Date Twig filters: templating/twig_function_reference/date_twig_filters.md
             - Field Twig functions: templating/twig_function_reference/field_twig_functions.md
+            - Image Twig functions: templating/twig_function_reference/image_twig_functions.md
             - Product Twig functions: templating/twig_function_reference/product_twig_functions.md
             - Storefront Twig functions: templating/twig_function_reference/storefront_twig_functions.md
-            - Image Twig functions: templating/twig_function_reference/image_twig_functions.md
             - URL Twig functions: templating/twig_function_reference/url_twig_functions.md
-            - Date Twig filters: templating/twig_function_reference/date_twig_filters.md
+            - User Twig functions: templating/twig_function_reference/user_twig_functions.md
             - Other Twig filters: templating/twig_function_reference/other_twig_filters.md
         - URLs and routes:
             - URLs and routes: templating/urls_and_routes/urls_and_routes.md
@@ -338,7 +344,7 @@ nav:
             - Extend Payment: commerce/payment/extend_payment.md 
             - Payment method API: commerce/payment/payment_method_api.md 
             - Payment method filtering: commerce/payment/payment_method_filtering.md
-            - Payment API: commerce/payment/payment_api.md 
+            - Payment API: commerce/payment/payment_api.md
         - Shipping management:
             - Shipping management: commerce/shipping_management/shipping_management.md
             - Configure shipping: commerce/shipping_management/configure_shipment.md
@@ -382,12 +388,19 @@ nav:
         - Custom Policies: permissions/custom_policies.md
     - Users:
         - Users: users/users.md
-        - User management: users/user_management.md
-        - Customer groups: users/customer_groups.md
-        - Invitations: users/invitations.md
-        - OAuth authentication: users/oauth_authentication.md
-        - Add login through external service: users/add_login_through_external_service.md
-        - Segment API: users/segment_api.md
+        - User management guide: users/user_management_guide.md
+        - User setup:
+          - Invitations: users/invitations.md
+          - Registration: users/user_registration.md
+        - User authentication:
+          - Login methods: users/login_methods.md
+          - Passwords: users/passwords.md
+          - User authentication: users/user_authentication.md
+          - OAuth authentication: users/oauth_authentication.md
+          - Add login through external service: users/add_login_through_external_service.md
+        - User grouping:
+          - Customer groups: users/customer_groups.md
+          - Segment API: users/segment_api.md
     - Personalization:
         - Personalization: personalization/personalization.md
         - Personalization guide : personalization/personalization_brochure.md
@@ -408,7 +421,13 @@ nav:
     - CDP (Customer Data Platform):
         - Customer Data Platform: cdp/cdp.md
         - CDP installation: cdp/cdp_installation.md
-        - CDP activation: cdp/cdp_activation.md
+        - CDP activation:
+            - CDP activation: cdp/cdp_activation/cdp_activation.md
+            - CDP configuration: cdp/cdp_activation/cdp_configuration.md
+            - CDP data export: cdp/cdp_activation/cdp_data_export.md
+            - CDP add client-side tracking: cdp/cdp_activation/cdp_add_clientside_tracking.md
+        - CDP data export schedule: cdp/cdp_data_export_schedule.md
+        - CDP data customization: cdp/cdp_data_customization.md
     - Search:
         - Search: search/search.md
         - Search engines: 
@@ -534,7 +553,7 @@ nav:
             - Name: search/criteria_reference/payment_method_name_criterion.md
             - Type: search/criteria_reference/payment_method_type_criterion.md
             - UpdatedAt: search/criteria_reference/payment_method_updatedat_criterion.md
-        - Price Search Criteria: 
+        - Price Search Criteria:
             - Price Search Criteria: search/criteria_reference/price_search_criteria.md
             - Currency: search/criteria_reference/price_currency_criterion.md
             - CustomerGroup: search/criteria_reference/price_customergroup_criterion.md
@@ -634,6 +653,7 @@ nav:
                 - Url Sort Clause: search/url_search_reference/url_url_sort_clause.md
         - Search API: search/search_api.md
         - Aggregation reference:
+              # Content aggregations
             - Aggregation reference: search/aggregation_reference/aggregation_reference.md
             - ContentTypeTermAggregation: search/aggregation_reference/contenttypeterm_aggregation.md
             - ContentTypeGroupTermAggregation: search/aggregation_reference/contenttypegroupterm_aggregation.md
@@ -646,8 +666,10 @@ nav:
             - RawTermAggregation: search/aggregation_reference/rawterm_aggregation.md
             - SectionTermAggregation: search/aggregation_reference/sectionterm_aggregation.md
             - SubtreeTermAggregation: search/aggregation_reference/subtreeterm_aggregation.md
+            - TaxonomyEntryIdAggregation: search/aggregation_reference/taxonomyentryid_aggregation.md
             - UserMetadataTermAggregation: search/aggregation_reference/usermetadataterm_aggregation.md
             - VisibilityTermAggregation: search/aggregation_reference/visibilityterm_aggregation.md
+              # Field aggregations
             - AuthorTermAggregation: search/aggregation_reference/authorterm_aggregation.md
             - CheckboxTermAggregation: search/aggregation_reference/checkboxterm_aggregation.md
             - CountryTermAggregation: search/aggregation_reference/countryterm_aggregation.md
@@ -658,15 +680,18 @@ nav:
             - IntegerRangeAggregation: search/aggregation_reference/integerrange_aggregation.md
             - IntegerStatsAggregation: search/aggregation_reference/integerstats_aggregation.md
             - KeywordTermAggregation: search/aggregation_reference/keywordterm_aggregation.md
+            - SelectionTermAggregation: search/aggregation_reference/selectionterm_aggregation.md
+            - TimeRangeAggregation: search/aggregation_reference/timerange_aggregation.md
+            # Product aggregations
             - Product attribute aggregations: search/aggregation_reference/product_attribute_aggregations.md
+            - BasePriceStatsAggregation: search/aggregation_reference/basepricestats_aggregation.md
+            - CustomPriceStatsAggregation: search/aggregation_reference/custompricestats_aggregation.md
             - ProductAvailabilityTermAggregation: search/aggregation_reference/productavailabilityterm_aggregation.md
             - ProductStockRangeAggregation: search/aggregation_reference/productstockrange_aggregation.md
             - ProductStockRangeAggregation: search/aggregation_reference/productstockrange_aggregation.md
             - ProductPriceRangeAggregation: search/aggregation_reference/productpricerange_aggregation.md
             - ProductTypeTermAggregation: search/aggregation_reference/producttypeterm_aggregation.md
-            - SelectionTermAggregation: search/aggregation_reference/selectionterm_aggregation.md
             - TaxonomyEntryIdAggregation: search/aggregation_reference/taxonomyentryid_aggregation.md
-            - TimeRangeAggregation: search/aggregation_reference/timerange_aggregation.md
         - Search in trash reference: search/search_in_trash_reference.md
         - Extend search:
             - Create custom Search Criterion: search/extensibility/create_custom_search_criterion.md
@@ -689,7 +714,7 @@ nav:
               - Reverse proxy: infrastructure_and_maintenance/cache/http_cache/reverse_proxy.md
               - Context-aware HTTP cache: infrastructure_and_maintenance/cache/http_cache/context_aware_cache.md
               - Content-aware HTTP cache: infrastructure_and_maintenance/cache/http_cache/content_aware_cache.md
-              - Configure and customize Fastly: infrastructure_and_maintenance/cache/http_cache/fastly.md 
+              - Configure and customize Fastly: infrastructure_and_maintenance/cache/http_cache/fastly.md
             - Persistence cache: infrastructure_and_maintenance/cache/persistence_cache.md
         - Clustering:
             - Clustering: infrastructure_and_maintenance/clustering/clustering.md
@@ -813,24 +838,32 @@ extra:
       url: '/projects/userguide'
     - title: 'Connect Documentation'
       url: '/projects/connect'
-  # Global variables
+
+    # Global variables
   site_display_name: 'Ibexa Documentation'
+  product_name_base: 'Ibexa'
   product_name: 'Ibexa DXP'
-  product_name_content: 'Ibexa Headless'
+  product_name_content: 'Ibexa Content'
+  product_name_headless: 'Ibexa Headless'
   product_name_exp: 'Ibexa Experience'
   product_name_com: 'Ibexa Commerce'
+  product_name_cdp: 'Ibexa CDP'
+  product_name_connect: 'Ibexa Connect'
+  product_name_cloud: 'Ibexa Cloud'
+  product_name_oss: 'Ibexa OSS'
   # Global variables - latest tag versions
-  latest_tag_2_5: '2.5.31'
-  latest_tag_3_3: '3.3.35'
+  latest_tag_2_5: '2.5.32'
+  latest_tag_3_3: '3.3.36'
   latest_tag_4_0: '4.0.8'
   latest_tag_4_1: '4.1.5'
   latest_tag_4_2: '4.2.4'
   latest_tag_4_3: '4.3.5'
   latest_tag_4_4: '4.4.4'
-  latest_tag_4_5: '4.5.3'
+  latest_tag_4_5: '4.5.5'
 
   symfony_doc: 'https://symfony.com/doc/5.4'
   user_doc: 'https://doc.ibexa.co/projects/userguide/en/master'
+  connect_doc: 'https://doc.ibexa.co/projects/connect/en/latest'
 
 extra_css:
   - fonts/MavenPro.css

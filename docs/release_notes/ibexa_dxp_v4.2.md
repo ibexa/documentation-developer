@@ -2,6 +2,8 @@
 description: Ibexa DXP v4.2 adds the Customer Portal and user management capabilities, and enriches PIM with catalogs, product variants and product assets.
 ---
 
+<!-- vale VariablesVersion = NO -->
+
 # Ibexa DXP v4.2
 
 **Version number**: v4.2
@@ -203,7 +205,7 @@ You can now hide and reveal Content items in data migrations by using the [`hide
 
 ### Fastly shielding
 
-Ibexa DXP now supports Fastly shielding.
+[[= product_name =]] now supports Fastly shielding.
 
 ## Deprecations
 
@@ -225,12 +227,12 @@ a `SegmentGroup` and `Segment` objects respectively, instead of numerical IDs.
 
 ### Ibexa CDP
 
-Ibexa Customer Data Center allows you to collect, connect and organize customer data from multiple sources.
+[[= product_name_base =]] Customer Data Center allows you to collect, connect and organize customer data from multiple sources.
 You can use them to build segments that will allow you to create personalized customer
 experience for your brand.
 
 This is a standalone package that you can install along every product edition (Content, Experience, Commerce).
-Ibexa CDP is also compatible with Ibexa v3.3.
+[[= product_name_cdp =]] is also compatible with [[= product_name_base =]] v3.3.
 
 ![CDP Control Panel](img/4.2_cdp_control_panel.png)
 
@@ -251,6 +253,16 @@ Thanks to splitting SQL upgrade files into separate product editions, the produc
 
 Now, Events are sent while performing operations within Taxonomy, which considerably extends the Taxonomy feature.
 
-### Protected Segment Groups
+### Protected segment groups
 
-You can now set existing Segment Groups as protected and make them unable to be modified through the user interface.
+You can now set existing [segment groups](https://doc.ibexa.co/en/latest/administration/admin_panel/segments_admin_panel/) as protected, and prevent them from being modified through the user interface.
+It's intended to stop users from breaking data integrity of segments/segment groups maintained by other features or external system integrations, such as [Customer Portal](https://doc.ibexa.co/en/latest/customer_management/customer_portal/) and [CDP](https://doc.ibexa.co/en/latest/cdp/cdp/).
+
+To do it, in your configuration, add the following key for each segment group that you intend to protect:
+
+`ibexa.system.default.segmentation.segment_groups.list.<segment_group_name>.protected`
+
+When you change a value of the setting to `true`, users are no longer able to:
+
+- remove the segment group or change its name or identifier
+- add/remove/modify segments that belong to the segment group

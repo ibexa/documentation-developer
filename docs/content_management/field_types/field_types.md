@@ -35,7 +35,7 @@ On the top layer, the Field Type needs to provide conversion from and to a simpl
 
 [[= include_file('docs/snippets/simple_hash_value_caution.md') =]]
 
-Below that, the Field Type must support the **Public API** implementation regarding:
+Below that, the Field Type must support the **public PHP API** implementation regarding:
 
 - Settings definition for `FieldDefinition`
 - Value creation and validation

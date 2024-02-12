@@ -196,7 +196,7 @@ For example, in the code below, `locationId` is provided to list all children of
 [[= include_file('code_samples/api/public_php_api/src/Controller/CustomController.php', 18, 34) =]]
 ```
 
-The rendering of results is then relegated to [templates](templates.md) (lines 20-22).
+The rendering of results is then relegated to [templates](templates.md) (lines 21-23).
 
 When using Repository filtering, provide the results of `ContentService::find()` as parameters to the view:
 
@@ -250,15 +250,15 @@ For more complex searches, you need to combine multiple Criteria.
 You can do it using logical operators: `LogicalAnd`, `LogicalOr`, and `LogicalNot`.
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 43, 49) =]][[= include_file('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 52, 53) =]]
-[[= include_file('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 59, 64) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 43, 49) =]][[= include_file('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 53, 54) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 60, 65) =]]
 ```
 
 This example takes three parameters from a command — `$text`, `$contentTypeId`, and `$locationId`.
 It then combines them using `Criterion\LogicalAnd` to search for Content items
-that belong to a specific subtree, have the chosen Content Type and contain the provided text (lines 6-8).
+that belong to a specific subtree, have the chosen Content Type and contain the provided text (lines 3-6).
 
-This also shows that you can get the total number of search results using the `totalCount` property of search results (line 11).
+This also shows that you can get the total number of search results using the `totalCount` property of search results (line 9).
 
 You can also nest different operators to construct more complex queries.
 The example below uses the `LogicalNot` operator to search for all content containing a given phrase
@@ -308,7 +308,7 @@ and then alphabetically by content name, add the following Sort Clauses to the q
 
 ## Searching in trash
 
-In the user interface, on the Trash screen, you can search for Content items, and then sort the results based on different criteria.
+In the user interface, on the **Trash** screen, you can search for Content items, and then sort the results based on different criteria.
 To search the trash with the API, use the `TrashService::findInTrash` method to submit a query for Content items that are held in trash.
 Searching in trash supports a limited set of Criteria and Sort Clauses.
 For a list of supported Criteria and Sort Clauses, see [Search in trash reference](search_in_trash_reference.md).

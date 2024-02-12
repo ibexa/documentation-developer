@@ -1,0 +1,14 @@
+{
+    "ShipmentUpdate": {
+        "identifier": "new_identifier",
+        "transition": "prepare",
+        "Owner": {
+            "_media-type": "application/vnd.ibexa.api.User+json",
+            "_href": "/api/ibexa/v2/user/users/14"
+        },
+        "Context": {
+            "item1": "value1",
+            "item2": "value2"
+        }
+    }
+}

@@ -1,3 +1,5 @@
+<!-- vale VariablesVersion = NO -->
+
 # eZ Platform v1.13.0
 
 **The Long Term Support v1.13.0 release of eZ Platform and eZ Platform Enterprise Edition is available as of December 22, 2017.**

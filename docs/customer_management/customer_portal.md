@@ -26,7 +26,7 @@ invite and view members, check their order history and more.
 
 ## Availability
 
-Customer Portal is available in Ibexa Experience. It is also compatible with PIM, Commerce and Ibexa Connect.
+Customer Portal is available in [[= product_name_exp =]]. It is also compatible with PIM, Commerce and [[= product_name_connect =]].
 
 ## How does Customer Portal work?
 
@@ -92,9 +92,9 @@ All roles and policies associated with them can be fully customized to fit your 
 
 Members can be invited to the organization from:
 
-- the Back Office, go to **Customers** -> **Companies** -> **Select your company** -> **Invitations** -> **Invite member**
+- the Back Office: go to **Customers** -> **Companies** -> **Select your company** -> **Invitations** -> **Invite member**
 
-- the Customer Portal, go to your company admin profile, select **Members** -> **Invite members**
+- the Customer Portal: go to your company admin profile, select **Members** -> **Invite members**
 
 Then, in a pop-up fill out email addresses one by one, or use drag and drop to upload a file with a list of emails. 
 You also have to assign a role to each new member from a drop-down list. 
@@ -129,7 +129,7 @@ If built-in statuses are not sufficient, you can add custom ones. You can also e
 
 ### REST API
 
-Customer Portal comes with [REST API](https://doc.ibexa.co/en/latest/api/rest_api/rest_api_reference/rest_api_reference.html#corporate-account) for interacting with corporate accounts from the context of the Ibexa Connect app.
+Customer Portal comes with [REST API](https://doc.ibexa.co/en/latest/api/rest_api/rest_api_reference/rest_api_reference.html#corporate-account) for interacting with corporate accounts from the context of the [[= product_name_connect =]] app.
 
 ## Capabilities
 
@@ -143,7 +143,7 @@ By giving users power to manage their own accounts, you reduce the need for admi
 
 Self-registration allows your customers to take control of their business accounts.
 This not only improves customer satisfaction but also reduces the administrative burden on your team. 
-With the ability to integrate with Ibexa Connect you are able to fully automate the process.
+With the ability to integrate with [[= product_name_connect =]] you are able to fully automate the process.
 
 ### Address book
 

@@ -32,7 +32,7 @@ Content management capabilities are available in all [[= product_name =]] editio
 You can set up content structure, define the templates to be filled with content, and assign different areas of the structure to your editors. 
 Next steps would be to create the actual content, and then classify content items, and organize them as necessary.
 
-You can then publish the content directly, by building a website or a web store, or by using external systems together with a [headless CMS](https://developers.ibexa.co/developer-portal/headless-cms) that relies on the [[= product_name =]] technology.
+You can then publish the content directly, by building a website or a web store, or by using external systems together with a [headless CMS](https://developers.ibexa.co/headless-cms) that relies on the [[= product_name =]] technology.
 
 ## Content structure
 
@@ -70,7 +70,7 @@ Their role is to:
 - make the data searchable
 - display Fields of a given Field Type
 
-For a complete list of available Field Types, see [Field Type reference](field_type_reference).
+For a complete list of available Field Types, see [Field Type reference](field_type_reference.md).
 
 ![Field Types and Fields](img/field_types.png)
 
@@ -219,7 +219,7 @@ For example, you can build Pages that contain different recommendations, dependi
 
 ## How to get started
 
-Once you have integrated the headless implementation, installed a local instance of [[= product_name =]] or set up an instance on Ibexa Cloud, you are ready to employ the content management features to good use.
+Once you have integrated the headless implementation, installed a local instance of [[= product_name =]] or set up an instance on [[= product_name_cloud =]], you are ready to employ the content management features to good use.
 
 Since content management is an ongoing process, and, in your implementation, you might prefer focusing on other areas of configuration, the order of operations below is by all means conventional.
 

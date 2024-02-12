@@ -5,7 +5,7 @@ page_type: reference
 
 # Product Sort Clauses
 
-Product Sort Clauses are part of [Sort Clauses](sort_clause_reference.md) and they are supported only by Product Search.
+Product Sort Clauses are only supported by [Product Search (`ProductServiceInterface::findProduct`)](product_api.md#products).
 
 By using Sort Clause you can filter product by specific attributes, for example: price, code, availability etc.
 
