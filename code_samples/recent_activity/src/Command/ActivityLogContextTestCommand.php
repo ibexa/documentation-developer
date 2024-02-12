@@ -45,7 +45,7 @@ class ActivityLogContextTestCommand extends Command
 
     protected function configure(): void
     {
-        $this->setDescription('Tested activity log context usage')
+        $this->setDescription('Test activity log context usage')
             ->addArgument('id', InputArgument::REQUIRED, 'A test number');
     }
 
