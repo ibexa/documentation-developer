@@ -25,15 +25,11 @@ displayName: Monitoring activity
                 description: |
                     List of filters (no filter by default).
                     
-                    Example: <code>
-                    filter[0][type]=object_class&filter[0][class]=Ibexa\Contracts\Core\Repository\Values\Content\Content
-                    &filter[1][type]=action&filter[1][value]=create
-                    &filter[2][type]=logged_at&filter[2][value]=-1hour&filter[2][operator]=>=
-                    </code>
+                    Example: <code>filter[0][type]=object_class&filter[0][class]=Ibexa\Contracts\Core\Repository\Values\Content\Content&filter[1][type]=action&filter[1][value]=create&filter[2][type]=logged_at&filter[2][value]=-1hour&filter[2][operator]=>=</code>
             sort:
                 type: array
                 description: |
-                    List of sort criterion and direction pairs
+                    List of sort clause and direction pairs
                     (default: <code>sort[0][type]=logged_at&sort[0][direction]=ASC</code>)
                     
                     Example: <code>sort[0][type]=logged_at&sort[0][direction]=DESC</code>
