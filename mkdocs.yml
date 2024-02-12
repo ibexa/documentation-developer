@@ -659,8 +659,7 @@ nav:
                 - URL Sort Clauses: search/url_search_reference/url_search_sort_clauses.md
                 - Id Sort Clause: search/url_search_reference/id_url_sort_clause.md
                 - Url Sort Clause: search/url_search_reference/url_url_sort_clause.md
-            - Activity Log Sort Clauses:
-                - Activity Log Sort Clauses: search/activity_log_search_reference/activity_log_sort_clauses.md
+            - Activity Log Sort Clauses: search/activity_log_search_reference/activity_log_sort_clauses.md
         - Search API: search/search_api.md
         - Aggregation reference:
               # Content aggregations
