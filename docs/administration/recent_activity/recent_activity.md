@@ -226,4 +226,4 @@ Thanks to the previous subscriber, the related object is available at display ti
 
 ## REST API
 
-REST API can be used to browse activity logs, see in the [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#monitoring-activity-log).
+REST API can be used to browse activity logs, see in the [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#monitoring-activity).
