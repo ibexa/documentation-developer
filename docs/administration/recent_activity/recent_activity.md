@@ -181,13 +181,15 @@ To display your log entry, if your object's PHP class isn't already covered, you
 
 You can have a template:
 
+* specific to a class identifier and placed in `templates/themes/<theme>/activity_log/ui/<identifier>.html.twig`
 * specific to an action on an identifier and placed in `templates/themes/<theme>/activity_log/ui/<identifier>/<action>.html.twig`
-* specific to an identifier and placed in `templates/themes/<theme>/activity_log/ui/<identifier>.html.twig`
 
-Template existence is tested in this order.
+Template existence is tested in reverse order: If there is no action specific template, the identifier's default is used.
 For the same identifier, you could have specific templates for few actions, and a default one for the remaining actions.
 
-Your template can extend `@ibexadesign/activity_log/ui/default.html.twig` and only redefine the `activity_log_description_widget` block for your objects. This default template is itself used if no template is found for the identifier and the action, or the identifier alone. The built-in default template has an empty `activity_log_description_widget` block and display nothing for unknown objects.
+A default template is used if no template is found for the identifier.
+The built-in default template `@ibexadesign/activity_log/ui/default.html.twig` has an empty `activity_log_description_widget` block and display nothing for unknown objects.
+Your template can extend `@ibexadesign/activity_log/ui/default.html.twig`, and only redefine the `activity_log_description_widget` block for your objects.
 
 First, follows an example of a default template overriding the one from the bundle. It can be used at development time as a fallback for classes not yet mapped.
 
