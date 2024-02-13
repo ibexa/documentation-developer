@@ -39,8 +39,8 @@ It can be limited to "Only own log".
 
 The "Activity Log / Read" policy should be given to every roles having access to the Back Office,
 at least with the "Only own log" owner limitation,
-to allow them to use the "Recent activity" block in the default dashboard or their custom dashboard.
-This policy is also required by user having a profile to properly view their own.
+to allow them to use the "Recent activity" block in the [default dashboard](configure_default_dashboard.md) or their [custom dashboard](customize_dashboard.md).
+This policy is also required by user having a [profile]([[= user_doc =]]/getting_started/get_started/#edit-user-profile) to properly view their own.
 
 !!! caution
 
