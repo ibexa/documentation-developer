@@ -184,7 +184,7 @@ You can have a template:
 * specific to an action on an identifier and placed in `templates/themes/<theme>/activity_log/ui/<identifier>/<action>.html.twig`
 * specific to an identifier and placed in `templates/themes/<theme>/activity_log/ui/<identifier>.html.twig`
 
-Template existence is tested in this order. For the same identifier, you could have one template for several actions and some templates for other actions.
+Template existence is tested in this order. For the same identifier, you could have specific templates for few actions, and a default one for the remaining actions.
 
 Your template can extend `@ibexadesign/activity_log/ui/default.html.twig` and only redefine the `activity_log_description_widget` block for your objects. This default template is itself used if no template is found for the identifier and the action, or the identifier alone. The built-in default template has an empty `activity_log_description_widget` block and display nothing for unknown objects.
 
