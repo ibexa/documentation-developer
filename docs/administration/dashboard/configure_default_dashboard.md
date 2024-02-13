@@ -24,8 +24,8 @@ ibexa:
                 container_content_type_identifier: folder
 ```
 
-Configuration can be set per [SiteAccess](multisite/multisite_configuration/#siteaccess-configuration)
-or [SiteAccess group](multisite/multisite_configuration/#siteaccess-groups).
+Configuration can be set per [SiteAccess](multisite_configuration.md#siteaccess-configuration)
+or [SiteAccess group](multisite_configuration.md#siteaccess-groups).
 
 All the settings in the configuration are reflected in the Back Office.
 
@@ -56,7 +56,7 @@ In the **Technical details** tab, it is defined as **Location remote ID**.
 
 ## Section identifier
 
-Specifies the name of the [Section](administration/content_organization/sections/).
+Specifies the name of the [Section](sections.md).
 
 ## Content type identifier
 
