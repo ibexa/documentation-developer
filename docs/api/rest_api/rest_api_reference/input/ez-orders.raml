@@ -75,6 +75,58 @@ displayName: Orders
                     description: Error - the user has no permission to read orders.
                 404:
                     description: Error - the order does not exist.
+                    
+        /shipments:
+            get:
+                displayName: Load shipments
+                description: Loads a order's list of shipments.
+                headers:
+                    Accept:
+                        description: If set, the shipments are returned in XML or JSON format.
+                        example:  |
+                            application/vnd.ibexa.api.ShipmentRefList+xml
+                responses:
+                    200:
+                        description: OK - loads the shipments.
+                        body:
+                            application/vnd.ibexa.api.ShipmentRefList+xml:
+                                type: ShipmentRefList
+                                example: !include examples/shipments/GET/ShipmentRefList.xml.example
+                            application/vnd.ibexa.api.ShipmentRefList+json:
+                                type: ShipmentRefList
+                                example: !include examples/shipments/GET/ShipmentRefList.json.example
+                    401:
+                        description: Error - the user has no permission to read order's shipment lists.
+                    404:
+                        description: Error - the order does not exist.
+            post:
+                displayName: Create shipment
+                description: Creates and adds a shipment to an order
+                headers:
+                    Accept:
+                        description: If set, the shipments are returned in XML or JSON format.
+                        example: |
+                            application/vnd.ibexa.api.Shipment+xml
+                            application/vnd.ibexa.api.Shipment+json
+                    Content-Type:
+                        description: The shipments schema encoded in XML or JSON format.
+                        example: |
+                            application/vnd.ibexa.api.ShipmentCreate+xml
+                            application/vnd.ibexa.api.ShipmentCreate+json
+                body:
+                    application/vnd.ibexa.api.ShipmentCreate+xml:
+                        type: ShipmentCreate
+                        example: !include examples/orders/POST/ShipmentCreate.xml.example
+                    application/vnd.ibexa.api.ShipmentCreate+json:
+                        type: ShipmentCreate
+                        example: !include examples/orders/POST/ShipmentCreate.json.example
+                responses:
+                    200:
+                        description: Shipment is created and returned
+                        body:
+                            application/vnd.ibexa.api.Shipment+xml:
+                                type: Shipment
+
     /{id}:
         get:
             displayName: Load order by ID
