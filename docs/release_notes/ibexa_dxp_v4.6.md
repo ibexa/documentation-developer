@@ -4,12 +4,11 @@ description: Ibexa DXP v4.6 brings improvements to Commerce, PIM and Personaliza
 
 <!-- vale VariablesVersion = NO -->
 
-
 # Ibexa DXP v4.6
 
 **Version number**: v4.6
 
-**Release date**: February 12, 2024
+**Release date**: February 13, 2024
 
 **Release type**: [LTS](https://support.ibexa.co/Public/service-life)
 
@@ -132,7 +131,7 @@ With personal touch in mind, editors can now upload their photos (avatar), and p
 
 Also, editors and other users can customize their experience even better, with new preferences that have been added to user settings.
 
-For more information, see [user profile and settings documentation]().
+For more information, see [user profile and settings documentation](https://doc.ibexa.co/projects/userguide/en/master/getting_started/get_started/#edit-user-profile).
 
 #### Recent activity log
 
@@ -440,9 +439,6 @@ A signature for the `\Ibexa\Contracts\Rest\Output\Generator::startValueElement` 
 ```
 
 Any third party code that extends `\Ibexa\Contracts\Rest\Output\Generator` needs to update the method signature accordingly.
-
-#### PHP API
-
 
 ### Helpers
 
