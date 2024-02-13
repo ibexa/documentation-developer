@@ -20,6 +20,8 @@ class ActivityLogContextTestCommand extends Command
 {
     protected static $defaultName = 'doc:test:activity-log-context';
 
+    protected static $defaultDescription = 'Test activity log context usage';
+
     private ActivityLogServiceInterface $activityLogService;
 
     private ContentService $contentService;
@@ -51,8 +53,7 @@ class ActivityLogContextTestCommand extends Command
 
     protected function configure(): void
     {
-        $this->setDescription('Test activity log context usage')
-            ->addArgument('id', InputArgument::REQUIRED, 'A test number');
+        $this->addArgument('id', InputArgument::REQUIRED, 'A test number');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
