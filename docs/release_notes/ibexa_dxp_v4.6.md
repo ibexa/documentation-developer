@@ -37,7 +37,7 @@ For more information, see [Customizable dashboard](https://doc.ibexa.co/projects
 
 Several improvements to the Back Office interface enhance the user experience.
 
-#### Page Builder improvements
+#### Page Builder improvements [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 Page Builder user interface has new functionalities and improvements.
 
@@ -182,7 +182,7 @@ Also, Content Type icons have changed slightly.
 
 Editors can now use a Digital Asset Management platform that enables storing media assets in a central location, as well as organizing, distributing, and sharing them across many channels.
 
-For more information, see [Ibaxa DAM](https://doc.ibexa.co/projects/userguide/en/master/dam/ibexa_dam/).
+For more information, see [Ibexa DAM](https://doc.ibexa.co/projects/userguide/en/master/dam/ibexa_dam/).
 
 ### New features and improvements in PIM
 
