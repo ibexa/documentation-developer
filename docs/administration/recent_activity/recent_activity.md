@@ -56,7 +56,7 @@ The `ActivityLogService` PHP API can be used to browse activity logs and write n
 You can search among the activity log entry groups using `ActivityLogService::findGroups` by passing an `Ibexa\Contracts\ActivityLog\Values\ActivityLog\Query`.
 This `Query`'s constructor has four arguments:
 
-1. `$criteria`: an array of criterion from `Ibexa\Contracts\ActivityLog\Values\ActivityLog\Criterion` related as a logical AND.
+1. `$criteria`: an array of criteria from `Ibexa\Contracts\ActivityLog\Values\ActivityLog\Criterion` combined as a logical AND.
 2. `$sortClauses`: an array of `Ibexa\Contracts\ActivityLog\Values\ActivityLog\SortClause`.
 3. `$offset`: a zero-based index integer indicating at which group to start, its default value is `0` (zero, nothing skipped).
 4. `$limit`: an integer as the maximum returned group count, default is 25.
@@ -201,7 +201,7 @@ Here is an example of a `ClassNameMapperInterface` associating the class `App\My
 [[= include_file('code_samples/recent_activity/src/ActivityLog/ClassNameMapper/MyFeatureNameMapper.php') =]]
 ```
 
-This mapper is also providing a translation for the class name in the Filters menu.
+This mapper also provides a translation for the class name in the Filters menu.
 This translation can be extracted with `php bin/console translation:extract en --domain=ibexa_activity_log --dir=src --output-dir=translations`.
 
 To be taken into account, this mapper must be registered as a service:

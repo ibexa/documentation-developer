@@ -27,10 +27,10 @@ class MonitorRecentContentCreationCommand extends Command
 
     public function __construct(ActivityLogServiceInterface $activityLogService, PermissionResolver $permissionResolver, UserService $userService)
     {
-        parent::__construct(self::$defaultName);
         $this->permissionResolver = $permissionResolver;
         $this->userService = $userService;
         $this->activityLogService = $activityLogService;
+        parent::__construct();
     }
 
     protected function configure(): void
@@ -62,18 +62,20 @@ class MonitorRecentContentCreationCommand extends Command
             }
             $table = [];
             foreach ($activityLogGroup->getActivityLogs() as $activityLog) {
-                if (!$filterLogs || $activityLog->getAction() === ActivityLogServiceInterface::ACTION_CREATE) {
-                    /** @var \Ibexa\Contracts\Core\Repository\Values\Content\Content $content */
-                    $content = $activityLog->getRelatedObject();
-                    $name = $content && $content->getName() && $content->getName() !== $activityLog->getObjectName() ? "“{$content->getName()}” (formerly “{$activityLog->getObjectName()}”)" : "“{$activityLog->getObjectName()}”";
-                    $table[] = [
-                        $activityLogGroup->getLoggedAt()->format(\DateTime::ATOM),
-                        $activityLog->getObjectId(),
-                        $name,
-                        $activityLog->getAction(),
-                        $activityLogGroup->getUser()->login,
-                    ];
+                if ($filterLogs && $activityLog->getAction() !== ActivityLogServiceInterface::ACTION_CREATE) {
+                    continue;
                 }
+
+                /** @var \Ibexa\Contracts\Core\Repository\Values\Content\Content $content */
+                $content = $activityLog->getRelatedObject();
+                $name = $content && $content->getName() && $content->getName() !== $activityLog->getObjectName() ? "“{$content->getName()}” (formerly “{$activityLog->getObjectName()}”)" : "“{$activityLog->getObjectName()}”";
+                $table[] = [
+                    $activityLogGroup->getLoggedAt()->format(\DateTime::ATOM),
+                    $activityLog->getObjectId(),
+                    $name,
+                    $activityLog->getAction(),
+                    $activityLogGroup->getUser()->login,
+                ];
             }
             $io->table([
                 'Logged at',

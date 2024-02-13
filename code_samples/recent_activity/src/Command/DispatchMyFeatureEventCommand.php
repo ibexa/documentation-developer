@@ -17,8 +17,8 @@ class DispatchMyFeatureEventCommand extends Command
 
     public function __construct(EventDispatcherInterface $eventDispatcher)
     {
-        parent::__construct(self::$defaultName);
         $this->eventDispatcher = $eventDispatcher;
+        parent::__construct();
     }
 
     protected function configure(): void

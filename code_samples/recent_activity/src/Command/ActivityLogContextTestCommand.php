@@ -32,8 +32,14 @@ class ActivityLogContextTestCommand extends Command
 
     private UserService $userService;
 
-    public function __construct(ActivityLogServiceInterface $activityLogService, ContentService $contentService, ContentTypeService $contentTypeService, EventDispatcherInterface $eventDispatcher, PermissionResolver $permissionResolver, UserService $userService)
-    {
+    public function __construct(
+        ActivityLogServiceInterface $activityLogService,
+        ContentService $contentService,
+        ContentTypeService $contentTypeService,
+        EventDispatcherInterface $eventDispatcher,
+        PermissionResolver $permissionResolver,
+        UserService $userService
+    ) {
         parent::__construct(self::$defaultName);
         $this->activityLogService = $activityLogService;
         $this->contentService = $contentService;
