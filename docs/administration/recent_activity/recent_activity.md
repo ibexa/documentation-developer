@@ -66,7 +66,7 @@ See [Activity Log Search Criteria reference](activity_log_criteria.md) and [Acti
 In the following example, log groups containing at least one creation of a Content item is displayed in terminal, with a maximum of 10 groups within the last hour.
 This uses the default `admin` user to have the [permission](#permission-and-security) to list everyone entries.
 
-```php hl_lines="44-48"
+```php hl_lines="40-44"
 [[= include_file('code_samples/recent_activity/src/Command/MonitorRecentContentCreationCommand.php') =]]
 ```
 

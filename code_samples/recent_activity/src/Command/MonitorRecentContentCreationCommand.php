@@ -19,6 +19,8 @@ class MonitorRecentContentCreationCommand extends Command
 {
     protected static $defaultName = 'app:monitor-content-creation';
 
+    protected static $defaultDescription = 'List last 10 log entry groups with creations in the last hour';
+
     private ActivityLogServiceInterface $activityLogService;
 
     private PermissionResolver $permissionResolver;
@@ -33,12 +35,6 @@ class MonitorRecentContentCreationCommand extends Command
         parent::__construct();
     }
 
-    protected function configure(): void
-    {
-        $this->setDescription('List last 10 log entry groups with creations in the last hour')
-            ->addOption('filter', 'f', InputOption::VALUE_NONE, 'If only creation log entries should be shown in log groups');
-    }
-
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $query = new Query([
@@ -46,8 +42,6 @@ class MonitorRecentContentCreationCommand extends Command
             new Criterion\ActionCriterion([ActivityLogServiceInterface::ACTION_CREATE]),
             new Criterion\LoggedAtCriterion(new \DateTime('- 1 hour'), Criterion\LoggedAtCriterion::GTE),
         ], [new LoggedAtSortClause(LoggedAtSortClause::DESC)], 0, 10);
-
-        $filterLogs = $input->getOption('filter');
 
         $io = new SymfonyStyle($input, $output);
 
@@ -62,10 +56,6 @@ class MonitorRecentContentCreationCommand extends Command
             }
             $table = [];
             foreach ($activityLogGroup->getActivityLogs() as $activityLog) {
-                if ($filterLogs && $activityLog->getAction() !== ActivityLogServiceInterface::ACTION_CREATE) {
-                    continue;
-                }
-
                 /** @var \Ibexa\Contracts\Core\Repository\Values\Content\Content $content */
                 $content = $activityLog->getRelatedObject();
                 $name = $content && $content->getName() && $content->getName() !== $activityLog->getObjectName() ? "“{$content->getName()}” (formerly “{$activityLog->getObjectName()}”)" : "“{$activityLog->getObjectName()}”";
