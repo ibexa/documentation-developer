@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ShippingMethodTypesList media-type="application/vnd.ibexa.api.ShippingMethodTypesList+xml" href="/api/ibexa/v2/shipping/method-types">
+    <ShippingMethodType media-type="application/vnd.ibexa.api.ShippingMethodType+xml" href="/api/ibexa/v2/shipping/method-types/flat_rate">
+        <identifier>flat_rate</identifier>
+        <name>Flat rate</name>
+    </ShippingMethodType>
+    <ShippingMethodType media-type="application/vnd.ibexa.api.ShippingMethodType+xml" href="/api/ibexa/v2/shipping/method-types/free">
+        <identifier>free</identifier>
+        <name>Free shipping</name>
+    </ShippingMethodType>
+</ShippingMethodTypesList>
