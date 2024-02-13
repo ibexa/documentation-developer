@@ -117,7 +117,7 @@ migration
 
 #### Entry
 
-Your custom features could write into the activity log.
+Your custom features can write into the activity log.
 
 First, inject `Ibexa\Contracts\ActivityLog\ActivityLogServiceInterface` into your PHP class having to log an activity (such as a custom event subscriber, event listener, service, or controller).
 
