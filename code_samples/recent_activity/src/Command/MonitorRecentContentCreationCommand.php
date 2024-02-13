@@ -63,7 +63,7 @@ class MonitorRecentContentCreationCommand extends Command
             $table = [];
             foreach ($activityLogGroup->getActivityLogs() as $activityLog) {
                 if (!$filterLogs || $activityLog->getAction() === ActivityLogServiceInterface::ACTION_CREATE) {
-                    /** @var Content $content */
+                    /** @var \Ibexa\Contracts\Core\Repository\Values\Content\Content $content */
                     $content = $activityLog->getRelatedObject();
                     $name = $content && $content->getName() && $content->getName() !== $activityLog->getObjectName() ? "“{$content->getName()}” (formerly “{$activityLog->getObjectName()}”)" : "“{$activityLog->getObjectName()}”";
                     $table[] = [
