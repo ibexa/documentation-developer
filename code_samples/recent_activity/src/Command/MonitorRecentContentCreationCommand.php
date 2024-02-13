@@ -63,10 +63,13 @@ class MonitorRecentContentCreationCommand extends Command
             $table = [];
             foreach ($activityLogGroup->getActivityLogs() as $activityLog) {
                 if (!$filterLogs || $activityLog->getAction() === ActivityLogServiceInterface::ACTION_CREATE) {
+                    /** @var Content $content */
+                    $content = $activityLog->getRelatedObject();
+                    $name = $content && $content->getName() && $content->getName() !== $activityLog->getObjectName() ? "“{$content->getName()}” (formerly “{$activityLog->getObjectName()}”)" : "“{$activityLog->getObjectName()}”";
                     $table[] = [
                         $activityLogGroup->getLoggedAt()->format(\DateTime::ATOM),
                         $activityLog->getObjectId(),
-                        $activityLog->getObjectName(),
+                        $name,
                         $activityLog->getAction(),
                         $activityLogGroup->getUser()->login,
                     ];
