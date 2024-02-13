@@ -30,7 +30,7 @@ This solution uses an online editor - Dashboard Builder.
 It improves productivity, allows to enhance the default dashboard with additional widgets,
 and helps to make better business decisions based on data.
 
-![Customizable dashboard](img/4.6_customizable_dashboard.png)
+![Customizable dashboard](img/4.6_customizable_dashboard.png "Customizable dashboard")
 
 For more information, see [Customizable dashboard](https://doc.ibexa.co/projects/userguide/en/master/getting_started/dashboard/dashboard/#customizable-dashboard).
 
@@ -53,7 +53,7 @@ Here are the most important changes:
 - user can now adjust the size of the block settings window,
 - **Undo** and **Redo** buttons.
 
-![Page Builder interface](img/4.6_page_builder_interface.png)
+![Page Builder interface](img/4.6_page_builder_interface.png "Page builder interface")
 
 For more information, see [Page Builder interface](https://doc.ibexa.co/projects/userguide/en/master/content_management/create_edit_pages/#page-builder-interface).
 
@@ -63,7 +63,7 @@ User can now edit embedded Content items without leaving current window.
 This function is available in the Rich Text Field when creating Content items, for selected blocks in the Page Builder,
 and while adding or modifying a Content relation.
 
-![Editing embedded Content items](img/4.6_editing_embedded_content_items.png)
+![Editing embedded Content items](img/4.6_editing_embedded_content_items.png "Editing embedded Content items")
 
 For more information, see [Edit embedded Content items](https://doc.ibexa.co/projects/userguide/en/master/content_management/create_edit_content_items/#edit-embedded-content-items).
 
@@ -99,7 +99,7 @@ As part of this effort, the name of the "Sites" area of the main menu has change
 While editing Rich Text Fields, user can switch to distraction free mode.
 It expands the workspace to full screen and shows only editor toolbar.
 
-![Distraction free mode](img/4.6_distraction_free_mode.png)
+![Distraction free mode](img/4.6_distraction_free_mode.png "Distraction free mode")
 
 For more information, see [Distraction free mode](https://doc.ibexa.co/projects/userguide/en/master/content_management/create_edit_content_items/#distraction-free-mode).
 
@@ -107,14 +107,14 @@ For more information, see [Distraction free mode](https://doc.ibexa.co/projects/
 
 Button text now precisely describes actions, so that users who create or edit content understand the purpose of each button.
 
-![Improved button text](img/4.6_publishing_options.png)
+![Improved button text](img/4.6_publishing_options.png "Improved button text")
 
 #### Draft section added to Content
 
 For streamlining purpose, the **Draft** section is now situated under **Content**.
 Users can now easily find and manage their drafts and published content from one area.
 
-![Draft section added to Content](img/4.6_drafts.png)
+![Draft section added to Content](img/4.6_drafts.png "Draft section added to Content")
 
 #### User profile and new options in user settings
 
@@ -128,7 +128,7 @@ With personal touch in mind, editors can now upload their photos (avatar), and p
 - Roles the user is assigned to
 - Recent activity
 
-![User profile](img/user_profile_preview.png)
+![User profile](img/user_profile_preview.png "User profile")
 
 Also, editors and other users can customize their experience even better, with new preferences that have been added to user settings.
 
@@ -170,20 +170,20 @@ Filters can be applied to the search page to narrow down the results.
 
 For more information,
 see [user documentation](https://doc.ibexa.co/projects/userguide/en/master/search/search_for_content/#filtered-search),
-and how to [customize search sorting](https://doc.ibexa.co/en/master/docs/administration/back_office/search_sorting/.
+and how to [customize search sorting](https://doc.ibexa.co/en/master/docs/administration/back_office/search_sorting/).
 
 #### New and updated Content Type icons
 
 To help users quickly identify different content types in the Back Office, all Content Type references are now accompanied with icons.
 Also, Content Type icons have changed slightly.
 
-![Content type icons](img/4.6_content_type_icons.png)
+![Content type icons](img/4.6_content_type_icons.png "Content type icons")
 
 ### Ibexa Image picker
 
 Editors can now use a Digital Asset Management platform that enables storing media assets in a central location, as well as organizing, distributing, and sharing them across many channels.
 
-For more information, see [link to docs]().
+For more information, see [Ibaxa DAM](https://doc.ibexa.co/projects/userguide/en/master/dam/ibexa_dam/).
 
 ### New features and improvements in PIM
 
@@ -204,11 +204,11 @@ Among other things, the Remote PIM support feature allows [[= product_name =]] c
 - manage certain aspects of product data,
 - define and use product types,
 - use product attributes for filtering,
-- build product catalogs based on certain criteria, such as type, availability or product attributes,
+- build product catalogs based on certain criteria, such as type, availability, or product attributes,
 - use Customer Groups to apply different prices to products,
 - define and use currencies.
 
-For more information about Remote PIM support and the solution's limitations, see [PIM product guide](pim_guide.md#limitations).
+For more information about Remote PIM support and the solution's limitations, see [PIM product guide](https://doc.ibexa.co/en/master/pim/pim_guide/#limitations).
 
 #### Virtual products
 
@@ -229,7 +229,7 @@ For more information, see [Product page URLs](https://doc.ibexa.co/projects/user
 
 Users who are creating or editing a product type are less likely to forget about setting VAT rates, because they now have a more prominent place.
 
-![Assigning VAT rates to a product type](img/4.6_catalog_vat_rates.png)
+![Assigning VAT rates to a product type](img/4.6_catalog_vat_rates.png "Assigning VAT rates to a product type")
 
 For more information, see [Create product types](https://doc.ibexa.co/projects/userguide/en/master/pim/create_product_types/).
 
@@ -240,10 +240,14 @@ Developers can use them, for example, to pass additional information to the UI, 
 
 For more information, see [VAT rates](https://doc.ibexa.co/en/master/pim/pim_configuration/#vat-rates).
 
+#### Ability to search through products in a catalog
+
+When you are reviewing catalog details, on the **Products** tab, you can now see what criteria are used to include products in the catalog, and search for a specific product in the catalog.
+
 #### New Twig functions
 
-The `ibexa_is_pim_local` Twig helper has been introduced, which can be used in templates to [check whether product data comes from a local or remote data source](storefront_twig_functions.md#ibexa_is_pim_local), and adjust their behavior accordingly.
-Also, several new Twig functions have been implemented that help [get product availability information](product_twig_functions.md#ibexa_has_product_availability).
+The `ibexa_is_pim_local` Twig helper has been introduced, which can be used in templates to [check whether product data comes from a local or remote data source](https://doc.ibexa.co/en/master/templating/twig_function_reference/storefront_twig_functions/#ibexa_is_pim_local), and adjust their behavior accordingly.
+Also, several new Twig functions have been implemented that help [get product availability information](https://doc.ibexa.co/en/master/templating/twig_function_reference/product_twig_functions/#ibexa_has_product_availability).
 
 #### New and modified query types
 
@@ -255,7 +259,7 @@ With `IsVirtual` criterion that searches for virtual or physical products, produ
 
 #### Product migration
 
-[Product variants](importing_data.md#product-variants) and [product assets](importing_data.md#product-assets) can now be created through [data migration](data_migration.md).
+[Product variants](https://doc.ibexa.co/en/master/content_management/data_migration/importing_data/#product-variants) and [product assets](https://doc.ibexa.co/en/master/content_management/data_migration/importing_data/#product-assets) can now be created through [data migration](https://doc.ibexa.co/en/master/content_management/data_migration/data_migration/).
 
 ###  New features and improvements in Commerce [[% include 'snippets/commerce_badge.md' %]]
 
@@ -271,7 +275,7 @@ For more information, see [reorder documentation](https://doc.ibexa.co/en/master
 #### Orders block
 
 Orders block displays a list of orders associated with a specific company or an individual customer.
-This block allows users to configure orders statuses, columns, number of orders and sorting order.
+This block allows users to configure orders statuses, columns, number of orders, and sorting order.
 
 For more information, see [Orders block documentation](https://doc.ibexa.co/projects/userguide/en/master/content_management/block_reference/#orders-block).
 
@@ -284,6 +288,8 @@ They can fill in a provided form with products' code and quantity,
 or upload their own list directly into the system.
 Quick order form is available to both registered and guest users.
 
+![Quick order](img/4.6_quick_order.png "Quick order")
+
 For more information, see [Quick order documentation](https://doc.ibexa.co/en/master/commerce/cart/quick_order/).
 
 #### Cancel order
@@ -292,12 +298,16 @@ This version allows you to customize order cancellations by defining a specific 
 
 For more information, see [Define cancel order](https://doc.ibexa.co/en/master/commerce/order_management/configure_order_management/#define-cancel-order).
 
+#### Integrate with payment gateways
+
+[[= product_name =]] can now be configured to integrate with various payment gateways, like Stripe and PayPal, by using the solution provided by [Payum](https://github.com/Payum).
+
 #### Shipments
 
 Users can now work with the shipments: view and modify their status, filter shipments in shipment lists and check all the details.
 You can access shipments for your own orders or all the shipments that exist in the system, depending on your permissions.
 
-![Shipments](img/4.6_shipments.png)
+![Shipments](img/4.6_shipments.png "Shipments")
 
 For more information, see [Work with shipments](https://doc.ibexa.co/projects/userguide/en/master/commerce/shipping_management/work_with_shipments/).
 
@@ -349,14 +359,14 @@ The feature requires that your organization exposes an endpoint that passes data
 
 - Inducing a purchase by pushing a message when a price of the product from the customer's wishlist decreases.
 
-For more information, see [Email triggers](https://doc.ibexa.co/projects/userguide/en/4.5/personalization/triggers.md).
+For more information, see [Email triggers](https://doc.ibexa.co/projects/userguide/en/master/personalization/triggers/).
 
 #### Multiple attributes in recommendation computation
 
 With this feature, you get an option to combine several attribute types when computing recommendations.
 As a result, users can be presented with recommendations from an intersection of submodel results.
 
-For more information, see [Submodel parameters](recommendation_api.md#submodel-parameters) and [Submodels](https://doc.ibexa.co/projects/userguide/en/latest/personalization/recommendation_models/#submodels).
+For more information, see [Submodel parameters](https://doc.ibexa.co/en/master/personalization/api_reference/recommendation_api/#submodel-parameters) and [Submodels](https://doc.ibexa.co/projects/userguide/en/latest/personalization/recommendation_models/#submodels).
 
 #### New scenario filter
 
@@ -460,10 +470,6 @@ In this release, the CDP configuration allows you to automate the process of exp
 Users can now export not only Content, but also Users and Products data.
 
 For more information, see [CDP Activation](https://doc.ibexa.co/en/master/cdp/cdp_activation/cdp_activation/).
-
-### Deprecations
-
-####
 
 ## Developer experience
 
