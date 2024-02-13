@@ -184,7 +184,8 @@ You can have a template:
 * specific to an action on an identifier and placed in `templates/themes/<theme>/activity_log/ui/<identifier>/<action>.html.twig`
 * specific to an identifier and placed in `templates/themes/<theme>/activity_log/ui/<identifier>.html.twig`
 
-Template existence is tested in this order. For the same identifier, you could have specific templates for few actions, and a default one for the remaining actions.
+Template existence is tested in this order.
+For the same identifier, you could have specific templates for few actions, and a default one for the remaining actions.
 
 Your template can extend `@ibexadesign/activity_log/ui/default.html.twig` and only redefine the `activity_log_description_widget` block for your objects. This default template is itself used if no template is found for the identifier and the action, or the identifier alone. The built-in default template has an empty `activity_log_description_widget` block and display nothing for unknown objects.
 
@@ -200,7 +201,8 @@ Here is an example of a `ClassNameMapperInterface` associating the class `App\My
 [[= include_file('code_samples/recent_activity/src/ActivityLog/ClassNameMapper/MyFeatureNameMapper.php') =]]
 ```
 
-This mapper is also providing a translation for the class name in the Filters menu. This translation can be extracted with `php bin/console translation:extract en --domain=ibexa_activity_log --dir=src --output-dir=translations`.
+This mapper is also providing a translation for the class name in the Filters menu.
+This translation can be extracted with `php bin/console translation:extract en --domain=ibexa_activity_log --dir=src --output-dir=translations`.
 
 To be taken into account, this mapper must be registered as a service:
 
