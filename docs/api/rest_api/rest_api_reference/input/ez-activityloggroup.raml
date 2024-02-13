@@ -24,8 +24,24 @@ displayName: Monitoring activity
                 type: array
                 description: |
                     List of filters (no filter by default).
+                    A filter is a type and parameters depending on this type.
                     
-                    Example: <code>filter[0][type]=object_class&filter[0][class]=Ibexa\Contracts\Core\Repository\Values\Content\Content&filter[1][type]=action&filter[1][value]=create&filter[2][type]=logged_at&filter[2][value]=-1hour&filter[2][operator]=>=</code>
+                    - type: `object_class`, parameter: `class` (a FQCN)
+                    - type: `action`, parameter: `value` (the action)
+                    - type: `logged_at`, parameters: `value` and `operator`
+                      - `logged_at` `value` value can be anything accepted by `DateTimeImmutable`
+                      - `logged_at` `operator` value can be one of the following:
+
+                    | Comparison            | Value |
+                    |-----------------------|-------|
+                    | Equal                 | `=`   |
+                    | Not equal             | `<>`  |
+                    | Less than             | `<`   |
+                    | Less than or equal    | `<=`  |
+                    | Greater than          | `>`   |
+                    | Greater than or equal | `>=`  |
+                    
+                    Example: `filter[0][type]=object_class&filter[0][class]=Ibexa\Contracts\Core\Repository\Values\Content\Content&filter[1][type]=action&filter[1][value]=create&filter[2][type]=logged_at&filter[2][value]=-1hour&filter[2][operator]=>=`
             sort:
                 type: array
                 description: |
