@@ -95,6 +95,111 @@
                 description: Error - a product with the same code already exists.
             404:
                 description: Error - no product with the given code exists.
+    /prices:
+        get:
+            displayName: Load product prices
+            description: Loads product prices.
+            headers:
+                Accept:
+                    description: If set, loads product prices in JSON format.
+                    example:
+                        application/vnd.ibexa.api.<?>>+json
+                Content-Type:
+                    description: If set, the updated product is returned in XML or JSON format.
+                    example:  |
+                        application/vnd.ibexa.api.<?>>+json
+            body:
+                application/vnd.ibexa.api.<?>+json:
+                    type: <?>>
+                    example: !include examples/product/code/prices/GET/<?>.json.example
+            X-CSRF-Token: Only needed for sessions's checking. The {csrfToken} needed on all unsafe http methods with session.
+        post:
+            displayName: Create product prices
+            description: Creates product prices.
+            headers:
+                Accept:
+                    description: The view in XML or JSON format.
+                    example:
+                        application/vnd.ibexa.api.<?>+xml
+                        application/vnd.ibexa.api.<?>>+json
+                Content-Type:
+                    description: 
+                    example:
+                        application/vnd.ibexa.api.<?>>+json
+            body:
+                application/vnd.ibexa.api.<?>+json:
+                    type: <?>
+                    example: !include examples/product/code/prices/POST/<?>.json.example
+            responses:
+        /{currencyCode}:
+            get:
+                displayName:
+                description:
+                headers:
+                    Accept:
+                        description:
+                        example:
+                            application/vnd.ibexa.api.<?>+xml
+                        application/vnd.ibexa.api.<?>>+json
+                    Content-Type:
+                        description:
+                        example:
+                            application/vnd.ibexa.api.<?>>+json
+                body:
+                    application
+                    type:
+                    example: !include examples/product/code/prices/currencyCode/GET/<?>.json.example
+                X-CSRF-Token: Only needed for sessions's checking. The {csrfToken} needed on all unsafe http methods with session.
+            /customer-group:
+                /{customerGroupIdentifier}:
+                    get:
+                        displayName:
+                        description:
+                        headers:
+                            Accept:
+                                description:
+                                example:
+                            Content-Type:
+                                description:
+                                example:
+                        body:
+                            application
+                                type:
+                                example: !include examples/product/code/prices/currencyCode/customer-group/customerGroupIdentifier/GET/<?>.json.example
+        /{id}:
+            delete:
+                displayName: Delete product price
+                description: Deletes product price.
+                headers:
+                    Accept:
+                        description:
+                        example:
+                    Content-Type:
+                        description:
+                        example:
+                body:
+                    application
+                        type:
+                        example: !include examples/product/code/prices/id/DELETE/<?>.json.example
+            patch:
+                displayName: Update product price
+                description: Updates product price.
+                headers:
+                    Accept:
+                        description:
+                        example:
+                    Content-Type:
+                        description: Update custom price or price for given currency.
+                        example:
+                            application/vnd.ibexa.api.PriceUpdateStruct+json
+                            application/vnd.ibexa.api.CustomPriceUpdateStruct+json
+                body:
+                    application/vnd.ibexa.api.PriceUpdateStruct+json:
+                        type: PriceUpdateStruct
+                        example: !include examples/product/code/prices/id/PATCH/PriceUpdateStruct.json.example
+                    application/vnd.ibexa.api.CustomPriceUpdateStruct+json:
+                        type: CustomPriceUpdateStruct
+                        example: !include examples/product/code/prices/id/PATCH/CustomPriceUpdateStruct.json.example
 get:
     displayName: Load products list (deprecated)
     description: Returns a list of products. Deprecated as of Ibexa DXP 4.3, use POST /product/catalog/products/view instead.
