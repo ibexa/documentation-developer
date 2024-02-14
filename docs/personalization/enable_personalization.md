@@ -243,8 +243,6 @@ you must run the export separately for each of the `<site_access_name>`/`<custom
 
 ``` bash
 php bin/console ibexa:personalization:run-export
-    --customer-id=<CUSTOMER_ID>
-    --license-key=<LICENSE_KEY>
     --item-type-identifier-list=<item_type>,<item_type>
     --siteaccess=<site_access_name>
     --customer-id=<customer_id>
