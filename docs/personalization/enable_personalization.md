@@ -126,9 +126,6 @@ ibexa:
 | `host_uri`                           | A location where the site's REST API can be accessed. This is where the Personalization server imports items from.       |
 | `authentication.customer_id`         | A customer ID related to the supported SiteAccess.                                         |
 | `authentication.license_key`         | The Personalization service's license key.                                         |
-| `export.authentication.method`         | Authentication method used to get access when importing items.                                         |
-| `export.authentication.login`         | The credential used when importing items.                                         |
-| `export.authentication.password`         | The password used when importing items.                                         |
 | `included_item_types`             | A list of alphanumerical identifiers of item types on which the tracking script is shown. |
 | `random_item_types`               | A list of alphanumerical identifiers of item types that are returned when the response from the server contains no content. |
 
@@ -246,6 +243,8 @@ you must run the export separately for each of the `<site_access_name>`/`<custom
 
 ``` bash
 php bin/console ibexa:personalization:run-export
+    --customer-id=<CUSTOMER_ID>
+    --license-key=<LICENSE_KEY>
     --item-type-identifier-list=<item_type>,<item_type>
     --siteaccess=<site_access_name>
     --customer-id=<customer_id>
