@@ -19,8 +19,8 @@ Its service definition is appended to `config/services.yaml`:
 [[= include_file('code_samples/back_office/search/config/append_to_services.yaml') =]]
 ```
 
-Translation file can be extracted with a `translation:extract` command, such as `php bin/console translation:extract en --domain=ibexa_search --dir=src --output-dir=translations` to obtain an `translations/ibexa_search.en.xlf` file.
-Or translation file can be manually produced, like the following `translations/ibexa_search.en.yaml`:
+Translation file can be extracted with a `translation:extract` command, such as `php bin/console translation:extract en --dir=src --output-dir=translations` to obtain an `translations/ibexa_search.en.xlf` file.
+Or translation file can be manually produced, like the following `translations/messages.en.yaml`:
 ``` yaml
-[[= include_file('code_samples/back_office/search/translations/ibexa_search.en.yaml') =]]
+[[= include_file('code_samples/back_office/search/translations/messages.en.yaml') =]]
 ```
