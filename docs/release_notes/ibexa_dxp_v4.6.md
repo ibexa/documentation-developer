@@ -594,7 +594,7 @@ Product
 
 ### Events
 
-The following endpoints have been added in the v4.6.0 release (39 events in total):
+The following events have been added in the v4.6.0 release (39 events in total):
 
 - ibexa/activity-log
     - `\Ibexa\Contracts\ActivityLog\Event\PostActivityListLoadEvent`
