@@ -98,16 +98,16 @@
                     <div class="row">
                         <div class="col-12 col-lg-6 col-fhd-3">
                             <ul>
-                                <li><a href="release_notes/ibexa_dxp_v4.6/#ibexa-headless">Ibexa Headless</a></li>
-                                <li><a href="release_notes/ibexa_dxp_v4.6/#pim-integration">PIM integration</a></li>
-                                <li><a href="release_notes/ibexa_dxp_v4.6/#new-features-and-improvements-in-personalization">New features in Personalization</a></li>
+                                <li><a href="release_notes/ibexa_dxp_v4.6/#customizable-dashboard">Customizable dashboard</a></li>
+                                <li><a href="release_notes/ibexa_dxp_v4.6/#page-builder-improvements">Page Builder improvements</a></li>
+                                <li><a href="release_notes/ibexa_dxp_v4.6/#focus-mode">Focus mode</a></li>
                             </ul>
                         </div>
                         <div class="col-12 col-lg-6 col-fhd-3">
                             <ul>
-                                <li><a href="release_notes/ibexa_dxp_v4.6/#api-improvements">API improvements</a></li>
-                                <li><a href="release_notes/ibexa_dxp_v4.6/#api-improvements">API improvements</a></li>
-                                <li><a href="release_notes/ibexa_dxp_v4.6/#api-improvements">API improvements</a></li>
+                                <li><a href="release_notes/ibexa_dxp_v4.6/#remote-pim-support">Remote PIM</a></li>
+                                <li><a href="release_notes/ibexa_dxp_v4.6/#reorder">Changes in Order management</a></li>
+                                <li><a href="release_notes/ibexa_dxp_v4.6/#triggers">Personalization triggers</a></li>
                             </ul>
                         </div>
                     </div>
