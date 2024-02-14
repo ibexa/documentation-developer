@@ -26,6 +26,18 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
 ## Operating system
 
+=== "Ibexa DXP v4.6"
+
+    |Name|Version|
+    |---|---|
+    |Debian 10 "Buster" |10.0-10.13+|
+    |Debian 11 "Bullseye"|11.0-11.7+|
+    |Ubuntu  "Focal Fossa" | 20.04 |
+    |Ubuntu "Jammy Jellyfish"| 22.04 |
+    |RHEL / CentOS | 8.1-8.5+ |
+
+    If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release. For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
+
 === "Ibexa DXP v4.5"
 
     |Name|Version|
@@ -62,6 +74,14 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
 ## Web server
 
+=== "Ibexa DXP v4.6"
+
+    - Nginx 1.18-1.25+
+    - Apache 2.4 (with required modules `mod_rewrite`, `mod_env` and recommended: `mod_setenvif`, `mod_expires`;
+    event MPM is recommended, if you need to use prefork you also need the `mod_php` module)
+
+    If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release. For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
+
 === "Ibexa DXP v4.5"
 
     - Nginx 1.18-1.25+
@@ -83,6 +103,14 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
     event MPM is recommended, if you need to use prefork you also need the `mod_php` module)
 
 ## DBMS
+
+=== "Ibexa DXP v4.6"
+
+    - MariaDB 10.3-10.11+
+    - MySQL 8.0
+    - PostgreSQL 14
+
+    If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release. For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
 
 === "Ibexa DXP v4.5"
 
@@ -110,6 +138,14 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
 ## PHP
 
+=== "Ibexa DXP v4.6"
+
+    - 8.3
+    - 8.2
+    - 8.1
+    - 8.0 (PHP 8.0 has reached its End of Life. Unless you have extended support from vendors like Debian or Zend, you should use PHP 8.1)
+    - 7.4 (PHP 7.4 has reached its End of Life. Unless you have extended support from vendors like Debian or Zend, you should use PHP 8.1)
+
 === "Ibexa DXP v4.5"
 
     - 8.1
@@ -131,6 +167,21 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
     - 7.4 (PHP 7.4 has reached its End of Life. Unless you have extended support from vendors like Debian or Zend, you should upgrade to Ibexa DXP v3.3 or v4.x)
 
 ### PHP packages
+
+=== "Ibexa DXP v4.6"
+
+    - `php-cli`
+    - `php-fpm`
+    - `php-mysql` (`php-mysqlnd`) or `php-pgsql`
+    - `php-xml`
+    - `php-mbstring`
+    - `php-json`
+    - `php-process` (on RHEL/CentOS)
+    - `php-intl`
+    - `php-curl`
+    - `php-pear` (optional, provides pecl)
+    - `php-gd` or `php-imagick` (via pecl on RHEL/CentOS)
+    - `php-sodium`
 
 === "Ibexa DXP v4.5"
 
@@ -178,6 +229,10 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
 ### Cluster PHP packages
 
+=== "Ibexa DXP v4.6"
+
+    - `php-redis` or `php-memcached`
+
 === "Ibexa DXP v4.5"
 
     - `php-redis` or `php-memcached`
@@ -193,6 +248,11 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
     If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release. For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
 
 ## Search
+
+=== "Ibexa DXP v4.6"
+
+    - For content search, Solr 7.7 LTS or Solr 8, recommended 8.11.1 or higher. Alternatively, Elasticsearch 7.16.2 or higher 7.x version.
+    - The above solutions require Oracle Java/Open JDK. The minimum requirement is 8 LTS, recommended 11 LTS. Newer versions are not supported.
 
 === "Ibexa DXP v4.5"
 
@@ -212,6 +272,21 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
     - The above solutions require Oracle Java/Open JDK. The minimum requirement is 8 LTS, recommended 11 LTS. Newer versions are not supported.
 
 ## Graphic Handler
+
+=== "Ibexa DXP v4.6"
+
+    - GraphicsMagick
+    - ImageMagick
+    - GD
+
+    Optionally if you intend to edit [PNG, SVG, GIF or WEBP files in the Image Editor](images.md#image-optimization), or use it with image variations:
+
+    - JpegOptim
+    - Optipng
+    - Pngquant 2
+    - SVGO 1
+    - Gifsicle
+    - cwebp
 
 === "Ibexa DXP v4.5"
 
@@ -251,6 +326,14 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
 ## [Clustering](clustering.md)
 
+=== "Ibexa DXP v4.6"
+
+    - Linux NFS or S3/EFS (for IO, aka binary files stored in content repository, not supported with legacy)
+    - Redis 4.0+, 5.0 or higher (separate instances for session and cache, both using a `volatile-*` [eviction policy](https://redis.io/docs/reference/eviction/), session instance configured for persistence) or [Memcached](https://memcached.org/) 1.5 or higher
+    - [Varnish](http://varnish-cache.org/) 6.0LTS or 7.1 with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.md) or [Fastly](https://www.fastly.com/) using [the provided bundle](http_cache.md) (for HTTP Cache)
+
+    If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release. For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
+
 === "Ibexa DXP v4.5"
 
     - Linux NFS or S3/EFS (for IO, aka binary files stored in content repository, not supported with legacy)
@@ -277,6 +360,10 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
 ## Filesystem
 
+=== "Ibexa DXP v4.6"
+
+    - Linux ext4 / XFS
+
 === "Ibexa DXP v4.5"
 
     - Linux ext4 / XFS
@@ -291,6 +378,10 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
 ## Package manager
 
+=== "Ibexa DXP v4.6"
+
+    - Composer: recent 2.7 version
+
 === "Ibexa DXP v4.5"
 
     - Composer: recent 2.1 version
@@ -303,7 +394,22 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
     - Composer: recent 2.1 version
 
+=== "Ibexa DXP v3.3"
+
+    - Composer: recent 2.1 version
+
+=== "eZ Platform v2.5"
+
+    - Composer: recent 2.1 version
+
 ## Asset manager
+
+=== "Ibexa DXP v4.6"
+
+    - `Node.js` 18+
+    - `yarn` 1.15.2+
+
+    If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release. For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
 
 === "Ibexa DXP v4.5"
 
@@ -327,6 +433,15 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
     If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release. For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
 
 ## Browser
+
+=== "Ibexa DXP v4.6"
+
+    Ibexa DXP is developed to work with *any* web browser that supports modern standards, on *any* screen resolution suitable for web, running on *any* device. However for the Editorial and Administration User Interfaces you'll need; a minimum of 1366-by-768 screen resolution, a desktop or tablet device, and a recommended/supported browser among the ones found below.
+
+    - Mozilla® Firefox® most recent stable version (recommended)
+    - Google Chrome™ most recent stable version (recommended)
+    - Chromium™ based browsers such as Microsoft® Edge® and Opera®, most recent stable version, desktop *and* tablet
+    - Apple® Safari® most recent stable version, desktop *and* tablet
 
 === "Ibexa DXP v4.5"
 
@@ -356,6 +471,53 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
     - Apple® Safari® most recent stable version, desktop *and* tablet
 
 ## Ibexa Cloud requirements and setup
+
+=== "Ibexa Cloud v4.6"
+
+    ### Cloud hosting with Ibexa Cloud and Platform.sh
+
+    In general, Ibexa Cloud supports all features and services of [Platform.sh](https://platform.sh/marketplace/ibexa/) that are compatible and supported by the Ibexa DXP version you use.
+
+    For example:
+
+    - Platform.sh provides Redis support for versions 3.2, 4.0 and 5.0. Ibexa DXP supports Redis version 4.0 or higher, and recommends 5.0. As a result, Redis is supported on Ibexa Cloud in versions 4.0 and 5.0, but 5.0 is recommended.
+
+    Features or services supported by Ibexa DXP but not covered by Platform.sh may be possible by means of a [custom integration](#custom-integrations).
+
+    ### Ibexa Cloud Setup support matrix
+
+    All Ibexa DXP features are supported in accordance with the example above. For example: As Legacy Bridge is not supported with v3, it is not supported on Ibexa Cloud either.
+
+    !!! note
+
+        As Platform.sh does not support a configuration with multiple PostgreSQL databases,
+        for Ibexa Cloud / Platform.sh it is impossible to have a DFS table in a separate database.
+
+    ### Recommended Ibexa Cloud setup
+
+    For more details on recommended setup configuration see bundled `.platform.app.yaml` and `.platform/` configuration files.
+
+    These files are kept up-to-date with latest recommendations and can be improved through contributions.
+
+    ### Supported Ibexa Cloud setup
+
+    Because of the large range of possible configurations of Ibexa DXP, there are many possibilities beyond what is provided in the default recommended configuration.
+
+    Make sure to set aside time and budget for:
+
+    - Verifying your requirements and ensuring they are supported by Platform.sh
+    - Additional time for adaptation and configuration work, and testing by your development team
+    - Additional consulting/onboarding time with Platform.sh, Ibexa technical services, and/or one of the many partners with prior experience using Platform.sh with Ibexa DXP
+
+    The cost and effort of this is not included in Ibexa Cloud subscription and will vary depending on the project.
+
+    ### Custom integrations
+
+    Features supported by Ibexa DXP, but not natively by Platform.sh, can in many cases be used by means of custom integrations with external services.
+
+    For example, you can create an integration with S3 by means of setting up your own S3 bucket and configuring the relevant parts of Ibexa DXP.
+    We recommend giving the development team working on the project access to the bucket
+    to ensure work is done in a DevOps way without depending on external teams when changes are needed.
 
 === "Ibexa Cloud v4.5"
 
