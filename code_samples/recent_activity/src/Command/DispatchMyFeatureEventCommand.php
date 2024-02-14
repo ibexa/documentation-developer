@@ -13,17 +13,14 @@ class DispatchMyFeatureEventCommand extends Command
 {
     protected static $defaultName = 'app:test:throw-my-feature-event';
 
+    protected static $defaultDescription = 'Throw/Dispatch a MyFeatureEvent';
+
     private EventDispatcherInterface $eventDispatcher;
 
     public function __construct(EventDispatcherInterface $eventDispatcher)
     {
         $this->eventDispatcher = $eventDispatcher;
         parent::__construct();
-    }
-
-    protected function configure(): void
-    {
-        $this->setDescription('Throw/Dispatch a MyFeatureEvent');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
