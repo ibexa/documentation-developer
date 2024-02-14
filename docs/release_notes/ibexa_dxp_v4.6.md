@@ -418,13 +418,24 @@ Endpoints that allow you to manage shipping methods and shipments by using REST 
 - GET `/shipping/methods/{identifier}` - loads shipping methods based on their identifiers
 - GET `/shipping/method-types` - loads shipping methods types
 - GET `/shipping/method-types/{identifier}` - loads shipping methods type based on their identifiers
-- GET `/orders/order/{identifier}/shipments` - loads a list of shipments.
+- GET `/orders/order/{identifier}/shipments` - loads a list of shipments
 
 ##### REST API for company accounts [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 Endpoints that allow you to manage companies in your platform with REST API:
 
 - GET `/sales-representatives` - returns paginated list of available sales representatives
+
+##### REST API for prices
+
+Endpoints that allow you to manage prices in your platform with REST API:
+
+- GET `/product/catalog/products/{code}/prices` -  loads a list of product prices
+- GET `/product/catalog/products/{code}/prices/{currencyCode}` - loads a list of product prices for a given currency
+- GET `/product/catalog/products/{code}/prices/{currencyCode}/customer-group/{identifier}` - loads a list of product prices for a given currency and customer group
+- POST `/product/catalog/products/{code}/prices` - creates price or custom price for a given product
+- PATCH `/product/catalog/products/{code}/prices/{id}` - updates price or custom price for a given product
+- DELETE `/product/catalog/products/{code}/prices/{id}` - deletes price for a given product
 
 ##### New method signature
 
