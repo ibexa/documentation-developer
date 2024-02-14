@@ -359,6 +359,10 @@ nav:
             - Storefront: commerce/storefront/storefront.md
             - Configure Storefront: commerce/storefront/configure_storefront.md
             - Extend Storefront: commerce/storefront/extend_storefront.md
+        - Transactional emails:
+            - Transactional emails: commerce/transactional_emails/transactional_emails.md
+            - Transactional email variables reference: commerce/transactional_emails/transactional_emails_parameters.md
+            - Customize transactional emails: commerce/transactional_emails/extend_transactional_emails.md
     - Customer management:
         - Customer Portal guide: customer_management/customer_portal.md
         - Customer Portal configuration: customer_management/cp_configuration.md
