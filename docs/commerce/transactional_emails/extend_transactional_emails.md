@@ -27,7 +27,7 @@ framework:
 
 ## Define additional variables
 
-[[= product_name =]] comes with a predefined [set of variables](email_notification_parameters.md) that you can use when building a template for your transactional email campaign at Actito.
+[[= product_name =]] comes with a predefined [set of variables](transactional_emails_parameters.md) that you can use when building a template for your transactional email campaign at Actito.
 If this list is not sufficient, you can use Events to include additional variables:
 
 ```php
