@@ -90,9 +90,9 @@ ibexa:
                         image: 'image_legend'
                         description: 'sub_title'
                     456: 
-                        title: 'name'
-                        image: 'image'
-                        description: 'description'
+                        title: 'short_title'
+                        image: 'primary_image'
+                        description: 'sub_title'
 
         <site_access_name_2>:
             personalization:
@@ -108,8 +108,8 @@ ibexa:
                         image: 'image_legend'
                         description: 'sub_title'
                     456: 
-                        title: 'title'
-                        image: 'image_legend'
+                        title: 'short_title'
+                        image: 'primary_image'
                         description: 'sub_title'
 ```
 
