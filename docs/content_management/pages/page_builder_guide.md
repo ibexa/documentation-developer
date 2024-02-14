@@ -15,7 +15,7 @@ By editing pages you can customize the layout and content of your website.
 
 To create a new page:
 
-A\. In the left panel, go to **Content**.
+A\. In the main menu, go to **Content**.
 
 B\. Select **Content structure**.
 
@@ -149,13 +149,13 @@ Available settings are:
 - Refresh - refreshes preview of the block
 - Delete - deletes existing block
 
-#### Focus mode
+#### Distraction free mode
 
-While configuring blocks that include Rich Text section, for example, Text block, you can switch to focus mode that expands the workspace to full screen.
+While configuring blocks that include Rich Text section, for example, Text block, you can switch to distraction free mode that expands the workspace to full screen.
 
-![Focus mode](focus_mode.png)
+![Distraction free mode](distraction_free_mode.png)
 
-For more information, see [Focus mode]([[= user_doc =]]/content_management/create_edit_content_items/#focus-mode/).
+For more information, see [Distraction free mode]([[= user_doc =]]/content_management/create_edit_content_items/#distraction-free-mode/).
 
 #### Schedule content
 

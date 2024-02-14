@@ -91,6 +91,15 @@ Resolve the conflicts in the following way:
     It is impossible to update an Enterprise edition (`ezsystems/ezplatform-ee`)
     to an [[= product_name_content =]] edition.
 
+    Also, make sure that `composer.json` has the following `repositories` entry:
+
+    ```json
+    "ibexa": {
+        "type": "composer",
+        "url": "https://updates.ibexa.co"
+    }
+    ```
+
 ### B. Update the app
 
 Run `composer update` to update the dependencies:
@@ -98,6 +107,34 @@ Run `composer update` to update the dependencies:
 ``` bash
 composer update
 ```
+
+!!! caution
+
+    Composer repository changes between 3.2 and 3.3 from `updates.ez.no` to `updates.ibexa.co`, therefore your credentials might be outdated.
+
+    `username` and `password` don't change.
+    The repository they're used on changes.
+
+    See [Composer authentication documentation](https://getcomposer.org/doc/articles/authentication-for-private-packages.md) to find the precedure that suits the way you're passing credentials.
+
+    In production, replace the old repository with the new one.
+    But as a developer, you may need to go back to an earlier version, and should keep the old repository as well.
+    For example, your `auth.json` may look like this:
+
+    ```json
+    {
+        "http-basic": {
+            "updates.ibexa.co": {
+                "username": "abcdefghijklmnopqrstuvwxyz012345",
+                "password": "6789abcdefghijklmnopqrstuvwxyz01"
+            },
+            "updates.ez.no": {
+                "username": "abcdefghijklmnopqrstuvwxyz012345",
+                "password": "6789abcdefghijklmnopqrstuvwxyz01"
+            }
+        }
+    }
+    ```
 
 ### C. Configure the web server
 

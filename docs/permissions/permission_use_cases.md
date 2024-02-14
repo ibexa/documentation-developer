@@ -167,11 +167,11 @@ and only to the **Pictures** Folder.
 You can control which users or user groups can work with taxonomies. 
 To let users create and assign taxonomy entries, set the following permissions:
 
-- `assign` - to allow user to tag and untag content
-- `read` -  to see the Taxonomy interface
-- `manage` - to create, edit and delete tags
+- `taxonomy/assign` to allow user to tag and untag content
+- `taxonomy/read` to see the Taxonomy interface
+- `taxonomy/manage` to create, edit and delete tags
 
-With Limitations you can configure whether permissions apply to Tags, Product categories or both.
+With Limitations, you can configure whether permissions apply to Tags, Product categories or both.
 
 ## Register Users
 

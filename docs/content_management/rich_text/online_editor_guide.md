@@ -34,13 +34,13 @@ It also allows embedding other content from the Repository, as well as from Face
 All links added to a RichText Field by using the link element are listed
 and can be managed in the [Link manager](url_management.md).
 
-#### Focus mode
+#### Distraction free mode
 
-While editing Rich Text Fields, you can switch to focus mode that expands the workspace to full screen.
+While editing Rich Text Fields, you can switch to distraction free mode that expands the workspace to full screen.
 
-![Focus mode](focus_mode.png)
+![Distraction free mode](distraction_free_mode.png)
 
-For more information, see [Focus mode]([[= user_doc =]]/content_management/create_edit_content_items/#focus-mode/).
+For more information, see [Distraction free mode]([[= user_doc =]]/content_management/create_edit_content_items/#distraction-free-mode/).
 
 ### Custom tags
 
