@@ -49,14 +49,14 @@ services:
 [[= include_file('code_samples/back_office/search/config/append_to_services.yaml', 2, 3) =]]
 ```
 
-To represent the product suggestion data, a ProductSuggestion class is created in `src/Search/Model/Suggestion/ProductSuggestion.php`:
+To represent the product suggestion data, a `ProductSuggestion` class is created in `src/Search/Model/Suggestion/ProductSuggestion.php`:
 ``` php
 [[= include_file('code_samples/back_office/search/src/Search/Model/Suggestion/ProductSuggestion.php') =]]
 ```
 
 This representation need a normalizer to be transformed into JSON.
 `ProductSuggestionNormalizer::supportsNormalization` associates with `ProductSuggestion`.
-`ProductSuggestionNormalizer::normalize` return an array of scalar value which can be transformed into a JSON object.
+`ProductSuggestionNormalizer::normalize` return an array of scalar values which can be transformed into a JSON object.
 Alongside data about the product, this array must have a `type` key which value is an identifier used later for rendering.
 In `src/Search/Serializer/Normalizer/Suggestion/ProductSuggestionNormalizer.php`:
 
@@ -74,8 +74,11 @@ services:
 
 !!! tip
 
-    At this point, it's possible to test the suggestion JSON. The route is `/suggestion` with a `query` GET parameter worth the searched text.
-    Log in your Back Office to have a session cookie, then access to the route through the Back Office siteaccess, such as `http://localhost/admin/suggestion?query=platform`.
+    At this point, it's possible to test the suggestion JSON.
+    The route is `/suggestion` with a `query` GET parameter worth the searched text.
+
+    For example, log in your Back Office to have a session cookie, then access to the route through the Back Office siteaccess, such as `http://localhost/admin/suggestion?query=platform`.
+    If you have product with "platform" in its name, it will be the first suggestion.
 
 A JavaScript renderer displays the normalized product suggestion.
 This renderer is wrapped in function immediately executed.
