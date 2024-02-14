@@ -3,7 +3,7 @@ INHERIT: plugins.yml
 site_name: Developer Documentation
 repo_url: https://github.com/ezsystems/developer-documentation
 site_url: https://doc.ibexa.co/en/latest/
-copyright: "Copyright 1999-2023 Ibexa AS and others"
+copyright: "Copyright 1999-2024 Ibexa AS and others"
 nav:
     - Ibexa Developer Documentation: index.md
     - Ibexa DXP editions:
@@ -94,6 +94,10 @@ nav:
             - Project organization: administration/project_organization/project_organization.md
             - Architecture: administration/project_organization/architecture.md
             - Bundles: administration/project_organization/bundles.md
+        - Dashboard:
+            - Configure default dashboard: administration/dashboard/configure_default_dashboard.md
+            - Customize dashboard: administration/dashboard/customize_dashboard.md
+            - PHP API Dashboard service: administration/dashboard/php_api_dashboard_service.md
         - Admin panel:
             - Admin panel: administration/admin_panel/admin_panel.md
             - Users: administration/admin_panel/users_admin_panel.md
