@@ -69,7 +69,7 @@ This normalizer is added to suggestion normalizers by decorating `ibexa.search.s
 ``` yaml
 services:
     #…
-[[= include_file('code_samples/back_office/search/config/append_to_services.yaml', 4, 19) =]]
+[[= include_file('code_samples/back_office/search/config/append_to_services.yaml', 4, 20) =]]
 ```
 
 !!! tip
@@ -130,7 +130,7 @@ To be present, this wrapping node template must be added to the `global-search-a
 ``` yaml
 services:
     #…
-[[= include_file('code_samples/back_office/search/config/append_to_services.yaml', 21, 27) =]]
+[[= include_file('code_samples/back_office/search/config/append_to_services.yaml', 22, 28) =]]
 ```
 
 The product suggestion item template itself, as `templates/themes/admin/ui/global_search_autocomplete_product_item.html.twig`:
