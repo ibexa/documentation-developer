@@ -40,7 +40,7 @@
                 description: Error - the user is not authorized to delete this product.
 /{code}:
     get:
-        displayName: Load product
+        displayName: Load the given product
         description: Loads the given product.
         headers:
             Accept:
@@ -97,109 +97,169 @@
                 description: Error - no product with the given code exists.
     /prices:
         get:
-            displayName: Load product prices
-            description: Loads product prices.
+            displayName: Load the list of product prices
+            description: Loads the list of product prices.
             headers:
                 Accept:
-                    description: If set, loads product prices in JSON format.
+                    description: PriceList - if set, the product price list is returned in JSON format.
                     example:
-                        application/vnd.ibexa.api.<?>>+json
+                        application/vnd.ibexa.api.PriceList+json
                 Content-Type:
-                    description: If set, the updated product is returned in XML or JSON format.
-                    example:  |
-                        application/vnd.ibexa.api.<?>>+json
-            body:
-                application/vnd.ibexa.api.<?>+json:
-                    type: <?>>
-                    example: !include examples/product/code/prices/GET/<?>.json.example
-            X-CSRF-Token: Only needed for sessions's checking. The {csrfToken} needed on all unsafe http methods with session.
-        post:
-            displayName: Create product prices
-            description: Creates product prices.
-            headers:
-                Accept:
-                    description: The view in XML or JSON format.
+                    description: The PriceList schema encoded in JSON format.
                     example:
-                        application/vnd.ibexa.api.<?>+xml
-                        application/vnd.ibexa.api.<?>>+json
-                Content-Type:
-                    description: 
-                    example:
-                        application/vnd.ibexa.api.<?>>+json
-            body:
-                application/vnd.ibexa.api.<?>+json:
-                    type: <?>
-                    example: !include examples/product/code/prices/POST/<?>.json.example
+                        application/vnd.ibexa.api.PriceList+json
             responses:
+                200:
+                    description: OK - loads prices.
+                    body:
+                        application/vnd.ibexa.api.PriceList+json:
+                            type: PriceList
+                            example: !include examples/product/catalog/product/code/prices/GET/PriceList.json.example
+                401:
+                    description: Error - the user has no permission to read prices.
+        post:
+            displayName: Create product price
+            description: Create product price.
+            headers:
+                Accept:
+                    description: If set, the new price is returned in JSON format.
+                    example:
+                        application/vnd.ibexa.api.PriceCreateStruct+json
+                Content-Type:
+                    description: The product price schema encoded in JSON format.
+                    example:
+                        application/vnd.ibexa.api.PriceCreateStruct+json
+            body:
+                application/vnd.ibexa.api.PriceCreateStruct+json:
+                    type: PriceCreateStruct
+                    example: !include examples/product/code/prices/POST/PriceCreateStructInput.json.example
+            responses:
+                200:
+                    body:
+                        application/vnd.ibexa.api.PriceCreateStruct+json::
+                            type: PriceCreateStruct
+                            example: !include examples/product/code/prices/POST/PriceCreateStruct.json.example
+                400:
+                    description: Error - the input does not match the input schema definition.
+                401:
+                    description: Error - the user is not authorized to create this price.
         /{currencyCode}:
             get:
-                displayName:
-                description:
+                displayName: Get price in given currency
+                description: Get price in given currency.
                 headers:
                     Accept:
-                        description:
+                        description: If set, gets price in given currency in JSON format.
                         example:
-                            application/vnd.ibexa.api.<?>+xml
-                        application/vnd.ibexa.api.<?>>+json
+                            application/json
                     Content-Type:
-                        description:
+                        description: If set, the updated price is returned in JSON format.
                         example:
-                            application/vnd.ibexa.api.<?>>+json
-                body:
-                    application
-                    type:
-                    example: !include examples/product/code/prices/currencyCode/GET/<?>.json.example
-                X-CSRF-Token: Only needed for sessions's checking. The {csrfToken} needed on all unsafe http methods with session.
+                            application/json
+                responses:
+                    200:
+                        body:
+                            application/json:
+                                type: Currency
+                                example: !include examples/product/catalog/product/code/prices/currencyCode/GET/Currency.json.example
+                    401:
+                        description: Error - the user has no permission to read prices.
+                    404:
+                        description: Error - the price does not exist.
             /customer-group:
                 /{customerGroupIdentifier}:
                     get:
-                        displayName:
-                        description:
+                        displayName: Get price in given currency and customer group
+                        description: Get price in given currency and customer group.
                         headers:
                             Accept:
-                                description:
+                                description: If set, gets price in given currency and customer group in JSON format.
                                 example:
+                                    application/vnd.ibexa.api.Price+json
                             Content-Type:
-                                description:
+                                description: If set, the updated price is returned in JSON format.
                                 example:
-                        body:
-                            application
-                                type:
-                                example: !include examples/product/code/prices/currencyCode/customer-group/customerGroupIdentifier/GET/<?>.json.example
+                                    application/vnd.ibexa.api.Price+json                  
+                        responses:
+                            200:
+                                body:
+                                    application/json
+                                        type:
+                                        example: !include examples/product/catalog/product/code/prices/currencyCode/customer-group/customerGroupIdentifier/GET/PriceCurrencyCustomerGroup.json.example
+                            401:
+                                description: Error - the user has no permission to read prices.
+                            404:
+                                description: Error - the price does not exist.
         /{id}:
             delete:
                 displayName: Delete product price
                 description: Deletes product price.
                 headers:
                     Accept:
-                        description:
+                        description: If set, deletes price in given currency in JSON format.
                         example:
+                            application/vnd.ibexa.api.PriceDelete+json
                     Content-Type:
-                        description:
+                        description: Delete product price.
                         example:
-                body:
-                    application
-                        type:
-                        example: !include examples/product/code/prices/id/DELETE/<?>.json.example
+                            application/vnd.ibexa.api.PriceDelete+json
+                responses:
+                    200:
+                        description: No content - the given price is deleted.
+                    401:
+                        description: Error - the user is not authorized to delete this price.
             patch:
                 displayName: Update product price
                 description: Updates product price.
                 headers:
                     Accept:
-                        description:
-                        example:
+                        description: If set, updates product price.
+                        example:application/vnd.ibexa.api.PriceUpdateStruct+json
                     Content-Type:
-                        description: Update custom price or price for given currency.
+                        description: Update price for given currency.
                         example:
                             application/vnd.ibexa.api.PriceUpdateStruct+json
-                            application/vnd.ibexa.api.CustomPriceUpdateStruct+json
                 body:
                     application/vnd.ibexa.api.PriceUpdateStruct+json:
                         type: PriceUpdateStruct
-                        example: !include examples/product/code/prices/id/PATCH/PriceUpdateStruct.json.example
+                        example: 
+                            !include examples/product/catalog/product/code/prices/id/PATCH/PriceUpdateStructInput.json.example
+                responses:
+                    200:
+                        body:
+                            application/vnd.ibexa.api.PriceUpdateStruct+json
+                                type: PriceUpdateStruct
+                                example: !include examples/product/catalog/product/code/prices/id/PATCH/PriceUpdateStruct.json.example
+                    400:
+                        description: Error - the input does not match the input schema definition.
+                    401:
+                        description: Error - the user is not authorized to update this price.
+            patch:
+                displayName: Update custom product price
+                description: Updates custom product price.
+                headers:
+                    Accept:
+                        description: If set, updates custom product price.
+                        example:application/vnd.ibexa.api.CustomPriceUpdateStruct+json
+                    Content-Type:
+                        description: Update custom price or price for given currency.
+                        example:
+                            application/vnd.ibexa.api.CustomPriceUpdateStruct+json
+                body:
                     application/vnd.ibexa.api.CustomPriceUpdateStruct+json:
                         type: CustomPriceUpdateStruct
-                        example: !include examples/product/code/prices/id/PATCH/CustomPriceUpdateStruct.json.example
+                        example: 
+                            !include examples/product/catalog/product/code/prices/id/PATCH/CustomPriceUpdateStructInput.json.example
+                responses:
+                    200:
+                        body:
+                            application/vnd.ibexa.api.PriceUpdateStruct+json
+                                type: PriceUpdateStruct
+                                example: !include examples/product/catalog/product/code/prices/id/PATCH/CustomPriceUpdateStruct.json.example
+                    400:
+                        description: Error - the input does not match the input schema definition.
+                    401:
+                        description: Error - the user is not authorized to update this price.
 get:
     displayName: Load products list (deprecated)
     description: Returns a list of products. Deprecated as of Ibexa DXP 4.3, use POST /product/catalog/products/view instead.
