@@ -10,7 +10,7 @@ To learn more about its Back Office usage and the actions logged by default, see
 
 ## Configuration and cronjob
 
-* The parameter `ibexa.site_access.config.<scope>.activity_log.pagination.activity_logs_limit` set the number of log items shown per page in the Back Office (default: 25 items per page). (A log item is a group of entries, or an entry without group.)
+* The parameter `ibexa.site_access.config.<scope>.activity_log.pagination.activity_logs_limit` sets the number of log items shown per page in the Back Office (default: 25 items per page). (A log item is a group of entries, or an entry without group.)
 * The configuration `ibexa.repositories.<repository>.activity_log.truncate_after_days` set the number of days a log entry is kept before being deleted by the `ibexa:activity-log:truncate` command (default: 30 days).
 
 For example, the following set 20 log groups per page for the `admin` SiteAccess, and 15 days of life to the log entries on the `default` repository:
