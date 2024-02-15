@@ -360,6 +360,10 @@ nav:
             - Storefront: commerce/storefront/storefront.md
             - Configure Storefront: commerce/storefront/configure_storefront.md
             - Extend Storefront: commerce/storefront/extend_storefront.md
+        - Transactional emails:
+            - Transactional emails: commerce/transactional_emails/transactional_emails.md
+            - Transactional email variables reference: commerce/transactional_emails/transactional_emails_parameters.md
+            - Customize transactional emails: commerce/transactional_emails/extend_transactional_emails.md
     - Customer management:
         - Customer Portal guide: customer_management/customer_portal.md
         - Customer Portal configuration: customer_management/cp_configuration.md
@@ -797,6 +801,7 @@ nav:
             - Package structure: resources/contributing/package_structure.md
     - Release notes:
         - Release notes: release_notes/release_notes.md
+        - Ibexa DXP v4.6 LTS: release_notes/ibexa_dxp_v4.6.md
         - Ibexa DXP v4.5: release_notes/ibexa_dxp_v4.5.md
         - Ibexa DXP v4.4: release_notes/ibexa_dxp_v4.4.md
         - Ibexa DXP v4.3: release_notes/ibexa_dxp_v4.3.md
@@ -873,6 +878,7 @@ extra:
   latest_tag_4_3: '4.3.5'
   latest_tag_4_4: '4.4.4'
   latest_tag_4_5: '4.5.5'
+  latest_tag_4_6: '4.6.0'
 
   symfony_doc: 'https://symfony.com/doc/5.4'
   user_doc: 'https://doc.ibexa.co/projects/userguide/en/master'
