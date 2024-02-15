@@ -12,8 +12,6 @@ description: Ibexa DXP v4.6 brings improvements to Commerce, PIM and Personaliza
 
 **Release type**: [LTS](https://support.ibexa.co/Public/service-life)
 
-**Update**: [v4.5.x to v4.6](https://doc.ibexa.co/en/latest/update_and_migration/from_4.5/update_from_4.5/)
-
 ## Notable changes
 
 ### Ibexa Headless
@@ -22,7 +20,7 @@ description: Ibexa DXP v4.6 brings improvements to Commerce, PIM and Personaliza
 
 The feature set and capabilities of the product remain the same.
 
-### Customizable dashboard [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+### Customizable dashboard
 
 Users can now customize the dashboard depending on their needs and preferences, select required blocks, and easily access important information.
 This solution uses an online editor - Dashboard Builder.
@@ -37,7 +35,7 @@ For more information, see [Customizable dashboard](https://doc.ibexa.co/projects
 
 Several improvements to the Back Office interface enhance the user experience.
 
-#### Page Builder improvements [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+#### Page Builder improvements
 
 Page Builder user interface has new functionalities and improvements.
 
@@ -260,7 +258,7 @@ With `IsVirtual` criterion that searches for virtual or physical products, produ
 
 [Product variants](https://doc.ibexa.co/en/master/content_management/data_migration/importing_data/#product-variants) and [product assets](https://doc.ibexa.co/en/master/content_management/data_migration/importing_data/#product-assets) can now be created through [data migration](https://doc.ibexa.co/en/master/content_management/data_migration/data_migration/).
 
-###  New features and improvements in Commerce [[% include 'snippets/commerce_badge.md' %]]
+###  New features and improvements in Commerce
 
 #### Reorder
 
@@ -407,7 +405,7 @@ For more information, see [SeenThis! block](https://doc.ibexa.co/projects/usergu
 
 #### REST API
 
-##### REST API for shipping [[% include 'snippets/commerce_badge.md' %]]
+##### REST API for shipping
 
 Endpoints that allow you to manage shipping methods and shipments by using REST API:
 
@@ -420,7 +418,7 @@ Endpoints that allow you to manage shipping methods and shipments by using REST 
 - GET `/shipping/method-types/{identifier}` - loads shipping methods type based on their identifiers
 - GET `/orders/order/{identifier}/shipments` - loads a list of shipments
 
-##### REST API for company accounts [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+##### REST API for company accounts
 
 Endpoints that allow you to manage companies in your platform with REST API:
 
