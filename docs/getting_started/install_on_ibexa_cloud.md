@@ -39,7 +39,7 @@ Configuration under `hooks` defines the process of building and deploying your p
 !!! note
 
     During the build phase (defined in the `hooks.build` configuration), files in the project have read/write permissions (can be modified).
-    
+
     During deployment (defined in the `hooks.deploy` configuration), all files in the project are read-only.
 
 ### Additional services
@@ -55,7 +55,7 @@ under the `relationship` key in `.platform.app.yaml` as well.
 
 ## 2. Create an account
 
-Log in to https://cloud.ibexa.co or create an account if you do not have one yet.
+Log in to https://cloud.ibexa.co or create an account if you don't have one yet.
 
 Create a project and select its region.
 
@@ -73,7 +73,7 @@ Add your Composer authentication token to the project before pushing it to Platf
 You can set this token as an environment variable.
 
 When you do, make sure the **Visible during runtime** box in Platform.sh configuration is unchecked.
-This ensures that the token is not exposed.
+This ensures that the token isn't exposed.
 
 ![Setting token to be invisible during runtime](psh_addvariable.png)
 
@@ -85,16 +85,23 @@ When you are done with configuration, push your project to the Platform.sh remot
 git push -u <platform.sh-remote> master
 ```
 
+You can also use the [Ibexa Cloud CLI](https://cli.ibexa.co/) to push your code.
+
+``` bash
+ibexa_cloud push master
+```
+
 !!! note
 
     `master` is the Platform.sh name for the production branch.
 
 !!! caution
 
-    If you want to use the [Platform.sh CLI](https://docs.platform.sh/administration/cli.html), you have to set it up for [[= product_name_cloud =]].
-    Consider using the following alias `ibexa_cloud` with a dedicated setup instead of `platform`:
-    ```bash
-    alias ibexa_cloud="PLATFORMSH_CLI_SESSION_ID=ibexa_cloud \
-        PLATFORMSH_CLI_API_URL=https://api.cloud.ibexa.co \
-        platform"
-    ```
+    Do not use Platform.sh CLI (`platform`), instead, use the [Ibexa Cloud CLI (`ibexa_cloud`)](https://cli.ibexa.co/).
+
+    To install Ibexa Cloud CLI, follow https://cli.ibexa.co/ "Installation instructions".
+
+    Ibexa Cloud CLI and Platform.sh CLI share the same commands and the [same documentation](https://docs.platform.sh/administration/cli.html#3-use), but you have to replace `platform` with `ibexa_cloud`.
+
+    If you have previously set up an alias to use Platform.sh CLI with Ibexa Cloud, it is outdated.
+    Remove the alias and install Ibexa Cloud CLI instead.

@@ -74,28 +74,43 @@ of the site, provide the credentials that correspond to each of the sites.
 The configuration can resemble the following example:
 
 ``` yaml
-ibexa_personalization:
+ibexa:
     system:
         <site_access_name_1>:
-            site_name: '<site_name_1>' # For example 'ENU store'
-            host_uri: '%env(RECOMMENDATION_HOST_URI)%'
-            authentication:
-                customer_id: '%env(RECOMMENDATION_CUSTOMER_ID)%'
-                license_key: '%env(RECOMMENDATION_LICENSE_KEY)%'
-            included_item_types: [product, article]
+            personalization:
+                site_name: '<site_name_1>' # For example 'ENU store'
+                host_uri: '%env(RECOMMENDATION_HOST_URI)%'
+                authentication:
+                    customer_id: '%env(int:RECOMMENDATION_CUSTOMER_ID)%'
+                    license_key: '%env(RECOMMENDATION_LICENSE_KEY)%'
+                included_item_types: [product, article]
+                output_type_attributes:
+                    123: # content type ID
+                        title: 'title'
+                        image: 'image_legend'
+                        description: 'sub_title'
+                    456: 
+                        title: 'short_title'
+                        image: 'primary_image'
+                        description: 'sub_title'
 
         <site_access_name_2>:
-            site_name: '<site_name_2>' # For example 'FRA store'
-            host_uri: '%env(FRA_HOST_URI)%'
-            authentication:
-                customer_id: '%env(FRA_CUSTOMER_ID)%'
-                license_key: '%env(FRA_LICENSE_KEY)%'
-            export:
+            personalization:
+                site_name: '<site_name_2>' # For example 'FRA store'
+                host_uri: '%env(FRA_HOST_URI)%'
                 authentication:
-                    method: 'user'
-                    login: '%env(FRA_CUSTOM_EXPORT_LOGIN)%'
-                    password: '%env(FRA_CUSTOM_EXPORT_PASSWORD)%'
+                    customer_id: '%env(int:FRA_CUSTOMER_ID)%'
+                    license_key: '%env(FRA_LICENSE_KEY)%'
                 included_item_types: [product, article]
+                output_type_attributes:
+                    123: # content type ID
+                        title: 'title'
+                        image: 'image_legend'
+                        description: 'sub_title'
+                    456: 
+                        title: 'short_title'
+                        image: 'primary_image'
+                        description: 'sub_title'
 ```
 
 !!! note "Authentication"
@@ -111,9 +126,6 @@ ibexa_personalization:
 | `host_uri`                           | A location where the site's REST API can be accessed. This is where the Personalization server imports items from.       |
 | `authentication.customer_id`         | A customer ID related to the supported SiteAccess.                                         |
 | `authentication.license_key`         | The Personalization service's license key.                                         |
-| `export.authentication.method`         | Authentication method used to get access when importing items.                                         |
-| `export.authentication.login`         | The credential used when importing items.                                         |
-| `export.authentication.password`         | The password used when importing items.                                         |
 | `included_item_types`             | A list of alphanumerical identifiers of item types on which the tracking script is shown. |
 | `random_item_types`               | A list of alphanumerical identifiers of item types that are returned when the response from the server contains no content. |
 
@@ -138,7 +150,7 @@ Place the following code snippet in the `<head>` section of your header template
 
 ``` html+twig
 {% if content is defined %}
-    {{ ibexa_recommendation_track_user(content.id) }}
+    {{ ibexa_recommendation_track_user(content) }}
 {% endif %}
 ```
 

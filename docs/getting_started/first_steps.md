@@ -41,22 +41,24 @@ module.exports = [ eZConfig, ibexaConfig, ...customConfigs ];
 
     Make sure that you change the default password before you switch your installation 
     from development to production. 
-    For more information about passwords, see [Passwords](user_management.md#passwords).
+    For more information about passwords, see [Passwords](passwords.md).
     For more information about production security, see [Security checklist](security_checklist.md).
 
-2\. Select Admin and go to Content Types.
+2\. In the upper-right corner, click the avatar icon and in the drop-down menu disable the [Focus mode]([[= user_doc =]]/getting_started/#focus-mode).
 
-3\. Enter the Content group and create a new Content Type.
+3\. Select Content and go to Content Types.
+
+4\. Enter the Content group and create a new Content Type.
 
 ![Creating a Content Type](first-steps-create-ct.png)
 
-4\. Input the Content Type's name, for example "Blog Post", and identifier: `blog_post`.
+5\. Input the Content Type's name, for example "Blog Post", and identifier: `blog_post`.
 
-5\. Below, add a Field definition of the type Text Line. Name it "Title" and give it identifier `title`.
+6\. Below, add a Field definition of the type Text Line. Name it "Title" and give it identifier `title`.
 
-6\. Add another Field definition: Text (type Rich text) with identifier `text`.
+7\. Add another Field definition: Text (type Rich text) with identifier `text`.
 
-7\. Save the Content Type.
+8\. Save the Content Type.
 
 !!! tip "More information"
 
@@ -97,7 +99,7 @@ Content view templates use the [Twig templating engine](https://twig.symfony.com
 
 ## Create content and test view templates
 
-1\. Go to the Back Office, activate Content/Content structure and create a new Content item using the button in the right menu.
+1\. Go to the Back Office, activate Content/Content structure and create a new Content item by clicking **Create content**.
 
 ![Creating a Blog Post](first-steps-create-content.png)
 
@@ -166,7 +168,7 @@ Make sure it is enabled.
 ![Creating a language](first-steps-create-language.png)
 
 3\. Next, go to the Content structure and open the blog post you had created earlier.
-Switch to the Translations tab and add a new translation.
+Switch to the **Translations** tab and add a new translation.
 
 ![Adding a translation](first-steps-add-translation.png)
 

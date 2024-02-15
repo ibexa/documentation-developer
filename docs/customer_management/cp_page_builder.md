@@ -30,7 +30,7 @@ First, under the `ibexa.siteaccess` [configuration key](configuration.md#configu
 the SiteAccess `list` and to `corporate_group`.
 
 Next, add configuration for `corporate_group` and `custom_portal` under `ibexa.system`.
-Remember to specify `location_id` of your Customer Portal, you can find it under the **Details** tab of your new page.
+Remember to specify `location_id` of your Customer Portal, you can find it under the **Technical details** tab of your new page.
 
 ```yaml hl_lines="8 12 14 16"
 ibexa:
@@ -115,7 +115,7 @@ First, under the `ibexa.siteaccess` [configuration key](configuration.md#configu
 the SiteAccess `list` and to `corporate_group`.
 
 Next, add configuration for `corporate_group` and `custom_portal` under `ibexa.system`.
-Remember to specify `location_id` of the root folder for Customer Portals, you can find it under the **Details** tab. 
+Remember to specify `location_id` of the root folder for Customer Portals, you can find it under the **Technical details** tab.
 
 ```yaml hl_lines="8 12 14 16"
 ibexa:
