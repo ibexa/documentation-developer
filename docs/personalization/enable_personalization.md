@@ -40,8 +40,6 @@ PERSONALIZATION_HOST_URI=https://server_uri
     FRA_CUSTOMER_ID=54321
     FRA_LICENSE_KEY=09876-5432-1098-7654-3210
     FRA_HOST_URI=https://FRA_server_uri
-    FRA_CUSTOM_EXPORT_LOGIN=65432
-    FRA_CUSTOM_EXPORT_PASSWORD=#prtpswd_1
     ```
 
 ## Configure Personalization
@@ -127,7 +125,6 @@ ibexa:
 | `authentication.customer_id`         | A customer ID related to the supported SiteAccess.                                         |
 | `authentication.license_key`         | The Personalization service's license key.                                         |
 | `included_item_types`             | A list of alphanumerical identifiers of item types on which the tracking script is shown. |
-| `random_item_types`               | A list of alphanumerical identifiers of item types that are returned when the response from the server contains no content. |
 
 You can use an alphanumeric content identifier `remoteId` instead of a numeric `id`.
 To enable it, add the following configuration:
@@ -229,14 +226,6 @@ After you [define item types to be tracked and recommended](#set-up-item-type-tr
 start the full export.
 
 You do it with the `ibexa:personalization:run-export` command.
-
-If your installation hosts only one SiteAccess, run the following command to export your data:
-
-``` bash
-php bin/console ibexa:personalization:run-export
-    --item-type-identifier-list=<item_type>,<item_type>
-    -—languages=<language>,<language>
-```
 
 If your installation hosts multiple SiteAccesses with different customer IDs, 
 you must run the export separately for each of the `<site_access_name>`/`<customer_id>` pairs.
