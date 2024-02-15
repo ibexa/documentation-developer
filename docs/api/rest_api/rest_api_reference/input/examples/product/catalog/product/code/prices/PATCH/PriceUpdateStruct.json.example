@@ -1,17 +1,17 @@
 {
     "Price": {
         "_media-type": "application/vnd.ibexa.api.Price+json",
-        "id": 4,
-        "amount": "0.09",
-        "base_amount": "0.09",
+        "id": 2,
+        "amount": "35.00",
+        "base_amount": "35.00",
         "Currency": {
             "_media-type": "application/vnd.ibexa.api.Currency+json",
-            "id": 94,
-            "code": "CHF",
+            "id": 5,
+            "code": "USD",
             "subunits": 2,
             "enabled": true
         },
-        "money": "9",
-        "base_money": "9"
+        "money": "3500",
+        "base_money": "3500"
     }
 }
