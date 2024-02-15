@@ -11,5 +11,5 @@ You can customize various areas of the Product Information Management solution t
     "pim/create_custom_attribute_type",
     "pim/create_product_code_generator",
     "pim/create_custom_catalog_filter",
-    "pim/pricreate_custom_name_schema_strategy"
+    "pim/create_custom_name_schema_strategy"
 ], columns=4) =]]

@@ -152,7 +152,7 @@ You can build upon it to connect to a remote PIM or ERP system, pull product dat
 ![Remote PIM](img/remote_pim_support.png)
 
 Remote PIM support is available in all [[= product_name =]] editions as of version v.4.6.0.
-An example implementation is delivered as an optional package that you can [install and customize](install_remote_pim.md) to fulfill your requirements.
+An example implementation is delivered as an optional package that you can [install and customize](add_remote_pim_support.md) to fulfill your requirements.
 
 #### Capabilities
 
@@ -175,7 +175,7 @@ In your specific scenario, you can implement the support for availability and pr
 Filtering and pagination function the same as with the local PIM, relying on product attributes for effective organization of product data.
 However, criteria and sort clauses within local PIM correspond with [[= product_name =]]'s content model.
 Depending on your source of product information, you might need to adjust the implementation to be compatible with your data format.
-For reference, you could review the `CriterionVisitor.php` file that is part of [Remote PIM example package](install_remote_pim.md#install-remote-pim-example-package).
+For reference, you could review the `CriterionVisitor.php` file that is part of [Remote PIM example package](add_remote_pim_support.md#install-remote-pim-example-package).
 
 ##### Catalogs
 
