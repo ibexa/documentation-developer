@@ -1,7 +1,20 @@
 {
-  "CustomPriceUpdateStruct": {
-    "amount": 2500,
-    "customAmount": 1700,
-    "currency": "EUR"
-  }
+    "CustomPrice": {
+        "_media-type": "application/vnd.ibexa.api.CustomPrice+json",
+        "id": 3,
+        "amount": "17.00",
+        "base_amount": "35.00",
+        "Currency": {
+            "_media-type": "application/vnd.ibexa.api.Currency+json",
+            "id": 5,
+            "code": "USD",
+            "subunits": 2,
+            "enabled": true
+        },
+        "money": "1700",
+        "base_money": "3500",
+        "custom_money": "1700",
+        "custom_amount": "17.00",
+        "custom_rule": null
+    }
 }

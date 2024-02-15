@@ -3330,6 +3330,63 @@ Price:
         base_money:
             type: object
 
+CustomPrice:
+    description: 'This class represents a custom price.'
+    type: object
+    properties:
+        amount:
+            type: string
+        base_amount:
+            type: string
+        Currency:
+            type: Currency
+        money:
+            type: object
+        base_money:
+            type: object
+        custom_money:
+            type: object
+        custom_amount:
+            type: string
+        custom_rule:
+            
+
+PriceList:
+    description: 'This class represents a price list.'
+    type: object
+    properties:
+        prices:
+            type: Price[]
+
+PriceCreateStruct:
+    description: 'This class represents a price creation structure.'
+    type: object
+    properties:
+        amount:
+            type: float
+        currency:
+            type: string
+
+PriceUpdateStruct:
+    description: 'This class represents a price updating structure.'
+    type: object
+    properties:
+        amount:
+            type: float
+        currency:
+            type: string
+
+CustomPriceUpdateStruct:
+    description: 'This class represents a custom price updating structure.'
+    type: object
+    properties:
+        amount:
+            type: float
+        currency:
+            type: string
+        customAmount:
+            type: float
+
 VatCategorySummary:
     description: 'This class represents a VAT category summary.'
     type: object
