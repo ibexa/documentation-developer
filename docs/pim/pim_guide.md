@@ -144,8 +144,7 @@ Besides, the built-in catalog filters, you can also [create custom ones](create_
 
 ### Remote PIM support
 
-In [[= product_name =]], products are traditionally created and maintained by using the REST API or the Back Office.
-And product data is stored in a local database.
+In [[= product_name =]], products are created and maintained by using the REST API or the Back Office, and their data is stored in a local database.
 However, in your project or organization, you might have an existing product database, or be specifically concerned about product information security.
 To address such needs, [[= product_name =]] provides a foundation for remote PIM support.
 You can build upon it to connect to a remote PIM or ERP system, pull product data and present it on your website.
