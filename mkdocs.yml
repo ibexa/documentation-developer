@@ -3,7 +3,7 @@ INHERIT: plugins.yml
 site_name: Developer Documentation
 repo_url: https://github.com/ezsystems/developer-documentation
 site_url: https://doc.ibexa.co/en/latest/
-copyright: "Copyright 1999-2023 Ibexa AS and others"
+copyright: "Copyright 1999-2024 Ibexa AS and others"
 nav:
     - Ibexa Developer Documentation: index.md
     - Ibexa DXP editions:
@@ -94,6 +94,10 @@ nav:
             - Project organization: administration/project_organization/project_organization.md
             - Architecture: administration/project_organization/architecture.md
             - Bundles: administration/project_organization/bundles.md
+        - Dashboard:
+            - Configure default dashboard: administration/dashboard/configure_default_dashboard.md
+            - Customize dashboard: administration/dashboard/customize_dashboard.md
+            - PHP API Dashboard service: administration/dashboard/php_api_dashboard_service.md
         - Admin panel:
             - Admin panel: administration/admin_panel/admin_panel.md
             - Users: administration/admin_panel/users_admin_panel.md
@@ -316,12 +320,15 @@ nav:
         - Catalogs: pim/catalogs.md
         - Catalog API: pim/catalog_api.md
         - Enable purchasing products: pim/enable_purchasing_products.md
-        - Create custom attribute type: pim/create_custom_attribute_type.md
-        - Create product code generator: pim/create_product_code_generator.md
-        - Create custom catalog filter: pim/create_custom_catalog_filter.md
-        - Create custom name schema: pim/create_custom_name_schema_strategy.md
         - Prices: pim/prices.md
         - Price API: pim/price_api.md
+        - Customize PIM: 
+            - Customize PIM: pim/customize_pim.md
+            - Create custom attribute type: pim/create_custom_attribute_type.md
+            - Create product code generator: pim/create_product_code_generator.md
+            - Create custom catalog filter: pim/create_custom_catalog_filter.md
+            - Create custom name schema: pim/create_custom_name_schema_strategy.md
+        - Add remote PIM support: pim/add_remote_pim_support.md
     - Commerce:
         - Commerce: commerce/commerce.md
         - Cart:
@@ -355,6 +362,10 @@ nav:
             - Storefront: commerce/storefront/storefront.md
             - Configure Storefront: commerce/storefront/configure_storefront.md
             - Extend Storefront: commerce/storefront/extend_storefront.md
+        - Transactional emails:
+            - Transactional emails: commerce/transactional_emails/transactional_emails.md
+            - Transactional email variables reference: commerce/transactional_emails/transactional_emails_parameters.md
+            - Customize transactional emails: commerce/transactional_emails/extend_transactional_emails.md
     - Customer management:
         - Customer Portal guide: customer_management/customer_portal.md
         - Customer Portal configuration: customer_management/cp_configuration.md
@@ -786,6 +797,7 @@ nav:
             - Package structure: resources/contributing/package_structure.md
     - Release notes:
         - Release notes: release_notes/release_notes.md
+        - Ibexa DXP v4.6 LTS: release_notes/ibexa_dxp_v4.6.md
         - Ibexa DXP v4.5: release_notes/ibexa_dxp_v4.5.md
         - Ibexa DXP v4.4: release_notes/ibexa_dxp_v4.4.md
         - Ibexa DXP v4.3: release_notes/ibexa_dxp_v4.3.md
