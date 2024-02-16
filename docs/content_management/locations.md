@@ -22,7 +22,7 @@ A Content item can have more than one Location. It is then present in two or mor
 For example, an article can be at the same time under "Local news" and "Sports news".
 Even in such a case, one of these places is always the main Location.
 
-You can change the main Location in the Back Office in the Locations tab,
+You can change the main Location in the Back Office in the **Locations** tab,
 or [through the API](managing_content.md#changing-the-main-location).
 
 ![Locations](content_management_locations.png "Locations")

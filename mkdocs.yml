@@ -3,9 +3,12 @@ INHERIT: plugins.yml
 site_name: Developer Documentation
 repo_url: https://github.com/ezsystems/developer-documentation
 site_url: https://doc.ibexa.co/en/latest/
-copyright: "Copyright 1999-2023 Ibexa AS and others"
+copyright: "Copyright 1999-2024 Ibexa AS and others"
 nav:
     - Ibexa Developer Documentation: index.md
+    - Ibexa DXP editions:
+        - Editions: ibexa_products/editions.md
+        - Ibexa Headless: ibexa_products/headless.md
     - Getting started:
         - Getting started: getting_started/getting_started.md
         - Requirements: getting_started/requirements.md
@@ -91,6 +94,10 @@ nav:
             - Project organization: administration/project_organization/project_organization.md
             - Architecture: administration/project_organization/architecture.md
             - Bundles: administration/project_organization/bundles.md
+        - Dashboard:
+            - Configure default dashboard: administration/dashboard/configure_default_dashboard.md
+            - Customize dashboard: administration/dashboard/customize_dashboard.md
+            - PHP API Dashboard service: administration/dashboard/php_api_dashboard_service.md
         - Admin panel:
             - Admin panel: administration/admin_panel/admin_panel.md
             - Users: administration/admin_panel/users_admin_panel.md
@@ -313,12 +320,15 @@ nav:
         - Catalogs: pim/catalogs.md
         - Catalog API: pim/catalog_api.md
         - Enable purchasing products: pim/enable_purchasing_products.md
-        - Create custom attribute type: pim/create_custom_attribute_type.md
-        - Create product code generator: pim/create_product_code_generator.md
-        - Create custom catalog filter: pim/create_custom_catalog_filter.md
-        - Create custom name schema: pim/create_custom_name_schema_strategy.md
         - Prices: pim/prices.md
         - Price API: pim/price_api.md
+        - Customize PIM: 
+            - Customize PIM: pim/customize_pim.md
+            - Create custom attribute type: pim/create_custom_attribute_type.md
+            - Create product code generator: pim/create_product_code_generator.md
+            - Create custom catalog filter: pim/create_custom_catalog_filter.md
+            - Create custom name schema: pim/create_custom_name_schema_strategy.md
+        - Add remote PIM support: pim/add_remote_pim_support.md
     - Commerce:
         - Commerce: commerce/commerce.md
         - Cart:
@@ -341,7 +351,7 @@ nav:
             - Extend Payment: commerce/payment/extend_payment.md 
             - Payment method API: commerce/payment/payment_method_api.md 
             - Payment method filtering: commerce/payment/payment_method_filtering.md
-            - Payment API: commerce/payment/payment_api.md 
+            - Payment API: commerce/payment/payment_api.md
         - Shipping management:
             - Shipping management: commerce/shipping_management/shipping_management.md
             - Configure shipping: commerce/shipping_management/configure_shipment.md
@@ -352,6 +362,10 @@ nav:
             - Storefront: commerce/storefront/storefront.md
             - Configure Storefront: commerce/storefront/configure_storefront.md
             - Extend Storefront: commerce/storefront/extend_storefront.md
+        - Transactional emails:
+            - Transactional emails: commerce/transactional_emails/transactional_emails.md
+            - Transactional email variables reference: commerce/transactional_emails/transactional_emails_parameters.md
+            - Customize transactional emails: commerce/transactional_emails/extend_transactional_emails.md
     - Customer management:
         - Customer Portal guide: customer_management/customer_portal.md
         - Customer Portal configuration: customer_management/cp_configuration.md
@@ -550,7 +564,7 @@ nav:
             - Name: search/criteria_reference/payment_method_name_criterion.md
             - Type: search/criteria_reference/payment_method_type_criterion.md
             - UpdatedAt: search/criteria_reference/payment_method_updatedat_criterion.md
-        - Price Search Criteria: 
+        - Price Search Criteria:
             - Price Search Criteria: search/criteria_reference/price_search_criteria.md
             - Currency: search/criteria_reference/price_currency_criterion.md
             - CustomerGroup: search/criteria_reference/price_customergroup_criterion.md
@@ -650,6 +664,7 @@ nav:
                 - Url Sort Clause: search/url_search_reference/url_url_sort_clause.md
         - Search API: search/search_api.md
         - Aggregation reference:
+              # Content aggregations
             - Aggregation reference: search/aggregation_reference/aggregation_reference.md
             - ContentTypeTermAggregation: search/aggregation_reference/contenttypeterm_aggregation.md
             - ContentTypeGroupTermAggregation: search/aggregation_reference/contenttypegroupterm_aggregation.md
@@ -662,8 +677,10 @@ nav:
             - RawTermAggregation: search/aggregation_reference/rawterm_aggregation.md
             - SectionTermAggregation: search/aggregation_reference/sectionterm_aggregation.md
             - SubtreeTermAggregation: search/aggregation_reference/subtreeterm_aggregation.md
+            - TaxonomyEntryIdAggregation: search/aggregation_reference/taxonomyentryid_aggregation.md
             - UserMetadataTermAggregation: search/aggregation_reference/usermetadataterm_aggregation.md
             - VisibilityTermAggregation: search/aggregation_reference/visibilityterm_aggregation.md
+              # Field aggregations
             - AuthorTermAggregation: search/aggregation_reference/authorterm_aggregation.md
             - CheckboxTermAggregation: search/aggregation_reference/checkboxterm_aggregation.md
             - CountryTermAggregation: search/aggregation_reference/countryterm_aggregation.md
@@ -674,15 +691,18 @@ nav:
             - IntegerRangeAggregation: search/aggregation_reference/integerrange_aggregation.md
             - IntegerStatsAggregation: search/aggregation_reference/integerstats_aggregation.md
             - KeywordTermAggregation: search/aggregation_reference/keywordterm_aggregation.md
+            - SelectionTermAggregation: search/aggregation_reference/selectionterm_aggregation.md
+            - TimeRangeAggregation: search/aggregation_reference/timerange_aggregation.md
+            # Product aggregations
             - Product attribute aggregations: search/aggregation_reference/product_attribute_aggregations.md
+            - BasePriceStatsAggregation: search/aggregation_reference/basepricestats_aggregation.md
+            - CustomPriceStatsAggregation: search/aggregation_reference/custompricestats_aggregation.md
             - ProductAvailabilityTermAggregation: search/aggregation_reference/productavailabilityterm_aggregation.md
             - ProductStockRangeAggregation: search/aggregation_reference/productstockrange_aggregation.md
             - ProductStockRangeAggregation: search/aggregation_reference/productstockrange_aggregation.md
             - ProductPriceRangeAggregation: search/aggregation_reference/productpricerange_aggregation.md
             - ProductTypeTermAggregation: search/aggregation_reference/producttypeterm_aggregation.md
-            - SelectionTermAggregation: search/aggregation_reference/selectionterm_aggregation.md
             - TaxonomyEntryIdAggregation: search/aggregation_reference/taxonomyentryid_aggregation.md
-            - TimeRangeAggregation: search/aggregation_reference/timerange_aggregation.md
         - Search in trash reference: search/search_in_trash_reference.md
         - Extend search:
             - Create custom Search Criterion: search/extensibility/create_custom_search_criterion.md
@@ -705,7 +725,7 @@ nav:
               - Reverse proxy: infrastructure_and_maintenance/cache/http_cache/reverse_proxy.md
               - Context-aware HTTP cache: infrastructure_and_maintenance/cache/http_cache/context_aware_cache.md
               - Content-aware HTTP cache: infrastructure_and_maintenance/cache/http_cache/content_aware_cache.md
-              - Configure and customize Fastly: infrastructure_and_maintenance/cache/http_cache/fastly.md 
+              - Configure and customize Fastly: infrastructure_and_maintenance/cache/http_cache/fastly.md
             - Persistence cache: infrastructure_and_maintenance/cache/persistence_cache.md
         - Clustering:
             - Clustering: infrastructure_and_maintenance/clustering/clustering.md
@@ -775,6 +795,7 @@ nav:
             - Package structure: resources/contributing/package_structure.md
     - Release notes:
         - Release notes: release_notes/release_notes.md
+        - Ibexa DXP v4.6 LTS: release_notes/ibexa_dxp_v4.6.md
         - Ibexa DXP v4.5: release_notes/ibexa_dxp_v4.5.md
         - Ibexa DXP v4.4: release_notes/ibexa_dxp_v4.4.md
         - Ibexa DXP v4.3: release_notes/ibexa_dxp_v4.3.md
@@ -850,10 +871,12 @@ extra:
   latest_tag_4_2: '4.2.4'
   latest_tag_4_3: '4.3.5'
   latest_tag_4_4: '4.4.4'
-  latest_tag_4_5: '4.5.4'
+  latest_tag_4_5: '4.5.5'
+  latest_tag_4_6: '4.6.0'
 
   symfony_doc: 'https://symfony.com/doc/5.4'
   user_doc: 'https://doc.ibexa.co/projects/userguide/en/master'
+  connect_doc: 'https://doc.ibexa.co/projects/connect/en/latest'
 
 extra_css:
   - fonts/MavenPro.css

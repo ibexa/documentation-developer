@@ -1,10 +1,10 @@
 -   type: product_price
     mode: create
-    product_code: 'DRESUN'
+    product_code: top_hat__58
     currency_code: 'EUR'
     amount: 120
     custom_prices:
-        -   customer_group: wholesaler
+        -   customer_group: contractors
             base_amount: 120
             custom_amount: 100
         
