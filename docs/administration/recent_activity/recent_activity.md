@@ -165,7 +165,7 @@ In the following example, several actions are logged into one context group, eve
 ```
 
 Context groups can't be nested.
-If a new context is prepared while a context is already grouping log entries, this new context will be ignored.
+If a new context is prepared while a context is already grouping log entries, this new context will be ignored. (Nested context might be supported in the future.)
 To start a new context, make sure to previously dismiss the existing one.
 
 As the context are not really user-friendly, by default, contexts are not shown in the Back Office.
