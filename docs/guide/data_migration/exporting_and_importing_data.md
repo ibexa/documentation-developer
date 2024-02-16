@@ -135,9 +135,8 @@ Note that you should test your migrations. See [Executing migrations](#executing
 
 !!! caution
 
-    The `--siteaccess` option usage can be relevant for a multi-language repository.
-    You must export with a SiteAccess that supports all languages, or the migration skips translations in non-supported languages.
-    It is recommended to use the SiteAccess from the Back Office of the targeted repository.
+    [`--siteaccess` option](#siteaccess) usage can be relevant when multiple languages or multiple repositories are used.
+    To prevent translation loss, it is recommended that you use the SiteAccess that has all the languages used in your implementation, most likely the Back Office one.
 
 ## type
 
@@ -184,6 +183,19 @@ The following data migration steps are available:
 | `section`            | &#10004; | &#10004; |          |
 | `user`               | &#10004; | &#10004; |          |
 | `user_group`         | &#10004; |          | &#10004; |
+
+## siteaccess
+
+The optional `--siteaccess` option enables you to export (or import) data in a SiteAccess configuration's context.
+If not provided, the [default SiteAccess](multisite_configuration.md#default-siteaccess) is used.
+
+It is recommended that you use the SiteAccess of the target repository's Back Office.
+
+Specifying the SiteAccess can be mandatory, for example, when you use several SiteAccesses to handle [several languages](languages.md#using-siteaccesses-for-handling-translations).
+Export and import commands only work with languages supported by the context SiteAccess.
+You must export and import with the SiteAccess supporting all the languages to preserve translations.
+
+This option is also important if you use [several repositories with their own dabases](repository_configuration.md#defining-custom-connection).
 
 ## match-property
 
@@ -287,9 +299,7 @@ php bin/console ibexa:migrations:migrate --file=my_data_export.yaml --siteaccess
 Ibexa Migrations store execution metadata in `ibexa_migrations` database table. This allows incremental upgrades:
 the `ibexa:migrations:migrate` command ignores files that it had previously executed.
 
-Notice that `--siteaccess` option usage is important when several languages are used.
-You must import with a SiteAccess that supports all languages, or the migration skips translations in non-supported languages.
-It's recommended to use the SiteAccess from the Back Office of the targeted repository.
+The [`--siteaccess` option](#siteaccess) usage can be relevant when multiple languages or multiple repositories are used.
 
 ## Repeatable steps
 
