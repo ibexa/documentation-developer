@@ -14,8 +14,6 @@ Before you update to v4.6, you need to go through the following steps to update 
 
 Run:
 
-__TODO: ibexa/headless requires different steps__
-
 === "[[= product_name_content =]]"
 
     ``` bash
@@ -39,6 +37,8 @@ When you have the latest version of v4.5, you can update to v4.6.
 ### Update the application
 
 First, run:
+
+__TODO: ibexa/headless requires different steps__
 
 === "[[= product_name_headless =]] (formerly [[= product_name_content =]])"
 
