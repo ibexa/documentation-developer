@@ -140,9 +140,9 @@ ibexa:
 
 ### User profile
 
-Ibexa DXP v4.6 introduced user profile for Backoffice users, allowing to ...
+Ibexa DXP v4.6 introduced user profile for Backoffice users, allowing users to upload avatars, and provide personal information.
 
-This feature is optional, and you might disable it by setting `enabled` flag to `false` in `ibexa.system.<scope>.user_profile` configuration:
+This feature is optional, and you can disable it by setting `enabled` flag to `false` in `ibexa.system.<scope>.user_profile` configuration:
 
 ```yaml
 # /config/packages/ibexa_admin_ui.yaml
@@ -154,7 +154,7 @@ ibexa:
                 enabled: false
 ```
 
-In order to enable user profile, you need to se specify content type identifiers which are representing editor user and field groups that will be rendered in user profile summary:
+To enable the user profile, you must specify Content Type identifiers which represent the "editor" user, and field groups to be rendered in the user profile summary:
 
 ```yaml
 # /config/packages/ibexa_admin_ui.yaml
@@ -168,7 +168,7 @@ ibexa:
                 field_groups: ['about', 'contact']
 ```
 
-You can use your own content type representing backoffice user or use default one provided by Ibexa DXP:
+You can use your own Content Type that represents the Back Office user, or use the default one provided by [[= product_name =]]:
 
 ```bash
 php bin/console ibexa:migrations:import vendor/ibexa/installer/src/bundle/Resources/install/migrations/2023_12_07_20_23_editor_content_type.yaml --name=2023_12_07_20_23_editor_content_type.yaml
@@ -178,11 +178,11 @@ php bin/console ibexa:migrations:migrate --file=2023_12_07_20_23_editor_content_
 
 More information ...
 
-### Site Context
+### Site context
 
-Site context is ...
+Site context is used in Content Tree to display only those Content items that belong to the selected website.
 
-Add non publicly accessible locations to the list of excluded paths:
+You can add locations that shoudn't be publicly accessible to the list of excluded paths:
 
 ```yaml
 # /config/packages/ibexa_site_context.yaml
@@ -206,7 +206,8 @@ ibexa:
 
 ### Activity Log
 
-By default, activity log keeps entries for 30 days. You can change this value by setting `ibexa.repositories.<name>.activity_log.truncate_after_days` parameter:
+By default, activity log keeps entries for 30 days. 
+You can change this value by setting `ibexa.repositories.<name>.activity_log.truncate_after_days` parameter:
 
 ```yaml
 ibexa:
@@ -221,10 +222,10 @@ ibexa:
 
 ### Recent activity
 
-"Activity Log / Read" policy (`activity_log/read`) should be added to every role having access to the Back Office, at least with the "Only own log" limitation.
+You must add the "Activity Log / Read" policy (`activity_log/read`) to every role that has access to the Back Office, at least with the "Only own log" limitation.
 This policy is mandatory to display the "Recent activity" block in [dashboards](#dashboard), and the "Recent activity" block in [user profiles](#user-profile). 
 
-The following migration example allows `Editor` role to access own activity log:
+The following migration example allows users with the `Editor` role to access their own activity log:
 
 ```yaml
 -   type: role
