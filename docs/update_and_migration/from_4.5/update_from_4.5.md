@@ -14,6 +14,11 @@ Before you update to v4.6, you need to go through the following steps to update 
 
 Run:
 
+=== "[[= product_name_content =]]"
+
+    ``` bash
+    composer require ibexa/content:[[= latest_tag_4_5 =]] --with-all-dependencies --no-scripts
+    ```
 === "[[= product_name_exp =]]"
 
     ``` bash
@@ -33,6 +38,16 @@ When you have the latest version of v4.5, you can update to v4.6.
 
 First, run:
 
+__TODO: ibexa/headless requires different steps__
+
+=== "[[= product_name_headless =]] (formerly [[= product_name_content =]])"
+
+    ``` bash
+    composer remove ibexa/content --no-update --no-scripts
+    rm symfony.lock # Avoid recipes conflict between configuring ibexa/headless and unconfiguring ibexa/content
+    composer require ibexa/headless:[[= latest_tag_4_6 =]] --with-all-dependencies --no-scripts
+    composer recipes:install ibexa/headless --force -v
+    ```
 === "[[= product_name_exp =]]"
 
     ``` bash
