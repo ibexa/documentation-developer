@@ -639,7 +639,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
     - Verifying your legacy configuration and ensuring it is supported by Platform.sh
     - Additional time for adaptation and configuration work, and testing by your own team
-    - Additional consulting/onboarding time with Platform.sh, Ibexa technical services, and/or one of the many partners with prior experience using Platform.sh with eZ Publish legacy
+    - Additional consulting/onboarding time with Platform.sh, [[= product_name_base =]] technical services, and/or one of the many partners with prior experience using Platform.sh with eZ Publish legacy
 
     The cost and effort of this is not included in eZ Platform Cloud subscription and will vary depending on the project.
 
