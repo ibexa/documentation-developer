@@ -191,11 +191,11 @@ If not provided, the [default SiteAccess](multisite_configuration.md#default-sit
 
 It is recommended that you use the SiteAccess of the target repository's Back Office.
 
-Specifying the SiteAccess can be mandatory, for example, when you use several SiteAccesses to handle [several languages](languages.md#using-siteaccesses-for-handling-translations).
+Specifying the SiteAccess can be mandatory, for example, when you use several SiteAccesses to handle [several languages](internationalization.md#using-siteaccesses-for-handling-translations).
 Export and import commands only work with languages supported by the context SiteAccess.
 You must export and import with the SiteAccess supporting all the languages to preserve translations.
 
-This option is also important if you use [several repositories with their own dabases](repository_configuration.md#defining-custom-connection).
+This option is also important if you use [several repositories with their own dabases](config_repository.md#defining-custom-connection).
 
 ## match-property
 
