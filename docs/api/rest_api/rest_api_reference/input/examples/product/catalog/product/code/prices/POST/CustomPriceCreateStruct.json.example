@@ -14,7 +14,6 @@
         "money": "1500",
         "base_money": "2500",
         "custom_money": "1500",
-        "custom_amount": "15.00",
-        "custom_rule": null
+        "custom_amount": "15.00"
     }
 }

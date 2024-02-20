@@ -3349,7 +3349,7 @@ CustomPrice:
         custom_amount:
             type: string
         custom_rule:
-            
+            type: string
 
 PriceList:
     description: 'This class represents a price list.'
@@ -3363,7 +3363,7 @@ PriceCreateStruct:
     type: object
     properties:
         amount:
-            type: float
+            type: string
         currency:
             type: string
 
@@ -3372,7 +3372,7 @@ PriceUpdateStruct:
     type: object
     properties:
         amount:
-            type: float
+            type: string
         currency:
             type: string
 
@@ -3381,11 +3381,11 @@ CustomPriceUpdateStruct:
     type: object
     properties:
         amount:
-            type: float
+            type: string
         currency:
             type: string
         customAmount:
-            type: float
+            type: string
 
 VatCategorySummary:
     description: 'This class represents a VAT category summary.'

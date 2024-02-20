@@ -131,6 +131,7 @@
                     example: !include examples/product/catalog/product/code/prices/POST/PriceCreateStructInput.json.example
             responses:
                 200:
+                    description: Creates product price.
                     body:
                         application/vnd.ibexa.api.PriceCreateStruct+json:
                             type: PriceCreateStruct
@@ -154,6 +155,7 @@
                             application/json
                 responses:
                     200:
+                        description: Gets price in given currency.
                         body:
                             application/json:
                                 type: Currency
@@ -174,6 +176,7 @@
                                     application/vnd.ibexa.api.Price+json              
                         responses:
                             200:
+                                description: Gets price in given currency and customer group.
                                 body:
                                     application/vnd.ibexa.api.Price+json:
                                         type: Price
@@ -225,6 +228,7 @@
                             !include examples/product/catalog/product/code/prices/id/PATCH/CustomPriceUpdateStructInput.json.example
                 responses:
                     200:
+                        description: Updates product price.
                         body:
                             application/vnd.ibexa.api.Price+json:
                                 type: Price
