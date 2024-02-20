@@ -43,7 +43,7 @@ First, run:
     ``` bash
     composer remove ibexa/content --no-update --no-scripts
     # Avoid recipes conflict between configuring ibexa/headless and unconfiguring ibexa/content
-    rm symfony.lock 
+    rm symfony.lock
     composer require ibexa/headless:[[= latest_tag_4_6 =]] --with-all-dependencies --no-scripts
     composer recipes:install ibexa/headless --force -v
     # Bump CKEditor dependencies
@@ -95,7 +95,7 @@ Apply the following database update scripts:
 
 #### Update [[= product_name_com =]] database [[% include 'snippets/commerce_badge.md' %]]
 
-For [[= product_name_com =]] installations, you also need to run:
+For [[= product_name_com =]] installations, you also need to run the following command line:
 
 === "MySQL"
 
@@ -107,6 +107,36 @@ For [[= product_name_com =]] installations, you also need to run:
 
     ``` bash
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/commerce/ibexa-4.5.latest-to-4.6.0.sql
+    ```
+
+And to play the following table creation request:
+
+=== "MySQL"
+
+    ``` sql
+    CREATE TABLE ibexa_payment_token (
+        hash VARCHAR(255) NOT NULL,
+        afterUrl VARCHAR(255) DEFAULT NULL,
+        targetUrl VARCHAR(255) NOT NULL,
+        gatewayName VARCHAR(255) NOT NULL,
+        details LONGTEXT DEFAULT NULL COMMENT '(DC2Type:object)',
+        PRIMARY KEY(hash)
+    ) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB;
+    ```
+
+=== "PostgreSQL"
+
+    ``` sql
+    CREATE TABLE ibexa_payment_token
+    (
+        hash VARCHAR(255) NOT NULL,
+        afterurl VARCHAR(255) DEFAULT NULL,
+        targeturl VARCHAR(255) NOT NULL,
+        gatewayname VARCHAR(255) NOT NULL,
+        details TEXT DEFAULT NULL,
+        PRIMARY KEY(hash)
+    ); 
+    COMMENT ON COLUMN ibexa_payment_token.details IS '(DC2Type:object)';
     ```
 
 ## Run data migration
