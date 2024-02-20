@@ -3367,6 +3367,19 @@ PriceCreateStruct:
         currency:
             type: string
 
+CustomPriceCreateStruct:
+    description: 'This class represents a custom price creation structure.'
+    type: object
+    properties:
+        amount:
+            type: string
+        currency:
+            type: string
+        custom_amount:
+            type: string
+        customerGroups:
+            type: CustomerGroup[]
+
 PriceUpdateStruct:
     description: 'This class represents a price updating structure.'
     type: object

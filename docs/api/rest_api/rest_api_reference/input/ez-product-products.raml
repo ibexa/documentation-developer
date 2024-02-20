@@ -114,21 +114,26 @@
                 401:
                     description: Error - the user has no permission to read prices.
         post:
-            displayName: Create product price
-            description: Create product price.
+            displayName: Create product price or custom price
+            description: Create product price or custom price.
             headers:
                 Accept:
                     description: If set, the new price is returned in JSON format.
                     example:  |
                         application/vnd.ibexa.api.PriceCreateStruct+json
+                        application/vnd.ibexa.api.CustomPriceCreateStruct+json
                 Content-Type:
                     description: The product price schema encoded in JSON format.
-                    example:
+                    example:  |
                         application/vnd.ibexa.api.PriceCreateStruct+json
+                        application/vnd.ibexa.api.CustomPriceCreateStruct+json
             body:
                 application/vnd.ibexa.api.PriceCreateStruct+json:
                     type: PriceCreateStruct
                     example: !include examples/product/catalog/product/code/prices/POST/PriceCreateStructInput.json.example
+                application/vnd.ibexa.api.CustomPriceCreateStruct+json:
+                    type: CustomPriceCreateStruct
+                    example: !include examples/product/catalog/product/code/prices/POST/CustomPriceCreateStructInput.json.example
             responses:
                 200:
                     description: Creates product price.
@@ -136,6 +141,9 @@
                         application/vnd.ibexa.api.PriceCreateStruct+json:
                             type: PriceCreateStruct
                             example: !include examples/product/catalog/product/code/prices/POST/PriceCreateStruct.json.example
+                        application/vnd.ibexa.api.CustomPriceCreateStruct+json:
+                            type: CustomPriceCreateStruct
+                            example: !include examples/product/catalog/product/code/prices/POST/CustomPriceCreateStruct.json.example
                 400:
                     description: Error - the input does not match the input schema definition.
                 401:
