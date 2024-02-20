@@ -119,7 +119,7 @@
             headers:
                 Accept:
                     description: If set, the new price is returned in JSON format.
-                    example:
+                    example:  |
                         application/vnd.ibexa.api.PriceCreateStruct+json
                 Content-Type:
                     description: The product price schema encoded in JSON format.
@@ -147,11 +147,11 @@
                 headers:
                     Accept:
                         description: If set, gets price in given currency in JSON format.
-                        example:
+                        example:  |
                             application/json
                     Content-Type:
                         description: If set, the updated price is returned in JSON format.
-                        example:
+                        example:  |
                             application/json
                 responses:
                     200:
@@ -172,8 +172,12 @@
                         headers:
                             Accept:
                                 description: If set, gets price in given currency and customer group in JSON format.
-                                example:
-                                    application/vnd.ibexa.api.Price+json              
+                                example:  |
+                                    application/vnd.ibexa.api.Price+json
+                            Content-Type:
+                                description: If set, the updated price is returned in JSON format.
+                                example:  |
+                                    application/json            
                         responses:
                             200:
                                 description: Gets price in given currency and customer group.
@@ -192,11 +196,11 @@
                 headers:
                     Accept:
                         description: If set, deletes price in given currency in JSON format.
-                        example:
+                        example:  |
                             application/vnd.ibexa.api.PriceDelete+json
                     Content-Type:
                         description: Delete product price.
-                        example:
+                        example:  |
                             application/vnd.ibexa.api.PriceDelete+json
                 responses:
                     200:
