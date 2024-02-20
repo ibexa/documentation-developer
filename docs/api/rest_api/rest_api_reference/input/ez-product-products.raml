@@ -106,7 +106,7 @@
                         application/vnd.ibexa.api.PriceList+json
             responses:
                 200:
-                    description: OK - loads prices.
+                    description: OK - loads the list of product prices.
                     body:
                         application/vnd.ibexa.api.PriceList+json:
                             type: PriceList
@@ -136,7 +136,7 @@
                     example: !include examples/product/catalog/product/code/prices/POST/CustomPriceCreateStructInput.json.example
             responses:
                 200:
-                    description: Creates product price.
+                    description: OK - creates product price.
                     body:
                         application/vnd.ibexa.api.PriceCreateStruct+json:
                             type: PriceCreateStruct
@@ -163,7 +163,7 @@
                             application/json
                 responses:
                     200:
-                        description: Gets price in given currency.
+                        description: OK - gets price in given currency.
                         body:
                             application/json:
                                 type: Currency
@@ -188,7 +188,7 @@
                                     application/json            
                         responses:
                             200:
-                                description: Gets price in given currency and customer group.
+                                description: OK - gets price in given currency and customer group.
                                 body:
                                     application/vnd.ibexa.api.Price+json:
                                         type: Price
@@ -240,7 +240,7 @@
                             !include examples/product/catalog/product/code/prices/id/PATCH/CustomPriceUpdateStructInput.json.example
                 responses:
                     200:
-                        description: Updates product price.
+                        description: OK - updates product price.
                         body:
                             application/vnd.ibexa.api.Price+json:
                                 type: Price
