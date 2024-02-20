@@ -207,8 +207,6 @@ php bin/console ibexa:migrations:import vendor/ibexa/installer/src/bundle/Resour
 php bin/console ibexa:migrations:migrate --file=2023_12_07_20_23_editor_content_type.yaml --file=2024_01_09_22_23_editor_permissions.yaml
 ```
 
-More information ...
-
 ### Site context
 
 Site context is used in Content Tree to display only those Content items that belong to the selected website.
