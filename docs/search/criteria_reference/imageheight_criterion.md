@@ -4,17 +4,18 @@ description: Image Height Criterion
 
 # Image Height Criterion
 
-The `CreatedAt` Search Criterion searches for image with specified height.
+The `Height` Search Criterion searches for image with specified height.
 
 ## Arguments
 
-- `min_value` - minimum file size expressed in pixels
-- `max_value` - maximum file size expressed in pixels
+- `fieldDefIdentifier` - string representing the identifier of the Field
+- (optional) `minValue` - int representing minimum file height expressed in pixels, default: 0
+- (optional) `maxValue` - int representing maximum file height expressed in pixels, default: `null`
 
 ## Example
 
 ### PHP
 
 ``` php
-$query = new Height(string $fieldDefIdentifier, int $minValue = 0, ?int $maxValue = null);
+$query->query = new Criterion\Height('image', 0, 1500);
 ```
