@@ -46,7 +46,7 @@ First, run:
     rm symfony.lock 
     composer require ibexa/headless:[[= latest_tag_4_6 =]] --with-all-dependencies --no-scripts
     composer recipes:install ibexa/headless --force -v
-    # Bump Bump CKEditor dependencies
+    # Bump CKEditor dependencies
     yarn add @ckeditor/ckeditor5-alignment@^40.1.0 @ckeditor/ckeditor5-build-inline@^40.1.0 @ckeditor/ckeditor5-dev-utils@^39.0.0 @ckeditor/ckeditor5-widget@^40.1.0 @ckeditor/ckeditor5-theme-lark@^40.1.0 @ckeditor/ckeditor5-code-block@^40.1.0
     ```
 === "[[= product_name_exp =]]"
