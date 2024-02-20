@@ -38,15 +38,16 @@ When you have the latest version of v4.5, you can update to v4.6.
 
 First, run:
 
-__TODO: ibexa/headless requires different steps__
-
 === "[[= product_name_headless =]] (formerly [[= product_name_content =]])"
 
     ``` bash
     composer remove ibexa/content --no-update --no-scripts
-    rm symfony.lock # Avoid recipes conflict between configuring ibexa/headless and unconfiguring ibexa/content
+    # Avoid recipes conflict between configuring ibexa/headless and unconfiguring ibexa/content
+    rm symfony.lock 
     composer require ibexa/headless:[[= latest_tag_4_6 =]] --with-all-dependencies --no-scripts
     composer recipes:install ibexa/headless --force -v
+    # Bump Bump CKEditor dependencies
+    yarn add @ckeditor/ckeditor5-alignment@^40.1.0 @ckeditor/ckeditor5-build-inline@^40.1.0 @ckeditor/ckeditor5-dev-utils@^39.0.0 @ckeditor/ckeditor5-widget@^40.1.0 @ckeditor/ckeditor5-theme-lark@^40.1.0 @ckeditor/ckeditor5-code-block@^40.1.0
     ```
 === "[[= product_name_exp =]]"
 
