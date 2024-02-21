@@ -140,10 +140,10 @@
                     body:
                         application/vnd.ibexa.api.PriceCreateStruct+json:
                             type: PriceCreateStruct
-                            example: !include examples/product/catalog/product/code/prices/POST/PriceCreateStruct.json.example
+                            example: !include examples/product/catalog/product/code/prices/Price.json.example
                         application/vnd.ibexa.api.CustomPriceCreateStruct+json:
                             type: CustomPriceCreateStruct
-                            example: !include examples/product/catalog/product/code/prices/POST/CustomPriceCreateStruct.json.example
+                            example: !include examples/product/catalog/product/code/prices/CustomPrice.json.example
                 400:
                     description: Error - the input does not match the input schema definition.
                 401:
@@ -167,7 +167,7 @@
                         body:
                             application/json:
                                 type: Currency
-                                example: !include examples/product/catalog/product/code/prices/currencyCode/GET/Currency.json.example
+                                example: !include examples/product/catalog/product/code/prices/currencyCode/GET/CustomPriceCurrency.json.example
                     401:
                         description: Error - the user has no permission to read prices.
                     404:
@@ -192,7 +192,7 @@
                                 body:
                                     application/vnd.ibexa.api.Price+json:
                                         type: Price
-                                        example: !include examples/product/catalog/product/code/prices/currencyCode/customer-group/customerGroupIdentifier/GET/PriceCurrencyCustomerGroup.json.example
+                                        example: !include examples/product/catalog/product/code/prices/currencyCode/customer-group/customerGroupIdentifier/GET/CustomPriceCustomerGroup.json.example
                             401:
                                 description: Error - the user has no permission to read prices.
                             404:
@@ -203,7 +203,7 @@
                 description: Deletes product price.
                 headers:
                     Accept:
-                        description: If set, deletes price in given currency in JSON format.
+                        description: If set, deletes price of given id in JSON format.
                         example:  |
                             application/vnd.ibexa.api.PriceDelete+json
                     Content-Type:
@@ -233,21 +233,21 @@
                     application/vnd.ibexa.api.PriceUpdateStruct+json:
                         type: PriceUpdateStruct
                         example:
-                            !include examples/product/catalog/product/code/prices/id/PATCH/PriceUpdateStructInput.json.example
+                            !include examples/product/catalog/product/code/prices/id/PATCH/PriceUpdateInput.json.example
                     application/vnd.ibexa.api.CustomPriceUpdateStruct+json:
                         type: CustomPriceUpdateStruct
                         example: 
-                            !include examples/product/catalog/product/code/prices/id/PATCH/CustomPriceUpdateStructInput.json.example
+                            !include examples/product/catalog/product/code/prices/id/PATCH/CustomPriceUpdateInput.json.example
                 responses:
                     200:
                         description: OK - updates product price.
                         body:
                             application/vnd.ibexa.api.Price+json:
                                 type: Price
-                                example: !include examples/product/catalog/product/code/prices/id/PATCH/PriceUpdateStruct.json.example
+                                example: !include examples/product/catalog/product/code/prices/id/PriceUpdate.json.example
                             application/vnd.ibexa.api.CustomPrice+json:
                                 type: CustomPrice
-                                example: !include examples/product/catalog/product/code/prices/id/PATCH/CustomPriceUpdateStruct.json.example
+                                example: !include examples/product/catalog/product/code/prices/id/CustomPriceUpdate.json.example
                     400:
                         description: Error - the input does not match the input schema definition.
                     401:
