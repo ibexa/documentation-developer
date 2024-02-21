@@ -44,7 +44,7 @@ Example:
 ```php
 $fileContentCreateStruct->setField('file', new BinaryFileValue([
     'fileName' => 'example.pdf',
-    'path' => '',
+    'path' => '/tmp/image.png',
 ]));
 ```
 
