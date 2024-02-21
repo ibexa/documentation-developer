@@ -12,7 +12,7 @@ It is capable of handling virtually any file type and is typically used for stor
 
 ### Value Object
 
-##### Properties
+#### Properties
 
 Note that both `BinaryFile` and `Media` Value and Type inherit from the `BinaryBase` abstract Field Type, and share common properties.
 
@@ -28,29 +28,25 @@ Note that both `BinaryFile` and `Media` Value and Type inherit from the `BinaryB
 |`downloadCount`|integer|Number of times the file was downloaded|0|
 |`path`|string|**deprecated**|N/A|
 
-### Hash format
+#### Constructor's hash format
 
 The hash format mostly matches the value object. It has the following keys:
 
-- `id`
-- `path` (for backwards compatibility)
-- `fileName`
-- `fileSize`
-- `mimeType`
-- `uri`
-- `downloadCount`
+- `id` (TODO: I doubt it, id value is like `application/4473e72f36cd1fa9f0de663801ad7680.pdf` where the hash may come with some security; If I put a valid file path and don't use `path`, this file is used but this is not the final value for `id`, if I put a wrong path, it's used but `uri` is empty)
+- `path` (mandatory)
+- `fileName` (optional, the basename is taken if not given)
+- `fileSize` (optional, taken from the file itself if not given)
+- `mimeType` (ignored, TODO: Doesn't seem to be taken into account, if I set it to 'application/octet-stream' along a PDF file, I get "application/pdf" in the field value)
+- `uri` (ignored)
+- `downloadCount` (optional, `0` (zero) if not given)
 
 Example:
 
 ```php
-[
-    'id' => 'some/file/here',
-    'fileName' => 'sindelfingen.jpg',
-    'fileSize' => 2342,
-    'downloadCount' => 0,
-    'mimeType' => 'image/jpeg',
-    'uri' => 'http://some/file/here',
-]
+$fileContentCreateStruct->setField('file', new BinaryFileValue([
+    'fileName' => 'example.pdf',
+    'path' => '',
+]));
 ```
 
 ## REST API specifics
