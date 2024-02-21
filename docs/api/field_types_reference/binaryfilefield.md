@@ -42,7 +42,7 @@ The hash format mostly matches the value object. It has the following keys:
 Example:
 
 ```php
-$fileContentCreateStruct->setField('file', new BinaryFileValue([
+$fileContentCreateStruct->setField('file', new eZ\Publish\Core\FieldType\BinaryFile\Value([
     'fileName' => 'example.pdf',
     'id' => '/tmp/example_for_website.pdf',
 ]));
