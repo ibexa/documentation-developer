@@ -43,10 +43,12 @@ Example:
 
 ```php
 $fileContentCreateStruct->setField('file', new BinaryFileValue([
-    'fileName' => 'my_example.pdf',
-    'id' => '/tmp/example.pdf',
+    'fileName' => 'example.pdf',
+    'id' => '/tmp/example_for_website.pdf',
 ]));
 ```
+
+The original file name `example_for_website.pdf` is forgotten, when downloaded, the filename will be `example.pdf`.
 
 ## REST API specifics
 
