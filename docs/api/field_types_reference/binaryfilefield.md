@@ -43,8 +43,8 @@ Example:
 
 ```php
 $fileContentCreateStruct->setField('file', new BinaryFileValue([
-    'fileName' => 'example.pdf',
-    'id' => '/tmp/image.png',
+    'fileName' => 'my_example.pdf',
+    'id' => '/tmp/example.pdf',
 ]));
 ```
 
