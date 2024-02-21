@@ -31,8 +31,8 @@ Note that both `BinaryFile` and `Media` Value and Type inherit from the `BinaryB
 
 The hash format mostly matches the value object. It has the following keys:
 
-- `id` (TODO: I doubt it, id value is like `application/4473e72f36cd1fa9f0de663801ad7680.pdf` where the hash may come with some security; If I put a valid file path and don't use `path`, this file is used but this is not the final value for `id`, if I put a wrong path, it's used but `uri` is empty)
-- `path` (mandatory)
+- `id` (mandatory, the path to fiel to upload into the field)
+- `path` (deprecated, same as `id`)
 - `fileName` (optional, the basename is taken if not given)
 - `fileSize` (optional, taken from the file itself if not given)
 - `mimeType` (ignored, TODO: Doesn't seem to be taken into account, if I set it to 'application/octet-stream' along a PDF file, I get "application/pdf" in the field value)
@@ -44,7 +44,7 @@ Example:
 ```php
 $fileContentCreateStruct->setField('file', new BinaryFileValue([
     'fileName' => 'example.pdf',
-    'path' => '/tmp/image.png',
+    'id' => '/tmp/image.png',
 ]));
 ```
 
