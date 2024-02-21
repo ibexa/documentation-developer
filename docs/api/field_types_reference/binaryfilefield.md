@@ -26,7 +26,6 @@ Note that both `BinaryFile` and `Media` Value and Type inherit from the `BinaryB
 |`mimeType`|string|The file's MIME type.|application/pdf|
 |`uri`|string|The binary file's `content/download` URI. If the URI doesn't include a host or protocol, it applies to the request domain.|/content/download/210/2707|
 |`downloadCount`|integer|Number of times the file was downloaded|0|
-|`path`|string|**deprecated**|N/A|
 
 #### Constructor's hash format
 
