@@ -31,7 +31,7 @@ Note that both `BinaryFile` and `Media` Value and Type inherit from the `BinaryB
 
 The hash format mostly matches the value object. It has the following keys:
 
-- `id` (mandatory, the path to fiel to upload into the field)
+- `id` (mandatory, the path to the file to upload into the field)
 - `path` (deprecated, same as `id`)
 - `fileName` (optional, the basename is taken if not given)
 - `fileSize` (optional, taken from the file itself if not given)
