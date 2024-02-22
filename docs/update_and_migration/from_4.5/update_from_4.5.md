@@ -107,12 +107,12 @@ You may encounter one of the following errors during the process.
 
 If you encounter a `You have requested a non-existent parameter` error
 (like, for example, `You have requested a non-existent parameter "ibexa.dashboard.ibexa_news.limit".`),
-this is due to a `config/bundles.php` built in a wrong order.
+this is due to incorrect order of entries in `config/bundles.php`.
 To fix this, use the order from https://github.com/ibexa/commerce-skeleton/blob/v4.6.0/config/bundles.php, and add any additional bundles again.
 
 #### Non-existent service
 
-If you encouter the `You have requested a non-existent service "payum.storage.doctrine.orm".` error,
+If you encounter the `You have requested a non-existent service "payum.storage.doctrine.orm".` error,
 replace the config/packages/payum.yaml file with the contents from https://github.com/ibexa/recipes-dev/blob/master/ibexa/commerce/4.6/config/packages/payum.yaml.
 
 ## Update the database
