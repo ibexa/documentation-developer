@@ -183,7 +183,7 @@ And to play the following table creation request:
 
 ## Run data migration
 
-### Dashboard [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+### Dashboard migration [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 If you are using [[= product_name_exp =]] or [[= product_name_com =]],
 you must run data migration required by the dashboard and other features to finish the upgrade process:
@@ -198,7 +198,7 @@ php bin/console ibexa:migrations:migrate --file=2023_09_23_14_15_dashboard_struc
 
 ### Revisit mandatory configuration
 
-#### Dashboard [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+#### Dashboard configuration [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 Define "Dashboards" location as contextual tree root:
 
@@ -296,7 +296,7 @@ ibexa:
 #### Recent activity
 
 You must add the "Activity Log / Read" policy (`activity_log/read`) to every role that has access to the Back Office, at least with the "Only own log" limitation.
-This policy is mandatory to display the "Recent activity" block in [dashboards](#dashboard), and the "Recent activity" block in [user profiles](#user-profile).
+This policy is mandatory to display the "Recent activity" block in [dashboards](#dashboard-migration), and the "Recent activity" block in [user profiles](#user-profile).
 
 The following migration example allows users with the `Editor` role to access their own activity log:
 
