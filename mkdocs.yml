@@ -319,6 +319,8 @@ nav:
             - 'Keep old Commerce packages': 'update_and_migration/from_4.3/update_from_4.3_old_commerce.md'
         - Update from v4.4:
             - 'Update to v4.5': 'update_and_migration/from_4.4/update_from_4.4.md'
+        - Update from v4.5:
+              - 'Update to v4.6': 'update_and_migration/from_4.5/update_from_4.5.md'
         - Migrating to Ibexa DXP:
             - 'Migrating from eZ Publish Platform': 'migrating/migrating_from_ez_publish_platform.md'
             - 'Migrating from eZ Publish': 'migrating/migrating_from_ez_publish.md'
