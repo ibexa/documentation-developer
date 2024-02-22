@@ -194,9 +194,11 @@ php bin/console ibexa:migrations:import vendor/ibexa/dashboard/src/bundle/Resour
 php bin/console ibexa:migrations:migrate --file=2023_09_23_14_15_dashboard_structure.yaml --file=2023_10_10_16_14_dashboard_permissions.yaml
 ```
 
-## Revisit mandatory configuration
+## Revisit configuration
 
-### Dashboard [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+### Revisit mandatory configuration
+
+#### Dashboard [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 Define "Dashboards" location as contextual tree root:
 
@@ -211,7 +213,7 @@ ibexa:
                     - 67 # Dashboards (clean installation)
 ```
 
-### User profile
+#### User profile
 
 Ibexa DXP v4.6 introduced user profile for Backoffice users, allowing users to upload avatars, and provide personal information.
 
@@ -249,7 +251,7 @@ php bin/console ibexa:migrations:import vendor/ibexa/installer/src/bundle/Resour
 php bin/console ibexa:migrations:migrate --file=2023_12_07_20_23_editor_content_type.yaml --file=2024_01_09_22_23_editor_permissions.yaml
 ```
 
-### Site context
+#### Site context
 
 Site context is used in Content Tree to display only those Content items that belong to the selected website.
 
@@ -273,9 +275,9 @@ ibexa:
                     - /1/57/    # Tags
 ```
 
-## Revisit optional configuration
+### Revisit optional configuration
 
-### Activity Log
+#### Activity Log
 
 By default, activity log keeps entries for 30 days. 
 You can change this value by setting `ibexa.repositories.<name>.activity_log.truncate_after_days` parameter:
@@ -289,9 +291,9 @@ ibexa:
                 truncate_after_days: 10
 ```
 
-## Revisit permissions
+### Revisit permissions
 
-### Recent activity
+#### Recent activity
 
 You must add the "Activity Log / Read" policy (`activity_log/read`) to every role that has access to the Back Office, at least with the "Only own log" limitation.
 This policy is mandatory to display the "Recent activity" block in [dashboards](#dashboard), and the "Recent activity" block in [user profiles](#user-profile). 
