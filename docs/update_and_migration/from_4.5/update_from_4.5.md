@@ -10,6 +10,8 @@ This update procedure applies if you are using a v4.5 installation.
 
 Before you update to v4.6, you need to go through the following steps to update to the latest maintenance release of v4.5 (v[[= latest_tag_4_5 =]]).
 
+Note which version you actually have before starting.
+
 ### Update the application to v4.5.latest
 
 Run:
@@ -28,6 +30,26 @@ Run:
 
     ``` bash
     composer require ibexa/commerce:[[= latest_tag_4_5 =]] --with-all-dependencies --no-scripts
+    ```
+
+### Update the database
+
+Depending on the version you started from, you may have several scripts to run:
+
+=== "MySQL"
+
+    ``` bash
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.5.1-to-4.5.2.sql
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.5.2-to-4.5.3.sql
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.5.3-to-4.5.4.sql
+    ```
+
+=== "PostgreSQL"
+
+    ``` bash
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.5.1-to-4.5.2.sql
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.5.2-to-4.5.3.sql
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.5.3-to-4.5.4.sql
     ```
 
 ## Update from v4.5.latest to v4.6
