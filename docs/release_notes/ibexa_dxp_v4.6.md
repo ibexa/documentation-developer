@@ -12,8 +12,6 @@ description: Ibexa DXP v4.6 brings improvements to Commerce, PIM and Personaliza
 
 **Release type**: [LTS](https://support.ibexa.co/Public/service-life)
 
-**Update**: [v4.5.x to v4.6](https://doc.ibexa.co/en/latest/update_and_migration/from_4.5/update_from_4.5/)
-
 ## Notable changes
 
 ### Ibexa Headless
