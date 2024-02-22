@@ -243,7 +243,7 @@ ibexa:
                 field_groups: ['about', 'contact']
 ```
 
-You can use your own Content Type that represents the Back Office user, or use the default one provided by [[= product_name =]]:
+You can use your own content type that represents the Back Office user, or use the default one provided by [[= product_name =]]:
 
 ```bash
 php bin/console ibexa:migrations:import vendor/ibexa/installer/src/bundle/Resources/install/migrations/2023_12_07_20_23_editor_content_type.yaml --name=2023_12_07_20_23_editor_content_type.yaml
@@ -277,7 +277,7 @@ ibexa:
 
 ### Revisit optional configuration
 
-#### Activity Log
+#### Activity log
 
 By default, activity log keeps entries for 30 days.
 You can change this value by setting `ibexa.repositories.<name>.activity_log.truncate_after_days` parameter:
