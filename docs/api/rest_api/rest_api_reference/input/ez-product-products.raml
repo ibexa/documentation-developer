@@ -161,8 +161,8 @@
                     200:
                         description: OK - gets price in given currency.
                         body:
-                            application/json:
-                                type: Currency
+                            application/vnd.ibexa.api.Price+json:
+                                type: Price
                                 example: !include examples/product/catalog/product/code/prices/currencyCode/GET/Price.json.example
                     401:
                         description: Error - the user has no permission to read prices.
@@ -177,12 +177,12 @@
                             Accept:
                                 description: If set, gets price in given currency and customer group in JSON format.
                                 example:  |
-                                    application/vnd.ibexa.api.Price+json
+                                    application/vnd.ibexa.api.CustomPrice+json
                         responses:
                             200:
                                 description: OK - gets price in given currency and customer group.
                                 body:
-                                    application/vnd.ibexa.api.Price+json:
+                                    application/vnd.ibexa.api.CustomPrice+json:
                                         type: Price
                                         example: !include examples/product/catalog/product/code/prices/currencyCode/customer-group/customerGroupIdentifier/GET/CustomPrice.json.example
                             401:
