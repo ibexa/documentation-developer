@@ -108,7 +108,7 @@ You may encounter one of the following errors during the process.
 If you encounter a `You have requested a non-existent parameter` error
 (like, for example, `You have requested a non-existent parameter "ibexa.dashboard.ibexa_news.limit".`),
 this is due to incorrect order of entries in `config/bundles.php`.
-To fix this, use the order from https://github.com/ibexa/commerce-skeleton/blob/v4.6.0/config/bundles.php, and add any additional bundles again.
+To fix this, use the order from https://github.com/ibexa/commerce-skeleton/blob/v4.6.0/config/bundles.php, and add any extra bundles again.
 
 #### Non-existent service
 
@@ -177,7 +177,7 @@ And to play the following table creation request:
         gatewayname VARCHAR(255) NOT NULL,
         details TEXT DEFAULT NULL,
         PRIMARY KEY(hash)
-    ); 
+    );
     COMMENT ON COLUMN ibexa_payment_token.details IS '(DC2Type:object)';
     ```
 
@@ -215,7 +215,7 @@ ibexa:
 
 #### User profile
 
-Ibexa DXP v4.6 introduced user profile for Backoffice users, allowing users to upload avatars, and provide personal information.
+[[= product_name =]] v4.6 introduced user profile for Backoffice users, allowing users to upload avatars, and provide personal information.
 
 This feature is optional, and you can disable it by setting `enabled` flag to `false` in `ibexa.system.<scope>.user_profile` configuration:
 
@@ -279,7 +279,7 @@ ibexa:
 
 #### Activity Log
 
-By default, activity log keeps entries for 30 days. 
+By default, activity log keeps entries for 30 days.
 You can change this value by setting `ibexa.repositories.<name>.activity_log.truncate_after_days` parameter:
 
 ```yaml
@@ -296,7 +296,7 @@ ibexa:
 #### Recent activity
 
 You must add the "Activity Log / Read" policy (`activity_log/read`) to every role that has access to the Back Office, at least with the "Only own log" limitation.
-This policy is mandatory to display the "Recent activity" block in [dashboards](#dashboard), and the "Recent activity" block in [user profiles](#user-profile). 
+This policy is mandatory to display the "Recent activity" block in [dashboards](#dashboard), and the "Recent activity" block in [user profiles](#user-profile).
 
 The following migration example allows users with the `Editor` role to access their own activity log:
 
