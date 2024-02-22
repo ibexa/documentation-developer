@@ -76,16 +76,36 @@ First, run:
     ``` bash
     composer require ibexa/experience:[[= latest_tag_4_6 =]] --with-all-dependencies --no-scripts
     composer recipes:install ibexa/experience --force -v
+    # Bump CKEditor dependencies
+    yarn add @ckeditor/ckeditor5-alignment@^40.1.0 @ckeditor/ckeditor5-build-inline@^40.1.0 @ckeditor/ckeditor5-dev-utils@^39.0.0 @ckeditor/ckeditor5-widget@^40.1.0 @ckeditor/ckeditor5-theme-lark@^40.1.0 @ckeditor/ckeditor5-code-block@^40.1.0
     ```
 === "[[= product_name_com =]]"
 
     ``` bash
     composer require ibexa/commerce:[[= latest_tag_4_6 =]] --with-all-dependencies --no-scripts
     composer recipes:install ibexa/commerce --force -v
+    # Bump CKEditor dependencies
+    yarn add @ckeditor/ckeditor5-alignment@^40.1.0 @ckeditor/ckeditor5-build-inline@^40.1.0 @ckeditor/ckeditor5-dev-utils@^39.0.0 @ckeditor/ckeditor5-widget@^40.1.0 @ckeditor/ckeditor5-theme-lark@^40.1.0 @ckeditor/ckeditor5-code-block@^40.1.0
     ```
 
 The `recipes:install` command installs new YAML configuration files.
 Review the old YAML files and move your custom configuration to the relevant new files.
+
+## Known issues
+
+You may encounter one of the following errors during the process.
+
+### Non-existent parameter
+
+If you encounter a `You have requested a non-existent parameter` error
+(like, for example, `You have requested a non-existent parameter "ibexa.dashboard.ibexa_news.limit".`),
+this is due to a `config/bundles.php` built in a wrong order.
+To fix this, use the order from https://github.com/ibexa/commerce-skeleton/blob/v4.6.0/config/bundles.php, and add any additional bundles again.
+
+### Non-existent service
+
+If you encouter the `You have requested a non-existent service "payum.storage.doctrine.orm".` error,
+replace the config/packages/payum.yaml file with the contents from https://github.com/ibexa/recipes-dev/blob/master/ibexa/commerce/4.6/config/packages/payum.yaml.
 
 ## Finish code update
 
