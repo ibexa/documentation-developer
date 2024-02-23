@@ -447,6 +447,7 @@ nav:
             - Field: search/criteria_reference/field_criterion.md
             - FieldRelation: search/criteria_reference/fieldrelation_criterion.md
             - FullText: search/criteria_reference/fulltext_criterion.md
+            - ImageCriterion: search/criteria_reference/image_criterion.md
             - ImageDimensions: search/criteria_reference/imagedimensions_criterion.md
             - ImageFileSize: search/criteria_reference/imagefilesize_criterion.md
             - ImageHeight: search/criteria_reference/imageheight_criterion.md
