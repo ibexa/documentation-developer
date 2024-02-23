@@ -123,7 +123,7 @@ Image aliases defined in legacy must also be defined for eZ Platform. Since imag
 in different `image.ini` files in various extensions, you may find it easier to find all image alias definitions using
 the legacy admin (**Setup** > **Ini settings**).
 
-See [Image documentation page](../../guide/images/) for information about how to define image aliases.
+See [Image documentation page](images.md) for information about how to define image aliases.
 
 For an example, see a legacy image alias defined as follows in `ezpublish_legacy/settings/siteaccess/ezdemo_site/image.ini.append.php`:
 
