@@ -57,7 +57,7 @@ or [`LocationService::unhideLocation`:](https://github.com/ezsystems/ezplatform-
 [[= include_file('code_samples/api/public_php_api/src/Command/HideLocationCommand.php', 46, 47) =]][[= include_file('code_samples/api/public_php_api/src/Command/HideLocationCommand.php', 49, 50) =]]
 ```
 
-See [Location visibility](../guide/content_management/#location-visibility) for detailed information
+See [Location visibility](content_management.md#location-visibility) for detailed information
 on the behavior of visible and hidden Locations.
 
 ### Deleting a Location
@@ -102,7 +102,7 @@ but it copies the Location and its subtree instead of moving it.
 
 !!! note
 
-    [Copy subtree limit](../guide/config_back_office/#copy-subtree-limit) only applies to operations in the Back Office.
+    [Copy subtree limit](config_back_office.md#copy-subtree-limit) only applies to operations in the Back Office.
     It is ignored when copying subtrees using the PHP API.
 
 ## Trash

@@ -34,4 +34,4 @@ Optional parameter `inLanguage` may be used to specify File content translation.
 
 The `uri` property of Binary Fields in REST contains a valid download URL, of the same format as the public PHP API, prefixed with the same host as the REST Request.
 
-For [more information about REST API see the documentation](../../api/rest_api_guide).
+For [more information about REST API see the documentation](rest_api_usage.md).
