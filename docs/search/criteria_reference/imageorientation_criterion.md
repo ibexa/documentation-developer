@@ -4,16 +4,67 @@ description: Image Orientation Criterion
 
 # Image Orientation Criterion
 
-The `Orientation` Search Criterion searches for image with specified orientation.
+The `Orientation` Search Criterion searches for image with specified mime orientation(s).
+Supported orientation values: landscape, portrait and square.
 
 ## Arguments
 
-- `orientation` - string or array. Allowed orientation types: `portrait`, `landscape`, `square`.
+- `fielDefIdentifier` - string representing the identifier of the Field
+- `orientation` - strings representing orientations
 
 ## Example
 
 ### PHP
 
 ``` php
-$query = new MimeType(string $fieldDefIdentifier, $type);
+$query->query = new Criterion\Orientation('image', 'landscape');
+
+OR
+
+$orientations = [
+    'landscape',
+    'portrait',
+];
+
+$query->query = new Criterion\Orientation('image', $orientations);
+
 ```
+
+### REST API
+
+=== "XML"
+
+    ```xml
+    <Query>
+        <Filter>
+            <ImageOrientationCriterion>
+                <fieldDefIdentifier>image</fieldDefIdentifier>
+                <orientation>landscape</orientation>
+            </ImageOrientationCriterion>
+        </Filter>
+    </Query>
+    ```
+
+=== "JSON"
+
+    ```json
+    "Query": {
+        "Filter": {
+            "ImageOrientationCriterion": {
+                "fieldDefIdentifier": "image",
+                "orientation": "landscape"
+    }
+       }
+    }
+
+    OR
+    
+    "Query": {
+        "Filter": {
+            "ImageOrientationCriterion": {
+                "fieldDefIdentifier": "image",
+                "orientation": ["portrait", "landscape"]
+            }
+        }
+    }
+    ```

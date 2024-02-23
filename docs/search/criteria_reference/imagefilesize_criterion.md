@@ -36,8 +36,6 @@ $query->query = new Criterion\FileSize('image', 0, 1.5);
             </ImageFileSizeCriterion>
         </Filter>
     </Query>
-    
-    
     ```
 
 === "JSON"
@@ -54,5 +52,5 @@ $query->query = new Criterion\FileSize('image', 0, 1.5);
       }
        }
     }
-    
+
     ```
