@@ -6,18 +6,24 @@ description: Use PHP API to manage products in PIM, their attributes, availabili
 
 ## Products
 
+[[= product_name =]]'s Product API provides two services for handling product information, which differ in function:
+
+- `ProductServiceInterface` is used to request product data
+- `LocalProductServiceInterface` is used to modify products
+
 !!! tip "Product REST API"
 
     To learn how to load products using the REST API, see [REST API reference](../api/rest_api/rest_api_reference/rest_api_reference.html#product-catalog-create-product-type).
 
-To access products from the PHP API, use the `ProductServiceInterface` to request information,
-or `LocalProductServiceInterface` to modify products.
+### Getting product information
+
+Get an individual product by using the `productService::getProduct()` method:
 
 ``` php
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 62, 65) =]]
 ```
 
-You can find multiple products with `productService::findProducts()`.
+Find multiple products with `productService::findProducts()`.
 Provide the method with optional filter, query or Sort Clauses.
 
 ``` php
