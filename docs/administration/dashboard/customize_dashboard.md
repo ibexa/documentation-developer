@@ -10,7 +10,7 @@ Customized dashboard displays a set of widgets selected by the user.
 
 !!! tip
 
-     Detailed instruction on how to customize dashboard using Dashboard Builder is available in [[[= product_name =]] user documentation](https://doc.ibexa.co/projects/userguide/en/latest/getting_started/discover_ui/).
+     Detailed instruction on how to customize dashboard using Dashboard Builder is available in [[[= product_name =]] user documentation](https://doc.ibexa.co/projects/userguide/en/latest/getting_started/dashboard/work_with_dashboard/#dashboard-builder-interface).
 
 ## Manage permissions
 
