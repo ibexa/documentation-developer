@@ -4,8 +4,8 @@ description: Other applications can authenticate users through Ibexa DXP user re
 
 # OAuth Server
 
-Your Ibexa DXP can be used as an OAuth 2 server which other applications can use to authenticate users.
-So, users connect to several applications using the same credentials.
+Your Ibexa DXP can be used as an OAuth 2 server (combining an Authorization Server and a Resource Server).
+Client applications (such as mobile apps) are able to authenticate a user then access to this user's resources.
 
 TODO: https://www.oauth.com/oauth2-servers/definitions/
 
@@ -46,7 +46,7 @@ Add the tables needed by the bundle:
 
     TODO
 
-## Server configuration
+## Authorization Server configuration
 
 ### Keys
 
@@ -68,21 +68,72 @@ OAUTH2_PRIVATE_KEY_PASSPHRASE=some_passphrase_or_empty
 OAUTH2_ENCRYPTION_KEY=1234567890123456789012345678901234567890
 ```
 
-### Service, routes and security configuration
+### Service, routes, and security configurations
 
 Uncomment whole service configuration file `config/packages/ibexa_oauth2_server.yaml`.
 Tweak the values if you like.
 
 Uncomment whole routes configuration file `config/routes/ibexa_oauth2_server.yaml`
 
-Uncomment the two following lines from `config/packages/security.yaml`:
+Uncomment the three following lines about `access_control` from `config/packages/security.yaml`:
 
 ```yaml
-    ## Uncomment authorize access control if you wish to use product as an OAuth2 Server
+security:
+    #…
+
+    # Uncomment authorize access control if you wish to use product as an OAuth2 Server
     access_control:
         - { path: ^/authorize/jwks$, roles: ~ }
         - { path: ^/authorize, roles: IS_AUTHENTICATED_REMEMBERED }
 ```
+
+Uncomment the three following lines about `oauth2_token` from `config/packages/security.yaml`:
+
+```yaml
+security:
+    #…
+    firewall:
+        #…
+
+        # Uncomment oauth2_token firewall if you wish to use product as an OAuth2 Server.
+        # Use oauth2 guard any other (for example ibexa_front) firewall you wish to be
+        # exposed as OAuth2-available resource. Example:
+        #    guard:
+        #        authenticators:
+        #            - Ibexa\OAuth2Server\Security\Guard\OAuth2Authenticator
+        oauth2_token:
+            pattern: ^/token$
+            security: false
+```
+
+## Resource Server configuration
+
+To allow resource routes to be accessible through OAuth authorization,
+you must define a firewall using the `Ibexa\OAuth2Server\Security\Guard\OAuth2Authenticator`.
+
+The following firewall example allows the REST API to be accessed as an OAuth resource.
+TODO: Location in the file? Before `main`? Before `ibexa_front`? Upper?
+
+```yaml
+    #…
+    firewall:
+        #…
+
+        ibexa_rest_oauth:
+            pattern: ^/api/ibexa/v2
+            user_checker: Ibexa\Core\MVC\Symfony\Security\UserChecker
+            anonymous: ~
+            guard:
+                authenticators:
+                    - Ibexa\OAuth2Server\Security\Guard\OAuth2Authenticator
+                entry_point: Ibexa\OAuth2Server\Security\Guard\OAuth2Authenticator
+            stateless: true
+```
+
+TODO: Can it break same-domain Back Office like with [HTTP basic authentication](rest_api_authentication.md#configuration)?
+
+In the `security.yaml`'s comments, you can find instructions to make the whole installation accessible through OAuth
+by uncommenting `ibexa_oauth2_front`, and commenting `ibexa_front`.
 
 ## Client
 
