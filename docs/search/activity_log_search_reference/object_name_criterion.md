@@ -5,8 +5,8 @@ matches log groups having a log entry with an object having a given string as na
 
 ## Arguments
 
-- `query` - The string searched for.
-- `operator` - How to compare the string to the log entry object names.
+- `query` - string representing the object name
+- `operator` - constant representing how to compare log names with the query
     - `ObjectNameCriterion::OPERATOR_CONTAINS`
     - `ObjectNameCriterion::OPERATOR_STARTS_WITH`
     - `ObjectNameCriterion::OPERATOR_ENDS_WITH`

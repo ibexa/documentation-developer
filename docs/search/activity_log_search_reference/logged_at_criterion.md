@@ -6,7 +6,7 @@ matches activity log group having a log entry created before or after a given da
 ## Arguments
 
 - `dateTime` - a [`DateTimeInterface`](https://www.php.net/manual/en/class.datetimeinterface.php) object, like [`DateTime`](https://www.php.net/manual/en/class.datetime.php).
-- `comparison` - a comparison sign as a string. Available signs can be found as constant in the `LoggedAtCriterion` class itself.
+- `comparison` - string representing a comparison sign. Available signs can be found as constant in the `LoggedAtCriterion` class itself.
 
 | Comparison            | Value | Constant                 |
 |-----------------------|-------|--------------------------|

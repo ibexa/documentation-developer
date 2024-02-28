@@ -4,7 +4,7 @@ description: Log and monitor activity through UI, PHP API and REST API.
 
 # Recent activity [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-Recent activity log summaries last actions on the repository (whatever their origin, such as Back Office, REST, migration, CLI, or CRON).
+Recent activity log displays last actions in the repository (whatever their origin is, for example, Back Office, REST, migration, CLI, or CRON).
 
 To learn more about its Back Office usage and the actions logged by default, see [Recent activity in the User documentation]([[= user_doc =]]/recent_activity/recent_activity/).
 
@@ -13,7 +13,7 @@ To learn more about its Back Office usage and the actions logged by default, see
 * The parameter `ibexa.site_access.config.<scope>.activity_log.pagination.activity_logs_limit` sets the number of log items shown per page in the Back Office (default: 25 items per page). (A log item is a group of entries, or an entry without group.)
 * The configuration `ibexa.repositories.<repository>.activity_log.truncate_after_days` set the number of days a log entry is kept before being deleted by the `ibexa:activity-log:truncate` command (default: 30 days).
 
-For example, the following set 20 log groups per page for the `admin` SiteAccess, and 15 days of life to the log entries on the `default` repository:
+For example, the following configuration sets the value of 20 context groups per page for the `admin` SiteAccess, and 15 days of life to the log entries on the `default` repository:
 
 ```yaml
 parameters:
@@ -150,10 +150,10 @@ Some built-in contexts are:
 - or `migration` to group every actions from a migration file execution.
 A context group counts as one item in regard to `activity_logs_limit` configuration and `ActivityLogService::findGroups`'s `$limit` argument.
 
-To open a context group, use `ActivityLogService::prepareContext` which has 2 arguments:
+To open a context group, use `ActivityLogService::prepareContext` which has two arguments:
 
-* `$source` is describing (usually through a short identifier) what is triggering the set of actions. For example, some already existing source are `web` (like for actions from the Back Office), `graphql`, `rest` and `migration`.
-* `$description` is an optional more specific contextualisation. For example, `migration` context source is associated with the migration file name in its context description.
+* `$source` - describes, usually through a short identifier, what is triggering the set of actions. For example, some already existing source are `web` (like for actions from the Back Office), `graphql`, `rest` and `migration`.
+* `$description` - an optional more specific contextualisation. For example, `migration` context source is associated with the migration file name in its context description.
 
 To close a context group, use `ActivityLogService::dismissContext`.
 
@@ -190,14 +190,14 @@ You can have a template:
 * specific to a class identifier and placed in `templates/themes/<theme>/activity_log/ui/<identifier>.html.twig`
 * specific to an action on an identifier and placed in `templates/themes/<theme>/activity_log/ui/<identifier>/<action>.html.twig`
 
-Template existence is tested in reverse order: If there is no action specific template, the identifier's default is used.
+Template existence is tested in reverse order: if there is no action that specifies the template, the identifier's default is used.
 For the same identifier, you could have specific templates for few actions, and a default one for the remaining actions.
 
 A default template is used if no template is found for the identifier.
 The built-in default template `@ibexadesign/activity_log/ui/default.html.twig` has an empty `activity_log_description_widget` block and display nothing for unknown objects.
 Your template can extend `@ibexadesign/activity_log/ui/default.html.twig`, and only redefine the `activity_log_description_widget` block for your objects.
 
-First, follows an example of a default template overriding the one from the bundle. It can be used at development time as a fallback for classes not yet mapped.
+First, follow an example of a default template overriding the one from the bundle. It can be used at development time as a fallback for classes not yet mapped.
 
 ``` twig
 [[= include_file('code_samples/recent_activity/templates/themes/admin/activity_log/ui/default.html.twig') =]]
@@ -209,7 +209,7 @@ Here is an example of a `ClassNameMapperInterface` associating the class `App\My
 [[= include_file('code_samples/recent_activity/src/ActivityLog/ClassNameMapper/MyFeatureNameMapper.php') =]]
 ```
 
-This mapper also provides a translation for the class name in the Filters menu.
+This mapper also provides a translation for the class name in the **Filters** menu.
 This translation can be extracted with `php bin/console translation:extract en --domain=ibexa_activity_log --dir=src --output-dir=translations`.
 
 To be taken into account, this mapper must be registered as a service:
@@ -218,7 +218,7 @@ To be taken into account, this mapper must be registered as a service:
 [[= include_file('code_samples/recent_activity/config/append_to_services.yaml') =]]
 ```
 
-Here is an example of a `PostActivityListLoadEvent` subscriber which load the related object when it's a `App\MyFeature\MyFeature`, and attach it to the log entry:
+Here is an example of a `PostActivityListLoadEvent` subscriber which loads the related object when it's a `App\MyFeature\MyFeature`, and attaches it to the log entry:
 
 ``` php
 [[= include_file('code_samples/recent_activity/src/EventSubscriber/MyFeaturePostActivityListLoadEventSubscriber.php') =]]
