@@ -153,6 +153,7 @@ Some built-in contexts are:
 
 - `web` to group actions made in the Back Office, like the update and the publishing of a new Content item's version,
 - or `migration` to group every actions from a migration file execution.
+
 A context group counts as one item in regard to `activity_logs_limit` configuration and `ActivityLogService::findGroups`'s `$limit` argument.
 
 To open a context group, use `ActivityLogService::prepareContext` which has two arguments:
