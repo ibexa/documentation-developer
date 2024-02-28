@@ -140,9 +140,9 @@ In the following example, an event subscriber is subscribing to an event dispatc
 
 The returned `CreateActivityLogStruct` is always related to the currently logged-in user.
 
-An object may be deleted or renamed, and this affects the activity log.
-Its name at the time of logging can be stored by calling `setName` on the `CreateActivityLogStruct`.
-This name can be used at the time of displaying if the concerned object isn't available, or to track renaming.
+You can still display activity log of an object which was deleted or renamed.
+To store the name of the log, you need to use `CreateActivityLogStruct::setName` before saving the log entry.
+This stored name can be used at the time of displaying if the associated object isn't available anymore, or to know if it has been renamed.
 
 #### Context group
 
