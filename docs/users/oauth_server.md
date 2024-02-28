@@ -58,7 +58,6 @@ TODO: security reco about using a passphrase or not?
 You also need an encryption key
 You can look at https://oauth2.thephpleague.com/installation/#generating-encryption-keys
 
-
 Set the following environment variables:
 
 ```
@@ -139,12 +138,48 @@ by uncommenting `ibexa_oauth2_front`, and commenting `ibexa_front`.
 
 ### Add a client
 
-TODO: https://github.com/thephpleague/oauth2-server-bundle/blob/master/docs/basic-setup.md
+You need the client redirect URIs to create it.
+You also need to agree on an identifier and a secret with the client.
+There is only one `default` scope.
+
+TODO: [scope](https://oauth.net/2/scope/)
+
+Use `league:oauth2-server:create-client` command to create a client.
+For example:
+
+```bash
+php bin/console league:oauth2-server:create-client 'Example OAuth 2 Client' example-oauth2-client 9876543210987654321098765432109876543210 --scope=default \
+  --redirect-uri=https://example.com/oauth2-callback
+```
+
+`--redirect-uri` can be used multiple time.
+
+Redirect URIs can be added after the creation with `league:oauth2-server:update-client` command.
+For example:
+
+```bash
+php bin/console league:oauth2-server:update-client example-oauth2-client \
+  --add-redirect-uri=https://example.com/another-oauth2-callback
+```
+
+There is also commands to list all the configured clients (`league:oauth2-server:list-clients`),
+or to delete a client (`league:oauth2-server:delete-client`).
+
+- In a terminal, see `bin/console list league:oauth2-server` for a list of all the commands to maintain your clients.
+  Use `bin/console help <command>` to usage detail for each of them. 
+- See [package's online documentation](https://github.com/thephpleague/oauth2-server-bundle/blob/master/docs/basic-setup.md).
+
+!!! note
+
+    The `ìdentifier` and the `secret` will be needed by the client settings.
 
 ### Information needed by the client
 
-Your OAuth client will need the following information to be able to use your Oauth server:
+Your OAuth 2 client will need the following information to be able to use your Oauth server:
 
-TODO
+- The URL of the Ibexa DXP used as an oauth server TODO: Is it always a domain root?
+- The client identifier
+- The client secret
+- The scope (`default`)
 
 TODO: For example, if the client is another Ibexa DXP: like oauth_authentication.md but with an Ibexa DXP as the server. What about resource owner and server?
