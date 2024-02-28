@@ -137,11 +137,17 @@ In the following example, an event subscriber is subscribing to an event dispatc
 
 The returned `CreateActivityLogStruct` is always related to the currently logged-in user.
 
-If the object you log an activity on can become unavailable (like after a `delete` action), you might want to also log the name the object has at log time to be able to display it even when the object becomes unavailable. To add this name, use `CreateActivityLogStruct::setName` before saving the log entry.
+Most objects may be deleted or renamed, and this will affect the activity log. Their name at the time of logging can be stored by calling `setName` on the `CreateActivityLogStruct`.
 
 #### Context group
 
-If you log several entries at once, you can group them into a context.
+If you log several related entries at once, you can group them into a context.
+A context is a set of actions done for the same purpose.
+For example, a context could group the actions of a CRON fetching third party data and updating Content items.
+Some built-in contexts are:
+
+- `web` to group actions made in the Back Office, like the update and the publishing of a new Content item's version,
+- or `migration` to group every actions from a migration file execution.
 A context group counts as one item in regard to `activity_logs_limit` configuration and `ActivityLogService::findGroups`'s `$limit` argument.
 
 To open a context group, use `ActivityLogService::prepareContext` which has 2 arguments:
