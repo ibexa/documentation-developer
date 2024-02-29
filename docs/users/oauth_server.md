@@ -1,17 +1,17 @@
 ---
-description: Other applications can authenticate users through OAuth 2 protocol then access to their resources.
+description: Other applications can authenticate Ibexa DXP users through OAuth2 protocol then access to their resources on the platform.
 ---
 
 # OAuth Server
 
-Your Ibexa DXP can be used as an OAuth 2 server (combining an Authorization Server and a Resource Server).
+Your Ibexa DXP can be used as an OAuth2 server (combining an Authorization Server and a Resource Server).
 Client applications (such as mobile apps) are able to authenticate a user then access to this user's resources.
 
-TODO: https://www.oauth.com/oauth2-servers/definitions/
+![OAuth2 Server](img/oauth2-server.png)
 
 ## Server installation
 
-Ibexa DXP Oauth Server package is `ibexa/oauth2-server` and is not part of the default installation.
+[[= product_name =]] Oauth2 server package is `ibexa/oauth2-server` and is not part of the default installation.
 It can be installed with the following command:
 
 ```bash
@@ -145,7 +145,7 @@ Use `league:oauth2-server:create-client` command to create a client.
 For example:
 
 ```bash
-php bin/console league:oauth2-server:create-client 'Example OAuth 2 Client' example-oauth2-client 9876543210987654321098765432109876543210 --scope=default \
+php bin/console league:oauth2-server:create-client 'Example OAuth2 Client' example-oauth2-client 9876543210987654321098765432109876543210 --scope=default \
   --redirect-uri=https://example.com/oauth2-callback
 ```
 
@@ -172,7 +172,7 @@ or to delete a client (`league:oauth2-server:delete-client`).
 
 ### Information needed by the client
 
-Your OAuth 2 client will need the following information to be able to use your Oauth server:
+Your OAuth2 client will need the following information to be able to use your Oauth server:
 
 - The URL of the Ibexa DXP used as an oauth server TODO: Is it always a domain root?
 - The client identifier

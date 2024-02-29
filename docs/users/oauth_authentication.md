@@ -4,7 +4,9 @@ description: OAuth2 allows you to securely connect to external services, among o
 
 # OAuth authentication
 
-You can use OAuth2 authentication to securely connect to external services.
+You can use OAuth2 authentication to securely authenticate users with external services.
+
+![OAuth2 Client](img/oauth2-client.png)
 
 [[= product_name =]] uses an integration with [`knpuniversity/oauth2-client-bundle`](https://github.com/knpuniversity/oauth2-client-bundle)
 to provide OAuth2 authentication.
