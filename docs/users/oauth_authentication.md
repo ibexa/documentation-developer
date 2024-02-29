@@ -4,7 +4,7 @@ description: OAuth2 allows you to securely connect to external services, among o
 
 # OAuth authentication
 
-You can use OAuth2 authentication to securely authenticate users with external services.
+You can use OAuth2 authentication to securely connect users through external services.
 
 ![OAuth2 Client](img/oauth2-client.png)
 
