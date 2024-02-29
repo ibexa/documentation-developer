@@ -1,5 +1,5 @@
 ---
-description: Other applications can authenticate users through Ibexa DXP user repository thanks to OAuth 2 protocol.
+description: Other applications can authenticate users through OAuth 2 protocol then access to their resources.
 ---
 
 # OAuth Server
@@ -131,9 +131,6 @@ TODO: Location in the file? Before `main`? Before `ibexa_front`? Upper?
 
 TODO: Can it break same-domain Back Office like with [HTTP basic authentication](rest_api_authentication.md#configuration)?
 
-In the `security.yaml`'s comments, you can find instructions to make the whole installation accessible through OAuth
-by uncommenting `ibexa_oauth2_front`, and commenting `ibexa_front`.
-
 ## Client
 
 ### Add a client
@@ -183,3 +180,6 @@ Your OAuth 2 client will need the following information to be able to use your O
 - The scope (`default`)
 
 TODO: For example, if the client is another Ibexa DXP: like oauth_authentication.md but with an Ibexa DXP as the server. What about resource owner and server?
+
+TODO: something about https://doc.ibexa.co/en/latest/users/oauth_authentication/
+TODO: and https://doc.ibexa.co/en/latest/users/add_login_through_external_service/#configure-oauth2-client
