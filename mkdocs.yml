@@ -407,8 +407,7 @@ nav:
           - Login methods: users/login_methods.md
           - Passwords: users/passwords.md
           - User authentication: users/user_authentication.md
-          - OAuth authentication: users/oauth_authentication.md
-          - Add login through external service: users/add_login_through_external_service.md
+          - OAuth client: users/oauth_client.md
           - OAuth server: users/oauth_server.md
         - User grouping:
           - Customer groups: users/customer_groups.md
