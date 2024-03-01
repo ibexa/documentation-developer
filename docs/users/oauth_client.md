@@ -125,18 +125,9 @@ Create the following template file in `templates/themes/admin/account/login/oaut
 [[= include_file('code_samples/user_management/oauth_google/templates/themes/admin/account/login/oauth2_login.html.twig') =]]
 ```
 
-TODO: Make this Twig func def clearer
-
-The `ibexa_oauth2_connect_path` Twig function builds a path (a URI without scheme nor host) to the `/oauth2/connect/{identifier}` (`ibexa.oauth2.connect`) route (previously mentioned in the `oauth2_connect`).
-Its first argument is the client identifier.
-Its optional second argument is a hash of GET parameters as keys, and their values.
-Its optional third argument is a boolean indicating if the generated URL must be relative or not (default is `false` for an absolute URl stating with `/`).
-
-The `ibexa_oauth2_connect_url` Twig function is also available to build URL including the domain or host.
-Its first argument is the client identifier.
-Its optional second argument is a hash of GET parameters as keys, and their values.
-Its optional third argument is a boolean indicating if the generated URL must be scheme-relative (starting with `//` followed by the host) or not (default is `false` for an absolute URl starting with the scheme `https://` or `http://`).
-
+For more information about the URL twig function used in this template,
+see [`ibexa_oauth2_connect_path`](url_twig_functions.md#ibexa_oauth2_connect_path),
+and [`ibexa_oauth2_connect_url`](url_twig_functions.md#ibexa_oauth2_connect_url).
 
 Finally, add the template to the login form by using the `login-form-after` [component](custom_components.md):
 
