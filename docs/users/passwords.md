@@ -25,21 +25,21 @@ By default, it is set to `PT1H` (one hour).
 
 In case of a security situation such as a data leakage, you may need to force users to change their passwords.
 You can do it with the help of the `ibexa:user:expire-password` command,
-which revokes the passwords for specific users, User Groups or users belonging to the chosen Content Type.
+which revokes the passwords for specific users, User Groups or users belonging to the chosen content type.
 
 To select which users to revoke passwords for, use one of the following options with the command:
 
 - `--user-id|-u` - the ID of the user. Accepts multiple user IDs
 - `--user-group-id|-ug` - the ID of the user group. Accepts multiple group IDs
-- `--user-content-type-identifier|-ct` - the identifier of the user Content Type. Accepts multiple Content Types
+- `--user-content-type-identifier|-ct` - the identifier of the user content type. Accepts multiple content types
 
 You can use the following additional options with the command:
 
 - `--force|-f` - commits the change, otherwise the command only performs a dry run
 - `--iteration-count|-c` - defines how many users are fetched at once. Lowering this value helps with memory issues
-- `--password-ttl|-t` - number of days after which new passwords expire. Used when the command enables password expiration for user Content Types that do not use it yet.
+- `--password-ttl|-t` - number of days after which new passwords expire. Used when the command enables password expiration for user content types that do not use it yet.
 
-For example, to revoke the passwords of all users of the `user` Content Type, run:
+For example, to revoke the passwords of all users of the `user` content type, run:
 
 ``` bash
 php bin/console ibexa:user:expire-password --user-content-type-identifier=user --force
@@ -59,14 +59,14 @@ You can change the [password attributes](#password-attributes) or [password expi
 
 To access the password settings:
 
-1. In the Back Office, go to **Content** -> **Content Types**.
-1. In the **Content Type groups** table, click **Users**.
-1. Edit the **User** Content Type.
+1. In the Back Office, go to **Content** -> **Content types**.
+1. In the **Content type groups** table, click **Users**.
+1. Edit the **User** content type.
 1. In the **Field definitions** list, view the settings for **User account (ezuser)**.
 
 !!! tip
 
-    There can be other Content Types that function as users, beyond the built-in User Content Type.
+    There can be other content types that function as users, beyond the built-in User content type.
     For details, see [User Identifiers](repository_configuration.md#user-identifiers).
 
 ## Password attributes
@@ -92,7 +92,7 @@ The notification is displayed in the Back Office after login and in the User Con
 ## Repeating passwords
 
 You can set a rule that the password cannot be reused.
-You set it for the User Content Type in the **User account (ezuser)** Field Type's settings.
+You set it for the User content type in the **User account (ezuser)** Field Type's settings.
 When this is set, the user cannot type in the same password when it expires.
 It has to be changed to a new one.
 

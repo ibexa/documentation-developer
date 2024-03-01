@@ -67,8 +67,8 @@ Optionally, Sub-items module can take a following list of props:
 - **loadContentInfo** _{Function}_ - loads Content item info. Takes two params:
     - **contentIds** _{Array}_ - list of content IDs
     - **callback** _{Function}_ - a callback invoked when content info is loaded
-- **loadContentTypes** _{Function}_ - loads Content Types. Takes one param:
-    - **callback** _{Function}_ - callback invoked when Content Types are loaded
+- **loadContentTypes** _{Function}_ - loads content types. Takes one param:
+    - **callback** _{Function}_ - callback invoked when content types are loaded
 - **loadLocation** _{Function}_ - loads Location. Takes four params:
     - **restInfo** _{Object}_ - REST info params:
         - **token** _{String}_ - the user token

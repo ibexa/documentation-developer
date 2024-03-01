@@ -22,7 +22,7 @@ Actions are optional operations that can be run after the main "body" of a migra
 Their purpose is to allow additional operations to be performed as part of this particular migration.
 They are executed inside the same transaction, so in the event of failure they cause database rollback to occur.
 
-For example, when updating a Content Type object, some fields might be removed:
+For example, when updating a content type object, some fields might be removed:
 ``` yaml
 -
     type: content_type
@@ -39,9 +39,9 @@ For example, when updating a Content Type object, some fields might be removed:
 
 When executed, this migration:
 
-- Finds Content Type using its identifier (`article`)
-- Assigns Content Type Group "Media"
-- Removes it from Content Type Group "Content"
+- Finds content type using its identifier (`article`)
+- Assigns content type Group "Media"
+- Removes it from content type Group "Content"
 - Removes the `short_title` Field
 - Removes its existing drafts, if any.
 
@@ -54,10 +54,10 @@ The following migration actions are available out of the box:
 - `assign_section` (Content Update)
 - `hide` (Content Create / Update)
 - `reveal` (Content Create / Update)
-- `assign_content_type_group` (Content Type Create / Update)
-- `remove_drafts` (Content Type Update)
-- `remove_field_by_identifier` (Content Type Update)
-- `unassign_content_type_group` (Content Type Update)
+- `assign_content_type_group` (content type Create / Update)
+- `remove_drafts` (content type Update)
+- `remove_field_by_identifier` (content type Update)
+- `unassign_content_type_group` (content type Update)
 - `assign_role_to_user` (Role Create / Update)
 - `assign_role_to_user_group` (Role Create / Update)
 - `assign_user_to_role` (User Create / Update)
@@ -88,7 +88,7 @@ mode: Update
         - { action: assign_section, identifier: 'media' }
 ```
 
-### Content Types
+### Content types
 
 mode: Create
 ``` yaml

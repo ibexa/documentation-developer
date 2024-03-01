@@ -53,7 +53,7 @@ You can listen to the following events:
 || `ConfigureMenuEvent::OBJECT_STATE_GROUP_EDIT_SIDEBAR_RIGHT` |
 || `ConfigureMenuEvent::OBJECT_STATE_CREATE_SIDEBAR_RIGHT` |
 || `ConfigureMenuEvent::OBJECT_STATE_EDIT_SIDEBAR_RIGHT` |
-| Content Types | `ConfigureMenuEvent::CONTENT_TYPE_GROUP_CREATE_SIDEBAR_RIGHT` |
+| content types | `ConfigureMenuEvent::CONTENT_TYPE_GROUP_CREATE_SIDEBAR_RIGHT` |
 || `ConfigureMenuEvent::CONTENT_TYPE_GROUP_EDIT_SIDEBAR_RIGHT` |
 || `ConfigureMenuEvent::CONTENT_TYPE_CREATE_SIDEBAR_RIGHT` |
 || `ConfigureMenuEvent::CONTENT_TYPE_EDIT_SIDEBAR_RIGHT` |

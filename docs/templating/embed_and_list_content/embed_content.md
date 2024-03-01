@@ -43,9 +43,9 @@ This configuration points to a custom `RelationController` that should render al
 This controller uses the Public PHP API to get [the Relations of a Content item](browsing_content.md#relations) (lines 27-28).
 
 The controller takes the custom parameter called `accepted_content_types` (line 23),
-which is an array of Content Type identifiers that are rendered.
+which is an array of content type identifiers that are rendered.
 
-This way you can control which Content Types you want to show or exclude.
+This way you can control which content types you want to show or exclude.
 
 Finally, the controller returns the view with the results that were provided in the `items` parameter.
 You can use this parameter as a variable in the template:

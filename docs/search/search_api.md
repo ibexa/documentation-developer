@@ -25,10 +25,10 @@ The service should be [injected into the constructor of your command or controll
 To search through content you need to create a [`LocationQuery`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/LocationQuery.php)
 and provide your search criteria as a series of Criterion objects.
 
-For example, to search for all content of a selected Content Type, use one Criterion,
+For example, to search for all content of a selected content type, use one Criterion,
 [`Criterion\ContentTypeIdentifier`](contenttypeidentifier_criterion.md) (line 14).
 
-The following command takes the Content Type identifier as an argument and lists all results:
+The following command takes the content type identifier as an argument and lists all results:
 
 ``` php hl_lines="14 16"
 // ...
@@ -256,7 +256,7 @@ You can do it using logical operators: `LogicalAnd`, `LogicalOr`, and `LogicalNo
 
 This example takes three parameters from a command — `$text`, `$contentTypeId`, and `$locationId`.
 It then combines them using `Criterion\LogicalAnd` to search for Content items
-that belong to a specific subtree, have the chosen Content Type and contain the provided text (lines 3-6).
+that belong to a specific subtree, have the chosen content type and contain the provided text (lines 3-6).
 
 This also shows that you can get the total number of search results using the `totalCount` property of search results (line 9).
 
@@ -355,10 +355,10 @@ Aggregation results contain the name of the result and the count of found items:
 ```
 
 With field aggregations you can group search results according to the value of a specific Field.
-In this case the aggregation takes the Content Type identifier and the Field identifier as parameters.
+In this case the aggregation takes the content type identifier and the Field identifier as parameters.
 
 The following example creates an aggregation named `selection` that groups results
-according to the value of the `topic` Field in the `article` Content Type:
+according to the value of the `topic` Field in the `article` content type:
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 35, 36) =]]

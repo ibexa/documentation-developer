@@ -88,7 +88,7 @@ class RideQueryType implements QueryType
 }
 ```
 
-This Query Type will find all visible Content items that belong to the `ride` Content Type (lines 21-22).
+This Query Type will find all visible Content items that belong to the `ride` content type (lines 21-22).
 
 Now you need to indicate that this Query Type will be used in your configuration.
 

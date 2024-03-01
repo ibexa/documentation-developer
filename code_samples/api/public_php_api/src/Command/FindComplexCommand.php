@@ -28,10 +28,10 @@ class FindComplexCommand extends Command
     protected function configure()
     {
         $this
-            ->setDescription('Lists content belonging to the provided Content Type.')
+            ->setDescription('Lists content belonging to the provided content type.')
             ->setDefinition([
                 new InputArgument('locationId', InputArgument::REQUIRED, ''),
-                new InputArgument('contentTypeIdentifier', InputArgument::REQUIRED, 'Content Type identifier'),
+                new InputArgument('contentTypeIdentifier', InputArgument::REQUIRED, 'content type identifier'),
                 new InputArgument('text', InputArgument::REQUIRED, ''),
             ]);
     }

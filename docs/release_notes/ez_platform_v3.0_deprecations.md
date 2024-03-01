@@ -296,9 +296,9 @@ have been moved from `ezplatform-admin-ui` to `ezplatform-richtext`.
 The way of adding custom tab groups in the Back Office has changed.
 You now need to [make use of the `TabsComponent`](https://doc.ibexa.co/en/latest/extending/extending_tabs/#adding-a-new-tab-group).
 
-### Content Type forms
+### Content type forms
 
-Content Type editing, including Action Dispatchers, Form Processors, Types and Data classes related to Content Types/Limitations,
+Content type editing, including Action Dispatchers, Form Processors, Types and Data classes related to content types/Limitations,
 has been moved to `ezplatform-admin-ui` from `repository-forms`.
 
 ### Code cleanup in Back Office
@@ -673,14 +673,14 @@ DROP TABLE <table_name>;
 - The "Design" Section has been removed from clean installation data.
 - The `ezkeyword_attribute_link` table now has a `version` column.
 
-#### Content Type Update handlers
+#### Content type Update handlers
 
 The following obsolete handler has been removed:
 
-- `DeferredLegacy` Content Type Update handler
+- `DeferredLegacy` content type Update handler
 (`eZ\Publish\Core\Persistence\Legacy\Content\Type\Update\Handler\DeferredLegacy`) with its optional Symfony Container Service (`ezpublish.persistence.legacy.content_type.update_handler.deferred`)
 
-Subscribe to eZ Platform Symfony Events to handle deferring of updating of Content items after their Content Type update instead.
+Subscribe to eZ Platform Symfony Events to handle deferring of updating of Content items after their content type update instead.
 
 ### Symfony Services
 
@@ -926,7 +926,7 @@ This package is deprecated. Its functionality has been moved to `ezplatform-work
 
 Forms located in `repository-forms` have been moved to other packages.
 
-Content Type editing, including Action Dispatchers, Form Processors, Types and Data classes related to Content Types/Limitations,
+Content type editing, including Action Dispatchers, Form Processors, Types and Data classes related to content types/Limitations,
 has been moved to `ezplatform-admin-ui`.
 
 The following locations have been changed:

@@ -229,7 +229,7 @@ ibexa:
                 enabled: false
 ```
 
-To enable the user profile, you must specify Content Type identifiers which represent the "editor" user, and field groups to be rendered in the user profile summary:
+To enable the user profile, you must specify content type identifiers which represent the "editor" user, and field groups to be rendered in the user profile summary:
 
 ```yaml
 # /config/packages/ibexa_admin_ui.yaml

@@ -70,7 +70,7 @@ nav:
         - Event reference:
             - Event reference: api/event_reference/event_reference.md
             - Content events: api/event_reference/content_events.md
-            - Content Type events: api/event_reference/content_type_events.md
+            - content type events: api/event_reference/content_type_events.md
             - Location events: api/event_reference/location_events.md
             - Catalog events: api/event_reference/catalog_events.md
             - Cart events: api/event_reference/cart_events.md
@@ -110,7 +110,7 @@ nav:
             - System Information: administration/admin_panel/system_information_admin_panel.md
         - Content organization:
             - Sections: administration/content_organization/sections.md
-            - Content Types: administration/content_organization/content_types.md
+            - content types: administration/content_organization/content_types.md
             - Object States: administration/content_organization/object_states.md
         - Configuration:
             - Configuration: administration/configuration/configuration.md
@@ -133,7 +133,7 @@ nav:
                 - Back Office tabs:  administration/back_office/back_office_tabs/back_office_tabs.md
                 - Create dashboard tab: administration/back_office/back_office_tabs/create_dashboard_tab.md
             - Tab switcher in Content edit page: administration/back_office/content_tab_switcher.md
-            - Add anchor menu to Content Type edit screen: administration/back_office/content_type_anchor_menu.md
+            - Add anchor menu to content type edit screen: administration/back_office/content_type_anchor_menu.md
             - Back Office menus:
                 - Back Office menus: administration/back_office/back_office_menus/back_office_menus.md
                 - Add menu item: administration/back_office/back_office_menus/add_menu_item.md

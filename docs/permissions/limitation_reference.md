@@ -56,9 +56,9 @@ The Change Owner (`ChangeOwner`) Limitation specifies whether the user can chang
 |------|------|------|
 |`1`|"Forbid"|The user cannot change owner of a Content item|
 
-## Content Type Group Limitation
+## Content type Group Limitation
 
-The Content Type Group (`UserGroup`) Limitation specifies that only Users with at least one common *direct* User 
+The content type Group (`UserGroup`) Limitation specifies that only Users with at least one common *direct* User 
 Group with the owner of content get the selected access right.
 
 ### Possible values
@@ -67,9 +67,9 @@ Group with the owner of content get the selected access right.
 |------|------|------|
 |`1`|"self"|Only a User who has at least one common *direct* User Group with the owner gets access|
 
-## Content Type Group of Parent Limitation
+## Content type Group of Parent Limitation
 
-The Content Type Group of Parent (`ParentUserGroupLimitation`) Limitation specifies that only Users with at least one common *direct* User Group 
+The content type Group of Parent (`ParentUserGroupLimitation`) Limitation specifies that only Users with at least one common *direct* User Group 
 with the owner of the parent Location of a Content item get a certain access right, 
 used by `content/create` permission.
 
@@ -79,21 +79,21 @@ used by `content/create` permission.
 |------|------|------|
 |`1`|"self"|Only a User who has at least one common *direct* User Group with owner of the parent Location gets access|
 
-## Content Type Limitation
+## Content type Limitation
 
 The Content Typ (`ContentType`) Limitation specifies whether the User has access to content with a specific 
-Content Type.
+content type.
 
 ### Possible values
 
 |Value|UI value|Description|
 |------|------|------|
-|`<ContentType_id>`|`<ContentType_name>`|All valid Content Type IDs can be set as value(s)|
+|`<ContentType_id>`|`<ContentType_name>`|All valid content type IDs can be set as value(s)|
 
-## Content Type of Parent Limitation
+## Content type of Parent Limitation
 
-The Content Type of Parent (`ParentContentType`) Limitation specifies whether the User has access to content whose parent Location 
-contains a specific Content Type, used by `content/create`.
+The content type of Parent (`ParentContentType`) Limitation specifies whether the User has access to content whose parent Location 
+contains a specific content type, used by `content/create`.
 
 This Limitation combined with `ContentType` Limitation allows you to define business 
 rules like allowing Users to create "Blog Post" within a "Blog." 
@@ -104,7 +104,7 @@ access to create Blog Posts in the Users' own Blogs.
 
 |Value|UI value|Description|
 |------|------|------|
-|`<ContentType_id>`|`<ContentType_name>`|All valid Content Type IDs can be set as value(s)|
+|`<ContentType_id>`|`<ContentType_name>`|All valid content type IDs can be set as value(s)|
 
 ## Field Group Limitation [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
@@ -256,7 +256,7 @@ The Product Type (`ProductType`) Limitation specifies whether the User has acces
 
 |Value|UI value|Description|
 |------|------|------|
-|`<ContentType_id>`|`<ContentType_name>`|All valid Content Type IDs can be set as value(s)|
+|`<ContentType_id>`|`<ContentType_name>`|All valid content type IDs can be set as value(s)|
 
 ## Section Limitation
 

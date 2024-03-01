@@ -1,5 +1,5 @@
 ---
-description: Ibexa DXP's content model relies on Content items that are instances of Content Types and contain content Fields.
+description: Ibexa DXP's content model relies on Content items that are instances of content types and contain content Fields.
 ---
 
 # Content model
@@ -8,7 +8,7 @@ description: Ibexa DXP's content model relies on Content items that are instance
 
 The content structure in [[= product_name =]] is based on Content items.
 A Content item represents a single piece of content: an article, a blog post, an image, a product, etc.
-Each Content item is an instance of a Content Type.
+Each Content item is an instance of a content type.
 
 !!! tip
 
@@ -19,7 +19,7 @@ Each Content item is an instance of a Content Type.
 A Content item consists of:
 
 - [Content information](#content-information)
-- [Fields](#fields), defined by the [Content Type](content_types.md).
+- [Fields](#fields), defined by the [content type](content_types.md).
 The Fields can cover data ranging from single variables and text lines to media files or blocks of formatted text.
 
 #### Content information
@@ -29,9 +29,9 @@ General information about a Content item is stored in a [`ContentInfo`](https://
 
 **`id`** - the unique ID of the Content object. These numbers are not recycled, so if an item is deleted, its ID will not be reused when a new one is created.
 
-**`contentTypeId`** - the unique numerical ID of the Content Type, on which the Content item is based.
+**`contentTypeId`** - the unique numerical ID of the content type, on which the Content item is based.
 
-**`name`** - the name is generated automatically based on a [pattern specified in the Content Type definition](content_types.md#content-name-pattern).
+**`name`** - the name is generated automatically based on a [pattern specified in the content type definition](content_types.md#content-name-pattern).
 The name is in the main language of the Content item.
 
 !!! note
@@ -58,7 +58,7 @@ This is set by the system and cannot be modified manually, but will change every
 This is set by the system and cannot be modified.
 
 **`alwaysAvailable`** - indicates if the Content item is shown in the main language when it's not present in another requested language.
-It is [set per Content Type](content_availability.md).
+It is [set per content type](content_availability.md).
 
 **`remoteId`** - a global unique ID of the Content item.
 Accepts up to 100 characters. Cannot contain non-printable characters and control sequences (anything in ASCII range `\x00` - `\x1F`).
@@ -76,7 +76,7 @@ If a published item is removed from the Trash (or removed without being put in t
 
 ![Diagram of an example Content item](content_model_item_diagram.png)
 
-The Fields of a Content item are defined by the Content Type to which the Content item belongs.
+The Fields of a Content item are defined by the content type to which the Content item belongs.
 s
 ## Fields
 
@@ -92,11 +92,11 @@ Validation depends on the settings of a particular Field Type. It cannot be turn
 
 ### Field details
 
-Aside from the Field Type, the Field definition in a Content Type provides the following information:
+Aside from the Field Type, the Field definition in a content type provides the following information:
 
 **Name** – a user-friendly name that describes the Field. This name is used in the interface, but not internally by the system. It can consist of letters, digits, spaces and special characters; the maximum length is 255 characters. If no name is provided, a unique one is automatically generated.
 
-**Identifier** – an identifier for internal use in configuration files, templates, PHP code, etc. It can only contain lowercase letters, digits and underscores; the maximum length is 50 characters. This identifier is also used in name patterns for the Content Type.
+**Identifier** – an identifier for internal use in configuration files, templates, PHP code, etc. It can only contain lowercase letters, digits and underscores; the maximum length is 50 characters. This identifier is also used in name patterns for the content type.
 
 **Description** – a detailed description of the Field.
 

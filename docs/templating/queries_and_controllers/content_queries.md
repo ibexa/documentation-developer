@@ -90,14 +90,14 @@ The results of the query are available in the Field value.
 
 ### Query type
 
-When adding the Field to a Content Type definition, select the Query type in the **Query type** dropdown.
+When adding the Field to a content type definition, select the Query type in the **Query type** dropdown.
 All Query types in the application are available, both [built-in](built-in_query_types.md) and [custom ones](create_custom_query_type.md).
 
 ### Returned types
 
-Select the Content Type of items you want to return in the **Returned type** dropdown.
-To take it into account, your Query type must filter on the Content Type.
-Provide the selected Content Type through the `returnedType` variable:
+Select the content type of items you want to return in the **Returned type** dropdown.
+To take it into account, your Query type must filter on the content type.
+Provide the selected content type through the `returnedType` variable:
 
 ```
 contentType: '@=returnedType'
@@ -136,7 +136,7 @@ For example, with `itemsPerPage` 10, first page starts with 0, second page start
 
 The following variables are available in parameter expressions:
 
-- `returnedType` - the identifier of the Content Type selected in the **Returned type** dropdown
+- `returnedType` - the identifier of the content type selected in the **Returned type** dropdown
 - `content` - the current Content item
 - `location` - the current Location of the Content item
 - `mainLocation` - the main Location of the Content item
