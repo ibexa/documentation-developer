@@ -203,7 +203,8 @@ you must run data migration required by the dashboard and other features to fini
 ```bash
 php bin/console ibexa:migrations:import vendor/ibexa/dashboard/src/bundle/Resources/migrations/structure.yaml --name=2023_09_23_14_15_dashboard_structure.yaml
 php bin/console ibexa:migrations:import vendor/ibexa/dashboard/src/bundle/Resources/migrations/permissions.yaml --name=2023_10_10_16_14_dashboard_permissions.yaml
-php bin/console ibexa:migrations:migrate --file=2023_09_23_14_15_dashboard_structure.yaml --file=2023_10_10_16_14_dashboard_permissions.yaml
+php bin/console ibexa:migrations:import vendor/ibexa/activity-log/src/bundle/Resources/migrations/dashboard_structure.yaml --name=2023_12_04_13_34_activity_log_dashboard_structure.yaml
+php bin/console ibexa:migrations:migrate --file=2023_09_23_14_15_dashboard_structure.yaml --file=2023_10_10_16_14_dashboard_permissions.yaml --file=2023_12_04_13_34_activity_log_dashboard_structure.yaml
 ```
 
 ### Ibexa Open Source
