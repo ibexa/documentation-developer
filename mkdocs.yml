@@ -339,7 +339,11 @@ nav:
             - Extend Payment: commerce/payment/extend_payment.md 
             - Payment method API: commerce/payment/payment_method_api.md 
             - Payment method filtering: commerce/payment/payment_method_filtering.md
-            - Payment API: commerce/payment/payment_api.md 
+            - Payment API: commerce/payment/payment_api.md
+            - Online payment methods:
+                - Payum integration: commerce/payment/payum_integration.md
+                - Enable PayPal payments: commerce/payment/enable_paypal_payments.md
+                - Enable Stripe payments: commerce/payment/enable_stripe_payments.md
         - Shipping management:
             - Shipping management: commerce/shipping_management/shipping_management.md
             - Configure shipping: commerce/shipping_management/configure_shipment.md

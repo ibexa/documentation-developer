@@ -5,17 +5,17 @@ edition: commerce
 
 # Payment
 
-The Payment component enables users to define and manage payment methods, as well as create and manage payments, search for payment methods and payments and filter payment search results. 
+With the Payment component users can define and manage payment methods, create and manage payments, search for payment methods and payments, and filter payment search results.
 Depending on their role, users can also enable or disable payment methods, modify payment information, as well as cancel payments.
 
-Available payment method types : 
+Available payment method types :
 
 - offline – out of the box
-- payment gateways – integration with Payum
+- online payment services – through [integration with Payum](payum_integration.md)
 
-From the development perspective, the component enables customization of the payment workflow. 
+From the development perspective, the component enables [customization of the payment workflow](configure_payment.md#custom-payment-workflows).
 
-The component exposes the following:
+The component exposes the following APIs:
 
 - [Payment method PHP API](payment_method_api.md) that allows for managing payment methods
 - [Payment method REST API](../../api/rest_api/rest_api_reference/rest_api_reference.html#payment-methods) that helps manage payment methods over HTTP

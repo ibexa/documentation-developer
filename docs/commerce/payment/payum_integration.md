@@ -3,50 +3,77 @@ description: Add new payment methods through Payum such as Stripe or PayPal.
 edition: commerce
 ---
 
-# Payment gateways
+# Payum integration
 
-[Payum](https://payum.gitbook.io/payum/) simplifies the integration of various payment gateways like Stripe and PayPal into your application.
-These gateways are vital for secure online transactions, allowing you to accept multiple payment methods and ensure a seamless experience for customers.
-By configuring gateways and translating payment methods, Payum streamlines the process, enabling you to offer a diverse payment experience.
+[Payum](https://payum.gitbook.io/payum/) is a payment processing solution that simplifies the integration of various payment services like Stripe and PayPal into your application.
+These services provide security of online transactions, and allow you to accept multiple payment methods while ensuring a seamless experience for the customers.
+By configuring service gateways, mapping workflow actions and translating payment service names, you streamline the online payment process, and can offer a diverse payment experience.
 
-## Payum configuration
+## General Payum configuration
 
-In your Payum configuration file (`payum.yaml` or similar), set up the payment gateway by specifying its factory and required credentials:
+In your Payum configuration file, for example, `payum.yaml`, set up a payment service gateway by specifying the factory, credentials and other necessary settings.
+Replace `<service_identifier>` with a unique identifier for the payment service.
 
 ```yaml
 payum:
     gateways:
-        <method_identifier>:
+        <service_identifier>:
             factory: <gateway_factory>
-            # Add specific configuration fields for the chosen gateway
+            # Add specific configuration fields for the gateway
             credential_1: <credential_1_value>
             credential_2: <credential_2_value>
-            # Add more credentials or settings as required by the chosen gateway
-
 ```
 
-Replace `<method_identifier>` with a unique identifier for the payment method.
-Define the factory based on the supported gateway.
-Include the necessary credentials and settings required by the specific gateway.
+## Workflow mapping
 
-## Translations for payment methods
+In [[= product_name =]], the default payment workflow has certain places, such as `pending`, `failed`, `paid`, or `cancelled`, and their corresponding transitions.
+However, for your application to use other transitions and places, for example, `authorized`, `notified`, `refunded` etc., and to present them in the user interface, you need to:
+- override the default payment workflow
+- create a custom workflow and enable it by using semantic configuration
 
-For language translations of payment method names, structure your translation files as follows:
+For more information, see [Custom payment workflows](configure_payment.md#custom-payment-workflows).
+
+For these places to be supported by the Payum integration, you have to map Payum statuses on the existing or additional places in the workflow, for example:
+
+```yaml
+ibexa_connector_payum:
+    status_mapping:
+        refunded: cancelled
+        captured: pending
+        authorized: authorized
+[...]
+```
+
+## Payment service name translations
+
+Within the `ibexa_payment_type` namespace in your translation files, add translations for each payment service that you configure.
+For language translations of payment service names, structure the translation files as follows:
 
 ```yaml
 ibexa:
     payment_method:
         type:
-            <method_identifier>:
-                name: "Translated Payment Method Name"
+            <service_identifier>:
+                name: "Translated payment service name"
 
 ```
 
-Replace `<method_identifier>` with the identifier used in the Payum configuration.
-Add translations for each payment method identifier within the ibexa_payment_type namespace in your translation files.
+!!! note
+
+    Replace `<service_identifier>` with the identifier used in the Payum configuration.
 
 ## Implementation
 
-Refer to the specific documentation for each payment gateway to obtain the necessary credentials and configuration settings.
-Ensure the accuracy of provided credentials and settings within the Payum configuration.
+When you implement the online payment solution, take the following consideration into account:
 
+- To learn what credentials must be provided and what specific settings must be made, refer to the each payment service gateway's specific documentation.
+- To customize the online payment UI, see [Creating custom views](https://github.com/Payum/Payum/blob/master/docs/symfony/custom-payment-page.md) in Payum documentation.
+- When you modify the payment process, you may need to subscribe to events dispatched by Payum.
+For a list of events, see [Event dispatcher](https://github.com/Payum/Payum/blob/master/docs/event-dispatcher.md) in Payum documentation.
+
+
+!!! caution
+
+    In certain cases, depending on the payment processing service, when a customer closes the payment page in a browser and the bank has not processed the payment yet, the payment status can remain unchanged.
+    Depending on how your checkout process is configured, it may result in unwanted effects, for example, cause that the cart does not purge after the purchase.
+    Make sure that you account for this fact in your implementation.
