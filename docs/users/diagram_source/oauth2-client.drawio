@@ -1,0 +1,64 @@
+<mxfile host="Electron" modified="2024-03-04T15:25:34.692Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.1.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="_4v5VW-OwhMURFYFono8" version="23.1.5" type="device">
+  <diagram name="Page-1" id="HCu4IDgJjuJ1dES_PF9C">
+    <mxGraphModel dx="1604" dy="796" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="LfG-qxr215mkKre9bOdj-2" value="Ibexa DXP&lt;br&gt;OAuth 2 Client" style="rounded=1;whiteSpace=wrap;horizontal=1;verticalAlign=top;shadow=1;fillColor=#FFF2CC;strokeWidth=3;strokeColor=#D8B95D;html=1;" parent="1" vertex="1">
+          <mxGeometry x="-1000" y="50" width="120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="LfG-qxr215mkKre9bOdj-3" value="Resource&lt;br&gt;Server" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#ffe5c9;strokeColor=#E8D0B7;strokeWidth=3;" parent="1" vertex="1">
+          <mxGeometry x="-980" y="150" width="80" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="LfG-qxr215mkKre9bOdj-4" value="Users&lt;br&gt;(Resource owners)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#ffe5c9;strokeColor=#E8D0B7;strokeWidth=3;" parent="1" vertex="1">
+          <mxGeometry x="-980" y="90" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="LfG-qxr215mkKre9bOdj-5" value="3rd party&lt;br&gt;OAuth 2 Server" style="rounded=1;whiteSpace=wrap;html=1;shadow=1;fillColor=#EAFFE9;strokeWidth=3;strokeColor=#DDE9A7;" parent="1" vertex="1">
+          <mxGeometry x="-660" y="110" width="80" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="LfG-qxr215mkKre9bOdj-6" value="Authenticate user" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="-837" y="145" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="LfG-qxr215mkKre9bOdj-7" value="Request user authentication" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;rotation=10;" parent="1" vertex="1">
+          <mxGeometry x="-786" y="68" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="LfG-qxr215mkKre9bOdj-8" value="&lt;p style=&quot;line-height: 180%;&quot;&gt;Load an internal user&lt;br&gt;Access resource&lt;/p&gt;" style="text;html=1;align=right;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="-1153" y="148" width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="LfG-qxr215mkKre9bOdj-9" value="" style="endArrow=classic;html=1;rounded=0;exitX=1.017;exitY=0.211;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;curved=1;strokeColor=#E4D4E8;strokeWidth=6;" parent="1" source="LfG-qxr215mkKre9bOdj-2" target="LfG-qxr215mkKre9bOdj-5" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-560" y="290" as="sourcePoint" />
+            <mxPoint x="-510" y="240" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-770" y="88" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="LfG-qxr215mkKre9bOdj-10" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0;entryDx=0;entryDy=52.5;entryPerimeter=0;curved=1;strokeColor=#E4D4E8;strokeWidth=6;" parent="1" source="LfG-qxr215mkKre9bOdj-5" target="LfG-qxr215mkKre9bOdj-4" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-560" y="290" as="sourcePoint" />
+            <mxPoint x="-510" y="240" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-780" y="160" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="LfG-qxr215mkKre9bOdj-11" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0;exitDx=0;exitDy=52.5;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;curved=1;strokeColor=#E4D4E8;strokeWidth=6;" parent="1" source="LfG-qxr215mkKre9bOdj-4" target="LfG-qxr215mkKre9bOdj-3" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-560" y="290" as="sourcePoint" />
+            <mxPoint x="-510" y="240" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-1000" y="160" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="LfG-qxr215mkKre9bOdj-12" value="" style="html=1;verticalLabelPosition=bottom;align=center;labelBackgroundColor=#ffffff;verticalAlign=top;strokeWidth=2;strokeColor=#9D73AA;shadow=0;dashed=0;shape=mxgraph.ios7.icons.location;fillColor=#E4D4E8;" parent="1" vertex="1">
+          <mxGeometry x="-952" y="20" width="24" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="LfG-qxr215mkKre9bOdj-13" value="Resource owner" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="-927" y="20" width="97" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
