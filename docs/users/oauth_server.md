@@ -34,8 +34,6 @@ Add the tables needed by the bundle:
 
 === "MySQL"
 
-    TODO: add user, password, and db name to the command
-
     ```bash
     mysql -u <username> -p <password> <database_name> -e 'SET FOREIGN_KEY_CHECKS=0;'
     php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/oauth2-server/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
