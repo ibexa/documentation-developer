@@ -51,9 +51,7 @@ Add the tables needed by the bundle:
 You need private and public keys.
 You can look at https://oauth2.thephpleague.com/installation/#generating-public-and-private-keys
 
-TODO: security reco about using a passphrase or not?
-
-You also need an encryption key
+You also need an encryption key.
 You can look at https://oauth2.thephpleague.com/installation/#generating-encryption-keys
 
 Set the following environment variables:
@@ -109,7 +107,7 @@ To allow resource routes to be accessible through OAuth authorization,
 you must define a firewall using the `Ibexa\OAuth2Server\Security\Guard\OAuth2Authenticator`.
 
 The following firewall example allows the REST API to be accessed as an OAuth resource.
-TODO: Location in the file? Before `main`? Before `ibexa_front`? Upper?
+It must be before firewall with less restrictuve pattern like `ibexa_front`.
 
 ```yaml
     #…
@@ -125,6 +123,10 @@ TODO: Location in the file? Before `main`? Before `ibexa_front`? Upper?
                     - Ibexa\OAuth2Server\Security\Guard\OAuth2Authenticator
                 entry_point: Ibexa\OAuth2Server\Security\Guard\OAuth2Authenticator
             stateless: true
+
+        ibexa_front:
+            pattern: ^/
+            #…
 ```
 
 TODO: Can it break same-domain Back Office like with [HTTP basic authentication](rest_api_authentication.md#configuration)?
@@ -135,9 +137,7 @@ TODO: Can it break same-domain Back Office like with [HTTP basic authentication]
 
 You need the client redirect URIs to create it.
 You also need to agree on an identifier and a secret with the client.
-There is only one `default` scope.
-
-TODO: [scope](https://oauth.net/2/scope/)
+There is only one `default` [scope](https://oauth.net/2/scope/).
 
 Use `league:oauth2-server:create-client` command to create a client.
 For example:
