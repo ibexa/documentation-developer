@@ -1,5 +1,8 @@
 ---
+title: Solr search engine overview
 description: Solr search engine overview.
+tags:
+  - Search
 ---
 
 # Solr search engine

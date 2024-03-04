@@ -1,5 +1,8 @@
 ---
+title: Customer Data Platform overview
 description: Ibexa CDP is a software system designed to collect and organize customer data from multiple sources to build comprehensive customer profiles.
+tags:
+  - Customer Data Platform (CDP)
 ---
 
 # Customer Data Platform (CDP)

@@ -1,6 +1,8 @@
 ---
 description: The Form Builder product guide provides a full description of its features as well as the benefits it brings to the client.
 edition: experience
+tags:
+  - Form builder
 ---
 
 # Form Builder product guide 

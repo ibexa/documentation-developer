@@ -6,7 +6,8 @@ plugins:
         j2_block_end_string: '%]]'
         j2_variable_start_string: '[[='
         j2_variable_end_string: '=]]'
-    - tags
+    - tags:
+        tags_file: tags.md
     - redirects:
         redirect_maps:
             'api/field_types_reference/xmltextfield.md': 'content_management/field_types/field_type_reference/field_type_reference.md'

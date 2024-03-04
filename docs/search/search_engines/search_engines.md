@@ -1,5 +1,8 @@
 ---
+title: Search engines
 description: Learn about different search engines that are supported by Ibexa DXP.
+tags:
+  - Search
 ---
 
 # Search engines
