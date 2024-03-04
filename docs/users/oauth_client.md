@@ -6,8 +6,6 @@ description: Allow users to log into Ibexa DXP through external OAuth2 authoriza
 
 You can use OAuth2 to securely authenticate users with external Authorization Servers.
 
-TODO: Limitations. Ibexa DXP OAuth client won't access to resources on a third party Resource Server, not even if it's the same organisation as the Authorization Server. For example, you can access Google user information after some used is Google account to log into an Ibexa DXP.
-
 ![OAuth2 Client](img/oauth2-client.png)
 
 [[= product_name =]] uses an integration with [`knpuniversity/oauth2-client-bundle`](https://github.com/knpuniversity/oauth2-client-bundle)

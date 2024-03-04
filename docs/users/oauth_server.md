@@ -172,12 +172,7 @@ or to delete a client (`league:oauth2-server:delete-client`).
 
 Your OAuth2 client will need the following information to be able to use your Oauth server:
 
-- The URL of the Ibexa DXP used as an oauth server TODO: Is it always a domain root?
+- The URL of the Ibexa DXP used as an oauth server
 - The client identifier
 - The client secret
 - The scope (`default`)
-
-TODO: For example, if the client is another Ibexa DXP: like oauth_authentication.md but with an Ibexa DXP as the server. What about resource owner and server?
-
-TODO: something about https://doc.ibexa.co/en/latest/users/oauth_authentication/
-TODO: and https://doc.ibexa.co/en/latest/users/add_login_through_external_service/#configure-oauth2-client
