@@ -1,4 +1,4 @@
-<mxfile host="Electron" modified="2024-03-04T15:25:34.692Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.1.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="_4v5VW-OwhMURFYFono8" version="23.1.5" type="device">
+<mxfile host="Electron" modified="2024-03-04T15:28:22.834Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.1.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="AoXgYRQvi0s1V1_tzl2O" version="23.1.5" type="device">
   <diagram name="Page-1" id="HCu4IDgJjuJ1dES_PF9C">
     <mxGraphModel dx="1604" dy="796" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
@@ -13,7 +13,7 @@
         <mxCell id="LfG-qxr215mkKre9bOdj-4" value="Users&lt;br&gt;(Resource owners)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#ffe5c9;strokeColor=#E8D0B7;strokeWidth=3;" parent="1" vertex="1">
           <mxGeometry x="-980" y="90" width="80" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="LfG-qxr215mkKre9bOdj-5" value="3rd party&lt;br&gt;OAuth 2 Server" style="rounded=1;whiteSpace=wrap;html=1;shadow=1;fillColor=#EAFFE9;strokeWidth=3;strokeColor=#DDE9A7;" parent="1" vertex="1">
+        <mxCell id="LfG-qxr215mkKre9bOdj-5" value="3&lt;sup&gt;rd&lt;/sup&gt; party&lt;br&gt;OAuth 2 Server" style="rounded=1;whiteSpace=wrap;html=1;shadow=1;fillColor=#EAFFE9;strokeWidth=3;strokeColor=#DDE9A7;" parent="1" vertex="1">
           <mxGeometry x="-660" y="110" width="80" height="60" as="geometry" />
         </mxCell>
         <mxCell id="LfG-qxr215mkKre9bOdj-6" value="Authenticate user" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">

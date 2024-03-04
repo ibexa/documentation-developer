@@ -1,4 +1,4 @@
-<mxfile host="Electron" modified="2024-03-04T15:25:36.692Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.1.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="VWDzD0_k14U0Z_A27rEI" version="23.1.5" type="device">
+<mxfile host="Electron" modified="2024-03-04T15:32:01.952Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.1.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="UGLYekrx6YP5a1-qOn54" version="23.1.5" type="device">
   <diagram name="Page-1" id="LO8gvRsFW6KkFbayFnoz">
     <mxGraphModel dx="320" dy="796" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
@@ -13,7 +13,7 @@
         <mxCell id="zocpmS_6UfbLTUZ_diyz-3" value="Resource&lt;br&gt;Server" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#e1e8d1;strokeColor=#CDD4BE;strokeWidth=3;" parent="1" vertex="1">
           <mxGeometry x="420" y="140" width="80" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="zocpmS_6UfbLTUZ_diyz-4" value="3rd party&lt;br&gt;OAuth 2 Client" style="rounded=1;whiteSpace=wrap;html=1;shadow=1;strokeColor=#d8b95d;fillColor=#fff2cc;strokeWidth=3;" parent="1" vertex="1">
+        <mxCell id="zocpmS_6UfbLTUZ_diyz-4" value="3&lt;sup&gt;rd&lt;/sup&gt; party&lt;br&gt;OAuth 2 Client" style="rounded=1;whiteSpace=wrap;html=1;shadow=1;strokeColor=#d8b95d;fillColor=#fff2cc;strokeWidth=3;" parent="1" vertex="1">
           <mxGeometry x="100" y="110" width="80" height="60" as="geometry" />
         </mxCell>
         <mxCell id="zocpmS_6UfbLTUZ_diyz-5" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;curved=1;strokeColor=#e4d4e8;strokeWidth=6;" parent="1" source="zocpmS_6UfbLTUZ_diyz-4" target="zocpmS_6UfbLTUZ_diyz-2" edge="1">
