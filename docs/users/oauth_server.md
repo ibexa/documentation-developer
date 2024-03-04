@@ -15,7 +15,7 @@ Client applications (such as mobile apps) are able to authenticate a user then a
 It can be installed with the following command:
 
 ```bash
-composer require ibexa/oauth2-server
+composer require ibexa/oauth2-server --with-all-dependencies
 ```
 
 Then, add the following pair of bundle lines to `config/bundles.php` array, like at the end of it:
@@ -37,14 +37,14 @@ Add the tables needed by the bundle:
     TODO: add user, password, and db name to the command
 
     ```bash
-    mysql -e 'SET FOREIGN_KEY_CHECKS=0;'
-    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/oauth2-server/src/bundle/Resources/config/schema.yaml | mysql
-    mysql -e 'SET FOREIGN_KEY_CHECKS=1;'
+    mysql -u <username> -p <password> <database_name> -e 'SET FOREIGN_KEY_CHECKS=0;'
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/oauth2-server/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
+    mysql -u <username> -p <password> <database_name> -e 'SET FOREIGN_KEY_CHECKS=1;'
     ```
 
 === "PostgreSQL"
 
-    TODO
+    php bin/console ibexa:doctrine:schema:dump-sql --force-platform=postgres vendor/ibexa/oauth2-server/src/bundle/Resources/config/schema.yaml | psql <database_name>
 
 ## Authorization Server configuration
 

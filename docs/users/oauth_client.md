@@ -49,10 +49,6 @@ In the following example, the previous OAuth2 client `google` is enabled for the
 
 ## Configure firewall
 
-TODO: What happens when the OAuth client is at a SiteAccess level while Firewalls are not SiteAccess aware?
-Can `admin` can still work if only `site` as an OAuth client? 
-Maybe domains in firewall configs to have regular auth on `admin` dedicated domain and OAuth on `site` dedicated domain?
-
 In `config/packages/security.yaml`,
 enable the `oauth2_connect` firewall,
 and replace the `ibexa_front` firewall with the `ibexa_oauth2_front` one.
@@ -125,7 +121,7 @@ Create the following template file in `templates/themes/admin/account/login/oaut
 [[= include_file('code_samples/user_management/oauth_google/templates/themes/admin/account/login/oauth2_login.html.twig') =]]
 ```
 
-For more information about the URL twig function used in this template,
+For more information about the OAuth connection URL Twig functions,
 see [`ibexa_oauth2_connect_path`](url_twig_functions.md#ibexa_oauth2_connect_path),
 and [`ibexa_oauth2_connect_url`](url_twig_functions.md#ibexa_oauth2_connect_url).
 
