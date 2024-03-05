@@ -6,6 +6,37 @@ description: Overview of major recent additions to Ibexa DXP documentation.
 
 This page contains recent highlights and notable changes in [[= product_name =]] documentation.
 
+## February 2024
+
+### Dashboard
+
+- New dashboard sections in user documentation:
+    - [Dashboard](https://doc.ibexa.co/projects/userguide/en/latest/getting_started/dashboard/dashboard/)
+    - [Work with dashboard](https://doc.ibexa.co/projects/userguide/en/latest/getting_started/dashboard/work_with_dashboard/)
+    - [Dashboard block reference](https://doc.ibexa.co/projects/userguide/en/latest/getting_started/dashboard/dashboard_block_reference/)
+- Dashboard section in developer documentation:
+    - [Configure default dashboard](https://doc.ibexa.co/en/latest/administration/dashboard/configure_default_dashboard/)
+    - [Customize dashboard](https://doc.ibexa.co/en/latest/administration/dashboard/customize_dashboard/)
+    - [PHP API Dashboard service](https://doc.ibexa.co/en/latest/administration/dashboard/php_api_dashboard_service/)
+
+### DAM
+
+- [Ibexa DAM](https://doc.ibexa.co/projects/userguide/en/latest/dam/ibexa_dam/)
+
+### PIM
+
+- [Price engine REST API](https://doc.ibexa.co/en/master/api/rest_api/rest_api_reference/rest_api_reference.html#product-catalog-load-the-list-of-product-prices)
+
+### REST API
+
+- [Shipment REST API](https://doc.ibexa.co/en/latest/api/rest_api/rest_api_reference/rest_api_reference.html#shipments)
+
+### Others
+
+- [Updated Create custom view matcher article](https://doc.ibexa.co/en/latest/templating/templates/create_custom_view_matcher/)
+- [Actito transactional email integration](https://doc.ibexa.co/en/latest/commerce/transactional_emails/transactional_emails/#configure-actito-integration)
+- [Described user profile](https://doc.ibexa.co/projects/userguide/en/latest/getting_started/get_started/#edit-user-profile)
+
 ## January 2024
 
 ### Administration
