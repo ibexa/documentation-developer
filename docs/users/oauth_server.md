@@ -1,10 +1,10 @@
 ---
-description: Other applications can authenticate Ibexa DXP users through OAuth2 protocol then access to their resources on the platform.
+description: Other applications can authenticate [[= product_name =]] users through OAuth2 protocol then access to their resources on the platform.
 ---
 
 # OAuth Server
 
-Your Ibexa DXP can be used as an OAuth2 server (combining an Authorization Server and a Resource Server).
+Your [[= product_name =]] can be used as an OAuth2 server (combining an Authorization Server and a Resource Server).
 Client applications (such as mobile apps) are able to authenticate a user then access to this user's resources.
 
 ![OAuth2 Server](img/oauth2-server.png)
@@ -170,9 +170,9 @@ or to delete a client (`league:oauth2-server:delete-client`).
 
 ### Information needed by the client
 
-Your OAuth2 client will need the following information to be able to use your Oauth server:
+Your OAuth2 client needs the following information to be able to use your Oauth server:
 
-- The URL of the Ibexa DXP used as an oauth server
+- The URL of the [[= product_name =]] used as an oauth server
 - The client identifier
 - The client secret
 - The scope (`default`)
