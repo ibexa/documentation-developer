@@ -1,19 +1,19 @@
-<mxfile host="Electron" modified="2024-03-04T15:32:01.952Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.1.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="UGLYekrx6YP5a1-qOn54" version="23.1.5" type="device">
+<mxfile host="Electron" modified="2024-03-05T08:22:54.912Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.1.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="L8hFGf6pyNT0hzT3IaBa" version="23.1.5" type="device">
   <diagram name="Page-1" id="LO8gvRsFW6KkFbayFnoz">
     <mxGraphModel dx="320" dy="796" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="zocpmS_6UfbLTUZ_diyz-1" value="Ibexa DXP&lt;br&gt;OAuth 2 Server" style="rounded=1;whiteSpace=wrap;html=1;horizontal=1;verticalAlign=top;shadow=1;strokeWidth=3;fillColor=#eaffe9;strokeColor=#dde9a7;" parent="1" vertex="1">
+        <mxCell id="zocpmS_6UfbLTUZ_diyz-1" value="&lt;font color=&quot;#222222&quot;&gt;IBEXA DXP&lt;br&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;OA&lt;/font&gt;UTH 2 SERVER&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;horizontal=1;verticalAlign=top;shadow=1;strokeWidth=3;fillColor=#eaffe9;strokeColor=#dde9a7;" parent="1" vertex="1">
           <mxGeometry x="400" y="50" width="120" height="180" as="geometry" />
         </mxCell>
-        <mxCell id="zocpmS_6UfbLTUZ_diyz-2" value="Authorization&lt;br&gt;Server" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=none;fillColor=#e1e8d1;" parent="1" vertex="1">
+        <mxCell id="zocpmS_6UfbLTUZ_diyz-2" value="&lt;font color=&quot;#222222&quot;&gt;AUTHORIZATION&lt;br&gt;SERVER&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=none;fillColor=#e1e8d1;" parent="1" vertex="1">
           <mxGeometry x="410" y="90" width="100" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="zocpmS_6UfbLTUZ_diyz-3" value="Resource&lt;br&gt;Server" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#e1e8d1;strokeColor=#CDD4BE;strokeWidth=3;" parent="1" vertex="1">
+        <mxCell id="zocpmS_6UfbLTUZ_diyz-3" value="&lt;font color=&quot;#222222&quot;&gt;RESOURCE&lt;br&gt;SERVER&lt;/font&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#e1e8d1;strokeColor=#CDD4BE;strokeWidth=3;" parent="1" vertex="1">
           <mxGeometry x="420" y="140" width="80" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="zocpmS_6UfbLTUZ_diyz-4" value="3&lt;sup&gt;rd&lt;/sup&gt; party&lt;br&gt;OAuth 2 Client" style="rounded=1;whiteSpace=wrap;html=1;shadow=1;strokeColor=#d8b95d;fillColor=#fff2cc;strokeWidth=3;" parent="1" vertex="1">
+        <mxCell id="zocpmS_6UfbLTUZ_diyz-4" value="&lt;font color=&quot;#222222&quot;&gt;3&lt;sup&gt;RD&lt;/sup&gt; PARTY&lt;br&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;OA&lt;/font&gt;UTH 2 CLIENT&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;shadow=1;strokeColor=#d8b95d;fillColor=#fff2cc;strokeWidth=3;" parent="1" vertex="1">
           <mxGeometry x="100" y="110" width="80" height="60" as="geometry" />
         </mxCell>
         <mxCell id="zocpmS_6UfbLTUZ_diyz-5" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;curved=1;strokeColor=#e4d4e8;strokeWidth=6;" parent="1" source="zocpmS_6UfbLTUZ_diyz-4" target="zocpmS_6UfbLTUZ_diyz-2" edge="1">
@@ -25,8 +25,8 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="zocpmS_6UfbLTUZ_diyz-6" value="Request token" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;rotation=-5;" parent="1" vertex="1">
-          <mxGeometry x="250" y="70" width="80" height="30" as="geometry" />
+        <mxCell id="zocpmS_6UfbLTUZ_diyz-6" value="&lt;font color=&quot;#222222&quot;&gt;REQUEST TOKEN&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;rotation=-5;" parent="1" vertex="1">
+          <mxGeometry x="239" y="67.55" width="109.98" height="30" as="geometry" />
         </mxCell>
         <mxCell id="zocpmS_6UfbLTUZ_diyz-7" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1.013;entryY=0.367;entryDx=0;entryDy=0;curved=1;entryPerimeter=0;strokeColor=#e4d4e8;strokeWidth=6;" parent="1" source="zocpmS_6UfbLTUZ_diyz-2" target="zocpmS_6UfbLTUZ_diyz-4" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
@@ -37,8 +37,8 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="zocpmS_6UfbLTUZ_diyz-8" value="Provide token" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;rotation=-5;" parent="1" vertex="1">
-          <mxGeometry x="255" y="95" width="80" height="30" as="geometry" />
+        <mxCell id="zocpmS_6UfbLTUZ_diyz-8" value="&lt;font color=&quot;#222222&quot;&gt;PROVIDE TOKEN&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;rotation=-5;" parent="1" vertex="1">
+          <mxGeometry x="240.02" y="96" width="109.98" height="30" as="geometry" />
         </mxCell>
         <mxCell id="zocpmS_6UfbLTUZ_diyz-9" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.617;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;curved=1;exitPerimeter=0;strokeColor=#e4d4e8;strokeWidth=6;" parent="1" source="zocpmS_6UfbLTUZ_diyz-4" target="zocpmS_6UfbLTUZ_diyz-3" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
@@ -49,8 +49,8 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="zocpmS_6UfbLTUZ_diyz-10" value="Request resource&lt;br&gt;with token" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;rotation=10;" parent="1" vertex="1">
-          <mxGeometry x="266" y="146" width="120" height="30" as="geometry" />
+        <mxCell id="zocpmS_6UfbLTUZ_diyz-10" value="&lt;font color=&quot;#222222&quot;&gt;REQUEST RESOURCE WITH TOKEN&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;rotation=10;" parent="1" vertex="1">
+          <mxGeometry x="250.12" y="144.61" width="136" height="30" as="geometry" />
         </mxCell>
         <mxCell id="zocpmS_6UfbLTUZ_diyz-11" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0;exitDx=0;exitDy=52.5;exitPerimeter=0;curved=1;strokeColor=#e4d4e8;strokeWidth=6;" parent="1" source="zocpmS_6UfbLTUZ_diyz-3" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
@@ -61,8 +61,8 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="zocpmS_6UfbLTUZ_diyz-12" value="Provide resource to valid token" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;rotation=10;" parent="1" vertex="1">
-          <mxGeometry x="248" y="181" width="95" height="30" as="geometry" />
+        <mxCell id="zocpmS_6UfbLTUZ_diyz-12" value="&lt;font color=&quot;#222222&quot;&gt;PROVIDE RESOURCE TO VALID TOKEN&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;rotation=10;" parent="1" vertex="1">
+          <mxGeometry x="234.72" y="183.21" width="132" height="30" as="geometry" />
         </mxCell>
         <mxCell id="zocpmS_6UfbLTUZ_diyz-13" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=1.025;entryY=0.588;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;curved=1;strokeColor=#e4d4e8;strokeWidth=6;" parent="1" source="zocpmS_6UfbLTUZ_diyz-2" target="zocpmS_6UfbLTUZ_diyz-3" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
@@ -73,14 +73,14 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="zocpmS_6UfbLTUZ_diyz-14" value="Validate token" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+        <mxCell id="zocpmS_6UfbLTUZ_diyz-14" value="&lt;font color=&quot;#222222&quot;&gt;VALIDATE TOKEN&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="523" y="130" width="80" height="30" as="geometry" />
         </mxCell>
         <mxCell id="zocpmS_6UfbLTUZ_diyz-15" value="" style="html=1;verticalLabelPosition=bottom;align=center;labelBackgroundColor=#ffffff;verticalAlign=top;strokeWidth=2;strokeColor=#9d73aa;shadow=0;dashed=0;shape=mxgraph.ios7.icons.location;fillColor=#e4d4e8;" parent="1" vertex="1">
           <mxGeometry x="128" y="80" width="24" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="zocpmS_6UfbLTUZ_diyz-16" value="Resource owner" style="text;html=1;align=right;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1" parent="1" vertex="1">
-          <mxGeometry x="30" y="80" width="98" height="30" as="geometry" />
+        <mxCell id="zocpmS_6UfbLTUZ_diyz-16" value="&lt;font color=&quot;#222222&quot;&gt;RESOURCE OWNER&lt;/font&gt;" style="text;html=1;align=right;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="29" y="80" width="98" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
