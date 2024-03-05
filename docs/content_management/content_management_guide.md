@@ -148,6 +148,8 @@ If a website has different fronts, for different locales, and different language
 
 Editors can compare different translations of the same Content items with the Compare versions feature mentioned above.
 
+See an interactive demo about [managing content in multiple languages](https://www.ibexa.co/resources/interactive-demos/multilingual-content-management).
+
 #### Relations
 
 A [relation](content_relations.md) can exist between any two Content items in the Content Tree. 
@@ -245,6 +247,8 @@ You can pause and resume the work, preview the results, or send content for revi
 **4\. Publish**
 
 Again, this is not part of content management, but at this point you can [publish]([[= user_doc =]]/content_management/publish_instantly/) it right away or [schedule content for publication]([[= user_doc =]]/content_management/schedule_publishing/).
+
+See an interactive demo about [scheduling a publication](https://www.ibexa.co/resources/interactive-demos/scheduled-publishing).
 
 **5\. Organize content**
 

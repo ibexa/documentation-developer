@@ -13,6 +13,8 @@ It will allow you to create individual customer profiles that enable you to pers
 
 ![Ibexa CDP control panel](img/cdp_control_panel.png)
 
+See an interactive demo about [creating and targeting audiences with Ibexa CDP](https://www.ibexa.co/resources/interactive-demos/ibexa-cdp).
+
 ## How it works
 
 [[= product_name_cdp =]] unifies customer data across your organization

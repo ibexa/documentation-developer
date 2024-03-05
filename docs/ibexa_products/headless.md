@@ -78,6 +78,8 @@ Content modeling and management are the foundation of [[= product_name =]] with 
 - Rich Text Field Type comes with an [online editor](online_editor_guide.md).
 - Multilingual, it can store a content in several languages, the content model define which field must be translated, and which don't vary.
 
+See an interactive demo about [editing rich content items](https://www.ibexa.co/resources/interactive-demos/headless-cms).
+
 For more information, see [Content management product guide](content_management_guide.md).
 
 #### User management
