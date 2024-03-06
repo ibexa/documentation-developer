@@ -63,7 +63,7 @@ Specifies the name of the [Section](sections.md).
 It is an identifier that represents dashboard content type.
 You can find it in the Admin panel, **Dashboard content Ttpe** section, **View/Global properties** tab.
 
-![content type identifier](dashboard_content_type_identifier.png)
+![Content type identifier](dashboard_content_type_identifier.png)
 
 ## Container content type identifier
 
