@@ -263,7 +263,7 @@ See the example:
         { has_checkbox: true },
         { has_icon: true },
         { content: 'article.list.name'|trans|desc('Name') },
-        { content: 'article.list.content_type'|trans|desc('content type') },
+        { content: 'article.list.content_type'|trans|desc('Content type') },
         { },
     ],
     body_rows,

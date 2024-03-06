@@ -58,7 +58,7 @@ In the **Technical details** tab, it is defined as **Location remote ID**.
 
 Specifies the name of the [Section](sections.md).
 
-## content type identifier
+## Content type identifier
 
 It is an identifier that represents dashboard content type.
 You can find it in the Admin panel, **Dashboard content Ttpe** section, **View/Global properties** tab.

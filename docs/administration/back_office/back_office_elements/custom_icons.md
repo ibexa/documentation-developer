@@ -30,7 +30,7 @@ To see more configuration options, see [icon sizes](other_twig_filters.md).
 
 ### Access icons in Twig templates
 
-content type icons are accessible in Twig templates via the `ibexa_content_type_icon` function.
+Content type icons are accessible in Twig templates via the `ibexa_content_type_icon` function.
 It requires content type identifier as an argument. The function returns the path to a content type icon.
 
 ```twig
@@ -41,7 +41,7 @@ It requires content type identifier as an argument. The function returns the pat
 
 ### Access icons in JavaScript
 
-content types icons configuration is stored in a global object: `ibexa.adminUiConfig.contentTypes`.
+Content types icons configuration is stored in a global object: `ibexa.adminUiConfig.contentTypes`.
 
 You can retrieve the icon URL with the `getContentTypeIcon` helper function that is set on the global `ibexa.helpers.contentType` object.
 It takes content type identifier as an argument and returns one of the following items:

@@ -25,7 +25,7 @@ class FindContentCommand extends Command
         $this
             ->setDescription('Lists content belonging to the provided content type.')
             ->setDefinition([
-                new InputArgument('contentTypeIdentifier', InputArgument::REQUIRED, 'content type identifier'),
+                new InputArgument('contentTypeIdentifier', InputArgument::REQUIRED, 'Content type identifier'),
             ]);
     }
 

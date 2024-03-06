@@ -31,7 +31,7 @@ class FindComplexCommand extends Command
             ->setDescription('Lists content belonging to the provided content type.')
             ->setDefinition([
                 new InputArgument('locationId', InputArgument::REQUIRED, ''),
-                new InputArgument('contentTypeIdentifier', InputArgument::REQUIRED, 'content type identifier'),
+                new InputArgument('contentTypeIdentifier', InputArgument::REQUIRED, 'Content type identifier'),
                 new InputArgument('text', InputArgument::REQUIRED, ''),
             ]);
     }

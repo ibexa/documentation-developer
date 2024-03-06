@@ -181,8 +181,8 @@ For example:
 
 ```xml
 <trans-unit id="76adf2a27f1ae0ab14b623729cd3f281a6e2c285" resname="policy.limitation.identifier.group">
-  <source>content type Group</source>
-  <target>content type Group</target>
+  <source>Content type Group</source>
+  <target>Content type Group</target>
   <note>key: policy.limitation.identifier.group</note>
 </trans-unit>
 ```

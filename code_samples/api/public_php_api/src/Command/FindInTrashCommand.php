@@ -24,7 +24,7 @@ class FindInTrashCommand extends Command
         $this
             ->setDescription('Lists content in Trash belonging to the provided content type.')
             ->setDefinition([
-                new InputArgument('contentTypeId', InputArgument::REQUIRED, 'content type ID'),
+                new InputArgument('contentTypeId', InputArgument::REQUIRED, 'Content type ID'),
             ]);
     }
 

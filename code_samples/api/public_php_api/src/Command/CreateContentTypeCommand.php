@@ -30,8 +30,8 @@ class CreateContentTypeCommand extends Command
     protected function configure()
     {
         $this->setDefinition([
-            new InputArgument('identifier', InputArgument::REQUIRED, 'content type identifier'),
-            new InputArgument('group_identifier', InputArgument::REQUIRED, 'content type group identifier'),
+            new InputArgument('identifier', InputArgument::REQUIRED, 'Content type identifier'),
+            new InputArgument('group_identifier', InputArgument::REQUIRED, 'Content type group identifier'),
             new InputArgument('copy_identifier', InputArgument::OPTIONAL, 'Identifier of the CT copy'),
         ])
             ->addOption('copy', 'c', InputOption::VALUE_NONE, 'Do you want to make a copy the content type?');
@@ -51,7 +51,7 @@ class CreateContentTypeCommand extends Command
         try {
             $contentTypeGroup = $this->contentTypeService->loadContentTypeGroupByIdentifier($groupIdentifier);
         } catch (\eZ\Publish\API\Repository\Exceptions\NotFoundException $e) {
-            $output->writeln("content type group with identifier $groupIdentifier not found");
+            $output->writeln("Content type group with identifier $groupIdentifier not found");
 
             return self::FAILURE;
         }
@@ -81,7 +81,7 @@ class CreateContentTypeCommand extends Command
         );
 
         $this->contentTypeService->publishContentTypeDraft($contentTypeDraft);
-        $output->writeln("content type '$contentTypeIdentifier' with ID $contentTypeDraft->id created");
+        $output->writeln("Content type '$contentTypeIdentifier' with ID $contentTypeDraft->id created");
 
         if ($input->getOption('copy')) {
             $contentTypeToCopy = $this->contentTypeService->loadContentTypeByIdentifier($contentTypeIdentifier);

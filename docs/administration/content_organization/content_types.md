@@ -2,25 +2,25 @@
 description: A content type is a base for new Content items.
 ---
 
-# content types
+# Content types
 
 A content type is a base for new Content items.
 It defines what Fields will be available in the Content item.
 
-![content types](admin_panel_content_types.png "content types")
+![Content types](admin_panel_content_types.png "Content types")
 
 For example, a new content type called *Article* can have Fields such as title, author, body, image, etc.
 Based on this content type, you can create any number of Content items.
 content types are organized into groups.
 
-![content type groups](admin_panel_content_type_groups.png "content type groups")
+![Content type groups](admin_panel_content_type_groups.png "Content type groups")
 
 You can add your own groups here to keep your content types in better order.
 
 For a full tutorial, see [Add a content type](first_steps.md#add-a-content-type) or follow [user documentation](https://doc.ibexa.co/projects/userguide/en/latest/content_management/create_edit_content_types/).
 For a detailed overview of the content model, see [Content model overview](content_model.md).
 
-## content type metadata
+## Content type metadata
 
 Each content type is characterized by a set of metadata which define the general behavior of its instances:
 
