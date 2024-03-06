@@ -135,7 +135,7 @@ Following [Security advisory: IBEXA-SA-2022-009](https://developers.ibexa.co/sec
 unless you can verify based on your log files that the vulnerability has not been exploited,
 you should [revoke passwords](https://doc.ibexa.co/en/latest/users/user_management/#revoking-passwords) for all affected users.
 
-### Remove `node_modules` and `yarn.lock`
+## Remove `node_modules` and `yarn.lock`
 
 Next, remove `node_modules` and `yarn.lock` before running `composer run post-update-cmd`,
 otherwise you can encounter errors during compiling.
