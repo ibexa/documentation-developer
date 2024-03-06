@@ -95,7 +95,7 @@ You can resize all original images of a chosen content type with the following
 command.
 
 ``` bash
-php bin/console ibexa:images:resize-original <Field identifier> <Content type identifier>  -f <variation name>
+php bin/console ibexa:images:resize-original <Field identifier> <content type identifier>  -f <variation name>
 ```
 
 You must provide the command with:
