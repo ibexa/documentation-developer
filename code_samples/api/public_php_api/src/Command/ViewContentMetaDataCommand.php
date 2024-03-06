@@ -74,9 +74,9 @@ class ViewContentMetaDataCommand extends Command
             $output->writeln('URL alias: ' . $urlAlias->path);
         }
 
-        // content type
+        // Content type
         $content = $this->contentService->loadContent($contentId);
-        $output->writeln('content type: ' . $content->getContentType()->getName());
+        $output->writeln('Content type: ' . $content->getContentType()->getName());
 
         // Versions
         $versionInfos = $this->contentService->loadVersions($contentInfo);
