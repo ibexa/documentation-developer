@@ -79,10 +79,10 @@ ibexa:
         <site_access_name_1>:
             personalization:
                 site_name: '<site_name_1>' # For example 'ENU store'
-                host_uri: '%env(RECOMMENDATION_HOST_URI)%'
+                host_uri: '%env(PERSONALIZATION_HOST_URI)%'
                 authentication:
-                    customer_id: '%env(int:RECOMMENDATION_CUSTOMER_ID)%'
-                    license_key: '%env(RECOMMENDATION_LICENSE_KEY)%'
+                    customer_id: '%env(int:PERSONALIZATION_CUSTOMER_ID)%'
+                    license_key: '%env(PERSONALIZATION_LICENSE_KEY)%'
                 included_item_types: [product, article]
                 output_type_attributes:
                     123: # content type ID
