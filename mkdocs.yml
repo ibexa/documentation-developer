@@ -70,7 +70,7 @@ nav:
         - Event reference:
             - Event reference: api/event_reference/event_reference.md
             - Content events: api/event_reference/content_events.md
-            - content type events: api/event_reference/content_type_events.md
+            - Content type events: api/event_reference/content_type_events.md
             - Location events: api/event_reference/location_events.md
             - Catalog events: api/event_reference/catalog_events.md
             - Cart events: api/event_reference/cart_events.md
@@ -110,7 +110,7 @@ nav:
             - System Information: administration/admin_panel/system_information_admin_panel.md
         - Content organization:
             - Sections: administration/content_organization/sections.md
-            - content types: administration/content_organization/content_types.md
+            - Content types: administration/content_organization/content_types.md
             - Object States: administration/content_organization/object_states.md
         - Configuration:
             - Configuration: administration/configuration/configuration.md
