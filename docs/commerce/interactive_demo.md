@@ -7,7 +7,10 @@ edition: commerce
 
 The commerce component of [[= product_name =]] covers various areas of managing an e-commerce presence: from configuring payment and shipping methods, through processing a transaction (listing available products, adding products to a cart, processing checkout and sending confirmation), all the way to order management.
 
-<iframe src="https://demo.arcade.software/NbDnRvMI0aO6UQDQureM?embed" frameborder="0" loading="lazy" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" style="display: block; margin: auto; width: 80%; height: calc(100vw / 3)"></iframe>
+<figure>
+  <iframe width=1200; height="600"; src="https://demo.arcade.software/NbDnRvMI0aO6UQDQureM?embed" frameborder="0" allowfullscreen></iframe>
+  <figcaption>Selling online with Ibexa Commerce</figcaption>
+</figure>
 
 [[= cards([
 "commerce/cart/cart",
