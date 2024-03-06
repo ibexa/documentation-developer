@@ -13,7 +13,7 @@ Below is a short introduction that only covers points needed for this tutorial.
 
 The [[= product_name =]] content Repository is centered around **Content items**. A Content item is a single piece of content, for example an article, a product review, a place, etc.
 
-Every Content item is an instance of a **content type**. Content types define what **Fields** are included in each Content item.
+Every Content item is an instance of a content type. Content types define what **Fields** are included in each Content item.
 For example, an article could include Fields such as *title*, *image*, *abstract*, *article's body*, *publication date* and *list of authors*.
 
 Fields can belong to one of the installed **Field Types**, about 30 in the default distribution.
@@ -35,7 +35,7 @@ In the upper-right corner, click the avatar icon to unfold the drop-down menu an
 
 In the main menu, go to **Content** -> **Content types**.
 
-You will see a list of **content type groups**. They are used to group content types in a logical way.
+You will see a list of **Content type groups**. They are used to group content types in a logical way.
 
 Select **Content** and then click the **Create** button. 
 
