@@ -1,14 +1,16 @@
 ---
 description: Update your installation to the latest v3.3 version from v2.5.
 target_version: '3.2'
-latest_tag: '3.3.24'
+latest_tag: '3.3.36'
 ---
 
 # From 2.5
 
 This update procedure applies if you are using v2.5.
 
-Go through the following steps to update to the latest v3.3 LTS (v[[= latest_tag =]]).
+Go through the following steps to update to the v3.3 LTS (v[[= latest_tag =]]).
+
+Afterwards, it is strongly recommended to also [update to the latest v4.6 LTS](../from_3.3/to_4.0.md).
 
 1. [Check out a version](to_3.2.md)
 1. [Resolve conflicts](to_3.2.md#2-resolve-conflicts)
