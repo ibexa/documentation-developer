@@ -4,9 +4,31 @@ description: You can use Symfony HttpCache Proxy, Varnish or Fastly as reverse p
 
 # Reverse proxy
 
-Before you start using Symfony reverse proxy, you must change your kernel to use `Ibexa\Bundle\HttpCache\AppCache` instead of `Symfony\Bundle\FrameworkBundle\HttpCache\HttpCache`.
+## Using Symfony reverse proxy
 
-Next, to use Symfony reverse proxy, follow the [Symfony documentation](https://symfony.com/doc/current/http_cache.html#symfony-reverse-proxy).
+To use the Symfony reverse proxy, you must change your `public/index.php` front controller script and wrap `EzSystems\PlatformHttpCacheBundle\AppCache` instead of `Symfony\Bundle\FrameworkBundle\HttpCache\HttpCache` around the kernel.
+
+```diff
+--- a/public/index.php
++++ b/public/index.php
+@@ -1,9 +1,11 @@
+ <?php
+
+ use App\Kernel;
++use Ibexa\Bundle\HttpCache\AppCache;
+
+ require_once dirname(__DIR__).'/vendor/autoload_runtime.php';
+
+ return function (array $context) {
+-    return new Kernel($context['APP_ENV'], (bool) $context['APP_DEBUG']);
++    return new AppCache(new Kernel($context['APP_ENV'], (bool) $context['APP_DEBUG']));
+ };
+```
+
+!!! caution
+
+    Don't enable the Symfony reverse proxy in `public/index.php` if you intend to use Varnish or Fastly.
+    You may only use one HTTP cache at a time.
 
 ## Using Varnish or Fastly
 
@@ -282,6 +304,7 @@ fastcgi_param FASTLY_KEY "token"
 ## Stale cache
 
 Stale cache, or grace mode in Varnish, occurs when:
+
 - Cache is served some time after the TTL expired.
 - When the back-end server does not respond.
 

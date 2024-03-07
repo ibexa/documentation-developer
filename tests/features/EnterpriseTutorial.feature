@@ -2,18 +2,18 @@ Feature: Setup eZ Platform Enterprise dogs tutorial
 
     @step1
     Scenario: Get a starter website
-        Given I create a "Dog Breed" Content Type with "dog_breed" identifier:
+        Given I create a "Dog Breed" content type with "dog_breed" identifier:
             | Field Type | Name              | Identifier        | Required | Searchable | Translatable |
             | Text line	 | Name              | name	             | yes      | yes	     | yes          |
             | Text line	 | Short Description | short_description | yes      | yes	     | yes          |
             | Image	     | Photo	         | photo	         | yes      | no	     | no           |
             | RichText	 | Full Description	 | description       | yes      | yes	     | yes          |
-        And I create a "Tip" Content Type with "tip" identifier:
+        And I create a "Tip" content type with "tip" identifier:
             | Field Type | Name	 | Identifier | Required | Searchable | Translatable |
             | Text line	 | Title | title	  | yes	     | yes	      | yes          |
             | Text block | Body	 | body	      | no	     | no	      | yes          |
-        And I remove "image" field from Article Content Type
-        And I add field to Article Content Type
+        And I remove "image" field from Article content type
+        And I add field to Article content type
             | Field Type | Name  | Identifier |	Required | Searchable |	Translatable |
             | Image      | Image | image      | no	     | no         |	yes          |
         And I create "folder" Content items in "Home"

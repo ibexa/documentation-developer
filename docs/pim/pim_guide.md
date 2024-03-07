@@ -66,7 +66,7 @@ Created collection is automatically assigned to the variant or variants that hav
 ### Availability
 
 Product availability defines whether a product is available in the catalog. 
-For each product you can [set availability]([[= user_doc =]]/pim/manage_prices_and_stock/#set-product-availability) per variant or per base product.
+For each product you can [set availability]([[= user_doc =]]/pim/manage_availability_and_stock/) per variant or per base product.
 When a product is available, it can have numerical stock defined, that you can set. 
 The stock can also be set to infinite, for example, for digital, downloadable products.
 A product can only be ordered when it has either positive stock, or stock set to infinite.
@@ -80,7 +80,7 @@ Category can also be assigned to multiple products.
 One of the reasons for applying product categories is assisting users in searching for products.
 Before you can assign categories to products, you need to [enable product categories]([[= user_doc =]]/pim/work_with_product_categories/#enable-product-categories).
 
-![Product castegories](img/product_categories.png)
+![Product categories](img/product_categories.png)
 
 ### Currencies
 
@@ -141,6 +141,76 @@ To have a better overview for a specific group of products, you can filter the l
 
 Catalog filters let you narrow down the products from the PIM that are available in the given catalog.
 Besides, the built-in catalog filters, you can also [create custom ones](create_custom_catalog_filter.md).
+
+### Remote PIM support
+
+In [[= product_name =]], products are created and maintained by using the REST API or the Back Office, and their data is stored in a local database.
+However, in your project or organization, you might have an existing product database, or be specifically concerned about product information security.
+To address such needs, [[= product_name =]] provides a foundation for remote PIM support.
+You can build upon it to connect to a remote PIM or ERP system, pull product data and present it on your website.
+
+![Remote PIM](img/remote_pim_support.png)
+
+Remote PIM support is available in all [[= product_name =]] editions as of version v.4.6.0.
+An example implementation is delivered as an optional package that you can [install and customize](add_remote_pim_support.md) to fulfill your requirements.
+
+#### Capabilities
+
+With remote PIM support, you can take advantage of the following capabilities:
+
+##### Purchasing
+
+Remote PIM support ensures that integration with [Commerce features](commerce.md) mirrors the efficiency of the local PIM, even with [quick orders](quick_order.md).
+This versatility allows for a consistent and user-friendly workflow regardless of the product's origin.
+
+##### Pricing, stock and availability
+
+A product can only be ordered when it has defined [availability]([[= user_doc =]]/pim/manage_availability_and_stock/), stock and [pricing information]([[= user_doc =]]/pim/manage_prices/).
+
+By default, such information is held in the [[= product_name =]]'s local database.
+In your specific scenario, you can implement the support for availability and pricing information coming from an external source as well, by using a price/availability matching strategy that is an extension point exposed in the Product catalog module.
+
+##### Filtering
+
+Filtering and pagination function the same as with the local PIM, relying on product attributes for effective organization of product data.
+However, criteria and sort clauses within local PIM correspond with [[= product_name =]]'s content model.
+Depending on your source of product information, you might need to adjust the implementation to be compatible with your data format.
+For reference, you could review the `CriterionVisitor.php` file that is part of [Remote PIM example package](add_remote_pim_support.md#install-remote-pim-example-package).
+
+##### Catalogs
+
+Catalogs can be created just like with the local PIM, but the criteria are limited to type, availability and attributes.
+
+#### Limitations
+
+The default implementation, which serves as a basis for the example remote PIM package, has some limitations: certain functionalities either do not operate or operate within defined constraints.
+Therefore, if your specific requirements are not met, you may need to extend [[= product_name =]].
+
+##### Editing product types, products and product attributes
+
+ Editing product type, product and product attribute information stored in the remote PIM is impossible due to their read-only status.
+ This means that, functionally speaking, communication with PIM is uni-directional, and information is pulled from a remote source but cannot be updated.
+
+##### Content-model-based features
+
+The following features rely on [[= product_name =]]'s content model capabilities, which are not supported by the default implementation of remote PIM support.
+Therefore, if your specific requirements are not met, you must extend the application by using extension points exposed in the Product catalog module.
+
+- Assets
+- Product variants
+- Product categories
+- Taxonomy
+- URL aliases
+
+##### Simplified presentation of PIM-related blocks and views
+
+Enabling Remote PIM impacts a number of application views and blocks, such as Product view, Product list, Catalog and Product Collection.
+They are simplified, for example, they do not include thumbnails and other assets, or refer to URL aliases.
+You can customize them by extending the default implementation.
+
+##### Limited HTTP Caching
+
+In the context of remote PIM, it is impossible to use [content-aware HTTP caching](content_aware_cache.md) with `ibexa_http_cache_tag_relation_ids`.
 
 ## How to get started
 

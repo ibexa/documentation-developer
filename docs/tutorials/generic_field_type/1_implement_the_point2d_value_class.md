@@ -44,7 +44,7 @@ At this point, it does not matter where they are stored. You want to focus on wh
 `src/FieldType/Point2D/Value.php` should have the following properties:
 
 ```php
-[[= include_file('code_samples/field_types/2dpoint_ft/steps/step_1/Value.php', 9, 13) =]]
+[[= include_file('code_samples/field_types/2dpoint_ft/steps/step_1/Value.php', 9, 14) =]]
 ```
 
 A Value class must also implement the `Ibexa\Contracts\Core\FieldType\Value` interface.

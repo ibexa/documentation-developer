@@ -31,9 +31,9 @@ Run:
 
 ## Remove deprecated Field Types
 
-By default, every v4.3 installation has a set of built-in Content Types.
+By default, every v4.3 installation has a set of built-in content types.
 Some of them use Field Types deprecated in v4.4, which need to be removed manually.
-Make sure to remove all occurrences of `sesspecificationstype`, `uivarvarianttype`, `sesselection`, `sesprofiledata` Field Types from your Content Types.
+Make sure to remove all occurrences of `sesspecificationstype`, `uivarvarianttype`, `sesselection`, `sesprofiledata` Field Types from your content types.
 
 This step should be performed on the working installation, omitting it will result in an error during update:
 
@@ -324,7 +324,7 @@ If you have no access to Ibexa DXP's `ibexa/installer` package, database upgrade
 
 Following [Security advisory: IBEXA-SA-2022-009](https://developers.ibexa.co/security-advisories/ibexa-sa-2022-009-critical-vulnerabilities-in-graphql-role-assignment-ct-editing-and-drafts-tooltips),
 unless you can verify based on your log files that the vulnerability has not been exploited,
-you should [revoke passwords](https://doc.ibexa.co/en/latest/users/user_management/#revoking-passwords) for all affected users.
+you should [revoke passwords](https://doc.ibexa.co/en/latest/users/passwords/#revoking-passwords) for all affected users.
 
 ## Finish code update
 

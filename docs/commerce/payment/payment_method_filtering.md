@@ -25,7 +25,7 @@ First, register the new payment method type as a service:
 
 In the `arguments` list provide a name of the payment method type, the way you want it to appear on the list of available payment method types, in the following example: `New Payment Method Type`.
 
-Now new custom payment method type should be visible in the **Commerce** -> **Payment methods** list.
+Now new custom payment method type should be visible in **Commerce** -> **Payment methods**.
 
 ### Create voter for new payment method type
 

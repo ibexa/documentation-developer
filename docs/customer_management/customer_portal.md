@@ -30,7 +30,7 @@ Customer Portal is available in [[= product_name_exp =]]. It is also compatible 
 
 ## How does Customer Portal work?
 
-Customer Portal is a component based on Content Types. 
+Customer Portal is a component based on content types. 
 This means that [[= product_name =]] provide containers, user management, content management, so you can focus on business logic and general outlook of the portal for your B2B clients.
 
 ### Customer Portal
@@ -92,9 +92,9 @@ All roles and policies associated with them can be fully customized to fit your 
 
 Members can be invited to the organization from:
 
-- the Back Office, go to **Customers** -> **Companies** -> **Select your company** -> **Invitations** -> **Invite member**
+- the Back Office: go to **Customers** -> **Companies** -> **Select your company** -> **Invitations** -> **Invite member**
 
-- the Customer Portal, go to your company admin profile, select **Members** -> **Invite members**
+- the Customer Portal: go to your company admin profile, select **Members** -> **Invite members**
 
 Then, in a pop-up fill out email addresses one by one, or use drag and drop to upload a file with a list of emails. 
 You also have to assign a role to each new member from a drop-down list. 

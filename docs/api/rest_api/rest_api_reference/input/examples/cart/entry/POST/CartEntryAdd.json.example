@@ -1,0 +1,11 @@
+{
+    "CartEntryAdd": {
+        "quantity": 1,
+        "Product": {
+            "code": "test"
+        },
+        "context": {
+            "foo": "bar"
+        }
+    }
+}

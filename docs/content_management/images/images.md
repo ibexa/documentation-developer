@@ -22,7 +22,7 @@ the system that the installation uses.
 ## Reuse images
 
 You can store images in the media library as independent Content items of 
-a generic Image [Content Type](content_types.md) to reuse them across the system.
+a generic Image [content type](content_types.md) to reuse them across the system.
 You do this by uploading images to an [ImageAsset](imageassetfield.md) Field Type.
 
 For an ImageAsset field to be reused, you must publish it. 
@@ -55,9 +55,9 @@ php bin/console liip:imagine:cache:remove
 
 ## Configuring image variations
 
-With image variations (image aliases) you can define and use different versions 
+With [image variations](image_variations.md) (image aliases) you can define and use different versions 
 of the same image. 
-You generate variations based on filters that modify aspects such as size 
+You generate variations based on [filters](image_variations.md#available-variation-filters) that modify aspects such as size 
 and proportions, quality or effects.
 
 Image variations are generated with [LiipImagineBundle](https://github.com/liip/LiipImagineBundle), by using the underlying 
@@ -91,16 +91,16 @@ For more information, see [LiipImagineBundle documentation](https://symfony.com/
 
 ## Resizing images
 
-You can resize all original images of a chosen Content Type with the following 
+You can resize all original images of a chosen content type with the following 
 command.
 
 ``` bash
-php bin/console ibexa:images:resize-original <Field identifier> <Content Type identifier>  -f <variation name>
+php bin/console ibexa:images:resize-original <Field identifier> <content type identifier>  -f <variation name>
 ```
 
 You must provide the command with:
 
-- identifier of the image Content Type
+- identifier of the image content type
 - identifier of the Field that you want to affect
 - name of the image variation to apply to the images
 
@@ -293,7 +293,7 @@ Content items within the field.
 Content items that are identified as images are rendered in the Rich Text Field 
 by using a dedicated template.
 
-You can determine Content Types that will be treated as images and rendered.
+You can determine content types that will be treated as images and rendered.
 You do this by overriding the `ibexa.content_view.image_embed_content_types_identifiers` parameter, for example:
 
 ``` yaml

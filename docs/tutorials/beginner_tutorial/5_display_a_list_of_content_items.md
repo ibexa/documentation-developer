@@ -88,7 +88,7 @@ class RideQueryType implements QueryType
 }
 ```
 
-This Query Type will find all visible Content items that belong to the `ride` Content Type (lines 21-22).
+This Query Type will find all visible Content items that belong to the `ride` content type (lines 21-22).
 
 Now you need to indicate that this Query Type will be used in your configuration.
 
@@ -177,7 +177,7 @@ Because this template will be rendered inside a table, it starts with a `<tr>` t
 
 To be able to view the `photo` Field you have to add a `read` permission to `Media` section.
 
-From **Admin** (gear icon) in the left menu, go to the **Roles** management screen and click the **Anonymous** Role.
+In the main menu, go to **Admin** (gear icon) -> **Roles**, and click the **Anonymous** Role.
 
 ![Policies for the Anonymous Role without Media section](step5_admin_anonymous_policies_without_media_section.png)
 

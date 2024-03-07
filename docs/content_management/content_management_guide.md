@@ -32,7 +32,7 @@ Content management capabilities are available in all [[= product_name =]] editio
 You can set up content structure, define the templates to be filled with content, and assign different areas of the structure to your editors. 
 Next steps would be to create the actual content, and then classify content items, and organize them as necessary.
 
-You can then publish the content directly, by building a website or a web store, or by using external systems together with a [headless CMS](https://developers.ibexa.co/developer-portal/headless-cms) that relies on the [[= product_name =]] technology.
+You can then publish the content directly, by building a website or a web store, or by using external systems together with a [headless CMS](https://developers.ibexa.co/headless-cms) that relies on the [[= product_name =]] technology.
 
 ## Content structure
 
@@ -48,11 +48,11 @@ which allows you to build complex architectures with multiple locales and output
 ## Content model
 
 A structure of elements that *store* content information is referred to as the **content model**. 
-[[= product_name =]] comes with a predefined content model that includes a broad set of various Field Types and several Content Types.
+[[= product_name =]] comes with a predefined content model that includes a broad set of various Field Types and several content types.
 
 You can customize and adapt the content model to your organization's needs and the type of output channel that you use. 
 If need be, development teams can [create new Field Types](creating_a_point2d_field_type.md), to enhance editor and visitor experiences. 
-Content managers or even editors can then apply such Field Types when they modify existing or create new Content Types. 
+Content managers or even editors can then apply such Field Types when they modify existing or create new content types. 
 The editing interface lets all users, including those with no coding experience, create or modify certain areas of the content model.
 
 For technical details, see [a Content model](content_model.md#content-model).
@@ -70,28 +70,28 @@ Their role is to:
 - make the data searchable
 - display Fields of a given Field Type
 
-For a complete list of available Field Types, see [Field Type reference](field_type_reference).
+For a complete list of available Field Types, see [Field Type reference](field_type_reference.md).
 
 ![Field Types and Fields](img/field_types.png)
 
 ### Fields
 
-Once you use a Field Type to design and build a Content Type definition, and define its settings, it becomes a Field.
+Once you use a Field Type to design and build a content type definition, and define its settings, it becomes a Field.
 
 Fields can be as simple as Name, based on a Text line Field Type, or as complex as Page, 
 based on a Landing Page Field Type, with multiple options to set and choose from:
 
 ![Landing Page Field settings](img/fields.png)
 
-### Content Types
+### Content types
 
-Life gets easier when you have templates to fill in with content. Content Types are such templates, which editors use to create Content items. 
-Content Types define what Fields are available in the Content item.
+Life gets easier when you have templates to fill in with content. Content types are such templates, which editors use to create Content items. 
+Content types define what Fields are available in the Content item.
 
-[[= product_name =]] comes with several basic Content Types, and creating new ones, editing, 
+[[= product_name =]] comes with several basic content types, and creating new ones, editing, 
 and deleting them is done by using a visual interface, with no coding skills needed.
 
-![Content Types vs. Content items](img/content_types.png)
+![Content types vs. Content items](img/content_types.png)
 
 ### Content items
 
@@ -228,7 +228,7 @@ Since content management is an ongoing process, and, in your implementation, you
 Any content that you might want to deliver to a viewer can be structured and split into smaller elements. 
 Reverse-engineer the intended concepts into individual fields, which can be categorized, and then picked from categories and combined into content items.
 
-Reuse existing Fields Types or [customize them to fit your needs](create_custom_generic_field_type.md), then [create Content Types]([[= user_doc =]]/content_management/create_edit_content_items/).
+Reuse existing Fields Types or [customize them to fit your needs](create_custom_generic_field_type.md), then [create content types]([[= user_doc =]]/content_management/create_edit_content_items/).
 
 **2\. Define permissions**
 

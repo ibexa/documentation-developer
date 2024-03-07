@@ -1,5 +1,5 @@
 ---
-description: REST API requests can have a generic or a custom header. It defines additional options in the request, such as the accepted Content Type of response.
+description: REST API requests can have a generic or a custom header. It defines additional options in the request, such as the accepted content type of response.
 ---
 
 # REST requests
@@ -104,7 +104,7 @@ Accept: application/vnd.ibexa.api.Root+json
 X-Siteaccess: restapi
 ```
 
-One of the principles of REST is that the same resource (such as Content item, Location, Content Type) should be unique.
+One of the principles of REST is that the same resource (such as Content item, Location, content type) should be unique.
 It allows caching your REST API using a reverse proxy such as Varnish.
 If the same resource is available in multiple locations, cache purging is noticeably more complex.
 This is why SiteAccess matching with REST isn't enabled at URL level (or domain).
@@ -296,7 +296,7 @@ The following examples search for `article` and `news` typed Content items every
 
     ``` http
     POST /views HTTP/1.1
-    Content-Type: application/vnd.ibexa.api.ViewInput+json
+    Content-Type: application/vnd.ibexa.api.ViewInput+json; version=1.1
     ```
 
     ``` json

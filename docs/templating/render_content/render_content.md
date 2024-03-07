@@ -17,7 +17,7 @@ For example, to apply a custom template to all articles, add the following [conf
 ```
 
 This configuration defines a `full` view for all Content items that fulfill the conditions in `match`.
-`match` indicates that all Content items with the Content Type `article` should use this configuration.
+`match` indicates that all Content items with the content type `article` should use this configuration.
 The indicated `template` is `@ibexadesign/full/article.html.twig`.
 
 !!! tip "Designs"
@@ -45,7 +45,7 @@ in this example, `templates/themes/my_theme/full`.
 To render general content information, such as content name,
 use the [`ibexa_content_name()`](content_twig_functions.md#ibexa_content_name) Twig function.
 
-Content name is based on the [content name pattern](content_types.md#content-type-metadata) of the Content Type.
+Content name is based on the [content name pattern](content_types.md#content-type-metadata) of the content type.
 
 ``` html+twig
 [[= include_file('code_samples/front/render_content/templates/themes/my_theme/full/article.html.twig', 3, 4) =]]

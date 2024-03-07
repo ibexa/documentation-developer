@@ -16,7 +16,7 @@ First, add a new language for the whole installation.
 
     For more details, see [Languages](languages.md).
 
-1. In the Back Office **Admin** section, click the **Languages** tab.
+1. In the Back Office, go to **Admin** -> **Languages**.
 1. Click **Create a new language** and provide the language name and code (examples below use French with `fre-FR`).
 1. After creating the new language, refresh the assets by running:
 
@@ -73,7 +73,7 @@ Clear the cache by running: `php bin/console cache:clear`.
 By default, the Anonymous user Role does not have permissions for new SiteAccesses.
 As a next step, allow Anonymous users to read content on the new SiteAccesses:
 
-1. In the Back Office **Admin** section, click the **Roles** tab.
+1. In the Back Office, go to **Admin** -> **Roles**.
 1. Click the **Anonymous** role.
 1. Edit the **Limitations** of the module `user`, select both SiteAccesses and click **Update**.
 1. Clear the cache by running: `php bin/console cache:clear`.

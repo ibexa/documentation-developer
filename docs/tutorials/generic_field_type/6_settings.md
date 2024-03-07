@@ -92,9 +92,9 @@ In `templates/point2d_field.html.twig` replace the content with:
 [[= include_file('code_samples/field_types/2dpoint_ft/templates/point2d_field.html.twig') =]]
 ```
 
-## Edit the Content Type
+## Edit the content type
 
-Now, you can go to Admin in the Back Office and see the results of your work by editing the Point 2D Content Type.
+Now, in the Back Office, you can go to **Content types** and see the results of your work by editing the Point 2D content type.
 
 !!! tip
 

@@ -24,7 +24,7 @@ For example:
 
 ## Form templates
 
-Content Type editing has been [moved from `repository-forms` to `ezplatform-admin-ui`](ez_platform_v3.0_deprecations.md#content-type-forms).
+Content type editing has been [moved from `repository-forms` to `ezplatform-admin-ui`](ez_platform_v3.0_deprecations.md#content-type-forms).
 
 Forms for content creation have been [moved from `repository-forms` to `ezplatform-content-forms`](ez_platform_v3.0_deprecations.md#repository-forms).
 

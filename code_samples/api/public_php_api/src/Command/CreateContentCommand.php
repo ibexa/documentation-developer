@@ -40,7 +40,7 @@ class CreateContentCommand extends Command
         $this
             ->setDefinition([
                 new InputArgument('parentLocationId', InputArgument::REQUIRED, 'Parent Location ID'),
-                new InputArgument('contentType', InputArgument::REQUIRED, 'Identifier of a Content type with a Name and Description Field'),
+                new InputArgument('contentType', InputArgument::REQUIRED, 'Identifier of a content type with a Name and Description Field'),
                 new InputArgument('name', InputArgument::REQUIRED, 'Content for the Name field'),
             ])
             ->addOption('publish', 'p', InputOption::VALUE_NONE, 'Do you want to publish the Content item?');

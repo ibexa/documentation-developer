@@ -136,7 +136,7 @@ The `keyword` Field Type can now recognize versions of a Content item.
 
 #### Login by User name or email
 
-You can now give your users th ability to [log in with User name or with email](https://doc.ibexa.co/en/latest/guide/user_management/user_management/#login-methods).
+You can now give your users th ability to [log in with User name or with email](https://doc.ibexa.co/en/latest/users/login_methods).
 
 #### Password rules
 
@@ -304,7 +304,7 @@ In YAML configuration, the main configuration key is now `ezplatform` instead of
 ### Content forms
 
 The new `ezplatform-content-forms` package contains forms for content creation moved from `repository-forms`,
-while Content Type editing has been moved to `ezplatform-admin-ui` from `repository-forms`.
+while content type editing has been moved to `ezplatform-admin-ui` from `repository-forms`.
 
 ### Custom Installers
 

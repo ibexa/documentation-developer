@@ -8,7 +8,7 @@ In this step you will enable other users to create accounts on your site, access
 
 ## Enable registration
 
-From **Admin** (gear icon) in the left menu, go to the **Roles** management screen and click on the **Anonymous** Role.
+In the main menu, go to **Admin** (gear icon) -> **Roles**, and click the **Anonymous** Role.
 
 ![Available Roles](step_8_role_mgmt_screen.png)
 
@@ -171,7 +171,7 @@ The User you have just created will have the Roles assigned to this group.
 !!! tip
 
     You can change the group in which new Users are placed (but you don't need to do it for this tutorial).
-    See [Registering new users](user_management.md#registering-new-users) for more information.
+    See [Registering new users](user_registration.md) for more information.
 
 At this point you don't want anyone who registers to be able to add content to the website.
 That's why you'll create a new User Group with additional permissions.
@@ -179,7 +179,7 @@ When the administrator accepts a new User, they can move them to this new group.
 
 ### Create a User Group
 
-In Admin go to the **Users** screen, click the **Create content** button and create a User Group named `Go Bike Members`.
+In the Back Office, go to **Admin** -> **Users**, click the **Create content** button and create a User Group named `Go Bike Members`.
 
 ### Create a Folder for contributed Rides
 
@@ -196,8 +196,8 @@ Now add the following Policies to the Contributors Role.
 - User/Password
 - Content/Read
 - Content/Versionread
-- Content/Create with Limitations: Content Type limited to Ride and Landmark Content Types and Subtree to the `Member Rides`
-- Content/Publish with Limitations: Content Type limited to Ride and Landmark Content Types and Subtree to the `Member Rides`
+- Content/Create with Limitations: content type limited to Ride and Landmark content types and Subtree to the `Member Rides`
+- Content/Publish with Limitations: content type limited to Ride and Landmark content types and Subtree to the `Member Rides`
 - Content/Edit with Limitation: Owner limited to `Self`
 - Section/View
 - Content/Reverserelatedlist
@@ -224,7 +224,7 @@ Now you have created your first website with [[= product_name =]].
 
 - create a content model
 - organize files in an [[= product_name =]] project
-- configure views for different Content Types
+- configure views for different content types
 - add assets to an [[= product_name =]] project
 - use and configure Webpack Encore
 - use Twig templates and controllers to display content

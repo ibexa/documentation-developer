@@ -195,6 +195,11 @@ Product search now supports aggregations, with the following aggregations availa
 
 The new [TaxonomyEntryIdAggregation](https://doc.ibexa.co/en/4.5/search/aggregation_reference/taxonomyentryid_aggregation/) aggregates results based on content taxonomy entries or product categories.
 
+### Tag identifiers
+
+The taxonomy entry identifier uniqueness has been changed from globally unique to unique per taxonomy.
+It's no longer necessary to take other taxonomies into account when creating tags in a taxonomy.
+
 ### Password security
 
 You can now enhance password security with a setting that prevents using passwords that have been exposed in a public breach.

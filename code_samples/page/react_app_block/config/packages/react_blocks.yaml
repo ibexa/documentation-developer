@@ -1,0 +1,11 @@
+ibexa_fieldtype_page:
+    react_blocks:
+        calculator:
+            name: Calculator
+            category: Demo
+            thumbnail: /bundles/ibexaicons/img/all-icons.svg#date
+            component: Calculator
+            attributes:
+                a:
+                    type: integer
+                b: integer
