@@ -66,7 +66,6 @@ class CustomLimitationType implements Type
         }
 
         // If the limitation value is not set to `true`, then $currentUser, $object and/or $targets could be challenged to determine if the access is granted or not.
-
         return Type::ACCESS_DENIED;
     }
 
