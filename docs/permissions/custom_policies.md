@@ -157,7 +157,7 @@ The value class extends `Ibexa\Contracts\Core\Repository\Values\User\Limitation`
 The type class implements `Ibexa\Contracts\Core\Limitation\Type`.
 
 - `accept`, `validate` and `buildValue` implement the value class usage logic.
-- `evaluate` challenges a limitation value against the current user, the subject object and other context objects to return if the limitation is satisfied or not. `evaluate` is, among others, used by `PermissionResolver::canUser` (to check if a user having access to a function can use it in its limitations) and `PermissionResolver::lookupLimitations`.
+- `evaluate` challenges a limitation value against the current user, the subject object and other context objects to return if the limitation is satisfied or not. `evaluate` is, among others, used by `PermissionResolver::canUser` (to check if a user that has access to a function can use it in its limitations) and `PermissionResolver::lookupLimitations`.
 
 ```php
 [[= include_file('code_samples/back_office/limitation/src/Security/Limitation/CustomLimitationType.php') =]]
@@ -201,14 +201,14 @@ Next, register the service with the `ibexa.admin_ui.limitation.mapper.form` tag 
 
 Some abstract Limitation type form mapper classes are provided to help implementing common complex Limitations.
 
-- `MultipleSelectionBasedMapper` is mapper to build form for Limitation based on checkbox list where multiple items can be chosen. For example, it's used to build forms for [Content Type Limitation](limitation_reference.md#content-type-limitation), [Language Limitation](limitation_reference.md#language-limitation) or [Section Limitation](limitation_reference.md#section-limitation).
-- `UDWBasedMapper` is to build Limitation form where a Content/Location must be selected. For example, it's used by the [Subtree Limitation](limitation_reference.md#subtree-limitation) form.
+- `MultipleSelectionBasedMapper` is a mapper used to build forms for Limitations based on a checkbox list, where multiple items can be chosen. For example, it's used to build forms for [Content Type Limitation](limitation_reference.md#content-type-limitation), [Language Limitation](limitation_reference.md#language-limitation) or [Section Limitation](limitation_reference.md#section-limitation).
+- `UDWBasedMapper` is used to build a Limitation form where a Content/Location must be selected. For example, it's used by the [Subtree Limitation](limitation_reference.md#subtree-limitation) form.
 
 #### Value mapper
 
-By default, without a value mapper, the Limitation value is rendered using the block `ez_limitation_value_fallback` of the template [`vendor/ibexa/admin-ui/src/bundle/Resources/views/themes/admin/limitation/limitation_values.html.twig`](https://github.com/ibexa/admin-ui/blob/4.5/src/bundle/Resources/views/themes/admin/limitation/limitation_values.html.twig#L1-L6).
+By default, without a value mapper, the Limitation value is rendered by using the block `ez_limitation_value_fallback` of the template [`vendor/ibexa/admin-ui/src/bundle/Resources/views/themes/admin/limitation/limitation_values.html.twig`](https://github.com/ibexa/admin-ui/blob/4.5/src/bundle/Resources/views/themes/admin/limitation/limitation_values.html.twig#L1-L6).
 
-To customize the rendering, a value mapper eventually transforms the Limitation value and send it to a custom template.
+To customize the rendering, a value mapper eventually transforms the Limitation value and sends it to a custom template.
 
 The value mapper implements [`Ibexa\AdminUi\Limitation\LimitationValueMapperInterface`](https://github.com/ibexa/admin-ui/blob/4.5/src/lib/Limitation/LimitationValueMapperInterface.php).
 
@@ -227,19 +227,21 @@ Then register the service with the `ibexa.admin_ui.limitation.mapper.value` tag 
 When a value mapper exists for a Limitation, the rendering uses a Twig block named `ez_limitation_<lower_case_identifier>_value` where `<lower_case_identifier>` is the Limitation identifier in lower case.
 In this example, block name is `ez_limitation_customlimitation_value` as the identifier is `CustomLimitation`.
 
-This template receive a `values` variable which is the return of the `mapLimitationValue` function from the corresponding value mapper.
+This template receives a `values` variable which is the return of the `mapLimitationValue` function from the corresponding value mapper.
 
 ``` html+twig
 [[= include_file('code_samples/back_office/limitation/templates/themes/standard/limitation/custom_limitation_value.html.twig') =]]
 ```
 
-To have your block found, you have to register its template. Add the template to the configuration under `ezplatform.system.<SCOPE>.limitation_value_templates`:
+To have your block found, you have to register its template.
+Add the template to the configuration under `ezplatform.system.<SCOPE>.limitation_value_templates`:
 
 ``` yaml
 [[= include_file('code_samples/back_office/limitation/config/packages/ibexa_security.yaml') =]]
 ```
 
-Provide translations for your custom limitation form in the `ezplatform_content_forms_policies` domain. For example, `translations/ezplatform_content_forms_policies.en.yaml`:
+Provide translations for your custom limitation form in the `ezplatform_content_forms_policies` domain.
+For example, `translations/ezplatform_content_forms_policies.en.yaml`:
 
 ``` yaml
 [[= include_file('code_samples/back_office/limitation/translations/ezplatform_content_forms_policies.en.yaml') =]]
@@ -247,7 +249,8 @@ Provide translations for your custom limitation form in the `ezplatform_content_
 
 ### Checking user custom Limitation
 
-To check if current user has this custom limitation set to true from a custom controller:
+Check if current user has this custom limitation set to true from a custom controller:
+
 ```php
 <?php declare(strict_types=1);
 
