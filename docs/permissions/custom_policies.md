@@ -240,11 +240,11 @@ Add the template to the configuration under `ezplatform.system.<SCOPE>.limitatio
 [[= include_file('code_samples/back_office/limitation/config/packages/ibexa_security.yaml') =]]
 ```
 
-Provide translations for your custom limitation form in the `ezplatform_content_forms_policies` domain.
-For example, `translations/ezplatform_content_forms_policies.en.yaml`:
+Provide translations for your custom limitation form in the `ibexa_content_forms_policies` domain.
+For example, `translations/ibexa_content_forms_policies.en.yaml`:
 
 ``` yaml
-[[= include_file('code_samples/back_office/limitation/translations/ezplatform_content_forms_policies.en.yaml') =]]
+[[= include_file('code_samples/back_office/limitation/translations/ibexa_content_forms_policies.en.yaml') =]]
 ```
 
 ### Custom Limitation check
