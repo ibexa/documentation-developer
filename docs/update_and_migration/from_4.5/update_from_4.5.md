@@ -195,6 +195,23 @@ And apply the following database script:
 
 ## Run data migration
 
+### Image picker migration
+
+The new Image picker by default expects an `ezkeyword` Field Type to exist in the `image` content type.
+
+You can add it running the following commands:
+
+```bash
+php bin/console ibexa:migrations:import vendor/ibexa/image-picker/src/bundle/Resources/migrations/2023_12_06_15_00_image_content_type.yaml --name=2023_12_06_15_00_image_content_type.yaml
+php bin/console ibexa:migrations:migrate
+```
+
+Or disable the aggregations in Image Picker by setting the parameter:
+```yaml
+parameters:
+    ibexa.dam_widget.image.aggregations: ~
+```
+
 ### Dashboard migration [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 If you are using [[= product_name_exp =]] or [[= product_name_com =]],
@@ -204,7 +221,8 @@ you must run data migration required by the dashboard and other features to fini
 php bin/console ibexa:migrations:import vendor/ibexa/dashboard/src/bundle/Resources/migrations/structure.yaml --name=2023_09_23_14_15_dashboard_structure.yaml
 php bin/console ibexa:migrations:import vendor/ibexa/dashboard/src/bundle/Resources/migrations/permissions.yaml --name=2023_10_10_16_14_dashboard_permissions.yaml
 php bin/console ibexa:migrations:import vendor/ibexa/activity-log/src/bundle/Resources/migrations/dashboard_structure.yaml --name=2023_12_04_13_34_activity_log_dashboard_structure.yaml
-php bin/console ibexa:migrations:migrate --file=2023_09_23_14_15_dashboard_structure.yaml --file=2023_10_10_16_14_dashboard_permissions.yaml --file=2023_12_04_13_34_activity_log_dashboard_structure.yaml
+php bin/console ibexa:migrations:import vendor/ibexa/personalization/src/bundle/Resources/migrations/dashboard_structure.yaml --name=2023_12_05_17_00_personalization_dashboard_structure.yaml
+php bin/console ibexa:migrations:migrate --file=2023_09_23_14_15_dashboard_structure.yaml --file=2023_10_10_16_14_dashboard_permissions.yaml --file=2023_12_04_13_34_activity_log_dashboard_structure.yaml --file=2023_12_05_17_00_personalization_dashboard_structure
 ```
 
 ### Ibexa Open Source
