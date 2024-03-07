@@ -8,7 +8,12 @@ page_type: landing_page
 
 The commerce component of [[= product_name =]] covers various areas of managing an e-commerce presence: from configuring payment and shipping methods, through processing a transaction (listing available products, adding products to a cart, processing checkout and sending confirmation), all the way to order management.
 
-See an interactive demo of [selling online with Ibexa Commerce](https://www.ibexa.co/resources/interactive-demos/ecommerce).
+??? tip "Click to see an interactive demo"
+
+    <figure>
+    <iframe width=800; height="400"; src="https://demo.arcade.software/NbDnRvMI0aO6UQDQureM?embed" frameborder="0" allowfullscreen> </iframe>
+    <figcaption>Selling online with Ibexa Commerce</figcaption>
+    </figure>
 
 [[= cards([
 "commerce/cart/cart",
