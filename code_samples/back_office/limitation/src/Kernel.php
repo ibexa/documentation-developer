@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php 
+
+declare(strict_types=1);
 
 namespace App;
 
@@ -15,8 +17,8 @@ class Kernel extends BaseKernel
     {
         // Retrieve "ibexa" container extension
         /** @var \Ibexa\Bundle\Core\DependencyInjection\IbexaCoreExtension $IbexaExtension */
-        $IbexaExtension = $container->getExtension('ibexa');
+        $ibexaExtension = $container->getExtension('ibexa');
         // Add the policy provider
-        $IbexaExtension->addPolicyProvider(new MyPolicyProvider());
+        $ibexaExtension->addPolicyProvider(new MyPolicyProvider());
     }
 }
