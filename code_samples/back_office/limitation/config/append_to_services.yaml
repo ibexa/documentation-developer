@@ -1,5 +1,4 @@
 services:
-
     App\Security\Limitation\CustomLimitationType:
         tags:
             - { name: 'ibexa.permissions.limitation_type', alias: 'CustomLimitation' }
