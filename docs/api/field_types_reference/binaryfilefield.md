@@ -31,8 +31,9 @@ Note that both `BinaryFile` and `Media` Value and Type inherit from the `BinaryB
 
 The hash format mostly matches the value object. It has the following keys:
 
-- `id` (mandatory, the path to the file to upload into the field)
-- `path` (deprecated, same as `id`)
+- `inputUri` (mandatory, the path to the file to upload into the field)
+- `id` (deprecated, same as `inputUri`)
+- `path` (deprecated, same as `inputUri`)
 - `fileName` (optional, the basename is taken if not given)
 - `fileSize` (optional, taken from the file itself if not given)
 - `mimeType` (ignored, TODO: Doesn't seem to be taken into account, if I set it to 'application/octet-stream' along a PDF file, I get "application/pdf" in the field value)
@@ -44,7 +45,7 @@ Example:
 ```php
 $fileContentCreateStruct->setField('file', new eZ\Publish\Core\FieldType\BinaryFile\Value([
     'fileName' => 'example.pdf',
-    'id' => '/tmp/example_for_website.pdf',
+    'inputUri' => '/tmp/example_for_website.pdf',
 ]));
 ```
 
