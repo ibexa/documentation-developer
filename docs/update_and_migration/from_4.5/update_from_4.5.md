@@ -55,6 +55,8 @@ Depending on the version you started from, you may have several scripts to run:
 ## Update from v4.5.latest to v4.6
 
 When you have the latest version of v4.5, you can update to v4.6.
+Review [the requirements](../../getting_started/requirements.md) first.
+This version adds support for PHP 8.2 and 8.3, but requires using at least Node 18.
 
 ### Update the application
 
@@ -108,7 +110,17 @@ You may encounter one of the following errors during the process.
 If you encounter a `You have requested a non-existent parameter` error
 (like, for example, `You have requested a non-existent parameter "ibexa.dashboard.ibexa_news.limit".`),
 this is due to incorrect order of entries in `config/bundles.php`.
-To fix this, use the order from https://github.com/ibexa/commerce-skeleton/blob/v4.6.0/config/bundles.php, and add any extra bundles again.
+To fix this, use the order from the skeleton you're using, and add any extra bundles again.
+
+=== "[[= product_name_headless =]]"
+    Use [https://github.com/ibexa/headless-skeleton/blob/v[[= latest_tag_4_6 =]]/config/bundles.php](https://github.com/ibexa/headless-skeleton/blob/v[[= latest_tag_4_6 =]]/config/bundles.php) as a reference.
+
+=== "[[= product_name_exp =]]"
+    Use [https://github.com/ibexa/experience-skeleton/blob/v[[= latest_tag_4_6 =]]/config/bundles.php](https://github.com/ibexa/experience-skeleton/blob/v[[= latest_tag_4_6 =]]/config/bundles.php) as a reference.
+
+=== "[[= product_name_com =]]"
+    Use [https://github.com/ibexa/commerce-skeleton/blob/v[[= latest_tag_4_6 =]]/config/bundles.php](https://github.com/ibexa/commerce-skeleton/blob/v[[= latest_tag_4_6 =]]/config/bundles.php) as a reference.
+
 
 #### Non-existent service
 
@@ -151,7 +163,7 @@ For [[= product_name_com =]] installations, you also need to run the following c
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/commerce/ibexa-4.5.latest-to-4.6.0.sql
     ```
 
-And to play the following table creation request:
+And apply the following database script:
 
 === "MySQL"
 
@@ -193,6 +205,24 @@ php bin/console ibexa:migrations:import vendor/ibexa/dashboard/src/bundle/Resour
 php bin/console ibexa:migrations:import vendor/ibexa/dashboard/src/bundle/Resources/migrations/permissions.yaml --name=2023_10_10_16_14_dashboard_permissions.yaml
 php bin/console ibexa:migrations:migrate --file=2023_09_23_14_15_dashboard_structure.yaml --file=2023_10_10_16_14_dashboard_permissions.yaml
 ```
+
+### Ibexa Open Source
+
+If you have no access to [[= product_name =]]'s `ibexa/installer` package, apply the following database update:
+
+=== "MySQL"
+
+    ``` sql
+    ALTER TABLE `ibexa_token`
+    ADD COLUMN `revoked` BOOLEAN NOT NULL DEFAULT false;
+    ```
+
+=== "PostgreSQL"
+
+    ``` sql
+    ALTER TABLE "ibexa_token"
+    ADD "revoked" BOOLEAN DEFAULT false NOT NULL;
+    ```
 
 ## Revisit configuration
 
