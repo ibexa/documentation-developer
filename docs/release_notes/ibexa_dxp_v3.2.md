@@ -36,7 +36,7 @@ For more information, see [Autosave](https://doc.ibexa.co/projects/userguide/en/
 When using Solr or Elasticsearch search engines you can now use aggregations
 to group search results and get the count of results per aggregation type.
 
-You can aggregate results by general conditions such as Content Type or Section,
+You can aggregate results by general conditions such as content type or Section,
 or by Field aggregations such as the value of specific Fields.
 
 See [Aggregation API](https://doc.ibexa.co/en/latest/api/public_php_api_search/#aggregation) for more information.
@@ -95,13 +95,13 @@ Also, you can now apply new filters that are intended to help you declutter the 
 
 For more information, see [Calendar widget](https://doc.ibexa.co/projects/userguide/en/latest/publishing/advanced_publishing_options/#calendar-widget).
 
-### Cloning Content Types
+### Cloning content types
 
-When creating Content Types in the Back Office, you do not have to start from scratch.
-You can now clone an existing Content Type instead.
+When creating content types in the Back Office, you do not have to start from scratch.
+You can now clone an existing content type instead.
 
-To do this, click the **Copy** icon located next to the Content Type that you want to clone.
-Then, refresh the view to see an updated list of Content Types.
+To do this, click the **Copy** icon located next to the content type that you want to clone.
+Then, refresh the view to see an updated list of content types.
 
 ### Object state API improvements
 

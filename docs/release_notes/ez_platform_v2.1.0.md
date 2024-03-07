@@ -56,7 +56,7 @@ You can now change your password, or request a new one if you forgot it.
 
 ### Simplified filtered search
 
-During search you can now filter the results by Content type, Section, Modified and Created dates.
+During search you can now filter the results by content type, Section, Modified and Created dates.
 
 ![Simplified filtered search](filtered_search.png)
 

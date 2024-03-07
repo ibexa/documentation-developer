@@ -1,6 +1,6 @@
 # ImageAsset Field Type
 
-ImageAsset Field Type enables storing images in independent Content items of a generic Image Content Type, in the media library. It makes them reusable across system.
+ImageAsset Field Type enables storing images in independent Content items of a generic Image content type, in the media library. It makes them reusable across system.
 
 ### Input expectations
 
@@ -46,7 +46,7 @@ $imageAssetValue  = new ImageAsset\Value($contentInfo->id, "Picture of an apple.
 
 This Field Type validates if:
 
-- `destinationContentId` points to a Content item which has correct Content Type
+- `destinationContentId` points to a Content item which has correct content type
 
 ### Configuration
 
@@ -54,7 +54,7 @@ ImageAsset Field Type allows configuring the following options:
 
 |Name|Description|Default value|
 |----|-----------|-------------|
-|`content_type_identifier`|Content Type used to store assets.|`image`|
+|`content_type_identifier`|Content type used to store assets.|`image`|
 |`content_field_identifier`|Field identifier used for asset data.|`image`|
 |`name_field_identifier`|Field identifier used for asset name.|`name`|
 |`parent_location_id`|Location where the assets are created.|`51`|

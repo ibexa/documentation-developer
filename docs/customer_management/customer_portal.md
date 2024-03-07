@@ -30,7 +30,7 @@ Customer Portal is available in [[= product_name_exp =]]. It is also compatible 
 
 ## How does Customer Portal work?
 
-Customer Portal is a component based on Content Types. 
+Customer Portal is a component based on content types. 
 This means that [[= product_name =]] provide containers, user management, content management, so you can focus on business logic and general outlook of the portal for your B2B clients.
 
 ### Customer Portal

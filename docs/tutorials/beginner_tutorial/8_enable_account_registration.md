@@ -196,8 +196,8 @@ Now add the following Policies to the Contributors Role.
 - User/Password
 - Content/Read
 - Content/Versionread
-- Content/Create with Limitations: Content Type limited to Ride and Landmark Content Types and Subtree to the `Member Rides`
-- Content/Publish with Limitations: Content Type limited to Ride and Landmark Content Types and Subtree to the `Member Rides`
+- Content/Create with Limitations: content type limited to Ride and Landmark content types and Subtree to the `Member Rides`
+- Content/Publish with Limitations: content type limited to Ride and Landmark content types and Subtree to the `Member Rides`
 - Content/Edit with Limitation: Owner limited to `Self`
 - Section/View
 - Content/Reverserelatedlist
@@ -224,7 +224,7 @@ Now you have created your first website with [[= product_name =]].
 
 - create a content model
 - organize files in an [[= product_name =]] project
-- configure views for different Content Types
+- configure views for different content types
 - add assets to an [[= product_name =]] project
 - use and configure Webpack Encore
 - use Twig templates and controllers to display content

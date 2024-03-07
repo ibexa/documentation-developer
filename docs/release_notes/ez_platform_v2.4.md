@@ -71,16 +71,16 @@ The new `embed-inline` built-in view type enables embedding Content items within
 The `ezcontent` property is now editable in the UI and can be used to store the output/preview of a custom tag.
 To learn how it works, see [FactBox tag](https://doc.ibexa.co/en/2.5/guide/extending/extending_online_editor/#example-factbox-tag).
 
-### Content Type translation
+### Content type translation
 
-You can now translate Content Type names and Field definitions.
+You can now translate content type names and Field definitions.
 
 This possibility is available automatically when you have the target language configured
 (in the same way as for translating content, see [Languages](https://doc.ibexa.co/en/2.5/guide/internationalization)).
 
-![Content type with existing translations](2.4_content_type_translations.png "Available translation of a Content Type")
+![Content type with existing translations](2.4_content_type_translations.png "Available translation of a content type")
 
-When you translate Content of this type, the Content Type information will be displayed in the new language.
+When you translate Content of this type, the content type information will be displayed in the new language.
 
 ![Editing a content translation with translated Field names](2.4_translated_ct.png)
 
@@ -130,11 +130,11 @@ The outdated Policy labels are now updated:
 
 |Old|New|
 |---|---|
-|class|Content Type|
-|ParentClass|Content Type of Parent|
+|class|Content type|
+|ParentClass|Content type of Parent|
 |node|Location|
 |parentdepth|Parent Depth|
-|parentgroup|Content Type Group of Parent|
+|parentgroup|Content type Group of Parent|
 |parentowner|Owner of Parent|
 |subtree|Subtree of Location|
 
@@ -142,12 +142,12 @@ The outdated Policy labels are now updated:
 
 ### API improvements
 
-#### Simplified use of Content Type objects
+#### Simplified use of content type objects
 
-This release introduces a few simplifications to API use for Content Types:
+This release introduces a few simplifications to API use for content types:
 
 - Exposes `content->getContentType()` for easier use, including from Twig as `content.contentType`. When iterating over the result set of content/Locations these will effectively be loaded all at once.
-- Adds possibility to load several Content Types in bulk using `ContentTypeService->loadContentTypeList()`.
+- Adds possibility to load several content types in bulk using `ContentTypeService->loadContentTypeList()`.
 - `UserService` now exposes `isUser()` and `isUserGroup()`. They do not need to do a lookup to the database in order to tell if a Content item is of type User or User Group.
 
 #### Load multiple Locations
@@ -158,7 +158,7 @@ You are now able to load multiple Locations at once, using `LocationService->loa
 
 - Online Editor format for `ezlink` inside `ezembed` tag changed to an anchor tag. See [ezplatform-richtext/pull/20](https://github.com/ezsystems/ezplatform-richtext/pull/20).
 - The merge order of content edit forms has been changed. It can affect you if you extended the content edit template. See [ezplatform-admin-ui/pull/720](https://github.com/ezsystems/ezplatform-admin-ui/pull/720).
-- Changes to the handling of multilingual Content Types, see [BC notes in the kernel](https://github.com/ezsystems/ezpublish-kernel/blob/7.5/doc/bc/changes-7.4.md).
+- Changes to the handling of multilingual content types, see [BC notes in the kernel](https://github.com/ezsystems/ezpublish-kernel/blob/7.5/doc/bc/changes-7.4.md).
 
 ## Full list of new features, improvements and bug fixes since v2.3
 

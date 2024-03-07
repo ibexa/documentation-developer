@@ -668,7 +668,7 @@ In an Enterprise installation, to create the *Forms* container under the content
 php bin/console ezplatform:form-builder:create-forms-container
 ```
 
-You can also specify Content Type, Field values and language code of the container, for example:
+You can also specify content type, Field values and language code of the container, for example:
 
 ``` bash
 php bin/console ezplatform:form-builder:create-forms-container --content-type custom --field title --value 'My Forms' --field description --value 'Custom container for the forms' --language-code eng-US
@@ -679,7 +679,7 @@ You can find it in https://github.com/ezsystems/ezplatform-ee-installer/blob/2.3
 
 !!! caution "Form (ezform) Field Type"
 
-    After the update, in order to create forms, you have to add a new Content Type (for example, named "Form") that contains `Form` Field (this Content Type can contain other fields
+    After the update, in order to create forms, you have to add a new content type (for example, named "Form") that contains `Form` Field (this content type can contain other fields
     as well). After that you can use forms inside Landing Pages via Embed block.
 
 ### C. Update to v2.4
@@ -941,9 +941,9 @@ CREATE INDEX idx_workflow_name ON ezeditorialworkflow_workflows(workflow_name);
     ```
 
     Clear the cache and refresh the page. The dropdown should now be active.
-    Select any option in the dropdown and save the Content Type.
+    Select any option in the dropdown and save the content type.
 
-    You should now be able to remove the Field definition from the Content Type.
+    You should now be able to remove the Field definition from the content type.
 
     Afterwards, you can remove the configuration above from `ezplatform.yml`.
 

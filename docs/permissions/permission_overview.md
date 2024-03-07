@@ -12,7 +12,7 @@ For example, a `section/assign` Policy allows the User to assign content to Sect
 
 When you add a Policy to a Role, you can also restrict it using one or more **Limitations**.
 A Policy with a Limitation will only apply when the condition in the Limitation is fulfilled.
-For example, a `content/publish` Policy with a `ContentType` Limitation on the "Blog Post" Content Type will allow the User to publish only Blog Posts, and not other content.
+For example, a `content/publish` Policy with a `ContentType` Limitation on the "Blog Post" content type will allow the User to publish only Blog Posts, and not other content.
 
 A Limitation, like a Policy, specifies what a User *can* do, not what they *can't do*.
 A `Section` Limitation, for example, *gives* the User access to the selected Section, not *prohibits* it.

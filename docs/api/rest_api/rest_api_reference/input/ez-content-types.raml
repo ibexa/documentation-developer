@@ -1,12 +1,12 @@
-displayName: Managing Content Types
+displayName: Managing content types
 get:
-    displayName: List Content Types
-    description: Returns a list of Content Types.
+    displayName: List content types
+    description: Returns a list of content types.
     queryParameters:
         identifier:
-            description: Retrieves the Content Type for the given identifer.
+            description: Retrieves the content type for the given identifer.
         remoteId:
-            description: Retrieves the Content Type for the given remote ID.
+            description: Retrieves the content type for the given remote ID.
         limit:
             description: Only 'limit' items will be returned, starting with the offset.
         offset:
@@ -17,7 +17,7 @@ get:
             description: One of (asc|desc).
     headers:
         Accept:
-            description: If set, the list of Content Type info objects or Content Types (including Field definitions) is returned in XML or JSON format.
+            description: If set, the list of content type info objects or content types (including Field definitions) is returned in XML or JSON format.
             example: |
                 application/vnd.ibexa.api.ContentTypeInfoList+xml
                 application/vnd.ibexa.api.ContentTypeInfoList+json
@@ -32,16 +32,16 @@ get:
                 application/vnd.ibexa.api.ContentTypeInfoList+json:
                     type: ContentTypeInfoList
                     example: !include examples/content/types/GET/ContentTypeInfoList.json.example
-            description: OK - returns a list of Content Types.
+            description: OK - returns a list of content types.
         401:
-            description: Error - The user has no permission to read the Content Types.
+            description: Error - The user has no permission to read the content types.
 /{contentTypeId}:
     get:
-        displayName: Get Content Type
-        description: Returns the Content Type with the provided ID.
+        displayName: Get content type
+        description: Returns the content type with the provided ID.
         headers:
             Accept:
-                description: If set, the Content Type is returned in XML or JSON format.
+                description: If set, the content type is returned in XML or JSON format.
                 example: |
                     application/vnd.ibexa.api.ContentType+xml
                     application/vnd.ibexa.api.ContentType+json
@@ -56,30 +56,30 @@ get:
                     application/vnd.ibexa.api.ContentType+json:
                         type: ContentType
                         example: !include examples/content/types/content_type_id/GET/ContentType.json.example
-                description: OK - returns the Content Type.
+                description: OK - returns the content type.
             401:
-                description: Error - The user is not authorized to read this Content Type.
+                description: Error - The user is not authorized to read this content type.
             404:
-                description: Error - The Content Type does not exist.
+                description: Error - The content type does not exist.
     copy:
-        displayName: Copy Content Type
-        description: Copies a Content Type. A new remote ID is generated, and the identifier of the copy is set to 'copy_of_originalBaseIdentifier_newTypeId' (or another random string). COPY or POST with header X-HTTP-Method-Override COPY.
+        displayName: Copy content type
+        description: Copies a content type. A new remote ID is generated, and the identifier of the copy is set to 'copy_of_originalBaseIdentifier_newTypeId' (or another random string). COPY or POST with header X-HTTP-Method-Override COPY.
         responses:
             201:
-                description: Copy of the Content Type created.
+                description: Copy of the content type created.
             401:
-                description: Error - The user is not authorized to copy this Content Type.
+                description: Error - The user is not authorized to copy this content type.
     post:
         displayName: Create Draft
         description: Creates a draft and updates it with the given data.
         headers:
             Accept:
-                description: If set, the new Content Type draft is returned in XML or JSON format.
+                description: If set, the new content type draft is returned in XML or JSON format.
                 example: |
                     application/vnd.ibexa.api.ContentTypeInfo+xml
                     application/vnd.ibexa.api.ContentTypeInfo+json
             Content-Type:
-                description: The Content Type Update schema encoded in XML or JSON format.
+                description: The content type Update schema encoded in XML or JSON format.
                 example: |
                     application/vnd.ibexa.api.ContentTypeUpdate+xml
                     application/vnd.ibexa.api.ContentTypeUpdate+json
@@ -105,28 +105,28 @@ get:
             401:
                 description: Error - The user is not authorized to create the draft.
             403:
-                description: Error - A Content Type with the given new identifier already exists. A draft already exists.
+                description: Error - A content type with the given new identifier already exists. A draft already exists.
     delete:
-        displayName: Delete Content Type
-        description: Deletes the provided Content Type.
+        displayName: Delete content type
+        description: Deletes the provided content type.
         responses:
             204:
-                description: No Content - Content Type deleted.
+                description: No Content - content type deleted.
             401:
-                description: Error - The user is not authorized to delete this Content Type.
+                description: Error - The user is not authorized to delete this content type.
             403:
-                description: Error - There are object instances of this Content Type.
+                description: Error - There are object instances of this content type.
             404:
-                description: Error - The Content Type does not exist.
+                description: Error - The content type does not exist.
     /fieldDefinitions:
         get:
             displayName: Get Field definition list
-            description: Returns all Field definitions of the provided Content Type.
+            description: Returns all Field definitions of the provided content type.
             responses:
                 200:
                     description: OK - return a list of Field definitions.
                 404:
-                    description: Error - The Content Type does not exist.
+                    description: Error - The content type does not exist.
         /{fieldDefinitionId}:
             get:
                 displayName: Get Field definition
@@ -148,16 +148,16 @@ get:
                                 type: FieldDefinition
                                 example: !include examples/content/types/content_type_id/field_definition_id/GET/FieldDefinition.json.example
                     401:
-                        description: Error - The user is not authorized to read the Content Type.
+                        description: Error - The user is not authorized to read the content type.
                     404:
-                        description: Error - The Content Type does not exist.
+                        description: Error - The content type does not exist.
     /draft:
         get:
-            displayName: Get Content Type draft
-            description: Returns the draft of the Content Type with the provided ID.
+            displayName: Get content type draft
+            description: Returns the draft of the content type with the provided ID.
             headers:
                 Accept:
-                    description: If set, the Content Type is returned in XML or JSON format.
+                    description: If set, the content type is returned in XML or JSON format.
                     example: |
                         application/vnd.ibexa.api.ContentType+xml
                         application/vnd.ibexa.api.ContentType+json
@@ -168,22 +168,22 @@ get:
                             type: ContentType
                         application/vnd.ibexa.api.ContentType+json:
                             type: ContentType
-                    description: OK - returns the Content Type.
+                    description: OK - returns the content type.
                 401:
-                    description: Error - The user is not authorized to read this Content Type.
+                    description: Error - The user is not authorized to read this content type.
                 404:
-                    description: Error - The Content Type does not exist or does not have a draft.
+                    description: Error - The content type does not exist or does not have a draft.
         patch:
-            displayName: Update Content Type draft
+            displayName: Update content type draft
             description: Updates metadata of a draft. This method does not handle Field definitions. PATCH or POST with header X-HTTP-Method-Override PATCH.
             headers:
                 Accept:
-                    description: If set, the new Content Type draft is returned in XML or JSON format.
+                    description: If set, the new content type draft is returned in XML or JSON format.
                     example: |
                         application/vnd.ibexa.api.ContentTypeInfo+xml
                         application/vnd.ibexa.api.ContentTypeInfo+json
                 Content-Type:
-                    description: The Content Type update schema encoded in XML or JSON format.
+                    description: The content type update schema encoded in XML or JSON format.
                     example: |
                         application/vnd.ibexa.api.ContentTypeUpdate+xml
                         application/vnd.ibexa.api.ContentTypeUpdate+json
@@ -210,47 +210,47 @@ get:
                 401:
                     description: Error - The user is not authorized to update the draft.
                 403:
-                    description: Error - A Content Type with the given new identifier already exists.
+                    description: Error - A content type with the given new identifier already exists.
                 404:
-                    description: Error - There is no draft for this Content Type.
+                    description: Error - There is no draft for this content type.
         publish:
-            displayName: Publish Content Type draft
-            description: Publishes a Content Type draft. PUBLISH or POST with header X-HTTP-Method-Override PUBLISH.
+            displayName: Publish content type draft
+            description: Publishes a content type draft. PUBLISH or POST with header X-HTTP-Method-Override PUBLISH.
             responses:
                 200:
                     body:
                         application/vnd.ibexa.api.ContentType+xml:
                             type: ContentType
                             example: !include examples/content/types/content_type_id/draft/PUBLISH/ContentType.xml.example
-                    description: Content Type draft published.
+                    description: Content type draft published.
                 401:
-                    description: Error - The user is not authorized to publish this Content Type draft.
+                    description: Error - The user is not authorized to publish this content type draft.
                 403:
-                    description: Error - The Content Type draft is not complete, e.g. there is no Field definition provided.
+                    description: Error - The content type draft is not complete, e.g. there is no Field definition provided.
                 404:
-                    description: Error - If there is no draft or Content Type with the given ID.
+                    description: Error - If there is no draft or content type with the given ID.
         delete:
-            displayName: Delete Content Type draft
-            description: Deletes the provided Content Type draft.
+            displayName: Delete content type draft
+            description: Deletes the provided content type draft.
             responses:
                 204:
-                    description: No Content - Content Type draft deleted.
+                    description: No Content - content type draft deleted.
                 401:
-                    description: Error - The user is not authorized to delete this Content Type draft.
+                    description: Error - The user is not authorized to delete this content type draft.
                 404:
-                    description: Error - The Content Type draft does not exist.
+                    description: Error - The content type draft does not exist.
         /fieldDefinitions:
             get:
                 displayName: Get Draft Field definition list
-                description: Returns all Field definitions of the provided Content Type Draft.
+                description: Returns all Field definitions of the provided content type Draft.
                 responses:
                     200:
                         description: OK - return a list of Field definitions.
                     404:
-                        description: Error - The Content Type draft does not exist.
+                        description: Error - The content type draft does not exist.
             post:
-                displayName: Add Content Type Draft Field definition
-                description: Creates a new Field definition for the given Content Type.
+                displayName: Add content type Draft Field definition
+                description: Creates a new Field definition for the given content type.
                 headers:
                     Accept:
                         description: If set, the new Field definition is returned in XML or JSON format.
@@ -278,10 +278,10 @@ get:
                     401:
                         description: Error - The user is not authorized to add a Field definition.
                     403:
-                        description: Error - A Field definition with the same identifier already exists in the given Content Type. The Field definition is of singular type, already existing in the given Content Type. The Field definition you want to add is of a type that can't be added to a Content Type that already has content instances.
+                        description: Error - A Field definition with the same identifier already exists in the given content type. The Field definition is of singular type, already existing in the given content type. The Field definition you want to add is of a type that can't be added to a content type that already has content instances.
             /{fieldDefinitionId}:
                 get:
-                    displayName: Get Content Type Draft Field definition
+                    displayName: Get content type Draft Field definition
                     description: Returns the Field definition by the given ID.
                     headers:
                         Accept:
@@ -300,11 +300,11 @@ get:
                                     type: FieldDefinition
                                     example: !include examples/content/types/content_type_id/draft/field_definitions/field_definition_id/GET/FieldDefinition.json.example
                         401:
-                            description: Error - The user is not authorized to read the Content Type draft.
+                            description: Error - The user is not authorized to read the content type draft.
                         404:
-                            description: Error - The Content Type or draft does not exist.
+                            description: Error - The content type or draft does not exist.
                 patch:
-                    displayName: Update Content Type Draft Field definition
+                    displayName: Update content type Draft Field definition
                     description: Updates the attributes of a Field definition.
                     headers:
                         Accept:
@@ -333,24 +333,24 @@ get:
                         401:
                             description: Error - The user is not authorized to update the Field definition.
                         403:
-                            description: Error - A Field definition with the given identifier already exists in the given Content Type.
+                            description: Error - A Field definition with the given identifier already exists in the given content type.
                 delete:
-                    displayName: Delete Content Type Draft Field definition
+                    displayName: Delete content type Draft Field definition
                     description: Deletes the provided Field definition.
                     responses:
                         204:
                             description: No Content - Field definition deleted.
                         401:
-                            description: Error - The user is not authorized to delete this Content Type.
+                            description: Error - The user is not authorized to delete this content type.
                         403:
-                            description: Error - There is no draft of the Content Type assigned to the authenticated user.
+                            description: Error - There is no draft of the content type assigned to the authenticated user.
     /groups:
         get:
-            displayName: Get groups of Content Type
-            description: Returns the Content Type group to which Content Type belongs to.
+            displayName: Get groups of content type
+            description: Returns the content type group to which content type belongs to.
             headers:
                 Accept:
-                    description: If set, the Content Type group list is returned in XML or JSON format.
+                    description: If set, the content type group list is returned in XML or JSON format.
                     example: |
                         application/vnd.ibexa.api.ContentTypeGroupRefList+xml
                         application/vnd.ibexa.api.ContentTypeGroupRefList+json
@@ -364,19 +364,19 @@ get:
                             type: ContentTypeGroupRefList
                             example: !include examples/content/types/content_type_id/groups/GET/ContentTypeGroupRefList.json.example
                 401:
-                    description: Error - The user is not authorized to read this Content Type.
+                    description: Error - The user is not authorized to read this content type.
                 404:
-                    description: Error - The Content Type does not exist.
+                    description: Error - The content type does not exist.
         post:
-            displayName: Link group to Content Type
-            description: Links a Content Type group to the Content Type and returns the updated group list.
+            displayName: Link group to content type
+            description: Links a content type group to the content type and returns the updated group list.
             queryParameters:
                 group:
-                    description: The URI of the group to which the Content Type should be linked to.
+                    description: The URI of the group to which the content type should be linked to.
                     type: string
             headers:
                 Accept:
-                    description: If set, the updated Content Type group list is returned in XML or JSON format.
+                    description: If set, the updated content type group list is returned in XML or JSON format.
                     example: |
                         application/vnd.ibexa.api.ContentTypeGroupRefList+xml
                         application/vnd.ibexa.api.ContentTypeGroupRefList+json
@@ -394,14 +394,14 @@ get:
                 401:
                     description: Error - The user is not authorized to add a group.
                 403:
-                    description: Error - The Content Type is already assigned to the group.
+                    description: Error - The content type is already assigned to the group.
         /{id}:
             delete:
-                displayName: Unlink group from Content Type
-                description: Removes the given group from the Content Type and returns the updated group list.
+                displayName: Unlink group from content type
+                description: Removes the given group from the content type and returns the updated group list.
                 headers:
                     Accept:
-                        description: If set, the updated Content Type group list is returned in XML or JSON format.
+                        description: If set, the updated content type group list is returned in XML or JSON format.
                         example: |
                             application/vnd.ibexa.api.ContentTypeGroupRefList+xml
                             application/vnd.ibexa.api.ContentTypeGroupRefList+json
@@ -415,8 +415,8 @@ get:
                                 type: ContentTypeGroup
                                 example: !include examples/content/types/content_type_id/groups/id/DELETE/ContentTypeGroup.json.example
                     401:
-                        description: Error - The user is not authorized to delete this Content Type.
+                        description: Error - The user is not authorized to delete this content type.
                     403:
-                        description: Error - Content Type cannot be unlinked from the only remaining group.
+                        description: Error - content type cannot be unlinked from the only remaining group.
                     404:
                         description: Error - The resource does not exist.

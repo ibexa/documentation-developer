@@ -16,11 +16,11 @@ For example, `content/create/draft/59` creates a new draft of the Content item w
 
 ## Creating a Content item without using a draft
 
-The `/content/edit/nodraft` route shows a Content item creation form for a given Content Type:
+The `/content/edit/nodraft` route shows a Content item creation form for a given content type:
 
 | Argument                | Type      | Description                                                                |
 |-------------------------|-----------|----------------------------------------------------------------------------|
-| `contentTypeIdentifier` | `string`  | The identifier of the Content Type to create. Example: `folder`, `article` |
+| `contentTypeIdentifier` | `string`  | The identifier of the content type to create. Example: `folder`, `article` |
 | `languageCode`          | `string`  | Language code the Content item must be created in. Example: `eng-GB`       |
 | `parentLocationId`      | `integer` | ID of the Location the Content item must be created in. Example: `2`       |
 

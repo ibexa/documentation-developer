@@ -1,13 +1,13 @@
 # Tab switcher in Content edit page
 
-Tabs switcher allows separating the default Field Types in the Content Type from the Field Types that enhance the content with new functionalities.
+Tabs switcher allows separating the default Field Types in the content type from the Field Types that enhance the content with new functionalities.
 The best example of such Field Types are SEO or Taxonomy, as these are not typical Field Types but a Field Types that handle functionalities for the whole Content object.
 
 The following example shows how to add a Meta tab with automatically assigned Taxonomy Field Type.
 
 ## Add Meta tab
 
-Before you start adding the Meta tab, make sure the Content Type you want to edit has [Taxonomy Entry Assignment Field Type]([[= user_doc =]]/taxonomy/#assign-tag-to-content-from-taxonomy-tree).
+Before you start adding the Meta tab, make sure the content type you want to edit has [Taxonomy Entry Assignment Field Type]([[= user_doc =]]/taxonomy/#assign-tag-to-content-from-taxonomy-tree).
 
 Next, provide the semantic configuration under the `ibexa.system.<scope>.admin_ui_forms` [configuration key](configuration.md#configuration-files):
 
@@ -33,7 +33,7 @@ ibexa:
 ### Configure Field groups for Meta tab
 
 The default configuration makes the `ibexa_taxonomy_entry_assignment` Field always visible in the Meta tab in the Content form. 
-With this new feature, you can indicate what Field types, previously set in the Back Office Content Type, are shown in the Meta tab section in the Content form. 
+With this new feature, you can indicate what Field types, previously set in the Back Office content type, are shown in the Meta tab section in the Content form. 
 You can automatically move all Field types from Metadata group to the Meta tab in the Content form.
 To do it, use the following configuration:
 

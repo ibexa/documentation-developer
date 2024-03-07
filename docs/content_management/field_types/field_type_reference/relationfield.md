@@ -60,7 +60,7 @@ The Field definition of this Field Type can be configured with three options:
 |------|------|------|------|
 |`selectionMethod`|`int`|`Relation\Type::SELECTION_BROWSE`| *This setting is not implemented yet, only one selection method is available.* |
 |`selectionRoot`|`string`|`null`|This setting defines the selection root.|
-|`selectionContentTypes`|`array`|`[]`|An array of Content Type IDs that are allowed for related Content.|
+|`selectionContentTypes`|`array`|`[]`|An array of content type IDs that are allowed for related Content.|
 
 ``` php
 // Relation FieldType example settings

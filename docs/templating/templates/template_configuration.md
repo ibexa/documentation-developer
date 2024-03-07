@@ -110,7 +110,7 @@ Such rules can be found in the [default template configuration](https://github.c
     site_group:
         content_view:
             full:
-                # Rules for Content Types and specific Content items meant to be displayed in full view:
+                # Rules for content types and specific Content items meant to be displayed in full view:
                 # …
                 # Rule for other Content items not meant to be displayed in full view:
                 no_full_view:

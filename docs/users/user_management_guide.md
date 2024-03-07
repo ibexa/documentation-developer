@@ -98,7 +98,7 @@ Possible uses:
 
 - Demographics - segment users based on demographic data such as age, location, and gender to personalize content, promotions, and recommendations.
 - Behavior - tailor content based on user behavior, such as frequent content consumption, shopping patterns, or search history, ensuring users see what they're interested in.
-- Preferences - utilize user preferences to offer a customized experience, from language preferences to Content Type preferences.
+- Preferences - utilize user preferences to offer a customized experience, from language preferences to content type preferences.
 
 ### Customer groups
 

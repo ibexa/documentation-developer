@@ -2,7 +2,7 @@
 <ContentTypeCreate>
   <identifier>newContentType</identifier>
   <names>
-    <value languageCode="eng-US">New Content Type</value>
+    <value languageCode="eng-US">New content type</value>
   </names>
   <descriptions>
     <value languageCode="eng-US">This is a description</value>

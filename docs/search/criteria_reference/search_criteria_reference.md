@@ -25,9 +25,9 @@ Due to this storage limitation, searching content using the Country Field Type o
 |-----|-----|-----|-----|-----|
 |[Ancestor](ancestor_criterion.md)|Whether the Content item is an ancestor of the provided Location|&#10004; |&#10004; |&#10004; |
 |[ContentId](contentid_criterion.md)|Content item's ID|&#10004; |&#10004; |&#10004; |
-|[ContentTypeGroupId](contenttypegroupid_criterion.md)|ID of the Content item's Content Type group|&#10004; |&#10004; |&#10004; |
-|[ContentTypeId](contenttypeid_criterion.md)|ID of the Content item's Content Type|&#10004; |&#10004; |&#10004; |
-|[ContentTypeIdentifier](contenttypeidentifier_criterion.md)|Identifier of the Content item's Content Type|&#10004; |&#10004; |&#10004; |
+|[ContentTypeGroupId](contenttypegroupid_criterion.md)|ID of the Content item's content type group|&#10004; |&#10004; |&#10004; |
+|[ContentTypeId](contenttypeid_criterion.md)|ID of the Content item's content type|&#10004; |&#10004; |&#10004; |
+|[ContentTypeIdentifier](contenttypeidentifier_criterion.md)|Identifier of the Content item's content type|&#10004; |&#10004; |&#10004; |
 |[CurrencyCodeCriterion](currencycode_criterion.md)|Currency code|&#10004; |&#10004; |&#10004; |
 |[DateMetadata](datemetadata_criterion.md)|The date when content was created or last modified|&#10004; |&#10004; |&#10004; |
 |[Depth](depth_criterion.md)|Location depth in the Content tree| |&#10004; |&#10004; |

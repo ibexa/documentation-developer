@@ -29,7 +29,7 @@ The following example configuration defines a workflow where you can optionally 
 
 Matchers define when the workflow is used. Their configuration is optional.
 
-`content_type` contains an array of Content Type identifiers that use this workflow.
+`content_type` contains an array of content type identifiers that use this workflow.
 
 `content_status` lists the statuses of Content items which fall under this workflow. The available values are: `draft` and `published`. 
 
@@ -72,7 +72,7 @@ Assigning a reviewer is mandatory if you set `reviewers.required` to `true` for 
 To be able to search for users for review, the user must have the content/read Policy without any Limitation,
 or with a Limitation that allows reading users.
 This means that, in addition to your own settings for this Policy, 
-you must add the /Users subtree to the Limitation and add Users in the [Content Type Limitation](limitation_reference.md#content-type-limitation).
+you must add the /Users subtree to the Limitation and add Users in the [content type Limitation](limitation_reference.md#content-type-limitation).
 
 ``` yaml hl_lines="8 9"
 [[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 23, 32) =]]
