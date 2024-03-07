@@ -9,7 +9,7 @@ use Ibexa\Contracts\Core\Repository\Values\User\Limitation;
 
 class CustomLimitationValueMapper implements LimitationValueMapperInterface
 {
-    public function mapLimitationValue(Limitation $limitation)
+    public function mapLimitationValue(Limitation $limitation): bool
     {
         return $limitation->limitationValues['value'];
     }

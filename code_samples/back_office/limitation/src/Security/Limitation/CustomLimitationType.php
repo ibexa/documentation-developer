@@ -26,7 +26,8 @@ class CustomLimitationType implements Type
         }
     }
 
-    public function validate(Limitation $limitationValue)
+    /** @return ValidationError[] */
+    public function validate(Limitation $limitationValue): array
     {
         $validationErrors = [];
         if (!array_key_exists('value', $limitationValue->limitationValues)) {
@@ -38,7 +39,7 @@ class CustomLimitationType implements Type
         return $validationErrors;
     }
 
-    public function buildValue(array $limitationValues)
+    public function buildValue(array $limitationValues): CustomLimitationValue
     {
         $value = false;
         if (array_key_exists('value', $limitationValues)) {
@@ -55,7 +56,7 @@ class CustomLimitationType implements Type
      *
      * @return bool|null
      */
-    public function evaluate(Limitation $value, UserReference $currentUser, ValueObject $object, array $targets = null)
+    public function evaluate(Limitation $value, UserReference $currentUser, ValueObject $object, array $targets = null): ?bool
     {
         if (!$value instanceof CustomLimitationValue) {
             throw new InvalidArgumentException('$value', 'Must be of type: CustomLimitationValue');
@@ -74,7 +75,7 @@ class CustomLimitationType implements Type
         throw new NotImplementedException(__METHOD__);
     }
 
-    public function valueSchema()
+    public function valueSchema(): void
     {
         throw new NotImplementedException(__METHOD__);
     }

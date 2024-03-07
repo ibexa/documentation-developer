@@ -8,7 +8,8 @@ use Ibexa\Bundle\Core\DependencyInjection\Security\PolicyProvider\YamlPolicyProv
 
 class MyPolicyProvider extends YamlPolicyProvider
 {
-    protected function getFiles()
+    /** @returns string[] */
+    protected function getFiles(): array
     {
         return [
             __DIR__ . '/../Resources/config/policies.yaml',
