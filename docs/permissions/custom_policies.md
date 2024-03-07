@@ -127,16 +127,16 @@ Then, extract those translation to generate the English translation file `transl
 php bin/console translation:extract en --domain=forms --dir=src --output-dir=translations
 ```
 
-### Extending existing Policies
+### Existing Policies extension
 
 A `PolicyProvider` may provide new functions to a module, and additional Limitations to an existing function.
 **It's however strongly encouraged to add functions to your own Policy modules.**
 
 It's impossible to remove an existing module, function or limitation from a Policy.
 
-## Integrating the `PolicyProvider` into IbexaCoreBundle
+## `PolicyProvider` integration into `IbexaCoreBundle`
 
-For a `PolicyProvider` to be active, you have to register it in the class `src/Kernel.php`:
+For a `PolicyProvider` to be active, you have to register it in the `src/Kernel.php`:
 
 ``` php
 [[= include_file('code_samples/back_office/limitation/src/Kernel.php') =]]
@@ -247,7 +247,7 @@ For example, `translations/ezplatform_content_forms_policies.en.yaml`:
 [[= include_file('code_samples/back_office/limitation/translations/ezplatform_content_forms_policies.en.yaml') =]]
 ```
 
-### Checking user custom Limitation
+### Custom Limitation check
 
 Check if current user has this custom limitation set to true from a custom controller:
 
