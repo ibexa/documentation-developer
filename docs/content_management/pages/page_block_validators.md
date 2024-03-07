@@ -11,7 +11,7 @@ The following block validators are available:
 - `regexp` - validates attribute according to the provided regular expression
 - `not_blank` - checks whether the attribute isn't left empty
 - `not_blank_richtext` - checks whether a `richtext` attribute isn't left empty
-- `content_type` - checks whether the selected Content Types match the provided values
+- `content_type` - checks whether the selected content types match the provided values
 - `content_container` - checks whether the selected Content item is a container
 
 !!! note

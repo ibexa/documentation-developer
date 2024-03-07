@@ -1,20 +1,20 @@
-displayName: Managing Content Type groups
+displayName: Managing content type groups
 get:
-    displayName: Get Content Type groups
-    description: Returns a list of all Content Type groups. If an identifier is provided, loads the Content Type group for this identifier.
+    displayName: Get content type groups
+    description: Returns a list of all content type groups. If an identifier is provided, loads the content type group for this identifier.
     queryParameters:
         identifier:
-            description: The identifier of the Content Type group. If present, the Content Type group with this identifier is returned.
+            description: The identifier of the content type group. If present, the content type group with this identifier is returned.
             required: false
     headers:
         Accept:
-            description: If set, the Content Type group list is returned in XML or JSON format.
+            description: If set, the content type group list is returned in XML or JSON format.
             example: |
                 application/vnd.ibexa.api.ContentTypeGroupList+xml
                 application/vnd.ibexa.api.ContentTypeGroupList+json
     responses:
         200:
-            description: OK - returns a list of Content Type groups.
+            description: OK - returns a list of content type groups.
             body:
                 application/vnd.ibexa.api.ContentTypeGroupList+xml:
                     type: ContentTypeGroupList
@@ -25,20 +25,20 @@ get:
         307:
             description: Temporary redirect.
         401:
-            description: Error - The user has no permission to read Content Types.
+            description: Error - The user has no permission to read content types.
         404:
-            description: Error - The Content Type group with the given identifier does not exist.
+            description: Error - The content type group with the given identifier does not exist.
 post:
-    displayName: Create Content Type group
-    description: Creates a new Content Type group.
+    displayName: Create content type group
+    description: Creates a new content type group.
     headers:
         Accept:
-            description: If set, the new Content Type group is returned in XML or JSON format.
+            description: If set, the new content type group is returned in XML or JSON format.
             example: |
                 application/vnd.ibexa.api.ContentTypeGroup+xml
                 application/vnd.ibexa.api.ContentTypeGroup+json
         Content-Type:
-            description: The Content Type group input schema encoded in XML or JSON.
+            description: The content type group input schema encoded in XML or JSON.
             example: |
                 application/vnd.ibexa.api.ContentTypeGroupInput+xml
                 application/vnd.ibexa.api.ContentTypeGroupInput+json
@@ -51,7 +51,7 @@ post:
             example: !include examples/content/typegroups/POST/ContentTypeGroupInput.json.example
     responses:
         201:
-            description: Content Type group created.
+            description: Content type group created.
             body:
                 application/vnd.ibexa.api.ContentTypeGroup+xml:
                     type: ContentTypeGroup
@@ -62,16 +62,16 @@ post:
         400:
             description: Error - The input does not match the input schema definition.
         401:
-            description: Error - The user is not authorized to create this Content Type group.
+            description: Error - The user is not authorized to create this content type group.
         403:
-            description: Error - A Content Type group with the same identifier already exists.
+            description: Error - A content type group with the same identifier already exists.
 /{contentTypeGroupId}:
     get:
-        displayName: Get Content Type group
-        description: Returns the Content Type group with provided ID.
+        displayName: Get content type group
+        description: Returns the content type group with provided ID.
         headers:
             Accept:
-                description: If set, the Content Type group is returned in XML or JSON format.
+                description: If set, the content type group is returned in XML or JSON format.
                 example: |
                     application/vnd.ibexa.api.ContentTypeGroup+xml
                     application/vnd.ibexa.api.ContentTypeGroup+json
@@ -79,7 +79,7 @@ post:
                 description: ETag
         responses:
             200:
-                description: OK - returns the Content Type group.
+                description: OK - returns the content type group.
                 body:
                     application/vnd.ibexa.api.ContentTypeGroup+xml:
                         type: ContentTypeGroup
@@ -88,20 +88,20 @@ post:
                         type: ContentTypeGroup
                         example: !include examples/content/typegroups/content_type_group_id/GET/ContentTypeGroup.json.example
             401:
-                description: Error - The user is not authorized to read this Content Type group.
+                description: Error - The user is not authorized to read this content type group.
             404:
-                description: Error - The Content Type group does not exist.
+                description: Error - The content type group does not exist.
     patch:
-        displayName: Update Content Type group
-        description: Updates a Content Type group. PATCH or POST with header X-HTTP-Method-Override PATCH.
+        displayName: Update content type group
+        description: Updates a content type group. PATCH or POST with header X-HTTP-Method-Override PATCH.
         headers:
             Accept:
-                description: If set, the updated Content Type group is returned in XML or JSON format.
+                description: If set, the updated content type group is returned in XML or JSON format.
                 example: |
                     application/vnd.ibexa.api.ContentTypeGroup+xml
                     application/vnd.ibexa.api.ContentTypeGroup+json
             Content-Type:
-                description: The Content Type group input schema encoded in XML or JSON format.
+                description: The content type group input schema encoded in XML or JSON format.
                 example: |
                     application/vnd.ibexa.api.ContentTypeGroupInput+xml
                     application/vnd.ibexa.api.ContentTypeGroupInput+json
@@ -116,7 +116,7 @@ post:
                 example: !include examples/content/typegroups/content_type_group_id/PATCH/ContentTypeGroupInput.json.example
         responses:
             200:
-                description: Content Type group updated.
+                description: Content type group updated.
                 body:
                     application/vnd.ibexa.api.ContentTypeGroup+xml:
                         type: ContentTypeGroup
@@ -127,30 +127,30 @@ post:
             400:
                 description: Error - The input does not match the input schema definition.
             401:
-                description: Error - The user is not authorized to create this Content Type group.
+                description: Error - The user is not authorized to create this content type group.
             403:
-                description: Error - A Content Type group with the given identifier already exists.
+                description: Error - A content type group with the given identifier already exists.
             412:
                 description: Error - The current ETag does not match the one provided in the If-Match header.
     delete:
-        displayName: Delete Content Type group
-        description: Deletes the provided Content Type group.
+        displayName: Delete content type group
+        description: Deletes the provided content type group.
         responses:
             204:
-                description: No Content - Content Type group deleted.
+                description: No Content - content type group deleted.
             401:
-                description: Error - The user is not authorized to delete this Content Type group.
+                description: Error - The user is not authorized to delete this content type group.
             403:
-                description: Error - The Content Type group is not empty.
+                description: Error - The content type group is not empty.
             404:
-                description: Error - The Content Type group does not exist.
+                description: Error - The content type group does not exist.
     /types:
         get:
-            displayName: List Content Types for group
-            description: Returns a list of Content Types in the provided group.
+            displayName: List content types for group
+            description: Returns a list of content types in the provided group.
             headers:
                 Accept:
-                    description: If set, the list of Content Type info objects or Content Types (including Field definitions) is returned in XML or JSON format.
+                    description: If set, the list of content type info objects or content types (including Field definitions) is returned in XML or JSON format.
                     example: |
                         application/vnd.ibexa.api.ContentTypeInfoList+xml
                         application/vnd.ibexa.api.ContentTypeInfoList+json
@@ -158,7 +158,7 @@ post:
                         application/vnd.ibexa.api.ContentTypeList+json
             responses:
                 200:
-                    description: OK - returns a list on Content Types.
+                    description: OK - returns a list on content types.
                     body:
                         application/vnd.ibexa.api.ContentTypeInfoList+xml:
                             type: ContentTypeInfoList
@@ -167,22 +167,22 @@ post:
                             type: ContentTypeInfoList
                             example: !include examples/content/typegroups/content_type_group_id/types/GET/ContentTypeInfoList.json.example
                 401:
-                    description: Error - The user has no permission to read the Content Types.
+                    description: Error - The user has no permission to read the content types.
         post:
-            displayName: Create Content Type
-            description: Creates a new Content Type draft in the given Content Type group.
+            displayName: Create content type
+            description: Creates a new content type draft in the given content type group.
             queryParameters:
                 publish:
-                    description: If true, the Content Type is published after creating (default false).
+                    description: If true, the content type is published after creating (default false).
                     type: boolean
             headers:
                 Accept:
-                    description: If set, the new Content Type or draft is returned in XML or JSON format.
+                    description: If set, the new content type or draft is returned in XML or JSON format.
                     example: |
                         application/vnd.ibexa.api.ContentType+xml
                         application/vnd.ibexa.api.ContentType+json
                 Content-Type:
-                    description: The Content Type Create schema encoded in XML or JSON format.
+                    description: The content type Create schema encoded in XML or JSON format.
                     example: |
                         application/vnd.ibexa.api.ContentTypeCreate+xml
                         application/vnd.ibexa.api.ContentTypeCreate+json
@@ -195,14 +195,14 @@ post:
                     example: !include examples/content/typegroups/content_type_group_id/types/POST/ContentTypeCreate.json.example
             responses:
                 201:
-                    description: Content Type created.
+                    description: Content type created.
                     body:
                         application/vnd.ibexa.api.ContentType+xml:
                             type: ContentType
                             example: !include examples/content/typegroups/content_type_group_id/types/POST/ContentType.xml.example
                 400:
-                    description: Error - The input does not match the input schema definition. Validation on a Field definition fails. Validation of the Content Type fails, e.g. multiple Fields of a same singular Field Type are provided. Publish is set to true and the input is not complete e.g. no Field definitions are provided.
+                    description: Error - The input does not match the input schema definition. Validation on a Field definition fails. Validation of the content type fails, e.g. multiple Fields of a same singular Field Type are provided. Publish is set to true and the input is not complete e.g. no Field definitions are provided.
                 401:
-                    description: Error - The user is not authorized to create this Content Type.
+                    description: Error - The user is not authorized to create this content type.
                 403:
-                    description: Error - A Content Type with same identifier already exists.
+                    description: Error - A content type with same identifier already exists.

@@ -101,8 +101,8 @@ There you will see two possibilities **Customer Portal** and **Customer Portal P
 
 ![Create content tab](img/cp_portal_vs_page.png)
 
-The first one is a separate Content Type used as a container for your Customer Portal pages.
-Customer Portals containers should be used to sort Customer Portal pages and any other Content Types used by them, such as articles, inside the root folder.
+The first one is a separate content type used as a container for your Customer Portal pages.
+Customer Portals containers should be used to sort Customer Portal pages and any other content types used by them, such as articles, inside the root folder.
 It is recommended that you use them instead of folders to divide and store your portals.
 Select **Customer Portal**, define its name and publish.
 

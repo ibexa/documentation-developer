@@ -40,7 +40,7 @@ To create, update and delete products, use the `LocalProductServiceInterface`.
 
 To create a product, use `LocalProductService::newProductCreateStruct()`.
 Provide the method with the product type object and the main language code.
-You also need to set (at least) the code for the product and the required Field of the underlying Content Type, `name`:
+You also need to set (at least) the code for the product and the required Field of the underlying content type, `name`:
 
 ``` php
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 77, 84) =]]

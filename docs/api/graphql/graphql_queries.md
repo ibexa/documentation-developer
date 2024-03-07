@@ -174,9 +174,9 @@ Response:
 
     `edges` are used when querying plural fields to offer [pagination](#pagination).
 
-### Get Content Type information
+### Get content type information
 
-To get the IDs and names of all Fields in the `article` Content Type:
+To get the IDs and names of all Fields in the `article` content type:
 
 ```
 {

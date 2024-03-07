@@ -8,7 +8,7 @@ page_type: reference
 The public PHP API enables you to interact with [[= product_name =]]'s Repository and content model from your PHP code.
 
 You can use it to create, read, update, manage, and delete all objects available in [[= product_name =]], namely
-content and related objects such as Sections, Locations, Content Types, languages, etc.
+content and related objects such as Sections, Locations, content types, languages, etc.
 
 The PHP API is built on top of a layered architecture, including a persistence SPI that abstracts storage.
 Using the API ensures that your code will be forward compatible with future releases based on other storage engines.
@@ -17,7 +17,7 @@ Using the API ensures that your code will be forward compatible with future rele
 
 You can access the PHP API by injecting relevant services into your code.
 
-The API provides access to Content, User, Content Types and other features through various services.
+The API provides access to Content, User, content types and other features through various services.
 Those services are obtained using `get[ServiceName]()` methods: `getContentService()`, `getUserService()`, etc.
 
 The full list of available services covers:
@@ -71,7 +71,7 @@ for example [`ContentInfo`](https://github.com/ibexa/core/blob/main/src/contract
 for [`Content`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Content.php).
 These objects provide you with lower-level information.
 For instance, `ContentInfo` contains `currentVersionNo` or `remoteId`,
-while `Content` enables you to retrieve Fields, Content Type, or previous versions.
+while `Content` enables you to retrieve Fields, content type, or previous versions.
 
 !!! note
 
