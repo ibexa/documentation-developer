@@ -15,7 +15,7 @@ use Ibexa\Core\FieldType\ValidationError;
 
 class CustomLimitationType implements Type
 {
-    public function acceptValue(Limitation $limitationValue)
+    public function acceptValue(Limitation $limitationValue): void
     {
         if (!$limitationValue instanceof CustomLimitationValue) {
             throw new InvalidArgumentType(
