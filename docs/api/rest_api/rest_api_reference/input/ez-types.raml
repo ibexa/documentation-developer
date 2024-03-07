@@ -71,7 +71,7 @@ Content:
             description: 'Unique ID of the content type.'
             type: integer
         ContentType:
-            description: 'content type.'
+            description: 'Content type.'
             type: BaseObject
         Name:
             description: 'Name of the domain object in a given language.'
@@ -259,7 +259,7 @@ ContentType:
     type: BaseObject
     properties:
         id:
-            description: 'content type ID.'
+            description: 'Content type ID.'
             type: integer
         status:
             description: 'The status of the content type. Possible values: const STATUS_DEFINED = 0; Status constant for defined (aka published) Type, const STATUS_DRAFT = 1; Status constant for draft (aka temporary) Type; const STATUS_MODIFIED = 2; Status constant for modified (aka deferred for publishing) Type.'
@@ -395,7 +395,7 @@ ContentTypeGroup:
             description: 'Modifier User ID.'
             type: BaseObject
         ContentTypes:
-            description: 'content types.'
+            description: 'Content types.'
             type: BaseObject
 
 ContentTypeGroupInput:
@@ -418,7 +418,7 @@ ContentTypeGroupList:
         ContentTypeGroup:
             type: ContentTypeGroup[]
 ContentTypeGroupRef:
-    description: 'content type group reference.'
+    description: 'Content type group reference.'
     type: BaseObject
     properties:
         Unlink:
@@ -451,7 +451,7 @@ ContentTypeInfo:
     type: BaseObject
     properties:
         id:
-            description: 'content type ID.'
+            description: 'Content type ID.'
             type: integer
         status:
             description: 'The status of the content type. Possible values: const STATUS_DEFINED = 0; Status constant for defined (aka published) Type, const STATUS_DRAFT = 1; Status constant for draft (aka temporary) Type; const STATUS_MODIFIED = 2; Status constant for modified (aka deferred for publishing) Type.'
@@ -1274,7 +1274,7 @@ PasswordValidationContext:
     type: object
     properties:
         contentType:
-            description: 'content type of the password owner.'
+            description: 'Content type of the password owner.'
             type: ContentType
         user:
             description: 'Owner of the password.'
@@ -1476,16 +1476,16 @@ Root:
             description: 'Content by the given remote ID.'
             type: BaseObject
         contentTypes:
-            description: 'content types.'
+            description: 'Content types.'
             type: BaseObject
         contentTypeByIdentifier:
-            description: 'content type by the given identifier.'
+            description: 'Content type by the given identifier.'
             type: BaseObject
         contentTypeGroups:
-            description: 'content type Groups.'
+            description: 'Content type Groups.'
             type: BaseObject
         contentTypeGroupByIdentifier:
-            description: 'content type Groups by the given identifier.'
+            description: 'Content type Groups by the given identifier.'
             type: BaseObject
         users:
             description: 'Users.'
@@ -2039,7 +2039,7 @@ Value:
             description: 'Language code.'
             type: string
         '#text':
-            description: 'content type description.'
+            description: 'Content type description.'
             type: string
 ValueObject:
     description: 'The base class for all value objects and structs. Supports readonly properties by marking them as protected.'
