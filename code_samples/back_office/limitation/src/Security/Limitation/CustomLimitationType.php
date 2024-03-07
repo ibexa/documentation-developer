@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 declare(strict_types=1);
 
@@ -26,7 +26,7 @@ class CustomLimitationType implements Type
         }
     }
 
-    /** @return ValidationError[] */
+    /** @return \Ibexa\Core\FieldType\ValidationError[] */
     public function validate(Limitation $limitationValue): array
     {
         $validationErrors = [];
