@@ -331,7 +331,6 @@ nav:
         - Add remote PIM support: pim/add_remote_pim_support.md
     - Commerce:
         - Commerce: commerce/commerce.md
-        - Interactive demo test: commerce/interactive_demo.md
         - Cart:
             - Cart: commerce/cart/cart.md
             - Cart API: commerce/cart/cart_api.md
