@@ -117,7 +117,10 @@ You can check how complete the configuration is in the product’s view.
 
 When you create or edit a product, under the product name, you can see visual indication of what part of product information (tasks) you have completed, and what part is still missing.
 
-See an interactive demo about [managing product completeness](https://www.ibexa.co/resources/interactive-demos/product-completeness).
+<figure>
+<iframe width=800; height="400"; src="https://demo.arcade.software/utvCMI0owirzWcuYv3GV?embed" frameborder="0" allowfullscreen> </iframe>
+<figcaption>Managing product completeness</figcaption>
+</figure>
 
 ### Catalogs
 
@@ -127,7 +130,10 @@ Catalogs contain a sub-set of products from the system.
 You can copy existing catalogs, for example, to create a variant version of an offer with slightly differing filters. 
 You can then modify the copied catalog and save the updated version.
 
-See an interactive demo about [creating a custom product catalog](https://www.ibexa.co/resources/interactive-demos/custom-catalog).
+<figure>
+<iframe width=800; height="400"; src="https://demo.arcade.software/E5DtksYuTBTmYF2vInbb?embed" frameborder="0" allowfullscreen> </iframe>
+<figcaption>Creating a custom product catalog</figcaption>
+</figure>
 
 ### Catalog filters and custom filter
 

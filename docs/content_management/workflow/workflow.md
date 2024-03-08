@@ -13,7 +13,10 @@ By default, [[= product_name =]] comes pre-configured with a Quick Review workfl
 You can disable the default workflow and define different workflows in configuration. 
 Workflows are permission-aware.
 
-See an interactive demo about [using workflows](https://www.ibexa.co/resources/interactive-demos/workflows).
+<figure>
+<iframe width=800; height="400"; src="https://demo.arcade.software/q6BGIfNEvn7LLwSYes1a?embed" frameborder="0" allowfullscreen> </iframe>
+<figcaption>Using workflows</figcaption>
+</figure>
 
 ## Workflow configuration
 

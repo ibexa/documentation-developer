@@ -13,13 +13,18 @@ By adding forms on the website, you can increase its functionality and improve u
 questionnaire, sign-up form, using basic form fields available in the Form Builder. 
 You can also manage your forms and review the results gathered from the website users.
 
-See an interactive demo about [creating reusable forms](https://www.ibexa.co/resources/interactive-demos/reusable-forms).
-
 ## Availability
 
 Form Builder is available in [[= product_name_exp =]] and [[= product_name_com =]].
 
 ## How does Form Builder work
+
+??? tip "Click to see an interactive demo"
+
+    <figure>
+    <iframe width=800; height="400"; src="https://demo.arcade.software/VBhN4seLGSeSuiRGfpom?embed" frameborder="0" allowfullscreen> </iframe>
+    <figcaption>Creating reusable forms</figcaption>
+    </figure>
 
 ### Form Builder interface
 

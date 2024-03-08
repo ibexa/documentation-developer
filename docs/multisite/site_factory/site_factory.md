@@ -8,6 +8,11 @@ edition: experience
 Site Factory is a site management interface, integrated with the Back Office.
 It enables you to configure new sites without editing [YAML-based SiteAccess configuration](multisite_configuration.md).
 
+<figure>
+<iframe width=800; height="400"; src="https://demo.arcade.software/WZmoBCQJQ30JMHReYIIn?embed" frameborder="0" allowfullscreen> </iframe>
+<figcaption>Creating a site in Site Factory</figcaption>
+</figure>
+
 !!! note
 
     A SiteAccess that you define for a site by following the [configuration](multisite_configuration.md) 

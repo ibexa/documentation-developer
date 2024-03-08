@@ -11,8 +11,13 @@ page_type: landing_page
 A Customer Portal serves as a central entry point to your services and products. 
 It helps you provide a unique user experience with a single point of access to any relevant self-service options for your products and services.
 
-See an interactive demo about [creating a customer portal](https://www.ibexa.co/resources/interactive-demos/portals).
+??? tip "Click to see an interactive demo"
 
+    <figure>
+    <iframe width=800; height="400"; src="https://demo.arcade.software/qjbJAxda4GVFPDeh1BWs?embed" frameborder="0" allowfullscreen> </iframe>
+    <figcaption>Creating a customer portal</figcaption>
+    </figure>
+    
 [[= product_name =]] Customer Portal and customer management that ships with it let you create and handle business accounts 
 and communicate with your partners in a personalized space.
 With this feature, your customers can self-register, edit their organization information, 
@@ -90,7 +95,10 @@ This feature comes with a set of new roles:
 
 All roles and policies associated with them can be fully customized to fit your business needs.
 
-See an interactive demo about [managing users within corporate accounts](https://www.ibexa.co/resources/interactive-demos/corporate-accounts-user-management).
+<figure>
+<iframe width=800; height="400"; src="https://demo.arcade.software/GMaVouFUvJy6XOfGzVos?embed" frameborder="0" allowfullscreen> </iframe>
+<figcaption>Managing users within corporate accounts</figcaption>
+</figure>
 
 ### Invitations
 

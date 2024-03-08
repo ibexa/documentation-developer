@@ -8,8 +8,6 @@ The engine uses artificial intelligence and machine learning modeling to learn a
 
 ![Recommendations](recommendations.png "Recommendations")
 
-See an interactive demo about [setting up automatic recommendations of trending content](https://www.ibexa.co/resources/interactive-demos/recommend-content).
-
 ## Availability
 
 Personalization service is available in all supported [[= product_name =]] versions and editions.
@@ -24,9 +22,7 @@ Now, you can start collecting data and boost your business.
 
 ## How does Personalization work
 
-
 ![How it works](how_perso_works.png "How personalization works")
-
 
 Personalization with tracking scripts, monitors  individual sessions from user’s behavior and interest data through events (clicks, viewed articles, pages, purchases) and demographic data (location, industry, occupation).
 
@@ -35,6 +31,11 @@ Next, collects data and computes models thanks to complex algorithms.
 Personalization is SiteAcces-aware, it means it can serve on multiple sites with different customer IDs and deliver recommendations for each site (for example, if you host multi language site).
 
 Use Twig extension to add a tracking script and implement it into your site configuration.
+
+<figure>
+<iframe width=800; height="400"; src="https://demo.arcade.software/lHMUJAsqOqpjyhM10s1C?embed" frameborder="0" allowfullscreen> </iframe>
+<figcaption>Setting up automatic recommendations of trending content</figcaption>
+</figure>
 
 ## Capabilities
 
@@ -67,9 +68,10 @@ Scenarios are sequences of events. You can use scenarios to determine how and wh
 
 Use segments to get content targeted at particular user groups. Segments calculate models based on the segment attribute factor. Assign users to different recommendation groups and create advanced logic with operators to get best segmentation for your audience.
 
-![Segments](perso_segment_group_or.png "User segments")
-
-See an interactive demo about [serving relevant recommendations to users from different segments](https://www.ibexa.co/resources/interactive-demos/personalization-segments).
+<figure>
+<iframe width=800; height="400"; src="https://demo.arcade.software/SOxvktvBxbEGIcMMe1j8?embed" frameborder="0" allowfullscreen> </iframe>
+<figcaption>Serving relevant recommendations to users from different segments</figcaption>
+</figure>
 
 ### REST API
 
