@@ -74,18 +74,18 @@ Four implementations of `ResourceOwnerMapper` are proposed by default:
 
 To use `ResourceOwnerToExistingOrNewUserMapper` you need to extend it in your custom mapper.
 
-!!! tip "OAuth User Content Type"
+!!! tip "OAuth User content type"
 
     When you implement your own mapper for external login,
-    it is good practice to create a special User Content Type for users registered in this way.
+    it is good practice to create a special User content type for users registered in this way.
 
     This is because users who register through an external service do not have a separate password in the system.
     Instead, they log in by their external service's password.
 
-    To avoid issues with password restrictions in the built-in User Content Type,
-    create a special Content Type (for example, "OAuth User"), without restrictions on the password.
+    To avoid issues with password restrictions in the built-in User content type,
+    create a special content type (for example, "OAuth User"), without restrictions on the password.
 
-    This new Content Type must also contain the User (`ezuser`) Field.
+    This new content type must also contain the User (`ezuser`) Field.
 
 The following example is the creation of a Resource Owner mapper for the `google` client from previous examples.
 
