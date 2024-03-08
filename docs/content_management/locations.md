@@ -65,7 +65,7 @@ It contains a Folder Content item.
 
 ![Users in admin panel](admin_panel_users.png "Users in admin panel")
 
-A User is simply a Content item of the User account Content Type.
+A User is simply a Content item of the User account content type.
 The Users are organized within User Group Content items below this Location.
 
 In other words, the **Users** Location contains the actual Users and User Groups,

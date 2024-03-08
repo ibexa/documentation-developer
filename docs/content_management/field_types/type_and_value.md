@@ -22,7 +22,7 @@ The Type class of a Field Type provides an implementation of the [`Ibexa\Contrac
 
 ### Field Definition handling
 
-A custom Field Type is used in a Field definition of a custom Content Type.
+A custom Field Type is used in a Field definition of a custom content type.
 You can additionally provide [settings for the Field Type](#field-type-settings) and a [validator configuration](field_type_validation.md).
 Since the public PHP API cannot know anything about these, their handling is delegated to the Field Type itself through the following methods:
 

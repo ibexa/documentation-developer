@@ -158,7 +158,7 @@ With this feature, your organization can invite individual visitors to return to
 Before you can start [using triggers]([[= user_doc =]]/personalization/triggers), you must contact [[= product_name_base =]] and define specific conditions, for example:
 
 - the time that must pass before messages start being sent
-- Content Types and attributes that are included in a response
+- content types and attributes that are included in a response
 - a number of repetitions
 
 Triggers are then processed on the Personalization server and responses are delivered to a dedicated endpoint.

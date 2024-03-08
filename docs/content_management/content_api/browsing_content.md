@@ -69,9 +69,9 @@ gets the Location's main [URL alias](https://github.com/ibexa/core/blob/main/src
 [[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 68, 71) =]][[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 72, 75) =]]
 ```
 
-### Content Type
+### Content type
 
-You can retrieve the Content Type of a Content item
+You can retrieve the content type of a Content item
 through the [`getContentType`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentInfo.php#L188) method of the ContentInfo object:
 
 ``` php
@@ -169,9 +169,9 @@ To retrieve the Fields of the selected Content item, you can use the following c
 ```
 
 Line 9 shows how [`ContentService::loadContent`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php#L147) loads the Content item provided to the command.
-Line 14 makes use of the [`ContentTypeService`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentTypeService.php) to retrieve the Content Type of the requested item.
+Line 14 makes use of the [`ContentTypeService`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentTypeService.php) to retrieve the content type of the requested item.
 
-Lines 12-19 iterate over Fields defined by the Content Type.
+Lines 12-19 iterate over Fields defined by the content type.
 For each Field they print out its identifier, and then using [`FieldTypeService`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/FieldTypeService.php) retrieve the Field's value and print it out to the console.
 
 ## Viewing content in different languages

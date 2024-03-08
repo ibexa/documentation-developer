@@ -12,6 +12,8 @@ description: Ibexa DXP v4.6 brings improvements to Commerce, PIM and Personaliza
 
 **Release type**: [LTS](https://support.ibexa.co/Public/service-life)
 
+**Update**: [v4.5.x to v4.6](https://doc.ibexa.co/en/latest/update_and_migration/from_4.5/update_from_4.5/)
+
 ## Notable changes
 
 ### Ibexa Headless
@@ -169,10 +171,10 @@ For more information,
 see [user documentation](https://doc.ibexa.co/projects/userguide/en/master/search/search_for_content/#filtered-search),
 and how to [customize search sorting](https://doc.ibexa.co/en/master/docs/administration/back_office/search_sorting/).
 
-#### New and updated Content Type icons
+#### New and updated content type icons
 
-To help users quickly identify different content types in the Back Office, all Content Type references are now accompanied with icons.
-Also, Content Type icons have changed slightly.
+To help users quickly identify different content types in the Back Office, all content type references are now accompanied with icons.
+Also, content type icons have changed slightly.
 
 ![Content type icons](img/4.6_content_type_icons.png "Content type icons")
 
@@ -451,7 +453,7 @@ Any third party code that extends `\Ibexa\Contracts\Rest\Output\Generator` needs
 
 ### Helpers
 
-A new helper method `ibexa.helpers.contentType.getContentTypeDataByHref` has been introduced to help you get Content Type data in JavaScript.
+A new helper method `ibexa.helpers.contentType.getContentTypeDataByHref` has been introduced to help you get content type data in JavaScript.
 
 ### Ibexa Connect
 

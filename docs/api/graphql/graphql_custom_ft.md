@@ -133,7 +133,7 @@ class RelationFieldDefinitionMapper extends DecoratingFieldDefinitionMapper impl
 }
 ```
 
-The value type depends on the field definition allowed Content Types setting:
+The value type depends on the field definition allowed content types setting:
 
 - for types that return Content items if there are no restrictions, or several types are allowed, the value will be an `Item`
 

@@ -304,7 +304,7 @@ In YAML configuration, the main configuration key is now `ezplatform` instead of
 ### Content forms
 
 The new `ezplatform-content-forms` package contains forms for content creation moved from `repository-forms`,
-while Content Type editing has been moved to `ezplatform-admin-ui` from `repository-forms`.
+while content type editing has been moved to `ezplatform-admin-ui` from `repository-forms`.
 
 ### Custom Installers
 

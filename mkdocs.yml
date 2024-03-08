@@ -70,7 +70,7 @@ nav:
         - Event reference:
             - Event reference: api/event_reference/event_reference.md
             - Content events: api/event_reference/content_events.md
-            - Content Type events: api/event_reference/content_type_events.md
+            - Content type events: api/event_reference/content_type_events.md
             - Location events: api/event_reference/location_events.md
             - Catalog events: api/event_reference/catalog_events.md
             - Cart events: api/event_reference/cart_events.md
@@ -110,7 +110,7 @@ nav:
             - System Information: administration/admin_panel/system_information_admin_panel.md
         - Content organization:
             - Sections: administration/content_organization/sections.md
-            - Content Types: administration/content_organization/content_types.md
+            - Content types: administration/content_organization/content_types.md
             - Object States: administration/content_organization/object_states.md
         - Configuration:
             - Configuration: administration/configuration/configuration.md
@@ -133,7 +133,7 @@ nav:
                 - Back Office tabs:  administration/back_office/back_office_tabs/back_office_tabs.md
                 - Create dashboard tab: administration/back_office/back_office_tabs/create_dashboard_tab.md
             - Tab switcher in Content edit page: administration/back_office/content_tab_switcher.md
-            - Add anchor menu to Content Type edit screen: administration/back_office/content_type_anchor_menu.md
+            - Add anchor menu to content type edit screen: administration/back_office/content_type_anchor_menu.md
             - Back Office menus:
                 - Back Office menus: administration/back_office/back_office_menus/back_office_menus.md
                 - Add menu item: administration/back_office/back_office_menus/add_menu_item.md
@@ -775,11 +775,13 @@ nav:
         - Update from v4.2:
             - Update to v4.3: update_and_migration/from_4.2/update_from_4.2.md
         - Update from v4.3:
-              - Update to v4.4: update_and_migration/from_4.3/update_from_4.3.md
-              - Use new Commerce packages: update_and_migration/from_4.3/update_from_4.3_new_commerce.md
-              - Keep old Commerce packages: update_and_migration/from_4.3/update_from_4.3_old_commerce.md
-        -   Update from v4.4:
-            -   Update to v4.5: update_and_migration/from_4.4/update_from_4.4.md
+            - Update to v4.4: update_and_migration/from_4.3/update_from_4.3.md
+            - Use new Commerce packages: update_and_migration/from_4.3/update_from_4.3_new_commerce.md
+            - Keep old Commerce packages: update_and_migration/from_4.3/update_from_4.3_old_commerce.md
+        - Update from v4.4:
+            - Update to v4.5: update_and_migration/from_4.4/update_from_4.4.md
+        - Update from v4.5:
+            - Update to v4.6: update_and_migration/from_4.5/update_from_4.5.md
         - Migrate to Ibexa DXP:
             - Migrate from eZ Publish Platform: update_and_migration/migrate_to_ibexa_dxp/migrating_from_ez_publish_platform.md
             - Migrate from eZ Publish: update_and_migration/migrate_to_ibexa_dxp/migrating_from_ez_publish.md
@@ -872,7 +874,7 @@ extra:
   latest_tag_4_3: '4.3.5'
   latest_tag_4_4: '4.4.4'
   latest_tag_4_5: '4.5.5'
-  latest_tag_4_6: '4.6.0'
+  latest_tag_4_6: '4.6.1'
 
   symfony_doc: 'https://symfony.com/doc/5.4'
   user_doc: 'https://doc.ibexa.co/projects/userguide/en/master'

@@ -59,7 +59,7 @@ There you can set the following properties:
 |root_location_id</br>`rootLocationId`|number|no|UDW will display Locations only below this Content Tree element.|
 |starting_location_id</br>`startingLocationId`|number|no|This Location will be displayed as a starting Location in UDW.|
 |containers_only</br>`containersOnly`|true</br>false|no|When set to `true` only containers can be selected.|
-|allowed_content_types</br>`allowedContentTypes`|null</br>[]</br>[`contentTypeIdentifier`]|yes|List of allowed Content Types:</br>`null` – all Content Types are allowed,</br>`[]` – empty table, no Content Types are allowed.|
+|allowed_content_types</br>`allowedContentTypes`|null</br>[]</br>[`contentTypeIdentifier`]|yes|List of allowed content types:</br>`null` – all content types are allowed,</br>`[]` – empty table, no content types are allowed.|
 |active_sort_clause</br>`activeSortClause`|DatePublished</br>ContentName|no|Sort Clause by which children in the Content Tree will be sorted.|
 |active_sort_order</br>`activeSortOrder`|ascending</br>descending|no|Sorting order of the children in the Content Tree.|
 |active_tab</br>`activeTab`|browse</br>search</br>bookmarks|no|Starting tab in the UDW.|

@@ -5,7 +5,7 @@ sorts search results by the distance of the indicated MapLocation Field to the p
 
 ## Arguments
 
-- `typeIdentifier` - string representing the identifier of the Content Type to which the MapLocation Field belongs
+- `typeIdentifier` - string representing the identifier of the content type to which the MapLocation Field belongs
 - `fieldIdentifier` - string representing the identifier of the MapLocation Field to sort by
 - `latitude` - float representing the latitude of the location to calculate distance to
 - `longitude`- float representing the longitude of the location to calculate distance to

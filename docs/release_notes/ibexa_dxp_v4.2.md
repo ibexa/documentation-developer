@@ -97,13 +97,13 @@ For more information, see [Product categories](https://doc.ibexa.co/projects/use
 
 ### Cross-content type (CCT) recommendations
 
-If a recommendation scenario has more than one Content Type configured, with cross-content type (CCT) parameter in the request,
-you can now get recommendations for all these Content Types.
+If a recommendation scenario has more than one content type configured, with cross-content type (CCT) parameter in the request,
+you can now get recommendations for all these content types.
 
 ### Taxonomy Field Type
 
 Taxonomy is now [configured with a Field Type](https://doc.ibexa.co/projects/userguide/en/latest/taxonomy/#add-tag),
-so you can use many Fields to add different taxonomy categories, for example, tags and product categories in the same Content Type.
+so you can use many Fields to add different taxonomy categories, for example, tags and product categories in the same content type.
 
 ### Address Field Type
 

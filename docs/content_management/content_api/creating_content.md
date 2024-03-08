@@ -28,7 +28,7 @@ This command creates a draft using [`ContentService::createContent`](https://git
 This method must receive a `ContentCreateStruct` and an array of Location structs.
 
 `ContentCreateStruct` (which extends `ContentStruct`) is created through [`ContentService::newContentCreateStruct`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php#L533) (line 2),
-which receives the Content Type and the primary language for the Content item.
+which receives the content type and the primary language for the Content item.
 For information about translating a Content item into other languages, see [Translating content](#translating-content).
 
 [`ContentStruct::setField`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentStruct.php#L32) (line 3) enables you to define the Field values.
@@ -38,7 +38,7 @@ For some Field Types, for example [images](#creating-an-image), you need to prov
 ### Creating an image
 
 Image Field Type requires an instance of its Value type, which you must provide to the [`ContentStruct::setField`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentStruct.php#L32) method.
-Therefore, when creating a Content item of the Image type (or any other Content Type with an `image` Field Type),
+Therefore, when creating a Content item of the Image type (or any other content type with an `image` Field Type),
 the `ContentCreateStruct` is slightly more complex than in the previous example:
 
 ``` php

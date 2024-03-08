@@ -79,10 +79,10 @@ ibexa:
         <site_access_name_1>:
             personalization:
                 site_name: '<site_name_1>' # For example 'ENU store'
-                host_uri: '%env(RECOMMENDATION_HOST_URI)%'
+                host_uri: '%env(PERSONALIZATION_HOST_URI)%'
                 authentication:
-                    customer_id: '%env(int:RECOMMENDATION_CUSTOMER_ID)%'
-                    license_key: '%env(RECOMMENDATION_LICENSE_KEY)%'
+                    customer_id: '%env(int:PERSONALIZATION_CUSTOMER_ID)%'
+                    license_key: '%env(PERSONALIZATION_LICENSE_KEY)%'
                 included_item_types: [product, article]
                 output_type_attributes:
                     123: # content type ID
@@ -398,7 +398,7 @@ render(controller('ibexa_personalization::showRecommendationsAction', {
 | `contextItems`   | int    | ID of the content you want to get recommendations for. |
 | `scenario`       | string | Scenario used to display recommendations. You can create custom scenarios in the Back Office. |
 | `outputTypeId`   | string | Item type that you expect in response, for example, `blog_post`. |
-| `crossContentType`| bool | If set to `true`, returns recommendations for all Content Types specified in the scenario. |
+| `crossContentType`| bool | If set to `true`, returns recommendations for all content types specified in the scenario. |
 | `limit`          | int    | Number of recommendations to fetch. |
 | `template`       | string | Template name. |
 | `attributes`     | array  | Fields that are required and are requested from the Personalization server. These Field names are also used inside Handlebars templates. |

@@ -30,13 +30,13 @@ yarn encore <environment>
 
 ### Translatable and untranslatable Fields
 
-Language versions consist of translated values of the Content item's Fields. In the Content Type definition every Field is set to be Translatable or not.
+Language versions consist of translated values of the Content item's Fields. In the content type definition every Field is set to be Translatable or not.
 
 [[= product_name =]] does not decide by itself which Fields can be translated and which cannot. For some Field values the need for a translation can be obvious, for example for the body of an article. In other cases, for instance images without text, integer numbers or e-mail addresses, translation is usually unnecessary. Despite that, [[= product_name =]] gives you the possibility to mark any Field as translatable regardless of its Field Type. It is only your decision to exclude the translation possibility for those Fields where it makes no sense.
 
 When a Field is not flagged as Translatable, its value will be copied from the initial/main translation when a new language version is created. This copied value cannot be modified. When a Field is Translatable, you will have to enter its value in a new language version manually.
 
-For example, let's say that you need to store information about marathon contestants and their results. You build a "contestant" Content Type using the following Fields: name, photo, age, nationality, finish time. Allowing the translation of anything other than nationality would be pointless, since the values stored by the other Fields are the same regardless of the language used to describe the contestant. In other words, the name, photo, age and finish time would be the same in, for example, both English and Norwegian.
+For example, let's say that you need to store information about marathon contestants and their results. You build a "contestant" content type using the following Fields: name, photo, age, nationality, finish time. Allowing the translation of anything other than nationality would be pointless, since the values stored by the other Fields are the same regardless of the language used to describe the contestant. In other words, the name, photo, age and finish time would be the same in, for example, both English and Norwegian.
 
 ### Access control
 
@@ -178,6 +178,6 @@ If the `translation_siteaccesses` setting is not provided, implicit *related 
 
 When setting up SiteAccesses with different language versions, you can specify a list of preset languages for each SiteAccess. When this SiteAccess is used, the system will go through this list. If a Content item is unavailable in the first (prioritized) language, it will attempt to use the next language in the list, and so on. Thanks to this you can have a fallback in case of a lacking translation.
 
-You can also assign a Default content availability flag to Content Types (available in the Admin Panel). When this flag is assigned, Content items of this type will be available even when they do not have a language version in any of the languages configured for the current SiteAccess.
+You can also assign a Default content availability flag to content types (available in the Admin Panel). When this flag is assigned, Content items of this type will be available even when they do not have a language version in any of the languages configured for the current SiteAccess.
 
 Note that if a language is not provided in the list of prioritized languages and it is not the Content item's first language, the URL alias for this content in this language will not be generated.

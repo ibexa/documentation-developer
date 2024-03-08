@@ -156,8 +156,8 @@ You can control what Content items can be uploaded and where by using Limitation
 on the `content/create` and `content/publish` Policies.
 
 A Location Limitation limits the uploading to a specific Location in the tree. 
-A Content Type Limitation controls the Content Types that are allowed.
-For example, you can set the Location Limitation on a **Pictures** Folder, and add a Content Type Limitation
+A content type Limitation controls the content types that are allowed.
+For example, you can set the Location Limitation on a **Pictures** Folder, and add a content type Limitation
 that only allows Content items of type **Image**. 
 This ensures that only files of type `image` can be uploaded,
 and only to the **Pictures** Folder.
@@ -180,7 +180,7 @@ To allow anonymous users to register through the `/register` route, grant the `u
 ## Admin
 
 To access the [administration panel](admin_panel.md) in the Back Office, the User must have the `setup/administrate` Policy.
-This allows the User to view the languages and Content Types.
+This allows the User to view the languages and content types.
 
 Additional Policies are needed for each section of the Admin.
 
@@ -198,9 +198,9 @@ Additional Policies are needed for each section of the Admin.
 
 - `content/translations` to add and edit languages
 
-### Content Types/action
+### Content types/action
 
-- `Content Type/create`, `Content Type/update`, `Content Type/delete` to add, modify and remove Content Types
+- `content type/create`, `content type/update`, `content type/delete` to add, modify and remove content types
 
 ### Object states
 

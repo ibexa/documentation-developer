@@ -36,7 +36,7 @@ The following attribute types are available:
 |`multiple`|Checkbox(es)|`choices` lists the available options in `label: value` form.|
 |`radio`|Radio buttons|`choices` lists the available options in `label: value` form.|
 |`locationlist`|Location selection|-|
-|`contenttypelist`|List of Content Types|-|
+|`contenttypelist`|List of content types|-|
 |`schedule_events`,</br>`schedule_snapshots`,</br>`schedule_initial_items`,</br>`schedule_slots`,</br>`schedule_loaded_snapshot`|Used in the Content Scheduler block|-|
 |`nested_attribute`|Defines a group of attributes in a block.|`attributes` - a list of attributes in the group. The attributes in the group are [configured](#page-block-attributes) as regular attributes. </br>`multiple`, when set to true. New groups are added dynamically with the **+ Add** button.|
 

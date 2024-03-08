@@ -37,8 +37,8 @@ By adding additional steps and options, you can build a process that perfectly m
 
 ### SEO configuration exposed
 
-SEO configuration gains a more prominent place on the Content Type editing screen.
-For example, to enable SEO, you now have to edit the Content Type that you want to modify, 
+SEO configuration gains a more prominent place on the content type editing screen.
+For example, to enable SEO, you now have to edit the content type that you want to modify, 
 scroll down to the SEO section and switch the **Enable SEO for this content type** toggle.
 
 For more information, see [Work with SEO](https://doc.ibexa.co/projects/userguide/en/latest/search_engine_optimization/work_with_seo/).
@@ -86,9 +86,9 @@ and can be used for recommendation engine filtering.
 
 ### Users
 
-#### New User Content Type
+#### New User content type
 
-This release brings you a new Content Type for private customers registering from the front page.
+This release brings you a new content type for private customers registering from the front page.
 We also prepared a migration command for already existing users to ease your upgrade process.
 For more information, refer to upgrade documentation.
 
