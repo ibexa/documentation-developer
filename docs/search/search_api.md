@@ -38,7 +38,7 @@ The following command takes the content type identifier as an argument and lists
 ```
 
 [`SearchService::findContentInfo`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/SearchService.php#L144) (line 16)
-retrieves [`ContentInfo`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentInfo.php) objects of the found Content items.
+retrieves [`ContentInfo`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentInfo.php) objects of the found content items.
 You can also use [`SearchService::findContent`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/SearchService.php#L124) to get full Content objects, together with their Field information.
 
 To query for a single result, for example by providing a Content ID,
@@ -109,7 +109,7 @@ The following BatchIterator adapters are available, for both `query` and `filter
 
 ## Repository filtering
 
-You can use the `ContentService::find(Filter)` method to find Content items or
+You can use the `ContentService::find(Filter)` method to find content items or
 `LocationService::find(Filter)` to find Locations using a defined Filter.
 
 `ContentService::find` returns an iterable [`ContentList`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentList.php)
@@ -119,7 +119,7 @@ Filtering differs from search. It does not use the `SearchService` and is not ba
 
 [`Filter`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Filter/Filter.php) enables you to configure a query using chained methods to select criteria, sorting, limit and offset.
 
-For example, the following command lists all Content items under the specified parent Location
+For example, the following command lists all content items under the specified parent Location
 and sorts them by name in descending order:
 
 ``` php hl_lines="13-16"
@@ -129,7 +129,7 @@ and sorts them by name in descending order:
 [[= include_file('code_samples/api/public_php_api/src/Command/FilterCommand.php', 32, 52) =]]
 ```
 
-The same Filter can be applied to find Locations instead of Content items, for example:
+The same Filter can be applied to find Locations instead of content items, for example:
 
 ``` php hl_lines="17"
 // ...
@@ -157,7 +157,7 @@ You can use the following methods of the Filter:
 - `sliceBy` - set limit and offset for pagination
 - `reset` - remove all Criteria, Sort Clauses, and pagination settings
 
-The following example filters for Folder Content items under the parent Location 2,
+The following example filters for Folder content items under the parent Location 2,
 sorts them by publication date and returns 10 results, starting from the third one:
 
 ``` php
@@ -255,7 +255,7 @@ You can do it using logical operators: `LogicalAnd`, `LogicalOr`, and `LogicalNo
 ```
 
 This example takes three parameters from a command — `$text`, `$contentTypeId`, and `$locationId`.
-It then combines them using `Criterion\LogicalAnd` to search for Content items
+It then combines them using `Criterion\LogicalAnd` to search for content items
 that belong to a specific subtree, have the chosen content type and contain the provided text (lines 3-6).
 
 This also shows that you can get the total number of search results using the `totalCount` property of search results (line 9).
@@ -272,7 +272,7 @@ that does not belong to the provided Section:
 
 Criteria are independent of one another. This can lead to unexpected behavior, for instance because content can have multiple Locations.
 
-For example, a Content item has two Locations: visible Location A and hidden Location B.
+For example, a content item has two Locations: visible Location A and hidden Location B.
 You perform the following query:
 
 ``` php
@@ -287,8 +287,8 @@ and for visible content using the [`Visibility` Criterion](visibility_criterion.
 
 Even though the Location B is hidden, the query will find the content because both conditions are satisfied:
 
-- the Content item has Location B
-- the Content item is visible (it has the visible Location A)
+- the content item has Location B
+- the content item is visible (it has the visible Location A)
 
 
 ## Sorting results
@@ -308,14 +308,14 @@ and then alphabetically by content name, add the following Sort Clauses to the q
 
 ## Searching in trash
 
-In the user interface, on the **Trash** screen, you can search for Content items, and then sort the results based on different criteria.
-To search the trash with the API, use the `TrashService::findInTrash` method to submit a query for Content items that are held in trash.
+In the user interface, on the **Trash** screen, you can search for content items, and then sort the results based on different criteria.
+To search the trash with the API, use the `TrashService::findInTrash` method to submit a query for content items that are held in trash.
 Searching in trash supports a limited set of Criteria and Sort Clauses.
 For a list of supported Criteria and Sort Clauses, see [Search in trash reference](search_in_trash_reference.md).
 
 !!! note
 
-    Searching through the trashed Content items operates directly on the database, therefore you cannot use external search engines, such as Solr or Elasticsearch, and it is impossible to reindex the data.
+    Searching through the trashed content items operates directly on the database, therefore you cannot use external search engines, such as Solr or Elasticsearch, and it is impossible to reindex the data.
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/FindInTrashCommand.php', 34, 41) =]]

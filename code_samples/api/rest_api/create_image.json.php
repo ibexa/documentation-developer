@@ -139,6 +139,6 @@ if (204 !== $responseCode = $response->getStatusCode()) {
     exit(9);
 }
 
-echo "Success: Image Content item created with ID $contentId and published.\n";
+echo "Success: Image content item created with ID $contentId and published.\n";
 
 exit(0);

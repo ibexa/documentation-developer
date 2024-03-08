@@ -1,5 +1,5 @@
 ---
-description: Learn how to embed related content in another Content item's template.
+description: Learn how to embed related content in another content item's template.
 ---
 
 # Step 7 — Embed content

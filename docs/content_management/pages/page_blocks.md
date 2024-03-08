@@ -115,8 +115,8 @@ You can use this parameter, for example, in block template:
 
 #### Exposing content relations from blocks
 
-Page blocks, for example Embed block or Collection block, can embed other Content items.
-Publishing a Page with such blocks creates Relations to those Content items.
+Page blocks, for example Embed block or Collection block, can embed other content items.
+Publishing a Page with such blocks creates Relations to those content items.
 
 When creating a custom block with embeds, you can ensure such Relations are created using the block Relation collection event.
 
@@ -126,4 +126,4 @@ You can hook your event listener to the `BlockRelationEvents::getCollectBlockRel
 To expose relations, pass an array containing Content IDs to the `Ibexa\FieldTypePage\Event\CollectBlockRelationsEvent::setRelations()` method.
 If embedded Content changes, old Relations are removed automatically.
 
-Providing Relations also invalidates HTTP cache for your block response in one of the related Content items changes.
+Providing Relations also invalidates HTTP cache for your block response in one of the related content items changes.

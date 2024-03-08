@@ -29,10 +29,10 @@ class UpdateContentCommand extends Command
     protected function configure()
     {
         $this
-            ->setDescription('Update provided Content item with a new name')
+            ->setDescription('Update provided content item with a new name')
             ->setDefinition([
                 new InputArgument('contentId', InputArgument::REQUIRED, 'Content ID'),
-                new InputArgument('newName', InputArgument::REQUIRED, 'New name for the updated Content item'),
+                new InputArgument('newName', InputArgument::REQUIRED, 'New name for the updated content item'),
             ]);
     }
 
@@ -54,7 +54,7 @@ class UpdateContentCommand extends Command
         $contentDraft = $this->contentService->updateContent($contentDraft->versionInfo, $contentUpdateStruct);
         $this->contentService->publishVersion($contentDraft->versionInfo);
 
-        $output->writeln('Content item ' . $contentId . ' updated with new name: ' . $newName);
+        $output->writeln('content item ' . $contentId . ' updated with new name: ' . $newName);
 
         return self::SUCCESS;
     }

@@ -1,6 +1,6 @@
 # ContentTypeGroupTermAggregation
 
-The [ContentTypeGroupTermAggregation](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/Aggregation/ContentTypeGroupTermAggregation.php) aggregates search results by the Content item's content type group.
+The [ContentTypeGroupTermAggregation](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/Aggregation/ContentTypeGroupTermAggregation.php) aggregates search results by the content item's content type group.
 
 ## Arguments
 

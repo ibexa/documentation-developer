@@ -6,7 +6,7 @@
 
     Use [RelationList](relationlistfield.md) with a selection limit instead.
 
-This Field Type makes it possible to store and retrieve the value of a relation to another Content item.
+This Field Type makes it possible to store and retrieve the value of a relation to another content item.
 
 | Name       | Internal name      | Expected input |
 |------------|--------------------|----------------|

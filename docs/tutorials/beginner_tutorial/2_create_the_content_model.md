@@ -1,5 +1,5 @@
 ---
-description: Learn how to create a content model consisting of content types and a few sample Content items.
+description: Learn how to create a content model consisting of content types and a few sample content items.
 ---
 
 # Step 2 — Create the content model
@@ -11,13 +11,13 @@ Below is a short introduction that only covers points needed for this tutorial.
 
 ## Content model overview
 
-The [[= product_name =]] content Repository is centered around **Content items**. A Content item is a single piece of content, for example an article, a product review, a place, etc.
+The [[= product_name =]] content Repository is centered around **content items**. A content item is a single piece of content, for example an article, a product review, a place, etc.
 
-Every Content item is an instance of a content type. Content types define what **Fields** are included in each Content item.
+Every content item is an instance of a content type. Content types define what **Fields** are included in each content item.
 For example, an article could include Fields such as *title*, *image*, *abstract*, *article's body*, *publication date* and *list of authors*.
 
 Fields can belong to one of the installed **Field Types**, about 30 in the default distribution.
-Each Field Type is built to represent a specific type of data: a text line, a block of rich text, an image, a collection of relations to Content items, etc.
+Each Field Type is built to represent a specific type of data: a text line, a block of rich text, an image, a collection of relations to content items, etc.
 You can find a complete list in the [Field Types reference](field_type_reference.md) section.
 Every Field Type may have its own options, and comes with its own editing and viewing interfaces.
 
@@ -63,7 +63,7 @@ Confirm the creation of the content type by clicking **Save and close**.
 
 !!! note
 
-    If you are using [[= product_name_exp =]], the root Content item in your installation is
+    If you are using [[= product_name_exp =]], the root content item in your installation is
     a Page called "Ibexa Digital Experience Platform".
     
     For this tutorial, swap it with its child, a Folder called "Ibexa Platform".

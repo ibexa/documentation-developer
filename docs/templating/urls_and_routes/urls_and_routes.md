@@ -1,5 +1,5 @@
 ---
-description: Add links to Content items or specific built-in and custom routes in your templates.
+description: Add links to content items or specific built-in and custom routes in your templates.
 ---
 
 # URLs and routes
@@ -13,7 +13,7 @@ You need to provide the function with a Location, Content, ContentInfo or [Route
 <p><a href="{{ ibexa_path(content.contentInfo) }}">Content Info</a></p>
 ```
 
-Use [`ibexa_url()`](url_twig_functions.md#ibexa_url) to get an absolute URL to a Content item or Location:
+Use [`ibexa_url()`](url_twig_functions.md#ibexa_url) to get an absolute URL to a content item or Location:
 
 ``` html+twig
 <p><a href="{{ ibexa_url(location) }}">Location</a></p>
@@ -32,8 +32,8 @@ Here, the route is based on the ID of the Location.
 <p><a href="{{ ibexa_path(routeReference) }}">Route</a></p>
 ```
 
-A route can also be based on the ID of the Content item.
-The resulting link points to the Content item's main Location.
+A route can also be based on the ID of the content item.
+The resulting link points to the content item's main Location.
 
 ``` html+twig
 {% set routeReference = ibexa_route("ibexa.url.alias", { 'contentId': 456 }) %}
@@ -115,8 +115,8 @@ The following built-in routes are available for the front of the website.
 |Route name|Path|Description|
 |---|---|---|
 | `ibexa_content_download` | `/content/download/{contentId}/{fieldIdentifier}/{filename}` | Downloading a binary file |
-| `ibexa.content.create_no_draft` | `/content/create/nodraft/{contentTypeIdentifier}/{language}/{parentLocationId}` | [Creating a Content item without using a draft](user_generated_content.md#creating-a-content-item-without-using-a-draft) |
-| `ibexa.content.draft.edit` | `/content/edit/draft/{contentId}/{versionNo}/{language}/{locationId}` | [Editing a Content item](user_generated_content.md#editing-a-content-item) |
+| `ibexa.content.create_no_draft` | `/content/create/nodraft/{contentTypeIdentifier}/{language}/{parentLocationId}` | [Creating a content item without using a draft](user_generated_content.md#creating-a-content-item-without-using-a-draft) |
+| `ibexa.content.draft.edit` | `/content/edit/draft/{contentId}/{versionNo}/{language}/{locationId}` | [Editing a content item](user_generated_content.md#editing-a-content-item) |
 | `ibexa.content.draft.create` | `/content/create/draft/{contentId}/{fromVersionNo}/{fromLanguage}` | [Creating a new draft](user_generated_content.md#creating-a-new-draft) |
 
 ### Search

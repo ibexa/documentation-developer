@@ -22,7 +22,7 @@
     The workflow mechanism is [permission-aware](https://doc.ibexa.co/en/2.5/guide/workflow/#permissions).
     You can limit access to content in different workflow stages, or the ability to pass content through specific transitions.
 
-    ![Workflow event timeline](2.4_workflow_events_timeline.png "Timeline of workflow stages a Content item has gone through")
+    ![Workflow event timeline](2.4_workflow_events_timeline.png "Timeline of workflow stages a content item has gone through")
 
     Workflow Engine is located in the [ezplatform-workflow bundle](https://github.com/ezsystems/ezplatform-workflow).
 
@@ -64,7 +64,7 @@ You can now use formatted text in RichText Fields (provided by means of a `liter
 
 #### Inline embedding in RichText
 
-The new `embed-inline` built-in view type enables embedding Content items within a block element in RichText.
+The new `embed-inline` built-in view type enables embedding content items within a block element in RichText.
 
 #### Custom tag - `ezcontent`
 
@@ -148,7 +148,7 @@ This release introduces a few simplifications to API use for content types:
 
 - Exposes `content->getContentType()` for easier use, including from Twig as `content.contentType`. When iterating over the result set of content/Locations these will effectively be loaded all at once.
 - Adds possibility to load several content types in bulk using `ContentTypeService->loadContentTypeList()`.
-- `UserService` now exposes `isUser()` and `isUserGroup()`. They do not need to do a lookup to the database in order to tell if a Content item is of type User or User Group.
+- `UserService` now exposes `isUser()` and `isUserGroup()`. They do not need to do a lookup to the database in order to tell if a content item is of type User or User Group.
 
 #### Load multiple Locations
 

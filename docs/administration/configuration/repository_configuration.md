@@ -183,7 +183,7 @@ user_data: User data
 
 ## Limit of archived content versions
 
-`default_version_archive_limit` controls the number of archived versions per Content item that are stored in the Repository.
+`default_version_archive_limit` controls the number of archived versions per content item that are stored in the Repository.
 By default it is set to 5. This setting is configured in the following way (typically in `ibexa.yaml`):
 
 ``` yaml
@@ -219,7 +219,7 @@ ibexa:
 Set it to `false` if you have multiple older versions of content and need to avoid performance drops when publishing.
 
 When you set the value to `false`, run [`ibexa:content:cleanup-versions`](#removing-old-versions) periodically
-to make sure that Content item versions that exceed the limit are removed.
+to make sure that content item versions that exceed the limit are removed.
 
 ### Removing old versions
 

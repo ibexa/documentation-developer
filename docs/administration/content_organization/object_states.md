@@ -1,19 +1,19 @@
 ---
-description: Object states are user-defined states that can be assigned to Content items.
+description: Object states are user-defined states that can be assigned to content items.
 ---
 
 ## Object States
 
-Object states are user-defined states that can be assigned to Content items.
+Object states are user-defined states that can be assigned to content items.
 They are contained in groups.
 
 ![Object State group](admin_panel_object_state_groups.png "Object State group")
 
-If a state group contains any states, each Content item is automatically assigned a state from this group.
+If a state group contains any states, each content item is automatically assigned a state from this group.
 
-You can assign states to content in the Back Office in the Content item's **Technical details** tab.
+You can assign states to content in the Back Office in the content item's **Technical details** tab.
 
-![Assigning an Object state to a Content item](assigning_an_object_state.png "Assigning an Object state to a Content item")
+![Assigning an Object state to a content item](assigning_an_object_state.png "Assigning an Object state to a content item")
 
 By default, [[= product_name =]] contains one Object state group: **Lock**, with states **Locked** and **Not locked**.
 

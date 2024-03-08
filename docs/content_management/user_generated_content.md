@@ -9,20 +9,20 @@ They are meant to allow the implementation of user-generated content from the fr
 
 ## Creating a new draft
 
-The `content/create/draft` route enables you to create a new draft for the selected Content item.
-Pass the ID of the Content item as an argument.
+The `content/create/draft` route enables you to create a new draft for the selected content item.
+Pass the ID of the content item as an argument.
 
-For example, `content/create/draft/59` creates a new draft of the Content item with ID 59.
+For example, `content/create/draft/59` creates a new draft of the content item with ID 59.
 
-## Creating a Content item without using a draft
+## Creating a content item without using a draft
 
-The `/content/edit/nodraft` route shows a Content item creation form for a given content type:
+The `/content/edit/nodraft` route shows a content item creation form for a given content type:
 
 | Argument                | Type      | Description                                                                |
 |-------------------------|-----------|----------------------------------------------------------------------------|
 | `contentTypeIdentifier` | `string`  | The identifier of the content type to create. Example: `folder`, `article` |
-| `languageCode`          | `string`  | Language code the Content item must be created in. Example: `eng-GB`       |
-| `parentLocationId`      | `integer` | ID of the Location the Content item must be created in. Example: `2`       |
+| `languageCode`          | `string`  | Language code the content item must be created in. Example: `eng-GB`       |
+| `parentLocationId`      | `integer` | ID of the Location the content item must be created in. Example: `2`       |
 
 This means that `/content/create/nodraft/folder/eng-GB/2` enables you to create a Folder in English as a child of Location with ID 2.
 
@@ -40,7 +40,7 @@ A limited subset of Field Types is supported:
 - `Float`
 - `URL`
 
-## Editing a Content item
+## Editing a content item
 
 To edit an existing draft, use the `/content/edit/draft/` route, with the following arguments:
 
@@ -50,7 +50,7 @@ To edit an existing draft, use the `/content/edit/draft/` route, with the follow
 | `versionNo`             | `integer` | Number of the version to edit. The version must be an unpublished draft. |
 | `languageCode`          | `string`  | Language code of the version. Example: `eng-GB`                          |
 
-For example, `/content/edit/draft/1/5/eng-GB` enables you to edit draft 5 of Content item 1 in English.
+For example, `/content/edit/draft/1/5/eng-GB` enables you to edit draft 5 of content item 1 in English.
 
 ## Content editing templates
 

@@ -6,7 +6,7 @@ description: A taxonomy uses tags to categorize and organize content
 
 Taxonomies (**Tags**) allow you to organize content to make it easy for your site users to browse and to deliver content appropriate for them. 
 Taxonomies are classifications of logical relationships between content.
-In [[= product_name =]] you can create many taxonomies, each with many tags. The platform mechanism enables creating any entities with a tree structure and assign them to a Content item.
+In [[= product_name =]] you can create many taxonomies, each with many tags. The platform mechanism enables creating any entities with a tree structure and assign them to a content item.
 
 Default tag configuration is available in `config/packages/ibexa_taxonomy.yaml`
 The associated content type is `tag`.
@@ -18,7 +18,7 @@ The associated content type is `tag`.
 ## Configuration keys
 
 * `ibexa_taxonomies` - section responsible for taxonomy structure where you can [configure other taxonomies](#customize-taxonomy-structure)
-* `ibexa_taxonomies.tags.parent_location_remote_id` - Remote ID for Location where new Content items representing tags are created
+* `ibexa_taxonomies.tags.parent_location_remote_id` - Remote ID for Location where new content items representing tags are created
 * `ibexa_taxonomies.tags.content_type` - Content type identifier which stands for the tags
 * `ibexa_taxonomies.tags.field_mappings` - Field Types map of a content type which taxonomy receives information about the tag from. 
 
@@ -86,16 +86,16 @@ ibexa:
                     delete_subtree_size_limit: 20
 ```
 
-## Remove orphaned Content items
+## Remove orphaned content items
 
-In some rare case, especially in I[[= product_name =]] v4.2 and older, when deleting parent of huge subtrees, some Taxonomy entries are not properly deleted, leaving Content items that point to a non-existing parent.
-The command `ibexa:taxonomy:remove-orphaned-content` deletes those orphaned Content item.
+In some rare case, especially in I[[= product_name =]] v4.2 and older, when deleting parent of huge subtrees, some Taxonomy entries are not properly deleted, leaving content items that point to a non-existing parent.
+The command `ibexa:taxonomy:remove-orphaned-content` deletes those orphaned content item.
 It works on a taxonomy passed as an argument, and has two options that act as a protective measure against deleting data by mistake:
 
-- `--dry-run` to list deletable Content items, without performing the deletion.
-- `--force` to effectively delete the orphaned Content items.
+- `--dry-run` to list deletable content items, without performing the deletion.
+- `--force` to effectively delete the orphaned content items.
 
-The following example first lists the orphaned Content items for taxonomy `tags`, and then deletes them:
+The following example first lists the orphaned content items for taxonomy `tags`, and then deletes them:
 
 ```bash
 php bin/console ibexa:taxonomy:remove-orphaned-content tags --dry-run

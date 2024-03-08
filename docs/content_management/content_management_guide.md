@@ -18,7 +18,7 @@ Content management capabilities are available in all [[= product_name =]] editio
 
 ## How does it work
 
-[[= product_name =]] revolves around content management. Many things here are Content items, including:
+[[= product_name =]] revolves around content management. Many things here are content items, including:
 
 - sites
 - folders
@@ -40,7 +40,7 @@ All content in [[= product_name =]] is organized hierarchically, into what is ca
 This tree-like structure repeats throughout the system, and applies to content, taxonomies, categories, and the like.
 
 Traditional as the structure may look, with relations and multiple location support, 
-a single Content item can be referenced by another Content item and accessed from different places of the tree, 
+a single content item can be referenced by another content item and accessed from different places of the tree, 
 which allows you to build complex architectures with multiple locales and output channels.
 
 ![Content structure in a Content Browser](img/content_tree.png)
@@ -85,32 +85,32 @@ based on a Landing Page Field Type, with multiple options to set and choose from
 
 ### Content types
 
-Life gets easier when you have templates to fill in with content. Content types are such templates, which editors use to create Content items. 
-Content types define what Fields are available in the Content item.
+Life gets easier when you have templates to fill in with content. Content types are such templates, which editors use to create content items. 
+Content types define what Fields are available in the content item.
 
 [[= product_name =]] comes with several basic content types, and creating new ones, editing, 
 and deleting them is done by using a visual interface, with no coding skills needed.
 
-![Content types vs. Content items](img/content_types.png)
+![Content types vs. content items](img/content_types.png)
 
 ### Content items
 
-Content items are pieces of content, such as, for example, products, articles, blog posts, or media. 
-In [[= product_name =]], everything is a Content item — not just pages, articles or products, but also all media (images, videos, etc.) or even User accounts.
+content items are pieces of content, such as, for example, products, articles, blog posts, or media. 
+In [[= product_name =]], everything is a content item — not just pages, articles or products, but also all media (images, videos, etc.) or even User accounts.
 
-Each Content item, apart from its name and identifier, contains a composition of Fields, which differs depending on the type of content. 
+Each content item, apart from its name and identifier, contains a composition of Fields, which differs depending on the type of content. 
 For example, articles might have a title, an author, a body, and an image, while products may have a name, category, price, size, color, etc.
 
 ### Forms
 
-Forms could be seen as a special kind of Content items, because their role is to gather information from website users and not present it. 
+Forms could be seen as a special kind of content items, because their role is to gather information from website users and not present it. 
 You create them from basic form fields available in [[= product_name =]]. 
 By adding forms to the website, you can increase the website’s functionality and improve user experience.
 Certain editions of [[= product_name =]] come with a visual [Form Builder]([[= user_doc =]]/content_management/work_with_forms/).
 
 ## Content management capabilities
 
-Each Content item has at least one location within the Content Tree, and can have several versions and multiple translations. 
+Each content item has at least one location within the Content Tree, and can have several versions and multiple translations. 
 It can also have related assets, such as images or other media, and assigned keywords, or tags.
 
 You can use these characteristics in combination with system features to create the most comprehensive and functional digital presence for your organization.
@@ -119,15 +119,15 @@ You can use these characteristics in combination with system features to create 
 
 #### Locations
 
-When a Content item is created and published, it is assigned a place in the Content Tree, designated by a Location ID. 
-A single Content item can have more than one Location ID, which means that the same content can be found on different branches of the tree. 
-However, a single location can have only one Content item assigned to it.
+When a content item is created and published, it is assigned a place in the Content Tree, designated by a Location ID. 
+A single content item can have more than one Location ID, which means that the same content can be found on different branches of the tree. 
+However, a single location can have only one content item assigned to it.
 
 ![Locations](img/locations.png)
 
 Locations can be used to control the availability of content items to end users:
-you can [hide specific locations]([[= user_doc =]]/content_management/content_organization/manage_locations_urls/#hide-locations) of a Content item, while others remain available. 
-By [swapping locations]([[= user_doc =]]/content_management/content_organization/manage_locations_urls/#swap-locations), you can immediately replace an obsolete version of a Content item with an updated one.
+you can [hide specific locations]([[= user_doc =]]/content_management/content_organization/manage_locations_urls/#hide-locations) of a content item, while others remain available. 
+By [swapping locations]([[= user_doc =]]/content_management/content_organization/manage_locations_urls/#swap-locations), you can immediately replace an obsolete version of a content item with an updated one.
 
 #### Versions
 
@@ -137,7 +137,7 @@ Before they are published, drafts can be routed between different user roles for
 
 ![Versions](img/versions.png)
 
-Editors can [compare different Content item versions]([[= user_doc =]]/content_management/workflow_management/work_with_versions/#compare-versions) by using the Compare versions feature.
+Editors can [compare different content item versions]([[= user_doc =]]/content_management/workflow_management/work_with_versions/#compare-versions) by using the Compare versions feature.
 
 #### Translations
 
@@ -146,26 +146,26 @@ If a website has different fronts, for different locales, and different language
 
 ![Translations](img/translations.png)
 
-Editors can compare different translations of the same Content items with the Compare versions feature mentioned above.
+Editors can compare different translations of the same content items with the Compare versions feature mentioned above.
 
 #### Relations
 
-A [relation](content_relations.md) can exist between any two Content items in the Content Tree. 
+A [relation](content_relations.md) can exist between any two content items in the Content Tree. 
 For example, blog posts featured in the website's main page are in a relation with the page that they are embedded in. 
-Or, instead of direct attachments, an article can use images that are separate Content items outside the article and are referenced through a relation.
+Or, instead of direct attachments, an article can use images that are separate content items outside the article and are referenced through a relation.
 
 ## Content arrangement
 
-In [[= product_name =]], Content items can be moved and copied between branches of the Content Tree. 
-These operations, like in your computer’s file system, can apply both to individual Content items as well as folders or groups.
+In [[= product_name =]], content items can be moved and copied between branches of the Content Tree. 
+These operations, like in your computer’s file system, can apply both to individual content items as well as folders or groups.
 
 ![Content organization operations](img/content_arrangement.png)
 
-Content items can be hidden when necessary, for example, until a certain event, like a Holiday Sale or Board announcement comes. Hidden Content items are not visible to website visitors and are greyed out in the Content Tree.
+Content items can be hidden when necessary, for example, until a certain event, like a Holiday Sale or Board announcement comes. Hidden content items are not visible to website visitors and are greyed out in the Content Tree.
 
-![Hidden Content item](img/hiddent_content_item.png)
+![Hidden content item](img/hiddent_content_item.png)
 
-Editors can also move obsolete Content items to Trash, and ultimately delete them.
+Editors can also move obsolete content items to Trash, and ultimately delete them.
 
 ![Delete confirmation dialog box](img/delete_confirmation.png)
 
@@ -175,7 +175,7 @@ There are multiple tools within [[= product_name =]] that help content managers 
 
 ### Taxonomy
 
-With taxonomy you can create tags or keywords within a tree structure and assign them to Content items. 
+With taxonomy you can create tags or keywords within a tree structure and assign them to content items. 
 This way you can classify content and make it easier for end users to find the content they need, or browse and view content from a category that suits them best.
 
 ![Taxonomy principles](img/taxonomy.png)
@@ -193,21 +193,21 @@ There are, however, mechanisms to control access to content with even more conve
 ### Sections
 
 You can divide your Content Tree into nominal parts to better organize it.
-Once you have defined sections, for example, Media or Forms, and assigned them to Content items, 
+Once you have defined sections, for example, Media or Forms, and assigned them to content items, 
 you can decide which Roles have access to which Section of the tree.
 
-The setting is inherited, which means that a child Content item inherits a value of this setting from its parent. 
-Changing a Section setting does not result in moving a Content item to a different location within a Content Tree.
+The setting is inherited, which means that a child content item inherits a value of this setting from its parent. 
+Changing a Section setting does not result in moving a content item to a different location within a Content Tree.
 
 ![Members of the Media Section](img/sections.png)
 
 ### Object states
 
-While reviewing the details of each individual Content item in your Content Tree, you can assign a state to it, for example, “Locked” or “Not locked”. 
-Then you can set a permission that allows or denies users access to Content items in a specific state. 
+While reviewing the details of each individual content item in your Content Tree, you can assign a state to it, for example, “Locked” or “Not locked”. 
+Then you can set a permission that allows or denies users access to content items in a specific state. 
 This setting is not inherited.
 
-![Object states in Content item’s Details](img/object_states.png)
+![Object states in content item’s Details](img/object_states.png)
 
 ### User segments
 
@@ -237,7 +237,7 @@ it is a good time to [set up user roles and permissions]([[= user_doc =]]/permis
 
 **3\. Author content**
 
-[Create various Content items]([[= user_doc =]]/content_management/create_edit_content_items/), such as pages, articles, forms, or media. While you fill Fields with content, several actions are there to help you with your task. 
+[Create various content items]([[= user_doc =]]/content_management/create_edit_content_items/), such as pages, articles, forms, or media. While you fill Fields with content, several actions are there to help you with your task. 
 You can pause and resume the work, preview the results, or send content for review.
 
 ![Send to review](img/send_to_review.png)
@@ -248,7 +248,7 @@ Again, this is not part of content management, but at this point you can [publis
 
 **5\. Organize content**
 
-Organize the content of your website by copying or moving Content items, [controlling Locations and URL addresses]([[= user_doc =]]/content_management/content_organization/manage_locations_urls/). 
+Organize the content of your website by copying or moving content items, [controlling Locations and URL addresses]([[= user_doc =]]/content_management/content_organization/manage_locations_urls/). 
 Then work with Tags, Sections and Object States to [classify]([[= user_doc =]]/content_management/content_organization/classify_content/#sections) it.
 
 ## Benefits

@@ -36,12 +36,12 @@ To find identifiers that are not included in the schema, look for "Skipped schem
 
 ## Domain schema
 
-GraphQL for [[= product_name =]] is based on the content types (including product types), content type groups, and Content items
+GraphQL for [[= product_name =]] is based on the content types (including product types), content type groups, and content items
 defined in the Repository.
 
 For each content type the schema exposes a singular and plural field, e.g. `article` and `articles`.
-Use the singular field to query a single Content item, and the plural to get a whole `Connection`
-(a list of Content items that supports pagination).
+Use the singular field to query a single content item, and the plural to get a whole `Connection`
+(a list of content items that supports pagination).
 
 With the queries you can inspect:
 
@@ -70,7 +70,7 @@ GraphQL is SiteAccess-aware, but can have only one schema per installation.
 This means you cannot use GraphQL with multiple repositories.
 
 When you request a URL from a SiteAccess that is different than the current one,
-the API generates it for the Content item's SiteAccess, with an absolute URL if necessary.
+the API generates it for the content item's SiteAccess, with an absolute URL if necessary.
 
 ## Authentication
 
