@@ -33,7 +33,7 @@ Personalization is SiteAcces-aware, it means it can serve on multiple sites with
 Use Twig extension to add a tracking script and implement it into your site configuration.
 
 <figure>
-<iframe width=800; height="400"; src="https://demo.arcade.software/lHMUJAsqOqpjyhM10s1C?embed" frameborder="0" allowfullscreen> </iframe>
+<iframe width=800; height="420"; src="https://demo.arcade.software/lHMUJAsqOqpjyhM10s1C?embed" frameborder="0" allowfullscreen> </iframe>
 <figcaption>Setting up automatic recommendations of trending content</figcaption>
 </figure>
 
@@ -69,7 +69,7 @@ Scenarios are sequences of events. You can use scenarios to determine how and wh
 Use segments to get content targeted at particular user groups. Segments calculate models based on the segment attribute factor. Assign users to different recommendation groups and create advanced logic with operators to get best segmentation for your audience.
 
 <figure>
-<iframe width=800; height="400"; src="https://demo.arcade.software/SOxvktvBxbEGIcMMe1j8?embed" frameborder="0" allowfullscreen> </iframe>
+<iframe width=800; height="420"; src="https://demo.arcade.software/SOxvktvBxbEGIcMMe1j8?embed" frameborder="0" allowfullscreen> </iframe>
 <figcaption>Serving relevant recommendations to users from different segments</figcaption>
 </figure>
 

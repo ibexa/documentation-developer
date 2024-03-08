@@ -14,7 +14,7 @@ You can disable the default workflow and define different workflows in configura
 Workflows are permission-aware.
 
 <figure>
-<iframe width=800; height="400"; src="https://demo.arcade.software/q6BGIfNEvn7LLwSYes1a?embed" frameborder="0" allowfullscreen> </iframe>
+<iframe width=800; height="420"; src="https://demo.arcade.software/q6BGIfNEvn7LLwSYes1a?embed" frameborder="0" allowfullscreen> </iframe>
 <figcaption>Using workflows</figcaption>
 </figure>
 

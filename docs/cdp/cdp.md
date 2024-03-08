@@ -24,6 +24,6 @@ The customer data are collected through the system of trackers embedded in diffe
 For more information on activation and trackers, see [CDP activation documentation](cdp_activation.md).
 
 <figure>
-<iframe width=800; height="400"; src="https://demo.arcade.software/696WytOTtFrvrT4Q227Q?embed" frameborder="0" allowfullscreen> </iframe>
+<iframe width=800; height="420"; src="https://demo.arcade.software/696WytOTtFrvrT4Q227Q?embed" frameborder="0" allowfullscreen> </iframe>
 <figcaption>Creating and targeting audiences with Ibexa CDP</figcaption>
 </figure>

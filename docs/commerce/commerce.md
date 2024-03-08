@@ -11,7 +11,7 @@ The commerce component of [[= product_name =]] covers various areas of managing 
 ??? tip "Click to see an interactive demo"
 
     <figure>
-    <iframe width=800; height="400"; src="https://demo.arcade.software/NbDnRvMI0aO6UQDQureM?embed" frameborder="0" allowfullscreen> </iframe>
+    <iframe width=800; height="420"; src="https://demo.arcade.software/NbDnRvMI0aO6UQDQureM?embed" frameborder="0" allowfullscreen> </iframe>
     <figcaption>Selling online with Ibexa Commerce</figcaption>
     </figure>
 

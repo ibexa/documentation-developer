@@ -14,7 +14,7 @@ It helps you provide a unique user experience with a single point of access to a
 ??? tip "Click to see an interactive demo"
 
     <figure>
-    <iframe width=800; height="400"; src="https://demo.arcade.software/qjbJAxda4GVFPDeh1BWs?embed" frameborder="0" allowfullscreen> </iframe>
+    <iframe width=800; height="420"; src="https://demo.arcade.software/qjbJAxda4GVFPDeh1BWs?embed" frameborder="0" allowfullscreen> </iframe>
     <figcaption>Creating a customer portal</figcaption>
     </figure>
     
@@ -96,7 +96,7 @@ This feature comes with a set of new roles:
 All roles and policies associated with them can be fully customized to fit your business needs.
 
 <figure>
-<iframe width=800; height="400"; src="https://demo.arcade.software/GMaVouFUvJy6XOfGzVos?embed" frameborder="0" allowfullscreen> </iframe>
+<iframe width=800; height="420"; src="https://demo.arcade.software/GMaVouFUvJy6XOfGzVos?embed" frameborder="0" allowfullscreen> </iframe>
 <figcaption>Managing users within corporate accounts</figcaption>
 </figure>
 
