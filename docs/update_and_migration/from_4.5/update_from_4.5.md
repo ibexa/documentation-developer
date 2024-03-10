@@ -93,6 +93,16 @@ First, run:
 The `recipes:install` command installs new YAML configuration files.
 Review the old YAML files and move your custom configuration to the relevant new files.
 
+## Remove `node_modules` and `yarn.lock`
+
+Next, remove `node_modules` and `yarn.lock` before running `composer run post-update-cmd`,
+otherwise you can encounter errors during compiling.
+
+``` bash
+rm -Rf node_modules
+rm yarn.lock
+```
+
 ## Finish code update
 
 Finish the code update by running:
