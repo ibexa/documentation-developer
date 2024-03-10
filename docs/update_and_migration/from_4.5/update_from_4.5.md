@@ -213,7 +213,7 @@ You can add it running the following commands:
 
 ```bash
 php bin/console ibexa:migrations:import vendor/ibexa/image-picker/src/bundle/Resources/migrations/2023_12_06_15_00_image_content_type.yaml --name=2023_12_06_15_00_image_content_type.yaml
-php bin/console ibexa:migrations:migrate
+php bin/console ibexa:migrations:migrate --file=2023_12_06_15_00_image_content_type.yaml
 ```
 
 ### Dashboard migration [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
@@ -233,7 +233,7 @@ php bin/console ibexa:migrations:migrate --file=2023_09_23_14_15_dashboard_struc
 For [[= product_name_com =]] there's an additional migration:
 ``` bash
 php bin/console ibexa:migrations:import vendor/ibexa/order-management/src/bundle/Resources/install/migrations/dashboard_structure.yaml --name=2023_11_20_14_33_order_dashboard_structure.yaml
-php bin/console ibexa:migrations:migrate --file=2023_11_20_14_33_order_dashboard_structure
+php bin/console ibexa:migrations:migrate --file=2023_11_20_14_33_order_dashboard_structure.yaml
 
 ```
 
