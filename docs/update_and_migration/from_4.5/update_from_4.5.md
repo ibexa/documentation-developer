@@ -216,12 +216,6 @@ php bin/console ibexa:migrations:import vendor/ibexa/image-picker/src/bundle/Res
 php bin/console ibexa:migrations:migrate
 ```
 
-Or disable the aggregations in Image Picker by setting the parameter:
-```yaml
-parameters:
-    ibexa.dam_widget.image.aggregations: ~
-```
-
 ### Dashboard migration [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 If you are using [[= product_name_exp =]] or [[= product_name_com =]],
