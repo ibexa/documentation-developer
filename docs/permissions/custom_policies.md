@@ -127,12 +127,13 @@ Then, extract this translation to generate the English translation file `transla
 php bin/console translation:extract en --domain=forms --dir=src --output-dir=translations
 ```
 
-### Extend existing Policies
+!!! note "Extend existing Policies"
 
-A `PolicyProvider` may provide new functions to a module, and additional Limitations to an existing function.
-**It's however strongly encouraged to add functions to your own Policy modules.**
+    While a `PolicyProvider` may provide new functions to an existing Policy module,
+    or additional Limitations to an existing function,
+    it's however strongly recommended to create your own modules.
 
-It's impossible to remove an existing module, function or limitation from a Policy.
+    It's impossible to remove an existing module, function or limitation from a Policy.
 
 ## `PolicyProvider` integration into `IbexaCoreBundle`
 
