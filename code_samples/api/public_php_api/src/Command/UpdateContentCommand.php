@@ -54,7 +54,7 @@ class UpdateContentCommand extends Command
         $contentDraft = $this->contentService->updateContent($contentDraft->versionInfo, $contentUpdateStruct);
         $this->contentService->publishVersion($contentDraft->versionInfo);
 
-        $output->writeln('content item ' . $contentId . ' updated with new name: ' . $newName);
+        $output->writeln('Content item ' . $contentId . ' updated with new name: ' . $newName);
 
         return self::SUCCESS;
     }

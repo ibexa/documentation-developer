@@ -115,7 +115,7 @@ If a Location is made invisible manually, its status is set to Hidden.
 All Locations under it will change status to Hidden by superior.
 A content item is Hidden by superior only in Locations in which it has a parent Location with the Hidden status.
 
-In the following example, the **content item 1** is Hidden by superior in the **Location A** while still visible in the **Location B**.
+In the following example, the **Content item 1** is Hidden by superior in the **Location A** while still visible in the **Location B**.
 
 ![Visibility in two locations](locations_visibility.png)
 

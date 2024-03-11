@@ -63,7 +63,7 @@ the function returns the name in the main language.
 
 | Argument | Type | Description |
 |---------------|------|-------------|
-| `content` | `Ibexa\Contracts\Core\Repository\Values\Content\Content`</br>or</br>`Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo` | content item or its ContentInfo object.|
+| `content` | `Ibexa\Contracts\Core\Repository\Values\Content\Content`</br>or</br>`Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo` | Content item or its ContentInfo object.|
 | `forcedLanguage` | `string` | (optional) Language to use (for example, `fre-FR`). |
 
 ``` html+twig

@@ -49,7 +49,7 @@ Main variables include:
 
 |Variable |Description|
 |------|------|
-|`content`|content item, containing all Fields and version information (VersionInfo). |
+|`content`|Content item, containing all Fields and version information (VersionInfo). |
 |`location`|Location object. Contains meta information on the Content (ContentInfo). |
 |`ibexa.siteaccess`| Current [SiteAccess](multisite.md). |
 |`ibexa.rootLocation`| Root Location object. |
