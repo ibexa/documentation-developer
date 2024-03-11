@@ -13,7 +13,7 @@ Any bundle can expose available Policies via a `PolicyProvider` which can be add
 A `PolicyProvider` object provides a hash containing declared modules, functions and Limitations.
 
 - Each Policy provider provides a collection of permission *modules*.
-- Each module can provide *functions* (For example, in `content/read`, "content" is the module, and "read" is the function)
+- Each module can provide *functions* (for example, in `content/read`, "content" is the module, and "read" is the function)
 - Each function can provide a collection of Limitations.
 
 First level key is the module name which is limited to characters within the set `A-Za-z0-9_`, value is a hash of
@@ -121,13 +121,13 @@ class MyPolicyProvider implements PolicyProviderInterface, TranslationContainerI
 }
 ```
 
-Then, extract those translation to generate the English translation file `translations/forms.en.xlf`:
+Then, extract this translation to generate the English translation file `translations/forms.en.xlf`:
 
 ``` bash
 php bin/console translation:extract en --domain=forms --dir=src --output-dir=translations
 ```
 
-### Existing Policies extension
+### Extend existing Policies
 
 A `PolicyProvider` may provide new functions to a module, and additional Limitations to an existing function.
 **It's however strongly encouraged to add functions to your own Policy modules.**
@@ -144,7 +144,7 @@ For a `PolicyProvider` to be active, you have to register it in the `src/Kernel.
 
 ## Custom Limitation type
 
-For a custom module function, existing limitation types can be used or custom ones can be created.
+For a custom module function, you can use existing limitation types or create custom ones.
 
 The base of a custom limitation is a class to store values for the usage of this limitation in roles, and a class to implement the limitation's logic.
 
@@ -185,7 +185,7 @@ To provide support for editing custom policies in the Back Office, you need to i
 [[= include_file('code_samples/back_office/limitation/src/Security/Limitation/Mapper/CustomLimitationFormMapper.php') =]]
 ```
 
-And provide a template corresponding to `getFormTemplate`.
+Provide a template corresponding to `getFormTemplate`.
 
 ``` html+twig
 [[= include_file('code_samples/back_office/limitation/templates/themes/admin/limitation/custom_limitation_form.html.twig') =]]
