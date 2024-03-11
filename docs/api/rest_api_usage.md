@@ -23,7 +23,7 @@ Starting from the [root resource](#rest-root), every response includes further l
 In practice, the `/api/ezp/v2` prefixes all REST hrefs.
 
 This prefix immediately follows the domain, and you can't use the [`URIElement` SiteAccess matcher](../guide/multisite/siteaccess_matching.md#urielement).
-If you need to the select a SiteAccess, see the [`X-Siteaccess` HTTP header](rest_api_requests#siteaccess).
+If you need to the select a SiteAccess, see the [`X-Siteaccess` HTTP header](rest_api_requests.md#siteaccess).
 
 ### URI parameters
 

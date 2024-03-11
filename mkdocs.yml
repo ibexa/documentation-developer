@@ -3,7 +3,7 @@ INHERIT: plugins.yml
 site_name: Developer Documentation
 repo_url: https://github.com/ezsystems/developer-documentation
 site_url: https://doc.ibexa.co/en/latest/
-copyright: "Copyright 1999-2023 Ibexa AS and others"
+copyright: "Copyright 1999-2024 Ibexa AS and others"
 nav:
     - 'Ibexa Developer Documentation': 'index.md'
     - Getting started:
@@ -610,16 +610,19 @@ nav:
         - Update from v4.2:
             - 'Update to v4.3': 'update_and_migration/from_4.2/update_from_4.2.md'
         - Update from v4.3:
-              - Update to v4.4: 'update_and_migration/from_4.3/update_from_4.3.md'
-              - Use new Commerce packages: 'update_and_migration/from_4.3/update_from_4.3_new_commerce.md'
-              - Keep old Commerce packages: 'update_and_migration/from_4.3/update_from_4.3_old_commerce.md'
+              - 'Update to v4.4': 'update_and_migration/from_4.3/update_from_4.3.md'
+              - 'Use new Commerce packages': 'update_and_migration/from_4.3/update_from_4.3_new_commerce.md'
+              - 'Keep old Commerce packages': 'update_and_migration/from_4.3/update_from_4.3_old_commerce.md'
         - Update from v4.4:
               - 'Update to v4.5': 'update_and_migration/from_4.4/update_from_4.4.md'
+        - Update from v4.5:
+              - 'Update to v4.6': 'update_and_migration/from_4.5/update_from_4.5.md'
         - Migrate to Ibexa DXP:
             - 'Migrate from eZ Publish Platform': 'migrating/migrating_from_ez_publish_platform.md'
             - 'Migrate from eZ Publish': 'migrating/migrating_from_ez_publish.md'
             - 'Common migration issues': 'migrating/common_issues.md'
     - Release notes:
+        - 'Ibexa DXP v4.6 LTS': 'release_notes/ibexa_dxp_v4.6.md'
         - 'Ibexa DXP v4.5': 'release_notes/ibexa_dxp_v4.5.md'
         - 'Ibexa DXP v4.4': 'release_notes/ibexa_dxp_v4.4.md'
         - 'Ibexa DXP v4.3': 'release_notes/ibexa_dxp_v4.3.md'
@@ -693,7 +696,8 @@ extra:
   latest_tag_4_2: '4.2.4'
   latest_tag_4_3: '4.3.5'
   latest_tag_4_4: '4.4.4'
-  latest_tag_4_5: '4.5.3'
+  latest_tag_4_5: '4.5.5'
+  latest_tag_4_6: '4.6.1'
 
   symfony_doc: 'http://symfony.com/doc/5.4'
   user_doc: 'https://doc.ibexa.co/projects/userguide/en/master'
