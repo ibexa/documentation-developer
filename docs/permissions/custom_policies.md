@@ -60,6 +60,14 @@ class MyPolicyProvider implements PolicyProviderInterface
 }
 ```
 
+!!! note "Extend existing Policies"
+
+    While a `PolicyProvider` may provide new functions to an existing Policy module,
+    or additional Limitations to an existing function,
+    it's however strongly recommended to create your own modules.
+
+    It's impossible to remove an existing module, function or limitation from a Policy.
+
 ### YamlPolicyProvider
 
 An abstract class based on YAML is provided: `Ibexa\Bundle\Core\DependencyInjection\Security\PolicyProvider\YamlPolicyProvider`.
@@ -126,14 +134,6 @@ Then, extract this translation to generate the English translation file `transla
 ``` bash
 php bin/console translation:extract en --domain=forms --dir=src --output-dir=translations
 ```
-
-!!! note "Extend existing Policies"
-
-    While a `PolicyProvider` may provide new functions to an existing Policy module,
-    or additional Limitations to an existing function,
-    it's however strongly recommended to create your own modules.
-
-    It's impossible to remove an existing module, function or limitation from a Policy.
 
 ## `PolicyProvider` integration into `IbexaCoreBundle`
 
