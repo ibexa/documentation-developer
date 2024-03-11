@@ -1,5 +1,5 @@
 ---
-description: PHP API enables managing content Locations, Content Types, as well as content in Trash and Calendar events.
+description: PHP API enables managing content Locations, content types, as well as content in Trash and Calendar events.
 ---
 
 # Managing content
@@ -137,20 +137,20 @@ $this->trashService->recover($trashItem, $newParent);
 You can also search through Trash items and sort the results using several public PHP API search criteria and sort clauses that have been exposed for `TrashService` queries.
 For more information, see [Searching in trash](search_api.md#searching-in-trash).
 
-## Content Types
+## Content types
 
-!!! tip "Content Type REST API"
+!!! tip "Content type REST API"
 
-    To learn how to manage Content Types using the REST API, see [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#managing-content-get-content-type-groups).
+    To learn how to manage content types using the REST API, see [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#managing-content-get-content-type-groups).
 
-### Adding Content Types
+### Adding content types
 
-To operate on Content Types, you need to make use of [`ContentTypeService`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentTypeService.html).
+To operate on content types, you need to make use of [`ContentTypeService`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentTypeService.html).
 
-Adding a new Content Type, like creating content, must happen with the use of a struct, because a Content Type value object is read-only.
+Adding a new content type, like creating content, must happen with the use of a struct, because a content type value object is read-only.
 In this case you use [`ContentTypeCreateStruct`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-ContentTypeCreateStruct.html).
 
-A Content Type must have at least one name, in the main language, and at least one Field definition.
+A content type must have at least one name, in the main language, and at least one Field definition.
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/CreateContentTypeCommand.php', 58, 68) =]][[= include_file('code_samples/api/public_php_api/src/Command/CreateContentTypeCommand.php', 75, 84) =]]
@@ -162,15 +162,15 @@ You can specify more details of the Field definition in the create struct, for e
 [[= include_file('code_samples/api/public_php_api/src/Command/CreateContentTypeCommand.php', 66, 76) =]]
 ```
 
-### Copying Content Types
+### Copying content types
 
-To copy a Content Type, use [`ContentTypeService::copyContentType`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentTypeService.html#method_copyContentType):
+To copy a content type, use [`ContentTypeService::copyContentType`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentTypeService.html#method_copyContentType):
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/CreateContentTypeCommand.php', 88, 89) =]]
 ```
 
-The copy will automatically be given an identifier based on the original Content Type identifier
+The copy will automatically be given an identifier based on the original content type identifier
 and the copy's ID, for example: `copy_of_folder_21`.
 
 To change the identifier of the copy, use a [`ContentTypeUpdateStruct`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-ContentTypeUpdateStruct.html):

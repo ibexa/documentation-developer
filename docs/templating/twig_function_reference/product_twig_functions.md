@@ -111,8 +111,24 @@ The `ibexa_get_product_stock` Twig function retrieves the stock quantity for a p
 The `ibexa_format_price` filter formats the price value by placing currency code 
 either on the left or on the right of the numerical value.
 
+#### Examples
+
 ``` html+twig
 {% for product.price in product.attributes %}
     {{ product.price.getMoney()|ibexa_format_price }}
 {% endfor %}
+```
+
+### `ibexa_is_pim_local`
+
+The `ibexa_is_pim_local` is a helper Twig function that enables changing the behavior of templates depending on the source of product data.
+
+#### Examples
+
+``` html+twig
+{% if ibexa_is_pim_local() == true %}
+    <div class="conditional-content">
+        <button type="button">Modify product data</button>
+    </div>
+{% endif %}
 ```

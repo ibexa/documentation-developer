@@ -119,7 +119,7 @@ The User Settings menu has been expanded with the following options:
 
 This release introduced several Back Office improvements to facilitate editorial experience, including:
 
-- [Icons for Content Types and the ability to define them](https://doc.ibexa.co/en/2.5/guide/extending/extending_back_office/#custom-content-type-icons)
+- [Icons for content types and the ability to define them](https://doc.ibexa.co/en/2.5/guide/extending/extending_back_office/#custom-content-type-icons)
 - Ability to collapse and expand content preview to have easier access to the Sub-items list
 - Responsive Sub-items table with selectable column layout
 - Simpler assigning of Object States to content
@@ -136,7 +136,7 @@ It will enable or disable (if not set) the **Create** button in your dashboard.
 
 #### Universal Discovery Widget
 
-`allowed_content_types` can now limit selection in UDW search and browse sections to specified Content Types.
+`allowed_content_types` can now limit selection in UDW search and browse sections to specified content types.
 
 ![Create button in Dashboard](2.5_create_button.png)
 

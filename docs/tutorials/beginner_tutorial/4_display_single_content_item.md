@@ -95,7 +95,7 @@ But you still can see how the template works in two ways:
 
 #### Preview in the Back Office
 
-You can use the preview while editing in the Back Office to see how the content will be rendered in full view.
+You can use the [preview]([[= user_doc =]]/content_management/preview_content_items/) while editing in the Back Office to see how the content will be rendered in full view.
 
 ![Full ride preview in admin](bike_tutorial_preview_full_ride.png)
 

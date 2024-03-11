@@ -27,7 +27,7 @@ class TutorialContentTypeContext implements Context
     }
 
     /**
-     * @Given I create a :contentTypeName Content Type with :contentTypeIdentifier identifier:
+     * @Given I create a :contentTypeName content type with :contentTypeIdentifier identifier:
      */
     public function iCreateAContentTypeWithIdentifier($contentTypeName, $contentTypeIdentifier, TableNode $fieldDetails): void
     {
@@ -43,7 +43,7 @@ class TutorialContentTypeContext implements Context
     }
 
     /**
-     * @Given I add field to :contentTypeIdentifier Content Type
+     * @Given I add field to :contentTypeIdentifier content type
      */
     public function iAddFieldToArticleContentType($contentTypeIdentifier, TableNode $fieldDetails): void
     {

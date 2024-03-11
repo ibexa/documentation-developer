@@ -48,3 +48,5 @@ Here, you can specify which template should be used for the invitation mail,
 and what should be the expiration time for the invitation link included in that mail.
 If a user does not click the invitation link sent to them in time, you can refresh the invitation.
 Refresh resets the time limit and changes the hash in the invitation link.
+
+You can find more registration related templates in [Register new users documentation](user_registration.md#other-user-management-templates).

@@ -74,7 +74,7 @@ The Field definition of this Field Type can be configured with the following opt
 |------|------|------|------|
 |`selectionMethod`|`mixed`|`SELECTION_BROWSE`|Method of selection in the back-end interface.|
 |`selectionDefaultLocation`|`string|integer`|`null`|ID of the default Location for the selection when using the back-end interface.|
-|`selectionContentTypes`|`array`|`[]`|An array of Content Type IDs that are allowed for related Content.|
+|`selectionContentTypes`|`array`|`[]`|An array of content type IDs that are allowed for related Content.|
 
 Following selection methods are available:
 

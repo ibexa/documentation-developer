@@ -22,9 +22,9 @@ class FindInTrashCommand extends Command
     protected function configure()
     {
         $this
-            ->setDescription('Lists content in Trash belonging to the provided Content Type.')
+            ->setDescription('Lists content in Trash belonging to the provided content type.')
             ->setDefinition([
-                new InputArgument('contentTypeId', InputArgument::REQUIRED, 'Content Type ID'),
+                new InputArgument('contentTypeId', InputArgument::REQUIRED, 'Content type ID'),
             ]);
     }
 

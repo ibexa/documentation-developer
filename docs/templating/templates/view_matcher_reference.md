@@ -10,13 +10,13 @@ You can use the following matchers to [match content views](template_configurati
 | Identifier | Matches |
 |------|------|
 | [`Id\Content`](#idcontent) | ID number of the Content item. |
-| [`Id\ContentType`](#idcontenttype) | ID number of the Content Type that the Content item belongs to. |
-| [`Identifier\ContentType`](#identifiercontenttype) | Identifier of the Content Type that the Content item belongs to. |
-| [`Id\ContentTypeGroup`](#idcontenttypegroup) | ID number of the group containing the Content Type that the Content item belongs to. |
+| [`Id\ContentType`](#idcontenttype) | ID number of the content type that the Content item belongs to. |
+| [`Identifier\ContentType`](#identifiercontenttype) | Identifier of the content type that the Content item belongs to. |
+| [`Id\ContentTypeGroup`](#idcontenttypegroup) | ID number of the group containing the content type that the Content item belongs to. |
 | [`Id\Location`](#idlocation) | ID number of a Location. |
 | [`Id\LocationRemote`](#idlocationremote) | Remote ID number of a Location. |
-| [`Id\ParentContentType`](#idparentcontenttype) | ID number of the parent Content Type. |
-| [`Identifier\ParentContentType`](#identifierparentcontenttype) | Identifier of the parent Content Type. |
+| [`Id\ParentContentType`](#idparentcontenttype) | ID number of the parent content type. |
+| [`Identifier\ParentContentType`](#identifierparentcontenttype) | Identifier of the parent content type. |
 | [`Id\ParentLocation`](#idparentlocation) | ID number of the parent Location. |
 | [`Id\Remote`](#idremote) | Remote ID of a Content item. |
 | [`Id\Section`](#idsection) | ID number of the Section that the Content item belongs to. |
@@ -52,7 +52,7 @@ match:
 
 ## Id\ContentType
 
-Matches the ID number of a Content Type that the Content item belongs to.
+Matches the ID number of a content type that the Content item belongs to.
 
 ``` yaml
 match:
@@ -61,7 +61,7 @@ match:
 
 ## Identifier\ContentType
 
-Matches the identifier of the Content Type that the Content item belongs to.
+Matches the identifier of the content type that the Content item belongs to.
 
 ``` yaml
 match:
@@ -70,7 +70,7 @@ match:
 
 ## Id\ContentTypeGroup
 
-Matches the ID number of the Content Type Group that the Content item belongs to.
+Matches the ID number of the content type Group that the Content item belongs to.
 
 ``` yaml
 match:
@@ -97,7 +97,7 @@ match:
 
 ## Id\ParentContentType
 
-Matches the ID number of the parent Content Type. In the case of a Content item, matched against the main Location.
+Matches the ID number of the parent content type. In the case of a Content item, matched against the main Location.
 
 ``` yaml
 match:
@@ -106,7 +106,7 @@ match:
 
 ## Identifier\ParentContentType
 
-Matches the identifier of the parent Content Type. In the case of a Content item, matched against the main Location.
+Matches the identifier of the parent content type. In the case of a Content item, matched against the main Location.
 
 ``` yaml
 match:

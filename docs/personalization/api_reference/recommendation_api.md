@@ -87,6 +87,17 @@ For more information, see [Submodels]([[= user_doc =]]/personalization/recommend
     
     `GET https://reco.perso.ibexa.co/api/v2/00000/john.doe/landing_page.json?numrecs=50&outputtypeid=1&width-range=10:30&color=green`
 
+##### Segment parameters
+
+If you have configured segments, you can use them in the recommendation model. Pass the following parameter
+to request recommendations for a specific segment or segment group.
+
+Parameter|Example|Description|Value|
+|---|---|---|---|
+|`segments`|`&segments=7,8,10,11`|ID from segment group management|string|
+
+For more information, see [Segments]([[= user_doc =]]/personalization/segment_management).
+
 ## Responses
 
 The recommendation request returns information about the currently used context 

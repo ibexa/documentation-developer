@@ -27,7 +27,7 @@ which users receive after they request a password change.
 The [default templates](https://github.com/ibexa/user/tree/main/src/bundle/Resources/views) for forgot password form and email are located in `ibexa/user/src/bundle/Resources/views`.
 The [templates](https://github.com/ibexa/admin-ui/tree/main/src/bundle/Resources/views/themes/admin/account/forgot_password) specific for the Back Office are in `ibexa/admin-ui/src/bundle/Resources/views/themes/admin/account`.
 
-You can also modify [other user management templates](user_management.md#other-user-management-templates).
+You can also modify [other user management templates](user_registration.md#other-user-management-templates).
 
 To add a link redirecting to the reset password form, in the page layout template, provide the following code:
 

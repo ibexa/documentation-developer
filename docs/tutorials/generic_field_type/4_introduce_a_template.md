@@ -24,7 +24,7 @@ Your basic template for Point 2D should look like this:
 
 ## Template mapping
 
-Next, provide the template mapping in `config/packages/ezplatform.yaml`:
+Next, provide the template mapping in `config/packages/ibexa.yaml`:
 
 ```yaml
 [[= include_file('code_samples/field_types/2dpoint_ft/config/packages/field_templates.yaml', 0, 5) =]]

@@ -25,9 +25,9 @@ This version introduces the **Page Builder** which replaces the Landing Page edi
     The Places Page Builder block has been removed from the clean installation and will only be available in the demo out of the box.
     If you had been using this block in your site, re-apply its configuration based on [the demo](https://github.com/ezsystems/ezplatform-ee-demo/blob/master/app/config/blocks.yaml).
 
-#### Modifying the Page Content Type
+#### Modifying the Page content type
 
-You can edit the new Page Content Type by adding Fields, as well as create new Content Types with the Page Field Type.
+You can edit the new Page content type by adding Fields, as well as create new content types with the Page Field Type.
 
 ![Editing Fields in Page Builder](2.2_page_builder_edit_fields.png)
 
@@ -45,7 +45,7 @@ In the Page block config you can now specify the CSS class with its own style fo
 
 ### Bookmarks
 
-Bookmark service allows you to create bookmarks for Locations by selecting a star located next to the Content Type name as shown in the screenshot below. Each Location can only be bookmarked once, multiple bookmarks on one Location will cause an error.
+Bookmark service allows you to create bookmarks for Locations by selecting a star located next to the content type name as shown in the screenshot below. Each Location can only be bookmarked once, multiple bookmarks on one Location will cause an error.
 
 ![Bookmark](bookmark.png)
 
@@ -73,7 +73,7 @@ When viewing User or User Group Content items you can now preview what permissio
 
 ![Preview of permissions assigned to a User](2.2_permissions_in_user_view.png)
 
-You can also [select which Content Types are treated the same way as User of User Group](https://doc.ibexa.co/en/2.5/guide/config_repository/#user-identifiers) for these purposes.
+You can also [select which content types are treated the same way as User of User Group](https://doc.ibexa.co/en/2.5/guide/config_repository/#user-identifiers) for these purposes.
 
 ### Change from UTF8 to UTF8MB4
 
