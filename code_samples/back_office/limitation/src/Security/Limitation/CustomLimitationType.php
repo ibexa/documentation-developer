@@ -66,7 +66,7 @@ class CustomLimitationType implements Type
             return Type::ACCESS_GRANTED;
         }
 
-        // If the limitation value is not set to `true`, then $currentUser, $object and/or $targets could be challenged to determine if the access is granted or not.
+        // If the limitation value is not set to `true`, then $currentUser, $object and/or $targets could be challenged to determine if the access is granted or not; Here or elsewhere. When passing the baton, a limitation can return Type::ACCESS_ABSTAIN
         return Type::ACCESS_DENIED;
     }
 
