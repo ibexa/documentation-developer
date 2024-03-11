@@ -13,7 +13,7 @@ All built-in Query types take the following optional parameters:
 - `offset` - offset for search hits, used for paginating the results
 - `sort` - [sort order](#sort-order)
 - `filter` - additional query filters:
-    - `content_type` - return only results of given Content Types
+    - `content_type` - return only results of given content types
     - `visible_only` - return only visible results (default `true`)
     - `siteaccess_aware` - return only results limited to the current SiteAccess root (default `true`)
 

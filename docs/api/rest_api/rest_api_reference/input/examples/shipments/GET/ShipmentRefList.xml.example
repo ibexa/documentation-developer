@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ShipmentRefList media-type="application/vnd.ibexa.api.ShipmentRefList+xml" href="/api/ibexa/v2/shipments">
+    <ShipmentRef media-type="application/vnd.ibexa.api.Shipment+xml" href="/api/ibexa/v2/shipments/foo"/>
+    <ShipmentRef media-type="application/vnd.ibexa.api.Shipment+xml" href="/api/ibexa/v2/shipments/bar"/>
+    <ShipmentRef media-type="application/vnd.ibexa.api.Shipment+xml" href="/api/ibexa/v2/shipments/baz"/>
+    <ShipmentRef media-type="application/vnd.ibexa.api.Shipment+xml" href="/api/ibexa/v2/shipments/qux"/>
+</ShipmentRefList>

@@ -75,17 +75,17 @@ post:
     /entry:
         post:
             displayName: Add Entry to Cart
-            description: Adds an the posted entry to the cart passed by identifier
+            description: Adds an entry to the cart referenced by its identifier
             headers:
                 Content-Type:
-                    description: The EntryAddStruct schema encoded in XML or JSON format.
+                    description: The CartEntryAdd schema encoded in XML or JSON format.
                     example: |
-                        application/vnd.ibexa.api.EntryAddStruct+xml
-                        application/vnd.ibexa.api.EntryAddStruct+json
-            #body:
-            #    application/vnd.ibexa.api.EntryAddStruct+xml:
-            #        type: EntryAddStruct
-            #        example: !include examples/cart/entry/POST/EntryAddStruct.json.example
+                        application/vnd.ibexa.api.CartEntryAdd+xml
+                        application/vnd.ibexa.api.CartEntryAdd+json
+            body:
+                application/vnd.ibexa.api.CartEntryAdd+xml:
+                    type: CartEntryAdd
+                    example: !include examples/cart/entry/POST/CartEntryAdd.json.example
         /{entryId}:
             delete:
                 displayName: Remove Entry from Cart

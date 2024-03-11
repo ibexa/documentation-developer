@@ -8,7 +8,7 @@ Legacy search engine is the default search engine. It is SQL-based and uses Doct
 The connections are defined in the same way as for storage engine, and no further specific configuration is needed.
 Legacy search engine is recommended for basic needs and is not intended in production.
 It allows you to use filtering and fulltext search, but with some limitations.
-For more information, check [search engine comparison](search_engines.md#search-engine-comparison)
+For more information, check [search engine comparison](search_engines.md#search-engines-comparison)
 
 !!! tip
 

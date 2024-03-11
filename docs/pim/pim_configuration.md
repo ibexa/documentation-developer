@@ -34,7 +34,7 @@ ibexa_product_catalog:
 
 The `local` type is the built-in type of catalog based on the Repository.
 
-Under `options.product_type_group_identifier` you can define the identifier of the Content Type Group used for storing products.
+Under `options.product_type_group_identifier` you can define the identifier of the content type Group used for storing products.
 
 `root_location_remote_id` indicates the remote ID of the Location where products are stored.
 

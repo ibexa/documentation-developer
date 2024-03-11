@@ -69,9 +69,9 @@ gets the Location's main [URL alias](../../api/php_api/php_api_reference/classes
 [[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 68, 71) =]][[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 72, 75) =]]
 ```
 
-### Content Type
+### Content type
 
-You can retrieve the Content Type of a Content item
+You can retrieve the content type of a Content item
 through the [`getContentType`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html#method_getContentType) method of the ContentInfo object:
 
 ``` php
@@ -168,10 +168,10 @@ To retrieve the Fields of the selected Content item, you can use the following c
 }
 ```
 
-Line 16 shows how [`ContentService::loadContent`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_loadContent) loads the Content item provided to the command.
-Line 17 makes use of the [`ContentTypeService`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentTypeService.html) to retrieve the Content Type of the requested item.
+Line 9 shows how [`ContentService::loadContent`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_loadContent) loads the Content item provided to the command.
+Line 14 makes use of the [`ContentTypeService`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentTypeService.html) to retrieve the content type of the requested item.
 
-Lines 19-24 iterate over Fields defined by the Content Type.
+Lines 12-19 iterate over Fields defined by the content type.
 For each Field they print out its identifier, and then using [`FieldTypeService`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-FieldTypeService.html) retrieve the Field's value and print it out to the console.
 
 ## Viewing content in different languages
@@ -199,9 +199,9 @@ you need to use the [`LocationService`](../../api/php_api/php_api_reference/clas
 [[= include_file('code_samples/api/public_php_api/src/Command/BrowseLocationsCommand.php', 30, 49) =]]
 ```
 
-`loadLocation` (line 14) returns a value object, here a `Location`.
+`loadLocation` (line 15) returns a value object, here a `Location`.
 
-[`LocationService::loadLocationChildren`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-LocationService.html#method_loadLocationChildren) (line 23)
+[`LocationService::loadLocationChildren`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-LocationService.html#method_loadLocationChildren) (line 5)
 returns a [`LocationList`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-LocationList.html) value object that you can iterate over.
 
 !!! note

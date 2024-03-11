@@ -14,25 +14,25 @@ The mechanism checks if any of the implementations returns a field e.g. `ezimage
 
 ![Can be a thumbnail setting](extending_thumbnail_can_be.png)
 
-If found, the image is used as a Content Type thumbnail.
+If found, the image is used as a content type thumbnail.
 
 ### First layer
 
 First layer of the mechanism contains strategy pattern that focuses on finding a thumbnail source.
-The thumbnail can be found inside or outside the Content Type.
+The thumbnail can be found inside or outside the content type.
 For example for users thumbnails can be downloaded from an avatar-generating service.
 
 For this layer there are following default implementations:
 
 - The mechanism looks for Fields that can be thumbnail, if found, the mechanism moves to the second layer.
-- If there are no Fields that can be a thumbnail, the Content Type icon will be used as a thumbnail.
+- If there are no Fields that can be a thumbnail, the content type icon will be used as a thumbnail.
 
 ### Second layer
 
 Second layer of mechanism enables selection of thumbnail from a Field that the first layer has found. 
-It searches the Content Type for all the Fields e.g. images with function "Can be a thumbnail" turned on.
+It searches the content type for all the Fields e.g. images with function "Can be a thumbnail" turned on.
 
-If there is more than one Field in the Content Type that can be used as a thumbnail, this layer will return the first nonempty Field as a thumbnail.
+If there is more than one Field in the content type that can be used as a thumbnail, this layer will return the first nonempty Field as a thumbnail.
 
 This mechanism can be modified to fit your site needs, so you can decide from where and how the thumbnails will be downloaded.
 
@@ -57,14 +57,14 @@ At this point you can go to the Back Office and check the results.
 
 !!! note "Thumbnail mechanism "
 
-    This strategy overrides all generated thumbnails. You can specify a specific Content Type. See the example [here](https://github.com/ibexa/user/blob/main/src/lib/Strategy/DefaultThumbnailStrategy.php)
+    This strategy overrides all generated thumbnails. You can specify a specific content type. See the example [here](https://github.com/ibexa/user/blob/main/src/lib/Strategy/DefaultThumbnailStrategy.php)
 
 
 ## Other Fields as thumbnails
 
 Any Field Type can generate a thumbnail, e.g.:
 
-- DateAndTime (`ezdatetime`) - you can add a mini calendar thumbnail for Appointment Content Type and on the day of the appointment a clock thumbnail with a specific time when it takes place
+- DateAndTime (`ezdatetime`) - you can add a mini calendar thumbnail for Appointment content type and on the day of the appointment a clock thumbnail with a specific time when it takes place
 - TextBlock (`eztext`) -  you can add a first letter of the text block that is inside
 
 ### Add eztext Field as thumbnail

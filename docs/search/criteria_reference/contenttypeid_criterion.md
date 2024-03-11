@@ -1,11 +1,11 @@
 # ContentTypeId Criterion
 
 The [`ContentTypeId` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-ContentTypeId.html)
-searches for content based on the ID of its Content Type.
+searches for content based on the ID of its content type.
 
 ## Arguments
 
-- `value` - int(s) representing the Content Type ID(s)
+- `value` - int(s) representing the content type ID(s)
 
 ## Example
 

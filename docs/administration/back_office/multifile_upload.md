@@ -94,23 +94,23 @@ All of the following properties must be used, otherwise the multi-file upload do
 - **onAfterUpload** _{Function}_ - a callback to be invoked immediately after a file has been uploaded
 - **adminUiConfig** _{Object}_ - UI config object. It should keep the following structure:
     - **multiFileUpload** _{Object}_  - multi file upload module config:
-        - **defaultMappings** _{Array}_ - a list of file type to Content Type mappings
+        - **defaultMappings** _{Array}_ - a list of file type to content type mappings
         Sample mapping be an object and should follow the convention:
-            - **contentTypeIdentifier** _{String}_ - Content Type identifier
+            - **contentTypeIdentifier** _{String}_ - content type identifier
             - **contentFieldIdentifier** _{String}_ - Field identifier
             - **nameFieldIdentifier** _{String}_ - name Field identifier
-            - **mimeTypes** _{Array}_ - a list of file types assigned to a specific Content Type
-        - **fallbackContentType** _{Object}_ - a fallback Content Type definition. Should contain the following info:
-            - **contentTypeIdentifier** _{String}_ - Content Type identifier
+            - **mimeTypes** _{Array}_ - a list of file types assigned to a specific content type
+        - **fallbackContentType** _{Object}_ - a fallback content type definition. Should contain the following info:
+            - **contentTypeIdentifier** _{String}_ - content type identifier
             - **contentFieldIdentifier** _{String}_ - Field identifier
             - **nameFieldIdentifier** _{String}_ - name Field identifier
-        - **locationMappings** _{Array}_ - list of file type to Content Type mappings based on a Location identifier
+        - **locationMappings** _{Array}_ - list of file type to content type mappings based on a Location identifier
         - **maxFileSize** {Number} - maximum file size allowed for uploading. It's a number of bytes
     - **token** _{String}_ - CSRF token
     - **siteaccess** _{String}_ - SiteAccess identifier
 - **parentInfo** _{Object}_ - parent Location meta information:
-    - **contentTypeIdentifier** _{String}_ - Content Type identifier
-    - **contentTypeId** _{Number}_ - Content Type ID
+    - **contentTypeIdentifier** _{String}_ - content type identifier
+    - **contentTypeId** _{Number}_ - content type ID
     - **locationPath** _{String}_ - Location path string
     - **language** _{String}_ - language code identifier
 

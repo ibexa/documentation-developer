@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentTypeUpdate>
     <names>
-        <value languageCode="eng-GB">Updated Content Type name</value>
+        <value languageCode="eng-GB">Updated content type name</value>
     </names>
     <descriptions>
-        <value languageCode="eng-GB">This is an updated Content Type description</value>
+        <value languageCode="eng-GB">This is an updated content type description</value>
     </descriptions>
 </ContentTypeUpdate>

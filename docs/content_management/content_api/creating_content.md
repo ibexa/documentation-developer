@@ -24,21 +24,21 @@ returns a new [`ContentCreateStruct`](../../api/php_api/php_api_reference/classe
 [[= include_file('code_samples/api/public_php_api/src/Command/CreateContentCommand.php', 57, 66) =]]
 ```
 
-This command creates a draft using [`ContentService::createContent`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_createContent) (line 21).
+This command creates a draft using [`ContentService::createContent`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_createContent) (line 7).
 This method must receive a `ContentCreateStruct` and an array of Location structs.
 
-`ContentCreateStruct` (which extends `ContentStruct`) is created through [`ContentService::newContentCreateStruct`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_newContentCreateStruct) (line 17),
-which receives the Content Type and the primary language for the Content item.
+`ContentCreateStruct` (which extends `ContentStruct`) is created through [`ContentService::newContentCreateStruct`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_newContentCreateStruct) (line 2),
+which receives the content type and the primary language for the Content item.
 For information about translating a Content item into other languages, see [Translating content](#translating-content).
 
-[`ContentStruct::setField`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentStruct.html#method_setField) (line 18) enables you to define the Field values.
+[`ContentStruct::setField`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentStruct.html#method_setField) (line 3) enables you to define the Field values.
 When the Field accepts a simple value, you can provide it directly, as in the example above.
 For some Field Types, for example [images](#creating-an-image), you need to provide an instance of a Value type.
 
 ### Creating an image
 
 Image Field Type requires an instance of its Value type, which you must provide to the [`ContentStruct::setField`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentStruct.html#method_setField) method.
-Therefore, when creating a Content item of the Image type (or any other Content Type with an `image` Field Type),
+Therefore, when creating a Content item of the Image type (or any other content type with an `image` Field Type),
 the `ContentCreateStruct` is slightly more complex than in the previous example:
 
 ``` php

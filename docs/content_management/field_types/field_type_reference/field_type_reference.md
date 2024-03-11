@@ -5,7 +5,7 @@ page_type: reference
 
 # Field Type reference
 
-A Field Type is the underlying building block of the content model. It consists of two entities: Field value and Field definition. Field value is determined by values entered into the Content Field. Field definition is provided by the Content Type, and holds any user defined rules used by Field Type to determine how a Field Value is validated, stored, retrieved, formatted and so on.
+A Field Type is the underlying building block of the content model. It consists of two entities: Field value and Field definition. Field value is determined by values entered into the Content Field. Field definition is provided by the content type, and holds any user defined rules used by Field Type to determine how a Field Value is validated, stored, retrieved, formatted and so on.
 
 [[= product_name =]] comes with a collection of Field Types that can be used to build powerful and complex content structures. In addition, it is possible to extend the system by creating custom types for special needs.
 
@@ -32,7 +32,7 @@ Custom Field Types have to be programmed in PHP. However, the built-in Field Ty
 | [Float](floatfield.md) | Validates and stores a floating-point number. | No | Yes |
 | [Form](formfield.md) | Stores a form. | No | Yes |
 | [Image](imagefield.md) | Validates and stores an image. | No | Yes |
-|[ImageAsset](imageassetfield.md)|Stores images in independent Content items of a generic Image Content Type.| No | Yes |
+|[ImageAsset](imageassetfield.md)|Stores images in independent Content items of a generic Image content type.| No | Yes |
 | [Integer](integerfield.md) | Validates and stores an integer value. | Yes | Yes |
 | [ISBN](isbnfield.md) | Handles International Standard Book Number (ISBN) in 10-digit or 13-digit format.  | Yes | Yes |
 | [Keyword](keywordfield.md) | Stores keywords. | Yes[^1^](#1-note-on-legacy-search-engine) | Yes |

@@ -1,5 +1,5 @@
 ---
-description: Learn how to use your custom Field Type by adding a Field to a Content Type and creating an instance.
+description: Learn how to use your custom Field Type by adding a Field to a content type and creating an instance.
 ---
 
 # Step 5 - Add a new Point 2D Field
@@ -7,14 +7,14 @@ description: Learn how to use your custom Field Type by adding a Field to a Cont
 All actions in this step are done in the admin interface also called the Back Office.
 Go to the admin interface (`<yourdomain>/admin`) and log in with the default username: `admin` and the default password: `publish`. 
 
-## Add new Content Type
+## Add new content type
 
-In the Back Office, in the left menu navigate to the **Content Types** page.
-Under **Content** category, create a new Content Type:
+In the Back Office, the main menu, go to the **Content types** page.
+Under **Content** category, create a new content type:
 
-![Creating new Content Type](create_new_content_type.png)
+![Creating new content type](create_new_content_type.png)
 
-New Content Type should have the following settings:
+New content type should have the following settings:
 
 - **Name:** Point 2D
 - **Identifier:** point_2d
@@ -34,7 +34,7 @@ Save everything and go back to the **Content/Content structure** tab.
 
 ## Create your content
 
-In **Content structure**, select **Create content**. There, under **Content**, you should see Point 2D Content Type you just added. Click it to create new content.
+In **Content structure**, select **Create content**. There, under **Content**, you should see Point 2D content type you just added. Click it to create new content.
 
 ![Selecting Point 2D from sidebar](menu_point2d.png)
 

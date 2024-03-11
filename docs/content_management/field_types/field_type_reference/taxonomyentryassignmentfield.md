@@ -6,10 +6,10 @@ This Field Type assigns tags to the content in the data action, so then you can 
 
 !!! caution "Duplicate taxonomy fields"
 
-    Because tags are assigned per content item, not per Field, you cannot use two **Taxonomy Entry Assignment** Fields with the same taxonomy type in one Content Type.
+    Because tags are assigned per content item, not per Field, you cannot use two **Taxonomy Entry Assignment** Fields with the same taxonomy type in one content type.
 
 
-To be able to assign tags to the content, first, you need to add a `TaxonomyEntryAssignment` Field to the Content Type definition.
+To be able to assign tags to the content, first, you need to add a `TaxonomyEntryAssignment` Field to the content type definition.
 
 | Name                     | Internal name                    | Expected input |
 |--------------------------|----------------------------------|----------------|
@@ -52,7 +52,7 @@ Example using array:
 |Property|Type|Description|
 |--------|----|-----------|
 |`taxonomyEntry`|array of `Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry`|Stores selected taxonomy entry.|
-|`taxonomy`|`string`|Stores the taxonomy identifier, all `taxonomyEntries` have to be assigned to this taxonomy and the identifier has to match the settings of the Field Type in Content Type configuration.|
+|`taxonomy`|`string`|Stores the taxonomy identifier, all `taxonomyEntries` have to be assigned to this taxonomy and the identifier has to match the settings of the Field Type in content type configuration.|
 
 #### Constructor
 
