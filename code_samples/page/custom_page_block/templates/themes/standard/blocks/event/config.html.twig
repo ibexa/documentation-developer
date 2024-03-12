@@ -25,7 +25,7 @@
 {% block block_configuration_attribute_embed_widget %}
     {% set attr = attr|merge({'hidden': true}) %}
     {{ form_widget(form, {'attr': attr})}}
-    <div class="ez-block-embed-field">
+    <div class="ibexa-pb-block-embed-field">
         {% include '@IbexaPageBuilder/page_builder/block/config/embed_button.html.twig' with {
             udw_config_name: 'block_embed_event',
             data_open_udw: 'data-open-udw-embed'
