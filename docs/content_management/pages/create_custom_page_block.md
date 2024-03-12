@@ -90,6 +90,18 @@ document.getElementsByTagName('body')[0].addEventListener('ibexa-render-block-pr
     
     If you consider using React JavaScript library, see [React App block](react_app_block.md).
 
+## Add pre-render event listener
+
+If you need to compute variable to pass to the template, you can listen or subscribe to the block pre-render event.
+
+For example, the following event subscriber load the event content item and pass it to the template as `event_content`:
+
+``` php
+[[= include_file('code_samples/page/custom_page_block/src/Event/Subscriber/BlockEmbedEventEventSubscriber.php') =]]
+```
+
+For more information, see [Block events](page_blocks.md#block-events).
+
 ## Add edit templates
 
 You can also customize the template for the block settings modal.
