@@ -93,7 +93,7 @@ document.getElementsByTagName('body')[0].addEventListener('ibexa-render-block-pr
     
     If you consider using React JavaScript library, see [React App block](react_app_block.md).
 
-## Add edit templates with custom UDW
+## Add edit template
 
 You can also customize the template for the block settings modal.
 Do this under the `configuration_template` [configuration key](configuration.md#configuration-files):
@@ -108,12 +108,13 @@ Place the edit template in `templates/themes/<your_theme>/blocks/event/config.ht
 [[= include_file('code_samples/page/custom_page_block/templates/themes/standard/blocks/event/config.html.twig') =]]
 ```
 
-This example template customize the Universal Discovery Widget (UWD) so only an `event` typed content item can be selected.
-It uses the following UWD configuration:
+This example template use the following Universal Discovery Widget (UDW) configuration so only an `event` typed content item can be selected:
 
 ``` yaml
 [[= include_file('code_samples/page/custom_page_block/config/packages/page_blocks.yaml', 48, 57) =]]
 ```
+
+For more information, see [UDW configuration](browser/#udw-configuration).
 
 Your custom page block is now ready. 
 Before you can use it in Page Builder, you must [enable it in Page field settings]([[= user_doc =]]/content_management/configure_ct_field_settings/#block-display).
