@@ -95,7 +95,7 @@ and deleting them is done by using a visual interface, with no coding skills nee
 
 ### Content items
 
-content items are pieces of content, such as, for example, products, articles, blog posts, or media. 
+Content items are pieces of content, such as, for example, products, articles, blog posts, or media. 
 In [[= product_name =]], everything is a content item — not just pages, articles or products, but also all media (images, videos, etc.) or even User accounts.
 
 Each content item, apart from its name and identifier, contains a composition of Fields, which differs depending on the type of content. 

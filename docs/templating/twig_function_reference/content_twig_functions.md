@@ -30,7 +30,7 @@ You can provide `ibexa_render()` with either a content item or a Location object
 
 |Argument|Type|Description|
 |------|------|------|
-|`content`</br>or</br>`location`|`Ibexa\Contracts\Core\Repository\Values\Content\Content`</br>or</br>`Ibexa\Contracts\Core\Repository\Values\Content\Location`|content item or its Location.|
+|`content`</br>or</br>`location`|`Ibexa\Contracts\Core\Repository\Values\Content\Content`</br>or</br>`Ibexa\Contracts\Core\Repository\Values\Content\Location`|Content item or its Location.|
 |`method`|`string`|(optional) [Rendering method](#rendering-methods). One of: `direct`, `inline`, `esi`, `ssi`. (Default method is `direct`)|
 |`viewType`|`string`|(optional) [View type](template_configuration.md#view-types). (Default view type is `embed`)|
 
