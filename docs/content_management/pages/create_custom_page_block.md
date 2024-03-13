@@ -114,7 +114,7 @@ This example template use the following Universal Discovery Widget (UDW) configu
 [[= include_file('code_samples/page/custom_page_block/config/packages/page_blocks.yaml', 48, 57) =]]
 ```
 
-For more information, see [UDW configuration](browser/#udw-configuration).
+For more information, see [UDW configuration](browser.md#udw-configuration).
 
 Your custom page block is now ready. 
 Before you can use it in Page Builder, you must [enable it in Page field settings]([[= user_doc =]]/content_management/configure_ct_field_settings/#block-display).
