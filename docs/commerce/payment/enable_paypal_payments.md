@@ -9,6 +9,10 @@ By using Payum to integrate PayPal into your application, you can offer your cus
 
 Before you can proceed with integrating PayPal, you must [create a PayPal business account](https://www.paypal.com/bizsignup/#/singlePageSignup) and obtain API credentials.
 
+Install the PayPal package:
+
+`composer require payum/paypal-express-checkout-nvp php-http/guzzle7-adapter`
+
 Then, add the following configuration to your YAML configuration file (`payum.yaml` or similar):
 
 ```yaml
