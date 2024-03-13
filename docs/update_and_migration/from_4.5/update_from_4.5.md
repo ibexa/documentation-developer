@@ -55,7 +55,7 @@ Depending on the version you started from, you may have several scripts to run:
 ## Update from v4.5.latest to v4.6
 
 When you have the latest version of v4.5, you can update to v4.6.
-Review [the requirements](../../getting_started/requirements.md) first.
+Check [the requirements](../../getting_started/requirements.md) first.
 This version adds support for PHP 8.2 and 8.3, but requires using at least Node 18.
 
 ### Update the application
@@ -239,7 +239,7 @@ php bin/console ibexa:migrations:migrate --file=2023_11_20_14_33_order_dashboard
 
 ### Ibexa Open Source
 
-If you have no access to [[= product_name =]]'s `ibexa/installer` package, apply the following database update:
+If you don't have access to [[= product_name =]]'s `ibexa/installer` package, apply the following database update:
 
 === "MySQL"
 
