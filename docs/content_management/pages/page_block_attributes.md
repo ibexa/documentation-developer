@@ -51,7 +51,7 @@ attributes:
 
 `embed` and `locationlist` use the Universal Discovery Widget (UDW).
 When creating a block, the UDW can be configured for an attribute of this type.
-For more information, see [Create custom page block / Add edit templates with custom UDW](create_custom_page_block.md#add-edit-template)
+For more information, see [Create custom page block / Add edit template](create_custom_page_block.md#add-edit-template)
 
 ## Custom attribute types
 
