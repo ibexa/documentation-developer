@@ -148,6 +148,11 @@ If a website has different fronts, for different locales, and different language
 
 Editors can compare different translations of the same Content items with the Compare versions feature mentioned above.
 
+<figure>
+<iframe width=800; height="420"; src="https://demo.arcade.software/YgEt3bacfquGrPHgYpxC?embed" frameborder="0" allowfullscreen> </iframe>
+<figcaption>Managing content in multiple languages</figcaption>
+</figure>
+
 #### Relations
 
 A [relation](content_relations.md) can exist between any two Content items in the Content Tree. 
@@ -245,6 +250,11 @@ You can pause and resume the work, preview the results, or send content for revi
 **4\. Publish**
 
 Again, this is not part of content management, but at this point you can [publish]([[= user_doc =]]/content_management/publish_instantly/) it right away or [schedule content for publication]([[= user_doc =]]/content_management/schedule_publishing/).
+
+<figure>
+<iframe width=800; height="420"; src="https://demo.arcade.software/FvHDVaIkISNOzpF8b5LM?embed" frameborder="0" allowfullscreen> </iframe>
+<figcaption>Scheduling a publication</figcaption>
+</figure>
 
 **5\. Organize content**
 

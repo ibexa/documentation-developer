@@ -13,6 +13,11 @@ By default, [[= product_name =]] comes pre-configured with a Quick Review workfl
 You can disable the default workflow and define different workflows in configuration. 
 Workflows are permission-aware.
 
+<figure>
+<iframe width=800; height="420"; src="https://demo.arcade.software/q6BGIfNEvn7LLwSYes1a?embed" frameborder="0" allowfullscreen> </iframe>
+<figcaption>Using workflows</figcaption>
+</figure>
+
 ## Workflow configuration
 
 Each workflow consists of stages and transitions between them.

@@ -78,6 +78,11 @@ Content modeling and management are the foundation of [[= product_name =]] with 
 - Rich Text Field Type comes with an [online editor](online_editor_guide.md).
 - Multilingual, it can store a content in several languages, the content model define which field must be translated, and which don't vary.
 
+<figure>
+<iframe width=800; height="420"; src="https://demo.arcade.software/Ktx0SUheTOUI0IYn6DFU?embed" frameborder="0" allowfullscreen> </iframe>
+<figcaption>Editing rich content items</figcaption>
+</figure>
+
 For more information, see [Content management product guide](content_management_guide.md).
 
 #### User management
