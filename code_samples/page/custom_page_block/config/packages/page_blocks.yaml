@@ -51,6 +51,6 @@ ibexa:
         default:
             universal_discovery_widget_module:
                 configuration:
-                    block_embed_event:
+                    block_event_embed:
                         multiple: false
                         allowed_content_types: ['event']
