@@ -234,7 +234,6 @@ For [[= product_name_com =]] there's an additional migration:
 ``` bash
 php bin/console ibexa:migrations:import vendor/ibexa/order-management/src/bundle/Resources/install/migrations/dashboard_structure.yaml --name=2023_11_20_14_33_order_dashboard_structure.yaml
 php bin/console ibexa:migrations:migrate --file=2023_11_20_14_33_order_dashboard_structure.yaml
-
 ```
 
 ### Ibexa Open Source
