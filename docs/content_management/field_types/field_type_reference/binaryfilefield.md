@@ -52,6 +52,8 @@ $fileContentCreateStruct->setField('file', new Ibexa\Core\FieldType\BinaryFile\V
 The original local file name `example_for_website.pdf` is forgotten.
 When downloaded, the filename is `example.pdf`.
 
+If you want to use a remote file, you'll have to download it locally first, then remove it after its usage in `ContentService::createContent`.
+
 ## REST API specifics
 
 Used in the REST API, a BinaryFile Field will mostly serialize the hash described above. However there are a couple specifics worth mentioning.
