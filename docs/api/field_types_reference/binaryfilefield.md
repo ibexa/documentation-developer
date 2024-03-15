@@ -49,7 +49,8 @@ $fileContentCreateStruct->setField('file', new eZ\Publish\Core\FieldType\BinaryF
 ]));
 ```
 
-The original local file name `example_for_website.pdf` is forgotten, when downloaded, the filename is `example.pdf`.
+The original local file name `example_for_website.pdf` is forgotten.
+When downloaded, the filename is `example.pdf`.
 
 ## REST API specifics
 
