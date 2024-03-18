@@ -69,7 +69,7 @@ Example: `http://example.com/var/ezdemo_site/storage/original/application/63cd4
 
 ### Creating content: data property
 
-When creating BinaryFile content with the REST API, it's possible to provide data as a base64 encoded string, using the `data` fieldValue key:
+When creating BinaryFile content with the REST API, it's possible to provide data as a base64 encoded string, by using the `data` fieldValue key:
 
 ``` xml
 <field>
