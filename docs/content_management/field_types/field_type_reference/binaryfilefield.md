@@ -67,7 +67,7 @@ When reading the contents of a Field of this type, an extra key is added: `url`.
 
 Example: `http://example.com/var/ezdemo_site/storage/original/application/63cd472dd7819da7b75e8e2fee507c68.pdf`
 
-### Creating content: data property
+### Creating content: `data` property
 
 When creating BinaryFile content with the REST API, it's possible to provide data as a base64 encoded string, by using the `data` fieldValue key:
 
