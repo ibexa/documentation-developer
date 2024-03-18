@@ -32,12 +32,12 @@ Note that both `BinaryFile` and `Media` Value and Type inherit from the `BinaryB
 
 The hash format mostly matches the value object. It has the following keys:
 
-- `inputUri` (mandatory, the path to the file to upload into the field)
+- `inputUri` (mandatory, a path to the file to be uploaded into the field)
 - `id` (deprecated, same as `inputUri`)
 - `path` (deprecated, same as `inputUri`)
 - `fileName` (optional, the basename is taken if not given)
 - `fileSize` (optional, taken from the file itself if not given)
-- `mimeType` (ignored, TODO: Doesn't seem to be taken into account, if I set it to 'application/octet-stream' along a PDF file, I get "application/pdf" in the field value)
+- `mimeType` (ignored)
 - `uri` (ignored)
 - `downloadCount` (optional, `0` (zero) if not given)
 
@@ -53,7 +53,7 @@ $fileContentCreateStruct->setField('file', new Ibexa\Core\FieldType\BinaryFile\V
 The original local file name `example_for_website.pdf` is forgotten.
 When downloaded, the filename is `example.pdf`.
 
-If you want to use a remote file, you'll have to download it locally first, then remove it after its usage in `ContentService::createContent`.
+To use a remote file, you have to download it locally first, then remove it after it is used in `ContentService::createContent`.
 
 ## REST API specifics
 
