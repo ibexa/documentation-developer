@@ -70,7 +70,7 @@ The Users are organized within User Group Content items below this Location.
 
 In other words, the **Users** Location contains the actual Users and User Groups,
 which can be viewed by selecting the **Users** tab in the Admin Panel.
-The default ID number of the **Users** Location is 5, but it can be [modified via configuration](repository_configuration.md#top-level-locations).
+The default ID number of the **Users** Location is 5.
 It contains a User Group Content item.
 
 ### Forms [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
