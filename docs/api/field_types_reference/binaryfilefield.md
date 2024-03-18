@@ -1,6 +1,6 @@
 # BinaryFile Field Type
 
-This Field Type represents and handles a single binary file. It also counts the number of times the file has been downloaded from the `content/download` module.
+This Field Type represents and handles a single binary file. It also counts the number of times the file has been downloaded from the `content/download` module.
 
 It is capable of handling virtually any file type and is typically used for storing legacy document types such as PDF files, Word documents, spreadsheets, etc. The maximum allowed file size is determined by the "Max file size" class attribute edit parameter and the `upload_max_filesize` directive in the main PHP configuration file (`php.ini`).
 
@@ -20,7 +20,7 @@ Note that both `BinaryFile` and `Media` Value and Type inherit from the `BinaryB
 
 |Attribute|Type|Description|Example|
 |------|------|------|------|
-|`id`|string|Binary file identifier. This ID depends on the [IO Handler](../../guide/clustering.md#dfs-io-handler) that is being used. With the native, default handlers (FileSystem and Legacy), the ID is the file path, relative to the binary file storage root dir (`var/<vardir>/storage/original` by default).|application/63cd472dd7.pdf|
+|`id`|string|Binary file identifier. This ID depends on the [IO Handler](clustering.md#dfs-io-handler) that is being used. With the native, default handlers (FileSystem and Legacy), the ID is the file path, relative to the binary file storage root dir (`var/<vardir>/storage/original` by default).|application/63cd472dd7.pdf|
 |`fileName`|string|The human-readable file name, as exposed to the outside. Used when sending the file for download in order to name the file.|20130116_whitepaper.pdf|
 |`fileSize`|int|File size, in bytes.|1077923|
 |`mimeType`|string|The file's MIME type.|application/pdf|
@@ -32,14 +32,16 @@ Note that both `BinaryFile` and `Media` Value and Type inherit from the `BinaryB
 
 The hash format mostly matches the value object. It has the following keys:
 
-- `inputUri` (mandatory, the path to the file to upload into the field)
-- `id` (deprecated, same as `inputUri`)
-- `path` (deprecated, same as `inputUri`)
-- `fileName` (optional, the basename is taken if not given)
-- `fileSize` (optional, taken from the file itself if not given)
-- `mimeType` (ignored, TODO: Doesn't seem to be taken into account, if I set it to 'application/octet-stream' along a PDF file, I get "application/pdf" in the field value)
-- `uri` (ignored)
-- `downloadCount` (optional, `0` (zero) if not given)
+| Key             | Status     | Type    | Description                                                                              |
+|-----------------|------------|---------|------------------------------------------------------------------------------------------|
+| `inputUri`      | mandatory  | string  | Path to the local file to be uploaded into the field.                                    |
+| `id`            | deprecated | string  | Backward compatibility alias for `inputUri`.                                             |
+| `path`          | deprecated | string  | Backward compatibility alias for `inputUri`.                                             |
+| `fileName`      | optional   | string  | Name of the file when downloaded. If not given, the basename of `inputUri` is used       |
+| `fileSize`      | optional   | integer | Size of the file in bytes. If not given, the size of the `inputUri` target file is used. |
+| `downloadCount` | optional   | integer | Number of times the file was downloaded. If not given, set to `0` (zero).                |
+| `mimeType`      | ignored    |         |                                                                                          |
+| `uri`           | ignored    |         |                                                                                          |
 
 Example:
 
@@ -53,7 +55,7 @@ $fileContentCreateStruct->setField('file', new eZ\Publish\Core\FieldType\BinaryF
 The original local file name `example_for_website.pdf` is forgotten.
 When downloaded, the filename is `example.pdf`.
 
-If you want to use a remote file, you'll have to download it locally first, then remove it after its usage in `ContentService::createContent`.
+To use a remote file, you have to download it locally first, then remove it after it's used in `ContentService::createContent`.
 
 ## REST API specifics
 
@@ -65,9 +67,9 @@ When reading the contents of a Field of this type, an extra key is added: `url`.
 
 Example: `http://example.com/var/ezdemo_site/storage/original/application/63cd472dd7819da7b75e8e2fee507c68.pdf`
 
-### Creating content: data property
+### Creating content: `data` property
 
-When creating BinaryFile content with the REST API, it is possible to provide data as a base64 encoded string, using the `data` fieldValue key:
+When creating BinaryFile content with the REST API, it's possible to provide data as a base64 encoded string, by using the `data` fieldValue key:
 
 ``` xml
 <field>
