@@ -55,7 +55,7 @@ $fileContentCreateStruct->setField('file', new Ibexa\Core\FieldType\BinaryFile\V
 The original local file name `example_for_website.pdf` is forgotten.
 When downloaded, the filename is `example.pdf`.
 
-To use a remote file, you have to download it locally first, then remove it after it is used in `ContentService::createContent`.
+To use a remote file, you have to download it locally first, then remove it after it's used in `ContentService::createContent`.
 
 ## REST API specifics
 
