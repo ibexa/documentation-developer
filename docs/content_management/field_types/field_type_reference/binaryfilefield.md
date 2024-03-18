@@ -32,14 +32,16 @@ Note that both `BinaryFile` and `Media` Value and Type inherit from the `BinaryB
 
 The hash format mostly matches the value object. It has the following keys:
 
-- `inputUri` (mandatory, a path to the file to be uploaded into the field)
-- `id` (deprecated, same as `inputUri`)
-- `path` (deprecated, same as `inputUri`)
-- `fileName` (optional, the basename is taken if not given)
-- `fileSize` (optional, taken from the file itself if not given)
-- `mimeType` (ignored)
-- `uri` (ignored)
-- `downloadCount` (optional, `0` (zero) if not given)
+| Key             | Status     | Type    | Description                                                                              |
+|-----------------|------------|---------|------------------------------------------------------------------------------------------|
+| `inputUri`      | mandatory  | string  | Local path to the file to upload into the field.                                         |
+| `id`            | deprecated | string  | Backward compatibility alias for `inputUri`.                                             |
+| `path`          | deprecated | string  | Backward compatibility alias for `inputUri`.                                             |
+| `fileName`      | optional   | string  | Name of the file when downloaded. If not given, the basename of `inputUri` is used       |
+| `fileSize`      | optional   | integer | Size of the file in bytes. If not given, the size of the `inputUri` target file is used. |
+| `downloadCount` | optional   | integer | Number of times the file was downloaded . If not given, set to `0` (zero).               |
+| `mimeType`      | ignored    |         |                                                                                          |
+| `uri`           | ignored    |         |                                                                                          |
 
 Example:
 
