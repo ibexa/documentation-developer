@@ -10,10 +10,10 @@ Configure URL aliases to have human-readable URL addresses throughout your syste
 ## Link manager
 
 When developing a site, users can enter links to external websites in either RichText or URL fields.
-Each such link is then displayed in the URL table. You can view and update all external links that exist within the site, without having to modify and re-publish the individual Content items.
+Each such link is then displayed in the URL table. You can view and update all external links that exist within the site, without having to modify and re-publish the individual content items.
 
 The Link manager tab contains all the information about each link, including its status (valid or invalid) and the time the system last attempted to validate the URL address.
-Click an entry in the list to display its details and check which Content items use this link.
+Click an entry in the list to display its details and check which content items use this link.
 Edit the entry to update the URL address in all the occurrences throughout the website.
 
 !!! note
@@ -136,7 +136,7 @@ The `scheme` attribute is mandatory and has to correspond to the name of the pro
 
 ## URL aliases
 
-You can define URL aliases for individual Content items, for example, when you reorganize the content, and want to provide users with continuity.
+You can define URL aliases for individual content items, for example, when you reorganize the content, and want to provide users with continuity.
 For each URL alias definition the history of changes is preserved, so that users who have bookmarked the URL addresses of content items can still find he information they desire.
 
 !!! note
@@ -219,7 +219,7 @@ You can also extend the command with the following parameters:
 
 ## URL wildcards
 
-With wildcards, you can change the URL address for many Content items at the same time, by replacing a portion of the destination's URL address.
+With wildcards, you can change the URL address for many content items at the same time, by replacing a portion of the destination's URL address.
 For example, you might want to shorten the path, or make the path meaningful.
 
 For each URL wildcard definition you set the wildcard pattern and its destination.

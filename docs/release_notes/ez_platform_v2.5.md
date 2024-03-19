@@ -17,7 +17,7 @@ description: eZ Platform v2.5 is the last Long Term Support release in the v2 li
 
 You can now navigate through your website with a Content Tree.
 It will allow you to easily browse your content in the Back Office.
-Each Content item has a unique icon that helps you identify it without opening.
+Each content item has a unique icon that helps you identify it without opening.
 
 ![Content Tree in the menu](left_menu_tree.png "Content Tree in the menu")
 
@@ -74,7 +74,7 @@ all features related to user management, such as user accounts, registering, cha
 
     ![Diagram of a workflow configuration](2.5_workflow_diagram.png)
 
-    After selecting configured workflow administrator, the user is now able to see all Content items under review for it.
+    After selecting configured workflow administrator, the user is now able to see all content items under review for it.
 
     ![Content under review](workflow_content_under_review.png)
 
@@ -94,7 +94,7 @@ You can now easily use [custom CK Editor plugins](https://doc.ibexa.co/en/2.5/gu
 
 ### Hiding and revealing content
 
-You can now hide and reveal Content items from the Back Office.
+You can now hide and reveal content items from the Back Office.
 Hidden content will be unavailable on the front page regardless of permissions or [Location visibility](https://doc.ibexa.co/en/2.5/guide/content_management/#location-visibility).
 
 ![Icon for hiding content](2.5_hide_content_icon.png)
@@ -261,8 +261,8 @@ The following PHP API methods have been added:
 
 - `ContentService::countContentDrafts` returns the number of all drafts for the provided user
 - `ContentService::loadContentDraftList` returns a list of all drafts for the provided user
-- `ContentService::countReverseRelations` returns the number of all reverse relations for a Content item
-- `ContentService::loadReverseRelationList` returns a list of all reverse relations for a Content item
+- `ContentService::countReverseRelations` returns the number of all reverse relations for a content item
+- `ContentService::loadReverseRelationList` returns a list of all reverse relations for a content item
 
 ### Solr 7.7
 

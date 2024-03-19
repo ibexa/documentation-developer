@@ -1,6 +1,6 @@
 # UserMetadataTermAggregation
 
-The [UserMetadataTermAggregation](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/Aggregation/UserMetadataTermAggregation.php) aggregates search results by the User Content item's metadata.
+The [UserMetadataTermAggregation](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/Aggregation/UserMetadataTermAggregation.php) aggregates search results by the User content item's metadata.
 
 ## Arguments
 

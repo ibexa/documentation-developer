@@ -83,13 +83,13 @@ Content:
             description: 'Current version.'
             type: BaseObject
         Section:
-            description: 'The Section to which the Content item is assigned to.'
+            description: 'The Section to which the content item is assigned to.'
             type: BaseObject
         Locations:
-            description: 'Location of the Content item.'
+            description: 'Location of the content item.'
             type: BaseObject
         Owner:
-            description: 'The owner of the Content item.'
+            description: 'The owner of the content item.'
             type: BaseObject
         lastModificationDate:
             description: 'Content item modification date.'
@@ -98,13 +98,13 @@ Content:
             description: 'Content item publication date.'
             type: datetime
         mainLanguageCode:
-            description: 'The main language code of the Content item.'
+            description: 'The main language code of the content item.'
             type: string
         currentVersionNo:
             description: 'Current version number is the version number of the published version or the version number of a newly created draft (which is 1).'
             type: integer
         alwaysAvailable:
-            description: "Indicates if the Content item is shown in the main language if it's not present in an other requested language."
+            description: "Indicates if the content item is shown in the main language if it's not present in an other requested language."
             type: boolean
         status:
             description: 'Status of the content. Possible values: const STATUS_DRAFT = 0;const STATUS_PUBLISHED = 1; const STATUS_TRASHED = 2.'
@@ -114,28 +114,28 @@ Content:
             type: BaseObject
 
 ContentCreate:
-    description: 'This class is used for creating a new Content item.'
+    description: 'This class is used for creating a new content item.'
     type: object
 
 ContentCreateStruct:
-    description: 'This class is used for creating a new Content item.'
+    description: 'This class is used for creating a new content item.'
     type: object
     properties:
         contentType:
-            description: 'The content type for which the new Content item is created.'
+            description: 'The content type for which the new content item is created.'
             required: true
             type: ContentType
         sectionId:
-            description: 'The Section the Content item is assigned to. If not set the Section of the parent is used or a default Section.'
+            description: 'The Section the content item is assigned to. If not set the Section of the parent is used or a default Section.'
             type: integer
         ownerId:
             description: 'The owner of the content. If not given the current authenticated User is set as owner.'
             type: integer
         alwaysAvailable:
-            description: "Indicates if the Content item is shown in the main language if it's not present in an other requested language."
+            description: "Indicates if the content item is shown in the main language if it's not present in an other requested language."
             type: boolean
         remoteId:
-            description: 'Remote identifier used as a custom identifier for the Content item. Needs to be a unique Content->remoteId string value.'
+            description: 'Remote identifier used as a custom identifier for the content item. Needs to be a unique Content->remoteId string value.'
             type: string
         mainLanguageCode:
             description: 'The main language code for the content. This language will also be used for as initial language for the first created version. It is also used as default language for added fields.'
@@ -164,23 +164,23 @@ ContentImageVariation:
             description: 'Size of an image file.'
             type: integer
 ContentInfo:
-    description: 'This class provides all version independent information of the Content item.'
+    description: 'This class provides all version independent information of the content item.'
     type: BaseObject
     properties:
         Content:
             description: 'Content ID matcher class.'
             type: Content
 #            id:
-#                description: 'The unique ID of the Content item.'
+#                description: 'The unique ID of the content item.'
 #                type: integer
 #            contentTypeId:
-#                description: 'The content type ID of the Content item.'
+#                description: 'The content type ID of the content item.'
 #                type: integer
 #            name:
-#                description: 'The computed name (via name schema) in the main language of the Content item.'
+#                description: 'The computed name (via name schema) in the main language of the content item.'
 #                type: string
 #            sectionId:
-#                description: 'The Section to which the Content item is assigned.'
+#                description: 'The Section to which the content item is assigned.'
 #                type: integer
 #            currentVersionNo:
 #                description: 'Current Version number is the version number of the published version or the version number of a newly created draft (which is 1).'
@@ -189,7 +189,7 @@ ContentInfo:
 #                description: 'True if there exists a published version, false otherwise.'
 #                type: boolean
 #            ownerId:
-#                description: 'The owner of the Content item.'
+#                description: 'The owner of the content item.'
 #                type: integer
 #            modificationDate:
 #                description: 'Content modification date.'
@@ -198,26 +198,26 @@ ContentInfo:
 #                description: 'Content publication date.'
 #                type: datetime
 #            alwaysAvailable:
-#                description: "Indicates if the Content item is shown in the main language if it's not present in an other requested language."
+#                description: "Indicates if the content item is shown in the main language if it's not present in an other requested language."
 #                type: boolean
 #            remoteId:
 #                description: 'Remote identifier used as a custom identifier for the object.'
 #                type: string
 #            mainLanguageCode:
-#                description: 'The main language code of the Content item.'
+#                description: 'The main language code of the content item.'
 #                type: string
 #            mainLocationId:
-#                description: 'Identifier of the main Location. If the Content item has multiple Locations, mainLocationId will point to the main one.'
+#                description: 'Identifier of the main Location. If the content item has multiple Locations, mainLocationId will point to the main one.'
 #                type: integer
 #            status:
 #                description: 'Status of the content. Possible values: const STATUS_DRAFT = 0;const STATUS_PUBLISHED = 1; const STATUS_TRASHED = 2.'
 #                type: integer
 ContentMetadataUpdateStruct:
-    description: 'With this class data can be provided to update version independent Fields of the Content item. It is used in content update methods. At least one property in this class must be set.'
+    description: 'With this class data can be provided to update version independent Fields of the content item. It is used in content update methods. At least one property in this class must be set.'
     type: object
     properties:
         ownerId:
-            description: 'If set this value changes the owner ID of the Content item.'
+            description: 'If set this value changes the owner ID of the content item.'
             type: integer
         publishedDate:
             description: 'If set this value overrides the publication date of the content. (Used in staging scenarios).'
@@ -226,7 +226,7 @@ ContentMetadataUpdateStruct:
             description: 'If set this value overrides the modification date. (Used for staging scenarios).'
             type: datetime
         mainLanguageCode:
-            description: 'If set the main language of the Content item is changed.'
+            description: 'If set the main language of the content item is changed.'
             type: string
         alwaysAvailable:
             description: 'If set this value changes the always available flag.'
@@ -235,7 +235,7 @@ ContentMetadataUpdateStruct:
             description: 'If set this value changes the remoteId. Needs to be a unique Content->remoteId string value.'
             type: string
         mainLocationId:
-            description: 'If set  main Location is changed to this value. If the Content item has multiple Locations, $mainLocationId will point to the main one.'
+            description: 'If set  main Location is changed to this value. If the content item has multiple Locations, $mainLocationId will point to the main one.'
             type: integer
         name:
             description: "If set, will change the content's 'always-available' name."
@@ -565,7 +565,7 @@ ContentTypeUpdateStruct:
             type: Value[]
 
 ContentUpdateStruct:
-    description: 'This class is used for updating the fields of a Content item draft.'
+    description: 'This class is used for updating the fields of a content item draft.'
     type: object
     properties:
         initialLanguageCode:
@@ -730,7 +730,7 @@ FacetBuilder:
             description: 'Specifies the minimum count. Only facet groups with more or equal results are returned.'
             type: integer
 Field:
-    description: 'This class represents a field of a Content item.'
+    description: 'This class represents a field of a content item.'
     type: object
     properties:
         id:
@@ -977,7 +977,7 @@ Location:
             description: 'Remote ID, universally unique identifier.'
             type: string
         ContentInfo:
-            description: 'This class provides all version independent information of the Content item.'
+            description: 'This class provides all version independent information of the content item.'
             type: ContentInfo
         ParentLocation:
             description: 'Parent Location.'
@@ -1001,7 +1001,7 @@ Location:
             description: 'Specifies whether the sort order should be ascending or descending. Map for Location sort order to their respective Query SORT constants. One of the fallowing values: const SORT_ORDER_DESC = 0; const SORT_ORDER_ASC = 1.'
             enum: [ 'ASC', 'DESC' ]
         Content:
-            description: 'Represents a Content item in a specific version.'
+            description: 'Represents a content item in a specific version.'
             type: Ref
         UrlAliases:
             description: 'This class represents URL aliases.'
@@ -1011,7 +1011,7 @@ LocationCreate:
     type: BaseObject
 
 LocationCreateStruct:
-    description: 'This class is used to create a new Location for a Content item.'
+    description: 'This class is used to create a new Location for a content item.'
     type: object
     properties:
         priority:
@@ -1840,7 +1840,7 @@ User:
             description: 'Returns the VersionInfo for this version.'
             type: BaseObject
         Section:
-            description: 'The Section to which the Content item is assigned.'
+            description: 'The Section to which the content item is assigned.'
             type: BaseObject
         MainLocation:
             description: 'Main Location of the object.'
@@ -1852,7 +1852,7 @@ User:
             description: 'Group User of the content type.'
             type: BaseObject
         Owner:
-            description: 'The owner of the Content item.'
+            description: 'The owner of the content item.'
             type: BaseObject
         publishDate:
             description: 'Content publication date.'
@@ -1861,10 +1861,10 @@ User:
             description: 'Content modification date.'
             type: datetime
         mainLanguageCode:
-            description: 'The main language code of the Content item.'
+            description: 'The main language code of the content item.'
             type: string
         alwaysAvailable:
-            description: "Indicates if the Content item is shown in the main language if it's not present in an other requested language."
+            description: "Indicates if the content item is shown in the main language if it's not present in an other requested language."
             type: boolean
         Version:
             description: 'Returns the VersionInfo for this version.'
@@ -2073,7 +2073,7 @@ VersionInfo:
             description: 'Version ID.'
             type: integer
         versionNo:
-            description: 'Version number. In contrast to {@link $id}, this is the version number, which only increments in scope of a single Content item.'
+            description: 'Version number. In contrast to {@link $id}, this is the version number, which only increments in scope of a single content item.'
             type: integer
         status:
             description: 'One of: VersionInfo::STATUS_DRAFT=0, VersionInfo::STATUS_PUBLISHED=1, VersionInfo::STATUS_ARCHIVED=3.'
@@ -2100,7 +2100,7 @@ VersionInfo:
             description: 'Names.'
             type: Value
         Content:
-            description: 'Represents a Content item in a specific version.'
+            description: 'Represents a content item in a specific version.'
             type: BaseObject
 VersionItem:
     description: 'Version of content.'
@@ -3554,7 +3554,7 @@ Company:
             description: 'Reference to Location resource.'
             type: BaseObject
         locationPath:
-            description: 'Company Content item Location path string.'
+            description: 'Company content item Location path string.'
             type: string
         isActive:
             type: boolean
@@ -3571,7 +3571,7 @@ CompanyCreate:
             description: 'User value.'
             type: User
         fields:
-            description: 'Fields of a Company Content item.'
+            description: 'Fields of a Company content item.'
             type: Field[]
 
 CompanyUpdate:
@@ -3579,7 +3579,7 @@ CompanyUpdate:
     type: object
     properties:
         fields:
-            description: 'Fields of a Company Content item.'
+            description: 'Fields of a Company content item.'
             type: Field[]
 
 CompanyList:
@@ -3627,7 +3627,7 @@ MemberCreate:
             description: 'Reference to a Role resource company member should be given.'
             type: BaseObject
         fields:
-            description: 'Fields of a Member Content item.'
+            description: 'Fields of a Member content item.'
             type: Field[]
 
 MemberUpdate:
@@ -3647,7 +3647,7 @@ MemberUpdate:
             description: 'Reference to a Role resource company member should be given.'
             type: BaseObject
         fields:
-            description: 'Fields of a Member Content item.'
+            description: 'Fields of a Member content item.'
             type: Field[]
 
 ErrorMessage:

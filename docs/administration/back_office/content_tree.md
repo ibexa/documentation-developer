@@ -1,5 +1,5 @@
 ---
-description: Configure SiteAccess, displayed Content items, depth and root location for the Content Tree.
+description: Configure SiteAccess, displayed content items, depth and root location for the Content Tree.
 ---
 
 # Content Tree
@@ -7,7 +7,7 @@ description: Configure SiteAccess, displayed Content items, depth and root locat
 With this configuration you can:
 
 - define configuration for a SiteAccess or a SiteAccess group
-- decide how many Content items are displayed in the tree
+- decide how many content items are displayed in the tree
 - set maximum depth of expanded tree
 - hide content types
 - set a tree root Location

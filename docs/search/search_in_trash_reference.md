@@ -5,7 +5,7 @@ page_type: reference
 
 # Search in trash reference
 
-When you [search for Content items that are held in trash](search_api.md#searching-in-trash), you can apply only a limited set of Search Criteria and Sort Clauses.
+When you [search for content items that are held in trash](search_api.md#searching-in-trash), you can apply only a limited set of Search Criteria and Sort Clauses.
 They can be used by `Ibexa\Contracts\Core\Repository\TrashService::findTrashItems` only.
 
 ## Search Criteria

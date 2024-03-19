@@ -17,7 +17,7 @@ You can later use this file to import the data.
 php bin/console ibexa:migrations:generate --type=content --mode=create --siteaccess=admin
 ```
 
-This generates a file containing all Content items.
+This generates a file containing all content items.
 Below you can see part of the output of the default [[= product_name =]] installation.
 
 ``` yaml
@@ -66,7 +66,7 @@ Below you can see part of the output of the default [[= product_name =]] install
 
 The output contains all the possible information for a future migration command.
 Parts of it can be removed or modified.
-You can treat it as a template for another Content item for user group.
+You can treat it as a template for another content item for user group.
 For example, you could:
 
 - Remove `references` if you don't intend to store IDs for future use (see [migration references](managing_migrations.md#references))
@@ -272,7 +272,7 @@ You can extend the list of available matchers by creating [a custom one](add_dat
 The optional `--value` option, together with `match-property`, filters the Repository content that the command exports.
 `value` defines which values of the `match-property` should be included in the export.
 
-For example, to export only Article Content items, use the `content_type_identifier` match property with `article` as the value:
+For example, to export only Article content items, use the `content_type_identifier` match property with `article` as the value:
 
 ``` bash
 php bin/console ibexa:migrations:generate --type=content --mode=create --match-property=content_type_identifier --value=article

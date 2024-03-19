@@ -28,7 +28,7 @@ and use assets such as images directly from the DAM in your content.
 
 ### Autosave
 
-[[= product_name_base =]] Platform can now save your edits in a Content item or product automatically to help you preserve the progress in an event of a failure.
+[[= product_name_base =]] Platform can now save your edits in a content item or product automatically to help you preserve the progress in an event of a failure.
 For more information, see [Autosave](https://doc.ibexa.co/projects/userguide/en/latest/publishing/publishing/#autosave).
 
 ### Aggregation API
@@ -43,7 +43,7 @@ See [Aggregation API](https://doc.ibexa.co/en/latest/api/public_php_api_search/#
 
 ### Targeting block and Segmentation API [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-Targeting block for the Page Builder enables you to display different Content items to different users
+Targeting block for the Page Builder enables you to display different content items to different users
 depending on the Segments they belong to.
 
 ![Targeting block](3.2_targeting_block.png)
@@ -57,7 +57,7 @@ as well as assign Users to Segments.
 
 Three new Twig helpers are available to make rendering content easier.
 
-Use `ez_render_content(content)` and `ez_render_location(location)` to render the selected Content item.
+Use `ez_render_content(content)` and `ez_render_location(location)` to render the selected content item.
 
 You can also use `ez_render()` and provide it with either a content or Location object.
 

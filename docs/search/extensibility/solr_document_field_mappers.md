@@ -18,7 +18,7 @@ Solr uses [documents](https://solr.apache.org/guide/7_7/overview-of-documents-fi
 Documents are indexed per translation, as content blocks. 
 A block is a nested document structure.
 When used in [[= product_name =]], a parent document represents content, 
-and Locations are indexed as child documents of the Content item.
+and Locations are indexed as child documents of the content item.
 To avoid duplication, full-text data is indexed on the Content document only. 
 Knowing this, you can index additional data by the following:
 

@@ -107,17 +107,17 @@ This is what the structure of the new and modified files should look like:
 
 Now return to the Back Office and create some content for your website.
 
-First, you can hide unneeded Content items from the project root.
+First, you can hide unneeded content items from the project root.
 
 Go to **Content structure** and select "Ibexa Digital Experience Platform".
 In the **Sub-items** tab, select all the current sub-items and click the **Hide** icon:
 
-![Hiding Content items you do not need](enterprise_tut_hide_content.png)
+![Hiding content items you do not need](enterprise_tut_hide_content.png)
 
 Next, under "Ibexa Digital Experience Platform", create three Folders. Call them 'All Articles', 'Dog Breed Catalog' and 'All Tips'.
 Remember that you can **Save and close** them, but you should use the **Publish** button.
 
-Next, create a few Content items of proper content types in each of these folders:
+Next, create a few content items of proper content types in each of these folders:
 
 - 4 Articles (at least, to best see the effects of the Content Scheduler block that you will create in step 3.)
 - 3 Dog Breeds

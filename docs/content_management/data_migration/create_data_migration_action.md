@@ -10,7 +10,7 @@ To create an [action](data_migration_actions.md) that is performed after a migra
 - An action denormalizer, to convert YAML definition into your action class.
 - An action executor, to handle the action.
 
-The following example shows how to create an action that assigns a Content item to a Section.
+The following example shows how to create an action that assigns a content item to a Section.
 
 First, create an action class, in `src/Migrations/Action/AssignSection.php`:
 
