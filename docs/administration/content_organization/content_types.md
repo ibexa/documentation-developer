@@ -1,16 +1,16 @@
 ---
-description: A content type is a base for new Content items.
+description: A content type is a base for new content items.
 ---
 
 # Content types
 
-A content type is a base for new Content items.
-It defines what Fields will be available in the Content item.
+A content type is a base for new content items.
+It defines what Fields will be available in the content item.
 
 ![Content types](admin_panel_content_types.png "Content types")
 
 For example, a new content type called *Article* can have Fields such as title, author, body, image, etc.
-Based on this content type, you can create any number of Content items.
+Based on this content type, you can create any number of content items.
 content types are organized into groups.
 
 ![Content type groups](admin_panel_content_type_groups.png "Content type groups")
@@ -28,25 +28,25 @@ Each content type is characterized by a set of metadata which define the general
 
 !!! note
 
-    Note that even if your content type defines a Field intended as a name for the Content item (for example, a title of an article or product name), do not confuse it with this Name, which is a piece of metadata, not a Field.
+    Note that even if your content type defines a Field intended as a name for the content item (for example, a title of an article or product name), do not confuse it with this Name, which is a piece of metadata, not a Field.
 
 **Identifier** – an identifier for internal use in configuration files, templates, PHP code, etc. It must be unique, can only contain lowercase letters, digits and underscores; the maximum length is 50 characters. (Mandatory.)
 
 **Description** – a detailed description of the content type. (Optional.)
 
-<a id="content-name-pattern"></a>**Content name pattern** – a pattern that defines what name a new Content item based on this content type gets. The pattern usually consists of Field identifiers that tell the system which Fields it should use when generating the name of a Content item. Each Field identifier has to be surrounded with angle brackets. Text outside the angle brackets will be included literally. If no pattern is provided, the system will automatically use the first Field. (Optional.)
+<a id="content-name-pattern"></a>**Content name pattern** – a pattern that defines what name a new content item based on this content type gets. The pattern usually consists of Field identifiers that tell the system which Fields it should use when generating the name of a content item. Each Field identifier has to be surrounded with angle brackets. Text outside the angle brackets will be included literally. If no pattern is provided, the system will automatically use the first Field. (Optional.)
 
-**URL alias name pattern** – a pattern which controls how the virtual URLs of the Locations will be generated when Content items are created based on this content type. Note that only the last part of the virtual URL is affected. The pattern works in the same way as the Content name pattern. Text outside the angle brackets will be converted using the selected method of URL transformation. If no pattern is provided, the system will automatically use the name of the Content item itself. (Optional.)
+**URL alias name pattern** – a pattern which controls how the virtual URLs of the Locations will be generated when content items are created based on this content type. Note that only the last part of the virtual URL is affected. The pattern works in the same way as the Content name pattern. Text outside the angle brackets will be converted using the selected method of URL transformation. If no pattern is provided, the system will automatically use the name of the content item itself. (Optional.)
 
 !!! tip "Changing URL alias and Content name patterns"
 
     If you change the Content name pattern or the URL alias name pattern,
-    existing Content items will not be modified automatically.
-    The new pattern will only be applied after you modify the Content item and save a new version.
+    existing content items will not be modified automatically.
+    The new pattern will only be applied after you modify the content item and save a new version.
 
-    The old URL aliases will continue to redirect to the same Content items.
+    The old URL aliases will continue to redirect to the same content items.
 
-**Container** – a flag which indicates if Content items based on this content type are allowed to have sub-items or not (mainly relevant for actions via the UI, not validated by every PHP API).
+**Container** – a flag which indicates if content items based on this content type are allowed to have sub-items or not (mainly relevant for actions via the UI, not validated by every PHP API).
 
 !!! note
 
@@ -56,14 +56,14 @@ Each content type is characterized by a set of metadata which define the general
 
 **Sort children by default in order** – another rule for sorting sub-items. This decides the sort order for the criterion chosen above.
 
-<a id="default-content-availability"></a>**Make content available even with missing translations** – a flag which indicates if Content items of this content type should be available even without a corresponding language version. See [Content availability](content_availability.md).
+<a id="default-content-availability"></a>**Make content available even with missing translations** – a flag which indicates if content items of this content type should be available even without a corresponding language version. See [Content availability](content_availability.md).
 
 ![Creating a new content type](admin_panel_new_content_type.png)
 
 ## Field definitions
 
 Aside from the metadata, a content type may contain any number of Field definitions (but has to contain at least one).
-They determine what Fields of what Field Types will be included in all Content items based on this content type.
+They determine what Fields of what Field Types will be included in all content items based on this content type.
 
 ![Diagram of an example content type](content_model_type_diagram.png)
 
@@ -80,16 +80,16 @@ They determine what Fields of what Field Types will be included in all Content i
     Note that this solution is not universally recommended and you're proceeding on your own risk.
 
     Setting the limit inappropriately may damage your project or cause other issues.
-    You may also experience performance problems with such large content types, in particular when you have many Content items.
+    You may also experience performance problems with such large content types, in particular when you have many content items.
     If you're experincing too many issues, consider rearranging your project to avoid them.
 
 ## Modifying content types
 
 A content type and its Field definitions can be modified after creation,
-even if there are already Content items based on it in the system.
+even if there are already content items based on it in the system.
 When a content type is modified, each of its instances will be changed as well.
-If a new Field definition is added to a content type, this Field will appear (empty) in every relevant Content item.
-If a Field definition is deleted from the content type, all the corresponding Fields will be removed from Content items of this type.
+If a new Field definition is added to a content type, this Field will appear (empty) in every relevant content item.
+If a Field definition is deleted from the content type, all the corresponding Fields will be removed from content items of this type.
 
 ## Removing content types
 

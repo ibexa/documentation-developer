@@ -1,7 +1,7 @@
 # SectionName Sort Clause
 
 The [`SectionName` Sort Clause](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/SortClause/SectionName.php)
-sorts search results by the Section name of the Content items.
+sorts search results by the Section name of the content items.
 
 ## Arguments
 

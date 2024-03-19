@@ -10,7 +10,7 @@ To obtain this service, inject the `Ibexa\Contracts\Dashboard\DashboardServiceIn
 
 The service exposes two functions:
 
-- `createCustomDashboardDraft(?Location $location = null): Content` - returns a new Content item in draft state of `dashboard` content type.
+- `createCustomDashboardDraft(?Location $location = null): Content` - returns a new content item in draft state of `dashboard` content type.
   If no location is given, it creates a copy of the dashboard of the user currently logged in.
   If a location is given, it creates a copy with the given location.
   The default name of the customized dashboard is set as `My dashboard`.

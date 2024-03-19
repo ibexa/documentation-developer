@@ -99,13 +99,13 @@ Content view templates use the [Twig templating engine](https://twig.symfony.com
 
 ## Create content and test view templates
 
-1\. Go to the Back Office, activate Content/Content structure and create a new Content item by clicking **Create content**.
+1\. Go to the Back Office, activate Content/Content structure and create a new content item by clicking **Create content**.
 
 ![Creating a Blog Post](first-steps-create-content.png)
 
-2\. Select a Blog Post content type. Fill in the Content item and publish it.
+2\. Select a Blog Post content type. Fill in the content item and publish it.
 
-3\. To preview the new Content item on the front page, go to `<yourdomain>/<Content-item-name>`.
+3\. To preview the new content item on the front page, go to `<yourdomain>/<Content-item-name>`.
 For example, if the title of the Blog post is "First blog post", the address will be `<yourdomain>/first-blog-post`.
 
 ![Previewing Content](first-steps-preview-content.png)
@@ -172,7 +172,7 @@ Switch to the **Translations** tab and add a new translation.
 
 ![Adding a translation](first-steps-add-translation.png)
 
-4\. Select German and base the new translation on the English version. Edit the Content item and publish it.
+4\. Select German and base the new translation on the English version. Edit the content item and publish it.
 
 5\. Go to the front page. The blog post will now display different content, depending on which SiteAccess you enter it from:
 `<yourdomain>/<content-name>` or `<yourdomain>/de/<content-name>`.

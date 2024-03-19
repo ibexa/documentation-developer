@@ -1,5 +1,5 @@
 ---
-description: Enrich you site front with a menu displaying selected Content items.
+description: Enrich you site front with a menu displaying selected content items.
 ---
 
 # Add navigation menu
@@ -16,7 +16,7 @@ To select items that should be rendered in the menu, you can use one of the foll
 
 ## Render menu using a query
 
-To create a menu that contains a specific set of Content items, for example all content under the root Location, use a [Query Type](content_queries.md).
+To create a menu that contains a specific set of content items, for example all content under the root Location, use a [Query Type](content_queries.md).
 
 First, in `src/QueryType`, create a custom `MenuQueryType.php` file that queries for all items that you want in the menu:
 

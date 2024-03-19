@@ -7,7 +7,7 @@ page_type: reference
 
 ## Bookmarks
 
-The following events are dispatched when adding Content items to bookmarks.
+The following events are dispatched when adding content items to bookmarks.
 
 | Event | Dispatched by | Properties |
 |---|---|---|

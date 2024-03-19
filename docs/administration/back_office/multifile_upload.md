@@ -131,7 +131,7 @@ Optionally, the multi-file upload module can take a following list of properties
     - **struct** _{Object}_ - Content struct
     - **callback** _{Function}_ - content deleted callback
 - **onPopupClose** _{Function}_ - function invoked when closing a Multi-file Upload popup. It takes one param: **itemsUploaded** - the list of uploaded items
-- **publishFile** _{Function}_ - publishes an uploaded file-based Content item. Takes three params:
+- **publishFile** _{Function}_ - publishes an uploaded file-based content item. Takes three params:
     - **data** _{Object}_ - an object containing information about:
         - **struct** _{Object}_ - the ContentCreate struct ()
         - **token** _{String}_ - CSRF token

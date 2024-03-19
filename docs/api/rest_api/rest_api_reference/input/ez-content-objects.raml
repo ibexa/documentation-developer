@@ -1,9 +1,9 @@
 post:
-    displayName: Create Content item
-    description: Creates a draft assigned to the authenticated user. If a different user ID is given in the input, the draft is assigned to the given user but this action requires special permissions for the authenticated user (this is useful for content staging where the transfer process does not have to authenticate with the user who created the Content item in the source server). The user needs to publish the Content item if it should be visible.
+    displayName: Create content item
+    description: Creates a draft assigned to the authenticated user. If a different user ID is given in the input, the draft is assigned to the given user but this action requires special permissions for the authenticated user (this is useful for content staging where the transfer process does not have to authenticate with the user who created the content item in the source server). The user needs to publish the content item if it should be visible.
     headers:
         Accept:
-            description: Content - If set, all information for the Content item including the embedded current version is returned in XML or JSON format. ContentInfo - If set, all information for the Content item (excluding the current version) is returned in XML or JSON format.
+            description: Content - If set, all information for the content item including the embedded current version is returned in XML or JSON format. ContentInfo - If set, all information for the content item (excluding the current version) is returned in XML or JSON format.
             example:  |
                 application/vnd.ibexa.api.Content+xml
                 application/vnd.ibexa.api.Content+json
@@ -41,10 +41,10 @@ post:
             description: Error - the parent Location specified in the request body does not exist.
 get:
     displayName: Load content by remote ID
-    description: Loads Content item for a given remote ID.
+    description: Loads content item for a given remote ID.
     queryParameters:
         remoteId:
-            description: The remote ID of the Content item. If present, the Content item with the given remote ID is returned.
+            description: The remote ID of the content item. If present, the content item with the given remote ID is returned.
     responses:
         307:
             description: Temporary redirect.
@@ -53,14 +53,14 @@ get:
 /{contentId}:
     get:
         displayName: Load content
-        description: Loads the Content item for the given ID. Depending on the Accept header the current version is embedded (i.e. the current published version or if it does not exist, the draft of the authenticated user).
+        description: Loads the content item for the given ID. Depending on the Accept header the current version is embedded (i.e. the current published version or if it does not exist, the draft of the authenticated user).
         queryParameters:
              languages:
                 description: Restricts the output of translatable fields to the given languages. Comma separated list.
                 type: string
         headers:
             Accept:
-                description: Content -	If set, all information for the Content item including the embedded current version is returned in XML or JSON format. ContentInfo - If set, all information for the Content item (excluding the current version) is returned in XML or JSON format.
+                description: Content -	If set, all information for the content item including the embedded current version is returned in XML or JSON format. ContentInfo - If set, all information for the content item (excluding the current version) is returned in XML or JSON format.
                 example:  |
                     application/vnd.ibexa.api.Content+xml
                     application/vnd.ibexa.api.Content+json
@@ -83,7 +83,7 @@ get:
                         type: ContentInfo
                         example: !include examples/content/objects/content_id/GET/ContentInfo.xml.example
             401:
-                description: Error - the user is not authorized to read this object. This could also happen if there is no published version yet and another user owns a draft of this Content item.
+                description: Error - the user is not authorized to read this object. This could also happen if there is no published version yet and another user owns a draft of this content item.
             404:
                 description: Error - the ID is not found.
     patch:
@@ -91,7 +91,7 @@ get:
         description: This method updates the content metadata which is independent from a version. PATCH or POST with header X-HTTP-Method-Override PATCH.
         headers:
             Accept:
-                description: If set, all information for the Content item (excluding the current version) is returned in XML or JSON format.
+                description: If set, all information for the content item (excluding the current version) is returned in XML or JSON format.
                 example:  |
                     application/vnd.ibexa.api.ContentInfo+xml
                     application/vnd.ibexa.api.ContentInfo+json
@@ -125,46 +125,46 @@ get:
                 description: Error - the media-type is not one of those specified in headers.
     delete:
         displayName: Delete Content
-        description: Deletes Content item. If Content item has multiple Locations, all of them will be deleted via delete a subtree.
+        description: Deletes content item. If content item has multiple Locations, all of them will be deleted via delete a subtree.
         responses:
             204:
-                description: The Content item is deleted.
+                description: The content item is deleted.
             404:
-                description: Error - Content item was not found.
+                description: Error - content item was not found.
             401:
-                description: Error - the user is not authorized to delete this Content item.
+                description: Error - the user is not authorized to delete this content item.
     copy:
         displayName: Copy content
-        description: Creates new Content item as a copy, under the given parent Location given in the destination header. COPY or POST with header X-HTTP-Method-Override COPY.
+        description: Creates new content item as a copy, under the given parent Location given in the destination header. COPY or POST with header X-HTTP-Method-Override COPY.
         headers:
             destination:
-                description: A Location resource to which the Content item should be copied.
+                description: A Location resource to which the content item should be copied.
         responses:
             201:
                 description: Copy created.
             401:
-                description: Error - the user is not authorized to copy this Content item to the given Location.
+                description: Error - the user is not authorized to copy this content item to the given Location.
             404:
                 description: Error - the source or destination resource does not exist.
     /translations/{languageCode}:
         delete:
             displayName: Delete translation (permanently)
-            description: Permanently deletes a translation from all versions of a Content item.
+            description: Permanently deletes a translation from all versions of a content item.
             responses:
                 204:
                     description: No Content
                 401:
-                    description: Error - the user is not authorized to delete Content item (content/remove policy).
+                    description: Error - the user is not authorized to delete content item (content/remove policy).
                 404:
-                    description: Error - the Content item was not found.
+                    description: Error - the content item was not found.
                 406:
-                    description: Error - the given translation does not exist for the Content item.
+                    description: Error - the given translation does not exist for the content item.
                 409:
                     description: Error - the specified translation is the only one any version has or is the main translation.
     /currentversion:
         get:
             displayName: Get current version
-            description: Redirects to the current version of the Content item.
+            description: Redirects to the current version of the content item.
             responses:
                 200:
                     body:
@@ -198,15 +198,15 @@ get:
                             type: Version
                             example: !include examples/content/objects/content_id/currentversion/COPY/Version.json.example
                 401:
-                    description: Error - the user is not authorized to update this Content item.
+                    description: Error - the user is not authorized to update this content item.
                 403:
                     description: Error - the current version is already a draft.
                 404:
-                    description: Error - the Content item was not found.
+                    description: Error - the content item was not found.
     /versions:
         get:
             displayName: List versions
-            description: Returns a list of all versions of the Content item. This method does not include fields and relations in the version elements of the response.
+            description: Returns a list of all versions of the content item. This method does not include fields and relations in the version elements of the response.
             headers:
                 Accept:
                     description: If set, the version list is returned in XML or JSON format.
@@ -227,7 +227,7 @@ get:
         /{versionNo}:
             get:
                 displayName: Load version
-                description: Loads a specific version of a Content item. This method returns Fields and relations.
+                description: Loads a specific version of a content item. This method returns Fields and relations.
                 queryParameters:
                     fields:
                         description: Fields which should be returned in the response. Comma separated list.
@@ -259,7 +259,7 @@ get:
                     304:
                         description: Error - the ETag does not match the current one.
                     401:
-                        description: Error - the user is not authorized to read this Content item.
+                        description: Error - the user is not authorized to read this content item.
                     404:
                         description: Error - the ID or version is not found.
             patch:
@@ -322,9 +322,9 @@ get:
                                 type: Version
                                 example: !include examples/content/objects/content_id/versions/version_no/COPY/Version.json.example
                     401:
-                        description: Error - the user is not authorized to update this Content item.
+                        description: Error - the user is not authorized to update this content item.
                     404:
-                        description: Error - the Content item was not found.
+                        description: Error - the content item was not found.
             delete:
                 displayName: Delete content version
                 description: Deletes the content version.
@@ -332,7 +332,7 @@ get:
                     204:
                         description: No Content - the version is deleted.
                     404:
-                        description: Error - the Content item or version were not found.
+                        description: Error - the content item or version were not found.
                     401:
                         description: Error - the user is not authorized to delete this version.
                     403:
@@ -348,7 +348,7 @@ get:
                     403:
                         description: Error - the version is not a draft.
                     404:
-                        description: Error - the Content item or version were not found.
+                        description: Error - the content item or version were not found.
             /translations/{languageCode}:
                 delete:
                     displayName: Delete translation from version draft
@@ -361,14 +361,14 @@ get:
                         403:
                             description: Error - the version is not in draft state.
                         404:
-                            description: Error - the Content item or version number were not found.
+                            description: Error - the content item or version number were not found.
                         406:
                             description: Error - the given translation does not exist for the version.
                         409:
                             description: Error - the specified translation is the only one the version has or is the main translation.
             /relations:
                 get:
-                    displayName: Load Relations of Content item version
+                    displayName: Load Relations of content item version
                     description: Loads the Relations of the given version.
                     queryParameters:
                         offset:
@@ -393,9 +393,9 @@ get:
                                     type: RelationList
                                     example: !include examples/content/objects/content_id/versions/version_no/relations/GET/RelationList.json.example
                         401:
-                            description: Error - the user is not authorized to read this Content item.
+                            description: Error - the user is not authorized to read this content item.
                         404:
-                            description: Error - the Content item was not found.
+                            description: Error - the content item was not found.
                 post:
                     displayName: Create new Relation
                     description: Creates a new Relation of type COMMON for the given draft.
@@ -430,7 +430,7 @@ get:
                 /{relationId}:
                     get:
                         displayName: Load Relation
-                        description: Loads a Relation for the given Content item.
+                        description: Loads a Relation for the given content item.
                         headers:
                             Accept:
                                 description: If set, the Relation is returned in XML or JSON format.
@@ -439,7 +439,7 @@ get:
                                     application/vnd.ibexa.api.Relation+json
                         responses:
                             200:
-                                description: OK - loads a Relation for the given Content item.
+                                description: OK - loads a Relation for the given content item.
                             body:
                                 application/vnd.ibexa.api.Relation+xml:
                                     type: Relation
@@ -448,9 +448,9 @@ get:
                                     type: Relation
                                     example: examples/content/objects/content_id/versions/version_no/relations/relation_id/GET/Relation.json.example
                             401:
-                                description: Error - the user is not authorized to read this Content item.
+                                description: Error - the user is not authorized to read this content item.
                             404:
-                                description: Error - the Content item with the given ID or the Relation does not exist.
+                                description: Error - the content item with the given ID or the Relation does not exist.
                     delete:
                         displayName: Delete Relation
                         description: Deletes a Relation of the given draft.
@@ -462,22 +462,22 @@ get:
                             403:
                                 description: Error - the Relation is not of type COMMON or the given version is not a draft.
                             404:
-                                description: Error - Content item  or the Relation were not found in the given version.
+                                description: Error - content item  or the Relation were not found in the given version.
     /relations:
         get:
-            displayName: Load Relations of Content item
+            displayName: Load Relations of content item
             description: Redirects to the Relations of the current version.
             responses:
                 307:
                     description: Temporary redirect.
                 401:
-                    description: Error - the user is not authorized to read this Content item.
+                    description: Error - the user is not authorized to read this content item.
                 404:
-                    description: Error - the Content item was not found.
+                    description: Error - the content item was not found.
     /locations:
         post:
-            displayName: Create new Location for Content item
-            description: Creates a new Location for the given Content item.
+            displayName: Create new Location for content item
+            description: Creates a new Location for the given content item.
             headers:
                 Accept:
                     description: If set, the new Location is returned in XML or JSON format.
@@ -512,8 +512,8 @@ get:
                 403:
                     description: Error - a Location under the given parent ID already exists.
         get:
-            displayName: Get Locations for Content item
-            description: Loads all Locations for the given Content item.
+            displayName: Get Locations for content item
+            description: Loads all Locations for the given content item.
             headers:
                 Accept:
                     description: If set, the Location list is returned in XML or JSON format.
@@ -532,13 +532,13 @@ get:
                             type: LocationList
                             example: !include examples/content/objects/content_id/locations/GET/LocationList.json.example
                 401:
-                    description: Error - the user is not authorized to read this Content item.
+                    description: Error - the user is not authorized to read this content item.
                 404:
-                    description: Error - the Content item with the given ID does not exist.
+                    description: Error - the content item with the given ID does not exist.
     /objectstates:
         get:
-            displayName: Get Object states of Content item
-            description: Returns the Object states of a Content item
+            displayName: Get Object states of content item
+            description: Returns the Object states of a content item
             headers:
                 Accept:
                     description: If set, the Object states are returned in XML or JSON format.
@@ -558,10 +558,10 @@ get:
                             type: ContentObjectStates
                             example: !include examples/content/objects/content_id/objectstates/GET/ContentObjectStates.json.example
                 404:
-                    description: Error - The Content item does not exist.
+                    description: Error - The content item does not exist.
         patch:
-            displayName: Set Object states of Content item
-            description: Updates Object states of a Content item. An Object state in the input overrides the state of the Object state group. PATCH or POST with header X-HTTP-Method-Override PATCH.
+            displayName: Set Object states of content item
+            description: Updates Object states of a content item. An Object state in the input overrides the state of the Object state group. PATCH or POST with header X-HTTP-Method-Override PATCH.
             headers:
                 Accept:
                     description: If set, the updated Object state is returned in XML or JSON format.
@@ -569,7 +569,7 @@ get:
                         application/vnd.ibexa.api.ObjectState+xml
                         application/vnd.ibexa.api.ObjectState+json
                 Content-Type:
-                    description: The Content item Object states input schema encoded in XML or JSON format.
+                    description: The content item Object states input schema encoded in XML or JSON format.
                     example: |
                         application/vnd.ibexa.api.ObjectStateUpdate+xml
                         application/vnd.ibexa.api.ObjectStateUpdate+json
@@ -594,23 +594,23 @@ get:
                     description: Error - The current ETag does not match the one provided in the If-Match header.
     /hide:
         post:
-            displayName: Hide Content item
-            description: Makes or keep the Content item invisible
+            displayName: Hide content item
+            description: Makes or keep the content item invisible
             responses:
                 204:
                     description: OK - Object item is hidden.
                 401:
                     description: Error - The user has no permission to change Object item visibility.
                 404:
-                    description: Error - The Content item was not found.
+                    description: Error - The content item was not found.
     /reveal:
         post:
-            displayName: Reveal Content item
-            description: Makes or keep the Content item visible
+            displayName: Reveal content item
+            description: Makes or keep the content item visible
             responses:
                 204:
                     description: OK - Object item is revealed.
                 401:
                     description: Error - The user has no permission to change Object item visibility.
                 404:
-                    description: Error - The Content item was not found.
+                    description: Error - The content item was not found.

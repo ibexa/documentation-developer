@@ -88,7 +88,7 @@ A repeatable migration performs the defined migration steps as many times as the
 !!! tip
 
     You can use repeatable migration steps, for example,
-    to quickly generate large numbers of Content items for testing purposes.
+    to quickly generate large numbers of content items for testing purposes.
 
 You can vary the operations using the iteration counter.
 
@@ -219,9 +219,9 @@ The required metadata keys are: `identifier`, `mainTranslation`, `contentTypeGro
 
 ### Content items
 
-The following example shows how to create two Content items: a folder and an article inside it.
+The following example shows how to create two content items: a folder and an article inside it.
 
-When creating a Content item, three metadata keys are required:
+When creating a content item, three metadata keys are required:
 `contentType`, `mainTranslation`, and `parentLocationId`.
 
 To use the Location ID of the folder, which is created automatically by the system,
@@ -362,7 +362,7 @@ The following example shows how to create variants for a product identified by i
 
 #### Product assets
 
-The following example creates an image [Content item](#content-items) from a local image file, and then uses it as a product asset for a variant ([created in previous example](#product-variant)):
+The following example creates an image [content item](#content-items) from a local image file, and then uses it as a product asset for a variant ([created in previous example](#product-variant)):
 
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/create_product_asset.yaml') =]]

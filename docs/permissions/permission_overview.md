@@ -71,7 +71,7 @@ You can also use the permission resolver (`Ibexa\Core\Repository\Permission\Perm
 The `canUser()` method checks if the user can perform a given action with the selected object.
 
 For example: `canUser('content', 'edit', $content, [$location] );`
-checks the `content/edit` permission for the provided Content item at the provided Location.
+checks the `content/edit` permission for the provided content item at the provided Location.
 
 ### Blocking access to controller action
 

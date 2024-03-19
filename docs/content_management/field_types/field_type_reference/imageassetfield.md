@@ -1,6 +1,6 @@
 # ImageAsset Field Type
 
-ImageAsset Field Type enables storing images in independent Content items of a generic Image content type, in the media library. It makes them reusable across system.
+ImageAsset Field Type enables storing images in independent content items of a generic Image content type, in the media library. It makes them reusable across system.
 
 ### Input expectations
 
@@ -9,9 +9,9 @@ Example array:
 |Type|Description|Example|
 |------|------|------|
 |`Ibexa\Core\FieldType\ImageAsset\Value`|ImageAsset Field Type value object.|See below.|
-|`Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo`|ContentInfo instance of the Asset Content item. |n/a|
-|`string`| ID of the Asset Content item. |`"150"`|
-|`integer`| ID of the Asset Content item. | `150`|
+|`Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo`|ContentInfo instance of the Asset content item. |n/a|
+|`string`| ID of the Asset content item. |`"150"`|
+|`integer`| ID of the Asset content item. | `150`|
 
 ### Value object
 
@@ -33,7 +33,7 @@ $imageAssetValue->alternativeText = "Picture of an apple.";
 
 ##### Constructor
 
-The `ImageAsset\Value` constructor will initialize a new value object with the value provided. It expects an ID of a Content item representing asset and the alternative text.
+The `ImageAsset\Value` constructor will initialize a new value object with the value provided. It expects an ID of a content item representing asset and the alternative text.
 
 ``` php
 // Constructor example
@@ -46,7 +46,7 @@ $imageAssetValue  = new ImageAsset\Value($contentInfo->id, "Picture of an apple.
 
 This Field Type validates if:
 
-- `destinationContentId` points to a Content item which has correct content type
+- `destinationContentId` points to a content item which has correct content type
 
 ### Configuration
 

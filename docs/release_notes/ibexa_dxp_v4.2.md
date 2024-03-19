@@ -201,7 +201,7 @@ Data migration now supports `attribute` and `attribute_group` types when generat
 
 #### Hide and reveal content actions
 
-You can now hide and reveal Content items in data migrations by using the [`hide` and `reveal` actions](https://doc.ibexa.co/en/latest/guide/data_migration/data_migration_actions/#available-migration-actions).
+You can now hide and reveal content items in data migrations by using the [`hide` and `reveal` actions](https://doc.ibexa.co/en/latest/guide/data_migration/data_migration_actions/#available-migration-actions).
 
 ### Fastly shielding
 

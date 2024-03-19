@@ -25,9 +25,9 @@ All Sort Clauses can take the following optional argument:
 | [DateModified](datemodified_sort_clause.md)                   | The date when content was last modified                                                     | &#10004;       | &#10004;        | &#10004;  |
 | [DatePublished](datepublished_sort_clause.md)                 | The date when content was created                                                           | &#10004;       | &#10004;        | &#10004;  |
 | [Depth](depth_sort_clause.md)                                 | Location depth in the Content Tree                                                          |                | &#10004;        | &#10004;  |
-| [Field](field_sort_clause.md)                                 | Content of one of Content item's Fields                                                     | &#10004;       | &#10004;        |           |
+| [Field](field_sort_clause.md)                                 | Content of one of content item's Fields                                                     | &#10004;       | &#10004;        |           |
 | [Id](id_sort_clause.md)                                       | Location ID                                                                                 |                | &#10004;        | &#10004;  |
-| [IsMainLocation](ismainlocation_sort_clause.md)               | Whether a Location is the main Location of a Content item                                   |                | &#10004;        |           |
+| [IsMainLocation](ismainlocation_sort_clause.md)               | Whether a Location is the main Location of a content item                                   |                | &#10004;        |           |
 | [MapLocationDistance](maplocationdistance_sort_clause.md)     | Distance between the location contained in a MapLocation Field and the provided coordinates | &#10004;       | &#10004;        |           |
 | [Path](path_sort_clause.md)                                   | PathString of the Location                                                                  |                | &#10004;        | &#10004;  |
 | [Priority](priority_sort_clause.md)                           | Location priority                                                                           |                | &#10004;        | &#10004;  |

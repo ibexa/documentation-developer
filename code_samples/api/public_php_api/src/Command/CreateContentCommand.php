@@ -43,7 +43,7 @@ class CreateContentCommand extends Command
                 new InputArgument('contentType', InputArgument::REQUIRED, 'Identifier of a content type with a Name and Description Field'),
                 new InputArgument('name', InputArgument::REQUIRED, 'Content for the Name field'),
             ])
-            ->addOption('publish', 'p', InputOption::VALUE_NONE, 'Do you want to publish the Content item?');
+            ->addOption('publish', 'p', InputOption::VALUE_NONE, 'Do you want to publish the content item?');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -67,7 +67,7 @@ class CreateContentCommand extends Command
 
         if ($input->getOption('publish')) {
             $content = $this->contentService->publishVersion($draft->versionInfo);
-            $output->writeln('Published Content item ' . $content->getName());
+            $output->writeln('Published content item ' . $content->getName());
         }
 
         return self::SUCCESS;

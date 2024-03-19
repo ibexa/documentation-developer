@@ -24,7 +24,7 @@ See [EZP-26806](https://issues.ibexa.co/browse/EZP-26806) for more information.
 
 #### Deleting translations
 
-You can now remove translations from Content item Versions through the PHP API.
+You can now remove translations from content item Versions through the PHP API.
 
 See the section on [deleting translations](https://doc.ibexa.co/en/latest/api/public_php_api_creating_content/#deleting-a-translation) for more information.
 

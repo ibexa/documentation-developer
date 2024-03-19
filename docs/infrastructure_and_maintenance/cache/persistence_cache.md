@@ -354,6 +354,6 @@ $pool->clear();
 // To clear a specific cache item (check source for more examples in Ibexa\Core\Persistence\Cache\*)
 $pool->deleteItems(["ibx-ci-$contentId"]);
 
-// Symfony cache is tag-based, so you can clear all cache related to a Content item like this:
+// Symfony cache is tag-based, so you can clear all cache related to a content item like this:
 $pool->invalidateTags(["c-$contentId"]);
 ```
