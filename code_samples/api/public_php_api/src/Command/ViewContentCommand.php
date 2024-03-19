@@ -29,7 +29,7 @@ class ViewContentCommand extends Command
     protected function configure()
     {
         $this
-            ->setDescription('Output Field values on provided Content item.')
+            ->setDescription('Output Field values on provided content item.')
             ->setDefinition([
                 new InputArgument('contentId', InputArgument::REQUIRED, 'Location ID'),
             ]);

@@ -9,7 +9,7 @@ Data migration allows exporting and importing selected data from an [[= product_
 
 [*Exporting*](exporting_data.md) data consists in saving selected Repository information in YAML format.
 [*Importing*](importing_data.md) reads migration YAML files and creates or modifies Repository content based on them.
-You can migrate your Repository data, that is Content items, as well as content types, languages, Object states, Sections, and so on,
+You can migrate your Repository data, that is content items, as well as content types, languages, Object states, Sections, and so on,
 between installations.
 
 You can use migrations in projects that require the same data to be present across multiple instances.

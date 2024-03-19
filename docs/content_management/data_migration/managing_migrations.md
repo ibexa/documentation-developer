@@ -73,7 +73,7 @@ Since some migrations generate object properties (like IDs) during their executi
 references provide migrations with the ability to use previously created object properties in further migrations.
 They can be subsequently used by passing them in their desired place with `reference:` prefix.
 
-The example below creates a Content item of type "folder", and stores its Location path as `"ref_path__folder__media"`.
+The example below creates a content item of type "folder", and stores its Location path as `"ref_path__folder__media"`.
 Then this reference is reused as part of a new role, as a limitation.
 
 ```yaml

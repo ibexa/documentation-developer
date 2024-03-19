@@ -25,7 +25,7 @@ For code details per resource, see the [REST API reference](../rest_api_referenc
 | `409` | Conflict               | The request is in conflict with another part of the repository (for example, trying to create a new item with an identifier already used).                                                                                                                  |
 | `415` | Unsupported Media Type | The request payload media type doesn't match the media type specified in the request header.                                                                                                                                                                |
 | `500` | Internal Server Error  | The server encountered an unexpected condition, usually an exception, which prevents it from fulfilling the request, like database down, permissions or configuration error.                                                                                |
-| `501` | Not Implemented        | Returned when the requested method hasn't yet been implemented. For [[= product_name =]], most of Users, User groups, Content items, Locations and content types have been implemented. Some of their methods, as well as other features, may return a 501. |
+| `501` | Not Implemented        | Returned when the requested method hasn't yet been implemented. For [[= product_name =]], most of Users, User groups, content items, Locations and content types have been implemented. Some of their methods, as well as other features, may return a 501. |
 
 ## Response headers
 
@@ -92,13 +92,13 @@ Those example `Accept-Path` headers above indicate that the content could be mod
 
 ### Location header
 
-For example, [creating content](../rest_api_reference/rest_api_reference.html#managing-content-create-content-type) and [getting a Content item's current version](../rest_api_reference/rest_api_reference.html#managing-content-get-current-version)
+For example, [creating content](../rest_api_reference/rest_api_reference.html#managing-content-create-content-type) and [getting a content item's current version](../rest_api_reference/rest_api_reference.html#managing-content-get-current-version)
 both send a `Location` header to provide you with the requested resource's ID.
 
 Those particular headers generally match a specific list of HTTP response codes.
 `Location` is mainly sent alongside `201 Created`, `301 Moved permanently`, `307 Temporary redirect responses`.
 
-In the following example, the Content item's remote ID 34720ff636e1d4ce512f762dc638e4ac corresponds to the ID 52:
+In the following example, the content item's remote ID 34720ff636e1d4ce512f762dc638e4ac corresponds to the ID 52:
 
 ```http
 GET /content/objects?remoteId=34720ff636e1d4ce512f762dc638e4ac" HTTP/1.1

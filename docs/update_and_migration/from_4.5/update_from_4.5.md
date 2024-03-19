@@ -253,7 +253,7 @@ php bin/console ibexa:migrations:migrate --file=2023_12_07_20_23_editor_content_
 
 #### Site context
 
-Site context is used in Content Tree to display only those Content items that belong to the selected website.
+Site context is used in Content Tree to display only those content items that belong to the selected website.
 
 You can add locations that shoudn't be publicly accessible to the list of excluded paths:
 

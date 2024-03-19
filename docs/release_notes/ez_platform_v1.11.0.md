@@ -27,16 +27,16 @@ This has been made possible by initial legacy contribution from [@peterkeung](ht
 
 #### API endpoint for removing translations
 
-[EZP-27417](https://issues.ibexa.co/browse/EZP-27417) provides an API endpoint to remove a given translation completely from a Content item.
+[EZP-27417](https://issues.ibexa.co/browse/EZP-27417) provides an API endpoint to remove a given translation completely from a content item.
 
 ### eZ Platform Enterprise Edition
 
 #### Collection block
 
 New Collection block is available in the Landing Page editor.
-It enables you to manually select a set of Content items to be displayed.
+It enables you to manually select a set of content items to be displayed.
 
-![Collection block options with three Content items selected](collection_block.png)
+![Collection block options with three content items selected](collection_block.png)
 
 !!! note
 

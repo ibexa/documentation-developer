@@ -6,7 +6,7 @@ description: Query content by using Query types and content query Field.
 
 With content queries you can find and render specific content according to criteria that you define.
 
-You can use queries to list or embed Content items, such as:
+You can use queries to list or embed content items, such as:
 
 - [children in a folder](list_content.md#list-children-with-query-type)
 - related articles
@@ -137,10 +137,10 @@ For example, with `itemsPerPage` 10, first page starts with 0, second page start
 The following variables are available in parameter expressions:
 
 - `returnedType` - the identifier of the content type selected in the **Returned type** dropdown
-- `content` - the current Content item
-- `location` - the current Location of the Content item
-- `mainLocation` - the main Location of the Content item
-- `contentInfo` - the current Content item's ContentInfo
+- `content` - the current content item
+- `location` - the current Location of the content item
+- `mainLocation` - the main Location of the content item
+- `contentInfo` - the current content item's ContentInfo
 
 ### Content view configuration
 

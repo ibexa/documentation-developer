@@ -1,10 +1,10 @@
 ---
-description: Create and render a list of Content items, for example, content in a folder or blog posts in a blog.
+description: Create and render a list of content items, for example, content in a folder or blog posts in a blog.
 ---
 
 # List content
 
-To render a list of Content items, for example, content in a folder, blog posts in a blog, and so on,
+To render a list of content items, for example, content in a folder, blog posts in a blog, and so on,
 you can use one of two methods:
 
 - use a [Query type](#list-children-with-query-type)
@@ -28,7 +28,7 @@ In this example, it is the default [Query controller](content_queries.md).
 ```
 
 `params` define that you want to render the content by using the [`Children` Query type](built-in_query_types.md#children).
-This Query type automatically finds the children of the current Content item.
+This Query type automatically finds the children of the current content item.
 The results of the query are placed in the `items` variable, which you can use in templates.
 
 Then, place the following template in `templates/themes/<my_theme>/full/folder.html.twig`:

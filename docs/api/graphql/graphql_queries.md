@@ -6,11 +6,11 @@ description: Use GraphQL to query for content and Locations.
 
 ## Querying content
 
-You can query a single Content item or a list of Content items using fields defined in the domain schema.
+You can query a single content item or a list of content items using fields defined in the domain schema.
 
-### Get a Content item
+### Get a content item
 
-To get a specific Content item by its content ID, Location ID, or URL alias, use its relevant singular field,
+To get a specific content item by its content ID, Location ID, or URL alias, use its relevant singular field,
 for example `article`, `folder`, `image`, etc.:
 
 ```
@@ -45,10 +45,10 @@ Response:
 }
 ```
 
-You can request any Fields of the Content item. In the example above, these are `title` and `author`.
+You can request any Fields of the content item. In the example above, these are `title` and `author`.
 
 You can also query the generic `item` object.
-The `item` object references a Content item, but you can also get its [Location information](#querying-locations).
+The `item` object references a content item, but you can also get its [Location information](#querying-locations).
 The query accepts `locationId`, `remoteId`, and `urlAlias` as arguments.
 
 ```
@@ -73,7 +73,7 @@ Response:
 
 #### Get language versions
 
-To get Fields of a Content item in a specific language, use the `language` argument.
+To get Fields of a content item in a specific language, use the `language` argument.
 The language must be configured for the current SiteAccess.
 
 ```
@@ -104,9 +104,9 @@ Response:
 
 When you do not specify a language, the response contains the most prioritized translation.
 
-### Get a group of Content items
+### Get a group of content items
 
-To get a list of all Content items of a selected type, use the plural field, e.g. `articles`:
+To get a list of all content items of a selected type, use the plural field, e.g. `articles`:
 
 ```
 {
@@ -284,8 +284,8 @@ Response:
 }
 ```
 
-To query the URL alias of a Content item, use `_url`.
-This returns the "best" URL alias for this Content item based on its main Location and the current SiteAccess:
+To query the URL alias of a content item, use `_url`.
+This returns the "best" URL alias for this content item based on its main Location and the current SiteAccess:
 
 ```
 {

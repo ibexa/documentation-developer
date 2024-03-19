@@ -162,8 +162,8 @@ Several features help end users collaborate on the content, such as:
   The HTTP cache varies on current user's role and is purged when content change.
   With is huge network of points of presence (POP) around the world, Fastly is quickly delivering cached content from nearest server for a better user experience.
 - A Search Engine Optimization (SEO) field implements best practices about web search engine indexing and social network sharing.
-  It covers canonical URLs which are mandatory if multiple locations are used for a same Content item to avoid duplicate content,
-  Open Graph protocol to better describe a Content item to social networks and search engine, and Twitter Cards.
+  It covers canonical URLs which are mandatory if multiple locations are used for a same content item to avoid duplicate content,
+  Open Graph protocol to better describe a content item to social networks and search engine, and Twitter Cards.
 
 ## Use cases
 
