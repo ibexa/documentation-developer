@@ -12,12 +12,12 @@ By configuring service gateways, mapping workflow actions and translating paymen
 ## General Payum configuration
 
 In your Payum configuration file, for example, `payum.yaml`, set up a payment service gateway by specifying the factory, credentials and other necessary settings.
-Replace `<service_identifier>` with a unique identifier for the payment service.
+Replace `<payment_method_identifier>` with a unique identifier of the method provided by the payment service.
 
 ```yaml
 payum:
     gateways:
-        <service_identifier>:
+        <payment_method_identifier>:
             factory: <gateway_factory>
             # Add specific configuration fields for the gateway
             credential_1: <credential_1_value>

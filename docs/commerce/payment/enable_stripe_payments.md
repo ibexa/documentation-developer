@@ -19,7 +19,7 @@ Then, add the following configuration to your YAML configuration file (`payum.ya
 ```yaml
 payum:
     gateways:
-        stripe_payment_platform:
+        strp_checkout:
             factory: stripe_checkout
             publishable_key: <publishable_key>
             secret_key: <secret_key>
@@ -28,7 +28,7 @@ payum:
 
 !!! tip
 
-    You can replace `stripe_payment_platform` with a different unique identifier.
+    You can replace `strp_checkout` with a different unique identifier.
 
 Ensure that the `publishable_key` and `secret_key` fields contain the Stripe API keys.
 
@@ -39,7 +39,7 @@ To do it, within the `ibexa_payment_type` namespace in your translation files, u
 ibexa:
     payment_method:
         type:
-            stripe_payment_platform:
-                name: "Translated Stripe platform name"
+            strp_checkout:
+                name: "Translated Stripe Checkout name"
 
 ```

@@ -18,7 +18,7 @@ Then, add the following configuration to your YAML configuration file (`payum.ya
 ```yaml
 payum:
     gateways:
-        paypal_payment_service:
+        pp_express_checkout:
             factory: paypal_express_checkout
             username: <paypal_username>
             password: <paypal_password>
@@ -27,7 +27,7 @@ payum:
 
 !!! tip
 
-    You can replace `paypal_payment_service` with a different unique identifier.
+    You can replace `pp_express_checkout` with a different unique identifier.
 
 Ensure that the `username`, `password,` and `signature` fields contain the PayPal API credentials obtained from your PayPal business account.
 
@@ -38,7 +38,7 @@ To do it, within the `ibexa_payment_type` namespace in your translation files, u
 ibexa:
     payment_method:
         type:
-            paypal_payment_service:
-                name: "Translated PayPal service name"
+            pp_express_checkout:
+                name: "Translated PayPal Express Checkout name"
 
 ```
