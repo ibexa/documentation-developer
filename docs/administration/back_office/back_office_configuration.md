@@ -41,7 +41,7 @@ ibexa:
 
 ## Copy subtree limit
 
-Copying large subtrees can cause performance issues, so you can limit the number of Content items
+Copying large subtrees can cause performance issues, so you can limit the number of content items
 that can be copied at once using the `ibexa.system.<scope>.subtree_operations.copy_subtree.limit`
 [configuration key](configuration.md#configuration-files).
 

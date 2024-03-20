@@ -241,9 +241,9 @@ post:
                 204:
                     description: No Content.
                 401:
-                    description: Error - the user is not authorized to publish this Content Type draft.
+                    description: Error - the user is not authorized to publish this content type draft.
                 403:
-                    description: Error - the Content Type draft is not complete e.g. there is no Field definition provided.
+                    description: Error - the content type draft is not complete e.g. there is no Field definition provided.
                 404:
                     description: Error - there is no draft or Role with the given ID.
         delete:
@@ -284,7 +284,7 @@ post:
                 204:
                     description: No Content - all Policies of the given Role are deleted.
                 401:
-                    description: Error - the user is not authorized to delete this Content Type.
+                    description: Error - the user is not authorized to delete this content type.
         post:
             # Currently does not work
             displayName: Create Policy
@@ -384,6 +384,6 @@ post:
                     204:
                         description: No Content - the given Policy is deleted.
                     401:
-                        description: Error - the user is not authorized to delete this Content Type.
+                        description: Error - the user is not authorized to delete this content type.
                     404:
                         description: Error - the Role or Policy does not exist.

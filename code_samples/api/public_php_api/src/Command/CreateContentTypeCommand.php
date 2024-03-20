@@ -30,11 +30,11 @@ class CreateContentTypeCommand extends Command
     protected function configure()
     {
         $this->setDefinition([
-            new InputArgument('identifier', InputArgument::REQUIRED, 'Content Type identifier'),
-            new InputArgument('group_identifier', InputArgument::REQUIRED, 'Content Type group identifier'),
+            new InputArgument('identifier', InputArgument::REQUIRED, 'Content type identifier'),
+            new InputArgument('group_identifier', InputArgument::REQUIRED, 'Content type group identifier'),
             new InputArgument('copy_identifier', InputArgument::OPTIONAL, 'Identifier of the CT copy'),
         ])
-            ->addOption('copy', 'c', InputOption::VALUE_NONE, 'Do you want to make a copy the Content Type?');
+            ->addOption('copy', 'c', InputOption::VALUE_NONE, 'Do you want to make a copy the content type?');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -51,7 +51,7 @@ class CreateContentTypeCommand extends Command
         try {
             $contentTypeGroup = $this->contentTypeService->loadContentTypeGroupByIdentifier($groupIdentifier);
         } catch (\eZ\Publish\API\Repository\Exceptions\NotFoundException $e) {
-            $output->writeln("Content Type group with identifier $groupIdentifier not found");
+            $output->writeln("Content type group with identifier $groupIdentifier not found");
 
             return self::FAILURE;
         }

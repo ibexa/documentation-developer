@@ -28,7 +28,7 @@ and use assets such as images directly from the DAM in your content.
 
 ### Autosave
 
-[[= product_name_base =]] Platform can now save your edits in a Content item or product automatically to help you preserve the progress in an event of a failure.
+[[= product_name_base =]] Platform can now save your edits in a content item or product automatically to help you preserve the progress in an event of a failure.
 For more information, see [Autosave](https://doc.ibexa.co/projects/userguide/en/latest/publishing/publishing/#autosave).
 
 ### Aggregation API
@@ -36,14 +36,14 @@ For more information, see [Autosave](https://doc.ibexa.co/projects/userguide/en/
 When using Solr or Elasticsearch search engines you can now use aggregations
 to group search results and get the count of results per aggregation type.
 
-You can aggregate results by general conditions such as Content Type or Section,
+You can aggregate results by general conditions such as content type or Section,
 or by Field aggregations such as the value of specific Fields.
 
 See [Aggregation API](https://doc.ibexa.co/en/latest/api/public_php_api_search/#aggregation) for more information.
 
 ### Targeting block and Segmentation API [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-Targeting block for the Page Builder enables you to display different Content items to different users
+Targeting block for the Page Builder enables you to display different content items to different users
 depending on the Segments they belong to.
 
 ![Targeting block](3.2_targeting_block.png)
@@ -57,7 +57,7 @@ as well as assign Users to Segments.
 
 Three new Twig helpers are available to make rendering content easier.
 
-Use `ez_render_content(content)` and `ez_render_location(location)` to render the selected Content item.
+Use `ez_render_content(content)` and `ez_render_location(location)` to render the selected content item.
 
 You can also use `ez_render()` and provide it with either a content or Location object.
 
@@ -95,13 +95,13 @@ Also, you can now apply new filters that are intended to help you declutter the 
 
 For more information, see [Calendar widget](https://doc.ibexa.co/projects/userguide/en/latest/publishing/advanced_publishing_options/#calendar-widget).
 
-### Cloning Content Types
+### Cloning content types
 
-When creating Content Types in the Back Office, you do not have to start from scratch.
-You can now clone an existing Content Type instead.
+When creating content types in the Back Office, you do not have to start from scratch.
+You can now clone an existing content type instead.
 
-To do this, click the **Copy** icon located next to the Content Type that you want to clone.
-Then, refresh the view to see an updated list of Content Types.
+To do this, click the **Copy** icon located next to the content type that you want to clone.
+Then, refresh the view to see an updated list of content types.
 
 ### Object state API improvements
 

@@ -5,10 +5,10 @@ page_type: reference
 
 # Field Twig functions
 
-Field Twig functions render specific Fields of a Content item
+Field Twig functions render specific Fields of a content item
 and provide information about them.
 
-- [`ibexa_render_field()`](#ibexa_render_field) renders the selected Field of a Content item.
+- [`ibexa_render_field()`](#ibexa_render_field) renders the selected Field of a content item.
 - [`ibexa_field_value()`](#ibexa_field_value) returns the Field value object.
 - [`ibexa_field()`](#ibexa_field) returns the Field object.
 
@@ -17,15 +17,18 @@ and provide information about them.
 
 You can get additional information about a Field by using the following Twig functions:
 
-- [`ibexa_field_name()`](#ibexa_field_name) returns the name of a Content item's Field.
-- [`ibexa_field_description()`](#ibexa_field_description) returns the description of a Content item's Field.
-- [`ibexa_field_is_empty()`](#ibexa_field_is_empty) returns Boolean information whether a Field of a Content item is empty.
+- [`ibexa_field_name()`](#ibexa_field_name) returns the name of a content item's Field.
+- [`ibexa_field_description()`](#ibexa_field_description) returns the description of a content item's Field.
+- [`ibexa_field_is_empty()`](#ibexa_field_is_empty) returns Boolean information whether a Field of a content item is empty.
+- [`ibexa_field_group_name()`](#ibexa_field_group_name) returns a human-readable name of the Field group.
+- [`ibexa_has_field()`](#ibexa_has_field) checks whether a Field is present in the content item.
+
 
 ## Field rendering
 
 ### `ibexa_render_field()`
 
-`ibexa_render_field()` renders the selected Field of a Content item.
+`ibexa_render_field()` renders the selected Field of a content item.
 The Field is rendered with the default template, but you can optionally pass a different template as parameter as well.
 
 | Argument | Type | Description |
@@ -74,7 +77,7 @@ Some Field Types, like the [MapLocation Field Type](maplocationfield.md), expect
 
 The function returns the value of the Field only.
 To render the Field with default or custom templates, use [`ibexa_render_field()`](#ibexa_render_field) instead.
-If the Content item does not have a translation in the prioritized or passed language,
+If the content item does not have a translation in the prioritized or passed language,
 the function returns the value in the main language.
 
 | Argument | Type | Description |
@@ -91,7 +94,7 @@ the function returns the value in the main language.
 
 `ibexa_field()` returns the Field object.
 The Field gives you access to the Field value, as well as the Field's definition identifier and Field Type identifier.
-If the Content item does not have a translation in the prioritized or passed language,
+If the content item does not have a translation in the prioritized or passed language,
 the function returns the Field object in the main language.
 
 | Argument | Type | Description |
@@ -113,10 +116,10 @@ You can use `ibexa_field()` to access the Field Type identifier:
 
 ### `ibexa_field_name()`
 
-`ibexa_field_name()` returns the name of a Content item's Field.
+`ibexa_field_name()` returns the name of a content item's Field.
 
 The function uses prioritized languages from SiteAccess settings unless you pass another language as `forcedLanguage`.
-If the Content item does not have a translation in the prioritized or passed language,
+If the content item does not have a translation in the prioritized or passed language,
 the function returns the name in the main language.
 
 | Argument | Type | Description |
@@ -134,10 +137,10 @@ the function returns the name in the main language.
 
 ### `ibexa_field_description()`
 
-`ibexa_field_description()` returns the description of a Content item's Field.
+`ibexa_field_description()` returns the description of a content item's Field.
 
 The function uses prioritized languages from SiteAccess settings unless you pass another language as `forcedLanguage`.
-If the Content item does not have a translation in the prioritized or passed language,
+If the content item does not have a translation in the prioritized or passed language,
 the function returns the description in the main language.
 
 | Argument | Type | Description |
@@ -154,7 +157,7 @@ the function returns the description in the main language.
 
 ### `ibexa_field_is_empty()`
 
-`ibexa_field_is_empty()` returns Boolean information whether a given Field of a Content item is empty.
+`ibexa_field_is_empty()` returns Boolean information whether a given Field of a content item is empty.
 
 | Argument | Type | Description |
 |---------------|------|-------------|
@@ -173,5 +176,33 @@ For example, use `ibexa_field_is_empty()` to check whether a Field is empty or f
 ``` html+twig
 {% if not ibexa_field_is_empty(content, 'image') %}
     {{ ibexa_render_field(content, 'image') }}
+{% endif %}
+```
+
+### `ibexa_field_group_name()`
+
+`ibexa_field_group_name()` returns a human-readable name of a Field group.
+
+| Argument | Type | Description |
+|---------------|------|-------------|
+| `fieldGroupIdentifier` | `string` | Field group [identifier](repository_configuration.md#field-groups-configuration). |
+
+
+``` html+twig
+{{ ibexa_field_group_name('content') }}
+```
+
+### `ibexa_has_field()`
+
+`ibexa_has_field()` returns Boolean information whether a Field is present in the content item.
+
+| Argument | Type | Description |
+|---------------|------|-------------|
+| `content` | `Ibexa\Contracts\Core\Repository\Values\Content\Content` | Content item the Field may belong to. |
+| `fieldDefIdentifier` | `string` | Identifier of the Field. |
+
+``` html+twig
+{% if ibexa_has_field(content, 'existing') %}
+    {{ ibexa_render_field(content, 'existing') }}
 {% endif %}
 ```

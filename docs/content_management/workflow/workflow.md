@@ -1,12 +1,12 @@
 ---
-description: Workflow controls how Content items pass between stages and allows setting up editorial flows, for example for reviews and proofreading.
+description: Workflow controls how content items pass between stages and allows setting up editorial flows, for example for reviews and proofreading.
 ---
 
 # Workflow
 
-The workflow functionality passes a Content item version through a series of stages.
+The workflow functionality passes a content item version through a series of stages.
 
-For example, an editorial workflow can pass a Content item from draft stage through 
+For example, an editorial workflow can pass a content item from draft stage through 
 design and proofreading.
 
 By default, [[= product_name =]] comes pre-configured with a Quick Review workflow.
@@ -29,9 +29,9 @@ The following example configuration defines a workflow where you can optionally 
 
 Matchers define when the workflow is used. Their configuration is optional.
 
-`content_type` contains an array of Content Type identifiers that use this workflow.
+`content_type` contains an array of content type identifiers that use this workflow.
 
-`content_status` lists the statuses of Content items which fall under this workflow. The available values are: `draft` and `published`. 
+`content_status` lists the statuses of content items which fall under this workflow. The available values are: `draft` and `published`. 
 
 If set to `draft`, applies for new Content (newly created).
 
@@ -66,13 +66,13 @@ or be `reverse` to a different transition (line 9).
 
 ### Reviewers
 
-When moving a Content item through a transition, the user can select a reviewer.
+When moving a content item through a transition, the user can select a reviewer.
 Assigning a reviewer is mandatory if you set `reviewers.required` to `true` for this transition.
 
 To be able to search for users for review, the user must have the content/read Policy without any Limitation,
 or with a Limitation that allows reading users.
 This means that, in addition to your own settings for this Policy, 
-you must add the /Users subtree to the Limitation and add Users in the [Content Type Limitation](limitation_reference.md#content-type-limitation).
+you must add the /Users subtree to the Limitation and add Users in the [content type Limitation](limitation_reference.md#content-type-limitation).
 
 ``` yaml hl_lines="8 9"
 [[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 23, 32) =]]
@@ -103,7 +103,7 @@ by another user.
 
 ### Content publishing
 
-You can automatically publish a Content item once it goes through a specific transition.
+You can automatically publish a content item once it goes through a specific transition.
 To do so, configure the `publish` action for the transition:
 
 ``` yaml hl_lines="7 8"

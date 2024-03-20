@@ -34,7 +34,7 @@ Content on the fly enables you to create new Content anywhere in the application
 
 ### URL alias management
 
-You can now add custom URL aliases to Content items from the URL tab. Aliases can be set per language of the Content item.
+You can now add custom URL aliases to content items from the URL tab. Aliases can be set per language of the content item.
 
 ![Custom URL aliases](url_aliases.png)
 
@@ -56,7 +56,7 @@ You can now change your password, or request a new one if you forgot it.
 
 ### Simplified filtered search
 
-During search you can now filter the results by Content type, Section, Modified and Created dates.
+During search you can now filter the results by content type, Section, Modified and Created dates.
 
 ![Simplified filtered search](filtered_search.png)
 
@@ -66,9 +66,9 @@ You can now perform REST search via `POST /views` using custom `FieldCriterion`.
 
 ### Other UI improvements
 
-- When accessing the Back Office from a link to a specific Content item, after logging in you will now be redirected to the proper content view.
+- When accessing the Back Office from a link to a specific content item, after logging in you will now be redirected to the proper content view.
 - In edit mode you can now preview content as it will look in any SiteAccess it is available in.
-- When you start editing a Content item that already has an open draft, you will see a draft conflict screen:
+- When you start editing a content item that already has an open draft, you will see a draft conflict screen:
 
 ![Draft conflict window](draft_conflict.png)
 

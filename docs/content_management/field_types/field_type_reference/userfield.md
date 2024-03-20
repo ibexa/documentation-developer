@@ -13,7 +13,7 @@ This Field Type validates and stores information about a user.
 |Property|Type|Description|Example|
 |------|------|------|------|
 |`hasStoredLogin`|`boolean`|Denotes if user has stored login.|`true`|
-|`contentId`|`int|string`|ID of the Content item corresponding to the user.|`42`|
+|`contentId`|`int|string`|ID of the content item corresponding to the user.|`42`|
 |`login`|`string`|Username.|`john`|
 |`email`|`string`|The user's email address.|`john@smith.com`|
 |`passwordHash`|`string`|Hash of the user's password.|`1234567890abcdef`|

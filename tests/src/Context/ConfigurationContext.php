@@ -132,7 +132,7 @@ class ConfigurationContext implements Context
             'ezplatform_page_fieldtype.blocks.random.attributes.parent.type' => 'embed',
             'ezplatform_page_fieldtype.blocks.random.attributes.parent.name' => 'Parent',
             'ezplatform_page_fieldtype.blocks.random.attributes.parent.validators.not_blank.message' => 'You must provide value',
-            'ezplatform_page_fieldtype.blocks.random.attributes.parent.validators.regexp.message' => 'Choose a Content item',
+            'ezplatform_page_fieldtype.blocks.random.attributes.parent.validators.regexp.message' => 'Choose a content item',
             'ezplatform_page_fieldtype.blocks.random.attributes.parent.validators.regexp.options.pattern' => '/[0-9]+/',
         ]);
     }

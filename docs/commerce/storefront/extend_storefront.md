@@ -86,3 +86,27 @@ It takes the following parameters:
 - Taxonomy Entry
 - Product
 
+## Generate custom product preview path
+
+By default, the `ProductRenderController` controller passes only the product object for rendering.
+You can modify the controller file to make it pass parameters to the [`path`](https://symfony.com/doc/current/reference/twig_reference.html#path) Twig helper function, which is used by the `product_card.html.twig` and `product_card.html.twig` [templates](customize_storefront_layout.md) to generate the user path.
+After you modify the controller, it can also pass the following parameters:
+
+- `route` - the route, under which product preview is available.
+- `parameters` - parameters to be used, for example, to render the view.
+- `is_relative` - Boolean that decides whether the URL is relative or absolute.
+
+Define your own logic in a custom controller.
+Refer to the code snippet below and create your own file, for example, `CustomProductRenderController.php`:
+
+``` php
+    public function renderAction(ProductInterface $product): Response
+    {
+        return $this->render('@ibexadesign/storefront/product_card.html.twig', [
+            'content' => $product,
+            'route' => 'some.path',
+            'parameters' => ['some.parameter' => 123],
+            'is_relative' => true,
+        ]);
+    }
+```

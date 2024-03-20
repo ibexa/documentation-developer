@@ -76,7 +76,7 @@ get:
                 description: Error - the Location with the given ID does not exist.
     delete:
         displayName: Delete subtree
-        description: Deletes the complete subtree for the given path. Every Content item which does not have any other Location is deleted. Otherwise the deleted Location is removed from the Content item. The children are recursively deleted.
+        description: Deletes the complete subtree for the given path. Every content item which does not have any other Location is deleted. Otherwise the deleted Location is removed from the content item. The children are recursively deleted.
         responses:
             204:
                 description: No Content - deleted.
@@ -122,13 +122,13 @@ get:
                 description: Error - the Location with the given ID does not exist.
     swap:
         displayName: Swap Location
-        description: Swaps the Location of a Content item with the given Location of another Content item. SWAP or POST with header X-HTTP-Method-Override SWAP.
+        description: Swaps the Location of a content item with the given Location of another content item. SWAP or POST with header X-HTTP-Method-Override SWAP.
         headers:
             Destination:
                 description: A parent Location resource to which the Location is moved e.g. '/api/ibexa/v2/content/locations/1/63'.
         responses:
             204:
-                description: No Content. Swapped the Location of a Content item with the given Location of another Content item.
+                description: No Content. Swapped the Location of a content item with the given Location of another content item.
             401:
                 description: Error - the user is not authorized to swap this Location.
             404:
@@ -157,9 +157,9 @@ get:
                             type: LocationList
                             example: !include examples/content/locations/path/children/GET/LocationList.xml.example
                 401:
-                    description: Error - the user is not authorized to read this Content item.
+                    description: Error - the user is not authorized to read this content item.
                 404:
-                    description: Error - the Content item with the given ID does not exist.
+                    description: Error - the content item with the given ID does not exist.
     /urlaliases:
         get:
             displayName: List URL aliases for Location

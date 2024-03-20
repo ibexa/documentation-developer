@@ -5,7 +5,7 @@ page_type: reference
 
 # Field Type reference
 
-A Field Type is the underlying building block of the content model. It consists of two entities: Field value and Field definition. Field value is determined by values entered into the Content Field. Field definition is provided by the Content Type, and holds any user defined rules used by Field Type to determine how a Field Value is validated, stored, retrieved, formatted and so on.
+A Field Type is the underlying building block of the content model. It consists of two entities: Field value and Field definition. Field value is determined by values entered into the Content Field. Field definition is provided by the content type, and holds any user defined rules used by Field Type to determine how a Field Value is validated, stored, retrieved, formatted and so on.
 
 [[= product_name =]] comes with a collection of Field Types that can be used to build powerful and complex content structures. In addition, it is possible to extend the system by creating custom types for special needs.
 
@@ -32,7 +32,7 @@ Custom Field Types have to be programmed in PHP. However, the built-in Field Ty
 | [Float](floatfield.md) | Validates and stores a floating-point number. | No | Yes |
 | [Form](formfield.md) | Stores a form. | No | Yes |
 | [Image](imagefield.md) | Validates and stores an image. | No | Yes |
-|[ImageAsset](imageassetfield.md)|Stores images in independent Content items of a generic Image Content Type.| No | Yes |
+|[ImageAsset](imageassetfield.md)|Stores images in independent content items of a generic Image content type.| No | Yes |
 | [Integer](integerfield.md) | Validates and stores an integer value. | Yes | Yes |
 | [ISBN](isbnfield.md) | Handles International Standard Book Number (ISBN) in 10-digit or 13-digit format.  | Yes | Yes |
 | [Keyword](keywordfield.md) | Stores keywords. | Yes[^1^](#1-note-on-legacy-search-engine) | Yes |
@@ -42,8 +42,8 @@ Custom Field Types have to be programmed in PHP. However, the built-in Field Ty
 | [Media](mediafield.md) | Validates and stores a media file. | No | Yes |
 | [Null](nullfield.md) | Used as fallback for missing Field Types and for testing purposes. | N/A | N/A |
 | [Page](pagefield.md) | Stores a Page with a layout consisting of multiple zones. | N/A | N/A |
-| [Relation](relationfield.md) | Validates and stores a relation to a Content item. | Yes, with both [`Field`](fieldrelation_criterion.md) Criteria | Yes |
-| [RelationList](relationlistfield.md) | Validates and stores a list of relations to Content items. | Yes, with [`FieldRelation` Criterion](fieldrelation_criterion.md) | Yes |
+| [Relation](relationfield.md) | Validates and stores a relation to a content item. | Yes, with both [`Field`](fieldrelation_criterion.md) Criteria | Yes |
+| [RelationList](relationlistfield.md) | Validates and stores a list of relations to content items. | Yes, with [`FieldRelation` Criterion](fieldrelation_criterion.md) | Yes |
 | [RichText](richtextfield.md) | Validates and stores structured rich text in DocBook xml format, and exposes it in several formats. Available via [IbexaFieldTypeRichTextBundle](https://github.com/ibexa/fieldtype-richtext). | Yes[^1^](#1-note-on-legacy-search-engine)  | Yes |
 | [Selection](selectionfield.md) | Validates and stores a single selection or multiple choices from a list of options. | Yes[^1^](#1-note-on-legacy-search-engine) | Yes |
 | [SesExternaldata](sesexternaldata.md) | Uses external storage to store data. |||

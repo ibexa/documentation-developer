@@ -17,7 +17,7 @@ To view a list of all bookmarks, use [`BookmarkService::loadBookmarks`:](https:/
 [[= include_file('code_samples/api/public_php_api/src/Command/BookmarkCommand.php', 43, 50) =]]
 ```
 
-You can add a bookmark to a Content item by providing its Location object
+You can add a bookmark to a content item by providing its Location object
 to the [`BookmarkService::createBookmark`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/BookmarkService.php#L31) method:
 
 ``` php

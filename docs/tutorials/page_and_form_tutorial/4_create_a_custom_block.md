@@ -6,7 +6,7 @@ edition: experience
 # Step 4 — Create a custom block
 
 This step will guide you through creating a custom block.
-The custom block will display a randomly chosen Content item from a selected folder.
+The custom block will display a randomly chosen content item from a selected folder.
 
 To create a custom block from scratch you need four elements:
 
