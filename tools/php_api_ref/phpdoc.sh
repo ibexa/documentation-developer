@@ -16,7 +16,7 @@ PHPDOC_TEMPLATE_VERSION='3.3.1'; # Version of the phpDocumentor base template se
 PHPDOC_DIR="$(pwd)/tools/php_api_ref/.phpdoc"; # Absolute path to phpDocumentor resource directory (containing the override template set)
 
 PHP_BINARY="php -d error_reporting=`php -r 'echo E_ALL & ~E_DEPRECATED;'`";
-FORCE_DXP_INSTALL=0; # If 1, empty the temporary directory, install DXp from scratch, build, remove temporary directory; if O, potentially reuse the DXP already installed in temporary directory, keep temporary directory for next use.
+FORCE_DXP_INSTALL=1; # If 1, empty the temporary directory, install DXp from scratch, build, remove temporary directory; if O, potentially reuse the DXP already installed in temporary directory, keep temporary directory for next use.
 
 if [ ! -d $OUTPUT_DIR ]; then
   echo -n "Creating ${OUTPUT_DIR}… ";
