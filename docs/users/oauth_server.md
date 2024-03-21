@@ -1,5 +1,5 @@
 ---
-description: Other applications can authenticate [[= product_name =]] users through OAuth2 protocol then access to their resources on the platform.
+description: Other applications can authenticate Ibexa DXP users through OAuth2 protocol then access to their resources on the platform.
 ---
 
 # OAuth Server
