@@ -15,6 +15,7 @@ PHPDOC_CONF="$(pwd)/tools/php_api_ref/phpdoc.dist.xml"; # Absolute path to phpDo
 PHPDOC_TEMPLATE_VERSION='3.3.1'; # Version of the phpDocumentor base template set
 PHPDOC_DIR="$(pwd)/tools/php_api_ref/.phpdoc"; # Absolute path to phpDocumentor resource directory (containing the override template set)
 
+PHP_BINARY=php;
 FORCE_DXP_INSTALL=1; # If 1, empty the temporary directory, install DXp from scratch, build, remove temporary directory; if O, potentially reuse the DXP already installed in temporary directory, keep temporary directory for next use.
 
 if [ ! -d $OUTPUT_DIR ]; then
@@ -102,7 +103,7 @@ cp -R $PHPDOC_DIR ./;
 
 echo 'Run phpDocumentor…';
 curl -LO "https://github.com/phpDocumentor/phpDocumentor/releases/download/v$PHPDOC_VERSION/phpDocumentor.phar";
-php phpDocumentor.phar run -t php_api_reference;
+$PHP_BINARY phpDocumentor.phar run -t php_api_reference;
 if [ $? -eq 0 ]; then
   echo -n 'Remove unneeded from phpDocumentor output… ';
   rm -rf ./php_api_reference/files ./php_api_reference/graphs ./php_api_reference/indices ./php_api_reference/packages;
