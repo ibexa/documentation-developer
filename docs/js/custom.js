@@ -156,9 +156,12 @@ $(document).ready(function() {
         }
     })
 
-    // Fix page TOC/hash bug
     $('.md-sidebar.md-sidebar--secondary nav a').click(function(event) {
         window.setTimeout(function() {
+            $('.md-sidebar--secondary .md-nav__link--active').removeClass('md-nav__link--active');
+            $(event.target).addClass('md-nav__link--active');
+            $(document).scroll();
+            // Fix page TOC/hash bug
             document.location.hash = event.target.hash;
         }, 500);
     })
