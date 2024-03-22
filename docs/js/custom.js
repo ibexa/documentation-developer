@@ -146,7 +146,14 @@ $(document).ready(function() {
     }
 
     $(document).scroll(function() {
-        $('.md-sidebar.md-sidebar--secondary .md-nav__link--active')[0].scrollIntoView({behavior: 'instant', block: 'nearest'});
+        if ($('.md-sidebar--secondary .md-nav__link--active').length) {
+            $('.md-sidebar--secondary .md-nav__link--active')[0].scrollIntoView({
+                behavior: 'instant',
+                block: 'nearest'
+            });
+        } else {
+            $('.md-sidebar--secondary .md-sidebar__scrollwrap').scrollTop(0);
+        }
     })
 
     // Fix page TOC/hash bug
