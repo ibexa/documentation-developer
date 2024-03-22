@@ -146,7 +146,7 @@ $(document).ready(function() {
     }
 
     $(document).scroll(function() {
-        $('.md-sidebar.md-sidebar--secondary .md-nav__link--active')[0].scrollIntoView({behavior: 'smooth', block: 'nearest'});
+        $('.md-sidebar.md-sidebar--secondary .md-nav__link--active')[0].scrollIntoView({behavior: 'instant', block: 'nearest'});
     })
 
     // Fix page TOC/hash bug
