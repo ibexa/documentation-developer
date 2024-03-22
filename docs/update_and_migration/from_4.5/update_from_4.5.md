@@ -315,3 +315,20 @@ The following migration example allows users with the `Editor` role to access th
                   - identifier: activity_log_owner
                     values: []
 ```
+
+## Update Elasticsearch schema
+
+Elasticsearch idex must be erased, the schema updated, and the index rebuild.
+
+To delete the index, for example, you can use an HTTP request like in the following `curl` command:
+
+```bash
+curl --request DELETE 'http://elasticsearch:9200/_all'
+```
+
+To update the schema then reindex, use the following commands:
+
+```bash
+php bin/console ibexa:elasticsearch:put-index-template --overwrite
+php bin/console ibexa:reindex
+```
