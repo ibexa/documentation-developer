@@ -318,7 +318,7 @@ The following migration example allows users with the `Editor` role to access th
 
 ## Update Elasticsearch schema
 
-Elasticsearch idex must be erased, the schema updated, and the index rebuild.
+Elasticsearch index must be erased, the schema updated, and the index rebuild.
 
 To delete the index, for example, you can use an HTTP request like in the following `curl` command:
 
