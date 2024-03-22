@@ -60,6 +60,10 @@
     height: calc(100vh - 140px);
 }
 
+.md-nav--secondary .md-nav__title {
+    position: relative;
+}
+
 .md-nav--secondary>ul {
     border-left: 1px solid var(--mid-grey);
     margin-left: 0.4rem;
