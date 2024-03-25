@@ -25,7 +25,8 @@ To proceed you need to be familiar with how indexing, filtering and queries work
 
 Whenever you make any changes in case of variables (for example, environmental ones) or configuration files, you need to erase Elasticsearch index, update the schema, and rebuild the index.
 
-To delete the index, you can use an HTTP request. Use the command as in the following example:
+To delete the index, you can use an HTTP request.
+Use the command as in the following example:
 
 ```bash
 curl --request DELETE 'https://elasticsearch:9200/_all'
