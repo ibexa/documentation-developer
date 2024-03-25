@@ -20,3 +20,20 @@ Start with the [Set up Elasticsearch](https://www.elastic.co/guide/en/elasticsea
 **Prerequisite**
 
 To proceed you need to be familiar with how indexing, filtering and queries work.
+
+## Update Elasticsearch schema
+
+Whenever any changes are made in case of variables or configuration, Elasticsearch index must be erased, the schema updated, and the index rebuild.
+
+To delete the index, you can use an HTTP request. Use the command as in the following example:
+
+```bash
+curl --request DELETE 'https://elasticsearch:9200/_all'
+```
+
+To update the schema and then reindex the search, use the following commands:
+
+```bash
+php bin/console ibexa:elasticsearch:put-index-template --overwrite
+php bin/console ibexa:reindex
+```
