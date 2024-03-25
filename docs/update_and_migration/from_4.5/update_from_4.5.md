@@ -238,7 +238,7 @@ php bin/console ibexa:migrations:migrate --file=2023_11_20_14_33_order_dashboard
 
 ### Ibexa Open Source
 
-If you don't have access to [[= product_name =]]'s `ibexa/installer` package, apply the following database update:
+If you don't have access to [[= product_name =]]'s `ibexa/installer` package and cannot apply the scripts from `vendor/ibexa/installer` directory, apply the following database update instead:
 
 === "MySQL"
 
