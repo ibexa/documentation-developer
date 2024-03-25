@@ -1,0 +1,20 @@
+<li class="ibexa-global-search__autocomplete-item">
+    <a class="ibexa-global-search__autocomplete-item-link ibexa-link" href="{{ product_href }}">
+        <div class="ibexa-global-search__autocomplete-item-name">
+            {{ product_name }}
+            <div class="ibexa-badge">
+                {{ product_code }}
+            </div>
+        </div>
+        <div class="ibexa-global-search__autocomplete-item-info">
+            <div class="ibexa-global-search__autocomplete-item-content-type-wrapper">
+                <svg class="ibexa-icon ibexa-icon--tiny-small">
+                    <use xlink:href="{{ product_type_icon_href }}"></use>
+                </svg>
+                <span  class="ibexa-global-search__autocomplete-item-content-type">
+                    {{ product_type_name }}
+                </span>
+            </div>
+        </div>
+    </a>
+</li>
