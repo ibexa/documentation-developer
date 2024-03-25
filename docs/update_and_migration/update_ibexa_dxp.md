@@ -23,7 +23,7 @@ To update [[= product_name =]] to a newer version, select the version you are cu
 
     If you already have a v3.3 installation, [update to the latest v3.3 version](from_3.3/update_from_3.3.md).
 
-    Afterwards, it is strongly recommended to also [update to the latest LTS, v4.6](from_3.3/to_4.0.md).
+    Afterwards, it is strongly recommended to also update to the latest LTS, [v4.6](from_4.5/update_from_4.5.md) (through [v4.0](from_3.3/to_4.0.md) up to to v4.6).
 
 === "I am using v4.x"
 
