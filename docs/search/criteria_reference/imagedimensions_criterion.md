@@ -39,17 +39,17 @@ $query->query = new Criterion\Dimensions('image', $imageCriteriaData);
     ```xml
     <Query>
         <Filter>
-          <ImageDimensionsCriterion>
-            <fieldDefIdentifier>image</fieldDefIdentifier>
-            <width>
-              <min>100</min>
-              <max>1000</max>
-            </width>
-            <height>
-              <min>500</min>
-              <max>1500</max>
-            </height>
-          </ImageDimensionsCriterion>
+            <ImageDimensionsCriterion>
+                <fieldDefIdentifier>image</fieldDefIdentifier>
+                <width>
+                    <min>100</min>
+                    <max>1000</max>
+                </width>
+                <height>
+                    <min>500</min>
+                    <max>1500</max>
+                </height>
+            </ImageDimensionsCriterion>
         </Filter>
     </Query>
     

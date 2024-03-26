@@ -4,7 +4,7 @@ description: Image Criterion
 
 # Image Criterion
 
-The `MimeType` Search Criterion searches for image by specified image attributes.
+The `Image` Search Criterion searches for image by specified image attributes.
 
 ## Arguments
 
@@ -44,9 +44,9 @@ $query->query = new Criterion\Image('image', $imageCriteriaData);
 
 === "XML"
 
-   ```xml
-   <Query>
-         <Filter>
+    ```xml
+    <Query>
+        <Filter>
             <ImageCriterion>
                <fieldDefIdentifier>image</fieldDefIdentifier>
                <mimeTypes>image/png</mimeTypes>
@@ -65,60 +65,58 @@ $query->query = new Criterion\Image('image', $imageCriteriaData);
                <orientation>portrait</orientation>
             </ImageCriterion>
          </Filter>
-   </Query>
-   ```
-
+      </Query>
+    ```
 
 === "JSON"
 
     ```json
     "Query": {
-         "Filter": {
-            "ImageCriterion": {
-               "fieldDefIdentifier": "image",
-               "mimeTypes": "image/png",
-               "size": {
-                  "max": 1.5
-               },
-               "width": {
-                  "max": 1000
-               },
-               "height": {
-                  "max": 1500
-               },
-               "orientation": "portrait"
-            }
+       "Filter": {
+          "ImageCriterion": {
+             "fieldDefIdentifier": "image",
+             "mimeTypes": "image/png",
+             "size": {
+                "max": 1.5
+             },
+             "width": {
+                "max": 1000
+             },
+             "height": {
+                "max": 1500
+             },
+             "orientation": "portrait"
+          }
        }
     }
-    
 
     OR
-    
+
     "Query": {
-         "Filter": {
-            "ImageCriterion": {
-               "fieldDefIdentifier": "image",
-               "mimeTypes": [
-                  "image/png",
-                  "image/jpeg"
-               ],
-               "size": {
-                  "min": 0,
-                  "max": 2
-               },
-               "width": {
-                  "min": 100,
-                  "max": 1000
-               },
-               "height": {
-                  "min": 500,
-                  "max": 1500
-               },
-               "orientation": [
-                  "portrait",
-                  "landscape"
-               ]
-            }
-         }
-    } 
+       "Filter": {
+          "ImageCriterion": {
+             "fieldDefIdentifier": "image",
+             "mimeTypes": [
+                "image/png",
+                "image/jpeg"
+             ],
+             "size": {
+                "min": 0,
+                "max": 2
+             },
+             "width": {
+                "min": 100,
+                "max": 1000
+             },
+             "height": {
+                "min": 500,
+                "max": 1500
+             },
+             "orientation": [
+                "portrait",
+                "landscape"
+             ]
+          }
+       }
+    }
     ```

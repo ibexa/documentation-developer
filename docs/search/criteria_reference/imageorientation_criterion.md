@@ -4,7 +4,7 @@ description: Image Orientation Criterion
 
 # Image Orientation Criterion
 
-The `Orientation` Search Criterion searches for image with specified mime orientation(s).
+The `Orientation` Search Criterion searches for image with specified orientation(s).
 Supported orientation values: landscape, portrait and square.
 
 ## Arguments
@@ -53,8 +53,8 @@ $query->query = new Criterion\Orientation('image', $orientations);
             "ImageOrientationCriterion": {
                 "fieldDefIdentifier": "image",
                 "orientation": "landscape"
-    }
-       }
+            }
+        }
     }
 
     OR

@@ -43,14 +43,14 @@ $query->query = new Criterion\FileSize('image', 0, 1.5);
     ```json
     "Query": {
         "Filter": {
-      "ImageFileSizeCriterion":{
-        "fieldDefIdentifier": "image",
-        "size": {
-          "min": 0, 
-    "max": 1.5
+            "ImageFileSizeCriterion":{
+                "fieldDefIdentifier": "image",
+                "size": {
+                    "min": 0, 
+                    "max": 1.5
+                }
+            }
         }
-      }
-       }
     }
 
     ```
