@@ -163,7 +163,7 @@ php bin/console ibexa:migrations:migrate
 
 ### Back Office customizations
 
-The v4 version of [[= product_name =]] is using Bootstrap 5 in the Back Office. If you've used Bootstrap 4 to style your custom Back Office components, rewrite them [using the migration guide from Bootstrap 4](https://getbootstrap.com/docs/5.0/migration/).
+The v4 version of [[= product_name =]] is using Bootstrap 5 in the Back Office. If you've used Bootstrap 4 to style your custom Back Office components, update them [using the migration guide from Bootstrap 4](https://getbootstrap.com/docs/5.0/migration/).
 
 ### Online editor
 
