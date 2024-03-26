@@ -9,7 +9,7 @@ A Type class must implement `Ibexa\Core\FieldType\FieldType` ("Field Type interf
 All native Field Types also extend the `Ibexa\Core\FieldType\FieldType` abstract class that implements this interface and provides implementation facilities through a set of abstract methods of its own.
 
 You should also provide a value object class for storing the custom Field value provided by the Field Type.
-The Value is used to represent an instance of the Field Type within a Content item.
+The Value is used to represent an instance of the Field Type within a content item.
 Each Field presents its data using an instance of the Type's Value class.
 A Value class must implement the `Ibexa\Contracts\Core\FieldType` interface.
 It may also extend the `Ibexa\Core\FieldType\Value` abstract class.
@@ -22,7 +22,7 @@ The Type class of a Field Type provides an implementation of the [`Ibexa\Contrac
 
 ### Field Definition handling
 
-A custom Field Type is used in a Field definition of a custom Content Type.
+A custom Field Type is used in a Field definition of a custom content type.
 You can additionally provide [settings for the Field Type](#field-type-settings) and a [validator configuration](field_type_validation.md).
 Since the public PHP API cannot know anything about these, their handling is delegated to the Field Type itself through the following methods:
 
@@ -57,8 +57,8 @@ This also applies to all user interfaces and the REST API, which therefore must 
 
 ### Field Type name
 
-The Content item name is retrieved by the `Ibexa\Core\FieldType\FieldType::getName` method which must be implemented.
-To generate Content item name or URL alias the Field Type name must be a part of a name schema or a URL schema.
+The content item name is retrieved by the `Ibexa\Core\FieldType\FieldType::getName` method which must be implemented.
+To generate content item name or URL alias the Field Type name must be a part of a name schema or a URL schema.
 
 ## Value handling
 

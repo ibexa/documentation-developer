@@ -11,8 +11,8 @@ The final step of this tutorial assists you in adding to the home page a Form bl
     
 ### Add a Form block
 
-Start with creating a Form Content item.
-In the left menu select **Forms**, click **Create content** and select **Form**.
+Start with creating a Form content item.
+In the main menu, go to **Content** -> **Forms**, click **Create content** and select **Form**.
 Provide the title, for example, "Sign up for Newsletter" and click **Build form**.
 
 In the Form Builder, add and configure (using the **Basic** and **Validation** tabs) the following form fields:

@@ -94,7 +94,7 @@ or even the [[= product_name =]] database itself (in form of a non-standard tabl
 In order to store data in external storage, the Field Type will interact with the Persistence SPI
 through the `Ibexa\Contracts\Core\FieldType\FieldStorage` interface.
 
-Accessing the internal storage of a Content item that includes a Field of the Field Type
+Accessing the internal storage of a content item that includes a Field of the Field Type
 calls one of the following methods to also access the external data:
 
 |Method|Description|
@@ -182,7 +182,7 @@ Also note that there can be several gateways per Field Type (one per storage eng
 ## Storing Field Type settings externally
 
 Just like in the case of data, storing [Field Type settings](type_and_value.md#field-type-settings) 
-in Content Item tables may prove insufficient. 
+in content item tables may prove insufficient. 
 It is not a problem if your setting specifies, for example, just the allowed number of characters 
 in a text field. 
 However, the Field Type may represent a more complex object, for example, it may 

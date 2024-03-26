@@ -24,7 +24,7 @@ class FindWithAggregationCommand extends Command
     protected function configure()
     {
         $this
-            ->setDescription('Counts content per Content Type and the value of Selection Field.');
+            ->setDescription('Counts content per content type and the value of Selection Field.');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)

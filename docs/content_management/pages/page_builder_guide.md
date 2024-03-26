@@ -15,11 +15,11 @@ By editing pages you can customize the layout and content of your website.
 
 To create a new page:
 
-A\. In the left panel, go to **Content**.
+A\. In the main menu, go to **Content**.
 
 B\. Select **Content structure**.
 
-C\. On the right-side toolbar, click **Create content** and from the list of Content items select **Landing Page**.
+C\. On the right-side toolbar, click **Create content** and from the list of content items select **Landing Page**.
 
 D\. Select the layout and click **Create**.
 
@@ -83,7 +83,7 @@ F. Saving options
 |Save draft|Save the page draft*.|
 |Delete draft|Delete the page draft.|
 
-*To help you preserve your work, system saves drafts of Content items automatically. For more information, see [Autosave]([[= user_doc =]]/content_management/content_versions/#autosave).
+*To help you preserve your work, system saves drafts of content items automatically. For more information, see [Autosave]([[= user_doc =]]/content_management/content_versions/#autosave).
 
 Page Builder has two main views that you can use while creating a page:
 
@@ -99,7 +99,7 @@ Page Builder has two main views that you can use while creating a page:
 
 For newly created Page you can choose a [layout]([[= user_doc =]]/content_management/configure_ct_field_settings/#available-page-layouts) which defines the available zones.
 
-Applying a layout divides the Page into the defined zones. The zones are placeholders for Content items.
+Applying a layout divides the Page into the defined zones. The zones are placeholders for content items.
 
 On the Page creation modal, select the layout and click **Create draft**.
 Now you are ready to add blocks of content to the Page.
@@ -149,13 +149,13 @@ Available settings are:
 - Refresh - refreshes preview of the block
 - Delete - deletes existing block
 
-#### Focus mode
+#### Distraction free mode
 
-While configuring blocks that include Rich Text section, for example, Text block, you can switch to focus mode that expands the workspace to full screen.
+While configuring blocks that include Rich Text section, for example, Text block, you can switch to distraction free mode that expands the workspace to full screen.
 
-![Focus mode](focus_mode.png)
+![Distraction free mode](distraction_free_mode.png)
 
-For more information, see [Focus mode]([[= user_doc =]]/content_management/create_edit_content_items/#focus-mode/).
+For more information, see [Distraction free mode]([[= user_doc =]]/content_management/create_edit_content_items/#distraction-free-mode/).
 
 #### Schedule content
 
@@ -200,8 +200,8 @@ Additionaly, Page Builder offers you a selection of ready-to-use page blocks tha
 A. **Default** blocks:
 
 - Dynamic targeting - embeds recommended items based on the Segment the user belongs to.
-- Personalized - displays a list of Content items/products that are recommended to end users when specific scenarios are triggered.
-- Targeting - embeds a Content item based on the Segment the user belongs to.
+- Personalized - displays a list of content items/products that are recommended to end users when specific scenarios are triggered.
+- Targeting - embeds a content item based on the Segment the user belongs to.
 
 B. **PIM** blocks:
 

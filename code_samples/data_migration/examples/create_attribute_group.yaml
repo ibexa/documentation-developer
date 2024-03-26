@@ -22,11 +22,11 @@
     options:
         choices:
             -    value: red
-	         label: 
-	             "eng-GB": "Red"
+                 label:
+                     "eng-GB": "Red"
             -    value: white
-	         label: 
-	             "eng-GB": "White"
+                 label:
+                     "eng-GB": "White"
             -    value: black
-	         label: 
-	             "eng-GB": "Black"
+                 label:
+                     "eng-GB": "Black"

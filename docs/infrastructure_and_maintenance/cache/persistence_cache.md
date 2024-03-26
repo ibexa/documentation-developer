@@ -31,7 +31,7 @@ Notes:
 
 - [Cache tagging]([[= symfony_doc =]]/components/cache/cache_invalidation.html#using-cache-tags) is used in
   order to allow clearing cache by alternative indexes.
-  For instance tree operations or changes to Content Types are
+  For instance tree operations or changes to content types are
   examples of operations that also need to invalidate content cache by tags.
 - Search is not defined as persistence and the queries themselves are not planned to be cached as they are too complex by design (for example, full text).
   Use [Solr](solr_overview.md) which caches this for you to improve scale/performance, and to offload your database.
@@ -120,7 +120,7 @@ parameters:
 !!! caution "In-Memory cache is per-process"
 
     **TTL and Limit need to have a low value.** Setting limit high will increase memory use.
-    High TTL value also increases exponentially risk for system acting on stale metadata (e.g. Content Type definitions).
+    High TTL value also increases exponentially risk for system acting on stale metadata (e.g. content type definitions).
     The only case where it is safe to increase these values is for dev environment with single concurrency on writes.
     In prod environment you should only consider reducing them if you have heavy concurrency writes.
 
@@ -354,6 +354,6 @@ $pool->clear();
 // To clear a specific cache item (check source for more examples in Ibexa\Core\Persistence\Cache\*)
 $pool->deleteItems(["ibx-ci-$contentId"]);
 
-// Symfony cache is tag-based, so you can clear all cache related to a Content item like this:
+// Symfony cache is tag-based, so you can clear all cache related to a content item like this:
 $pool->invalidateTags(["c-$contentId"]);
 ```

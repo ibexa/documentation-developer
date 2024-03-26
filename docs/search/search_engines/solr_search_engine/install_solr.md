@@ -30,10 +30,6 @@ cp -R <project_root>/vendor/ibexa/solr/src/lib/Resources/config/solr/* server/ib
 cp server/solr/configsets/_default/conf/{solrconfig.xml,stopwords.txt,synonyms.txt} server/ibexa/template
 cp server/solr/solr.xml server/ibexa
 
-# If you are using Ibexa Commerce, additionally copy commerce-specific configuration files:
-cat <project_root>/vendor/ibexa/commerce-shop/src/bundle/Search/Resources/config/solr/custom-fields-types.xml >> server/ibexa/template/custom-fields-types.xml
-cat <project_root>/vendor/ibexa/commerce-shop/src/bundle/Search/Resources/config/solr/language-fieldtypes.xml >> server/ibexa/template/language-fieldtypes.xml
-
 # Modify solrconfig.xml to remove the section that doesn't agree with your schema
 sed -i.bak '/<updateRequestProcessorChain name="add-unknown-fields-to-the-schema".*/,/<\/updateRequestProcessorChain>/d' server/ibexa/template/solrconfig.xml
 

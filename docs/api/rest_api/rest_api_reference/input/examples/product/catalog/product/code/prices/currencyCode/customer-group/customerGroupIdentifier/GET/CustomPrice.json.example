@@ -1,0 +1,20 @@
+{
+    "CustomPrice": {
+        "_media-type": "application/vnd.ibexa.api.CustomPrice+json",
+        "id": 3,
+        "amount": "11.50",
+        "base_amount": "10.00",
+        "Currency": {
+            "_media-type": "application/vnd.ibexa.api.Currency+json",
+            "id": 5,
+            "code": "USD",
+            "subunits": 2,
+            "enabled": true
+        },
+        "money": "1150",
+        "base_money": "1000",
+        "custom_money": "1150",
+        "custom_amount": "11.50",
+        "custom_rule": "15.00"
+    }
+}

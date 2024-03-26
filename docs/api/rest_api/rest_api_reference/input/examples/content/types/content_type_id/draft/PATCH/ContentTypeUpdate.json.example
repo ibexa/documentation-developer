@@ -3,13 +3,13 @@
     "names": {
       "value": [ { 
         "_languageCode": "eng-GB",
-        "#text": "Updated Content Type name"
+        "#text": "Updated content type name"
        } ]
     },
     "descriptions": {
       "value": [ {
         "_languageCode": "eng-GB",
-        "#text": "This is an updated Content Type description"
+        "#text": "This is an updated content type description"
       } ]
     }
   }

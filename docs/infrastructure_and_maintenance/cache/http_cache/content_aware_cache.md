@@ -20,7 +20,7 @@ Tags form a secondary set of keys assigned to every cache item, on top of the "p
 Like an index in a database, a tag is typically used for anything relevant that represents the given cache item.
 Tags are used for cache invalidation.
 
-For example, the system tags every article response, and when the article Content Type is updated,
+For example, the system tags every article response, and when the article content type is updated,
 it tells Varnish that all articles should be considered stale
 and updated in the background when someone requests them.
 
@@ -28,7 +28,7 @@ Current content tags (and when the system purges on them):
 
 - Content: `c<content-id>` - Purged on all smaller or larger changes to content (including its metadata, Fields and Locations).
 - Content Version: `cv<content-id>` - Purged when any version of Content is changed (for example, a draft is created or removed).
-- Content Type: `ct<content-type-id>` - Used when the Content Type changes, affecting content of its type.
+- Content type: `ct<content-type-id>` - Used when the content type changes, affecting content of its type.
 - Location: `l<location-id>` - Used for clearing all cache relevant for a given Location.
 - Parent Location: `pl<[parent-]location-id>` - Used for clearing all children of a Location (`pl<location-id>`), or all siblings (`pl<parent-location-id>`).
 - Path: `p<location-id>` - For operations that change the tree itself, like move, remove, etc.

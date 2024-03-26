@@ -108,7 +108,7 @@ see the [How to Remove a Bundle]([[= symfony_doc =]]/bundles/remove.html) instru
 |ibexa/headless|Metapackage for Symfony Flex-based [[= product_name =]] Headless installation|
 |ibexa/corporate-account|Customer portal and corporate accounts|
 |ibexa/fieldtype-address|Address handling Field Type|
-|ibexa/form-builder|Enables creating Form Content items with multiple form fields|
+|ibexa/form-builder|Enables creating Form content items with multiple form fields|
 |ibexa/page-builder|Page editor|
 |ibexa/fieldtype-page|Page handling Field Type|
 |ibexa/permissions|Additional permission functionalities|

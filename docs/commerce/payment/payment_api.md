@@ -62,5 +62,5 @@ To update payment information, use the `PaymentServiceInterface::updatePayment` 
 
 To delete a payment from the system, use the `PaymentServiceInterface::deletePayment` method:
 ``` php
-[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 114, 114) =]]
+[[= include_file('code_samples/api/commerce/src/Command/PaymentCommand.php', 114, 115) =]]
 ```

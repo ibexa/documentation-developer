@@ -44,11 +44,7 @@ $query->query = new Criterion\Image('image', $imageCriteriaData);
 
 === "XML"
 
-<<<<<<< HEAD
    ```xml
-=======
-    ```xml
->>>>>>> ae5cb7e4a11b1e8faeb5e8cba89b4d6c804bcd01
    <Query>
          <Filter>
             <ImageCriterion>
@@ -70,13 +66,8 @@ $query->query = new Criterion\Image('image', $imageCriteriaData);
             </ImageCriterion>
          </Filter>
    </Query>
-    
-
-<<<<<<< HEAD
    ```
-=======
-    ```
->>>>>>> ae5cb7e4a11b1e8faeb5e8cba89b4d6c804bcd01
+
 
 === "JSON"
 
