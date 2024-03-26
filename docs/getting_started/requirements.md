@@ -480,7 +480,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
     For example:
 
-    - Platform.sh provides Redis support for versions 3.2, 4.0 and 5.0. Ibexa DXP supports Redis version 4.0 or higher, and recommends 5.0. As a result, Redis is supported on Ibexa Cloud in versions 4.0 and 5.0, but 5.0 is recommended.
+    - Platform.sh provides Redis support for versions 6.2, 7.0 and 7.2. Ibexa DXP supports Redis version 4.0 or higher, and recommends 5.0. As a result, Redis is supported on Ibexa Cloud in versions 4.0 and 5.0, but 5.0 is recommended.
 
     Features or services supported by Ibexa DXP but not covered by Platform.sh may be possible by means of a [custom integration](#custom-integrations).
 
@@ -527,7 +527,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
     For example:
 
-    - Platform.sh provides Redis support for versions 3.2, 4.0 and 5.0. Ibexa DXP supports Redis version 4.0 or higher, and recommends 5.0. As a result, Redis is supported on Ibexa Cloud in versions 4.0 and 5.0, but 5.0 is recommended.
+    - Platform.sh provides Redis support for versions 6.2, 7.0 and 7.2. Ibexa DXP supports Redis version 4.0 or higher, and recommends 5.0. As a result, Redis is supported on Ibexa Cloud in versions 4.0 and 5.0, but 5.0 is recommended.
 
     Features or services supported by Ibexa DXP but not covered by Platform.sh may be possible by means of a [custom integration](#custom-integrations).
 
@@ -574,7 +574,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
     For example:
 
-    - Platform.sh provides Redis support for versions 3.2, 4.0 and 5.0. Ibexa DXP supports Redis version 4.0 or higher, and recommends 5.0. As a result, Redis is supported on Ibexa Cloud in versions 4.0 and 5.0, but 5.0 is recommended.
+    - Platform.sh provides Redis support for versions 6.2, 7.0 and 7.2. Ibexa DXP supports Redis version 4.0 or higher, and recommends 5.0. As a result, Redis is supported on Ibexa Cloud in versions 4.0 and 5.0, but 5.0 is recommended.
 
     Features or services supported by Ibexa DXP but not covered by Platform.sh may be possible by means of a [custom integration](#custom-integrations).
 
@@ -621,7 +621,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
     For example:
 
-    - Platform.sh provides Redis support for versions 2.8, 3.0 and 3.2. eZ Platform supports Redis version 3.2 or higher. As a result, Redis is supported by eZ Platform Cloud versions 3.2.
+    - Platform.sh provides Redis support for versions 6.2, 7.0 and 7.2. eZ Platform supports Redis version 3.2 or higher. As a result, Redis is supported by eZ Platform Cloud versions 3.2.
     - Platform.sh provides Elastic Search service (different versions supported). Elastic Search is not supported for use as search engine for eZ Platform.
 
     Features or services supported by eZ Platform but not covered by Platform.sh may be possible by means of a [custom integration](#custom-integrations).
