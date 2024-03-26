@@ -40,7 +40,7 @@ Due to this storage limitation, searching content using the Country Field Type o
 |[ImageHeight](imageheight_criterion.md)|Image height in pixels|&#10004;|&#10004;||
 |[ImageMimeType](imagemimetype_criterion.md)|Image type|&#10004;|&#10004;||
 |[ImageOrientation](imageorientation_criterion.md)|Image orientation|&#10004;|&#10004;||
-|[ImageWidth](imagewidth_criterion.md)|Image widht in pixels|&#10004;|&#10004;||
+|[ImageWidth](imagewidth_criterion.md)|Image width in pixels|&#10004;|&#10004;||
 |[IsCurrencyEnabledCriterion](iscurrencyenabled_criterion.md)|Whether a specified currency is enabled in the system| | | |
 |[IsFieldEmpty](isfieldempty_criterion.md)|Whether a specified Field of a content item is empty or not|&#10004; |&#10004; | |
 |[IsMainLocation](ismainlocation_criterion.md)|Whether a Location is the main Location of a content item| |&#10004; |&#10004; |
