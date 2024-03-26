@@ -154,7 +154,7 @@ $(document).ready(function() {
         } else {
             $('.md-sidebar--secondary .md-sidebar__scrollwrap').scrollTop(0);
         }
-    })
+    });
 
     $('.md-sidebar.md-sidebar--secondary nav a').click(function(event) {
         window.setTimeout(function() {
@@ -164,7 +164,7 @@ $(document).ready(function() {
             // Fix page TOC/hash bug
             document.location.hash = event.target.hash;
         }, 500);
-    })
+    });
 
     document.querySelectorAll('.notification__close-btn').forEach((closeBtn) => {
         closeBtn.addEventListener('click', () => {
