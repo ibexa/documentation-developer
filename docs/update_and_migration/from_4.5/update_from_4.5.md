@@ -318,15 +318,15 @@ The following migration example allows users with the `Editor` role to access th
 
 ## Update Elasticsearch schema
 
-Elasticsearch index must be erased, the schema updated, and the index rebuild.
+Elasticsearch schema evolves. You need to erase its index, update the schema, and rebuild the index.
 
-To delete the index, for example, you can use an HTTP request like in the following `curl` command:
+To delete the index, you can use an HTTP request. Use the command as in the following example:
 
 ```bash
-curl --request DELETE 'http://elasticsearch:9200/_all'
+curl --request DELETE 'https://elasticsearch:9200/_all'
 ```
 
-To update the schema then reindex, use the following commands:
+To update the schema, and then reindex the content, use the following commands:
 
 ```bash
 php bin/console ibexa:elasticsearch:put-index-template --overwrite
