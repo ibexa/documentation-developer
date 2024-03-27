@@ -322,7 +322,7 @@ nav:
         - Enable purchasing products: pim/enable_purchasing_products.md
         - Prices: pim/prices.md
         - Price API: pim/price_api.md
-        - Customize PIM: 
+        - Customize PIM:
             - Customize PIM: pim/customize_pim.md
             - Create custom attribute type: pim/create_custom_attribute_type.md
             - Create product code generator: pim/create_product_code_generator.md
@@ -352,6 +352,10 @@ nav:
             - Payment method API: commerce/payment/payment_method_api.md 
             - Payment method filtering: commerce/payment/payment_method_filtering.md
             - Payment API: commerce/payment/payment_api.md
+            - Online payment methods:
+                - Payum integration: commerce/payment/payum_integration.md
+                - Enable PayPal payments: commerce/payment/enable_paypal_payments.md
+                - Enable Stripe payments: commerce/payment/enable_stripe_payments.md
         - Shipping management:
             - Shipping management: commerce/shipping_management/shipping_management.md
             - Configure shipping: commerce/shipping_management/configure_shipment.md
