@@ -57,6 +57,11 @@
     padding-left: 10px;
     padding-bottom: 10px;
     padding-top: 7rem;
+    height: calc(100vh - 138px);
+}
+
+.md-nav--secondary .md-nav__title {
+    position: relative;
 }
 
 .md-nav--secondary>ul {
