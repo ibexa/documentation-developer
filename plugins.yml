@@ -465,6 +465,7 @@ plugins:
             'community_resources/support_maintenance_faq.md': 'infrastructure_and_maintenance/support_and_maintenance_faq.md'
             'community_resources/release_process.md': 'resources/release_process_and_roadmap.md'
             'community_resources/phpstorm_plugin.md': 'resources/phpstorm_plugin.md'
+            'community_resources/contributing.md': 'resources/contributing/report_and_follow_issues.md'
             'community_resources/report_follow_issues.md': 'resources/contributing/report_and_follow_issues.md'
             'community_resources/translations.md': 'resources/contributing/contribute_translations.md'
             'community_resources/package_structure.md': 'resources/contributing/package_structure.md'
