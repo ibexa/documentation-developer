@@ -318,7 +318,8 @@ The following migration example allows users with the `Editor` role to access th
 
 ## Update Elasticsearch schema
 
-Elasticsearch schema evolves. You need to erase its index, update the schema, and rebuild the index.
+Elasticsearch schema's templates change, for example, with the addition of new features such as spellchecking.
+When this happens, you need to erase the index, update the schema, and rebuild the index.
 
 To delete the index, you can use an HTTP request.
 Use the command as in the following example:
