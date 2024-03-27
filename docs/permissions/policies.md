@@ -24,6 +24,12 @@ which define, which parts of the application or website the user has access to.
 
 ### Administration and user management
 
+#### Activity log
+
+| Module                       | Function           | Effect                  | Possible Limitations                                                    |
+|------------------------------|--------------------|-------------------------|-------------------------------------------------------------------------|
+| <nobr>`activity_log`</nobr> | <nobr>`read`</nobr> | access to activity list | [ActivityLogOwner](limitation_reference.md#activitylogowner-limitation) |
+
 #### Customer groups
 
 | Module                        | Function              | Effect                  | Possible Limitations |

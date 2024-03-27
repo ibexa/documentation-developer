@@ -35,6 +35,14 @@ Out of the box FunctionList uses it in the following way:
             - {name: ibexa.permissions.limitation_type, alias: FunctionList}
 ```
 
+## ActivityLogOwner Limitation
+
+The `ActivityLogOwner` Limitation specifies if a user can see only own [recent activity](recent_activity.md) log entries, and not entries from other users. 
+
+| Value | UI value        | Description                                            |
+|-------|-----------------|--------------------------------------------------------|
+| `1`   | "Only own logs" | Current user can only access own activity log entries. |
+
 ## CartOwner Limitation
 
 The `CartOwner` Limitation specifies whether the user can modify a cart.
