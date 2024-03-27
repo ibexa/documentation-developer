@@ -16,7 +16,6 @@ The `Image` Search Criterion searches for image by specified image attributes.
 ### PHP
 
 ``` php
-
 $imageCriteriaData = [
     'mimeTypes' => [
         'image/png',

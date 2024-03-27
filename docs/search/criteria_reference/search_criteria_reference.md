@@ -33,7 +33,7 @@ Due to this storage limitation, searching content using the Country Field Type o
 |[Depth](depth_criterion.md)|Location depth in the Content tree| |&#10004; |&#10004; |
 |[Field](field_criterion.md)|Content of one of content item's Fields|&#10004; |&#10004; | |
 |[FieldRelation](fieldrelation_criterion.md)|Content items the content in question has Relations to|&#10004; |&#10004; | |
-|[FullText](fulltext_criterion.md)|Full text content of a Content item's Fields|&#10004; |&#10004; | |
+|[FullText](fulltext_criterion.md)|Full text content of a content item's Fields|&#10004; |&#10004; | |
 |[Image](image_criterion.md)|Image by specified image attributes|&#10004;|&#10004;||
 |[ImageDimensions](imagedimensions_criterion.md)|Image dimensions: height and width|&#10004;|&#10004;||
 |[ImageFileSize](imagefilesize_criterion.md)|Image size in MB|&#10004;|&#10004;||

@@ -27,7 +27,6 @@ $orientations = [
 ];
 
 $query->query = new Criterion\Orientation('image', $orientations);
-
 ```
 
 ### REST API

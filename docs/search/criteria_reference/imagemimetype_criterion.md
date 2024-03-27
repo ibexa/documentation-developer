@@ -28,7 +28,6 @@ $mimeTypes = [
 ];
 
 $query->query = new Criterion\MimeType('image', $mimeTypes);
-
 ```
 
 ### REST API
