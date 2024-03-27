@@ -14,6 +14,7 @@ nav:
         - Requirements: getting_started/requirements.md
         - Install Ibexa DXP: getting_started/install_ibexa_dxp.md
         - Install on Ibexa Cloud: getting_started/install_on_ibexa_cloud.md
+        - Install on Ibexa Engage: getting_started/install_on_ibexa_engage.md
         - Install on MacOS and Windows: getting_started/install_on_mac_os_and_windows.md
         - Install with DDEV: getting_started/install_with_ddev.md
         - First steps: getting_started/first_steps.md
@@ -876,6 +877,7 @@ extra:
   product_name_connect: 'Ibexa Connect'
   product_name_cloud: 'Ibexa Cloud'
   product_name_oss: 'Ibexa OSS'
+  product_name_engage: 'Ibexa Engage'
   # Global variables - latest tag versions
   latest_tag_2_5: '2.5.32'
   latest_tag_3_3: '3.3.36'
