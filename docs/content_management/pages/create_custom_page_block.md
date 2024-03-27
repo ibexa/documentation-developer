@@ -17,7 +17,7 @@ The following example shows how to create a block that showcases an event.
 First, add the following [YAML configuration](configuration.md#configuration-files):
 
 ``` yaml
-[[= include_file('code_samples/page/custom_page_block/config/packages/page_blocks.yaml', 0, 6) =]][[= include_file('code_samples/page/custom_page_block/config/packages/page_blocks.yaml', 16, 39) =]]
+[[= include_file('code_samples/page/custom_page_block/config/packages/page_blocks.yaml', 0, 6) =]][[= include_file('code_samples/page/custom_page_block/config/packages/page_blocks.yaml', 16, 47) =]]
 ```
 
 `event` is the internal name for the block, and `name` indicates the name under which the block is available in the interface.
@@ -32,7 +32,10 @@ and an event content item that you select and embed.
 
 For a list of all available attribute types, see [Page block attributes](page_block_attributes.md).
 
-Each attribute can have [validators](page_block_validators.md). The `not_blank` validators in the example ensure that the user fills in the two block fields.
+Each attribute can have [validators](page_block_validators.md).
+The `not_blank` validators in the example ensure that the user fills in the two block fields.
+The `content_type` validator in the example ensure that the user choose a content item of the content type `event`.
+The `regexp` validator ensure that the final value looks like a content ID.
 
 ## Add block templates
 
@@ -90,7 +93,7 @@ document.getElementsByTagName('body')[0].addEventListener('ibexa-render-block-pr
     
     If you consider using React JavaScript library, see [React App block](react_app_block.md).
 
-## Add edit templates
+## Add edit template
 
 You can also customize the template for the block settings modal.
 Do this under the `configuration_template` [configuration key](configuration.md#configuration-files):
@@ -104,6 +107,16 @@ Place the edit template in `templates/themes/<your_theme>/blocks/event/config.ht
 ``` html+twig
 [[= include_file('code_samples/page/custom_page_block/templates/themes/standard/blocks/event/config.html.twig') =]]
 ```
+
+This example template overrides the `embed` attribute widget to customize the Universal Discovery Widget (UDW).
+It adds itself to the `form_templates` and define a `block_configuration_attribute_embed_widget` block.
+The following UDW configuration is used so only an `event` typed content item can be selected:
+
+``` yaml
+[[= include_file('code_samples/page/custom_page_block/config/packages/page_blocks.yaml', 48, 57) =]]
+```
+
+For more information, see [UDW configuration](browser.md#udw-configuration).
 
 Your custom page block is now ready. 
 Before you can use it in Page Builder, you must [enable it in Page field settings]([[= user_doc =]]/content_management/configure_ct_field_settings/#block-display).
