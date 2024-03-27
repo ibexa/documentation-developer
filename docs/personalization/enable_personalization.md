@@ -1,4 +1,4 @@
----
+git check---
 description: Configure your project files to enable Personalization and set up items you want to track.
 ---
 
@@ -166,16 +166,16 @@ Use the `Accept` header; you may need to add an `Authorization` header if authen
 To check whether the `content` endpoint is working as expected, perform the following request:
 
 ```
-GET http://<yourdomain>/api/ezp/v2/ibexa_personalization/v1/content/{contentId}
-Accept application/vnd.ez.api.Content+json
+GET http://<yourdomain>/api/ibexa/v2/personalization/v1/content/{contentId}
+Accept application/vnd.ibexa.api.Content+json
 Authorization Basic xxxxxxxx
 ```
 
 Additionally, check whether the `contenttypes` endpoint is working with the following request:
 
 ```
-GET http://<yourdomain>/api/ezp/v2/ibexa_personalization/v1/contenttypes/38?page=1&page_size=10
-Accept application/vnd.ez.api.Content+json
+GET http://<yourdomain>/api/ibexa/v2/personalization/v1/contenttypes/38?page=1&page_size=10
+Accept application/vnd.ibexa.api.Content+json
 Authorization Basic xxxxxxxx
 ```
 
@@ -184,10 +184,10 @@ The `content` endpoint returns one item and the `contenttypes` endpoint returns 
 ``` json
 {
     "contentList": {
-        "_media-type": "application/vnd.ez.api.contentList+json",
+        "_media-type": "application/vnd.ibexa.api.ContentList+json",
         "content": [
             {
-                "_media-type": "application/vnd.ez.api.content+json",
+                "_media-type": "application/vnd.ibexa.api.Content+json",
                 "contentId": 72,
                 "contentTypeId": 38,
                 "identifier": "place",
@@ -197,18 +197,18 @@ The `content` endpoint returns one item and the `contenttypes` endpoint returns 
                 "uri": "/Places-Tastes/Places/Kochin-India",
                 "categoryPath": "/1/2/95/71/73/",
                 "mainLocation": {
-                    "_media-type": "application/vnd.ez.api.mainLocation+json",
+                    "_media-type": "application/vnd.ibexa.api.mainLocation+json",
                     "_href": "/api/ezp/v2/content/locations/1/2/95/71/73/"
                 },
                 "locations": {
-                    "_media-type": "application/vnd.ez.api.locations+json",
+                    "_media-type": "application/vnd.ibexa.api.locations+json",
                     "_href": "/api/ezp/v2/content/objects/72/locations"
                 },
                 "name": "Kochin, India",
-                "intro": "<![CDATA[<section xmlns=\"http://ez.no/namespaces/ezpublish5/xhtml5\"><p>We got the major port city on the south west coast of India.</p></section>\n]]>",
-                "description": "<![CDATA[<section xmlns=\"http://ez.no/namespaces/ezpublish5/xhtml5\"><p><strong>Kochi </strong>(formerly Cochin) ... </p></section>\n]]>",
+                "intro": "<![CDATA[<section xmlns=\"http://ibexa.co/namespaces/ezpublish5/xhtml5\"><p>We got the major port city on the south west coast of India.</p></section>\n]]>",
+                "description": "<![CDATA[<section xmlns=\"http://ibexa.co/namespaces/ezpublish5/xhtml5\"><p><strong>Kochi </strong>(formerly Cochin) ... </p></section>\n]]>",
                 "image": "/var/site/storage/images/places-tastes/places/kochin-india/282-5-eng-GB/Kochin-India.jpg",
-                "caption": "<![CDATA[<section xmlns=\"http://ez.no/namespaces/ezpublish5/xhtml5\"><p>Chinese fishing nets ... </p></section>\n]]>",
+                "caption": "<![CDATA[<section xmlns=\"http://ibexa.co/namespaces/ezpublish5/xhtml5\"><p>Chinese fishing nets ... </p></section>\n]]>",
                 "location": "kochin, india",
                 "authors_position": "Senior Editor",
                 "tags": "India, Kochin",
@@ -310,13 +310,13 @@ The username is the customer ID and the password is the license key.
                 <attribute value="/1/2/95/71/74/" key="categoryPath" type="TEXT"/>
                 <attribute value="Michael Wang" key="author" type="NOMINAL"/>
                 <attribute value="0" key="rating" type="TEXT"/>
-                <attribute value="&lt;![CDATA[&lt;section xmlns=&quot;http://ez.no/namespaces/ezpublish5/xhtml5&quot;&gt;&lt;p&gt;Outstanding beaches of Dominican Republic, Samana is one of them.&lt;/p&gt;&lt;p&gt;&lt;em&gt;Photograph by Brian Henry - Anchorage north shore Samana, Dominican Republic&lt;/em&gt;&lt;/p&gt;&lt;/section&gt;&#xA;]]&gt;" key="caption" type="TEXT"/>
+                <attribute value="&lt;![CDATA[&lt;section xmlns=&quot;http://ibexa.co/namespaces/ezpublish5/xhtml5&quot;&gt;&lt;p&gt;Outstanding beaches of Dominican Republic, Samana is one of them.&lt;/p&gt;&lt;p&gt;&lt;em&gt;Photograph by Brian Henry - Anchorage north shore Samana, Dominican Republic&lt;/em&gt;&lt;/p&gt;&lt;/section&gt;&#xA;]]&gt;" key="caption" type="TEXT"/>
                 <attribute value="/Places-Tastes/Places/Santo-Domingo-Dominican-Republic" key="uri" type="TEXT"/>
                 <attribute value="38" key="contentTypeId" type="TEXT"/>
                 <attribute value="Dominican Republic, Santo Domingo" key="tags" type="TEXT"/>
-                <attribute value="&lt;![CDATA[&lt;section xmlns=&quot;http://ez.no/namespaces/ezpublish5/xhtml5&quot;&gt;&lt;p&gt;Santo Domingo meaning &quot;Saint Dominic&quot;, officially Santo Domingo de Guzm&amp;aacute;n, is the capital and largest city in the ... &lt;/p&gt;&lt;/section&gt;&#xA;]]&gt;" key="description" type="TEXT"/>
+                <attribute value="&lt;![CDATA[&lt;section xmlns=&quot;http://ibexa.co/namespaces/ezpublish5/xhtml5&quot;&gt;&lt;p&gt;Santo Domingo meaning &quot;Saint Dominic&quot;, officially Santo Domingo de Guzm&amp;aacute;n, is the capital and largest city in the ... &lt;/p&gt;&lt;/section&gt;&#xA;]]&gt;" key="description" type="TEXT"/>
                 <attribute value="73" key="contentId" type="TEXT"/>
-                <attribute value="&lt;![CDATA[&lt;section xmlns=&quot;http://ez.no/namespaces/ezpublish5/xhtml5&quot;&gt;&lt;p&gt;The oldest European inhabited settlement in the Americas.&lt;/p&gt;&lt;/section&gt;&#xA;]]&gt;" key="intro" type="TEXT"/>
+                <attribute value="&lt;![CDATA[&lt;section xmlns=&quot;http://ibexa.co/namespaces/ezpublish5/xhtml5&quot;&gt;&lt;p&gt;The oldest European inhabited settlement in the Americas.&lt;/p&gt;&lt;/section&gt;&#xA;]]&gt;" key="intro" type="TEXT"/>
                 <attribute value="1442500260" key="publication_date" type="TEXT"/>
                 <attribute value="Santo Domingo, Dominican Republic" key="name" type="TEXT"/>
                 <attribute value="Santo Domingo, Dominican Republic" key="location" type="TEXT"/>
@@ -359,7 +359,7 @@ and it eventually fetches the affected content and updates it internally.
 To display recommendations on your site, you must include the asset in the template using the following code:
 
 ``` html+twig
-{{ encore_entry_script_tags('ezrecommendation-client-js', null, 'ezplatform') }}
+{{ encore_entry_script_tags('ibexa-personalization-client-js', null, 'ibexa') }}
 ```
 
 This file is responsible for sending notifications to the [Recommendation API](recommendation_api.md) after the user clicks a tracking element.
