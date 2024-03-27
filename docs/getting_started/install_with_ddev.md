@@ -43,7 +43,7 @@ By default, DDEV uses MariaDB.
 To use PostgreSQL instead, run the following command:
 
 ```bash
-ddev config --database=postgres:15
+ddev config --database=postgres:14
 ```
 
 To use MySQL instead, run the following command:
