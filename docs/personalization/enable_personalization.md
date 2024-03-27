@@ -235,7 +235,7 @@ If your installation hosts only one SiteAccess, run the following command to exp
 ``` bash
 php bin/console ibexa:personalization:run-export
     --item-type-identifier-list=<item_type>,<item_type>
-    -—languages=<language>,<language>
+    --languages=<language>,<language>
 ```
 
 If your installation hosts multiple SiteAccesses with different customer IDs, 
@@ -247,7 +247,7 @@ php bin/console ibexa:personalization:run-export
     --siteaccess=<site_access_name>
     --customer-id=<customer_id>
     --license-key=<license_key>
-    -—languages=<language>,<language>
+    --languages=<language>,<language>
 ```
 
 The bundle exporter collects all content related to the `<site_access_name>`/`<customer_id>` 
