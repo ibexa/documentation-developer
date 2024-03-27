@@ -315,3 +315,22 @@ The following migration example allows users with the `Editor` role to access th
                   - identifier: activity_log_owner
                     values: []
 ```
+
+## Update Elasticsearch schema
+
+Elasticsearch schema's templates change, for example, with the addition of new features such as spellchecking.
+When this happens, you need to erase the index, update the schema, and rebuild the index.
+
+To delete the index, you can use an HTTP request.
+Use the command as in the following example:
+
+```bash
+curl --request DELETE 'https://elasticsearch:9200/_all'
+```
+
+To update the schema, and then reindex the content, use the following commands:
+
+```bash
+php bin/console ibexa:elasticsearch:put-index-template --overwrite
+php bin/console ibexa:reindex
+```
