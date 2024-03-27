@@ -54,7 +54,7 @@ $query->query = new Criterion\MimeType('image', $mimeTypes);
                 "fieldDefIdentifier": "image",
                 "type": "image/png"
             }
-       }
+        }
     }
 
     OR
@@ -65,6 +65,6 @@ $query->query = new Criterion\MimeType('image', $mimeTypes);
                 "fieldDefIdentifier": "image",
                 "type": ["image/png", "image/jpeg"]
             }
-       }
+        }
     }
     ```

@@ -18,10 +18,10 @@ The `Image` Search Criterion searches for image by specified image attributes.
 ``` php
 $imageCriteriaData = [
     'mimeTypes' => [
-        'image/png',
+       'image/png',
     ],
     'orientation' => [
-        'image/png',
+       'image/png',
     ],
     'width' => [
         'min' => 0, // (default: 0, optional)
@@ -45,26 +45,26 @@ $query->query = new Criterion\Image('image', $imageCriteriaData);
 
     ```xml
     <Query>
-        <Filter>
-            <ImageCriterion>
-               <fieldDefIdentifier>image</fieldDefIdentifier>
-               <mimeTypes>image/png</mimeTypes>
-               <size>
-                  <min>0</min>
-                  <max>2</max>
-               </size>
-               <width>
-                  <min>100</min>
-                  <max>1000</max>
-               </width>
-               <height>
-                  <min>500</min>
-                  <max>1500</max>
-               </height>
-               <orientation>portrait</orientation>
-            </ImageCriterion>
-         </Filter>
-      </Query>
+       <Filter>
+          <ImageCriterion>
+             <fieldDefIdentifier>image</fieldDefIdentifier>
+             <mimeTypes>image/png</mimeTypes>
+             <size>
+                <min>0</min>
+                <max>2</max>
+             </size>
+             <width>
+                <min>100</min>
+                <max>1000</max>
+             </width>
+             <height>
+                <min>500</min>
+                <max>1500</max>
+             </height>
+             <orientation>portrait</orientation>
+          </ImageCriterion>
+       </Filter>
+    </Query>
     ```
 
 === "JSON"

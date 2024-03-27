@@ -51,7 +51,6 @@ $query->query = new Criterion\Dimensions('image', $imageCriteriaData);
         </Filter>
     </Query>
     ```
-    ```
 
 === "JSON"
 
