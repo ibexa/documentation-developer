@@ -320,7 +320,8 @@ The following migration example allows users with the `Editor` role to access th
 
 Elasticsearch schema evolves. You need to erase its index, update the schema, and rebuild the index.
 
-To delete the index, you can use an HTTP request. Use the command as in the following example:
+To delete the index, you can use an HTTP request.
+Use the command as in the following example:
 
 ```bash
 curl --request DELETE 'https://elasticsearch:9200/_all'
