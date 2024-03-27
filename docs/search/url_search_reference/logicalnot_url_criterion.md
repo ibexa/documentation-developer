@@ -1,6 +1,6 @@
 # LogicalNot Criterion
 
-The [`LogicalNot` URL Criterion](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/URL/Query/Criterion/LogicalNot.php)
+The [`LogicalNot` URL Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-URL-Query-Criterion-LogicalNot.html)
 matches a URL if the provided Criterion does not match.
 
 It takes only one Criterion in the array parameter.

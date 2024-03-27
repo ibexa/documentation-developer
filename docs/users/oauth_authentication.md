@@ -40,7 +40,7 @@ The `guard.authenticators` setting specifies the [Guard authenticators]([[= symf
 
 Resource owner mappers map the data received from the OAuth2 provider to user information in the Repository.
 
-Resource owner mappers must implement the `Ibexa\Contracts\OAuth2Client\ResourceOwner\ResourceOwnerMapper` interface.
+Resource owner mappers must implement the [`Ibexa\Contracts\OAuth2Client\ResourceOwner\ResourceOwnerMapper`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-OAuth2Client-ResourceOwner-ResourceOwnerMapper.html) interface.
 There are four existing implementations of `ResourceOwnerMapper`:
 
 - `ResourceOwnerToExistingUserMapper` is the base class that is extended by the following mappers:

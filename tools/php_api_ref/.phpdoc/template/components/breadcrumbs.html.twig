@@ -1,0 +1,9 @@
+{% set breadcrumbs = usesNamespaces ? breadcrumbs(node) : packages(node) %}
+<div class="phpdocumentor-breadcrumbs">
+    {% apply spaceless %}
+    {% for breadcrumb in breadcrumbs %}
+        <span class="phpdocumentor-breadcrumb"><a href="{{ link(breadcrumb) }}">{{ breadcrumb.name }}</a>\</span>
+    {% endfor %}
+    <span class="phpdocumentor-breadcrumb">{{ node.name }}</span>
+    {% endapply %}
+</div>

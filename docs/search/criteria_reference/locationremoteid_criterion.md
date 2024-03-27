@@ -1,6 +1,6 @@
 # LocationRemoteId Criterion
 
-The [`LocationRemoteId` Search Criterion](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/Criterion/LocationRemoteId.php)
+The [`LocationRemoteId` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-LocationRemoteId.html)
 searches for content based in the Location remote ID.
 
 ## Arguments

@@ -1,6 +1,6 @@
 # ObjectStateId Criterion
 
-The [`ObjectStateId` Search Criterion](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/Criterion/ObjectStateId.php)
+The [`ObjectStateId` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-ObjectStateId.html)
 searches for content based on its Object State ID.
 
 ## Arguments

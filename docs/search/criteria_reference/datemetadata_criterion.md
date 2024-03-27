@@ -1,6 +1,6 @@
 # DateMetadata Criterion
 
-The [`DateMetadata` Search Criterion](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/Criterion/DateMetadata.php)
+The [`DateMetadata` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-DateMetadata.html)
 searches for content based on the date when it was created or last modified.
 
 ## Arguments
