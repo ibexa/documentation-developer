@@ -161,6 +161,10 @@ php bin/console ibexa:migrations:migrate
 
 ## Update your custom code
 
+### Back Office customization
+
+The v4 version of [[= product_name =]] is using Bootstrap 5 in the Back Office. If you were using Bootstrap 4 for styling, you need to update and adjust all custom Back Office components [following the migration guide from Bootstrap 4](https://getbootstrap.com/docs/5.0/migration/).
+
 ### Online editor
 
 #### Custom plugins and buttons
