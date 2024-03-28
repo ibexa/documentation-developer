@@ -4,21 +4,21 @@ description: Other applications can authenticate Ibexa DXP users through OAuth2 
 
 # OAuth Server
 
-Your [[= product_name =]] can be used as an OAuth2 server (combining an Authorization Server and a Resource Server).
-Client applications (such as mobile apps) are able to authenticate a user then access to this user's resources.
+Your [[= product_name =]] instance can be used as an OAuth2 server, combining the roles of an Authorization Server and a Resource Server.
+Client applications, such as mobile apps, are able to authenticate a user, and then access this user's resources.
 
 ![OAuth2 Server](img/oauth2-server.png)
 
 ## Server installation
 
 [[= product_name =]] Oauth2 server package is `ibexa/oauth2-server` and is not part of the default installation.
-It can be installed with the following command:
+You can install it with the following command:
 
 ```bash
 composer require ibexa/oauth2-server --with-all-dependencies
 ```
 
-Then, add the following pair of bundle lines to `config/bundles.php` array, like at the end of it:
+Then, in `config/bundles.php`, at the end of an array with a list of bundles, add the following two lines :
 
 ```php
 <?php
@@ -48,11 +48,11 @@ Add the tables needed by the bundle:
 
 ### Keys
 
-You need private and public keys.
-You can look at https://oauth2.thephpleague.com/installation/#generating-public-and-private-keys
+To configure the server, you need private and public keys.
+For more information, see [Generating public and private keys](https://oauth2.thephpleague.com/installation/#generating-public-and-private-keys).
 
 You also need an encryption key.
-You can look at https://oauth2.thephpleague.com/installation/#generating-encryption-keys
+For more information, see [Generating encryption keys](https://oauth2.thephpleague.com/installation/#generating-encryption-keys).
 
 Set the following environment variables:
 
@@ -65,12 +65,12 @@ OAUTH2_ENCRYPTION_KEY=1234567890123456789012345678901234567890
 
 ### Service, routes, and security configurations
 
-Uncomment whole service configuration file `config/packages/ibexa_oauth2_server.yaml`.
-Tweak the values if you like.
+Uncomment the whole service configuration file: `config/packages/ibexa_oauth2_server.yaml`.
+Tweak the values if necessary.
 
-Uncomment whole routes configuration file `config/routes/ibexa_oauth2_server.yaml`
+Uncomment the whole routes configuration file: `config/routes/ibexa_oauth2_server.yaml`.
 
-Uncomment the three following lines about `access_control` from `config/packages/security.yaml`:
+In `config/packages/security.yaml`, uncomment the following three lines under the `access_control` key:
 
 ```yaml
 security:
@@ -82,7 +82,7 @@ security:
         - { path: ^/authorize, roles: IS_AUTHENTICATED_REMEMBERED }
 ```
 
-Uncomment the three following lines about `oauth2_token` from `config/packages/security.yaml`:
+In `config/packages/security.yaml`, uncomment the three following lines under the `oauth2_token` key:
 
 ```yaml
 security:
@@ -104,10 +104,10 @@ security:
 ## Resource Server configuration
 
 To allow resource routes to be accessible through OAuth authorization,
-you must define a firewall using the `Ibexa\OAuth2Server\Security\Guard\OAuth2Authenticator`.
+you must define a firewall by using `Ibexa\OAuth2Server\Security\Guard\OAuth2Authenticator`.
 
 The following firewall example allows the REST API to be accessed as an OAuth resource.
-It must be before firewall with less restrictuve pattern like `ibexa_front`.
+It must be placed before the firewall with a less restrictive pattern like `ibexa_front`.
 
 ```yaml
     #…
@@ -135,7 +135,7 @@ TODO: Can it break same-domain Back Office like with [HTTP basic authentication]
 
 ### Add a client
 
-You need the client redirect URIs to create it.
+You need the client redirect URIs to create a client.
 You also need to agree on an identifier and a secret with the client.
 There is only one `default` [scope](https://oauth.net/2/scope/).
 
@@ -147,9 +147,10 @@ php bin/console league:oauth2-server:create-client 'Example OAuth2 Client' examp
   --redirect-uri=https://example.com/oauth2-callback
 ```
 
-`--redirect-uri` can be used multiple time.
+!!! note
+   You can call `--redirect-uri` multiple times.
 
-Redirect URIs can be added after the creation with `league:oauth2-server:update-client` command.
+Alternatively, you could add redirect URIs after you create a client, by using the `league:oauth2-server:update-client` command.
 For example:
 
 ```bash
@@ -157,16 +158,15 @@ php bin/console league:oauth2-server:update-client example-oauth2-client \
   --add-redirect-uri=https://example.com/another-oauth2-callback
 ```
 
-There is also commands to list all the configured clients (`league:oauth2-server:list-clients`),
-or to delete a client (`league:oauth2-server:delete-client`).
-
-- In a terminal, see `bin/console list league:oauth2-server` for a list of all the commands to maintain your clients.
-  Use `bin/console help <command>` to usage detail for each of them. 
-- See [package's online documentation](https://github.com/thephpleague/oauth2-server-bundle/blob/master/docs/basic-setup.md).
+Other commands let you list all the configured clients (`league:oauth2-server:list-clients`)
+or delete a client (`league:oauth2-server:delete-client`).
 
 !!! note
 
-    The `ìdentifier` and the `secret` will be needed by the client settings.
+    For a list of all the commands that you can use maintain your clients, in a terminal, run `bin/console list league:oauth2-server`.
+    To see usage details for each of the commands, run `bin/console help <command>` . 
+
+    For more information, see the package's [online documentation](https://github.com/thephpleague/oauth2-server-bundle/blob/master/docs/basic-setup.md).
 
 ### Information needed by the client
 

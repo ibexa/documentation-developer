@@ -77,8 +77,8 @@ Policies allow for fine-grained control of access based on various factors, such
 Available options:
 
 - [Username and password](passwords.md) - ideal for most users, this traditional method offers a secure login process with username and password.
-- [OAuth client](oauth_client.md) - integrating OAuth authentication allows users to log in using their existing social media (like Google, Facebook, and Twitter), or enterprise's system (like Active Directory or LDAP).
-- [OAuth server](oauth_server.md) - client applications (such as mobile apps) can authenticate a user using platform's login screen, then access resources
+- [OAuth client](oauth_client.md) - integrating OAuth authentication allows users to log in using their existing social media credentials (like Google, Facebook, and Twitter), or the enterprise's system (like Active Directory or LDAP).
+- [OAuth server](oauth_server.md) - client applications (such as mobile apps) can authenticate a user by using the platform's login screen, then access resources.
 
 ### Invitations
 
