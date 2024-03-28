@@ -42,7 +42,9 @@ Add the tables needed by the bundle:
 
 === "PostgreSQL"
 
+    ```bash
     php bin/console ibexa:doctrine:schema:dump-sql --force-platform=postgres vendor/ibexa/oauth2-server/src/bundle/Resources/config/schema.yaml | psql <database_name>
+    ```
 
 ## Authorization Server configuration
 
