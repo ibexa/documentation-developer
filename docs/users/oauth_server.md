@@ -131,8 +131,6 @@ It must be placed before the firewall with a less restrictive pattern like `ibex
             #…
 ```
 
-TODO: Can it break same-domain Back Office like with [HTTP basic authentication](rest_api_authentication.md#configuration)?
-
 ## Client
 
 ### Add a client
