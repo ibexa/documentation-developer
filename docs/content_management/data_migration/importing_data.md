@@ -213,6 +213,11 @@ The following example shows how to create a content type with two Field definiti
 
 The required metadata keys are: `identifier`, `mainTranslation`, `contentTypeGroups` and `translations`.
 
+The default values of Field definition properties mirror the underlying PHP API, for example:
+
+* `translatable` defaults to `true`
+* `required` defaults to `false`
+
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/create_blog_post_ct.yaml') =]]
 ```
