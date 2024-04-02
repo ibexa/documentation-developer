@@ -143,12 +143,26 @@ $(document).ready(function() {
         $('.md-sidebar--primary .md-nav__item--active:not(.md-nav__item--nested)')[0].offsetTop - 33;
     }
 
-    // Fix page TOC/hash bug
+    $(document).scroll(function() {
+        if ($('.md-sidebar--secondary .md-nav__link--active').length) {
+            $('.md-sidebar--secondary .md-nav__link--active')[0].scrollIntoView({
+                behavior: 'instant',
+                block: 'nearest'
+            });
+        } else {
+            $('.md-sidebar--secondary .md-sidebar__scrollwrap').scrollTop(0);
+        }
+    });
+
     $('.md-sidebar.md-sidebar--secondary nav a').click(function(event) {
         window.setTimeout(function() {
+            $('.md-sidebar--secondary .md-nav__link--active').removeClass('md-nav__link--active');
+            $(event.target).addClass('md-nav__link--active');
+            $(document).scroll();
+            // Fix page TOC/hash bug
             document.location.hash = event.target.hash;
         }, 500);
-    })
+    });
 
     document.querySelectorAll('.notification__close-btn').forEach((closeBtn) => {
         closeBtn.addEventListener('click', () => {
