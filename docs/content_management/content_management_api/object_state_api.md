@@ -1,5 +1,5 @@
 ---
-description: You can manage Object states via the PHP API, including creating Object states and state groups and assigning them to Content items.
+description: You can manage Object states via the PHP API, including creating Object states and state groups and assigning them to content items.
 ---
 
 # Object state API
@@ -45,9 +45,9 @@ and provide it with an `ObjectStateCreateStruct`:
 
 ## Assigning Object state
 
-To assign an Object state to a Content item,
+To assign an Object state to a content item,
 use [`ObjectStateService::setContentState`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ObjectStateService.php#L180).
-Provide it with a `ContentInfo` object of the Content item, the Object state group and the Object state:
+Provide it with a `ContentInfo` object of the content item, the Object state group and the Object state:
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/ObjectStateCommand.php', 77, 82) =]]

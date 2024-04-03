@@ -69,7 +69,7 @@ See [default designs](https://doc.ibexa.co/en/2.5/guide/design_engine/#default-d
 
 ### Previewing User and User Group permissions
 
-When viewing User or User Group Content items you can now preview what permissions are assigned to them.
+When viewing User or User Group content items you can now preview what permissions are assigned to them.
 
 ![Preview of permissions assigned to a User](2.2_permissions_in_user_view.png)
 

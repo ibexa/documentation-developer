@@ -39,11 +39,11 @@ To create and publish content, users must additionally have the following Polici
 - `content/edit`
 - `content/publish`
 
-This also lets the user copy and move content, as well as add new Locations to a Content item (but not remove them).
+This also lets the user copy and move content, as well as add new Locations to a content item (but not remove them).
 
 ## Move content
 
-To move a Content item or a Subtree to another Location, the user must have the following Policies:
+To move a content item or a Subtree to another Location, the user must have the following Policies:
 
 - `content/read` - on the source Location
 - `content/create` - on the target Location
@@ -52,7 +52,7 @@ To move a Content item or a Subtree to another Location, the user must have the 
 
 To send content to Trash, the User needs to have the `content/remove` Policy.
 If content has more than one language, the User must have access to all the languages.
-That is, the `content/remove` Policy must have either no Limitation, or a Limitation for all languages of the Content item.
+That is, the `content/remove` Policy must have either no Limitation, or a Limitation for all languages of the content item.
 
 To remove an archived version of content, the User must have the `content/versionremove` Policy.
 
@@ -72,7 +72,7 @@ Three Limitations that you could use here are `Section` Limitation, `Location` L
 
 Let's assume you have two Folders under your Home: Blog and Articles.
 You can let a User create content for the blogs, but not in Articles, by adding a `Section` Limitation to 
-the Blog Content item.
+the Blog content item.
 This allows the User to publish content anywhere under this Location in the structure.
 Section does not have to belong to the same Subtree of Location in the content structure, any Locations can be assigned to it.
 
@@ -120,7 +120,7 @@ you can split your Policy in two, each with one of these Limitations.
 
 ## Manage Locations
 
-To add a new Location to a Content item, the Policies required for publishing content are enough.
+To add a new Location to a content item, the Policies required for publishing content are enough.
 To allow the User to remove a Location, grant them the following Policies:
 
 - `content/remove`
@@ -152,13 +152,13 @@ To enable upload, you need you set the following permissions:
 - `content/read`
 - `content/publish`
 
-You can control what Content items can be uploaded and where by using Limitations
+You can control what content items can be uploaded and where by using Limitations
 on the `content/create` and `content/publish` Policies.
 
 A Location Limitation limits the uploading to a specific Location in the tree. 
 A content type Limitation controls the content types that are allowed.
 For example, you can set the Location Limitation on a **Pictures** Folder, and add a content type Limitation
-that only allows Content items of type **Image**. 
+that only allows content items of type **Image**. 
 This ensures that only files of type `image` can be uploaded,
 and only to the **Pictures** Folder.
 
@@ -216,7 +216,7 @@ Additional Policies are needed for each section of the Admin.
 
 - `content/view` to view the list of Users
 
-Users are treated like other content, so to create and modify them, the User needs to have the same permissions as for managing other Content items.
+Users are treated like other content, so to create and modify them, the User needs to have the same permissions as for managing other content items.
 
 ## Product catalog
 
@@ -233,7 +233,7 @@ Set the following permissions to allow such access:
 
 ### Product item
 
-When a product is created, a product item and a Content item are also generated. 
+When a product is created, a product item and a content item are also generated. 
 Permissions for the product catalog override permissions for content, therefore, 
 users without permissions for content can still manage products.
 

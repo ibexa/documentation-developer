@@ -39,7 +39,7 @@ $query->query = new Criterion\ContentTypeGroupId([1, 2]);
 
 ## Use case
 
-You can use the `ContentTypeGroupId` Criterion to query all Media Content items
+You can use the `ContentTypeGroupId` Criterion to query all Media content items
 (the default ID for the Media content type group is 3):
 
 ``` php hl_lines="1"

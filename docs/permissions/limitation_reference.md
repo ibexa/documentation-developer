@@ -48,13 +48,13 @@ The `CartOwner` Limitation specifies whether the user can modify a cart.
 
 ## Change Owner Limitation
 
-The Change Owner (`ChangeOwner`) Limitation specifies whether the user can change the owner of a Content item.
+The Change Owner (`ChangeOwner`) Limitation specifies whether the user can change the owner of a content item.
 
 ### Possible values
 
 |Value|UI value|Description|
 |------|------|------|
-|`1`|"Forbid"|The user cannot change owner of a Content item|
+|`1`|"Forbid"|The user cannot change owner of a content item|
 
 ## Content type Group Limitation
 
@@ -70,7 +70,7 @@ Group with the owner of content get the selected access right.
 ## Content type Group of Parent Limitation
 
 The content type Group of Parent (`ParentUserGroupLimitation`) Limitation specifies that only Users with at least one common *direct* User Group 
-with the owner of the parent Location of a Content item get a certain access right, 
+with the owner of the parent Location of a content item get a certain access right, 
 used by `content/create` permission.
 
 ### Possible values
@@ -126,7 +126,7 @@ A Language (`Language`) Limitation specifies whether the User has access to work
 A user with this Limitation is allowed to:
 
  - Create new content with the given translation(s) only.
-This only applies to creating the first version of a Content item.
+This only applies to creating the first version of a content item.
 - Edit content by adding a new translation or modifying an existing translation.
 - Publish content only when it results in adding or modifying an allowed translation.
 - Delete content only when it contains a translation into the specified language.
@@ -198,7 +198,7 @@ The Order Owner (`OrderOwner`) Limitation specifies whether the user can modify 
 
 ## Owner Limitation
 
-The Owner (`Owner`) Limitation specifies that only the owner of the Content item gets the selected 
+The Owner (`Owner`) Limitation specifies that only the owner of the content item gets the selected 
 access right.
 
 ### Possible values
@@ -211,7 +211,7 @@ access right.
 ## Owner of Parent Limitation
 
 The Owner of Parent (`ParentOwner`) Limitation specifies that only the Users who own all parent Locations of 
-a Content item get a certain access right, used for `content/create` permission.
+a content item get a certain access right, used for `content/create` permission.
 
 ### Possible values
 
@@ -332,7 +332,7 @@ follow [the example in the Admin management section](permission_use_cases.md#res
 ## Version Lock Limitation
 
 The Version Lock (`VersionLock`) Limitation specifies whether the User can perform actions, for example, edit 
-or unlock, on Content items that are in a workflow.
+or unlock, on content items that are in a workflow.
 
 This Limitation can be used as a Role Limitation.
 
@@ -340,7 +340,7 @@ This Limitation can be used as a Role Limitation.
 
 | Value | UI value | Description |
 |------|------|------|
-| `userId` | "Assigned only" | Users can perform actions only on Content items that are assigned to them or not assigned to anybody. |
+| `userId` | "Assigned only" | Users can perform actions only on content items that are assigned to them or not assigned to anybody. |
 | `null` | none | Users can perform actions on all drafts, regardless of the assignments or whether drafts are locked or not. |
 
 ## Workflow Stage Limitation

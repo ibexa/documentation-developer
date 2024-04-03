@@ -21,7 +21,7 @@ the system that the installation uses.
 
 ## Reuse images
 
-You can store images in the media library as independent Content items of 
+You can store images in the media library as independent content items of 
 a generic Image [content type](content_types.md) to reuse them across the system.
 You do this by uploading images to an [ImageAsset](imageassetfield.md) Field Type.
 
@@ -29,7 +29,7 @@ For an ImageAsset field to be reused, you must publish it.
 Only then is notification triggered, which states that an image has been published 
 under the Location and can now be reused.
 After you establish a media library, you can create [Relations](content_relations.md) between the 
-image Content item and the main Content item that uses it.
+image content item and the main content item that uses it.
 
 ## Normalizing image file names
 
@@ -121,7 +121,7 @@ You can also pass two additional parameters:
 
 !!! caution
 
-    The `resize-original` command publishes a new version of each Content item it modifies.
+    The `resize-original` command publishes a new version of each content item it modifies.
 
 ## Generating placeholder images
 
@@ -288,7 +288,7 @@ sudo apt-get install optipng
 ## Embedding images in Rich Text
 
 The [RichText](richtextfield.md) field allows you to embed other 
-Content items within the field.
+content items within the field.
 
 Content items that are identified as images are rendered in the Rich Text Field 
 by using a dedicated template.

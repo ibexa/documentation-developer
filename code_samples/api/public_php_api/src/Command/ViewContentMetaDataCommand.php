@@ -42,7 +42,7 @@ class ViewContentMetaDataCommand extends Command
     protected function configure()
     {
         $this
-            ->setDescription('Output various metadata about a Content item.')
+            ->setDescription('Output various metadata about a content item.')
             ->setDefinition([
                 new InputArgument('contentId', InputArgument::REQUIRED, 'An existing content ID'),
             ]);

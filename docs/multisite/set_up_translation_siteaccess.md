@@ -79,5 +79,5 @@ As a next step, allow Anonymous users to read content on the new SiteAccesses:
 1. Clear the cache by running: `php bin/console cache:clear`.
 
 You can now start translating content.
-When you reload the site, access a translated Content item through both SiteAccesses to see the difference,
+When you reload the site, access a translated content item through both SiteAccesses to see the difference,
 for example: `<yourdomain>/<article-name>` and `<yourdomain>/fr/<article-name>`.

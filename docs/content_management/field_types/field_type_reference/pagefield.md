@@ -44,10 +44,10 @@ The `renderAction` has the following parameters:
 
 |Parameter|Description|
 |---------|-----------|
-|`locationId`|ID of the Location of the Content item which can be accessed by `contentInfo.id`|
+|`locationId`|ID of the Location of the content item which can be accessed by `contentInfo.id`|
 |`blockId`|ID of the block which you want to render.|
-|`versionNo`|Version number of the Content item to render.|
-|`languageCode`|Language code of the Content item to render.|
+|`versionNo`|Version number of the content item to render.|
+|`languageCode`|Language code of the content item to render.|
 
 Example usage:
 
@@ -73,7 +73,7 @@ As a whole a sample layout could look as follows:
                 {# create a new layer with appropriate ID #}
                 <div class="landing-page__block block_{{ block.type }}" data-ez-block-id="{{ block.id }}">
                     {# render the block by using the "Ibexa\\Bundle\\FieldTypePage\\Controller\\BlockController::renderAction" controller #}
-                    {# location.id is the ID of the Location of the current Content item, block.id is the ID of the current block #}
+                    {# location.id is the ID of the Location of the current content item, block.id is the ID of the current block #}
                     {{ render_esi(controller('Ibexa\\Bundle\\FieldTypePage\\Controller\\BlockController::renderAction', {
                         'locationId': locationId,
                         'blockId': block.id,

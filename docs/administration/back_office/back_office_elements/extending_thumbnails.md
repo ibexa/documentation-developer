@@ -1,5 +1,5 @@
 ---
-description: Customize thumbnails use for Content items in the Back Office.
+description: Customize thumbnails use for content items in the Back Office.
 ---
 
 # Extending thumbnails

@@ -33,7 +33,7 @@ class AddLocationToContentCommand extends Command
     protected function configure()
     {
         $this
-            ->setDescription('Add a Location to Content item and hides it.')
+            ->setDescription('Add a Location to content item and hides it.')
             ->setDefinition([
                 new InputArgument('contentId', InputArgument::REQUIRED, 'Content ID'),
                 new InputArgument('parentLocationId', InputArgument::REQUIRED, 'Parent Location ID'),
@@ -56,7 +56,7 @@ class AddLocationToContentCommand extends Command
         $contentInfo = $this->contentService->loadContentInfo($contentId);
         $newLocation = $this->locationService->createLocation($contentInfo, $locationCreateStruct);
 
-        $output->writeln('Added hidden location ' . $newLocation->id . ' to Content item: ' . $contentInfo->name);
+        $output->writeln('Added hidden location ' . $newLocation->id . ' to content item: ' . $contentInfo->name);
 
         return self::SUCCESS;
     }

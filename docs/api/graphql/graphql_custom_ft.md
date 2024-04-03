@@ -135,7 +135,7 @@ class RelationFieldDefinitionMapper extends DecoratingFieldDefinitionMapper impl
 
 The value type depends on the field definition allowed content types setting:
 
-- for types that return Content items if there are no restrictions, or several types are allowed, the value will be an `Item`
+- for types that return content items if there are no restrictions, or several types are allowed, the value will be an `Item`
 
 The cardinality (single or collection) depends on the selection limit setting:
 
@@ -168,8 +168,8 @@ class MyFieldDefinitionMapper extends DecoratingFieldDefinitionMapper implements
 The following variables are available in the resolver's expression:
 
 - `field` is the current field, as an extension of the API's Field object that proxies properties requests to the Field Value
-- `content` is the resolved Content item's `Content`
-- `location` is the Content item's resolved location, for more information, see [Querying Locations](graphql_queries.md#querying-locations)
+- `content` is the resolved content item's `Content`
+- `location` is the content item's resolved location, for more information, see [Querying Locations](graphql_queries.md#querying-locations)
 - `item` is the content together with its location `\Ibexa\GraphQL\Value\Item`
 
 `RelationFieldValueBuilder` or `SelectionFieldValueBuilder` can be used as examples.

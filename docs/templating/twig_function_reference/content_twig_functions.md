@@ -1,30 +1,30 @@
 ---
-description: Content Twig function enable rendering whole Content items and their information.
+description: Content Twig function enable rendering whole content items and their information.
 page_type: reference
 ---
 
 # Content Twig functions
 
-- [`ibexa_render()`](#ibexa_render) renders a Content item.
-- [`ibexa_content_name()`](#ibexa_content_name) renders the name of a Content item.
+- [`ibexa_render()`](#ibexa_render) renders a content item.
+- [`ibexa_content_name()`](#ibexa_content_name) renders the name of a content item.
 - [`ibexa_render_content_query()`](#ibexa_render_content_query) renders the results of a non-content related query.
 - [`ibexa_render_location_query()`](#ibexa_render_location_query) renders the results of a non-content related Location query.
-- [`ibexa_seo_is_empty()`](#ibexa_seo_is_empty) returns a Boolean indication of whether SEO data is available for a Content item.
-- [`ibexa_seo()`](#ibexa_seo) attaches SEO tags to Content item's HTML code.
+- [`ibexa_seo_is_empty()`](#ibexa_seo_is_empty) returns a Boolean indication of whether SEO data is available for a content item.
+- [`ibexa_seo()`](#ibexa_seo) attaches SEO tags to content item's HTML code.
 
 ## Content rendering
 
 ### `ibexa_render()`
 
-`ibexa_render()` renders the indicated Content item.
+`ibexa_render()` renders the indicated content item.
 
 It uses the `embed` view by default, but you can pass a different view as an argument.
 
-You can provide `ibexa_render()` with either a Content item or a Location object.
+You can provide `ibexa_render()` with either a content item or a Location object.
 
 !!! tip
 
-    Depending on whether you pass a Content item or a Location object,
+    Depending on whether you pass a content item or a Location object,
     the helper automatically selects and uses one of internal Twig functions:
     `ibexa_render_content()` or `ibexa_render_location()`.
 
@@ -38,7 +38,7 @@ You can provide `ibexa_render()` with either a Content item or a Location object
 
 You can pass one of the following rendering methods to `ibexa_render()`:
 
-- `direct` - (default) renders the Content item without using a request
+- `direct` - (default) renders the content item without using a request
 - `inline` - Symfony inline rendering method, sends a request to the server and inserts the response
 - `esi` - uses the Symfony [Edge Side Include mechanism]([[= symfony_doc =]]/http_cache/esi.html) to render the correct tag that is handled by the reverse proxy
 - `ssi` - uses the Symfony [Server Side Include mechanism]([[= symfony_doc =]]/http_cache/ssi.html) to render the correct tag that is handled by the web server
@@ -55,10 +55,10 @@ You can pass one of the following rendering methods to `ibexa_render()`:
 
 ### `ibexa_content_name()`
 
-`ibexa_content_name()` renders the name of a Content item.
+`ibexa_content_name()` renders the name of a content item.
 
 The function uses prioritized languages from SiteAccess settings unless you pass another language as `forcedLanguage`.
-If the Content item does not have a translation in the prioritized or passed language,
+If the content item does not have a translation in the prioritized or passed language,
 the function returns the name in the main language.
 
 | Argument | Type | Description |
@@ -74,7 +74,7 @@ the function returns the name in the main language.
 
 ### `ibexa_seo_is_empty()`
 
-`ibexa_seo_is_empty()` returns a Boolean value which indicates whether [SEO](https://doc.ibexa.co/projects/userguide/en/latest/search_engine_optimization/seo/) data is available for the Content item that is passed as an argument.
+`ibexa_seo_is_empty()` returns a Boolean value which indicates whether [SEO](https://doc.ibexa.co/projects/userguide/en/latest/search_engine_optimization/seo/) data is available for the content item that is passed as an argument.
 
 | Argument | Type | Description |
 |---------------|------|-------------|
@@ -87,7 +87,7 @@ the function returns the name in the main language.
 ### `ibexa_seo()`
 
 `ibexa_seo()` attaches [SEO](https://doc.ibexa.co/projects/userguide/en/latest/search_engine_optimization/seo/) 
-data to the Content item's HTML code.
+data to the content item's HTML code.
 
 | Argument | Type | Description |
 |---------------|------|-------------|

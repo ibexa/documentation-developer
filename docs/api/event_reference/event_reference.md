@@ -11,7 +11,7 @@ You can subscribe to these events to extend the functionality of the system.
 In most cases, two events are dispatched for every action,
 one before the action is completed, and one after.
 
-For example, copying a Content item is connected with two events:
+For example, copying a content item is connected with two events:
 `BeforeCopyContentEvent` and `CopyContentEvent`.
 
 ``` php

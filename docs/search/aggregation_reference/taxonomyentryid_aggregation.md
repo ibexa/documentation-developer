@@ -1,6 +1,6 @@
 # TaxonomyEntryIdAggregation
 
-The `TaxonomyEntryIdAggregation` aggregates search results by the Content item's taxonomy entry or a product's category.
+The `TaxonomyEntryIdAggregation` aggregates search results by the content item's taxonomy entry or a product's category.
 
 ## Arguments
 

@@ -55,6 +55,8 @@ Depending on the version you started from, you may have several scripts to run:
 ## Update from v4.5.latest to v4.6
 
 When you have the latest version of v4.5, you can update to v4.6.
+Check [the requirements](../../getting_started/requirements.md) first.
+This version adds support for PHP 8.2 and 8.3, but requires using at least Node 18.
 
 ### Update the application
 
@@ -91,6 +93,16 @@ First, run:
 The `recipes:install` command installs new YAML configuration files.
 Review the old YAML files and move your custom configuration to the relevant new files.
 
+## Remove `node_modules` and `yarn.lock`
+
+Next, remove `node_modules` and `yarn.lock` before running `composer run post-update-cmd`,
+otherwise you can encounter errors during compiling.
+
+``` bash
+rm -Rf node_modules
+rm yarn.lock
+```
+
 ## Finish code update
 
 Finish the code update by running:
@@ -108,7 +120,17 @@ You may encounter one of the following errors during the process.
 If you encounter a `You have requested a non-existent parameter` error
 (like, for example, `You have requested a non-existent parameter "ibexa.dashboard.ibexa_news.limit".`),
 this is due to incorrect order of entries in `config/bundles.php`.
-To fix this, use the order from https://github.com/ibexa/commerce-skeleton/blob/v4.6.0/config/bundles.php, and add any extra bundles again.
+To fix this, use the order from the skeleton you're using, and add any extra bundles again.
+
+=== "[[= product_name_headless =]]"
+    Use [https://github.com/ibexa/headless-skeleton/blob/v[[= latest_tag_4_6 =]]/config/bundles.php](https://github.com/ibexa/headless-skeleton/blob/v[[= latest_tag_4_6 =]]/config/bundles.php) as a reference.
+
+=== "[[= product_name_exp =]]"
+    Use [https://github.com/ibexa/experience-skeleton/blob/v[[= latest_tag_4_6 =]]/config/bundles.php](https://github.com/ibexa/experience-skeleton/blob/v[[= latest_tag_4_6 =]]/config/bundles.php) as a reference.
+
+=== "[[= product_name_com =]]"
+    Use [https://github.com/ibexa/commerce-skeleton/blob/v[[= latest_tag_4_6 =]]/config/bundles.php](https://github.com/ibexa/commerce-skeleton/blob/v[[= latest_tag_4_6 =]]/config/bundles.php) as a reference.
+
 
 #### Non-existent service
 
@@ -151,7 +173,7 @@ For [[= product_name_com =]] installations, you also need to run the following c
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/commerce/ibexa-4.5.latest-to-4.6.0.sql
     ```
 
-And to play the following table creation request:
+And apply the following database script:
 
 === "MySQL"
 
@@ -183,6 +205,17 @@ And to play the following table creation request:
 
 ## Run data migration
 
+### Image picker migration
+
+The new Image picker by default expects an `ezkeyword` Field Type to exist in the `image` content type.
+
+You can add it running the following commands:
+
+```bash
+php bin/console ibexa:migrations:import vendor/ibexa/image-picker/src/bundle/Resources/migrations/2023_12_06_15_00_image_content_type.yaml --name=2023_12_06_15_00_image_content_type.yaml
+php bin/console ibexa:migrations:migrate --file=2023_12_06_15_00_image_content_type.yaml
+```
+
 ### Dashboard migration [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 If you are using [[= product_name_exp =]] or [[= product_name_com =]],
@@ -191,8 +224,39 @@ you must run data migration required by the dashboard and other features to fini
 ```bash
 php bin/console ibexa:migrations:import vendor/ibexa/dashboard/src/bundle/Resources/migrations/structure.yaml --name=2023_09_23_14_15_dashboard_structure.yaml
 php bin/console ibexa:migrations:import vendor/ibexa/dashboard/src/bundle/Resources/migrations/permissions.yaml --name=2023_10_10_16_14_dashboard_permissions.yaml
-php bin/console ibexa:migrations:migrate --file=2023_09_23_14_15_dashboard_structure.yaml --file=2023_10_10_16_14_dashboard_permissions.yaml
+php bin/console ibexa:migrations:import vendor/ibexa/activity-log/src/bundle/Resources/migrations/dashboard_structure.yaml --name=2023_12_04_13_34_activity_log_dashboard_structure.yaml
+php bin/console ibexa:migrations:import vendor/ibexa/personalization/src/bundle/Resources/migrations/dashboard_structure.yaml --name=2023_12_05_17_00_personalization_dashboard_structure.yaml
+php bin/console ibexa:migrations:import vendor/ibexa/product-catalog/src/bundle/Resources/migrations/dashboard_structure.yaml --name=2023_11_20_21_32_product_catalog_dashboard_structure.yaml
+php bin/console ibexa:migrations:migrate --file=2023_09_23_14_15_dashboard_structure.yaml --file=2023_10_10_16_14_dashboard_permissions.yaml --file=2023_12_04_13_34_activity_log_dashboard_structure.yaml --file=2023_12_05_17_00_personalization_dashboard_structure.yaml --file=2023_11_20_21_32_product_catalog_dashboard_structure.yaml
 ```
+
+!!! caution
+
+    The `2023_10_10_16_14_dashboard_permissions.yaml` migration creates a Role dedicated for dashboard management and assigns it to the Editors User Group. If you have custom User Groups which need to manipulate dashboards, you need to skip this migration, copy it to your migrations folder (by default, `src/Migrations/Ibexa/migrations`) and adjust it according to your needs before execution.
+
+For [[= product_name_com =]] there's an additional migration:
+``` bash
+php bin/console ibexa:migrations:import vendor/ibexa/order-management/src/bundle/Resources/install/migrations/dashboard_structure.yaml --name=2023_11_20_14_33_order_dashboard_structure.yaml
+php bin/console ibexa:migrations:migrate --file=2023_11_20_14_33_order_dashboard_structure.yaml
+```
+
+### Ibexa Open Source
+
+If you don't have access to [[= product_name =]]'s `ibexa/installer` package and cannot apply the scripts from `vendor/ibexa/installer` directory, apply the following database update instead:
+
+=== "MySQL"
+
+    ``` sql
+    ALTER TABLE `ibexa_token`
+    ADD COLUMN `revoked` BOOLEAN NOT NULL DEFAULT false;
+    ```
+
+=== "PostgreSQL"
+
+    ``` sql
+    ALTER TABLE "ibexa_token"
+    ADD "revoked" BOOLEAN DEFAULT false NOT NULL;
+    ```
 
 ## Revisit configuration
 
@@ -253,7 +317,7 @@ php bin/console ibexa:migrations:migrate --file=2023_12_07_20_23_editor_content_
 
 #### Site context
 
-Site context is used in Content Tree to display only those Content items that belong to the selected website.
+Site context is used in Content Tree to display only those content items that belong to the selected website.
 
 You can add locations that shoudn't be publicly accessible to the list of excluded paths:
 
@@ -314,4 +378,23 @@ The following migration example allows users with the `Editor` role to access th
               limitations:
                   - identifier: activity_log_owner
                     values: []
+```
+
+## Update Elasticsearch schema
+
+Elasticsearch schema's templates change, for example, with the addition of new features such as spellchecking.
+When this happens, you need to erase the index, update the schema, and rebuild the index.
+
+To delete the index, you can use an HTTP request.
+Use the command as in the following example:
+
+```bash
+curl --request DELETE 'https://elasticsearch:9200/_all'
+```
+
+To update the schema, and then reindex the content, use the following commands:
+
+```bash
+php bin/console ibexa:elasticsearch:put-index-template --overwrite
+php bin/console ibexa:reindex
 ```
