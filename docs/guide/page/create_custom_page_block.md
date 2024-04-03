@@ -56,6 +56,20 @@ The templates have access to all block attributes, as you can see above in the `
 Priority of templates indicates the order in which they are presented in Page Builder.
 The template with the greatest priority is used as the default one.
 
+## Add pre-render event listener
+
+If you need to compute variables to pass to the template, you can listen or subscribe to the block pre-render event.
+
+For example, the following event subscriber loads the `event` content item and passes it to the template as `event_content`:
+
+``` php
+[[= include_file('code_samples/page/custom_page_block/src/Event/Subscriber/BlockEmbedEventEventSubscriber.php') =]]
+```
+
+The block view template could now use `ibexa_render(event_content, {'viewType': 'embed'})` instead of `render(controller('ibexa_content::viewAction', {'contentId': event, 'viewType': 'embed'}))`, other [content Twig functions](content_twig_functions.md), or [field Twig functions](field_twig_functions.md).
+
+For more information, see [Block events](page_blocks.md#block-events).
+
 ## Add edit templates
 
 You can also customize the template for the block settings modal.
