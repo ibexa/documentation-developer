@@ -90,6 +90,20 @@ document.getElementsByTagName('body')[0].addEventListener('ibexa-render-block-pr
     
     If you consider using React JavaScript library, see [React App block](react_app_block.md).
 
+## Add pre-render event listener
+
+If you need to compute variables to pass to the template, you can listen or subscribe to the block pre-render event.
+
+For example, the following event subscriber loads the `event` content item and passes it to the template as `event_content`:
+
+``` php
+[[= include_file('code_samples/page/custom_page_block/src/Event/Subscriber/BlockEmbedEventEventSubscriber.php') =]]
+```
+
+The block view template could now use `ibexa_render(event_content, {'viewType': 'embed'})` instead of `render(controller('ibexa_content::viewAction', {'contentId': event, 'viewType': 'embed'}))`, other [content Twig functions](content_twig_functions.md), or [field Twig functions](field_twig_functions.md).
+
+For more information, see [Block events](page_blocks.md#block-events).
+
 ## Add edit templates
 
 You can also customize the template for the block settings modal.
