@@ -1,7 +1,7 @@
 # ContentTranslatedName Sort Clause
 
 The [`ContentTranslatedName` Sort Clause](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/SortClause/ContentTranslatedName.php)
-sorts search results by the Content items' translated names.
+sorts search results by the content items' translated names.
 
 ## Arguments
 

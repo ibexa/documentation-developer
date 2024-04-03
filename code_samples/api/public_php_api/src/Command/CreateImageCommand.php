@@ -43,7 +43,7 @@ class CreateImageCommand extends Command
                 new InputArgument('name', InputArgument::REQUIRED, 'Content for the Name field'),
                 new InputArgument('file', InputArgument::REQUIRED, 'Content for the Image field'),
             ])
-            ->addOption('publish', 'p', InputOption::VALUE_NONE, 'Do you want to publish the Content item?');
+            ->addOption('publish', 'p', InputOption::VALUE_NONE, 'Do you want to publish the content item?');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -76,7 +76,7 @@ class CreateImageCommand extends Command
 
         if ($publish == true) {
             $content = $this->contentService->publishVersion($draft->versionInfo);
-            $output->writeln('Published Content item ' . $content->getName());
+            $output->writeln('Published content item ' . $content->getName());
         }
 
         return self::SUCCESS;

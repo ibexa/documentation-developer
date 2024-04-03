@@ -16,7 +16,7 @@ PIM is available in all [[= product_name =]] editions.
 
 ## How does PIM work
 
-Products in [[= product_name =]]’s PIM have underlying Content items enriched with 
+Products in [[= product_name =]]’s PIM have underlying content items enriched with 
 product-specific information such as attributes, assets, prices, and others.
 
 PIM lets you group products into categories and catalogs.
@@ -231,7 +231,7 @@ Next, follow steps from [product management in user documentation]([[= user_doc 
 Products added in the shop have both technical and marketing information. 
 You can see all the attributes, specification and variants in a very detailed way, which helps you to manage and present all the products in the technical way. 
 In addition, each product and its variants may have assets in the form of images and a description. 
-Products have underlying Content items, which means you can customize the content structure to contain all the marketing information about the product that you need.
+Products have underlying content items, which means you can customize the content structure to contain all the marketing information about the product that you need.
 
 ### Detailed specification with multiple attribute types
 
@@ -265,7 +265,7 @@ You can set up different prices depending on customer group - it means that you 
 
 ### Product taxonomy
 
-The taxonomy mechanism enables creating tags or categories with a tree structure and assign them to a Content item, for example, Products. Thanks to this mechanism product categories can be organized into a Category tree to make it easy for the users to browse and to deliver content appropriate for them.
+The taxonomy mechanism enables creating tags or categories with a tree structure and assign them to a content item, for example, Products. Thanks to this mechanism product categories can be organized into a Category tree to make it easy for the users to browse and to deliver content appropriate for them.
 
 ### Grouping products into catalogs
 

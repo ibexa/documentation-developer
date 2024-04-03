@@ -5,7 +5,7 @@ description: Customize the configuration of the content browser.
 # Browser
 
 Browsing the content structure and selecting content from the Repository uses the module Universal Discovery Widget (UDW). UDW has an interactive interface
-which allows you to create, move or copy Content items.
+which allows you to create, move or copy content items.
 
 ## Using UDW
 

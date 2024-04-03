@@ -25,8 +25,8 @@ nav:
             - 1. Get ready: tutorials/beginner_tutorial/1_get_ready.md
             - 2. Create the content model: tutorials/beginner_tutorial/2_create_the_content_model.md
             - 3. Customize the front page: tutorials/beginner_tutorial/3_customize_the_front_page.md
-            - 4. Display a single Content item: tutorials/beginner_tutorial/4_display_single_content_item.md
-            - 5. Display a list of Content items: tutorials/beginner_tutorial/5_display_a_list_of_content_items.md
+            - 4. Display a single content item: tutorials/beginner_tutorial/4_display_single_content_item.md
+            - 5. Display a list of content items: tutorials/beginner_tutorial/5_display_a_list_of_content_items.md
             - 6. Improve configuration: tutorials/beginner_tutorial/6_improve_configuration.md
             - 7. Embed content: tutorials/beginner_tutorial/7_embed_content.md
             - 8. Enable account registration: tutorials/beginner_tutorial/8_enable_account_registration.md
@@ -322,7 +322,7 @@ nav:
         - Enable purchasing products: pim/enable_purchasing_products.md
         - Prices: pim/prices.md
         - Price API: pim/price_api.md
-        - Customize PIM: 
+        - Customize PIM:
             - Customize PIM: pim/customize_pim.md
             - Create custom attribute type: pim/create_custom_attribute_type.md
             - Create product code generator: pim/create_product_code_generator.md
@@ -352,6 +352,10 @@ nav:
             - Payment method API: commerce/payment/payment_method_api.md 
             - Payment method filtering: commerce/payment/payment_method_filtering.md
             - Payment API: commerce/payment/payment_api.md
+            - Online payment methods:
+                - Payum integration: commerce/payment/payum_integration.md
+                - Enable PayPal payments: commerce/payment/enable_paypal_payments.md
+                - Enable Stripe payments: commerce/payment/enable_stripe_payments.md
         - Shipping management:
             - Shipping management: commerce/shipping_management/shipping_management.md
             - Configure shipping: commerce/shipping_management/configure_shipment.md
@@ -469,6 +473,13 @@ nav:
             - Field: search/criteria_reference/field_criterion.md
             - FieldRelation: search/criteria_reference/fieldrelation_criterion.md
             - FullText: search/criteria_reference/fulltext_criterion.md
+            - Image: search/criteria_reference/image_criterion.md
+            - ImageDimensions: search/criteria_reference/imagedimensions_criterion.md
+            - ImageFileSize: search/criteria_reference/imagefilesize_criterion.md
+            - ImageHeight: search/criteria_reference/imageheight_criterion.md
+            - ImageMimeType: search/criteria_reference/imagemimetype_criterion.md
+            - ImageOrientation: search/criteria_reference/imageorientation_criterion.md
+            - ImageWidth: search/criteria_reference/imagewidth_criterion.md
             - IsCurrencyEnabled: search/criteria_reference/iscurrencyenabled_criterion.md
             - IsFieldEmpty: search/criteria_reference/isfieldempty_criterion.md
             - IsMainLocation: search/criteria_reference/ismainlocation_criterion.md
@@ -867,14 +878,14 @@ extra:
   product_name_oss: 'Ibexa OSS'
   # Global variables - latest tag versions
   latest_tag_2_5: '2.5.32'
-  latest_tag_3_3: '3.3.36'
+  latest_tag_3_3: '3.3.37'
   latest_tag_4_0: '4.0.8'
   latest_tag_4_1: '4.1.5'
   latest_tag_4_2: '4.2.4'
   latest_tag_4_3: '4.3.5'
   latest_tag_4_4: '4.4.4'
-  latest_tag_4_5: '4.5.5'
-  latest_tag_4_6: '4.6.1'
+  latest_tag_4_5: '4.5.6'
+  latest_tag_4_6: '4.6.2'
 
   symfony_doc: 'https://symfony.com/doc/5.4'
   user_doc: 'https://doc.ibexa.co/projects/userguide/en/master'

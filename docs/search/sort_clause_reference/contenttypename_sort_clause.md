@@ -1,7 +1,7 @@
 # ContentTypeName Sort Clause
 
 The [`ContentTypeName` Sort Clause](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/SortClause/Trash/ContentTypeName.php)
-sorts the results of searching in Trash by the name of the Content item's content type.
+sorts the results of searching in Trash by the name of the content item's content type.
 
 ## Arguments
 

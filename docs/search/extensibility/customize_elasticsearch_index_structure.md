@@ -36,7 +36,7 @@ ibexa_elasticsearch:
     document_group_resolver: 'Ibexa\Elasticsearch\ElasticSearch\Index\Group\ContentTypeGroupResolver'
 ```
 
-Select the strategy based on the structure of your Repository, taking into accounts data such as the number of Content items,
+Select the strategy based on the structure of your Repository, taking into accounts data such as the number of content items,
 content types or languages.
 
 ## Custom indexing strategy

@@ -253,7 +253,7 @@ php bin/console ibexa:migrations:migrate --file=2023_12_07_20_23_editor_content_
 
 #### Site context
 
-Site context is used in Content Tree to display only those Content items that belong to the selected website.
+Site context is used in Content Tree to display only those content items that belong to the selected website.
 
 You can add locations that shoudn't be publicly accessible to the list of excluded paths:
 
@@ -314,4 +314,23 @@ The following migration example allows users with the `Editor` role to access th
               limitations:
                   - identifier: activity_log_owner
                     values: []
+```
+
+## Update Elasticsearch schema
+
+Elasticsearch schema's templates change, for example, with the addition of new features such as spellchecking.
+When this happens, you need to erase the index, update the schema, and rebuild the index.
+
+To delete the index, you can use an HTTP request.
+Use the command as in the following example:
+
+```bash
+curl --request DELETE 'https://elasticsearch:9200/_all'
+```
+
+To update the schema, and then reindex the content, use the following commands:
+
+```bash
+php bin/console ibexa:elasticsearch:put-index-template --overwrite
+php bin/console ibexa:reindex
 ```

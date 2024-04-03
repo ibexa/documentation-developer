@@ -680,7 +680,7 @@ The following obsolete handler has been removed:
 - `DeferredLegacy` content type Update handler
 (`eZ\Publish\Core\Persistence\Legacy\Content\Type\Update\Handler\DeferredLegacy`) with its optional Symfony Container Service (`ezpublish.persistence.legacy.content_type.update_handler.deferred`)
 
-Subscribe to eZ Platform Symfony Events to handle deferring of updating of Content items after their content type update instead.
+Subscribe to eZ Platform Symfony Events to handle deferring of updating of content items after their content type update instead.
 
 ### Symfony Services
 

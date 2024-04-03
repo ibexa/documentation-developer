@@ -7,7 +7,7 @@ description: Try customizing the front page by using custom templates and adding
 In this step you will create the global layout of your site, and display content using custom templates.
 
 First, go to the root of the site (`<yourdomain>`). You should now see the home page of the clean install, without any kind of layout.
-You will customize this step by instructing the platform to use a custom template to render this Content item.
+You will customize this step by instructing the platform to use a custom template to render this content item.
 
 ## Content rendering configuration
 
@@ -35,7 +35,7 @@ ibexa:
 ```
 
 This tells [[= product_name =]] to use the `template` when rendering content with Location ID `2`.
-`2` is the default Location for the root Content item.
+`2` is the default Location for the root content item.
 
 `Id\Location` is one of several [view matchers](view_matcher_reference.md) that you can use to customize rendering depending on different criteria.
 

@@ -26,11 +26,11 @@ In version 1.8 we introduced a new Content Browser in the Universal Discovery Wi
 
 #### Miscellaneous
 
--   The Details tab in content view now provides information about the Section the Content item belongs to.
+-   The Details tab in content view now provides information about the Section the content item belongs to.
 
 ![Section details in Details tab](section-details.png "Section details in Details tab")
 
--   You can now edit a Content item directly from its parent's Sub-items table, and sort the table:
+-   You can now edit a content item directly from its parent's Sub-items table, and sort the table:
 
 ![Sub-items table with Edit button and sorting](sub-items-improved.png "Sub-items table with Edit button and sorting")
 

@@ -69,7 +69,7 @@ This release introduces new page blocks:
 
 ### Translation comparison
 
-With this release, you can compare different versions of translations of a Content item, including comparison between different languages.
+With this release, you can compare different versions of translations of a content item, including comparison between different languages.
 
 You can now choose between two new options of the view:
 
