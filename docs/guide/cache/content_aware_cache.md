@@ -258,7 +258,7 @@ See [Tagging from Twig Templates](https://foshttpcachebundle.readthedocs.io/en/l
 
 `ezplatform-http-cache` uses Repository API event subscribers to listen to events emitted on Repository operations,
 and depending on the operation triggers expiry on a specific tag or set of tags.
-All event subscribers can be found in `ezplatform-http-cache/src/EventSubscriber/CachePurge`.
+All event subscribers can be found in `http-cache/src/lib/EventSubscriber/CachePurge`.
 
 ### Tags purged on publish event
 
@@ -313,6 +313,7 @@ The new structure will then be:
 ```
 
 The following keys will be purged during the move:
+
 - `l20`, because cache for previous parent of `[Child]` should be purged (`[Parent1]`)
 - `pl20`, because cache for children of `[Parent1]` should be purged
 - `l21`, because cache for new parent of `[Child]` should be purged (`[Parent2]`)
@@ -522,7 +523,7 @@ not only headers) to curl and search for esi:
     $ curl --resolve www.staging.foobar.com.us-2.platformsh.site:443:1.2.3.4 --header "Surrogate-Capability: abc=ESI/1.0" --header "x-user-hash: daea248406c0043e62997b37292bf93a8c91434e8661484983408897acd93814" https://www.staging.foobar.com.us-2.platformsh.site/ | grep esi
 ```
 
-The output is :
+The output is:
 
 ```HTML
     <esi:include src="/_fragment?_hash=B%2BLUWB2kxTCc6nc5aEEn0eEqBSFar%2Br6jNm8fvSKdWU%3D&_path=locationId%3D2%26contentId%3D52%26blockId%3D11%26versionNo%3D3%26languageCode%3Deng-GB%26serialized_siteaccess%3D%257B%2522name%2522%253A%2522site%2522%252C%2522matchingType%2522%253A%2522default%2522%252C%2522matcher%2522%253Anull%252C%2522provider%2522%253Anull%257D%26serialized_siteaccess_matcher%3Dnull%26_format%3Dhtml%26_locale%3Den_GB%26_controller%3DEzSystems%255CEzPlatformPageFieldTypeBundle%255CController%255CBlockController%253A%253ArenderAction" />
@@ -540,7 +541,7 @@ shell.
     $ curl -IXGET --resolve www.staging.foobar.com.us-2.platformsh.site:443:1.2.3.4 --header "Surrogate-Capability: abc=ESI/1.0" --header "x-user-hash: daea248406c0043e62997b37292bf93a8c91434e8661484983408897acd93814" 'https://www.staging.foobar.com.us-2.platformsh.site/_fragment?_hash=B%2BLUWB2kxTCc6nc5aEEn0eEqBSFar%2Br6jNm8fvSKdWU%3D&_path=locationId%3D2%26contentId%3D52%26blockId%3D11%26versionNo%3D3%26languageCode%3Deng-GB%26serialized_siteaccess%3D%257B%2522name%2522%253A%2522site%2522%252C%2522matchingType%2522%253A%2522default%2522%252C%2522matcher%2522%253Anull%252C%2522provider%2522%253Anull%257D%26serialized_siteaccess_matcher%3Dnull%26_format%3Dhtml%26_locale%3Den_GB%26_controller%3DEzSystems%255CEzPlatformPageFieldTypeBundle%255CController%255CBlockController%253A%253ArenderAction'
 ```
 
-You can also note that this ESI is handled by a controller in the `EzPlatformPageFieldTypeBundle` bundle provided by [[= product_name =]].
+You can also note that this ESI is handled by a controller in the `FieldTypePage` bundle provided by [[= product_name =]].
 
 The output is:
 
