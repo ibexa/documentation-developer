@@ -1,0 +1,67 @@
+{% include 'css/main.min.css.twig' %}
+{% include 'css/palette.min.css.twig' %}
+{% include 'css/custom.css.twig' %}
+{% include 'css/navigation.css.twig' %}
+{% include 'css/docs.switcher.css.twig' %}
+
+.md-sidebar--primary {
+    padding-left: 0;
+}
+
+.md-nav--primary .md-nav:not([data-md-level="0"]) {
+    padding-left: 16px;
+}
+
+.md-nav--primary .md-nav__list-title {
+    display: inline-block;
+    color: #71767C;
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 600;
+    padding: 16px 0 4px;
+}
+
+.md-nav--primary .md-nav__list .md-nav__link {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    line-height: 24px;
+    padding-left: 0;
+    background-size: 16px 16px;
+}
+
+.md-nav--primary .md-nav__item--nested > .level-0 {
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 600;
+    padding-left: 12px;
+}
+
+.md-nav--primary .md-nav__item--nested > .level-1 {
+    padding-left: 40px;
+    background-position: 16px 16px;
+}
+
+.md-nav--primary .md-nav__item--nested > .md-nav__link:not(.level-0):not(.level-1) {
+    padding-left: 32px;
+    background-position: 8px 16px;
+}
+
+.md-nav--primary .md-nav__item:not(.md-nav__item--nested) > .md-nav__link:not(.level-0):not(.level-1) {
+    padding-left: 8px;
+}
+
+.md-nav--primary .md-nav__item > .md-nav__link:not(.level-0):not(.level-1) {
+    justify-content: flex-start;
+}
+
+.md-nav--primary .md-nav__item > .md-nav__link:not(.level-0):not(.level-1) img {
+    margin-right: 8px;
+}
+
+.md-nav--primary .md-nav__item--nested > .md-nav__toggle:checked ~ .md-nav__link:not(.level-0) {
+    background-color: #F3F3F6;
+}
+
+{# .md-nav--primary .md-nav__item--nested > .md-nav__toggle:checked ~ .md-nav__link:not(.level-0):not(.level-1) {
+    background-color: #F3F3F6;
+} #}
