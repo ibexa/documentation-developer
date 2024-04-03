@@ -5,7 +5,6 @@ namespace App\Event\Subscriber;
 use eZ\Publish\API\Repository\ContentService;
 use EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Renderer\BlockRenderEvents;
 use EzSystems\EzPlatformPageFieldType\FieldType\Page\Block\Renderer\Event\PreRenderEvent;
-
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class BlockEmbedEventEventSubscriber implements EventSubscriberInterface
