@@ -6,6 +6,32 @@ description: Overview of major recent additions to Ibexa DXP documentation.
 
 This page contains recent highlights and notable changes in [[= product_name =]] documentation.
 
+## March 2024
+
+### Permissions
+
+- Updated [Custom Policies](custom_policies.md) article
+
+### Content management
+
+- Updated [BinaryFile Field Type](binaryfilefield.md) description
+
+### Commerce
+
+- Description of [integration with Payum](payum_integration.md) and payment processing gateways
+
+### Search
+
+- Updated [Elasticsearch search engine](elastic_search_overview.md) description
+- New Search Criteria:
+    - [Image](image_criterion.md)
+    - [ImageDimensions](imagedimensions_criterion.md)
+    - [ImageFileSize](imagefilesize_criterion.md)
+    - [ImageHeight](imageheight_criterion.md)
+    - [ImageMimeType](imagemimetype_criterion.md)
+    - [ImageOrientation](imageorientation_criterion.md)
+    - [ImageWidth](imagewidth_criterion.md)
+
 ## February 2024
 
 ### Dashboard
