@@ -40,7 +40,7 @@ For further details on which calls are cached or not, see details in the [Symfon
 which has info on cache use in two places:
 
 - Symfony Cache tab: for Symfony Cache itself, the tab shows cache lookups to cache backends
-- Ibexa tab: shows calls made to database back end, and if they are cached or not
+- [[= product_name_base =]] tab: shows calls made to database back end, and if they are cached or not
 
 To see where and how to contribute additional caches, refer to the [source code](https://github.com/ibexa/core/blob/main/src/lib/Persistence/Cache/Readme.md).
 
