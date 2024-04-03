@@ -102,7 +102,7 @@ Do this under the `configuration_template` [configuration key](configuration.md#
 [[= include_file('code_samples/page/custom_page_block/config/packages/page_blocks.yaml', 0, 7) =]]
 ```
 
-Place the edit template in `templates/themes/<your_theme>/blocks/event/config.html.twig'`:
+Place the edit template in `templates/themes/<your_theme>/blocks/event/config.html.twig`:
 
 ``` html+twig
 [[= include_file('code_samples/page/custom_page_block/templates/themes/standard/blocks/event/config.html.twig') =]]
