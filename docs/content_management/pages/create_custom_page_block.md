@@ -109,7 +109,7 @@ Place the edit template in `templates/themes/<your_theme>/blocks/event/config.ht
 ```
 
 This example template overrides the `embed` attribute widget to customize the Universal Discovery Widget (UDW).
-It adds itself to the `form_templates` and define a `block_configuration_attribute_embed_widget` block.
+It adds itself to the `form_templates` and defines a `block_configuration_attribute_embed_widget` block.
 The following UDW configuration is used so only an `event` typed content item can be selected:
 
 ``` yaml
