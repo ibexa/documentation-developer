@@ -19,17 +19,17 @@ Details of the configuration depend on the OAuth2 Authorization Server that you 
 For sample configurations for different providers,
 see [`knpuniversity/oauth2-client-bundle` configuration](https://github.com/knpuniversity/oauth2-client-bundle#configuration).
 Some client types require additional packages.
-(Missing package is, at least, indicated in an error message.)
+Missing package is indicated in an error message.
 
 For example, the following configuration creates a `google` client for Google OAuth2 Authorization Server to log users in.
-The two environment variables `OAUTH_GOOGLE_CLIENT_ID` and `OAUTH_GOOGLE_CLIENT_SECRET`
+Two environment variables, `OAUTH_GOOGLE_CLIENT_ID` and `OAUTH_GOOGLE_CLIENT_SECRET`,
 correspond to [the set-up on Google side](https://support.google.com/cloud/answer/6158849).
 
 ``` yaml
 [[= include_file('code_samples/user_management/oauth_google/config/packages/knpu_oauth2_client.yaml') =]]
 ```
 
-To use the `google` client type, you must install the following package:
+To use the `google` client type, you need to install the following package:
 
 ```bash
 composer require league/oauth2-google
@@ -37,7 +37,7 @@ composer require league/oauth2-google
 
 ### Enable OAuth2 client
 
-The client must be associated to a [SiteAccess scope](multisite_configuration.md#scope).
+The client needs to be a part of the [SiteAccess scope](multisite_configuration.md#scope).
 
 In the following example, the OAuth2 client `google` is enabled for the `admin` SiteAccess:
 
@@ -65,10 +65,9 @@ Resource owner mappers must implement the `Ibexa\Contracts\OAuth2Client\Resource
 Four implementations of `ResourceOwnerMapper` are proposed by default:
 
 - `ResourceOwnerToExistingUserMapper` is the base class extended by the following mappers:
-    - `ResourceOwnerIdToUserMapper` doesn't create a new user, but loads a user (resource owner) based on their identifier.
-    - `ResourceOwnerEmailToUserMapper` doesn't create a new user, but loads a user (resource owner) based on their email.
-- `ResourceOwnerToExistingOrNewUserMapper` checks if the user exists and loads them if they do.
-  If they don't, the mapper creates a new user in the Repository.
+    - `ResourceOwnerIdToUserMapper` - loads a user (resource owner) based on the identifier, but doesn't create a new user.
+    - `ResourceOwnerEmailToUserMapper` - loads a user (resource owner) based on the email, but doesn't create a new user.
+- `ResourceOwnerToExistingOrNewUserMapper` - checks whether the user exists and loads the data if it does.  If not, creates a new user in the Repository.
 
 To use `ResourceOwnerToExistingOrNewUserMapper`, you need to extend it in your custom mapper.
 
@@ -76,7 +75,7 @@ To use `ResourceOwnerToExistingOrNewUserMapper`, you need to extend it in your c
 
     When you implement your own mapper for external login,
     it is good practice to create a special User content type for users registered in this way.
-    This is because users who register through an external service do not have a separate password in the system.
+    The users who register through an external service do not have a separate password in the system.
     Instead, they log in by their external service's password.
 
     To avoid issues with password restrictions in the built-in User content type,
@@ -108,7 +107,7 @@ Configure the service by using the `ibexa.oauth2_client.resource_owner_mapper` t
 ## Add login button
 
 After you have activated the OAuth2 client for the `admin` SiteAccess,
-here is how to add a **Log in with Google** to the Back Office login form.
+you need to add a **Log in with Google** to the Back Office login form.
 
 Create the following template file in `templates/themes/admin/account/login/oauth2_login.html.twig`:
 
