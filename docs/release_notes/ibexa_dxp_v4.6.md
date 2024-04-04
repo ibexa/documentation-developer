@@ -484,7 +484,7 @@ For more information, see [CDP Activation](https://doc.ibexa.co/en/master/cdp/cd
 
 The following packages has been introduced in Ibexa DXP v4.6.0:
 
-- [ibexa/oauth2-server](oauth_client.md) (optional)
+- [ibexa/oauth2-server](oauth_server.md) (optional)
 - ibexa/site-context
 - ibexa/activity-log
 - ibexa/notifications
