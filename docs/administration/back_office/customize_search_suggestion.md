@@ -60,7 +60,7 @@ To represent the product suggestion data, a `ProductSuggestion` class is created
 ```
 
 This representation needs a normalizer to be transformed into a JSON.
-`ProductSuggestionNormalizer::supportsNormalization` associates with `ProductSuggestion`.
+`ProductSuggestionNormalizer::supportsNormalization` returns that this normalizer supports `ProductSuggestion`.
 `ProductSuggestionNormalizer::normalize` returns an array of scalar values which can be transformed into a JSON object.
 Alongside data about the product, this array must have a `type` key, whose value is used later for rendering as an identifier.
 In `src/Search/Serializer/Normalizer/Suggestion/ProductSuggestionNormalizer.php`:
