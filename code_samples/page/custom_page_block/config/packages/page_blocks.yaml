@@ -20,7 +20,7 @@ ezplatform_page_fieldtype:
                     name: Event name
                     validators:
                         not_blank:
-                            message: Please provide a name   
+                            message: Please provide a name
                 category:
                     type: select
                     name: Select a category
@@ -37,3 +37,20 @@ ezplatform_page_fieldtype:
                     validators:
                         not_blank:
                             message: Please select an event
+                        content_type:
+                            message: Please select an event
+                            options:
+                                types: ['event']
+                        regexp:
+                            message: Choose a content item
+                            options:
+                                pattern: '/[0-9]+/'
+
+ezplatform:
+    system:
+        default:
+            universal_discovery_widget_module:
+                configuration:
+                    block_event_embed:
+                        multiple: false
+                        allowed_content_types: ['event']
