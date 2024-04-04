@@ -32,7 +32,7 @@ After this event, the suggestion collection is sorted by score and truncated to 
     ```
 
 The following example is boosting Product suggestions.
-It's a subscriber that passes after the default one (because priority is set zero), adds matching products at a score above the earlier Content suggestions, and avoids duplicates.
+It's a subscriber that passes after the default one (because priority is set to zero), adds matching products at a score above the earlier Content suggestions, and avoids duplicates.
 
 - If the suggestion source finds a number of matching products that is equal or greater than the `result_limit`, only those products end up in the suggestion.
 - If it finds less than `result_limit` products, those products are on top of the suggestion, followed by items from another suggestion source until the limit is met.
