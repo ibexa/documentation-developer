@@ -45,6 +45,10 @@ attributes:
     third_field: integer
 ```
 
+`embed` and `locationlist` use the Universal Discovery Widget (UDW).
+When creating a block with these two types you can configure the UDW behavior.
+For more information, see [Create custom page block / Add edit template](create_custom_page_block.md#add-edit-template)
+
 ## Custom attribute types
 
 You can create custom attribute type to add to Page blocks.
