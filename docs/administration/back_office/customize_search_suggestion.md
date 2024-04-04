@@ -80,7 +80,7 @@ services:
 !!! tip
 
     At this point, it's possible to test the suggestion JSON.
-    The route is `/suggestion` with a `query` GET parameter worth the searched text.
+    The route is `/suggestion` with a GET parameter `query` for the searched text.
 
     For example, log in to the Back Office to have a session cookie, then access the route through the Back Office SiteAccess, such as `http://localhost/admin/suggestion?query=platform`.
     If you have a product with "platform" in its name, it is returned as the first suggestion.
