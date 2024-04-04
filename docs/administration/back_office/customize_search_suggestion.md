@@ -139,7 +139,7 @@ services:
 [[= include_file('code_samples/back_office/search/config/append_to_services.yaml', 22, 28) =]]
 ```
 
-The product suggestion item template itself, as `templates/themes/admin/ui/global_search_autocomplete_product_item.html.twig`:
+The template for the product suggestion item follows, named `templates/themes/admin/ui/global_search_autocomplete_product_item.html.twig`:
 
 ``` html+twig
 [[= include_file('code_samples/back_office/search/templates/themes/admin/ui/global_search_autocomplete_product_item.html.twig') =]]
