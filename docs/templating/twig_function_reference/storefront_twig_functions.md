@@ -85,3 +85,11 @@ then the main category for "Office" is "Furniture".
 
 <p>Language name: {{ languageName }}</p>
 ```
+
+### `ibexa_get_anonymous_user_id()`
+
+`ibexa_get_anonymous_user_id()` returns the configured User ID for the anonymous user (configured in `ibexa.system.<scope>.anonymous_user_id`).
+
+``` html+twig
+{{ ibexa_get_anonymous_user_id() }}
+```
