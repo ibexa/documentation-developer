@@ -90,6 +90,13 @@ ul.breadcrumbs li.breadcrumb-item-current a {
 {# ---------------------------- Content: Headers ----------------------------- #}
 {# --------------------------------------------------------------------------- #}
 
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4 {
+    font-family: "Work Sans";
+}
+
 .md-typeset h1 {
     font-size: 28px;
     line-height: 34px;
@@ -100,6 +107,7 @@ ul.breadcrumbs li.breadcrumb-item-current a {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-items: flex-end;
 }
 
 .md-typeset .content-header__found-in {
@@ -112,7 +120,7 @@ ul.breadcrumbs li.breadcrumb-item-current a {
     display: inline-block;
 }
 
-.md-typeset .content-header__extends {
+.md-typeset .content-header__subheader {
     margin-top: 8px;
     width: 100%;
 }
@@ -120,11 +128,48 @@ ul.breadcrumbs li.breadcrumb-item-current a {
 .md-typeset h2 {
     font-size: 22px;
     line-height: 27px;
-    margin: 24px 0;
+    margin: 24px 0 0;
 }
 
 .md-typeset h3 {
     font-size: 18px;
     line-height: 22px;
+    margin: 24px 0 0;
+}
+
+.md-typeset h4 {
+    font-size: 16px;
+    line-height: 19px;
+    margin: 24px 0 0;
+}
+
+
+{# --------------------------------------------------------------------------- #}
+{# ----------------------------- Highlighttable ------------------------------ #}
+{# --------------------------------------------------------------------------- #}
+
+.md-typeset .highlighttable,
+.md-typeset .highlight pre,
+.md-typeset .highlight pre code {
+    border-radius: 4px;
+}
+
+.md-typeset .highlighttable .linenos {
+    min-width: 26px;
+}
+
+.md-typeset .highlight pre code {
+    padding: 16px;
+}
+
+
+{# --------------------------------------------------------------------------- #}
+{# -------------------------------- Arguments -------------------------------- #}
+{# --------------------------------------------------------------------------- #}
+
+.md-typeset .phpdocumentor-argument-list dd {
     margin: 0;
+}
+.md-typeset .phpdocumentor-argument-list dd + dt {
+    margin-top: 8px;
 }

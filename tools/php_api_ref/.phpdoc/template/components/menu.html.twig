@@ -34,25 +34,60 @@
         </ul>
     {% endif %}
 
-    {% set other_elements = (entry.interfaces|default([])).merge(entry.classes).merge(entry.traits) %}
+    {# {% if entry.interfaces %}
+        {% set other_elements = entry.interfaces.merge(entry.classes).merge(entry.traits) %}
+    {% elseif entry.classes %}
+        {% set other_elements = entry.classes.merge(entry.traits) %}
+    {% elseif entry.traits %}
+        {% set other_elements = entry.traits %}
+    {% endif %} #}
 
-    {% if other_elements.count > 0 %}
+    {% if entry.interfaces.count > 0 or entry.classes.count > 0 or entry.traits.count > 0 %}
         {% if depth > 1 %}
             <label class="md-nav__list-title">
                 Interfaces, classes and traits
             </label>
         {% endif %}
         <ul class="md-nav__list">
-        {% for element in other_elements|sort_asc %}
-            {% include 'components/menu-entry.html.twig' with {
-                title: element.name|shortFQSEN,
-                nav_id: depth ~ '-' ~ index,
-                entry: element,
-                expanded: false,
-                icon: 'file.svg',
-            } %}
+            {% if entry.interfaces.count > 0 %}
+                {% for element in entry.interfaces|sort_asc %}
+                    {% include 'components/menu-entry.html.twig' with {
+                        title: element.name|shortFQSEN,
+                        nav_id: depth ~ '-' ~ index,
+                        entry: element,
+                        expanded: false,
+                        icon: 'file.svg',
+                    } %}
 
-            {% set index = index + 1 %}
-        {% endfor %}
+                    {% set index = index + 1 %}
+                {% endfor %}
+            {% endif %}
+            {% if entry.classes.count > 0 %}
+                {% for element in entry.classes|sort_asc %}
+                    {% include 'components/menu-entry.html.twig' with {
+                        title: element.name|shortFQSEN,
+                        nav_id: depth ~ '-' ~ index,
+                        entry: element,
+                        expanded: false,
+                        icon: 'file.svg',
+                    } %}
+
+                    {% set index = index + 1 %}
+                {% endfor %}
+            {% endif %}
+            {% if entry.traits.count > 0 %}
+                {% for element in entry.traits|sort_asc %}
+                    {% include 'components/menu-entry.html.twig' with {
+                        title: element.name|shortFQSEN,
+                        nav_id: depth ~ '-' ~ index,
+                        entry: element,
+                        expanded: false,
+                        icon: 'file.svg',
+                    } %}
+
+                    {% set index = index + 1 %}
+                {% endfor %}
+            {% endif %}
+        </ul>
     {% endif %}
 {% endif %}

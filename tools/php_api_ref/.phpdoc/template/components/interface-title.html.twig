@@ -1,7 +1,7 @@
 {% embed 'components/content-header.html.twig' with { anchor: node.name, anchor: node.name } %}
     {% block subheader %}
         {% if node.parent is not empty %}
-            <div class="content-header__extends">
+            <div class="content-header__subheader">
                 extends
                 {% for interface in node.parent %}
                     {{ interface|route('class:short') }}{% if not loop.last %}, {% endif %}

@@ -1,10 +1,9 @@
-{# <code class="phpdocumentor-code phpdocumentor-signature {% if node.deprecated %}-deprecated{% endif %}">
-    <span class="phpdocumentor-signature__visibility">{{ node.visibility }}</span>
-    {% if node.abstract %}<span class="phpdocumentor-signature__abstract">abstract</span>{% endif %}
-    {% if node.final %}<span class="phpdocumentor-signature__final">final</span>{% endif %}
-    {% if node.static %}<span class="phpdocumentor-signature__static">static</span>{% endif %}
-    {% if node.hasReturnByReference %}<span class="phpdocumentor-signature__reference-operator">&amp;</span>{% endif %}
-    {% apply spaceless %}
+{% set code %}{% apply spaceless %}
+    <span class="phpdocumentor-signature__visibility">{{ node.visibility }} </span>
+    {% if node.abstract %}<span class="phpdocumentor-signature__abstract">abstract </span>{% endif %}
+    {% if node.final %}<span class="phpdocumentor-signature__final">final </span>{% endif %}
+    {% if node.static %}<span class="phpdocumentor-signature__static">static </span>{% endif %}
+    {% if node.hasReturnByReference %}<span class="phpdocumentor-signature__reference-operator">&amp; </span>{% endif %}
     <span class="phpdocumentor-signature__name">{{ node.name }}</span>
     <span>(</span>
     {% for argument in node.arguments %}
@@ -25,8 +24,7 @@
     <span>)</span>
     <span> : </span>
     <span class="phpdocumentor-signature__response_type">{{ node.response.type|route('class:short')|join('|')|raw }}</span>
-    {% endapply %}
-</code> #}
+{% endapply %}{% endset %}
 
 <div class="highlight">
     <table class="highlighttable">
@@ -34,18 +32,12 @@
             <tr>
                 <td class="linenos">
                     <div class="linenodiv">
-                        <pre>
-                            <span></span>
-                        </pre>
+                        <pre><span></span></pre>
                     </div>
                 </td>
                 <td class="code">
                     <div>
-                        <pre id="__code_1">
-                            <button class="md-clipboard md-icon" title="Copy to clipboard" data-clipboard-target="#__code_1 > code"></button>
-                            <code>
-                            </code>
-                        </pre>
+                        <pre><code>{{ code }}</code></pre>
                     </div>
                 </td>
             </tr>

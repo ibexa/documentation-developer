@@ -4,7 +4,7 @@
         {%- include 'components/anchor.html.twig' with { anchor } -%}
     </{{ header_tag|default('h1') }}>
     <div class="content-header__found-in">
-        <abbr title="{{ node.file.path }}">{{ node.file|route('file:short') }}</abbr>
+        <abbr title="{{ node.file.path }}">{{ node.file.name }}</abbr>
         :
         <span>{{ node.line }}</span>
         <img src="./images/copy.svg" alt="copy" />

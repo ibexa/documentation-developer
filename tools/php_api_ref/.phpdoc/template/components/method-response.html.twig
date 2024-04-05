@@ -1,0 +1,8 @@
+{% if (node.response.type and node.response.type != 'void' and node.response.type != 'mixed') or not node.response.description.empty %}
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">{{ node.response.type|route('class:short')|join('|')|raw }}</p>
+    {% if not node.response.description.empty %}
+        &mdash;
+        {{ include('components/description.html.twig', {'node': node.response}) }}
+    {% endif %}
+{% endif %}
