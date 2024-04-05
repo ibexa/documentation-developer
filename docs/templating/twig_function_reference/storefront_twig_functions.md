@@ -106,7 +106,7 @@ You can use this, for example, to [parametrize the display of products by using 
 
 ### `ibexa_get_anonymous_user_id()`
 
-`ibexa_get_anonymous_user_id()` returns the configured UserID for the anonymous user.
+`ibexa_get_anonymous_user_id()` returns the configured Use ID for the anonymous user (configured in `ibexa.system.<scope>.anonymous_user_id`).
 
 ``` html+twig
 {{ ibexa_get_anonymous_user_id() }}
