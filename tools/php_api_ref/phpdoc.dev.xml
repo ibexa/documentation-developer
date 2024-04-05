@@ -10,7 +10,7 @@
         <api>
             <default-package-name>Ibexa</default-package-name>
             <source dsn=".">
-                <path>vendor/ibexa/admin-ui/src/contracts/**/*</path>
+                <path>vendor/ibexa/calendar/src/contracts/**/*</path>
             </source>
             <ignore hidden="true" symlinks="true">
                 <path>vendor/**/tests/**/*</path>

@@ -30,20 +30,26 @@
         <main class="md-main" data-md-component="main">
             <div class="md-main__inner md-grid">
                 {% include 'components/sidebar.html.twig' %}
-            </div>
 
-            <div class="md-content" data-md-component="content">
-                <article class="md-content__inner md-typeset">
-                    <div>
-                        {% block content %}{% endblock %}
+                <div class="md-content" data-md-component="content">
+                    <article class="md-content__inner md-typeset">
+                        <div>
+                            {% block content %}{% endblock %}
+                        </div>
+                    </article>
+                </div>
 
-                        {% if block('on_this_page') is defined %}
-                            <section class="phpdocumentor-on-this-page__sidebar">
-                                {{ block('on_this_page') }}
-                            </section>
-                        {% endif %}
+                {% if block('on_this_page') is defined %}
+                    <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                        <div class="md-sidebar__scrollwrap">
+                            <div class="md-sidebar__inner">
+                                <nav class="md-nav md-nav--secondary" aria-label="">
+                                    {{ block('on_this_page') }}
+                                </nav>
+                            </div>
+                        </div>
                     </div>
-                </article>
+                {% endif %}
             </div>
         </main>
     </div>

@@ -7,45 +7,71 @@
     {% include 'components/constants.html.twig' %}
     {% include 'components/properties.html.twig' %}
     {% include 'components/methods.html.twig' %}
-    {% include 'components/source-modal.html.twig' %}
 {% endblock %}
 
 {% block on_this_page %}
-    {# {% set constants = constants(node) %}
+    {% set constants = constants(node) %}
+    {% set properties = properties(node) %}
     {% set methods = methods(node) %}
 
-    <section class="phpdocumentor-on-this-page__content">
-        <strong class="phpdocumentor-on-this-page__title">On this page</strong>
+    <label class="md-nav__title" for="__toc">
+        {{ node.name}}
+    </label>
 
-        <ul class="phpdocumentor-list -clean">
-            <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
-            <li>
-                <ul class="phpdocumentor-list -clean">
-                    <li><a href="{{ link(node) }}#toc-constants">Constants</a></li>
-                    <li><a href="{{ link(node) }}#toc-methods">Methods</a></li>
-                </ul>
-            </li>
-            {% if methods is not empty %}
-                <li class="phpdocumentor-on-this-page-section__title">Methods</li>
-                <li>
-                    <ul class="phpdocumentor-list -clean">
-                        {% for method in methods|sortByVisibility %}
-                            <li><a href="{{ link(method) }}">{{ method.name }}()</a></li>
-                        {% endfor %}
-                    </ul>
-                </li>
-            {% endif %}
-
-            {% if constants is not empty %}
-                <li class="phpdocumentor-on-this-page-section__title">Constants</li>
-                <li>
-                    <ul class="phpdocumentor-list -clean">
+    <ul class="md-nav__list">
+        {% if constants is not empty %}
+            <li class="md-nav__item level-1 with-children">
+                <a href="{{ node|route("url")|raw }}#constants" title="Constants" class="md-nav__link">
+                    Constants
+                </a>
+                <nav class="md-nav">
+                    <ul class="md-nav__list">
                         {% for constant in constants|sortByVisibility %}
-                            <li><a href="{{ link(constant) }}">{{ constant.name }}</a></li>
+                            <li class="md-nav__item level-2">
+                                <a href="{{ link(constant) }}" title="{{ constant.name }}" class="md-nav__link">
+                                    {{ constant.name }}
+                                </a>
+                            </li>
                         {% endfor %}
                     </ul>
-                </li>
-            {% endif %}
-        </ul>
-    </section> #}
+                </nav>
+            </li>
+        {% endif %}
+        {% if properties is not empty %}
+            <li class="md-nav__item level-1 with-children">
+                <a href="{{ node|route("url")|raw }}#properties" title="Properties" class="md-nav__link">
+                    Properties
+                </a>
+                <nav class="md-nav">
+                    <ul class="md-nav__list">
+                        {% for property in properties|sortByVisibility %}
+                            <li class="md-nav__item level-2">
+                                <a href="{{ link(property) }}" title="{{ property.name }}" class="md-nav__link">
+                                    {{ property.name }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </nav>
+            </li>
+        {% endif %}
+        {% if methods is not empty %}
+            <li class="md-nav__item level-1 with-children">
+                <a href="{{ node|route("url")|raw }}#methods" title="Methods" class="md-nav__link">
+                    Methods
+                </a>
+                <nav class="md-nav">
+                    <ul class="md-nav__list">
+                        {% for method in methods|sortByVisibility %}
+                            <li class="md-nav__item level-2">
+                                <a href="{{ link(method) }}" title="{{ method.name }}" class="md-nav__link">
+                                    {{ method.name }}()
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </nav>
+            </li>
+        {% endif %}
+    </ul>
 {% endblock %}

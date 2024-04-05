@@ -26,21 +26,4 @@
     <span class="phpdocumentor-signature__response_type">{{ node.response.type|route('class:short')|join('|')|raw }}</span>
 {% endapply %}{% endset %}
 
-<div class="highlight">
-    <table class="highlighttable">
-        <tbody>
-            <tr>
-                <td class="linenos">
-                    <div class="linenodiv">
-                        <pre><span></span></pre>
-                    </div>
-                </td>
-                <td class="code">
-                    <div>
-                        <pre><code>{{ code }}</code></pre>
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+{% include 'components/signature.html.twig' with { code } %}

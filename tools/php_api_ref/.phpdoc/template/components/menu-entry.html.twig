@@ -1,4 +1,4 @@
-{% set is_nested = entry.children.count or entry.interfaces.count or entry.classes.count or entry.traits.count %}
+{% set is_nested = entry.children.count or entry.interfaces[0] is defined or entry.classes[0] is defined or entry.traits[0] is defined %}
 {% set url = entry|route("url")|raw %}
 
 <li class="md-nav__item {{ is_nested ? 'md-nav__item--nested' : '' }}">
@@ -15,10 +15,12 @@
             </a>
         {% endif %}
     </label>
-    <nav class="md-nav" aria-label="{{ title }}" data-md-level="{{ depth }}">
-        <label class="md-nav__link-title md-nav__link level-{{ depth }}">
-            {{ title }}
-        </label>
-        {% include 'components/menu.html.twig' with { entry, nav_id, depth: depth + 1 } %}
-    </nav>
+    {% if is_nested %}
+        <nav class="md-nav" aria-label="{{ title }}" data-md-level="{{ depth }}">
+            <label class="md-nav__link-title md-nav__link level-{{ depth }}">
+                {{ title }}
+            </label>
+            {% include 'components/menu.html.twig' with { entry, nav_id, depth: depth + 1 } %}
+        </nav>
+    {% endif %}
 </li>
