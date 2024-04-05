@@ -1,4 +1,5 @@
 {% set is_nested = entry.children.count or entry.interfaces.count or entry.classes.count or entry.traits.count %}
+{% set url = entry|route("url")|raw %}
 
 <li class="md-nav__item {{ is_nested ? 'md-nav__item--nested' : '' }}">
     <input class="md-nav__toggle md-toggle" data-md-toggle="nav-{{ nav_id }}" type="checkbox" id="nav-{{ nav_id }}" {{ expanded|default(false) ? 'checked' : ''}}>
@@ -6,12 +7,18 @@
         {% if icon is defined and depth > 1 %}
             <img src="./images/{{ icon }}" />
         {% endif %}
-        {{ title }}
+        {% if url %}
+            <a href="{{ url }}">
+        {% endif %}
+            {{ title }}
+        {% if url %}
+            </a>
+        {% endif %}
     </label>
     <nav class="md-nav" aria-label="{{ title }}" data-md-level="{{ depth }}">
         <label class="md-nav__link-title md-nav__link level-{{ depth }}">
             {{ title }}
         </label>
-        {{ toc(entry, 'components/menu.html.twig', maxDepth, depth) }}
+        {% include 'components/menu.html.twig' with { entry, nav_id, depth: depth + 1 } %}
     </nav>
 </li>

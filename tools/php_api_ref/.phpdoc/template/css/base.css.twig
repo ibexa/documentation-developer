@@ -1,8 +1,14 @@
 {% include 'css/main.min.css.twig' %}
 {% include 'css/palette.min.css.twig' %}
+{% include 'css/codehilite.css.twig' %}
 {% include 'css/custom.css.twig' %}
 {% include 'css/navigation.css.twig' %}
 {% include 'css/docs.switcher.css.twig' %}
+
+
+{# --------------------------------------------------------------------------- #}
+{# --------------------------------- Sidebar --------------------------------- #}
+{# --------------------------------------------------------------------------- #}
 
 .md-sidebar--primary {
     padding-left: 0;
@@ -50,7 +56,11 @@
     padding-left: 8px;
 }
 
-.md-nav--primary .md-nav__item > .md-nav__link:not(.level-0):not(.level-1) {
+.md-nav--primary .md-nav__item > .md-nav__link a {
+    padding: 0;
+}
+
+.md-nav--primary .md-nav__item > .md-nav__link:not(.level-0) {
     justify-content: flex-start;
 }
 
@@ -62,6 +72,59 @@
     background-color: #F3F3F6;
 }
 
-{# .md-nav--primary .md-nav__item--nested > .md-nav__toggle:checked ~ .md-nav__link:not(.level-0):not(.level-1) {
-    background-color: #F3F3F6;
-} #}
+
+{# --------------------------------------------------------------------------- #}
+{# ------------------------------- Breadcrumbs ------------------------------- #}
+{# --------------------------------------------------------------------------- #}
+
+ul.breadcrumbs li.breadcrumb-item a {
+    color: var(--dark-grey);
+}
+
+ul.breadcrumbs li.breadcrumb-item-current a {
+    color: var(--ibexa-dusk-black);
+}
+
+
+{# --------------------------------------------------------------------------- #}
+{# ---------------------------- Content: Headers ----------------------------- #}
+{# --------------------------------------------------------------------------- #}
+
+.md-typeset h1 {
+    font-size: 28px;
+    line-height: 34px;
+    margin-bottom: 0;
+}
+
+.md-typeset .content-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.md-typeset .content-header__found-in {
+    font-size: 12px;
+    line-height: 18px;
+    color: #71767C;
+}
+
+.md-typeset .content-header__found-in img {
+    display: inline-block;
+}
+
+.md-typeset .content-header__extends {
+    margin-top: 8px;
+    width: 100%;
+}
+
+.md-typeset h2 {
+    font-size: 22px;
+    line-height: 27px;
+    margin: 24px 0;
+}
+
+.md-typeset h3 {
+    font-size: 18px;
+    line-height: 22px;
+    margin: 0;
+}

@@ -1,0 +1,21 @@
+<div class="content-header">
+    <{{ header_tag|default('h1') }} id="{{ anchor }}">
+        {% block name %}{{ node.name }}{% endblock %}
+        {%- include 'components/anchor.html.twig' with { anchor } -%}
+    </{{ header_tag|default('h1') }}>
+    <div class="content-header__found-in">
+        <abbr title="{{ node.file.path }}">{{ node.file|route('file:short') }}</abbr>
+        :
+        <span>{{ node.line }}</span>
+        <img src="./images/copy.svg" alt="copy" />
+    </div>
+    {% block subheader %}{% endblock %}
+    {% if has_subheader %}
+        <div class="content-header__extends">
+            extends
+            {% for interface in node.parent %}
+                {{ interface|route('class:short') }}{% if not loop.last %}, {% endif %}
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>

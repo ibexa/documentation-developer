@@ -1,15 +1,18 @@
+
+
 {% if depth == 0 %}
     {% if entry.children.count > 0 %}
         {% for child in entry.children %}
             {% include 'components/menu-entry.html.twig' with {
-                title: entry.title|shortFQSEN ~ ' ' ~ child.title|shortFQSEN,
-                nav_id: depth ~ '-' ~ loop.index,
+                title: entry.name|shortFQSEN ~ ' ' ~ child.name|shortFQSEN,
+                nav_id: loop.index,
                 expanded: true,
                 entry: child,
             } %}
         {% endfor %}
     {% endif %}
 {% else %}
+    {% set index = 0 %}
     {% if entry.children.count > 0 %}
         {% if depth > 1 %}
             <label class="md-nav__list-title">
@@ -19,16 +22,19 @@
         <ul class="md-nav__list">
             {% for child in entry.children %}
                 {% include 'components/menu-entry.html.twig' with {
-                    title: child.title|shortFQSEN,
-                    nav_id: depth ~ '-' ~ loop.index,
+                    title: child.name|shortFQSEN,
+                    nav_id: nav_id ~ '-' ~ index,
                     entry: child,
+                    expanded: false,
                     icon: 'folder.svg',
                 } %}
+
+                {% set index = index + 1 %}
             {% endfor %}
         </ul>
     {% endif %}
 
-    {% set other_elements = entry.interfaces.merge(entry.classes).merge(entry.traits) %}
+    {% set other_elements = (entry.interfaces|default([])).merge(entry.classes).merge(entry.traits) %}
 
     {% if other_elements.count > 0 %}
         {% if depth > 1 %}
@@ -39,11 +45,14 @@
         <ul class="md-nav__list">
         {% for element in other_elements|sort_asc %}
             {% include 'components/menu-entry.html.twig' with {
-                title: element.title|shortFQSEN,
-                nav_id: depth ~ '-' ~ loop.index,
+                title: element.name|shortFQSEN,
+                nav_id: depth ~ '-' ~ index,
                 entry: element,
+                expanded: false,
                 icon: 'file.svg',
             } %}
+
+            {% set index = index + 1 %}
         {% endfor %}
     {% endif %}
 {% endif %}
