@@ -289,6 +289,7 @@ nav:
             - URL Twig functions: templating/twig_function_reference/url_twig_functions.md
             - User Twig functions: templating/twig_function_reference/user_twig_functions.md
             - Other Twig filters: templating/twig_function_reference/other_twig_filters.md
+            - Site context Twig functions: templating/twig_function_reference/site_context_twig_functions.md
         - URLs and routes:
             - URLs and routes: templating/urls_and_routes/urls_and_routes.md
             - Custom breadcrumbs: templating/urls_and_routes/custom_breadcrumbs.md
