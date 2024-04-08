@@ -9,6 +9,9 @@ description: The Ibexa CDP (Customer Data Platform) product guide provides a ful
 [[= product_name_cdp =]] is a Customer Data Platform module that helps you build unique and memorable experiences for your customers.
 Using [[= product_name_cdp =]] you can monitor and compile data about your customers' activity on multiple channels.
 It also allows you to create individual customer profiles so you can customize their experience on your platform.
+With [[= product_name_cdp =]] you can store and manage large volumes of customer data in a structured manner. This central data storage supports business growth with a scalable infrastructure, helping to futureproof your business. 
+Get customer data from both online and offline data sources.
+It includes first, second, and third-party data from multiple sources such as transactional systems, website tracking and behavior, POS, CRM, and others.
 
 ## Availability
 
@@ -20,11 +23,20 @@ It also allows you to create individual customer profiles so you can customize t
 You can target certain user segments with the appropriate message, content, or products at the right time via through the most used channels by using specified audiences.
 The customer data is gathered through a system of trackers embedded in various areas of your page.
 
+![CDP - how does it work](img/cdp_how_works.png)
+
 ### Installation and configuration
 
 To start using [[= product_name_cdp =]], first you need to contact your sales representative. You'll receive a link to [register your [[= product_name_cdp =]] account](https://doc.ibexa.co/en/latest/cdp/cdp_installation/#install-cdp-package). Once you'll be done with registration process, you'll be able to access a separate instance with the data needed to configure, activate, and use this feature. 
 
 Once your account is created, you can [download and install [[= product_name_cdp =]] package](https://doc.ibexa.co/en/latest/cdp/cdp_installation/#install-cdp-package) that is opt-in and needs to be downloaded separately. Last step is to go through the [configuration process](https://doc.ibexa.co/en/latest/cdp/cdp_activation/cdp_configuration/).
+
+### Customer profile
+
+Using [[= product_name_cdp =]] you can build 360° customer profiles. It unifies customer data from different sources to help you understand your prospects and customer needs. 
+Once you get customer data, you can unify and match customer profiles based on their preferences and habists. This process contributes to build a single customer view. Based on demographics, interactions, behaviors, and transactional data you can create and analyze complete, 360° customer profiles.
+
+![Customer profile](img/customer_profile.png)
 
 ### Segment groups
 
@@ -79,10 +91,13 @@ You can also connect created audiences to the activations.
 ### Create personalized user experience
 
 With [[= product_name_cdp =]] you can build unique and memorable experience for your customers and create individual customer profiles.
+Using 360° client profiles, you can connect with the appropriate customer at the right moment, in the right place.
+Make an extensive profile of your customers that includes their interactions, habits, and preferences from several touchpoints.
 
 ### Segment groups
 
 Segments allow you to receive customized content for specific user groups and provide recommendations depending on the user data.
+Create Segment audiences to deliver personalized campaigns and experiences to boost engagement, conversion rates, and ROI. 
 
 ### Audience Builder
 
@@ -91,7 +106,12 @@ You can create user groups - audiences - based on conditions and events.
 ### Data export
 
 In [[= product_name_cdp =]] you can export data regarding Content, Users, and Products. Data export includes automatic file mapping.
+You can analyze customer data, track campaigns, and discover the most effective strategies to boost performance.  
 
 ### Data customization
 
-Data exported to [[= product_name_cdp =]] can be customized, so you can control what Field Type information you want to export. 
+Data exported to [[= product_name_cdp =]] can be customized, so you can control what Field Type information you want to export.
+
+### Take action in real-time
+
+Thanks to dynamic, real-time data updates, you can deliver relevant interactions in the right place at the right time for optimal results. Take advantage of event-triggered communications which are aligned with your customers immediate interests.
