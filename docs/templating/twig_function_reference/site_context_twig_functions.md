@@ -6,7 +6,7 @@ page_type: reference
 
 # Site context Twig functions
 
-You can use site context [Twig test](https://twig.symfony.com/doc/3.x/tests/index.html) to determine if given location is site context-aware.
+To determine if given location is site context-aware, you can use site context [Twig test](https://twig.symfony.com/doc/3.x/tests/index.html).
 
 ### `ibexa_site_context_aware()`
 
