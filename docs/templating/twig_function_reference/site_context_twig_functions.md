@@ -10,7 +10,8 @@ To determine if given location is site context-aware, you can use site context [
 
 ### `ibexa_site_context_aware()`
 
-`ibexa_site_context_aware()` checks whether a given location is site context-aware.
+`ibexa_site_context_aware()` checks whether a given location is site context-aware, what means that is not excluded from Site context using the 
+`ibexa.system.<scope>.site_context.excluded_paths` configuration.
 
 #### Examples
 
