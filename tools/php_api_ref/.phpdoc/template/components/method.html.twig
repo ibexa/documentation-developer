@@ -1,5 +1,6 @@
-{% embed 'components/content-header.html.twig' with { node: method, anchor: 'method_' ~ method.name, header_tag: 'h3' } %}
+{% embed 'components/content-header.html.twig' with { node: method, anchor: 'method_' ~ method.name, anchor_link: link(method), header_tag: 'h3' } %}
     {% block name %}
+        <img src="./images/{{ method.visibility }}.svg" alt="{{ method.visibility }}" />
         {{ parent() }}()
     {% endblock %}
 {% endembed %}

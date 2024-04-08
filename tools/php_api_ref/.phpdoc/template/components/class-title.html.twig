@@ -1,4 +1,4 @@
-{% embed 'components/content-header.html.twig' with { anchor: node.name, anchor: node.name } %}
+{% embed 'components/content-header.html.twig' with { anchor: node.name, anchor_link: '#' ~ node.name } %}
     {% block subheader %}
         {% if node.parent %}
             <div class="content-header__subheader">

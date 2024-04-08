@@ -1,4 +1,9 @@
-{% include 'components/content-header.html.twig' with { node: constant, anchor: 'constant_' ~ constant.name, header_tag: 'h3' } %}
+{% embed 'components/content-header.html.twig' with { node: constant, anchor: 'constant_' ~ constant.name, anchor_link: link(constant), header_tag: 'h3' } %}
+{% block name %}
+        <img src="./images/{{ constant.visibility }}.svg" alt="{{ constant.visibility }}" />
+        {{ parent() }}
+    {% endblock %}
+{% endembed %}
 {% include 'components/summary.html.twig' with { node: constant } %}
 {% include 'components/constant-signature.html.twig' with { node: constant } %}
 {% include 'components/description.html.twig' with { node: constant } %}

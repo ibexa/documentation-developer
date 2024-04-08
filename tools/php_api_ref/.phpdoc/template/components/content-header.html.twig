@@ -1,7 +1,7 @@
 <div class="content-header">
     <{{ header_tag|default('h1') }} id="{{ anchor }}">
         {% block name %}{{ node.name }}{% endblock %}
-        {%- include 'components/anchor.html.twig' with { anchor } -%}
+        {%- include 'components/anchor.html.twig' with { anchor_link } -%}
     </{{ header_tag|default('h1') }}>
     <div class="content-header__found-in">
         <abbr title="{{ node.file.path }}">{{ node.file.name }}</abbr>

@@ -5,7 +5,7 @@
     <input class="md-nav__toggle md-toggle" data-md-toggle="nav-{{ nav_id }}" type="checkbox" id="nav-{{ nav_id }}" {{ expanded|default(false) ? 'checked' : ''}}>
     <label class="md-nav__link level-{{ depth }}" for="nav-{{ nav_id }}">
         {% if icon is defined and depth > 1 %}
-            <img src="./images/{{ icon }}" />
+            <img src="./images/{{ icon }}" alt="{{ icon }}" />
         {% endif %}
         {% if url %}
             <a href="{{ url }}">

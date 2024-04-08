@@ -108,8 +108,8 @@ if [ $? -eq 0 ]; then
   echo -n 'Remove unneeded from phpDocumentor output… ';
   rm -rf ./php_api_reference/files ./php_api_reference/graphs ./php_api_reference/indices ./php_api_reference/packages;
   echo -n "Copy phpDocumentor output to ${OUTPUT_DIR}… ";
-  cp -rf $PHPDOC_DIR/template/fonts ./php_api_reference/fonts
-  cp -rf $PHPDOC_DIR/template/images ./php_api_reference/images
+  cp -rf $PHPDOC_DIR/template/fonts/* ./php_api_reference/fonts/
+  cp -rf $PHPDOC_DIR/template/images/* ./php_api_reference/images/
   cp -rf ./php_api_reference/* $OUTPUT_DIR;
   echo -n 'Remove surplus… ';
   while IFS= read -r line; do

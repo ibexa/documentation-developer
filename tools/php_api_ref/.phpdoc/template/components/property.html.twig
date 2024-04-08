@@ -1,0 +1,11 @@
+{% embed 'components/content-header.html.twig' with { node: property, anchor: 'property_' ~ property.name, anchor_link: link(property), header_tag: 'h3' } %}
+{% block name %}
+        <img src="./images/{{ property.visibility }}.svg" alt="{{ property.visibility }}" />
+        {{ parent() }}
+    {% endblock %}
+{% endembed %}
+{% include 'components/summary.html.twig' with { node: property } %}
+{% include 'components/property-signature.html.twig' with { node: property } %}
+{% include 'components/description.html.twig' with { node: property } %}
+{% include 'components/description.html.twig' with { node: property.var[0] } %}
+{% include 'components/tags.html.twig' with {node: property } %}

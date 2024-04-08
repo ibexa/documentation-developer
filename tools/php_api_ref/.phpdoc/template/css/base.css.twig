@@ -124,6 +124,11 @@ ul.breadcrumbs li.breadcrumb-item-current a {
     align-items: flex-end;
 }
 
+.md-typeset .content-header img {
+    display: inline-block;
+    margin-bottom: -2px;
+}
+
 .md-typeset .content-header__found-in {
     font-size: 12px;
     line-height: 18px;
@@ -181,9 +186,20 @@ ul.breadcrumbs li.breadcrumb-item-current a {
 {# -------------------------------- Arguments -------------------------------- #}
 {# --------------------------------------------------------------------------- #}
 
-.md-typeset .phpdocumentor-argument-list dd {
-    margin: 0;
+.md-typeset .method-parameters {
+    margin: 16px 0;
+    width: 100%;
 }
-.md-typeset .phpdocumentor-argument-list dd + dt {
-    margin-top: 8px;
+
+.md-typeset .method-parameters thead td {
+    border-bottom: 1px solid #DCDFE7;
+    color: #71767C;
+}
+
+.md-typeset .method-parameters td {
+    padding: 12px;
+}
+
+.md-typeset .method-parameters td.empty {
+    color: #71767C;
 }
