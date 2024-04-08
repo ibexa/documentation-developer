@@ -190,7 +190,10 @@ Once you have properly configured secure user roles and permissions, to avoid ex
 
 - Avoid exposing servers on the open internet when not strictly required.
 - Ensure any servers, services, ports and virtual hosts that were opened for testing purposes are shut down before going live.
-- Secure the database with a good password, keys, firewall, etc. Ensure that the database user used by the web app only has access to do the operations needed by [[= product_name =]]. The Data Definition Language (DDL) commands (create, alter, drop, truncate, comment) are not needed for running [[= product_name =]], only for installing and upgrading it. If the web app user does not have these rights, then that reduces the damage that can be done if there is a security breach.
+- Ensure file system permissions are set up such that the web server / PHP user cannot access files it shouldn't be able to read.
+- Secure the database with a good password, keys, firewall, etc. Optionally, ensure that the database user used by the web app only has access to do the operations needed by [[= product_name =]]. The Data Definition Language (DDL) commands (create, alter, drop, truncate, comment) are not needed for running [[= product_name =]], only for installing and upgrading it. If the web app user does not have these rights, then that reduces the damage that can be done if there is a security breach.
+
+The above steps are not needed when using Ibexa Cloud, where these things are handled by the provider.
 
 ### Security headers
 
