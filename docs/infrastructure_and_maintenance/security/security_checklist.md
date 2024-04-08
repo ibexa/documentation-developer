@@ -140,6 +140,32 @@ The older UTF8 can lead to truncation with 4-byte characters, like some emoji, w
 
 See [Change from UTF8 to UTF8MB4](update_db_to_2.5.md#change-from-utf8-to-utf8mb4).
 
+### Use restricted DB user
+
+The Data Definition Language (DDL) commands (create, alter, drop, truncate, comment) are not needed for running [[= product_name =]], only for installing and upgrading it.
+If the web app user does not have these rights, then that reduces the damage that can be done if there is a security breach.
+
+Create a user and grant minimal rights:
+
+=== "MySQL"
+
+    ```sql
+    CREATE USER 'user'@'host' IDENTIFIED BY 'password';
+    GRANT SELECT, INSERT, UPDATE, DELETE ON database_name.* TO 'user'@'host';
+    ```
+
+=== "PostgreSQL"
+
+    ```sql
+    CREATE USER user PASSWORD 'password';
+    GRANT CONNECT ON DATABASE database_name TO user;
+    GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO user;
+    ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO user;
+    ```
+
+In configuration, update users and passwords, such as [`DATABASE_URL`](install_ibexa_dxp.md#change-installation-parameters)
+or a [connection](repository_configuration.md#defining-custom-connection).
+
 ### Use secure Roles and Policies
 
 Use the following checklist to ensure the Roles and Policies are secure:
@@ -191,7 +217,7 @@ Once you have properly configured secure user roles and permissions, to avoid ex
 - Avoid exposing servers on the open internet when not strictly required.
 - Ensure any servers, services, ports and virtual hosts that were opened for testing purposes are shut down before going live.
 - Ensure file system permissions are set up such that the web server / PHP user cannot access files it shouldn't be able to read.
-- Secure the database with a good password, keys, firewall, etc. Optionally, ensure that the database user used by the web app only has access to do the operations needed by [[= product_name =]]. The Data Definition Language (DDL) commands (create, alter, drop, truncate, comment) are not needed for running [[= product_name =]], only for installing and upgrading it. If the web app user does not have these rights, then that reduces the damage that can be done if there is a security breach.
+- Secure the database with a good password, keys, firewall, etc. Optionally, [restrict the database user](#use-restricted-db-user) to the needed operations.
 
 The above steps are not needed when using Ibexa Cloud, where these things are handled by the provider.
 
