@@ -50,6 +50,18 @@ While creating a segment group, you need to provide name and identifier. Choose 
 
 Each segment group needs to be added in the [configuration key](https://doc.ibexa.co/en/latest/cdp/cdp_activation/cdp_configuration/), under `segment_group_identifier` field.
 
+While creating segment groups, you can use operators and segmentation logic. By using them, you can provide recommendations that are more focused and suited to the individual characteristics of your target audience, such as age, behavior, or demographics.
+Parent and nested (child) segments connected by operators allow you to create complicated segment groups for precise filtering.
+
+You can use logical operators:
+
+- **AND** - use when you want to intersect two or more values for a particular segment. All set conditions must be met.
+- **OR** - use when you want to broaden results, one of the conditions must be fulfilled.
+
+Segments available in the Elements sections are reusable. It means you can use the same segment in different segment groups.
+
+![Segment groups](img/segment_groups.png)
+
 ## Capabilities
 
 ### Data export
