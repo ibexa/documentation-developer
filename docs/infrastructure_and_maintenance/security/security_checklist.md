@@ -142,8 +142,8 @@ See [Change from UTF8 to UTF8MB4](update_db_to_2.5.md#change-from-utf8-to-utf8mb
 
 ### Use restricted DB user
 
-The Data Definition Language (DDL) commands (create, alter, drop, truncate, comment) are not needed for running [[= product_name =]], only for installing and upgrading it.
-If the web app user does not have these rights, then that reduces the damage that can be done if there is a security breach.
+The Data Definition Language (DDL) commands (create, alter, drop, truncate, comment) are only needed for installing and upgrading [[= product_name =]], and not for running it.
+Not granting these rights to web app users reduces the damage that can result from a security breach.
 
 Create a user and grant minimal rights:
 
@@ -216,10 +216,10 @@ Once you have properly configured secure user roles and permissions, to avoid ex
 
 - Avoid exposing servers on the open internet when not strictly required.
 - Ensure any servers, services, ports and virtual hosts that were opened for testing purposes are shut down before going live.
-- Ensure file system permissions are set up such that the web server / PHP user cannot access files it shouldn't be able to read.
+- Ensure file system permissions are set up such that the web server or PHP user can't access files they shouldn't be able to read.
 - Secure the database with a good password, keys, firewall, etc. Optionally, [restrict the database user](#use-restricted-db-user) to the needed operations.
 
-The above steps are not needed when using Ibexa Cloud, where these things are handled by the provider.
+Those steps aren't needed when using [[= product_name_cloud =]], where the provider handles them.
 
 ### Security headers
 
