@@ -237,3 +237,73 @@ ul.breadcrumbs li.breadcrumb-item-current a {
 .md-typeset .method-parameters td.empty {
     color: #71767C;
 }
+
+
+{# --------------------------------------------------------------------------- #}
+{# --------------------------------- Search ---------------------------------- #}
+{# --------------------------------------------------------------------------- #}
+
+.md-search__form .phpdocumentor-search-results.ds-dropdown-menu {
+    display: inline-block;
+    max-width: initial;
+    top: 2px;
+}
+
+.md-search__form .phpdocumentor-search-results.ds-dropdown-menu.phpdocumentor-search-results--hidden {
+    display: none;
+}
+
+.md-search__form .phpdocumentor-search-results .phpdocumentor-search-results__close {
+    display: none;
+}
+
+.md-search__form .phpdocumentor-search-results .phpdocumentor-search-results__entries {
+    list-style: none;
+}
+
+.md-search__form .phpdocumentor-search-results .phpdocumentor-search-results__entry {
+    display: grid;
+    grid-template-areas:
+        'name namespace'
+        'name description';
+    grid-template-columns: 30% 70%;
+}
+
+.md-search__form .phpdocumentor-search-results .phpdocumentor-search-results__entry + .phpdocumentor-search-results__entry {
+    margin-top: 8px;
+}
+
+.md-search__form .phpdocumentor-search-results .phpdocumentor-search-results__entry h3 {
+    grid-area: name;
+    text-align: right;
+    position: relative;
+    font-size: 14px;
+    font-weight: normal;
+    padding: 5px 11px;
+    margin: 0;
+    color: var(--dark-grey);
+    word-wrap: break-word;
+    border-right: 1px solid var(--dark-grey);
+}
+
+.md-search__form .phpdocumentor-search-results .phpdocumentor-search-results__entry small {
+    grid-area: namespace;
+    color: var(--ibexa-dusk-black);
+    font-weight: 700;
+    font-size: 14px;
+    padding: 4px 0 4px 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.md-search__form .phpdocumentor-search-results .phpdocumentor-search-results__entry .phpdocumentor-summary {
+    grid-area: description;
+    font-size: 12px;
+    color: #71767C;
+    padding: 0 0 4px 12px;
+}
+
+.md-search__form .phpdocumentor-search-results .phpdocumentor-search-results__entry:hover small,
+.md-search__form .phpdocumentor-search-results .phpdocumentor-search-results__entry:hover .phpdocumentor-summary {
+    background-color: rgba(69, 142, 225, .05);
+}
