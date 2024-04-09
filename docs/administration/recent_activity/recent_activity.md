@@ -189,7 +189,7 @@ Following actions are displayed by clicking the **Show more** button.
 
 ![The example context group displayed on the Recent Activity page](activity_log_group.png "The `my_feature` context from example")
 
-#### List
+#### Display
 
 To display your log entry, if your object's PHP class isn't already covered, you'll have to:
 
