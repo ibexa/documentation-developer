@@ -5,11 +5,11 @@ page_type: reference
 
 # Activity Log Search Criteria reference
 
-Activity Log Search Criteria are found in the `Ibexa\Contracts\ActivityLog\Values\ActivityLog\Criterion\` namespace.
+Activity Log Search Criteria are found in the `Ibexa\Contracts\ActivityLog\Values\ActivityLog\Criterion` namespace.
 
 Those Criteria `Ibexa\Contracts\ActivityLog\Values\ActivityLog\Query` for `Ibexa\Contracts\ActivityLog\ActivityLogServiceInterface::find`.
 
-They're applied to log entry groups. For example, with the criteria `ActionCriterion`, you obtain log entry groups having an entry with this action, containing all their entries with eventually various actions.
+They're applied to log entry groups. For example, with the criterion `ActionCriterion`, you obtain log entry groups having at least one entry with this action (and possibly other actions as well).
 
 See [Searching in the Activity Log groups](recent_activity.md#searching-in-the-activity-log-groups) for how to use a query, and an example combining several criteria.
 

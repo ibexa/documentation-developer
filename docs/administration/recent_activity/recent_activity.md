@@ -130,7 +130,7 @@ In the following example, an event subscriber is subscribing to an event dispatc
 [[= include_file('code_samples/recent_activity/src/EventSubscriber/MyFeatureEventSubscriber.php') =]]
 ```
 
-`ActivityLogService::build` function returns an `Ibexa\Contracts\ActivityLog\Values\CreateActivityLogStruct` which can then be passed to `ActivityLogService::save`.
+`ActivityLogService::build()` function returns an `Ibexa\Contracts\ActivityLog\Values\CreateActivityLogStruct` which can then be passed to `ActivityLogService::save`.
 
 `ActivityLogService::build` has three arguments:
 
@@ -142,7 +142,7 @@ The returned `CreateActivityLogStruct` is always related to the currently logged
 
 You can still display activity log of an object which was deleted or renamed.
 To store the name of the log, you need to use `CreateActivityLogStruct::setName` before saving the log entry.
-This stored name can be used at the time of displaying if the associated object isn't available anymore, or to know if it has been renamed.
+This stored name can be used at the time of displaying if the associated object isn't available anymore, or to check if it has been renamed.
 
 #### Context group
 
@@ -177,7 +177,7 @@ In the following example, several actions are logged into one context group, eve
 ```
 
 Context groups can't be nested.
-If a new context is prepared while a context is already grouping log entries, this new context will be ignored. (Nested context might be supported in the future.)
+If a new context is prepared while a context is already grouping log entries, this new context will be ignored. Nested context might be supported in the future.
 To start a new context, make sure to previously dismiss the existing one.
 
 A context group is folded below its first entry.
@@ -199,7 +199,7 @@ Template existence is tested in reverse order: if there is no action that specif
 For the same identifier, you could have specific templates for few actions, and a default one for the remaining actions.
 
 A default template is used if no template is found for the identifier.
-The built-in default template `@ibexadesign/activity_log/ui/default.html.twig` has an empty `activity_log_description_widget` block and display nothing for unknown objects.
+The built-in default template `@ibexadesign/activity_log/ui/default.html.twig` has an empty `activity_log_description_widget` block and displays nothing for unknown objects.
 Your template can extend `@ibexadesign/activity_log/ui/default.html.twig`, and only redefine the `activity_log_description_widget` block for your objects.
 
 First, follow an example of a default template overriding the one from the bundle. It can be used at development time as a fallback for classes not yet mapped.
