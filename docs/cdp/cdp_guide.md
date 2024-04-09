@@ -35,7 +35,7 @@ Once your account is created, you can [download and install [[= product_name_cdp
 ### Customer profile
 
 Using [[= product_name_cdp =]] you can build 360° customer profiles. It unifies customer data from different sources to help you understand your prospects and customer needs. 
-Once you get customer data, you can unify and match customer profiles based on their preferences and habists. This process contributes to build a single customer view. Based on demographics, interactions, behaviors, and transactional data you can create and analyze complete, 360° customer profiles.
+Once you get customer data, you can unify and match customer profiles based on their preferences and habits. This process contributes to build a single customer view. Based on demographics, interactions, behaviors, and transactional data you can create and analyze complete, 360° customer profiles.
 
 ![Customer profile](img/customer_profile.png)
 
@@ -61,13 +61,13 @@ Under the schedule setting you can find separate sections for exporting User, Co
 
 - Options - allows you to add arguments that have to be passed to the export command.
 
-This configuration allows you to provide multiple export workflows with parameters. It's important, because each type of content/product must have its own parameters on the CDP side, where each has a different Stream ID key and different required values, which are configured per data source.
+This configuration allows you to provide multiple export workflows with parameters. It's important, because all the types of content/product must have their own parameters on the CDP side, where each has a different Stream ID key and different required values configured per data source.
 
 To check all the process of data export, see [data export](https://doc.ibexa.co/en/latest/cdp/cdp_activation/cdp_data_export/).
 
 ### Data customization
 
-​You can customize Content and Product data exported to [[= product_name_cdp =]] and you can control what Field Type information you want to export.
+​You can customize Content and Product data exported to [[= product_name_cdp =]] and control what Field Type information you want to export.
 With [[= product_name_cdp =]] you can export Field Types and Field Type values. They are exported with metadata, for example, ID, Field Definition name, type, value.
 
 For more information, see [data customization](https://doc.ibexa.co/en/latest/cdp/cdp_data_customization/#data-customization) documentation in Developer Documentation.
