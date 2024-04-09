@@ -1,4 +1,11 @@
-{% embed 'components/content-header.html.twig' with { anchor: node.name, anchor_link: '#' ~ node.name } %}
+{% set breadcrumbs = usesNamespaces ? breadcrumbs(node) : packages(node) %}
+{% set fqcn = breadcrumbs|map(breadcrumb => breadcrumb.name)|join('\\') %}
+
+{% embed 'components/content-header.html.twig' with { 
+    anchor: node.name,
+    anchor_link: '#' ~ node.name,
+    fqcn,
+} %}
     {% block subheader %}
         {% if node.parent is not empty %}
             <div class="content-header__subheader">

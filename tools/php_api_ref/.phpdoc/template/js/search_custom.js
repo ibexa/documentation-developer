@@ -1,7 +1,8 @@
-(function(global, doc){
+(function(global, doc) {
     const searchInput = doc.querySelector('#search_input');
     const searchToggle = doc.querySelector('#__search');
     const searchResults = doc.querySelector('.phpdocumentor-search-results');
+    const searchResultsEntries = searchResults.querySelector('.phpdocumentor-search-results__entries');
     const overlay = doc.querySelector('.md-search__overlay');
     const blurSearch = () => {
         searchInput.value = null;
@@ -24,4 +25,4 @@
     searchResults.addEventListener('click', () => {
         blurSearch();
     });
-})(window, window.document, window.location);
+})(window, window.document);

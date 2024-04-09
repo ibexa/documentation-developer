@@ -1,4 +1,5 @@
-(function(global, doc, location){
+(function(global, doc, location) {
+    let hasScrolled = false;
     const toc = doc.querySelector('[data-md-component="toc"]');
     const tocEntries = toc.querySelectorAll('.md-nav__link');
     const anchorElements = [...tocEntries].map((tocEntry) => {
@@ -22,12 +23,18 @@
             activeTocEntry?.classList.remove('md-nav__link--active');
             firstVisibleTocEntry.classList.add('md-nav__link--active');
 
-            location.hash = anchorId;
+            if (hasScrolled) {
+                location.hash = anchorId;
+            }
         },
         { threshold: 0.5 }
     );
     
     anchorElements.forEach((anchorElement) => {
         observer.observe(anchorElement);
+    });
+
+    doc.addEventListener('scroll', () => {
+        hasScrolled = true;
     });
 })(window, window.document, window.location);
