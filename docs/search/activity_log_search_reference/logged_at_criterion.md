@@ -1,6 +1,6 @@
 # LoggedAt Criterion
 
-The [`LoggedAtCriterion` Activity Log Criterion](https://github.com/ibexa/activity-log/blob/main/src/contracts/Values/ActivityLog/Criterion/LoggetAtCriterion.php)
+The [`LoggedAtCriterion` Activity Log Criterion](https://github.com/ibexa/activity-log/blob/main/src/contracts/Values/ActivityLog/Criterion/LoggedAtCriterion.php)
 matches activity log group having a log entry created before or after a given date time.
 
 ## Arguments
