@@ -9,7 +9,7 @@ use Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException;
 use Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-class MyFeaturePostActivityGroupListLoadEventSubscriber implements EventSubscriberInterface
+class MyFeaturePostActivityListLoadEventSubscriber implements EventSubscriberInterface
 {
     private MyFeatureService $myFeatureService;
 
