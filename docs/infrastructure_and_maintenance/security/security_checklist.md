@@ -190,7 +190,7 @@ Once you have properly configured secure user roles and permissions, to avoid ex
 
 - Avoid exposing servers on the open internet when not strictly required.
 - Ensure any servers, services, ports and virtual hosts that were opened for testing purposes are shut down before going live.
-- Ensure file system permissions are set up in such a way that the web server or PHP user can't access files it shouldn't be able to read.
+- Ensure file system permissions are set up in such a way that the web server or PHP user can't access files they shouldn't be able to read.
 - Secure the database with a good password, keys, firewall, etc.
 Optionally, ensure that the database user used by the web app only has permissions to do the operations needed by [[= product_name =]].
 The Data Definition Language (DDL) commands (create, alter, drop, truncate, comment) are only needed for installing and upgrading [[= product_name =]], and not for running it.
