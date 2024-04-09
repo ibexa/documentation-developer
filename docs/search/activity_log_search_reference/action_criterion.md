@@ -5,7 +5,7 @@ matches activity log group having a log entry with one of the given actions.
 
 ## Argument
 
-- `actions` - list of action name strings.
+- `actions` - list of action name strings. A set of built-in names is available as `ActivityLogServiceInterface`'s `ACTION_` prefixed constants.
 
 ## Example
 

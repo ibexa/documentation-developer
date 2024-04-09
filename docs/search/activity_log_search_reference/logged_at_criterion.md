@@ -19,6 +19,8 @@ matches activity log group having a log entry created before or after a given da
 
 ## Example
 
+The following example is to match all activity log groups not older than a day:
+
 ```php
 $query = new ActivityLog\Query([
     new ActivityLog\Criterion\LoggedAtCriterion(new \DateTime('- 1 day'), ActivityLog\Criterion\LoggedAtCriterion::GTE),
