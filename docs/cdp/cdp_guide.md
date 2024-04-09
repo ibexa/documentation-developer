@@ -75,12 +75,16 @@ For more information, see [data customization](https://doc.ibexa.co/en/latest/cd
 
 The final step is setting up a tracking script.
 It requires a head tracking script on your website, a main script after the head script, and cookie consent.
-For more information about setting up a tracking script, see [a tutorial in Raptor documentation](https://support.raptorsmartadvisor.com/hc/en-us/articles/9563346335004-Client-Side-Tracking). The conditions `did` and `did not` allow you to use events like buy, visit or add to a cart from online tracking. The  `have` conditions are tied to personal characteristics and can be used to track the sum of all buys or top-visited categories. 
+For more information about setting up a tracking script, see [a tutorial in Raptor documentation](https://support.raptorsmartadvisor.com/hc/en-us/articles/9563346335004-Client-Side-Tracking).
 
 ### Audience Builder
 
-In the Audience Builder, you can create audiendes - groups of users that meet the assumed conditions. You can choose specific conditions: `did`, `did not`, or `have`. 
+In the Audience Builder, you can create audiendes - groups of users that meet the assumed conditions. You can choose specific conditions: `did`, `did not`, or `have`.
+The conditions `did` and `did not` allow you to use events like buy, visit or add to a cart from online tracking. The  `have` conditions are tied to personal characteristics and can be used to track the sum of all buys or top-visited categories. 
+
 You can also connect created audiences to the activations.
+
+![Audience Builder](img/audience_builder.png)
 
 ## Limitations
 
