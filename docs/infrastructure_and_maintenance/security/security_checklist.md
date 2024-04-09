@@ -217,7 +217,8 @@ Once you have properly configured secure user roles and permissions, to avoid ex
 - Avoid exposing servers on the open internet when not strictly required.
 - Ensure any servers, services, ports and virtual hosts that were opened for testing purposes are shut down before going live.
 - Ensure file system permissions are set up such that the web server or PHP user can't access files they shouldn't be able to read.
-- Secure the database with a good password, keys, firewall, etc. Optionally, [restrict the database user](#use-restricted-db-user) to the needed operations.
+- Secure the database with a good password, keys, firewall, etc.
+Optionally, [restrict the database user](#use-restricted-db-user) to the needed operations.
 
 Those steps aren't needed when using [[= product_name_cloud =]], where the provider handles them.
 
