@@ -185,6 +185,17 @@ To start a new context, make sure to previously dismiss the existing one.
 
 A context group is folded below its first entry.
 
+See the timing of the following example:
+
+- At 13:31, the user creates a new content item (as a draft).
+  In a new context, a single entry is logged.
+- at 13:33, the user publishes the new item (which update the draft then publish it).
+  In a new context, two entries are logged.
+  The first entry, the update action, is always displayed.
+  The second entry, the publishing action, is shown by clicking the **Show more** button on the right of the first one.
+
+![Two context groups displayed on the Recent Activity page](activity_log_group.png "Two context groups, one with two entries, one with one entry.")
+
 #### List
 
 To display your log entry, if your object's PHP class isn't already covered, you'll have to:
