@@ -183,18 +183,11 @@ Context groups can't be nested.
 If a new context is prepared while a context is already grouping log entries, this new context will be ignored. Nested context might be supported in the future.
 To start a new context, make sure to previously dismiss the existing one.
 
-A context group is folded below its first entry.
+In the Back Office, a context group is folded below its first entry.
+The `my_feature` context from example is folded bellow its first action, the `init` action.
+Following actions are displayed by clicking the **Show more** button.
 
-See the timing of the following example:
-
-- At 13:31, the user creates a new content item (as a draft).
-  In a new context, a single entry is logged.
-- at 13:33, the user publishes the new item (which update the draft then publish it).
-  In a new context, two entries are logged.
-  The first entry, the update action, is always displayed.
-  The second entry, the publishing action, is shown by clicking the **Show more** button on the right of the first one.
-
-![Two context groups displayed on the Recent Activity page](activity_log_group.png "Two context groups, one with two entries, one with one entry.")
+![The example context group displayed on the Recent Activity page](activity_log_group.png "The `my_feature` context from example")
 
 #### List
 
