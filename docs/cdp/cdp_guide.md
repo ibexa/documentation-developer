@@ -2,15 +2,16 @@
 description: The Ibexa CDP (Customer Data Platform) product guide provides a full description of its features as well as the benefits it brings to the client.
 ---
 
-# [[= product_name_cdp =]] (Customer Data Platform) product guide
+# [[= product_name_cdp =]] product guide
 
-## What is [[= product_name_cdp =]]
+## What is [[= product_name_cdp =]] (Customer Data Platform) 
 
 [[= product_name_cdp =]] is a Customer Data Platform module that helps you build unique and memorable experiences for your customers.
 Using [[= product_name_cdp =]] you can monitor and compile data about your customers' activity on multiple channels.
 It also allows you to create individual customer profiles so you can customize their experience on your platform.
+
 With [[= product_name_cdp =]] you can store and manage large volumes of customer data in a structured manner. This central data storage supports business growth with a scalable infrastructure, helping to futureproof your business. 
-Get customer data from both online and offline data sources.
+You can get customer data from both online and offline data sources.
 It includes first, second, and third-party data from multiple sources such as transactional systems, website tracking and behavior, POS, CRM, and others.
 
 ## Availability
@@ -20,7 +21,7 @@ It includes first, second, and third-party data from multiple sources such as tr
 ## How does Ibexa CDP work
 
 [[= product_name_cdp =]] unifies customer data throughout your whole organization. It helps you activate your users and give them real-time interaction.
-You can target certain user segments with the appropriate message, content, or products at the right time via through the most used channels by using specified audiences.
+You can target certain user segments with the appropriate message, content, or products at the right time through the most used channels by using specified audiences.
 The customer data is gathered through a system of trackers embedded in various areas of your page.
 
 ![CDP - how does it work](img/cdp_how_works.png)
