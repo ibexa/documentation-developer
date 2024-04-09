@@ -4,12 +4,12 @@ namespace App\EventSubscriber;
 
 use App\MyFeature\MyFeature;
 use App\MyFeature\MyFeatureService;
-use Ibexa\Contracts\ActivityLog\Event\PostActivityListLoadEvent;
+use Ibexa\Contracts\ActivityLog\Event\PostActivityGroupListLoadEvent;
 use Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException;
 use Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-class MyFeaturePostActivityListLoadEventSubscriber implements EventSubscriberInterface
+class MyFeaturePostActivityGroupListLoadEventSubscriber implements EventSubscriberInterface
 {
     private MyFeatureService $myFeatureService;
 
@@ -22,11 +22,11 @@ class MyFeaturePostActivityListLoadEventSubscriber implements EventSubscriberInt
     public static function getSubscribedEvents(): array
     {
         return [
-            PostActivityListLoadEvent::class => ['loadMyFeature'],
+            PostActivityGroupListLoadEvent::class => ['loadMyFeature'],
         ];
     }
 
-    public function loadMyFeature(PostActivityListLoadEvent $event): void
+    public function loadMyFeature(PostActivityGroupListLoadEvent $event): void
     {
         $visitedIds = [];
         $list = $event->getList();
