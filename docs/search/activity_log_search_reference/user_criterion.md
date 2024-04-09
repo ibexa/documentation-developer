@@ -1,6 +1,6 @@
 # User Criterion
 
-The [`UserCriterion` Activity Log Criterion](https://github.com/ibexa/activity-log/blob/main/src/contracts/Values/ActivityLog/Criterion/UserCriterion.php)
+The `UserCriterion` Activity Log Criterion
 matches log groups having an activity by one of the users given by their IDs.
 
 ## Argument

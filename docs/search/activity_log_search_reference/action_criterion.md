@@ -1,6 +1,6 @@
 # Action Criterion
 
-The [`ActionCriterion` Activity Log Criterion](https://github.com/ibexa/activity-log/blob/main/src/contracts/Values/ActivityLog/Criterion/ActionCriterion.php)
+The `ActionCriterion` Activity Log Criterion
 matches activity log group having a log entry with one of the given actions.
 
 ## Argument

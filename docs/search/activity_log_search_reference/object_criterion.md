@@ -1,6 +1,6 @@
 # Object Criterion
 
-The [`ObjectCriterion` Activity Log Criterion](https://github.com/ibexa/activity-log/blob/main/src/contracts/Values/ActivityLog/Criterion/ObjectCriterion.php)
+The `ObjectCriterion` Activity Log Criterion
 matches log group with a log entry about the given class name, and eventually one of the given IDs.
 
 ## Arguments
