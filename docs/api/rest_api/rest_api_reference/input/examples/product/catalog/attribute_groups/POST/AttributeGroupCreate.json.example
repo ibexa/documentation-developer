@@ -1,9 +1,0 @@
-{
-    "AttributeGroupCreate": {
-        "identifier": "attr_group_test",
-        "names": {
-            "eng-GB": "Attribute Group Test" 
-        },
-        "position": 0
-    }
-}
