@@ -1,0 +1,100 @@
+{# https://github.com/phpDocumentor/phpDocumentor/blob/v3.3.1/data/templates/default/css/custom.css.twig #}
+{# this file is meant as a catch-all location for consumers to provide overrides without having to override specific parts #}
+{# https://docs.phpdoc.org/3.3/guide/features/theming/custom-styling.html#adding-your-own-overrides #}
+
+{% set visibleDepth = 2 %}
+
+{% set dark_color='#AE1164' %}
+{% set light_color='#FF4713' %}
+:root {
+    --primary-color-hue: 328;
+    --primary-color-saturation: 82%;
+    --title-text-color: var(--primary-color-darken);
+    --text-base-size: 16px;
+}
+
+ul.phpdocumentor-table-of-contents {
+    width: 30%;
+    float: right;
+}
+.phpdocumentor-constants, .phpdocumentor-properties, .phpdocumentor-methods, .phpdocumentor-functions {
+    width: 60%;
+}
+
+.phpdocumentor-table-of-contents .phpdocumentor-table-of-contents__entry:before {
+    display: none;
+}
+.phpdocumentor-table-of-contents .phpdocumentor-table-of-contents__entry:after,
+.phpdocumentor-table-of-contents .phpdocumentor-table-of-contents__entry.-protected:after {
+    position: relative;
+    left: 0;
+}
+.phpdocumentor-table-of-contents .type, .phpdocumentor-table-of-contents .phpdocumentor-table-of-contents__entry {
+    margin-left: 0;
+    display: flex;
+}
+
+.phpdocumentor-title__link img {
+    width: 100%;
+    max-width: 40px;
+}
+
+.phpdocumentor .phpdocumentor-sidebar__category > * {
+    border-left-width: 0;
+}
+.phpdocumentor .phpdocumentor-sidebar {
+    overflow-x: auto;
+}
+.phpdocumentor .phpdocumentor-sidebar .phpdocumentor-list.depth-{{ visibleDepth }} .phpdocumentor-list {
+    display: none;
+}
+.phpdocumentor .phpdocumentor-sidebar .phpdocumentor-list li {
+    border-left: 1px solid grey;
+    overflow: visible;
+}
+.phpdocumentor-sidebar .phpdocumentor-list li.current {
+    border-left: 3px solid var(--primary-color-darken);
+}
+.phpdocumentor-sidebar .phpdocumentor-list li.current, .phpdocumentor-sidebar .phpdocumentor-list li.current-parent > a {
+    background: whitesmoke;
+}
+.phpdocumentor-sidebar .phpdocumentor-list .current > a, .phpdocumentor-sidebar .phpdocumentor-list .current-parent > a {
+    font-weight: bold;
+}
+
+.phpdocumentor-content__title .edition-tag span {
+    font-size: small;
+    color: white;
+    background: {{ light_color }};
+    border-radius: 3px;
+    padding: 1px 3px;
+}
+
+.phpdocumentor-element-found-in__file[onclick]::before {
+    content: '📋 ';
+}
+.phpdocumentor-element-found-in__file[onclick] {
+    cursor: pointer;
+}
+
+.phpdocumentor dl dd {
+    margin-bottom: var(--spacing-xs);
+}
+.phpdocumentor dl dd:last-child {
+    margin-bottom: var(--spacing-md);
+}
+.phpdocumentor dl dd .phpdocumentor-description {
+    margin-bottom: 0;
+}
+
+table.phpdocumentor-argument-list {
+    border-collapse: collapse;
+}
+table.phpdocumentor-argument-list th, table.phpdocumentor-argument-list td {
+    border: 1px solid black;
+    padding: 1px 3px;
+}
+
+table.phpdocumentor-argument-list .phpdocumentor-argument-list__entry td {
+    vertical-align: top;
+}
