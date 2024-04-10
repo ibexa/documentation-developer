@@ -100,6 +100,10 @@ fi;
 
 echo 'Set phpDocumentor override templates…';
 cp -R $PHPDOC_DIR ./;
+mkdir php_api_reference;
+mv ./.phpdoc/template/fonts ./php_api_reference/;
+mv ./.phpdoc/template/images ./php_api_reference/;
+mv ./.phpdoc/template/js ./php_api_reference/;
 
 echo 'Run phpDocumentor…';
 curl -LO "https://github.com/phpDocumentor/phpDocumentor/releases/download/v$PHPDOC_VERSION/phpDocumentor.phar";
@@ -115,7 +119,7 @@ if [ $? -eq 0 ]; then
     if [[ $file = $OUTPUT_DIR/* ]]; then
       rm -rf $file;
     fi;
-  done <<< "$(diff -qr ./php_api_reference $OUTPUT_DIR | grep 'Only in ' | grep -v ': images')";
+  done <<< "$(diff -qr ./php_api_reference $OUTPUT_DIR | grep 'Only in ')";
   echo 'OK.';
 else
   echo 'A phpDocumentor error prevents reference update.';
