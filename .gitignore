@@ -5,4 +5,3 @@ __pycache__/*
 **/.idea/
 .php-cs-fixer.cache
 composer.lock
-docs/api/php_api/php_api_reference/*
