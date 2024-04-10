@@ -9,7 +9,7 @@ To begin the tutorial, you need a clean installation of [[= product_name =]].
 Get it by following the [install Ibexa DXP](install_ibexa_dxp.md) guide.
 You will need a web server, a relational database and PHP.
 
-The clean installation contains only a root Content item which displays a welcome page.
+The clean installation contains only a root content item which displays a welcome page.
 
 ![Front page after clean installation](bike_tutorial_homepage_install_clean.png)
 

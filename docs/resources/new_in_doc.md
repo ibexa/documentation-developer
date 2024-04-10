@@ -48,10 +48,10 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 - New sections in taxonomy documentation:
     - [How to hide the delete button in large subtrees](https://doc.ibexa.co/en/master/content_management/taxonomy/taxonomy/#hide-delete-button-on-large-subtree)
-    - [How to remove orphaned Content items](https://doc.ibexa.co/en/master/content_management/taxonomy/taxonomy/#remove-orphaned-content-items)
+    - [How to remove orphaned content items](https://doc.ibexa.co/en/master/content_management/taxonomy/taxonomy/#remove-orphaned-content-items)
 - Updated information in user documentation:
     - [Enhanced create and edit pages article](https://doc.ibexa.co/projects/userguide/en/master/content_management/create_edit_pages/)
-    - [Edit embedded Content items](https://doc.ibexa.co/projects/userguide/en/master/content_management/create_edit_content_items/#edit-embedded-content-items)
+    - [Edit embedded content items](https://doc.ibexa.co/projects/userguide/en/master/content_management/create_edit_content_items/#edit-embedded-content-items)
 
 ### DAM
 

@@ -13,10 +13,10 @@ using [`LocationService`](../../api/php_api/php_api_reference/classes/Ibexa-Cont
 
     To learn how to manage Locations using the REST API, see [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#managing-content-create-new-location-for-content-item).
 
-### Adding a new Location to a Content item
+### Adding a new Location to a content item
 
-Every published Content item must have at least one Location.
-One Content item can have more that one Location, which means it is presented in more than one place
+Every published content item must have at least one Location.
+One content item can have more that one Location, which means it is presented in more than one place
 in the content tree.
 
 Creating a new Location, like creating content, requires using a struct,
@@ -42,7 +42,7 @@ You can also provide other properties for the Location, otherwise they will be s
 
 ### Changing the main Location
 
-When a Content item has more that one Location, one Location is always considered the main one.
+When a content item has more that one Location, one Location is always considered the main one.
 You can change the main Location using [`ContentService`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html),
 by updating the `ContentInfo` with a [`ContentUpdateStruct`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentUpdateStruct.html)
 that sets the new main Location:
@@ -73,7 +73,7 @@ It permanently deletes the Location, together with its whole subtree.
 
 Content which has only this one Location will be permanently deleted as well.
 Content which has more Locations will be still available in its other Locations.
-If you delete the [main Location](#changing-the-main-location) of a Content item that has more Locations,
+If you delete the [main Location](#changing-the-main-location) of a content item that has more Locations,
 another Location will become the main one.
 
 ``` php
@@ -126,7 +126,7 @@ Trash Location is identical to the origin Location of the object.
 [[= include_file('code_samples/api/public_php_api/src/Command/TrashContentCommand.php', 64, 65) =]]
 ```
 
-The Content item will be restored under its previous Location.
+The content item will be restored under its previous Location.
 You can also provide a different Location to restore in as a second argument:
 
 ``` php

@@ -30,7 +30,7 @@ If you need to the select a SiteAccess, see the [`X-Siteaccess` HTTP header](res
 URI parameters (query string) can be used on some resources.
 They usually serve as options or filters for the requested resource.
 
-As an example, the request below would paginate the results and return the first 5 relations for version 3 of the Content item 59:
+As an example, the request below would paginate the results and return the first 5 relations for version 3 of the content item 59:
 
 ```http
 GET /content/objects/59/versions/3/relations?limit=5 HTTP/1.1

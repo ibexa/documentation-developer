@@ -19,7 +19,7 @@ If you are looking for the Long Term Support (LTS) release, see[ https://ezplat
 -   Improvements in the Online Editor:
     -   You now have the ability to rearrange elements in the editor by moving them up and down.
     -   You can now add links to internal content items in the Online Editor, decide in which tab the link should open, and set link title:![](link-options-oe.png)
--   Improvements to the Sub-Items view of a Content Item: You can now sort content items by clicking column headings
+-   Improvements to the Sub-Items view of a content item: You can now sort content items by clicking column headings
 
 ![](subitem-sorting.png)
 

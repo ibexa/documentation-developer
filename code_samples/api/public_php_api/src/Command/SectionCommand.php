@@ -39,7 +39,7 @@ class SectionCommand extends Command
     protected function configure()
     {
         $this
-            ->setDescription('Creates new section and adds selected Content item to it.')
+            ->setDescription('Creates new section and adds selected content item to it.')
             ->setDefinition([
                 new InputArgument('sectionName', InputArgument::REQUIRED, 'Name of the new Section'),
                 new InputArgument('sectionIdentifier', InputArgument::REQUIRED, 'Identifier of the new Section'),

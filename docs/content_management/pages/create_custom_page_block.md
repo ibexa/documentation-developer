@@ -28,7 +28,7 @@ or you can use a custom SVG file.
 
 A block can have multiple attributes that you edit when adding it to a Page.
 In this example, you configure three attributes: name of the event, category it belongs to,
-and an event Content item that you select and embed.
+and an event content item that you select and embed.
 
 For a list of all available attribute types, see [Page block attributes](page_block_attributes.md).
 

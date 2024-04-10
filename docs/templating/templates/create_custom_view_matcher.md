@@ -19,7 +19,7 @@ The matcher class must implement the following methods:
 - `setMatchingConfig` - receives the matcher's config from the view rule.
 
 The following example shows how to implement an `Owner` matcher.
-This matcher identifies Content items that have the provided owner or owners.
+This matcher identifies content items that have the provided owner or owners.
 
 ``` php hl_lines="65"
 [[= include_file('code_samples/front/view_matcher/src/View/Matcher/Owner.php') =]]

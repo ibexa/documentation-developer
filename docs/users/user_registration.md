@@ -4,7 +4,7 @@ description: Register new users.
 
 # Register new users
 
-You can allow your users to create accounts by employing the `/register` route. This route leads to a registration form that, when filled in, creates a new User Content item in the repository.
+You can allow your users to create accounts by employing the `/register` route. This route leads to a registration form that, when filled in, creates a new User content item in the repository.
 
 ## User types
 

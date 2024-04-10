@@ -4,7 +4,7 @@ description: Configure image editor to crop, flip, and modify images.
 
 # Configure Image Editor
 
-When a Content item contains Fields of the [ezimage](imageassetfield.md) type, users can perform basic image editing functions with the Image Editor.
+When a content item contains Fields of the [ezimage](imageassetfield.md) type, users can perform basic image editing functions with the Image Editor.
 For more information, see the [user documentation]([[= user_doc =]]/editing_images/).
 
 !!! note

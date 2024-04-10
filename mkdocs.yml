@@ -25,8 +25,8 @@ nav:
             - 1. Get ready: tutorials/beginner_tutorial/1_get_ready.md
             - 2. Create the content model: tutorials/beginner_tutorial/2_create_the_content_model.md
             - 3. Customize the front page: tutorials/beginner_tutorial/3_customize_the_front_page.md
-            - 4. Display a single Content item: tutorials/beginner_tutorial/4_display_single_content_item.md
-            - 5. Display a list of Content items: tutorials/beginner_tutorial/5_display_a_list_of_content_items.md
+            - 4. Display a single content item: tutorials/beginner_tutorial/4_display_single_content_item.md
+            - 5. Display a list of content items: tutorials/beginner_tutorial/5_display_a_list_of_content_items.md
             - 6. Improve configuration: tutorials/beginner_tutorial/6_improve_configuration.md
             - 7. Embed content: tutorials/beginner_tutorial/7_embed_content.md
             - 8. Enable account registration: tutorials/beginner_tutorial/8_enable_account_registration.md
@@ -840,7 +840,7 @@ theme:
     palette:
         primary: 'blue grey'
         accent: 'deep orange'
-    logo: 'images/ibexa-dxp-logo.svg'
+    logo: 'images/ibexa-dxp-logo.png'
 
 extra:
   append_bootstrap:

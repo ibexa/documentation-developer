@@ -30,7 +30,7 @@ See [the updated installation instruction](https://doc.ibexa.co/en/3.3/getting_s
 
 With the Image Editor, users can now perform basic operations, such as cropping or flipping an image,
 or setting a point of focus. 
-The Image Editor is available when browsing the Media library, or creating or editing Content items 
+The Image Editor is available when browsing the Media library, or creating or editing content items 
 that contain an `ezimage` or `ezimageasset` Field.
 
 You can modify the Image Editor's default settings to change its appearance or behavior.
@@ -48,7 +48,7 @@ Search API has been extended with the following capabilities:
 
 - [Score Sort Clause](https://doc.ibexa.co/en/3.3/guide/search/sort_clause_reference/score_sort_clause) orders search results by their score.
 - [CustomField Sort Clause](https://doc.ibexa.co/en/3.3/guide/search/sort_clause_reference/customfield_sort_clause) sorts search results by raw search index fields.
-- [ContentTranslatedName Sort Clause](https://doc.ibexa.co/en/3.3/guide/search/sort_clause_reference/contenttranslatedname_sort_clause) sorts search results by the Content items' translated names.
+- [ContentTranslatedName Sort Clause](https://doc.ibexa.co/en/3.3/guide/search/sort_clause_reference/contenttranslatedname_sort_clause) sorts search results by the content items' translated names.
 
 You can now access [additional search result data from PagerFanta](https://doc.ibexa.co/en/3.3/api/public_php_api_search/#additional-search-result-data).
 
@@ -65,7 +65,7 @@ You can now use the following new PHP API methods:
 
 ### Query Field Location handling
 
-The [Query Field Type](https://doc.ibexa.co/en/3.3/guide/content_rendering/queries_and_controllers/content_queries/#content-query-field) now enables getting results for the current Location of a Content item.
+The [Query Field Type](https://doc.ibexa.co/en/3.3/guide/content_rendering/queries_and_controllers/content_queries/#content-query-field) now enables getting results for the current Location of a content item.
 
 ## Deprecations
 

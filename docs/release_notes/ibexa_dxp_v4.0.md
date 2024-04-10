@@ -56,7 +56,7 @@ For more information, see [Support for multiple websites](https://doc.ibexa.co/p
 
 ### Draft locking
 
-You can now configure and use the locking feature to lock a draft of a Content item, 
+You can now configure and use the locking feature to lock a draft of a content item, 
 so that only an assigned person can edit it, and no other user can take it over. 
 
 For more information, see the [Draft locking](https://doc.ibexa.co/en/latest/guide/workflow/workflow/#draft-locking)

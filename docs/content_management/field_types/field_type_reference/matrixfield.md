@@ -61,7 +61,7 @@ The types that are returned are named after the Type and the Field:
 
 - `{TypeIdentifier}{FieldIdentifier}Row`
 
-The example below shows a GraphQL query for a Recipe Content item (belonging to a content type with a Matrix Field added), that has two Fields:
+The example below shows a GraphQL query for a Recipe content item (belonging to a content type with a Matrix Field added), that has two Fields:
 
 - `name`: `ezstring`
 - `ingredients`: `ezmatrix` with two columns: `ingredient` and `quantity`
@@ -172,7 +172,7 @@ The types that are used for input are named after the Type and the Field:
 
 - `{TypeIdentifier}{FieldIdentifier}RowInput` e.g. `dish.nutritionFacts`, `event.agenda`: `DishNutritionFactsRowInput`, `EventAgendaRowInput`
 
-The example below shows how to create a Recipe Content item (belonging to a content type with a Matrix Field Type added) that has two Fields:
+The example below shows how to create a Recipe content item (belonging to a content type with a Matrix Field Type added) that has two Fields:
 
 - `name`: `"Cake Ingredient List"`
 - `ingredients`: `ezmatrix` with two columns: `ingredient` and `quantity`

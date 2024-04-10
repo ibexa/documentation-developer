@@ -73,7 +73,7 @@ Create the new file `templates/blocks/schedule/featured.html.twig`:
 [[= include_file('code_samples/tutorials/page_tutorial/templates/blocks/schedule/featured.html.twig') =]]
 ```
 
-When you look at the template, you can see three blocks, each of which will render the Content items using the `featured` view (line 11).
+When you look at the template, you can see three blocks, each of which will render the content items using the `featured` view (line 11).
 So far you only have templates for `full` view for Articles. This means you need to create a `featured` view template,
 otherwise you will get an error when trying to add Content to the block.
 

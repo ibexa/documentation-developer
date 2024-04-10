@@ -108,7 +108,7 @@ The RichText format enriches [DocBook](https://docbook.org/) with the following 
 
 - `section` - main element of a RichText Field
 - `ezembed` - holds embedded images
-- `ezembedinline` - holds embedded Content items
+- `ezembedinline` - holds embedded content items
 - `eztemplate` - holds custom tags, including built-in custom tags for embedded Facebook, Twitter and YouTube content
 - `eztemplateinline` - holds inline custom tags
 - `ezconfig` - contains configuration for custom tags and other elements

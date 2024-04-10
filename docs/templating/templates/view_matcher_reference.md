@@ -9,18 +9,18 @@ You can use the following matchers to [match content views](template_configurati
 
 | Identifier | Matches |
 |------|------|
-| [`Id\Content`](#idcontent) | ID number of the Content item. |
-| [`Id\ContentType`](#idcontenttype) | ID number of the content type that the Content item belongs to. |
-| [`Identifier\ContentType`](#identifiercontenttype) | Identifier of the content type that the Content item belongs to. |
-| [`Id\ContentTypeGroup`](#idcontenttypegroup) | ID number of the group containing the content type that the Content item belongs to. |
+| [`Id\Content`](#idcontent) | ID number of the content item. |
+| [`Id\ContentType`](#idcontenttype) | ID number of the content type that the content item belongs to. |
+| [`Identifier\ContentType`](#identifiercontenttype) | Identifier of the content type that the content item belongs to. |
+| [`Id\ContentTypeGroup`](#idcontenttypegroup) | ID number of the group containing the content type that the content item belongs to. |
 | [`Id\Location`](#idlocation) | ID number of a Location. |
 | [`Id\LocationRemote`](#idlocationremote) | Remote ID number of a Location. |
 | [`Id\ParentContentType`](#idparentcontenttype) | ID number of the parent content type. |
 | [`Identifier\ParentContentType`](#identifierparentcontenttype) | Identifier of the parent content type. |
 | [`Id\ParentLocation`](#idparentlocation) | ID number of the parent Location. |
-| [`Id\Remote`](#idremote) | Remote ID of a Content item. |
-| [`Id\Section`](#idsection) | ID number of the Section that the Content item belongs to. |
-| [`Identifier\Section`](#identifiersection) | Identifier of the Section that the Content item belongs to. |
+| [`Id\Remote`](#idremote) | Remote ID of a content item. |
+| [`Id\Section`](#idsection) | ID number of the Section that the content item belongs to. |
+| [`Identifier\Section`](#identifiersection) | Identifier of the Section that the content item belongs to. |
 | [`Depth`](#depth) | Depth of the Location. The depth of a top level Location is 1. |
 | [`UrlAlias`](#urlalias) | Virtual URL of the Location. |
 | [Product attribute value](#product-attribute-value) | Value of product attributes. |
@@ -43,7 +43,7 @@ You can use the following matchers to [match content views](template_configurati
 
 ## Id\Content
 
-Matches the ID number of a Content item.
+Matches the ID number of a content item.
 
 ``` yaml
 match:
@@ -52,7 +52,7 @@ match:
 
 ## Id\ContentType
 
-Matches the ID number of a content type that the Content item belongs to.
+Matches the ID number of a content type that the content item belongs to.
 
 ``` yaml
 match:
@@ -61,7 +61,7 @@ match:
 
 ## Identifier\ContentType
 
-Matches the identifier of the content type that the Content item belongs to.
+Matches the identifier of the content type that the content item belongs to.
 
 ``` yaml
 match:
@@ -70,7 +70,7 @@ match:
 
 ## Id\ContentTypeGroup
 
-Matches the ID number of the content type Group that the Content item belongs to.
+Matches the ID number of the content type Group that the content item belongs to.
 
 ``` yaml
 match:
@@ -79,7 +79,7 @@ match:
 
 ## Id\Location
 
-Matches the ID number of a Location. In the case of a Content item, matched against the main Location.
+Matches the ID number of a Location. In the case of a content item, matched against the main Location.
 
 ``` yaml
 match:
@@ -88,7 +88,7 @@ match:
 
 ## Id\LocationRemote
 
-Matches the Remote ID number of a Location. In the case of a Content item, matched against the main Location.
+Matches the Remote ID number of a Location. In the case of a content item, matched against the main Location.
 
 ``` yaml
 match:
@@ -97,7 +97,7 @@ match:
 
 ## Id\ParentContentType
 
-Matches the ID number of the parent content type. In the case of a Content item, matched against the main Location.
+Matches the ID number of the parent content type. In the case of a content item, matched against the main Location.
 
 ``` yaml
 match:
@@ -106,7 +106,7 @@ match:
 
 ## Identifier\ParentContentType
 
-Matches the identifier of the parent content type. In the case of a Content item, matched against the main Location.
+Matches the identifier of the parent content type. In the case of a content item, matched against the main Location.
 
 ``` yaml
 match:
@@ -115,7 +115,7 @@ match:
 
 ## Id\ParentLocation
 
-Matches the ID number of the parent Location. In the case of a Content item, matched against the main Location.
+Matches the ID number of the parent Location. In the case of a content item, matched against the main Location.
 
 ``` yaml
 match:
@@ -124,7 +124,7 @@ match:
 
 ## Id\Remote
 
-Matches the remote ID number of a Content item.
+Matches the remote ID number of a content item.
 
 ``` yaml
 match:
@@ -133,7 +133,7 @@ match:
 
 ## Id\Section
 
-Matches the ID number of the Section that the Content item belongs to.
+Matches the ID number of the Section that the content item belongs to.
 
 ``` yaml
 match:
@@ -142,7 +142,7 @@ match:
 
 ## Identifier\Section
 
-Matches the identifier of the Section that the Content item belongs to.
+Matches the identifier of the Section that the content item belongs to.
 
 ``` yaml
 match:
