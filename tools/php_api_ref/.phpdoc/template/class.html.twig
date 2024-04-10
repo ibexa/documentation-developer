@@ -14,9 +14,11 @@
     {% set properties = properties(node) %}
     {% set methods = methods(node) %}
 
-    <label class="md-nav__title" for="__toc">
-        {{ node.name}}
-    </label>
+    {% if constants is not empty or properties is not empty or methods is not empty %}
+        <label class="md-nav__title" for="__toc" title="{{ node.name }}">
+            {{ node.name }}
+        </label>
+    {% endif %}
 
     <ul class="md-nav__list">
         {% if constants is not empty %}

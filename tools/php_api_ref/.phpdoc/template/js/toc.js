@@ -1,6 +1,11 @@
 (function(global, doc, location) {
     let hasScrolled = false;
     const toc = doc.querySelector('[data-md-component="toc"]');
+
+    if (!toc) {
+        return;
+    }
+
     const tocEntries = toc.querySelectorAll('.md-nav__link');
     const anchorElements = [...tocEntries].map((tocEntry) => {
         const [, anchorId] = tocEntry.href.split('#');

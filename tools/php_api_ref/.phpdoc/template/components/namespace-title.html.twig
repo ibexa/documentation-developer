@@ -1,4 +1,5 @@
-<h1 id="{{ node.name }}">
-    {{ title }}
-    <a class="headerlink" href="#{{ node.name }}" title="Permanent link">¶</a>
-</h1>
+<div class="content-header">
+    <h1>
+        {{ node.name == '\\' ? 'API Documentation' : node.name }}
+    </h1>
+</div>

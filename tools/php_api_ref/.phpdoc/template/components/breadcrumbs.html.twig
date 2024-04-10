@@ -2,10 +2,15 @@
 
 <ul class="breadcrumbs">
     {% for breadcrumb in breadcrumbs %}
-        <li class="breadcrumb-item {{ loop.last ? 'breadcrumb-item-current'}}">
+        <li class="breadcrumb-item">
             <a href="{{ link(breadcrumb) }}">
-                {{ breadcrumb.name }} {{ not loop.last ? '>'}}
+                {{ breadcrumb.name }} >
             </a>
         </li>
     {% endfor %}
+    <li class="breadcrumb-item breadcrumb-item-current">
+        <span>
+            {{ node.name}}
+        </span>
+    </li>
 </ul>

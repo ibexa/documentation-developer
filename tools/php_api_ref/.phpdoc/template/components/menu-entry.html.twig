@@ -8,7 +8,7 @@
             <img src="./images/{{ icon }}" alt="{{ icon }}" />
         {% endif %}
         {% if url and not is_nested %}
-            <a href="{{ url }}">
+            <a href="{{ url }}" title="{{ title }}">
         {% endif %}
             {{ title }}
         {% if url and not is_nested %}
@@ -17,7 +17,7 @@
     </label>
     {% if is_nested %}
         <nav class="md-nav" aria-label="{{ title }}" data-md-level="{{ depth }}">
-            <label class="md-nav__link-title md-nav__link level-{{ depth }}">
+            <label class="md-nav__link-title md-nav__link level-{{ depth }}" title="{{ node.name }}">
                 {{ title }}
             </label>
             {% include 'components/menu.html.twig' with { entry, nav_id, depth: depth + 1 } %}

@@ -46,6 +46,8 @@
     margin: 15px 0 15px;
     padding: 0;
     background: #FFFFFF;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .md-nav--primary .md-nav__list-title--namespaces {
@@ -101,7 +103,10 @@
 }
 
 .md-nav--primary .md-nav__item > .md-nav__link a {
+    display: block;
     padding: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .md-nav--primary .md-nav__item > .md-nav__link:not(.level-0) {
@@ -120,6 +125,11 @@
     border-left: 2px solid #AE1164;
 }
 
+.md-nav--secondary .md-nav__title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 
 {# --------------------------------------------------------------------------- #}
 {# ------------------------------- Breadcrumbs ------------------------------- #}
@@ -129,7 +139,7 @@ ul.breadcrumbs li.breadcrumb-item a {
     color: var(--dark-grey);
 }
 
-ul.breadcrumbs li.breadcrumb-item-current a {
+ul.breadcrumbs li.breadcrumb-item-current span {
     color: var(--ibexa-dusk-black);
 }
 

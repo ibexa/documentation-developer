@@ -9,13 +9,13 @@
     {% block subheader %}
         {% if node.parent %}
             <div class="content-header__subheader">
-                extends {{ node.parent|route('class:short') }}
+                Extends {{ node.parent|route('class:short') }}
             </div>
         {% endif %}
 
         {% if node.interfaces is not empty %}
             <div class="content-header__subheader">
-                implements
+                Implements
                 {% for interface in node.interfaces %}
                     {{ interface|route('class:short') }}{% if not loop.last %}, {% endif %}
                 {% endfor %}
