@@ -398,3 +398,35 @@ To update the schema, and then reindex the content, use the following commands:
 php bin/console ibexa:elasticsearch:put-index-template --overwrite
 php bin/console ibexa:reindex
 ```
+
+## v4.6.3
+
+### Update notification config
+
+If you are already customizing the package `ibexa/notifications`, and used SiteAccess aware configuration to change `Notification` subscriptions, your configuration no longer works. You have to manually change your configuration by using new node name `notifier` instead of the old `notifications`.
+
+For example, the following 4.6.2 config:
+
+```yaml
+ibexa:
+    system:
+        my_siteacces_name:
+            notifications: # deprecated
+                subscriptions:
+                    Ibexa\Contracts\Shipping\Notification\ShipmentStatusChange:
+                        channels:
+                            - sms
+```
+
+becomes the following from 4.6.3:
+
+```yaml
+ibexa:
+    system:
+        my_siteacces_name:
+            notifier: # new
+                subscriptions:
+                    Ibexa\Contracts\Shipping\Notification\ShipmentStatusChange:
+                        channels:
+                            - sms
+```
