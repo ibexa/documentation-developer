@@ -11,7 +11,9 @@
 
     <dl class="phpdocumentor-table-of-contents">
         {% for namespace in namespaces %}
+            {% if namespace.children.count %}
             <dt class="phpdocumentor-table-of-contents__entry -namespace">{{ namespace|route('class:short') }}</dt>
+            {% endif %}
         {% endfor %}
     </dl>
 {% endif %}
