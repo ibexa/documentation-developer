@@ -69,9 +69,10 @@ Finally, add the validator to one of your block attributes, for example:
 
 ### Custom required validator
 
-By default, only `not_blank` and `not_blank_richtext` cause a block attribute to be marked as required.
-If you create a custom validator `custom_not_blank` with attribute-specific logic, you can add extend the `AttributeType` class with a Symfony form type extension to ensure that the attribute is also considered required:
+By default, only `not_blank` and `not_blank_richtext` validators mark a block attribute as required.
 
-``` php
+If you create a custom validator `custom_not_blank` with attribute-specific logic, you can extend the `AttributeType` class with a Symfony form type extension to ensure that the attribute is also considered required:
+
+``` php hl_lines="16"
 [[= include_file('code_samples/page/custom_block_validator/src/Form/Extension/AttributeTypeExtension.php') =]]
 ```
