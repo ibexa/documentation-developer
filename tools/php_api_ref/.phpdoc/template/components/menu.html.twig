@@ -11,9 +11,11 @@
         {% if entry.children.count %}
         <li class="type-header type-header-namespace">Namespaces</li>
         {% for child in entry.children|sort_asc %}
+            {% if child.children.count %}
             <li class="type-namespace">
                 {% include 'components/menu.html.twig' with {'entry': child, 'depth': depth+1} %}
             </li>
+            {% endif %}
         {% endfor %}
         {% endif %}
         {% if entry.interfaces.count or entry.classes.count or entry.traits.count %}
