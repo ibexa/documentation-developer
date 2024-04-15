@@ -419,7 +419,7 @@ Run the following scripts:
 
 ## v4.6.3
 
-### Update notification config
+### Notification config update
 
 The configuration of the package `ibexa/notifications` has changed.
 This package is required by other packages, such as `ibexa/connector-actito` for [Transactional emails](https://doc.ibexa.co/en/latest/commerce/transactional_emails/transactional_emails/), `ibexa/payment`, or `ibexa/user`.
