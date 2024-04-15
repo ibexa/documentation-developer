@@ -403,7 +403,10 @@ php bin/console ibexa:reindex
 
 ### Update notification config
 
-If you are already customizing the package `ibexa/notifications`, and used SiteAccess aware configuration to change `Notification` subscriptions, your configuration no longer works. You have to manually change your configuration by using new node name `notifier` instead of the old `notifications`.
+The configuration of the package `ibexa/notifications` has changed.
+This package is required by other packages, such as `ibexa/connector-actito` for [Transactional emails](https://doc.ibexa.co/en/latest/commerce/transactional_emails/transactional_emails/), `ibexa/payment`, or `ibexa/user`.
+
+If you are already customizing the package `ibexa/notifications` configuration, and used SiteAccess aware configuration to change `Notification` subscriptions, you have to manually change your configuration by using new node name `notifier` instead of the old `notifications`.
 
 For example, the following 4.6.2 config:
 
