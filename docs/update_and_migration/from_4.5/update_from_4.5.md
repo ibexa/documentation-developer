@@ -399,6 +399,24 @@ php bin/console ibexa:elasticsearch:put-index-template --overwrite
 php bin/console ibexa:reindex
 ```
 
+## v4.6.2
+
+#### Database update
+
+Run the following scripts:
+
+=== "MySQL"
+
+    ``` sql
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.6.1-to-4.6.2.sql
+    ```
+
+=== "PostgreSQL"
+
+    ``` sql
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.1-to-4.6.2.sql
+    ```
+
 ## v4.6.3
 
 ### Update notification config
