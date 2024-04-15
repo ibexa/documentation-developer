@@ -7,20 +7,14 @@
     {% endblock %}
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block meta %}
+    {% endblock %}
     {{ renderBaseUrlHeader() }}
     <link rel="icon" href="images/favicon.ico"/>
     {% block stylesheets %}
         <link rel="stylesheet" href="css/base.css">
         <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
-        {# <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="css/template.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css" integrity="sha256-ybRkN9dBjhcS2qrW1z+hfCxq+1aBdwyQM5wlQoQVt/0=" crossorigin="anonymous" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/themes/prism-okaidia.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-numbers/prism-line-numbers.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.css"> #}
-    {% endblock %}
+        {% endblock %}
     {% block javascripts %}
         <script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
         <script src="js/search.js"></script>
@@ -40,7 +34,9 @@
                 <div class="md-content" data-md-component="content">
                     <article class="md-content__inner md-typeset">
                         <div>
-                            {% block content %}{% endblock %}
+                            {% block content %}
+                            
+                            {% endblock %}
                         </div>
                     </article>
                 </div>
@@ -57,20 +53,18 @@
                     </div>
                 {% endif %}
             </div>
-    asd
-    {{dump(path('/'))}}
-    asd
         </main>
-
     </div>
     <script
         src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
         crossorigin="anonymous">
     </script>
+    <script src="js/docs.switcher.js"></script>
     <script src="js/toc.js"></script>
     <script src="js/search_custom.js"></script>
     <script src="js/copy_to_clipboard.js"></script>
+    <script src="js/version_switcher_custom.js"></script>
     <script src="js/readthedocs-data.js"></script>
     <script src="/_/static/core/js/readthedocs-doc-embed.js"></script>
 </body>
