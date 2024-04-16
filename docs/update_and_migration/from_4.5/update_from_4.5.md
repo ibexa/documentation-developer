@@ -428,11 +428,11 @@ If you are already customizing the package `ibexa/notifications` configuration, 
 
 For example, the following 4.6.2 config:
 
-```yaml
+```yaml hl_lines="4"
 ibexa:
     system:
         my_siteacces_name:
-            notifications: # deprecated
+            notifications: # old
                 subscriptions:
                     Ibexa\Contracts\Shipping\Notification\ShipmentStatusChange:
                         channels:
@@ -441,7 +441,7 @@ ibexa:
 
 becomes the following from 4.6.3:
 
-```yaml
+```yaml hl_lines="4"
 ibexa:
     system:
         my_siteacces_name:
