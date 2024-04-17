@@ -48,7 +48,7 @@ $(document).ready(function() {
         if (ready) {
             clearInterval(update);
             if (!$('.rst-versions.switcher__selected-item').length) {
-                console.log('add rst-current-version back');
+                // add rst-current-version back (what removed it??)
                 $('.switcher.version-switcher').prepend(`
                     <div class="rst-versions switcher__selected-item" data-toggle="rst-versions" role="note" aria-label="versions">
                         <div class="rst-current-version switcher__label" data-toggle="rst-current-version">
@@ -67,29 +67,7 @@ $(document).ready(function() {
             if ('master' !== (vl = $('.rst-other-versions.switcher__list dl.versions')).find('dd:first').text()) {
                 vl.find('dd').each(function() {$(this).detach().prependTo(vl)});
             }
-/*
-            //replace url in version switcher
-            var currentVersion = $('.rst-other-versions dd.rtd-current-item a').attr('href'),
-                resourceUrl = document.location.href.replace(currentVersion, '');
 
-            $('.rst-other-versions dd a').each(function() {
-                $(this).attr('href', $(this).attr('href') + resourceUrl);
-            });
-
-            if ($('.version-warning').length) {
-                let url,
-                    version = $('.version-warning .version').html(),
-                    parts = $('.rst-other-versions dd a')
-                        .first()
-                        .attr('href')
-                        .split('/');
-
-                parts[4] = version;
-                url = parts.join('/');
-
-                $('.version-warning .version').html($('<a href ="' + url + '" class="external">' + version + '</a>'));
-            }
-*/
             setSwitcherEvents();
         }
     }, 300);
