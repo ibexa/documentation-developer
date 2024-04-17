@@ -1,11 +1,8 @@
-{# https://github.com/phpDocumentor/phpDocumentor/blob/v3.3.1/data/templates/default/components/method-response.html.twig #}
-{% if (node.response.type and node.response.type != 'void') or node.response.description %}
-    {% if '__construct' != node.name %}
-    <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">{{ node.response.type|route('class:short')|join('|')|raw }}</span>
-    {% if node.response and not node.response.description.empty %}
+{% if (node.response.type and node.response.type != 'void' and node.response.type != 'mixed') or not node.response.description.empty %}
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">{{ node.response.type|route('class:short')|join('|')|raw }}</p>
+    {% if not node.response.description.empty %}
         &mdash;
-        {{ include('components/description.html.twig', {'node': node.response}) }}
-    {% endif %}
+        {{ include('components/description.html.twig', {node: node.response}) }}
     {% endif %}
 {% endif %}

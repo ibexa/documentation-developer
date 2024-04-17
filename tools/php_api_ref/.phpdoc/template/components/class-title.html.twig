@@ -1,46 +1,34 @@
-{# https://github.com/phpDocumentor/phpDocumentor/blob/v3.3.1/data/templates/default/components/class-title.html.twig #}
-{% extends "package-edition-map.twig" %}
-{% from "edition-tag.html.twig" import edition_tag as edition_tag %}
+{% set breadcrumbs = usesNamespaces ? breadcrumbs(node) : packages(node) %}
+{% set fqcn = breadcrumbs|map(breadcrumb => breadcrumb.name)|join('\\') %}
 
-{% block content %}
-<h2 class="phpdocumentor-content__title">
-    {{ edition_tag(node, package_edition_map) }}
+{% embed 'components/content-header.html.twig' with { 
+    anchor: node.name,
+    anchor_link: '#' ~ node.name,
+    fqcn,
+} %}
+    {% block subheader %}
+        {% if node.parent %}
+            <div class="content-header__subheader">
+                Extends {{ node.parent|route('class:short') }}
+            </div>
+        {% endif %}
 
-    {{ node.name }}
-
-    {% if node.parent %}
-    <span class="phpdocumentor-element__extends">
-        extends {{ node.parent|route('class:short') }}
-    </span>
-    {% endif %}
-
-    {% if usesPackages %}
-        <div class="phpdocumentor-element__package">
-            in package
-            <ul class="phpdocumentor-breadcrumbs">
-                {% for breadcrumb in packages(node) %}
-                    <li class="phpdocumentor-breadcrumb"><a href="{{ link(breadcrumb) }}">{{ breadcrumb.name }}</a></li>
+        {% if node.interfaces is not empty %}
+            <div class="content-header__subheader">
+                Implements
+                {% for interface in node.interfaces %}
+                    {{ interface|route('class:short') }}{% if not loop.last %}, {% endif %}
                 {% endfor %}
-            </ul>
-        </div>
-    {% endif %}
+            </div>
+        {% endif %}
 
-    {% if node.interfaces is not empty %}
-        <span class="phpdocumentor-element__implements">
-            implements
-            {% for interface in node.interfaces %}
-                {{ interface|route('class:short') }}{% if not loop.last %}, {% endif %}
-            {% endfor %}
-        </span>
-    {% endif %}
-
-    {% if node.usedTraits is not empty %}
-        <span class="phpdocumentor-element__extends">
-            Uses
-            {% for trait in node.usedTraits %}
-                {{ trait|route('class:short') }}{% if not loop.last %}, {% endif %}
-            {% endfor %}
-        </span>
-    {% endif %}
-</h2>
-{% endblock %}
+        {% if node.usedTraits is not empty %}
+            <div class="content-header__subheader">
+                Uses
+                {% for trait in node.usedTraits %}
+                    {{ trait|route('class:short') }}{% if not loop.last %}, {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endblock %}
+{% endembed %}

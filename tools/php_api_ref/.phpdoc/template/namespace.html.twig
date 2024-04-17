@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block meta %}
+    <meta http-equiv="refresh" content="0; url=/">
+{% endblock %}
+
+{% block javascript %}
+    const root = window.location.href.match('.*php_api_reference')[0];
+
+    if (root) {
+        window.location.replace(root);
+    }
+
+    {{ parent()}}
+{% endblock %}
+
+{% block content %}
+    {% include 'components/breadcrumbs.html.twig' %}
+    {% include 'components/namespace-title.html.twig' %}
+{% endblock %}
+
+{% block on_this_page %}
+{% endblock %}

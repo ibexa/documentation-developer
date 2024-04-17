@@ -1,0 +1,24 @@
+<div class="content-header">
+    <{{ header_tag|default('h1') }} id="{{ anchor }}">
+        {% block name %}{{ node.name }}{% endblock %}
+        {%- include 'components/anchor.html.twig' with { anchor_link } -%}
+    </{{ header_tag|default('h1') }}>
+    {% if fqcn is defined %}
+        <button class="content-header__copy-fqcn copy-to-clipboard" title="{{ fqcn }}" data-copy-value="{{ fqcn }}">Copy FQCN</button>
+    {% endif %}
+    <div class="content-header__found-in">
+        <abbr title="{{ node.file.path }}">{{ node.file.name }}</abbr>
+        :
+        <span>{{ node.line }}</span>
+        <img src="./images/copy.svg" alt="copy" class="copy-to-clipboard" data-copy-value="{{ node.file.path }}" title="Copy path" />
+    </div>
+    {% block subheader %}{% endblock %}
+    {% if has_subheader %}
+        <div class="content-header__extends">
+            extends
+            {% for interface in node.parent %}
+                {{ interface|route('class:short') }}{% if not loop.last %}, {% endif %}
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>
