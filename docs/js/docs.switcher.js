@@ -1,4 +1,5 @@
 (function (doc) {
+console.log('docs.switcher.js');
     const CLASS_EXPANDED_LIST = 'switcher__selected-item--expanded';
     const switchers = doc.querySelectorAll('.switcher');
     const toggleListExpandedState = (event) => {

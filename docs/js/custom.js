@@ -1,7 +1,12 @@
 // tmp fix for read-the-docs embeded versions injection
 let jquery = jQuery;
-
+console.log('custom.js');
 $(document).ready(function() {
+console.log('custom.js: ready');
+    (monitor = function() {
+        console.log('.rst-current-version.switcher__label:' + $('.rst-current-version.switcher__label').length);
+        setTimeout(monitor());
+    })();
     // replace edit url
     var branchName = 'master',
         branchNameRegexp = /\/en\/([a-z0-9-_.]*)\//g.exec(document.location.href);
@@ -9,7 +14,7 @@ $(document).ready(function() {
     if (branchNameRegexp !== null && branchNameRegexp.hasOwnProperty(1) && branchNameRegexp[1].length) {
         branchName = branchNameRegexp[1];
     }
-
+console.log('custom.js:icon');
     $('.md-content a.md-icon').each(function() {
         $(this).attr(
             'href',
@@ -18,7 +23,7 @@ $(document).ready(function() {
                 .replace('master/docs/', branchName + '/docs/')
         );
     });
-
+console.log('custom.js:branchName');
     if (!/^\d+\.\d+$/.test(branchName) && branchName !== 'latest') {
         branchName = 'master';
     }
@@ -27,12 +32,12 @@ $(document).ready(function() {
     $('#site-name').append('<span class="pill">' + branchName + '</span>');
 
     $('.rst-current-version.switcher__label').html(branchName);
-
+console.log('custom.js:nav');
     // Change navigation icons on onclick
     $('.md-nav--primary .md-nav__item--nested .md-nav__link').click(function() {
         $(this).addClass('open');
     });
-
+console.log('custom.js:update');
     var update = setInterval(function() {
         let ready = false, version = '';
         if ($('readthedocs-flyout').length) {
