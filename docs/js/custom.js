@@ -1,4 +1,4 @@
-// tmp fix for read-the-docs embeded versions injection
+// tmp fix for read-the-docs embedded versions injection
 let jquery = jQuery;
 
 $(document).ready(function() {
@@ -35,36 +35,38 @@ $(document).ready(function() {
 
     // remove elements, leave only 'versions'
     var update = setInterval(function() {
-        if ($('.injected .rst-versions').length) {
+        let ready = false, version = '';
+        if ($('readthedocs-flyout').length) {
+            $('dl.versions', $('readthedocs-flyout').prop('shadowRoot')).appendTo('.version-switcher .switcher__list');
+            $('readthedocs-flyout').remove();
+            version = $('.switcher__list dl.versions dd strong a').text();
+            ready = true;
+        }
+        if (ready) {
             clearInterval(update);
-            var version = $('.rst-other-versions dd.rtd-current-item a').text();
-            $('.rst-current-version span:first').html(' ' + (version != '' ? version : 'Change version'));
-            $('.rst-other-versions').html($('.injected dl:first').clone());
-            $('.injected').remove();
 
-            //replace url in version switcher
-            var currentVersion = $('.rst-other-versions dd.rtd-current-item a').attr('href'),
-                resourceUrl = document.location.href.replace(currentVersion, '');
+            if (!$('.rst-versions.switcher__selected-item').length) {
+                // add rst-current-version back (what removed it??)
+                $('.switcher.version-switcher').prepend(`
+                    <div class="rst-versions switcher__selected-item" data-toggle="rst-versions" role="note" aria-label="versions">
+                        <div class="rst-current-version switcher__label" data-toggle="rst-current-version">
+                        Version
+                        </div>
+                    </div>
+                `);
+            }
+            $('.rst-current-version.switcher__label').html(version.length ? version : 'Change version');
+            $('.rst-other-versions.switcher__list dl.versions dd strong').parent().addClass('rtd-current-item');
 
-            $('.rst-other-versions dd a').each(function() {
-                $(this).attr('href', $(this).attr('href') + resourceUrl);
-            });
-
-            if ($('.version-warning').length) {
-                var url,
-                    version = $('.version-warning .version').html(),
-                    parts = $('.rst-other-versions dd a')
-                        .first()
-                        .attr('href')
-                        .split('/');
-
-                parts[4] = version;
-                url = parts.join('/');
-
-                $('.version-warning .version').html($('<a href ="' + url + '" class="external">' + version + '</a>'));
+            if ('master' !== (vl = $('.rst-other-versions.switcher__list dl.versions')).find('dd:first').text()) {
+                vl.find('dd').each(function() {$(this).detach().prependTo(vl)});
             }
         }
     }, 300);
+    setTimeout(function() {
+        clearInterval(update);
+        setSwitcherEvents();
+    }, 1200);
 
     $('img').each(function() {
         if ($(this).attr('title')) {
