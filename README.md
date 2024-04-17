@@ -27,7 +27,7 @@ It is based on `*.raml` files located in the `docs/api/rest_api/rest_api_referen
 
 After you modify relevant files in the input folder, you can generate an HTML file from repository root (this step can also be performed by one of the Tech Writers during PR review): 
 
-`php tools/raml2html/raml2html.php build --non-standard-http-methods=COPY,MOVE,PUBLISH,SWAP -t default -o docs/api/rest_api/rest_api_reference/output/ docs/api/rest_api/rest_api_reference/input/ez.raml`
+`php tools/raml2html/raml2html.php build --non-standard-http-methods=COPY,MOVE,PUBLISH,SWAP -t default -o docs/api/rest_api/rest_api_reference/output/ docs/api/rest_api/rest_api_reference/input/ibexa.raml`
 
 In case of errors, look for mistakes in the RAML file, for example, double apostrophes.
 Move `rest_api_reference.html`  from the output folder to `docs/api/rest_api/rest_api_reference/` root.
