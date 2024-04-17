@@ -59,13 +59,12 @@ $(document).ready(function() {
             if ('master' !== (vl = $('.rst-other-versions.switcher__list dl.versions')).find('dd:first').text()) {
                 vl.find('dd').each(function() {$(this).detach().prependTo(vl)});
             }
-
-            setSwitcherEvents();
         }
     }, 300);
     setTimeout(function() {
         clearInterval(update);
-    }, 3000);
+        setSwitcherEvents();
+    }, 1200);
 
     $('img').each(function() {
         if ($(this).attr('title')) {
