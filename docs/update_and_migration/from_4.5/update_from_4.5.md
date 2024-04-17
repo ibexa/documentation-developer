@@ -426,7 +426,7 @@ This package is required by other packages, such as `ibexa/connector-actito` for
 
 If you are customizing the configuration of the `ibexa/notifications` package, and using SiteAccess aware configuration to change the `Notification` subscriptions, you have to manually change your configuration by using the new node name `notifier` instead of the old `notifications`.
 
-For example, the following 4.6.2 config:
+For example, the following v4.6.2 config:
 
 ```yaml hl_lines="4"
 ibexa:
@@ -439,7 +439,7 @@ ibexa:
                             - sms
 ```
 
-becomes the following from 4.6.3:
+becomes the following from v4.6.3:
 
 ```yaml hl_lines="4"
 ibexa:
