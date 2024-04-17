@@ -33,15 +33,26 @@ $(document).ready(function() {
         $(this).addClass('open');
     });
 
-    // remove elements, leave only 'versions'
     var update = setInterval(function() {
-        if ($('.injected .rst-versions').length) {
+        let ready = false, version = '';
+        if ($('readthedocs-flyout').length) {
+            $('dl.versions', $('readthedocs-flyout').prop('shadowRoot')).appendTo('.version-switcher .switcher__list');
+            $('readthedocs-flyout').remove();
+            version = $('.switcher__list dl.versions dd strong a').text();
+            ready = true;
+        } else if ($('.injected').length) {
+            version = $('.rst-other-versions dd.rtd-current-item a').text();
+            ready = true;
+        }
+        if (ready) {
             clearInterval(update);
-            var version = $('.rst-other-versions dd.rtd-current-item a').text();
-            $('.rst-current-version span:first').html(' ' + (version != '' ? version : 'Change version'));
-            $('.rst-other-versions').html($('.injected dl:first').clone());
-            $('.injected').remove();
+            $('.rst-current-version.switcher__label').html(version.length ? version : 'Change version');
 
+            if ($('injected').length) {
+                $('.rst-other-versions').html($('.injected dl:first').clone());
+                $('.injected').remove();
+            }
+/*
             //replace url in version switcher
             var currentVersion = $('.rst-other-versions dd.rtd-current-item a').attr('href'),
                 resourceUrl = document.location.href.replace(currentVersion, '');
@@ -51,7 +62,7 @@ $(document).ready(function() {
             });
 
             if ($('.version-warning').length) {
-                var url,
+                let url,
                     version = $('.version-warning .version').html(),
                     parts = $('.rst-other-versions dd a')
                         .first()
@@ -63,8 +74,12 @@ $(document).ready(function() {
 
                 $('.version-warning .version').html($('<a href ="' + url + '" class="external">' + version + '</a>'));
             }
+*/
         }
     }, 300);
+    setTimeout(function() {
+        clearInterval(update);
+    }, 3000);
 
     $('img').each(function() {
         if ($(this).attr('title')) {
