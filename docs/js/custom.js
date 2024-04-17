@@ -63,6 +63,10 @@ $(document).ready(function() {
                 $('.rst-other-versions').html($('.injected dl:first').clone());
                 $('.injected').remove();
             }
+
+            if ('master' !== (vl = $('.rst-other-versions.switcher__list dl.versions')).find('dd:first').text()) {
+                vl.find('dd').each(function() {$(this).detach().prependTo(vl)});
+            }
 /*
             //replace url in version switcher
             var currentVersion = $('.rst-other-versions dd.rtd-current-item a').attr('href'),
