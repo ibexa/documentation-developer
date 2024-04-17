@@ -10,12 +10,15 @@ For more information about using this feature to search for content, see [user d
 ## Configuration
 
 By default, suggestions start showing up after the user types in at least 3 characters, and 5 suggestions are presented.
-This can be changed with [SiteAccess aware dynamic configuration](dynamic_configuration.md), by setting the following [scoped](multisite_configuration.md#scope) parameters:
+This can be changed with the following [scoped](multisite_configuration.md#scope) configuration:
 
 ```yaml
-parameters:
-    ibexa.site_access.config.<scope>.search.suggestion.min_query_length: 3
-    ibexa.site_access.config.<scope>.search.suggestion.result_limit: 5
+ibexa:
+    system:
+        <scope>:
+            search:
+                min_query_length: 3
+                result_limit: 5
 ```
 
 ## Add custom suggestion source
@@ -82,7 +85,7 @@ services:
     At this point, it's possible to test the suggestion JSON.
     The route is `/suggestion` with a GET parameter `query` for the searched text.
 
-    For example, log in to the Back Office to have a session cookie, then access the route through the Back Office SiteAccess, such as `http://localhost/admin/suggestion?query=platform`.
+    For example, log in to the Back Office to have a session cookie, then access the route through the Back Office SiteAccess, such as `<yourdomain>/admin/suggestion?query=platform`.
     If you have a product with "platform" in its name, it is returned as the first suggestion.
 
 A JavaScript renderer displays the normalized product suggestion.
@@ -118,7 +121,7 @@ At the end of `webpack.config.js`, add it by using `ibexaConfigManager`:
 [[= include_file('code_samples/back_office/search/append_to_webpack.config.js') =]]
 ```
 
-The renderer, `admin.search.autocomplete.product.js`' `renderItem` function, loads an HTML template from a wrapping DOM node [dataset](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset).
+The renderer, `renderItem` function from `admin.search.autocomplete.product.js`, loads an HTML template from a wrapping DOM node [dataset](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset).
 This wrapping node exists only once and the renderer loads the template several times.
 
 The example template for this wrapping node is stored in `templates/themes/admin/ui/global_search_autocomplete_product_template.html.twig` (notice the CSS class name used by the renderer to reach it):
