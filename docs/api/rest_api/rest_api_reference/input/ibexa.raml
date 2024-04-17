@@ -1,0 +1,76 @@
+#%RAML 1.0
+---
+title: Ibexa REST API
+baseUri: ../rest_api_usage/rest_api_usage/
+
+/: !include ibexa-root.raml
+
+/bookmark: !include ibexa-bookmark.raml
+
+/content:
+    displayName: Managing content
+    /objects: !include ibexa-content-objects.raml
+    /objectstategroups: !include ibexa-objectstategroups.raml
+    /locations:  !include ibexa-content-locations.raml
+    /views: !include ibexa-content-views.raml
+    /sections: !include ibexa-content-sections.raml
+    /trash: !include ibexa-content-trash.raml
+    /urlaliases: !include ibexa-content-urlaliases.raml
+    /urlwildcards: !include ibexa-content-urlwildcards.raml
+    /typegroups: !include ibexa-content-typegroups.raml
+    /types: !include ibexa-content-types.raml
+    # /assets: !include ibexa-content-assets.raml
+    #/binary: !include ibexa-content-binary.raml
+
+/views: !include ibexa-views.raml
+
+/calendar: !include ibexa-calendar.raml
+
+
+/user:
+    displayName: Managing users
+    /current: !include ibexa-user-current.raml
+    /groups: !include ibexa-user-groups.raml
+    /users: !include ibexa-user-users.raml
+    /roles: !include ibexa-user-roles.raml
+    /policies: !include ibexa-user-policies.raml
+    /sessions: !include ibexa-user-sessions.raml
+    /token: !include ibexa-user-token.raml
+
+#/segments: !include ibexa-segment_groups.raml
+#/segment_groups: !include ibexa-segment_groups.raml
+
+#/personalization/v1: !include ibexa-personalization.raml
+
+/services: !include ibexa-services.raml
+
+/languages: !include ibexa-languages.raml
+
+/cart: !include ibexa-cart.raml
+
+/commerce: !include ibexa-commerce.raml
+
+/orders: !include ibexa-orders.raml
+
+/payment-method: !include ibexa-payment-methods.raml
+
+/corporate: !include ibexa-corporate.raml
+
+/product/catalog:
+    displayName: Product catalog
+    /catalogs: !include ibexa-product-catalogs.raml
+    /currencies: !include ibexa-product-currency.raml
+    /regions: !include ibexa-product-regions.raml
+    /attribute_types: !include ibexa-product-attributetypes.raml
+    /attribute_groups: !include ibexa-product-attributegroups.raml
+    /attributes: !include ibexa-product-attributes.raml
+    /customer_groups: !include ibexa-product-customergroups.raml
+    /product_types: !include ibexa-product-producttypes.raml
+    /products: !include ibexa-product-products.raml
+    /product_variants: !include ibexa-product-productvariants.raml
+    /product_variant: !include ibexa-product-productvariant.raml
+    /vat: !include ibexa-product-vat.raml
+
+/taxonomy: !include ibexa-taxonomy.raml
+
+types: !include ibexa-types.raml
