@@ -1,13 +1,7 @@
-// tmp fix for read-the-docs embeded versions injection
+// tmp fix for read-the-docs embedded versions injection
 let jquery = jQuery;
-console.log('custom.js');
-(monitor = function() {
-    console.log('.rst-current-version.switcher__label:' + $('.rst-current-version.switcher__label').length);
-    setTimeout(monitor(), 1000);
-})();
-console.log('custom.js');
+
 $(document).ready(function() {
-console.log('custom.js: ready');
     // replace edit url
     var branchName = 'master',
         branchNameRegexp = /\/en\/([a-z0-9-_.]*)\//g.exec(document.location.href);
@@ -15,7 +9,7 @@ console.log('custom.js: ready');
     if (branchNameRegexp !== null && branchNameRegexp.hasOwnProperty(1) && branchNameRegexp[1].length) {
         branchName = branchNameRegexp[1];
     }
-console.log('custom.js:icon');
+
     $('.md-content a.md-icon').each(function() {
         $(this).attr(
             'href',
@@ -24,7 +18,7 @@ console.log('custom.js:icon');
                 .replace('master/docs/', branchName + '/docs/')
         );
     });
-console.log('custom.js:branchName');
+
     if (!/^\d+\.\d+$/.test(branchName) && branchName !== 'latest') {
         branchName = 'master';
     }
@@ -33,12 +27,13 @@ console.log('custom.js:branchName');
     $('#site-name').append('<span class="pill">' + branchName + '</span>');
 
     $('.rst-current-version.switcher__label').html(branchName);
-console.log('custom.js:nav');
+
     // Change navigation icons on onclick
     $('.md-nav--primary .md-nav__item--nested .md-nav__link').click(function() {
         $(this).addClass('open');
     });
-console.log('custom.js:update');
+
+    // remove elements, leave only 'versions'
     var update = setInterval(function() {
         let ready = false, version = '';
         if ($('readthedocs-flyout').length) {
@@ -52,6 +47,16 @@ console.log('custom.js:update');
         }
         if (ready) {
             clearInterval(update);
+            if (!$('.rst-versions.switcher__selected-item').length) {
+                console.log('add rst-current-version back');
+                $('.switcher.version-switcher').prepend(`
+                    <div class="rst-versions switcher__selected-item" data-toggle="rst-versions" role="note" aria-label="versions">
+                        <div class="rst-current-version switcher__label" data-toggle="rst-current-version">
+                        Version
+                        </div>
+                    </div>
+                `);
+            }
             $('.rst-current-version.switcher__label').html(version.length ? version : 'Change version');
 
             if ($('injected').length) {
