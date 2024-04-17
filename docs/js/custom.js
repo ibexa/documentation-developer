@@ -41,9 +41,6 @@ $(document).ready(function() {
             $('readthedocs-flyout').remove();
             version = $('.switcher__list dl.versions dd strong a').text();
             ready = true;
-        } else if ($('.injected').length) {
-            version = $('.rst-other-versions dd.rtd-current-item a').text();
-            ready = true;
         }
         if (ready) {
             clearInterval(update);
