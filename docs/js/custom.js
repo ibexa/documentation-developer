@@ -3,9 +3,9 @@ let jquery = jQuery;
 console.log('custom.js');
 (monitor = function() {
     console.log('.rst-current-version.switcher__label:' + $('.rst-current-version.switcher__label').length);
-    setTimeout(monitor(), 100);
+    setTimeout(monitor(), 1000);
 })();
-
+console.log('custom.js');
 $(document).ready(function() {
 console.log('custom.js: ready');
     // replace edit url
