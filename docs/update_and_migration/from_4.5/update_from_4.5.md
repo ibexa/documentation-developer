@@ -407,13 +407,13 @@ Run the following scripts:
 
 === "MySQL"
 
-    ``` sql
+    ``` bash
     mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.6.1-to-4.6.2.sql
     ```
 
 === "PostgreSQL"
 
-    ``` sql
+    ``` bash
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.1-to-4.6.2.sql
     ```
 
@@ -424,7 +424,7 @@ Run the following scripts:
 The configuration of the package `ibexa/notifications` has changed.
 This package is required by other packages, such as `ibexa/connector-actito` for [Transactional emails](https://doc.ibexa.co/en/latest/commerce/transactional_emails/transactional_emails/), `ibexa/payment`, or `ibexa/user`.
 
-If you are already customizing the package `ibexa/notifications` configuration, and used SiteAccess aware configuration to change `Notification` subscriptions, you have to manually change your configuration by using new node name `notifier` instead of the old `notifications`.
+If you are customizing the configuration of the `ibexa/notifications` package, and using SiteAccess aware configuration to change the `Notification` subscriptions, you have to manually change your configuration by using the new node name `notifier` instead of the old `notifications`.
 
 For example, the following 4.6.2 config:
 
