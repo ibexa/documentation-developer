@@ -1,12 +1,13 @@
 // tmp fix for read-the-docs embeded versions injection
 let jquery = jQuery;
 console.log('custom.js');
+(monitor = function() {
+    console.log('.rst-current-version.switcher__label:' + $('.rst-current-version.switcher__label').length);
+    setTimeout(monitor());
+})();
+
 $(document).ready(function() {
 console.log('custom.js: ready');
-    (monitor = function() {
-        console.log('.rst-current-version.switcher__label:' + $('.rst-current-version.switcher__label').length);
-        setTimeout(monitor());
-    })();
     // replace edit url
     var branchName = 'master',
         branchNameRegexp = /\/en\/([a-z0-9-_.]*)\//g.exec(document.location.href);
