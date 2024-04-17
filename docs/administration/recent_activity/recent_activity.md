@@ -10,11 +10,12 @@ To learn more about its Back Office usage and the actions logged by default, see
 
 ## Configuration and cronjob
 
-Some configuration allows to customize the log length in database or on screen.
+With some configuration, you can customize the log length in the database or on screen.
 A command maintains the log size in database, it should be scheduled through CRON.
 
-* The configuration `ibexa.system.<scope>.activity_log.pagination.activity_logs_limit` sets the number of log items shown per page in the Back Office (default value: 25). A log item is a group of entries, or an entry without group.
-* The configuration `ibexa.repositories.<repository>.activity_log.truncate_after_days` sets the number of days a log entry is kept before being deleted by the `ibexa:activity-log:truncate` command (default value: 30 days).
+- The configuration `ibexa.system.<scope>.activity_log.pagination.activity_logs_limit` sets the number of log items shown per page in the Back Office (default value: 25). 
+A log item is a group of entries, or an entry without group.
+- The configuration `ibexa.repositories.<repository>.activity_log.truncate_after_days` sets the number of days a log entry is kept before it's deleted by the `ibexa:activity-log:truncate` command (default value: 30 days).
 
 For example, the following configuration sets 15 days of life to the log entries on the `default` repository, and 20 context groups per page for the `admin_group` SiteAccess group:
 
@@ -50,8 +51,7 @@ This policy is required to view [activity log in user profile]([[= user_doc =]]/
 
 !!! caution
 
-    Never give `activity_log/read` permission to Anonymous role, even with the owner limitation,
-    as this role is shared among all unauthenticated users.
+    Do not assign `activity_log/read` permission to the Anonymous role, even with the owner limitation, because this role is shared among all unauthenticated users.
 
 ## PHP API
 
@@ -59,17 +59,17 @@ The `ActivityLogService` PHP API can be used to browse activity logs and write n
 
 ### Searching in the Activity Log groups
 
-You can search among the activity log entry groups using `ActivityLogService::findGroups` by passing an `Ibexa\Contracts\ActivityLog\Values\ActivityLog\Query`.
+You can search among the activity log entry groups with the `ActivityLogService::findGroups` command, by passing an `Ibexa\Contracts\ActivityLog\Values\ActivityLog\Query`.
 This `Query`'s constructor has four arguments:
 
-1. `$criteria`: an array of criteria from `Ibexa\Contracts\ActivityLog\Values\ActivityLog\Criterion` combined as a logical AND.
-2. `$sortClauses`: an array of `Ibexa\Contracts\ActivityLog\Values\ActivityLog\SortClause`.
-3. `$offset`: a zero-based index integer indicating at which group to start, its default value is `0` (zero, nothing skipped).
-4. `$limit`: an integer as the maximum returned group count, default is 25.
+- `$criteria` - an array of criteria from `Ibexa\Contracts\ActivityLog\Values\ActivityLog\Criterion` combined as a logical AND.
+- `$sortClauses` - an array of `Ibexa\Contracts\ActivityLog\Values\ActivityLog\SortClause`.
+- `$offset` - a zero-based index integer indicating at which group to start, its default value is `0` (zero, nothing skipped).
+- `$limit` - an integer as the maximum returned group count, default is 25.
 
 See [Activity Log Search Criteria reference](activity_log_criteria.md) and [Activity Log Search Sort Clauses reference](activity_log_sort_clauses.md) to discover query possibilities.
 
-In the following example, log groups containing at least one creation of a Content item is displayed in terminal, with a maximum of 10 groups within the last hour.
+In the following example, log groups that contain at least one creation of a Content item are displayed in terminal, with a maximum of 10 groups within the last hour.
 This uses the default `admin` user to have the [permission](#permission-and-security) to list everyone entries.
 
 ```php hl_lines="39-43"
@@ -119,7 +119,9 @@ migration
 
 !!! caution
 
-    Keep activity logging as light as possible. Do not make database request or heavy computation at logging time. Keep them for activity log list display time.
+    Keep activity logging as light as possible.
+    Do not make database requests or heavy computation at logging time.
+    Keep them for activity log list display time.
 
 #### Entry
 
@@ -127,7 +129,8 @@ Your custom features can write into the activity log.
 
 First, inject `Ibexa\Contracts\ActivityLog\ActivityLogServiceInterface` into your PHP class from where you want to log an activity (such as a custom event subscriber, event listener, service, or controller).
 
-In the following example, an event subscriber is subscribing to an event dispatched by a custom feature. This event has the information needed by a log entry (see details after the example).
+In the following example, an event subscriber is subscribing to an event dispatched by a custom feature.
+This event has the information needed by a log entry (see details after the example).
 
 ```php
 [[= include_file('code_samples/recent_activity/src/EventSubscriber/MyFeatureEventSubscriber.php') =]]
@@ -137,36 +140,37 @@ In the following example, an event subscriber is subscribing to an event dispatc
 
 `ActivityLogService::build` has three arguments:
 
-* `$className` is the FQCN of the object actually manipulated by the feature. For example `Ibexa\Contracts\Core\Repository\Values\Content\Content::class`
-* `$id` is the ID or identifier of the manipulated object. For example, the Content ID cast to string.
-* `$action` is the identifier of the performed object manipulation. For example, `create`, `update` or `delete`.
+- `$className` is a FQCN of the object actually manipulated by the feature, for example `Ibexa\Contracts\Core\Repository\Values\Content\Content::class`
+- `$id` is an ID or identifier of the manipulated object, for example, the Content ID cast to string
+- `$action` is an identifier of the performed object manipulation, or example, `create`, `update` or `delete`
 
 The returned `CreateActivityLogStruct` is always related to the currently logged-in user.
 
 You can still display activity log of an object which was deleted or renamed.
 To store the name of the log, you need to use `CreateActivityLogStruct::setName` before saving the log entry.
-This stored name can be used at the time of displaying if the associated object isn't available anymore, or to check if it has been renamed.
+This stored name can be used at the time of displaying information whether the associated object isn't available anymore, or to check if it has been renamed.
 
 #### Context group
 
 If you log several related entries at once, you can group them into a context.
-A context is a set of actions done for the same purpose.
-For example, a context could group the actions of a CRON fetching third party data and updating Content items.
-Some built-in contexts are:
+Context is a set of actions done for the same purpose, for example, it could group the actions of a CRON that fetches third party data and updates Content items.
+The built-in contexts include:
 
-- `web` to group actions made in the Back Office, like the update and the publishing of a new Content item's version,
-- or `migration` to group every actions from a migration file execution.
+- `web` - groups actions made in the Back Office, like the update and the publishing of a new Content item's version
+- `migration` - groups every action from a migration file execution
 
 A context group counts as one item in regard to `activity_logs_limit` configuration and `ActivityLogService::findGroups`'s `$limit` argument.
 
 To open a context group, use `ActivityLogService::prepareContext` which has two arguments:
 
-* `$source` - describes, usually through a short identifier, what is triggering the set of actions. For example, some already existing source are `web` (like for actions from the Back Office), `graphql`, `rest` and `migration`.
-* `$description` - an optional more specific contextualisation. For example, `migration` context source is associated with the migration file name in its context description.
+- `$source` - describes, usually through a short identifier, what is triggering the set of actions. 
+For example, some already existing sources are `web` (incl. actions from the Back Office), `graphql`, `rest` and `migration`
+- `$description` - an optional, more specific contextualisation.
+For example, `migration` context source is associated with the migration file name in its context description
 
 To close a context group, use `ActivityLogService::dismissContext`.
 
-In the following example, several actions are logged into one context group, even actions triggered by cascade outside the piece of code:
+In the following example, several actions are logged into one context group, even those triggered by a cascade outside the piece of code:
 
 - `my_feature`
     - `init`
@@ -180,36 +184,37 @@ In the following example, several actions are logged into one context group, eve
 ```
 
 Context groups can't be nested.
-If a new context is prepared while a context is already grouping log entries, this new context will be ignored. Nested context might be supported in the future.
+If a new context is prepared when a context is already grouping log entries, this new context is ignored.
 To start a new context, make sure to previously dismiss the existing one.
 
-In the Back Office, a context group is folded below its first entry.
-The `my_feature` context from example is folded bellow its first action, the `init` action.
-Following actions are displayed by clicking the **Show more** button.
+When displayed in the Back Office, a context group is folded below its first entry.
+The `my_feature` context from the example is folded below its first action, the `init` action.
+Other actions are displayed after you click the **Show more** button.
 
-![The example context group displayed on the Recent Activity page](activity_log_group.png "The `my_feature` context from example")
+![The example context group displayed on the Recent Activity page](activity_log_group.png "`my_feature` context from the example")
 
-#### Display
+#### Displaying log entries
 
 To display your log entry, if your object's PHP class isn't already covered, you'll have to:
 
-* implement `ClassNameMapperInterface` to associate the class name with an identifier,
-* eventually create a `PostActivityListLoadEvent` subscriber if you need to load the object for the template,
-* create a template to display this class log entries.
+- implement `ClassNameMapperInterface` to associate the class name with an identifier,
+- eventually create a `PostActivityListLoadEvent` subscriber if you need to load the object for the template,
+- create a template to display this class log entries.
 
-You can have a template:
+You can have a template that is:
 
-* specific to a class identifier and placed in `templates/themes/<theme>/activity_log/ui/<identifier>.html.twig`
-* specific to an action on an identifier and placed in `templates/themes/<theme>/activity_log/ui/<identifier>/<action>.html.twig`
+- specific to a class identifier and placed in `templates/themes/<theme>/activity_log/ui/<identifier>.html.twig`
+- specific to an action on an identifier and placed in `templates/themes/<theme>/activity_log/ui/<identifier>/<action>.html.twig`
 
 Template existence is tested in reverse order: if there is no action that specifies the template, the identifier's default is used.
 For the same identifier, you could have specific templates for few actions, and a default one for the remaining actions.
 
 A default template is used if no template is found for the identifier.
-The built-in default template `@ibexadesign/activity_log/ui/default.html.twig` has an empty `activity_log_description_widget` block and displays nothing for unknown objects.
+The built-in default template `@ibexadesign/activity_log/ui/default.html.twig` has an empty `activity_log_description_widget` block and doesn't display anything for unknown objects.
 Your template can extend `@ibexadesign/activity_log/ui/default.html.twig`, and only redefine the `activity_log_description_widget` block for your objects.
 
-First, follow an example of a default template overriding the one from the bundle. It can be used at development time as a fallback for classes not yet mapped.
+First, follow an example of a default template overriding the one from the bundle.
+It can be used during development as a fallback for classes that aren't mapped yet.
 
 ``` twig
 [[= include_file('code_samples/recent_activity/templates/themes/admin/activity_log/ui/default.html.twig') =]]
@@ -230,7 +235,7 @@ To be taken into account, this mapper must be registered as a service:
 [[= include_file('code_samples/recent_activity/config/append_to_services.yaml') =]]
 ```
 
-Here is an example of a `PostActivityListLoadEvent` subscriber which loads the related object when it's a `App\MyFeature\MyFeature`, and attaches it to the log entry:
+Here is an example of a `PostActivityListLoadEvent` subscriber which loads the related object when it's an `App\MyFeature\MyFeature`, and attaches it to the log entry:
 
 ``` php
 [[= include_file('code_samples/recent_activity/src/EventSubscriber/MyFeaturePostActivityListLoadEventSubscriber.php') =]]
@@ -246,4 +251,5 @@ Thanks to the previous subscriber, the related object is available at display ti
 
 ## REST API
 
-REST API can be used to browse activity logs, see in the [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#monitoring-activity).
+You can browse activity logs with REST API.
+For more information, see the [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#monitoring-activity).

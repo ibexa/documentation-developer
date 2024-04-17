@@ -37,11 +37,11 @@ Out of the box FunctionList uses it in the following way:
 
 ## ActivityLogOwner Limitation
 
-The `ActivityLogOwner` Limitation specifies if a user can see only own [recent activity](recent_activity.md) log entries, and not entries from other users. 
+The `ActivityLogOwner` Limitation specifies if a user can see only their own [recent activity](recent_activity.md) log entries, and not entries from other users. 
 
-| Value | UI value        | Description                                            |
-|-------|-----------------|--------------------------------------------------------|
-| `1`   | "Only own logs" | Current user can only access own activity log entries. |
+| Value | UI value        | Description                                                  |
+|-------|-----------------|--------------------------------------------------------------|
+| `1`   | "Only own logs" | Current user can only access their own activity log entries. |
 
 ## CartOwner Limitation
 
