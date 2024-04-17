@@ -86,6 +86,7 @@ $(document).ready(function() {
                 $('.version-warning .version').html($('<a href ="' + url + '" class="external">' + version + '</a>'));
             }
 */
+            setSwitcherEvents();
         }
     }, 300);
     setTimeout(function() {

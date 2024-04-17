@@ -1,5 +1,6 @@
-$(function () {
 console.log('docs.switcher.js');
+function setSwitcherEvents() {
+console.log('docs.switcher.js: setSwitcherEvents');
     const CLASS_EXPANDED_LIST = 'switcher__selected-item--expanded';
     const switchers = window.document.querySelectorAll('.switcher');
     const toggleListExpandedState = (event) => {
@@ -18,4 +19,4 @@ console.log('docs.switcher.js');
 
         window.document.body.addEventListener('click', (event) => collapseList(event, switcher, selectedItem), false);
     });
-});
+};
