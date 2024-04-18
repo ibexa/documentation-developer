@@ -39,12 +39,12 @@ Rules are grouped per *view type*.
 
 The default, built-in views are:
 
-- `full` - used when the Content item is displayed by itself, as a full page
+- `full` - used when the content item is displayed by itself, as a full page
 - `line` - used when content is displayed as an item in a list, for example a list of the contents of a folder
 - `text_linked` - used for a text section which is a link
-- `embed` - used when one Content item is embedded in another, as a block
-- `embed-inline` - used when a Content item is embedded inline in another
-- `asset_image` - used when an image asset is embedded in another Content item
+- `embed` - used when one content item is embedded in another, as a block
+- `embed-inline` - used when a content item is embedded inline in another
+- `asset_image` - used when an image asset is embedded in another content item
 
 The built-in views have built-in default templates.
 You can define any other custom views. For each custom view, you must define a custom template.
@@ -91,7 +91,7 @@ match:
 In the example above, content which is either an article or a blog post is matched,
 but it must be in the "News" Section.
 
-### Matching every Content item
+### Matching every content item
 
 When you use no matcher in a rule, this rule always match. Several values are available to declare no matcher:
 
@@ -105,14 +105,14 @@ Such rules can be found in the [default template configuration](https://github.c
 
 !!! tip
 
-    For example, you can ensure that any Content item lacking a dedicated template isn't displayed in `full` view but is instead sent to a custom controller.
+    For example, you can ensure that any content item lacking a dedicated template isn't displayed in `full` view but is instead sent to a custom controller.
     ```yaml
     site_group:
         content_view:
             full:
-                # Rules for Content Types and specific Content items meant to be displayed in full view:
+                # Rules for content types and specific content items meant to be displayed in full view:
                 # …
-                # Rule for other Content items not meant to be displayed in full view:
+                # Rule for other content items not meant to be displayed in full view:
                 no_full_view:
                     controller: App\Controller\ViewController::noFullViewAction
                     template: '@ibexadesign/full/no_full_view.html.twig'

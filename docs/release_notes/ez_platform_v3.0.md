@@ -60,17 +60,17 @@ For details, see [Bundles](https://doc.ibexa.co/en/latest/guide/bundles).
     #### Schedule calendar
 
     You can now easily view and perform scheduling actions using the Calendar widget available in the Back Office.
-    By default, the widget displays Content items scheduled for future publication, but custom events can be configured as well.
+    By default, the widget displays content items scheduled for future publication, but custom events can be configured as well.
     You can also filter displayed events and toggle through a day, week, and month view.
 
     #### Manage planned publications with Dashboard
 
     You can now reschedule or cancel planned future publications right from the Dashboard.
 
-    #### Schedule hiding a Content item
+    #### Schedule hiding a content item
 
-    You can now schedule hiding Content items.
-    Using Calendar widget available in the Back Office you can also reschedule or cancel hiding a Content item.
+    You can now schedule hiding content items.
+    Using Calendar widget available in the Back Office you can also reschedule or cancel hiding a content item.
 
     ### Defining buttons in Online Editor
 
@@ -101,7 +101,7 @@ For details, see [Bundles](https://doc.ibexa.co/en/latest/guide/bundles).
 
     ## Version comparison
 
-    You can now compare two versions of the same Content item and preview changes in their Fields:
+    You can now compare two versions of the same content item and preview changes in their Fields:
 
     ![Version comparison](compare_results.png "Version comparison in one-column view")
 
@@ -130,7 +130,7 @@ You can now use [Generic Field Type](https://doc.ibexa.co/en/latest/extending/ex
 
 #### Keyword Field Type
 
-The `keyword` Field Type can now recognize versions of a Content item.
+The `keyword` Field Type can now recognize versions of a content item.
 
 ### Login and password options
 
@@ -191,7 +191,7 @@ You can now assign Page Builder blocks to groups using the `ezplatform_page_fiel
 
 ### Bulk actions in Sub-items list
 
-You can now use the Sub-items list to quickly hide, reveal, to add Locations to multiple Content items.
+You can now use the Sub-items list to quickly hide, reveal, to add Locations to multiple content items.
 
 ### Tooltips
 
@@ -304,7 +304,7 @@ In YAML configuration, the main configuration key is now `ezplatform` instead of
 ### Content forms
 
 The new `ezplatform-content-forms` package contains forms for content creation moved from `repository-forms`,
-while Content Type editing has been moved to `ezplatform-admin-ui` from `repository-forms`.
+while content type editing has been moved to `ezplatform-admin-ui` from `repository-forms`.
 
 ### Custom Installers
 

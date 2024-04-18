@@ -82,9 +82,10 @@ see the [How to Remove a Bundle]([[= symfony_doc =]]/bundles/remove.html) instru
 |ibexa/icons|Icon set for the Back Office|
 |ibexa/image-editor|[Image Editor](configure_image_editor.md)|
 |ibexa/installer|Provides the `ibexa:install` command|
-|ibexa/measurement| Measurement Field Type and measurement product catalog attribute|
+|ibexa/measurement|Measurement Field Type and measurement product catalog attribute|
 |ibexa/migrations|[Migration of Repository data](data_migration.md)|
-|ibexa/oauth2-client|Integration with [`knpuniversity/oauth2-client-bundle`](https://github.com/knpuniversity/oauth2-client-bundle)|
+|[ibexa/oauth2-client](oauth_client.md)|Authenticate user through a third-party OAuth 2 server, integration with [`knpuniversity/oauth2-client-bundle`](https://github.com/knpuniversity/oauth2-client-bundle)|
+|[ibexa/oauth2-server](oauth_server.md)|Allow resource access to OAuth 2 client|
 |ibexa/personalization|Functionality for personalized recommendations|
 |ibexa/product-catalog|Product catalog functionality|
 |ibexa/scheduler|Date-based publishing functionality|
@@ -108,7 +109,7 @@ see the [How to Remove a Bundle]([[= symfony_doc =]]/bundles/remove.html) instru
 |ibexa/headless|Metapackage for Symfony Flex-based [[= product_name =]] Headless installation|
 |ibexa/corporate-account|Customer portal and corporate accounts|
 |ibexa/fieldtype-address|Address handling Field Type|
-|ibexa/form-builder|Enables creating Form Content items with multiple form fields|
+|ibexa/form-builder|Enables creating Form content items with multiple form fields|
 |ibexa/page-builder|Page editor|
 |ibexa/fieldtype-page|Page handling Field Type|
 |ibexa/permissions|Additional permission functionalities|

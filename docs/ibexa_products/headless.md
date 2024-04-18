@@ -48,7 +48,7 @@ Standard web APIs and [[= product_name_connect =]] help establish interoperabili
 APIs summary:
 
 - The REST and GraphQL APIs give access to access the content in standardized ways.
-- The OAuth 2 Client and Server allow to connect to an SSO or be the SSO.
+- The OAuth 2 [Client](oauth_client.md) and [Server](oauth_server.md) allow to connect to an SSO or be the SSO.
 - The design engine and its theme templates mechanism allows to serve the content in several shapes.
 - The PHP API opens [[= product_name_headless =]] to extendability to fit your needs.
   For example, content can be computed, edited or served in specific ways such as
@@ -162,8 +162,8 @@ Several features help end users collaborate on the content, such as:
   The HTTP cache varies on current user's role and is purged when content change.
   With is huge network of points of presence (POP) around the world, Fastly is quickly delivering cached content from nearest server for a better user experience.
 - A Search Engine Optimization (SEO) field implements best practices about web search engine indexing and social network sharing.
-  It covers canonical URLs which are mandatory if multiple locations are used for a same Content item to avoid duplicate content,
-  Open Graph protocol to better describe a Content item to social networks and search engine, and Twitter Cards.
+  It covers canonical URLs which are mandatory if multiple locations are used for a same content item to avoid duplicate content,
+  Open Graph protocol to better describe a content item to social networks and search engine, and Twitter Cards.
 
 ## Use cases
 

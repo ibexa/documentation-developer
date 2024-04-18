@@ -2,26 +2,26 @@ Feature: Setup eZ Platform Enterprise dogs tutorial
 
     @step1
     Scenario: Get a starter website
-        Given I create a "Dog Breed" Content Type with "dog_breed" identifier:
+        Given I create a "Dog Breed" content type with "dog_breed" identifier:
             | Field Type | Name              | Identifier        | Required | Searchable | Translatable |
             | Text line	 | Name              | name	             | yes      | yes	     | yes          |
             | Text line	 | Short Description | short_description | yes      | yes	     | yes          |
             | Image	     | Photo	         | photo	         | yes      | no	     | no           |
             | RichText	 | Full Description	 | description       | yes      | yes	     | yes          |
-        And I create a "Tip" Content Type with "tip" identifier:
+        And I create a "Tip" content type with "tip" identifier:
             | Field Type | Name	 | Identifier | Required | Searchable | Translatable |
             | Text line	 | Title | title	  | yes	     | yes	      | yes          |
             | Text block | Body	 | body	      | no	     | no	      | yes          |
-        And I remove "image" field from Article Content Type
-        And I add field to Article Content Type
+        And I remove "image" field from Article content type
+        And I add field to Article content type
             | Field Type | Name  | Identifier |	Required | Searchable |	Translatable |
             | Image      | Image | image      | no	     | no         |	yes          |
-        And I create "folder" Content items in "Home"
+        And I create "folder" content items in "Home"
             | contentName       |
             | All Articles      |
             | Dog Breed Catalog |
             | All Tips          |
-        And I create "article" Content items in "Home/All Articles"
+        And I create "article" content items in "Home/All Articles"
             | contentName                               | imageName    |
             | Dog favorites                             | article1.jpg |
             | Adopt or buy?                             | article2.jpg |
@@ -29,12 +29,12 @@ Feature: Setup eZ Platform Enterprise dogs tutorial
             | Taking care of your dog during a heatwave | article4.jpg |
             | Dog owner's first steps                   | article5.jpg |
             | Traveling with your dog                   | article6.jpg |
-        And I create "dog_breed" Content items in "Home/Dog Breed Catalog"
+        And I create "dog_breed" content items in "Home/Dog Breed Catalog"
             | contentName          | imageName                |
             | Alsatian             | alsatian.jpg             |
             | King Charles Spaniel | king-charles-spaniel.jpg |
             | St Bernard           | st-bernard.jpg           |
-        And I create "tip" Content items in "Home/All Tips"
+        And I create "tip" content items in "Home/All Tips"
             | contentName |
             | Tip1        |
             | Tip2        |

@@ -88,7 +88,7 @@ A repeatable migration performs the defined migration steps as many times as the
 !!! tip
 
     You can use repeatable migration steps, for example,
-    to quickly generate large numbers of Content items for testing purposes.
+    to quickly generate large numbers of content items for testing purposes.
 
 You can vary the operations using the iteration counter.
 
@@ -207,11 +207,16 @@ requiring either an `__invoke` function or a wrapping service with one.
 
 The following examples show what data you can import using data migrations.
 
-### Content Types
+### Content types
 
-The following example shows how to create a Content Type with two Field definitions.
+The following example shows how to create a content type with two Field definitions.
 
 The required metadata keys are: `identifier`, `mainTranslation`, `contentTypeGroups` and `translations`.
+
+The default values of Field definition properties mirror the underlying PHP API, for example:
+
+- `translatable` defaults to `true`
+- `required` defaults to `false`
 
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/create_blog_post_ct.yaml') =]]
@@ -219,9 +224,9 @@ The required metadata keys are: `identifier`, `mainTranslation`, `contentTypeGro
 
 ### Content items
 
-The following example shows how to create two Content items: a folder and an article inside it.
+The following example shows how to create two content items: a folder and an article inside it.
 
-When creating a Content item, three metadata keys are required:
+When creating a content item, three metadata keys are required:
 `contentType`, `mainTranslation`, and `parentLocationId`.
 
 To use the Location ID of the folder, which is created automatically by the system,
@@ -335,7 +340,7 @@ You can't change the attribute type of an existing attribute.
 
 The following example shows how to create a product type.
 
-The main part of the migration file is the same as when creating a regular Content Type.
+The main part of the migration file is the same as when creating a regular content type.
 
 A product type must also contain the definition for an `ibexa_product_specification` Field.
 `fieldSettings` contains information about the product attributes.
@@ -349,7 +354,7 @@ A product type must also contain the definition for an `ibexa_product_specificat
 The following example shows how to create a product:
 
 ``` yaml
-[[= include_file('code_samples/data_migration/examples/create_product_variant.yaml', 1, 18) =]]
+[[= include_file('code_samples/data_migration/examples/create_product_variant.yaml', 0, 18) =]]
 ```
 
 #### Product variants
@@ -357,12 +362,12 @@ The following example shows how to create a product:
 The following example shows how to create variants for a product identified by its code:
 
 ``` yaml
-[[= include_file('code_samples/data_migration/examples/create_product_variant.yaml', 20, 29) =]]
+[[= include_file('code_samples/data_migration/examples/create_product_variant.yaml', 19, 29) =]]
 ```
 
 #### Product assets
 
-The following example creates an image [Content item](#content-items) from a local image file, and then uses it as a product asset for a variant ([created in previous example](#product-variant)):
+The following example creates an image [content item](#content-items) from a local image file, and then uses it as a product asset for a variant ([created in previous example](#product-variant)):
 
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/create_product_asset.yaml') =]]
@@ -446,19 +451,19 @@ The following example shows how you can create a "Car" tag in the main Taxonomy:
 
 The field identifiers must match the identifiers used in the `ibexa_taxonomy` configuration file.
 
-If the Content Type associated with the tags is changed, the configuration should be adjusted when creating migrations.
+If the content type associated with the tags is changed, the configuration should be adjusted when creating migrations.
 
 !!! note
     If there are multiple taxonomies, the `taxonomy` field is then necessary here (line 21).
 
 
-You can use the following example to assign tags to a Content (Content Type Article has an additional Field):
+You can use the following example to assign tags to a Content (content type Article has an additional Field):
 
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/assign_tag.yaml') =]]
 ```
 
-When updating a Content Type, use:
+When updating a content type, use:
 
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/update_tag.yaml') =]]

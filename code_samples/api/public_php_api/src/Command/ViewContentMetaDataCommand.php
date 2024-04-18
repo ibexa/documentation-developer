@@ -42,7 +42,7 @@ class ViewContentMetaDataCommand extends Command
     protected function configure()
     {
         $this
-            ->setDescription('Output various metadata about a Content item.')
+            ->setDescription('Output various metadata about a content item.')
             ->setDefinition([
                 new InputArgument('contentId', InputArgument::REQUIRED, 'An existing content ID'),
             ]);
@@ -74,9 +74,9 @@ class ViewContentMetaDataCommand extends Command
             $output->writeln('URL alias: ' . $urlAlias->path);
         }
 
-        // Content Type
+        // Content type
         $content = $this->contentService->loadContent($contentId);
-        $output->writeln('Content Type: ' . $content->getContentType()->getName());
+        $output->writeln('Content type: ' . $content->getContentType()->getName());
 
         // Versions
         $versionInfos = $this->contentService->loadVersions($contentInfo);

@@ -112,7 +112,7 @@ To avoid quickly running out of memory while executing such commands you should 
 !!! note "Memory will still grow"
 
     Even when everything is configured like described above, memory will grow for each iteration
-    of indexing/inserting a Content item with at least *1kb* per iteration after the initial first 100 rounds.
+    of indexing/inserting a content item with at least *1kb* per iteration after the initial first 100 rounds.
     This is expected behavior; to be able to handle more iterations you will have to do one or several of the following:
 
     - Change the import/index script in question to [use process forking](#process-forking-with-symfony) to avoid the issue.

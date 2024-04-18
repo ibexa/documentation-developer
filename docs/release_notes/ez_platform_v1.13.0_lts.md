@@ -15,21 +15,21 @@
 
 The new Link manager enables you to manage all links to external websites that are embedded in the whole site,
 whether in Rich Text or in URL Field.
-You can edit a link in the manager and it will be updated automatically in all Content items.
+You can edit a link in the manager and it will be updated automatically in all content items.
 
 ![Link Manager](link_manager.png)
 
 ### Copying subtrees in the back office
 
-Following [EZP-27759](https://issues.ibexa.co/browse/EZP-27759) you can now copy a Content item with all of its sub-items in the back office.
+Following [EZP-27759](https://issues.ibexa.co/browse/EZP-27759) you can now copy a content item with all of its sub-items in the back office.
 
-The maximum number of Content items that can be copied this way can be set in configuration, see [Copy subtree limit](https://doc.ibexa.co/en/latest/guide/config_back_office/#copy-subtree-limit).
+The maximum number of content items that can be copied this way can be set in configuration, see [Copy subtree limit](https://doc.ibexa.co/en/latest/guide/config_back_office/#copy-subtree-limit).
 
 ![Copy subtree option in the menu](copy_subtree_button.png)
 
 ### REST API improvements
 
-- [EZP-27752](https://issues.ibexa.co/browse/EZP-27752) adds a REST endpoint for deleting a translation from all versions of a Content item.
+- [EZP-27752](https://issues.ibexa.co/browse/EZP-27752) adds a REST endpoint for deleting a translation from all versions of a content item.
 - [EZP-28253](https://issues.ibexa.co/browse/EZP-28253) adds a `fieldTypeIdentifier` field to the REST response for Version, which provides the Field Type.
 
 ### ezplatform-http-cache extensibility

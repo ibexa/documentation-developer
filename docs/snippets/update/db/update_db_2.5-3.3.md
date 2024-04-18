@@ -15,7 +15,7 @@ php bin/console ibexa:upgrade
 
     You can only run this command once.
 
-Check the Location ID of the "Components" Content item and set it as a value of the `content_tree_module.contextual_tree_root_location_ids` key in `config/ezplatform.yaml`:
+Check the Location ID of the "Components" content item and set it as a value of the `content_tree_module.contextual_tree_root_location_ids` key in `config/ezplatform.yaml`:
 
 ```
 - 60 # Components

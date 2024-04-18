@@ -22,8 +22,8 @@ Go to the front page of your website (`<yourdomain>`). You can see that it looks
     `yarn encore <dev|prod>`
 
 Log in to the Back Office. Go to **Content Structure**.
-The **Ibexa Digital Experience Platform** Content item is the first page that is shown to the visitor.
-Here you can check what Content Type it belongs to: it is a Landing Page.
+The **Ibexa Digital Experience Platform** content item is the first page that is shown to the visitor.
+Here you can check what content type it belongs to: it is a Landing Page.
 
 ![Ibexa Digital Experience Platform is a Landing Page](enterprise_tut_home_is_an_lp.png)
 

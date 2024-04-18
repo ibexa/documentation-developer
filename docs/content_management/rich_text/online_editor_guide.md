@@ -6,7 +6,7 @@ description: The Online Editor product guide provides a full description of its 
 
 ## What is Online Editor
 
-Online Editor is the interface for editing RichText Fields in any Content item in [[= product_name =]].
+Online Editor is the interface for editing RichText Fields in any content item in [[= product_name =]].
 It offers standard editing capabilities as well as extensibility points to customize the editing experience and the available elements.
 
 Online Editor is based on [CKEditor 5](https://ckeditor.com/ckeditor-5/).
@@ -18,8 +18,8 @@ Online Editor is available in all supported [[= product_name =]] versions and ed
 ## How to get started
 
 Online Editor is the default editing interface for all RichText Fields. 
-To start using it, create any Content item with a RichText Field 
-(for example, using the built-in Article Content Type) and edit this Field.
+To start using it, create any content item with a RichText Field 
+(for example, using the built-in Article content type) and edit this Field.
 
 ## Capabilities
 

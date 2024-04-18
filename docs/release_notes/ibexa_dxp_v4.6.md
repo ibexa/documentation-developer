@@ -56,15 +56,15 @@ Here are the most important changes:
 
 For more information, see [Page Builder interface](https://doc.ibexa.co/projects/userguide/en/master/content_management/create_edit_pages/#page-builder-interface).
 
-#### Editing embedded Content items
+#### Editing embedded content items
 
-User can now edit embedded Content items without leaving current window.
-This function is available in the Rich Text Field when creating Content items, for selected blocks in the Page Builder,
+User can now edit embedded content items without leaving current window.
+This function is available in the Rich Text Field when creating content items, for selected blocks in the Page Builder,
 and while adding or modifying a Content relation.
 
-![Editing embedded Content items](img/4.6_editing_embedded_content_items.png "Editing embedded Content items")
+![Editing embedded content items](img/4.6_editing_embedded_content_items.png "Editing embedded content items")
 
-For more information, see [Edit embedded Content items](https://doc.ibexa.co/projects/userguide/en/master/content_management/create_edit_content_items/#edit-embedded-content-items).
+For more information, see [Edit embedded content items](https://doc.ibexa.co/projects/userguide/en/master/content_management/create_edit_content_items/#edit-embedded-content-items).
 
 #### Focus mode
 
@@ -76,18 +76,18 @@ For more information, see [Focus mode](https://doc.ibexa.co/projects/userguide/e
 
 As part of this effort, some other changes were introduced that apply to both regular and Focus mode:
 
-- In Content item details view, tabs have been reordered by their relevance
-- **Authors** and **Sub-items** are now separate tabs in Content item details view
+- In content item details view, tabs have been reordered by their relevance
+- **Authors** and **Sub-items** are now separate tabs in content item details view
 - Former **Details** tab is now called **Technical details** and changed its position
-- Preview is available in many new places, such as the **View** tab in Content item details view, or as miniatures when you hover over the Content Tree
+- Preview is available in many new places, such as the **View** tab in content item details view, or as miniatures when you hover over the Content Tree
 - `ibexa_is_focus_mode_on` and `ibexa_is_focus_mode_off` Twig helpers have been introduced, which check whether focus mode is enabled or not.
 
 ![Sub-items tab](img/4.6_sub_items_tab.png "Sub-items tab")
 
 #### Ability to change site context
 
-With a drop-down list added to the top bar, which changes the site context, editors can choose that the Content Tree shows only those Content items that belong to the selected website.
-And if Content items belong to multiple websites but use different designs or languages depending on the SiteAccess settings, their previews also change.
+With a drop-down list added to the top bar, which changes the site context, editors can choose that the Content Tree shows only those content items that belong to the selected website.
+And if content items belong to multiple websites but use different designs or languages depending on the SiteAccess settings, their previews also change.
 
 As part of this effort, the name of the "Sites" area of the main menu has changed to "Site management".
 
@@ -171,10 +171,10 @@ For more information,
 see [user documentation](https://doc.ibexa.co/projects/userguide/en/master/search/search_for_content/#filtered-search),
 and how to [customize search sorting](https://doc.ibexa.co/en/master/docs/administration/back_office/search_sorting/).
 
-#### New and updated Content Type icons
+#### New and updated content type icons
 
-To help users quickly identify different content types in the Back Office, all Content Type references are now accompanied with icons.
-Also, Content Type icons have changed slightly.
+To help users quickly identify different content types in the Back Office, all content type references are now accompanied with icons.
+Also, content type icons have changed slightly.
 
 ![Content type icons](img/4.6_content_type_icons.png "Content type icons")
 
@@ -453,7 +453,7 @@ Any third party code that extends `\Ibexa\Contracts\Rest\Output\Generator` needs
 
 ### Helpers
 
-A new helper method `ibexa.helpers.contentType.getContentTypeDataByHref` has been introduced to help you get Content Type data in JavaScript.
+A new helper method `ibexa.helpers.contentType.getContentTypeDataByHref` has been introduced to help you get content type data in JavaScript.
 
 ### Ibexa Connect
 
@@ -484,7 +484,7 @@ For more information, see [CDP Activation](https://doc.ibexa.co/en/master/cdp/cd
 
 The following packages has been introduced in Ibexa DXP v4.6.0:
 
-- ibexa/oauth2-server (optional)
+- [ibexa/oauth2-server](oauth_server.md) (optional)
 - ibexa/site-context
 - ibexa/activity-log
 - ibexa/notifications

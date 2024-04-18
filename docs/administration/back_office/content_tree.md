@@ -1,5 +1,5 @@
 ---
-description: Configure SiteAccess, displayed Content items, depth and root location for the Content Tree.
+description: Configure SiteAccess, displayed content items, depth and root location for the Content Tree.
 ---
 
 # Content Tree
@@ -7,9 +7,9 @@ description: Configure SiteAccess, displayed Content items, depth and root locat
 With this configuration you can:
 
 - define configuration for a SiteAccess or a SiteAccess group
-- decide how many Content items are displayed in the tree
+- decide how many content items are displayed in the tree
 - set maximum depth of expanded tree
-- hide Content Types
+- hide content types
 - set a tree root Location
 - override Content Tree's root for specific Locations
 
@@ -25,9 +25,9 @@ ibexa:
                 children_load_max_limit: 200
                 # maximum depth of expanded tree
                 tree_max_depth: 10
-                # Content Types to display in Content Tree, value of '*' allows all CTs to be displayed
+                # content types to display in Content Tree, value of '*' allows all CTs to be displayed
                 allowed_content_types: '*'
-                # Content Tree won't display these Content Types, can be used only when 'allowed_content_types' is set to '*'
+                # Content Tree won't display these content types, can be used only when 'allowed_content_types' is set to '*'
                 ignored_content_types:
                    - post
                    - article

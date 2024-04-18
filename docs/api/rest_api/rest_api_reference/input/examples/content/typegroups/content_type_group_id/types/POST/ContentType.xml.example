@@ -4,7 +4,7 @@
     <status>DRAFT</status>
     <identifier>newContentType</identifier>
     <names>
-        <value languageCode="eng-GB">New Content Type</value>
+        <value languageCode="eng-GB">New content type</value>
     </names>
     <descriptions>
         <value languageCode="eng-GB">This is a description</value>

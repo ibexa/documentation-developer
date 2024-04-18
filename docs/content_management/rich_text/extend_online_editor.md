@@ -58,7 +58,7 @@ Add labels for the new tag by providing translations in `translations/custom_tag
 ```
 
 Now you can use the tag.
-In the Back Office, create or edit a Content item that has a RichText Field Type.
+In the Back Office, create or edit a content item that has a RichText Field Type.
 In the Online Editor, click **Add**, and from the list of available tags select the FactBox tag icon.
 
 ![FactBox Tag](custom_tag_factbox.png "FactBox Tag in the Online Editor")
@@ -105,7 +105,7 @@ Add labels for the tag by providing translations in `translations/custom_tags.en
 ```
 
 Now you can use the tag.
-In the Back Office, create or edit a Content item that has a RichText Field Type.
+In the Back Office, create or edit a content item that has a RichText Field Type.
 In the Online Editor's toolbar, click **Show more items**, and from the list of available tags select the Link tag icon.
 
 ![Link Tag](custom_tag_link.png "Link Tag in the Online Editor") 
