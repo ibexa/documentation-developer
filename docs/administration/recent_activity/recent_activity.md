@@ -40,12 +40,10 @@ For every exact hour, the cronjob line is:
 
 ## Permission and security
 
-The **Activity Log / Read** policy ([`activity_log/read`](policies.md#activity-log)) gives a role the access to
-the **Admin** -> **Activity list**, the dashboard's **Recent activity** block, and the user profile's **Recent activity**.
-It can be limited to **Only own log** ([`ActivityLogOwner`](limitation_reference.md#activitylogowner-limitation)).
+The ([`activity_log/read`](policies.md#activity-log)) policy gives a role the access to the **Admin** -> **Activity list**, the dashboard's **Recent activity** block, and the user profile's **Recent activity**.
+It can be limited to "Only own logs" ([`ActivityLogOwner`](limitation_reference.md#activitylogowner-limitation)).
 
-The **Activity Log / Read** policy should be given to every roles having access to the Back Office,
-at least with the **Only own log** owner limitation,
+The policy should be given to every roles having access to the Back Office, at least with the `ActivityLogOwner` owner limitation,
 to allow them to use the "Recent activity" block in the [default dashboard](configure_default_dashboard.md) or their [custom dashboard](customize_dashboard.md).
 This policy is required to view [activity log in user profile]([[= user_doc =]]/recent_activity/recent_activity/#user-profile), if [profile]([[= user_doc =]]/getting_started/get_started/#edit-user-profile) is enabled.
 
