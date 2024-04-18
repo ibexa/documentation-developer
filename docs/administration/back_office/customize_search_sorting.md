@@ -6,7 +6,7 @@ description: Add a "sort by" method to the Back Office search result page.
 
 You can customize the **Sort by** menu in the Back Office search result page, for example, by adding new sort criteria.
 
-To do it, you must create a service that implements the `Ibexa\Contracts\Search\SortingDefinition\SortingDefinitionProviderInterface` and tag it with`ibexa.search.sorting_definition.provider`.
+To do it, you must create a service that implements the `Ibexa\Contracts\Search\SortingDefinition\SortingDefinitionProviderInterface` and tag it with `ibexa.search.sorting_definition.provider`.
 
 The following example class implements `SortingDefinitionProviderInterface::getSortingDefinitions`, and adds two definitions to sort by section name.
 A sorting definition contains an identifier, a menu label, a list of content search Sort Clauses, which could be either [default](sort_clause_reference.md#sort-clauses) or [custom](create_custom_sort_clause.md), and a priority value to position them in the menu.
