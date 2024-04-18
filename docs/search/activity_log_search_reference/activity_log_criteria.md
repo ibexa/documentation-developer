@@ -29,6 +29,5 @@ See [Searching in the Activity Log groups](recent_activity.md#searching-in-the-a
 | Search Criterion                                  | Description                                             |
 |---------------------------------------------------|-------------------------------------------------------------|
 | `LogicalNot`          | Logical NOT criterion that matches if the provided Criteria don't match.                           |
-
 | `LogicalAnd`          | Logical AND criterion that matches if all the provided Criteria match.                          |
 | `LogicalOr`           | Logical OR criterion that matches if at least one of the provided Criteria matches.      |
