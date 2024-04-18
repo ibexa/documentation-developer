@@ -5,8 +5,8 @@ matches log group with a log entry about the given class name, and eventually on
 
 ## Arguments
 
-- `objectClass` - The class of the object concerned by the searched log entries
-- `ids` - An optional list of object IDs
+- `objectClass` - a class of the object concerned by the searched log entries
+- `ids` - an optional list of object IDs
 
 ## Examples
 

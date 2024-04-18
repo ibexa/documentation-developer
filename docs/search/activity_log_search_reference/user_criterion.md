@@ -1,11 +1,11 @@
 # User Criterion
 
 The `UserCriterion` Activity Log Criterion
-matches log groups having an activity by one of the users given by their IDs.
+matches log groups that have an activity by one of the users given by their IDs.
 
 ## Argument
 
-- `ids` - List of user IDs
+- `ids` - list of user IDs
 
 ## Example
 

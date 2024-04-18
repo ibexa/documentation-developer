@@ -9,11 +9,12 @@ Activity Log Search Criteria are found in the `Ibexa\Contracts\ActivityLog\Value
 
 Those Criteria are to be used with `Ibexa\Contracts\ActivityLog\Values\ActivityLog\Query` for `Ibexa\Contracts\ActivityLog\ActivityLogServiceInterface::find`.
 
-They're applied to log entry groups. For example, with the criterion `ActionCriterion`, you obtain log entry groups having at least one entry with this action (and possibly other actions as well).
+They're applied to log entry groups.
+For example, with the criterion `ActionCriterion`, you get log entry groups that have at least one entry with this action (and possibly other actions as well).
 
 See [Searching in the Activity Log groups](recent_activity.md#searching-in-the-activity-log-groups) for how to use a query, and an example combining several criteria.
 
-## Value Criterion
+## Value-based criteria
 
 | Search Criterion                                  | Search based on                                             |
 |---------------------------------------------------|-------------------------------------------------------------|
@@ -23,8 +24,11 @@ See [Searching in the Activity Log groups](recent_activity.md#searching-in-the-a
 | [`ObjectNameCriterion`](object_name_criterion.md) | Manipulated object's name, in whole or in part              |
 | [`UserCriterion`](user_criterion.md)              | User performing the action                                  |
 
-## Logical Criterion
+## Logical criteria
 
-- `LogicalNot`: Logical NOT criterion that matches if the provided Criteria doesn't match.
-- `LogicalAnd`: Logical AND criterion that matches if all the provided Criteria match.
-- `LogicalOr`: Logical OR criterion that matches if at least one of the provided Criteria matches.
+| Search Criterion                                  | Description                                             |
+|---------------------------------------------------|-------------------------------------------------------------|
+| `LogicalNot`          | Logical NOT criterion that matches if the provided Criteria don't match.                           |
+
+| `LogicalAnd`          | Logical AND criterion that matches if all the provided Criteria match.                          |
+| `LogicalOr`           | Logical OR criterion that matches if at least one of the provided Criteria matches.      |

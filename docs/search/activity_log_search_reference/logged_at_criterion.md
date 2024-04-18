@@ -1,12 +1,12 @@
 # LoggedAt Criterion
 
 The `LoggedAtCriterion` Activity Log Criterion
-matches activity log group having a log entry created before or after a given date time.
+matches activity log group that has a log entry created before or after a given date time.
 
 ## Arguments
 
-- `dateTime` - a [`DateTimeInterface`](https://www.php.net/manual/en/class.datetimeinterface.php) object, like [`DateTime`](https://www.php.net/manual/en/class.datetime.php).
-- `comparison` - string representing a comparison sign. Available signs can be found as constant in the `LoggedAtCriterion` class itself.
+- `dateTime` - a [`DateTimeInterface`](https://www.php.net/manual/en/class.datetimeinterface.php) object, like [`DateTime`](https://www.php.net/manual/en/class.datetime.php)
+- `comparison` - string that represents a comparison sign. Available signs can be found as constant in the `LoggedAtCriterion` class itself
 
 | Comparison            | Value | Constant                 |
 |-----------------------|-------|--------------------------|
@@ -19,7 +19,7 @@ matches activity log group having a log entry created before or after a given da
 
 ## Example
 
-The following example is to match all activity log groups not older than a day:
+The following example is to match all activity log groups that are not older than a day:
 
 ```php
 $query = new ActivityLog\Query([
