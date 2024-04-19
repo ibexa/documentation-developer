@@ -57,7 +57,7 @@ The `ActivityLogService` PHP API can be used to browse activity logs and write n
 
 ### Searching in the Activity Log groups
 
-You can search among the activity log entry groups with the `ActivityLogService::findGroups` command, by passing an `Ibexa\Contracts\ActivityLog\Values\ActivityLog\Query`.
+You can search among the activity log entry groups with the `ActivityLogService::findGroups` method, by passing an `Ibexa\Contracts\ActivityLog\Values\ActivityLog\Query` object.
 This `Query`'s constructor has four arguments:
 
 - `$criteria` - an array of criteria from `Ibexa\Contracts\ActivityLog\Values\ActivityLog\Criterion` combined as a logical AND.
@@ -154,7 +154,7 @@ If you log several related entries at once, you can group them into a context.
 Context is a set of actions done for the same purpose, for example, it could group the actions of a CRON that fetches third party data and updates Content items.
 The built-in contexts include:
 
-- `web` - groups actions made in the Back Office, like the update and the publishing of a new Content item's version
+- `web` - groups actions made in the Back Office, like the update and the publishing of a new content item's version
 - `migration` - groups every action from a migration file execution
 
 A context group counts as one item in regard to `activity_logs_limit` configuration and `ActivityLogService::findGroups`'s `$limit` argument.
