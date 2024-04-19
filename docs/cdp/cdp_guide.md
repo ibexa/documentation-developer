@@ -57,11 +57,11 @@ Remember to add a segment group identifier to the configuration, under the `segm
 ### Data export
 
 Configuration in [[= product_name_cdp =]] allows you to automate the process of exporting Content, Users, and Products.
-Under the `schedule` setting you can find separate sections for exporting User, Content, and Product. Structure of each section is exactly the same and includes interval and options elements:
+An `ibexa_cdp.data_export` [configuration key](https://doc.ibexa.co/en/latest/cdp/cdp_data_export_schedule/#configuration-key) includes the `schedule` setting where you can find separate sections for exporting User, Content, and Product. Structure of each section is exactly the same and includes `interval` and `options` elements:
 
-- Interval - sets the frequency of the command invoke using cron expressions, for example, '*/30 * * * *' means "every 30 minutes", '0 */12 * * *' means "every 12 hours".
+- `interval` - sets the frequency of the command invoke using cron expressions, for example, '*/30 * * * *' means "every 30 minutes", '0 */12 * * *' means "every 12 hours".
 
-- Options - allows you to add arguments that have to be passed to the export command.
+- `options` - allows you to add arguments that have to be passed to the export command.
 
 This configuration allows you to provide multiple export workflows with parameters. It's important, because all the types of content/product must have their own parameters on the CDP side, where each has a different Stream ID key and different required values configured per data source.
 
@@ -91,7 +91,6 @@ You can also connect created audiences to the activations.
 
 ## Limitations
 
-[[= product_name_cdp =]] doesn't support column mapping, which allows you to match records on JSON data directly.
 Regarding data export, currently, only Stream File transport is supported and can be initialized from the configuration.
 
 ## Benefits
