@@ -21,7 +21,9 @@ Create the `src/Search/SortingDefinition/Provider/SectionNameSortingDefinitionPr
 Then add a service definition to `config/services.yaml`:
 
 ``` yaml hl_lines="5"
-[[= include_file('code_samples/back_office/search/config/append_to_services.yaml') =]]
+services:
+    #…
+[[= include_file('code_samples/back_office/search/config/append_to_services.yaml', 29, 32) =]]
 ```
 
 You can extract a translation file with the `translation:extract` command, for example, `php bin/console translation:extract en --dir=src --output-dir=translations` to obtain the `translations/ibexa_search.en.xlf` file.

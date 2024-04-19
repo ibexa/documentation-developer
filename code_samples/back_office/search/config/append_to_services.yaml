@@ -29,4 +29,4 @@ services:
 
     App\Search\SortingDefinition\Provider\SectionNameSortingDefinitionProvider:
         tags:
-            -   name: ibexa.search.sorting_definition.provider
+            - name: ibexa.search.sorting_definition.provider
