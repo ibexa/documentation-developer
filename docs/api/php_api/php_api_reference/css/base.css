@@ -1719,3 +1719,42 @@ ul.breadcrumbs li.breadcrumb-item-current span {
 [dir=ltr] .md-typeset .phpdocumentor-tag-list__definition {
     margin-left: 0;
 }
+
+.md-typeset ul.namespace-list {
+    list-style: none;
+    margin: 0 0 32px;
+}
+
+.md-typeset ul.namespace-list li {
+    display: flex;
+    align-items: flex-start;
+    margin: 24px 0 0 0;
+}
+
+.md-typeset ul.namespace-list li a {
+    text-decoration: underline;
+}
+
+.md-typeset ul.namespace-list li p {
+    margin: 0 0 0 12px;
+    padding-left: 12px;
+    border-left: 1px solid #D9D9D9;
+    color: #71767C;
+}
+
+.md-typeset .property-tags {
+    display: inline-block;
+    line-height: 1;
+}
+
+.md-typeset .property-tags__tag {
+    display: inline-block;
+    font-size: 10px;
+    line-height: 15px;
+    text-transform: uppercase;
+    font-weight: 400;
+    padding: 4px 8px;
+    border-radius: 16px;
+    border: 1px solid #B3B3BA;
+    margin-left: 12px;
+}
