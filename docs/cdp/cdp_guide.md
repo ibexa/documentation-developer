@@ -10,7 +10,7 @@ description: The Ibexa CDP (Customer Data Platform) product guide provides a ful
 By using [[= product_name_cdp =]] you can monitor and compile data about your customers' activity on multiple channels.
 It also allows you to create individual customer profiles so you can customize their experience on your platform.
 
-With [[= product_name_cdp =]] you can store and manage large volumes of customer data in a structured manner. This central data storage supports business growth with a scalable infrastructure, helping to futureproof your business. 
+With [[= product_name_cdp =]] you can store and manage large volumes of customer data in a structured manner. This central data storage supports business growth with a scalable infrastructure, helping to futureproof your business.
 You can get customer data from both online and offline data sources.
 It includes first, second, and third-party data from multiple sources such as transactional systems, website tracking and behavior, POS, CRM, and others.
 
@@ -28,13 +28,13 @@ Customer data is gathered through a system of trackers embedded in various areas
 
 ### Installation and configuration
 
-To start using [[= product_name_cdp =]], first you need to contact your sales representative, who provides you with a link to [register your [[= product_name_cdp =]] account](https://doc.ibexa.co/en/latest/cdp/cdp_installation/#register-in-ibexa-cdp-dashboard). When you're done with registration process, you'll be able to access a separate instance with the data needed to configure, activate, and use this feature. 
+To start using [[= product_name_cdp =]], first you need to contact your sales representative, who provides you with a link to [register your [[= product_name_cdp =]] account](https://doc.ibexa.co/en/latest/cdp/cdp_installation/#register-in-ibexa-cdp-dashboard). When you're done with registration process, you'll be able to access a separate instance with the data needed to configure, activate, and use this feature.
 
 After your account is created, you can [download and install the [[= product_name_cdp =]] package](https://doc.ibexa.co/en/latest/cdp/cdp_installation/#install-cdp-package) that is opt-in and needs to be downloaded separately. Last step is to go through the [configuration process](https://doc.ibexa.co/en/latest/cdp/cdp_activation/cdp_configuration/).
 
 ### Customer profile
 
-In [[= product_name_cdp =]] you can build 360° customer profiles. It unifies customer data from different sources to help you understand your prospects and customer needs. 
+In [[= product_name_cdp =]] you can build 360° customer profiles. It unifies customer data from different sources to help you understand your prospects and customer needs.
 After you get customer data, you can unify and match customer profiles based on their preferences and habits. You can create and analyze complete, 360° customer profiles based on demographics, interactions, behaviors, and transactional data.
 This approach helps you create a single customer view.
 
@@ -65,6 +65,8 @@ An `ibexa_cdp.data_export` [configuration key](https://doc.ibexa.co/en/latest/cd
 
 This configuration allows you to provide multiple export workflows with parameters. It's important, because all the types of content/product must have their own parameters on the CDP side, where each has a different Stream ID key and different required values configured per data source.
 
+Regarding data export, currently, only Stream File transport is supported and can be initialized from the configuration.
+
 For more information, see [CDP data export](https://doc.ibexa.co/en/latest/cdp/cdp_activation/cdp_data_export/).
 
 ### Data customization
@@ -83,15 +85,11 @@ For more information, see [CDP add client-side tracking](https://doc.ibexa.co/en
 
 In the Audience Builder, you can create audiences - groups of users that meet the assumed conditions.
 You can choose specific conditions: `did`, `did not`, or `have`.
-The conditions `did` and `did not` allow you to use events like buy, visit or add to a cart from online tracking. The  `have` conditions are tied to personal characteristics and can be used to track the sum of all buys or top-visited categories. 
+The conditions `did` and `did not` allow you to use events like buy, visit or add to a cart from online tracking. The  `have` conditions are tied to personal characteristics and can be used to track the sum of all buys or top-visited categories.
 
 You can also connect created audiences to the activations.
 
 ![Audience Builder](img/audience_builder.png)
-
-## Limitations
-
-Regarding data export, currently, only Stream File transport is supported and can be initialized from the configuration.
 
 ## Benefits
 
