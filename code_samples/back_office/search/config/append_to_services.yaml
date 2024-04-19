@@ -26,3 +26,7 @@ services:
             $groupIdentifier: 'global-search-autocomplete-product'
         tags:
             - { name: ibexa.admin_ui.component, group: global-search-autocomplete-templates }
+
+    App\Search\SortingDefinition\Provider\SectionNameSortingDefinitionProvider:
+        tags:
+            - name: ibexa.search.sorting_definition.provider
