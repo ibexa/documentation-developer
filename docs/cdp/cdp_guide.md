@@ -59,7 +59,7 @@ Remember to add a segment group identifier to the configuration, under the `segm
 Configuration in [[= product_name_cdp =]] allows you to automate the process of exporting Content, Users, and Products.
 An `ibexa_cdp.data_export` [configuration key](https://doc.ibexa.co/en/latest/cdp/cdp_data_export_schedule/#configuration-key) includes the `schedule` setting where you can find separate sections for exporting User, Content, and Product. Structure of each section is exactly the same and includes `interval` and `options` elements:
 
-- `interval` - sets the frequency of the command invoke using cron expressions, for example, '*/30 * * * *' means "every 30 minutes", '0 */12 * * *' means "every 12 hours".
+- `interval` - sets the frequency of the command invoke using cron expressions, for example, '*/30 * * * *' means "every 30 minutes", '0 */12 * * *' means "every 12th hour".
 
 - `options` - allows you to add arguments that have to be passed to the export command.
 
