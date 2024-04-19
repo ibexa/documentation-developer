@@ -139,7 +139,7 @@ To be present, this wrapping node template must be added to the `global-search-a
 ``` yaml
 services:
     #…
-[[= include_file('code_samples/back_office/search/config/append_to_services.yaml', 22, 28) =]]
+[[= include_file('code_samples/back_office/search/config/append_to_services.yaml', 21, 28) =]]
 ```
 
 The template for the product suggestion item follows, named `templates/themes/admin/ui/global_search_autocomplete_product_item.html.twig`:
