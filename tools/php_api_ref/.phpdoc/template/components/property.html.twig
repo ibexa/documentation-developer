@@ -1,7 +1,11 @@
 {% embed 'components/content-header.html.twig' with { node: property, anchor: 'property_' ~ property.name, anchor_link: link(property), header_tag: 'h3' } %}
 {% block name %}
         <img src="./images/{{ property.visibility }}.svg" alt="{{ property.visibility }}" />
-        {{ parent() }}
+        ${{- parent() -}}
+        <span class="property-tags">
+            {% if property.writeOnly %}<span class="property-tags__tag">write-only</span>{% endif %}
+            {% if property.readOnly %}<span class="property-tags__tag">read-only</span>{% endif %}
+        </span>
     {% endblock %}
 {% endembed %}
 {% include 'components/summary.html.twig' with { node: property } %}

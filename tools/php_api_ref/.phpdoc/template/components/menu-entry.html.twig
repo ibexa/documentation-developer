@@ -9,11 +9,11 @@
             {% if icon is defined and depth > 1 %}
                 <img src="./images/{{ icon }}" alt="{{ icon }}" />
             {% endif %}
-            {% if url and not is_nested %}
+            {% if url %}
                 <a href="{{ url }}" title="{{ title }}">
             {% endif %}
                 {{ title }}
-            {% if url and not is_nested %}
+            {% if url %}
                 </a>
             {% endif %}
         </label>
