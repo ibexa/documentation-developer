@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ShippingMethod media-type="application/vnd.ibexa.api.ShippingMethod+xml" href="/api/ibexa/v2/shipping/methods/method1">
+    <identifier>method1</identifier>
+    <name>AmE Method 1</name>
+    <names>
+        <value languageCode="eng-US">AmE Method 1</value>
+        <value languageCode="eng-GB">BrE Method 1</value>
+    </names>
+    <description>AmE Description of Method 1</description>
+    <descriptions>
+        <value languageCode="eng-US">AmE Description of Method 1</value>
+        <value languageCode="eng-GB">BrE Description of Method 1</value>
+    </descriptions>
+    <enabled>true</enabled>
+    <options>
+        <value key="price">20.0000</value>
+        <value key="currency">EUR</value>
+    </options>
+    <regions>
+        <RegionRef media-type="application/vnd.ibexa.api.Region+xml" href="/api/ibexa/v2/product/catalog/regions/default"/>
+    </regions>
+    <type media-type="application/vnd.ibexa.api.ShippingMethodType+xml" href="/api/ibexa/v2/shipping/method-types/flat_rate"/>
+</ShippingMethod>

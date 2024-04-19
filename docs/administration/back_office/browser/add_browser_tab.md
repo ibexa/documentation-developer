@@ -8,7 +8,7 @@ The Universal Discovery Widget (UDW) is a separate React module. By default, it 
 
 ![UDW default tabs](udw_tabs.png)
 
-Follow the instructions below to create and add a new tab called **Images** which displays all Content items of the type 'Image'.
+Follow the instructions below to create and add a new tab called **Images** which displays all content items of the type 'Image'.
 
 ## Create tab
 

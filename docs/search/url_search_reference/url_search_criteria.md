@@ -5,7 +5,7 @@ page_type: reference
 
 # URL Search Criteria reference
 
-URL Search Criteria are part of Search Criteria and they are supported only by URL Search.
+URL Search Criteria are only supported by [URL Search (`URLService::findUrls`)](url_api.md).
 
 |URL criteria|URL based on|
 |------------|------------|

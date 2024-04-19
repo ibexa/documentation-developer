@@ -14,6 +14,8 @@ Solr search engine and Elasticsearch support IN and EQ operators only.
 
 ## Example
 
+### PHP
+
 ``` php
 $query->query = new Criterion\UserLogin(['johndoe']);
 ```
@@ -21,3 +23,25 @@ $query->query = new Criterion\UserLogin(['johndoe']);
 ``` php
 $query->query = new Criterion\UserLogin('adm*', Criterion\Operator::LIKE);
 ```
+
+### REST API
+
+=== "XML"
+
+    ```xml
+    <Query>
+        <Filter>
+            <UserLoginCriterion>johndoe</UserLoginCriterion>
+        </Filter>
+    </Query>
+    ```
+
+=== "JSON"
+
+    ```json
+    "Query": {
+        "Filter": {
+            "UserLoginCriterion": "johndoe"
+        }
+    }
+    ```

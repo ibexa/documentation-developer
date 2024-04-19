@@ -1,0 +1,19 @@
+-   type: payment_method
+    mode: create
+    paymentType: online
+    name:
+        -
+            languageCode: eng-GB
+            value: PaymentMethodName
+        -
+            languageCode: ger-DE
+            value: PaymentMethodNameGerman
+    identifier: PaymentMethodIdentifier
+    enabled: true
+    description:
+        -
+            languageCode: eng-GB
+            value: PaymentMethodDescription
+        -
+            languageCode: ger-DE
+            value: PaymentMethodDescriptionGerman

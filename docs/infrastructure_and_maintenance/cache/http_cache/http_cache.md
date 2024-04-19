@@ -9,8 +9,8 @@ to make Varnish and Fastly act as the view cache for the system.
 This and other features allow [[= product_name =]] to be scaled up to serve high traffic websites and applications.
 
 HTTP cache is handled by the [ibexa/http-cache](https://github.com/ibexa/http-cache) bundle,
-which extends [friendsofsymfony/http-cache-bundle](https://foshttpcachebundle.readthedocs.io/en/2.8.0/),
-a Symfony community bundle that in turn extends [Symfony HTTP cache](http://symfony.com/doc/5.1/http_cache.html).
+which extends [friendsofsymfony/http-cache-bundle](https://foshttpcachebundle.readthedocs.io/en/latest/),
+a Symfony community bundle that in turn extends [Symfony HTTP cache]([[= symfony_doc =]]/http_cache.html).
 
 For content view responses coming from [[= product_name =]] itself, this means that:
 

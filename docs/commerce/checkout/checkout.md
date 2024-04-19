@@ -19,7 +19,7 @@ Depending on the model of shopping process that you need to use, the checkout
 process can range between a straightforward and extremely complicated one. 
 To allow for this variation, the component is highly configurable and extensible:
 
-- Like the editorial workflow, it relies on [Symfony Workflow](http://symfony.com/doc/5.4/components/workflow.html) 
+- Like the editorial workflow, it relies on [Symfony Workflow]([[= symfony_doc =]]/components/workflow.html) 
 - It exposes [PHP API](checkout_api.md) that allows for workflow manipulation
 - It exposes Twig functions used for checkout rendering
 
@@ -46,7 +46,7 @@ an individual.
 - Registered customers will be able see and modify the addresses that they defined at registration
 - Individuals will be able to enter both addresses at checkout
 
-For more information about shipping and billing addresses, see [Configure checkout](configure_checkout.md#shipping-and-billing-address-field-format-configuration).
+For more information about shipping and billing addresses, see [Configure checkout](configure_checkout.md#configure-shipping-and-billing-address-field-format).
 
 ## Virtual Products checkout
 
@@ -57,3 +57,13 @@ Virtual products don’t require shipment when they're purchased individually.
 While purchasing virtual product, you only have to fill in the billing address and select relevant payment method. 
 
 ![`Virtual product purchasing`](virtual_product_purchase.png "Virtual product purchasing")
+
+## Reorder
+
+Reorder functions as the variant for the checkout workflow and is accessible solely to logged-in users.
+It initiates from the user's order history, where they can click **Reorder** and trigger the flow. 
+Next, the user is moved to cart where the system validates the order against existing stock.  
+If everything is available, customer can move to payment and summary.
+The system pre-fills address, shipping method, and payment details using information from the past order.
+
+For more information, see [reorder documentation](reorder.md).

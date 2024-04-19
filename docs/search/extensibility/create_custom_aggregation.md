@@ -62,15 +62,15 @@ The example below uses `RangeAggregationVisitor`:
 === "Solr"
 
     ``` yaml
-    App\Query\Aggregation\Solr\PriorityAggregationVisitor:
+    app.search.solr.query.aggregation_visitor.priority_range_aggregation:
         class: Ibexa\Solr\Query\Common\AggregationVisitor\RangeAggregationVisitor
         factory: [ '@Ibexa\Solr\Query\Common\AggregationVisitor\Factory\ContentFieldAggregationVisitorFactory', 'createRangeAggregationVisitor' ]
         arguments:
-            $aggregationClass: 'App\Query\Aggregation\PriorityRangeAggregation'
+            $aggregationClass: 'App\Query\Aggregation\Solr\PriorityRangeAggregation'
             $searchIndexFieldName: 'priority_i'
         tags:
-            - { name: ibexa.solr.query.content.aggregation_visitor }
-            - { name: ibexa.solr.query.location.aggregation_visitor }
+            - { name: ibexa.search.solr.query.content.aggregation.visitor }
+            - { name: ibexa.search.solr.query.location.aggregation.visitor }
     ```
 
 === "Elasticsearch"
@@ -95,7 +95,7 @@ You provide it with two arguments:
 
 === "Solr"
 
-    Tag the service with `ibexa.solr.query.location.aggregation_visitor`.
+    Tag the service with `ibexa.search.solr.query.location.aggregation.visitor`.
 
 === "Elasticsearch"
 
@@ -106,15 +106,17 @@ and provide it with the aggregation class in the `aggregationClass` parameter.
 
 === "Solr"
 
-    Tag the service with `ibexa.solr.query.location.aggregation_result_extractor`.
+    Tag the service with `ibexa.search.solr.query.location.aggregation.result.extractor`.
 
     ``` yaml
-    App\Query\Aggregation\Solr\PriorityAggregationResultExtractor:
+    app.search.solr.query.aggregation_result_extractor.priority_range_aggregation:
         class: Ibexa\Solr\ResultExtractor\AggregationResultExtractor\RangeAggregationResultExtractor
         arguments:
-            $aggregationClass: 'App\Query\Aggregation\PriorityRangeAggregation'
+            $aggregationClass: 'App\Query\Aggregation\Solr\PriorityRangeAggregation'
+            $keyMapper: 'Ibexa\Solr\ResultExtractor\AggregationResultExtractor\RangeAggregationKeyMapper\IntRangeAggregationKeyMapper'
         tags:
-            - { name: ibexa.solr.query.location.aggregation_result_extractor }
+            - { name: ibexa.search.solr.query.location.aggregation.result.extractor }
+            - { name: ibexa.search.solr.query.content.aggregation.result.extractor }
     ```
 
 === "Elasticsearch"
@@ -218,8 +220,8 @@ Finally, register both the aggregation visitor and the result extractor as servi
 
 === "Solr"
 
-    Tag the aggregation visitor with `ibexa.solr.query.location.aggregation_visitor`
-    and the result extractor with `ibexa.solr.query.location.aggregation_result_extractor`:
+    Tag the aggregation visitor with `ibexa.search.solr.query.location.aggregation.visitor`
+    and the result extractor with `ibexa.search.solr.query.location.aggregation.result.extractor`:
 
     ``` yaml
     --8<--
@@ -227,8 +229,8 @@ Finally, register both the aggregation visitor and the result extractor as servi
     --8<--
     ```
 
-    For content-based aggregations, use the `ibexa.solr.query.content.aggregation_visitor`
-    and `ibexa.solr.query.content.aggregation_result_extractor` tags respectively.
+    For content-based aggregations, use the `ibexa.search.solr.query.content.aggregation.visitor`
+    and `ibexa.search.solr.query.content.aggregation.result.extractor` tags respectively.
 
 === "Elasticsearch"
 
@@ -241,5 +243,5 @@ Finally, register both the aggregation visitor and the result extractor as servi
     --8<--
     ```
 
-    For content-based aggregations, use the `ibexa.elasticsearch.query.content.aggregation_visitor`
-    and `ibexa.elasticsearch.query.content.aggregation_result_extractor` tags respectively.
+    For content-based aggregations, use the `ibexa.search.elasticsearch.query.content.aggregation.visitor`
+    and `ibexa.search.elasticsearch.query.content.aggregation.result.extractor` tags respectively.

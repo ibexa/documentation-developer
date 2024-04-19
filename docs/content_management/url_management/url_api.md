@@ -9,7 +9,7 @@ enables you to find, load and update external URLs used in RichText and URL Fiel
 
 To view a list of all URLs, use [`URLService::findUrls`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/URLService.php#L38)
 
-`URLService::findUrls` takes as argument a [`URLQuery`,](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/URL/URLQuery.php)
+`URLService::findUrls` takes as argument a [`URLQuery`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/URL/URLQuery.php),
 in which you need to specify:
 
 - query filter e.g. Section

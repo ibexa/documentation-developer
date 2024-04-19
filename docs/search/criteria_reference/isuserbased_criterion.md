@@ -5,8 +5,8 @@ searches for content that plays the role of a User account.
 
 !!! note
 
-    In the default setup only the User Content Type is treated as User accounts.
-    However, you can also [set other Content Types to be treated as such](repository_configuration.md#user-identifiers).
+    In the default setup only the User content type is treated as User accounts.
+    However, you can also [set other content types to be treated as such](repository_configuration.md#user-identifiers).
 
 ## Arguments
 
@@ -19,6 +19,30 @@ The `IsUserBased` Criterion is not available in Solr or Elastic search engines.
 
 ## Example
 
+### PHP
+
 ``` php
 $query->query = new Criterion\IsUserBased();
 ```
+
+### REST API
+
+=== "XML"
+
+    ```xml
+    <Query>
+        <Filter>
+            <IsUserBasedCriterion>false</IsUserBasedCriterion>
+        </Filter>
+    </Query>
+    ```
+
+=== "JSON"
+
+    ```json
+    "Query": {
+        "Filter": {
+            "IsUserBasedCriterion": "false"
+        }
+    }
+    ```

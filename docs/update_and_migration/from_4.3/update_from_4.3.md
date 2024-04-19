@@ -6,7 +6,7 @@ description: Update your installation to the latest v4.4 version from v4.3.x.
 
 This update procedure applies if you are using the newest v4.3 installation.
 
-This release deprecates all Commerce packages in Ibexa DXP. They will be removed in v5.
+This release deprecates all Commerce packages in[[= product_name =]]. They will be removed in v5.
 Until that time, they will be maintained by Ibexa with fixes, including security fixes, but they won't be further developed.
 Old packages are replaced by [the all-new Ibexa Commerce packages](ibexa_dxp_v4.4.md#all-new-ibexa-commerce-packages).
 

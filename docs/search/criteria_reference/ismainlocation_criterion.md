@@ -1,7 +1,7 @@
 # IsMainLocation Criterion
 
 The [`IsMainLocation` Search Criterion](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/Criterion/LanguageCode.php)
-searches for Locations based on whether they are the main Location of a Content item or not.
+searches for Locations based on whether they are the main Location of a content item or not.
 
 This Criterion is available only for Location Search.
 
@@ -11,6 +11,8 @@ This Criterion is available only for Location Search.
 representing whether to search for a main or not main Location
 
 ## Example
+
+### PHP
 
 ``` php
 $query->query = new Criterion\Location\IsMainLocation(IsMainLocation::MAIN);

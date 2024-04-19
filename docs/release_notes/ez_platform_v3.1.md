@@ -1,3 +1,5 @@
+<!-- vale VariablesVersion = NO -->
+
 # eZ Platform v3.1
 
 **Version number**: v3.1
@@ -52,14 +54,14 @@ This release of eZ Platform introduces the following new features:
     
     ### Version comparison
     
-    You can now compare additional Fields in version comparison of Content item:
+    You can now compare additional Fields in version comparison of content item:
     
     - Content Relation and Content Relations
     - Image Asset and Image
     - Matrix
     - Media
     
-    For overview of additional Fields, see [User documentation on Comparing versions.]([[= user_doc =]]/publishing/publishing/#comparing-versions)
+    For overview of additional Fields, see [User documentation on Comparing versions]([[= user_doc =]]/publishing/publishing/#comparing-versions).
     
 ### URL management UI
 
@@ -97,12 +99,12 @@ In Content preview, the group sections are collapsible:
 
 ### Saving incomplete draft
 
-When users create or edit a Content item or a Page, they can now save it without completing all the required fields.
+When users create or edit a content item or a Page, they can now save it without completing all the required fields.
 They can then return to editing, or pass the content to another contributor.
 Validation that used to happen at each save operation now, by default, happens when you click the **Publish** button.
 
 The `ContentService::validate()` method has been added that you can use to trigger validation of individual fields 
-or whole Content items for completeness at other stages of the editing process.
+or whole content items for completeness at other stages of the editing process.
 
 ### Search
 

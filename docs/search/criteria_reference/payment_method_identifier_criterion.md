@@ -13,6 +13,8 @@ The `Identifier` Search Criterion searches for payment methods based on the paym
 
 ## Example
 
+### PHP
+
 ``` php
 $query->query = new \Ibexa\Contracts\Payment\PaymentMethod\Query\Criterion\Identifier('f7578972-e7f4-4cae-85dc-a7c74610204e');
 ```

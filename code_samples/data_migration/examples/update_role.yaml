@@ -1,0 +1,32 @@
+-
+    type: role
+    mode: update
+    match:
+        field: identifier
+        value: Editor
+    policies:
+        -   module: content
+            function: '*'
+        -   module: user
+            function: login
+            limitations:
+                -   identifier: SiteAccess
+                    values: [ admin ]
+        -   module: url
+            function: '*'
+
+-
+    type: role
+    mode: update
+    match:
+        field: identifier
+        value: Anonymous
+    policies:
+        mode: append
+        list:
+            -
+                module: user
+                function: login
+                limitations:
+                    -   identifier: SiteAccess
+                        values: [ new_siteaccess ]

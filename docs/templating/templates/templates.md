@@ -9,7 +9,7 @@ Templates use the Twig template engine.
 
 !!! tip
 
-    Learn more about Twig templates from [Twig documentation](https://twig.symfony.com/doc/2.x/templates.html).
+    Learn more about Twig templates from [Twig documentation](https://twig.symfony.com/doc/3.x/templates.html).
 
 ## Connecting templates
 
@@ -40,7 +40,7 @@ The parent template (in this case, `pagelayout.html.twig`) must leave a place fo
 
 ## Template variables
 
-In templates, you can use variables related to the current Content item,
+In templates, you can use variables related to the current content item,
 as well as general variables related to the current view and general application settings.
 
 [[= include_file('docs/snippets/rendering_dump_variable.md') =]]

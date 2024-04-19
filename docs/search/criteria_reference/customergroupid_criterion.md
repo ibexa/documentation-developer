@@ -9,6 +9,8 @@ searches for content based on the ID of its customer group.
 
 ## Example
 
+### PHP
+
 ``` php
 $query->query = new Criterion\CustomerGroupId(1);
 ```

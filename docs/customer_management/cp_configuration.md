@@ -17,7 +17,7 @@ add any additional SiteAccesses to `corporate_group`.
 
 ## Customer identifier
 
-`ibexa_default_settings.yaml` contains a setting that indicates what Content Types should be treated like Users in terms of, for example, usage in `UserService`:
+`ibexa_default_settings.yaml` contains a setting that indicates what content types should be treated like Users in terms of, for example, usage in `UserService`:
 
 ```yaml
 ibexa:
@@ -42,15 +42,15 @@ parameters:
 
 You can do it per SiteAccess or SiteAccess group by using [SiteAccess-aware configuration](siteaccess_aware_configuration.md).
 
-## Content Type names
+## Content type names
 
-You can change names of default Content Types by assigning what
-Content Types should be used to describe `Company` and `Member` in the Back Office.
-Proceed only if you already have a `Company` Content Type in your system, and you don't want to change its identifier.
+You can change names of default content types by assigning what
+content types should be used to describe `Company` and `Member` in the Back Office.
+Proceed only if you already have a `Company` content type in your system, and you don't want to change its identifier.
 
-Configuration for Content Type names is placed under the `ibexa_corporate_account` key,
+Configuration for content type names is placed under the `ibexa_corporate_account` key,
 like shown in `Ibexa\Bundle\CorporateAccount\DependencyInjection\Configuration`.
-To change Content Type names, adjust corporate account configuration in the following way:
+To change content type names, adjust corporate account configuration in the following way:
 
 ```yaml
 ibexa_corporate_account:
@@ -60,7 +60,7 @@ ibexa_corporate_account:
 
 !!! caution "Migration"
 
-    If you decide to change deafult names of Content Types, during migration you have to adjust files accordingly.
+    If you decide to change deafult names of content types, during migration you have to adjust files accordingly.
 
 
 ## Registration
@@ -89,3 +89,9 @@ ibexa:
                         match:
                             Identifier\ContentType: confirmation_page
 ```
+
+## Order management
+
+Reviewing pending and past orders in Customer Portal requires that you configure all currencies that any of the customers may use under the `ibexa.system.<siteaccess_name>.product_catalog.currencies` key. 
+The first currency from the list is then used for filtering the orders list and calculating the **Average order** and **Total amount** values.
+For more information, see [Enable purchasing products](enable_purchasing_products.md).

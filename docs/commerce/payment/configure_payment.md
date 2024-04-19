@@ -1,6 +1,5 @@
 ---
 description: Configure payments, modify the default payment processing workflow.
-
 edition: commerce
 ---
 
@@ -14,7 +13,7 @@ When you work with your Commerce implementation, you can review and modify the p
 
 ## Configure payment workflow
 
-Payment workflow relies on a [Symfony Workflow](http://symfony.com/doc/5.4/components/workflow.html).
+Payment workflow relies on a [Symfony Workflow]([[= symfony_doc =]]/components/workflow.html).
 Each transition represents a separate payment step. 
 
 ### Default payment workflow configuration
@@ -51,5 +50,5 @@ so that the system can identify which of your workflows handles the payment proc
 
 ## Configure payment methods
 
-You can define the payment methods [in the UI]([[= user_doc =]]/commerce/payment/configure_payment_method/).
-There is only one default payment method type available: `offline`, but you can [add custom ones](extend_payment.md).
+You can define payment methods [in the UI]([[= user_doc =]]/commerce/payment/configure_payment_method/).
+There is only one default payment method type available: `offline`, but you can configure more by [integrating with Payum](payum_integration.md), or [add custom ones](extend_payment.md).

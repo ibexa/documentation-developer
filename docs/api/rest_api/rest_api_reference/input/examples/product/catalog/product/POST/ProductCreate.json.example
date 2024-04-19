@@ -32,10 +32,8 @@
             "mainLanguageCode": "eng-GB"
         },
         "code": "ggg",
-        "attributes": [
-            {
-                "attr1": "fffffff"
-            }
-        ]
+        "attributes": {
+            "attr1": "fffffff"
+        }
     }
 }

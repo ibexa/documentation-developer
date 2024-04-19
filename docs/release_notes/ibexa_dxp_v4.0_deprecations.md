@@ -1,6 +1,8 @@
+<!-- vale VariablesVersion = NO -->
+
 # Ibexa DXP v4.0 deprecations and backwards compatibility breaks
 
-Ibexa DXP v4.0 introduces changes to significant parts of the code
+[[= product_name =]] v4.0 introduces changes to significant parts of the code
 to align with the product name change from earlier eZ Platform.
 
 These changes include changing repository names, namespaces, filenames, function names, and others.
@@ -10,7 +12,7 @@ using the older naming should function without change.
 
 ## Namespaces
 
-Namespaces in the product which referred to old product names now use the Ibexa name.
+Namespaces in the product which referred to old product names now use the [[= product_name_base =]] name.
 
 All namespace changes are listed in the `ibexa/compatibility-layer` repository.
 
@@ -84,7 +86,7 @@ Other package-specific configuration keys have also been updated.
 
 ## Service names
 
-Service names which referred to old product names now use the Ibexa name.
+Service names which referred to old product names now use the [[= product_name_base =]] name.
 
 All service name changes are listed in the `ibexa/compatibility-layer` repository.
 
@@ -93,7 +95,7 @@ for a full comparison of old and new names.
 
 ## Service tags
 
-Service tag which referred to old product names now use the Ibexa name.
+Service tag which referred to old product names now use the [[= product_name_base =]] name.
 
 All service tag changes are listed in the `ibexa/compatibility-layer` repository.
 

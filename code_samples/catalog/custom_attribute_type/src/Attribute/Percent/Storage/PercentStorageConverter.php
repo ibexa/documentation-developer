@@ -13,14 +13,14 @@ final class PercentStorageConverter implements StorageConverterInterface
     public function fromPersistence(array $data)
     {
         $value = $data[StorageSchema::COLUMN_VALUE];
-        Assert::nullOrFloat($value);
+        Assert::nullOrNumeric($value);
 
         return $value;
     }
 
     public function toPersistence($value): array
     {
-        Assert::nullOrFloat($value);
+        Assert::nullOrNumeric($value);
 
         return [
             StorageSchema::COLUMN_VALUE => $value,

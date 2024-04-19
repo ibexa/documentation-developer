@@ -1,3 +1,5 @@
+<!-- vale VariablesVersion = NO -->
+
 # eZ Platform v1.11.0
 
 **The FAST TRACK v1.11.0 release of eZ Platform and eZ Platform Enterprise Edition is available as of August 24, 2017.**
@@ -10,36 +12,36 @@ If you are looking for the Long Term Support (LTS) release, see [https://ezplatf
 
 #### Improved way of writing Field Type gateways
 
-[EZP-26885](https://jira.ez.no/browse/EZP-26885): you now have access to the Doctrine connection instead of
+[EZP-26885](https://issues.ibexa.co/browse/EZP-26885): you now have access to the Doctrine connection instead of
 the Zeta Components Database connection-like object which has been exposed to Field Types until now.
 Note that the former way will be removed in a future major version.
 
-#### Content Type limitation for Relation (single) field
+#### Content type limitation for Relation (single) field
 
-[EZP-24800](https://jira.ez.no/browse/EZP-24800): you can now specify a Content Type limitation for the Relation field,
+[EZP-24800](https://issues.ibexa.co/browse/EZP-24800): you can now specify a content type limitation for the Relation field,
 just like with the Relation List field. This enables you to limit what kind of relations Editors can select also on singular relation fields.
 
-![Adding a new Relation (single) Field with allowed Content Types](relation_single_allowed_cts.png)
+![Adding a new Relation (single) Field with allowed content types](relation_single_allowed_cts.png)
 
 This has been made possible by initial legacy contribution from [@peterkeung](https://github.com/peterkeung), and [@slaci](https://github.com/slaci) who ported this feature over to eZ Platform so that both could go in.
 
 #### API endpoint for removing translations
 
-[EZP-27417](https://jira.ez.no/browse/EZP-27417) provides an API endpoint to remove a given translation completely from a Content item.
+[EZP-27417](https://issues.ibexa.co/browse/EZP-27417) provides an API endpoint to remove a given translation completely from a content item.
 
 ### eZ Platform Enterprise Edition
 
 #### Collection block
 
 New Collection block is available in the Landing Page editor.
-It enables you to manually select a set of Content items to be displayed.
+It enables you to manually select a set of content items to be displayed.
 
-![Collection block options with three Content items selected](collection_block.png)
+![Collection block options with three content items selected](collection_block.png)
 
 !!! note
 
     To enable adding content to a Collection block in a clean installation,
-    you need to configure the views for the block and define which Content Types can be embedded in it.
+    you need to configure the views for the block and define which content types can be embedded in it.
     See [block templates](https://doc.ibexa.co/en/latest/content_management/pages/page_blocks/#block-templates) for more information and an example.
 
 #### RecommendationBundle adapted for YooChoose v2
@@ -51,7 +53,7 @@ Fetching recommendations was also refactored to use the v2 of the Recommendation
 With this step the *clickrecommended* event now includes detailed feedback information about how recommendations were generated.
 This is very important for the analysis of statistics to measure the performance of recommendations.
 
-See [EZEE-1611](https://jira.ez.no/browse/EZEE-1611) for details.
+See [EZEE-1611](https://issues.ibexa.co/browse/EZEE-1611) for details.
 
 #### Official Enterprise Support for Legacy Bridge
 

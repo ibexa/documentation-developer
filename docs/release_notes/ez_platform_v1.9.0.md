@@ -1,3 +1,5 @@
+<!-- vale VariablesVersion = NO -->
+
 # eZ Platform v1.9.0
 
 
@@ -12,7 +14,7 @@ If you are looking for the Long Term Support (LTS) release, see[ https://ezplat
 
 #### Multifile upload
 
-You can now create collections of content quickly: upload multiple files in bulk and they will be imported directly into the content repository. The files will automatically be imported as content using the Content Type that matches their MIME type. Go to the content view, drag and drop or select multiple files in the sub-items area and you will get direct access for further editing. As ever, this solution can be customized so that you create your own matching rules.
+You can now create collections of content quickly: upload multiple files in bulk and they will be imported directly into the content repository. The files will automatically be imported as content using the content type that matches their MIME type. Go to the content view, drag and drop or select multiple files in the sub-items area and you will get direct access for further editing. As ever, this solution can be customized so that you create your own matching rules.
 
 ![](catsfromtheMET.gif)
 
@@ -24,11 +26,11 @@ In version 1.8 we introduced a new Content Browser in the Universal Discovery Wi
 
 #### Miscellaneous
 
--   The Details tab in content view now provides information about the Section the Content item belongs to.
+-   The Details tab in content view now provides information about the Section the content item belongs to.
 
 ![Section details in Details tab](section-details.png "Section details in Details tab")
 
--   You can now edit a Content item directly from its parent's Sub-items table, and sort the table:
+-   You can now edit a content item directly from its parent's Sub-items table, and sort the table:
 
 ![Sub-items table with Edit button and sorting](sub-items-improved.png "Sub-items table with Edit button and sorting")
 
@@ -38,7 +40,7 @@ In version 1.8 we introduced a new Content Browser in the Universal Discovery Wi
 
 ### eZ Platform Enterprise Edition - Studio
 
--   It is now possible to configure Landing Page blocks used by the Landing Page editor in a simpler way. The configuration is done in a YAML file (see <https://jira.ez.no/browse/EZEE-1421>)
+-   It is now possible to configure Landing Page blocks used by the Landing Page editor in a simpler way. The configuration is done in a YAML file (see <https://issues.ibexa.co/browse/EZEE-1421>)
 -   *..lots of other bug fixes and smaller improvements..*
 
 ### eZ Platform Enterprise Edition - Studio Demo
@@ -51,8 +53,8 @@ The eZ Enterprise Demo now uses the [Netgen Tags bundle](https://github.com/netg
 
 #### Miscellaneous
 
--   [DEMO-94](https://jira.ez.no/browse/DEMO-94): As an editor, I want to personalize content based on user persona
--   [DEMO-87](https://jira.ez.no/browse/DEMO-87): As an editor, I want to embed a video
+-   [DEMO-94](https://issues.ibexa.co/browse/DEMO-94): As an editor, I want to personalize content based on user persona
+-   [DEMO-87](https://issues.ibexa.co/browse/DEMO-87): As an editor, I want to embed a video
 
 ## Full list of new features, improvements and bug fixes since v1.8.0
 

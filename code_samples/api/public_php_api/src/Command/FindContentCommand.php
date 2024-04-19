@@ -23,9 +23,9 @@ class FindContentCommand extends Command
     protected function configure()
     {
         $this
-            ->setDescription('Lists content belonging to the provided Content Type.')
+            ->setDescription('Lists content belonging to the provided content type.')
             ->setDefinition([
-                new InputArgument('contentTypeIdentifier', InputArgument::REQUIRED, 'Content Type identifier'),
+                new InputArgument('contentTypeIdentifier', InputArgument::REQUIRED, 'Content type identifier'),
             ]);
     }
 

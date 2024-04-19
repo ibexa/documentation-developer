@@ -5,11 +5,11 @@ description: Configure your project files to enable Personalization and set up i
 # Enable Personalization
 
 The Personalization service is based on a client-server architecture.
-To enable it, you must set up authentication parameters that you receive from Ibexa.
+To enable it, you must set up authentication parameters that you receive from [[= product_name_base =]].
 
 ## Get authentication parameters
 
-First, either you or another Ibexa user responsible for managing the [[= product_name =]]  
+First, either you or another [[= product_name_base =]] user responsible for managing the [[= product_name =]]  
 instance must [request access to the service]([[= user_doc =]]/personalization/enabling_personalization/#request-access-to-the-server).
 
 ## Set up customer credentials
@@ -74,28 +74,43 @@ of the site, provide the credentials that correspond to each of the sites.
 The configuration can resemble the following example:
 
 ``` yaml
-ibexa_personalization:
+ibexa:
     system:
         <site_access_name_1>:
-            site_name: '<site_name_1>' # For example 'ENU store'
-            host_uri: '%env(RECOMMENDATION_HOST_URI)%'
-            authentication:
-                customer_id: '%env(RECOMMENDATION_CUSTOMER_ID)%'
-                license_key: '%env(RECOMMENDATION_LICENSE_KEY)%'
-            included_item_types: [product, article]
+            personalization:
+                site_name: '<site_name_1>' # For example 'ENU store'
+                host_uri: '%env(PERSONALIZATION_HOST_URI)%'
+                authentication:
+                    customer_id: '%env(int:PERSONALIZATION_CUSTOMER_ID)%'
+                    license_key: '%env(PERSONALIZATION_LICENSE_KEY)%'
+                included_item_types: [product, article]
+                output_type_attributes:
+                    123: # content type ID
+                        title: 'title'
+                        image: 'image_legend'
+                        description: 'sub_title'
+                    456: 
+                        title: 'short_title'
+                        image: 'primary_image'
+                        description: 'sub_title'
 
         <site_access_name_2>:
-            site_name: '<site_name_2>' # For example 'FRA store'
-            host_uri: '%env(FRA_HOST_URI)%'
-            authentication:
-                customer_id: '%env(FRA_CUSTOMER_ID)%'
-                license_key: '%env(FRA_LICENSE_KEY)%'
-            export:
+            personalization:
+                site_name: '<site_name_2>' # For example 'FRA store'
+                host_uri: '%env(FRA_HOST_URI)%'
                 authentication:
-                    method: 'user'
-                    login: '%env(FRA_CUSTOM_EXPORT_LOGIN)%'
-                    password: '%env(FRA_CUSTOM_EXPORT_PASSWORD)%'
+                    customer_id: '%env(int:FRA_CUSTOMER_ID)%'
+                    license_key: '%env(FRA_LICENSE_KEY)%'
                 included_item_types: [product, article]
+                output_type_attributes:
+                    123: # content type ID
+                        title: 'title'
+                        image: 'image_legend'
+                        description: 'sub_title'
+                    456: 
+                        title: 'short_title'
+                        image: 'primary_image'
+                        description: 'sub_title'
 ```
 
 !!! note "Authentication"
@@ -111,9 +126,6 @@ ibexa_personalization:
 | `host_uri`                           | A location where the site's REST API can be accessed. This is where the Personalization server imports items from.       |
 | `authentication.customer_id`         | A customer ID related to the supported SiteAccess.                                         |
 | `authentication.license_key`         | The Personalization service's license key.                                         |
-| `export.authentication.method`         | Authentication method used to get access when importing items.                                         |
-| `export.authentication.login`         | The credential used when importing items.                                         |
-| `export.authentication.password`         | The password used when importing items.                                         |
 | `included_item_types`             | A list of alphanumerical identifiers of item types on which the tracking script is shown. |
 | `random_item_types`               | A list of alphanumerical identifiers of item types that are returned when the response from the server contains no content. |
 
@@ -138,7 +150,7 @@ Place the following code snippet in the `<head>` section of your header template
 
 ``` html+twig
 {% if content is defined %}
-    {{ ibexa_recommendation_track_user(content.id) }}
+    {{ ibexa_recommendation_track_user(content) }}
 {% endif %}
 ```
 
@@ -268,7 +280,7 @@ There are three ways to check whether content was transferred and stored success
 
 To get the data of an imported item you can request the following REST resource:
 
-`GET https://https://admin.perso.ibexa.co/api/<your_customer_id>/item/<your_item_type_id>/<your_item_id>`
+`GET https://admin.perso.ibexa.co/api/<your_customer_id>/item/<your_item_type_id>/<your_item_id>`
 
 This way uses basic authentication. 
 The username is the customer ID and the password is the license key.
@@ -325,7 +337,7 @@ In the Back Office, go to **Personalization** > **Import** and review the list o
 The Personalization server is automatically kept in sync with the content in [[= product_name =]].
 
 Every time an editor creates, updates or deletes content in the Back Office,
-a notification is sent to https://admin.perso.ibexa.co.
+a notification is sent to https://admin.perso.ibexa.co/.
 The personalization service also notifies other components of the Personalization server
 and it eventually fetches the affected content and updates it internally.
 
@@ -386,7 +398,7 @@ render(controller('ibexa_personalization::showRecommendationsAction', {
 | `contextItems`   | int    | ID of the content you want to get recommendations for. |
 | `scenario`       | string | Scenario used to display recommendations. You can create custom scenarios in the Back Office. |
 | `outputTypeId`   | string | Item type that you expect in response, for example, `blog_post`. |
-| `crossContentType`| bool | If set to `true`, returns recommendations for all Content Types specified in the scenario. |
+| `crossContentType`| bool | If set to `true`, returns recommendations for all content types specified in the scenario. |
 | `limit`          | int    | Number of recommendations to fetch. |
 | `template`       | string | Template name. |
 | `attributes`     | array  | Fields that are required and are requested from the Personalization server. These Field names are also used inside Handlebars templates. |
@@ -407,7 +419,7 @@ This response data can be used in templates to render and style recommendations.
 For example, the following GET request should deliver the response below
 if the content Fields were previously exported by the export script.
 
-`GET https://https://reco.perso.ibexa.co/api/v2/<your_customer_id>/someuser/popular.json?contextitems=71&numrecs=5&categorypath=/&outputtypeid=<your_item_type>&attribute=name,author,uri,image`
+`GET https://reco.perso.ibexa.co/api/v2/<your_customer_id>/someuser/popular.json?contextitems=71&numrecs=5&categorypath=/&outputtypeid=<your_item_type>&attribute=name,author,uri,image`
 
 ??? note "Example response"
 
@@ -535,7 +547,7 @@ For example, to retrieve the `rss` variation of the image, use:
 
 #### Logging
 
-Most operations are logged by using the `ibexa-personalization` [Monolog channel](http://symfony.com/doc/5.0/cookbook/logging/channels_handlers.html).
+Most operations are logged by using the `ibexa-personalization` [Monolog channel](https://symfony.com/doc/5.4/logging/channels_handlers.html).
 To log everything about Personalization to `dev.recommendation.log`, add the following configuration:
 
 ``` yaml

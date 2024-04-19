@@ -16,3 +16,31 @@ $query->filter = new Criterion\LogicalNot(
     new Criterion\ContentTypeIdentifier($contentTypeId)
 );
 ```
+
+### REST API
+
+=== "XML"
+
+    ```xml
+    <Query>
+        <Criterion>
+            <LogicalNotCriterion>
+                <ContentTypeIdentifierCriterion>article</ContentTypeIdentifierCriterion>
+            </LogicalNotCriterion>
+        </Criterion>
+    </Query>
+    ```
+
+=== "JSON"
+
+    ```json
+    {
+      "Query": {
+        "Criterion": {
+          "LogicalNotCriterion": {
+            "ContentTypeIdentifierCriterion": "article"
+          }
+        }
+      }
+    }
+    ```

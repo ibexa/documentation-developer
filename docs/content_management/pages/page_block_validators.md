@@ -9,10 +9,10 @@ The following block validators are available:
 
 - `required` - checks whether the attribute is provided
 - `regexp` - validates attribute according to the provided regular expression
-- `not_blank` - checks whether the attribute is not left empty
-- `not_blank_richtext` - checks whether a `richtext` attribute is not left empty
-- `content_type` - checks whether the selected Content Types match the provided values
-- `content_container` - checks whether the selected Content item is a container
+- `not_blank` - checks whether the attribute isn't left empty
+- `not_blank_richtext` - checks whether a `richtext` attribute isn't left empty
+- `content_type` - checks whether the selected content types match the provided values
+- `content_container` - checks whether the selected content item is a container
 
 !!! note
 
@@ -20,7 +20,7 @@ The following block validators are available:
     Instead, use `not_blank_richtext`.
 
 For each validator you can provide a message that displays in the Page Builder
-when an attribute field does not fulfil the criteria.
+when an attribute field doesn't fulfil the criteria.
 
 Additionally, for some validators you can provide settings under the
 `ibexa_fieldtype_page.blocks.<block_name>.validators.regexp.options` [configuration key](configuration.md#configuration-files), for example:
@@ -40,7 +40,7 @@ email:
 
 You can create Page block attributes with custom validators.
 
-The following example shows how to create a validator which requires that string attributes contain only alphanumerical characters.
+The following example shows how to create a validator which requires that string attributes contain only alphanumeric characters.
 
 First, create classes that support your intended method of validation.
 For example, in `src/Validator`, create an `AlphaOnly.php` file:
@@ -65,4 +65,14 @@ Finally, add the validator to one of your block attributes, for example:
 
 ``` yaml hl_lines="16-18"
 [[= include_file('code_samples/page/custom_block_validator/config/packages/page_blocks.yaml', 0, 1) =]][[= include_file('code_samples/page/custom_block_validator/config/packages/page_blocks.yaml', 3, 20) =]]
+```
+
+### Custom required validator
+
+By default, only `not_blank` and `not_blank_richtext` validators mark a block attribute as required.
+
+If you create a custom validator `custom_not_blank` with attribute-specific logic, you can extend the `AttributeType` class with a Symfony form type extension to make sure that the attribute is also considered required:
+
+``` php hl_lines="15"
+[[= include_file('code_samples/page/custom_block_validator/src/Form/Extension/AttributeTypeExtension.php') =]]
 ```

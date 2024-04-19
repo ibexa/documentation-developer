@@ -64,4 +64,4 @@ Create the `parts/search_form.html.twig` file:
 
 This template renders only a basic query field and a submit button.
 `'render_rest': false` ensures that the fields you do not explicitly add to the template are not rendered
-(in this case, date selection, Content Type, and so on).
+(in this case, date selection, content type, and so on).

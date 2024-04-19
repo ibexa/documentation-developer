@@ -28,7 +28,7 @@ The constructor for this value object will initialize a new Value object with t
 
 ### Validation
 
-The input passed into this Field Type is subject of ISBN validation depending on the Field settings in its FieldDefinition stored in the Content Type. An example of this Field setting is shown below and will control if input is validated as ISBN-13 or ISBN-10:
+The input passed into this Field Type is subject of ISBN validation depending on the Field settings in its FieldDefinition stored in the content type. An example of this Field setting is shown below and will control if input is validated as ISBN-13 or ISBN-10:
 
 ``` php
 Array

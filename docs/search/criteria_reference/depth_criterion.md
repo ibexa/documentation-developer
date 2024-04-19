@@ -18,6 +18,8 @@ The `value` argument requires:
 
 ## Example
 
+### PHP
+
 ``` php
 $query->query = new Criterion\Location\Depth(Criterion\Operator::LT, 3);
 ```

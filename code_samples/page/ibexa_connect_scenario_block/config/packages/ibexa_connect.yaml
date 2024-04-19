@@ -1,0 +1,13 @@
+ibexa_connect:
+    scenario_block:
+        block_templates:
+            company_customers:
+                template: 'blocks/default.html.twig'
+            external_clients:
+                label: External clients
+                template: 'blocks/default.html.twig'
+                parameters:
+                    external_client_id: string
+                    external_client_name:
+                        type: string
+                        required: true

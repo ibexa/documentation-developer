@@ -1,0 +1,38 @@
+services:
+    app.shipping.shipping_method_type.custom:
+        class: Ibexa\Shipping\ShippingMethod\ShippingMethodType
+        arguments:
+            $identifier: 'custom'
+        tags:
+            - name: ibexa.shipping.shipping_method_type
+              alias: custom
+    app.shipping.shipping_method.custom.form_mapper.options:
+        class: Ibexa\Bundle\Shipping\Form\ShippingMethod\OptionsFormMapper
+        arguments:
+            $formType: 'App\ShippingMethodType\Form\Type\CustomShippingMethodOptionsType'
+        tags:
+            - name: ibexa.shipping.shipping_method.form_mapper.options
+              type: custom
+    app.shipping.shipping_method.options.custom_compound_validator:
+        class: Ibexa\Shipping\Validation\Validator\CompoundValidator
+        arguments:
+            $validators: !tagged_iterator { tag: 'ibexa.shipping.shipping_method.options.validator.custom' }
+        tags:
+            - name: ibexa.shipping.shipping_method.options.validator
+              type: custom
+    App\ShippingMethodType\CustomerNotNullValidator:
+        tags:
+            - name: ibexa.shipping.shipping_method.options.validator.custom
+    App\ShippingMethodType\Storage\StorageConverter:
+        tags:
+            - { name: 'ibexa.shipping.shipping_method.storage_converter', type: 'custom' }
+    App\ShippingMethodType\Storage\StorageDefinition:
+        tags:
+            - { name: 'ibexa.shipping.shipping_method.storage_definition', type: 'custom' }
+    App\ShippingMethodType\Voter\CustomVoter:
+        tags:
+            - { name: ibexa.shipping.shipping.voter, method: custom }
+    App\ShippingMethodType\Cost\CustomCostFormatter:
+        tags:
+            - name: ibexa.shipping.shipping_method.formatter.cost
+              type: custom

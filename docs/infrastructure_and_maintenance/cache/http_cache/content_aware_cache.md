@@ -20,7 +20,7 @@ Tags form a secondary set of keys assigned to every cache item, on top of the "p
 Like an index in a database, a tag is typically used for anything relevant that represents the given cache item.
 Tags are used for cache invalidation.
 
-For example, the system tags every article response, and when the article Content Type is updated,
+For example, the system tags every article response, and when the article content type is updated,
 it tells Varnish that all articles should be considered stale
 and updated in the background when someone requests them.
 
@@ -28,7 +28,7 @@ Current content tags (and when the system purges on them):
 
 - Content: `c<content-id>` - Purged on all smaller or larger changes to content (including its metadata, Fields and Locations).
 - Content Version: `cv<content-id>` - Purged when any version of Content is changed (for example, a draft is created or removed).
-- Content Type: `ct<content-type-id>` - Used when the Content Type changes, affecting content of its type.
+- Content type: `ct<content-type-id>` - Used when the content type changes, affecting content of its type.
 - Location: `l<location-id>` - Used for clearing all cache relevant for a given Location.
 - Parent Location: `pl<[parent-]location-id>` - Used for clearing all children of a Location (`pl<location-id>`), or all siblings (`pl<parent-location-id>`).
 - Path: `p<location-id>` - For operations that change the tree itself, like move, remove, etc.
@@ -92,7 +92,7 @@ Apache has a [hard](https://github.com/apache/httpd/blob/5f32ea94af5f1e7ea68d6fc
 1\. For inline rendering just displaying the content name, image attribute, and/or link, it would be enough to:
 
 - Look into how many inline (non ESI) render calls for content rendering you are doing, and see if you can organize it differently.
-- Consider inlining the views not used elsewhere in the given template and [tagging the response in Twig](#response-tagging-in-twig) with "relation" tags.
+- Consider inlining the views not used elsewhere in the given template and [tagging the response in Twig](#response-tagging-in-templates) with "relation" tags.
     - (Optional) You can set reduced cache TTL for the given view, to reduce the risk of stale cache on subtree operations affecting the inlined content.
 
 2\. You can opt in to set a max length parameter (in bytes) and corresponding ttl (in seconds) 
@@ -197,7 +197,7 @@ but parent response needs these tags to get refreshed if they are deleted:
 $responseTagger->addTags([ContentTagInterface::RELATION_PREFIX . '33', ContentTagInterface::RELATION_PREFIX . '34']);
 ```
 
-See [Tagging from code](https://foshttpcachebundle.readthedocs.io/en/2.8.0/features/tagging.html#tagging-and-invalidating-from-php-code) in FOSHttpCacheBundle doc.
+See [Tagging from code](https://foshttpcachebundle.readthedocs.io/en/latest/features/tagging.html#tagging-from-twig-templates) in FOSHttpCacheBundle doc.
 
 4\. Use deprecated `X-Location-Id` header.
 
@@ -258,7 +258,7 @@ See [Tagging from Twig Templates](https://foshttpcachebundle.readthedocs.io/en/l
 
 `ibexa/http-cache` uses Repository API event subscribers to listen to events emitted on Repository operations,
 and depending on the operation triggers expiry on a specific tag or set of tags.
-All event subscribers can be found in `ezplatform-http-cache/src/EventSubscriber/CachePurge`.
+All event subscribers can be found in `http-cache/src/lib/EventSubscriber/CachePurge`.
 
 ### Tags purged on publish event
 
@@ -313,6 +313,7 @@ The new structure will then be:
 ```
 
 The following keys will be purged during the move:
+
 - `l20`, because cache for previous parent of `[Child]` should be purged (`[Parent1]`)
 - `pl20`, because cache for children of `[Parent1]` should be purged
 - `l21`, because cache for new parent of `[Child]` should be purged (`[Parent2]`)
@@ -374,7 +375,7 @@ This section describes to how to debug problems related to HTTP cache.
 	the HTTP cache sends to the client (web browser).
 	It means you must be able to send requests to your origin (web server) that do not go through Varnish or Fastly.
 	If you run Nginx and Varnish on premise, you should know what host and port number both Varnish and Nginx runs on. If you
-	perform tests on Fastly enabled environment on Ibexa Cloud provided by Platform.sh, you need to use the Platform.sh
+	perform tests on Fastly enabled environment on [[= product_name_cloud =]] provided by Platform.sh, you need to use the Platform.sh
 	Dashboard to obtain the endpoint for Nginx.
 
 The following example shows how to debug and check why Fastly does not cache the front page properly. 
@@ -399,7 +400,7 @@ To find a valid route, click an element in the **URLs** drop-down for the specif
 A route may look like this:
 `https://www.staging.foobar.com.us-2.platformsh.site/`
 
-In this case the region is `us-2` and you can find the public IP list on [Platform.sh documentation page](https://docs.platform.sh/development/public-ips.html)
+In this case the region is `us-2` and you can find the public IP list on [Platform.sh documentation page](https://docs.platform.sh/development/regions.html#public-ip-addresses)
 Typically, you can add a `gw` to the hostname and use nslookup to find it.
 
 ```bash
@@ -409,10 +410,10 @@ Typically, you can add a `gw` to the hostname and use nslookup to find it.
    Address:  1.2.3.4
 ```
 
-You can also use the [Platform.sh CLI command](https://docs.platform.sh/development/cli.html) to find [the endpoint](https://docs.platform.sh/domains/steps/dns.html?#where-should-the-cname-point-to):
+You can also use the [Ibexa Cloud CLI](https://cli.ibexa.co/) (which has the same command as the Platform.sh CLI) to find [the endpoint](https://docs.platform.sh/domains/steps/dns.html):
 
 ```bash
-    $ platform environment:info edge_hostname
+    ibexa_cloud environment:info edge_hostname
 ```
 
 #### Finding Nginx endpoint on dedicated cloud
@@ -446,17 +447,18 @@ To obtain it, use `curl`.
 ```
 
 Some notes about each of these parameters:
+
 - `-IXGET`, one of many ways to tell curl that we want to send a GET request, but we are only interested in outputting the headers
 - `--resolve www.staging.foobar.com.us-2.platformsh.site:443:1.2.3.4`
-  - We tell curl not to do a DNS lookup for `www.staging.foobar.com.us-2.platformsh.site`. We do that because in our case
+    - We tell curl not to do a DNS lookup for `www.staging.foobar.com.us-2.platformsh.site`. We do that because in our case
     that will resolve to the Fastly endpoint, not our origin (nginx)
-  - We specify `443` because we are using `https`
-  - We provide the IP of the nginx endpoint at platform.sh (`1.2.3.4` in this example)
+    - We specify `443` because we are using `https`
+    - We provide the IP of the nginx endpoint at platform.sh (`1.2.3.4` in this example)
 - `--header "Surrogate-Capability: abc=ESI/1.0"`, strictly speaking not needed when fetching the user-context-hash, but this tells [[= product_name =]] that client understands ESI tags.
   It is good practice to always include this header when imitating the HTTP Cache.
 - `--header "accept: application/vnd.fos.user-context-hash"` tells [[= product_name =]] that the client wants to receive the user-context-hash
 - `--header "x-fos-original-url: /"` is required by the fos-http-cache bundle in order to deliver the user-context-hash
-- `https://your-page-blah-blah.us-2.platformsh.site/_fos_user_context_hash` : here we use the hostname we earlier told
+- `https://www.staging.foobar.com.us-2.platformsh.site/_fos_user_context_hash` : here we use the hostname we earlier told
   curl how to resolve using `---resolve`. `/_fos_user_context_hash` is the route to the controller that are able to
   deliver the user-context-hash.
 - You may also provide the session cookie (`--cookie ".....=....") for a logged-in-user if you are interested in
@@ -522,7 +524,7 @@ not only headers) to curl and search for esi:
     $ curl --resolve www.staging.foobar.com.us-2.platformsh.site:443:1.2.3.4 --header "Surrogate-Capability: abc=ESI/1.0" --header "x-user-context-hash: daea248406c0043e62997b37292bf93a8c91434e8661484983408897acd93814" https://www.staging.foobar.com.us-2.platformsh.site/ | grep esi
 ```
 
-The output is :
+The output is:
 
 ```HTML
     <esi:include src="/_fragment?_hash=B%2BLUWB2kxTCc6nc5aEEn0eEqBSFar%2Br6jNm8fvSKdWU%3D&_path=locationId%3D2%26contentId%3D52%26blockId%3D11%26versionNo%3D3%26languageCode%3Deng-GB%26serialized_siteaccess%3D%257B%2522name%2522%253A%2522site%2522%252C%2522matchingType%2522%253A%2522default%2522%252C%2522matcher%2522%253Anull%252C%2522provider%2522%253Anull%257D%26serialized_siteaccess_matcher%3Dnull%26_format%3Dhtml%26_locale%3Den_GB%26_controller%3DEzSystems%255CEzPlatformPageFieldTypeBundle%255CController%255CBlockController%253A%253ArenderAction" />
@@ -540,7 +542,7 @@ shell.
     $ curl -IXGET --resolve www.staging.foobar.com.us-2.platformsh.site:443:1.2.3.4 --header "Surrogate-Capability: abc=ESI/1.0" --header "x-user-context-hash: daea248406c0043e62997b37292bf93a8c91434e8661484983408897acd93814" 'https://www.staging.foobar.com.us-2.platformsh.site/_fragment?_hash=B%2BLUWB2kxTCc6nc5aEEn0eEqBSFar%2Br6jNm8fvSKdWU%3D&_path=locationId%3D2%26contentId%3D52%26blockId%3D11%26versionNo%3D3%26languageCode%3Deng-GB%26serialized_siteaccess%3D%257B%2522name%2522%253A%2522site%2522%252C%2522matchingType%2522%253A%2522default%2522%252C%2522matcher%2522%253Anull%252C%2522provider%2522%253Anull%257D%26serialized_siteaccess_matcher%3Dnull%26_format%3Dhtml%26_locale%3Den_GB%26_controller%3DEzSystems%255CEzPlatformPageFieldTypeBundle%255CController%255CBlockController%253A%253ArenderAction'
 ```
 
-You can also note that this ESI is handled by a controller in the `EzPlatformPageFieldTypeBundle` bundle provided by [[= product_name =]].
+You can also note that this ESI is handled by a controller in the `FieldTypePage` bundle provided by [[= product_name =]].
 
 The output is:
 

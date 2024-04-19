@@ -6,7 +6,7 @@ description: Go through a beginner tutorial which presents the Ibexa DXP content
 
 This tutorial is a step-by-step guide to building an [[= product_name =]] website.
 
-You can use it with both [[= product_name_content =]] and [[= product_name_exp =]].
+You can use it with both [[= product_name_headless =]] and [[= product_name_exp =]].
 
 ## Intended audience
 

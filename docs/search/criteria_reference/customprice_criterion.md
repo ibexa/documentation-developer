@@ -15,6 +15,8 @@ The `CustomPrice` Criterion is not available in the Legacy Search engine.
 
 ## Example
 
+### PHP
+
 ``` php
 $query = new ProductQuery(
     null,

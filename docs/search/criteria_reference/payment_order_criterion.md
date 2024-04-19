@@ -13,6 +13,8 @@ The `Order` Search Criterion searches for payments based on an ID of an associat
 
 ## Example
 
+### PHP
+
 ``` php
 $query->query = new \Ibexa\Contracts\Payment\Payment\Query\Criterion\Order(4);
 ```

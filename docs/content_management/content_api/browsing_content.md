@@ -1,16 +1,16 @@
 ---
-description: Use PHP API to get Content items and their information, as well as content Fields, Location, and others.
+description: Use PHP API to get content items and their information, as well as content Fields, Location, and others.
 ---
 
 # Browsing and viewing content
 
-To retrieve a Content item and its information, you need to make use of the [`ContentService`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php).
+To retrieve a content item and its information, you need to make use of the [`ContentService`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php).
 
 The service should be [injected into the constructor of your command or controller](php_api.md#service-container).
 
 !!! tip "Content REST API"
 
-    To learn how to load Content items using the REST API, see [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#managing-content-load-content).
+    To learn how to load content items using the REST API, see [REST API reference](../../api/rest_api/rest_api_reference/rest_api_reference.html#managing-content-load-content).
 
 !!! tip "Console commands"
 
@@ -46,14 +46,14 @@ It provides you with basic content metadata such as modification and publication
 
 ### Locations
 
-To get the Locations of a Content item you need to make use of the [`LocationService`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/LocationService.php):
+To get the Locations of a content item you need to make use of the [`LocationService`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/LocationService.php):
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 68, 72) =]]
 ```
 
 [`LocationService::loadLocations`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/LocationService.php#L94)
-uses `ContentInfo` to get all the Locations of a Content item.
+uses `ContentInfo` to get all the Locations of a content item.
 This method returns an array of [`Location`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Location.php) value objects.
 For each Location, the code above prints out its `pathString` (the internal representation of the path).
 
@@ -69,9 +69,9 @@ gets the Location's main [URL alias](https://github.com/ibexa/core/blob/main/src
 [[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 68, 71) =]][[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 72, 75) =]]
 ```
 
-### Content Type
+### Content type
 
-You can retrieve the Content Type of a Content item
+You can retrieve the content type of a content item
 through the [`getContentType`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentInfo.php#L188) method of the ContentInfo object:
 
 ``` php
@@ -80,7 +80,7 @@ through the [`getContentType`](https://github.com/ibexa/core/blob/main/src/contr
 
 ### Versions
 
-To iterate over the versions of a Content item,
+To iterate over the versions of a content item,
 use the [`ContentService::loadVersions`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php#L360) method, which returns an array of `VersionInfo` value objects.
 
 ``` php
@@ -104,7 +104,7 @@ to get only versions of a specific status, e.g.:
 Content Relations are versioned.
 To list Relations to and from your content,
 you need to pass a `VersionInfo` object to the [`ContentService::loadRelations`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php#L385) method.
-You can get the current version's `VersionInfo` using [`ContentService::loadVersionInfo`.](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php#L82)
+You can get the current version's `VersionInfo` using [`ContentService::loadVersionInfo`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php#L82).
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 100, 106) =]]
@@ -123,18 +123,18 @@ and the optional Field this relation is made with.
 
 ### Owning user
 
-You can use the `getOwner` method of the `ContentInfo` object to load the Content item's owner as a `User` value object.
+You can use the `getOwner` method of the `ContentInfo` object to load the content item's owner as a `User` value object.
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 108, 109) =]]
 ```
 
-To get the creator of the current version and not the Content item's owner,
+To get the creator of the current version and not the content item's owner,
 you need to use the `creatorId` property from the current version's `VersionInfo` object.
 
 ### Section
 
-You can find the Section to which a Content item belongs through
+You can find the Section to which a content item belongs through
 the [`getSection`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentInfo.php#L193) method
 of the ContentInfo object:
 
@@ -149,10 +149,10 @@ of the ContentInfo object:
 
 ### Object states
 
-You can retrieve [Object states](admin_panel.md#object-states) of a Content item
-using [`ObjectStateService::getContentState`.](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ObjectStateService.php#L176)
+You can retrieve [Object states](object_states.md) of a content item
+using [`ObjectStateService::getContentState`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ObjectStateService.php#L176).
 You need to provide it with the Object state group.
-All Object state groups can be retrieved through [`loadObjectStateGroups`.](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ObjectStateService.php#L59)
+All Object state groups can be retrieved through [`loadObjectStateGroups`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ObjectStateService.php#L59).
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 114, 119) =]]
@@ -160,7 +160,7 @@ All Object state groups can be retrieved through [`loadObjectStateGroups`.](http
 
 ## Viewing content with Fields
 
-To retrieve the Fields of the selected Content item, you can use the following command:
+To retrieve the Fields of the selected content item, you can use the following command:
 
 ```php hl_lines="13-14 16-22"
 [[= include_file('code_samples/api/public_php_api/src/Command/ViewContentCommand.php', 4, 7) =]]    // ...
@@ -168,17 +168,17 @@ To retrieve the Fields of the selected Content item, you can use the following c
 }
 ```
 
-Line 16 shows how [`ContentService::loadContent`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php#L147) loads the Content item provided to the command.
-Line 17 makes use of the [`ContentTypeService`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentTypeService.php) to retrieve the Content Type of the requested item.
+Line 9 shows how [`ContentService::loadContent`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentService.php#L147) loads the content item provided to the command.
+Line 14 makes use of the [`ContentTypeService`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/ContentTypeService.php) to retrieve the content type of the requested item.
 
-Lines 19-24 iterate over Fields defined by the Content Type.
+Lines 12-19 iterate over Fields defined by the content type.
 For each Field they print out its identifier, and then using [`FieldTypeService`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/FieldTypeService.php) retrieve the Field's value and print it out to the console.
 
 ## Viewing content in different languages
 
 The Repository is SiteAccess-aware, so languages defined by the SiteAccess are automatically taken into account when loading content.
 
-To load a specific language, provide its language code when loading the Content item:
+To load a specific language, provide its language code when loading the content item:
 
 ``` php
 $content = $this->contentService->loadContent($contentId, ['ger-DE']);
@@ -192,16 +192,16 @@ $contentService->loadContent($content->id, Language::ALL);
 
 ## Getting all content in a subtree
 
-To go through all the Content items contained in a subtree,
-you need to use the [`LocationService`.](https://github.com/ibexa/core/blob/main/src/contracts/Repository/LocationService.php)
+To go through all the content items contained in a subtree,
+you need to use the [`LocationService`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/LocationService.php).
 
 ``` php hl_lines="5 15"
 [[= include_file('code_samples/api/public_php_api/src/Command/BrowseLocationsCommand.php', 30, 49) =]]
 ```
 
-`loadLocation` (line 14) returns a value object, here a `Location`.
+`loadLocation` (line 15) returns a value object, here a `Location`.
 
-[`LocationService::loadLocationChildren`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/LocationService.php#L106) (line 23)
+[`LocationService::loadLocationChildren`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/LocationService.php#L106) (line 5)
 returns a [`LocationList`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/LocationList.php) value object that you can iterate over.
 
 !!! note
@@ -211,7 +211,7 @@ returns a [`LocationList`](https://github.com/ibexa/core/blob/main/src/contracts
 ## Getting parent Location
 
 To get the parent Location of content, you first need to determine which Location is the main one,
-in case the Content item has multiple Locations.
+in case the content item has multiple Locations.
 You can do it through the `getMainLocation` method of the ContentInfo object.
 
 Next, use the `getParentLocation` method of the Location object to access the parent Location:
@@ -223,7 +223,7 @@ $output->writeln("Parent Location: " . $mainLocation->getParentLocation()->pathS
 
 ## Getting content from a Location
 
-When dealing with Location objects (and Trash objects), you can get access to Content item directly using `$location->getContent`.
+When dealing with Location objects (and Trash objects), you can get access to content item directly using `$location->getContent`.
 In Twig this can also be accessed by `location.content`.
 
 This is a lazy property. It will trigger loading of content when first used.
@@ -232,7 +232,7 @@ the Content will also be loaded in bulk for the whole Location result set.
 
 ## Comparing content versions
 
-You can compare two versions of a Content item using the `VersionComparisonService`.
+You can compare two versions of a content item using the `VersionComparisonService`.
 The versions must have the same language.
 
 For example, to get the comparison between the `name` Field of two versions:

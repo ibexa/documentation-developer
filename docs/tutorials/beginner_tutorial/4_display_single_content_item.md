@@ -2,7 +2,7 @@
 description: Learn how to render content details with a custom template.
 ---
 
-# Step 4 — Display a single Content item
+# Step 4 — Display a single content item
 
 You'll render a list of all Rides here in the next step.
 But before that, you can use the existing page layout to render the content of a single Ride.
@@ -95,7 +95,7 @@ But you still can see how the template works in two ways:
 
 #### Preview in the Back Office
 
-You can use the preview while editing in the Back Office to see how the content will be rendered in full view.
+You can use the [preview]([[= user_doc =]]/content_management/preview_content_items/) while editing in the Back Office to see how the content will be rendered in full view.
 
 ![Full ride preview in admin](bike_tutorial_preview_full_ride.png)
 
@@ -103,4 +103,4 @@ You can use the preview while editing in the Back Office to see how the content 
 
 You can also go directly to the URL of a Ride.
 
-The URL for a Ride Content item located in the "All Rides" Folder is `http://<yourdomain>/all-rides/<ride-name>`.
+The URL for a Ride content item located in the "All Rides" Folder is `http://<yourdomain>/all-rides/<ride-name>`.

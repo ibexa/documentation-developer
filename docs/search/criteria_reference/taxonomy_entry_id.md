@@ -9,6 +9,8 @@ searches for content based on the ID of the Taxonomy Entry it is assigned to.
 
 ## Example
 
+### PHP
+
 ``` php
 $query->query = new Criterion\TaxonomyEntryId(1);
 ```

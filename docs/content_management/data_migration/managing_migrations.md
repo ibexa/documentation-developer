@@ -11,7 +11,7 @@ If you want to convert a file from the format used by the
 to the current migration format, use the `ibexa:migrations:kaliop:convert` command.
 
 The source file must use Kaliop mode and type combinations.
-The converter handles Kaliop types that are different from Ibexa types.
+The converter handles Kaliop types that are different from [[= product_name_base =]] types.
 
 ``` bash
 php bin/console ibexa:migrations:kaliop:convert --input=kaliop_format.yaml --output=ibexa_format.yaml
@@ -73,7 +73,7 @@ Since some migrations generate object properties (like IDs) during their executi
 references provide migrations with the ability to use previously created object properties in further migrations.
 They can be subsequently used by passing them in their desired place with `reference:` prefix.
 
-The example below creates a Content item of type "folder", and stores its Location path as `"ref_path__folder__media"`.
+The example below creates a content item of type "folder", and stores its Location path as `"ref_path__folder__media"`.
 Then this reference is reused as part of a new role, as a limitation.
 
 ```yaml

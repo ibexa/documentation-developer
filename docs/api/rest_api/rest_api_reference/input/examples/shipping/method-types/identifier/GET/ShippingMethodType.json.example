@@ -1,0 +1,8 @@
+{
+	"ShippingMethodType": {
+		"_media-type": "application\/vnd.ibexa.api.ShippingMethodType+json",
+		"_href": "\/api\/ibexa\/v2\/shipping\/method-types\/flat_rate",
+		"identifier": "flat_rate",
+		"name": "Flat rate"
+	}
+}

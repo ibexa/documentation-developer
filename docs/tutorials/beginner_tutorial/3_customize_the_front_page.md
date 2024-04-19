@@ -7,7 +7,7 @@ description: Try customizing the front page by using custom templates and adding
 In this step you will create the global layout of your site, and display content using custom templates.
 
 First, go to the root of the site (`<yourdomain>`). You should now see the home page of the clean install, without any kind of layout.
-You will customize this step by instructing the platform to use a custom template to render this Content item.
+You will customize this step by instructing the platform to use a custom template to render this content item.
 
 ## Content rendering configuration
 
@@ -35,7 +35,7 @@ ibexa:
 ```
 
 This tells [[= product_name =]] to use the `template` when rendering content with Location ID `2`.
-`2` is the default Location for the root Content item.
+`2` is the default Location for the root content item.
 
 `Id\Location` is one of several [view matchers](view_matcher_reference.md) that you can use to customize rendering depending on different criteria.
 
@@ -193,7 +193,7 @@ Before proceeding, ensure that the structure of the added files looks like this:
 
 In [[= product_name =]], you can add assets by using [Symfony Webpack Encore]([[= symfony_doc =]]/frontend.html#webpack-encore)
 — an integration of Webpack that enables you to build bundles of CSS stylesheets and JS scripts and add them to the project.
-For more details, see [importing assets from a bundle](project_organization.md#importing-assets-from-a-bundle).
+For more details, see [Importing assets from a bundle](importing_assets_from_bundle.md).
 
 To create bundles, first, indicate which files to include in them.
 
@@ -235,7 +235,7 @@ To add one template to another, edit `templates/full/home_page.html.twig` and re
 {% endblock %}
 ```
 
-The templating language Twig supports [template inheritance](http://twig.sensiolabs.org/doc/templates.html#template-inheritance).
+The templating language Twig supports [template inheritance](https://twig.symfony.com/doc/3.x/tags/extends.html).
 Templates can contain named blocks. Any template can extend other templates, and modify the blocks defined by its parents.
 
 The code above points to `main_layout.html.twig` in line 1. It also wraps your "Hello world" message in a `content` block.

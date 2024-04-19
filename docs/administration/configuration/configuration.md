@@ -36,6 +36,14 @@ These files contain additional settings and point to the general (not environmen
 
     Read more about [how configuration is handled in Symfony]([[= symfony_doc =]]/best_practices/configuration.html).
 
+!!! caution "Special characters"
+
+    Avoid using special characters in your configuration files. More specifically, don't use Unicode characters from the ["Other" (`C`) categories](https://en.wikipedia.org/wiki/Unicode#General_Category_property), such as control or format characters.
+
+    Make sure your IDE displays them.
+
+    Be careful when copy-pasting text from a word processing software or a PDF, because it might contain hidden characters like the [soft hyphen](https://en.wikipedia.org/wiki/Soft_hyphen).
+
 ### Configuration handling
 
 !!! note
@@ -50,7 +58,7 @@ Internally and by convention, keys follow a *dot syntax*, where the different se
 Keys are usually prefixed by a *namespace* corresponding to your application. All kinds of values are accepted, including arrays and deep hashes.
 
 For configuration that is meant to be exposed to an end-user (or end-developer),
-it's usually a good idea to also [implement semantic configuration.]([[= symfony_doc =]]/components/config/definition.html)
+it's usually a good idea to also [implement semantic configuration]([[= symfony_doc =]]/components/config/definition.html).
 
 Note that you can also [implement SiteAccess-aware semantic configuration](siteaccess_aware_configuration.md).
 

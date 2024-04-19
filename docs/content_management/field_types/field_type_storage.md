@@ -23,7 +23,7 @@ The SPI `FieldValue` struct has properties which the Field Type can use:
 |Property|Description|
 |--------|-----------|
 |`$data`|The data to be stored in the database. This may be a scalar value, an associative array or a simple, serializable object.|
-|`$externalData`|The arbitrary data stored in this field will not be touched by any of the [[= product_name =]] components directly, but will be available for [Storing external data](#storing-external-data).|
+|`$externalData`|The arbitrary data stored in this field will not be touched by any of the [[= product_name =]] components directly, but will be available for [Storing data externally](#storing-data-externally).|
 |`$sortKey`|A value which can be used to sort content by this Field.|
 
 ### Legacy storage engine
@@ -94,7 +94,7 @@ or even the [[= product_name =]] database itself (in form of a non-standard tabl
 In order to store data in external storage, the Field Type will interact with the Persistence SPI
 through the `Ibexa\Contracts\Core\FieldType\FieldStorage` interface.
 
-Accessing the internal storage of a Content item that includes a Field of the Field Type
+Accessing the internal storage of a content item that includes a Field of the Field Type
 calls one of the following methods to also access the external data:
 
 |Method|Description|
@@ -158,7 +158,7 @@ The configuration requires providing the `ibexa.field_type.storage.external.hand
 
 External storage configuration for basic Field Types is located in [`ibexa/core/src/lib/Resources/settings/fieldtype_external_storages.yml`](https://github.com/ibexa/core/blob/main/src/lib/Resources/settings/fieldtype_external_storages.yml).
 
-Using gateway-based storage requires another service implementing `Ibexa\Core\FieldType\StorageGateway` to be injected into the [external storage handler](#storing-external-data)).
+Using gateway-based storage requires another service implementing `Ibexa\Core\FieldType\StorageGateway` to be injected into the [external storage handler](#storing-data-externally)).
 
 ``` yaml
 services:
@@ -182,7 +182,7 @@ Also note that there can be several gateways per Field Type (one per storage eng
 ## Storing Field Type settings externally
 
 Just like in the case of data, storing [Field Type settings](type_and_value.md#field-type-settings) 
-in Content Item tables may prove insufficient. 
+in content item tables may prove insufficient. 
 It is not a problem if your setting specifies, for example, just the allowed number of characters 
 in a text field. 
 However, the Field Type may represent a more complex object, for example, it may 

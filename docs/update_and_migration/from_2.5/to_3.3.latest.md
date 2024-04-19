@@ -160,7 +160,7 @@ Run the following scripts:
 
 #### VCL configuration for Fastly
 
-Ibexa DXP now supports Fastly shielding. If you are using Fastly and want to use shielding, you need to update your VCL files.
+[[= product_name =]] now supports Fastly shielding. If you are using Fastly and want to use shielding, you need to update your VCL files.
 
 !!! tip
 

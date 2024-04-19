@@ -29,7 +29,7 @@ class SetMainLocationCommand extends Command
     protected function configure()
     {
         $this
-            ->setDescription('Set a Location as Content item\'s main')
+            ->setDescription('Set a Location as content item\'s main')
             ->setDefinition([
                 new InputArgument('contentId', InputArgument::REQUIRED, 'The Content ID'),
                 new InputArgument('locationId', InputArgument::REQUIRED, 'One of the Locations of the Content'),

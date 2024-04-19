@@ -10,10 +10,10 @@ Configure URL aliases to have human-readable URL addresses throughout your syste
 ## Link manager
 
 When developing a site, users can enter links to external websites in either RichText or URL fields.
-Each such link is then displayed in the URL table. You can view and update all external links that exist within the site, without having to modify and re-publish the individual Content items.
+Each such link is then displayed in the URL table. You can view and update all external links that exist within the site, without having to modify and re-publish the individual content items.
 
 The Link manager tab contains all the information about each link, including its status (valid or invalid) and the time the system last attempted to validate the URL address.
-Click an entry in the list to display its details and check which Content items use this link.
+Click an entry in the list to display its details and check which content items use this link.
 Edit the entry to update the URL address in all the occurrences throughout the website.
 
 !!! note
@@ -95,13 +95,13 @@ For details, see the tables below.
 |--------------------|---------------------------------------------------------------------|---------------|
 | enabled            | Enables link validation.                                            | true          |
 
-For more information about Ibexa configuration, see [Configuration](configuration.md).
+For more information about [[= product_name_base =]] configuration, see [Configuration](configuration.md).
 
 ### Custom protocol support
 
 You can extend the external URL address validation with a custom protocol.
 To do this, you must provide a service that implements the `Ibexa\Bundle\Core\URLChecker\URLHandlerInterface` interface:
-
+s
 ```php
 <?php
 
@@ -136,7 +136,7 @@ The `scheme` attribute is mandatory and has to correspond to the name of the pro
 
 ## URL aliases
 
-You can define URL aliases for individual Content items, for example, when you reorganize the content, and want to provide users with continuity.
+You can define URL aliases for individual content items, for example, when you reorganize the content, and want to provide users with continuity.
 For each URL alias definition the history of changes is preserved, so that users who have bookmarked the URL addresses of content items can still find he information they desire.
 
 !!! note
@@ -219,7 +219,7 @@ You can also extend the command with the following parameters:
 
 ## URL wildcards
 
-With wildcards, you can change the URL address for many Content items at the same time, by replacing a portion of the destination's URL address.
+With wildcards, you can change the URL address for many content items at the same time, by replacing a portion of the destination's URL address.
 For example, you might want to shorten the path, or make the path meaningful.
 
 For each URL wildcard definition you set the wildcard pattern and its destination.
@@ -228,7 +228,7 @@ Also, you can decide whether the user sees the content at the address that uses 
 For example, a URL wildcard called `pictures/*/*` can use `media/images/{1}/{2}` as destination.
 In this case, accessing `<yourdomain>/pictures/home/photo/` loads `<yourdomain>/media/images/home/photo/`.
 
-You can configure URL wildcards either in the Back Office, or with the Public API.
+You can configure URL wildcards either in the Back Office, or with the public PHP API.
 
 Before you configure URL wildcards, you must enable the feature in configuration:
 
@@ -247,9 +247,9 @@ The URL wildcards tab contains all the information about each URL wildcard. You 
     To be able to modify wildcard support settings in the user interface, you must have the `content/urltranslator` Policy. For more information about permissions, see [Permissions](permissions.md).
 
 
-### Configuring URL wildcards with the Public API
+### Configuring URL wildcards with the public PHP API
 
-You can create URL wildcards with the Public API by using the `URLWildcardService` service:
+You can create URL wildcards with the public PHP API by using the `URLWildcardService` service:
 
 ``` php
 $source = 'pictures/*/*';

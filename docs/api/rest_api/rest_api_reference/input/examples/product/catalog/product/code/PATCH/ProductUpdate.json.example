@@ -1,7 +1,18 @@
 {
     "ProductUpdate": {
         "ContentUpdate": { 
-        },
+              "__url": "/api/ibexa/v2/content/objects/67",
+              "fields": {
+                  "field": [
+                                {
+                                    "fieldDefinitionIdentifier": "name",
+                                    "languageCode": "eng-GB",
+                                    "fieldTypeIdentifier": "ezstring",
+                                    "fieldValue": "IN6.1200tze205"
+                                }
+                           ]
+               }
+         },
         "code": "NEWCODE"
     }
 }

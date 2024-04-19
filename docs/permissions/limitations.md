@@ -6,7 +6,7 @@ page_type: reference
 # Limitations
 
 Limitations are part of the permissions system.
-They limit the access granted to users by [Policies](permissions.md#permission-overview).
+They limit the access granted to users by [Policies](permission_overview.md).
 While a Policy grants the user access to a function, Limitations narrow it down by different criteria.
 
 Limitations consist of two parts:
@@ -15,7 +15,7 @@ Limitations consist of two parts:
 - `LimitationType`
 
 Certain Limitations also serve as Role Limitations, which means they can be used to limit the rights of a Role assignment.
-Currently this covers [Subtree of Location](limitation_reference.md#subtree-of-location-limitation), [Section](limitation_reference.md#section-limitation) and [Personalization access](limitation_reference.md#personalization-access-limitation) Limitations.
+Currently, this covers [Subtree of Location](limitation_reference.md#subtree-limitation), [Section](limitation_reference.md#section-limitation) and [Personalization access](limitation_reference.md#personalization-access-limitation) Limitations.
 
 `Limitation` represents the value, while `LimitationType` deals with the business logic surrounding how it actually works and is enforced.
 `LimitationTypes` have two modes of operation in regards to permission logic (see [`Ibexa\Contracts\Core\Limitation`](https://github.com/ibexa/core/blob/main/src/contracts/Limitation/Type.php) interface for more info):

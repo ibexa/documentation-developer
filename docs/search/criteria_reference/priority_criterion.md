@@ -17,6 +17,8 @@ The `value` argument requires:
 
 ## Example
 
+### PHP
+
 ``` php
 $query->query = new Criterion\Location\Priority(Criterion\Operator::GTE, 50);
 ```

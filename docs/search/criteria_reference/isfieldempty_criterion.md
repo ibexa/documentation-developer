@@ -17,6 +17,8 @@ The Richtext Field Type (`ezrichtext`) is not searchable in the Legacy search en
 
 ## Example
 
+### PHP
+
 ``` php
 $query->query = new Criterion\IsFieldEmpty('title');
 ```

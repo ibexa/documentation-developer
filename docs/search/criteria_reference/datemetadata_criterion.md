@@ -11,6 +11,8 @@ searches for content based on the date when it was created or last modified.
 
 ## Example
 
+### PHP
+
 ``` php
 $query->query = new Criterion\DateMetadata(
     Criterion\DateMetadata::CREATED,
@@ -18,6 +20,37 @@ $query->query = new Criterion\DateMetadata(
     [1576800000, 1576972800]
 );
 ```
+
+### REST API
+
+=== "XML"
+
+    ```xml
+    <Query>
+        <Filter>
+            <DateMetadataCriterion>
+                <Target>modified</Target>
+                <Value>1675681020</Value>
+                <Operator>gte</Operator>
+            </DateMetadataCriterion>
+        </Filter>
+    </Query>
+    ```
+
+=== "JSON"
+
+    ```json
+        "Query": {
+            "Filter": {
+                "DateMetadataCriterion": {
+                    "Target": "modified",
+                    "Value": 1675681020,
+                    "Operator": "gte"
+                }
+            }
+        }
+    ```
+
 
 ## Use case
 

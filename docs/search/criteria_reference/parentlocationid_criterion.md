@@ -9,9 +9,33 @@ searches for content based on the Location ID of its parent.
 
 ## Example
 
+### PHP
+
 ``` php
 $query->query = new Criterion\ParentLocationId([54, 58]);
 ```
+
+### REST API
+
+=== "XML"
+
+    ```xml
+    <Query>
+        <Filter>
+            <ParentLocationIdCriterion>[81, 82]</ParentLocationIdCriterion>
+        </Filter>
+    </Query>
+    ```
+
+=== "JSON"
+
+    ```json
+    "Query": {
+        "Filter": {
+            "ParentLocationIdCriterion": [69, 72]
+        }
+    }
+    ```
 
 ## Use case
 

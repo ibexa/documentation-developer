@@ -1,6 +1,6 @@
 # ObjectStateTermAggregation
 
-The [ObjectStateTermAggregation](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/Aggregation/ObjectStateTermAggregation.php) aggregates search results by the Content item's Object state.
+The [ObjectStateTermAggregation](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/Aggregation/ObjectStateTermAggregation.php) aggregates search results by the content item's Object state.
 
 ## Arguments
 

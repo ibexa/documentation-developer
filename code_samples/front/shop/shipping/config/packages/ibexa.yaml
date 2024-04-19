@@ -4,7 +4,7 @@ ibexa:
             shipping:
                 shipment_workflow: custom_shipment_workflow
 
-// ...
+# ...
 
 framework:
     workflows:
@@ -87,4 +87,3 @@ framework:
                     to: delivered
                     metadata:
                         exposed: false
-                        

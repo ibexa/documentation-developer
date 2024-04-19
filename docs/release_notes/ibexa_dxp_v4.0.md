@@ -1,3 +1,5 @@
+<!-- vale VariablesVersion = NO -->
+
 # Ibexa DXP v4.0
 
 **Version number**: v4.0
@@ -54,7 +56,7 @@ For more information, see [Support for multiple websites](https://doc.ibexa.co/p
 
 ### Draft locking
 
-You can now configure and use the locking feature to lock a draft of a Content item, 
+You can now configure and use the locking feature to lock a draft of a content item, 
 so that only an assigned person can edit it, and no other user can take it over. 
 
 For more information, see the [Draft locking](https://doc.ibexa.co/en/latest/guide/workflow/workflow/#draft-locking)
@@ -80,11 +82,11 @@ See [Managing migrations](https://doc.ibexa.co/en/latest/api/public_php_api_mana
 ### Decide whether alternative text for Image field is optional
 
 Alternative text for an Image field is now optional by default. 
-You can set it as required when adding the Image field to a Content Type.
+You can set it as required when adding the Image field to a content type.
 
-### Configure what elements are available in the Page Builder for the Content type [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+### Configure what elements are available in the Page Builder for the content type [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-You can now select which page blocks, page layout and what edit mode are available in the Editor mode for the Content type.
+You can now select which page blocks, page layout and what edit mode are available in the Editor mode for the content type.
 For more information, see [Working with Page](https://doc.ibexa.co/projects/userguide/en/latest/site_organization/working_with_page/#configure-block-display).
 
 ### Purge all submissions of given form [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
