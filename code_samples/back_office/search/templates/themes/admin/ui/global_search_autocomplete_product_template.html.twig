@@ -1,0 +1,10 @@
+<div
+    class="ibexa-global-search__autocomplete-product-template"
+    data-template-item="{{ include('@ibexadesign/ui/global_search_autocomplete_product_item.html.twig', {
+        product_href: "{{ productHref }}",
+        product_name: "{{ productName }}",
+        product_code: "{{ productCode }}",
+        product_type_icon_href: "{{ productTypeIconHref }}",
+        product_type_name: "{{ productTypeName }}"
+    })|e('html_attr') }}">
+</div>
