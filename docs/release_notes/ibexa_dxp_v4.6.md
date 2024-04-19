@@ -159,7 +159,7 @@ For example, if the searched text is "Comany", the result page may ask "Did you 
 
 For more information,
 see [user documentation](https://doc.ibexa.co/projects/userguide/en/master/search/search_for_content/),
-and how to [customize autocompletion suggestions](https://doc.ibexa.co/en/latest/administration/back_office/customize_search_suggestion/).
+and how to [customize autocompletion suggestions](https://doc.ibexa.co/en/master/administration/back_office/customize_search_suggestion/).
 
 ##### Filtering and sorting
 
@@ -169,7 +169,7 @@ Filters can be applied to the search page to narrow down the results.
 
 For more information,
 see [user documentation](https://doc.ibexa.co/projects/userguide/en/master/search/search_for_content/#filtered-search),
-and how to [customize search sorting](https://doc.ibexa.co/en/latest/administration/back_office/customize_search_sorting/).
+and how to [customize search sorting](https://doc.ibexa.co/en/master/administration/back_office/customize_search_sorting/).
 
 #### New and updated content type icons
 
