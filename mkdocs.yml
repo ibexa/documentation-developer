@@ -467,6 +467,7 @@ nav:
             - Search Criteria reference: search/criteria_reference/search_criteria_reference.md
             - Ancestor: search/criteria_reference/ancestor_criterion.md
             - ContentId: search/criteria_reference/contentid_criterion.md
+            - ContentName: search/criteria_reference/contentname_criterion.md
             - ContentTypeGroupId: search/criteria_reference/contenttypegroupid_criterion.md
             - ContentTypeId: search/criteria_reference/contenttypeid_criterion.md
             - ContentTypeIdentifier: search/criteria_reference/contenttypeidentifier_criterion.md
