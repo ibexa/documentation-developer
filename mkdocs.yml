@@ -145,8 +145,9 @@ nav:
             - Multi-file upload: administration/back_office/multifile_upload.md
             - Sub-items list: administration/back_office/subitems_list.md
             - Notifications: administration/back_office/notifications.md
-            - Customize search suggestion: administration/back_office/customize_search_suggestion.md
-            - Customize search sorting: administration/back_office/customize_search_sorting.md
+            - Customize search:
+                - Customize search suggestion: administration/back_office/customize_search_suggestion.md
+                - Customize search sorting: administration/back_office/customize_search_sorting.md
             - Recent activity: administration/recent_activity/recent_activity.md
     - Content management:
         - Content management: content_management/content_management.md
