@@ -17,7 +17,7 @@ You can later use this file to import the data.
 php bin/console ibexa:migrations:generate --type=content --mode=create --siteaccess=admin
 ```
 
-This generates a file containing all Content items.
+This generates a file containing all content items.
 Below you can see part of the output of the default [[= product_name =]] installation.
 
 ``` yaml
@@ -66,7 +66,7 @@ Below you can see part of the output of the default [[= product_name =]] install
 
 The output contains all the possible information for a future migration command.
 Parts of it can be removed or modified.
-You can treat it as a template for another Content item for user group.
+You can treat it as a template for another content item for user group.
 For example, you could:
 
 - Remove `references` if you don't intend to store IDs for future use (see [migration references](managing_migrations.md#references))
@@ -136,9 +136,8 @@ Note that you should test your migrations. See [Importing data](importing_data.m
 
 !!! caution
 
-    The `--siteaccess` option usage can be relevant for a multi-language repository.
-    You must export with a SiteAccess that supports all languages, or the migration skips translations in non-supported languages.
-    It is recommended to use the SiteAccess from the Back Office of the targeted repository.
+    [`--siteaccess` option](#siteaccess) usage can be relevant when multiple languages or multiple repositories are used.
+    To prevent translation loss, it is recommended that you use the SiteAccess that has all the languages used in your implementation, most likely the Back Office one.
 
 ## type
 
@@ -195,6 +194,19 @@ The following combinations of types are modes are available:
 |`segment`|&#10004;|&#10004;|&#10004;|
 |`segment_group`|&#10004;|&#10004;|&#10004;|
 |`company`|&#10004;|||
+
+## siteaccess
+
+The optional `--siteaccess` option enables you to export (or import) data in a SiteAccess configuration's context.
+If not provided, the [default SiteAccess](multisite_configuration.md#default-siteaccess) is used.
+
+It is recommended that you use the SiteAccess of the target repository's Back Office.
+
+Specifying the SiteAccess can be mandatory, for example, when you use several SiteAccesses to handle [several languages](languages.md#using-siteaccesses-for-handling-translations).
+Export and import commands only work with languages supported by the context SiteAccess.
+You must export and import with the SiteAccess supporting all the languages to preserve translations.
+
+This option is also important if you use [several repositories with their own dabases](repository_configuration.md#defining-custom-connection).
 
 ## match-property
 
@@ -260,7 +272,7 @@ You can extend the list of available matchers by creating [a custom one](add_dat
 The optional `--value` option, together with `match-property`, filters the Repository content that the command exports.
 `value` defines which values of the `match-property` should be included in the export.
 
-For example, to export only Article Content items, use the `content_type_identifier` match property with `article` as the value:
+For example, to export only Article content items, use the `content_type_identifier` match property with `article` as the value:
 
 ``` bash
 php bin/console ibexa:migrations:generate --type=content --mode=create --match-property=content_type_identifier --value=article

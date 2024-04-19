@@ -56,15 +56,15 @@ Here are the most important changes:
 
 For more information, see [Page Builder interface](https://doc.ibexa.co/projects/userguide/en/master/content_management/create_edit_pages/#page-builder-interface).
 
-#### Editing embedded Content items
+#### Editing embedded content items
 
-User can now edit embedded Content items without leaving current window.
-This function is available in the Rich Text Field when creating Content items, for selected blocks in the Page Builder,
+User can now edit embedded content items without leaving current window.
+This function is available in the Rich Text Field when creating content items, for selected blocks in the Page Builder,
 and while adding or modifying a Content relation.
 
-![Editing embedded Content items](img/4.6_editing_embedded_content_items.png "Editing embedded Content items")
+![Editing embedded content items](img/4.6_editing_embedded_content_items.png "Editing embedded content items")
 
-For more information, see [Edit embedded Content items](https://doc.ibexa.co/projects/userguide/en/master/content_management/create_edit_content_items/#edit-embedded-content-items).
+For more information, see [Edit embedded content items](https://doc.ibexa.co/projects/userguide/en/master/content_management/create_edit_content_items/#edit-embedded-content-items).
 
 #### Focus mode
 
@@ -76,18 +76,18 @@ For more information, see [Focus mode](https://doc.ibexa.co/projects/userguide/e
 
 As part of this effort, some other changes were introduced that apply to both regular and Focus mode:
 
-- In Content item details view, tabs have been reordered by their relevance
-- **Authors** and **Sub-items** are now separate tabs in Content item details view
+- In content item details view, tabs have been reordered by their relevance
+- **Authors** and **Sub-items** are now separate tabs in content item details view
 - Former **Details** tab is now called **Technical details** and changed its position
-- Preview is available in many new places, such as the **View** tab in Content item details view, or as miniatures when you hover over the Content Tree
+- Preview is available in many new places, such as the **View** tab in content item details view, or as miniatures when you hover over the Content Tree
 - `ibexa_is_focus_mode_on` and `ibexa_is_focus_mode_off` Twig helpers have been introduced, which check whether focus mode is enabled or not.
 
 ![Sub-items tab](img/4.6_sub_items_tab.png "Sub-items tab")
 
 #### Ability to change site context
 
-With a drop-down list added to the top bar, which changes the site context, editors can choose that the Content Tree shows only those Content items that belong to the selected website.
-And if Content items belong to multiple websites but use different designs or languages depending on the SiteAccess settings, their previews also change.
+With a drop-down list added to the top bar, which changes the site context, editors can choose that the Content Tree shows only those content items that belong to the selected website.
+And if content items belong to multiple websites but use different designs or languages depending on the SiteAccess settings, their previews also change.
 
 As part of this effort, the name of the "Sites" area of the main menu has changed to "Site management".
 
@@ -171,10 +171,10 @@ For more information,
 see [user documentation](https://doc.ibexa.co/projects/userguide/en/master/search/search_for_content/#filtered-search),
 and how to [customize search sorting](https://doc.ibexa.co/en/master/docs/administration/back_office/search_sorting/).
 
-#### New and updated Content Type icons
+#### New and updated content type icons
 
-To help users quickly identify different content types in the Back Office, all Content Type references are now accompanied with icons.
-Also, Content Type icons have changed slightly.
+To help users quickly identify different content types in the Back Office, all content type references are now accompanied with icons.
+Also, content type icons have changed slightly.
 
 ![Content type icons](img/4.6_content_type_icons.png "Content type icons")
 
@@ -453,7 +453,7 @@ Any third party code that extends `\Ibexa\Contracts\Rest\Output\Generator` needs
 
 ### Helpers
 
-A new helper method `ibexa.helpers.contentType.getContentTypeDataByHref` has been introduced to help you get Content Type data in JavaScript.
+A new helper method `ibexa.helpers.contentType.getContentTypeDataByHref` has been introduced to help you get content type data in JavaScript.
 
 ### Ibexa Connect
 
@@ -480,93 +480,11 @@ For more information, see [CDP Activation](https://doc.ibexa.co/en/master/cdp/cd
 
 ## Developer experience
 
-### Github statistics
-
-Git events between v4.5.0 and v4.6.0
-
-| Metric              | Value                      |
-|:--------------------|:---------------------------|
-| Commits             | 4668                       |
-| Pull requests       | 3,413 opened (2,6k merged) |
-| Reviews             | 8323                       |
-| Total contributions | 16404                      |
-
-### Code changes
-
-Code changes between v4.5.0 and v4.6.0
-
-| Repository                              | Files changed | Lines added | Lines removed |
-|:----------------------------------------|--------------:|------------:|--------------:|
-| ibexa/activity-log                      | 295           | 13438       | 157           |
-| ibexa/admin-ui                          | 929           | 19264       | 6770          |
-| ibexa/admin-ui-assets                   | 2             | 10          | 10            |
-| ibexa/automated-translation             | 15            | 116         | 164           |
-| ibexa/calendar                          | 22            | 82          | 77            |
-| ibexa/cart                              | 133           | 3516        | 517           |
-| ibexa/cdp                               | 81            | 4872        | 160           |
-| ibexa/checkout                          | 157           | 7021        | 1012          |
-| ibexa/connect                           | 42            | 2266        | 26            |
-| ibexa/connector-dam                     | 15            | 111         | 59            |
-| ibexa/connector-payum                   | 42            | 1627        | 141           |
-| ibexa/content-forms                     | 28            | 350         | 167           |
-| ibexa/content-tree                      | 19            | 248         | 127           |
-| ibexa/core                              | 277           | 7119        | 1959          |
-| ibexa/core-persistence                  | 41            | 3368        | 70            |
-| ibexa/corporate-account                 | 176           | 1527        | 723           |
-| ibexa/corporate-account-commerce-bridge | 26            | 652         | 143           |
-| ibexa/cron                              | 1             |             |               |
-| ibexa/dashboard                         | 221           | 11278       | 157           |
-| ibexa/design-engine                     | 1             |             |               |
-| ibexa/doctrine-schema                   | 3             | 155         | 1             |
-| ibexa/elasticsearch                     | 24            | 726         | 34            |
-| ibexa/fastly                            | 1             |             |               |
-| ibexa/fieldtype-address                 | 14            | 37          | 28            |
-| ibexa/fieldtype-matrix                  | 13            | 44          | 44            |
-| ibexa/fieldtype-page                    | 68            | 1934        | 843           |
-| ibexa/fieldtype-query                   | 6             | 24          | 16            |
-| ibexa/fieldtype-richtext                | 32            | 934         | 188           |
-| ibexa/form-builder                      | 88            | 146         | 183           |
-| ibexa/graphql                           | 1             |             |               |
-| ibexa/http-cache                        | 4             | 6           | 9             |
-| ibexa/icons                             | 27            | 288         | 7             |
-| ibexa/image-editor                      | 15            | 220         | 204           |
-| ibexa/image-picker                      | 56            | 3144        | 3             |
-| ibexa/installer                         | 26            | 935         | 46            |
-| ibexa/measurement                       | 37            | 1245        | 59            |
-| ibexa/migrations                        | 21            | 141         | 49            |
-| ibexa/notifications                     | 44            | 1397        | 414           |
-| ibexa/oauth2-client                     | 1             |             |               |
-| ibexa/order-management                  | 143           | 3796        | 417           |
-| ibexa/page-builder                      | 187           | 5442        | 1529          |
-| ibexa/payment                           | 65            | 962         | 202           |
-| ibexa/permissions                       | 3             | 16          | 16            |
-| ibexa/personalization                   | 94            | 1641        | 337           |
-| ibexa/post-install                      | 103           | 8           | 6240          |
-| ibexa/product-catalog                   | 694           | 16031       | 3919          |
-| ibexa/rest                              | 48            | 1376        | 438           |
-| ibexa/scheduler                         | 78            | 294         | 224           |
-| ibexa/search                            | 77            | 3821        | 82            |
-| ibexa/segmentation                      | 49            | 1405        | 82            |
-| ibexa/seo                               | 10            | 41          | 25            |
-| ibexa/shipping                          | 281           | 9894        | 405           |
-| ibexa/site-context                      | 101           | 4577        | 144           |
-| ibexa/site-factory                      | 65            | 642         | 401           |
-| ibexa/solr                              | 23            | 593         | 126           |
-| ibexa/standard-design                   | 1             |             |               |
-| ibexa/storefront                        | 125           | 4610        | 598           |
-| ibexa/system-info                       | 19            | 91          | 174           |
-| ibexa/taxonomy                          | 76            | 1564        | 125           |
-| ibexa/tree-builder                      | 46            | 799         | 337           |
-| ibexa/user                              | 56            | 310         | 249           |
-| ibexa/version-comparison                | 32            | 117         | 104           |
-| ibexa/workflow                          | 51            | 335         | 207           |
-| Total                                   | 5431          | 146606      | 30948         |
-
 ### New packages 
 
 The following packages has been introduced in Ibexa DXP v4.6.0:
 
-- ibexa/oauth2-server (optional)
+- [ibexa/oauth2-server](oauth_server.md) (optional)
 - ibexa/site-context
 - ibexa/activity-log
 - ibexa/notifications
@@ -676,7 +594,7 @@ Product
 
 ### Events
 
-The following endpoints have been added in the v4.6.0 release (39 events in total):
+The following events have been added in the v4.6.0 release (39 events in total):
 
 - ibexa/activity-log
     - `\Ibexa\Contracts\ActivityLog\Event\PostActivityListLoadEvent`

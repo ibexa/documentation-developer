@@ -8,7 +8,7 @@ To add a new menu entry in the Back Office, you need to use an event subscriber
 and subscribe to [one of the events](back_office_menus.md#menu-events) dispatched when building menus.
 
 The following example shows how to add a "Content list" item to the main top menu
-and list all Content items there, with a shortcut button to edit them.
+and list all content items there, with a shortcut button to edit them.
 
 ## Create event subscriber
 
@@ -32,7 +32,7 @@ Next, configure the route that the menu item leads to:
 
 ## Create controller
 
-The route indicates a controller that fetches all visible Content items and renders the view.
+The route indicates a controller that fetches all visible content items and renders the view.
 
 Create the following controller file in `src/Controller/AllContentListController.php`:
 
@@ -53,5 +53,5 @@ to render a table that fits the style of the Back Office.
 
 You can configure the columns of the table in the `head_cols` variable
 and the regular table rows in `body_rows`.
-In this case, `body_rows` contains information about the Content item provided by the controller,
+In this case, `body_rows` contains information about the content item provided by the controller,
 and an edit button.

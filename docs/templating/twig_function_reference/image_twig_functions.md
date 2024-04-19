@@ -6,7 +6,7 @@ page_type: reference
 # Image Twig functions
 
 - [`ibexa_image_alias`](#ibexa_image_alias) returns the selected variation of an image Field.
-- [`ibexa_content_field_identifier_first_filled_image`](#ibexa_content_field_identifier_first_filled_image) returns the identifier of the first image Field in a Content item that is not empty.
+- [`ibexa_content_field_identifier_first_filled_image`](#ibexa_content_field_identifier_first_filled_image) returns the identifier of the first image Field in a content item that is not empty.
 
 ## Image rendering
 

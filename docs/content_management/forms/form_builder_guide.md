@@ -64,7 +64,7 @@ To learn more, see [Work with forms]([[= user_doc =]]/content_management/work_wi
 
 ### Forms management
 
-[Form](forms.md) is one of available [Content items]([[= user_doc =]]/content_management/content_items/) that you can find in the platform. 
+[Form](forms.md) is one of available [content items]([[= user_doc =]]/content_management/content_items/) that you can find in the platform. 
 You can work with it as with other regular items: create new one, edit existing one, move, etc.
 
 You can manage all the existing forms. To do it, in a selected place of the content tree find your form and click on it.
@@ -105,7 +105,7 @@ To do it, you have to:
 ### View results
 
 You can preview the results of each published form.
-To do it, go to **Submissions** tab in the Content item view:
+To do it, go to **Submissions** tab in the content item view:
 
 ![View results](img/view_results.png)
 

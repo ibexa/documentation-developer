@@ -40,7 +40,7 @@ The parent template (in this case, `pagelayout.html.twig`) must leave a place fo
 
 ## Template variables
 
-In templates, you can use variables related to the current Content item,
+In templates, you can use variables related to the current content item,
 as well as general variables related to the current view and general application settings.
 
 [[= include_file('docs/snippets/rendering_dump_variable.md') =]]

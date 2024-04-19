@@ -92,7 +92,7 @@ To do it, use the `site_group` that both sites belong to:
 [[= include_file('code_samples/front/add_design/config/packages/views.yaml', 4, 13) =]]
 ```
 
-Now, create an Article Content item and preview it on the front page.
+Now, create an Article content item and preview it on the front page.
 You should see the article with a header and footer that you defined for the main site.
 
 ## Override templates

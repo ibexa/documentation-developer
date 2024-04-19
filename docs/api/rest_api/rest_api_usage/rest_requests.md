@@ -1,5 +1,5 @@
 ---
-description: REST API requests can have a generic or a custom header. It defines additional options in the request, such as the accepted Content Type of response.
+description: REST API requests can have a generic or a custom header. It defines additional options in the request, such as the accepted content type of response.
 ---
 
 # REST requests
@@ -10,11 +10,11 @@ Depending on the HTTP method used, different actions are possible on the same re
 
 | Action                                  | Description                                                          |
 |-----------------------------------------|----------------------------------------------------------------------|
-| `GET  /content/objects/2/version/3`     | Fetches data about version \#3 of Content item \#2                   |
-| `PATCH  /content/objects/2/version/3`   | Updates the version \#3 draft of Content item \#2                    |
-| `DELETE  /content/objects/2/version/3`  | Deletes the (draft or archived) version \#3 from Content item \#2    |
-| `COPY  /content/objects/2/version/3`    | Creates a new draft version of Content item \#2 from its version \#3 |
-| `PUBLISH  /content/objects/2/version/3` | Promotes the version \#3 of Content item \#2 from draft to published |
+| `GET  /content/objects/2/version/3`     | Fetches data about version \#3 of content item \#2                   |
+| `PATCH  /content/objects/2/version/3`   | Updates the version \#3 draft of content item \#2                    |
+| `DELETE  /content/objects/2/version/3`  | Deletes the (draft or archived) version \#3 from content item \#2    |
+| `COPY  /content/objects/2/version/3`    | Creates a new draft version of content item \#2 from its version \#3 |
+| `PUBLISH  /content/objects/2/version/3` | Promotes the version \#3 of content item \#2 from draft to published |
 | `OPTIONS  /content/objects/2/version/3` | Lists all the methods usable with this resource, the 5 ones above    |
 
 The following list of available methods gives an overview of the kind of action a method triggers on a resource, if available.
@@ -104,7 +104,7 @@ Accept: application/vnd.ibexa.api.Root+json
 X-Siteaccess: restapi
 ```
 
-One of the principles of REST is that the same resource (such as Content item, Location, Content Type) should be unique.
+One of the principles of REST is that the same resource (such as content item, Location, content type) should be unique.
 It allows caching your REST API using a reverse proxy such as Varnish.
 If the same resource is available in multiple locations, cache purging is noticeably more complex.
 This is why SiteAccess matching with REST isn't enabled at URL level (or domain).
@@ -144,7 +144,7 @@ With this header, if the current username on server side isn't equal to `X-Expec
 Without this header, the request is executed with the current user who might be unexpected (like the Anonymous user if a previous authentication has expired) and an ambiguous response might be returned as a success not informing about a wrong user.
 
 For example, it prevents a Content request to be executed with Anonymous user in the case of an expired authentication,
-and the response being a `200 OK` but missing Content items due to access rights difference with the expected user.
+and the response being a `200 OK` but missing content items due to access rights difference with the expected user.
 
 ## Request body
 
@@ -154,9 +154,9 @@ In the [REST API reference](../rest_api_reference/rest_api_reference.html), requ
 
 One example is the [creation of an authentication session](rest_api_authentication.md#establishing-session).
 
-When creating a Content item, a special payload is needed if the ContentType has some [Image](imagefield.md) or [BinaryFile](binaryfilefield.md) Fields as files need to be attached. See the example of a [script uploading images](#creating-content-with-binary-attachments) below.
+When creating a content item, a special payload is needed if the ContentType has some [Image](imagefield.md) or [BinaryFile](binaryfilefield.md) Fields as files need to be attached. See the example of a [script uploading images](#creating-content-with-binary-attachments) below.
 
-When searching for Content items (or Locations), the query grammar is also particular. See the [Search section](#search-views) below.
+When searching for content items (or Locations), the query grammar is also particular. See the [Search section](#search-views) below.
 
 ### Creating content with binary attachments
 
@@ -194,9 +194,9 @@ Most [Sort Clauses](sort_clause_reference.md#sort-clauses) are available too. Th
 The search request has a `Content-Type: application/vnd.ibexa.api.ViewInput+xml` or `+json` header to specify the format of its body's payload.
 The root node is `<ViewInput>` and it has two mandatory children: `<identifier>` and `<Query>`.
 
-You can add `version=1.1` to the `Content-Type` header to support the distinction between `ContentQuery` and `LocationQuery` instead of just `Query` which implicitly looks only for Content items.
+You can add `version=1.1` to the `Content-Type` header to support the distinction between `ContentQuery` and `LocationQuery` instead of just `Query` which implicitly looks only for content items.
 
-The following examples search for `article` and `news` typed Content items everywhere or for Content items of all types directly under Location `123`. All those Content items must be in the `standard` Section.
+The following examples search for `article` and `news` typed content items everywhere or for content items of all types directly under Location `123`. All those content items must be in the `standard` Section.
 
 === "XML"
 

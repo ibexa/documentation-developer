@@ -35,7 +35,7 @@ Every User or User Group can have multiple Roles.
 A User can also belong to many groups, for example, Administrators, Editors, Subscribers.
 
 Best practice is to avoid assigning Roles to Users directly.
-Model your content (Content Types, Sections, Locations etc.) in a way that can be accessed by generic Roles.
+Model your content (content types, Sections, Locations etc.) in a way that can be accessed by generic Roles.
 That way system will be more secure and easier to manage.
 This approach also improves performance. Role assignments and Policies are taken into account during search/load queries.
 

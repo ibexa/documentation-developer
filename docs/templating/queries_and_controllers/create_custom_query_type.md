@@ -8,7 +8,7 @@ If you need to perform a more complex query than the [built-in Query types](buil
 you can create a custom Query type.
 
 The following example shows how to create a custom Query type
-that renders the latest Content items of selected Types.
+that renders the latest content items of selected Types.
 
 First, add the following `LatestContentQueryType.php` file to `src/QueryType`:
 

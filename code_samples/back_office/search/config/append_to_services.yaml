@@ -1,5 +1,32 @@
 services:
 
+    App\EventSubscriber\MySuggestionEventSubscriber: ~
+
+    App\Search\Serializer\Normalizer\Suggestion\ProductSuggestionNormalizer:
+        autoconfigure: false
+
+    app.search.suggestion.serializer:
+        decorates: ibexa.search.suggestion.serializer
+        class: Symfony\Component\Serializer\Serializer
+        autoconfigure: false
+        arguments:
+            $normalizers:
+                - '@App\Search\Serializer\Normalizer\Suggestion\ProductSuggestionNormalizer'
+                - '@Ibexa\Search\Serializer\Normalizer\Suggestion\ContentSuggestionNormalizer'
+                - '@Ibexa\Search\Serializer\Normalizer\Suggestion\LocationNormalizer'
+                - '@Ibexa\Search\Serializer\Normalizer\Suggestion\ParentLocationCollectionNormalizer'
+                - '@Ibexa\Search\Serializer\Normalizer\Suggestion\SuggestionCollectionNormalizer'
+            $encoders:
+                - '@serializer.encoder.json'
+
+    ibexa.search.autocomplete.product_template:
+        parent: Ibexa\AdminUi\Component\TabsComponent
+        arguments:
+            $template: '@@ibexadesign/ui/global_search_autocomplete_product_template.html.twig'
+            $groupIdentifier: 'global-search-autocomplete-product'
+        tags:
+            - { name: ibexa.admin_ui.component, group: global-search-autocomplete-templates }
+
     App\Search\SortingDefinition\Provider\SectionNameSortingDefinitionProvider:
         tags:
             -   name: ibexa.search.sorting_definition.provider

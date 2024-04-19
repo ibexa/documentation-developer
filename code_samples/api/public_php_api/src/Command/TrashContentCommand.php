@@ -37,7 +37,7 @@ class TrashContentCommand extends Command
             new InputArgument('locationId', InputArgument::REQUIRED, 'Location to trash'),
             new InputArgument('newParentId', InputArgument::OPTIONAL, 'New Location to restore under'),
         ])
-            ->addOption('restore', 'r', InputOption::VALUE_NONE, 'Do you want to restore the Content item?');
+            ->addOption('restore', 'r', InputOption::VALUE_NONE, 'Do you want to restore the content item?');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
