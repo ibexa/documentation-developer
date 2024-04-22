@@ -475,6 +475,180 @@ ibexa_elasticsearch:
                 # ...
 ```
 
+### Language specific analyzis
+
+It is possible to configure language specific analysis like stemming so that searching for "cars" will give hit on content that contain the word "car".
+On a multilingual site, it is possible to have different analyzing configured for different languages, something which
+typically is needed as stemming rules are language specific.
+
+#### Make a copy of the default template
+
+The first step in order to enable language specific analysis is to make a new template for each language in `config/packages/ibexa_elasticsearch.yaml`.
+This template should be based on the `default` template found in `vendor/ibexa/elasticsearch/src/bundle/Resources/config/default-config.yaml`.
+The name of the new template should reflect the language, ie. `english`, `norwegian` or `french`,
+
+#### Change match pattern for the new template
+
+The default template matches on `*_location_*`, `*_content_*`. This pattern is not language specific and cannot be used
+when different templates are going to be used for different languages. In your copy of the default template, change the
+pattern as follows:
+
+```diff
+        patterns:
+-            - '*_location_*'
+-            - '*_content_*'
++            - "*_eng_gb*"
+```
+
+This pattern matches on English. See [Define a template](#define-a-template) on how to specify the pattern for your language.
+
+#### Create config for language specific analyser.
+
+[Elastic Search documentation](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/analysis-lang-analyzer.html)
+explains how to configure analyzer for each specific language.
+
+Adopopting the [English analyzer](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/analysis-lang-analyzer.html#english-analyzer)
+will look like this in the [[= product_name =]] configuration:
+
+```diff
+        english:
+            patterns:
+                - "*_eng_gb*"
+            settings:
+                analysis:
+                    normalizer:
+                        lowercase_normalizer:
+                            type: custom
+                            char_filter: []
+                            filter:
+                                - lowercase
+                    analyzer:
++                        english_analyzer:
++                            type: custom
++                            tokenizer: lowercase
++                            filter:
++                                - lowercase
++                                - english_stop
++                                - english_keywords
++                                - english_stemmer
++                                - english_possessive_stemmer
+                        ibexa_spellcheck_analyzer:
+                            type: custom
+                            tokenizer: lowercase
+                            filter:
+                                - lowercase
+                                - ibexa_spellcheck_shingle_filter
+                        ibexa_spellcheck_raw_analyzer:
+                            type: custom
+                            tokenizer: standard
+                            filter:
+                                - lowercase
+                                - english_possessive_stemmer
+                    filter:
+                        ibexa_spellcheck_shingle_filter:
+                            type: shingle
+                            min_shingle_size: 2
+                            max_shingle_size: 3
++                        english_stop:
++                            type: stop
++                            stopwords: "_english_"
++                        english_keywords:
++                            type: keyword_marker
++                            keywords: []
+++                        english_stemmer:
++                            type: stemmer
++                            language: light_english
++                        "english_possessive_stemmer": {
++                          "type":       "stemmer",
++                          "language":   "possessive_english"
++                        }
+                refresh_interval: "-1"
+                index:
+                    mapping:
+                        total_fields:
+                            limit: 5000
+            mappings:
+                dynamic_templates:
+                    -   ez_int:
+                            match: "*_i"
+                            mapping:
+                                type: integer
+                    -   ez_mint:
+                            match: "*_mi"
+                            mapping:
+                                type: integer
+                    -   ez_id:
+                            match: "*_id"
+                            mapping:
+                                type: keyword
+                    -   ez_mid:
+                            match: "*_mid"
+                            mapping:
+                                type: keyword
+                    -   ez_string:
+                            match: "*_s"
+                            mapping:
+                                type: keyword
+                                normalizer: lowercase_normalizer
+                    -   ez_mstring:
+                            match: "*_ms"
+                            mapping:
+                                type: keyword
+                                normalizer: lowercase_normalizer
+                    -   ez_long:
+                            match: "*_l"
+                            mapping:
+                                type: long
+                    -   ez_mlong:
+                            match: "*_ml"
+                            mapping:
+                                type: long
++                    -   ez_text_fulltext:
++                            match: "*_fulltext"
++                            mapping:
++                                type: text
++                                analyzer: english_analyzer
+                    -   ez_text:
+                            match: "*_t"
+                            mapping:
+                                type: text
++                                analyzer: english_analyzer
+                    -   ez_boolean:
+                            match: "*_b"
+                            mapping:
+                                type: boolean
+                    -   ez_mboolean:
+                            match: "*_mb"
+                            mapping:
+                                type: boolean
+                    -   ez_float:
+                            match: "*_f"
+                            mapping:
+                                type: float
+                    -   ez_double:
+                            match: "*_d"
+                            mapping:
+                                type: double
+                    -   ez_date:
+                            match: "*_dt"
+                            mapping:
+                                type: date
+                    -   ez_geolocation:
+                            match: "*_gl"
+                            mapping:
+                                type: geo_point
+                    -   ez_spellcheck:
+                            match: "*_spellcheck"
+                            mapping:
+                                type: text
+                                analyzer: ibexa_spellcheck_analyzer
+                                fields:
+                                    raw:
+                                        type: text
+                                        analyzer: ibexa_spellcheck_raw_analyzer
+
+```
+
 ## Bind templates with connections
 
 Once you have created the field mapping template(s), you must establish a relationship between the templates and a connection. You do this by adding the "index_templates" key to a connection definition.
