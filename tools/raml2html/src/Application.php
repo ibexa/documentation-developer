@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace EzSystems\Raml2Html;
 
 use EzSystems\Raml2Html\Command\BuildCommand;
+use EzSystems\Raml2Html\Command\TestTypeUsageCommand;
 use EzSystems\Raml2Html\Command\ClearCacheCommand;
 use EzSystems\Raml2Html\Command\LintTypesCommand;
 use EzSystems\Raml2Html\Command\TestCommand;
@@ -37,6 +38,7 @@ final class Application extends BaseApplication
                 $this->getGenerator(),
                 $this->getRamlParserFactory()
             ),
+            new TestTypeUsageCommand(),
             new LintTypesCommand(
                 $this->getRamlParserFactory()
             ),
