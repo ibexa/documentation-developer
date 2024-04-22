@@ -11,14 +11,14 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-final class TestCommand extends Command
+final class TestCompareCommand extends Command
 {
     /**
      * {@inheritdoc}
      */
     protected function configure(): void
     {
-        $this->setName('test')
+        $this->setName('test:compare')
             ->setDescription('Compare REST API Reference documentation with Ibexa DXP routing configuration under /api/ibexa/v2 prefix')
             ->setHelp('It is recommended to not use --console-path and --routing-file options while testing the Rest API Reference HTML file against configuration. Those options are used to test that the default configuration file list is up-to-date and other subtleties.')
             ->addArgument('ibexa-dxp-root', InputArgument::REQUIRED, 'Path to an Ibexa DXP root directory')
@@ -65,6 +65,6 @@ final class TestCommand extends Command
 
         $referenceTester->run($testedRoutes);
 
-        return 0;
+        return Command::SUCCESS;
     }
 }
