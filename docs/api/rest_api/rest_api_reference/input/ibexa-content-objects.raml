@@ -566,24 +566,32 @@ get:
                 Accept:
                     description: If set, the updated Object state is returned in XML or JSON format.
                     example: |
-                        application/vnd.ibexa.api.ObjectState+xml
-                        application/vnd.ibexa.api.ObjectState+json
+                        application/vnd.ibexa.api.ContentObjectStates+xml
+                        application/vnd.ibexa.api.ContentObjectStates+json
                 Content-Type:
                     description: The Content item Object states input schema encoded in XML or JSON format.
                     example: |
-                        application/vnd.ibexa.api.ObjectStateUpdate+xml
-                        application/vnd.ibexa.api.ObjectStateUpdate+json
+                        application/vnd.ibexa.api.ContentObjectStates+xml
+                        application/vnd.ibexa.api.ContentObjectStates+json
                 If-Match:
                     description: ETag
             body:
-                application/vnd.ibexa.api.ObjectState+xml:
-                    type: ObjectStateUpdate
+                application/vnd.ibexa.api.ContentObjectStates+xml:
+                    type: ContentObjectStates
+                    example: !include examples/content/objects/content_id/objectstates/PATCH/ContentObjectStates.request.xml.example
+                application/vnd.ibexa.api.ContentObjectStates+json:
+                    type: ContentObjectStates
+                    example: !include examples/content/objects/content_id/objectstates/PATCH/ContentObjectStates.request.json.example
             responses:
                 204:
                     description: OK - Object state updated.
                     body:
-                        application/vnd.ibexa.api.ObjectState+xml:
-                            type: ObjectState
+                        application/vnd.ibexa.api.ContentObjectStates+xml:
+                            type: ContentObjectStates
+                            example: !include examples/content/objects/content_id/objectstates/PATCH/ContentObjectStates.response.xml.example
+                        application/vnd.ibexa.api.ContentObjectStates+json:
+                            type: ContentObjectStates
+                            example: !include examples/content/objects/content_id/objectstates/PATCH/ContentObjectStates.response.json.example
                 400:
                     description: Error - The input does not match the input schema definition.
                 401:
