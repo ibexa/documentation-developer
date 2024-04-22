@@ -1,20 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ErrorMessage media-type="application/vnd.ez.api.ErrorMessage+xml">
- <errorCode>406</errorCode>
- <errorMessage>Not Acceptable</errorMessage>
- <errorDescription>No route matched '/api/ez/v2/content/objectstategroups/2/objectstates/2'</errorDescription>
- <trace>#0 /var/www/html/vendor/ezsystems/ezplatform-rest/src/bundle/RequestParser/Router.php(70): EzSystems\EzPlatformRestBundle\RequestParser\Router-&gt;parse('/api/ez/v2/cont...')
-#1 /var/www/html/vendor/ezsystems/ezplatform-rest/src/lib/Input/Parser/ContentObjectStates.php(45): EzSystems\EzPlatformRestBundle\RequestParser\Router-&gt;parseHref('/api/ez/v2/cont...', 'objectStateId')
-#2 /var/www/html/vendor/ezsystems/ezplatform-rest/src/lib/Input/ParsingDispatcher.php(79): EzSystems\EzPlatformRest\Input\Parser\ContentObjectStates-&gt;parse(Array, Object(EzSystems\EzPlatformRest\Input\ParsingDispatcher))
-#3 /var/www/html/vendor/ezsystems/ezplatform-rest/src/lib/Input/Dispatcher.php(113): EzSystems\EzPlatformRest\Input\ParsingDispatcher-&gt;parse(Array, 'application/vnd...')
-#4 /var/www/html/vendor/ezsystems/ezplatform-rest/src/lib/Server/Controller/ObjectState.php(308): EzSystems\EzPlatformRest\Input\Dispatcher-&gt;parse(Object(EzSystems\EzPlatformRest\Message))
-#5 /var/www/html/vendor/symfony/http-kernel/HttpKernel.php(163): EzSystems\EzPlatformRest\Server\Controller\ObjectState-&gt;setObjectStatesForContent('1', Object(Symfony\Component\HttpFoundation\Request))
-#6 /var/www/html/vendor/symfony/http-kernel/HttpKernel.php(75): Symfony\Component\HttpKernel\HttpKernel-&gt;handleRaw(Object(Symfony\Component\HttpFoundation\Request), 1)
-#7 /var/www/html/vendor/symfony/http-kernel/Kernel.php(202): Symfony\Component\HttpKernel\HttpKernel-&gt;handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
-#8 /var/www/html/vendor/symfony/runtime/Runner/Symfony/HttpKernelRunner.php(35): Symfony\Component\HttpKernel\Kernel-&gt;handle(Object(Symfony\Component\HttpFoundation\Request))
-#9 /var/www/html/vendor/autoload_runtime.php(35): Symfony\Component\Runtime\Runner\Symfony\HttpKernelRunner-&gt;run()
-#10 /var/www/html/public/index.php(5): require_once('/var/www/html/v...')
-#11 {main}</trace>
- <file>/var/www/html/vendor/ezsystems/ezplatform-rest/src/bundle/RequestParser/Router.php</file>
- <line>47</line>
-</ErrorMessage>
+<ContentObjectStates media-type="application/vnd.ez.api.ContentObjectStates+xml">
+ <ObjectState media-type="application/vnd.ez.api.ObjectState+xml" href="/api/ezp/v2/content/objectstategroups/2/objectstates/2"/>
+</ContentObjectStates>
