@@ -1,0 +1,11 @@
+{
+    "ContentObjectStates": {
+        "_media-type": "application\/vnd.ez.api.ContentObjectStates+json",
+        "ObjectState": [
+            {
+                "_media-type": "application\/vnd.ez.api.ObjectState+json",
+                "_href": "\/api\/ezp\/v2\/content\/objectstategroups\/2\/objectstates\/2"
+            }
+        ]
+    }
+}

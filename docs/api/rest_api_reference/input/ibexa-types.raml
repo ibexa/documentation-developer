@@ -241,12 +241,12 @@ ContentMetadataUpdateStruct:
             description: "If set, will change the content's 'always-available' name."
             type: string
 ContentObjectStates:
-    description: 'Base struct for content create/update structs.'
-    type: BaseObject
+    description: 'Represents a list of object states.'
+    type: object
     properties:
         ObjectState:
-            description: 'Object state value.'
-            type: BaseObject
+            description: 'List of object state values.'
+            type: BaseObject[]
 ContentStruct:
     description: 'Base struct for content create/update structs.'
     type: object
