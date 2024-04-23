@@ -13,13 +13,13 @@ class ReferenceTester
     public const DEFAULT_FILE_LIST = [
         'vendor/ibexa/rest/src/bundle/Resources/config/routing.yml',
         // `find vendor/ibexa -name "*rest*.yaml" -and -wholename "*rout*" -and -not -wholename "*test*" | sort`
-        'vendor/ibexa/activity-log/src/bundle/Resources/config/routing/rest.yaml',
+        'vendor/ibexa/activity-log/src/bundle/Resources/config/routing/rest.yaml', // directly prefixed /api/ibexa/v2
         //'vendor/ibexa/admin-ui/src/bundle/Resources/config/routing_rest.yaml',
         'vendor/ibexa/calendar/src/bundle/Resources/config/routing_rest.yaml',
         'vendor/ibexa/cart/src/bundle/Resources/config/routing_rest.yaml',
         'vendor/ibexa/connect/src/bundle/Resources/config/routing_rest.yaml',
         'vendor/ibexa/connector-dam/src/bundle/Resources/config/routing_rest.yaml',
-        //'vendor/ibexa/corporate-account/src/bundle/Resources/config/routing_rest.yaml', // Import the 4 following files
+        //'vendor/ibexa/corporate-account/src/bundle/Resources/config/routing_rest.yaml', // imports the 4 following files
         'vendor/ibexa/corporate-account/src/bundle/Resources/config/routing/rest/companies.yaml',
         'vendor/ibexa/corporate-account/src/bundle/Resources/config/routing/rest/members.yaml',
         'vendor/ibexa/corporate-account/src/bundle/Resources/config/routing/rest/sales_representatives.yaml',
@@ -27,7 +27,7 @@ class ReferenceTester
         'vendor/ibexa/fieldtype-query/src/bundle/Resources/config/routing/rest.yaml',
         'vendor/ibexa/order-management/src/bundle/Resources/config/routing_rest.yaml',
         'vendor/ibexa/payment/src/bundle/Resources/config/routing_rest.yaml',
-        'vendor/ibexa/personalization/src/bundle/Resources/config/routing_rest.yaml',
+        //'vendor/ibexa/personalization/src/bundle/Resources/config/routing_rest.yaml', // prefixed /personalization/v1
         'vendor/ibexa/product-catalog/src/bundle/Resources/config/routing_rest.yaml',
         //'vendor/ibexa/scheduler/src/bundle/Resources/config/routing_rest.yaml', // prefixed /api/datebasedpublisher/v1
         'vendor/ibexa/segmentation/src/bundle/Resources/config/routing_rest.yaml',
@@ -208,6 +208,9 @@ class ReferenceTester
                 }
                 if (!array_key_exists('methods', $routeDef)) {
                     $routeDef['methods'] = self::METHOD_LIST;
+                }
+                if (str_starts_with($routeDef['path'], $this->apiUri)) {
+                    $routeDef['path'] = str_replace($this->apiUri, '', $routeDef['path']);
                 }
                 if (!array_key_exists($routeDef['path'], $confRoutes)) {
                     $confRoutes[$routeDef['path']] = [
