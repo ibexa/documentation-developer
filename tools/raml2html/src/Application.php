@@ -5,10 +5,11 @@ declare(strict_types=1);
 namespace EzSystems\Raml2Html;
 
 use EzSystems\Raml2Html\Command\BuildCommand;
-use EzSystems\Raml2Html\Command\TestTypeUsageCommand;
 use EzSystems\Raml2Html\Command\ClearCacheCommand;
 use EzSystems\Raml2Html\Command\LintTypesCommand;
 use EzSystems\Raml2Html\Command\TestCompareCommand;
+use EzSystems\Raml2Html\Command\TestLogicCommand;
+use EzSystems\Raml2Html\Command\TestTypeUsageCommand;
 use EzSystems\Raml2Html\Generator\Generator;
 use EzSystems\Raml2Html\RAML\ParserFactory;
 use EzSystems\Raml2Html\Twig\Extension\HashExtension;
@@ -38,12 +39,13 @@ final class Application extends BaseApplication
                 $this->getGenerator(),
                 $this->getRamlParserFactory()
             ),
-            new TestTypeUsageCommand(),
             new LintTypesCommand(
                 $this->getRamlParserFactory()
             ),
             new ClearCacheCommand(self::CACHE_DIR),
             new TestCompareCommand(),
+            new TestTypeUsageCommand(),
+            new TestLogicCommand(),
         ]);
     }
 
