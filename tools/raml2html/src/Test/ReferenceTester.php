@@ -28,7 +28,7 @@ class ReferenceTester
         'vendor/ibexa/order-management/src/bundle/Resources/config/routing_rest.yaml',
         'vendor/ibexa/payment/src/bundle/Resources/config/routing_rest.yaml',
         //'vendor/ibexa/personalization/src/bundle/Resources/config/routing_rest.yaml', // prefixed /personalization/v1
-        'vendor/ibexa/product-catalog/src/bundle/Resources/config/routing_rest.yaml',
+        'vendor/ibexa/product-catalog/src/bundle/Resources/config/routing_rest.yaml', // contains few /personalization/v1
         //'vendor/ibexa/scheduler/src/bundle/Resources/config/routing_rest.yaml', // prefixed /api/datebasedpublisher/v1
         'vendor/ibexa/segmentation/src/bundle/Resources/config/routing_rest.yaml',
         'vendor/ibexa/shipping/src/bundle/Resources/config/routing/rest.yaml',
@@ -49,6 +49,11 @@ class ReferenceTester
     ];
 
     public $apiUri = '/api/ibexa/v2';
+
+    public $ignoredApiUris = [
+        '/api/datebasedpublisher/v1',
+        '/personalization/v1',
+    ];
 
     private const REF_METHOD_NOT_IN_CONF = 'ref_route_method_missing_from_conf';
     private const CONF_METHOD_NOT_IN_REF = 'conf_route_method_missing_from_ref';
@@ -208,6 +213,11 @@ class ReferenceTester
                 }
                 if (!array_key_exists('methods', $routeDef)) {
                     $routeDef['methods'] = self::METHOD_LIST;
+                }
+                foreach($this->ignoredApiUris as $ignoredApiUri) {
+                    if (str_starts_with($routeDef['path'], $ignoredApiUri)) {
+                        continue 2;
+                    }
                 }
                 if (str_starts_with($routeDef['path'], $this->apiUri)) {
                     $routeDef['path'] = str_replace($this->apiUri, '', $routeDef['path']);
