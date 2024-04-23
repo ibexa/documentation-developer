@@ -6,10 +6,6 @@ get:
             description: If set, the customer groups list is returned in XML or JSON format.
             example:  |
                 application/vnd.ibexa.api.CustomerGroupListGet+json
-        Content-Type:
-            description: The CustomerGroupList schema encoded in XML or JSON format.
-            example:  |
-                application/vnd.ibexa.api.CustomerGroupListGet+json
     responses:
         200:
             body:
@@ -54,10 +50,6 @@ post:
         headers:
             Accept:
                 description: If set, the customer group is returned in XML or JSON format.
-                example:  |
-                    application/vnd.ibexa.api.CustomerGroupGet+json
-            Content-Type:
-                description: The CustomerGroup schema encoded in XML or JSON format.
                 example:  |
                     application/vnd.ibexa.api.CustomerGroupGet+json
         responses:

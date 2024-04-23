@@ -15,7 +15,7 @@ post:
         Cookie:
             description: Only needed for session's checking {sessionName}={sessionID}.
         X-CSRF-Token:
-            description: Only needed for session's checking. The {csrfToken} needed on all unsafe http methods with session.
+            description: Only needed for session's checking. The {csrfToken} needed on all unsafe HTTP methods with session.
     body:
         application/vnd.ibexa.api.SessionInput+xml:
             type: SessionInput
@@ -96,6 +96,10 @@ post:
                     description: "{sessionName}={sessionID}"
                 X-CSRF-Token:
                     description: The {csrfToken} needed on all unsafe http methods with session.
+                Accept:
+                    example: |
+                        application/vnd.ibexa.api.Session+xml
+                        application/vnd.ibexa.api.Session+json
             responses:
                 200:
                     body:
