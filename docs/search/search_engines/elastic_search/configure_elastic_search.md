@@ -477,13 +477,13 @@ ibexa_elasticsearch:
 
 ### Language specific analyzis
 
-It is possible to configure language specific analysis like stemming so that searching for "cars" will give hit on content that contain the word "car".
+It is possible to configure language specific analysis like stemming so that searching for "cars" gives hit on content that contains the word "car".
 On a multilingual site, it is possible to have different analyzing configured for different languages, something which
 typically is needed as stemming rules are language specific.
 
 #### Make a copy of the default template
 
-The first step in order to enable language specific analysis is to make a new template for each language in `config/packages/ibexa_elasticsearch.yaml`.
+The first step to enable language specific analysis is to make a new template for each language in `config/packages/ibexa_elasticsearch.yaml`.
 This template should be based on the `default` template found in `vendor/ibexa/elasticsearch/src/bundle/Resources/config/default-config.yaml`.
 The name of the new template should reflect the language, ie. `english`, `norwegian` or `french`,
 
@@ -508,7 +508,7 @@ This pattern matches on English. See [Define a template](#define-a-template) on 
 explains how to configure analyzer for each specific language.
 
 Adopopting the [English analyzer](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/analysis-lang-analyzer.html#english-analyzer)
-will look like this in the [[= product_name =]] configuration:
+looks like this in the [[= product_name =]] configuration:
 
 ```diff
         english:
