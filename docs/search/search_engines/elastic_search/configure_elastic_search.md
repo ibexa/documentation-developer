@@ -555,7 +555,7 @@ will look like this in the [[= product_name =]] configuration:
 +                        english_keywords:
 +                            type: keyword_marker
 +                            keywords: []
-++                        english_stemmer:
++                        english_stemmer:
 +                            type: stemmer
 +                            language: light_english
 +                        "english_possessive_stemmer": {
