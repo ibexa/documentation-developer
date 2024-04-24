@@ -6,3 +6,4 @@ parameters:
     level: 8
     paths:
         - code_samples/recent_activity/src
+    treatPhpDocTypesAsCertain: false
