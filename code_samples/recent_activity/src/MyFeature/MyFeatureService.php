@@ -4,7 +4,7 @@ namespace App\MyFeature;
 
 class MyFeatureService
 {
-    public function load(int $myFeatureId)
+    public function load(int $myFeatureId): MyFeature
     {
         return new MyFeature(['id' => $myFeatureId, 'name' => 'Actual Name']);
     }
