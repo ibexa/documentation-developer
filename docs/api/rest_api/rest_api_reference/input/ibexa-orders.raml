@@ -36,15 +36,14 @@ displayName: Orders
             Accept:
                 description: OrderList - If set, the orders list returned in XML or JSON format.
                 example:  |
-                    application/vnd.ibexa.api.OrderList+json
-            Content-Type:
-                description: The OrderList schema encoded in XML or JSON format.
-                example:  |
+                    application/vnd.ibexa.api.OrderList+xml
                     application/vnd.ibexa.api.OrderList+json
         responses:
             200:
                 description: OK - loads orders.
                 body:
+                    application/vnd.ibexa.api.OrderList+xml:
+                        type: OrderList
                     application/vnd.ibexa.api.OrderList+json:
                         type: OrderList
                         example: !include examples/orders/GET/OrderList.json.example
@@ -59,15 +58,14 @@ displayName: Orders
                 Accept:
                     description: Order - If set, the order returned in XML or JSON format.
                     example:  |
-                        application/vnd.ibexa.api.OrderGet+json
-                Content-Type:
-                    description: The order schema encoded in XML or JSON format.
-                    example:  |
+                        application/vnd.ibexa.api.OrderGet+xml
                         application/vnd.ibexa.api.OrderGet+json
             responses:
                 200:
                     description: OK - loads the order.
                     body:
+                        application/vnd.ibexa.api.Order+xml:
+                            type: Order
                         application/vnd.ibexa.api.Order+json:
                             type: Order
                             example: !include examples/orders/GET/Order.json.example
@@ -135,11 +133,8 @@ displayName: Orders
                 Accept:
                     description: Order - If set, the order returned in XML or JSON format.
                     example:  |
-                        application/vnd.ibexa.api.OrderGet+json
-                Content-Type:
-                    description: The order schema encoded in XML or JSON format.
-                    example:  |
-                        application/vnd.ibexa.api.OrderGet+json
+                        application/vnd.ibexa.api.Order+xml
+                        application/vnd.ibexa.api.Order+json
             responses:
                 200:
                     description: OK - loads the order.
