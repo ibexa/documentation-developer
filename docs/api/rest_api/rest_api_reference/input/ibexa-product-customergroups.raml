@@ -5,7 +5,7 @@ get:
         Accept:
             description: If set, the customer groups list is returned in XML or JSON format.
             example:  |
-                application/vnd.ibexa.api.CustomerGroupListGet+json
+                application/vnd.ibexa.api.CustomerGroupList+json
     responses:
         200:
             body:
@@ -51,7 +51,7 @@ post:
             Accept:
                 description: If set, the customer group is returned in XML or JSON format.
                 example:  |
-                    application/vnd.ibexa.api.CustomerGroupGet+json
+                    application/vnd.ibexa.api.CustomerGroup+json
         responses:
             200:
                 body:
@@ -111,12 +111,16 @@ post:
                     application/vnd.ibexa.api.CustomerGroupViewInput+xml
                     application/vnd.ibexa.api.CustomerGroupViewInput+json
         body:
+            application/vnd.ibexa.api.CustomerGroupViewInput+xml:
+                type: CustomerGroupViewInput
             application/vnd.ibexa.api.CustomerGroupViewInput+json:
                 type: CustomerGroupViewInput
                 example: !include examples/product/catalog/customer_groups/POST/CustomerGroupViewInput.json.example
         responses:
             200:
                 body:
+                    application/vnd.ibexa.api.CustomerGroupView+xml:
+                        type: CustomerGroupView
                     application/vnd.ibexa.api.CustomerGroupView+json:
                         type: CustomerGroupView
                         example: !include examples/product/catalog/customer_groups/POST/CustomerGroupView.json.example

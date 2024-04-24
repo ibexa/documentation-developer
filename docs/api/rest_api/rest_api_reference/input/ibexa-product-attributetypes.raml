@@ -4,7 +4,9 @@ get:
     headers:
         Accept:
             description: If set, the list is returned in XML or JSON format.
-            example: application/vnd.ibexa.api.AttributeTypeList+json
+            example: |
+                application/vnd.ibexa.api.AttributeTypeList+xml
+                application/vnd.ibexa.api.AttributeTypeList+json
     responses:
         200:
             description: OK - returns a list of Attribute Types
@@ -20,7 +22,9 @@ get:
         headers:
             Accept:
                 description: If set, the Attribute Type is returned in XML or JSON format.
-                example: application/vnd.ibexa.api.AttributeType+json
+                example: |
+                    application/vnd.ibexa.api.AttributeType+xml
+                    application/vnd.ibexa.api.AttributeType+json
         responses:
             200:
                 description: OK - returns the Attribute Type
