@@ -45,26 +45,38 @@ post:
                     application/vnd.ibexa.api.CartViewInput+xml
                     application/vnd.ibexa.api.CartViewInput+json
         body:
+            application/vnd.ibexa.api.CartViewInput+xml:
+                type: CartViewInput
             application/vnd.ibexa.api.CartViewInput+json:
                 type: CartViewInput
                 example: !include examples/cart/view/CartViewInput.json.example
         responses:
             200:
                 description: OK - returns a view and its results
-                #body:
-                #    application/vnd.ibexa.api.CartView+xml:
-                #    application/vnd.ibexa.api.CartView+json:
+                body:
+                    application/vnd.ibexa.api.CartView+xml:
+                        type: CartView
+                    application/vnd.ibexa.api.CartView+json:
+                        type: CartView
 /{identifier}:
     get:
         displayName: Get Cart
         description: Gets Cart by its identifier.
+        headers:
+            Accept:
+                description: The Cart is returned in XML or JSON format.
+                example: |
+                    application/vnd.ibexa.api.Cart+xml
+                    application/vnd.ibexa.api.Cart+json
         responses:
             200:
                 description: OK - return the cart
-                #body:
-                #    application/vnd.ibexa.api.Cart+json:
-                #        type: Cart
-                #        example: !include examples/cart/POST/Cart.json.example
+                body:
+                    application/vnd.ibexa.api.Cart+xml:
+                        type: Cart
+                    application/vnd.ibexa.api.Cart+json:
+                        type: Cart
+                        example: !include examples/cart/POST/Cart.json.example
             401:
                 description: Error - the user is not authorized to get this cart.
             404:
@@ -93,6 +105,8 @@ post:
                         application/vnd.ibexa.api.CartEntryAdd+json
             body:
                 application/vnd.ibexa.api.CartEntryAdd+xml:
+                    type: CartEntryAdd
+                application/vnd.ibexa.api.CartEntryAdd+json:
                     type: CartEntryAdd
                     example: !include examples/cart/entry/POST/CartEntryAdd.json.example
         /{entryId}:
