@@ -187,6 +187,10 @@ get:
                 200:
                     description: OK - the Users of the Group with the given ID.
                     body:
+                        application/vnd.ibexa.api.UserList+xml:
+                            type: UserList
+                        application/vnd.ibexa.api.UserList+json:
+                            type: UserList
                         application/vnd.ibexa.api.UserRefList+xml:
                             type: UserRefList
                             example: !include examples/user/groups/id/users/GET/UserRefList.xml.example
@@ -256,6 +260,10 @@ get:
                 200:
                     description: OK - list of the subgroups.
                     body:
+                        application/vnd.ibexa.api.UserGroupList+xml:
+                            type: UserGroupList
+                        application/vnd.ibexa.api.UserGroupList+json:
+                            type: UserGroupList
                         application/vnd.ibexa.api.UserGroupRefList+xml:
                             type: UserGroupRefList
                             example: !include examples/user/groups/id/subgroups/GET/UserGroupRefList.xml.example
@@ -316,8 +324,8 @@ get:
                         application/vnd.ibexa.api.RoleAssignmentList+xml:
                             type: RoleAssignmentList
                             example: !include examples/user/groups/path/roles/GET/RoleAssignmentList.xml.example
-                        #application/vnd.ibexa.api.RoleAssignmentList+json:
-                            #type: RoleAssignmentList
+                        application/vnd.ibexa.api.RoleAssignmentList+json:
+                            type: RoleAssignmentList
                             #example: !include examples/user/groups/path/roles/GET/RoleAssignmentList.json.example
                 400:
                     description: Error - the user has no permission to read Roles.
