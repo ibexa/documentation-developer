@@ -1,18 +1,18 @@
-name: 'Build & test documentation'
+name: "Build & test documentation"
 
 on:
     push:
         branches:
             - master
-            - '[0-9]+.[0-9]+'
+            - "[0-9]+.[0-9]+"
     pull_request: ~
 
 jobs:
     build:
         permissions:
-          # Give the default GITHUB_TOKEN write permission to commit and push the
-          # added or changed files to the repository.
-          contents: write
+            # Give the default GITHUB_TOKEN write permission to commit and push the
+            # added or changed files to the repository.
+            contents: write
 
         runs-on: ubuntu-latest
         strategy:
@@ -20,43 +20,68 @@ jobs:
                 python-version: [3.8]
 
         steps:
-            -   uses: actions/checkout@v3
-            -   name: Set up Python ${{ matrix.python-version }}
-                uses: actions/setup-python@v3
-                with:
-                    python-version: ${{ matrix.python-version }}
-            -   name: Install php-cs-fixer
-                run: composer require friendsofphp/php-cs-fixer --dev
-            -   name: Run PHP CS Fixer
-                run: ./vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php -v --show-progress=dots
-            -   name: Commit changes
-                uses: stefanzweifel/git-auto-commit-action@v4
-                with:
-                    commit_message: PHP CS Fixes
-            -   name: Install dependencies
-                run: |
-                    python -m pip install --upgrade pip
-                    if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-            -   name: Run build
-                run: |
-                    mkdocs build --strict
+            - uses: actions/checkout@v3
+            - name: Set up Python ${{ matrix.python-version }}
+              uses: actions/setup-python@v3
+              with:
+                  python-version: ${{ matrix.python-version }}
+            - name: Install php-cs-fixer
+              run: composer require friendsofphp/php-cs-fixer --dev
+            - name: Run PHP CS Fixer
+              run: ./vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php -v --show-progress=dots
+            - name: Commit changes
+              uses: stefanzweifel/git-auto-commit-action@v4
+              with:
+                  commit_message: PHP CS Fixes
+            - name: Install dependencies
+              run: |
+                  python -m pip install --upgrade pip
+                  if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+            - name: Run build
+              run: |
+                  mkdocs build --strict
 
     vale-check:
         runs-on: ubuntu-latest
         if: github.event_name == 'pull_request'
 
         steps:
-            -   uses: actions/checkout@v3
-            -   name: Get Vale.sh configs
-                env:
-                    TOKEN: ${{ secrets.EZROBOT_PAT }}
-                run: |
-                    curl -H "Authorization: token $TOKEN" -L https://github.com/ibexa/vale-styles/archive/refs/heads/main.zip -o vale.zip
-                    unzip vale.zip
-                    rm vale.zip
-                    mv vale-styles-main/* vale-styles-main/.vale.ini .
-            -   name: Run Vale.sh
-                uses: errata-ai/vale-action@reviewdog
-                with:
+            - uses: actions/checkout@v3
+            - name: Get Vale.sh configs
+              env:
+                  TOKEN: ${{ secrets.EZROBOT_PAT }}
+              run: |
+                  curl -H "Authorization: token $TOKEN" -L https://github.com/ibexa/vale-styles/archive/refs/heads/main.zip -o vale.zip
+                  unzip vale.zip
+                  rm vale.zip
+                  mv vale-styles-main/* vale-styles-main/.vale.ini .
+            - name: Run Vale.sh
+              uses: errata-ai/vale-action@reviewdog
+              with:
                   reporter: github-check
                   filter_mode: added
+
+    code-samples:
+        name: Validate code samples
+        runs-on: "ubuntu-20.04"
+        strategy:
+            matrix:
+                php:
+                    - "7.4"
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Setup PHP Action
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: ${{ matrix.php }}
+                  coverage: none
+                  extensions: "pdo_sqlite, gd"
+                  tools: cs2pr
+
+            - uses: "ramsey/composer-install@v1"
+              with:
+                  dependency-versions: "highest"
+
+            - name: Run PHPStan analysis
+              run: composer phpstan
