@@ -109,12 +109,16 @@
                     application/vnd.ibexa.api.ProductVariantViewInput+xml
                     application/vnd.ibexa.api.ProductVariantViewInput+json
         body:
+            application/vnd.ibexa.api.ProductVariantViewInput+xml:
+                type: ProductVariantViewInput
             application/vnd.ibexa.api.ProductVariantViewInput+json:
                 type: ProductVariantViewInput
                 example: !include examples/product/catalog/product_variants/POST/ProductVariantViewInput.json.example
         responses:
             200:
                 body:
+                    application/vnd.ibexa.api.ProductVariantView+xml:
+                        type: ProductVariantView
                     application/vnd.ibexa.api.ProductVariantView+json:
                         type: ProductVariantView
                         example: !include examples/product/catalog/product_variants/POST/ProductVariantView.json.example
