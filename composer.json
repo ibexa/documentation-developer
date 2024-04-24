@@ -5,18 +5,8 @@
     "license": "GNU General Public License v2.0",
     "autoload-dev": {
         "psr-4": {
-            "App\\Command\\": [
-                "code_samples/recent_activity/src/Command/",
-                "code_samples/back_office/dashboard/src/Command/"
-            ],
-            "App\\Event\\": [
-                "code_samples/recent_activity/src/Event/"
-            ],
-            "App\\MyFeature\\": [
-                "code_samples/recent_activity/src/MyFeature"
-            ],
-            "App\\EventSubscriber\\": [
-                "code_samples/recent_activity/src/EventSubscriber"
+            "App\\": [
+                "code_samples/recent_activity/src"
             ]
         }
     },
