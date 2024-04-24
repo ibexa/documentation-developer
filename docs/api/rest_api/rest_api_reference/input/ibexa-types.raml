@@ -2502,6 +2502,11 @@ CartViewInput:
         CartQuery:
             type: object
 
+CartView:
+    description: 'This class represents a cart view.'
+    type: object
+    #TODO: properties
+
 Catalog:
     description: 'This class represents a catalog.'
     type: object
@@ -2712,6 +2717,14 @@ AttributeGroupListGet:
 AttributeGroupViewInput:
     description: 'This class represents an attribute group view input.'
     type: object
+    properties:
+        identifier: string
+        AttributeGroupQuery:
+            type: object
+            properties:
+                limit: integer
+                offset: integer
+                name_prefix: string
 
 AttributeGroupView:
     description: 'This class represents an attribute group view.'

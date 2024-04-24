@@ -68,7 +68,8 @@ post:
             Accept:
                 description: AttributeGroupGet - If set, the attribute group List is returned in XML or JSON format.
                 example: |
-                    application/vnd.ibexa.api.AttributeGroupGet+json
+                    application/vnd.ibexa.api.AttributeGroup+xml
+                    application/vnd.ibexa.api.AttributeGroup+json
             Content-Type:
                 description: An optional AttributeGroupGet schema encoded in XML or JSON format.
                 example:  |
@@ -77,6 +78,8 @@ post:
         responses:
             200:
                 body:
+                    application/vnd.ibexa.api.AttributeGroup+xml:
+                        type: AttributeGroup
                     application/vnd.ibexa.api.AttributeGroup+json:
                         type: AttributeGroup
                         example: !include examples/product/catalog/attribute_groups/id/GET/AttributeGroup.json.example
@@ -89,18 +92,24 @@ post:
             Accept:
                 description: If set, the updated attribute group is returned in XML or JSON format.
                 example:  |
-                    application/vnd.ibexa.api.AttributeGroupUpdate+json
+                    application/vnd.ibexa.api.AttributeGroup+xml
+                    application/vnd.ibexa.api.AttributeGroup+json
             Content-Type:
-                description: If set, the updated attribute group is returned in XML or JSON format.
+                description: The attribute group update schema is sent in XML or JSON format.
                 example:  |
+                    application/vnd.ibexa.api.AttributeGroupUpdate+xml
                     application/vnd.ibexa.api.AttributeGroupUpdate+json
         body:
-            application/vnd.ibexa.api.AttributeGroup+json:
+            application/vnd.ibexa.api.AttributeGroupUpdate+xml:
+                type: AttributeGroupUpdate
+            application/vnd.ibexa.api.AttributeGroupUpdate+json:
                 type: AttributeGroupUpdate
                 example: !include examples/product/catalog/attribute_groups/id/PATCH/AttributeGroupUpdate.json.example
         responses:
             201:
                 body:
+                    application/vnd.ibexa.api.AttributeGroup+xml:
+                        type: AttributeGroup
                     application/vnd.ibexa.api.AttributeGroup+json:
                         type: AttributeGroup
                         example: !include examples/product/catalog/attribute_groups/id/PATCH/AttributeGroup.json.example
@@ -146,12 +155,16 @@ post:
                     application/vnd.ibexa.api.AttributeGroupViewInput+xml
                     application/vnd.ibexa.api.AttributeGroupViewInput+json
         body:
+            application/vnd.ibexa.api.AttributeGroupViewInput+xml:
+                type: AttributeGroupViewInput
             application/vnd.ibexa.api.AttributeGroupViewInput+json:
                 type: AttributeGroupViewInput
                 example: !include examples/product/catalog/attribute_groups/POST/AttributeGroupViewInput.json.example
         responses:
             200:
                 body:
+                    application/vnd.ibexa.api.AttributeGroupView+xml:
+                        type: AttributeGroupView
                     application/vnd.ibexa.api.AttributeGroupView+json:
                         type: AttributeGroupView
                         example: !include examples/product/catalog/attribute_groups/POST/AttributeGroupView.json.example
