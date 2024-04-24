@@ -56,9 +56,16 @@ get:
     get:
         displayName: Check product type usage
         description: Checks whether the product type is in use.
+        headers:
+            Accept:
+                example: |
+                    application/vnd.ibexa.api.ProductTypeUsage+xml
+                    application/vnd.ibexa.api.ProductTypeUsage+json
         responses:
             200:
                 body:
+                    application/vnd.ibexa.api.ProductTypeUsage+xml:
+                        type: ProductTypeUsage
                     application/vnd.ibexa.api.ProductTypeUsage+json:
                         type: ProductTypeUsage
                         example: !include examples/product/catalog/product_types/is_used/GET/ProductTypeUsage.json.example
@@ -70,16 +77,15 @@ get:
         description: Returns the given product type.
         headers:
             Accept:
-                description: ProductTypeGet - If set, the product type is returned in XML or JSON format.
+                description: ProductType - If set, the product type is returned in XML or JSON format.
                 example:  |
-                    application/vnd.ibexa.api.ProductTypeGet+json
-            Content-Type:
-                description: The ProductType schema encoded in XML or JSON format.
-                example:  |
-                    application/vnd.ibexa.api.ProductTypeGet+json
+                    application/vnd.ibexa.api.ProductType+xml
+                    application/vnd.ibexa.api.ProductType+json
         responses:
             200:
                 body:
+                    application/vnd.ibexa.api.ProductType+xml:
+                        type: ProductType
                     application/vnd.ibexa.api.ProductType+json:
                         type: ProductType
                         example: !include examples/product/catalog/product_types/id/GET/ProductType.json.example
