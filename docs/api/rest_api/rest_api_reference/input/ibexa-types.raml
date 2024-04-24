@@ -3138,6 +3138,15 @@ ProductTypeList:
         ProductTypes:
             type: ProductType[]
 
+ProductTypeListGet:
+    description: 'This class represents a product type list query.'
+    type: object
+    properties:
+        name_prefix: string
+        offset: integer
+        limit: integer
+        languages: string[]
+
 TaxonomyEntry:
     description: 'This class represents a taxonomy entry.'
     type: BaseObject
