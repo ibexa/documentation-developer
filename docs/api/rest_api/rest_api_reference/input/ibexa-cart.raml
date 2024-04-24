@@ -8,13 +8,22 @@ post:
             example: |
                 application/vnd.ibexa.api.CartCreate+xml
                 application/vnd.ibexa.api.CartCreate+json
+        Accept:
+            description: If set, the created Cart is returned in XML or JSON format.
+            example: |
+                application/vnd.ibexa.api.Cart+xml
+                application/vnd.ibexa.api.Cart+json
     body:
+        application/vnd.ibexa.api.CartCreate+xml:
+            type: CartCreate
         application/vnd.ibexa.api.CartCreate+json:
             type: CartCreate
             example: !include examples/cart/POST/CartCreate.json.example
     responses:
         200:
             body:
+                application/vnd.ibexa.api.Cart+xml:
+                    type: Cart
                 application/vnd.ibexa.api.Cart+json:
                     type: Cart
                     example: !include examples/cart/POST/Cart.json.example

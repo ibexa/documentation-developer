@@ -44,14 +44,18 @@ post:
             Accept:
                 description: If set, the catalog is returned in XML or JSON format.
                 example:  |
-                    application/vnd.ibexa.api.CatalogGet+json
+                    application/vnd.ibexa.api.Catalog+xml
+                    application/vnd.ibexa.api.Catalog+json
             Content-Type:
                 description: The catalog schema encoded in XML or JSON format.
                 example:  |
+                    application/vnd.ibexa.api.CatalogGet+xml
                     application/vnd.ibexa.api.CatalogGet+json
         responses:
             200:
                 body:
+                    application/vnd.ibexa.api.Catalog+xml:
+                        type: Catalog
                     application/vnd.ibexa.api.Catalog+json:
                         type: Catalog
                         example: !include examples/product/catalog/catalog/identifier/GET/Catalog.json.example
