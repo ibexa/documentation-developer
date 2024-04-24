@@ -1,25 +1,27 @@
 {
-    "name": "ezsystems/developer-documentation",
+    "name": "ibexa/documentation-developer",
     "description": "This repository is the source for the developer documentation for eZ Platform, an open source CMS based on the Symfony Full Stack Framework in PHP.",
     "type": "library",
     "license": "GNU General Public License v2.0",
-    "autoload": {
+    "autoload-dev": {
         "psr-4": {
-            "EzSystems\\DeveloperDocumentation\\Test\\": "tests/src/"
+            "App\\Command\\": [
+                "code_samples/recent_activity/src/Command/",
+                "code_samples/back_office/dashboard/src/Command/"
+            ],
+            "App\\Event\\": ["code_samples/recent_activity/src/Event/"]
         }
-    },
-    "require": {
-        "behat/behat": "^3.4.3",
-        "ezsystems/ezplatform-content-forms": "^1.0@dev",
-        "symfony/property-access": "^5.0"
     },
     "require-dev": {
         "ibexa/code-style": "^1.0",
-        "friendsofphp/php-cs-fixer": "^3.9"
+        "friendsofphp/php-cs-fixer": "^3.9",
+        "phpstan/phpstan": "^1.10",
+        "phpstan/phpstan-symfony": "^1.3"
     },
     "scripts": {
         "fix-cs": "php-cs-fixer fix --config=.php-cs-fixer.php -v --show-progress=dots",
-        "check-cs": "@fix-cs --dry-run"
+        "check-cs": "@fix-cs --dry-run",
+        "phpstan": "phpstan analyse"
     },
     "config": {
         "allow-plugins": false
