@@ -710,6 +710,13 @@ EventList:
             type: integer
         events:
             type: Event[]
+UnscheduleAction:
+    description: 'This class represents events to unschedule'
+    type: object
+    properties:
+        events:
+            description: list of events
+            type: string[]
 FacetBuilder:
     description: 'This class is the base class for facet builders.'
     type: object

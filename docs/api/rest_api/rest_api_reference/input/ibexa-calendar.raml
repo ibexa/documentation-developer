@@ -83,10 +83,13 @@ displayName: Calendar
                 Content-Type:
                     example:  |
                         application/vnd.ibexa.api.calendar.future_publication.UnscheduleAction+json
+                        application/vnd.ibexa.api.calendar.future_hide.UnscheduleAction+json
             body:
-                application/vnd.ibexa.api.UnscheduleActionInput+json:
-                    type: RoleAssignInput
-                    example: !include examples/calendar/event/eventType/POST/UnscheduleActionInput.json.example
+                application/vnd.ibexa.api.calendar.future_publication.UnscheduleAction+json:
+                    type: UnscheduleAction
+                    example: !include examples/calendar/event/eventType/POST/future_publication.UnscheduleAction.json.example
+                application/vnd.ibexa.api.calendar.future_hide.UnscheduleAction+json:
+                    type: UnscheduleAction
             responses:
                 204:
                     description: No Content - the action has been unscheduled.
