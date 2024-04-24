@@ -19,6 +19,8 @@ get:
     responses:
         200:
             body:
+                application/vnd.ibexa.api.AttributeGroupList+xml:
+                    type: AttributeGroupList
                 application/vnd.ibexa.api.AttributeGroupList+json:
                     type: AttributeGroupList
                     example: !include examples/product/catalog/attribute_groups/GET/AttributeGroupList.json.example
@@ -57,8 +59,10 @@ post:
         displayName: Load attribute group
         description: Returns the given attribute group.
         body:
-            application/vnd.ibexa.api.AttributeGroup+json:
-                type: AttributeGroup
+            application/vnd.ibexa.api.AttributeGroupGet+xml:
+                type: AttributeGroupGet
+            application/vnd.ibexa.api.AttributeGroupGet+json:
+                type: AttributeGroupGet
                 example: !include examples/product/catalog/attribute_groups/id/GET/AttributeGroupGet.json.example
         headers:
             Accept:
@@ -66,14 +70,15 @@ post:
                 example: |
                     application/vnd.ibexa.api.AttributeGroupGet+json
             Content-Type:
-                description: The AttributeGroup schema encoded in XML or JSON format.
+                description: An optional AttributeGroupGet schema encoded in XML or JSON format.
                 example:  |
+                    application/vnd.ibexa.api.AttributeGroupGet+xml
                     application/vnd.ibexa.api.AttributeGroupGet+json
         responses:
             200:
                 body:
-                    application/vnd.ibexa.api.AttributeGroupList+json:
-                        type: AttributeGroupList
+                    application/vnd.ibexa.api.AttributeGroup+json:
+                        type: AttributeGroup
                         example: !include examples/product/catalog/attribute_groups/id/GET/AttributeGroup.json.example
             401:
                 description: Error - the user has no permission to read attribute groups.
