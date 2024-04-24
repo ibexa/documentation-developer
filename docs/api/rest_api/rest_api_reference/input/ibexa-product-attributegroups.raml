@@ -2,17 +2,19 @@ get:
     displayName: Load attribute groups (deprecated)
     description: Returns a list of attribute groups. Deprecated as of Ibexa DXP 4.3, use POST /product/catalog/attribute_groups/view instead.
     body:
-        application/vnd.ibexa.api.AttributeGroupList+json:
-            type: AttributeGroup
+        application/vnd.ibexa.api.AttributeGroupListGet+json:
+            type: AttributeGroupListGet
             example: !include examples/product/catalog/attribute_groups/GET/AttributeGroupListGet.json.example
     headers:
         Accept:
-            description: AttributeGroupListGet - If set, the attribute group list is returned in XML or JSON format.
+            description: AttributeGroupList - If set, the attribute group list is returned in XML or JSON format.
             example: |
-                application/vnd.ibexa.api.AttributeGroupListGet+json
+                application/vnd.ibexa.api.AttributeGroupList+xml
+                application/vnd.ibexa.api.AttributeGroupList+json
         Content-Type:
-            description: The AttributeGroupList schema encoded in XML or JSON format.
+            description: The AttributeGroupListGet schema encoded in XML or JSON format.
             example:  |
+                application/vnd.ibexa.api.AttributeGroupListGet+json
                 application/vnd.ibexa.api.AttributeGroupListGet+json
     responses:
         200:
