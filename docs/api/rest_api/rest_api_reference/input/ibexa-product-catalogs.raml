@@ -135,12 +135,16 @@ post:
                     application/vnd.ibexa.api.CatalogViewInput+xml
                     application/vnd.ibexa.api.CatalogViewInput+json
         body:
+            application/vnd.ibexa.api.CatalogViewInput+xml:
+                type: CatalogViewInput
             application/vnd.ibexa.api.CatalogViewInput+json:
                 type: CatalogViewInput
                 example: !include examples/product/catalog/catalog/POST/CatalogViewInput.json.example
         responses:
             200:
                 body:
+                    application/vnd.ibexa.api.CatalogView+xml:
+                        type: ProductView
                     application/vnd.ibexa.api.CatalogView+json:
                         type: ProductView
                         example: !include examples/product/catalog/catalog/POST/CatalogView.json.example
@@ -163,12 +167,16 @@ post:
                     application/vnd.ibexa.api.ProductViewInput+xml
                     application/vnd.ibexa.api.ProductViewInput+json
         body:
+            application/vnd.ibexa.api.ProductViewInput+xml:
+                type: ProductViewInput
             application/vnd.ibexa.api.ProductViewInput+json:
                 type: ProductViewInput
                 example: !include examples/product/catalog/catalog/POST/CatalogProductsViewInput.json.example
         responses:
             200:
                 body:
+                    application/vnd.ibexa.api.ProductView+xml:
+                        type: ProductView
                     application/vnd.ibexa.api.ProductView+json:
                         type: ProductView
                         example: !include examples/product/catalog/catalog/POST/CatalogProductsView.json.example
@@ -183,14 +191,13 @@ post:
             Accept:
                 description: If set, the filters are returned in XML or JSON format.
                 example:  |
-                    application/vnd.ibexa.api.CatalogFilters+json
-            Content-Type:
-                description: The filters schema encoded in XML or JSON format.
-                example:  |
+                    application/vnd.ibexa.api.CatalogFilters+xml
                     application/vnd.ibexa.api.CatalogFilters+json
         responses:
             200:
                 body:
+                    application/vnd.ibexa.api.ProductFilterList+xml:
+                        type: ProductFilterList
                     application/vnd.ibexa.api.ProductFilterList+json:
                         type: ProductFilterList
                         example: !include examples/product/catalog/catalog/GET/ProductFilterList.json.example
@@ -203,14 +210,13 @@ post:
             Accept:
                 description: If set, the clauses are returned in XML or JSON format.
                 example:  |
-                    application/vnd.ibexa.api.CatalogSortClauses+json
-            Content-Type:
-                description: The clauses schema encoded in XML or JSON format.
-                example:  |
+                    application/vnd.ibexa.api.CatalogSortClauses+xml
                     application/vnd.ibexa.api.CatalogSortClauses+json
         responses:
             200:
                 body:
+                    application/vnd.ibexa.api.ProductSortClauseList+xml:
+                        type: ProductSortClauseList
                     application/vnd.ibexa.api.ProductSortClauseList+json:
                         type: ProductSortClauseList
                         example: !include examples/product/catalog/catalog/GET/ProductSortClauseList.json.example
