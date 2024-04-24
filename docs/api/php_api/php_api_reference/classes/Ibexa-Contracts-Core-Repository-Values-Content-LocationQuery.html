@@ -35511,11 +35511,13 @@ facets supported by the engine. API consumer should dynamically iterate over ret
 </div>
     <section class="phpdocumentor-description"><p>For the storage backend that supports it (Solr) filters the result set
 without influencing score. It also offers better performance as filter
-part of the Query can be cached.</p>
-<p>In case when the backend does not distinguish between query and filter
+part of the Query can be cached.
+
+In case when the backend does not distinguish between query and filter
 (Legacy Storage implementation), it will simply be combined with Query query
-using LogicalAnd criterion.</p>
-<p>Can contain multiple criterion, as items of a logical one (by default
+using LogicalAnd criterion.
+
+Can contain multiple criterion, as items of a logical one (by default
 AND)</p>
 </section>
 
@@ -35554,7 +35556,7 @@ AND)</p>
     </table>
 </div>
     <section class="phpdocumentor-description"><p>Limit for number of search hits to return.
-If value is <code class="prettyprint">0</code>, search query will not return any search hits, useful for doing a count.</p>
+If value is `0`, search query will not return any search hits, useful for doing a count.</p>
 </section>
 
                     <div class="content-header">
@@ -35664,8 +35666,9 @@ If value is <code class="prettyprint">0</code>, search query will not return any
     </table>
 </div>
     <section class="phpdocumentor-description"><p>For the storage backend that supports it (Solr Storage) query will influence
-score of the search results.</p>
-<p>Can contain multiple criterion, as items of a logical one (by default
+score of the search results.
+
+Can contain multiple criterion, as items of a logical one (by default
 AND). Defaults to MatchAll.</p>
 </section>
 
@@ -35844,7 +35847,7 @@ after object has been created.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>Used by <abbr title="\Ibexa\Contracts\Core\Repository\Values\attributes()">attributes()</abbr>, override to add dynamic properties</p>
+    <section class="phpdocumentor-description"><p>Used by &lt;abbr title=&quot;\Ibexa\Contracts\Core\Repository\Values\attributes()&quot;&gt;attributes()&lt;/abbr&gt;, override to add dynamic properties</p>
 </section>
     <h4>Parameters</h4>
     <table class="method-parameters">

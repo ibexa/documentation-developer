@@ -1,6 +1,7 @@
-(function(global, doc, location) {
+(function(global, doc, location, history) {
     let hasScrolled = false;
     const toc = doc.querySelector('[data-md-component="toc"]');
+    const currentPath = location.href.replace(doc.baseURI, '').split('#')[0];
 
     if (!toc) {
         return;
@@ -29,7 +30,7 @@
             firstVisibleTocEntry.classList.add('md-nav__link--active');
 
             if (hasScrolled) {
-                location.hash = anchorId;
+                history.pushState(null, null, `${currentPath}#${anchorId}`);
             }
         },
         { threshold: 0.5 }
@@ -42,4 +43,4 @@
     doc.addEventListener('scroll', () => {
         hasScrolled = true;
     });
-})(window, window.document, window.location);
+})(window, window.document, window.location, window.history);

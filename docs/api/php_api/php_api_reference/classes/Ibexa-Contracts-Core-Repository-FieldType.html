@@ -35357,7 +35357,7 @@
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>This is the reverse operation of <a href="fieldSettingsToHash()"></a>.</p>
+    <section class="phpdocumentor-description"><p>This is the reverse operation of [](fieldSettingsToHash()).</p>
 </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
@@ -35486,7 +35486,7 @@
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>This is the reverse operation to <a href="toHash()"></a>.</p>
+    <section class="phpdocumentor-description"><p>This is the reverse operation to [](toHash()).</p>
 </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
@@ -35718,8 +35718,9 @@
 <div class="phpdocumentor-label-line">
     </div>
     <section class="phpdocumentor-description"><p>Returns an arbitrary value, representing a schema for the settings of
-the FieldType.</p>
-<p>Explanation: There are no possible generic schemas for defining settings
+the FieldType.
+
+Explanation: There are no possible generic schemas for defining settings
 input, which is why no schema for the return value of this method is
 defined. It is up to the implementer to define and document a schema for
 the return value and document it. In addition, it is necessary that all
@@ -35766,8 +35767,9 @@ consumer.</p>
 <div class="phpdocumentor-label-line">
     </div>
     <section class="phpdocumentor-description"><p>Returns an arbitrary value, representing a schema for the validator
-configuration of the FieldType.</p>
-<p>Explanation: There are no possible generic schemas for defining settings
+configuration of the FieldType.
+
+Explanation: There are no possible generic schemas for defining settings
 input, which is why no schema for the return value of this method is
 defined. It is up to the implementer to define and document a schema for
 the return value and document it. In addition, it is necessary that all
@@ -35776,24 +35778,27 @@ provide plugin mechanisms to hook adapters for the specific FieldType
 into. These adapters then need to be either shipped with the FieldType
 or need to be implemented by a third party. If there is no adapter
 available for a specific FieldType, it will not be usable with the
-consumer.</p>
-<p>Best practice:</p>
-<p>It is considered best practice to return a hash map, which contains
-rudimentary settings structures, like e.g. for the &quot;ezstring&quot; FieldType</p>
-<code class="prettyprint">
+consumer.
+
+Best practice:
+
+It is considered best practice to return a hash map, which contains
+rudimentary settings structures, like e.g. for the &quot;ezstring&quot; FieldType
+
+&lt;code&gt;
  array(
-     'stringLength' => array(
-         'minStringLength' => array(
-             'type'    => 'int',
-             'default' => 0,
+     'stringLength' =&gt; array(
+         'minStringLength' =&gt; array(
+             'type'    =&gt; 'int',
+             'default' =&gt; 0,
          ),
-         'maxStringLength' => array(
-             'type'    => 'int'
-             'default' => null,
+         'maxStringLength' =&gt; array(
+             'type'    =&gt; 'int'
+             'default' =&gt; null,
          )
      ),
  );
-</code>
+&lt;/code&gt;</p>
 </section>
 
             <div class="content-header">
@@ -35830,9 +35835,10 @@ rudimentary settings structures, like e.g. for the &quot;ezstring&quot; FieldTyp
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>Usually, only the value returned by <a href="getEmptyValue()"></a> is
-considered empty but that is not always the case.</p>
-<p>Note: This function assumes that $value is valid so this function can only
+    <section class="phpdocumentor-description"><p>Usually, only the value returned by [](getEmptyValue()) is
+considered empty but that is not always the case.
+
+Note: This function assumes that $value is valid so this function can only
 be used reliably on $values that came from the API, not from the user.</p>
 </section>
     <h4>Parameters</h4>

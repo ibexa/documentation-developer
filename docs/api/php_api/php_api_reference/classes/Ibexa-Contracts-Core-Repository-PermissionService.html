@@ -35362,10 +35362,11 @@ objects.</p>
 <div class="phpdocumentor-label-line">
     </div>
     <section class="phpdocumentor-description"><p>Example: canUser( 'content', 'edit', $content, [$location] );
-This will check edit permission on content given the specific location, if skipped if will check on all
-locations.</p>
-<p>Example2: canUser( 'section', 'assign', $content, [$section] );
-Check if user has access to assign $content to $section.</p>
+         This will check edit permission on content given the specific location, if skipped if will check on all
+         locations.
+
+Example2: canUser( 'section', 'assign', $content, [$section] );
+          Check if user has access to assign $content to $section.</p>
 </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
@@ -35640,8 +35641,8 @@ however if user has either full or no access then boolean is returned.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-MatchAll.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\MatchAll">MatchAll</abbr></a>
-and <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-MatchNone.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\MatchNone">MatchNone</abbr></a> are returned
+    <section class="phpdocumentor-description"><p>&lt;a href=&quot;classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-MatchAll.html&quot;&gt;&lt;abbr title=&quot;\Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\MatchAll&quot;&gt;MatchAll&lt;/abbr&gt;&lt;/a&gt;
+and &lt;a href=&quot;classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-MatchNone.html&quot;&gt;&lt;abbr title=&quot;\Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\MatchNone&quot;&gt;MatchNone&lt;/abbr&gt;&lt;/a&gt; are returned
 for a user with full and no access respectively.</p>
 </section>
 
@@ -35681,10 +35682,11 @@ for a user with full and no access respectively.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>Note: boolean value describes full access (true) or no access at all (false), array can be seen as a maybe..</p>
-<p>WARNING: This is a low level method, if possible strongly prefer to use canUser() as it is able to handle limitations.
-This includes Role Assignment limitations, but also future policy limitations added in kernel,
-or as plain user configuration and/or extending the system.</p>
+    <section class="phpdocumentor-description"><p>Note: boolean value describes full access (true) or no access at all (false), array can be seen as a maybe..
+
+WARNING: This is a low level method, if possible strongly prefer to use canUser() as it is able to handle limitations.
+         This includes Role Assignment limitations, but also future policy limitations added in kernel,
+         or as plain user configuration and/or extending the system.</p>
 </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
@@ -35771,12 +35773,11 @@ which the information is returned, current user will be used if null</p>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                                 
                                                  <section class="phpdocumentor-description"><p>bool|array&lt;
-array{
-limitation: \Ibexa\Contracts\Core\Repository\Values\User\Limitation|null,
-policies: array&lt;\Ibexa\Contracts\Core\Repository\Values\User\Policy&gt;
-},</p>
-<blockquote>
-</blockquote>
+    array{
+        limitation: \Ibexa\Contracts\Core\Repository\Values\User\Limitation|null,
+        policies: array&lt;\Ibexa\Contracts\Core\Repository\Values\User\Policy&gt;
+    },
+&gt;</p>
 </section>
 
                                     </dd>
