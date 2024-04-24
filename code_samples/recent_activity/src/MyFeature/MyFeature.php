@@ -4,7 +4,7 @@ namespace App\MyFeature;
 
 class MyFeature extends \stdClass
 {
-    /** 
+    /**
      * @param array<string, mixed> $properties
      */
     public function __construct(array $properties)
