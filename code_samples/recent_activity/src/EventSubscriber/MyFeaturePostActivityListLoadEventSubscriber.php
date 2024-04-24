@@ -31,7 +31,7 @@ class MyFeaturePostActivityListLoadEventSubscriber implements EventSubscriberInt
         $visitedIds = [];
         $list = $event->getList();
         foreach ($list as $logGroup) {
-            foreach ($logGroup->getActivityLogs() as $log) {
+            foreach ($logGroup->getActivityLogsInvalid() as $log) {
                 if ($log->getObjectClass() !== MyFeature::class) {
                     continue;
                 }
