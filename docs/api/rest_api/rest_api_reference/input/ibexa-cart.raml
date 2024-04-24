@@ -123,10 +123,15 @@ post:
                 description: Updates the given entry from the given Cart.
                 headers:
                     Content-Type:
-                        description: The EntryUpdateStruct schema encoded in XML or JSON format.
+                        description: The CartEntryUpdate schema encoded in XML or JSON format.
                         example: |
-                            application/vnd.ibexa.api.EntryUpdateStruct+xml
-                            application/vnd.ibexa.api.EntryUpdateStruct+json
+                            application/vnd.ibexa.api.CartEntryUpdate+xml
+                            application/vnd.ibexa.api.CartEntryUpdate+json
+                body:
+                    application/vnd.ibexa.api.CartEntryUpdate+xml:
+                        type: CartEntryUpdate
+                    application/vnd.ibexa.api.CartEntryUpdate+json:
+                        type: CartEntryUpdate
     /empty:
         post:
             displayName: Empty Cart
@@ -151,7 +156,9 @@ post:
             responses:
                 200:
                     body:
-                        application/vnd.ibexa.api.CountriesLis+json:
+                        application/vnd.ibexa.api.CartSummary+xml:
+                            type: CartSummary
+                        application/vnd.ibexa.api.CartSummary+json:
                             type: CartSummary
                             example: !include examples/cart/summary/CartSummary.json.example
                 401:

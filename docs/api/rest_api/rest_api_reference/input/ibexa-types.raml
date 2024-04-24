@@ -2440,6 +2440,19 @@ CartCreate:
             type: object
             required: false
 
+CartEntry:
+    type: object
+    properties:
+        identifier: string
+        id: integer
+        names: object[]
+        quantity: integer
+        Price: Price
+
+CartEntryUpdate:
+    type: object
+    #TODO: properties:
+
 CartEntryAdd:
     description: 'This class represents a cart entry'
     type: object
