@@ -29,6 +29,7 @@ jobs:
               run: | 
                 mkdir -p tools/php-cs-fixer
                 composer require --working-dir=tools/php-cs-fixer friendsofphp/php-cs-fixer --dev
+                composer require --working-dir=tools/php-cs-fixer ibexa/code-style:^1.0 --dev
             - name: Run PHP CS Fixer
               run: tools/php-cs-fixer/vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php -v --show-progress=dots
             - name: Commit changes
