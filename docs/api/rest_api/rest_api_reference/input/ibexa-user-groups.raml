@@ -25,6 +25,10 @@ get:
                 application/vnd.ibexa.api.UserGroupList+json:
                     type: UserGroupList
                     example: !include examples/user/groups/GET/UserGroupList.json.example
+                application/vnd.ibexa.api.UserGroupRefList+xml:
+                    type: UserGroupRefList
+                application/vnd.ibexa.api.UserGroupRefList+json:
+                    type: UserGroupRefList
         401:
             description: Error - the user has no permission to read User Groups.
 /root:
