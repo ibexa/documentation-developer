@@ -93,6 +93,11 @@ post:
                 example: |
                     application/vnd.ibexa.api.CartMetadataUpdateStruct+xml
                     application/vnd.ibexa.api.CartMetadataUpdateStruct+json
+        body:
+            application/vnd.ibexa.api.CartMetadataUpdateStruct+xml:
+                type: CartMetadataUpdateStruct
+            application/vnd.ibexa.api.CartMetadataUpdateStruct+json:
+                type: CartMetadataUpdateStruct
     /entry:
         post:
             displayName: Add Entry to Cart
