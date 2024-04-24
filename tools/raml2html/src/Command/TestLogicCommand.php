@@ -55,13 +55,16 @@ final class TestLogicCommand extends Command
                     $this->checkMandatoryHeader($parent, $key, $definition, 'Accept', $output);
                     break;
                 case 'post':
+                    //$this->checkMandatoryHeader($parent, $key, $definition, 'Content-Type', $output);// POST may not have a payload like `POST /content/objects/{contentId}/hide`
+                    //$this->checkMandatoryHeader($parent, $key, $definition, 'Accept', $output);// …and may return 204 No Content.
+                    break;
                 case 'patch':
                     $this->checkMandatoryHeader($parent, $key, $definition, 'Content-Type', $output);
                     $this->checkMandatoryHeader($parent, $key, $definition, 'Accept', $output);
                 break;
                 case 'delete':
                     $this->checkUselessHeader($parent, $key, $definition, 'Content-Type', $output);
-                    $this->checkUselessHeader($parent, $key, $definition, 'Accept', $output);
+                    //$this->checkUselessHeader($parent, $key, $definition, 'Accept', $output);// Can return the updated "parent"/"container"/"list"
             }
         }
     }
