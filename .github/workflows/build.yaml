@@ -83,5 +83,14 @@ jobs:
               with:
                   dependency-versions: "highest"
 
+            -   name: Add composer keys for private packagist
+                run: |
+                    composer config http-basic.updates.ibexa.co $SATIS_NETWORK_KEY $SATIS_NETWORK_TOKEN
+                    composer config github-oauth.github.com $TRAVIS_GITHUB_TOKEN
+                env:
+                    SATIS_NETWORK_KEY: ${{ secrets.SATIS_NETWORK_KEY }}
+                    SATIS_NETWORK_TOKEN: ${{ secrets.SATIS_NETWORK_TOKEN }}
+                    TRAVIS_GITHUB_TOKEN: ${{ secrets.TRAVIS_GITHUB_TOKEN }}
+
             - name: Run PHPStan analysis
               run: composer phpstan
