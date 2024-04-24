@@ -26,9 +26,11 @@ jobs:
               with:
                   python-version: ${{ matrix.python-version }}
             - name: Install php-cs-fixer
-              run: composer require friendsofphp/php-cs-fixer --dev
+              run: | 
+                mkdir -p tools/php-cs-fixer
+                composer require --working-dir=tools/php-cs-fixer friendsofphp/php-cs-fixer --dev
             - name: Run PHP CS Fixer
-              run: ./vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php -v --show-progress=dots
+              run: tools/php-cs-fixer/vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php -v --show-progress=dots
             - name: Commit changes
               uses: stefanzweifel/git-auto-commit-action@v4
               with:
@@ -79,10 +81,6 @@ jobs:
                   extensions: "pdo_sqlite, gd"
                   tools: cs2pr
 
-            - uses: "ramsey/composer-install@v1"
-              with:
-                  dependency-versions: "highest"
-
             -   name: Add composer keys for private packagist
                 run: |
                     composer config http-basic.updates.ibexa.co $SATIS_NETWORK_KEY $SATIS_NETWORK_TOKEN
@@ -91,6 +89,10 @@ jobs:
                     SATIS_NETWORK_KEY: ${{ secrets.SATIS_NETWORK_KEY }}
                     SATIS_NETWORK_TOKEN: ${{ secrets.SATIS_NETWORK_TOKEN }}
                     TRAVIS_GITHUB_TOKEN: ${{ secrets.TRAVIS_GITHUB_TOKEN }}
+
+            - uses: "ramsey/composer-install@v1"
+              with:
+                  dependency-versions: "highest"
 
             - name: Run PHPStan analysis
               run: composer phpstan
