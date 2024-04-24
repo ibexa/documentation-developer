@@ -5,12 +5,15 @@ get:
         Accept:
             description: RegionList - If set, the regions list returned in XML or JSON format.
             example: |
-                application/vnd.ibexa.api.RegionGetList+json
+                application/vnd.ibexa.api.RegionList+xml
+                application/vnd.ibexa.api.RegionList+json
     responses:
         200:
             description: OK - loads regions.
             body:
-                application/vnd.ibexa.api.RegionListGet+json:
+                application/vnd.ibexa.api.RegionList+xml:
+                    type: RegionList
+                application/vnd.ibexa.api.RegionList+json:
                     type: RegionList
                     example: !include examples/product/catalog/regions/GET/RegionList.json.example
         401:
@@ -20,9 +23,19 @@ get:
     get:
         displayName: Load region
         description: Loads a region by its identifier
+        headers:
+            Accept:
+                example: |
+                    application/vnd.ibexa.api.Region+xml
+                    application/vnd.ibexa.api.Region+json
         responses:
             200:
                 description: OK - loads region.
+                body:
+                    application/vnd.ibexa.api.Region+xml:
+                        type: Region
+                    application/vnd.ibexa.api.Region+json:
+                        type: Region
             404:
                 description: Error - the region does not exist.
 

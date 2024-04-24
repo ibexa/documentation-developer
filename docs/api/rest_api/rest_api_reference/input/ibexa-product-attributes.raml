@@ -35,10 +35,6 @@ post:
                 description: AttributeGet - If set, the given attribute is returned in XML or JSON format.
                 example: |
                     application/vnd.ibexa.api.AttributeGet+json
-            Content-Type:
-                description: The attribute schema encoded in XML or JSON format.
-                example: |
-                    application/vnd.ibexa.api.AttributeGet+json
         body:
             application/vnd.ibexa.api.AttributeGet+json:
                 type: AttributeList
@@ -105,10 +101,6 @@ get:
     headers:
         Accept:
             description: AttributeList - If set, the attributes list is returned in XML or JSON format.
-            example: |
-                application/vnd.ibexa.api.AttributeListGet+json
-        Content-Type:
-            description: The AttributeList schema encoded in XML or JSON format.
             example: |
                 application/vnd.ibexa.api.AttributeListGet+json
     body:
