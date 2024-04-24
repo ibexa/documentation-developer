@@ -55,12 +55,16 @@ get:
                     application/vnd.ibexa.api.RegionViewInput+xml
                     application/vnd.ibexa.api.RegionViewInput+json
         body:
+            application/vnd.ibexa.api.RegionViewInput+xml:
+                type: RegionViewInput
             application/vnd.ibexa.api.RegionViewInput+json:
                 type: RegionViewInput
                 example: !include examples/product/catalog/regions/POST/RegionViewInput.json.example
         responses:
             200:
                 body:
+                    application/vnd.ibexa.api.RegionView+xml:
+                        type: RegionView
                     application/vnd.ibexa.api.RegionView+json:
                         type: RegionView
                         example: !include examples/product/catalog/regions/POST/RegionView.json.example
