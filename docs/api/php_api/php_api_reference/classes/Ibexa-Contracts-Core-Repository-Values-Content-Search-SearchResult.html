@@ -68,9 +68,6 @@
     </div>
 </div>        <div class="md-header__switcher">
     <div class="md-flex__ellipsis md-header__title switcher version-switcher" data-md-component="title">
-        <div class="rst-versions switcher__selected-item" data-toggle="rst-versions" role="note" aria-label="versions">
-            <div class="rst-current-version switcher__label" data-toggle="rst-current-version">latest</div>
-        </div>
         <div class="rst-other-versions switcher__list"></div>
     </div>
 </div>        <div class="md-search" data-md-component="search" role="dialog">
@@ -35320,7 +35317,11 @@
 </ul>
     
 <div class="content-header">
-    <h1 id="SearchResult">
+            <div class="pills">
+                
+    
+            </div>
+        <h1 id="SearchResult">
         SearchResult<a class="headerlink" href="#SearchResult" title="Permanent link">¶</a>
 </h1>
             <button class="content-header__copy-fqcn copy-to-clipboard" title="Ibexa\Contracts\Core\Repository\Values\Content\Search\SearchResult" data-copy-value="Ibexa\Contracts\Core\Repository\Values\Content\Search\SearchResult">Copy FQCN</button>
@@ -35347,7 +35348,7 @@
 </h2>
 
                     <div class="content-header">
-    <h3 id="property_aggregations">
+        <h3 id="property_aggregations">
                 <img src="./images/public.svg" alt="public" />
         $aggregations<span class="property-tags">
                                 </span>
@@ -35381,7 +35382,7 @@
 </div>
 
                     <div class="content-header">
-    <h3 id="property_facets">
+        <h3 id="property_facets">
                 <img src="./images/public.svg" alt="public" />
         $facets<span class="property-tags">
                                 </span>
@@ -35432,7 +35433,7 @@
                                     </dd>
                                             </dl>
                     <div class="content-header">
-    <h3 id="property_maxScore">
+        <h3 id="property_maxScore">
                 <img src="./images/public.svg" alt="public" />
         $maxScore<span class="property-tags">
                                 </span>
@@ -35467,7 +35468,7 @@
 </div>
 
                     <div class="content-header">
-    <h3 id="property_searchHits">
+        <h3 id="property_searchHits">
                 <img src="./images/public.svg" alt="public" />
         $searchHits<span class="property-tags">
                                 </span>
@@ -35502,7 +35503,7 @@
 </div>
 
                     <div class="content-header">
-    <h3 id="property_spellcheck">
+        <h3 id="property_spellcheck">
                 <img src="./images/public.svg" alt="public" />
         $spellcheck<span class="property-tags">
                                 </span>
@@ -35536,7 +35537,7 @@
 </div>
 
                     <div class="content-header">
-    <h3 id="property_spellSuggestion">
+        <h3 id="property_spellSuggestion">
                 <img src="./images/public.svg" alt="public" />
         $spellSuggestion<span class="property-tags">
                                 </span>
@@ -35588,7 +35589,7 @@ criterions the wrong spelled value is replaced by a corrected one (TBD).</p>
                                     </dd>
                                             </dl>
                     <div class="content-header">
-    <h3 id="property_time">
+        <h3 id="property_time">
                 <img src="./images/public.svg" alt="public" />
         $time<span class="property-tags">
                                 </span>
@@ -35623,7 +35624,7 @@ criterions the wrong spelled value is replaced by a corrected one (TBD).</p>
 </div>
 
                     <div class="content-header">
-    <h3 id="property_timedOut">
+        <h3 id="property_timedOut">
                 <img src="./images/public.svg" alt="public" />
         $timedOut<span class="property-tags">
                                 </span>
@@ -35658,7 +35659,7 @@ criterions the wrong spelled value is replaced by a corrected one (TBD).</p>
 </div>
 
                     <div class="content-header">
-    <h3 id="property_totalCount">
+        <h3 id="property_totalCount">
                 <img src="./images/public.svg" alt="public" />
         $totalCount<span class="property-tags">
                                 </span>
@@ -35701,7 +35702,7 @@ criterions the wrong spelled value is replaced by a corrected one (TBD).</p>
 </h2>
 
             <div class="content-header">
-    <h3 id="method___construct">
+        <h3 id="method___construct">
                 <img src="./images/public.svg" alt="public" />__construct()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Search-SearchResult.html#method___construct" title="Permanent link">¶</a>
 </h3>
@@ -35766,7 +35767,7 @@ after object has been created.</p>
     </table>
 
             <div class="content-header">
-    <h3 id="method_getAggregations">
+        <h3 id="method_getAggregations">
                 <img src="./images/public.svg" alt="public" />getAggregations()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Search-SearchResult.html#method_getAggregations" title="Permanent link">¶</a>
 </h3>
@@ -35802,7 +35803,7 @@ after object has been created.</p>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Search-AggregationResultCollection.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Search\AggregationResultCollection">AggregationResultCollection</abbr></a>|null</p>
                 <div class="content-header">
-    <h3 id="method_getIterator">
+        <h3 id="method_getIterator">
                 <img src="./images/public.svg" alt="public" />getIterator()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Search-SearchResult.html#method_getIterator" title="Permanent link">¶</a>
 </h3>
@@ -35838,7 +35839,7 @@ after object has been created.</p>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><abbr title="\Iterator">Iterator</abbr></p>
                 <div class="content-header">
-    <h3 id="method_getSpellcheck">
+        <h3 id="method_getSpellcheck">
                 <img src="./images/public.svg" alt="public" />getSpellcheck()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Search-SearchResult.html#method_getSpellcheck" title="Permanent link">¶</a>
 </h3>
@@ -35874,7 +35875,7 @@ after object has been created.</p>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Search-SpellcheckResult.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Search\SpellcheckResult">SpellcheckResult</abbr></a>|null</p>
                 <div class="content-header">
-    <h3 id="method_getProperties">
+        <h3 id="method_getProperties">
                 <img src="./images/protected.svg" alt="protected" />getProperties()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Repository-Values-ValueObject.html#method_getProperties" title="Permanent link">¶</a>
 </h3>
@@ -36086,7 +36087,5 @@ after object has been created.</p>
     <script src="js/search_custom.js"></script>
     <script src="js/copy_to_clipboard.js"></script>
     <script src="js/version_switcher_custom.js"></script>
-    <script src="js/readthedocs-data.js"></script>
-    <script src="/_/static/core/js/readthedocs-doc-embed.js"></script>
 </body>
 </html>

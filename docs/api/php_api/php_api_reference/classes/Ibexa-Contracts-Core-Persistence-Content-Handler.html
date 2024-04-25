@@ -68,9 +68,6 @@
     </div>
 </div>        <div class="md-header__switcher">
     <div class="md-flex__ellipsis md-header__title switcher version-switcher" data-md-component="title">
-        <div class="rst-versions switcher__selected-item" data-toggle="rst-versions" role="note" aria-label="versions">
-            <div class="rst-current-version switcher__label" data-toggle="rst-current-version">latest</div>
-        </div>
         <div class="rst-other-versions switcher__list"></div>
     </div>
 </div>        <div class="md-search" data-md-component="search" role="dialog">
@@ -35310,7 +35307,11 @@
 </ul>
     
 <div class="content-header">
-    <h1 id="Handler">
+            <div class="pills">
+                
+    
+            </div>
+        <h1 id="Handler">
         Handler<a class="headerlink" href="#Handler" title="Permanent link">¶</a>
 </h1>
             <button class="content-header__copy-fqcn copy-to-clipboard" title="Ibexa\Contracts\Core\Persistence\Content" data-copy-value="Ibexa\Contracts\Core\Persistence\Content">Copy FQCN</button>
@@ -35329,7 +35330,7 @@
 </h2>
 
             <div class="content-header">
-    <h3 id="method_addRelation">
+        <h3 id="method_addRelation">
                 <img src="./images/public.svg" alt="public" />addRelation()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_addRelation" title="Permanent link">¶</a>
 </h3>
@@ -35411,7 +35412,7 @@ and $destinationContentId with a specific $type.</p>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-Relation.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\Relation">Relation</abbr></a></p>
                 <div class="content-header">
-    <h3 id="method_copy">
+        <h3 id="method_copy">
                 <img src="./images/public.svg" alt="public" />copy()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_copy" title="Permanent link">¶</a>
 </h3>
@@ -35528,7 +35529,7 @@ E.g. In order to give person copying access to edit (if owner limitation), use t
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content">Content</abbr></a></p>
                 <div class="content-header">
-    <h3 id="method_countDraftsForUser">
+        <h3 id="method_countDraftsForUser">
                 <img src="./images/public.svg" alt="public" />countDraftsForUser()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_countDraftsForUser" title="Permanent link">¶</a>
 </h3>
@@ -35593,7 +35594,7 @@ E.g. In order to give person copying access to edit (if owner limitation), use t
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">int</p>
                 <div class="content-header">
-    <h3 id="method_countReverseRelations">
+        <h3 id="method_countReverseRelations">
                 <img src="./images/public.svg" alt="public" />countReverseRelations()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_countReverseRelations" title="Permanent link">¶</a>
 </h3>
@@ -35677,7 +35678,7 @@ E.g. In order to give person copying access to edit (if owner limitation), use t
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">int</p>
                 <div class="content-header">
-    <h3 id="method_create">
+        <h3 id="method_create">
                 <img src="./images/public.svg" alt="public" />create()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_create" title="Permanent link">¶</a>
 </h3>
@@ -35752,7 +35753,7 @@ Will contain always a complete list of fields.</p>
 </section>
 
                 <div class="content-header">
-    <h3 id="method_createDraftFromVersion">
+        <h3 id="method_createDraftFromVersion">
                 <img src="./images/public.svg" alt="public" />createDraftFromVersion()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_createDraftFromVersion" title="Permanent link">¶</a>
 </h3>
@@ -35861,7 +35862,7 @@ version of the referred Content from it.</p>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content">Content</abbr></a></p>
                 <div class="content-header">
-    <h3 id="method_deleteContent">
+        <h3 id="method_deleteContent">
                 <img src="./images/public.svg" alt="public" />deleteContent()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_deleteContent" title="Permanent link">¶</a>
 </h3>
@@ -35928,7 +35929,7 @@ assigned nodes of this content objects are removed (recursively).</p>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">bool</p>
                 <div class="content-header">
-    <h3 id="method_deleteTranslationFromContent">
+        <h3 id="method_deleteTranslationFromContent">
                 <img src="./images/public.svg" alt="public" />deleteTranslationFromContent()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_deleteTranslationFromContent" title="Permanent link">¶</a>
 </h3>
@@ -36008,7 +36009,7 @@ assigned nodes of this content objects are removed (recursively).</p>
     </table>
 
             <div class="content-header">
-    <h3 id="method_deleteTranslationFromDraft">
+        <h3 id="method_deleteTranslationFromDraft">
                 <img src="./images/public.svg" alt="public" />deleteTranslationFromDraft()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_deleteTranslationFromDraft" title="Permanent link">¶</a>
 </h3>
@@ -36107,7 +36108,7 @@ assigned nodes of this content objects are removed (recursively).</p>
 </section>
 
                 <div class="content-header">
-    <h3 id="method_deleteVersion">
+        <h3 id="method_deleteVersion">
                 <img src="./images/public.svg" alt="public" />deleteVersion()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_deleteVersion" title="Permanent link">¶</a>
 </h3>
@@ -36187,7 +36188,7 @@ assigned nodes of this content objects are removed (recursively).</p>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">bool</p>
                 <div class="content-header">
-    <h3 id="method_listVersions">
+        <h3 id="method_listVersions">
                 <img src="./images/public.svg" alt="public" />listVersions()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_listVersions" title="Permanent link">¶</a>
 </h3>
@@ -36285,7 +36286,7 @@ assigned nodes of this content objects are removed (recursively).</p>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content-VersionInfo.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\VersionInfo">VersionInfo</abbr></a>&gt;</p>
                 <div class="content-header">
-    <h3 id="method_load">
+        <h3 id="method_load">
                 <img src="./images/public.svg" alt="public" />load()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_load" title="Permanent link">¶</a>
 </h3>
@@ -36389,7 +36390,7 @@ all translations will be retrieved.</p>
 </section>
 
                 <div class="content-header">
-    <h3 id="method_loadContentInfo">
+        <h3 id="method_loadContentInfo">
                 <img src="./images/public.svg" alt="public" />loadContentInfo()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_loadContentInfo" title="Permanent link">¶</a>
 </h3>
@@ -36454,7 +36455,7 @@ all translations will be retrieved.</p>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-ContentInfo.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ContentInfo">ContentInfo</abbr></a></p>
                 <div class="content-header">
-    <h3 id="method_loadContentInfoByRemoteId">
+        <h3 id="method_loadContentInfoByRemoteId">
                 <img src="./images/public.svg" alt="public" />loadContentInfoByRemoteId()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_loadContentInfoByRemoteId" title="Permanent link">¶</a>
 </h3>
@@ -36519,7 +36520,7 @@ all translations will be retrieved.</p>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-ContentInfo.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ContentInfo">ContentInfo</abbr></a></p>
                 <div class="content-header">
-    <h3 id="method_loadContentInfoList">
+        <h3 id="method_loadContentInfoList">
                 <img src="./images/public.svg" alt="public" />loadContentInfoList()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_loadContentInfoList" title="Permanent link">¶</a>
 </h3>
@@ -36586,7 +36587,7 @@ to calling logic to determine if this should cause exception or not.</p>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content-ContentInfo.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ContentInfo">ContentInfo</abbr></a>&gt;</p>
                 <div class="content-header">
-    <h3 id="method_loadContentList">
+        <h3 id="method_loadContentList">
                 <img src="./images/public.svg" alt="public" />loadContentList()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_loadContentList" title="Permanent link">¶</a>
 </h3>
@@ -36677,7 +36678,7 @@ bit more data returned, but upside is that storage engine is able to handle far 
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content">Content</abbr></a>&gt;</p>
                 <div class="content-header">
-    <h3 id="method_loadDraftListForUser">
+        <h3 id="method_loadDraftListForUser">
                 <img src="./images/public.svg" alt="public" />loadDraftListForUser()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_loadDraftListForUser" title="Permanent link">¶</a>
 </h3>
@@ -36772,7 +36773,7 @@ bit more data returned, but upside is that storage engine is able to handle far 
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content-VersionInfo.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\VersionInfo">VersionInfo</abbr></a>&gt;</p>
                 <div class="content-header">
-    <h3 id="method_loadDraftsForUser">
+        <h3 id="method_loadDraftsForUser">
                 <img src="./images/public.svg" alt="public" />loadDraftsForUser()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_loadDraftsForUser" title="Permanent link">¶</a>
 </h3>
@@ -36837,7 +36838,7 @@ bit more data returned, but upside is that storage engine is able to handle far 
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content-VersionInfo.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\VersionInfo">VersionInfo</abbr></a>&gt;</p>
                 <div class="content-header">
-    <h3 id="method_loadRelation">
+        <h3 id="method_loadRelation">
                 <img src="./images/public.svg" alt="public" />loadRelation()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_loadRelation" title="Permanent link">¶</a>
 </h3>
@@ -36902,7 +36903,7 @@ bit more data returned, but upside is that storage engine is able to handle far 
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-Relation.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\Relation">Relation</abbr></a></p>
                 <div class="content-header">
-    <h3 id="method_loadRelations">
+        <h3 id="method_loadRelations">
                 <img src="./images/public.svg" alt="public" />loadRelations()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_loadRelations" title="Permanent link">¶</a>
 </h3>
@@ -37006,7 +37007,7 @@ bit more data returned, but upside is that storage engine is able to handle far 
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Relation.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\Relation">Relation</abbr></a>&gt;</p>
                 <div class="content-header">
-    <h3 id="method_loadReverseRelationList">
+        <h3 id="method_loadReverseRelationList">
                 <img src="./images/public.svg" alt="public" />loadReverseRelationList()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_loadReverseRelationList" title="Permanent link">¶</a>
 </h3>
@@ -37118,7 +37119,7 @@ bit more data returned, but upside is that storage engine is able to handle far 
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Relation.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\Relation">Relation</abbr></a>&gt;</p>
                 <div class="content-header">
-    <h3 id="method_loadReverseRelations">
+        <h3 id="method_loadReverseRelations">
                 <img src="./images/public.svg" alt="public" />loadReverseRelations()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_loadReverseRelations" title="Permanent link">¶</a>
 </h3>
@@ -37205,7 +37206,7 @@ bit more data returned, but upside is that storage engine is able to handle far 
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Relation.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\Relation">Relation</abbr></a>&gt;</p>
                 <div class="content-header">
-    <h3 id="method_loadVersionInfo">
+        <h3 id="method_loadVersionInfo">
                 <img src="./images/public.svg" alt="public" />loadVersionInfo()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_loadVersionInfo" title="Permanent link">¶</a>
 </h3>
@@ -37304,7 +37305,7 @@ bit more data returned, but upside is that storage engine is able to handle far 
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-VersionInfo.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\VersionInfo">VersionInfo</abbr></a></p>
                 <div class="content-header">
-    <h3 id="method_loadVersionInfoList">
+        <h3 id="method_loadVersionInfoList">
                 <img src="./images/public.svg" alt="public" />loadVersionInfoList()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_loadVersionInfoList" title="Permanent link">¶</a>
 </h3>
@@ -37391,7 +37392,7 @@ bit more data returned, but upside is that storage engine is able to handle far 
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content-VersionInfo.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\VersionInfo">VersionInfo</abbr></a>&gt;</p>
                 <div class="content-header">
-    <h3 id="method_publish">
+        <h3 id="method_publish">
                 <img src="./images/public.svg" alt="public" />publish()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_publish" title="Permanent link">¶</a>
 </h3>
@@ -37506,7 +37507,7 @@ $updateStruct-&gt;id as the published one.</p>
 </section>
 
                 <div class="content-header">
-    <h3 id="method_removeRelation">
+        <h3 id="method_removeRelation">
                 <img src="./images/public.svg" alt="public" />removeRelation()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_removeRelation" title="Permanent link">¶</a>
 </h3>
@@ -37622,7 +37623,7 @@ $updateStruct-&gt;id as the published one.</p>
                                     </dd>
                                             </dl>
             <div class="content-header">
-    <h3 id="method_setStatus">
+        <h3 id="method_setStatus">
                 <img src="./images/public.svg" alt="public" />setStatus()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_setStatus" title="Permanent link">¶</a>
 </h3>
@@ -37717,7 +37718,7 @@ When status is set to VersionInfo::STATUS_PUBLISHED content status is updated to
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">bool</p>
                 <div class="content-header">
-    <h3 id="method_updateContent">
+        <h3 id="method_updateContent">
                 <img src="./images/public.svg" alt="public" />updateContent()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_updateContent" title="Permanent link">¶</a>
 </h3>
@@ -37812,7 +37813,7 @@ When status is set to VersionInfo::STATUS_PUBLISHED content status is updated to
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content">Content</abbr></a></p>
                 <div class="content-header">
-    <h3 id="method_updateMetadata">
+        <h3 id="method_updateMetadata">
                 <img src="./images/public.svg" alt="public" />updateMetadata()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_updateMetadata" title="Permanent link">¶</a>
 </h3>
@@ -38078,7 +38079,5 @@ When status is set to VersionInfo::STATUS_PUBLISHED content status is updated to
     <script src="js/search_custom.js"></script>
     <script src="js/copy_to_clipboard.js"></script>
     <script src="js/version_switcher_custom.js"></script>
-    <script src="js/readthedocs-data.js"></script>
-    <script src="/_/static/core/js/readthedocs-doc-embed.js"></script>
 </body>
 </html>

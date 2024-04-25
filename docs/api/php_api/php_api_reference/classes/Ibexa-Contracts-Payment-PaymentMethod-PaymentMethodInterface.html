@@ -68,9 +68,6 @@
     </div>
 </div>        <div class="md-header__switcher">
     <div class="md-flex__ellipsis md-header__title switcher version-switcher" data-md-component="title">
-        <div class="rst-versions switcher__selected-item" data-toggle="rst-versions" role="note" aria-label="versions">
-            <div class="rst-current-version switcher__label" data-toggle="rst-current-version">latest</div>
-        </div>
         <div class="rst-other-versions switcher__list"></div>
     </div>
 </div>        <div class="md-search" data-md-component="search" role="dialog">
@@ -35305,7 +35302,12 @@
 </ul>
     
 <div class="content-header">
-    <h1 id="PaymentMethodInterface">
+            <div class="pills">
+                
+    
+            <div class="pill commerce-pill"></div>
+            </div>
+        <h1 id="PaymentMethodInterface">
         PaymentMethodInterface<a class="headerlink" href="#PaymentMethodInterface" title="Permanent link">¶</a>
 </h1>
             <button class="content-header__copy-fqcn copy-to-clipboard" title="Ibexa\Contracts\Payment\PaymentMethod" data-copy-value="Ibexa\Contracts\Payment\PaymentMethod">Copy FQCN</button>
@@ -35324,7 +35326,7 @@
 </h2>
 
             <div class="content-header">
-    <h3 id="method_getCreatedAt">
+        <h3 id="method_getCreatedAt">
                 <img src="./images/public.svg" alt="public" />getCreatedAt()
     <a class="headerlink" href="classes/Ibexa-Contracts-Payment-PaymentMethod-PaymentMethodInterface.html#method_getCreatedAt" title="Permanent link">¶</a>
 </h3>
@@ -35360,7 +35362,7 @@
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><abbr title="\DateTimeInterface">DateTimeInterface</abbr></p>
                 <div class="content-header">
-    <h3 id="method_getDescription">
+        <h3 id="method_getDescription">
                 <img src="./images/public.svg" alt="public" />getDescription()
     <a class="headerlink" href="classes/Ibexa-Contracts-Payment-PaymentMethod-PaymentMethodInterface.html#method_getDescription" title="Permanent link">¶</a>
 </h3>
@@ -35424,7 +35426,7 @@
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">string|null</p>
                 <div class="content-header">
-    <h3 id="method_getId">
+        <h3 id="method_getId">
                 <img src="./images/public.svg" alt="public" />getId()
     <a class="headerlink" href="classes/Ibexa-Contracts-Payment-PaymentMethod-PaymentMethodInterface.html#method_getId" title="Permanent link">¶</a>
 </h3>
@@ -35460,7 +35462,7 @@
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">int</p>
                 <div class="content-header">
-    <h3 id="method_getIdentifier">
+        <h3 id="method_getIdentifier">
                 <img src="./images/public.svg" alt="public" />getIdentifier()
     <a class="headerlink" href="classes/Ibexa-Contracts-Payment-PaymentMethod-PaymentMethodInterface.html#method_getIdentifier" title="Permanent link">¶</a>
 </h3>
@@ -35496,7 +35498,7 @@
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">string</p>
                 <div class="content-header">
-    <h3 id="method_getLanguages">
+        <h3 id="method_getLanguages">
                 <img src="./images/public.svg" alt="public" />getLanguages()
     <a class="headerlink" href="classes/Ibexa-Contracts-Payment-PaymentMethod-PaymentMethodInterface.html#method_getLanguages" title="Permanent link">¶</a>
 </h3>
@@ -35532,7 +35534,7 @@
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, string&gt;</p>
                 <div class="content-header">
-    <h3 id="method_getMainLanguageCode">
+        <h3 id="method_getMainLanguageCode">
                 <img src="./images/public.svg" alt="public" />getMainLanguageCode()
     <a class="headerlink" href="classes/Ibexa-Contracts-Payment-PaymentMethod-PaymentMethodInterface.html#method_getMainLanguageCode" title="Permanent link">¶</a>
 </h3>
@@ -35583,7 +35585,7 @@
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">string</p>
                 <div class="content-header">
-    <h3 id="method_getName">
+        <h3 id="method_getName">
                 <img src="./images/public.svg" alt="public" />getName()
     <a class="headerlink" href="classes/Ibexa-Contracts-Payment-PaymentMethod-PaymentMethodInterface.html#method_getName" title="Permanent link">¶</a>
 </h3>
@@ -35647,7 +35649,7 @@
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">string</p>
                 <div class="content-header">
-    <h3 id="method_getOptions">
+        <h3 id="method_getOptions">
                 <img src="./images/public.svg" alt="public" />getOptions()
     <a class="headerlink" href="classes/Ibexa-Contracts-Payment-PaymentMethod-PaymentMethodInterface.html#method_getOptions" title="Permanent link">¶</a>
 </h3>
@@ -35683,7 +35685,7 @@
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Options-OptionsBag.html"><abbr title="\Ibexa\Contracts\Core\Options\OptionsBag">OptionsBag</abbr></a></p>
                 <div class="content-header">
-    <h3 id="method_getType">
+        <h3 id="method_getType">
                 <img src="./images/public.svg" alt="public" />getType()
     <a class="headerlink" href="classes/Ibexa-Contracts-Payment-PaymentMethod-PaymentMethodInterface.html#method_getType" title="Permanent link">¶</a>
 </h3>
@@ -35719,7 +35721,7 @@
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Payment-PaymentMethod-Type-TypeInterface.html"><abbr title="\Ibexa\Contracts\Payment\PaymentMethod\Type\TypeInterface">TypeInterface</abbr></a></p>
                 <div class="content-header">
-    <h3 id="method_getUpdatedAt">
+        <h3 id="method_getUpdatedAt">
                 <img src="./images/public.svg" alt="public" />getUpdatedAt()
     <a class="headerlink" href="classes/Ibexa-Contracts-Payment-PaymentMethod-PaymentMethodInterface.html#method_getUpdatedAt" title="Permanent link">¶</a>
 </h3>
@@ -35755,7 +35757,7 @@
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><abbr title="\DateTimeInterface">DateTimeInterface</abbr></p>
                 <div class="content-header">
-    <h3 id="method_isEnabled">
+        <h3 id="method_isEnabled">
                 <img src="./images/public.svg" alt="public" />isEnabled()
     <a class="headerlink" href="classes/Ibexa-Contracts-Payment-PaymentMethod-PaymentMethodInterface.html#method_isEnabled" title="Permanent link">¶</a>
 </h3>
@@ -35887,7 +35889,5 @@
     <script src="js/search_custom.js"></script>
     <script src="js/copy_to_clipboard.js"></script>
     <script src="js/version_switcher_custom.js"></script>
-    <script src="js/readthedocs-data.js"></script>
-    <script src="/_/static/core/js/readthedocs-doc-embed.js"></script>
 </body>
 </html>

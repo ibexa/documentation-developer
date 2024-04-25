@@ -68,9 +68,6 @@
     </div>
 </div>        <div class="md-header__switcher">
     <div class="md-flex__ellipsis md-header__title switcher version-switcher" data-md-component="title">
-        <div class="rst-versions switcher__selected-item" data-toggle="rst-versions" role="note" aria-label="versions">
-            <div class="rst-current-version switcher__label" data-toggle="rst-current-version">latest</div>
-        </div>
         <div class="rst-other-versions switcher__list"></div>
     </div>
 </div>        <div class="md-search" data-md-component="search" role="dialog">
@@ -35305,7 +35302,11 @@
 </ul>
     
 <div class="content-header">
-    <h1 id="PermissionService">
+            <div class="pills">
+                
+    
+            </div>
+        <h1 id="PermissionService">
         PermissionService<a class="headerlink" href="#PermissionService" title="Permanent link">¶</a>
 </h1>
             <button class="content-header__copy-fqcn copy-to-clipboard" title="Ibexa\Contracts\Core\Repository" data-copy-value="Ibexa\Contracts\Core\Repository">Copy FQCN</button>
@@ -35327,7 +35328,7 @@
 </h2>
 
             <div class="content-header">
-    <h3 id="method_canUser">
+        <h3 id="method_canUser">
                 <img src="./images/public.svg" alt="public" />canUser()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Repository-PermissionResolver.html#method_canUser" title="Permanent link">¶</a>
 </h3>
@@ -35476,7 +35477,7 @@ Example2: canUser( 'section', 'assign', $content, [$section] );
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">bool</p>
                 <div class="content-header">
-    <h3 id="method_getCurrentUserReference">
+        <h3 id="method_getCurrentUserReference">
                 <img src="./images/public.svg" alt="public" />getCurrentUserReference()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Repository-PermissionResolver.html#method_getCurrentUserReference" title="Permanent link">¶</a>
 </h3>
@@ -35513,7 +35514,7 @@ Example2: canUser( 'section', 'assign', $content, [$section] );
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-User-UserReference.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\User\UserReference">UserReference</abbr></a></p>
                 <div class="content-header">
-    <h3 id="method_getPermissionsCriterion">
+        <h3 id="method_getPermissionsCriterion">
                 <img src="./images/public.svg" alt="public" />getPermissionsCriterion()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Repository-PermissionCriterionResolver.html#method_getPermissionsCriterion" title="Permanent link">¶</a>
 </h3>
@@ -35608,7 +35609,7 @@ however if user has either full or no access then boolean is returned.</p>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">bool|<a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion">Criterion</abbr></a></p>
                 <div class="content-header">
-    <h3 id="method_getQueryPermissionsCriterion">
+        <h3 id="method_getQueryPermissionsCriterion">
                 <img src="./images/public.svg" alt="public" />getQueryPermissionsCriterion()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Repository-PermissionCriterionResolver.html#method_getQueryPermissionsCriterion" title="Permanent link">¶</a>
 </h3>
@@ -35649,7 +35650,7 @@ for a user with full and no access respectively.</p>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion">Criterion</abbr></a></p>
                 <div class="content-header">
-    <h3 id="method_hasAccess">
+        <h3 id="method_hasAccess">
                 <img src="./images/public.svg" alt="public" />hasAccess()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Repository-PermissionResolver.html#method_hasAccess" title="Permanent link">¶</a>
 </h3>
@@ -35789,7 +35790,7 @@ which the information is returned, current user will be used if null</p>
 </section>
 
                 <div class="content-header">
-    <h3 id="method_lookupLimitations">
+        <h3 id="method_lookupLimitations">
                 <img src="./images/public.svg" alt="public" />lookupLimitations()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Repository-PermissionResolver.html#method_lookupLimitations" title="Permanent link">¶</a>
 </h3>
@@ -35946,7 +35947,7 @@ which the information is returned, current user will be used if null</p>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-User-LookupLimitationResult.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\User\LookupLimitationResult">LookupLimitationResult</abbr></a></p>
                 <div class="content-header">
-    <h3 id="method_setCurrentUserReference">
+        <h3 id="method_setCurrentUserReference">
                 <img src="./images/public.svg" alt="public" />setCurrentUserReference()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Repository-PermissionResolver.html#method_setCurrentUserReference" title="Permanent link">¶</a>
 </h3>
@@ -36085,7 +36086,5 @@ which the information is returned, current user will be used if null</p>
     <script src="js/search_custom.js"></script>
     <script src="js/copy_to_clipboard.js"></script>
     <script src="js/version_switcher_custom.js"></script>
-    <script src="js/readthedocs-data.js"></script>
-    <script src="/_/static/core/js/readthedocs-doc-embed.js"></script>
 </body>
 </html>

@@ -68,9 +68,6 @@
     </div>
 </div>        <div class="md-header__switcher">
     <div class="md-flex__ellipsis md-header__title switcher version-switcher" data-md-component="title">
-        <div class="rst-versions switcher__selected-item" data-toggle="rst-versions" role="note" aria-label="versions">
-            <div class="rst-current-version switcher__label" data-toggle="rst-current-version">latest</div>
-        </div>
         <div class="rst-other-versions switcher__list"></div>
     </div>
 </div>        <div class="md-search" data-md-component="search" role="dialog">
@@ -35320,7 +35317,11 @@
 </ul>
     
 <div class="content-header">
-    <h1 id="Handler">
+            <div class="pills">
+                
+    
+            </div>
+        <h1 id="Handler">
         Handler<a class="headerlink" href="#Handler" title="Permanent link">¶</a>
 </h1>
             <button class="content-header__copy-fqcn copy-to-clipboard" title="Ibexa\Contracts\Core\Persistence\Content\Location\Trash" data-copy-value="Ibexa\Contracts\Core\Persistence\Content\Location\Trash">Copy FQCN</button>
@@ -35339,7 +35340,7 @@
 </h2>
 
             <div class="content-header">
-    <h3 id="method_deleteTrashItem">
+        <h3 id="method_deleteTrashItem">
                 <img src="./images/public.svg" alt="public" />deleteTrashItem()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-Location-Trash-Handler.html#method_deleteTrashItem" title="Permanent link">¶</a>
 </h3>
@@ -35405,7 +35406,7 @@ Associated content has to be deleted.</p>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Trash-TrashItemDeleteResult.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Trash\TrashItemDeleteResult">TrashItemDeleteResult</abbr></a></p>
                 <div class="content-header">
-    <h3 id="method_emptyTrash">
+        <h3 id="method_emptyTrash">
                 <img src="./images/public.svg" alt="public" />emptyTrash()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-Location-Trash-Handler.html#method_emptyTrash" title="Permanent link">¶</a>
 </h3>
@@ -35443,7 +35444,7 @@ Everything contained in the trash must be removed.</p>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Trash-TrashItemDeleteResultList.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Trash\TrashItemDeleteResultList">TrashItemDeleteResultList</abbr></a></p>
                 <div class="content-header">
-    <h3 id="method_findTrashItems">
+        <h3 id="method_findTrashItems">
                 <img src="./images/public.svg" alt="public" />findTrashItems()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-Location-Trash-Handler.html#method_findTrashItems" title="Permanent link">¶</a>
 </h3>
@@ -35558,7 +35559,7 @@ matching the criterion.</p>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Location-Trashed.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\Location\Trashed">Trashed</abbr></a>&gt;|<a href="classes/Ibexa-Contracts-Core-Persistence-Content-Location-Trash-TrashResult.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\Location\Trash\TrashResult">TrashResult</abbr></a></p>
                 <div class="content-header">
-    <h3 id="method_loadTrashItem">
+        <h3 id="method_loadTrashItem">
                 <img src="./images/public.svg" alt="public" />loadTrashItem()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-Location-Trash-Handler.html#method_loadTrashItem" title="Permanent link">¶</a>
 </h3>
@@ -35639,7 +35640,7 @@ matching the criterion.</p>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-Location-Trashed.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\Location\Trashed">Trashed</abbr></a></p>
                 <div class="content-header">
-    <h3 id="method_recover">
+        <h3 id="method_recover">
                 <img src="./images/public.svg" alt="public" />recover()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-Location-Trash-Handler.html#method_recover" title="Permanent link">¶</a>
 </h3>
@@ -35744,7 +35745,7 @@ Returns newly restored location Id.</p>
 </section>
 
                 <div class="content-header">
-    <h3 id="method_trashSubtree">
+        <h3 id="method_trashSubtree">
                 <img src="./images/public.svg" alt="public" />trashSubtree()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-Location-Trash-Handler.html#method_trashSubtree" title="Permanent link">¶</a>
 </h3>
@@ -35887,7 +35888,5 @@ objects are left untouched.</p>
     <script src="js/search_custom.js"></script>
     <script src="js/copy_to_clipboard.js"></script>
     <script src="js/version_switcher_custom.js"></script>
-    <script src="js/readthedocs-data.js"></script>
-    <script src="/_/static/core/js/readthedocs-doc-embed.js"></script>
 </body>
 </html>

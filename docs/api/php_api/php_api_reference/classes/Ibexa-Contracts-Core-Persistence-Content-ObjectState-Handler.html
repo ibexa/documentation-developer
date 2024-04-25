@@ -68,9 +68,6 @@
     </div>
 </div>        <div class="md-header__switcher">
     <div class="md-flex__ellipsis md-header__title switcher version-switcher" data-md-component="title">
-        <div class="rst-versions switcher__selected-item" data-toggle="rst-versions" role="note" aria-label="versions">
-            <div class="rst-current-version switcher__label" data-toggle="rst-current-version">latest</div>
-        </div>
         <div class="rst-other-versions switcher__list"></div>
     </div>
 </div>        <div class="md-search" data-md-component="search" role="dialog">
@@ -35315,7 +35312,11 @@
 </ul>
     
 <div class="content-header">
-    <h1 id="Handler">
+            <div class="pills">
+                
+    
+            </div>
+        <h1 id="Handler">
         Handler<a class="headerlink" href="#Handler" title="Permanent link">¶</a>
 </h1>
             <button class="content-header__copy-fqcn copy-to-clipboard" title="Ibexa\Contracts\Core\Persistence\Content\ObjectState" data-copy-value="Ibexa\Contracts\Core\Persistence\Content\ObjectState">Copy FQCN</button>
@@ -35334,7 +35335,7 @@
 </h2>
 
             <div class="content-header">
-    <h3 id="method_create">
+        <h3 id="method_create">
                 <img src="./images/public.svg" alt="public" />create()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#method_create" title="Permanent link">¶</a>
 </h3>
@@ -35416,7 +35417,7 @@ set to this state.</p>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ObjectState">ObjectState</abbr></a></p>
                 <div class="content-header">
-    <h3 id="method_createGroup">
+        <h3 id="method_createGroup">
                 <img src="./images/public.svg" alt="public" />createGroup()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#method_createGroup" title="Permanent link">¶</a>
 </h3>
@@ -35481,7 +35482,7 @@ set to this state.</p>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Group.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ObjectState\Group">Group</abbr></a></p>
                 <div class="content-header">
-    <h3 id="method_delete">
+        <h3 id="method_delete">
                 <img src="./images/public.svg" alt="public" />delete()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#method_delete" title="Permanent link">¶</a>
 </h3>
@@ -35545,7 +35546,7 @@ first object state in the group.</p>
     </table>
 
             <div class="content-header">
-    <h3 id="method_deleteGroup">
+        <h3 id="method_deleteGroup">
                 <img src="./images/public.svg" alt="public" />deleteGroup()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#method_deleteGroup" title="Permanent link">¶</a>
 </h3>
@@ -35608,7 +35609,7 @@ first object state in the group.</p>
     </table>
 
             <div class="content-header">
-    <h3 id="method_getContentCount">
+        <h3 id="method_getContentCount">
                 <img src="./images/public.svg" alt="public" />getContentCount()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#method_getContentCount" title="Permanent link">¶</a>
 </h3>
@@ -35673,7 +35674,7 @@ first object state in the group.</p>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">int</p>
                 <div class="content-header">
-    <h3 id="method_getContentState">
+        <h3 id="method_getContentState">
                 <img src="./images/public.svg" alt="public" />getContentState()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#method_getContentState" title="Permanent link">¶</a>
 </h3>
@@ -35753,7 +35754,7 @@ first object state in the group.</p>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ObjectState">ObjectState</abbr></a></p>
                 <div class="content-header">
-    <h3 id="method_load">
+        <h3 id="method_load">
                 <img src="./images/public.svg" alt="public" />load()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#method_load" title="Permanent link">¶</a>
 </h3>
@@ -35835,7 +35836,7 @@ first object state in the group.</p>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ObjectState">ObjectState</abbr></a></p>
                 <div class="content-header">
-    <h3 id="method_loadAllGroups">
+        <h3 id="method_loadAllGroups">
                 <img src="./images/public.svg" alt="public" />loadAllGroups()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#method_loadAllGroups" title="Permanent link">¶</a>
 </h3>
@@ -35915,7 +35916,7 @@ first object state in the group.</p>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Group.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ObjectState\Group">Group</abbr></a>&gt;</p>
                 <div class="content-header">
-    <h3 id="method_loadByIdentifier">
+        <h3 id="method_loadByIdentifier">
                 <img src="./images/public.svg" alt="public" />loadByIdentifier()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#method_loadByIdentifier" title="Permanent link">¶</a>
 </h3>
@@ -36012,7 +36013,7 @@ first object state in the group.</p>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ObjectState">ObjectState</abbr></a></p>
                 <div class="content-header">
-    <h3 id="method_loadGroup">
+        <h3 id="method_loadGroup">
                 <img src="./images/public.svg" alt="public" />loadGroup()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#method_loadGroup" title="Permanent link">¶</a>
 </h3>
@@ -36094,7 +36095,7 @@ first object state in the group.</p>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Group.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ObjectState\Group">Group</abbr></a></p>
                 <div class="content-header">
-    <h3 id="method_loadGroupByIdentifier">
+        <h3 id="method_loadGroupByIdentifier">
                 <img src="./images/public.svg" alt="public" />loadGroupByIdentifier()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#method_loadGroupByIdentifier" title="Permanent link">¶</a>
 </h3>
@@ -36176,7 +36177,7 @@ first object state in the group.</p>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Group.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ObjectState\Group">Group</abbr></a></p>
                 <div class="content-header">
-    <h3 id="method_loadObjectStates">
+        <h3 id="method_loadObjectStates">
                 <img src="./images/public.svg" alt="public" />loadObjectStates()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#method_loadObjectStates" title="Permanent link">¶</a>
 </h3>
@@ -36241,7 +36242,7 @@ first object state in the group.</p>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ObjectState">ObjectState</abbr></a>&gt;</p>
                 <div class="content-header">
-    <h3 id="method_setContentState">
+        <h3 id="method_setContentState">
                 <img src="./images/public.svg" alt="public" />setContentState()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#method_setContentState" title="Permanent link">¶</a>
 </h3>
@@ -36336,7 +36337,7 @@ first object state in the group.</p>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">bool</p>
                 <div class="content-header">
-    <h3 id="method_setPriority">
+        <h3 id="method_setPriority">
                 <img src="./images/public.svg" alt="public" />setPriority()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#method_setPriority" title="Permanent link">¶</a>
 </h3>
@@ -36414,7 +36415,7 @@ first object state in the group.</p>
     </table>
 
             <div class="content-header">
-    <h3 id="method_update">
+        <h3 id="method_update">
                 <img src="./images/public.svg" alt="public" />update()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#method_update" title="Permanent link">¶</a>
 </h3>
@@ -36494,7 +36495,7 @@ first object state in the group.</p>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ObjectState">ObjectState</abbr></a></p>
                 <div class="content-header">
-    <h3 id="method_updateGroup">
+        <h3 id="method_updateGroup">
                 <img src="./images/public.svg" alt="public" />updateGroup()
     <a class="headerlink" href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState-Handler.html#method_updateGroup" title="Permanent link">¶</a>
 </h3>
@@ -36695,7 +36696,5 @@ first object state in the group.</p>
     <script src="js/search_custom.js"></script>
     <script src="js/copy_to_clipboard.js"></script>
     <script src="js/version_switcher_custom.js"></script>
-    <script src="js/readthedocs-data.js"></script>
-    <script src="/_/static/core/js/readthedocs-doc-embed.js"></script>
 </body>
 </html>

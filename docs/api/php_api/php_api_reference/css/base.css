@@ -1540,6 +1540,30 @@ ul.breadcrumbs li.breadcrumb-item-current span {
     align-items: flex-end;
 }
 
+.md-typeset .content-header .pills {
+    float: none;
+    width: 100%;
+}
+
+.md-typeset .content-header .pill {
+    display: inline-block;
+    margin-bottom: 12px;
+    font-size: 12px;
+    line-height: 18px;
+    padding: 0 8px;
+    background-color: transparent;
+}
+
+.md-typeset .content-header .experience-pill {
+    color: var(--ibexa-orange);
+    border: 1px solid var(--ibexa-orange);
+}
+
+.md-typeset .content-header .commerce-pill {
+    color: var(--ibexa-jazzberry);
+    border: 1px solid var(--ibexa-jazzberry);
+}
+
 .md-typeset .content-header img {
     display: inline-block;
     margin-bottom: -2px;
