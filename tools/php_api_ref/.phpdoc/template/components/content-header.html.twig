@@ -1,4 +1,9 @@
 <div class="content-header">
+    {% if add_edition|default(false) %}
+        <div class="pills">
+            {% include 'components/edition-tag.html.twig' %}
+        </div>
+    {% endif %}
     <{{ header_tag|default('h1') }} id="{{ anchor }}">
         {% block name %}{{ node.name }}{% endblock %}
         {%- include 'components/anchor.html.twig' with { anchor_link } -%}
