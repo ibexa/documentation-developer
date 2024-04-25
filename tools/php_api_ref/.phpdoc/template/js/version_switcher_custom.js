@@ -25,6 +25,7 @@
                 </div>
             </div>
         `);
+        injectedNode.remove();
 
         clearInterval(interval);
 
