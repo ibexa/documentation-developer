@@ -24,6 +24,8 @@ post:
         200:
             description: OK
             body:
+                application/vnd.ibexa.api.PaymentMethod+xml:
+                    type: PaymentMethod
                 application/vnd.ibexa.api.PaymentMethod+json:
                     type: PaymentMethod
                     example: !include examples/payment-methods/POST/PaymentMethod.json.example
@@ -49,12 +51,16 @@ post:
                     application/vnd.ibexa.api.PaymentMethodViewInput+xml
                     application/vnd.ibexa.api.PaymentMethodViewInput+json
         body:
-            application/vnd.ibexa.api.PaymentMethodInput+json:
+            application/vnd.ibexa.api.PaymentMethodViewInput+xml:
+                type: PaymentMethodViewInput
+            application/vnd.ibexa.api.PaymentMethodViewInput+json:
                 type: PaymentMethodViewInput
                 example: !include examples/payment-methods/view/POST/PaymentMethodViewInput.json.example
         responses:
             200:
                 body:
+                    application/vnd.ibexa.api.PaymentMethodView+xml:
+                        type: PaymentMethodView
                     application/vnd.ibexa.api.PaymentMethodView+json:
                         type: PaymentMethodView
                         example: !include examples/payment-methods/view/POST/PaymentMethodView.json.example
@@ -95,6 +101,8 @@ post:
             200:
                 description: OK - loads the payment method.
                 body:
+                    application/vnd.ibexa.api.PaymentMethod+xml:
+                        type: PaymentMethod
                     application/vnd.ibexa.api.PaymentMethod+json:
                         type: PaymentMethod
                         example: !include examples/payment-methods/identifier/GET/PaymentMethod.json.example
@@ -135,6 +143,8 @@ post:
             200:
                 description: OK
                 body:
+                    application/vnd.ibexa.api.PaymentMethod+xml:
+                        type: PaymentMethod
                     application/vnd.ibexa.api.PaymentMethod+json:
                         type: PaymentMethod
                         example: !include examples/payment-methods/identifier/PATCH/PaymentMethod.json.example
