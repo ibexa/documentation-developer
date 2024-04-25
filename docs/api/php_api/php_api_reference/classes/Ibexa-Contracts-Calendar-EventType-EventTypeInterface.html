@@ -1,0 +1,2031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+            <title>PHP API Reference</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <base href="../">
+    <link rel="icon" href="images/favicon.ico"/>
+            <link rel="stylesheet" href="css/base.css">
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
+                        <script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
+        <script src="js/search.js"></script>
+        <script defer src="js/searchIndex.js"></script>
+        <script async="" type="text/javascript" src="/_/static/javascript/readthedocs-addons.js"></script>
+    
+
+    <script>
+        window.addEventListener('load', function () {
+            const fullPath = document.location.pathname.split('/');
+            const pageUrl = fullPath.slice(-2).join('/');
+            let activeElement = document.querySelector(`a[href="${pageUrl}"]`);
+            let guardian = 0;
+
+            activeElement = activeElement?.closest('.md-nav__item')?.querySelector('.md-nav__toggle');
+
+            while(activeElement) {
+                activeElement.checked = true;
+                guardian++;
+
+                activeElement = activeElement.closest('.md-nav__item')?.closest('.md-nav')?.closest('.md-nav__item')?.querySelector('.md-nav__toggle');
+            
+                if (guardian > 20) {
+                    break; // just to be safe from infinity loops
+                }
+            }
+        });
+    </script>
+    <meta name="readthedocs-project-slug" content="ez-systems-developer-documentation">
+    <meta name="readthedocs-version-slug" content="latest">
+    <meta name="readthedocs-resolver-filename" content="/">
+</head>
+<body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+
+    <header class="md-header" data-md-component="header">
+    <nav class="md-header__inner md-grid" aria-label="">
+        
+<a href="" title="PHP API Reference" class="md-header__button md-logo" aria-label="PHP API Reference">
+    <img src="./images/ibexa-dxp-logo.png">
+</a>
+        <div class="md-header__switcher push">
+    <div class="md-flex__ellipsis md-header__title switcher docs-switcher" data-md-component="title">
+        <div class="switcher__selected-item" tab-index="-1">
+            <div class="switcher__label" title="Developer Documentation">Developer Documentation</div>
+        </div>
+        <div class="switcher__list">
+            <dl>
+                <strong>
+                    <dd>
+                        <a href="/" title="Developer Documentation">Developer Documentation</a>
+                    </dd>
+                </strong>
+                <dd>
+                    <a href="/projects/userguide" title="User Documentation">User Documentation</a>
+                </dd>
+                <dd>
+                    <a href="/projects/connect" title="Connect Documentation">Connect Documentation</a>
+                </dd>
+            </dl>
+        </div>
+    </div>
+</div>        <div class="md-header__switcher">
+    <div class="md-flex__ellipsis md-header__title switcher version-switcher" data-md-component="title">
+        <div class="rst-versions switcher__selected-item" data-toggle="rst-versions" role="note" aria-label="versions">
+            <div class="rst-current-version switcher__label" data-toggle="rst-current-version">latest</div>
+        </div>
+        <div class="rst-other-versions switcher__list"></div>
+    </div>
+</div>        <div class="md-search" data-md-component="search" role="dialog">
+    <label class="md-search__overlay" for="__search"></label>
+    <div class="md-search__inner phpdocumentor-search" role="search" data-search-form>
+        <form class="md-search__form" name="search" >
+            <span class="algolia-autocomplete algolia-autocomplete-left">
+                <input
+                    type="search"
+                    id="search_input"
+                    class="md-search__input phpdocumentor-field phpdocumentor-search__field"
+                    name="query"
+                    aria-label="Search"
+                    placeholder="Search"
+                    autocapitalize="off"
+                    autocorrect="off"
+                    autocomplete="off"
+                    spellcheck="false"
+                    data-md-component="search-query"
+                    data-md-state="active"
+                    required
+                >
+                <label class="md-search__icon md-icon" for="__search">
+                    <img src="images/search.svg" alt="search">
+                </label>
+                <span
+    class="ds-dropdown-menu ds-with-1 phpdocumentor-search-results phpdocumentor-search-results--hidden"
+    role="listbox"
+    data-search-results
+>
+    <button class="phpdocumentor-search-results__close"><i class="fas fa-times"></i></button>
+    <div class="ds-dataset-1">
+        <ul class="ds-suggestions phpdocumentor-search-results__entries">
+        </ul>
+    </div>
+</span>
+            </span>
+        </form>
+    </div>
+</div>
+        <div class="md-header__source">
+        
+<a href="https://github.com/ezsystems/developer-documentation/blob/master/docs/index.md" title="" class="source-github">
+    <div class="md-source__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"></path></svg>
+    </div>
+        View on GitHub
+</a>
+      </div>    </nav>
+</header>
+
+    <div class="md-container" data-md-component="container">
+        <main class="md-main" data-md-component="main">
+            <div class="md-main__inner md-grid">
+                <div class="main_nav">
+    <div class="main_nav_content">
+        <div class="site-header" id="site-name">
+            <a href="/">PHP API Reference</a>
+            <span class="pill">latest</span>
+        </div>
+        <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+            <div class="md-sidebar__scrollwrap">
+                <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+                        <ul class="md-nav__list">
+                            <li></li>
+                                                                                    
+    <li class="md-nav__item md-nav__item--nested">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1" checked>
+        <label class="md-nav__link level-0" for="nav-1">
+                                        <a href="namespaces/ibexa-contracts.html" title="Ibexa Contracts">
+                            Ibexa Contracts
+                            </a>
+                    </label>
+                    <nav class="md-nav" aria-label="Ibexa Contracts" data-md-level="0">
+                <label class="md-nav__link-title md-nav__link level-0" title="EventTypeInterface">
+                    Ibexa Contracts
+                </label>
+                
+                        <ul class="md-nav__list">
+                            
+    <li class="md-nav__item md-nav__item--nested">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-0" type="checkbox" id="nav-1-0" >
+        <label class="md-nav__link level-1" for="nav-1-0">
+                                        <a href="namespaces/ibexa-contracts-activitylog.html" title="ActivityLog">
+                            ActivityLog
+                            </a>
+                    </label>
+                    <nav class="md-nav" aria-label="ActivityLog" data-md-level="1">
+                <label class="md-nav__link-title md-nav__link level-1" title="EventTypeInterface">
+                    ActivityLog
+                </label>
+                
+                            <label class="md-nav__list-title md-nav__list-title--namespaces">
+                Namespaces
+            </label>
+                <ul class="md-nav__list">
+                            
+    <li class="md-nav__item md-nav__item--nested">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-0-0" type="checkbox" id="nav-1-0-0" >
+        <label class="md-nav__link level-2" for="nav-1-0-0">
+                            <img src="./images/folder.svg" alt="folder.svg" />
+                                        <a href="namespaces/ibexa-contracts-activitylog-event.html" title="Event">
+                            Event
+                            </a>
+                    </label>
+                    <nav class="md-nav" aria-label="Event" data-md-level="2">
+                <label class="md-nav__link-title md-nav__link level-2" title="EventTypeInterface">
+                    Event
+                </label>
+                
+        
+                        <label class="md-nav__list-title">
+                Interfaces, classes and traits
+            </label>
+                <ul class="md-nav__list">
+                                                            
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-0" type="checkbox" id="nav-3-0" >
+        <label class="md-nav__link level-3" for="nav-3-0">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-ActivityLog-Event-PostActivityGroupListLoadEvent.html" title="PostActivityGroupListLoadEvent">
+                            PostActivityGroupListLoadEvent
+                            </a>
+                    </label>
+            </li>
+
+                                                                    </ul>
+                </nav>
+            </li>
+
+                                            
+    <li class="md-nav__item md-nav__item--nested">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-0-1" type="checkbox" id="nav-1-0-1" >
+        <label class="md-nav__link level-2" for="nav-1-0-1">
+                            <img src="./images/folder.svg" alt="folder.svg" />
+                                        <a href="namespaces/ibexa-contracts-activitylog-exception.html" title="Exception">
+                            Exception
+                            </a>
+                    </label>
+                    <nav class="md-nav" aria-label="Exception" data-md-level="2">
+                <label class="md-nav__link-title md-nav__link level-2" title="EventTypeInterface">
+                    Exception
+                </label>
+                
+        
+                        <label class="md-nav__list-title">
+                Interfaces, classes and traits
+            </label>
+                <ul class="md-nav__list">
+                                                            
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-0" type="checkbox" id="nav-3-0" >
+        <label class="md-nav__link level-3" for="nav-3-0">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-ActivityLog-Exception-ContextLockedException.html" title="ContextLockedException">
+                            ContextLockedException
+                            </a>
+                    </label>
+            </li>
+
+                                                                    </ul>
+                </nav>
+            </li>
+
+                                            
+    <li class="md-nav__item md-nav__item--nested">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-0-2" type="checkbox" id="nav-1-0-2" >
+        <label class="md-nav__link level-2" for="nav-1-0-2">
+                            <img src="./images/folder.svg" alt="folder.svg" />
+                                        <a href="namespaces/ibexa-contracts-activitylog-values.html" title="Values">
+                            Values
+                            </a>
+                    </label>
+                    <nav class="md-nav" aria-label="Values" data-md-level="2">
+                <label class="md-nav__link-title md-nav__link level-2" title="EventTypeInterface">
+                    Values
+                </label>
+                
+                            <label class="md-nav__list-title md-nav__list-title--namespaces">
+                Namespaces
+            </label>
+                <ul class="md-nav__list">
+                            
+    <li class="md-nav__item md-nav__item--nested">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-0-2-0" type="checkbox" id="nav-1-0-2-0" >
+        <label class="md-nav__link level-3" for="nav-1-0-2-0">
+                            <img src="./images/folder.svg" alt="folder.svg" />
+                                        <a href="namespaces/ibexa-contracts-activitylog-values-activitylog.html" title="ActivityLog">
+                            ActivityLog
+                            </a>
+                    </label>
+                    <nav class="md-nav" aria-label="ActivityLog" data-md-level="3">
+                <label class="md-nav__link-title md-nav__link level-3" title="EventTypeInterface">
+                    ActivityLog
+                </label>
+                
+                            <label class="md-nav__list-title md-nav__list-title--namespaces">
+                Namespaces
+            </label>
+                <ul class="md-nav__list">
+                            
+    <li class="md-nav__item md-nav__item--nested">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-0-2-0-0" type="checkbox" id="nav-1-0-2-0-0" >
+        <label class="md-nav__link level-4" for="nav-1-0-2-0-0">
+                            <img src="./images/folder.svg" alt="folder.svg" />
+                                        <a href="namespaces/ibexa-contracts-activitylog-values-activitylog-criterion.html" title="Criterion">
+                            Criterion
+                            </a>
+                    </label>
+                    <nav class="md-nav" aria-label="Criterion" data-md-level="4">
+                <label class="md-nav__link-title md-nav__link level-4" title="EventTypeInterface">
+                    Criterion
+                </label>
+                
+        
+                        <label class="md-nav__list-title">
+                Interfaces, classes and traits
+            </label>
+                <ul class="md-nav__list">
+                                                
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-0" type="checkbox" id="nav-5-0" >
+        <label class="md-nav__link level-5" for="nav-5-0">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-ActivityLog-Values-ActivityLog-Criterion-CriterionInterface.html" title="CriterionInterface">
+                            CriterionInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                                                                
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-1" type="checkbox" id="nav-5-1" >
+        <label class="md-nav__link level-5" for="nav-5-1">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-ActivityLog-Values-ActivityLog-Criterion-ActionCriterion.html" title="ActionCriterion">
+                            ActionCriterion
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-2" type="checkbox" id="nav-5-2" >
+        <label class="md-nav__link level-5" for="nav-5-2">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-ActivityLog-Values-ActivityLog-Criterion-CompositeCriterion.html" title="CompositeCriterion">
+                            CompositeCriterion
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-3" type="checkbox" id="nav-5-3" >
+        <label class="md-nav__link level-5" for="nav-5-3">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-ActivityLog-Values-ActivityLog-Criterion-LoggedAtCriterion.html" title="LoggedAtCriterion">
+                            LoggedAtCriterion
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-4" type="checkbox" id="nav-5-4" >
+        <label class="md-nav__link level-5" for="nav-5-4">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-ActivityLog-Values-ActivityLog-Criterion-LogicalAnd.html" title="LogicalAnd">
+                            LogicalAnd
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-5" type="checkbox" id="nav-5-5" >
+        <label class="md-nav__link level-5" for="nav-5-5">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-ActivityLog-Values-ActivityLog-Criterion-LogicalNot.html" title="LogicalNot">
+                            LogicalNot
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-6" type="checkbox" id="nav-5-6" >
+        <label class="md-nav__link level-5" for="nav-5-6">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-ActivityLog-Values-ActivityLog-Criterion-LogicalOr.html" title="LogicalOr">
+                            LogicalOr
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-7" type="checkbox" id="nav-5-7" >
+        <label class="md-nav__link level-5" for="nav-5-7">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-ActivityLog-Values-ActivityLog-Criterion-ObjectCriterion.html" title="ObjectCriterion">
+                            ObjectCriterion
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-8" type="checkbox" id="nav-5-8" >
+        <label class="md-nav__link level-5" for="nav-5-8">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-ActivityLog-Values-ActivityLog-Criterion-ObjectNameCriterion.html" title="ObjectNameCriterion">
+                            ObjectNameCriterion
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-9" type="checkbox" id="nav-5-9" >
+        <label class="md-nav__link level-5" for="nav-5-9">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-ActivityLog-Values-ActivityLog-Criterion-UserCriterion.html" title="UserCriterion">
+                            UserCriterion
+                            </a>
+                    </label>
+            </li>
+
+                                                                    </ul>
+                </nav>
+            </li>
+
+                                            
+    <li class="md-nav__item md-nav__item--nested">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-0-2-0-1" type="checkbox" id="nav-1-0-2-0-1" >
+        <label class="md-nav__link level-4" for="nav-1-0-2-0-1">
+                            <img src="./images/folder.svg" alt="folder.svg" />
+                                        <a href="namespaces/ibexa-contracts-activitylog-values-activitylog-sortclause.html" title="SortClause">
+                            SortClause
+                            </a>
+                    </label>
+                    <nav class="md-nav" aria-label="SortClause" data-md-level="4">
+                <label class="md-nav__link-title md-nav__link level-4" title="EventTypeInterface">
+                    SortClause
+                </label>
+                
+        
+                        <label class="md-nav__list-title">
+                Interfaces, classes and traits
+            </label>
+                <ul class="md-nav__list">
+                                                
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-0" type="checkbox" id="nav-5-0" >
+        <label class="md-nav__link level-5" for="nav-5-0">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-ActivityLog-Values-ActivityLog-SortClause-SortClauseInterface.html" title="SortClauseInterface">
+                            SortClauseInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                                                                
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-1" type="checkbox" id="nav-5-1" >
+        <label class="md-nav__link level-5" for="nav-5-1">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-ActivityLog-Values-ActivityLog-SortClause-AbstractSortClause.html" title="AbstractSortClause">
+                            AbstractSortClause
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-2" type="checkbox" id="nav-5-2" >
+        <label class="md-nav__link level-5" for="nav-5-2">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-ActivityLog-Values-ActivityLog-SortClause-LoggedAtSortClause.html" title="LoggedAtSortClause">
+                            LoggedAtSortClause
+                            </a>
+                    </label>
+            </li>
+
+                                                                    </ul>
+                </nav>
+            </li>
+
+                                    </ul>
+    
+                        <label class="md-nav__list-title">
+                Interfaces, classes and traits
+            </label>
+                <ul class="md-nav__list">
+                                                
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2" >
+        <label class="md-nav__link level-4" for="nav-4-2">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-ActivityLog-Values-ActivityLog-ActionInterface.html" title="ActionInterface">
+                            ActionInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-3" type="checkbox" id="nav-4-3" >
+        <label class="md-nav__link level-4" for="nav-4-3">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-ActivityLog-Values-ActivityLog-ActivityGroupListInterface.html" title="ActivityGroupListInterface">
+                            ActivityGroupListInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-4" type="checkbox" id="nav-4-4" >
+        <label class="md-nav__link level-4" for="nav-4-4">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-ActivityLog-Values-ActivityLog-ActivityLogGroupInterface.html" title="ActivityLogGroupInterface">
+                            ActivityLogGroupInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-5" type="checkbox" id="nav-4-5" >
+        <label class="md-nav__link level-4" for="nav-4-5">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-ActivityLog-Values-ActivityLog-ActivityLogInterface.html" title="ActivityLogInterface">
+                            ActivityLogInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-6" type="checkbox" id="nav-4-6" >
+        <label class="md-nav__link level-4" for="nav-4-6">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-ActivityLog-Values-ActivityLog-ActivityLogIpInterface.html" title="ActivityLogIpInterface">
+                            ActivityLogIpInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-7" type="checkbox" id="nav-4-7" >
+        <label class="md-nav__link level-4" for="nav-4-7">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-ActivityLog-Values-ActivityLog-ActivityLogSourceInterface.html" title="ActivityLogSourceInterface">
+                            ActivityLogSourceInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-8" type="checkbox" id="nav-4-8" >
+        <label class="md-nav__link level-4" for="nav-4-8">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-ActivityLog-Values-ActivityLog-ObjectClassInterface.html" title="ObjectClassInterface">
+                            ObjectClassInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                                                                
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-9" type="checkbox" id="nav-4-9" >
+        <label class="md-nav__link level-4" for="nav-4-9">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-ActivityLog-Values-ActivityLog-Query.html" title="Query">
+                            Query
+                            </a>
+                    </label>
+            </li>
+
+                                                                    </ul>
+                </nav>
+            </li>
+
+                                    </ul>
+    
+                        <label class="md-nav__list-title">
+                Interfaces, classes and traits
+            </label>
+                <ul class="md-nav__list">
+                                                            
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1" >
+        <label class="md-nav__link level-3" for="nav-3-1">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-ActivityLog-Values-CreateActivityLogStruct.html" title="CreateActivityLogStruct">
+                            CreateActivityLogStruct
+                            </a>
+                    </label>
+            </li>
+
+                                                                    </ul>
+                </nav>
+            </li>
+
+                                    </ul>
+    
+                        <label class="md-nav__list-title">
+                Interfaces, classes and traits
+            </label>
+                <ul class="md-nav__list">
+                                                
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3" >
+        <label class="md-nav__link level-2" for="nav-2-3">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-ActivityLog-ActivityLogServiceInterface.html" title="ActivityLogServiceInterface">
+                            ActivityLogServiceInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4" >
+        <label class="md-nav__link level-2" for="nav-2-4">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-ActivityLog-ClassNameMapperInterface.html" title="ClassNameMapperInterface">
+                            ClassNameMapperInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-5" type="checkbox" id="nav-2-5" >
+        <label class="md-nav__link level-2" for="nav-2-5">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-ActivityLog-ContextInterface.html" title="ContextInterface">
+                            ContextInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-6" type="checkbox" id="nav-2-6" >
+        <label class="md-nav__link level-2" for="nav-2-6">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-ActivityLog-CriterionMapperInterface.html" title="CriterionMapperInterface">
+                            CriterionMapperInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-7" type="checkbox" id="nav-2-7" >
+        <label class="md-nav__link level-2" for="nav-2-7">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-ActivityLog-SortClauseMapperInterface.html" title="SortClauseMapperInterface">
+                            SortClauseMapperInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                                                </ul>
+                </nav>
+            </li>
+
+                                            
+    <li class="md-nav__item md-nav__item--nested">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-1" type="checkbox" id="nav-1-1" >
+        <label class="md-nav__link level-1" for="nav-1-1">
+                                        <a href="namespaces/ibexa-contracts-calendar.html" title="Calendar">
+                            Calendar
+                            </a>
+                    </label>
+                    <nav class="md-nav" aria-label="Calendar" data-md-level="1">
+                <label class="md-nav__link-title md-nav__link level-1" title="EventTypeInterface">
+                    Calendar
+                </label>
+                
+                            <label class="md-nav__list-title md-nav__list-title--namespaces">
+                Namespaces
+            </label>
+                <ul class="md-nav__list">
+                            
+    <li class="md-nav__item md-nav__item--nested">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-1-0" type="checkbox" id="nav-1-1-0" >
+        <label class="md-nav__link level-2" for="nav-1-1-0">
+                            <img src="./images/folder.svg" alt="folder.svg" />
+                                        <a href="namespaces/ibexa-contracts-calendar-eventaction.html" title="EventAction">
+                            EventAction
+                            </a>
+                    </label>
+                    <nav class="md-nav" aria-label="EventAction" data-md-level="2">
+                <label class="md-nav__link-title md-nav__link level-2" title="EventTypeInterface">
+                    EventAction
+                </label>
+                
+        
+                        <label class="md-nav__list-title">
+                Interfaces, classes and traits
+            </label>
+                <ul class="md-nav__list">
+                                                
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-0" type="checkbox" id="nav-3-0" >
+        <label class="md-nav__link level-3" for="nav-3-0">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-Calendar-EventAction-EventActionInterface.html" title="EventActionInterface">
+                            EventActionInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                                                                
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1" >
+        <label class="md-nav__link level-3" for="nav-3-1">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-Calendar-EventAction-EventActionContext.html" title="EventActionContext">
+                            EventActionContext
+                            </a>
+                    </label>
+            </li>
+
+                                                                    </ul>
+                </nav>
+            </li>
+
+                                            
+    <li class="md-nav__item md-nav__item--nested">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-1-1" type="checkbox" id="nav-1-1-1" >
+        <label class="md-nav__link level-2" for="nav-1-1-1">
+                            <img src="./images/folder.svg" alt="folder.svg" />
+                                        <a href="namespaces/ibexa-contracts-calendar-eventsource.html" title="EventSource">
+                            EventSource
+                            </a>
+                    </label>
+                    <nav class="md-nav" aria-label="EventSource" data-md-level="2">
+                <label class="md-nav__link-title md-nav__link level-2" title="EventTypeInterface">
+                    EventSource
+                </label>
+                
+        
+                        <label class="md-nav__list-title">
+                Interfaces, classes and traits
+            </label>
+                <ul class="md-nav__list">
+                                                
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-0" type="checkbox" id="nav-3-0" >
+        <label class="md-nav__link level-3" for="nav-3-0">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-Calendar-EventSource-EventSourceInterface.html" title="EventSourceInterface">
+                            EventSourceInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                                                </ul>
+                </nav>
+            </li>
+
+                                            
+    <li class="md-nav__item md-nav__item--nested">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-1-2" type="checkbox" id="nav-1-1-2" >
+        <label class="md-nav__link level-2" for="nav-1-1-2">
+                            <img src="./images/folder.svg" alt="folder.svg" />
+                                        <a href="namespaces/ibexa-contracts-calendar-eventtype.html" title="EventType">
+                            EventType
+                            </a>
+                    </label>
+                    <nav class="md-nav" aria-label="EventType" data-md-level="2">
+                <label class="md-nav__link-title md-nav__link level-2" title="EventTypeInterface">
+                    EventType
+                </label>
+                
+        
+                        <label class="md-nav__list-title">
+                Interfaces, classes and traits
+            </label>
+                <ul class="md-nav__list">
+                                                
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-0" type="checkbox" id="nav-3-0" >
+        <label class="md-nav__link level-3" for="nav-3-0">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-Calendar-EventType-EventTypeInterface.html" title="EventTypeInterface">
+                            EventTypeInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                                                </ul>
+                </nav>
+            </li>
+
+                                    </ul>
+    
+                        <label class="md-nav__list-title">
+                Interfaces, classes and traits
+            </label>
+                <ul class="md-nav__list">
+                                                
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3" >
+        <label class="md-nav__link level-2" for="nav-2-3">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-Calendar-CalendarServiceInterface.html" title="CalendarServiceInterface">
+                            CalendarServiceInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4" >
+        <label class="md-nav__link level-2" for="nav-2-4">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-Calendar-LanguageBasedEvent.html" title="LanguageBasedEvent">
+                            LanguageBasedEvent
+                            </a>
+                    </label>
+            </li>
+
+                                                                                                
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-5" type="checkbox" id="nav-2-5" >
+        <label class="md-nav__link level-2" for="nav-2-5">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-Calendar-Cursor.html" title="Cursor">
+                            Cursor
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-6" type="checkbox" id="nav-2-6" >
+        <label class="md-nav__link level-2" for="nav-2-6">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-Calendar-DateRange.html" title="DateRange">
+                            DateRange
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-7" type="checkbox" id="nav-2-7" >
+        <label class="md-nav__link level-2" for="nav-2-7">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-Calendar-Event.html" title="Event">
+                            Event
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-8" type="checkbox" id="nav-2-8" >
+        <label class="md-nav__link level-2" for="nav-2-8">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-Calendar-EventCollection.html" title="EventCollection">
+                            EventCollection
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-9" type="checkbox" id="nav-2-9" >
+        <label class="md-nav__link level-2" for="nav-2-9">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-Calendar-EventGroup.html" title="EventGroup">
+                            EventGroup
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-10" type="checkbox" id="nav-2-10" >
+        <label class="md-nav__link level-2" for="nav-2-10">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-Calendar-EventGroupList.html" title="EventGroupList">
+                            EventGroupList
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-11" type="checkbox" id="nav-2-11" >
+        <label class="md-nav__link level-2" for="nav-2-11">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-Calendar-EventList.html" title="EventList">
+                            EventList
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-12" type="checkbox" id="nav-2-12" >
+        <label class="md-nav__link level-2" for="nav-2-12">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-Calendar-EventQuery.html" title="EventQuery">
+                            EventQuery
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-13" type="checkbox" id="nav-2-13" >
+        <label class="md-nav__link level-2" for="nav-2-13">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-Calendar-EventQueryBuilder.html" title="EventQueryBuilder">
+                            EventQueryBuilder
+                            </a>
+                    </label>
+            </li>
+
+                                                                    </ul>
+                </nav>
+            </li>
+
+                                            
+    <li class="md-nav__item md-nav__item--nested">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-2" type="checkbox" id="nav-1-2" >
+        <label class="md-nav__link level-1" for="nav-1-2">
+                                        <a href="namespaces/ibexa-contracts-measurement.html" title="Measurement">
+                            Measurement
+                            </a>
+                    </label>
+                    <nav class="md-nav" aria-label="Measurement" data-md-level="1">
+                <label class="md-nav__link-title md-nav__link level-1" title="EventTypeInterface">
+                    Measurement
+                </label>
+                
+                            <label class="md-nav__list-title md-nav__list-title--namespaces">
+                Namespaces
+            </label>
+                <ul class="md-nav__list">
+                            
+
+                                            
+    <li class="md-nav__item md-nav__item--nested">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-2-1" type="checkbox" id="nav-1-2-1" >
+        <label class="md-nav__link level-2" for="nav-1-2-1">
+                            <img src="./images/folder.svg" alt="folder.svg" />
+                                        <a href="namespaces/ibexa-contracts-measurement-converter.html" title="Converter">
+                            Converter
+                            </a>
+                    </label>
+                    <nav class="md-nav" aria-label="Converter" data-md-level="2">
+                <label class="md-nav__link-title md-nav__link level-2" title="EventTypeInterface">
+                    Converter
+                </label>
+                
+        
+                        <label class="md-nav__list-title">
+                Interfaces, classes and traits
+            </label>
+                <ul class="md-nav__list">
+                                                
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-0" type="checkbox" id="nav-3-0" >
+        <label class="md-nav__link level-3" for="nav-3-0">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-Measurement-Converter-UnitConverterInterface.html" title="UnitConverterInterface">
+                            UnitConverterInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                                                </ul>
+                </nav>
+            </li>
+
+                                            
+
+                                            
+
+                                            
+    <li class="md-nav__item md-nav__item--nested">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-2-4" type="checkbox" id="nav-1-2-4" >
+        <label class="md-nav__link level-2" for="nav-1-2-4">
+                            <img src="./images/folder.svg" alt="folder.svg" />
+                                        <a href="namespaces/ibexa-contracts-measurement-product.html" title="Product">
+                            Product
+                            </a>
+                    </label>
+                    <nav class="md-nav" aria-label="Product" data-md-level="2">
+                <label class="md-nav__link-title md-nav__link level-2" title="EventTypeInterface">
+                    Product
+                </label>
+                
+                            <label class="md-nav__list-title md-nav__list-title--namespaces">
+                Namespaces
+            </label>
+                <ul class="md-nav__list">
+                            
+    <li class="md-nav__item md-nav__item--nested">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-2-4-0" type="checkbox" id="nav-1-2-4-0" >
+        <label class="md-nav__link level-3" for="nav-1-2-4-0">
+                            <img src="./images/folder.svg" alt="folder.svg" />
+                                        <a href="namespaces/ibexa-contracts-measurement-product-query.html" title="Query">
+                            Query
+                            </a>
+                    </label>
+                    <nav class="md-nav" aria-label="Query" data-md-level="3">
+                <label class="md-nav__link-title md-nav__link level-3" title="EventTypeInterface">
+                    Query
+                </label>
+                
+                            <label class="md-nav__list-title md-nav__list-title--namespaces">
+                Namespaces
+            </label>
+                <ul class="md-nav__list">
+                            
+    <li class="md-nav__item md-nav__item--nested">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-2-4-0-0" type="checkbox" id="nav-1-2-4-0-0" >
+        <label class="md-nav__link level-4" for="nav-1-2-4-0-0">
+                            <img src="./images/folder.svg" alt="folder.svg" />
+                                        <a href="namespaces/ibexa-contracts-measurement-product-query-criterion.html" title="Criterion">
+                            Criterion
+                            </a>
+                    </label>
+                    <nav class="md-nav" aria-label="Criterion" data-md-level="4">
+                <label class="md-nav__link-title md-nav__link level-4" title="EventTypeInterface">
+                    Criterion
+                </label>
+                
+        
+                        <label class="md-nav__list-title">
+                Interfaces, classes and traits
+            </label>
+                <ul class="md-nav__list">
+                                                            
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-0" type="checkbox" id="nav-5-0" >
+        <label class="md-nav__link level-5" for="nav-5-0">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-Measurement-Product-Query-Criterion-AbstractMeasurementAttribute.html" title="AbstractMeasurementAttribute">
+                            AbstractMeasurementAttribute
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-1" type="checkbox" id="nav-5-1" >
+        <label class="md-nav__link level-5" for="nav-5-1">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-Measurement-Product-Query-Criterion-RangeMeasurementAttributeMaximum.html" title="RangeMeasurementAttributeMaximum">
+                            RangeMeasurementAttributeMaximum
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-2" type="checkbox" id="nav-5-2" >
+        <label class="md-nav__link level-5" for="nav-5-2">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-Measurement-Product-Query-Criterion-RangeMeasurementAttributeMinimum.html" title="RangeMeasurementAttributeMinimum">
+                            RangeMeasurementAttributeMinimum
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-3" type="checkbox" id="nav-5-3" >
+        <label class="md-nav__link level-5" for="nav-5-3">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-Measurement-Product-Query-Criterion-SimpleMeasurementAttribute.html" title="SimpleMeasurementAttribute">
+                            SimpleMeasurementAttribute
+                            </a>
+                    </label>
+            </li>
+
+                                                                    </ul>
+                </nav>
+            </li>
+
+                                    </ul>
+    
+                </nav>
+            </li>
+
+                                    </ul>
+    
+                </nav>
+            </li>
+
+                                            
+    <li class="md-nav__item md-nav__item--nested">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-2-5" type="checkbox" id="nav-1-2-5" >
+        <label class="md-nav__link level-2" for="nav-1-2-5">
+                            <img src="./images/folder.svg" alt="folder.svg" />
+                                        <a href="namespaces/ibexa-contracts-measurement-value.html" title="Value">
+                            Value
+                            </a>
+                    </label>
+                    <nav class="md-nav" aria-label="Value" data-md-level="2">
+                <label class="md-nav__link-title md-nav__link level-2" title="EventTypeInterface">
+                    Value
+                </label>
+                
+                            <label class="md-nav__list-title md-nav__list-title--namespaces">
+                Namespaces
+            </label>
+                <ul class="md-nav__list">
+                            
+    <li class="md-nav__item md-nav__item--nested">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-2-5-0" type="checkbox" id="nav-1-2-5-0" >
+        <label class="md-nav__link level-3" for="nav-1-2-5-0">
+                            <img src="./images/folder.svg" alt="folder.svg" />
+                                        <a href="namespaces/ibexa-contracts-measurement-value-definition.html" title="Definition">
+                            Definition
+                            </a>
+                    </label>
+                    <nav class="md-nav" aria-label="Definition" data-md-level="3">
+                <label class="md-nav__link-title md-nav__link level-3" title="EventTypeInterface">
+                    Definition
+                </label>
+                
+        
+                        <label class="md-nav__list-title">
+                Interfaces, classes and traits
+            </label>
+                <ul class="md-nav__list">
+                                                
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-0" type="checkbox" id="nav-4-0" >
+        <label class="md-nav__link level-4" for="nav-4-0">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-Measurement-Value-Definition-MeasurementInterface.html" title="MeasurementInterface">
+                            MeasurementInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1" >
+        <label class="md-nav__link level-4" for="nav-4-1">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-Measurement-Value-Definition-UnitInterface.html" title="UnitInterface">
+                            UnitInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                                                                
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2" >
+        <label class="md-nav__link level-4" for="nav-4-2">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-Measurement-Value-Definition-Sign.html" title="Sign">
+                            Sign
+                            </a>
+                    </label>
+            </li>
+
+                                                                    </ul>
+                </nav>
+            </li>
+
+                                    </ul>
+    
+                        <label class="md-nav__list-title">
+                Interfaces, classes and traits
+            </label>
+                <ul class="md-nav__list">
+                                                
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1" >
+        <label class="md-nav__link level-3" for="nav-3-1">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-Measurement-Value-RangeValueInterface.html" title="RangeValueInterface">
+                            RangeValueInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2" >
+        <label class="md-nav__link level-3" for="nav-3-2">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-Measurement-Value-SimpleValueInterface.html" title="SimpleValueInterface">
+                            SimpleValueInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3" >
+        <label class="md-nav__link level-3" for="nav-3-3">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-Measurement-Value-ValueInterface.html" title="ValueInterface">
+                            ValueInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                                                </ul>
+                </nav>
+            </li>
+
+                                    </ul>
+    
+                        <label class="md-nav__list-title">
+                Interfaces, classes and traits
+            </label>
+                <ul class="md-nav__list">
+                                                
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-6" type="checkbox" id="nav-2-6" >
+        <label class="md-nav__link level-2" for="nav-2-6">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-Measurement-MeasurementServiceInterface.html" title="MeasurementServiceInterface">
+                            MeasurementServiceInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-7" type="checkbox" id="nav-2-7" >
+        <label class="md-nav__link level-2" for="nav-2-7">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-Measurement-MeasurementTypeFactoryInterface.html" title="MeasurementTypeFactoryInterface">
+                            MeasurementTypeFactoryInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                                                </ul>
+                </nav>
+            </li>
+
+                                            
+    <li class="md-nav__item md-nav__item--nested">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-3" type="checkbox" id="nav-1-3" >
+        <label class="md-nav__link level-1" for="nav-1-3">
+                                        <a href="namespaces/ibexa-contracts-sitefactory.html" title="SiteFactory">
+                            SiteFactory
+                            </a>
+                    </label>
+                    <nav class="md-nav" aria-label="SiteFactory" data-md-level="1">
+                <label class="md-nav__link-title md-nav__link level-1" title="EventTypeInterface">
+                    SiteFactory
+                </label>
+                
+                            <label class="md-nav__list-title md-nav__list-title--namespaces">
+                Namespaces
+            </label>
+                <ul class="md-nav__list">
+                            
+    <li class="md-nav__item md-nav__item--nested">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-3-0" type="checkbox" id="nav-1-3-0" >
+        <label class="md-nav__link level-2" for="nav-1-3-0">
+                            <img src="./images/folder.svg" alt="folder.svg" />
+                                        <a href="namespaces/ibexa-contracts-sitefactory-events.html" title="Events">
+                            Events
+                            </a>
+                    </label>
+                    <nav class="md-nav" aria-label="Events" data-md-level="2">
+                <label class="md-nav__link-title md-nav__link level-2" title="EventTypeInterface">
+                    Events
+                </label>
+                
+        
+                        <label class="md-nav__list-title">
+                Interfaces, classes and traits
+            </label>
+                <ul class="md-nav__list">
+                                                            
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-0" type="checkbox" id="nav-3-0" >
+        <label class="md-nav__link level-3" for="nav-3-0">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-SiteFactory-Events-BeforeCreateSiteEvent.html" title="BeforeCreateSiteEvent">
+                            BeforeCreateSiteEvent
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1" >
+        <label class="md-nav__link level-3" for="nav-3-1">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-SiteFactory-Events-BeforeDeleteSiteEvent.html" title="BeforeDeleteSiteEvent">
+                            BeforeDeleteSiteEvent
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2" >
+        <label class="md-nav__link level-3" for="nav-3-2">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-SiteFactory-Events-BeforeUpdateSiteEvent.html" title="BeforeUpdateSiteEvent">
+                            BeforeUpdateSiteEvent
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3" >
+        <label class="md-nav__link level-3" for="nav-3-3">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-SiteFactory-Events-CreateSiteEvent.html" title="CreateSiteEvent">
+                            CreateSiteEvent
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4" >
+        <label class="md-nav__link level-3" for="nav-3-4">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-SiteFactory-Events-DeleteSiteEvent.html" title="DeleteSiteEvent">
+                            DeleteSiteEvent
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-5" type="checkbox" id="nav-3-5" >
+        <label class="md-nav__link level-3" for="nav-3-5">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-SiteFactory-Events-UpdateSiteEvent.html" title="UpdateSiteEvent">
+                            UpdateSiteEvent
+                            </a>
+                    </label>
+            </li>
+
+                                                                    </ul>
+                </nav>
+            </li>
+
+                                            
+    <li class="md-nav__item md-nav__item--nested">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-3-1" type="checkbox" id="nav-1-3-1" >
+        <label class="md-nav__link level-2" for="nav-1-3-1">
+                            <img src="./images/folder.svg" alt="folder.svg" />
+                                        <a href="namespaces/ibexa-contracts-sitefactory-service.html" title="Service">
+                            Service
+                            </a>
+                    </label>
+                    <nav class="md-nav" aria-label="Service" data-md-level="2">
+                <label class="md-nav__link-title md-nav__link level-2" title="EventTypeInterface">
+                    Service
+                </label>
+                
+        
+                        <label class="md-nav__list-title">
+                Interfaces, classes and traits
+            </label>
+                <ul class="md-nav__list">
+                                                
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-0" type="checkbox" id="nav-3-0" >
+        <label class="md-nav__link level-3" for="nav-3-0">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-SiteFactory-Service-PublicAccessServiceInterface.html" title="PublicAccessServiceInterface">
+                            PublicAccessServiceInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1" >
+        <label class="md-nav__link level-3" for="nav-3-1">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-SiteFactory-Service-SiteServiceInterface.html" title="SiteServiceInterface">
+                            SiteServiceInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                                                </ul>
+                </nav>
+            </li>
+
+                                            
+    <li class="md-nav__item md-nav__item--nested">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-3-2" type="checkbox" id="nav-1-3-2" >
+        <label class="md-nav__link level-2" for="nav-1-3-2">
+                            <img src="./images/folder.svg" alt="folder.svg" />
+                                        <a href="namespaces/ibexa-contracts-sitefactory-servicedecorator.html" title="ServiceDecorator">
+                            ServiceDecorator
+                            </a>
+                    </label>
+                    <nav class="md-nav" aria-label="ServiceDecorator" data-md-level="2">
+                <label class="md-nav__link-title md-nav__link level-2" title="EventTypeInterface">
+                    ServiceDecorator
+                </label>
+                
+        
+                        <label class="md-nav__list-title">
+                Interfaces, classes and traits
+            </label>
+                <ul class="md-nav__list">
+                                                            
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-0" type="checkbox" id="nav-3-0" >
+        <label class="md-nav__link level-3" for="nav-3-0">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-SiteFactory-ServiceDecorator-SiteServiceDecorator.html" title="SiteServiceDecorator">
+                            SiteServiceDecorator
+                            </a>
+                    </label>
+            </li>
+
+                                                                    </ul>
+                </nav>
+            </li>
+
+                                            
+    <li class="md-nav__item md-nav__item--nested">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-3-3" type="checkbox" id="nav-1-3-3" >
+        <label class="md-nav__link level-2" for="nav-1-3-3">
+                            <img src="./images/folder.svg" alt="folder.svg" />
+                                        <a href="namespaces/ibexa-contracts-sitefactory-values.html" title="Values">
+                            Values
+                            </a>
+                    </label>
+                    <nav class="md-nav" aria-label="Values" data-md-level="2">
+                <label class="md-nav__link-title md-nav__link level-2" title="EventTypeInterface">
+                    Values
+                </label>
+                
+                            <label class="md-nav__list-title md-nav__list-title--namespaces">
+                Namespaces
+            </label>
+                <ul class="md-nav__list">
+                            
+    <li class="md-nav__item md-nav__item--nested">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-3-3-0" type="checkbox" id="nav-1-3-3-0" >
+        <label class="md-nav__link level-3" for="nav-1-3-3-0">
+                            <img src="./images/folder.svg" alt="folder.svg" />
+                                        <a href="namespaces/ibexa-contracts-sitefactory-values-design.html" title="Design">
+                            Design
+                            </a>
+                    </label>
+                    <nav class="md-nav" aria-label="Design" data-md-level="3">
+                <label class="md-nav__link-title md-nav__link level-3" title="EventTypeInterface">
+                    Design
+                </label>
+                
+        
+                        <label class="md-nav__list-title">
+                Interfaces, classes and traits
+            </label>
+                <ul class="md-nav__list">
+                                                            
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-0" type="checkbox" id="nav-4-0" >
+        <label class="md-nav__link level-4" for="nav-4-0">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-SiteFactory-Values-Design-Template.html" title="Template">
+                            Template
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1" >
+        <label class="md-nav__link level-4" for="nav-4-1">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-SiteFactory-Values-Design-TemplateConfiguration.html" title="TemplateConfiguration">
+                            TemplateConfiguration
+                            </a>
+                    </label>
+            </li>
+
+                                                                    </ul>
+                </nav>
+            </li>
+
+                                            
+    <li class="md-nav__item md-nav__item--nested">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-3-3-1" type="checkbox" id="nav-1-3-3-1" >
+        <label class="md-nav__link level-3" for="nav-1-3-3-1">
+                            <img src="./images/folder.svg" alt="folder.svg" />
+                                        <a href="namespaces/ibexa-contracts-sitefactory-values-query.html" title="Query">
+                            Query
+                            </a>
+                    </label>
+                    <nav class="md-nav" aria-label="Query" data-md-level="3">
+                <label class="md-nav__link-title md-nav__link level-3" title="EventTypeInterface">
+                    Query
+                </label>
+                
+                            <label class="md-nav__list-title md-nav__list-title--namespaces">
+                Namespaces
+            </label>
+                <ul class="md-nav__list">
+                            
+    <li class="md-nav__item md-nav__item--nested">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-3-3-1-0" type="checkbox" id="nav-1-3-3-1-0" >
+        <label class="md-nav__link level-4" for="nav-1-3-3-1-0">
+                            <img src="./images/folder.svg" alt="folder.svg" />
+                                        <a href="namespaces/ibexa-contracts-sitefactory-values-query-criterion.html" title="Criterion">
+                            Criterion
+                            </a>
+                    </label>
+                    <nav class="md-nav" aria-label="Criterion" data-md-level="4">
+                <label class="md-nav__link-title md-nav__link level-4" title="EventTypeInterface">
+                    Criterion
+                </label>
+                
+        
+                        <label class="md-nav__list-title">
+                Interfaces, classes and traits
+            </label>
+                <ul class="md-nav__list">
+                                                            
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-0" type="checkbox" id="nav-5-0" >
+        <label class="md-nav__link level-5" for="nav-5-0">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-SiteFactory-Values-Query-Criterion-MatchAll.html" title="MatchAll">
+                            MatchAll
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-1" type="checkbox" id="nav-5-1" >
+        <label class="md-nav__link level-5" for="nav-5-1">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-SiteFactory-Values-Query-Criterion-Matcher.html" title="Matcher">
+                            Matcher
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-2" type="checkbox" id="nav-5-2" >
+        <label class="md-nav__link level-5" for="nav-5-2">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-SiteFactory-Values-Query-Criterion-MatchName.html" title="MatchName">
+                            MatchName
+                            </a>
+                    </label>
+            </li>
+
+                                                                    </ul>
+                </nav>
+            </li>
+
+                                    </ul>
+    
+                        <label class="md-nav__list-title">
+                Interfaces, classes and traits
+            </label>
+                <ul class="md-nav__list">
+                                                            
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1" >
+        <label class="md-nav__link level-4" for="nav-4-1">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-SiteFactory-Values-Query-Criterion.html" title="Criterion">
+                            Criterion
+                            </a>
+                    </label>
+            </li>
+
+                                                                    </ul>
+                </nav>
+            </li>
+
+                                            
+    <li class="md-nav__item md-nav__item--nested">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-3-3-2" type="checkbox" id="nav-1-3-3-2" >
+        <label class="md-nav__link level-3" for="nav-1-3-3-2">
+                            <img src="./images/folder.svg" alt="folder.svg" />
+                                        <a href="namespaces/ibexa-contracts-sitefactory-values-site.html" title="Site">
+                            Site
+                            </a>
+                    </label>
+                    <nav class="md-nav" aria-label="Site" data-md-level="3">
+                <label class="md-nav__link-title md-nav__link level-3" title="EventTypeInterface">
+                    Site
+                </label>
+                
+        
+                        <label class="md-nav__list-title">
+                Interfaces, classes and traits
+            </label>
+                <ul class="md-nav__list">
+                                                            
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-0" type="checkbox" id="nav-4-0" >
+        <label class="md-nav__link level-4" for="nav-4-0">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-SiteFactory-Values-Site-Page.html" title="Page">
+                            Page
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1" >
+        <label class="md-nav__link level-4" for="nav-4-1">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-SiteFactory-Values-Site-PublicAccess.html" title="PublicAccess">
+                            PublicAccess
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2" >
+        <label class="md-nav__link level-4" for="nav-4-2">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-SiteFactory-Values-Site-PublicAccessList.html" title="PublicAccessList">
+                            PublicAccessList
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-3" type="checkbox" id="nav-4-3" >
+        <label class="md-nav__link level-4" for="nav-4-3">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-SiteFactory-Values-Site-PublicAccessQuery.html" title="PublicAccessQuery">
+                            PublicAccessQuery
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-4" type="checkbox" id="nav-4-4" >
+        <label class="md-nav__link level-4" for="nav-4-4">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-SiteFactory-Values-Site-Site.html" title="Site">
+                            Site
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-5" type="checkbox" id="nav-4-5" >
+        <label class="md-nav__link level-4" for="nav-4-5">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-SiteFactory-Values-Site-SiteAccessMatcherConfiguration.html" title="SiteAccessMatcherConfiguration">
+                            SiteAccessMatcherConfiguration
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-6" type="checkbox" id="nav-4-6" >
+        <label class="md-nav__link level-4" for="nav-4-6">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-SiteFactory-Values-Site-SiteConfiguration.html" title="SiteConfiguration">
+                            SiteConfiguration
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-7" type="checkbox" id="nav-4-7" >
+        <label class="md-nav__link level-4" for="nav-4-7">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-SiteFactory-Values-Site-SiteCreateStruct.html" title="SiteCreateStruct">
+                            SiteCreateStruct
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-8" type="checkbox" id="nav-4-8" >
+        <label class="md-nav__link level-4" for="nav-4-8">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-SiteFactory-Values-Site-SiteList.html" title="SiteList">
+                            SiteList
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-9" type="checkbox" id="nav-4-9" >
+        <label class="md-nav__link level-4" for="nav-4-9">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-SiteFactory-Values-Site-SiteQuery.html" title="SiteQuery">
+                            SiteQuery
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-10" type="checkbox" id="nav-4-10" >
+        <label class="md-nav__link level-4" for="nav-4-10">
+                            <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-SiteFactory-Values-Site-SiteUpdateStruct.html" title="SiteUpdateStruct">
+                            SiteUpdateStruct
+                            </a>
+                    </label>
+            </li>
+
+                                                                    </ul>
+                </nav>
+            </li>
+
+                                    </ul>
+    
+                </nav>
+            </li>
+
+                                    </ul>
+    
+                </nav>
+            </li>
+
+                                    </ul>
+    
+                </nav>
+            </li>
+                                                                                                </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                <div class="md-content" data-md-component="content">
+                    <article class="md-content__inner md-typeset">
+                        <div>
+                                
+<ul class="breadcrumbs">
+            <li class="breadcrumb-item">
+            <a href="namespaces/ibexa.html">
+                Ibexa >
+            </a>
+        </li>
+            <li class="breadcrumb-item">
+            <a href="namespaces/ibexa-contracts.html">
+                Contracts >
+            </a>
+        </li>
+            <li class="breadcrumb-item">
+            <a href="namespaces/ibexa-contracts-calendar.html">
+                Calendar >
+            </a>
+        </li>
+            <li class="breadcrumb-item">
+            <a href="namespaces/ibexa-contracts-calendar-eventtype.html">
+                EventType >
+            </a>
+        </li>
+        <li class="breadcrumb-item breadcrumb-item-current">
+        <span>
+            EventTypeInterface
+        </span>
+    </li>
+</ul>
+    
+<div class="content-header">
+    <h1 id="EventTypeInterface">
+        EventTypeInterface<a class="headerlink" href="#EventTypeInterface" title="Permanent link">¶</a>
+</h1>
+            <button class="content-header__copy-fqcn copy-to-clipboard" title="Ibexa\Contracts\Calendar\EventType" data-copy-value="Ibexa\Contracts\Calendar\EventType">Copy FQCN</button>
+        <div class="content-header__found-in">
+        <abbr title="vendor/ibexa/calendar/src/contracts/EventType/EventTypeInterface.php">EventTypeInterface.php</abbr>
+                :
+        <span>14</span>
+                <img src="./images/copy.svg" alt="copy" class="copy-to-clipboard" data-copy-value="vendor/ibexa/calendar/src/contracts/EventType/EventTypeInterface.php" title="Copy path" />
+    </div>
+                    </div>
+
+    
+    
+    <h2 id="methods">
+        Methods<a class="headerlink" href="#methods" title="Permanent link">¶</a>
+</h2>
+
+            <div class="content-header">
+    <h3 id="method_getActions">
+                <img src="./images/public.svg" alt="public" />getActions()
+    <a class="headerlink" href="classes/Ibexa-Contracts-Calendar-EventType-EventTypeInterface.html#method_getActions" title="Permanent link">¶</a>
+</h3>
+        <div class="content-header__found-in">
+        <abbr title="vendor/ibexa/calendar/src/contracts/EventType/EventTypeInterface.php">EventTypeInterface.php</abbr>
+                :
+        <span>44</span>
+                <img src="./images/copy.svg" alt="copy" class="copy-to-clipboard" data-copy-value="vendor/ibexa/calendar/src/contracts/EventType/EventTypeInterface.php" title="Copy path" />
+    </div>
+        </div>
+    <p>Returns actions supported by event type.</p>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">getActions</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Ibexa\Calendar\EventAction\EventActionCollection">EventActionCollection</abbr></span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type"><abbr title="\Ibexa\Calendar\EventAction\EventActionCollection">EventActionCollection</abbr></p>
+                <div class="content-header">
+    <h3 id="method_getEventName">
+                <img src="./images/public.svg" alt="public" />getEventName()
+    <a class="headerlink" href="classes/Ibexa-Contracts-Calendar-EventType-EventTypeInterface.html#method_getEventName" title="Permanent link">¶</a>
+</h3>
+        <div class="content-header__found-in">
+        <abbr title="vendor/ibexa/calendar/src/contracts/EventType/EventTypeInterface.php">EventTypeInterface.php</abbr>
+                :
+        <span>37</span>
+                <img src="./images/copy.svg" alt="copy" class="copy-to-clipboard" data-copy-value="vendor/ibexa/calendar/src/contracts/EventType/EventTypeInterface.php" title="Copy path" />
+    </div>
+        </div>
+    <p>Returns the name of the event.</p>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">getEventName</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Calendar-Event.html"><abbr title="\Ibexa\Contracts\Calendar\Event">Event</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$event</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Type</td>
+                <td>Default value</td>
+                <td>Description</td>
+            </tr>
+        </thead>
+        <tbody>
+                            <tr>
+                    <td>
+                        $event
+                    </td>
+                    <td>
+                        <a href="classes/Ibexa-Contracts-Calendar-Event.html"><abbr title="\Ibexa\Contracts\Calendar\Event">Event</abbr></a>
+                    </td>
+                    <td >
+                        None
+                    </td>
+                    <td class="empty">
+                                                    -
+                                                
+                    </td>
+                </tr>
+                    </tbody>
+    </table>
+
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">string</p>
+                <div class="content-header">
+    <h3 id="method_getTypeIdentifier">
+                <img src="./images/public.svg" alt="public" />getTypeIdentifier()
+    <a class="headerlink" href="classes/Ibexa-Contracts-Calendar-EventType-EventTypeInterface.html#method_getTypeIdentifier" title="Permanent link">¶</a>
+</h3>
+        <div class="content-header__found-in">
+        <abbr title="vendor/ibexa/calendar/src/contracts/EventType/EventTypeInterface.php">EventTypeInterface.php</abbr>
+                :
+        <span>21</span>
+                <img src="./images/copy.svg" alt="copy" class="copy-to-clipboard" data-copy-value="vendor/ibexa/calendar/src/contracts/EventType/EventTypeInterface.php" title="Copy path" />
+    </div>
+        </div>
+    <p>Returns event type identifier.</p>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">getTypeIdentifier</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">string</p>
+                <div class="content-header">
+    <h3 id="method_getTypeLabel">
+                <img src="./images/public.svg" alt="public" />getTypeLabel()
+    <a class="headerlink" href="classes/Ibexa-Contracts-Calendar-EventType-EventTypeInterface.html#method_getTypeLabel" title="Permanent link">¶</a>
+</h3>
+        <div class="content-header__found-in">
+        <abbr title="vendor/ibexa/calendar/src/contracts/EventType/EventTypeInterface.php">EventTypeInterface.php</abbr>
+                :
+        <span>28</span>
+                <img src="./images/copy.svg" alt="copy" class="copy-to-clipboard" data-copy-value="vendor/ibexa/calendar/src/contracts/EventType/EventTypeInterface.php" title="Copy path" />
+    </div>
+        </div>
+    <p>Returns human readable label for event type.</p>
+
+<div class="highlight">
+    <table class="highlighttable">
+        <tbody>
+            <tr>
+                <td class="linenos">
+                    <div class="linenodiv">
+                        <pre><span></span></pre>
+                    </div>
+                </td>
+                <td class="code">
+                    <div>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">getTypeLabel</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code></pre>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="phpdocumentor-label-line">
+    </div>
+
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">string</p>
+                                </div>
+                    </article>
+                </div>
+
+                                    <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                        <div class="md-sidebar__scrollwrap">
+                            <div class="md-sidebar__inner">
+                                <nav class="md-nav md-nav--secondary" aria-label="">
+                                            
+            <label class="md-nav__title" for="__toc" title="EventTypeInterface">
+            EventTypeInterface
+        </label>
+    
+    <ul class="md-nav__list">
+                            <li class="md-nav__item level-1 with-children">
+                <a href="classes/Ibexa-Contracts-Calendar-EventType-EventTypeInterface.html#methods" title="Methods" class="md-nav__link">
+                    Methods
+                </a>
+                <nav class="md-nav">
+                    <ul class="md-nav__list">
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Calendar-EventType-EventTypeInterface.html#method_getActions" title="getActions" class="md-nav__link">
+                                    getActions()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Calendar-EventType-EventTypeInterface.html#method_getEventName" title="getEventName" class="md-nav__link">
+                                    getEventName()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Calendar-EventType-EventTypeInterface.html#method_getTypeIdentifier" title="getTypeIdentifier" class="md-nav__link">
+                                    getTypeIdentifier()
+                                </a>
+                            </li>
+                                                    <li class="md-nav__item level-2">
+                                <a href="classes/Ibexa-Contracts-Calendar-EventType-EventTypeInterface.html#method_getTypeLabel" title="getTypeLabel" class="md-nav__link">
+                                    getTypeLabel()
+                                </a>
+                            </li>
+                                            </ul>
+                </nav>
+            </li>
+            </ul>
+
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                            </div>
+        </main>
+    </div>
+    <script
+        src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous">
+    </script>
+    <script src="js/docs.switcher.js"></script>
+    <script src="js/toc.js"></script>
+    <script src="js/search_custom.js"></script>
+    <script src="js/copy_to_clipboard.js"></script>
+    <script src="js/version_switcher_custom.js"></script>
+</body>
+</html>
