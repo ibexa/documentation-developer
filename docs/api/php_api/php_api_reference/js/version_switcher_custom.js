@@ -1,19 +1,21 @@
 (function(global, doc) {
     const initializeSwitcher = (addedNode) => {
-        console.log(addedNode);
-        if (!addedNode || addedNode.tagName !== 'READTHEDOCS-FLYOUT' || !addedNode.shadowRoot) {
-            return;
-        }
+        setTimeout(() => {
+            console.log(addedNode);
+            if (!addedNode || addedNode.tagName !== 'READTHEDOCS-FLYOUT' || !addedNode.shadowRoot) {
+                return;
+            }
 
-        const switcherWrapper = document.querySelector('.md-header__switcher .version-switcher');
-        const switcherList = switcherWrapper.querySelector('.switcher__list');
-        const currentVersionNode = switcherWrapper.querySelector('.rst-current-version');
-        const versionsList = addedNode.shadowRoot.querySelector('dl.versions');
-        const version = addedNode.querySelector('.switcher__list dl.versions dd strong a')?.innerText;
+            const switcherWrapper = document.querySelector('.md-header__switcher .version-switcher');
+            const switcherList = switcherWrapper.querySelector('.switcher__list');
+            const currentVersionNode = switcherWrapper.querySelector('.rst-current-version');
+            const versionsList = addedNode.shadowRoot.querySelector('dl.versions');
+            const version = addedNode.querySelector('.switcher__list dl.versions dd strong a')?.innerText;
 
-        versionsList.append(...Array.from(versionsList.childNodes).reverse());
-        switcherList.appendChild(versionsList);
-        currentVersionNode.innerText = version ?? 'Change version';
+            versionsList.append(...Array.from(versionsList.childNodes).reverse());
+            switcherList.appendChild(versionsList);
+            currentVersionNode.innerText = version ?? 'Change version';
+        }, 100);
     }
     const observer = new MutationObserver((mutationList) => {
         mutationList.forEach((mutation) => {
