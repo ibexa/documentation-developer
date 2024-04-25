@@ -9,12 +9,21 @@
             selectedItem.classList.remove(CLASS_EXPANDED_LIST);
         }
     };
-
-    switchers.forEach((switcher) => {
+    const initSwitcher = (switcher) => {
         const selectedItem = switcher.querySelector('.switcher__selected-item');
+
+        if (!selectedItem) {
+            return;
+        }
 
         selectedItem.addEventListener('click', toggleListExpandedState, false);
 
         doc.body.addEventListener('click', (event) => collapseList(event, switcher, selectedItem), false);
+    }
+
+    switchers.forEach(initSwitcher);
+
+    doc.addEventListener('switcher-added', (event) => {
+        initSwitcher(event.detail.switcher);
     });
 })(window.document);

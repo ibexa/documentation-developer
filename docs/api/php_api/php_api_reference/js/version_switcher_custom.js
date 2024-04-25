@@ -27,6 +27,8 @@
         `);
 
         clearInterval(interval);
+
+        doc.dispatchEvent(new CustomEvent('switcher-added', { detail: { switcher: switcherWrapper }}));
     }
     
     interval = setInterval(initializeSwitcher, 100);
