@@ -6,7 +6,7 @@ namespace App\GroupResolver;
 
 use Ibexa\Contracts\Core\Persistence\Content\Type\Handler;
 use Ibexa\Contracts\Elasticsearch\ElasticSearch\Index\Group\GroupResolverInterface;
-use Ibexa\Contracts\Elasticsearch\Mapping\BaseDocument;
+use Ibexa\Platform\Contracts\ElasticSearchEngine\Mapping\BaseDocument;
 
 final class ContentTypeGroupGroupResolver implements GroupResolverInterface
 {
