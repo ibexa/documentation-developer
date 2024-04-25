@@ -1,36 +1,36 @@
 (function(global, doc) {
-    const initializeSwitcher = (addedNode) => {
-        if (!addedNode?.classList?.contains('injected') || !addedNode?.querySelector('.rst-versions')) {
+    let interval = null;
+    const initializeSwitcher = () => {
+        const injectedNode = doc.getElementsByTagName('readthedocs-flyout')[0];
+
+        if (!injectedNode || !injectedNode.shadowRoot) {
             return;
         }
 
-        const version = addedNode.querySelector('.rst-other-versions dd.rtd-current-item a').innerText;
-        const versionsList = addedNode.querySelector('.rst-other-versions dl').cloneNode(true);
         const switcherWrapper = document.querySelector('.md-header__switcher .version-switcher');
         const switcherList = switcherWrapper.querySelector('.switcher__list');
-        const currentVersionNode = switcherWrapper.querySelector('.rst-current-version');
+        const versionsList = injectedNode.shadowRoot.querySelector('dl.versions');
+        const version = injectedNode.querySelector('.switcher__list dl.versions dd strong a')?.innerText;
 
-        currentVersionNode.innerText = version !== '' ? version : 'Change version';
+        if (!versionsList) {
+            return;
+        }
 
+        versionsList.append(...Array.from(versionsList.childNodes).reverse());
         switcherList.appendChild(versionsList);
+        switcherList.insertAdjacentHTML('beforebegin', `
+            <div class="rst-versions switcher__selected-item" data-toggle="rst-versions" role="note" aria-label="versions">
+                <div class="rst-current-version switcher__label" data-toggle="rst-current-version">
+                    ${version ?? 'Change version'}
+                </div>
+            </div>
+        `);
+        injectedNode.remove();
 
-        const currentVersion = switcherWrapper.querySelector('.rst-other-versions dd.rtd-current-item a').href;
-        const resourceUrl = document.location.href.replace(currentVersion, '');
-        const versionsLinks = switcherList.querySelectorAll('a');
+        clearInterval(interval);
 
-        versionsLinks.forEach((versionLink) => {
-            versionLink.href += resourceUrl;
-        });
+        doc.dispatchEvent(new CustomEvent('switcher-added', { detail: { switcher: switcherWrapper }}));
     }
-    const observer = new MutationObserver((mutationList) => {
-        mutationList.forEach((mutation) => {
-            mutation.addedNodes.forEach((addedNode) => initializeSwitcher(addedNode));
-        });
-    });
-    const injectedNode = doc.querySelector('.injected');
-
-    observer.observe(doc.body, {
-        childList: true,
-    });
-    initializeSwitcher(injectedNode);
+    
+    interval = setInterval(initializeSwitcher, 100);
 })(window, window.document);
