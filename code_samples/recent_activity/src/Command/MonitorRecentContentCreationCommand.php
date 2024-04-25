@@ -55,9 +55,11 @@ class MonitorRecentContentCreationCommand extends Command
             }
             $table = [];
             foreach ($activityLogGroup->getActivityLogs() as $activityLog) {
-                /** @var \Ibexa\Contracts\Core\Repository\Values\Content\Content $content */
+                $name = '';
                 $content = $activityLog->getRelatedObject();
-                $name = $content && $content->getName() && $content->getName() !== $activityLog->getObjectName() ? "“{$content->getName()}” (formerly “{$activityLog->getObjectName()}”)" : "“{$activityLog->getObjectName()}”";
+                if ($content && method_exists($content, 'getName')) {
+                    $name = $content->getName() && $content->getName() !== $activityLog->getObjectName() ? "“{$content->getName()}” (formerly “{$activityLog->getObjectName()}”)" : "“{$activityLog->getObjectName()}”";
+                }
                 $table[] = [
                     $activityLogGroup->getLoggedAt()->format(\DateTime::ATOM),
                     $activityLog->getObjectId(),
