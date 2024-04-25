@@ -11,7 +11,8 @@ class MyFeature extends \stdClass
         }
     }
 
-    public function getName(): ?string {
+    public function getName(): ?string
+    {
         return property_exists($this, 'name') ? $this->name : null;
     }
 }
