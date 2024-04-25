@@ -66,6 +66,7 @@ class MonitorRecentContentCreationCommand extends Command
                     $name,
                     $activityLog->getAction(),
                     $activityLogGroup->getUser()->login,
+                    $activityLogGroup->getIp() ? $activityLogGroup->getIp()->getIp() : '',
                 ];
             }
             $io->table([
@@ -74,6 +75,7 @@ class MonitorRecentContentCreationCommand extends Command
                 'Object Name',
                 'Action',
                 'User',
+                'IP',
             ], $table);
         }
 
