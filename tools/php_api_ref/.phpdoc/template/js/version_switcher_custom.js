@@ -1,5 +1,6 @@
 (function(global, doc) {
     const initializeSwitcher = (addedNode) => {
+        console.log(addedNode);
         if (!addedNode || addedNode.tagName !== 'READTHEDOCS-FLYOUT' || !addedNode.shadowRoot) {
             return;
         }
@@ -25,5 +26,7 @@
         childList: true,
     });
 
-    initializeSwitcher(injectedNode[0]);
+    setTimeout(() => {
+        initializeSwitcher(injectedNode[0]);
+    }, 100);
 })(window, window.document);
