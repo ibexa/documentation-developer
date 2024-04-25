@@ -13,6 +13,10 @@
         const versionsList = injectedNode.shadowRoot.querySelector('dl.versions');
         const version = injectedNode.querySelector('.switcher__list dl.versions dd strong a')?.innerText;
 
+        if (!versionsList) {
+            return;
+        }
+
         versionsList.append(...Array.from(versionsList.childNodes).reverse());
         switcherList.appendChild(versionsList);
         currentVersionNode.innerText = version ?? 'Change version';
