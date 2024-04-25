@@ -5,6 +5,10 @@
             if (!addedNode || addedNode.tagName !== 'READTHEDOCS-FLYOUT' || !addedNode.shadowRoot) {
                 return;
             }
+            console.log(addedNode.shadowRoot);
+            debugger;
+            console.log(addedNode.shadowRoot.querySelector('dl.versions'));
+            debugger;
 
             const switcherWrapper = document.querySelector('.md-header__switcher .version-switcher');
             const switcherList = switcherWrapper.querySelector('.switcher__list');
