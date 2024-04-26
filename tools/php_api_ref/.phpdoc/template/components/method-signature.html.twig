@@ -22,8 +22,10 @@
         </span>
     {% endfor %}
     <span>)</span>
-    <span> : </span>
-    <span class="phpdocumentor-signature__response_type">{{ node.response.type|route('class:short')|join('|')|raw }}</span>
+    {% if node.name != '__construct' %}
+        <span> : </span>
+        <span class="phpdocumentor-signature__response_type">{{ node.response.type|route('class:short')|join('|')|raw }}</span>
+    {% endif %}
 {% endapply %}{% endset %}
 
 {% include 'components/signature.html.twig' with { code } %}

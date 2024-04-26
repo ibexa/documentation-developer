@@ -1,3 +1,9 @@
 {% if node.description and not node.description.empty %}
-    <section class="phpdocumentor-description">{{ node.description|description|e('html_attr')|markdown }}</section>
+    <section class="phpdocumentor-description">
+        {% if escape_html|default(false) %}
+            {{ node.description|description|e('html_attr')|markdown }}
+        {% else %}
+            {{ node.description|description|markdown }}
+        {% endif %}
+    </section>
 {% endif %}
