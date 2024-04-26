@@ -130,15 +130,15 @@ get:
                 Accept:
                     description: If set, the Field definitions are returned in XML or JSON format.
                     example: |
-                        application/vnd.ibexa.api.FieldDefinitions+xml
-                        application/vnd.ibexa.api.FieldDefinitions+json
+                        application/vnd.ibexa.api.FieldDefinitionList+xml
+                        application/vnd.ibexa.api.FieldDefinitionList+json
             responses:
                 200:
                     description: OK - return a list of Field definitions.
                     body:
-                        application/vnd.ibexa.api.FieldDefinitions+xml:
+                        application/vnd.ibexa.api.FieldDefinitionList+xml:
                             type: FieldDefinitions
-                        application/vnd.ibexa.api.FieldDefinitions+json:
+                        application/vnd.ibexa.api.FieldDefinitionList+json:
                             type: FieldDefinitions
                 404:
                     description: Error - The content type does not exist.
@@ -262,16 +262,15 @@ get:
                     Accept:
                         description: If set, the Field definitions are returned in XML or JSON format.
                         example: |
-                            application/vnd.ibexa.api.FieldDefinitions+xml
-                            application/vnd.ibexa.api.FieldDefinitions+json
-
+                            application/vnd.ibexa.api.FieldDefinitionList+xml
+                            application/vnd.ibexa.api.FieldDefinitionList+json
                 responses:
                     200:
                         description: OK - return a list of Field definitions.
                         body:
-                            application/vnd.ibexa.api.FieldDefinitions+xml:
+                            application/vnd.ibexa.api.FieldDefinitionList+xml:
                                 type: FieldDefinitions
-                            application/vnd.ibexa.api.FieldDefinitions+json:
+                            application/vnd.ibexa.api.FieldDefinitionList+json:
                                 type: FieldDefinitions
                     404:
                         description: Error - The content type draft does not exist.
