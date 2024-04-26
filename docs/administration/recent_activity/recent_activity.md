@@ -51,6 +51,14 @@ This policy is required to view [activity log in user profile]([[= user_doc =]]/
 
     Do not assign `activity_log/read` permission to the Anonymous role, even with the owner limitation, because this role is shared among all unauthenticated users.
 
+## User privacy
+
+When acting through HTTP, User's login name and IP are logged.
+Your Date Protection Officer or GDPR representative should be aware of this.
+
+For example, if a content edition feature, such as reader's comments, is available on front office,
+the recent activity log records the front user IPs.
+
 ## PHP API
 
 The `ActivityLogService` PHP API can be used to browse activity logs and write new entries.
