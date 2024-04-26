@@ -126,9 +126,20 @@ get:
         get:
             displayName: Get Field definition list
             description: Returns all Field definitions of the provided content type.
+            headers:
+                Accept:
+                    description: If set, the Field definitions are returned in XML or JSON format.
+                    example: |
+                        application/vnd.ibexa.api.FieldDefinitions+xml
+                        application/vnd.ibexa.api.FieldDefinitions+json
             responses:
                 200:
                     description: OK - return a list of Field definitions.
+                    body:
+                        application/vnd.ibexa.api.FieldDefinitions+xml:
+                            type: FieldDefinitions
+                        application/vnd.ibexa.api.FieldDefinitions+json:
+                            type: FieldDefinitions
                 404:
                     description: Error - The content type does not exist.
         /{fieldDefinitionId}:
@@ -247,9 +258,21 @@ get:
             get:
                 displayName: Get Draft Field definition list
                 description: Returns all Field definitions of the provided content type Draft.
+                headers:
+                    Accept:
+                        description: If set, the Field definitions are returned in XML or JSON format.
+                        example: |
+                            application/vnd.ibexa.api.FieldDefinitions+xml
+                            application/vnd.ibexa.api.FieldDefinitions+json
+
                 responses:
                     200:
                         description: OK - return a list of Field definitions.
+                        body:
+                            application/vnd.ibexa.api.FieldDefinitions+xml:
+                                type: FieldDefinitions
+                            application/vnd.ibexa.api.FieldDefinitions+json:
+                                type: FieldDefinitions
                     404:
                         description: Error - The content type draft does not exist.
             post:
