@@ -35392,23 +35392,7 @@ and $destinationContentId with a specific $type.</p>
                 </tr>
                     </tbody>
     </table>
-
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_addRelation#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">todo</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><p>Should the existence verifications happen here or is this supposed to be handled at a higher level?</p>
-</section>
-
-                                    </dd>
-                                            </dl>
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-Relation.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\Relation">Relation</abbr></a></p>
                 <div class="content-header">
@@ -35445,9 +35429,11 @@ and $destinationContentId with a specific $type.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>Copies all fields and relations from $contentId in $version (or all versions if false)
+    <section class="phpdocumentor-description">
+                    <p>Copies all fields and relations from $contentId in $version (or all versions if false)
 to a new object which is returned. Version numbers are maintained.</p>
-</section>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -35484,8 +35470,10 @@ to a new object which is returned. Version numbers are maintained.</p>
                         null
                     </td>
                     <td >
-                                                    <section class="phpdocumentor-description"><p>Copy all versions if left null</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>Copy all versions if left null</p>
+
+            </section>
 
                     </td>
                 </tr>
@@ -35500,32 +35488,36 @@ to a new object which is returned. Version numbers are maintained.</p>
                         null
                     </td>
                     <td >
-                                                    <section class="phpdocumentor-description"><p>By default owner is same content we copy, for other cases set owner here to change it.
+                                                    <section class="phpdocumentor-description">
+                    <p>By default owner is same content we copy, for other cases set owner here to change it.
 E.g. In order to give person copying access to edit (if owner limitation), use this to set copier as owner.</p>
-</section>
+
+            </section>
 
                     </td>
                 </tr>
                     </tbody>
     </table>
-
+                                                
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
         <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_copy#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
+                                                <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">throws</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-NotFoundException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException">NotFoundException</abbr></a></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>If content or version is not found</p>
-</section>
+                                                 <section class="phpdocumentor-description">
+                    <p>If content or version is not found</p>
+
+            </section>
 
                                     </dd>
-                                            </dl>
+                                                                                    </dl>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content">Content</abbr></a></p>
                 <div class="content-header">
@@ -35590,7 +35582,7 @@ E.g. In order to give person copying access to edit (if owner limitation), use t
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">int</p>
                 <div class="content-header">
@@ -35650,8 +35642,10 @@ E.g. In order to give person copying access to edit (if owner limitation), use t
                     </td>
                     <td class="empty">
                                                     -
-                                                    <section class="phpdocumentor-description"><p>Destination Content ID</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>Destination Content ID</p>
+
+            </section>
 
                     </td>
                 </tr>
@@ -35667,14 +35661,16 @@ E.g. In order to give person copying access to edit (if owner limitation), use t
                     </td>
                     <td class="empty">
                                                     -
-                                                    <section class="phpdocumentor-description"><p>The relation type bitmask &lt;a href=&quot;classes/Ibexa-Contracts-Core-Repository-Values-Content-Relation.html&quot;&gt;&lt;abbr title=&quot;\Ibexa\Contracts\Core\Repository\Values\Content\Relation&quot;&gt;Relation&lt;/abbr&gt;&lt;/a&gt;</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>The relation type bitmask <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Relation.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Relation">Relation</abbr></a></p>
+
+            </section>
 
                     </td>
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">int</p>
                 <div class="content-header">
@@ -35711,11 +35707,12 @@ E.g. In order to give person copying access to edit (if owner limitation), use t
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>The values contained inside the $content will form the basis of stored
-entity.
+    <section class="phpdocumentor-description">
+                    <p>The values contained inside the $content will form the basis of stored
+entity.</p>
+<p>Will contain always a complete list of fields.</p>
 
-Will contain always a complete list of fields.</p>
-</section>
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -35738,19 +35735,23 @@ Will contain always a complete list of fields.</p>
                         None
                     </td>
                     <td >
-                                                    <section class="phpdocumentor-description"><p>Content creation struct.</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>Content creation struct.</p>
+
+            </section>
 
                     </td>
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content">Content</abbr></a></p>
             &mdash;
-            <section class="phpdocumentor-description"><p>Content value object</p>
-</section>
+            <section class="phpdocumentor-description">
+                    <p>Content value object</p>
+
+            </section>
 
                 <div class="content-header">
         <h3 id="method_createDraftFromVersion">
@@ -35786,9 +35787,11 @@ Will contain always a complete list of fields.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>Copies all fields from $contentId in $srcVersion and creates a new
+    <section class="phpdocumentor-description">
+                    <p>Copies all fields from $contentId in $srcVersion and creates a new
 version of the referred Content from it.</p>
-</section>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -35858,7 +35861,7 @@ version of the referred Content from it.</p>
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content">Content</abbr></a></p>
                 <div class="content-header">
@@ -35895,9 +35898,11 @@ version of the referred Content from it.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>Removes the relations, but not the related objects. All subtrees of the
+    <section class="phpdocumentor-description">
+                    <p>Removes the relations, but not the related objects. All subtrees of the
 assigned nodes of this content objects are removed (recursively).</p>
-</section>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -35925,7 +35930,7 @@ assigned nodes of this content objects are removed (recursively).</p>
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">bool</p>
                 <div class="content-header">
@@ -36000,14 +36005,16 @@ assigned nodes of this content objects are removed (recursively).</p>
                     </td>
                     <td class="empty">
                                                     -
-                                                    <section class="phpdocumentor-description"><p>language code of the translation</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>language code of the translation</p>
+
+            </section>
 
                     </td>
                 </tr>
                     </tbody>
     </table>
-
+                    
             <div class="content-header">
         <h3 id="method_deleteTranslationFromDraft">
                 <img src="./images/public.svg" alt="public" />deleteTranslationFromDraft()
@@ -36100,12 +36107,14 @@ assigned nodes of this content objects are removed (recursively).</p>
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content">Content</abbr></a></p>
             &mdash;
-            <section class="phpdocumentor-description"><p>The Content Draft w/o removed Translation</p>
-</section>
+            <section class="phpdocumentor-description">
+                    <p>The Content Draft w/o removed Translation</p>
+
+            </section>
 
                 <div class="content-header">
         <h3 id="method_deleteVersion">
@@ -36141,8 +36150,10 @@ assigned nodes of this content objects are removed (recursively).</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>Removes the relations, but not the related objects.</p>
-</section>
+    <section class="phpdocumentor-description">
+                    <p>Removes the relations, but not the related objects.</p>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -36184,7 +36195,7 @@ assigned nodes of this content objects are removed (recursively).</p>
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">bool</p>
                 <div class="content-header">
@@ -36221,8 +36232,10 @@ assigned nodes of this content objects are removed (recursively).</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>Result is returned with oldest version first (sorted by created, alternatively version number or id if auto increment).</p>
-</section>
+    <section class="phpdocumentor-description">
+                    <p>Result is returned with oldest version first (sorted by created, alternatively version number or id if auto increment).</p>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -36259,8 +36272,10 @@ assigned nodes of this content objects are removed (recursively).</p>
                         null
                     </td>
                     <td >
-                                                    <section class="phpdocumentor-description"><p>Optional argument to filter versions by status, like &lt;a href=&quot;classes/Ibexa-Contracts-Core-Persistence-Content-VersionInfo.html#constant_STATUS_ARCHIVED&quot;&gt;&lt;abbr title=&quot;\Ibexa\Contracts\Core\Persistence\Content\VersionInfo::STATUS_ARCHIVED&quot;&gt;VersionInfo::STATUS_ARCHIVED&lt;/abbr&gt;&lt;/a&gt;.</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>Optional argument to filter versions by status, like <a href="classes/Ibexa-Contracts-Core-Persistence-Content-VersionInfo.html#constant_STATUS_ARCHIVED"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\VersionInfo::STATUS_ARCHIVED">VersionInfo::STATUS_ARCHIVED</abbr></a>.</p>
+
+            </section>
 
                     </td>
                 </tr>
@@ -36275,14 +36290,16 @@ assigned nodes of this content objects are removed (recursively).</p>
                         -1
                     </td>
                     <td >
-                                                    <section class="phpdocumentor-description"><p>Limit for items returned, -1 means none.</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>Limit for items returned, -1 means none.</p>
+
+            </section>
 
                     </td>
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content-VersionInfo.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\VersionInfo">VersionInfo</abbr></a>&gt;</p>
                 <div class="content-header">
@@ -36319,14 +36336,15 @@ assigned nodes of this content objects are removed (recursively).</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>If you want to load current version, $version number can be omitted to make sure
+    <section class="phpdocumentor-description">
+                    <p>If you want to load current version, $version number can be omitted to make sure
 you don't need to rely on search index (async) or having to load in two steps
-(first content info then content, risking changes in between to current version).
-
-Optionally a translation filter may be specified. If specified only the
+(first content info then content, risking changes in between to current version).</p>
+<p>Optionally a translation filter may be specified. If specified only the
 translations with the listed language codes will be retrieved. If not,
 all translations will be retrieved.</p>
-</section>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -36382,12 +36400,14 @@ all translations will be retrieved.</p>
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content">Content</abbr></a></p>
             &mdash;
-            <section class="phpdocumentor-description"><p>Content value object</p>
-</section>
+            <section class="phpdocumentor-description">
+                    <p>Content value object</p>
+
+            </section>
 
                 <div class="content-header">
         <h3 id="method_loadContentInfo">
@@ -36451,7 +36471,7 @@ all translations will be retrieved.</p>
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-ContentInfo.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ContentInfo">ContentInfo</abbr></a></p>
                 <div class="content-header">
@@ -36516,7 +36536,7 @@ all translations will be retrieved.</p>
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-ContentInfo.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ContentInfo">ContentInfo</abbr></a></p>
                 <div class="content-header">
@@ -36553,9 +36573,11 @@ all translations will be retrieved.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>Missing items (NotFound) will be missing from the array and not cause an exception, it's up
+    <section class="phpdocumentor-description">
+                    <p>Missing items (NotFound) will be missing from the array and not cause an exception, it's up
 to calling logic to determine if this should cause exception or not.</p>
-</section>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -36583,7 +36605,7 @@ to calling logic to determine if this should cause exception or not.</p>
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content-ContentInfo.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ContentInfo">ContentInfo</abbr></a>&gt;</p>
                 <div class="content-header">
@@ -36620,19 +36642,19 @@ to calling logic to determine if this should cause exception or not.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>Missing items (NotFound) will be missing from the array and not cause an exception, it's up
-to calling logic to determine if this should cause exception or not.
-
-If items are missing but for other reasons then not being found, for instance exceptions during loading field
+    <section class="phpdocumentor-description">
+                    <p>Missing items (NotFound) will be missing from the array and not cause an exception, it's up
+to calling logic to determine if this should cause exception or not.</p>
+<p>If items are missing but for other reasons then not being found, for instance exceptions during loading field
 data. Then the exception will be logged as warning or error depending on severity.
 The most common case of possible exceptions during loading of Content data is migration,
 where either custom Field Type configuration or implementation might not be aligned with new
-version of the system.
-
-NOTE!!: If you want to take always available flag into account, append main language
+version of the system.</p>
+<p>NOTE!!: If you want to take always available flag into account, append main language
 to the list of languages(unless caller is asking for all languages). In some edge cases you'll end up with a
 bit more data returned, but upside is that storage engine is able to handle far larger datasets.</p>
-</section>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -36674,7 +36696,7 @@ bit more data returned, but upside is that storage engine is able to handle far 
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content">Content</abbr></a>&gt;</p>
                 <div class="content-header">
@@ -36769,7 +36791,7 @@ bit more data returned, but upside is that storage engine is able to handle far 
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content-VersionInfo.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\VersionInfo">VersionInfo</abbr></a>&gt;</p>
                 <div class="content-header">
@@ -36834,7 +36856,7 @@ bit more data returned, but upside is that storage engine is able to handle far 
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content-VersionInfo.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\VersionInfo">VersionInfo</abbr></a>&gt;</p>
                 <div class="content-header">
@@ -36899,7 +36921,7 @@ bit more data returned, but upside is that storage engine is able to handle far 
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-Relation.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\Relation">Relation</abbr></a></p>
                 <div class="content-header">
@@ -36959,8 +36981,10 @@ bit more data returned, but upside is that storage engine is able to handle far 
                     </td>
                     <td class="empty">
                                                     -
-                                                    <section class="phpdocumentor-description"><p>Source Content ID</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>Source Content ID</p>
+
+            </section>
 
                     </td>
                 </tr>
@@ -36976,8 +37000,10 @@ bit more data returned, but upside is that storage engine is able to handle far 
                     </td>
                     <td class="empty">
                                                     -
-                                                    <section class="phpdocumentor-description"><p>Source Content Version, null if not specified</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>Source Content Version, null if not specified</p>
+
+            </section>
 
                     </td>
                 </tr>
@@ -36993,17 +37019,19 @@ bit more data returned, but upside is that storage engine is able to handle far 
                     </td>
                     <td class="empty">
                                                     -
-                                                    <section class="phpdocumentor-description"><p>\Ibexa\Contracts\Core\Repository\Values\Content\Relation::COMMON,
+                                                    <section class="phpdocumentor-description">
+                    <p>\Ibexa\Contracts\Core\Repository\Values\Content\Relation::COMMON,
 \Ibexa\Contracts\Core\Repository\Values\Content\Relation::EMBED,
 \Ibexa\Contracts\Core\Repository\Values\Content\Relation::LINK,
 \Ibexa\Contracts\Core\Repository\Values\Content\Relation::FIELD</p>
-</section>
+
+            </section>
 
                     </td>
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Relation.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\Relation">Relation</abbr></a>&gt;</p>
                 <div class="content-header">
@@ -37040,8 +37068,10 @@ bit more data returned, but upside is that storage engine is able to handle far 
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>Only loads relations against published versions.</p>
-</section>
+    <section class="phpdocumentor-description">
+                    <p>Only loads relations against published versions.</p>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -37064,8 +37094,10 @@ bit more data returned, but upside is that storage engine is able to handle far 
                         None
                     </td>
                     <td >
-                                                    <section class="phpdocumentor-description"><p>Destination Content ID</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>Destination Content ID</p>
+
+            </section>
 
                     </td>
                 </tr>
@@ -37108,14 +37140,16 @@ bit more data returned, but upside is that storage engine is able to handle far 
                         null
                     </td>
                     <td >
-                                                    <section class="phpdocumentor-description"><p>The relation type bitmask &lt;a href=&quot;classes/Ibexa-Contracts-Core-Repository-Values-Content-Relation.html&quot;&gt;&lt;abbr title=&quot;\Ibexa\Contracts\Core\Repository\Values\Content\Relation&quot;&gt;Relation&lt;/abbr&gt;&lt;/a&gt;</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>The relation type bitmask <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Relation.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Relation">Relation</abbr></a></p>
+
+            </section>
 
                     </td>
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Relation.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\Relation">Relation</abbr></a>&gt;</p>
                 <div class="content-header">
@@ -37152,8 +37186,10 @@ bit more data returned, but upside is that storage engine is able to handle far 
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>Only loads relations against published versions.</p>
-</section>
+    <section class="phpdocumentor-description">
+                    <p>Only loads relations against published versions.</p>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -37176,8 +37212,10 @@ bit more data returned, but upside is that storage engine is able to handle far 
                         None
                     </td>
                     <td >
-                                                    <section class="phpdocumentor-description"><p>Destination Content ID</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>Destination Content ID</p>
+
+            </section>
 
                     </td>
                 </tr>
@@ -37192,17 +37230,19 @@ bit more data returned, but upside is that storage engine is able to handle far 
                         null
                     </td>
                     <td >
-                                                    <section class="phpdocumentor-description"><p>\Ibexa\Contracts\Core\Repository\Values\Content\Relation::COMMON,
+                                                    <section class="phpdocumentor-description">
+                    <p>\Ibexa\Contracts\Core\Repository\Values\Content\Relation::COMMON,
 \Ibexa\Contracts\Core\Repository\Values\Content\Relation::EMBED,
 \Ibexa\Contracts\Core\Repository\Values\Content\Relation::LINK,
 \Ibexa\Contracts\Core\Repository\Values\Content\Relation::FIELD</p>
-</section>
+
+            </section>
 
                     </td>
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Relation.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\Relation">Relation</abbr></a>&gt;</p>
                 <div class="content-header">
@@ -37277,31 +37317,35 @@ bit more data returned, but upside is that storage engine is able to handle far 
                     </td>
                     <td class="empty">
                                                     -
-                                                    <section class="phpdocumentor-description"><p>Version number to load, loads current version if null.</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>Version number to load, loads current version if null.</p>
+
+            </section>
 
                     </td>
                 </tr>
                     </tbody>
     </table>
-
+                                                
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
         <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_loadVersionInfo#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
+                                                <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">throws</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-NotFoundException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException">NotFoundException</abbr></a></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>If version is not found</p>
-</section>
+                                                 <section class="phpdocumentor-description">
+                    <p>If version is not found</p>
+
+            </section>
 
                                     </dd>
-                                            </dl>
+                                                                                    </dl>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-VersionInfo.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\VersionInfo">VersionInfo</abbr></a></p>
                 <div class="content-header">
@@ -37365,14 +37409,14 @@ bit more data returned, but upside is that storage engine is able to handle far 
                 </tr>
                     </tbody>
     </table>
-
+                                                
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
         <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_loadVersionInfoList#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
+                                                <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">throws</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
@@ -37388,7 +37432,7 @@ bit more data returned, but upside is that storage engine is able to handle far 
                                                             
                                              
                                     </dd>
-                                            </dl>
+                                                                                    </dl>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content-VersionInfo.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\VersionInfo">VersionInfo</abbr></a>&gt;</p>
                 <div class="content-header">
@@ -37484,14 +37528,14 @@ $updateStruct-&gt;id as the published one.</p>
                 </tr>
                     </tbody>
     </table>
-
+                                                
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
         <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_publish#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
+                                                <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">throws</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
@@ -37499,12 +37543,14 @@ $updateStruct-&gt;id as the published one.</p>
                                                             
                                              
                                     </dd>
-                                            </dl>
+                                                                                    </dl>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content">Content</abbr></a></p>
             &mdash;
-            <section class="phpdocumentor-description"><p>The published Content</p>
-</section>
+            <section class="phpdocumentor-description">
+                    <p>The published Content</p>
+
+            </section>
 
                 <div class="content-header">
         <h3 id="method_removeRelation">
@@ -37578,11 +37624,13 @@ $updateStruct-&gt;id as the published one.</p>
                     </td>
                     <td class="empty">
                                                     -
-                                                    <section class="phpdocumentor-description"><p>\Ibexa\Contracts\Core\Repository\Values\Content\Relation::COMMON,
+                                                    <section class="phpdocumentor-description">
+                    <p>\Ibexa\Contracts\Core\Repository\Values\Content\Relation::COMMON,
 \Ibexa\Contracts\Core\Repository\Values\Content\Relation::EMBED,
 \Ibexa\Contracts\Core\Repository\Values\Content\Relation::LINK,
 \Ibexa\Contracts\Core\Repository\Values\Content\Relation::FIELD</p>
-</section>
+
+            </section>
 
                     </td>
                 </tr>
@@ -37598,30 +37646,16 @@ $updateStruct-&gt;id as the published one.</p>
                     </td>
                     <td class="empty">
                                                     -
-                                                    <section class="phpdocumentor-description"><p>Content id to invalidate cache tag related to content reverse relations count</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>Content id to invalidate cache tag related to content reverse relations count</p>
+
+            </section>
 
                     </td>
                 </tr>
                     </tbody>
     </table>
-
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html#method_removeRelation#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">todo</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><p>Should the existence verifications happen here or is this supposed to be handled at a higher level?</p>
-</section>
-
-                                    </dd>
-                                            </dl>
+                    
             <div class="content-header">
         <h3 id="method_setStatus">
                 <img src="./images/public.svg" alt="public" />setStatus()
@@ -37656,9 +37690,11 @@ $updateStruct-&gt;id as the published one.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>The $status can be one of VersionInfo::STATUS_DRAFT, VersionInfo::STATUS_PUBLISHED, VersionInfo::STATUS_ARCHIVED
+    <section class="phpdocumentor-description">
+                    <p>The $status can be one of VersionInfo::STATUS_DRAFT, VersionInfo::STATUS_PUBLISHED, VersionInfo::STATUS_ARCHIVED
 When status is set to VersionInfo::STATUS_PUBLISHED content status is updated to ContentInfo::STATUS_PUBLISHED</p>
-</section>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -37714,7 +37750,7 @@ When status is set to VersionInfo::STATUS_PUBLISHED content status is updated to
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">bool</p>
                 <div class="content-header">
@@ -37809,7 +37845,7 @@ When status is set to VersionInfo::STATUS_PUBLISHED content status is updated to
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content">Content</abbr></a></p>
                 <div class="content-header">
@@ -37889,7 +37925,7 @@ When status is set to VersionInfo::STATUS_PUBLISHED content status is updated to
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-ContentInfo.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\ContentInfo">ContentInfo</abbr></a></p>
                                 </div>

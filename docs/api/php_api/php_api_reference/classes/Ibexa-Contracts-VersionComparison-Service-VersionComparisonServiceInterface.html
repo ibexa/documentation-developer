@@ -35358,14 +35358,14 @@
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>Fields should implement \Ibexa\Contracts\Core\FieldType\Comparable
-and be registered with `ibexa.field_type.comparable` tag to get proper data to ComparisonEngine.
+    <section class="phpdocumentor-description">
+                    <p>Fields should implement \Ibexa\Contracts\Core\FieldType\Comparable
+and be registered with <code class="prettyprint">ibexa.field_type.comparable</code> tag to get proper data to ComparisonEngine.</p>
+<p>Engines should implement \Ibexa\Core\Comparison\ComparisonEngine
+and be registered with <code class="prettyprint">ibexa.field_type.comparable.engine</code>.</p>
+<p>Only Versions in same language can be compared.</p>
 
-Engines should implement \Ibexa\Core\Comparison\ComparisonEngine
-and be registered with `ibexa.field_type.comparable.engine`.
-
-Only Versions in same language can be compared.</p>
-</section>
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -35416,14 +35416,16 @@ Only Versions in same language can be compared.</p>
                         null
                     </td>
                     <td >
-                                                    <section class="phpdocumentor-description"><p>if not provided, initialLanguageCode of $versionA is used.</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>if not provided, initialLanguageCode of $versionA is used.</p>
+
+            </section>
 
                     </td>
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-VersionComparison-VersionDiff.html"><abbr title="\Ibexa\Contracts\VersionComparison\VersionDiff">VersionDiff</abbr></a></p>
                                 </div>

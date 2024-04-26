@@ -35367,7 +35367,7 @@
         </tbody>
     </table>
 </div>
-
+                    
             <div class="content-header">
         <h3 id="constant_SORT_DESC">
                 <img src="./images/public.svg" alt="public" />SORT_DESC<a class="headerlink" href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query.html#constant_SORT_DESC" title="Permanent link">¶</a>
@@ -35398,7 +35398,7 @@
         </tbody>
     </table>
 </div>
-
+                    
         
         <h2 id="properties">
             Properties<a class="headerlink" href="#properties" title="Permanent link">¶</a>
@@ -35437,7 +35437,7 @@
         </tbody>
     </table>
 </div>
-
+                    
                     <div class="content-header">
         <h3 id="property_facetBuilders">
                 <img src="./images/public.svg" alt="public" />
@@ -35472,10 +35472,12 @@
         </tbody>
     </table>
 </div>
-    <section class="phpdocumentor-description"><p>Search engines may ignore any, or given facet builders they don't support and will just return search result
+    <section class="phpdocumentor-description">
+                    <p>Search engines may ignore any, or given facet builders they don't support and will just return search result
 facets supported by the engine. API consumer should dynamically iterate over returned facets for further use.</p>
-</section>
 
+            </section>
+                    
                     <div class="content-header">
         <h3 id="property_filter">
                 <img src="./images/public.svg" alt="public" />
@@ -35510,18 +35512,18 @@ facets supported by the engine. API consumer should dynamically iterate over ret
         </tbody>
     </table>
 </div>
-    <section class="phpdocumentor-description"><p>For the storage backend that supports it (Solr) filters the result set
+    <section class="phpdocumentor-description">
+                    <p>For the storage backend that supports it (Solr) filters the result set
 without influencing score. It also offers better performance as filter
-part of the Query can be cached.
-
-In case when the backend does not distinguish between query and filter
+part of the Query can be cached.</p>
+<p>In case when the backend does not distinguish between query and filter
 (Legacy Storage implementation), it will simply be combined with Query query
-using LogicalAnd criterion.
-
-Can contain multiple criterion, as items of a logical one (by default
+using LogicalAnd criterion.</p>
+<p>Can contain multiple criterion, as items of a logical one (by default
 AND)</p>
-</section>
 
+            </section>
+                    
                     <div class="content-header">
         <h3 id="property_limit">
                 <img src="./images/public.svg" alt="public" />
@@ -35556,10 +35558,12 @@ AND)</p>
         </tbody>
     </table>
 </div>
-    <section class="phpdocumentor-description"><p>Limit for number of search hits to return.
-If value is `0`, search query will not return any search hits, useful for doing a count.</p>
-</section>
+    <section class="phpdocumentor-description">
+                    <p>Limit for number of search hits to return.
+If value is <code class="prettyprint">0</code>, search query will not return any search hits, useful for doing a count.</p>
 
+            </section>
+                    
                     <div class="content-header">
         <h3 id="property_offset">
                 <img src="./images/public.svg" alt="public" />
@@ -35594,9 +35598,11 @@ If value is `0`, search query will not return any search hits, useful for doing 
         </tbody>
     </table>
 </div>
-    <section class="phpdocumentor-description"><p>Sets the offset for search hits, used for paging the results.</p>
-</section>
+    <section class="phpdocumentor-description">
+                    <p>Sets the offset for search hits, used for paging the results.</p>
 
+            </section>
+                    
                     <div class="content-header">
         <h3 id="property_performCount">
                 <img src="./images/public.svg" alt="public" />
@@ -35631,7 +35637,7 @@ If value is `0`, search query will not return any search hits, useful for doing 
         </tbody>
     </table>
 </div>
-
+                    
                     <div class="content-header">
         <h3 id="property_query">
                 <img src="./images/public.svg" alt="public" />
@@ -35666,13 +35672,14 @@ If value is `0`, search query will not return any search hits, useful for doing 
         </tbody>
     </table>
 </div>
-    <section class="phpdocumentor-description"><p>For the storage backend that supports it (Solr Storage) query will influence
-score of the search results.
-
-Can contain multiple criterion, as items of a logical one (by default
+    <section class="phpdocumentor-description">
+                    <p>For the storage backend that supports it (Solr Storage) query will influence
+score of the search results.</p>
+<p>Can contain multiple criterion, as items of a logical one (by default
 AND). Defaults to MatchAll.</p>
-</section>
 
+            </section>
+                    
                     <div class="content-header">
         <h3 id="property_sortClauses">
                 <img src="./images/public.svg" alt="public" />
@@ -35707,7 +35714,7 @@ AND). Defaults to MatchAll.</p>
         </tbody>
     </table>
 </div>
-
+                    
                     <div class="content-header">
         <h3 id="property_spellcheck">
                 <img src="./images/public.svg" alt="public" />
@@ -35742,7 +35749,7 @@ AND). Defaults to MatchAll.</p>
         </tbody>
     </table>
 </div>
-
+                    
             </section>
     
     <h2 id="methods">
@@ -35774,7 +35781,7 @@ AND). Defaults to MatchAll.</p>
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$properties</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$properties</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -35783,9 +35790,11 @@ AND). Defaults to MatchAll.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>Readonly properties values must be set using $properties as they are not writable anymore
+    <section class="phpdocumentor-description">
+                    <p>Readonly properties values must be set using $properties as they are not writable anymore
 after object has been created.</p>
-</section>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -35813,7 +35822,7 @@ after object has been created.</p>
                 </tr>
                     </tbody>
     </table>
-
+                    
             <div class="content-header">
         <h3 id="method_getProperties">
                 <img src="./images/protected.svg" alt="protected" />getProperties()
@@ -35848,8 +35857,10 @@ after object has been created.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>Used by &lt;abbr title=&quot;\Ibexa\Contracts\Core\Repository\Values\attributes()&quot;&gt;attributes()&lt;/abbr&gt;, override to add dynamic properties</p>
-</section>
+    <section class="phpdocumentor-description">
+                    <p>Used by <abbr title="\Ibexa\Contracts\Core\Repository\Values\attributes()">attributes()</abbr>, override to add dynamic properties</p>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -35872,38 +35883,16 @@ after object has been created.</p>
                         []
                     </td>
                     <td >
-                                                    <section class="phpdocumentor-description"><p>Additional dynamic properties exposed on the object</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>Additional dynamic properties exposed on the object</p>
+
+            </section>
 
                     </td>
                 </tr>
                     </tbody>
     </table>
-
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/Ibexa-Contracts-Core-Repository-Values-ValueObject.html#method_getProperties#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">uses</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><abbr title="\Ibexa\Contracts\Core\Repository\Values\::__isset()">::__isset()</abbr></span>
-                                        
-                                             
-                                    </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">todo</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><p>Make object traversable and reuse this function there (hence why this is not exposed)</p>
-</section>
-
-                                    </dd>
-                        </dl>
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</p>
                                 </div>

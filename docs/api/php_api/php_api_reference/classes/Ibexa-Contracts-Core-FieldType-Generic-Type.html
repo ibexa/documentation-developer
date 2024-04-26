@@ -35367,7 +35367,7 @@
         </tbody>
     </table>
 </div>
-
+                    
                     <div class="content-header">
         <h3 id="property_validator">
                 <img src="./images/protected.svg" alt="protected" />
@@ -35401,7 +35401,7 @@
         </tbody>
     </table>
 </div>
-
+                    
             </section>
     
     <h2 id="methods">
@@ -35432,7 +35432,7 @@
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-FieldType-ValueSerializerInterface.html"><abbr title="\Ibexa\Contracts\Core\FieldType\ValueSerializerInterface">ValueSerializerInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$serializer</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Symfony\Component\Validator\Validator\ValidatorInterface">ValidatorInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$validator</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-FieldType-ValueSerializerInterface.html"><abbr title="\Ibexa\Contracts\Core\FieldType\ValueSerializerInterface">ValueSerializerInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$serializer</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Symfony\Component\Validator\Validator\ValidatorInterface">ValidatorInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$validator</span></span><span>)</span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -35484,7 +35484,7 @@
                 </tr>
                     </tbody>
     </table>
-
+                    
             <div class="content-header">
         <h3 id="method_acceptValue">
                 <img src="./images/public.svg" alt="public" />acceptValue()
@@ -35519,17 +35519,17 @@
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>This method first inspects $inputValue and convert it into a dedicated
-value object.
-
-After that, the value is checked for structural validity.
+    <section class="phpdocumentor-description">
+                    <p>This method first inspects $inputValue and convert it into a dedicated
+value object.</p>
+<p>After that, the value is checked for structural validity.
 Note that this does not include validation after the rules
 from validators, but only plausibility checks for the general data
-format.
+format.</p>
+<p>Note that this method must also cope with the empty value for the field
+type as e.g. returned by <a href="getEmptyValue()"></a>.</p>
 
-Note that this method must also cope with the empty value for the field
-type as e.g. returned by [](getEmptyValue()).</p>
-</section>
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -35557,12 +35557,14 @@ type as e.g. returned by [](getEmptyValue()).</p>
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-FieldType-Value.html"><abbr title="\Ibexa\Contracts\Core\FieldType\Value">Value</abbr></a></p>
             &mdash;
-            <section class="phpdocumentor-description"><p>The potentially converted and structurally plausible value.</p>
-</section>
+            <section class="phpdocumentor-description">
+                    <p>The potentially converted and structurally plausible value.</p>
+
+            </section>
 
                 <div class="content-header">
         <h3 id="method_applyDefaultSettings">
@@ -35626,7 +35628,7 @@ type as e.g. returned by [](getEmptyValue()).</p>
                 </tr>
                     </tbody>
     </table>
-
+                    
             <div class="content-header">
         <h3 id="method_applyDefaultValidatorConfiguration">
                 <img src="./images/public.svg" alt="public" />applyDefaultValidatorConfiguration()
@@ -35689,7 +35691,7 @@ type as e.g. returned by [](getEmptyValue()).</p>
                 </tr>
                     </tbody>
     </table>
-
+                    
             <div class="content-header">
         <h3 id="method_fieldSettingsFromHash">
                 <img src="./images/public.svg" alt="public" />fieldSettingsFromHash()
@@ -35724,9 +35726,11 @@ type as e.g. returned by [](getEmptyValue()).</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>This is the reverse operation of [](fieldSettingsToHash()).
+    <section class="phpdocumentor-description">
+                    <p>This is the reverse operation of <a href="fieldSettingsToHash()"></a>.
 See the class description for more details on a hash format.</p>
-</section>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -35754,7 +35758,7 @@ See the class description for more details on a hash format.</p>
                 </tr>
                     </tbody>
     </table>
-
+                    
             <div class="content-header">
         <h3 id="method_fieldSettingsToHash">
                 <img src="./images/public.svg" alt="public" />fieldSettingsToHash()
@@ -35789,8 +35793,10 @@ See the class description for more details on a hash format.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>See the class description for more details on a hash format.</p>
-</section>
+    <section class="phpdocumentor-description">
+                    <p>See the class description for more details on a hash format.</p>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -35818,7 +35824,7 @@ See the class description for more details on a hash format.</p>
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|scalar|null</p>
                 <div class="content-header">
@@ -35855,11 +35861,13 @@ See the class description for more details on a hash format.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>This is the reverse operation to [](toHash()). At least the hash
-format generated by [](toHash()) must be converted in reverse.
+    <section class="phpdocumentor-description">
+                    <p>This is the reverse operation to <a href="toHash()"></a>. At least the hash
+format generated by <a href="toHash()"></a> must be converted in reverse.
 Additional formats might be supported in the rare case that this is
 necessary. See the class description for more details on a hash format.</p>
-</section>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -35887,7 +35895,7 @@ necessary. See the class description for more details on a hash format.</p>
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-FieldType-Value.html"><abbr title="\Ibexa\Contracts\Core\FieldType\Value">Value</abbr></a></p>
                 <div class="content-header">
@@ -35924,8 +35932,10 @@ necessary. See the class description for more details on a hash format.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>This method builds a field type value from the $data and $externalData properties.</p>
-</section>
+    <section class="phpdocumentor-description">
+                    <p>This method builds a field type value from the $data and $externalData properties.</p>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -35953,7 +35963,7 @@ necessary. See the class description for more details on a hash format.</p>
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-FieldType-Value.html"><abbr title="\Ibexa\Contracts\Core\FieldType\Value">Value</abbr></a></p>
                 <div class="content-header">
@@ -35990,12 +36000,14 @@ necessary. See the class description for more details on a hash format.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>This value will be used, if no value was provided for a field of this
+    <section class="phpdocumentor-description">
+                    <p>This value will be used, if no value was provided for a field of this
 type and no default value was specified in the field definition. It is
 also used to determine that a user intentionally (or unintentionally) did not
 set a non-empty value.</p>
-</section>
 
+            </section>
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-FieldType-Value.html"><abbr title="\Ibexa\Contracts\Core\FieldType\Value">Value</abbr></a></p>
                 <div class="content-header">
@@ -36032,13 +36044,15 @@ set a non-empty value.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>This identifier should be globally unique and the implementer of a
+    <section class="phpdocumentor-description">
+                    <p>This identifier should be globally unique and the implementer of a
 FieldType must take care for the uniqueness. It is therefore recommended
 to prefix the field-type identifier by a unique string that identifies
 the implementer. A good identifier could for example take your companies main
 domain name as a prefix in reverse order.</p>
-</section>
 
+            </section>
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">string</p>
                 <div class="content-header">
@@ -36075,11 +36089,12 @@ domain name as a prefix in reverse order.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>It will be used to generate content name and url alias if current field
-is designated to be used in the content name/urlAlias pattern.
+    <section class="phpdocumentor-description">
+                    <p>It will be used to generate content name and url alias if current field
+is designated to be used in the content name/urlAlias pattern.</p>
+<p>The used $value can be assumed to be already accepted by <a href="FieldType::acceptValue()"></a>.</p>
 
-The used $value can be assumed to be already accepted by [](FieldType::acceptValue()).</p>
-</section>
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -36135,7 +36150,7 @@ The used $value can be assumed to be already accepted by [](FieldType::acceptVal
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">string</p>
                 <div class="content-header">
@@ -36172,9 +36187,11 @@ The used $value can be assumed to be already accepted by [](FieldType::acceptVal
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>Not intended for \Ibexa\Contracts\Core\Repository\Values\Content\Relation::COMMON type relations,
+    <section class="phpdocumentor-description">
+                    <p>Not intended for \Ibexa\Contracts\Core\Repository\Values\Content\Relation::COMMON type relations,
 there is an API for handling those.</p>
-</section>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -36202,27 +36219,28 @@ there is an API for handling those.</p>
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</p>
             &mdash;
-            <section class="phpdocumentor-description"><p>Hash with relation type as key and array of destination content ids as value.
+            <section class="phpdocumentor-description">
+                    <p>Hash with relation type as key and array of destination content ids as value.</p>
+<p>Example:
+<code class="prettyprint">
+array(
+\Ibexa\Contracts\Core\Repository\Values\Content\Relation::LINK =&gt; array(
+&quot;contentIds&quot; =&gt; array( 12, 13, 14 ),
+&quot;locationIds&quot; =&gt; array( 24 )
+),
+\Ibexa\Contracts\Core\Repository\Values\Content\Relation::EMBED =&gt; array(
+&quot;contentIds&quot; =&gt; array( 12 ),
+&quot;locationIds&quot; =&gt; array( 24, 45 )
+),
+\Ibexa\Contracts\Core\Repository\Values\Content\Relation::FIELD =&gt; array( 12 )
+)
+</code></p>
 
-Example:
-&lt;code&gt;
- array(
-     \Ibexa\Contracts\Core\Repository\Values\Content\Relation::LINK =&gt; array(
-         &quot;contentIds&quot; =&gt; array( 12, 13, 14 ),
-         &quot;locationIds&quot; =&gt; array( 24 )
-     ),
-     \Ibexa\Contracts\Core\Repository\Values\Content\Relation::EMBED =&gt; array(
-         &quot;contentIds&quot; =&gt; array( 12 ),
-         &quot;locationIds&quot; =&gt; array( 24, 45 )
-     ),
-     \Ibexa\Contracts\Core\Repository\Values\Content\Relation::FIELD =&gt; array( 12 )
- )
-&lt;/code&gt;</p>
-</section>
+            </section>
 
                 <div class="content-header">
         <h3 id="method_getSettingsSchema">
@@ -36258,10 +36276,10 @@ Example:
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>Returns an arbitrary value, representing a schema for the settings of
-the FieldType.
-
-Explanation: There are no possible generic schemas for defining settings
+    <section class="phpdocumentor-description">
+                    <p>Returns an arbitrary value, representing a schema for the settings of
+the FieldType.</p>
+<p>Explanation: There are no possible generic schemas for defining settings
 input, which is why no schema for the return value of this method is
 defined. It is up to the implementer to define and document a schema for
 the return value and document it. In addition, it is necessary that all
@@ -36271,8 +36289,9 @@ into. These adapters then need to be either shipped with the FieldType
 or need to be implemented by a third party. If there is no adapter
 available for a specific FieldType, it will not be usable with the
 consumer.</p>
-</section>
 
+            </section>
+                    
             <div class="content-header">
         <h3 id="method_getValidatorConfigurationSchema">
                 <img src="./images/public.svg" alt="public" />getValidatorConfigurationSchema()
@@ -36307,10 +36326,10 @@ consumer.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>Returns an arbitrary value, representing a schema for the validator
-configuration of the FieldType.
-
-Explanation: There are no possible generic schemas for defining settings
+    <section class="phpdocumentor-description">
+                    <p>Returns an arbitrary value, representing a schema for the validator
+configuration of the FieldType.</p>
+<p>Explanation: There are no possible generic schemas for defining settings
 input, which is why no schema for the return value of this method is
 defined. It is up to the implementer to define and document a schema for
 the return value and document it. In addition, it is necessary that all
@@ -36319,29 +36338,27 @@ provide plugin mechanisms to hook adapters for the specific FieldType
 into. These adapters then need to be either shipped with the FieldType
 or need to be implemented by a third party. If there is no adapter
 available for a specific FieldType, it will not be usable with the
-consumer.
-
-Best practice:
-
-It is considered best practice to return a hash map, which contains
-rudimentary settings structures, like e.g. for the &quot;ezstring&quot; FieldType
-
-&lt;code&gt;
+consumer.</p>
+<p>Best practice:</p>
+<p>It is considered best practice to return a hash map, which contains
+rudimentary settings structures, like e.g. for the &quot;ezstring&quot; FieldType</p>
+<code class="prettyprint">
  array(
-     'stringLength' =&gt; array(
-         'minStringLength' =&gt; array(
-             'type'    =&gt; 'int',
-             'default' =&gt; 0,
+     'stringLength' => array(
+         'minStringLength' => array(
+             'type'    => 'int',
+             'default' => 0,
          ),
-         'maxStringLength' =&gt; array(
-             'type'    =&gt; 'int'
-             'default' =&gt; null,
+         'maxStringLength' => array(
+             'type'    => 'int'
+             'default' => null,
          )
      ),
  );
-&lt;/code&gt;</p>
-</section>
+</code>
 
+            </section>
+                    
             <div class="content-header">
         <h3 id="method_isEmptyValue">
                 <img src="./images/public.svg" alt="public" />isEmptyValue()
@@ -36376,10 +36393,12 @@ rudimentary settings structures, like e.g. for the &quot;ezstring&quot; FieldTyp
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>Usually, only the value returned by [](getEmptyValue()) is
+    <section class="phpdocumentor-description">
+                    <p>Usually, only the value returned by <a href="getEmptyValue()"></a> is
 considered empty. The given $value can be safely assumed to have already
-been processed by [](acceptValue()).</p>
-</section>
+been processed by <a href="acceptValue()"></a>.</p>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -36407,7 +36426,7 @@ been processed by [](acceptValue()).</p>
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">bool</p>
                 <div class="content-header">
@@ -36444,7 +36463,7 @@ been processed by [](acceptValue()).</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">bool</p>
                 <div class="content-header">
@@ -36481,7 +36500,7 @@ been processed by [](acceptValue()).</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">bool</p>
                 <div class="content-header">
@@ -36518,7 +36537,7 @@ been processed by [](acceptValue()).</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">bool</p>
                 <div class="content-header">
@@ -36555,11 +36574,13 @@ been processed by [](acceptValue()).</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>Converts the given $value into a plain hash format, which can be used to
+    <section class="phpdocumentor-description">
+                    <p>Converts the given $value into a plain hash format, which can be used to
 transfer the value through plain text formats, e.g. XML, which do not
 support complex structures like objects. See the class level doc block
 for additional information. See the class description for more details on a hash format.</p>
-</section>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -36587,7 +36608,7 @@ for additional information. See the class description for more details on a hash
                 </tr>
                     </tbody>
     </table>
-
+                    
             <div class="content-header">
         <h3 id="method_toPersistenceValue">
                 <img src="./images/public.svg" alt="public" />toPersistenceValue()
@@ -36622,19 +36643,19 @@ for additional information. See the class description for more details on a hash
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>In this method the field type puts the data which is stored in the field of content in the repository
+    <section class="phpdocumentor-description">
+                    <p>In this method the field type puts the data which is stored in the field of content in the repository
 into the property FieldValue::data. The format of $data is a primitive, an array (map) or an object, which
 is then canonically converted to e.g. json/xml structures by future storage engines without
 further conversions. For mapping the $data to the legacy database an appropriate Converter
-(implementing &lt;abbr title=&quot;\Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter&quot;&gt;Converter&lt;/abbr&gt;) has implemented for the field
+(implementing <abbr title="\Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter">Converter</abbr>) has implemented for the field
 type. Note: $data should only hold data which is actually stored in the field. It must not
-hold data which is stored externally.
+hold data which is stored externally.</p>
+<p>The $externalData property in the FieldValue is used for storing data externally by the
+FieldStorage interface method storeFieldData.</p>
+<p>The FieldValuer::sortKey is build by the field type for using by sort operations.</p>
 
-The $externalData property in the FieldValue is used for storing data externally by the
-FieldStorage interface method storeFieldData.
-
-The FieldValuer::sortKey is build by the field type for using by sort operations.</p>
-</section>
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -36657,19 +36678,23 @@ The FieldValuer::sortKey is build by the field type for using by sort operations
                         None
                     </td>
                     <td >
-                                                    <section class="phpdocumentor-description"><p>The value of the field type</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>The value of the field type</p>
+
+            </section>
 
                     </td>
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-FieldValue.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\FieldValue">FieldValue</abbr></a></p>
             &mdash;
-            <section class="phpdocumentor-description"><p>the value processed by the storage engine</p>
-</section>
+            <section class="phpdocumentor-description">
+                    <p>the value processed by the storage engine</p>
+
+            </section>
 
                 <div class="content-header">
         <h3 id="method_validate">
@@ -36743,14 +36768,16 @@ The FieldValuer::sortKey is build by the field type for using by sort operations
                     </td>
                     <td class="empty">
                                                     -
-                                                    <section class="phpdocumentor-description"><p>The field value for which an action is performed</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>The field value for which an action is performed</p>
+
+            </section>
 
                     </td>
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-FieldType-ValidationError.html"><abbr title="\Ibexa\Contracts\Core\FieldType\ValidationError">ValidationError</abbr></a>&gt;</p>
                 <div class="content-header">
@@ -36787,9 +36814,11 @@ The FieldValuer::sortKey is build by the field type for using by sort operations
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>This methods determines if the given $fieldSettings are structurally
-correct and comply to the settings schema returned by [getSettingsSchema()](*).</p>
-</section>
+    <section class="phpdocumentor-description">
+                    <p>This methods determines if the given $fieldSettings are structurally
+correct and comply to the settings schema returned by <a href="*">getSettingsSchema()</a>.</p>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -36817,7 +36846,7 @@ correct and comply to the settings schema returned by [getSettingsSchema()](*).<
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-FieldType-ValidationError.html"><abbr title="\Ibexa\Contracts\Core\FieldType\ValidationError">ValidationError</abbr></a>&gt;</p>
                 <div class="content-header">
@@ -36854,10 +36883,12 @@ correct and comply to the settings schema returned by [getSettingsSchema()](*).<
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>This methods determines if the given $validatorConfiguration is
+    <section class="phpdocumentor-description">
+                    <p>This methods determines if the given $validatorConfiguration is
 structurally correct and complies to the validator configuration schema
-returned by [](getValidatorConfigurationSchema()).</p>
-</section>
+returned by <a href="getValidatorConfigurationSchema()"></a>.</p>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -36885,7 +36916,7 @@ returned by [](getValidatorConfigurationSchema()).</p>
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-FieldType-ValidationError.html"><abbr title="\Ibexa\Contracts\Core\FieldType\ValidationError">ValidationError</abbr></a>&gt;</p>
                 <div class="content-header">
@@ -36923,8 +36954,10 @@ configuration of the type.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>See the class description for more details on a hash format.</p>
-</section>
+    <section class="phpdocumentor-description">
+                    <p>See the class description for more details on a hash format.</p>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -36952,7 +36985,7 @@ configuration of the type.</p>
                 </tr>
                     </tbody>
     </table>
-
+                    
             <div class="content-header">
         <h3 id="method_validatorConfigurationToHash">
                 <img src="./images/public.svg" alt="public" />validatorConfigurationToHash()
@@ -36987,8 +37020,10 @@ configuration of the type.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>See the class description for more details on a hash format.</p>
-</section>
+    <section class="phpdocumentor-description">
+                    <p>See the class description for more details on a hash format.</p>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -37016,7 +37051,7 @@ configuration of the type.</p>
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|scalar|null</p>
                 <div class="content-header">
@@ -37053,22 +37088,22 @@ configuration of the type.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>This is an operation method for &lt;abbr title=&quot;\Ibexa\Contracts\Core\FieldType\Generic\acceptValue()&quot;&gt;acceptValue()&lt;/abbr&gt;.
+    <section class="phpdocumentor-description">
+                    <p>This is an operation method for <abbr title="\Ibexa\Contracts\Core\FieldType\Generic\acceptValue()">acceptValue()</abbr>.</p>
+<p>Default implementation expects the value class to reside in the same namespace as its
+FieldType class and is named &quot;Value&quot;.</p>
+<p>Example implementation:
+<code class="prettyprint">
+protected function checkValueType($value): void
+{
+if ( !$inputValue instanceof \My\FieldType\CookieJar\Value ) )
+{
+throw new InvalidArgumentException( &quot;Given value type is not supported.&quot; );
+}
+}
+</code></p>
 
-Default implementation expects the value class to reside in the same namespace as its
-FieldType class and is named &quot;Value&quot;.
-
-Example implementation:
-&lt;code&gt;
- protected function checkValueType($value): void
- {
-     if ( !$inputValue instanceof \My\FieldType\CookieJar\Value ) )
-     {
-         throw new InvalidArgumentException( &quot;Given value type is not supported.&quot; );
-     }
- }
-&lt;/code&gt;</p>
-</section>
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -37091,31 +37126,35 @@ Example implementation:
                         None
                     </td>
                     <td >
-                                                    <section class="phpdocumentor-description"><p>A value returned by &lt;abbr title=&quot;\Ibexa\Contracts\Core\FieldType\Generic\createValueFromInput()&quot;&gt;createValueFromInput()&lt;/abbr&gt;.</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>A value returned by <abbr title="\Ibexa\Contracts\Core\FieldType\Generic\createValueFromInput()">createValueFromInput()</abbr>.</p>
+
+            </section>
 
                     </td>
                 </tr>
                     </tbody>
     </table>
-
+                                                
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
         <a href="classes/Ibexa-Contracts-Core-FieldType-Generic-Type.html#method_checkValueType#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
+                                                <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">throws</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-InvalidArgumentException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\InvalidArgumentException">InvalidArgumentException</abbr></a></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>If the parameter is not an instance of the supported value subtype.</p>
-</section>
+                                                 <section class="phpdocumentor-description">
+                    <p>If the parameter is not an instance of the supported value subtype.</p>
+
+            </section>
 
                                     </dd>
-                                            </dl>
+                                                                                    </dl>
             <div class="content-header">
         <h3 id="method_createValueFromInput">
                 <img src="./images/protected.svg" alt="protected" />createValueFromInput()
@@ -37150,24 +37189,24 @@ Example implementation:
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>If given $inputValue could not be converted or is already an instance of dedicate value object,
-the method should simply return it.
+    <section class="phpdocumentor-description">
+                    <p>If given $inputValue could not be converted or is already an instance of dedicate value object,
+the method should simply return it.</p>
+<p>This is an operation method for <abbr title="\Ibexa\Contracts\Core\FieldType\Generic\acceptValue()">acceptValue()</abbr>.</p>
+<p>Example implementation:
+<code class="prettyprint">
+protected function createValueFromInput( $inputValue )
+{
+if ( is_array( $inputValue ) )
+{
+$inputValue = \My\FieldType\CookieJar\Value( $inputValue );
+}</p>
+<pre class="prettyprint"><code class="prettyprint"> return $inputValue;
+</code></pre>
+<p>}
+</code></p>
 
-This is an operation method for &lt;abbr title=&quot;\Ibexa\Contracts\Core\FieldType\Generic\acceptValue()&quot;&gt;acceptValue()&lt;/abbr&gt;.
-
-Example implementation:
-&lt;code&gt;
- protected function createValueFromInput( $inputValue )
- {
-     if ( is_array( $inputValue ) )
-     {
-         $inputValue = \My\FieldType\CookieJar\Value( $inputValue );
-     }
-
-     return $inputValue;
- }
-&lt;/code&gt;</p>
-</section>
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -37195,12 +37234,14 @@ Example implementation:
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">mixed</p>
             &mdash;
-            <section class="phpdocumentor-description"><p>The potentially converted input value.</p>
-</section>
+            <section class="phpdocumentor-description">
+                    <p>The potentially converted input value.</p>
+
+            </section>
 
                 <div class="content-header">
         <h3 id="method_getFieldSettingsConstraints">
@@ -37235,14 +37276,14 @@ Example implementation:
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-
+                                                            
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
         <a href="classes/Ibexa-Contracts-Core-FieldType-Generic-Type.html#method_getFieldSettingsConstraints#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
+                                                                            <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">see</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
@@ -37250,7 +37291,7 @@ Example implementation:
                                         
                                              
                                     </dd>
-                                            </dl>
+                                                                                    </dl>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\Validator\Constraints\Collection">Collection</abbr>|null</p>
                 <div class="content-header">
@@ -37314,14 +37355,14 @@ Example implementation:
                 </tr>
                     </tbody>
     </table>
-
+                                                            
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
         <a href="classes/Ibexa-Contracts-Core-FieldType-Generic-Type.html#method_getFieldValueConstraints#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
+                                                                            <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">see</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
@@ -37329,7 +37370,7 @@ Example implementation:
                                         
                                              
                                     </dd>
-                                            </dl>
+                                                                                    </dl>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\Validator\Constraints\Collection">Collection</abbr>|null</p>
                 <div class="content-header">
@@ -37366,17 +37407,16 @@ Example implementation:
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>Return value is mixed. It should be something which is sensible for
-sorting.
+    <section class="phpdocumentor-description">
+                    <p>Return value is mixed. It should be something which is sensible for
+sorting.</p>
+<p>It is up to the persistence implementation to handle those values.
+Common string and integer values are safe.</p>
+<p>For the legacy storage it is up to the field converters to set this
+value in either sort_key_string or sort_key_int.</p>
+<p>In case of multi value, values should be string and separated by &quot;-&quot; or &quot;,&quot;.</p>
 
-It is up to the persistence implementation to handle those values.
-Common string and integer values are safe.
-
-For the legacy storage it is up to the field converters to set this
-value in either sort_key_string or sort_key_int.
-
-In case of multi value, values should be string and separated by &quot;-&quot; or &quot;,&quot;.</p>
-</section>
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -37404,7 +37444,7 @@ In case of multi value, values should be string and separated by &quot;-&quot; o
                 </tr>
                     </tbody>
     </table>
-
+                    
             <div class="content-header">
         <h3 id="method_getValueClass">
                 <img src="./images/protected.svg" alt="protected" />getValueClass()
@@ -37439,7 +37479,7 @@ In case of multi value, values should be string and separated by &quot;-&quot; o
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">string</p>
                 <div class="content-header">
@@ -37503,7 +37543,7 @@ In case of multi value, values should be string and separated by &quot;-&quot; o
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</p>
                                 </div>

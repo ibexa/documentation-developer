@@ -35363,10 +35363,14 @@
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>- If $languageCode is defined, return if available, otherwise null
-- If not, pick it using prioritized language (if provided to api on object retrieval),
-  otherwise in main language</p>
-</section>
+    <section class="phpdocumentor-description">
+                    <ul>
+<li>If $languageCode is defined, return if available, otherwise null</li>
+<li>If not, pick it using prioritized language (if provided to api on object retrieval),
+otherwise in main language</li>
+</ul>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -35394,13 +35398,15 @@
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">string|null</p>
             &mdash;
-            <section class="phpdocumentor-description"><p>The description for a given language, or null if $languageCode is not set
+            <section class="phpdocumentor-description">
+                    <p>The description for a given language, or null if $languageCode is not set
 or does not exist.</p>
-</section>
+
+            </section>
 
                 <div class="content-header">
         <h3 id="method_getDescriptions">
@@ -35436,12 +35442,14 @@ or does not exist.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>The structure of the return value is:
-&lt;code&gt;
+    <section class="phpdocumentor-description">
+                    <p>The structure of the return value is:
+<code class="prettyprint">
 array( 'eng' =&gt; '&lt;description_eng&gt;', 'de' =&gt; '&lt;description_de&gt;' );
-&lt;/code&gt;</p>
-</section>
+</code></p>
 
+            </section>
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, string&gt;</p>
                                 </div>

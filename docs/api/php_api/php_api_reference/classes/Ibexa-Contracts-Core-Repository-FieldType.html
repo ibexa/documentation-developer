@@ -35358,8 +35358,10 @@
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>This is the reverse operation of [](fieldSettingsToHash()).</p>
-</section>
+    <section class="phpdocumentor-description">
+                    <p>This is the reverse operation of <a href="fieldSettingsToHash()"></a>.</p>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -35387,7 +35389,7 @@
                 </tr>
                     </tbody>
     </table>
-
+                    
             <div class="content-header">
         <h3 id="method_fieldSettingsToHash">
                 <img src="./images/public.svg" alt="public" />fieldSettingsToHash()
@@ -35450,7 +35452,7 @@
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|scalar|null</p>
                 <div class="content-header">
@@ -35487,8 +35489,10 @@
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>This is the reverse operation to [](toHash()).</p>
-</section>
+    <section class="phpdocumentor-description">
+                    <p>This is the reverse operation to <a href="toHash()"></a>.</p>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -35516,7 +35520,7 @@
                 </tr>
                     </tbody>
     </table>
-
+                    
             <div class="content-header">
         <h3 id="method_getEmptyValue">
                 <img src="./images/public.svg" alt="public" />getEmptyValue()
@@ -35551,7 +35555,7 @@
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-
+                    
             <div class="content-header">
         <h3 id="method_getFieldTypeIdentifier">
                 <img src="./images/public.svg" alt="public" />getFieldTypeIdentifier()
@@ -35586,7 +35590,7 @@
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">string</p>
                 <div class="content-header">
@@ -35681,7 +35685,7 @@
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">string</p>
                 <div class="content-header">
@@ -35718,10 +35722,10 @@
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>Returns an arbitrary value, representing a schema for the settings of
-the FieldType.
-
-Explanation: There are no possible generic schemas for defining settings
+    <section class="phpdocumentor-description">
+                    <p>Returns an arbitrary value, representing a schema for the settings of
+the FieldType.</p>
+<p>Explanation: There are no possible generic schemas for defining settings
 input, which is why no schema for the return value of this method is
 defined. It is up to the implementer to define and document a schema for
 the return value and document it. In addition, it is necessary that all
@@ -35731,8 +35735,9 @@ into. These adapters then need to be either shipped with the FieldType
 or need to be implemented by a third party. If there is no adapter
 available for a specific FieldType, it will not be usable with the
 consumer.</p>
-</section>
 
+            </section>
+                    
             <div class="content-header">
         <h3 id="method_getValidatorConfigurationSchema">
                 <img src="./images/public.svg" alt="public" />getValidatorConfigurationSchema()
@@ -35767,10 +35772,10 @@ consumer.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>Returns an arbitrary value, representing a schema for the validator
-configuration of the FieldType.
-
-Explanation: There are no possible generic schemas for defining settings
+    <section class="phpdocumentor-description">
+                    <p>Returns an arbitrary value, representing a schema for the validator
+configuration of the FieldType.</p>
+<p>Explanation: There are no possible generic schemas for defining settings
 input, which is why no schema for the return value of this method is
 defined. It is up to the implementer to define and document a schema for
 the return value and document it. In addition, it is necessary that all
@@ -35779,29 +35784,27 @@ provide plugin mechanisms to hook adapters for the specific FieldType
 into. These adapters then need to be either shipped with the FieldType
 or need to be implemented by a third party. If there is no adapter
 available for a specific FieldType, it will not be usable with the
-consumer.
-
-Best practice:
-
-It is considered best practice to return a hash map, which contains
-rudimentary settings structures, like e.g. for the &quot;ezstring&quot; FieldType
-
-&lt;code&gt;
+consumer.</p>
+<p>Best practice:</p>
+<p>It is considered best practice to return a hash map, which contains
+rudimentary settings structures, like e.g. for the &quot;ezstring&quot; FieldType</p>
+<code class="prettyprint">
  array(
-     'stringLength' =&gt; array(
-         'minStringLength' =&gt; array(
-             'type'    =&gt; 'int',
-             'default' =&gt; 0,
+     'stringLength' => array(
+         'minStringLength' => array(
+             'type'    => 'int',
+             'default' => 0,
          ),
-         'maxStringLength' =&gt; array(
-             'type'    =&gt; 'int'
-             'default' =&gt; null,
+         'maxStringLength' => array(
+             'type'    => 'int'
+             'default' => null,
          )
      ),
  );
-&lt;/code&gt;</p>
-</section>
+</code>
 
+            </section>
+                    
             <div class="content-header">
         <h3 id="method_isEmptyValue">
                 <img src="./images/public.svg" alt="public" />isEmptyValue()
@@ -35836,12 +35839,13 @@ rudimentary settings structures, like e.g. for the &quot;ezstring&quot; FieldTyp
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>Usually, only the value returned by [](getEmptyValue()) is
-considered empty but that is not always the case.
-
-Note: This function assumes that $value is valid so this function can only
+    <section class="phpdocumentor-description">
+                    <p>Usually, only the value returned by <a href="getEmptyValue()"></a> is
+considered empty but that is not always the case.</p>
+<p>Note: This function assumes that $value is valid so this function can only
 be used reliably on $values that came from the API, not from the user.</p>
-</section>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -35869,7 +35873,7 @@ be used reliably on $values that came from the API, not from the user.</p>
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">bool</p>
                 <div class="content-header">
@@ -35906,7 +35910,7 @@ be used reliably on $values that came from the API, not from the user.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">bool</p>
                 <div class="content-header">
@@ -35943,7 +35947,7 @@ be used reliably on $values that came from the API, not from the user.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">bool</p>
                 <div class="content-header">
@@ -35980,7 +35984,7 @@ be used reliably on $values that came from the API, not from the user.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">bool</p>
                 <div class="content-header">
@@ -36045,7 +36049,7 @@ be used reliably on $values that came from the API, not from the user.</p>
                 </tr>
                     </tbody>
     </table>
-
+                    
             <div class="content-header">
         <h3 id="method_validateFieldSettings">
                 <img src="./images/public.svg" alt="public" />validateFieldSettings()
@@ -36080,9 +36084,11 @@ be used reliably on $values that came from the API, not from the user.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>This methods determines if the given $fieldSettings are structurally
+    <section class="phpdocumentor-description">
+                    <p>This methods determines if the given $fieldSettings are structurally
 correct and comply to the settings schema as defined in FieldType.</p>
-</section>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -36110,7 +36116,7 @@ correct and comply to the settings schema as defined in FieldType.</p>
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-FieldType-ValidationError.html"><abbr title="\Ibexa\Contracts\Core\FieldType\ValidationError">ValidationError</abbr></a>&gt;</p>
                 <div class="content-header">
@@ -36147,9 +36153,11 @@ correct and comply to the settings schema as defined in FieldType.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>This methods determines if the given $validatorConfiguration is
+    <section class="phpdocumentor-description">
+                    <p>This methods determines if the given $validatorConfiguration is
 structurally correct and complies to the validator configuration schema as defined in FieldType.</p>
-</section>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -36177,7 +36185,7 @@ structurally correct and complies to the validator configuration schema as defin
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-FieldType-ValidationError.html"><abbr title="\Ibexa\Contracts\Core\FieldType\ValidationError">ValidationError</abbr></a>&gt;</p>
                 <div class="content-header">
@@ -36237,8 +36245,10 @@ structurally correct and complies to the validator configuration schema as defin
                     </td>
                     <td class="empty">
                                                     -
-                                                    <section class="phpdocumentor-description"><p>The field definition of the field</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>The field definition of the field</p>
+
+            </section>
 
                     </td>
                 </tr>
@@ -36254,14 +36264,16 @@ structurally correct and complies to the validator configuration schema as defin
                     </td>
                     <td class="empty">
                                                     -
-                                                    <section class="phpdocumentor-description"><p>The field value for which an action is performed</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>The field value for which an action is performed</p>
+
+            </section>
 
                     </td>
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-FieldType-ValidationError.html"><abbr title="\Ibexa\Contracts\Core\FieldType\ValidationError">ValidationError</abbr></a>&gt;</p>
                 <div class="content-header">
@@ -36327,7 +36339,7 @@ configuration of the type.</p>
                 </tr>
                     </tbody>
     </table>
-
+                    
             <div class="content-header">
         <h3 id="method_validatorConfigurationToHash">
                 <img src="./images/public.svg" alt="public" />validatorConfigurationToHash()
@@ -36390,7 +36402,7 @@ configuration of the type.</p>
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|scalar|null</p>
                                 </div>

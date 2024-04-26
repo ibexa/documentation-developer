@@ -35355,7 +35355,7 @@
         </tbody>
     </table>
 </div>
-
+                    
             <div class="content-header">
         <h3 id="constant_ACCESS_DENIED">
                 <img src="./images/public.svg" alt="public" />ACCESS_DENIED<a class="headerlink" href="classes/Ibexa-Contracts-Core-Limitation-Type.html#constant_ACCESS_DENIED" title="Permanent link">¶</a>
@@ -35386,7 +35386,7 @@
         </tbody>
     </table>
 </div>
-
+                    
             <div class="content-header">
         <h3 id="constant_ACCESS_GRANTED">
                 <img src="./images/public.svg" alt="public" />ACCESS_GRANTED<a class="headerlink" href="classes/Ibexa-Contracts-Core-Limitation-Type.html#constant_ACCESS_GRANTED" title="Permanent link">¶</a>
@@ -35418,19 +35418,20 @@
         </tbody>
     </table>
 </div>
-    <section class="phpdocumentor-description"><p>Currently ACCESS_ABSTAIN must mean that evaluate does not support the provided $object or $targets,
-this is currently only supported by role limitations as policy limitations should not allow this.
+    <section class="phpdocumentor-description">
+                    <p>Currently ACCESS_ABSTAIN must mean that evaluate does not support the provided $object or $targets,
+this is currently only supported by role limitations as policy limitations should not allow this.</p>
+<p>Note: In future version constant values might change to 1, 0 and -1 as used in Symfony.</p>
 
-Note: In future version constant values might change to 1, 0 and -1 as used in Symfony.</p>
-</section>
-
+            </section>
+                                                
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
         <a href="classes/Ibexa-Contracts-Core-Limitation-Type.html#constant_ACCESS_GRANTED#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
+                                                <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">since</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
@@ -35438,7 +35439,7 @@ Note: In future version constant values might change to 1, 0 and -1 as used in S
                                                                                 
                                              
                                     </dd>
-                                            </dl>
+                                                                                    </dl>
             <div class="content-header">
         <h3 id="constant_VALUE_SCHEMA_LOCATION_ID">
                 <img src="./images/public.svg" alt="public" />VALUE_SCHEMA_LOCATION_ID<a class="headerlink" href="classes/Ibexa-Contracts-Core-Limitation-Type.html#constant_VALUE_SCHEMA_LOCATION_ID" title="Permanent link">¶</a>
@@ -35470,10 +35471,12 @@ Note: In future version constant values might change to 1, 0 and -1 as used in S
         </tbody>
     </table>
 </div>
-    <section class="phpdocumentor-description"><p>Used in cases where a certain value is accepted but the options are to many to return as a hash of options.
+    <section class="phpdocumentor-description">
+                    <p>Used in cases where a certain value is accepted but the options are to many to return as a hash of options.
 GUI should typically present option to browse content tree to select limitation value(s).</p>
-</section>
 
+            </section>
+                    
             <div class="content-header">
         <h3 id="constant_VALUE_SCHEMA_LOCATION_PATH">
                 <img src="./images/public.svg" alt="public" />VALUE_SCHEMA_LOCATION_PATH<a class="headerlink" href="classes/Ibexa-Contracts-Core-Limitation-Type.html#constant_VALUE_SCHEMA_LOCATION_PATH" title="Permanent link">¶</a>
@@ -35504,7 +35507,7 @@ GUI should typically present option to browse content tree to select limitation 
         </tbody>
     </table>
 </div>
-
+                    
         
     <h2 id="methods">
         Methods<a class="headerlink" href="#methods" title="Permanent link">¶</a>
@@ -35544,8 +35547,10 @@ GUI should typically present option to browse content tree to select limitation 
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>Makes sure LimitationValue object and -&gt;limitationValues is of correct type.</p>
-</section>
+    <section class="phpdocumentor-description">
+                    <p>Makes sure LimitationValue object and -&gt;limitationValues is of correct type.</p>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -35573,24 +35578,26 @@ GUI should typically present option to browse content tree to select limitation 
                 </tr>
                     </tbody>
     </table>
-
+                                                
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
         <a href="classes/Ibexa-Contracts-Core-Limitation-Type.html#method_acceptValue#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
+                                                <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">throws</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-InvalidArgumentException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\InvalidArgumentException">InvalidArgumentException</abbr></a></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>If the value does not match the expected type/structure</p>
-</section>
+                                                 <section class="phpdocumentor-description">
+                    <p>If the value does not match the expected type/structure</p>
+
+            </section>
 
                                     </dd>
-                                            </dl>
+                                                                                    </dl>
             <div class="content-header">
         <h3 id="method_buildValue">
                 <img src="./images/public.svg" alt="public" />buildValue()
@@ -35625,9 +35632,11 @@ GUI should typically present option to browse content tree to select limitation 
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>The is the method to create values as Limitation type needs value knowledge anyway in acceptValue,
+    <section class="phpdocumentor-description">
+                    <p>The is the method to create values as Limitation type needs value knowledge anyway in acceptValue,
 the reverse relation is provided by means of identifier lookup (Value has identifier, and so does RoleService).</p>
-</section>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -35655,7 +35664,7 @@ the reverse relation is provided by means of identifier lookup (Value has identi
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-User-Limitation.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\User\Limitation">Limitation</abbr></a></p>
                 <div class="content-header">
@@ -35760,29 +35769,33 @@ the reverse relation is provided by means of identifier lookup (Value has identi
                     </td>
                     <td class="empty">
                                                     -
-                                                    <section class="phpdocumentor-description"><p>An array of location, parent or &quot;assignment&quot;
+                                                    <section class="phpdocumentor-description">
+                    <p>An array of location, parent or &quot;assignment&quot;
 objects, if null: none where provided by caller</p>
-</section>
+
+            </section>
 
                     </td>
                 </tr>
                     </tbody>
     </table>
-
+                                                
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
         <a href="classes/Ibexa-Contracts-Core-Limitation-TargetAwareType.html#method_evaluate#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
+                                                <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">throws</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-BadStateException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\BadStateException">BadStateException</abbr></a></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>If value of the LimitationValue is unsupported</p>
-</section>
+                                                 <section class="phpdocumentor-description">
+                    <p>If value of the LimitationValue is unsupported</p>
+
+            </section>
 
                                     </dd>
                             <dt class="phpdocumentor-tag-list__entry">
@@ -35791,16 +35804,20 @@ objects, if null: none where provided by caller</p>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-InvalidArgumentException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\InvalidArgumentException">InvalidArgumentException</abbr></a></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>If any of the arguments are invalid</p>
-</section>
+                                                 <section class="phpdocumentor-description">
+                    <p>If any of the arguments are invalid</p>
+
+            </section>
 
                                     </dd>
-                                            </dl>
+                                                                                    </dl>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">bool|null</p>
             &mdash;
-            <section class="phpdocumentor-description"><p>Returns one of ACCESS_* constants</p>
-</section>
+            <section class="phpdocumentor-description">
+                    <p>Returns one of ACCESS_* constants</p>
+
+            </section>
 
                 <div class="content-header">
         <h3 id="method_getCriterion">
@@ -35879,25 +35896,27 @@ objects, if null: none where provided by caller</p>
                 </tr>
                     </tbody>
     </table>
-
+                                                
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
         <a href="classes/Ibexa-Contracts-Core-Limitation-Type.html#method_getCriterion#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
+                                                <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">throws</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-NotImplementedException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\NotImplementedException">NotImplementedException</abbr></a></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>If the limitation does not support
+                                                 <section class="phpdocumentor-description">
+                    <p>If the limitation does not support
 being used as a Criterion.</p>
-</section>
+
+            </section>
 
                                     </dd>
-                                            </dl>
+                                                                                    </dl>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-CriterionInterface.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Query\CriterionInterface">CriterionInterface</abbr></a>|<a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-LogicalOperator.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\LogicalOperator">LogicalOperator</abbr></a></p>
                 <div class="content-header">
@@ -35934,8 +35953,10 @@ being used as a Criterion.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>Make sure [](acceptValue()) is checked first!</p>
-</section>
+    <section class="phpdocumentor-description">
+                    <p>Make sure <a href="acceptValue()"></a> is checked first!</p>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -35963,7 +35984,7 @@ being used as a Criterion.</p>
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-FieldType-ValidationError.html"><abbr title="\Ibexa\Contracts\Core\FieldType\ValidationError">ValidationError</abbr></a>&gt;</p>
                 <div class="content-header">
@@ -36000,14 +36021,16 @@ being used as a Criterion.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|int</p>
             &mdash;
-            <section class="phpdocumentor-description"><p>In case of array, a hash with key as valid limitations value and value as human readable name
+            <section class="phpdocumentor-description">
+                    <p>In case of array, a hash with key as valid limitations value and value as human readable name
 of that option, in case of int on of VALUE_SCHEMA_* constants.
 Note: The hash might be an instance of Traversable, and not a native php array.</p>
-</section>
+
+            </section>
 
                                 </div>
                     </article>

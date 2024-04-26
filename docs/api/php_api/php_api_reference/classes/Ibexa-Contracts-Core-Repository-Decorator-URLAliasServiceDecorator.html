@@ -35367,7 +35367,7 @@
         </tbody>
     </table>
 </div>
-
+                    
             </section>
     
     <h2 id="methods">
@@ -35398,7 +35398,7 @@
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-URLAliasService.html"><abbr title="\Ibexa\Contracts\Core\Repository\URLAliasService">URLAliasService</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$innerService</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-URLAliasService.html"><abbr title="\Ibexa\Contracts\Core\Repository\URLAliasService">URLAliasService</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$innerService</span></span><span>)</span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -35435,7 +35435,7 @@
                 </tr>
                     </tbody>
     </table>
-
+                    
             <div class="content-header">
         <h3 id="method_createGlobalUrlAlias">
                 <img src="./images/public.svg" alt="public" />createGlobalUrlAlias()
@@ -35470,13 +35470,14 @@
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>This method does not handle location resources - if a user enters a location target
+    <section class="phpdocumentor-description">
+                    <p>This method does not handle location resources - if a user enters a location target
 the createCustomUrlAlias method has to be used.
 This method runs URL filters and and transformers before storing them.
-Hence the path returned in the URLAlias Value may differ from the given.
+Hence the path returned in the URLAlias Value may differ from the given.</p>
+<p>$alwaysAvailable makes the alias available in all languages.</p>
 
-$alwaysAvailable makes the alias available in all languages.</p>
-</section>
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -35560,7 +35561,7 @@ $alwaysAvailable makes the alias available in all languages.</p>
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-URLAlias.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\URLAlias">URLAlias</abbr></a></p>
                 <div class="content-header">
@@ -35597,10 +35598,12 @@ $alwaysAvailable makes the alias available in all languages.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>This method runs URL filters and transformers before storing them.
+    <section class="phpdocumentor-description">
+                    <p>This method runs URL filters and transformers before storing them.
 Hence the path returned in the URLAlias Value may differ from the given.
 $alwaysAvailable makes the alias available in all languages.</p>
-</section>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -35651,8 +35654,10 @@ $alwaysAvailable makes the alias available in all languages.</p>
                         None
                     </td>
                     <td >
-                                                    <section class="phpdocumentor-description"><p>the languageCode for which this alias is valid</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>the languageCode for which this alias is valid</p>
+
+            </section>
 
                     </td>
                 </tr>
@@ -35667,8 +35672,10 @@ $alwaysAvailable makes the alias available in all languages.</p>
                         false
                     </td>
                     <td >
-                                                    <section class="phpdocumentor-description"><p>if true a redirect is performed</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>if true a redirect is performed</p>
+
+            </section>
 
                     </td>
                 </tr>
@@ -35688,7 +35695,7 @@ $alwaysAvailable makes the alias available in all languages.</p>
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-URLAlias.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\URLAlias">URLAlias</abbr></a></p>
                 <div class="content-header">
@@ -35725,12 +35732,14 @@ $alwaysAvailable makes the alias available in all languages.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">int</p>
             &mdash;
-            <section class="phpdocumentor-description"><p>Number of deleted URL aliases</p>
-</section>
+            <section class="phpdocumentor-description">
+                    <p>Number of deleted URL aliases</p>
+
+            </section>
 
                 <div class="content-header">
         <h3 id="method_listGlobalAliases">
@@ -35789,8 +35798,10 @@ $alwaysAvailable makes the alias available in all languages.</p>
                     </td>
                     <td class="empty">
                                                     -
-                                                    <section class="phpdocumentor-description"><p>filters those which are valid for the given language</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>filters those which are valid for the given language</p>
+
+            </section>
 
                     </td>
                 </tr>
@@ -35826,7 +35837,7 @@ $alwaysAvailable makes the alias available in all languages.</p>
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-URLAlias.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\URLAlias">URLAlias</abbr></a>&gt;</p>
                 <div class="content-header">
@@ -35901,8 +35912,10 @@ $alwaysAvailable makes the alias available in all languages.</p>
                     </td>
                     <td class="empty">
                                                     -
-                                                    <section class="phpdocumentor-description"><p>if true the user generated aliases are listed otherwise the autogenerated</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>if true the user generated aliases are listed otherwise the autogenerated</p>
+
+            </section>
 
                     </td>
                 </tr>
@@ -35918,8 +35931,10 @@ $alwaysAvailable makes the alias available in all languages.</p>
                     </td>
                     <td class="empty">
                                                     -
-                                                    <section class="phpdocumentor-description"><p>filters those which are valid for the given language</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>filters those which are valid for the given language</p>
+
+            </section>
 
                     </td>
                 </tr>
@@ -35935,8 +35950,10 @@ $alwaysAvailable makes the alias available in all languages.</p>
                     </td>
                     <td class="empty">
                                                     -
-                                                    <section class="phpdocumentor-description"><p>If enabled will include all alias as if they where always available.</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>If enabled will include all alias as if they where always available.</p>
+
+            </section>
 
                     </td>
                 </tr>
@@ -35952,14 +35969,16 @@ $alwaysAvailable makes the alias available in all languages.</p>
                     </td>
                     <td class="empty">
                                                     -
-                                                    <section class="phpdocumentor-description"><p>If set used as prioritized language codes, returning first match.</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>If set used as prioritized language codes, returning first match.</p>
+
+            </section>
 
                     </td>
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-URLAlias.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\URLAlias">URLAlias</abbr></a>&gt;</p>
                 <div class="content-header">
@@ -36024,7 +36043,7 @@ $alwaysAvailable makes the alias available in all languages.</p>
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-URLAlias.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\URLAlias">URLAlias</abbr></a></p>
                 <div class="content-header">
@@ -36104,7 +36123,7 @@ $alwaysAvailable makes the alias available in all languages.</p>
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-URLAlias.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\URLAlias">URLAlias</abbr></a></p>
                 <div class="content-header">
@@ -36169,7 +36188,7 @@ $alwaysAvailable makes the alias available in all languages.</p>
                 </tr>
                     </tbody>
     </table>
-
+                    
             <div class="content-header">
         <h3 id="method_removeAliases">
                 <img src="./images/public.svg" alt="public" />removeAliases()
@@ -36204,8 +36223,10 @@ $alwaysAvailable makes the alias available in all languages.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>This method does not remove autogenerated aliases for locations.</p>
-</section>
+    <section class="phpdocumentor-description">
+                    <p>This method does not remove autogenerated aliases for locations.</p>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -36233,7 +36254,7 @@ $alwaysAvailable makes the alias available in all languages.</p>
                 </tr>
                     </tbody>
     </table>
-
+                    
             <div class="content-header">
         <h3 id="method_reverseLookup">
                 <img src="./images/public.svg" alt="public" />reverseLookup()
@@ -36268,8 +36289,10 @@ $alwaysAvailable makes the alias available in all languages.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>If $languageCode is null the method returns the url alias in the most prioritized language.</p>
-</section>
+    <section class="phpdocumentor-description">
+                    <p>If $languageCode is null the method returns the url alias in the most prioritized language.</p>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -36306,8 +36329,10 @@ $alwaysAvailable makes the alias available in all languages.</p>
                         null
                     </td>
                     <td >
-                                                    <section class="phpdocumentor-description"><p>filters those which are valid for the given language</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>filters those which are valid for the given language</p>
+
+            </section>
 
                     </td>
                 </tr>
@@ -36322,8 +36347,10 @@ $alwaysAvailable makes the alias available in all languages.</p>
                         null
                     </td>
                     <td >
-                                                    <section class="phpdocumentor-description"><p>If enabled will include all alias as if they where always available.</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>If enabled will include all alias as if they where always available.</p>
+
+            </section>
 
                     </td>
                 </tr>
@@ -36338,14 +36365,16 @@ $alwaysAvailable makes the alias available in all languages.</p>
                         null
                     </td>
                     <td >
-                                                    <section class="phpdocumentor-description"><p>If set used as prioritized language codes, returning first match.</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>If set used as prioritized language codes, returning first match.</p>
+
+            </section>
 
                     </td>
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-URLAlias.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\URLAlias">URLAlias</abbr></a></p>
                                 </div>

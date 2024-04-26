@@ -35359,13 +35359,14 @@ objects.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>Example: canUser( 'content', 'edit', $content, [$location] );
-         This will check edit permission on content given the specific location, if skipped if will check on all
-         locations.
+    <section class="phpdocumentor-description">
+                    <p>Example: canUser( 'content', 'edit', $content, [$location] );
+This will check edit permission on content given the specific location, if skipped if will check on all
+locations.</p>
+<p>Example2: canUser( 'section', 'assign', $content, [$section] );
+Check if user has access to assign $content to $section.</p>
 
-Example2: canUser( 'section', 'assign', $content, [$section] );
-          Check if user has access to assign $content to $section.</p>
-</section>
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -35388,8 +35389,10 @@ Example2: canUser( 'section', 'assign', $content, [$section] );
                         None
                     </td>
                     <td >
-                                                    <section class="phpdocumentor-description"><p>The module, aka controller identifier to check permissions on</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>The module, aka controller identifier to check permissions on</p>
+
+            </section>
 
                     </td>
                 </tr>
@@ -35404,8 +35407,10 @@ Example2: canUser( 'section', 'assign', $content, [$section] );
                         None
                     </td>
                     <td >
-                                                    <section class="phpdocumentor-description"><p>The function, aka the controller action to check permissions on</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>The function, aka the controller action to check permissions on</p>
+
+            </section>
 
                     </td>
                 </tr>
@@ -35420,8 +35425,10 @@ Example2: canUser( 'section', 'assign', $content, [$section] );
                         None
                     </td>
                     <td >
-                                                    <section class="phpdocumentor-description"><p>The object to check if the user has access to</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>The object to check if the user has access to</p>
+
+            </section>
 
                     </td>
                 </tr>
@@ -35436,28 +35443,32 @@ Example2: canUser( 'section', 'assign', $content, [$section] );
                         []
                     </td>
                     <td >
-                                                    <section class="phpdocumentor-description"><p>An array of location, parent or &quot;assignment&quot; value objects</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>An array of location, parent or &quot;assignment&quot; value objects</p>
+
+            </section>
 
                     </td>
                 </tr>
                     </tbody>
     </table>
-
+                                                
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
         <a href="classes/Ibexa-Contracts-Core-Repository-PermissionResolver.html#method_canUser#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
+                                                <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">throws</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-InvalidArgumentException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\InvalidArgumentException">InvalidArgumentException</abbr></a></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>If any of the arguments are invalid</p>
-</section>
+                                                 <section class="phpdocumentor-description">
+                    <p>If any of the arguments are invalid</p>
+
+            </section>
 
                                     </dd>
                             <dt class="phpdocumentor-tag-list__entry">
@@ -35466,11 +35477,13 @@ Example2: canUser( 'section', 'assign', $content, [$section] );
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-BadStateException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\BadStateException">BadStateException</abbr></a></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>If value of the LimitationValue is unsupported</p>
-</section>
+                                                 <section class="phpdocumentor-description">
+                    <p>If value of the LimitationValue is unsupported</p>
+
+            </section>
 
                                     </dd>
-                                            </dl>
+                                                                                    </dl>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">bool</p>
                 <div class="content-header">
@@ -35507,7 +35520,7 @@ Example2: canUser( 'section', 'assign', $content, [$section] );
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-User-UserReference.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\User\UserReference">UserReference</abbr></a></p>
                 <div class="content-header">
@@ -35544,12 +35557,13 @@ Example2: canUser( 'section', 'assign', $content, [$section] );
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>Note: boolean value describes full access (true) or no access at all (false), array can be seen as a maybe..
+    <section class="phpdocumentor-description">
+                    <p>Note: boolean value describes full access (true) or no access at all (false), array can be seen as a maybe..</p>
+<p>WARNING: This is a low level method, if possible strongly prefer to use canUser() as it is able to handle limitations.
+This includes Role Assignment limitations, but also future policy limitations added in kernel,
+or as plain user configuration and/or extending the system.</p>
 
-WARNING: This is a low level method, if possible strongly prefer to use canUser() as it is able to handle limitations.
-         This includes Role Assignment limitations, but also future policy limitations added in kernel,
-         or as plain user configuration and/or extending the system.</p>
-</section>
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -35572,8 +35586,10 @@ WARNING: This is a low level method, if possible strongly prefer to use canUser(
                         None
                     </td>
                     <td >
-                                                    <section class="phpdocumentor-description"><p>The module, aka controller identifier to check permissions on</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>The module, aka controller identifier to check permissions on</p>
+
+            </section>
 
                     </td>
                 </tr>
@@ -35588,8 +35604,10 @@ WARNING: This is a low level method, if possible strongly prefer to use canUser(
                         None
                     </td>
                     <td >
-                                                    <section class="phpdocumentor-description"><p>The function, aka the controller action to check permissions on</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>The function, aka the controller action to check permissions on</p>
+
+            </section>
 
                     </td>
                 </tr>
@@ -35604,51 +35622,59 @@ WARNING: This is a low level method, if possible strongly prefer to use canUser(
                         null
                     </td>
                     <td >
-                                                    <section class="phpdocumentor-description"><p>User for
+                                                    <section class="phpdocumentor-description">
+                    <p>User for
 which the information is returned, current user will be used if null</p>
-</section>
+
+            </section>
 
                     </td>
                 </tr>
                     </tbody>
     </table>
-
+                                                                            
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
         <a href="classes/Ibexa-Contracts-Core-Repository-PermissionResolver.html#method_hasAccess#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
+                                                <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">throws</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-InvalidArgumentException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\InvalidArgumentException">InvalidArgumentException</abbr></a></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>If module or function is invalid.</p>
-</section>
+                                                 <section class="phpdocumentor-description">
+                    <p>If module or function is invalid.</p>
+
+            </section>
 
                                     </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
+                                                            <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">phpstan-return</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                                 
-                                                 <section class="phpdocumentor-description"><p>bool|array&lt;
+                                                 <section class="phpdocumentor-description">
+                    <p>bool|array&lt;
     array{
         limitation: \Ibexa\Contracts\Core\Repository\Values\User\Limitation|null,
         policies: array&lt;\Ibexa\Contracts\Core\Repository\Values\User\Policy&gt;
     },
 &gt;</p>
-</section>
+
+            </section>
 
                                     </dd>
-                                            </dl>
+                                                                                    </dl>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">bool|array&lt;string|int, mixed&gt;</p>
             &mdash;
-            <section class="phpdocumentor-description"><p>if limitations are on this function an array of limitations is returned</p>
-</section>
+            <section class="phpdocumentor-description">
+                    <p>if limitations are on this function an array of limitations is returned</p>
+
+            </section>
 
                 <div class="content-header">
         <h3 id="method_lookupLimitations">
@@ -35706,8 +35732,10 @@ which the information is returned, current user will be used if null</p>
                     </td>
                     <td class="empty">
                                                     -
-                                                    <section class="phpdocumentor-description"><p>The module, aka controller identifier to check permissions on</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>The module, aka controller identifier to check permissions on</p>
+
+            </section>
 
                     </td>
                 </tr>
@@ -35723,8 +35751,10 @@ which the information is returned, current user will be used if null</p>
                     </td>
                     <td class="empty">
                                                     -
-                                                    <section class="phpdocumentor-description"><p>The function, aka the controller action to check permissions on</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>The function, aka the controller action to check permissions on</p>
+
+            </section>
 
                     </td>
                 </tr>
@@ -35740,8 +35770,10 @@ which the information is returned, current user will be used if null</p>
                     </td>
                     <td class="empty">
                                                     -
-                                                    <section class="phpdocumentor-description"><p>The object to check if the user has access to</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>The object to check if the user has access to</p>
+
+            </section>
 
                     </td>
                 </tr>
@@ -35757,8 +35789,10 @@ which the information is returned, current user will be used if null</p>
                     </td>
                     <td class="empty">
                                                     -
-                                                    <section class="phpdocumentor-description"><p>An array of location, parent or &quot;assignment&quot; value objects</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>An array of location, parent or &quot;assignment&quot; value objects</p>
+
+            </section>
 
                     </td>
                 </tr>
@@ -35774,21 +35808,23 @@ which the information is returned, current user will be used if null</p>
                     </td>
                     <td class="empty">
                                                     -
-                                                    <section class="phpdocumentor-description"><p>An array of Limitations identifiers to filter from all which will pass</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>An array of Limitations identifiers to filter from all which will pass</p>
+
+            </section>
 
                     </td>
                 </tr>
                     </tbody>
     </table>
-
+                                                
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
         <a href="classes/Ibexa-Contracts-Core-Repository-PermissionResolver.html#method_lookupLimitations#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
+                                                <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">throws</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
@@ -35804,7 +35840,7 @@ which the information is returned, current user will be used if null</p>
                                                             
                                              
                                     </dd>
-                                            </dl>
+                                                                                    </dl>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-User-LookupLimitationResult.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\User\LookupLimitationResult">LookupLimitationResult</abbr></a></p>
                 <div class="content-header">
@@ -35869,7 +35905,7 @@ which the information is returned, current user will be used if null</p>
                 </tr>
                     </tbody>
     </table>
-
+                    
                             </div>
                     </article>
                 </div>

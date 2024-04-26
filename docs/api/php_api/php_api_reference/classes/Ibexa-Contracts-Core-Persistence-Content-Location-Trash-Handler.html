@@ -35402,7 +35402,7 @@ Associated content has to be deleted.</p>
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Trash-TrashItemDeleteResult.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Trash\TrashItemDeleteResult">TrashItemDeleteResult</abbr></a></p>
                 <div class="content-header">
@@ -35440,7 +35440,7 @@ Everything contained in the trash must be removed.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Trash-TrashItemDeleteResultList.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Trash\TrashItemDeleteResultList">TrashItemDeleteResultList</abbr></a></p>
                 <div class="content-header">
@@ -35477,11 +35477,12 @@ Everything contained in the trash must be removed.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>If no criterion is provided (null), no filter is applied.
-
-TrashResult-&gt;totalCount will ignore limit and offset and representing the total amount of trashed items
+    <section class="phpdocumentor-description">
+                    <p>If no criterion is provided (null), no filter is applied.</p>
+<p>TrashResult-&gt;totalCount will ignore limit and offset and representing the total amount of trashed items
 matching the criterion.</p>
-</section>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -35518,8 +35519,10 @@ matching the criterion.</p>
                         0
                     </td>
                     <td >
-                                                    <section class="phpdocumentor-description"><p>Offset to start listing from, 0 by default</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>Offset to start listing from, 0 by default</p>
+
+            </section>
 
                     </td>
                 </tr>
@@ -35534,8 +35537,10 @@ matching the criterion.</p>
                         null
                     </td>
                     <td >
-                                                    <section class="phpdocumentor-description"><p>Limit for the listing. Null by default (no limit)</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>Limit for the listing. Null by default (no limit)</p>
+
+            </section>
 
                     </td>
                 </tr>
@@ -35555,7 +35560,7 @@ matching the criterion.</p>
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Location-Trashed.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\Location\Trashed">Trashed</abbr></a>&gt;|<a href="classes/Ibexa-Contracts-Core-Persistence-Content-Location-Trash-TrashResult.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\Location\Trash\TrashResult">TrashResult</abbr></a></p>
                 <div class="content-header">
@@ -35592,8 +35597,10 @@ matching the criterion.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>$id is the same as original location (which has been previously trashed).</p>
-</section>
+    <section class="phpdocumentor-description">
+                    <p>$id is the same as original location (which has been previously trashed).</p>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -35621,14 +35628,14 @@ matching the criterion.</p>
                 </tr>
                     </tbody>
     </table>
-
+                                                
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
         <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Location-Trash-Handler.html#method_loadTrashItem#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
+                                                <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">throws</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
@@ -35636,7 +35643,7 @@ matching the criterion.</p>
                                                             
                                              
                                     </dd>
-                                            </dl>
+                                                                                    </dl>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-Location-Trashed.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\Location\Trashed">Trashed</abbr></a></p>
                 <div class="content-header">
@@ -35673,12 +35680,13 @@ matching the criterion.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>Recreates the originally trashed location in the new position.
+    <section class="phpdocumentor-description">
+                    <p>Recreates the originally trashed location in the new position.
 If this is not possible (because the old location does not exist any more),
-a ParentNotFound exception is thrown.
+a ParentNotFound exception is thrown.</p>
+<p>Returns newly restored location Id.</p>
 
-Returns newly restored location Id.</p>
-</section>
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -35720,29 +35728,33 @@ Returns newly restored location Id.</p>
                 </tr>
                     </tbody>
     </table>
-
+                                                
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
         <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Location-Trash-Handler.html#method_recover#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
+                                                <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">throws</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-NotFoundException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException">NotFoundException</abbr></a></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>If $newParentId is invalid</p>
-</section>
+                                                 <section class="phpdocumentor-description">
+                    <p>If $newParentId is invalid</p>
+
+            </section>
 
                                     </dd>
-                                            </dl>
+                                                                                    </dl>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">int</p>
             &mdash;
-            <section class="phpdocumentor-description"><p>Newly restored location id</p>
-</section>
+            <section class="phpdocumentor-description">
+                    <p>Newly restored location id</p>
+
+            </section>
 
                 <div class="content-header">
         <h3 id="method_trashSubtree">
@@ -35779,9 +35791,11 @@ and returns a Trashed object corresponding to $locationId.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>Moves all locations in the subtree to the Trash. The associated content
+    <section class="phpdocumentor-description">
+                    <p>Moves all locations in the subtree to the Trash. The associated content
 objects are left untouched.</p>
-</section>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -35809,12 +35823,14 @@ objects are left untouched.</p>
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-Location-Trashed.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\Location\Trashed">Trashed</abbr></a>|null</p>
             &mdash;
-            <section class="phpdocumentor-description"><p>null if location was deleted, otherwise Trashed object</p>
-</section>
+            <section class="phpdocumentor-description">
+                    <p>null if location was deleted, otherwise Trashed object</p>
+
+            </section>
 
                                 </div>
                     </article>

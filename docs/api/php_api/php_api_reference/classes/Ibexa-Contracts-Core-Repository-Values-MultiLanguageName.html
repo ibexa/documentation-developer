@@ -35363,13 +35363,20 @@
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>- If $languageCode is defined,
-     return if available, otherwise null
-- If not, pick using the following languages codes when applicable:
-     1. Prioritized languages (if provided to api on object retrieval)
-     2. Main language if object is $alwaysAvailable
-     3. Fallback to return in initial (version objects) or main language</p>
-</section>
+    <section class="phpdocumentor-description">
+                    <ul>
+<li>If $languageCode is defined,
+return if available, otherwise null</li>
+<li>If not, pick using the following languages codes when applicable:
+<ol>
+<li>Prioritized languages (if provided to api on object retrieval)</li>
+<li>Main language if object is $alwaysAvailable</li>
+<li>Fallback to return in initial (version objects) or main language</li>
+</ol>
+</li>
+</ul>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -35397,13 +35404,15 @@
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">string|null</p>
             &mdash;
-            <section class="phpdocumentor-description"><p>The name for a given language, or null if $languageCode is not set
+            <section class="phpdocumentor-description">
+                    <p>The name for a given language, or null if $languageCode is not set
 or does not exist.</p>
-</section>
+
+            </section>
 
                 <div class="content-header">
         <h3 id="method_getNames">
@@ -35439,12 +35448,14 @@ or does not exist.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>The structure of the return value is:
-&lt;code&gt;
+    <section class="phpdocumentor-description">
+                    <p>The structure of the return value is:
+<code class="prettyprint">
 array( 'eng' =&gt; '&lt;name_eng&gt;', 'de' =&gt; '&lt;name_de&gt;' );
-&lt;/code&gt;</p>
-</section>
+</code></p>
 
+            </section>
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, string&gt;</p>
                                 </div>

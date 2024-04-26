@@ -35367,7 +35367,7 @@
         </tbody>
     </table>
 </div>
-
+                    
             </section>
     
     <h2 id="methods">
@@ -35398,7 +35398,7 @@
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-TrashService.html"><abbr title="\Ibexa\Contracts\Core\Repository\TrashService">TrashService</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$innerService</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Ibexa-Contracts-Core-Repository-TrashService.html"><abbr title="\Ibexa\Contracts\Core\Repository\TrashService">TrashService</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$innerService</span></span><span>)</span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -35435,7 +35435,7 @@
                 </tr>
                     </tbody>
     </table>
-
+                    
             <div class="content-header">
         <h3 id="method_deleteTrashItem">
                 <img src="./images/public.svg" alt="public" />deleteTrashItem()
@@ -35470,8 +35470,10 @@
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>The corresponding content object will be removed</p>
-</section>
+    <section class="phpdocumentor-description">
+                    <p>The corresponding content object will be removed</p>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -35499,7 +35501,7 @@
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Trash-TrashItemDeleteResult.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Trash\TrashItemDeleteResult">TrashItemDeleteResult</abbr></a></p>
                 <div class="content-header">
@@ -35536,10 +35538,12 @@
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>All locations contained in the trash will be removed. Content objects will be removed
+    <section class="phpdocumentor-description">
+                    <p>All locations contained in the trash will be removed. Content objects will be removed
 if all locations of the content are gone.</p>
-</section>
 
+            </section>
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Trash-TrashItemDeleteResultList.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Trash\TrashItemDeleteResultList">TrashItemDeleteResultList</abbr></a></p>
                 <div class="content-header">
@@ -35576,8 +35580,10 @@ if all locations of the content are gone.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>$query allows to filter/sort the elements to be contained in the collection.</p>
-</section>
+    <section class="phpdocumentor-description">
+                    <p>$query allows to filter/sort the elements to be contained in the collection.</p>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -35605,7 +35611,7 @@ if all locations of the content are gone.</p>
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Trash-SearchResult.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Trash\SearchResult">SearchResult</abbr></a></p>
                 <div class="content-header">
@@ -35642,8 +35648,10 @@ if all locations of the content are gone.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>Note that $id is identical to original location, which has been previously trashed</p>
-</section>
+    <section class="phpdocumentor-description">
+                    <p>Note that $id is identical to original location, which has been previously trashed</p>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -35671,7 +35679,7 @@ if all locations of the content are gone.</p>
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-TrashItem.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\TrashItem">TrashItem</abbr></a></p>
                 <div class="content-header">
@@ -35708,8 +35716,10 @@ if all locations of the content are gone.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>If $newParentLocation is provided, $trashedLocation will be restored under it.</p>
-</section>
+    <section class="phpdocumentor-description">
+                    <p>If $newParentLocation is provided, $trashedLocation will be restored under it.</p>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -35751,12 +35761,14 @@ if all locations of the content are gone.</p>
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Location.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Location">Location</abbr></a></p>
             &mdash;
-            <section class="phpdocumentor-description"><p>the newly created or recovered location</p>
-</section>
+            <section class="phpdocumentor-description">
+                    <p>the newly created or recovered location</p>
+
+            </section>
 
                 <div class="content-header">
         <h3 id="method_trash">
@@ -35792,9 +35804,11 @@ if all locations of the content are gone.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>The current user may not have access to the returned trash item, check before using it.
+    <section class="phpdocumentor-description">
+                    <p>The current user may not have access to the returned trash item, check before using it.
 Content is left untouched.</p>
-</section>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -35822,12 +35836,14 @@ Content is left untouched.</p>
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-TrashItem.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\TrashItem">TrashItem</abbr></a>|null</p>
             &mdash;
-            <section class="phpdocumentor-description"><p>null if location was deleted, otherwise TrashItem</p>
-</section>
+            <section class="phpdocumentor-description">
+                    <p>null if location was deleted, otherwise TrashItem</p>
+
+            </section>
 
                                 </div>
                     </article>

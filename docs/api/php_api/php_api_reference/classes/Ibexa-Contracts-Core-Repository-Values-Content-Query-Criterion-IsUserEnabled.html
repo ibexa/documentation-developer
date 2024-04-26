@@ -35386,7 +35386,7 @@
         </tbody>
     </table>
 </div>
-
+                    
                     <div class="content-header">
         <h3 id="property_target">
                 <img src="./images/public.svg" alt="public" />
@@ -35421,7 +35421,7 @@
         </tbody>
     </table>
 </div>
-
+                    
                     <div class="content-header">
         <h3 id="property_value">
                 <img src="./images/public.svg" alt="public" />
@@ -35456,7 +35456,7 @@
         </tbody>
     </table>
 </div>
-
+                    
                     <div class="content-header">
         <h3 id="property_valueData">
                 <img src="./images/public.svg" alt="public" />
@@ -35491,7 +35491,7 @@
         </tbody>
     </table>
 </div>
-
+                    
             </section>
     
     <h2 id="methods">
@@ -35523,7 +35523,7 @@
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">true</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">true</span><span> ]</span></span><span>)</span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -35560,7 +35560,7 @@
                 </tr>
                     </tbody>
     </table>
-
+                    
             <div class="content-header">
         <h3 id="method_getSpecifications">
                 <img src="./images/public.svg" alt="public" />getSpecifications()
@@ -35595,14 +35595,16 @@
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>Returns the combination of the Criterion's supported operator/value,
-as an array of &lt;a href=&quot;classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Operator-Specifications.html&quot;&gt;&lt;abbr title=&quot;\Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\Operator\Specifications&quot;&gt;Specifications&lt;/abbr&gt;&lt;/a&gt; objects
-- Operator is one supported Operator, as an Operator::* constant
-- ValueType is the type of input value this operator requires, either array or single
-- SupportedTypes is an array of types the operator will accept
-- ValueCountLimitation is an integer saying how many values are expected.
-
-&lt;code&gt;
+    <section class="phpdocumentor-description">
+                    <p>Returns the combination of the Criterion's supported operator/value,
+as an array of <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Operator-Specifications.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\Operator\Specifications">Specifications</abbr></a> objects</p>
+<ul>
+<li>Operator is one supported Operator, as an Operator::* constant</li>
+<li>ValueType is the type of input value this operator requires, either array or single</li>
+<li>SupportedTypes is an array of types the operator will accept</li>
+<li>ValueCountLimitation is an integer saying how many values are expected.</li>
+</ul>
+<code class="prettyprint">
 // IN and EQ are supported
 return [
     // The EQ operator expects a single value, either as an integer or a string
@@ -35618,9 +35620,10 @@ return [
         Specifications::TYPE_INTEGER | Specifications::TYPE_STRING
     )
 ]
-&lt;/code&gt;</p>
-</section>
+</code>
 
+            </section>
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Operator-Specifications.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\Operator\Specifications">Specifications</abbr></a>&gt;</p>
                                 </div>

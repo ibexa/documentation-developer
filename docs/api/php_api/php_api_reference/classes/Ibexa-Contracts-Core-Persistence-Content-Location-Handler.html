@@ -35411,7 +35411,7 @@
                 </tr>
                     </tbody>
     </table>
-
+                    
             <div class="content-header">
         <h3 id="method_copySubtree">
                 <img src="./images/public.svg" alt="public" />copySubtree()
@@ -35446,11 +35446,13 @@
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>Performs a deep copy of the location identified by $sourceId and all of
+    <section class="phpdocumentor-description">
+                    <p>Performs a deep copy of the location identified by $sourceId and all of
 its child locations, copying the most recent published content object
 for each location to a new content object without any additional version
 information. Relations for published version are copied. URLs are not touched at all.</p>
-</section>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -35492,29 +35494,33 @@ information. Relations for published version are copied. URLs are not touched at
                 </tr>
                     </tbody>
     </table>
-
+                                                
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
         <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Location-Handler.html#method_copySubtree#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
+                                                <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">throws</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-NotFoundException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException">NotFoundException</abbr></a></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>If $sourceId or $destinationParentId are invalid</p>
-</section>
+                                                 <section class="phpdocumentor-description">
+                    <p>If $sourceId or $destinationParentId are invalid</p>
+
+            </section>
 
                                     </dd>
-                                            </dl>
+                                                                                    </dl>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-Location.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\Location">Location</abbr></a></p>
             &mdash;
-            <section class="phpdocumentor-description"><p>the newly created Location.</p>
-</section>
+            <section class="phpdocumentor-description">
+                    <p>the newly created Location.</p>
+
+            </section>
 
                 <div class="content-header">
         <h3 id="method_countAllLocations">
@@ -35550,7 +35556,7 @@ information. Relations for published version are copied. URLs are not touched at
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">int</p>
                 <div class="content-header">
@@ -35615,7 +35621,7 @@ information. Relations for published version are copied. URLs are not touched at
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">int</p>
                 <div class="content-header">
@@ -35680,24 +35686,26 @@ information. Relations for published version are copied. URLs are not touched at
                 </tr>
                     </tbody>
     </table>
-
+                                                
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
         <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Location-Handler.html#method_create#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
+                                                <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">throws</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-NotFoundException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException">NotFoundException</abbr></a></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>if parent Location does not exist</p>
-</section>
+                                                 <section class="phpdocumentor-description">
+                    <p>if parent Location does not exist</p>
+
+            </section>
 
                                     </dd>
-                                            </dl>
+                                                                                    </dl>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-Location.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\Location">Location</abbr></a></p>
                 <div class="content-header">
@@ -35761,7 +35769,7 @@ information. Relations for published version are copied. URLs are not touched at
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">int</p>
                 <div class="content-header">
@@ -35821,14 +35829,16 @@ information. Relations for published version are copied. URLs are not touched at
                     </td>
                     <td class="empty">
                                                     -
-                                                    <section class="phpdocumentor-description"><p>Location ID</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>Location ID</p>
+
+            </section>
 
                     </td>
                 </tr>
                     </tbody>
     </table>
-
+                    
             <div class="content-header">
         <h3 id="method_load">
                 <img src="./images/public.svg" alt="public" />load()
@@ -35901,8 +35911,10 @@ information. Relations for published version are copied. URLs are not touched at
                     </td>
                     <td class="empty">
                                                     -
-                                                    <section class="phpdocumentor-description"><p>If set, NotFound is thrown if content is not in given translation.</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>If set, NotFound is thrown if content is not in given translation.</p>
+
+            </section>
 
                     </td>
                 </tr>
@@ -35918,21 +35930,23 @@ information. Relations for published version are copied. URLs are not touched at
                     </td>
                     <td class="empty">
                                                     -
-                                                    <section class="phpdocumentor-description"><p>Respect always available flag on content, where main language is valid translation fallback.</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>Respect always available flag on content, where main language is valid translation fallback.</p>
+
+            </section>
 
                     </td>
                 </tr>
                     </tbody>
     </table>
-
+                                                
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
         <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Location-Handler.html#method_load#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
+                                                <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">throws</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
@@ -35940,7 +35954,7 @@ information. Relations for published version are copied. URLs are not touched at
                                                             
                                              
                                     </dd>
-                                            </dl>
+                                                                                    </dl>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-Location.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\Location">Location</abbr></a></p>
                 <div class="content-header">
@@ -36020,7 +36034,7 @@ information. Relations for published version are copied. URLs are not touched at
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Location.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\Location">Location</abbr></a>&gt;</p>
                 <div class="content-header">
@@ -36095,8 +36109,10 @@ information. Relations for published version are copied. URLs are not touched at
                     </td>
                     <td class="empty">
                                                     -
-                                                    <section class="phpdocumentor-description"><p>If set, NotFound is thrown if content is not in given translation.</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>If set, NotFound is thrown if content is not in given translation.</p>
+
+            </section>
 
                     </td>
                 </tr>
@@ -36112,21 +36128,23 @@ information. Relations for published version are copied. URLs are not touched at
                     </td>
                     <td class="empty">
                                                     -
-                                                    <section class="phpdocumentor-description"><p>Respect always available flag on content, where main language is valid translation fallback.</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>Respect always available flag on content, where main language is valid translation fallback.</p>
+
+            </section>
 
                     </td>
                 </tr>
                     </tbody>
     </table>
-
+                                                
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
         <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Location-Handler.html#method_loadByRemoteId#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
+                                                <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">throws</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
@@ -36134,7 +36152,7 @@ information. Relations for published version are copied. URLs are not touched at
                                                             
                                              
                                     </dd>
-                                            </dl>
+                                                                                    </dl>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-Location.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\Location">Location</abbr></a></p>
                 <div class="content-header">
@@ -36171,9 +36189,11 @@ information. Relations for published version are copied. URLs are not touched at
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>Missing items (NotFound) will be missing from the array and not cause an exception, it's up
+    <section class="phpdocumentor-description">
+                    <p>Missing items (NotFound) will be missing from the array and not cause an exception, it's up
 to calling logic to determine if this should cause exception or not.</p>
-</section>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -36210,8 +36230,10 @@ to calling logic to determine if this should cause exception or not.</p>
                         null
                     </td>
                     <td >
-                                                    <section class="phpdocumentor-description"><p>If set, only locations with content in given translations are returned.</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>If set, only locations with content in given translations are returned.</p>
+
+            </section>
 
                     </td>
                 </tr>
@@ -36226,14 +36248,16 @@ to calling logic to determine if this should cause exception or not.</p>
                         true
                     </td>
                     <td >
-                                                    <section class="phpdocumentor-description"><p>Respect always available flag on content, where main language is valid translation fallback.</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>Respect always available flag on content, where main language is valid translation fallback.</p>
+
+            </section>
 
                     </td>
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Location.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\Location">Location</abbr></a>&gt;|iterable&lt;string|int, mixed&gt;</p>
                 <div class="content-header">
@@ -36314,7 +36338,7 @@ identified by $rootLocationId.</p>
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Location.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\Location">Location</abbr></a>&gt;</p>
                 <div class="content-header">
@@ -36395,7 +36419,7 @@ identified by $rootLocationId.</p>
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Location.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\Location">Location</abbr></a>&gt;</p>
                 <div class="content-header">
@@ -36460,7 +36484,7 @@ identified by $rootLocationId.</p>
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Location.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\Location">Location</abbr></a>&gt;</p>
                 <div class="content-header">
@@ -36525,14 +36549,14 @@ identified by $rootLocationId.</p>
                 </tr>
                     </tbody>
     </table>
-
+                                                
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
         <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Location-Handler.html#method_loadSubtreeIds#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
+                                                <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">throws</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
@@ -36540,12 +36564,14 @@ identified by $rootLocationId.</p>
                                                             
                                              
                                     </dd>
-                                            </dl>
+                                                                                    </dl>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</p>
             &mdash;
-            <section class="phpdocumentor-description"><p>Location ids are in the index, Content ids in the value.</p>
-</section>
+            <section class="phpdocumentor-description">
+                    <p>Location ids are in the index, Content ids in the value.</p>
+
+            </section>
 
                 <div class="content-header">
         <h3 id="method_markSubtreeModified">
@@ -36581,9 +36607,11 @@ identified by $rootLocationId.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>Optionally a time stamp with the modification date may be specified,
+    <section class="phpdocumentor-description">
+                    <p>Optionally a time stamp with the modification date may be specified,
 otherwise the current time is used.</p>
-</section>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -36625,23 +36653,25 @@ otherwise the current time is used.</p>
                 </tr>
                     </tbody>
     </table>
-
+                                                
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
         <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Location-Handler.html#method_markSubtreeModified#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
+                                                <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">deprecated</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                                 
-                                                 <section class="phpdocumentor-description"><p>As of 6.8, not been used by repository since 5.x.</p>
-</section>
+                                                 <section class="phpdocumentor-description">
+                    <p>As of 6.8, not been used by repository since 5.x.</p>
+
+            </section>
 
                                     </dd>
-                                            </dl>
+                                                                                    </dl>
             <div class="content-header">
         <h3 id="method_move">
                 <img src="./images/public.svg" alt="public" />move()
@@ -36676,10 +36706,12 @@ otherwise the current time is used.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>Performs a full move of the location identified by $sourceId to a new
+    <section class="phpdocumentor-description">
+                    <p>Performs a full move of the location identified by $sourceId to a new
 destination, identified by $destinationParentId. Relations do not need
 to be updated, since they refer to Content. URLs are not touched.</p>
-</section>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -36721,7 +36753,7 @@ to be updated, since they refer to Content. URLs are not touched.</p>
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">bool</p>
                 <div class="content-header">
@@ -36758,12 +36790,14 @@ to be updated, since they refer to Content. URLs are not touched.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>Performs a recursive delete on the location identified by $locationId,
+    <section class="phpdocumentor-description">
+                    <p>Performs a recursive delete on the location identified by $locationId,
 including all of its child locations. Content which is not referred to
 by any other location is automatically removed. Content which looses its
 main Location will get the first of its other Locations assigned as the
 new main Location.</p>
-</section>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -36791,7 +36825,7 @@ new main Location.</p>
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">bool</p>
                 <div class="content-header">
@@ -36851,14 +36885,16 @@ new main Location.</p>
                     </td>
                     <td class="empty">
                                                     -
-                                                    <section class="phpdocumentor-description"><p>Location ID</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>Location ID</p>
+
+            </section>
 
                     </td>
                 </tr>
                     </tbody>
     </table>
-
+                    
             <div class="content-header">
         <h3 id="method_setSectionForSubtree">
                 <img src="./images/public.svg" alt="public" />setSectionForSubtree()
@@ -36893,8 +36929,10 @@ new main Location.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>Only main locations will be updated.</p>
-</section>
+    <section class="phpdocumentor-description">
+                    <p>Only main locations will be updated.</p>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -36936,25 +36974,7 @@ new main Location.</p>
                 </tr>
                     </tbody>
     </table>
-
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Location-Handler.html#method_setSectionForSubtree#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">todo</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><p>This can be confusing (regarding permissions and main/multi location).
-So method is for the time being not in PublicAPI so people can instead
-write scripts using their own logic against the assignSectionToContent() api.</p>
-</section>
-
-                                    </dd>
-                                            </dl>
+                    
             <div class="content-header">
         <h3 id="method_setVisible">
                 <img src="./images/public.svg" alt="public" />setVisible()
@@ -37012,14 +37032,16 @@ write scripts using their own logic against the assignSectionToContent() api.</p
                     </td>
                     <td class="empty">
                                                     -
-                                                    <section class="phpdocumentor-description"><p>Location ID</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>Location ID</p>
+
+            </section>
 
                     </td>
                 </tr>
                     </tbody>
     </table>
-
+                    
             <div class="content-header">
         <h3 id="method_swap">
                 <img src="./images/public.svg" alt="public" />swap()
@@ -37054,9 +37076,11 @@ write scripts using their own logic against the assignSectionToContent() api.</p
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>Make the location identified by $locationId1 refer to the Content
+    <section class="phpdocumentor-description">
+                    <p>Make the location identified by $locationId1 refer to the Content
 referred to by $locationId2 and vice versa.</p>
-</section>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -37098,7 +37122,7 @@ referred to by $locationId2 and vice versa.</p>
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">bool</p>
                 <div class="content-header">
@@ -37135,8 +37159,10 @@ referred to by $locationId2 and vice versa.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-    <section class="phpdocumentor-description"><p>If not make sure only children down to first hidden node is marked visible.</p>
-</section>
+    <section class="phpdocumentor-description">
+                    <p>If not make sure only children down to first hidden node is marked visible.</p>
+
+            </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -37164,7 +37190,7 @@ referred to by $locationId2 and vice versa.</p>
                 </tr>
                     </tbody>
     </table>
-
+                    
             <div class="content-header">
         <h3 id="method_update">
                 <img src="./images/public.svg" alt="public" />update()
@@ -37242,7 +37268,7 @@ referred to by $locationId2 and vice versa.</p>
                 </tr>
                     </tbody>
     </table>
-
+                    
                             </div>
                     </article>
                 </div>

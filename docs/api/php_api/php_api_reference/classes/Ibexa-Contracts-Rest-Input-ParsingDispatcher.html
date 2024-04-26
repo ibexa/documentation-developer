@@ -35359,7 +35359,7 @@
         </tbody>
     </table>
 </div>
-
+                    
                     <div class="content-header">
         <h3 id="property_parsers">
                 <img src="./images/protected.svg" alt="protected" />
@@ -35394,18 +35394,19 @@
         </tbody>
     </table>
 </div>
-    <section class="phpdocumentor-description"><p>Structure:
-
-&lt;code&gt;
+    <section class="phpdocumentor-description">
+                    <p>Structure:</p>
+<code class="prettyprint">
  array(
-     &lt;contentType&gt; =&gt; array(
-         &lt;version&gt; =&gt; &lt;parser&gt;,
+     <contentType> => array(
+         <version> => <parser>,
          …
      }
  )
-&lt;/code&gt;</p>
-</section>
+</code>
 
+            </section>
+                    
             </section>
     
     <h2 id="methods">
@@ -35437,7 +35438,7 @@
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Symfony\Contracts\EventDispatcher\EventDispatcherInterface">EventDispatcherInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$eventDispatcher</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$parsers</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Symfony\Contracts\EventDispatcher\EventDispatcherInterface">EventDispatcherInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$eventDispatcher</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$parsers</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -35489,7 +35490,7 @@
                 </tr>
                     </tbody>
     </table>
-
+                    
             <div class="content-header">
         <h3 id="method_addParser">
                 <img src="./images/public.svg" alt="public" />addParser()
@@ -35567,7 +35568,7 @@
                 </tr>
                     </tbody>
     </table>
-
+                    
             <div class="content-header">
         <h3 id="method_parse">
                 <img src="./images/public.svg" alt="public" />parse()
@@ -35645,7 +35646,7 @@
                 </tr>
                     </tbody>
     </table>
-
+                    
             <div class="content-header">
         <h3 id="method_internalParse">
                 <img src="./images/protected.svg" alt="protected" />internalParse()
@@ -35723,7 +35724,7 @@
                 </tr>
                     </tbody>
     </table>
-
+                    
             <div class="content-header">
         <h3 id="method_parseMediaTypeVersion">
                 <img src="./images/protected.svg" alt="protected" />parseMediaTypeVersion()
@@ -35781,19 +35782,23 @@
                     </td>
                     <td class="empty">
                                                     -
-                                                    <section class="phpdocumentor-description"><p>Ex: text/html; version=1.1</p>
-</section>
+                                                    <section class="phpdocumentor-description">
+                    <p>Ex: text/html; version=1.1</p>
+
+            </section>
 
                     </td>
                 </tr>
                     </tbody>
     </table>
-
+                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</p>
             &mdash;
-            <section class="phpdocumentor-description"><p>An array with the media-type string, stripped from the version, and the version (1.0 by default)</p>
-</section>
+            <section class="phpdocumentor-description">
+                    <p>An array with the media-type string, stripped from the version, and the version (1.0 by default)</p>
+
+            </section>
 
                                 </div>
                     </article>
