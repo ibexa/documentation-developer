@@ -17,11 +17,12 @@ which negatively affects performance and can lead to instability.
 
 ## Selecting indexing strategy
 
-In your Elasticsearch configuration you can select one of three built-in strategies
+In your Elasticsearch configuration you can select one of four built-in strategies
 that control grouping documents in the index.
 
 The strategies are:
 
+- `NullGroupResolver` - groups all documents into a single group.
 - `LanguageGroupResolver` - groups documents by language code.
 - `ContentTypeGroupResolver`- groups documents by content type ID.
 - `CompositeGroupResolver` - allows combining multiple group resolves together to have a more granular index.
