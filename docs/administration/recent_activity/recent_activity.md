@@ -53,10 +53,12 @@ This policy is required to view [activity log in user profile]([[= user_doc =]]/
 
 ## User privacy
 
-The username of the User performing the action is logged. When acting through HTTP, User's IP is also logged.
-Your Data Protection Officer or GDPR representative should be aware of this, so they can ensure users are informed if needed, depending on your use case, jurisdiction, and company policy.
+!!! caution
 
-For example, if a content edition feature, such as reader's comments, is available on front office,
+    The username of the User performing the action is logged. When acting through HTTP, User's IP is also logged.
+    Your Data Protection Officer or GDPR representative should be aware of this, so they can ensure users are informed if needed, depending on your use case, jurisdiction, and company policy.
+
+    For example, if a content edition feature, such as reader's comments, is available on front office,
 the recent activity log records the front user IPs.
 
 ## PHP API
