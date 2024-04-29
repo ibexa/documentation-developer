@@ -116,19 +116,15 @@ Content:
 ContentCreate:
     description: 'This class is used for creating a new content item.'
     type: object
-
-ContentCreateStruct:
-    description: 'This class is used for creating a new content item.'
-    type: object
     properties:
-        contentType:
+        ContentType:
             description: 'The content type for which the new content item is created.'
             required: true
             type: ContentType
-        sectionId:
+        Section:
             description: 'The Section the content item is assigned to. If not set the Section of the parent is used or a default Section.'
-            type: integer
-        ownerId:
+            type: Section
+        User:
             description: 'The owner of the content. If not given the current authenticated User is set as owner.'
             type: integer
         alwaysAvailable:
@@ -144,6 +140,12 @@ ContentCreateStruct:
         modificationDate:
             description: 'Modification date. If not given, the current integer is used.'
             type: datetime
+        LocationCreate:
+            type: object[]
+        fields:
+            type: object
+            properties:
+                field: object[]
 
 ContentImageVariation:
     description: 'This class represents an image.'
