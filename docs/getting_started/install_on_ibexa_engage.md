@@ -53,13 +53,19 @@ You can add Qualifio block in Page Builder.
 To add the campaign,  go to **Properties** tab -> **Campaign** and choose campaign from the drop-down list. This list includes all available campaigns created and configured in Qualifio.
 Go to **Campaign Feeds**, find the campaign and click a copy icon.
 
+![Qualifio block](qualifio_block.png)
+
 ## Embed campaign block in the text field
 
 You can embed campaign block in the text field with Qualifio custom tag.
 To do it, insert campaign content item in the Rich Text Field.
+
+![Qualifio custom tag](qualifio_custom_tag.png)
 
 # Use Ibexa Connect
 
 You can create workflows using [[= product_name_connect =]].
 In this case [[= product_name_engage =]] collects user data and pass it right to [[= product_name_connect =]].
 With this data, you can create scenario, like adding a user to newsletter or to specific user segment group.
+
+![Ibexa Connect](connect_ibexa_engage.png)
