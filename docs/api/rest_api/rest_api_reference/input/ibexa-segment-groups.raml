@@ -9,6 +9,7 @@ get:
                 vnd.ibexa.api.SegmentGroupList+json
     responses:
         200:
+            description: OK - list the segment groups.
             body:
                 vnd.ibexa.api.SegmentGroupList+xml:
                     type: SegmentGroupList
@@ -33,6 +34,7 @@ get:
                     vnd.ibexa.api.SegmentGroup+json
         responses:
             200:
+                description: OK - return the segment group.
                 body:
                     vnd.ibexa.api.SegmentGroup+xml:
                         type: SegmentGroup
@@ -54,6 +56,7 @@ get:
                     vnd.ibexa.api.SegmentList+json
         responses:
             200:
+                description: OK - list the group's segments.
                 body:
                     vnd.ibexa.api.SegmentList+xml:
                         type: SegmentList

@@ -1642,6 +1642,11 @@ SegmentList:
 Segment:
     description: 'This class represents a segment.'
     type: BaseObject
+    properties:
+        id: integer
+        identifier: string
+        name: string
+        SegmentGroup: SegmentGroup
 SortClause:
     description: 'This class is the base for SortClause classes, used to set sorting of content queries.'
     type: object
