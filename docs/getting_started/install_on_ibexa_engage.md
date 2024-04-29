@@ -60,6 +60,6 @@ To do it, insert campaign content item in the Rich Text Field.
 
 # Use Ibexa Connect
 
-You can create workflows using [[= product_name_connect =]]. 
-In this case [[= product_name_engage =]] collects user data and pass it right to [[= product_name_connect =]]. 
+You can create workflows using [[= product_name_connect =]].
+In this case [[= product_name_engage =]] collects user data and pass it right to [[= product_name_connect =]].
 With this data, you can create scenario, like adding a user to newsletter or to specific user segment group.
