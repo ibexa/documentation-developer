@@ -1198,9 +1198,6 @@ ObjectState:
                     type: Value
 
 ObjectStateCreate:
-    type: BaseObject
-
-ObjectStateCreateStruct:
     description: 'This class represents a value for creating Object states.'
     type: object
     properties:
@@ -1215,13 +1212,20 @@ ObjectStateCreateStruct:
             description: 'The default language code.'
             required: true
             type: string
+        languageCodes:
+            description: 'Language codes.'
+            type: string
         names:
             description: 'An array of names with languageCode keys. At least one name in the main language is required.'
             required: true
-            type: string[]
+            type: object
+            properties:
+                value: Value[]
         descriptions:
             description: 'An array of descriptions with languageCode keys.'
-            type: string[]
+            type: object
+            properties:
+                value: Value[]
 
 ObjectStateGroup:
     description: 'This class represents an Object state group value.'
@@ -1256,9 +1260,6 @@ ObjectStateGroup:
                     type: Value
 
 ObjectStateGroupCreate:
-    type: BaseObject
-
-ObjectStateGroupCreateStruct:
     description: 'This class represents a value for creating Object state groups.'
     type: object
     properties:
@@ -1795,11 +1796,6 @@ Trash:
 TrashItem:
     description: 'This class represents a trash item, which is actually a trashed Location.'
     type: Location
-#         TODO: Powinno byc w odpowiedzi:
-#        properties:
-#            trashed:
-#                description: 'Trashed integer.'
-#                type: datetime
 
 Unlink:
     description: 'Unlink a content type group from a content type.'
