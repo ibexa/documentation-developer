@@ -89,15 +89,15 @@ post:
         description: Updates identified Cart's metadata from payload.
         headers:
             Content-Type:
-                description: The CartMetadataUpdateStruct schema encoded in XML or JSON format.
+                description: The CartMetadataUpdate schema encoded in XML or JSON format.
                 example: |
-                    application/vnd.ibexa.api.CartMetadataUpdateStruct+xml
-                    application/vnd.ibexa.api.CartMetadataUpdateStruct+json
+                    application/vnd.ibexa.api.CartMetadataUpdate+xml
+                    application/vnd.ibexa.api.CartMetadataUpdate+json
         body:
-            application/vnd.ibexa.api.CartMetadataUpdateStruct+xml:
-                type: CartMetadataUpdateStruct
-            application/vnd.ibexa.api.CartMetadataUpdateStruct+json:
-                type: CartMetadataUpdateStruct
+            application/vnd.ibexa.api.CartMetadataUpdate+xml:
+                type: CartMetadataUpdate
+            application/vnd.ibexa.api.CartMetadataUpdate+json:
+                type: CartMetadataUpdate
     /entry:
         post:
             displayName: Add Entry to Cart

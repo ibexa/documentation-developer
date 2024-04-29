@@ -2662,17 +2662,28 @@ CartViewInput:
         identifier:
             type: string
         CartQuery:
-            type: object
+            type: CartQuery
+
+CartQuery:
+    type: object
+    properties:
+        offset: integer
+        limit: integer
+        ownerId: integer
 
 CartView:
     description: 'This class represents a cart view.'
     type: object
     #TODO: properties
 
-CartMetadataUpdateStruct:
-    #TODO: description:
+CartMetadataUpdate:
+    description: 'This class represents the update of cart metadata.'
     type: object
-    #TODO: properties:
+    properties:
+        identifier: string
+        defaultLanguageCode: string
+        names: Value[]
+        descriptions: Value[]
 
 Catalog:
     description: 'This class represents a catalog.'
