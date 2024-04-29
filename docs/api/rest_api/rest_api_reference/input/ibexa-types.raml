@@ -1622,6 +1622,26 @@ Session:
         User:
             description: 'User.'
             type: BaseObject
+SegmentGroupList:
+    description: 'This class lists segment groups.'
+    type: BaseObject
+    properties:
+        SegmentGroup: SegmentGroup[]
+SegmentGroup:
+    description: 'This class represents a segment group.'
+    type: BaseObject
+    properties:
+        id: integer
+        identifier: string
+        name: string
+SegmentList:
+    description: 'This class lists segments.'
+    type: BaseObject
+    properties:
+        Segment: Segment[]
+Segment:
+    description: 'This class represents a segment.'
+    type: BaseObject
 SortClause:
     description: 'This class is the base for SortClause classes, used to set sorting of content queries.'
     type: object
