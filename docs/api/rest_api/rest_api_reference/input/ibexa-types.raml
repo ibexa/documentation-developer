@@ -144,6 +144,7 @@ ContentCreateStruct:
         modificationDate:
             description: 'Modification date. If not given, the current integer is used.'
             type: datetime
+
 ContentImageVariation:
     description: 'This class represents an image.'
     type: BaseObject
@@ -163,6 +164,7 @@ ContentImageVariation:
         fileSize:
             description: 'Size of an image file.'
             type: integer
+
 ContentInfo:
     description: 'This class provides all version independent information of the content item.'
     type: BaseObject
@@ -212,6 +214,7 @@ ContentInfo:
 #            status:
 #                description: 'Status of the content. Possible values: const STATUS_DRAFT = 0;const STATUS_PUBLISHED = 1; const STATUS_TRASHED = 2.'
 #                type: integer
+
 ContentMetadataUpdateStruct:
     description: 'With this class data can be provided to update version independent Fields of the content item. It is used in content update methods. At least one property in this class must be set.'
     type: object
@@ -240,6 +243,7 @@ ContentMetadataUpdateStruct:
         name:
             description: "If set, will change the content's 'always-available' name."
             type: string
+
 ContentObjectStates:
     description: 'Represents a list of object states.'
     type: object
@@ -247,6 +251,7 @@ ContentObjectStates:
         ObjectState:
             description: 'List of object state values.'
             type: BaseObject[]
+
 ContentStruct:
     description: 'Base struct for content create/update structs.'
     type: object
@@ -254,6 +259,7 @@ ContentStruct:
         setField:
             description: 'Adds a field to the field collection. This method could also be implemented by a magic setter so that $fields[$fieldDefIdentifier][$language] = $value or without language $fields[$fieldDefIdentifier] = $value is an equivalent call.'
             type: string
+
 ContentType:
     description: 'This class represents a content type.'
     type: BaseObject
@@ -417,18 +423,21 @@ ContentTypeGroupList:
     properties:
         ContentTypeGroup:
             type: ContentTypeGroup[]
+
 ContentTypeGroupRef:
     description: 'Content type group reference.'
     type: BaseObject
     properties:
         Unlink:
             type: Unlink
+
 ContentTypeGroupRefList:
     description: 'List of content type groups references.'
     type: BaseObject
     properties:
         ContentTypeGroupRef:
             type: ContentTypeGroupRef
+
 ContentTypeGroupStruct:
     description: 'This class is used for updating a content type group.'
     type: object
@@ -436,6 +445,7 @@ ContentTypeGroupStruct:
         identifier:
             description: 'Readable and unique string identifier of a group.'
             type: string
+
 ContentTypeGroupUpdateStruct:
     description: 'This class is used for updating a content type group.'
     type: object
@@ -446,6 +456,7 @@ ContentTypeGroupUpdateStruct:
         modificationDate:
             description: 'If set this value overrides the current time for modified.'
             type: datetime
+
 ContentTypeInfo:
     description: 'This class stores content type information.'
     type: BaseObject
@@ -507,6 +518,7 @@ ContentTypeInfo:
         defaultSortOrder:
             description: 'Specifies whether the sort order should be ascending or descending by default when created. Map for Location sort order to their respective Query SORT constants. Possible values: const SORT_ORDER_DESC = 0; const SORT_ORDER_ASC = 1.'
             enum: [ ]
+
 ContentTypeInfoList:
     description: 'List of content type information.'
     type: BaseObject
@@ -514,12 +526,14 @@ ContentTypeInfoList:
         ContentType:
             description: 'This class stores content type information.'
             type: ContentTypeInfo[]
+
 ContentTypeList:
     description: 'List of content types.'
     type: BaseObject
     properties:
         ContentType:
             type: ContentType[]
+
 ContentTypeUpdateStruct:
     description: 'This class is used for updating a content type.'
     type: object
@@ -574,6 +588,7 @@ ContentUpdateStruct:
         creatorId:
             description: 'Creator User ID. Creator of the version, in the search API this is referred to as the modifier of the published content.'
             type: integer
+
 Country:
     description: 'This class is representing a country.'
     type: BaseObject
@@ -593,12 +608,14 @@ Country:
         IDC:
             description: 'IDC'
             type: integer
+
 CountryList:
     description: 'This class is representing an ISO-3166 formatted list of world countries.'
     type: BaseObject
     properties:
         Country:
             type: Country[]
+
 CreateStruct:
     description: 'This class is used for creating a notification.'
     type: object
@@ -616,6 +633,7 @@ CreateStruct:
             description: 'Notification data.'
             type: array
             items: mixed
+
 Criterion:
     description: 'Criterion implementations.'
     type: object
@@ -639,12 +657,15 @@ Criterion:
         ValueTypeCheckCallback:
             description: 'Returns a callback that checks the values types depending on the operator specifications.'
             type: integer
+
 DateRange:
     description: 'Representation of date range.'
     type: object
+
 datetime:
     description: 'Representation of date and time.'
     type: object
+
 Event:
     description: 'Calendar event.'
     type: BaseObject
@@ -663,6 +684,7 @@ Event:
         attributes:
             description: 'List of event attributes.'
             type: EventAttribute[]
+
 EventAttribute:
     type: object
     properties:
@@ -672,6 +694,7 @@ EventAttribute:
         value:
             description: 'Value of the attribute.'
             type: string
+
 EventGroup:
     description: 'Event group.'
     type: BaseObject
@@ -689,12 +712,14 @@ EventGroup:
             type: integer
         events:
             type: Event[]
+
 EventGroupList:
     description: 'Grouped calendar event list.'
     type: EventList
     properties:
         groups:
             type: EventGroup[]
+
 EventList:
     description: 'List of calendar events.'
     type: BaseObject
@@ -710,6 +735,7 @@ EventList:
             type: integer
         events:
             type: Event[]
+
 UnscheduleAction:
     description: 'This class represents events to unschedule'
     type: object
@@ -717,6 +743,7 @@ UnscheduleAction:
         events:
             description: list of events
             type: string[]
+
 FacetBuilder:
     description: 'This class is the base class for facet builders.'
     type: object
@@ -736,6 +763,7 @@ FacetBuilder:
         minCount:
             description: 'Specifies the minimum count. Only facet groups with more or equal results are returned.'
             type: integer
+
 Field:
     description: 'This class represents a field of a content item.'
     type: object
@@ -755,8 +783,10 @@ Field:
         fieldValue:
             description: 'A Field Type value or a value type which can be converted by the corresponding field type.'
             type: any
+
 FieldDefinitions:
     FieldDefinition: FieldDefinition[]
+
 FieldDefinition:
     description: 'This class represents a Field definition.'
     type: BaseObject
@@ -855,6 +885,7 @@ FieldDefinitionCreateStruct:
         isSearchable:
             description: 'Indicates if th the content is searchable by this attribute.'
             type: boolean
+
 FieldDefinitionUpdateStruct:
     description: 'This class is used to update a Field definition.'
     type: object
@@ -895,6 +926,7 @@ FieldDefinitionUpdateStruct:
         isSearchable:
             description: 'If set the the searchable flag is set to this value.'
             type: boolean
+
 JWT:
     description: 'This class represents the JWT authentication token'
     type: object
@@ -902,6 +934,7 @@ JWT:
         token:
             description: 'JWT authentication token'
             type: string
+
 JWTInput:
     description: 'This class represents the input for a JWT authentication token'
     type: object
@@ -912,6 +945,7 @@ JWTInput:
         password:
             description: 'User password'
             type: string
+
 Language:
     description: 'This class represents a language in the Repository.'
     type: BaseObject
@@ -928,18 +962,21 @@ Language:
         enabled:
             description: 'Indicates if the language is enabled or not.'
             type: boolean
+
 LanguageCode:
     description: 'Language code.'
     type: object
     properties:
         languageCode:
             type: string
+
 LanguageList:
     description: 'List of languages.'
     type: BaseObject
     properties:
         Language:
             type: Language[]
+
 LanguageCreateStruct:
     description: 'This class represents a value for creating a language.'
     type: object
@@ -953,6 +990,7 @@ LanguageCreateStruct:
         enabled:
             description: 'Indicates if the language is enabled or not.'
             type: boolean
+
 Limitation:
     description: 'This class represents a Limitation applied to a policy.'
     type: BaseObject
@@ -963,6 +1001,7 @@ Limitation:
         Values:
             description: 'A read-only list of IDs or identifiers for which the limitation should be applied. The value of this property must conform to a hash, which means that it may only consist of array and scalar values, but must not contain objects or resources.'
             type: Ref[]
+
 Location:
     description: 'This class represents a Location in the Repository.'
     type: BaseObject
@@ -1042,6 +1081,7 @@ LocationCreateStruct:
             description: 'The ID of the parent Location under which the new Location should be created.'
             required: true
             type: integer
+
 LocationList:
     description: 'This class represents a queried Location list holding a totalCount and a partial list of Locations (by offset/limit parameters and permission filters).'
     type: object
@@ -1052,9 +1092,11 @@ LocationList:
         Locations:
             description: 'The partial list of Locations controlled by offset/limit.'
             type: Location[]
+
 LocationQuery:
     description: 'This class is used to perform a Location query.'
     type: object
+
 LocationUpdateStruct:
     description: 'This class is used for updating Location meta data.'
     type: object
@@ -1071,6 +1113,7 @@ LocationUpdateStruct:
         sortOrder:
             description: 'If set the sortOrder is changed. The sort order specifies whether the sort order should be ascending or descending. Valid values are {@link Location::SORT_ORDER_*}.'
             type: integer
+
 Message:
     description: 'Class for translatable messages, which only occur in singular form. The message might include replacements, in the form %[A-Za-z]%. Those are replaced by the values provided. A raw % can be escaped like %%.'
     type: object
@@ -1082,6 +1125,7 @@ Message:
             description: 'Translation value objects. May not contain any numbers, which might result in requiring plural forms. Use Plural for that.'
             type: array
             items: mixed
+
 Notification:
     description: 'This class represents a notification value.'
     type: object
@@ -1105,6 +1149,7 @@ Notification:
             description: 'This class represents data.'
             type: array
             items: mixed
+
 NotificationList:
     description: 'This class represents a notifications list.'
     type: object
@@ -1115,6 +1160,7 @@ NotificationList:
         items:
             description: 'List of notifications.'
             type: Notification[]
+
 ObjectState:
     description: 'This class represents a Object state value.'
     type: BaseObject
@@ -1146,6 +1192,7 @@ ObjectState:
             properties:
                 Value:
                     type: Value
+
 ObjectStateCreate:
     type: BaseObject
 
@@ -1171,6 +1218,7 @@ ObjectStateCreateStruct:
         descriptions:
             description: 'An array of descriptions with languageCode keys.'
             type: string[]
+
 ObjectStateGroup:
     description: 'This class represents an Object state group value.'
     type: BaseObject
@@ -1225,6 +1273,7 @@ ObjectStateGroupCreateStruct:
         descriptions:
             description: 'An array of descriptions with languageCode keys.'
             type: string[]
+
 ObjectStateGroupList:
     description: 'List of Object state groups.'
     type: BaseObject
@@ -1252,6 +1301,7 @@ ObjectStateGroupUpdateStruct:
         descriptions:
             description: 'An array of descriptions with languageCode keys.'
             type: string[]
+
 ObjectStateList:
     description: 'List of Object states.'
     type: BaseObject
@@ -1278,6 +1328,7 @@ ObjectStateUpdateStruct:
         descriptions:
             description: 'An array of descriptions with languageCode keys.'
             type: string[]
+
 PasswordValidationContext:
     description: 'Context of the password validation.'
     type: object
@@ -1288,6 +1339,7 @@ PasswordValidationContext:
         user:
             description: 'Owner of the password.'
             type: User
+
 Plural:
     description: 'Class for translatable messages, which may contain plural forms. The message might include replacements, in the form %[A-Za-z]%. Those are replaced by the values provided. A raw % can be escaped like %%.'
     type: object
@@ -1302,6 +1354,7 @@ Plural:
             description: 'Translation value objects. May not contain any numbers, which might result in requiring plural forms. Use MessagePlural for that.'
             type: array
             items: mixed
+
 Policy:
     description: 'This class represents a policy value.'
     type: BaseObject
@@ -1318,6 +1371,7 @@ Policy:
         Limitations:
             description: 'Limitations.'
             type: Limitation[]
+
 PolicyCreateStruct:
     description: 'This class is used to create a policy.'
     type: object
@@ -1328,6 +1382,7 @@ PolicyCreateStruct:
         function:
             description: 'Name of the module function Or all functions with "*" e.g. read.'
             type: string
+
 PolicyDraft:
     description: 'Original policy ID the policy was created from.'
     type: object
@@ -1335,12 +1390,14 @@ PolicyDraft:
         originalId:
             description: 'Original policy ID the policy was created from. Used when role status is Role::STATUS_DRAFT.'
             type: integer
+
 PolicyList:
     description: 'List of policies.'
     type: BaseObject
     properties:
         Policy:
             type: Policy[]
+
 PolicyStruct:
     description: 'This class is used to edit a policy.'
     type: object
@@ -1351,9 +1408,11 @@ PolicyStruct:
         Limitation:
             description: 'Adds a limitation with the given identifier and list of values.'
             type: Limitation
+
 PolicyUpdateStruct:
     description: 'This class is used for updating a policy. The limitations of the policy are replaced with those which are added in instances of this class.'
     type: object
+
 Query:
     description: 'This class is used to perform a Content query.'
     type: object
@@ -1382,6 +1441,7 @@ Query:
         performCount:
             description: 'If true, search engine should perform count even if that means extra lookup.'
             type: boolean
+
 Ref:
     type: object
     properties:
@@ -1389,6 +1449,7 @@ Ref:
             type: string
         _href:
             type: string
+
 Relation:
     description: 'Class representing a relation between content.'
     type: BaseObject
@@ -1408,12 +1469,14 @@ Relation:
         type:
             description: 'The relation type bitmask. Relations: Relation::COMMON = 1, Relation::EMBED = 2, Relation::LINK = 4, Relation::FIELD = 8, Relation::ASSET = 16'
             type: integer
+
 RelationList:
     description: 'Class representing a list of relations between content.'
     type: BaseObject
     properties:
         Relation:
             type: Relation[]
+
 Role:
     description: 'This class represents a role.'
     type: BaseObject
@@ -1424,6 +1487,7 @@ Role:
         Policies:
             description: 'Returns the list of policies of this role.'
             type: BaseObject
+
 RoleAssignment:
     description: 'This value object represents an assignment of a User or User group to a role including a limitation.'
     type: BaseObject
@@ -1434,12 +1498,14 @@ RoleAssignment:
         Role:
             description: 'Returns the role to which the User or User group is assigned to.'
             type: Ref
+
 RoleAssignmentList:
     description: 'This value object represents a list of assignments of a User or User group to a role including a limitation.'
     type: BaseObject
     properties:
         RoleAssignment:
             type: RoleAssignment[]
+
 RoleCreateStruct:
     description: 'This class is used to create a new role.'
     type: object
@@ -1453,9 +1519,11 @@ RoleCreateStruct:
         Policy:
             description: 'Adds a policy to this role.'
             type: PolicyCreateStruct
+
 RoleDraft:
     description: 'This class represents a draft of a role, extends Role.'
     type: Role
+
 RoleLimitation:
     description: 'Role limitation extends Limitation.'
     type: Limitation
@@ -1467,6 +1535,7 @@ RoleUpdateStruct:
         identifier:
             description: 'Readable string identifier of a role.'
             type: string
+
 RoleList:
     description: 'This class represents a list roles.'
     type: BaseObject
@@ -1556,6 +1625,7 @@ Root:
         refreshSession:
             description: 'Refresh given session.'
             type: BaseObject
+
 SearchResult:
     description: 'The total number of URLs.'
     type: object
@@ -1566,6 +1636,7 @@ SearchResult:
         items:
             description: 'The value objects found for the query.'
             type: URL[]
+
 Section:
     description: 'This class represents a Section.'
     type: BaseObject
@@ -1579,20 +1650,24 @@ Section:
         name:
             description: 'Name of the Section.'
             type: string
+
 SectionInput:
     type: BaseObject
 
 SectionCreateStruct:
     description: 'This class represents a Section.'
     type: object
+
 SectionLimitation:
     type: RoleLimitation
+
 SectionList:
     description: 'This class represents a Section list.'
     type: BaseObject
     properties:
         Section:
             type: Section[]
+
 SectionStruct:
     description: 'This class is used for updating Section meta data.'
     type: object
@@ -1603,9 +1678,11 @@ SectionStruct:
         name:
             description: 'If set the name of the Section is changed.'
             type: string
+
 SectionUpdateStruct:
     description: 'This class is used to provide data for updating a Section. At least one property has to be set.'
     type: object
+
 Session:
     description: 'Value for session.'
     type: BaseObject
@@ -1622,11 +1699,13 @@ Session:
         User:
             description: 'User.'
             type: BaseObject
+
 SegmentGroupList:
     description: 'This class lists segment groups.'
     type: BaseObject
     properties:
         SegmentGroup: SegmentGroup[]
+
 SegmentGroup:
     description: 'This class represents a segment group.'
     type: BaseObject
@@ -1634,11 +1713,13 @@ SegmentGroup:
         id: integer
         identifier: string
         name: string
+
 SegmentList:
     description: 'This class lists segments.'
     type: BaseObject
     properties:
         Segment: Segment[]
+
 Segment:
     description: 'This class represents a segment.'
     type: BaseObject
@@ -1647,6 +1728,7 @@ Segment:
         identifier: string
         name: string
         SegmentGroup: SegmentGroup
+
 SortClause:
     description: 'This class is the base for SortClause classes, used to set sorting of content queries.'
     type: object
@@ -1660,6 +1742,7 @@ SortClause:
         targetData:
             description: 'Extra target data, required by some sort clauses, field for instance.'
             type: Target
+
 Specifications:
     description: 'This class is used by Criteria to describe which operators they support. Instances of this class are returned in an array by the {@see Criterion::getSpecifications()} method.'
     type: object
@@ -1676,6 +1759,7 @@ Specifications:
         valueCount:
             description: 'Limitation on the number of items as the value. Only usable if {@see $valueFormat} is {@see self::FORMAT_ARRAY}.'
             type: integer
+
 StringLengthValidator:
     description: 'Validator for checking min. and max. length of strings.'
     type: object
@@ -1686,19 +1770,24 @@ StringLengthValidator:
         minStringLength:
             description: 'Minimum length of strings.'
             type: integer
+
 SubtreeLimitation:
     type: RoleLimitation
+
 Target:
     description: 'Struct that stores extra target information for a SortClause object.'
     type: object
+
 Translation:
     description: 'Base class for translation messages extends ValueObject.'
     type: object
+
 Trash:
     type: BaseObject
     properties:
         TrashItem:
             type: TrashItem[]
+
 TrashItem:
     description: 'This class represents a trash item, which is actually a trashed Location.'
     type: Location
@@ -1707,6 +1796,7 @@ TrashItem:
 #            trashed:
 #                description: 'Trashed integer.'
 #                type: datetime
+
 Unlink:
     description: 'Unlink a content type group from a content type.'
     type: object
@@ -1715,6 +1805,7 @@ Unlink:
             type: string
         _method:
             enum: [ ]
+
 URL:
     description: 'This class represents a URL in the Repository.'
     type: object
@@ -1772,12 +1863,14 @@ UrlAlias:
         custom:
             description: 'If false this alias was autogenerated otherwise manually created.'
             type: boolean
+
 UrlAliasRefList:
     description: 'List of URL alias in the Repository.'
     type: BaseObject
     properties:
         URLAlias:
             type: URLAlias[]
+
 UrlQuery:
     description: 'This class is used to perform a URL query.'
     type: object
@@ -1794,6 +1887,7 @@ UrlQuery:
         limit:
             description: 'Query limit. Limit for number of search hits to return. If value is `0`, search query will not return any search hits, useful for doing a count.'
             type: integer
+
 UsageSearchResult:
     description: 'This class is used to find usage search results.'
     type: object
@@ -1804,6 +1898,7 @@ UsageSearchResult:
         items:
             description: 'The value objects found for the query.'
             type: ContentInfo[]
+
 URLUpdateStruct:
     description: 'Structure used to update URL data.'
     type: object
@@ -1817,6 +1912,7 @@ URLUpdateStruct:
         lastChecked:
             description: 'Modified date.'
             type: datetime
+
 UrlWildcard:
     description: 'This class represents a URL alias in the Repository.'
     type: BaseObject
@@ -1844,6 +1940,7 @@ UrlWildcardList:
     properties:
         UrlWildcard:
             type: UrlWildcard[]
+
 URLWildcardTranslationResult:
     description: 'This class represents a result of a translated URL wildcard which is not an URLAlias.'
     type: object
@@ -1854,6 +1951,7 @@ URLWildcardTranslationResult:
         forward:
             description: 'Indicates if the URL is redirected or not.'
             type: boolean
+
 User:
     description: 'This class represents a User value.'
     type: BaseObject
@@ -1921,6 +2019,7 @@ User:
 #            maxLogin:
 #                description: 'Max number of time User is allowed to login.'
 #                type: integer
+
 UserCreateStruct:
     description: 'This class is used to create a new User in the Repository.'
     type: object
@@ -1940,12 +2039,14 @@ UserCreateStruct:
         enabled:
             description: 'Indicates if the User is enabled after creation.'
             type: boolean
+
 UserGroup:
     description: 'This class represents a User group.'
     type: BaseObject
     properties:
         Unassign:
             type: Unlink
+
 UserGroupCreateStruct:
     description: 'This class is used to create a new User group in the Repository, extends ContentCreateStruct.'
     type: object
@@ -1957,6 +2058,7 @@ UserGroupRefList:
         UserGroup:
             description: 'This class represents a User group.'
             type: UserGroup
+
 UserGroupRoleAssignment:
     description: 'This class represents a User group to role assignment.'
     type: object
@@ -1979,6 +2081,7 @@ UserGroupUpdateStruct:
         contentMetadataUpdateStruct:
             description: 'The update structure for the profile meta data.'
             type: ContentMetadataUpdateStruct
+
 UserGroupList:
     description: 'This class represents a User Group list.'
     type: BaseObject
@@ -1989,6 +2092,7 @@ UserList:
     properties:
         User:
             type: User[]
+
 UserPreference:
     description: 'This class represents a User preference value.'
     type: object
@@ -1999,6 +2103,7 @@ UserPreference:
         value:
             description: 'Value of User preference e.g. America/New_York.'
             type: string
+
 UserPreferenceList:
     description: 'List of User preferences.'
     type: object
@@ -2009,6 +2114,7 @@ UserPreferenceList:
         items:
             description: 'List of User preferences.'
             type: UserPreference[]
+
 UserPreferenceSetStruct:
     description: 'This class creates User preferences.'
     type: object
@@ -2019,6 +2125,7 @@ UserPreferenceSetStruct:
         value:
             description: 'Value of User preference e.g. America/New_York.'
             type: string
+
 UserRefList:
     description: 'Returns a list of the users.'
     type: BaseObject
@@ -2026,6 +2133,7 @@ UserRefList:
         User:
             description: 'This class represents a User.'
             type: BaseObject[]
+
 UserRoleAssignment:
     description: 'This class represents a User to role assignment.'
     type: object
@@ -2033,6 +2141,7 @@ UserRoleAssignment:
         User:
             description: 'Returns the User to which the role is assigned to.'
             type: User
+
 UserTokenUpdateStruct:
     description: 'This class is used to update a User token in the Repository.'
     type: object
@@ -2043,6 +2152,7 @@ UserTokenUpdateStruct:
         time:
             description: 'Time to which the token is valid.'
             type: datetime
+
 UserUpdateStruct:
     description: 'This class is used to update a User in the Repository.'
     type: object
@@ -2065,6 +2175,7 @@ UserUpdateStruct:
         contentMetadataUpdateStruct:
             description: 'The update structure  for the profile meta data.'
             type: ContentMetadataUpdateStruct
+
 Value:
     description: 'Struct that stores extra value information for a Criterion object.'
     type: object
@@ -2075,6 +2186,7 @@ Value:
         '#text':
             description: 'Content type description.'
             type: string
+
 ValueObject:
     description: 'The base class for all value objects and structs. Supports readonly properties by marking them as protected.'
     type: object
@@ -2083,6 +2195,7 @@ ValueObject:
             description: 'Function where list of properties are returned.'
             type: array
             items: mixed
+
 Version:
     description: 'Returns the VersionInfo for this version.'
     type: BaseObject
@@ -2099,6 +2212,7 @@ Version:
             properties:
                 Relation:
                     type: Relation[]
+
 VersionInfo:
     description: 'This class holds version information data. It also contains the corresponding {@link Content} to which the version belongs to.'
     type: object
@@ -2136,6 +2250,7 @@ VersionInfo:
         Content:
             description: 'Represents a content item in a specific version.'
             type: BaseObject
+
 VersionItem:
     description: 'Version of content.'
     type: BaseObject
@@ -2145,12 +2260,14 @@ VersionItem:
             type: BaseObject
         VersionInfo:
             type: VersionInfo
+
 VersionList:
     description: 'List of all versions of the content.'
     type: BaseObject
     properties:
         VersionItem:
             type: VersionItem[]
+
 VersionTranslationInfo:
     description: 'Translation information.'
     type: object
@@ -2222,7 +2339,6 @@ ContentTypeCreate:
             type: any
         creationDate:
             type: DateTime
-
 
 ContentTypeUpdate:
     description: 'This class is used to update a content type.'
@@ -3074,7 +3190,6 @@ ProductList:
         Products:
             type: Product[]
 
-
 ProductListGet:
     description: 'This class represents a product list GET.'
     type: object
@@ -3357,6 +3472,7 @@ VatCategory:
             type: string
         vatValue:
             type: number
+
 DateTime:
     description: https://www.php.net/manual/en/class.datetime.php
     type: object
@@ -3684,7 +3800,6 @@ Link:
         rel:
             description: 'Unique identifier of a resource.'
             type: string
-
 
 Company:
     description: 'This class represents a company.'
