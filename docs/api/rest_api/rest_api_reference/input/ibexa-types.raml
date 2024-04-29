@@ -2674,7 +2674,17 @@ CartQuery:
 CartView:
     description: 'This class represents a cart view.'
     type: object
-    #TODO: properties
+    properties:
+        identifier: string
+        Result: ViewResult
+
+ViewResult:
+    type: object
+    properties:
+        count: integer
+        Result: CartList
+
+CartList: object
 
 CartMetadataUpdate:
     description: 'This class represents the update of cart metadata.'
