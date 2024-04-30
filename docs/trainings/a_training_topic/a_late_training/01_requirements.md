@@ -22,15 +22,15 @@ You should have mastered the following training(s) before starting ''The late tr
 
     You can use [`experience-skeleton`'s DDEV feature](doc_about_website-skeleton_ddev_interactive_launcher.md#experience)
 
-## Cluster
+## Cluster elements
 
 This training needs a reverse proxy for HTTP cache. For a local installation, Varnish is recommended. 
 
-| Service       | Required | Value        |
-|:--------------|:---------|:-------------|
-| Search engine | No       | (Legacy)     |
-| Cache pool    | No       | (Filesystem) |
-| HTTP cache    | Yes      | Varnish      |
+|       Service | Required | Value        |
+|--------------:|:--------:|:-------------|
+| Search engine |    No    | (Legacy)     |
+|    Cache pool |    No    | (Filesystem) |
+|    HTTP cache | **Yes**  | Varnish      |
 
 ## Starting state
 

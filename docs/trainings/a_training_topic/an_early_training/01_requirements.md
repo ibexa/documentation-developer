@@ -18,15 +18,15 @@ None.
 
     You can use [`oss-skeleton`'s DDEV feature](doc_about_website-skeleton_ddev_interactive_launcher.md#oss)
 
-### Cluster
+### Cluster elements
 
 This training can be done with the minimal installation.
 
-| Service       | Required | Value        |
-|:--------------|:---------|:-------------|
-| Search engine | No       | (Legacy)     |
-| Cache pool    | No       | (Filesystem) |
-| HTTP cache    | No       |              |
+|       Service | Required | Value        |
+|--------------:|:--------:|:-------------|
+| Search engine |    No    | (Legacy)     |
+|    Cache pool |    No    | (Filesystem) |
+|    HTTP cache |    No    |              |
 
 ### Starting state
 
