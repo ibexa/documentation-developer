@@ -34,6 +34,8 @@ This training needs a reverse proxy for HTTP cache. For a local installation, Va
 
 ## Starting state
 
+To follow this training, you must install code, config and data on top of a fresh installation.
+
 1. Download the [starting state archive](download/a_late_training.start.zip).
 1. Execute the following commands:
    ```bash
