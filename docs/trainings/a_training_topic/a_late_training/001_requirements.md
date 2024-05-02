@@ -12,11 +12,12 @@ This is what you need to know to set up your training environment.
 
 You should have mastered the following training(s) before starting ''The late training title'':
 
-- [An early training](../an_early_training/00_presentation.md)
+- [An early training](../an_early_training/000_presentation)
 
 ## Ibexa DXP edition
 
-[[= product_name_exp =]] [[= latest_tag_4_6 =]]
+- [[= product_name_exp =]] [[= latest_tag_4_6 =]]
+- [[= product_name_com =]] [[= latest_tag_4_6 =]]
 
 !!! note
 
@@ -37,10 +38,12 @@ This training needs a reverse proxy for HTTP cache. For a local installation, Va
 To follow this training, you must install code, config and data on top of a fresh installation.
 
 1. Download the [starting state archive](download/a_late_training.start.zip).
-1. Execute the following commands:
+1. Put this achive at the root of your [[= product_name =]] training installation
+1. In a terminal, run the following commands at the root of your [[= product_name =]] training installation:
    ```bash
-   # Unzip
-   # Copy
-   # Append
-   # Migrate
+   unzip a_late_training.start.zip
+   cat config/append_to_services.yaml >> config/services.yaml
+   rm config/append_to_services.yaml
+   php bin/console ibexa:migrations:migrate --file=a_late_training_content_types.yml --siteaccess=admin
+   php bin/console ibexa:migrations:migrate --file=a_late_training_contents.yml --siteaccess=admin
    ```

@@ -1,0 +1,15 @@
+-
+    type: content_type
+    mode: create
+    metadata:
+        identifier: training_content_type_container
+-
+    type: content_type
+    mode: create
+    metadata:
+        identifier: training_content_type_item
+-
+    type: content_type
+    mode: create
+    metadata:
+        identifier: training_content_type_resource

@@ -12,7 +12,10 @@ None.
 
 ### Ibexa DXP edition
 
-[[= product_name_oss =]] [[= latest_tag_4_6 =]]
+- [[= product_name_oss =]] [[= latest_tag_4_6 =]]
+- [[= product_name_headless =]] [[= latest_tag_4_6 =]]
+- [[= product_name_exp =]] [[= latest_tag_4_6 =]]
+- [[= product_name_com =]] [[= latest_tag_4_6 =]]
 
 !!! note
 

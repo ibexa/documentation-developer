@@ -50,11 +50,11 @@ nav:
     - Trainings:
         - A training topic:
             - An early training:
-                - Introduction: trainings/a_training_topic/an_early_training/00_presentation.md
-                - Requirements: trainings/a_training_topic/an_early_training/01_requirements.md
+                - Introduction: trainings/a_training_topic/an_early_training/000_presentation.md
+                - Requirements: trainings/a_training_topic/an_early_training/001_requirements.md
             - A late training:
-                - Introduction: trainings/a_training_topic/a_late_training/00_presentation.md
-                - Requirements: trainings/a_training_topic/a_late_training/01_requirements.md
+                - Introduction: trainings/a_training_topic/a_late_training/000_presentation.md
+                - Requirements: trainings/a_training_topic/a_late_training/001_requirements.md
     - API:
         - API: api/api.md
         - PHP API: api/php_api/php_api.md
