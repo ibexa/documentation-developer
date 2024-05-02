@@ -16,6 +16,8 @@ You should have mastered the following training(s) before starting ''The late tr
 
 ## Ibexa DXP edition
 
+[[= product_name_exp =]] is the minimal edition required by this training.
+
 - [[= product_name_exp =]] [[= latest_tag_4_6 =]]
 - [[= product_name_com =]] [[= latest_tag_4_6 =]]
 

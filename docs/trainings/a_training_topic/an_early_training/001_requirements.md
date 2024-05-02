@@ -12,6 +12,8 @@ None.
 
 ### Ibexa DXP edition
 
+This training can be done on all editions.
+
 - [[= product_name_oss =]] [[= latest_tag_4_6 =]]
 - [[= product_name_headless =]] [[= latest_tag_4_6 =]]
 - [[= product_name_exp =]] [[= latest_tag_4_6 =]]
