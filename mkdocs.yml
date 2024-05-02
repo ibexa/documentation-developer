@@ -48,6 +48,7 @@ nav:
             - 7. Add basic validation: tutorials/generic_field_type/7_add_a_validation.md
             - 8. Data migration: tutorials/generic_field_type/8_data_migration.md
     - Trainings:
+        - Trainings: trainings/trainings.md
         - A training topic:
             - An early training:
                 - Introduction: trainings/a_training_topic/an_early_training/000_presentation.md

@@ -23,6 +23,8 @@ You should have mastered the following training(s) before starting ''The late tr
 
     You can use [`experience-skeleton`'s DDEV feature](doc_about_website-skeleton_ddev_interactive_launcher.md#experience)
 
+    For more suggestions about your training environment, see [Training environment](trainings.md#training-environment).
+
 ## Cluster elements
 
 This training needs a reverse proxy for HTTP cache. For a local installation, Varnish is recommended. 
@@ -42,7 +44,7 @@ To follow this training, you must install code, config and data on top of a fres
 1. In a terminal, run the following commands at the root of your [[= product_name =]] training installation:
    ```bash
    unzip a_late_training.start.zip
-   cat config/append_to_services.yaml >> config/services.yaml
+   tail -n+2 config/append_to_services.yaml >> config/services.yaml
    rm config/append_to_services.yaml
    php bin/console ibexa:migrations:migrate --file=a_late_training_content_types.yml --siteaccess=admin
    php bin/console ibexa:migrations:migrate --file=a_late_training_contents.yml --siteaccess=admin

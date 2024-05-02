@@ -21,6 +21,8 @@ None.
 
     You can use [`oss-skeleton`'s DDEV feature](doc_about_website-skeleton_ddev_interactive_launcher.md#oss)
 
+    For more suggestions about your training environment, see [Training environment](trainings.md#training-environment).
+
 ### Cluster elements
 
 This training can be done with the minimal installation.
