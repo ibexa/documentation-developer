@@ -14,13 +14,13 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Infrastructure and maintenance
 
-- Add [v4.6.0 to v4.6.3 update instructions](update_from_4.5.md#v462)
+- [v4.6.0 to v4.6.3 update instructions](update_from_4.5.md#v462)
 
 ### Users
 
-- Add [recent activity](recent_activity.md)
-- Add [OAuth server](oauth_server.md)
-- Update [OAuth client](oauth_client.md)
+- [Recent activity](recent_activity.md)
+- [OAuth server](oauth_server.md)
+- Updated [OAuth client](oauth_client.md)
 
 ### Back Office
 
@@ -29,8 +29,8 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Templating
 
-- Add [site context Twig function `ibexa_site_context_aware`](site_context_twig_functions.md#ibexa_site_context_aware)
-- Add [storefront Twig function `ibexa_get_anonymous_user_id`](storefront_twig_functions.md#ibexa_get_anonymous_user_id)
+- [site context Twig function `ibexa_site_context_aware`](site_context_twig_functions.md#ibexa_site_context_aware)
+- [storefront Twig function `ibexa_get_anonymous_user_id`](storefront_twig_functions.md#ibexa_get_anonymous_user_id)
 
 ## March 2024
 
