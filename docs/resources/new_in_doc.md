@@ -10,7 +10,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Product guides
 
-- [[[= product_name_cdp =]] product guide](cdp_guide.md)
+- [Ibexa CDP product guide](cdp_guide.md)
 
 ### Infrastructure and maintenance
 
