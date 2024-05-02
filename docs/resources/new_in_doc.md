@@ -6,6 +6,32 @@ description: Overview of major recent additions to Ibexa DXP documentation.
 
 This page contains recent highlights and notable changes in [[= product_name =]] documentation.
 
+## April 2024
+
+### Product guides
+
+- [Ibexa CDP product guide](cdp_guide.md)
+
+### Infrastructure and maintenance
+
+- [v4.6.0 to v4.6.3 update instructions](update_from_4.5.md#v462)
+
+### Users
+
+- [Recent activity](recent_activity.md)
+- [OAuth server](oauth_server.md)
+- Updated [OAuth client](oauth_client.md)
+
+### Back Office
+
+- [Customize Back Office search suggestions](customize_search_suggestion.md)
+- [Customize Back Office search result sorting](customize_search_sorting.md)
+
+### Templating
+
+- [site context Twig function `ibexa_site_context_aware`](site_context_twig_functions.md#ibexa_site_context_aware)
+- [storefront Twig function `ibexa_get_anonymous_user_id`](storefront_twig_functions.md#ibexa_get_anonymous_user_id)
+
 ## March 2024
 
 ### Permissions
