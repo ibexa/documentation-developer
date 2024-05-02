@@ -42,7 +42,7 @@ This training needs a reverse proxy for HTTP cache. For a local installation, Va
 To follow this training, you must install code, config and data on top of a fresh installation.
 
 1. Download the [starting state archive](download/a_late_training.start.zip).
-1. Put this achive at the root of your [[= product_name =]] training installation
+1. Put this archive at the root of your [[= product_name =]] training installation.
 1. In a terminal, run the following commands at the root of your [[= product_name =]] training installation:
    ```bash
    unzip a_late_training.start.zip
