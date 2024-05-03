@@ -12,10 +12,10 @@ Each training starts with a list of the trainings you should previously master b
 
 ## Training environment
 
-You'll need a training instance of Ibex DXP.
+You need a running instance of Ibexa DXP to take a training.
 
 Each training starts with its technical requirements.
-Some trainings provide some additional set-up like code, content, or config.
+Some trainings provide some additional set-up (such as code, content, or config) to install before starting the training.
 
 You can use whatever solution that suits you to run an Ibexa DXP in the required edition for your training.
 You'll need to access the Ibexa DXP code, the servers' configs, and command lines.
