@@ -58,6 +58,7 @@ nav:
                 - 'Second chapter: Introduction': trainings/a_training_topic/an_early_training/020_second_chapter.md
                 - 'Second chapter: First section': trainings/a_training_topic/an_early_training/021_first_section.md
                 - 'Second chapter: Second section': trainings/a_training_topic/an_early_training/022_second_section.md
+                - Conclusion: trainings/a_training_topic/an_early_training/999_conclusion.md
             - A late training:
                 - Syllabus: trainings/a_training_topic/a_late_training/000_syllabus.md
     - API:

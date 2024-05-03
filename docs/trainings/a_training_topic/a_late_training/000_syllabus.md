@@ -19,7 +19,7 @@ This is what you need to know to set up your training environment.
 
 You should have mastered the following training(s) before starting ''The late training title'':
 
-- [An early training](../an_early_training/000_presentation)
+- [An early training](../an_early_training/000_syllabus.md)
 
 ### Ibexa DXP edition
 
