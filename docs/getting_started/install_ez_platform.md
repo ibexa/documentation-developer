@@ -9,7 +9,7 @@
 
 ## Prepare work environment
 
-To install eZ Platform you need a stack with your operating system, MySQL and PHP.
+To install eZ Platform you need a stack with your operating system, MySQL or MariaDB, and PHP.
 
 You can install it by following your favorite tutorial, for example: [Install LAMP stack on Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-ubuntu-18-04).
 
@@ -142,7 +142,7 @@ After a moment the installer will ask you to provide a few parameters:
 
 !!! tip "Using PostgreSQL"
 
-    If you want an installation with PostgreSQL instead of MySQL, refer to [Using PostgreSQL](../guide/databases.md#using-postgresql).
+    If you want an installation with PostgreSQL instead of MySQL or MariaDB, refer to [Using PostgreSQL](../guide/databases.md#using-postgresql).
 
 ## Create database
 
