@@ -2,13 +2,21 @@
 description: Training page template
 ---
 
-# The early training title: Requirements
+# The early training title
+
+## Syllabus
+
+In this training, you will learn to…
+
+Table of Content with estimated times?
+
+## Requirements
 
 This is what you need to know to set up your training environment.
 
-## Previous trainings
+### Previous trainings
 
-None.
+You can start this training right away.
 
 ### Ibexa DXP edition
 

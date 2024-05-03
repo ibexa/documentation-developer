@@ -51,11 +51,15 @@ nav:
         - Trainings: trainings/trainings.md
         - A training topic:
             - An early training:
-                - Introduction: trainings/a_training_topic/an_early_training/000_presentation.md
-                - Requirements: trainings/a_training_topic/an_early_training/001_requirements.md
+                - Syllabus: trainings/a_training_topic/an_early_training/000_syllabus.md
+                - 'First chapter: Introduction': trainings/a_training_topic/an_early_training/010_first_chapter.md
+                - 'First chapter: First section': trainings/a_training_topic/an_early_training/011_first_section.md
+                - 'First chapter: Second section': trainings/a_training_topic/an_early_training/012_second_section.md
+                - 'Second chapter: Introduction': trainings/a_training_topic/an_early_training/020_second_chapter.md
+                - 'Second chapter: First section': trainings/a_training_topic/an_early_training/021_first_section.md
+                - 'Second chapter: Second section': trainings/a_training_topic/an_early_training/022_second_section.md
             - A late training:
-                - Introduction: trainings/a_training_topic/a_late_training/000_presentation.md
-                - Requirements: trainings/a_training_topic/a_late_training/001_requirements.md
+                - Syllabus: trainings/a_training_topic/a_late_training/000_syllabus.md
     - API:
         - API: api/api.md
         - PHP API: api/php_api/php_api.md

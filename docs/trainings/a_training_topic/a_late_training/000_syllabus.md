@@ -3,18 +3,25 @@ description: Training page template
 ---
 
 [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+# The late training title
 
-# The late training title: Requirements
+## Syllabus
+
+In this training, you will learn to… …with HTTP cache…
+
+Table of Content with estimated times?
+
+## Requirements
 
 This is what you need to know to set up your training environment.
 
-## Previous trainings
+### Previous trainings
 
 You should have mastered the following training(s) before starting ''The late training title'':
 
 - [An early training](../an_early_training/000_presentation)
 
-## Ibexa DXP edition
+### Ibexa DXP edition
 
 [[= product_name_exp =]] is the minimal edition required by this training.
 
@@ -27,9 +34,9 @@ You should have mastered the following training(s) before starting ''The late tr
 
     For more suggestions about your training environment, see [Training environment](trainings.md#training-environment).
 
-## Cluster elements
+### Cluster elements
 
-This training needs a reverse proxy for HTTP cache. For a local installation, Varnish is recommended. 
+This training needs a reverse proxy for HTTP cache. For a local installation, Varnish is recommended.
 
 |       Service | Required | Value        |
 |--------------:|:--------:|:-------------|
@@ -37,7 +44,7 @@ This training needs a reverse proxy for HTTP cache. For a local installation, Va
 |    Cache pool |    No    | (Filesystem) |
 |    HTTP cache | **Yes**  | Varnish      |
 
-## Starting state
+### Starting state
 
 To follow this training, you must install code, config and data on top of a fresh installation.
 
