@@ -1,9 +1,10 @@
-cd docs/trainings/a_training_topic/a_late_training/download/start/;
-rm -f ../a_late_training.start.zip;
-zip -r ../a_late_training.start.zip ./* ;
-cd -;
-
-cd docs/trainings/a_training_topic/a_late_training/download/step_01/;
-rm -f ../a_late_training.start.zip;
-zip -r ../a_late_training.step_01.zip ./* ;
-cd -;
+for container in $(find docs/trainings -type d -a -name download); do
+  for folder in $(find $container -type d -a -mindepth 1 -a -maxdepth 1); do
+    cd $folder; #pwd;
+    archive="$(basename $(dirname $container)).$(basename $folder).zip";
+    rm -f ../$archive;
+    echo "$archive ← $folder";
+    zip -r ../$archive ./* ;
+    cd - > /dev/null;
+  done;
+done;
