@@ -10,53 +10,53 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Product guides
 
-- [Ibexa CDP product guide](cdp_guide.md)
+- [Ibexa CDP product guide](https://doc.ibexa.co/en/master/cdp/cdp_guide/)
 
 ### Infrastructure and maintenance
 
-- [v4.6.0 to v4.6.3 update instructions](update_from_4.5.md#v462)
+- [v4.6.0 to v4.6.3 update instructions](https://doc.ibexa.co/en/master/update_and_migration/from_4.5/update_from_4.5/#v462)
 
 ### Users
 
-- [Recent activity](recent_activity.md)
-- [OAuth server](oauth_server.md)
-- Updated [OAuth client](oauth_client.md)
+- [Recent activity](https://doc.ibexa.co/en/master/administration/recent_activity/recent_activity/)
+- [OAuth server](https://doc.ibexa.co/en/master/users/oauth_server/)
+- Updated [OAuth client](https://doc.ibexa.co/en/master/users/oauth_client/)
 
 ### Back Office
 
-- [Customize Back Office search suggestions](customize_search_suggestion.md)
-- [Customize Back Office search result sorting](customize_search_sorting.md)
+- [Customize Back Office search suggestions](https://doc.ibexa.co/en/master/administration/back_office/customize_search_suggestion/)
+- [Customize Back Office search result sorting](https://doc.ibexa.co/en/master/administration/back_office/customize_search_sorting/)
 
 ### Templating
 
-- [site context Twig function `ibexa_site_context_aware`](site_context_twig_functions.md#ibexa_site_context_aware)
-- [storefront Twig function `ibexa_get_anonymous_user_id`](storefront_twig_functions.md#ibexa_get_anonymous_user_id)
+- [Site context Twig function `ibexa_site_context_aware`](https://doc.ibexa.co/en/master/templating/twig_function_reference/site_context_twig_functions/#ibexa_site_context_aware)
+- [Storefront Twig function `ibexa_get_anonymous_user_id`](https://doc.ibexa.co/en/master/templating/twig_function_reference/storefront_twig_functions/#ibexa_get_anonymous_user_id)
 
 ## March 2024
 
 ### Permissions
 
-- Updated [Custom Policies](custom_policies.md) article
+- Updated [Custom Policies](https://doc.ibexa.co/en/latest/permissions/custom_policies/) article
 
 ### Content management
 
-- Updated [BinaryFile Field Type](binaryfilefield.md) description
+- Updated [BinaryFile Field Type](https://doc.ibexa.co/en/latest/content_management/field_types/field_type_reference/binaryfilefield/) description
 
 ### Commerce
 
-- Description of [integration with Payum](payum_integration.md) and payment processing gateways
+- Description of [integration with Payum](https://doc.ibexa.co/en/latest/commerce/payment/payum_integration/) and payment processing gateways
 
 ### Search
 
-- Updated [Elasticsearch search engine](elastic_search_overview.md) description
+- Updated [Elasticsearch search engine](https://doc.ibexa.co/en/latest/search/search_engines/elastic_search/elastic_search_overview/) description
 - New Search Criteria:
-    - [Image](image_criterion.md)
-    - [ImageDimensions](imagedimensions_criterion.md)
-    - [ImageFileSize](imagefilesize_criterion.md)
-    - [ImageHeight](imageheight_criterion.md)
-    - [ImageMimeType](imagemimetype_criterion.md)
-    - [ImageOrientation](imageorientation_criterion.md)
-    - [ImageWidth](imagewidth_criterion.md)
+    - [Image](https://doc.ibexa.co/en/latest/search/criteria_reference/image_criterion/)
+    - [ImageDimensions](https://doc.ibexa.co/en/latest/search/criteria_reference/imagedimensions_criterion/)
+    - [ImageFileSize](https://doc.ibexa.co/en/latest/search/criteria_reference/imagefilesize_criterion/)
+    - [ImageHeight](https://doc.ibexa.co/en/latest/search/criteria_reference/imageheight_criterion/)
+    - [ImageMimeType](https://doc.ibexa.co/en/latest/search/criteria_reference/imagemimetype_criterion/)
+    - [ImageOrientation](https://doc.ibexa.co/en/latest/search/criteria_reference/imageorientation_criterion/)
+    - [ImageWidth](https://doc.ibexa.co/en/latest/search/criteria_reference/imagewidth_criterion/)
 
 ## February 2024
 
