@@ -8,7 +8,7 @@ TODO: Introduction to trainings
 
 ## Learning path
 
-Each training starts with a list of the trainings you should previously master before going into this one.
+Each training starts with a list of the trainings you should previously master before going into the selected one.
 
 ## Training environment
 
