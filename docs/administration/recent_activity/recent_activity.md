@@ -55,7 +55,7 @@ This policy is required to view [activity log in user profile]([[= user_doc =]]/
 
 !!! caution
 
-    The username of the User performing the action is logged. When acting through HTTP, User's IP is also logged.
+    The username of the User performing the action is logged. When acting through the web server, the User's IP address is also logged. Other access, such as console commands, doesn't log an IP.
     Your Data Protection Officer or GDPR representative should be aware of this,
     so they can ensure users are informed if needed, depending on your use case, jurisdiction, and company policy.
 
