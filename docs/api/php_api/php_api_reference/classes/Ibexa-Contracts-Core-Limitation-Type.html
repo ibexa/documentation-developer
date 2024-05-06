@@ -35416,11 +35416,11 @@
     </table>
 </div>
     <section class="phpdocumentor-description">
-                    <p>Currently ACCESS_ABSTAIN must mean that evaluate does not support the provided $object or $targets,
+        <p>Currently ACCESS_ABSTAIN must mean that evaluate does not support the provided $object or $targets,
 this is currently only supported by role limitations as policy limitations should not allow this.</p>
 <p>Note: In future version constant values might change to 1, 0 and -1 as used in Symfony.</p>
 
-            </section>
+    </section>
                                                 
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
@@ -35469,10 +35469,10 @@ this is currently only supported by role limitations as policy limitations shoul
     </table>
 </div>
     <section class="phpdocumentor-description">
-                    <p>Used in cases where a certain value is accepted but the options are to many to return as a hash of options.
+        <p>Used in cases where a certain value is accepted but the options are to many to return as a hash of options.
 GUI should typically present option to browse content tree to select limitation value(s).</p>
 
-            </section>
+    </section>
                     
             <div class="content-header">
         <h3 id="constant_VALUE_SCHEMA_LOCATION_PATH">
@@ -35545,9 +35545,9 @@ GUI should typically present option to browse content tree to select limitation 
 <div class="phpdocumentor-label-line">
     </div>
     <section class="phpdocumentor-description">
-                    <p>Makes sure LimitationValue object and -&gt;limitationValues is of correct type.</p>
+        <p>Makes sure LimitationValue object and -&gt;limitationValues is of correct type.</p>
 
-            </section>
+    </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -35589,9 +35589,9 @@ GUI should typically present option to browse content tree to select limitation 
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-InvalidArgumentException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\InvalidArgumentException">InvalidArgumentException</abbr></a></span>
                                                             
                                                  <section class="phpdocumentor-description">
-                    <p>If the value does not match the expected type/structure</p>
+        <p>If the value does not match the expected type/structure</p>
 
-            </section>
+    </section>
 
                                     </dd>
                                                                                     </dl>
@@ -35630,10 +35630,10 @@ GUI should typically present option to browse content tree to select limitation 
 <div class="phpdocumentor-label-line">
     </div>
     <section class="phpdocumentor-description">
-                    <p>The is the method to create values as Limitation type needs value knowledge anyway in acceptValue,
+        <p>The is the method to create values as Limitation type needs value knowledge anyway in acceptValue,
 the reverse relation is provided by means of identifier lookup (Value has identifier, and so does RoleService).</p>
 
-            </section>
+    </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -35767,10 +35767,10 @@ the reverse relation is provided by means of identifier lookup (Value has identi
                     <td class="empty">
                                                     -
                                                     <section class="phpdocumentor-description">
-                    <p>An array of location, parent or &quot;assignment&quot;
+        <p>An array of location, parent or &quot;assignment&quot;
 objects, if null: none where provided by caller</p>
 
-            </section>
+    </section>
 
                     </td>
                 </tr>
@@ -35790,11 +35790,11 @@ objects, if null: none where provided by caller</p>
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-InvalidArgumentException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\InvalidArgumentException">InvalidArgumentException</abbr></a></span>
                                                             
                                                  <section class="phpdocumentor-description">
-                    <p>If any of the arguments are invalid
+        <p>If any of the arguments are invalid
 Example: If LimitationValue is instance of ContentTypeLimitationValue, and Type is SectionLimitationType.
 However if $object or $targets is unsupported by ROLE limitation, ACCESS_ABSTAIN should be returned!</p>
 
-            </section>
+    </section>
 
                                     </dd>
                             <dt class="phpdocumentor-tag-list__entry">
@@ -35804,10 +35804,10 @@ However if $object or $targets is unsupported by ROLE limitation, ACCESS_ABSTAIN
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-BadStateException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\BadStateException">BadStateException</abbr></a></span>
                                                             
                                                  <section class="phpdocumentor-description">
-                    <p>If value of the LimitationValue is unsupported
+        <p>If value of the LimitationValue is unsupported
 Example if OwnerLimitationValue-&gt;limitationValues[0] is not one of: [ 1,  2 ]</p>
 
-            </section>
+    </section>
 
                                     </dd>
                                                                                     </dl>
@@ -35815,9 +35815,9 @@ Example if OwnerLimitationValue-&gt;limitationValues[0] is not one of: [ 1,  2 ]
     <p class="phpdocumentor-signature__response_type">bool|null</p>
             &mdash;
             <section class="phpdocumentor-description">
-                    <p>Returns one of ACCESS_* constants</p>
+        <p>Returns one of ACCESS_* constants</p>
 
-            </section>
+    </section>
 
                 <div class="content-header">
         <h3 id="method_getCriterion">
@@ -35910,10 +35910,10 @@ Example if OwnerLimitationValue-&gt;limitationValues[0] is not one of: [ 1,  2 ]
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-NotImplementedException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\NotImplementedException">NotImplementedException</abbr></a></span>
                                                             
                                                  <section class="phpdocumentor-description">
-                    <p>If the limitation does not support
+        <p>If the limitation does not support
 being used as a Criterion.</p>
 
-            </section>
+    </section>
 
                                     </dd>
                                                                                     </dl>
@@ -35954,9 +35954,9 @@ being used as a Criterion.</p>
 <div class="phpdocumentor-label-line">
     </div>
     <section class="phpdocumentor-description">
-                    <p>Make sure <a href="acceptValue()"></a> is checked first!</p>
+        <p>Make sure <a href="acceptValue()"></a> is checked first!</p>
 
-            </section>
+    </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -36026,11 +36026,11 @@ being used as a Criterion.</p>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|int</p>
             &mdash;
             <section class="phpdocumentor-description">
-                    <p>In case of array, a hash with key as valid limitations value and value as human readable name
+        <p>In case of array, a hash with key as valid limitations value and value as human readable name
 of that option, in case of int on of VALUE_SCHEMA_* constants.
 Note: The hash might be an instance of Traversable, and not a native php array.</p>
 
-            </section>
+    </section>
 
                                 </div>
                     </article>
