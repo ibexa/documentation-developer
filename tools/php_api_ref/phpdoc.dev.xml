@@ -11,8 +11,8 @@
             <default-package-name>Ibexa</default-package-name>
             <source dsn=".">
                 <path>vendor/ibexa/activity-log/src/contracts/**/*</path>
-                <path>vendor/ibexa/core/src/contracts/**/*</path>
-                <path>vendor/ibexa/measurement/src/contracts/**/*</path>
+                <path>vendor/ibexa/core/src/contracts/Repository/ContentService.php</path>
+                <path>vendor/ibexa/solr/src/contracts/**/*</path>
             </source>
             <ignore hidden="true" symlinks="true">
                 <path>vendor/**/tests/**/*</path>
