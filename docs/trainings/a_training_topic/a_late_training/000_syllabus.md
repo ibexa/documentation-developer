@@ -32,7 +32,7 @@ You should have mastered the following training(s) before starting this *The lat
 
 !!! note
 
-    You can use [`experience-skeleton`'s DDEV feature](doc_about_website-skeleton_ddev_interactive_launcher.md#experience)
+    You can use [`experience-skeleton`'s DDEV feature](ddev_interactive_launcher.md#experience)
 
     For more suggestions about your training environment, see [Training environment](trainings.md#training-environment).
 

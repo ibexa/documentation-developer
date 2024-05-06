@@ -36,7 +36,7 @@ This training can be done on all editions.
 
 !!! note
 
-    You can use [`oss-skeleton`'s DDEV feature](doc_about_website-skeleton_ddev_interactive_launcher.md#oss)
+    You can use [`oss-skeleton`'s DDEV feature](ddev_interactive_launcher.md#oss)
 
     For more suggestions about your training environment, see [Training environment](trainings.md#training-environment).
 
