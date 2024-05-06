@@ -19,7 +19,7 @@ This is what you need to know to set up your training environment.
 
 ### Previous trainings
 
-You should have mastered the following training(s) before starting ''The late training title'':
+You should have mastered the following training(s) before starting this *The late training title*:
 
 - [An early training](../an_early_training/000_syllabus.md)
 
