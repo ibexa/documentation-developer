@@ -9,7 +9,9 @@ description: Training page template
 
 In this training, you will learn to… …with HTTP cache…
 
-Table of Content with estimated times?
+| Section     | Estimated | Description                                              |
+|:------------|----------:|:---------------------------------------------------------|
+| Lorem ipsum | T minutes | Lorem ipsum dolor sit amet, consectetur adipiscing elit. |
 
 ## Requirements
 
