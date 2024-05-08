@@ -85,9 +85,10 @@ $(document).ready(function() {
             versionElement.id = 'olderVersions'
             let a = document.createElement('a')
             a.appendChild(document.createTextNode("Older versions"))
-            a.addEventListener("click", function() {
+            a.addEventListener("click", function(e) {
                 document.querySelectorAll('.switcher__list .versions dd.eol__hidden').forEach(e => e.classList.remove('eol__hidden'))
                 document.querySelector('#olderVersions').remove()
+                e.stopPropagation()
             })
             versionElement.appendChild(a);
             document.querySelector('.switcher__list .versions')?.append(versionElement)
