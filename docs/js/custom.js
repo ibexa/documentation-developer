@@ -75,12 +75,12 @@ $(document).ready(function() {
                 vl.find('dd').each(function() {$(this).detach().prependTo(vl)});
             }
 
-                // Hide versions that have reached End Of Life from the version switcher
+            // Hide versions that have reached End Of Life from the version switcher
             Array.from(document.querySelectorAll('.switcher__list .versions dd'))
             .filter(e => eol_versions.includes(e.textContent))
             .forEach(e => e.classList.add('eol__hidden'));
 
-            // Add a "Unsupported versions" version to the version switcher that shows the EOL versions
+            // Add "Older versions" version to the version switcher that shows the EOL versions when clicked
             let versionElement = document.createElement('dd')
             versionElement.id = 'olderVersions'
             let a = document.createElement('a')
