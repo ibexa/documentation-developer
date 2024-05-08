@@ -82,14 +82,15 @@ $(document).ready(function() {
 
             // Add a "Unsupported versions" version to the version switcher that shows the EOL versions
             let versionElement = document.createElement('dd')
+            versionElement.id = 'olderVersions'
             let a = document.createElement('a')
             a.appendChild(document.createTextNode("Older versions"))
             a.addEventListener("click", function() {
                 document.querySelectorAll('.switcher__list .versions dd.eol__hidden').forEach(e => e.classList.remove('eol__hidden'))
+                document.querySelector('#olderVersions').remove()
             })
             versionElement.appendChild(a);
             document.querySelector('.switcher__list .versions')?.append(versionElement)
-            versionElement.remove();
         }
     }, 300);
     setTimeout(function() {
