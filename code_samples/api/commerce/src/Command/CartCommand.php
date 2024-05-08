@@ -134,8 +134,6 @@ final class CartCommand extends Command
         // Delete a cart permanently
         $this->cartService->deleteCart($cart);
 
-        return self::SUCCESS;
-
         // Get the order with items that should be reordered
         $order = $this->orderService->getOrderByIdentifier($orderIdentifier);
 
@@ -148,5 +146,7 @@ final class CartCommand extends Command
 
         // Merge the carts into the target cart and delete the merged carts
         $reorderCart = $this->cartService->mergeCarts($reorderCart, true, $existingCart);
+
+        return self::SUCCESS;
     }
 }
