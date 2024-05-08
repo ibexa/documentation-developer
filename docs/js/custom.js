@@ -23,22 +23,6 @@ $(document).ready(function() {
         warningBox.classList.remove('hidden');
     }
 
-    // Hide versions that have reached End Of Life from the version switcher
-    Array.from(document.querySelectorAll('.switcher__list .versions dd'))
-        .filter(e => eol_versions.includes(e.textContent))
-        .forEach(e => e.classList.add('eol__hidden'));
-
-    // Add a "Unsupported versions" version to the version switcher that shows the EOL versions
-    let versionElement = document.createElement('dd')
-    let a = document.createElement('a')
-    a.appendChild(document.createTextNode("End Of Life versions"))
-    a.addEventListener("click", function() {
-        document.querySelectorAll('.switcher__list .versions dd.eol__hidden').forEach(e => e.classList.remove('eol__hidden'))
-    })
-    versionElement.appendChild(a);
-    document.querySelector('.switcher__list .versions')?.append(versionElement)
-    versionElement.remove();
-
     $('.md-content a.md-icon').each(function() {
         $(this).attr(
             'href',
@@ -90,6 +74,22 @@ $(document).ready(function() {
             if ('master' !== (vl = $('.rst-other-versions.switcher__list dl.versions')).find('dd:first').text()) {
                 vl.find('dd').each(function() {$(this).detach().prependTo(vl)});
             }
+
+                // Hide versions that have reached End Of Life from the version switcher
+            Array.from(document.querySelectorAll('.switcher__list .versions dd'))
+            .filter(e => eol_versions.includes(e.textContent))
+            .forEach(e => e.classList.add('eol__hidden'));
+
+            // Add a "Unsupported versions" version to the version switcher that shows the EOL versions
+            let versionElement = document.createElement('dd')
+            let a = document.createElement('a')
+            a.appendChild(document.createTextNode("Older versions"))
+            a.addEventListener("click", function() {
+                document.querySelectorAll('.switcher__list .versions dd.eol__hidden').forEach(e => e.classList.remove('eol__hidden'))
+            })
+            versionElement.appendChild(a);
+            document.querySelector('.switcher__list .versions')?.append(versionElement)
+            versionElement.remove();
         }
     }, 300);
     setTimeout(function() {
