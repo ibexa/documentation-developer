@@ -3,12 +3,39 @@ let jquery = jQuery;
 
 $(document).ready(function() {
     // replace edit url
-    var branchName = 'master',
-        branchNameRegexp = /\/en\/([a-z0-9-_.]*)\//g.exec(document.location.href);
+    let branchName = 'master';
+    let branchNameRegexp = /\/en\/([a-z0-9-_.]*)\//g.exec(document.location.href);
 
     if (branchNameRegexp !== null && branchNameRegexp.hasOwnProperty(1) && branchNameRegexp[1].length) {
         branchName = branchNameRegexp[1];
     }
+
+    let eol_versions = window.eol_versions ?? [];
+
+    // Show warning box for versions that have reached End Of Life
+    if (eol_versions.includes(branchName)) {
+        warningMessage =
+            'You are viewing documentation for a release that has reached End Of Life. It is no longer supported and receives no security updates. Consider updating to the latest release.';
+        let warningBox = document.querySelector('#eolWarningBox');
+        warningBox.querySelector('.admonition-title').textContent = warningMessage;
+        warningBox.classList.remove('hidden');
+    }
+
+    // Hide versions that have reached End Of Life from the version switcher
+    Array.from(document.querySelectorAll('.switcher__list .versions dd'))
+        .filter(e => eol_versions.includes(e.textContent))
+        .forEach(e => e.classList.add('eol__hidden'));
+
+    // Add a "Unsupported versions" version to the version switcher that shows the EOL versions
+    let versionElement = document.createElement('dd')
+    let a = document.createElement('a')
+    a.appendChild(document.createTextNode("End Of Life versions"))
+    a.addEventListener("click", function() {
+        document.querySelectorAll('.switcher__list .versions dd.eol__hidden').forEach(e => e.classList.remove('eol__hidden'))
+    })
+    versionElement.appendChild(a);
+    document.querySelector('.switcher__list .versions')?.append(versionElement)
+    versionElement.remove();
 
     $('.md-content a.md-icon').each(function() {
         $(this).attr(
