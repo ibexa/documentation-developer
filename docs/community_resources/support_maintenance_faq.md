@@ -49,7 +49,7 @@ The easiest way to apply a patch to your project is by using the Unix [`patch`](
 Remember to clear the cache afterwards.
 
 As an alternative to manually applying the patch, you can use [composer-patches](https://github.com/cweagans/composer-patches).
-You can apply patches received from eZ Support, community or the others by using your `composer.json` file.
+You can apply patches received from the Support, community or the others by using your `composer.json` file.
 For checking the versions you are on, refer to your `composer.lock`.
 All you need is to specify which package will receive patches and give the path/URL to the actual file.
 This should be done inside the `extra` section. Packages which should receive patches
@@ -106,10 +106,10 @@ All project-specific parameters should be kept in separate files.
 For example, configuration for Page Blocks could be placed in `config/packages/landing_page_blocks.yaml`.
 You can also place it in `config/landing_page_blocks.yaml`, which should be imported in `config/ezplatform.yaml`:
 
-    ```yaml
-    imports:
-        - { resource: ../landing_page_blocks.yaml }
-    ```
+```yaml
+imports:
+    - { resource: ../landing_page_blocks.yaml }
+```
 
 #### How can I implement authentication in an [[= product_name =]]-based project?
 
