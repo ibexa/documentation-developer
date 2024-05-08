@@ -5,5 +5,5 @@ includes:
 parameters:
     level: 8
     paths:
-        - code_samples/recent_activity
+        - code_samples
     treatPhpDocTypesAsCertain: false
