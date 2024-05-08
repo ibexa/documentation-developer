@@ -594,7 +594,7 @@ div.pills {
 }
 
 /** Version switcher */
-.versions.eol__hidden {
+.versions .eol__hidden {
     display:none
 }
 
