@@ -10,6 +10,8 @@ $(document).ready(function() {
         branchName = branchNameRegexp[1];
     }
 
+    branchName = "2.5"; // TMP
+
     let eol_versions = window.eol_versions ?? [];
 
     // Show warning box for versions that have reached End Of Life
