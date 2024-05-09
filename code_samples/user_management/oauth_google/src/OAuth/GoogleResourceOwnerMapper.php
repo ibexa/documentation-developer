@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\OAuth;
 
 use Ibexa\Contracts\Core\Repository\LanguageResolver;
+use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\Core\Repository\Repository;
 use Ibexa\Contracts\Core\Repository\Values\ContentType\ContentType;
 use Ibexa\Contracts\OAuth2Client\Repository\OAuth2UserService;
@@ -18,11 +19,11 @@ final class GoogleResourceOwnerMapper extends ResourceOwnerToExistingOrNewUserMa
 {
     private const PROVIDER_PREFIX = 'google:';
 
-    /** @var \Ibexa\Contracts\OAuth2Client\Repository\OAuth2UserService */
-    private \Ibexa\Contracts\OAuth2Client\Repository\OAuth2UserService $userService;
+    private OAuth2UserService $oauthUserService;
 
-    /** @var \Ibexa\Contracts\Core\Repository\LanguageResolver */
-    private \Ibexa\Contracts\Core\Repository\LanguageResolver $languageResolver;
+    private LanguageResolver $languageResolver;
+
+    private UserService $userService;
 
     /** @var string|null */
     private ?string $contentTypeIdentifier;
@@ -32,15 +33,17 @@ final class GoogleResourceOwnerMapper extends ResourceOwnerToExistingOrNewUserMa
 
     public function __construct(
         Repository $repository,
-        OAuth2UserService $userService,
+        OAuth2UserService $oauthUserService,
         LanguageResolver $languageResolver,
+        UserService $userService,
         ?string $contentTypeIdentifier = null,
         ?string $parentGroupRemoteId = null
     ) {
         parent::__construct($repository);
 
-        $this->userService = $userService;
+        $this->oauthUserService = $oauthUserService;
         $this->languageResolver = $languageResolver;
+        $this->userService = $userService;
         $this->contentTypeIdentifier = $contentTypeIdentifier;
         $this->parentGroupRemoteId = $parentGroupRemoteId;
     }
@@ -62,7 +65,7 @@ final class GoogleResourceOwnerMapper extends ResourceOwnerToExistingOrNewUserMa
         ResourceOwnerInterface $resourceOwner,
         UserProviderInterface $userProvider
     ): ?UserInterface {
-        $userCreateStruct = $this->userService->newOAuth2UserCreateStruct(
+        $userCreateStruct = $this->oauthUserService->newOAuth2UserCreateStruct(
             $this->getUsername($resourceOwner),
             $resourceOwner->getEmail(),
             $this->getMainLanguageCode(),

@@ -1,47 +1,12 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Access to an undefined property App\\\\Command\\\\CartCommand\\:\\:\\$cartResolver\\.$#"
-			count: 1
-			path: code_samples/api/commerce/src/Command/CartCommand.php
-
-		-
-			message: "#^Access to an undefined property App\\\\Command\\\\CartCommand\\:\\:\\$orderService\\.$#"
-			count: 1
-			path: code_samples/api/commerce/src/Command/CartCommand.php
-
-		-
-			message: "#^Access to an undefined property App\\\\Command\\\\CartCommand\\:\\:\\$reorderService\\.$#"
-			count: 2
-			path: code_samples/api/commerce/src/Command/CartCommand.php
-
-		-
 			message: "#^Parameter \\#1 \\$product of class Ibexa\\\\Contracts\\\\Cart\\\\Value\\\\EntryAddStruct constructor expects Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\AvailabilityAwareInterface&Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\ContentAwareProductInterface&Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\PriceAwareInterface, Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\ProductInterface given\\.$#"
 			count: 1
 			path: code_samples/api/commerce/src/Command/CartCommand.php
 
 		-
-			message: "#^Undefined variable\\: \\$orderIdentifier$#"
-			count: 1
-			path: code_samples/api/commerce/src/Command/CartCommand.php
-
-		-
-			message: "#^Call to sprintf contains 1 placeholder, 2 values given\\.$#"
-			count: 1
-			path: code_samples/api/commerce/src/Command/OrderCommand.php
-
-		-
-			message: "#^Method App\\\\Controller\\\\CustomCheckoutController\\:\\:showContentAction\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: code_samples/api/commerce/src/Controller/CustomCheckoutController.php
-
-		-
 			message: "#^Cannot access offset 'my_custom_fieldtype' on array\\|bool\\|float\\|int\\|string\\|null\\.$#"
-			count: 1
-			path: code_samples/api/graphql/src/DependencyInjection/Compiler/MyCustomTypeGraphQLCompilerPass.php
-
-		-
-			message: "#^Method App\\\\DependencyInjection\\\\Compiler\\\\MyCustomTypeGraphQLCompilerPass\\:\\:process\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: code_samples/api/graphql/src/DependencyInjection/Compiler/MyCustomTypeGraphQLCompilerPass.php
 
@@ -51,32 +16,7 @@ parameters:
 			path: code_samples/api/migration/src/Command/MigrationCommand.php
 
 		-
-			message: "#^Access to an undefined property App\\\\Command\\\\ProductPriceCommand\\:\\:\\$priceService\\.$#"
-			count: 1
-			path: code_samples/api/product_catalog/src/Command/ProductPriceCommand.php
-
-		-
 			message: "#^Call to an undefined method Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\ProductInterface\\:\\:getPrice\\(\\)\\.$#"
-			count: 1
-			path: code_samples/api/product_catalog/src/Command/ProductPriceCommand.php
-
-		-
-			message: "#^Instantiated class App\\\\Command\\\\LogicalOr not found\\.$#"
-			count: 1
-			path: code_samples/api/product_catalog/src/Command/ProductPriceCommand.php
-
-		-
-			message: "#^Parameter \\#1 \\$messages of method Symfony\\\\Component\\\\Console\\\\Output\\\\OutputInterface\\:\\:writeln\\(\\) expects iterable\\<string\\>\\|string, Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\PriceInterface given\\.$#"
-			count: 1
-			path: code_samples/api/product_catalog/src/Command/ProductPriceCommand.php
-
-		-
-			message: "#^Parameter \\#1 \\$query of class Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\Price\\\\PriceQuery constructor expects Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\Price\\\\Query\\\\CriterionInterface\\|null, App\\\\Command\\\\LogicalOr given\\.$#"
-			count: 1
-			path: code_samples/api/product_catalog/src/Command/ProductPriceCommand.php
-
-		-
-			message: "#^Parameter \\#1 \\$value of class Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\Price\\\\Query\\\\Criterion\\\\Currency constructor expects array\\<Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\CurrencyInterface\\>\\|Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\CurrencyInterface, string given\\.$#"
 			count: 1
 			path: code_samples/api/product_catalog/src/Command/ProductPriceCommand.php
 
@@ -84,41 +24,6 @@ parameters:
 			message: "#^Parameter \\#1 \\$value of class Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\Price\\\\Query\\\\Criterion\\\\CustomerGroup constructor expects array\\<Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\CustomerGroupInterface\\>\\|Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\CustomerGroupInterface, string given\\.$#"
 			count: 1
 			path: code_samples/api/product_catalog/src/Command/ProductPriceCommand.php
-
-		-
-			message: "#^Parameter \\#1 \\$messages of method Symfony\\\\Component\\\\Console\\\\Output\\\\OutputInterface\\:\\:writeln\\(\\) expects iterable\\<string\\>\\|string, float\\|null given\\.$#"
-			count: 1
-			path: code_samples/api/product_catalog/src/Command/VatCommand.php
-
-		-
-			message: "#^Method App\\\\Command\\\\AddLanguageCommand\\:\\:configure\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: code_samples/api/public_php_api/src/Command/AddLanguageCommand.php
-
-		-
-			message: "#^Method App\\\\Command\\\\AddLocationToContentCommand\\:\\:configure\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: code_samples/api/public_php_api/src/Command/AddLocationToContentCommand.php
-
-		-
-			message: "#^Method App\\\\Command\\\\BookmarkCommand\\:\\:configure\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: code_samples/api/public_php_api/src/Command/BookmarkCommand.php
-
-		-
-			message: "#^Method App\\\\Command\\\\BrowseLocationsCommand\\:\\:browseLocation\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: code_samples/api/public_php_api/src/Command/BrowseLocationsCommand.php
-
-		-
-			message: "#^Method App\\\\Command\\\\BrowseLocationsCommand\\:\\:browseLocation\\(\\) has parameter \\$depth with no type specified\\.$#"
-			count: 1
-			path: code_samples/api/public_php_api/src/Command/BrowseLocationsCommand.php
-
-		-
-			message: "#^Method App\\\\Command\\\\BrowseLocationsCommand\\:\\:configure\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: code_samples/api/public_php_api/src/Command/BrowseLocationsCommand.php
 
 		-
 			message: "#^Cannot call method getDateTime\\(\\) on Ibexa\\\\Contracts\\\\Calendar\\\\Event\\|null\\.$#"
@@ -131,61 +36,11 @@ parameters:
 			path: code_samples/api/public_php_api/src/Command/CalendarCommand.php
 
 		-
-			message: "#^Instantiated class Ibexa\\\\Scheduler\\\\Calendar\\\\EventAction\\\\RescheduleEventActionContext not found\\.$#"
-			count: 1
-			path: code_samples/api/public_php_api/src/Command/CalendarCommand.php
-
-		-
-			message: "#^Parameter \\#1 \\$context of method Ibexa\\\\Contracts\\\\Calendar\\\\CalendarServiceInterface\\:\\:executeAction\\(\\) expects Ibexa\\\\Contracts\\\\Calendar\\\\EventAction\\\\EventActionContext, Ibexa\\\\Scheduler\\\\Calendar\\\\EventAction\\\\RescheduleEventActionContext given\\.$#"
-			count: 1
-			path: code_samples/api/public_php_api/src/Command/CalendarCommand.php
-
-		-
-			message: "#^Method App\\\\Command\\\\CreateContentCommand\\:\\:configure\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: code_samples/api/public_php_api/src/Command/CreateContentCommand.php
-
-		-
-			message: "#^Caught class eZ\\\\Publish\\\\API\\\\Repository\\\\Exceptions\\\\NotFoundException not found\\.$#"
-			count: 1
-			path: code_samples/api/public_php_api/src/Command/CreateContentTypeCommand.php
-
-		-
-			message: "#^Method App\\\\Command\\\\CreateContentTypeCommand\\:\\:configure\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: code_samples/api/public_php_api/src/Command/CreateContentTypeCommand.php
-
-		-
 			message: "#^Variable \\$copyIdentifier might not be defined\\.$#"
 			count: 3
 			path: code_samples/api/public_php_api/src/Command/CreateContentTypeCommand.php
 
 		-
-			message: "#^Method App\\\\Command\\\\CreateImageCommand\\:\\:configure\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: code_samples/api/public_php_api/src/Command/CreateImageCommand.php
-
-		-
-			message: "#^Method App\\\\Command\\\\DeleteContentCommand\\:\\:configure\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: code_samples/api/public_php_api/src/Command/DeleteContentCommand.php
-
-		-
-			message: "#^Method App\\\\Command\\\\FilterCommand\\:\\:configure\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: code_samples/api/public_php_api/src/Command/FilterCommand.php
-
-		-
-			message: "#^Parameter \\#1 \\$messages of method Symfony\\\\Component\\\\Console\\\\Output\\\\OutputInterface\\:\\:writeln\\(\\) expects iterable\\<string\\>\\|string, string\\|null given\\.$#"
-			count: 1
-			path: code_samples/api/public_php_api/src/Command/FilterCommand.php
-
-		-
-			message: "#^Method App\\\\Command\\\\FilterLocationCommand\\:\\:configure\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: code_samples/api/public_php_api/src/Command/FilterLocationCommand.php
-
-		-
 			message: "#^Parameter \\#1 \\$messages of method Symfony\\\\Component\\\\Console\\\\Output\\\\OutputInterface\\:\\:writeln\\(\\) expects iterable\\<string\\>\\|string, string\\|null given\\.$#"
 			count: 1
 			path: code_samples/api/public_php_api/src/Command/FilterLocationCommand.php
@@ -196,32 +51,12 @@ parameters:
 			path: code_samples/api/public_php_api/src/Command/FindComplexCommand.php
 
 		-
-			message: "#^Method App\\\\Command\\\\FindComplexCommand\\:\\:configure\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: code_samples/api/public_php_api/src/Command/FindComplexCommand.php
-
-		-
 			message: "#^Access to an undefined property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ValueObject\\:\\:\\$name\\.$#"
 			count: 1
 			path: code_samples/api/public_php_api/src/Command/FindContentCommand.php
-
-		-
-			message: "#^Method App\\\\Command\\\\FindContentCommand\\:\\:configure\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: code_samples/api/public_php_api/src/Command/FindContentCommand.php
-
-		-
-			message: "#^Method App\\\\Command\\\\FindInTrashCommand\\:\\:configure\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: code_samples/api/public_php_api/src/Command/FindInTrashCommand.php
 
 		-
 			message: "#^Access to protected property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\URL\\\\URL\\:\\:\\$url\\.$#"
-			count: 1
-			path: code_samples/api/public_php_api/src/Command/FindUrlCommand.php
-
-		-
-			message: "#^Method App\\\\Command\\\\FindUrlCommand\\:\\:configure\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: code_samples/api/public_php_api/src/Command/FindUrlCommand.php
 
@@ -231,27 +66,7 @@ parameters:
 			path: code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php
 
 		-
-			message: "#^Call to an undefined method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Aggregation\\:\\:setLimit\\(\\)\\.$#"
-			count: 1
-			path: code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php
-
-		-
-			message: "#^Call to an undefined method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Aggregation\\:\\:setMinCount\\(\\)\\.$#"
-			count: 1
-			path: code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php
-
-		-
-			message: "#^Method App\\\\Command\\\\FindWithAggregationCommand\\:\\:configure\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php
-
-		-
 			message: "#^Cannot call method getFormValue\\(\\) on Ibexa\\\\Contracts\\\\Core\\\\FieldType\\\\Value\\|null\\.$#"
-			count: 1
-			path: code_samples/api/public_php_api/src/Command/FormSubmissionCommand.php
-
-		-
-			message: "#^Parameter \\#1 \\$messages of method Symfony\\\\Component\\\\Console\\\\Output\\\\OutputInterface\\:\\:writeln\\(\\) expects iterable\\<string\\>\\|string, string\\|null given\\.$#"
 			count: 1
 			path: code_samples/api/public_php_api/src/Command/FormSubmissionCommand.php
 
@@ -259,21 +74,6 @@ parameters:
 			message: "#^Parameter \\#4 \\$data of method Ibexa\\\\Contracts\\\\FormBuilder\\\\FormSubmission\\\\FormSubmissionServiceInterface\\:\\:create\\(\\) expects array\\<array\\{id\\: int, identifier\\: string, name\\: string, value\\: mixed\\}\\>, array\\{array\\{identifier\\: 'single_line', name\\: 'Line', value\\: 'The name'\\}, array\\{identifier\\: 'number', name\\: 'Number', value\\: 123\\}, array\\{identifier\\: 'checkbox', name\\: 'Checkbox', value\\: 0\\}\\} given\\.$#"
 			count: 1
 			path: code_samples/api/public_php_api/src/Command/FormSubmissionCommand.php
-
-		-
-			message: "#^Method App\\\\Command\\\\HideLocationCommand\\:\\:configure\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: code_samples/api/public_php_api/src/Command/HideLocationCommand.php
-
-		-
-			message: "#^Method App\\\\Command\\\\MoveContentCommand\\:\\:configure\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: code_samples/api/public_php_api/src/Command/MoveContentCommand.php
-
-		-
-			message: "#^Method App\\\\Command\\\\ObjectStateCommand\\:\\:configure\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: code_samples/api/public_php_api/src/Command/ObjectStateCommand.php
 
 		-
 			message: "#^Parameter \\#1 \\$messages of method Symfony\\\\Component\\\\Console\\\\Output\\\\OutputInterface\\:\\:writeln\\(\\) expects iterable\\<string\\>\\|string, string\\|null given\\.$#"
@@ -286,94 +86,14 @@ parameters:
 			path: code_samples/api/public_php_api/src/Command/SectionCommand.php
 
 		-
-			message: "#^Method App\\\\Command\\\\SectionCommand\\:\\:configure\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: code_samples/api/public_php_api/src/Command/SectionCommand.php
-
-		-
-			message: "#^Method App\\\\Command\\\\SegmentCommand\\:\\:configure\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: code_samples/api/public_php_api/src/Command/SegmentCommand.php
-
-		-
-			message: "#^Method App\\\\Command\\\\SetMainLocationCommand\\:\\:configure\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: code_samples/api/public_php_api/src/Command/SetMainLocationCommand.php
-
-		-
 			message: "#^Cannot access property \\$name on Ibexa\\\\Contracts\\\\Taxonomy\\\\Value\\\\TaxonomyEntry\\|null\\.$#"
 			count: 1
 			path: code_samples/api/public_php_api/src/Command/TaxonomyCommand.php
 
 		-
-			message: "#^Constructor of class App\\\\Command\\\\TranslateContentCommand has an unused parameter \\$name\\.$#"
-			count: 1
-			path: code_samples/api/public_php_api/src/Command/TranslateContentCommand.php
-
-		-
-			message: "#^Method App\\\\Command\\\\TranslateContentCommand\\:\\:configure\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: code_samples/api/public_php_api/src/Command/TranslateContentCommand.php
-
-		-
-			message: "#^Method App\\\\Command\\\\TrashContentCommand\\:\\:configure\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: code_samples/api/public_php_api/src/Command/TrashContentCommand.php
-
-		-
-			message: "#^Method App\\\\Command\\\\UpdateContentCommand\\:\\:configure\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: code_samples/api/public_php_api/src/Command/UpdateContentCommand.php
-
-		-
-			message: "#^Method App\\\\Command\\\\ViewContentCommand\\:\\:configure\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: code_samples/api/public_php_api/src/Command/ViewContentCommand.php
-
-		-
-			message: "#^Method App\\\\Command\\\\ViewContentMetaDataCommand\\:\\:configure\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php
-
-		-
-			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, iterable\\<Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\VersionInfo\\> given\\.$#"
-			count: 1
-			path: code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php
-
-		-
-			message: "#^Method App\\\\Command\\\\WorkflowCommand\\:\\:configure\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: code_samples/api/public_php_api/src/Command/WorkflowCommand.php
-
-		-
-			message: "#^Method App\\\\Controller\\\\CustomController\\:\\:showContentAction\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: code_samples/api/public_php_api/src/Controller/CustomController.php
-
-		-
-			message: "#^Method App\\\\Controller\\\\CustomController\\:\\:showContentAction\\(\\) has parameter \\$locationId with no type specified\\.$#"
-			count: 1
-			path: code_samples/api/public_php_api/src/Controller/CustomController.php
-
-		-
 			message: "#^Cannot access property \\$id on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Location\\|null\\.$#"
 			count: 1
 			path: code_samples/api/public_php_api/src/Controller/CustomFilterController.php
-
-		-
-			message: "#^Method App\\\\Controller\\\\PaginationController\\:\\:showContentAction\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: code_samples/api/public_php_api/src/Controller/PaginationController.php
-
-		-
-			message: "#^Method App\\\\Controller\\\\PaginationController\\:\\:showContentAction\\(\\) has parameter \\$locationId with no type specified\\.$#"
-			count: 1
-			path: code_samples/api/public_php_api/src/Controller/PaginationController.php
-
-		-
-			message: "#^Cannot call method getInfo\\(\\) on array\\|Symfony\\\\Contracts\\\\HttpClient\\\\ResponseInterface\\.$#"
-			count: 2
-			path: code_samples/api/rest_api/create_image.json.php
 
 		-
 			message: "#^Parameter \\#1 \\$string of function base64_encode expects string, string\\|false given\\.$#"
@@ -417,11 +137,6 @@ parameters:
 
 		-
 			message: "#^Instantiated class Ibexa\\\\Rest\\\\Server\\\\Exceptions\\\\Parser not found\\.$#"
-			count: 1
-			path: code_samples/api/rest_api/src/Rest/InputParser/GreetingInput.php
-
-		-
-			message: "#^Method App\\\\Rest\\\\InputParser\\\\GreetingInput\\:\\:parse\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: code_samples/api/rest_api/src/Rest/InputParser/GreetingInput.php
 
@@ -541,36 +256,6 @@ parameters:
 			path: code_samples/back_office/images/src/SvgController.php
 
 		-
-			message: "#^Call to an undefined method Symfony\\\\Component\\\\DependencyInjection\\\\Extension\\\\ExtensionInterface\\:\\:addPolicyProvider\\(\\)\\.$#"
-			count: 1
-			path: code_samples/back_office/limitation/src/Kernel.php
-
-		-
-			message: "#^Variable \\$IbexaExtension in PHPDoc tag @var does not match assigned variable \\$ibexaExtension\\.$#"
-			count: 1
-			path: code_samples/back_office/limitation/src/Kernel.php
-
-		-
-			message: "#^Class App\\\\Security\\\\Limitation\\\\FieldGroupLimitation not found\\.$#"
-			count: 1
-			path: code_samples/back_office/limitation/src/Security/Limitation/CustomLimitationType.php
-
-		-
-			message: "#^Instantiated class App\\\\Security\\\\Limitation\\\\InvalidArgumentException not found\\.$#"
-			count: 1
-			path: code_samples/back_office/limitation/src/Security/Limitation/CustomLimitationType.php
-
-		-
-			message: "#^Return type \\(void\\) of method App\\\\Security\\\\Limitation\\\\CustomLimitationType\\:\\:valueSchema\\(\\) should be compatible with return type \\(array\\|int\\) of method Ibexa\\\\Contracts\\\\Core\\\\Limitation\\\\Type\\:\\:valueSchema\\(\\)$#"
-			count: 1
-			path: code_samples/back_office/limitation/src/Security/Limitation/CustomLimitationType.php
-
-		-
-			message: "#^Throwing object of an unknown class App\\\\Security\\\\Limitation\\\\InvalidArgumentException\\.$#"
-			count: 1
-			path: code_samples/back_office/limitation/src/Security/Limitation/CustomLimitationType.php
-
-		-
 			message: "#^Return type \\(bool\\) of method App\\\\Security\\\\Limitation\\\\Mapper\\\\CustomLimitationValueMapper\\:\\:mapLimitationValue\\(\\) should be compatible with return type \\(array\\) of method Ibexa\\\\AdminUi\\\\Limitation\\\\LimitationValueMapperInterface\\:\\:mapLimitationValue\\(\\)$#"
 			count: 1
 			path: code_samples/back_office/limitation/src/Security/Limitation/Mapper/CustomLimitationValueMapper.php
@@ -581,26 +266,6 @@ parameters:
 			path: code_samples/back_office/limitation/src/Security/MyPolicyProvider.php
 
 		-
-			message: "#^Method App\\\\Controller\\\\AllContentListController\\:\\:listAction\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: code_samples/back_office/menu/menu_item/src/Controller/AllContentListController.php
-
-		-
-			message: "#^Method App\\\\Controller\\\\AllContentListController\\:\\:listAction\\(\\) has parameter \\$page with no type specified\\.$#"
-			count: 1
-			path: code_samples/back_office/menu/menu_item/src/Controller/AllContentListController.php
-
-		-
-			message: "#^Property App\\\\Controller\\\\AllContentListController\\:\\:\\$formFactory has no type specified\\.$#"
-			count: 1
-			path: code_samples/back_office/menu/menu_item/src/Controller/AllContentListController.php
-
-		-
-			message: "#^Property App\\\\Controller\\\\AllContentListController\\:\\:\\$searchService has no type specified\\.$#"
-			count: 1
-			path: code_samples/back_office/menu/menu_item/src/Controller/AllContentListController.php
-
-		-
 			message: "#^Cannot call method addChild\\(\\) on Knp\\\\Menu\\\\ItemInterface\\|null\\.$#"
 			count: 1
 			path: code_samples/back_office/menu/menu_item/src/EventSubscriber/MyMenuSubscriber.php
@@ -609,21 +274,6 @@ parameters:
 			message: "#^Cannot call method setExtra\\(\\) on Knp\\\\Menu\\\\ItemInterface\\|null\\.$#"
 			count: 1
 			path: code_samples/back_office/menu/menu_item/src/EventSubscriber/MyMenuSubscriber.php
-
-		-
-			message: "#^Method App\\\\EventSubscriber\\\\MyMenuSubscriber\\:\\:onMainMenuConfigure\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: code_samples/back_office/menu/menu_item/src/EventSubscriber/MyMenuSubscriber.php
-
-		-
-			message: "#^Property App\\\\Notification\\\\MyRenderer\\:\\:\\$router has no type specified\\.$#"
-			count: 1
-			path: code_samples/back_office/notifications/src/Notification/MyRenderer.php
-
-		-
-			message: "#^Property App\\\\Notification\\\\MyRenderer\\:\\:\\$twig has no type specified\\.$#"
-			count: 1
-			path: code_samples/back_office/notifications/src/Notification/MyRenderer.php
 
 		-
 			message: "#^Cannot call method getValue\\(\\) on Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Model\\\\Attribute\\|null\\.$#"
@@ -639,16 +289,6 @@ parameters:
 			message: "#^Parameter \\#2 \\$string of function explode expects string, string\\|null given\\.$#"
 			count: 1
 			path: code_samples/back_office/search/src/EventSubscriber/MySuggestionEventSubscriber.php
-
-		-
-			message: "#^Property App\\\\EventSubscriber\\\\MySuggestionEventSubscriber\\:\\:\\$contentSuggestionMapper is never read, only written\\.$#"
-			count: 1
-			path: code_samples/back_office/search/src/EventSubscriber/MySuggestionEventSubscriber.php
-
-		-
-			message: "#^Method App\\\\Search\\\\Model\\\\Suggestion\\\\ProductSuggestion\\:\\:getProduct\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: code_samples/back_office/search/src/Search/Model/Suggestion/ProductSuggestion.php
 
 		-
 			message: "#^Method App\\\\Setting\\\\Group\\\\MyGroup\\:\\:__construct\\(\\) has parameter \\$values with no value type specified in iterable type array\\.$#"
@@ -681,17 +321,7 @@ parameters:
 			path: code_samples/catalog/custom_code_generator_strategy/src/CodeGenerator/Strategy/CustomIncrementalCodeGenerator.php
 
 		-
-			message: "#^Return type \\(void\\) of method App\\\\Migrations\\\\Step\\\\ReplaceNameStepExecutor\\:\\:doHandle\\(\\) should be compatible with return type \\(array\\<Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ValueObject\\>\\|Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ValueObject\\|null\\) of method Ibexa\\\\Contracts\\\\Migration\\\\StepExecutor\\\\AbstractStepExecutor\\:\\:doHandle\\(\\)$#"
-			count: 1
-			path: code_samples/data_migration/src/Migrations/Step/ReplaceNameStepExecutor.php
-
-		-
 			message: "#^Method App\\\\FieldType\\\\Point2D\\\\Type\\:\\:getSettingsSchema\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: code_samples/field_types/2dpoint_ft/src/FieldType/Point2D/Type.php
-
-		-
-			message: "#^Method App\\\\FieldType\\\\Point2D\\\\Type\\:\\:mapFieldValueForm\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: code_samples/field_types/2dpoint_ft/src/FieldType/Point2D/Type.php
 
@@ -701,22 +331,7 @@ parameters:
 			path: code_samples/field_types/2dpoint_ft/src/FieldType/Point2D/Value.php
 
 		-
-			message: "#^Method App\\\\Form\\\\Type\\\\Point2DSettingsType\\:\\:buildForm\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: code_samples/field_types/2dpoint_ft/src/Form/Type/Point2DSettingsType.php
-
-		-
-			message: "#^Method App\\\\FieldType\\\\Point2D\\\\Type\\:\\:mapFieldValueForm\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: code_samples/field_types/2dpoint_ft/steps/step_3/Type.php
-
-		-
 			message: "#^Method App\\\\FieldType\\\\Point2D\\\\Type\\:\\:getSettingsSchema\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: code_samples/field_types/2dpoint_ft/steps/step_6/Type.php
-
-		-
-			message: "#^Method App\\\\FieldType\\\\Point2D\\\\Type\\:\\:mapFieldValueForm\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: code_samples/field_types/2dpoint_ft/steps/step_6/Type.php
 
@@ -724,21 +339,6 @@ parameters:
 			message: "#^Call to an undefined method Ibexa\\\\Contracts\\\\Core\\\\FieldType\\\\Value\\:\\:getName\\(\\)\\.$#"
 			count: 1
 			path: code_samples/field_types/generic_ft/src/FieldType/HelloWorld/Comparison/Comparable.php
-
-		-
-			message: "#^Access to an undefined property Ibexa\\\\Contracts\\\\VersionComparison\\\\FieldType\\\\FieldTypeComparisonValue\\:\\:\\$name\\.$#"
-			count: 2
-			path: code_samples/field_types/generic_ft/src/FieldType/HelloWorld/Comparison/HelloWorldComparisonEngine.php
-
-		-
-			message: "#^Access to an undefined property Ibexa\\\\VersionComparison\\\\FieldType\\\\TextLine\\\\Value\\:\\:\\$name\\.$#"
-			count: 2
-			path: code_samples/field_types/generic_ft/src/FieldType/HelloWorld/Comparison/HelloWorldComparisonEngine.php
-
-		-
-			message: "#^Property App\\\\FieldType\\\\HelloWorld\\\\Value\\:\\:\\$name has no type specified\\.$#"
-			count: 1
-			path: code_samples/field_types/generic_ft/src/FieldType/HelloWorld/Value.php
 
 		-
 			message: "#^Method App\\\\FormBuilder\\\\FieldType\\\\Field\\\\Mapper\\\\CheckboxWithRichtextDescriptionFieldMapper\\:\\:mapFormOptions\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -761,19 +361,9 @@ parameters:
 			path: code_samples/front/custom_query_type/src/QueryType/LatestContentQueryType.php
 
 		-
-			message: "#^Method App\\\\QueryType\\\\OptionsBasedLatestContentQueryType\\:\\:configureOptions\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: code_samples/front/custom_query_type/src/QueryType/OptionsBasedLatestContentQueryType.php
-
-		-
 			message: "#^Method App\\\\QueryType\\\\OptionsBasedLatestContentQueryType\\:\\:doGetQuery\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: code_samples/front/custom_query_type/src/QueryType/OptionsBasedLatestContentQueryType.php
-
-		-
-			message: "#^Method App\\\\Controller\\\\RelationController\\:\\:showContentAction\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: code_samples/front/embed_content/src/Controller/RelationController.php
 
 		-
 			message: "#^Method App\\\\Controller\\\\RelationController\\:\\:showContentAction\\(\\) has parameter \\$locationId with no type specified\\.$#"
@@ -781,44 +371,9 @@ parameters:
 			path: code_samples/front/embed_content/src/Controller/RelationController.php
 
 		-
-			message: "#^Property App\\\\Controller\\\\RelationController\\:\\:\\$contentService has no type specified\\.$#"
-			count: 1
-			path: code_samples/front/embed_content/src/Controller/RelationController.php
-
-		-
-			message: "#^Property App\\\\Controller\\\\RelationController\\:\\:\\$locationService has no type specified\\.$#"
-			count: 1
-			path: code_samples/front/embed_content/src/Controller/RelationController.php
-
-		-
-			message: "#^Method App\\\\Controller\\\\BreadcrumbController\\:\\:showBreadcrumbsAction\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: code_samples/front/layouts/breadcrumbs/src/Controller/BreadcrumbController.php
-
-		-
 			message: "#^Method App\\\\Controller\\\\BreadcrumbController\\:\\:showBreadcrumbsAction\\(\\) has parameter \\$locationId with no type specified\\.$#"
 			count: 1
 			path: code_samples/front/layouts/breadcrumbs/src/Controller/BreadcrumbController.php
-
-		-
-			message: "#^Property App\\\\Controller\\\\BreadcrumbController\\:\\:\\$locationService has no type specified\\.$#"
-			count: 1
-			path: code_samples/front/layouts/breadcrumbs/src/Controller/BreadcrumbController.php
-
-		-
-			message: "#^Property App\\\\Controller\\\\BreadcrumbController\\:\\:\\$searchService has no type specified\\.$#"
-			count: 1
-			path: code_samples/front/layouts/breadcrumbs/src/Controller/BreadcrumbController.php
-
-		-
-			message: "#^Method App\\\\Menu\\\\MenuBuilder\\:\\:buildMenu\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: code_samples/front/layouts/menu/src/Menu/MenuBuilder.php
-
-		-
-			message: "#^Property App\\\\Menu\\\\MenuBuilder\\:\\:\\$factory has no type specified\\.$#"
-			count: 1
-			path: code_samples/front/layouts/menu/src/Menu/MenuBuilder.php
 
 		-
 			message: "#^Method App\\\\QueryType\\\\MenuQueryType\\:\\:getQuery\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
@@ -841,27 +396,7 @@ parameters:
 			path: code_samples/front/shop/shipping/src/ShippingMethodType/Storage/StorageConverter.php
 
 		-
-			message: "#^Access to constant PRODUCT_MENU on an unknown class Ibexa\\\\Bundle\\\\Storefront\\\\Menu\\\\Builder\\\\BreadcrumbsMenuBuilder\\.$#"
-			count: 1
-			path: code_samples/front/shop/storefront/src/EventSubscriber/BreadcrumbsMenuSubscriber.php
-
-		-
-			message: "#^Call to method getMenu\\(\\) on an unknown class Ibexa\\\\Contracts\\\\Storefront\\\\Menu\\\\Event\\\\ConfigureMenuEvent\\.$#"
-			count: 1
-			path: code_samples/front/shop/storefront/src/EventSubscriber/BreadcrumbsMenuSubscriber.php
-
-		-
-			message: "#^Method App\\\\EventSubscriber\\\\BreadcrumbsMenuSubscriber\\:\\:getSubscribedEvents\\(\\) should return array\\<string, array\\<int\\|string, array\\<int\\|string, int\\|string\\>\\|int\\|string\\>\\|string\\> but returns array\\<int\\|string, array\\<int, int\\|string\\>\\>\\.$#"
-			count: 1
-			path: code_samples/front/shop/storefront/src/EventSubscriber/BreadcrumbsMenuSubscriber.php
-
-		-
-			message: "#^Method App\\\\EventSubscriber\\\\BreadcrumbsMenuSubscriber\\:\\:onBreadcrumbsMenuConfigure\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: code_samples/front/shop/storefront/src/EventSubscriber/BreadcrumbsMenuSubscriber.php
-
-		-
-			message: "#^Parameter \\$event of method App\\\\EventSubscriber\\\\BreadcrumbsMenuSubscriber\\:\\:onBreadcrumbsMenuConfigure\\(\\) has invalid type Ibexa\\\\Contracts\\\\Storefront\\\\Menu\\\\Event\\\\ConfigureMenuEvent\\.$#"
+			message: "#^Cannot call method setUri\\(\\) on Knp\\\\Menu\\\\ItemInterface\\|null\\.$#"
 			count: 1
 			path: code_samples/front/shop/storefront/src/EventSubscriber/BreadcrumbsMenuSubscriber.php
 
@@ -871,27 +406,12 @@ parameters:
 			path: code_samples/page/custom_attribute/src/Block/Attribute/MyStringAttributeMapper.php
 
 		-
-			message: "#^Property App\\\\Validator\\\\AlphaOnly\\:\\:\\$message has no type specified\\.$#"
-			count: 1
-			path: code_samples/page/custom_block_validator/src/Validator/AlphaOnly.php
-
-		-
-			message: "#^Method App\\\\Validator\\\\AlphaOnlyValidator\\:\\:validate\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: code_samples/page/custom_block_validator/src/Validator/AlphaOnlyValidator.php
-
-		-
 			message: "#^Call to an undefined method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Renderer\\\\RenderRequestInterface\\:\\:getParameters\\(\\)\\.$#"
 			count: 1
 			path: code_samples/page/custom_page_block/src/Event/Subscriber/BlockEmbedEventEventSubscriber.php
 
 		-
 			message: "#^Call to an undefined method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Renderer\\\\RenderRequestInterface\\:\\:setParameters\\(\\)\\.$#"
-			count: 1
-			path: code_samples/page/custom_page_block/src/Event/Subscriber/BlockEmbedEventEventSubscriber.php
-
-		-
-			message: "#^Method App\\\\Event\\\\Subscriber\\\\BlockEmbedEventEventSubscriber\\:\\:onBlockPreRender\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: code_samples/page/custom_page_block/src/Event/Subscriber/BlockEmbedEventEventSubscriber.php
 
@@ -904,26 +424,11 @@ parameters:
 			message: "#^Call to an undefined method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Renderer\\\\RenderRequestInterface\\:\\:setParameters\\(\\)\\.$#"
 			count: 1
 			path: code_samples/page/page_listener/src/Block/Listener/MyBlockListener.php
-
-		-
-			message: "#^Method App\\\\Block\\\\Listener\\\\MyBlockListener\\:\\:onBlockPreRender\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: code_samples/page/page_listener/src/Block/Listener/MyBlockListener.php
-
-		-
-			message: "#^Call to an undefined method Ibexa\\\\Contracts\\\\ActivityLog\\\\Values\\\\ActivityLog\\\\ActivityLogGroupInterface\\:\\:getActivityLogsInvalid\\(\\)\\.$#"
-			count: 1
-			path: code_samples/recent_activity/src/EventSubscriber/MyFeaturePostActivityListLoadEventSubscriber.php
 
 		-
 			message: "#^Method App\\\\Query\\\\Aggregation\\\\Elasticsearch\\\\PriorityAggregationResultExtractor\\:\\:extract\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: code_samples/search/elasticsearch/src/Query/Aggregation/Elasticsearch/PriorityAggregationResultExtractor.php
-
-		-
-			message: "#^Method App\\\\Query\\\\Aggregation\\\\Elasticsearch\\\\PriorityAggregationVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: code_samples/search/elasticsearch/src/Query/Aggregation/Elasticsearch/PriorityAggregationVisitor.php
 
 		-
 			message: "#^Method App\\\\Query\\\\Criterion\\\\Elasticsearch\\\\CameraManufacturerVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -966,21 +471,6 @@ parameters:
 			path: code_samples/search/solr/src/Query/Criterion/Solr/CameraManufacturerVisitor.php
 
 		-
-			message: "#^Undefined variable\\: \\$this$#"
-			count: 1
-			path: code_samples/search/solr/src/Query/Criterion/Solr/CameraManufacturerVisitor.php
-
-		-
-			message: "#^Call to an undefined method Ibexa\\\\Contracts\\\\Core\\\\Persistence\\\\Content\\\\Type\\\\Handler\\:\\:loadContentInfo\\(\\)\\.$#"
-			count: 1
-			path: code_samples/search/solr/src/Search/FieldMapper/WebinarEventTitleFulltextFieldMapper.php
-
-		-
-			message: "#^Property App\\\\Search\\\\FieldMapper\\\\WebinarEventTitleFulltextFieldMapper\\:\\:\\$contentHandler \\(Ibexa\\\\Contracts\\\\Core\\\\Persistence\\\\Content\\\\Type\\\\Handler\\) does not accept Ibexa\\\\Contracts\\\\Core\\\\Persistence\\\\Content\\\\Handler\\.$#"
-			count: 1
-			path: code_samples/search/solr/src/Search/FieldMapper/WebinarEventTitleFulltextFieldMapper.php
-
-		-
 			message: "#^Call to an undefined method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Renderer\\\\RenderRequestInterface\\:\\:getParameters\\(\\)\\.$#"
 			count: 1
 			path: code_samples/tutorials/page_tutorial/src/Event/RandomBlockListener.php
@@ -1001,17 +491,7 @@ parameters:
 			path: code_samples/tutorials/page_tutorial/src/Event/RandomBlockListener.php
 
 		-
-			message: "#^Property App\\\\Event\\\\RandomBlockListener\\:\\:\\$contentService has no type specified\\.$#"
-			count: 1
-			path: code_samples/tutorials/page_tutorial/src/Event/RandomBlockListener.php
-
-		-
-			message: "#^Property App\\\\Event\\\\RandomBlockListener\\:\\:\\$locationService has no type specified\\.$#"
-			count: 1
-			path: code_samples/tutorials/page_tutorial/src/Event/RandomBlockListener.php
-
-		-
-			message: "#^Property App\\\\Event\\\\RandomBlockListener\\:\\:\\$searchService has no type specified\\.$#"
+			message: "#^Parameter \\#1 \\$locationId of method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\LocationService\\:\\:loadLocation\\(\\) expects int, int\\|null given\\.$#"
 			count: 1
 			path: code_samples/tutorials/page_tutorial/src/Event/RandomBlockListener.php
 
@@ -1036,64 +516,9 @@ parameters:
 			path: code_samples/tutorials/page_tutorial_starting_point/src/QueryType/MenuQueryType.php
 
 		-
-			message: "#^Call to an undefined method Ibexa\\\\Contracts\\\\OAuth2Client\\\\Repository\\\\OAuth2UserService\\:\\:createUser\\(\\)\\.$#"
+			message: "#^Parameter \\#2 \\$email of method Ibexa\\\\Contracts\\\\OAuth2Client\\\\Repository\\\\OAuth2UserService\\:\\:newOAuth2UserCreateStruct\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: code_samples/user_management/oauth_google/src/OAuth/GoogleResourceOwnerMapper.php
-
-		-
-			message: "#^Call to an undefined method Ibexa\\\\Contracts\\\\OAuth2Client\\\\Repository\\\\OAuth2UserService\\:\\:loadUserGroupByRemoteId\\(\\)\\.$#"
-			count: 1
-			path: code_samples/user_management/oauth_google/src/OAuth/GoogleResourceOwnerMapper.php
-
-		-
-			message: "#^Call to an undefined method League\\\\OAuth2\\\\Client\\\\Provider\\\\ResourceOwnerInterface\\:\\:getEmail\\(\\)\\.$#"
-			count: 1
-			path: code_samples/user_management/oauth_google/src/OAuth/GoogleResourceOwnerMapper.php
-
-		-
-			message: "#^Call to an undefined method League\\\\OAuth2\\\\Client\\\\Provider\\\\ResourceOwnerInterface\\:\\:getFirstName\\(\\)\\.$#"
-			count: 1
-			path: code_samples/user_management/oauth_google/src/OAuth/GoogleResourceOwnerMapper.php
-
-		-
-			message: "#^Call to an undefined method League\\\\OAuth2\\\\Client\\\\Provider\\\\ResourceOwnerInterface\\:\\:getLastName\\(\\)\\.$#"
-			count: 1
-			path: code_samples/user_management/oauth_google/src/OAuth/GoogleResourceOwnerMapper.php
-
-		-
-			message: "#^Call to method getId\\(\\) on an unknown class League\\\\OAuth2\\\\Client\\\\Provider\\\\GoogleUser\\.$#"
-			count: 1
-			path: code_samples/user_management/oauth_google/src/OAuth/GoogleResourceOwnerMapper.php
-
-		-
-			message: "#^PHPDoc tag @param for parameter \\$resourceOwner with type League\\\\OAuth2\\\\Client\\\\Provider\\\\GoogleUser is not subtype of native type League\\\\OAuth2\\\\Client\\\\Provider\\\\ResourceOwnerInterface\\.$#"
-			count: 2
-			path: code_samples/user_management/oauth_google/src/OAuth/GoogleResourceOwnerMapper.php
-
-		-
-			message: "#^Parameter \\#1 \\$resourceOwner of method App\\\\OAuth\\\\GoogleResourceOwnerMapper\\:\\:getUsername\\(\\) expects League\\\\OAuth2\\\\Client\\\\Provider\\\\GoogleUser, League\\\\OAuth2\\\\Client\\\\Provider\\\\ResourceOwnerInterface given\\.$#"
-			count: 3
-			path: code_samples/user_management/oauth_google/src/OAuth/GoogleResourceOwnerMapper.php
-
-		-
-			message: "#^Parameter \\$resourceOwner of method App\\\\OAuth\\\\GoogleResourceOwnerMapper\\:\\:createUser\\(\\) has invalid type League\\\\OAuth2\\\\Client\\\\Provider\\\\GoogleUser\\.$#"
-			count: 1
-			path: code_samples/user_management/oauth_google/src/OAuth/GoogleResourceOwnerMapper.php
-
-		-
-			message: "#^Parameter \\$resourceOwner of method App\\\\OAuth\\\\GoogleResourceOwnerMapper\\:\\:getUsername\\(\\) has invalid type League\\\\OAuth2\\\\Client\\\\Provider\\\\GoogleUser\\.$#"
-			count: 1
-			path: code_samples/user_management/oauth_google/src/OAuth/GoogleResourceOwnerMapper.php
-
-		-
-			message: "#^Parameter \\$resourceOwner of method App\\\\OAuth\\\\GoogleResourceOwnerMapper\\:\\:loadUser\\(\\) has invalid type League\\\\OAuth2\\\\Client\\\\Provider\\\\GoogleUser\\.$#"
-			count: 1
-			path: code_samples/user_management/oauth_google/src/OAuth/GoogleResourceOwnerMapper.php
-
-		-
-			message: "#^Property App\\\\EventListener\\\\ApprovedTransitionListener\\:\\:\\$notificationHandler has no type specified\\.$#"
-			count: 1
-			path: code_samples/workflow/custom_workflow/src/EventListener/ApprovedTransitionListener.php
 
 		-
 			message: "#^Offset 'data' does not exist on array\\|null\\.$#"

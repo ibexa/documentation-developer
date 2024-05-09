@@ -6,13 +6,14 @@ use Ibexa\Bundle\Core\Controller;
 use Ibexa\Contracts\Core\Repository\LocationService;
 use Ibexa\Contracts\Core\Repository\SearchService;
 use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
+use Symfony\Component\HttpFoundation\Response;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
 
 class BreadcrumbController extends Controller
 {
-    private $locationService;
+    private LocationService $locationService;
 
-    private $searchService;
+    private SearchService $searchService;
 
     public function __construct(LocationService $locationService, SearchService $searchService)
     {
@@ -20,7 +21,7 @@ class BreadcrumbController extends Controller
         $this->searchService = $searchService;
     }
 
-    public function showBreadcrumbsAction($locationId)
+    public function showBreadcrumbsAction($locationId): Response
     {
         $query = new LocationQuery();
         $query->query = new Criterion\Ancestor([$this->locationService->loadLocation($locationId)->pathString]);

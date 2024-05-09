@@ -11,9 +11,9 @@ use Twig\Environment;
 
 class MyRenderer implements NotificationRenderer
 {
-    protected $twig;
+    protected Environment $twig;
 
-    protected $router;
+    protected RouterInterface $router;
 
     public function __construct(Environment $twig, RouterInterface $router)
     {

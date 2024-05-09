@@ -36,7 +36,7 @@ class CreateImageCommand extends Command
         parent::__construct('doc:create_image');
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setDefinition([
