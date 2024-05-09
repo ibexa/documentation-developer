@@ -11,7 +11,7 @@ use Ibexa\Contracts\ProductCatalog\ProductServiceInterface;
 use Ibexa\Contracts\ProductCatalog\Values\Price\Create\Struct\ProductPriceCreateStruct;
 use Ibexa\Contracts\ProductCatalog\Values\Price\PriceContext;
 use Ibexa\Contracts\ProductCatalog\Values\Price\PriceQuery;
-use Ibexa\Contracts\ProductCatalog\Values\Price\Query\Criterion\Currency;
+use Ibexa\Contracts\ProductCatalog\Values\Price\Query\Criterion\Currency as CurrencyCriterion;
 use Ibexa\Contracts\ProductCatalog\Values\Price\Query\Criterion\CustomerGroup;
 use Ibexa\Contracts\ProductCatalog\Values\Price\Query\Criterion\Product;
 use Money;
@@ -19,6 +19,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Ibexa\Contracts\ProductCatalog\Values\Price\Query\Criterion\LogicalOr;
 
 final class ProductPriceCommand extends Command
 {
@@ -90,23 +91,23 @@ final class ProductPriceCommand extends Command
 
         $output->writeln('Created new price in currency ' . $newCurrencyCode);
 
-        $prices = $this->productPriceService->findPricesByProductCode($productCode);
+        $prices = $this->productPriceService->findPricesByProductCode($productCode)->getPrices();
 
         $output->writeln('All prices for ' . $product->getName() . ':');
         foreach ($prices as $price) {
-            $output->writeln($price);
+            $output->writeln((string) $price);
         }
 
         $priceCriteria = [
-            new Currency('USD'),
+            new CurrencyCriterion($this->currencyService->getCurrencyByCode('USD')),
             new CustomerGroup('customer_group_1'),
             new Product('ergo_desk'),
         ];
 
         $priceQuery = new PriceQuery(new LogicalOr(...$priceCriteria));
-        $prices = $this->priceService->findPrices($priceQuery);
+        $prices = $this->productPriceService->findPrices($priceQuery);
 
-        $output->writeln(sprintf('Found %d prices with provided criteria', count($prices)));
+        $output->writeln(sprintf('Found %d prices with provided criteria', $prices->getTotalCount()));
 
         $context = new PriceContext($currency);
         $price = $this->priceResolver->resolvePrice($product, $context);

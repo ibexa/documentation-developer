@@ -9,12 +9,13 @@ use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
 use Ibexa\Core\Pagination\Pagerfanta\LocationSearchAdapter;
 use Pagerfanta\Pagerfanta;
+use Symfony\Component\HttpFoundation\Response;
 
 class AllContentListController extends Controller
 {
-    private $searchService;
+    private SearchService $searchService;
 
-    private $formFactory;
+    private FormFactory $formFactory;
 
     public function __construct(SearchService $searchService, FormFactory $formFactory)
     {
@@ -22,7 +23,7 @@ class AllContentListController extends Controller
         $this->formFactory = $formFactory;
     }
 
-    public function listAction($page = 1)
+    public function listAction(int $page = 1): Response
     {
         $query = new LocationQuery();
 

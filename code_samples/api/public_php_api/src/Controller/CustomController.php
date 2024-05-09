@@ -6,6 +6,7 @@ use Ibexa\Bundle\Core\Controller;
 use Ibexa\Contracts\Core\Repository\SearchService;
 use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+use Symfony\Component\HttpFoundation\Response;
 
 class CustomController extends Controller
 {
@@ -16,7 +17,7 @@ class CustomController extends Controller
         $this->searchService = $searchService;
     }
 
-    public function showContentAction($locationId)
+    public function showContentAction(int $locationId): Response
     {
         $query = new LocationQuery();
         $query->filter = new Criterion\ParentLocationId($locationId);

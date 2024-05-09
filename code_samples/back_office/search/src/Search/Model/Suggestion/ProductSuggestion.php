@@ -17,7 +17,7 @@ class ProductSuggestion extends Suggestion
         $this->product = $product;
     }
 
-    public function getProduct()
+    public function getProduct(): Product
     {
         return $this->product;
     }

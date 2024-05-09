@@ -16,7 +16,7 @@ class Kernel extends BaseKernel
     protected function build(ContainerBuilder $container): void
     {
         // Retrieve "ibexa" container extension
-        /** @var \Ibexa\Bundle\Core\DependencyInjection\IbexaCoreExtension $IbexaExtension */
+        /** @var \Ibexa\Bundle\Core\DependencyInjection\IbexaCoreExtension $ibexaExtension */
         $ibexaExtension = $container->getExtension('ibexa');
         // Add the policy provider
         $ibexaExtension->addPolicyProvider(new MyPolicyProvider());

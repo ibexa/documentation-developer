@@ -15,7 +15,7 @@ class MyMenuSubscriber implements EventSubscriberInterface
         ];
     }
 
-    public function onMainMenuConfigure(ConfigureMenuEvent $event)
+    public function onMainMenuConfigure(ConfigureMenuEvent $event): void
     {
         $menu = $event->getMenu();
 

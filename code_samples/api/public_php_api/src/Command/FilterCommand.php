@@ -22,7 +22,7 @@ class FilterCommand extends Command
         parent::__construct('doc:filter');
     }
 
-    public function configure()
+    public function configure(): void
     {
         $this->setDescription('Returns children of the provided Location, sorted by name in descending order.');
         $this->setDefinition([
@@ -44,7 +44,7 @@ class FilterCommand extends Command
         $output->writeln('Found ' . $result->getTotalCount() . ' items');
 
         foreach ($result as $content) {
-            $output->writeln($content->getName());
+            $output->writeln($content->getName() ?? 'No content name');
         }
 
         return self::SUCCESS;
