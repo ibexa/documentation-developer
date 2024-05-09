@@ -23,7 +23,7 @@ class BookmarkCommand extends Command
         parent::__construct('doc:bookmark');
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setDefinition([
@@ -32,7 +32,7 @@ class BookmarkCommand extends Command
             ->addOption('delete', 'd', InputOption::VALUE_NONE, 'Delete the created bookmark?', null);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $locationId = $input->getArgument('locationId');
         $location = $this->locationService->loadLocation($locationId);

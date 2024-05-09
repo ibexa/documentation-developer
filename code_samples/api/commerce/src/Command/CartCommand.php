@@ -7,10 +7,13 @@ namespace App\Command;
 use Ibexa\Contracts\Cart\CartServiceInterface;
 use Ibexa\Contracts\Cart\Value\CartCreateStruct;
 use Ibexa\Contracts\Cart\Value\CartMetadataUpdateStruct;
+use Ibexa\Contracts\Checkout\Reorder\ReorderService;
+use Ibexa\Contracts\Cart\CartResolverInterface;
 use Ibexa\Contracts\Cart\Value\CartQuery;
 use Ibexa\Contracts\Cart\Value\EntryAddStruct;
 use Ibexa\Contracts\Cart\Value\EntryUpdateStruct;
 use Ibexa\Contracts\Core\Repository\UserService;
+use Ibexa\Contracts\OrderManagement\OrderServiceInterface;
 use Ibexa\Contracts\ProductCatalog\CurrencyServiceInterface;
 use Ibexa\Contracts\ProductCatalog\ProductServiceInterface;
 use Ibexa\Core\Repository\Permission\PermissionResolver;
@@ -30,18 +33,30 @@ final class CartCommand extends Command
 
     private ProductServiceInterface $productService;
 
+    private OrderServiceInterface $orderService;
+
+    private ReorderService $reorderService;
+
+    private CartResolverInterface $cartResolver;
+
     public function __construct(
         PermissionResolver $permissionResolver,
         UserService $userService,
         CartServiceInterface $cartService,
         CurrencyServiceInterface $currencyService,
-        ProductServiceInterface $productService
+        ProductServiceInterface $productService,
+        OrderServiceInterface $orderService,
+        ReorderService $reorderService,
+        CartResolverInterface $cartResolver
     ) {
         $this->cartService = $cartService;
         $this->permissionResolver = $permissionResolver;
         $this->userService = $userService;
         $this->currencyService = $currencyService;
         $this->productService = $productService;
+        $this->orderService = $orderService;
+        $this->reorderService = $reorderService;
+        $this->cartResolver = $cartResolver;
 
         parent::__construct('doc:cart');
     }
@@ -135,6 +150,7 @@ final class CartCommand extends Command
         $this->cartService->deleteCart($cart);
 
         // Get the order with items that should be reordered
+        $orderIdentifier = '2e897b31-0d7a-46d3-ba45-4eb65fe02790';
         $order = $this->orderService->getOrderByIdentifier($orderIdentifier);
 
         // Get the cart to merge

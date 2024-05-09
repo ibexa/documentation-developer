@@ -7,6 +7,7 @@ namespace App\Controller;
 use Ibexa\Bundle\Core\Controller;
 use Ibexa\Contracts\Cart\CartServiceInterface;
 use Ibexa\Contracts\Checkout\CheckoutServiceInterface;
+use Symfony\Component\HttpFoundation\Response;
 
 class CustomCheckoutController extends Controller
 {
@@ -20,7 +21,7 @@ class CustomCheckoutController extends Controller
         $this->checkoutService = $checkoutService;
     }
 
-    public function showContentAction()
+    public function showContentAction(): Response
     {
         // Get checkout for a specific cart
         $cart = $this->cartService->getCart('d7424b64-7dc1-474c-82c8-1700f860d55e');
