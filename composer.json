@@ -4,11 +4,6 @@
     "type": "library",
     "license": "GNU General Public License v2.0",
     "autoload-dev": {
-        "psr-4": {
-            "App\\": [
-                "code_samples/recent_activity/src"
-            ]
-        }
     },
     "repositories": [
         {
