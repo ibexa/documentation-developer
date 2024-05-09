@@ -58,9 +58,7 @@
             {% endif %}
           </div>
           {% endif %}
-          <div id="eolWarningBox" class="admonition caution hidden">
-            <div class="admonition-title"></div>
-          </div>
+          {% include "partials/eol_warning.html" %}
           {{ page.content }}
           {% include "partials/tags.html" %}
         </div>

@@ -16,10 +16,7 @@ $(document).ready(function() {
 
     // Show warning box for versions that have reached End Of Life
     if (eol_versions.includes(branchName)) {
-        warningMessage =
-            'You are viewing documentation for a release that has reached End Of Life. It is no longer supported and receives no security updates. Consider updating to the latest release.';
         let warningBox = document.querySelector('#eolWarningBox');
-        warningBox.querySelector('.admonition-title').textContent = warningMessage;
         warningBox.classList.remove('hidden');
     }
 
