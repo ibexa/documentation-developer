@@ -136,27 +136,7 @@ parameters:
 			path: code_samples/api/rest_api/create_image.xml.php
 
 		-
-			message: "#^Instantiated class Ibexa\\\\Rest\\\\Server\\\\Exceptions\\\\Parser not found\\.$#"
-			count: 1
-			path: code_samples/api/rest_api/src/Rest/InputParser/GreetingInput.php
-
-		-
-			message: "#^Throwing object of an unknown class Ibexa\\\\Rest\\\\Server\\\\Exceptions\\\\Parser\\.$#"
-			count: 1
-			path: code_samples/api/rest_api/src/Rest/InputParser/GreetingInput.php
-
-		-
 			message: "#^Method App\\\\Rest\\\\Output\\\\ValueObjectVisitorDispatcher\\:\\:__construct\\(\\) has parameter \\$visitors with no value type specified in iterable type iterable\\.$#"
-			count: 1
-			path: code_samples/api/rest_api/src/Rest/Output/ValueObjectVisitorDispatcher.php
-
-		-
-			message: "#^Method App\\\\Rest\\\\Output\\\\ValueObjectVisitorDispatcher\\:\\:setOutputGenerator\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: code_samples/api/rest_api/src/Rest/Output/ValueObjectVisitorDispatcher.php
-
-		-
-			message: "#^Method App\\\\Rest\\\\Output\\\\ValueObjectVisitorDispatcher\\:\\:setOutputVisitor\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: code_samples/api/rest_api/src/Rest/Output/ValueObjectVisitorDispatcher.php
 
@@ -186,16 +166,6 @@ parameters:
 			path: code_samples/api/rest_api/src/Rest/ValueObjectVisitor/RestLocation.php
 
 		-
-			message: "#^Method App\\\\Rest\\\\Values\\\\Greeting\\:\\:__construct\\(\\) has parameter \\$recipient with no type specified\\.$#"
-			count: 1
-			path: code_samples/api/rest_api/src/Rest/Values/Greeting.php
-
-		-
-			message: "#^Method App\\\\Rest\\\\Values\\\\Greeting\\:\\:__construct\\(\\) has parameter \\$salutation with no type specified\\.$#"
-			count: 1
-			path: code_samples/api/rest_api/src/Rest/Values/Greeting.php
-
-		-
 			message: "#^Parameter \\#1 \\$json of function json_decode expects string, string\\|false given\\.$#"
 			count: 1
 			path: code_samples/back_office/calendar/src/Calendar/Holidays/EventSourceFactory.php
@@ -211,49 +181,9 @@ parameters:
 			path: code_samples/back_office/content_type/src/EventListener/TextAnchorMenuTabListener.php
 
 		-
-			message: "#^Expression \"\\$menu\\[\\\\Ibexa\\\\AdminUi\\\\Menu\\\\ContentEditAnchorMenuBuilder\\:\\:ITEM__CONTENT\\]\" on a separate line does not do anything\\.$#"
-			count: 1
-			path: code_samples/back_office/content_type/src/EventListener/TextAnchorMenuTabListener.php
-
-		-
-			message: "#^Expression \"\\$menu\\[\\\\Ibexa\\\\AdminUi\\\\Menu\\\\ContentEditAnchorMenuBuilder\\:\\:ITEM__META\\]\" on a separate line does not do anything\\.$#"
-			count: 1
-			path: code_samples/back_office/content_type/src/EventListener/TextAnchorMenuTabListener.php
-
-		-
-			message: "#^Property App\\\\Tab\\\\Dashboard\\\\Everyone\\\\EveryoneArticleTab\\:\\:\\$pagerContentToDataMapper has no type specified\\.$#"
-			count: 1
-			path: code_samples/back_office/dashboard/article_tab/src/Tab/Dashboard/Everyone/EveryoneArticleTab.php
-
-		-
-			message: "#^Property App\\\\Tab\\\\Dashboard\\\\Everyone\\\\EveryoneArticleTab\\:\\:\\$searchService has no type specified\\.$#"
-			count: 1
-			path: code_samples/back_office/dashboard/article_tab/src/Tab/Dashboard/Everyone/EveryoneArticleTab.php
-
-		-
-			message: "#^Call to method createCustomDashboardDraft\\(\\) on an unknown class Ibexa\\\\Contracts\\\\Dashboard\\\\DashboardServiceInterface\\.$#"
-			count: 1
-			path: code_samples/back_office/dashboard/src/Command/DashboardCommand.php
-
-		-
-			message: "#^Parameter \\$dashboardService of method App\\\\Command\\\\DashboardCommand\\:\\:__construct\\(\\) has invalid type Ibexa\\\\Contracts\\\\Dashboard\\\\DashboardServiceInterface\\.$#"
-			count: 1
-			path: code_samples/back_office/dashboard/src/Command/DashboardCommand.php
-
-		-
-			message: "#^Property App\\\\Command\\\\DashboardCommand\\:\\:\\$dashboardService has unknown class Ibexa\\\\Contracts\\\\Dashboard\\\\DashboardServiceInterface as its type\\.$#"
-			count: 1
-			path: code_samples/back_office/dashboard/src/Command/DashboardCommand.php
-
-		-
 			message: "#^Method Ibexa\\\\Bundle\\\\Core\\\\Imagine\\\\PlaceholderProvider\\:\\:getPlaceholder\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: code_samples/back_office/images/src/PlaceholderProvider.php
-
-		-
-			message: "#^Parameter \\#3 \\$versionNo of method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\ContentService\\:\\:loadContent\\(\\) expects int\\|null, string\\|null given\\.$#"
-			count: 1
-			path: code_samples/back_office/images/src/SvgController.php
 
 		-
 			message: "#^Return type \\(bool\\) of method App\\\\Security\\\\Limitation\\\\Mapper\\\\CustomLimitationValueMapper\\:\\:mapLimitationValue\\(\\) should be compatible with return type \\(array\\) of method Ibexa\\\\AdminUi\\\\Limitation\\\\LimitationValueMapperInterface\\:\\:mapLimitationValue\\(\\)$#"
