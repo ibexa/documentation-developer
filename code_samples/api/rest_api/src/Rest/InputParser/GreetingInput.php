@@ -3,9 +3,9 @@
 namespace App\Rest\InputParser;
 
 use App\Rest\Values\Greeting;
+use Ibexa\Contracts\Rest\Exceptions;
 use Ibexa\Contracts\Rest\Input\ParsingDispatcher;
 use Ibexa\Rest\Input\BaseParser;
-use Ibexa\Contracts\Rest\Exceptions;
 
 class GreetingInput extends BaseParser
 {

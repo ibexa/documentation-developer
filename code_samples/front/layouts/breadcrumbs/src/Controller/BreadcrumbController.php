@@ -6,8 +6,8 @@ use Ibexa\Bundle\Core\Controller;
 use Ibexa\Contracts\Core\Repository\LocationService;
 use Ibexa\Contracts\Core\Repository\SearchService;
 use Ibexa\Contracts\Core\Repository\Values\Content\LocationQuery;
-use Symfony\Component\HttpFoundation\Response;
 use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
+use Symfony\Component\HttpFoundation\Response;
 
 class BreadcrumbController extends Controller
 {

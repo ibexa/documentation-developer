@@ -13,13 +13,13 @@ use Ibexa\Contracts\ProductCatalog\Values\Price\PriceContext;
 use Ibexa\Contracts\ProductCatalog\Values\Price\PriceQuery;
 use Ibexa\Contracts\ProductCatalog\Values\Price\Query\Criterion\Currency as CurrencyCriterion;
 use Ibexa\Contracts\ProductCatalog\Values\Price\Query\Criterion\CustomerGroup;
+use Ibexa\Contracts\ProductCatalog\Values\Price\Query\Criterion\LogicalOr;
 use Ibexa\Contracts\ProductCatalog\Values\Price\Query\Criterion\Product;
 use Money;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Ibexa\Contracts\ProductCatalog\Values\Price\Query\Criterion\LogicalOr;
 
 final class ProductPriceCommand extends Command
 {

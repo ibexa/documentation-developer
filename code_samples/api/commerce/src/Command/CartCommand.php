@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace App\Command;
 
+use Ibexa\Contracts\Cart\CartResolverInterface;
 use Ibexa\Contracts\Cart\CartServiceInterface;
 use Ibexa\Contracts\Cart\Value\CartCreateStruct;
 use Ibexa\Contracts\Cart\Value\CartMetadataUpdateStruct;
-use Ibexa\Contracts\Checkout\Reorder\ReorderService;
-use Ibexa\Contracts\Cart\CartResolverInterface;
 use Ibexa\Contracts\Cart\Value\CartQuery;
 use Ibexa\Contracts\Cart\Value\EntryAddStruct;
 use Ibexa\Contracts\Cart\Value\EntryUpdateStruct;
+use Ibexa\Contracts\Checkout\Reorder\ReorderService;
 use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\OrderManagement\OrderServiceInterface;
 use Ibexa\Contracts\ProductCatalog\CurrencyServiceInterface;
