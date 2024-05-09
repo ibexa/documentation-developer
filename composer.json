@@ -41,6 +41,7 @@
         "ibexa/taxonomy": "5.0.x-dev",
         "ibexa/scheduler": "5.0.x-dev",
         "ibexa/cron": "5.0.x-dev",
+        "ibexa/dashboard": "5.0.x-dev",
         "ibexa/corporate-account": "5.0.x-dev",
         "ibexa/fieldtype-address": "5.0.x-dev",
         "ibexa/segmentation": "5.0.x-dev",
