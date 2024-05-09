@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\OAuth;
 
 use Ibexa\Contracts\Core\Repository\LanguageResolver;
-use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\Core\Repository\Repository;
+use Ibexa\Contracts\Core\Repository\UserService;
 use Ibexa\Contracts\Core\Repository\Values\ContentType\ContentType;
 use Ibexa\Contracts\OAuth2Client\Repository\OAuth2UserService;
 use Ibexa\OAuth2Client\ResourceOwner\ResourceOwnerToExistingOrNewUserMapper;
