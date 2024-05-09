@@ -91,9 +91,9 @@ jobs:
                     SATIS_NETWORK_TOKEN: ${{ secrets.SATIS_NETWORK_TOKEN }}
                     TRAVIS_GITHUB_TOKEN: ${{ secrets.TRAVIS_GITHUB_TOKEN }}
 
-            - uses: "ramsey/composer-install@v1"
+            - uses: ramsey/composer-install@v3
               with:
-                  dependency-versions: "highest"
+                    dependency-versions: highest
 
             - name: Run PHPStan analysis
               run: composer phpstan
