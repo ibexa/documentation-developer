@@ -6,7 +6,7 @@ description: Training page template
 
 ## Syllabus
 
-In this training, you will learn to…
+In this training, you learn to…
 
 | Section                                                 |  Estimated | Description                                                                          |
 |:--------------------------------------------------------|-----------:|:-------------------------------------------------------------------------------------|

@@ -7,7 +7,7 @@ description: Training page template
 
 ## Syllabus
 
-In this training, you will learn to… …with HTTP cache…
+In this training, you learn to… …with HTTP cache…
 
 | Section     | Estimated | Description                                              |
 |:------------|----------:|:---------------------------------------------------------|
