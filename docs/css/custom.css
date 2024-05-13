@@ -593,12 +593,6 @@ div.pills {
     padding-bottom: 4px;
 }
 
-/** Version switcher */
-.versions .eol__hidden {
-    display:none
-}
-
-/** EOL warning box */
-#eolWarningBox.hidden {
-    display:none
+#older-versions {
+    cursor: pointer;
 }

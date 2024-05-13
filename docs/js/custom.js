@@ -4,7 +4,8 @@ let jquery = jQuery;
 $(document).ready(function() {
     // replace edit url
     let branchName = 'master';
-    let branchNameRegexp = /\/en\/([a-z0-9-_.]*)\//g.exec(document.location.href);
+    const branchNameRegexp = /\/en\/([a-z0-9-_.]*)\//g.exec(document.location.href);
+    const eolVersions = window.eol_versions ?? [];
 
     if (branchNameRegexp !== null && branchNameRegexp.hasOwnProperty(1) && branchNameRegexp[1].length) {
         branchName = branchNameRegexp[1];
@@ -12,12 +13,11 @@ $(document).ready(function() {
 
     branchName = "2.5"; // TMP
 
-    let eol_versions = window.eol_versions ?? [];
-
     // Show warning box for versions that have reached End Of Life
-    if (eol_versions.includes(branchName)) {
-        let warningBox = document.querySelector('#eolWarningBox');
-        warningBox.classList.remove('hidden');
+    if (eolVersions.includes(branchName)) {
+        const warningBox = document.querySelector('#eol-warning-box');
+
+        warningBox.hidden = false;
     }
 
     $('.md-content a.md-icon').each(function() {
@@ -47,7 +47,7 @@ $(document).ready(function() {
     var update = setInterval(function() {
         let ready = false, version = '';
         if ($('readthedocs-flyout').length) {
-            $('dl.versions', $('readthedocs-flyout').prop('shadowRoot')).appendTo('.version-switcher .switcher__list');
+            $('dl.versions', $('readthedocs-flyout').prop('shadowRoot')).prependTo('.version-switcher .switcher__list');
             $('readthedocs-flyout').remove();
             version = $('.switcher__list dl.versions dd strong a').text();
             ready = true;
@@ -72,23 +72,26 @@ $(document).ready(function() {
                 vl.find('dd').each(function() {$(this).detach().prependTo(vl)});
             }
 
-            // Hide versions that have reached End Of Life from the version switcher
-            Array.from(document.querySelectorAll('.switcher__list .versions dd'))
-            .filter(e => eol_versions.includes(e.textContent))
-            .forEach(e => e.classList.add('eol__hidden'));
+            const allVersions = [...document.querySelectorAll('.switcher__list .versions dd')];
+            const olderVersions = document.querySelector('#older-versions');
 
-            // Add "Older versions" version to the version switcher that shows the EOL versions when clicked
-            let versionElement = document.createElement('dd')
-            versionElement.id = 'olderVersions'
-            let a = document.createElement('a')
-            a.appendChild(document.createTextNode("Older versions"))
-            a.addEventListener("click", function(e) {
-                document.querySelectorAll('.switcher__list .versions dd.eol__hidden').forEach(e => e.classList.remove('eol__hidden'))
-                document.querySelector('#olderVersions').remove()
-                e.stopPropagation()
-            })
-            versionElement.appendChild(a);
-            document.querySelector('.switcher__list .versions')?.append(versionElement)
+            if (eolVersions.includes(branchName)) {
+                olderVersions.hidden = false;
+            }
+
+            allVersions
+                .filter((versionNode) => eolVersions.includes(versionNode.textContent))
+                .forEach((versionNode) => {
+                    versionNode.hidden = true;
+                });
+
+            olderVersions.addEventListener('click', (event) => {
+                allVersions.forEach((versionNode) => {
+                    versionNode.hidden = false;
+                });
+                olderVersions.hidden = true;
+                event.stopPropagation();
+            });
         }
     }, 300);
     setTimeout(function() {
