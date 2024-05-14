@@ -39,7 +39,7 @@ The full list of available services covers:
 - [SectionService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/SectionService.php)
 - ShippingAddressService
 - SpreadsheetProcessorInterface (`\Ibexa\Contracts\Cart\FileProcessor\SpreadsheetProcessorInterface`)
-- TaxonomyService
+- [TaxonomyService](taxonomy_api.md)
 - [TranslationService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/TranslationService.php)
 - [TrashService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/TrashService.php)
 - [URLAliasService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/URLAliasService.php)
