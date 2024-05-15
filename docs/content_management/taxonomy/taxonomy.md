@@ -88,7 +88,7 @@ ibexa:
 
 ## Remove orphaned Content items
 
-In some rare case, especially in I[[= product_name =]] v4.2 and older, when deleting parent of huge subtrees, some Taxonomy entries are not properly deleted, leaving Content items that point to a non-existing parent.
+In some rare case, especially in [[= product_name =]] v4.2 and older, when deleting parent of huge subtrees, some Taxonomy entries are not properly deleted, leaving Content items that point to a non-existing parent.
 The command `ibexa:taxonomy:remove-orphaned-content` deletes those orphaned Content item.
 It works on a taxonomy passed as an argument, and has two options that act as a protective measure against deleting data by mistake:
 
