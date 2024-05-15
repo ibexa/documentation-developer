@@ -66,3 +66,8 @@ and a `position` parameter, which is either `TaxonomyServiceInterface::MOVE_POSI
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/TaxonomyCommand.php', 59, 61) =]]
 ```
+
+!!! note
+
+    Taxonomy entry management functions triggers events you can listen to.
+    For more information, see [Taxonomy events](taxonomy_events.md).

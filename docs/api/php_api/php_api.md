@@ -37,7 +37,7 @@ The full list of available services covers:
 - [SearchService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/SearchService.php)
 - [SectionService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/SectionService.php)
 - ShippingAddressService
-- TaxonomyService
+- [TaxonomyService](taxonomy_api.md)
 - [TranslationService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/TranslationService.php)
 - [TrashService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/TrashService.php)
 - [URLAliasService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/URLAliasService.php)
