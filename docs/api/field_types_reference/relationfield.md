@@ -1,18 +1,12 @@
 # Relation Field Type
 
-!!! caution "Deprecated"
-
-    The Relation Field Type is deprecated since v2.0.
-
-    Use [RelationList](relationlistfield.md) with a selection limit instead.
-
 This Field Type makes it possible to store and retrieve the value of a relation to another Content item.
 
 | Name       | Internal name      | Expected input |
 |------------|--------------------|----------------|
 | `Relation` | `ezobjectrelation` | mixed        |
 
-## PHP API Field Type 
+## PHP API Field Type
 
 ### Input expectations
 
