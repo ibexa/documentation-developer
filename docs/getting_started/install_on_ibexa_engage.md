@@ -39,7 +39,6 @@ For more information about publication channels, see [Publication channel]([[= u
 
 You can add [Campaign block]([[= user_doc =]]/content_management/block_reference/#campaign-block) in Page Builder.
 To add the campaign,  go to **Properties** tab -> **Campaign** and choose campaign from the drop-down list. This list includes all campaigns available on user's Qualifio account which are active or scheduled to launch in the future.
-Go to **Campaign Feeds**, find the campaign and click a copy icon.
 
 ## Embed campaign block in the text field
 
