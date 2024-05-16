@@ -28,7 +28,7 @@ You can create personalized, visual attractive campaigns using available templat
 Design, themes, backgrounds are all configured by Qualifio.
 
 A campaign is a set of concepts, divided into steps, that the user can configure.
-It includes a welcome screen, an interaction element (such as quiz, memory, and so on), a form step, and an exit screen.
+It includes a welcome screen, an interaction element, a form step, and an exit screen.
 
 You can also set up prizes for customer when an email or another required pool is filled.
 A prize can be, for example, special discount, bonus, free access to some content, and so on.
@@ -39,28 +39,30 @@ Technically, each campaign has a unique campaign ID, that is automatically defin
 
 ## Publication channels
 
-Every campaign includes at least one publication channel chosen from the three options the platform provides for publishing a campaign:
+Every campaign includes a minimum of one publication channel that you can choose from the three options the platform provides for publishing a campaign:
 
-- **Widget/iframe** - Qualifio offers JavaScript code or an HTML iframe. AMP, Facebook Instant Article, and oEmbed technologies can also be used to publish iframes. (an integration code that needs to be manually entered into your CMS or website).
+- **Widget/iframe** - uses a JavaScript code or an HTML iframe from Qualifio. Additionally, you can use oEmbed, Facebook Instant articles, and AMP technologies to publish iframes. You need to manually paste the code into your website or CMS.
 
-- **Minisite** - To host the campaign, Qualifio offers a special URL. (A website that you can connect to your subdomain with).
+- **Minisite** - uses a unique URL from Qualifio that can hosts the campaign. This URL points to your subdomain.
 
-- **Mobile** - Qualifio provides a link that allows for the smooth integration of a mobile-optimized campaign. However, it is important to note that both mentioned publication channels are responsive by nature and can effectively target a mobile audience.
+- **Mobile** - uses a link from Qialifio to integrate a campaign that is optimized for mobile usage.
+
+Each publication channel type is automatically responsive and can be use on any mobile device.
 
 ## Add block in Page Builder
 
-You can add Qualifio block in Page Builder.
+You can add [Campaign block] in Page Builder.
 To add the campaign,  go to **Properties** tab -> **Campaign** and choose campaign from the drop-down list. This list includes all available campaigns created and configured in Qualifio.
 Go to **Campaign Feeds**, find the campaign and click a copy icon.
 
-![Qualifio block](qualifio_block.png)
+![Campaign block](campaign_block.png)
 
 ## Embed campaign block in the text field
 
-You can embed campaign block in the text field with Qualifio custom tag.
+You can embed campaign block in the text field with Campaign custom tag.
 To do it, insert campaign content item in the Rich Text Field.
 
-![Qualifio custom tag](qualifio_custom_tag.png)
+![Campaign custom tag](campaign_custom_tag.png)
 
 # Use Ibexa Connect
 
