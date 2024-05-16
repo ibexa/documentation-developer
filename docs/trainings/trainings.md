@@ -10,6 +10,8 @@ TODO: Introduction to trainings
 
 Each training starts with a list of the trainings you should previously master before going into the selected one.
 
+If you're new to Ibexa DXP, your first training is _[The early training title](docs/trainings/a_training_topic/an_early_training/000_syllabus.md)_.
+
 ## Training environment
 
 You need a running instance of Ibexa DXP to take a training.
