@@ -147,6 +147,10 @@ nav:
             - Multi-file upload: administration/back_office/multifile_upload.md
             - Sub-items list: administration/back_office/subitems_list.md
             - Notifications: administration/back_office/notifications.md
+            - Customize search:
+                - Customize search suggestion: administration/back_office/customize_search_suggestion.md
+                - Customize search sorting: administration/back_office/customize_search_sorting.md
+            - Recent activity: administration/recent_activity/recent_activity.md
     - Content management:
         - Content management: content_management/content_management.md
         - Content management guide: content_management/content_management_guide.md
@@ -287,6 +291,7 @@ nav:
             - Field Twig functions: templating/twig_function_reference/field_twig_functions.md
             - Image Twig functions: templating/twig_function_reference/image_twig_functions.md
             - Product Twig functions: templating/twig_function_reference/product_twig_functions.md
+            - Site context Twig functions: templating/twig_function_reference/site_context_twig_functions.md
             - Storefront Twig functions: templating/twig_function_reference/storefront_twig_functions.md
             - URL Twig functions: templating/twig_function_reference/url_twig_functions.md
             - User Twig functions: templating/twig_function_reference/user_twig_functions.md
@@ -324,7 +329,7 @@ nav:
         - Enable purchasing products: pim/enable_purchasing_products.md
         - Prices: pim/prices.md
         - Price API: pim/price_api.md
-        - Customize PIM: 
+        - Customize PIM:
             - Customize PIM: pim/customize_pim.md
             - Create custom attribute type: pim/create_custom_attribute_type.md
             - Create product code generator: pim/create_product_code_generator.md
@@ -354,6 +359,10 @@ nav:
             - Payment method API: commerce/payment/payment_method_api.md 
             - Payment method filtering: commerce/payment/payment_method_filtering.md
             - Payment API: commerce/payment/payment_api.md
+            - Online payment methods:
+                - Payum integration: commerce/payment/payum_integration.md
+                - Enable PayPal payments: commerce/payment/enable_paypal_payments.md
+                - Enable Stripe payments: commerce/payment/enable_stripe_payments.md
         - Shipping management:
             - Shipping management: commerce/shipping_management/shipping_management.md
             - Configure shipping: commerce/shipping_management/configure_shipment.md
@@ -409,8 +418,8 @@ nav:
           - Login methods: users/login_methods.md
           - Passwords: users/passwords.md
           - User authentication: users/user_authentication.md
-          - OAuth authentication: users/oauth_authentication.md
-          - Add login through external service: users/add_login_through_external_service.md
+          - OAuth client: users/oauth_client.md
+          - OAuth server: users/oauth_server.md
         - User grouping:
           - Customer groups: users/customer_groups.md
           - Segment API: users/segment_api.md
@@ -433,6 +442,7 @@ nav:
         - Attribute search in Elasticsearch: personalization/attribute_search_in_elasticsearch.md
     - CDP (Customer Data Platform):
         - Customer Data Platform: cdp/cdp.md
+        - CDP guide: cdp/cdp_guide.md
         - CDP installation: cdp/cdp_installation.md
         - CDP activation:
             - CDP activation: cdp/cdp_activation/cdp_activation.md
@@ -471,6 +481,13 @@ nav:
             - Field: search/criteria_reference/field_criterion.md
             - FieldRelation: search/criteria_reference/fieldrelation_criterion.md
             - FullText: search/criteria_reference/fulltext_criterion.md
+            - Image: search/criteria_reference/image_criterion.md
+            - ImageDimensions: search/criteria_reference/imagedimensions_criterion.md
+            - ImageFileSize: search/criteria_reference/imagefilesize_criterion.md
+            - ImageHeight: search/criteria_reference/imageheight_criterion.md
+            - ImageMimeType: search/criteria_reference/imagemimetype_criterion.md
+            - ImageOrientation: search/criteria_reference/imageorientation_criterion.md
+            - ImageWidth: search/criteria_reference/imagewidth_criterion.md
             - IsCurrencyEnabled: search/criteria_reference/iscurrencyenabled_criterion.md
             - IsFieldEmpty: search/criteria_reference/isfieldempty_criterion.md
             - IsMainLocation: search/criteria_reference/ismainlocation_criterion.md
@@ -599,6 +616,13 @@ nav:
             - LogicalAnd Criterion: search/url_search_reference/logicaland_url_criterion.md
             - LogicalNot Criterion: search/url_search_reference/logicalnot_url_criterion.md
             - LogicalOr Criterion: search/url_search_reference/logicalor_url_criterion.md
+        - Activity Log Search Criteria:
+            - Activity Log Search Criteria: search/activity_log_search_reference/activity_log_criteria.md
+            - ActionCriterion: search/activity_log_search_reference/action_criterion.md
+            - LoggedAtCriterion: search/activity_log_search_reference/logged_at_criterion.md
+            - ObjectCriterion: search/activity_log_search_reference/object_criterion.md
+            - ObjectNameCriterion: search/activity_log_search_reference/object_name_criterion.md
+            - UserCriterion: search/activity_log_search_reference/user_criterion.md
         - Sort Clause reference:
             - General Sort Clauses:
                 - General Sort Clause reference: search/sort_clause_reference/sort_clause_reference.md
@@ -664,6 +688,7 @@ nav:
                 - URL Sort Clauses: search/url_search_reference/url_search_sort_clauses.md
                 - Id Sort Clause: search/url_search_reference/id_url_sort_clause.md
                 - Url Sort Clause: search/url_search_reference/url_url_sort_clause.md
+            - Activity Log Sort Clauses: search/activity_log_search_reference/activity_log_sort_clauses.md
         - Search API: search/search_api.md
         - Aggregation reference:
               # Content aggregations
@@ -869,14 +894,14 @@ extra:
   product_name_oss: 'Ibexa OSS'
   # Global variables - latest tag versions
   latest_tag_2_5: '2.5.32'
-  latest_tag_3_3: '3.3.36'
+  latest_tag_3_3: '3.3.37'
   latest_tag_4_0: '4.0.8'
   latest_tag_4_1: '4.1.5'
   latest_tag_4_2: '4.2.4'
   latest_tag_4_3: '4.3.5'
   latest_tag_4_4: '4.4.4'
-  latest_tag_4_5: '4.5.5'
-  latest_tag_4_6: '4.6.1'
+  latest_tag_4_5: '4.5.7'
+  latest_tag_4_6: '4.6.3'
 
   symfony_doc: 'https://symfony.com/doc/5.4'
   user_doc: 'https://doc.ibexa.co/projects/userguide/en/master'

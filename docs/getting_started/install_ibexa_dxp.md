@@ -19,7 +19,7 @@ description: Install Ibexa DXP on a Linux system and prepare your installation f
 
 ## Prepare work environment
 
-To install [[= product_name =]] you need a stack with your operating system, MySQL and PHP.
+To install [[= product_name =]] you need a stack with your operating system, MySQL or MariaDB, and PHP.
 
 You can install it by following your favorite tutorial, for example: [Install LAMP stack on Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-ubuntu-18-04).
 
@@ -247,7 +247,7 @@ In `DATABASE_VERSION` you can also configure the database server version (for a 
 
 !!! tip "Using PostgreSQL"
 
-    If you want an installation with PostgreSQL instead of MySQL, refer to [Using PostgreSQL](databases.md#using-postgresql).
+    If you want an installation with PostgreSQL instead of MySQL or MariaDB, refer to [Using PostgreSQL](databases.md#using-postgresql).
 
 #### Install and configure a search engine
 
