@@ -11,7 +11,7 @@ $(document).ready(function() {
         branchName = branchNameRegexp[1];
     }
 
-    branchName = "2.5"; // TMP
+    branchName = "3.3"; // TMP
 
     // Show warning box for versions that have reached End Of Life
     if (eolVersions.includes(branchName)) {
