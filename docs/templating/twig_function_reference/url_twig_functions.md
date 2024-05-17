@@ -69,7 +69,7 @@ For more information about the use of `ibexa.url.alias` as a parameter of the [S
 
 ### `ibexa_oauth2_connect_path()`
 
-`ibexa_oauth2_connect_path()` generates a relative path for the given [OAuth2 route](oauth_authentication.md).
+`ibexa_oauth2_connect_path()` generates a relative path for the given [OAuth2 client](oauth_client.md).
 
 |Argument|Type|Description|
 |------|------|------|
@@ -79,7 +79,7 @@ For more information about the use of `ibexa.url.alias` as a parameter of the [S
 
 ### `ibexa_oauth2_connect_url()`
 
-`ibexa_oauth2_connect_url()` generates an absolute URL for the given [OAuth2 route](oauth_authentication.md).
+`ibexa_oauth2_connect_url()` generates an absolute URL for the given [OAuth2 client](oauth_client.md).
 
 |Argument|Type|Description|
 |------|------|------|

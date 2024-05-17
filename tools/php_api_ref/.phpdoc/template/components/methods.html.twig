@@ -1,0 +1,12 @@
+{% set methods = methods(node)|sortByVisibility %}
+
+{% if methods is not empty %}
+    <h2 id="methods">
+        Methods
+        {%- include 'components/anchor.html.twig' with { anchor_link: '#methods' } -%}
+    </h2>
+
+    {% for method in methods %}
+        {% include 'components/method.html.twig' %}
+    {% endfor %}
+{% endif %}

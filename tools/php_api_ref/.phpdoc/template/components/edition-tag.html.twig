@@ -1,0 +1,14 @@
+{% extends "package-edition-map.twig" %}
+
+{% block content %}
+    {% set edition_name_map = {
+        'experience' : 'Experience',
+        'commerce': 'Commerce',
+    } %}
+
+    {% set package = node.file.path|split('/')|slice(1, 2)|join('/') %}
+
+    {% if package_edition_map[package] is defined and edition_name_map[package_edition_map[package]] is defined %}
+        <div class="pill {{ package_edition_map[package] }}-pill"></div>
+    {% endif %}
+{% endblock %}

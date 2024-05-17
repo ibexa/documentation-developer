@@ -1,0 +1,425 @@
+{% include 'css/main.min.css.twig' %}
+{% include 'css/palette.min.css.twig' %}
+{% include 'css/codehilite.css.twig' %}
+{% include 'css/custom.css.twig' %}
+{% include 'css/navigation.css.twig' %}
+{% include 'css/docs.switcher.css.twig' %}
+
+
+{# --------------------------------------------------------------------------- #}
+{# --------------------------------- Sidebar --------------------------------- #}
+{# --------------------------------------------------------------------------- #}
+
+.md-sidebar--primary {
+    padding-left: 0;
+}
+
+.md-nav--primary .md-nav:not([data-md-level="0"]) {
+    padding-left: 16px;
+}
+
+.md-nav--primary .md-nav:not([data-md-level="0"]):not([data-md-level="1"]) {
+    position: relative;
+}
+
+.md-nav--primary .md-nav:not([data-md-level="0"]):not([data-md-level="1"])::before {
+    content: '';
+    display: block;
+    z-index: 1;
+    position: absolute;
+    left: 16px;
+    top: 0;
+    bottom: 0;
+    width: 0;
+    height: 100%;
+    border-left: 1px solid #B3B3BA;
+}
+
+.md-nav--primary .md-nav__list-title {
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    color: #71767C;
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 600;
+    margin: 15px 0 15px;
+    padding: 0;
+    background: #FFFFFF;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.md-nav--primary .md-nav__list-title--namespaces {
+    margin: 16px 0 4px;
+}
+
+.md-nav--primary .md-nav__list {
+    position: relative;
+    z-index: 2;
+}
+
+.md-nav--primary .md-nav__list .md-nav__link {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    line-height: 24px;
+    padding-left: 0;
+    background-size: 16px 16px;
+}
+
+.md-nav--primary .md-nav__item--nested > .level-0 {
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 600;
+    padding-left: 12px;
+}
+
+.md-nav--primary .md-nav__item--nested > .md-nav__link:not(.level-0) {
+    padding-left: 40px;
+    background-position: 16px 16px;
+}
+
+.md-nav--primary .md-nav__item--nested > .md-nav__link:not(.level-0):not(.level-1) {
+    background-image: url(../images/caret.svg);
+}
+
+.md-nav--primary .md-nav__item--nested > .md-nav__toggle:checked~.md-nav__link:not(.level-0):not(.level-1) ,
+.md-nav--primary .md-nav__item--nested > .md-nav__toggle:checked~.md-nav > .md-nav__link:not(.level-0):not(.level-1) {
+    background-image: url(../images/caret-down.svg);
+}
+
+.md-nav--primary .level-2,
+.md-nav--primary .level-3 {
+    background-image: none;
+}
+
+.md-nav--primary .md-nav__item--nested > .md-nav__link:not(.level-0):not(.level-1) {
+    padding-left: 32px;
+    background-position: 8px 16px;
+}
+
+.md-nav--primary .md-nav__item:not(.md-nav__item--nested) > .md-nav__link:not(.level-0):not(.level-1) {
+    padding-left: 8px;
+}
+
+.md-nav--primary .md-nav__item > .md-nav__link a {
+    display: block;
+    padding: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.md-nav--primary .md-nav__item > .md-nav__link:not(.level-0) {
+    justify-content: flex-start;
+}
+
+.md-nav--primary .md-nav__item > .md-nav__link:not(.level-0):not(.level-1) img {
+    margin-right: 8px;
+}
+
+.md-nav--primary .md-nav__item > .md-nav__toggle:checked ~ .md-nav__link:not(.level-0) {
+    background-color: #F3F3F6;
+}
+
+.md-nav--primary .md-nav__item > .md-nav__toggle:checked ~ .md-nav__link:not(.level-0):not(.level-1) {
+    border-left: 2px solid #AE1164;
+}
+
+.md-nav--secondary .md-nav__title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+{# --------------------------------------------------------------------------- #}
+{# ------------------------------- Breadcrumbs ------------------------------- #}
+{# --------------------------------------------------------------------------- #}
+
+ul.breadcrumbs li.breadcrumb-item a {
+    color: var(--dark-grey);
+}
+
+ul.breadcrumbs li.breadcrumb-item-current span {
+    color: var(--ibexa-dusk-black);
+}
+
+
+{# --------------------------------------------------------------------------- #}
+{# ---------------------------- Content: Headers ----------------------------- #}
+{# --------------------------------------------------------------------------- #}
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4 {
+    font-family: "Work Sans";
+}
+
+.md-typeset h1 {
+    font-size: 28px;
+    line-height: 34px;
+    margin-bottom: 0;
+}
+
+.md-typeset .content-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.md-typeset .content-header .pills {
+    float: none;
+    width: 100%;
+}
+
+.md-typeset .content-header .pill {
+    display: inline-block;
+    margin-bottom: 12px;
+    font-size: 12px;
+    line-height: 18px;
+    padding: 0 8px;
+    background-color: transparent;
+}
+
+.md-typeset .content-header .experience-pill {
+    color: var(--ibexa-orange);
+    border: 1px solid var(--ibexa-orange);
+}
+
+.md-typeset .content-header .commerce-pill {
+    color: var(--ibexa-jazzberry);
+    border: 1px solid var(--ibexa-jazzberry);
+}
+
+.md-typeset .content-header img {
+    display: inline-block;
+    margin-bottom: -2px;
+    margin-right: 4px;
+}
+
+.md-typeset .content-header__copy-fqcn {
+    font-size: 14px;
+    line-height: 18px;
+    color: #131C26;
+    border: 1px solid #131C26;
+    border-radius: 8px;
+    padding: 4px 16px;  
+    margin-right: auto;
+    align-self: center;
+    cursor: pointer; 
+    margin-left: 8px;
+}
+
+.md-typeset .content-header__found-in {
+    font-size: 12px;
+    line-height: 18px;
+    color: #71767C;
+}
+
+.md-typeset .content-header__found-in img {
+    display: inline-block;
+}
+
+.md-typeset .content-header__subheader {
+    margin-top: 8px;
+    width: 100%;
+}
+
+.md-typeset h2 {
+    font-size: 22px;
+    line-height: 27px;
+    margin: 24px 0 0;
+}
+
+.md-typeset h3 {
+    font-size: 18px;
+    line-height: 22px;
+    margin: 24px 0 0;
+}
+
+.md-typeset h4 {
+    font-size: 16px;
+    line-height: 19px;
+    margin: 24px 0 0;
+}
+
+
+{# --------------------------------------------------------------------------- #}
+{# ----------------------------- Highlighttable ------------------------------ #}
+{# --------------------------------------------------------------------------- #}
+
+.md-typeset .highlighttable,
+.md-typeset .highlight pre,
+.md-typeset .highlight pre code {
+    border-radius: 4px;
+}
+
+.md-typeset .highlighttable .linenos {
+    min-width: 26px;
+}
+
+.md-typeset .highlight pre code {
+    padding: 16px;
+}
+
+
+{# --------------------------------------------------------------------------- #}
+{# -------------------------------- Arguments -------------------------------- #}
+{# --------------------------------------------------------------------------- #}
+
+.md-typeset .method-parameters {
+    margin: 16px 0;
+    width: 100%;
+}
+
+.md-typeset .method-parameters thead td {
+    border-bottom: 1px solid #DCDFE7;
+    color: #71767C;
+}
+
+.md-typeset .method-parameters td {
+    padding: 12px;
+}
+
+.md-typeset .method-parameters td.empty {
+    color: #71767C;
+}
+
+
+{# --------------------------------------------------------------------------- #}
+{# --------------------------------- Search ---------------------------------- #}
+{# --------------------------------------------------------------------------- #}
+
+.md-search__form .phpdocumentor-search-results.ds-dropdown-menu {
+    display: inline-block;
+    max-width: initial;
+    top: 2px;
+}
+
+.md-search__form .phpdocumentor-search-results.ds-dropdown-menu.phpdocumentor-search-results--hidden {
+    display: none;
+}
+
+.md-search__form .phpdocumentor-search-results .phpdocumentor-search-results__close {
+    display: none;
+}
+
+.md-search__form .phpdocumentor-search-results .phpdocumentor-search-results__entries {
+    list-style: none;
+}
+
+.md-search__form .phpdocumentor-search-results .phpdocumentor-search-results__entry a {
+    display: grid;
+    grid-template-areas:
+        'name namespace'
+        'name description';
+    grid-template-columns: 30% 70%;
+}
+
+.md-search__form .phpdocumentor-search-results .phpdocumentor-search-results__entry + .phpdocumentor-search-results__entry {
+    margin-top: 8px;
+}
+
+.md-search__form .phpdocumentor-search-results .phpdocumentor-search-results__entry h3 {
+    grid-area: name;
+    text-align: right;
+    position: relative;
+    font-size: 14px;
+    font-weight: normal;
+    padding: 5px 11px;
+    margin: 0;
+    color: var(--dark-grey);
+    word-wrap: break-word;
+    border-right: 1px solid var(--dark-grey);
+}
+
+.md-search__form .phpdocumentor-search-results .phpdocumentor-search-results__entry small {
+    grid-area: namespace;
+    color: var(--ibexa-dusk-black);
+    font-weight: 700;
+    font-size: 14px;
+    padding: 4px 0 4px 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.md-search__form .phpdocumentor-search-results .phpdocumentor-search-results__entry .phpdocumentor-summary {
+    grid-area: description;
+    font-size: 12px;
+    color: #71767C;
+    padding: 0 0 4px 12px;
+}
+
+.md-search__form .phpdocumentor-search-results .phpdocumentor-search-results__entry:hover small,
+.md-search__form .phpdocumentor-search-results .phpdocumentor-search-results__entry:hover .phpdocumentor-summary {
+    background-color: rgba(69, 142, 225, .05);
+    cursor: pointer; 
+}
+
+
+{# --------------------------------------------------------------------------- #}
+{# --------------------------------- Content --------------------------------- #}
+{# --------------------------------------------------------------------------- #}
+
+.main-page h1 {
+    margin-top: 75px;
+}
+
+.main-page p {
+    margin: 24px 0 0;
+}
+
+.md-typeset .phpdocumentor-tag-list__definition {
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    color: #71767C;
+}
+
+.md-typeset .phpdocumentor-tag-list__definition p {
+    margin-top: 0;
+}
+
+[dir=ltr] .md-typeset .phpdocumentor-tag-list__definition {
+    margin-left: 0;
+}
+
+.md-typeset ul.namespace-list {
+    list-style: none;
+    margin: 0 0 32px;
+}
+
+.md-typeset ul.namespace-list li {
+    display: flex;
+    align-items: flex-start;
+    margin: 24px 0 0 0;
+}
+
+.md-typeset ul.namespace-list li a {
+    text-decoration: underline;
+}
+
+.md-typeset ul.namespace-list li p {
+    margin: 0 0 0 12px;
+    padding-left: 12px;
+    border-left: 1px solid #D9D9D9;
+    color: #71767C;
+}
+
+.md-typeset .property-tags {
+    display: inline-block;
+    line-height: 1;
+}
+
+.md-typeset .property-tags__tag {
+    display: inline-block;
+    font-size: 10px;
+    line-height: 15px;
+    text-transform: uppercase;
+    font-weight: 400;
+    padding: 4px 8px;
+    border-radius: 16px;
+    border: 1px solid #B3B3BA;
+    margin-left: 12px;
+}
