@@ -1,6 +1,6 @@
-(function (doc) {
+function setSwitcherEvents() {
     const CLASS_EXPANDED_LIST = 'switcher__selected-item--expanded';
-    const switchers = doc.querySelectorAll('.switcher');
+    const switchers = window.document.querySelectorAll('.switcher');
     const toggleListExpandedState = (event) => {
         event.currentTarget.classList.toggle(CLASS_EXPANDED_LIST);
     };
@@ -15,6 +15,6 @@
 
         selectedItem.addEventListener('click', toggleListExpandedState, false);
 
-        doc.body.addEventListener('click', (event) => collapseList(event, switcher, selectedItem), false);
+        window.document.body.addEventListener('click', (event) => collapseList(event, switcher, selectedItem), false);
     });
-})(window.document);
+};
