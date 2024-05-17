@@ -86,11 +86,11 @@ $(document).ready(function() {
                 });
 
             olderVersions.addEventListener('click', (event) => {
+                event.stopPropagation();
                 allVersions.forEach((versionNode) => {
                     versionNode.hidden = false;
                 });
                 olderVersions.hidden = true;
-                event.stopPropagation();
             });
         }
     }, 300);
