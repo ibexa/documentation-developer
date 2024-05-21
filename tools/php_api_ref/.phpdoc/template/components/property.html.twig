@@ -1,6 +1,6 @@
 {% embed 'components/content-header.html.twig' with { node: property, anchor: 'property_' ~ property.name, anchor_link: link(property), header_tag: 'h3' } %}
-{% block name %}
-        <img src="./images/{{ property.visibility }}.svg" alt="{{ property.visibility }}" />
+    {% block name %}
+        <img src="./images/{{ property.visibility }}.svg" alt="{{ property.visibility }}" title="{{ property.visibility }}" />
         ${{- parent() -}}
         <span class="property-tags">
             {% if property.writeOnly %}<span class="property-tags__tag">write-only</span>{% endif %}
