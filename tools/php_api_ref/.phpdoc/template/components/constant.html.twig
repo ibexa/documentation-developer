@@ -1,6 +1,6 @@
 {% embed 'components/content-header.html.twig' with { node: constant, anchor: 'constant_' ~ constant.name, anchor_link: link(constant), header_tag: 'h3' } %}
-{% block name %}
-        <img src="./images/{{ constant.visibility }}.svg" alt="{{ constant.visibility }}" />
+    {% block name %}
+        <img src="./images/{{ constant.visibility }}.svg" alt="{{ constant.visibility }}" title="{{ constant.visibility }}" />
         {{- parent() -}}
     {% endblock %}
 {% endembed %}
