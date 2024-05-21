@@ -20221,6 +20221,21 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Image.html#constant_IMAGE_SEARCH_CRITERIA"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Criterion\\IsContainer",
+            "name": "IsContainer",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-IsContainer.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Criterion\\IsContainer\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Performs\u0020operator\u0020validation\u0020based\u0020on\u0020the\u0020Criterion\u0020specifications\u0020returned\u0020by\u0020\u007B\u0040see\u0020getSpecifications\u0028\u0029\u007D.",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-IsContainer.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Criterion\\IsContainer\u003A\u003AgetSpecifications\u0028\u0029",
+            "name": "getSpecifications",
+            "summary": "Criterion\u0020description\u0020function.",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-IsContainer.html#method_getSpecifications"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Criterion\\IsFieldEmpty",
             "name": "IsFieldEmpty",
             "summary": "A\u0020criterion\u0020that\u0020matches\u0020content\u0020based\u0020on\u0020if\u0020Field\u0020is\u0020empty.",
