@@ -3,7 +3,7 @@
 
 {% embed 'components/content-header.html.twig' with { 
     anchor: node.name,
-    anchor_link: '#' ~ node.name,
+    anchor_link: link(node) ~ '#' ~ node.name,
     fqcn,
     add_edition: true,
 } %}
