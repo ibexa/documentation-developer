@@ -7,7 +7,7 @@
 {% if packages|default([]) is not empty %}
     <h2 id="packages">
         Packages
-        {%- include 'components/anchor.html.twig' with { anchor_link: '#packages' } -%}
+        {%- include 'components/anchor.html.twig' with { anchor_link: link(node) ~ '#packages' } -%}
     </h2>
     <ul class="namespace-list">
         {% for package in packages %}
@@ -23,7 +23,7 @@
 {% if namespaces|default([]) is not empty %}
     <h2 id="namespaces">
         Namespaces
-        {%- include 'components/anchor.html.twig' with { anchor_link: '#namespaces' } -%}
+        {%- include 'components/anchor.html.twig' with { anchor_link: link(node) ~ '#namespaces' } -%}
     </h2>
     <ul class="namespace-list">
         {% for namespace in namespaces %}
@@ -50,7 +50,7 @@
 {% if joined_data is not empty %}
     <h2 id="interfaces">
         Interfaces, Classes, Traits and Enums
-        {%- include 'components/anchor.html.twig' with { anchor_link: '#interfaces' } -%}
+        {%- include 'components/anchor.html.twig' with { anchor_link: link(node) ~ '#interfaces' } -%}
     </h2>
     <ul class="namespace-list">
         {% for entry in joined_data %}

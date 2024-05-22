@@ -3,7 +3,7 @@
 {% if constants is not empty %}
     <h2 id="constants">
         Constants
-        {%- include 'components/anchor.html.twig' with { anchor_link: '#constants' } -%}
+        {%- include 'components/anchor.html.twig' with { anchor_link: link(node) ~ '#constants' } -%}
     </h2>
     {% for constant in constants %}
         {% include 'components/constant.html.twig' %}
