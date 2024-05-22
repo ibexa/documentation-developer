@@ -1,14 +1,23 @@
 {% extends "package-edition-map.twig" %}
 
 {% block content %}
-    {% set edition_name_map = {
-        'experience' : 'Experience',
-        'commerce': 'Commerce',
-    } %}
+    {% set edition_list = [
+        'headless',
+        'experience',
+        'commerce',
+    ] %}
 
     {% set package = node.file.path|split('/')|slice(1, 2)|join('/') %}
 
-    {% if package_edition_map[package] is defined and edition_name_map[package_edition_map[package]] is defined %}
-        <div class="pill {{ package_edition_map[package] }}-pill"></div>
+    {% if package_edition_map[package] is defined and package_edition_map[package] in edition_list %}
+        {% set is_supporting = false %}
+        {% for edition in edition_list %}
+            {% if edition == package_edition_map[package] %}
+                {% set is_supporting = true %}
+            {% endif %}
+            {% if is_supporting %}
+                <div class="pill {{ edition }}-pill"></div>
+            {% endif %}
+        {% endfor %}
     {% endif %}
 {% endblock %}
