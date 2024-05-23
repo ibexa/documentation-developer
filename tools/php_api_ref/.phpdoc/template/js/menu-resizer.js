@@ -23,17 +23,26 @@
         return cookieValue ? cookieValue.split('=')[1] : null;
     };
     const setWidthOfSecondLevelMenu = () => {
-        const secondLevelMenuWidth = getCookie('php-api:menu-width');
+        let secondLevelMenuWidth = getCookie('php-api:menu-width');
 
         if (!secondLevelMenuWidth) {
             return;
+        }
+
+        const maxSize = window.innerWidth * 0.4;
+
+        if(secondLevelMenuWidth > maxSize) {
+            secondLevelMenuWidth = maxSize;
+
+            setCookie('php-api:menu-width', secondLevelMenuWidth);
         }
 
         menu.style.width = `${secondLevelMenuWidth}px`;
     };
     const triggerSecondLevelChangeWidth = ({ clientX }) => {
         const resizeValue = menuCurrentWidth + (clientX - resizeStartPositionX);
-        const newMenuWidth = Math.max(resizeValue, MENU_MIN_WIDTH);
+        const maxSize = window.innerWidth * 0.4;
+        const newMenuWidth = Math.min(Math.max(resizeValue, MENU_MIN_WIDTH), maxSize);
 
         setCookie('php-api:menu-width', newMenuWidth);
         setWidthOfSecondLevelMenu();
