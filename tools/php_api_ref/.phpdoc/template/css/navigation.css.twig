@@ -1,6 +1,8 @@
 .main_nav {
     border-right: 1px solid var(--mid-grey);
     margin-left: -15rem;
+    display: flex;
+    flex-shrink: 0;
 }
 
 .md-sidebar__scrollwrap {
@@ -36,6 +38,24 @@
     .md-sidebar--secondary + .md-content {
         max-width: calc(100% - 15rem * 2);
     }
+}
+
+.main_nav__resize-handler {
+    width: 5px;
+    height: 100%;
+    cursor: ew-resize;
+    position: absolute;
+    top: 0;
+    right: -2px;
+}
+
+.main_nav__resize-handler:hover {
+    background-color: #306CBE;
+}
+
+.main_nav_content,
+.md-sidebar--primary {
+    width: 100%;
 }
 
 .md-nav--primary .md-nav__title,
@@ -280,7 +300,7 @@
 }
 
 .site-header {
-    width: 15rem;
+    width: 100%;
     font-size: 16px;
     font-weight: 600;
     padding: 1rem 0.8rem;
