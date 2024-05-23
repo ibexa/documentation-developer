@@ -59,9 +59,6 @@
         doc.body.classList.add('menu-resizing');
         menuCurrentWidth = menu.getBoundingClientRect().width;
 
-        console.log(resizeStartPositionX);
-        console.log(menuCurrentWidth);
-
         doc.addEventListener('mousemove', triggerSecondLevelChangeWidth, false);
         doc.addEventListener('mouseup', removeResizeListeners, false);
     };
