@@ -15,23 +15,9 @@
     
 
     <script>
-        window.addEventListener('load', function () {
-            const fullPath = document.location.pathname.split('/');
-            const pageUrl = fullPath.slice(-2).join('/');
-            let activeElement = document.querySelector(`a[href="${pageUrl}"]`);
-            let guardian = 0;
-
-            activeElement = activeElement?.closest('.md-nav__item')?.querySelector('.md-nav__toggle');
-
-            while(activeElement) {
-                activeElement.checked = true;
-                guardian++;
-
-                activeElement = activeElement.closest('.md-nav__item')?.closest('.md-nav')?.closest('.md-nav__item')?.querySelector('.md-nav__toggle');
-            
-                if (guardian > 20) {
-                    break; // just to be safe from infinity loops
-                }
+        window.addEventListener('keyup', (event) => {
+            if (event.key === '/') {
+                event.stopImmediatePropagation();
             }
         });
     </script>
@@ -35963,6 +35949,7 @@
             </div>
         </div>
     </div>
+    <div class="main_nav__resize-handler"></div>
 </div>
 
                 <div class="md-content" data-md-component="content">
@@ -36008,41 +35995,49 @@
 </h2>
     <ul class="namespace-list">
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="namespaces/ibexa-contracts-core-persistence-content-language.html">
                     Language
                 </a>
             </li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="namespaces/ibexa-contracts-core-persistence-content-location.html">
                     Location
                 </a>
             </li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="namespaces/ibexa-contracts-core-persistence-content-objectstate.html">
                     ObjectState
                 </a>
             </li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="namespaces/ibexa-contracts-core-persistence-content-relation.html">
                     Relation
                 </a>
             </li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="namespaces/ibexa-contracts-core-persistence-content-section.html">
                     Section
                 </a>
             </li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="namespaces/ibexa-contracts-core-persistence-content-type.html">
                     Type
                 </a>
             </li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="namespaces/ibexa-contracts-core-persistence-content-urlalias.html">
                     UrlAlias
                 </a>
             </li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="namespaces/ibexa-contracts-core-persistence-content-urlwildcard.html">
                     UrlWildcard
                 </a>
@@ -36055,82 +36050,102 @@
 </h2>
     <ul class="namespace-list">
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Handler.html">
                     Handler
                 </a><p>The Content Handler interface defines content operations on the storage engine.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Persistence-Content-ContentInfo.html">
                     ContentInfo
                 </a><p>This class provides all version independent information of the content object.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Persistence-Content-ContentItem.html">
                     ContentItem
                 </a><p>Content item Value Object - a composite of Content and Type instances.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Persistence-Content-CreateStruct.html">
                     CreateStruct
                 </a><p>Base SPI Value object.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Field.html">
                     Field
                 </a><p>Base SPI Value object.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Persistence-Content-FieldTypeConstraints.html">
                     FieldTypeConstraints
                 </a><p>Base SPI Value object.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Persistence-Content-FieldValue.html">
                     FieldValue
                 </a><p>Base SPI Value object.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Language.html">
                     Language
                 </a><p>Struct containing accessible properties on Language entities.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Persistence-Content-LoadStruct.html">
                     LoadStruct
                 </a><p>Load struct for mass loading content or specific content versions.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Location.html">
                     Location
                 </a><p>Struct containing accessible properties on Location entities.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Persistence-Content-LocationWithContentInfo.html">
                     LocationWithContentInfo
                 </a><p>SPI\Persistence Location with Content Info Value Object.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Persistence-Content-MetadataUpdateStruct.html">
                     MetadataUpdateStruct
                 </a><p>Base SPI Value object.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Persistence-Content-ObjectState.html">
                     ObjectState
                 </a><p>This class represents a persistent object state.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Relation.html">
                     Relation
                 </a><p>Class representing a relation between content.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Section.html">
                     Section
                 </a><p>Base SPI Value object.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Persistence-Content-Type.html">
                     Type
                 </a><p>SPI Persistence Content\Type value object.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Persistence-Content-UpdateStruct.html">
                     UpdateStruct
                 </a><p>Base SPI Value object.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Persistence-Content-UrlAlias.html">
                     UrlAlias
                 </a><p>UrlAlias models one url alias path element separated by &#039;/&#039; in urls.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Persistence-Content-UrlWildcard.html">
                     UrlWildcard
                 </a><p>UrlWildCard models one url alias path with wild cards.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Persistence-Content-VersionInfo.html">
                     VersionInfo
                 </a><p>This class holds version information data.</p></li>
@@ -36157,6 +36172,8 @@
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
         crossorigin="anonymous">
     </script>
+    <script src="js/active-menu.js"></script>
+    <script src="js/menu-resizer.js"></script>
     <script src="js/docs.switcher.js"></script>
     <script src="js/toc.js"></script>
     <script src="js/search_custom.js"></script>

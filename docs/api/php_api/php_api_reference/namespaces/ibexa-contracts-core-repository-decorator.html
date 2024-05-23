@@ -15,23 +15,9 @@
     
 
     <script>
-        window.addEventListener('load', function () {
-            const fullPath = document.location.pathname.split('/');
-            const pageUrl = fullPath.slice(-2).join('/');
-            let activeElement = document.querySelector(`a[href="${pageUrl}"]`);
-            let guardian = 0;
-
-            activeElement = activeElement?.closest('.md-nav__item')?.querySelector('.md-nav__toggle');
-
-            while(activeElement) {
-                activeElement.checked = true;
-                guardian++;
-
-                activeElement = activeElement.closest('.md-nav__item')?.closest('.md-nav')?.closest('.md-nav__item')?.querySelector('.md-nav__toggle');
-            
-                if (guardian > 20) {
-                    break; // just to be safe from infinity loops
-                }
+        window.addEventListener('keyup', (event) => {
+            if (event.key === '/') {
+                event.stopImmediatePropagation();
             }
         });
     </script>
@@ -35963,6 +35949,7 @@
             </div>
         </div>
     </div>
+    <div class="main_nav__resize-handler"></div>
 </div>
 
                 <div class="md-content" data-md-component="content">
@@ -36010,82 +35997,102 @@
 </h2>
     <ul class="namespace-list">
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Decorator-BookmarkServiceDecorator.html">
                     BookmarkServiceDecorator
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Decorator-ContentServiceDecorator.html">
                     ContentServiceDecorator
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Decorator-ContentTypeServiceDecorator.html">
                     ContentTypeServiceDecorator
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Decorator-FieldTypeServiceDecorator.html">
                     FieldTypeServiceDecorator
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Decorator-LanguageServiceDecorator.html">
                     LanguageServiceDecorator
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Decorator-LocationServiceDecorator.html">
                     LocationServiceDecorator
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Decorator-NotificationServiceDecorator.html">
                     NotificationServiceDecorator
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Decorator-ObjectStateServiceDecorator.html">
                     ObjectStateServiceDecorator
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Decorator-RoleServiceDecorator.html">
                     RoleServiceDecorator
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Decorator-SearchServiceDecorator.html">
                     SearchServiceDecorator
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Decorator-SectionServiceDecorator.html">
                     SectionServiceDecorator
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Decorator-SettingServiceDecorator.html">
                     SettingServiceDecorator
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Decorator-TokenServiceDecorator.html">
                     TokenServiceDecorator
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Decorator-TranslationServiceDecorator.html">
                     TranslationServiceDecorator
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Decorator-TrashServiceDecorator.html">
                     TrashServiceDecorator
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Decorator-URLAliasServiceDecorator.html">
                     URLAliasServiceDecorator
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Decorator-URLServiceDecorator.html">
                     URLServiceDecorator
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Decorator-URLWildcardServiceDecorator.html">
                     URLWildcardServiceDecorator
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Decorator-UserPreferenceServiceDecorator.html">
                     UserPreferenceServiceDecorator
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Decorator-UserServiceDecorator.html">
                     UserServiceDecorator
                 </a></li>
@@ -36112,6 +36119,8 @@
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
         crossorigin="anonymous">
     </script>
+    <script src="js/active-menu.js"></script>
+    <script src="js/menu-resizer.js"></script>
     <script src="js/docs.switcher.js"></script>
     <script src="js/toc.js"></script>
     <script src="js/search_custom.js"></script>

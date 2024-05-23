@@ -15,23 +15,9 @@
     
 
     <script>
-        window.addEventListener('load', function () {
-            const fullPath = document.location.pathname.split('/');
-            const pageUrl = fullPath.slice(-2).join('/');
-            let activeElement = document.querySelector(`a[href="${pageUrl}"]`);
-            let guardian = 0;
-
-            activeElement = activeElement?.closest('.md-nav__item')?.querySelector('.md-nav__toggle');
-
-            while(activeElement) {
-                activeElement.checked = true;
-                guardian++;
-
-                activeElement = activeElement.closest('.md-nav__item')?.closest('.md-nav')?.closest('.md-nav__item')?.querySelector('.md-nav__toggle');
-            
-                if (guardian > 20) {
-                    break; // just to be safe from infinity loops
-                }
+        window.addEventListener('keyup', (event) => {
+            if (event.key === '/') {
+                event.stopImmediatePropagation();
             }
         });
     </script>
@@ -35963,6 +35949,7 @@
             </div>
         </div>
     </div>
+    <div class="main_nav__resize-handler"></div>
 </div>
 
                 <div class="md-content" data-md-component="content">
@@ -36023,16 +36010,19 @@
 </h2>
     <ul class="namespace-list">
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="namespaces/ibexa-contracts-core-repository-values-content-query-sortclause-location.html">
                     Location
                 </a>
             </li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="namespaces/ibexa-contracts-core-repository-values-content-query-sortclause-target.html">
                     Target
                 </a>
             </li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="namespaces/ibexa-contracts-core-repository-values-content-query-sortclause-trash.html">
                     Trash
                 </a>
@@ -36045,58 +36035,72 @@
 </h2>
     <ul class="namespace-list">
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-ContentId.html">
                     ContentId
                 </a><p>Sets sort direction on Content ID for a content query.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-ContentName.html">
                     ContentName
                 </a><p>Sets sort direction on Content name for a content query.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-ContentTranslatedName.html">
                     ContentTranslatedName
                 </a><p>This class is the base for SortClause classes, used to set sorting of content queries.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-CustomField.html">
                     CustomField
                 </a><p>Sorts search results by raw search index field.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-DateModified.html">
                     DateModified
                 </a><p>Sets sort direction on the content modification date for a content query.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-DatePublished.html">
                     DatePublished
                 </a><p>Sets sort direction on the content creation date for a content query.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-Field.html">
                     Field
                 </a><p>Sets sort direction on a field value for a content query.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-Location.html">
                     Location
                 </a><p>This is the base for Location SortClause classes, used to set sorting of Location queries.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-MapLocationDistance.html">
                     MapLocationDistance
                 </a><p>Sets sort direction on the MapLocation distance for a content query.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-Random.html">
                     Random
                 </a><p>Sets sort random on a content query.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-Score.html">
                     Score
                 </a><p>Sorts search results by relevance score.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-SectionIdentifier.html">
                     SectionIdentifier
                 </a><p>Sets sort direction on Section identifier for a content query.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-SectionName.html">
                     SectionName
                 </a><p>Sets sort direction on Section name for a content query.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-Target.html">
                     Target
                 </a><p>Struct that stores extra target informations for a SortClause object.</p></li>
@@ -36123,6 +36127,8 @@
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
         crossorigin="anonymous">
     </script>
+    <script src="js/active-menu.js"></script>
+    <script src="js/menu-resizer.js"></script>
     <script src="js/docs.switcher.js"></script>
     <script src="js/toc.js"></script>
     <script src="js/search_custom.js"></script>

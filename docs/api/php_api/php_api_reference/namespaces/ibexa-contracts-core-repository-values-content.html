@@ -15,23 +15,9 @@
     
 
     <script>
-        window.addEventListener('load', function () {
-            const fullPath = document.location.pathname.split('/');
-            const pageUrl = fullPath.slice(-2).join('/');
-            let activeElement = document.querySelector(`a[href="${pageUrl}"]`);
-            let guardian = 0;
-
-            activeElement = activeElement?.closest('.md-nav__item')?.querySelector('.md-nav__toggle');
-
-            while(activeElement) {
-                activeElement.checked = true;
-                guardian++;
-
-                activeElement = activeElement.closest('.md-nav__item')?.closest('.md-nav')?.closest('.md-nav__item')?.querySelector('.md-nav__toggle');
-            
-                if (guardian > 20) {
-                    break; // just to be safe from infinity loops
-                }
+        window.addEventListener('keyup', (event) => {
+            if (event.key === '/') {
+                event.stopImmediatePropagation();
             }
         });
     </script>
@@ -35963,6 +35949,7 @@
             </div>
         </div>
     </div>
+    <div class="main_nav__resize-handler"></div>
 </div>
 
                 <div class="md-content" data-md-component="content">
@@ -36013,31 +36000,37 @@
 </h2>
     <ul class="namespace-list">
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="namespaces/ibexa-contracts-core-repository-values-content-draftlist.html">
                     DraftList
                 </a>
             </li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="namespaces/ibexa-contracts-core-repository-values-content-query.html">
                     Query
                 </a>
             </li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="namespaces/ibexa-contracts-core-repository-values-content-relationlist.html">
                     RelationList
                 </a>
             </li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="namespaces/ibexa-contracts-core-repository-values-content-search.html">
                     Search
                 </a>
             </li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="namespaces/ibexa-contracts-core-repository-values-content-trash.html">
                     Trash
                 </a>
             </li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="namespaces/ibexa-contracts-core-repository-values-content-urlwildcard.html">
                     URLWildcard
                 </a>
@@ -36050,131 +36043,163 @@
 </h2>
     <ul class="namespace-list">
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentAwareInterface.html">
                     ContentAwareInterface
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html">
                     Content
                 </a><p>this class represents a content object in a specific version.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentCreateStruct.html">
                     ContentCreateStruct
                 </a><p>This class is used for creating a new content object.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentDraftList.html">
                     ContentDraftList
                 </a><p>List of content drafts.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html">
                     ContentInfo
                 </a><p>This class provides all version independent information of the Content object.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentList.html">
                     ContentList
                 </a><p>A filtered Content items list iterator.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentMetadataUpdateStruct.html">
                     ContentMetadataUpdateStruct
                 </a><p>With this class data can be provided to update version independent fields of the content.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentStruct.html">
                     ContentStruct
                 </a><p>Base struct for content create/update structs.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentUpdateStruct.html">
                     ContentUpdateStruct
                 </a><p>This class is used for updating the fields of a content object draft.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Field.html">
                     Field
                 </a><p>This class represents a field of a content object.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Language.html">
                     Language
                 </a><p>This class represents a language in the repository.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-LanguageCreateStruct.html">
                     LanguageCreateStruct
                 </a><p>This class represents a value for creating a language.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Location.html">
                     Location
                 </a><p>This class represents a location in the repository.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-LocationCreateStruct.html">
                     LocationCreateStruct
                 </a><p>This class is used to create a new Location for a content object.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-LocationList.html">
                     LocationList
                 </a><p>This class represents a queried location list holding a totalCount and a partial list of locations
 (by offset/limit parameters and permission filters).</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-LocationQuery.html">
                     LocationQuery
                 </a><p>This class is used to perform a Location query.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-LocationUpdateStruct.html">
                     LocationUpdateStruct
                 </a><p>This class is used for updating location meta data.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query.html">
                     Query
                 </a><p>This class is used to perform a Content query.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Relation.html">
                     Relation
                 </a><p>Class representing a relation between content.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-RelationList.html">
                     RelationList
                 </a><p>List of relations.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Section.html">
                     Section
                 </a><p>This class represents a section.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-SectionCreateStruct.html">
                     SectionCreateStruct
                 </a><p>This class represents a section.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-SectionStruct.html">
                     SectionStruct
                 </a><p>The base class for all value objects and structs.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-SectionUpdateStruct.html">
                     SectionUpdateStruct
                 </a><p>This class is used to provide data for updating a section. At least one property has to set.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Thumbnail.html">
                     Thumbnail
                 </a><p>The base class for all value objects and structs.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-TrashItem.html">
                     TrashItem
                 </a><p>this class represents a trash item, which is actually a trashed location.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-URLAlias.html">
                     URLAlias
                 </a><p>This class represents a url alias in the repository.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-URLWildcard.html">
                     URLWildcard
                 </a><p>This class represents a url alias in the repository.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-URLWildcardStruct.html">
                     URLWildcardStruct
                 </a><p>The base class for all value objects and structs.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-URLWildcardTranslationResult.html">
                     URLWildcardTranslationResult
                 </a><p>This class represents a result of a translated url wildcard which is not an URLAlias.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-URLWildcardUpdateStruct.html">
                     URLWildcardUpdateStruct
                 </a><p>The base class for all value objects and structs.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-VersionInfo.html">
                     VersionInfo
                 </a><p>This class holds version information data. It also contains the corresponding {@link Content} to
@@ -36202,6 +36227,8 @@ which the version belongs to.</p></li>
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
         crossorigin="anonymous">
     </script>
+    <script src="js/active-menu.js"></script>
+    <script src="js/menu-resizer.js"></script>
     <script src="js/docs.switcher.js"></script>
     <script src="js/toc.js"></script>
     <script src="js/search_custom.js"></script>

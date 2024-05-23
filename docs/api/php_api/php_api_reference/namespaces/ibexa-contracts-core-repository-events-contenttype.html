@@ -15,23 +15,9 @@
     
 
     <script>
-        window.addEventListener('load', function () {
-            const fullPath = document.location.pathname.split('/');
-            const pageUrl = fullPath.slice(-2).join('/');
-            let activeElement = document.querySelector(`a[href="${pageUrl}"]`);
-            let guardian = 0;
-
-            activeElement = activeElement?.closest('.md-nav__item')?.querySelector('.md-nav__toggle');
-
-            while(activeElement) {
-                activeElement.checked = true;
-                guardian++;
-
-                activeElement = activeElement.closest('.md-nav__item')?.closest('.md-nav')?.closest('.md-nav__item')?.querySelector('.md-nav__toggle');
-            
-                if (guardian > 20) {
-                    break; // just to be safe from infinity loops
-                }
+        window.addEventListener('keyup', (event) => {
+            if (event.key === '/') {
+                event.stopImmediatePropagation();
             }
         });
     </script>
@@ -35963,6 +35949,7 @@
             </div>
         </div>
     </div>
+    <div class="main_nav__resize-handler"></div>
 </div>
 
                 <div class="md-content" data-md-component="content">
@@ -36015,122 +36002,152 @@
 </h2>
     <ul class="namespace-list">
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-ContentType-AddFieldDefinitionEvent.html">
                     AddFieldDefinitionEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-ContentType-AssignContentTypeGroupEvent.html">
                     AssignContentTypeGroupEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-ContentType-BeforeAddFieldDefinitionEvent.html">
                     BeforeAddFieldDefinitionEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-ContentType-BeforeAssignContentTypeGroupEvent.html">
                     BeforeAssignContentTypeGroupEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-ContentType-BeforeCopyContentTypeEvent.html">
                     BeforeCopyContentTypeEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-ContentType-BeforeCreateContentTypeDraftEvent.html">
                     BeforeCreateContentTypeDraftEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-ContentType-BeforeCreateContentTypeEvent.html">
                     BeforeCreateContentTypeEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-ContentType-BeforeCreateContentTypeGroupEvent.html">
                     BeforeCreateContentTypeGroupEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-ContentType-BeforeDeleteContentTypeEvent.html">
                     BeforeDeleteContentTypeEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-ContentType-BeforeDeleteContentTypeGroupEvent.html">
                     BeforeDeleteContentTypeGroupEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-ContentType-BeforePublishContentTypeDraftEvent.html">
                     BeforePublishContentTypeDraftEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-ContentType-BeforeRemoveContentTypeTranslationEvent.html">
                     BeforeRemoveContentTypeTranslationEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-ContentType-BeforeRemoveFieldDefinitionEvent.html">
                     BeforeRemoveFieldDefinitionEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-ContentType-BeforeUnassignContentTypeGroupEvent.html">
                     BeforeUnassignContentTypeGroupEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-ContentType-BeforeUpdateContentTypeDraftEvent.html">
                     BeforeUpdateContentTypeDraftEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-ContentType-BeforeUpdateContentTypeGroupEvent.html">
                     BeforeUpdateContentTypeGroupEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-ContentType-BeforeUpdateFieldDefinitionEvent.html">
                     BeforeUpdateFieldDefinitionEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-ContentType-CopyContentTypeEvent.html">
                     CopyContentTypeEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-ContentType-CreateContentTypeDraftEvent.html">
                     CreateContentTypeDraftEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-ContentType-CreateContentTypeEvent.html">
                     CreateContentTypeEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-ContentType-CreateContentTypeGroupEvent.html">
                     CreateContentTypeGroupEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-ContentType-DeleteContentTypeEvent.html">
                     DeleteContentTypeEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-ContentType-DeleteContentTypeGroupEvent.html">
                     DeleteContentTypeGroupEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-ContentType-PublishContentTypeDraftEvent.html">
                     PublishContentTypeDraftEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-ContentType-RemoveContentTypeTranslationEvent.html">
                     RemoveContentTypeTranslationEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-ContentType-RemoveFieldDefinitionEvent.html">
                     RemoveFieldDefinitionEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-ContentType-UnassignContentTypeGroupEvent.html">
                     UnassignContentTypeGroupEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-ContentType-UpdateContentTypeDraftEvent.html">
                     UpdateContentTypeDraftEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-ContentType-UpdateContentTypeGroupEvent.html">
                     UpdateContentTypeGroupEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-ContentType-UpdateFieldDefinitionEvent.html">
                     UpdateFieldDefinitionEvent
                 </a><p>Event emitted after action execution.</p></li>
@@ -36157,6 +36174,8 @@
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
         crossorigin="anonymous">
     </script>
+    <script src="js/active-menu.js"></script>
+    <script src="js/menu-resizer.js"></script>
     <script src="js/docs.switcher.js"></script>
     <script src="js/toc.js"></script>
     <script src="js/search_custom.js"></script>

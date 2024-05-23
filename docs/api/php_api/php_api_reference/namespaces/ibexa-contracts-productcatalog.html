@@ -15,23 +15,9 @@
     
 
     <script>
-        window.addEventListener('load', function () {
-            const fullPath = document.location.pathname.split('/');
-            const pageUrl = fullPath.slice(-2).join('/');
-            let activeElement = document.querySelector(`a[href="${pageUrl}"]`);
-            let guardian = 0;
-
-            activeElement = activeElement?.closest('.md-nav__item')?.querySelector('.md-nav__toggle');
-
-            while(activeElement) {
-                activeElement.checked = true;
-                guardian++;
-
-                activeElement = activeElement.closest('.md-nav__item')?.closest('.md-nav')?.closest('.md-nav__item')?.querySelector('.md-nav__toggle');
-            
-                if (guardian > 20) {
-                    break; // just to be safe from infinity loops
-                }
+        window.addEventListener('keyup', (event) => {
+            if (event.key === '/') {
+                event.stopImmediatePropagation();
             }
         });
     </script>
@@ -35963,6 +35949,7 @@
             </div>
         </div>
     </div>
+    <div class="main_nav__resize-handler"></div>
 </div>
 
                 <div class="md-content" data-md-component="content">
@@ -35998,56 +35985,67 @@
 </h2>
     <ul class="namespace-list">
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="namespaces/ibexa-contracts-productcatalog-catalogfilters.html">
                     CatalogFilters
                 </a>
             </li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="namespaces/ibexa-contracts-productcatalog-events.html">
                     Events
                 </a>
             </li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="namespaces/ibexa-contracts-productcatalog-exceptions.html">
                     Exceptions
                 </a>
             </li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="namespaces/ibexa-contracts-productcatalog-iterator.html">
                     Iterator
                 </a>
             </li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="namespaces/ibexa-contracts-productcatalog-local.html">
                     Local
                 </a>
             </li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="namespaces/ibexa-contracts-productcatalog-nameschema.html">
                     NameSchema
                 </a>
             </li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="namespaces/ibexa-contracts-productcatalog-permission.html">
                     Permission
                 </a>
             </li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="namespaces/ibexa-contracts-productcatalog-personalization.html">
                     Personalization
                 </a>
             </li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="namespaces/ibexa-contracts-productcatalog-rest.html">
                     REST
                 </a>
             </li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="namespaces/ibexa-contracts-productcatalog-values.html">
                     Values
                 </a>
             </li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="namespaces/ibexa-contracts-productcatalog-viewmatcher.html">
                     ViewMatcher
                 </a>
@@ -36060,118 +36058,147 @@
 </h2>
     <ul class="namespace-list">
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-AssetServiceInterface.html">
                     AssetServiceInterface
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-AttributeDefinitionServiceInterface.html">
                     AttributeDefinitionServiceInterface
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-AttributeGroupServiceInterface.html">
                     AttributeGroupServiceInterface
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-AttributeTypeServiceInterface.html">
                     AttributeTypeServiceInterface
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-CatalogServiceInterface.html">
                     CatalogServiceInterface
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-CurrencyResolverInterface.html">
                     CurrencyResolverInterface
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-CurrencyServiceInterface.html">
                     CurrencyServiceInterface
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-CustomerGroupResolverInterface.html">
                     CustomerGroupResolverInterface
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-CustomerGroupServiceInterface.html">
                     CustomerGroupServiceInterface
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-PermissionResolverInterface.html">
                     PermissionResolverInterface
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-PriceResolverInterface.html">
                     PriceResolverInterface
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-ProductAvailabilityContextResolverInterface.html">
                     ProductAvailabilityContextResolverInterface
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-ProductAvailabilityServiceInterface.html">
                     ProductAvailabilityServiceInterface
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-ProductAvailabilityStrategyInterface.html">
                     ProductAvailabilityStrategyInterface
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-ProductPriceContextResolverInterface.html">
                     ProductPriceContextResolverInterface
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-ProductPriceServiceInterface.html">
                     ProductPriceServiceInterface
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-ProductServiceInterface.html">
                     ProductServiceInterface
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-ProductTypeServiceInterface.html">
                     ProductTypeServiceInterface
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-QueryTypeInterface.html">
                     QueryTypeInterface
                 </a><p>A QueryType is a pre-defined product query.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-QueryTypeRegistryInterface.html">
                     QueryTypeRegistryInterface
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-RegionResolverInterface.html">
                     RegionResolverInterface
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-RegionServiceInterface.html">
                     RegionServiceInterface
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-VatCalculatorInterface.html">
                     VatCalculatorInterface
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-VatServiceInterface.html">
                     VatServiceInterface
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-CatalogServiceDecorator.html">
                     CatalogServiceDecorator
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-CurrencyServiceDecorator.html">
                     CurrencyServiceDecorator
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-CustomerGroupServiceDecorator.html">
                     CustomerGroupServiceDecorator
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-ProductAvailabilityServiceDecorator.html">
                     ProductAvailabilityServiceDecorator
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-ProductPriceServiceDecorator.html">
                     ProductPriceServiceDecorator
                 </a></li>
@@ -36198,6 +36225,8 @@
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
         crossorigin="anonymous">
     </script>
+    <script src="js/active-menu.js"></script>
+    <script src="js/menu-resizer.js"></script>
     <script src="js/docs.switcher.js"></script>
     <script src="js/toc.js"></script>
     <script src="js/search_custom.js"></script>

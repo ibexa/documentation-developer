@@ -15,23 +15,9 @@
     
 
     <script>
-        window.addEventListener('load', function () {
-            const fullPath = document.location.pathname.split('/');
-            const pageUrl = fullPath.slice(-2).join('/');
-            let activeElement = document.querySelector(`a[href="${pageUrl}"]`);
-            let guardian = 0;
-
-            activeElement = activeElement?.closest('.md-nav__item')?.querySelector('.md-nav__toggle');
-
-            while(activeElement) {
-                activeElement.checked = true;
-                guardian++;
-
-                activeElement = activeElement.closest('.md-nav__item')?.closest('.md-nav')?.closest('.md-nav__item')?.querySelector('.md-nav__toggle');
-            
-                if (guardian > 20) {
-                    break; // just to be safe from infinity loops
-                }
+        window.addEventListener('keyup', (event) => {
+            if (event.key === '/') {
+                event.stopImmediatePropagation();
             }
         });
     </script>
@@ -35963,6 +35949,7 @@
             </div>
         </div>
     </div>
+    <div class="main_nav__resize-handler"></div>
 </div>
 
                 <div class="md-content" data-md-component="content">
@@ -36025,42 +36012,52 @@
 </h2>
     <ul class="namespace-list">
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Search-Facet-ContentTypeFacet.html">
                     ContentTypeFacet
                 </a><p>This class holds counts of content with content type.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Search-Facet-CriterionFacet.html">
                     CriterionFacet
                 </a><p>This class holds the count of content matching the criterion.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Search-Facet-DateRangeFacet.html">
                     DateRangeFacet
                 </a><p>This class represents a date range facet holding counts for content in the built date ranges.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Search-Facet-FieldFacet.html">
                     FieldFacet
                 </a><p>This class represents a field facet which holds the collected terms for one or more fields.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Search-Facet-FieldRangeFacet.html">
                     FieldRangeFacet
                 </a><p>This class represents a field range facet.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Search-Facet-LocationFacet.html">
                     LocationFacet
                 </a><p>Facet containing counts for content below child locations.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Search-Facet-RangeFacetEntry.html">
                     RangeFacetEntry
                 </a><p>This class holds statistical data for value ranges.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Search-Facet-SectionFacet.html">
                     SectionFacet
                 </a><p>this class hold counts for content in sections.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Search-Facet-TermFacet.html">
                     TermFacet
                 </a><p>this class hold counts for content in sections.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Search-Facet-UserFacet.html">
                     UserFacet
                 </a><p>This class holds counts for content owned, created or modified by users.</p></li>
@@ -36087,6 +36084,8 @@
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
         crossorigin="anonymous">
     </script>
+    <script src="js/active-menu.js"></script>
+    <script src="js/menu-resizer.js"></script>
     <script src="js/docs.switcher.js"></script>
     <script src="js/toc.js"></script>
     <script src="js/search_custom.js"></script>

@@ -15,23 +15,9 @@
     
 
     <script>
-        window.addEventListener('load', function () {
-            const fullPath = document.location.pathname.split('/');
-            const pageUrl = fullPath.slice(-2).join('/');
-            let activeElement = document.querySelector(`a[href="${pageUrl}"]`);
-            let guardian = 0;
-
-            activeElement = activeElement?.closest('.md-nav__item')?.querySelector('.md-nav__toggle');
-
-            while(activeElement) {
-                activeElement.checked = true;
-                guardian++;
-
-                activeElement = activeElement.closest('.md-nav__item')?.closest('.md-nav')?.closest('.md-nav__item')?.querySelector('.md-nav__toggle');
-            
-                if (guardian > 20) {
-                    break; // just to be safe from infinity loops
-                }
+        window.addEventListener('keyup', (event) => {
+            if (event.key === '/') {
+                event.stopImmediatePropagation();
             }
         });
     </script>
@@ -35963,6 +35949,7 @@
             </div>
         </div>
     </div>
+    <div class="main_nav__resize-handler"></div>
 </div>
 
                 <div class="md-content" data-md-component="content">
@@ -36008,6 +35995,7 @@
 </h2>
     <ul class="namespace-list">
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="namespaces/ibexa-contracts-ordermanagement-value-order-query.html">
                     Query
                 </a>
@@ -36020,42 +36008,52 @@
 </h2>
     <ul class="namespace-list">
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-OrderManagement-Value-Order-OrderCompanyAssignmentInterface.html">
                     OrderCompanyAssignmentInterface
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-OrderManagement-Value-Order-OrderCompanyInterface.html">
                     OrderCompanyInterface
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-OrderManagement-Value-Order-OrderCurrencyAssignmentInterface.html">
                     OrderCurrencyAssignmentInterface
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-OrderManagement-Value-Order-OrderCurrencyInterface.html">
                     OrderCurrencyInterface
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-OrderManagement-Value-Order-OrderInterface.html">
                     OrderInterface
                 </a><p>Marker interface for Order Workflow subject.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-OrderManagement-Value-Order-OrderListInterface.html">
                     OrderListInterface
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-OrderManagement-Value-Order-OrderUserAssignmentInterface.html">
                     OrderUserAssignmentInterface
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-OrderManagement-Value-Order-OrderUserInterface.html">
                     OrderUserInterface
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-OrderManagement-Value-Order-OrderValueInterface.html">
                     OrderValueInterface
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-OrderManagement-Value-Order-OrderQuery.html">
                     OrderQuery
                 </a></li>
@@ -36082,6 +36080,8 @@
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
         crossorigin="anonymous">
     </script>
+    <script src="js/active-menu.js"></script>
+    <script src="js/menu-resizer.js"></script>
     <script src="js/docs.switcher.js"></script>
     <script src="js/toc.js"></script>
     <script src="js/search_custom.js"></script>

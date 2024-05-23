@@ -15,23 +15,9 @@
     
 
     <script>
-        window.addEventListener('load', function () {
-            const fullPath = document.location.pathname.split('/');
-            const pageUrl = fullPath.slice(-2).join('/');
-            let activeElement = document.querySelector(`a[href="${pageUrl}"]`);
-            let guardian = 0;
-
-            activeElement = activeElement?.closest('.md-nav__item')?.querySelector('.md-nav__toggle');
-
-            while(activeElement) {
-                activeElement.checked = true;
-                guardian++;
-
-                activeElement = activeElement.closest('.md-nav__item')?.closest('.md-nav')?.closest('.md-nav__item')?.querySelector('.md-nav__toggle');
-            
-                if (guardian > 20) {
-                    break; // just to be safe from infinity loops
-                }
+        window.addEventListener('keyup', (event) => {
+            if (event.key === '/') {
+                event.stopImmediatePropagation();
             }
         });
     </script>
@@ -35963,6 +35949,7 @@
             </div>
         </div>
     </div>
+    <div class="main_nav__resize-handler"></div>
 </div>
 
                 <div class="md-content" data-md-component="content">
@@ -36003,56 +35990,67 @@
 </h2>
     <ul class="namespace-list">
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="namespaces/ibexa-contracts-core-repository-collections.html">
                     Collections
                 </a>
             </li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="namespaces/ibexa-contracts-core-repository-decorator.html">
                     Decorator
                 </a>
             </li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="namespaces/ibexa-contracts-core-repository-event.html">
                     Event
                 </a>
             </li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="namespaces/ibexa-contracts-core-repository-events.html">
                     Events
                 </a>
             </li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="namespaces/ibexa-contracts-core-repository-exceptions.html">
                     Exceptions
                 </a>
             </li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="namespaces/ibexa-contracts-core-repository-iterator.html">
                     Iterator
                 </a>
             </li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="namespaces/ibexa-contracts-core-repository-lists.html">
                     Lists
                 </a>
             </li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="namespaces/ibexa-contracts-core-repository-nameschema.html">
                     NameSchema
                 </a>
             </li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="namespaces/ibexa-contracts-core-repository-strategy.html">
                     Strategy
                 </a>
             </li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="namespaces/ibexa-contracts-core-repository-validator.html">
                     Validator
                 </a>
             </li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="namespaces/ibexa-contracts-core-repository-values.html">
                     Values
                 </a>
@@ -36065,117 +36063,145 @@
 </h2>
     <ul class="namespace-list">
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-BookmarkService.html">
                     BookmarkService
                 </a><p>Bookmark Service.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-ContentService.html">
                     ContentService
                 </a><p>This class provides service methods for managing content.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-ContentTypeService.html">
                     ContentTypeService
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-FieldType.html">
                     FieldType
                 </a><p>Interface that FieldTypes expose to the public API.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-FieldTypeService.html">
                     FieldTypeService
                 </a><p>An implementation of this class provides access to FieldTypes.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-LanguageResolver.html">
                     LanguageResolver
                 </a><p>Resolve language settings for Repository layer.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-LanguageService.html">
                     LanguageService
                 </a><p>Language service, used for language operations.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-LocationService.html">
                     LocationService
                 </a><p>Location service, used for complex subtree operations.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-NotificationService.html">
                     NotificationService
                 </a><p>Service to manager user notifications. It works in the context of a current User (obtained from
 the PermissionResolver).</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-ObjectStateService.html">
                     ObjectStateService
                 </a><p>ObjectStateService service.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-PasswordHashService.html">
                     PasswordHashService
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-PermissionCriterionResolver.html">
                     PermissionCriterionResolver
                 </a><p>This service provides methods for resolving criterion permissions.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-PermissionResolver.html">
                     PermissionResolver
                 </a><p>This service provides methods for resolving permissions.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-PermissionService.html">
                     PermissionService
                 </a><p>This service provides methods for resolving permissions.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Repository.html">
                     Repository
                 </a><p>Repository interface.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-RoleService.html">
                     RoleService
                 </a><p>This service provides methods for managing Roles and Policies.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-SearchService.html">
                     SearchService
                 </a><p>Search service.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-SectionService.html">
                     SectionService
                 </a><p>Section service, used for section operations.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-SettingService.html">
                     SettingService
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-TokenService.html">
                     TokenService
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Translatable.html">
                     Translatable
                 </a><p>Interface implemented by everything which should be translatable. This
 should for example be implemented by any exception, which might bubble up to
 a user, or validation errors.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-TranslationService.html">
                     TranslationService
                 </a><p>Interface for a translation service.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-TrashService.html">
                     TrashService
                 </a><p>Trash service, used for managing trashed content.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-URLAliasService.html">
                     URLAliasService
                 </a><p>URLAlias service.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-URLService.html">
                     URLService
                 </a><p>URL Service.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-URLWildcardService.html">
                     URLWildcardService
                 </a><p>URLAlias service.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-UserPreferenceService.html">
                     UserPreferenceService
                 </a><p>User Preference Service.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-UserService.html">
                     UserService
                 </a><p>This service provides methods for managing users and user groups.</p></li>
@@ -36202,6 +36228,8 @@ a user, or validation errors.</p></li>
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
         crossorigin="anonymous">
     </script>
+    <script src="js/active-menu.js"></script>
+    <script src="js/menu-resizer.js"></script>
     <script src="js/docs.switcher.js"></script>
     <script src="js/toc.js"></script>
     <script src="js/search_custom.js"></script>

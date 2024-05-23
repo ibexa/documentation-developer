@@ -15,23 +15,9 @@
     
 
     <script>
-        window.addEventListener('load', function () {
-            const fullPath = document.location.pathname.split('/');
-            const pageUrl = fullPath.slice(-2).join('/');
-            let activeElement = document.querySelector(`a[href="${pageUrl}"]`);
-            let guardian = 0;
-
-            activeElement = activeElement?.closest('.md-nav__item')?.querySelector('.md-nav__toggle');
-
-            while(activeElement) {
-                activeElement.checked = true;
-                guardian++;
-
-                activeElement = activeElement.closest('.md-nav__item')?.closest('.md-nav')?.closest('.md-nav__item')?.querySelector('.md-nav__toggle');
-            
-                if (guardian > 20) {
-                    break; // just to be safe from infinity loops
-                }
+        window.addEventListener('keyup', (event) => {
+            if (event.key === '/') {
+                event.stopImmediatePropagation();
             }
         });
     </script>
@@ -35963,6 +35949,7 @@
             </div>
         </div>
     </div>
+    <div class="main_nav__resize-handler"></div>
 </div>
 
                 <div class="md-content" data-md-component="content">
@@ -36023,16 +36010,19 @@
 </h2>
     <ul class="namespace-list">
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="namespaces/ibexa-contracts-core-repository-values-content-query-aggregation-field.html">
                     Field
                 </a>
             </li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="namespaces/ibexa-contracts-core-repository-values-content-query-aggregation-location.html">
                     Location
                 </a>
             </li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="namespaces/ibexa-contracts-core-repository-values-content-query-aggregation-ranges.html">
                     Ranges
                 </a>
@@ -36045,74 +36035,92 @@
 </h2>
     <ul class="namespace-list">
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-FieldAggregation.html">
                     FieldAggregation
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-LocationAggregation.html">
                     LocationAggregation
                 </a><p>Marker interface for location based aggregation.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-RawAggregation.html">
                     RawAggregation
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-AbstractRangeAggregation.html">
                     AbstractRangeAggregation
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-AbstractStatsAggregation.html">
                     AbstractStatsAggregation
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-AbstractTermAggregation.html">
                     AbstractTermAggregation
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-ContentTypeGroupTermAggregation.html">
                     ContentTypeGroupTermAggregation
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-ContentTypeTermAggregation.html">
                     ContentTypeTermAggregation
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-DateMetadataRangeAggregation.html">
                     DateMetadataRangeAggregation
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-LanguageTermAggregation.html">
                     LanguageTermAggregation
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-ObjectStateTermAggregation.html">
                     ObjectStateTermAggregation
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Range.html">
                     Range
                 </a><p>The base class for all value objects and structs.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-RawRangeAggregation.html">
                     RawRangeAggregation
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-RawStatsAggregation.html">
                     RawStatsAggregation
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-RawTermAggregation.html">
                     RawTermAggregation
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-SectionTermAggregation.html">
                     SectionTermAggregation
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-UserMetadataTermAggregation.html">
                     UserMetadataTermAggregation
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-VisibilityTermAggregation.html">
                     VisibilityTermAggregation
                 </a></li>
@@ -36139,6 +36147,8 @@
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
         crossorigin="anonymous">
     </script>
+    <script src="js/active-menu.js"></script>
+    <script src="js/menu-resizer.js"></script>
     <script src="js/docs.switcher.js"></script>
     <script src="js/toc.js"></script>
     <script src="js/search_custom.js"></script>

@@ -15,23 +15,9 @@
     
 
     <script>
-        window.addEventListener('load', function () {
-            const fullPath = document.location.pathname.split('/');
-            const pageUrl = fullPath.slice(-2).join('/');
-            let activeElement = document.querySelector(`a[href="${pageUrl}"]`);
-            let guardian = 0;
-
-            activeElement = activeElement?.closest('.md-nav__item')?.querySelector('.md-nav__toggle');
-
-            while(activeElement) {
-                activeElement.checked = true;
-                guardian++;
-
-                activeElement = activeElement.closest('.md-nav__item')?.closest('.md-nav')?.closest('.md-nav__item')?.querySelector('.md-nav__toggle');
-            
-                if (guardian > 20) {
-                    break; // just to be safe from infinity loops
-                }
+        window.addEventListener('keyup', (event) => {
+            if (event.key === '/') {
+                event.stopImmediatePropagation();
             }
         });
     </script>
@@ -35963,6 +35949,7 @@
             </div>
         </div>
     </div>
+    <div class="main_nav__resize-handler"></div>
 </div>
 
                 <div class="md-content" data-md-component="content">
@@ -36013,6 +36000,7 @@
 </h2>
     <ul class="namespace-list">
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="namespaces/ibexa-contracts-core-repository-values-user-limitation.html">
                     Limitation
                 </a>
@@ -36025,107 +36013,133 @@
 </h2>
     <ul class="namespace-list">
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-User-UserReference.html">
                     UserReference
                 </a><p>This interface represents a user reference for use in sessions and Repository.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-User-Limitation.html">
                     Limitation
                 </a><p>This class represents a Limitation applied to a policy.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-User-LookupLimitationResult.html">
                     LookupLimitationResult
                 </a><p>This class represents a LookupLimitation for module and function in the context of current User.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-User-LookupPolicyLimitations.html">
                     LookupPolicyLimitations
                 </a><p>This class represents a result of lookup limitation for module and function in the context of current User.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-User-PasswordInfo.html">
                     PasswordInfo
                 </a><p>The base class for all value objects and structs.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-User-PasswordValidationContext.html">
                     PasswordValidationContext
                 </a><p>Context of the password validation.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-User-Policy.html">
                     Policy
                 </a><p>This class represents a policy value.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-User-PolicyCreateStruct.html">
                     PolicyCreateStruct
                 </a><p>This class is used to create a policy.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-User-PolicyDraft.html">
                     PolicyDraft
                 </a><p>This class represents a policy value.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-User-PolicyStruct.html">
                     PolicyStruct
                 </a><p>The base class for all value objects and structs.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-User-PolicyUpdateStruct.html">
                     PolicyUpdateStruct
                 </a><p>This class is used for updating a policy. The limitations of the policy are replaced
 with those which are added in instances of this class.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-User-Role.html">
                     Role
                 </a><p>This class represents a role.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-User-RoleAssignment.html">
                     RoleAssignment
                 </a><p>This value object represents an assignment od a user or user group to a role including a limitation.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-User-RoleCopyStruct.html">
                     RoleCopyStruct
                 </a><p>This class is used to copy an existing role.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-User-RoleCreateStruct.html">
                     RoleCreateStruct
                 </a><p>This class is used to create a new role.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-User-RoleDraft.html">
                     RoleDraft
                 </a><p>This class represents a draft of a role.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-User-RoleUpdateStruct.html">
                     RoleUpdateStruct
                 </a><p>This class is used to update a role.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-User-User.html">
                     User
                 </a><p>This class represents a user value.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-User-UserCreateStruct.html">
                     UserCreateStruct
                 </a><p>This class is used to create a new user in the repository.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-User-UserGroup.html">
                     UserGroup
                 </a><p>This class represents a user group.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-User-UserGroupCreateStruct.html">
                     UserGroupCreateStruct
                 </a><p>This class is used to create a new user group in the repository.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-User-UserGroupRoleAssignment.html">
                     UserGroupRoleAssignment
                 </a><p>This class represents a user group to role assignment.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-User-UserGroupUpdateStruct.html">
                     UserGroupUpdateStruct
                 </a><p>This class is used to update a user group in the repository.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-User-UserRoleAssignment.html">
                     UserRoleAssignment
                 </a><p>This class represents a user to role assignment.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-User-UserTokenUpdateStruct.html">
                     UserTokenUpdateStruct
                 </a><p>This class is used to update a user token in the repository.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-User-UserUpdateStruct.html">
                     UserUpdateStruct
                 </a><p>This class is used to update a user in the repository.</p></li>
@@ -36152,6 +36166,8 @@ with those which are added in instances of this class.</p></li>
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
         crossorigin="anonymous">
     </script>
+    <script src="js/active-menu.js"></script>
+    <script src="js/menu-resizer.js"></script>
     <script src="js/docs.switcher.js"></script>
     <script src="js/toc.js"></script>
     <script src="js/search_custom.js"></script>

@@ -15,23 +15,9 @@
     
 
     <script>
-        window.addEventListener('load', function () {
-            const fullPath = document.location.pathname.split('/');
-            const pageUrl = fullPath.slice(-2).join('/');
-            let activeElement = document.querySelector(`a[href="${pageUrl}"]`);
-            let guardian = 0;
-
-            activeElement = activeElement?.closest('.md-nav__item')?.querySelector('.md-nav__toggle');
-
-            while(activeElement) {
-                activeElement.checked = true;
-                guardian++;
-
-                activeElement = activeElement.closest('.md-nav__item')?.closest('.md-nav')?.closest('.md-nav__item')?.querySelector('.md-nav__toggle');
-            
-                if (guardian > 20) {
-                    break; // just to be safe from infinity loops
-                }
+        window.addEventListener('keyup', (event) => {
+            if (event.key === '/') {
+                event.stopImmediatePropagation();
             }
         });
     </script>
@@ -35963,6 +35949,7 @@
             </div>
         </div>
     </div>
+    <div class="main_nav__resize-handler"></div>
 </div>
 
                 <div class="md-content" data-md-component="content">
@@ -36010,74 +35997,92 @@
 </h2>
     <ul class="namespace-list">
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Search-FieldType-BooleanField.html">
                     BooleanField
                 </a><p>Boolean document field.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Search-FieldType-CustomField.html">
                     CustomField
                 </a><p>Custom document field.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Search-FieldType-DateField.html">
                     DateField
                 </a><p>Date document field.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Search-FieldType-DocumentField.html">
                     DocumentField
                 </a><p>(Nested)Document document field.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Search-FieldType-FloatField.html">
                     FloatField
                 </a><p>Float document field.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Search-FieldType-FullTextField.html">
                     FullTextField
                 </a><p>Full text document field.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Search-FieldType-GeoLocationField.html">
                     GeoLocationField
                 </a><p>GeoLocation document field.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Search-FieldType-IdentifierField.html">
                     IdentifierField
                 </a><p>Identifier document field.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Search-FieldType-IntegerField.html">
                     IntegerField
                 </a><p>Integer document field.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Search-FieldType-MultipleBooleanField.html">
                     MultipleBooleanField
                 </a><p>Boolean document field.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Search-FieldType-MultipleIdentifierField.html">
                     MultipleIdentifierField
                 </a><p>Identifier document field.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Search-FieldType-MultipleIntegerField.html">
                     MultipleIntegerField
                 </a><p>Multiple integer document field.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Search-FieldType-MultipleRemoteIdentifierField.html">
                     MultipleRemoteIdentifierField
                 </a><p>Remote ID list document field.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Search-FieldType-MultipleStringField.html">
                     MultipleStringField
                 </a><p>String document field.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Search-FieldType-PriceField.html">
                     PriceField
                 </a><p>Price document field.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Search-FieldType-RemoteIdentifierField.html">
                     RemoteIdentifierField
                 </a><p>Remote ID document field.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Search-FieldType-StringField.html">
                     StringField
                 </a><p>String document field.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Search-FieldType-TextField.html">
                     TextField
                 </a><p>Text document field.</p></li>
@@ -36104,6 +36109,8 @@
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
         crossorigin="anonymous">
     </script>
+    <script src="js/active-menu.js"></script>
+    <script src="js/menu-resizer.js"></script>
     <script src="js/docs.switcher.js"></script>
     <script src="js/toc.js"></script>
     <script src="js/search_custom.js"></script>

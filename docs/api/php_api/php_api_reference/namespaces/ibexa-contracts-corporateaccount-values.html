@@ -15,23 +15,9 @@
     
 
     <script>
-        window.addEventListener('load', function () {
-            const fullPath = document.location.pathname.split('/');
-            const pageUrl = fullPath.slice(-2).join('/');
-            let activeElement = document.querySelector(`a[href="${pageUrl}"]`);
-            let guardian = 0;
-
-            activeElement = activeElement?.closest('.md-nav__item')?.querySelector('.md-nav__toggle');
-
-            while(activeElement) {
-                activeElement.checked = true;
-                guardian++;
-
-                activeElement = activeElement.closest('.md-nav__item')?.closest('.md-nav')?.closest('.md-nav__item')?.querySelector('.md-nav__toggle');
-            
-                if (guardian > 20) {
-                    break; // just to be safe from infinity loops
-                }
+        window.addEventListener('keyup', (event) => {
+            if (event.key === '/') {
+                event.stopImmediatePropagation();
             }
         });
     </script>
@@ -35963,6 +35949,7 @@
             </div>
         </div>
     </div>
+    <div class="main_nav__resize-handler"></div>
 </div>
 
                 <div class="md-content" data-md-component="content">
@@ -36003,11 +35990,13 @@
 </h2>
     <ul class="namespace-list">
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="namespaces/ibexa-contracts-corporateaccount-values-limitation.html">
                     Limitation
                 </a>
             </li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="namespaces/ibexa-contracts-corporateaccount-values-query.html">
                     Query
                 </a>
@@ -36020,70 +36009,87 @@
 </h2>
     <ul class="namespace-list">
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-CorporateAccount-Values-ApplicationState.html">
                     ApplicationState
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-CorporateAccount-Values-CompanyHistory.html">
                     CompanyHistory
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-CorporateAccount-Values-MemberAssignment.html">
                     MemberAssignment
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-CorporateAccount-Values-Application.html">
                     Application
                 </a><p>The base class for all value objects and structs.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-CorporateAccount-Values-ApplicationCreateStruct.html">
                     ApplicationCreateStruct
                 </a><p>This class is used for creating a new content object.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-CorporateAccount-Values-ApplicationUpdateStruct.html">
                     ApplicationUpdateStruct
                 </a><p>This class is used for updating the fields of a content object draft.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-CorporateAccount-Values-Company.html">
                     Company
                 </a><p>The base class for all value objects and structs.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-CorporateAccount-Values-CompanyCreateStruct.html">
                     CompanyCreateStruct
                 </a><p>This class is used for creating a new content object.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-CorporateAccount-Values-CompanyUpdateStruct.html">
                     CompanyUpdateStruct
                 </a><p>This class is used for updating the fields of a content object draft.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-CorporateAccount-Values-Member.html">
                     Member
                 </a><p>The base class for all value objects and structs.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-CorporateAccount-Values-MemberCreateStruct.html">
                     MemberCreateStruct
                 </a><p>This class is used to create a new user in the repository.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-CorporateAccount-Values-MemberUpdateStruct.html">
                     MemberUpdateStruct
                 </a><p>This class is used to update a user in the repository.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-CorporateAccount-Values-SalesRepresentativesList.html">
                     SalesRepresentativesList
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-CorporateAccount-Values-ShippingAddress.html">
                     ShippingAddress
                 </a><p>The base class for all value objects and structs.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-CorporateAccount-Values-ShippingAddressCreateStruct.html">
                     ShippingAddressCreateStruct
                 </a><p>This class is used for creating a new content object.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-CorporateAccount-Values-ShippingAddressUpdateStruct.html">
                     ShippingAddressUpdateStruct
                 </a><p>This class is used for updating the fields of a content object draft.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-CorporateAccount-Values-Fields.html">
                     Fields
                 </a></li>
@@ -36110,6 +36116,8 @@
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
         crossorigin="anonymous">
     </script>
+    <script src="js/active-menu.js"></script>
+    <script src="js/menu-resizer.js"></script>
     <script src="js/docs.switcher.js"></script>
     <script src="js/toc.js"></script>
     <script src="js/search_custom.js"></script>

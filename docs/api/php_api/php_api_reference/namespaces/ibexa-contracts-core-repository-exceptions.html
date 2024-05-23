@@ -15,23 +15,9 @@
     
 
     <script>
-        window.addEventListener('load', function () {
-            const fullPath = document.location.pathname.split('/');
-            const pageUrl = fullPath.slice(-2).join('/');
-            let activeElement = document.querySelector(`a[href="${pageUrl}"]`);
-            let guardian = 0;
-
-            activeElement = activeElement?.closest('.md-nav__item')?.querySelector('.md-nav__toggle');
-
-            while(activeElement) {
-                activeElement.checked = true;
-                guardian++;
-
-                activeElement = activeElement.closest('.md-nav__item')?.closest('.md-nav')?.closest('.md-nav__item')?.querySelector('.md-nav__toggle');
-            
-                if (guardian > 20) {
-                    break; // just to be safe from infinity loops
-                }
+        window.addEventListener('keyup', (event) => {
+            if (event.key === '/') {
+                event.stopImmediatePropagation();
             }
         });
     </script>
@@ -35963,6 +35949,7 @@
             </div>
         </div>
     </div>
+    <div class="main_nav__resize-handler"></div>
 </div>
 
                 <div class="md-content" data-md-component="content">
@@ -36010,79 +35997,97 @@
 </h2>
     <ul class="namespace-list">
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-Exception.html">
                     Exception
                 </a><p>Marker interface for all Repository related exceptions.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-BadStateException.html">
                     BadStateException
                 </a><p>This Exception is thrown if a method is called with an value referencing an object which is not in the right state.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-ContentFieldValidationException.html">
                     ContentFieldValidationException
                 </a><p>This Exception is thrown on create or update content one or more given fields are not valid.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-ContentTypeFieldDefinitionValidationException.html">
                     ContentTypeFieldDefinitionValidationException
                 </a><p>This Exception is thrown on create or update content type one or more given field definitions are not valid.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-ContentTypeValidationException.html">
                     ContentTypeValidationException
                 </a><p>This Exception is thrown on create or update content type when content type is not valid.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-ContentValidationException.html">
                     ContentValidationException
                 </a><p>This Exception is thrown on create or update content one or more given fields are not valid.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-ForbiddenException.html">
                     ForbiddenException
                 </a><p>An Exception which is thrown if an operation cannot be performed by a service
 although the current user would have permission to perform this action.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-InvalidArgumentException.html">
                     InvalidArgumentException
                 </a><p>This exception is thrown if a service method is called with an illegal or non appropriate value.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-InvalidCriterionArgumentException.html">
                     InvalidCriterionArgumentException
                 </a><p>This exception is thrown if a service method is called with an illegal or non appropriate value.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-InvalidVariationException.html">
                     InvalidVariationException
                 </a><p>This exception is thrown if a service method is called with an illegal or non appropriate value.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-LimitationValidationException.html">
                     LimitationValidationException
                 </a><p>This Exception is thrown on create, update or assign policy or role
 when one or more given limitations are not valid.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-NotFoundException.html">
                     NotFoundException
                 </a><p>This Exception is thrown if an object referenced by an id or identifier
 could not be found in the repository.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-NotImplementedException.html">
                     NotImplementedException
                 </a><p>This Exception is thrown if a feature has not been implemented
 _intentionally_. The main purpose is the search handler, where some features
 are just not supported in the legacy search implementation.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-OutOfBoundsException.html">
                     OutOfBoundsException
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-PasswordInUnsupportedFormatException.html">
                     PasswordInUnsupportedFormatException
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-PropertyNotFoundException.html">
                     PropertyNotFoundException
                 </a><p>This Exception is thrown if an accessed property in a value object was not found.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-PropertyReadOnlyException.html">
                     PropertyReadOnlyException
                 </a><p>This Exception is thrown on a write attempt in a read only property in a value object.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-UnauthorizedException.html">
                     UnauthorizedException
                 </a><p>This Exception is thrown if the user has is not allowed to perform a service operation.</p></li>
@@ -36109,6 +36114,8 @@ are just not supported in the legacy search implementation.</p></li>
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
         crossorigin="anonymous">
     </script>
+    <script src="js/active-menu.js"></script>
+    <script src="js/menu-resizer.js"></script>
     <script src="js/docs.switcher.js"></script>
     <script src="js/toc.js"></script>
     <script src="js/search_custom.js"></script>

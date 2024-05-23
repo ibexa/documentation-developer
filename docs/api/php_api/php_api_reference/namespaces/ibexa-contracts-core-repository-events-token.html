@@ -15,23 +15,9 @@
     
 
     <script>
-        window.addEventListener('load', function () {
-            const fullPath = document.location.pathname.split('/');
-            const pageUrl = fullPath.slice(-2).join('/');
-            let activeElement = document.querySelector(`a[href="${pageUrl}"]`);
-            let guardian = 0;
-
-            activeElement = activeElement?.closest('.md-nav__item')?.querySelector('.md-nav__toggle');
-
-            while(activeElement) {
-                activeElement.checked = true;
-                guardian++;
-
-                activeElement = activeElement.closest('.md-nav__item')?.closest('.md-nav')?.closest('.md-nav__item')?.querySelector('.md-nav__toggle');
-            
-                if (guardian > 20) {
-                    break; // just to be safe from infinity loops
-                }
+        window.addEventListener('keyup', (event) => {
+            if (event.key === '/') {
+                event.stopImmediatePropagation();
             }
         });
     </script>
@@ -35963,6 +35949,7 @@
             </div>
         </div>
     </div>
+    <div class="main_nav__resize-handler"></div>
 </div>
 
                 <div class="md-content" data-md-component="content">
@@ -36015,50 +36002,62 @@
 </h2>
     <ul class="namespace-list">
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-Token-BeforeCheckTokenEvent.html">
                     BeforeCheckTokenEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-Token-BeforeDeleteTokenEvent.html">
                     BeforeDeleteTokenEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-Token-BeforeGenerateTokenEvent.html">
                     BeforeGenerateTokenEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-Token-BeforeGetTokenEvent.html">
                     BeforeGetTokenEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-Token-BeforeRevokeTokenByIdentifierEvent.html">
                     BeforeRevokeTokenByIdentifierEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-Token-BeforeRevokeTokenEvent.html">
                     BeforeRevokeTokenEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-Token-CheckTokenEvent.html">
                     CheckTokenEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-Token-DeleteTokenEvent.html">
                     DeleteTokenEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-Token-GenerateTokenEvent.html">
                     GenerateTokenEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-Token-GetTokenEvent.html">
                     GetTokenEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-Token-RevokeTokenByIdentifierEvent.html">
                     RevokeTokenByIdentifierEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-Token-RevokeTokenEvent.html">
                     RevokeTokenEvent
                 </a><p>Event emitted after action execution.</p></li>
@@ -36085,6 +36084,8 @@
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
         crossorigin="anonymous">
     </script>
+    <script src="js/active-menu.js"></script>
+    <script src="js/menu-resizer.js"></script>
     <script src="js/docs.switcher.js"></script>
     <script src="js/toc.js"></script>
     <script src="js/search_custom.js"></script>

@@ -15,23 +15,9 @@
     
 
     <script>
-        window.addEventListener('load', function () {
-            const fullPath = document.location.pathname.split('/');
-            const pageUrl = fullPath.slice(-2).join('/');
-            let activeElement = document.querySelector(`a[href="${pageUrl}"]`);
-            let guardian = 0;
-
-            activeElement = activeElement?.closest('.md-nav__item')?.querySelector('.md-nav__toggle');
-
-            while(activeElement) {
-                activeElement.checked = true;
-                guardian++;
-
-                activeElement = activeElement.closest('.md-nav__item')?.closest('.md-nav')?.closest('.md-nav__item')?.querySelector('.md-nav__toggle');
-            
-                if (guardian > 20) {
-                    break; // just to be safe from infinity loops
-                }
+        window.addEventListener('keyup', (event) => {
+            if (event.key === '/') {
+                event.stopImmediatePropagation();
             }
         });
     </script>
@@ -35963,6 +35949,7 @@
             </div>
         </div>
     </div>
+    <div class="main_nav__resize-handler"></div>
 </div>
 
                 <div class="md-content" data-md-component="content">
@@ -36010,162 +35997,202 @@
 </h2>
     <ul class="namespace-list">
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Local-Events-BeforeCreateAttributeDefinitionEvent.html">
                     BeforeCreateAttributeDefinitionEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Local-Events-BeforeCreateAttributeGroupEvent.html">
                     BeforeCreateAttributeGroupEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Local-Events-BeforeCreateCatalogEvent.html">
                     BeforeCreateCatalogEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Local-Events-BeforeCreateProductAvailabilityEvent.html">
                     BeforeCreateProductAvailabilityEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Local-Events-BeforeCreateProductEvent.html">
                     BeforeCreateProductEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Local-Events-BeforeCreateProductVariantsEvent.html">
                     BeforeCreateProductVariantsEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Local-Events-BeforeDecreaseProductAvailabilityEvent.html">
                     BeforeDecreaseProductAvailabilityEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Local-Events-BeforeDeleteAttributeDefinitionEvent.html">
                     BeforeDeleteAttributeDefinitionEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Local-Events-BeforeDeleteAttributeGroupEvent.html">
                     BeforeDeleteAttributeGroupEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Local-Events-BeforeDeleteBaseProductVariantsEvent.html">
                     BeforeDeleteBaseProductVariantsEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Local-Events-BeforeDeleteCatalogEvent.html">
                     BeforeDeleteCatalogEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Local-Events-BeforeDeleteProductAvailabilityEvent.html">
                     BeforeDeleteProductAvailabilityEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Local-Events-BeforeDeleteProductEvent.html">
                     BeforeDeleteProductEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Local-Events-BeforeIncreaseProductAvailabilityEvent.html">
                     BeforeIncreaseProductAvailabilityEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Local-Events-BeforeUpdateAttributeDefinitionEvent.html">
                     BeforeUpdateAttributeDefinitionEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Local-Events-BeforeUpdateAttributeGroupEvent.html">
                     BeforeUpdateAttributeGroupEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Local-Events-BeforeUpdateCatalogEvent.html">
                     BeforeUpdateCatalogEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Local-Events-BeforeUpdateProductAvailabilityEvent.html">
                     BeforeUpdateProductAvailabilityEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Local-Events-BeforeUpdateProductEvent.html">
                     BeforeUpdateProductEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Local-Events-BeforeUpdateProductVariantEvent.html">
                     BeforeUpdateProductVariantEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Local-Events-CreateAttributeDefinitionEvent.html">
                     CreateAttributeDefinitionEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Local-Events-CreateAttributeGroupEvent.html">
                     CreateAttributeGroupEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Local-Events-CreateCatalogEvent.html">
                     CreateCatalogEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Local-Events-CreateProductAvailabilityEvent.html">
                     CreateProductAvailabilityEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Local-Events-CreateProductEvent.html">
                     CreateProductEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Local-Events-CreateProductVariantsEvent.html">
                     CreateProductVariantsEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Local-Events-DecreaseProductAvailabilityEvent.html">
                     DecreaseProductAvailabilityEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Local-Events-DeleteAttributeDefinitionEvent.html">
                     DeleteAttributeDefinitionEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Local-Events-DeleteAttributeGroupEvent.html">
                     DeleteAttributeGroupEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Local-Events-DeleteBaseProductVariantsEvent.html">
                     DeleteBaseProductVariantsEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Local-Events-DeleteCatalogEvent.html">
                     DeleteCatalogEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Local-Events-DeleteProductAvailabilityEvent.html">
                     DeleteProductAvailabilityEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Local-Events-DeleteProductEvent.html">
                     DeleteProductEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Local-Events-IncreaseProductAvailabilityEvent.html">
                     IncreaseProductAvailabilityEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Local-Events-UpdateAttributeDefinitionEvent.html">
                     UpdateAttributeDefinitionEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Local-Events-UpdateAttributeGroupEvent.html">
                     UpdateAttributeGroupEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Local-Events-UpdateCatalogEvent.html">
                     UpdateCatalogEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Local-Events-UpdateProductAvailabilityEvent.html">
                     UpdateProductAvailabilityEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Local-Events-UpdateProductEvent.html">
                     UpdateProductEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Local-Events-UpdateProductVariantEvent.html">
                     UpdateProductVariantEvent
                 </a><p>Event emitted after action execution.</p></li>
@@ -36192,6 +36219,8 @@
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
         crossorigin="anonymous">
     </script>
+    <script src="js/active-menu.js"></script>
+    <script src="js/menu-resizer.js"></script>
     <script src="js/docs.switcher.js"></script>
     <script src="js/toc.js"></script>
     <script src="js/search_custom.js"></script>

@@ -15,23 +15,9 @@
     
 
     <script>
-        window.addEventListener('load', function () {
-            const fullPath = document.location.pathname.split('/');
-            const pageUrl = fullPath.slice(-2).join('/');
-            let activeElement = document.querySelector(`a[href="${pageUrl}"]`);
-            let guardian = 0;
-
-            activeElement = activeElement?.closest('.md-nav__item')?.querySelector('.md-nav__toggle');
-
-            while(activeElement) {
-                activeElement.checked = true;
-                guardian++;
-
-                activeElement = activeElement.closest('.md-nav__item')?.closest('.md-nav')?.closest('.md-nav__item')?.querySelector('.md-nav__toggle');
-            
-                if (guardian > 20) {
-                    break; // just to be safe from infinity loops
-                }
+        window.addEventListener('keyup', (event) => {
+            if (event.key === '/') {
+                event.stopImmediatePropagation();
             }
         });
     </script>
@@ -35963,6 +35949,7 @@
             </div>
         </div>
     </div>
+    <div class="main_nav__resize-handler"></div>
 </div>
 
                 <div class="md-content" data-md-component="content">
@@ -36020,70 +36007,87 @@
 </h2>
     <ul class="namespace-list">
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-AttributeAggregationInterface.html">
                     AttributeAggregationInterface
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-AbstractAttributeTermAggregation.html">
                     AbstractAttributeTermAggregation
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-AbstractPriceStatsAggregation.html">
                     AbstractPriceStatsAggregation
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-AttributeBooleanTermAggregation.html">
                     AttributeBooleanTermAggregation
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-AttributeColorTermAggregation.html">
                     AttributeColorTermAggregation
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-AttributeFloatRangeAggregation.html">
                     AttributeFloatRangeAggregation
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-AttributeFloatStatsAggregation.html">
                     AttributeFloatStatsAggregation
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-AttributeIntegerRangeAggregation.html">
                     AttributeIntegerRangeAggregation
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-AttributeIntegerStatsAggregation.html">
                     AttributeIntegerStatsAggregation
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-AttributeSelectionTermAggregation.html">
                     AttributeSelectionTermAggregation
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-BasePriceStatsAggregation.html">
                     BasePriceStatsAggregation
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-CustomPriceStatsAggregation.html">
                     CustomPriceStatsAggregation
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-ProductAvailabilityTermAggregation.html">
                     ProductAvailabilityTermAggregation
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-ProductPriceRangeAggregation.html">
                     ProductPriceRangeAggregation
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-ProductStockRangeAggregation.html">
                     ProductStockRangeAggregation
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-ProductTypeTermAggregation.html">
                     ProductTypeTermAggregation
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Aggregation-AttributeAggregationTrait.html">
                     AttributeAggregationTrait
                 </a></li>
@@ -36110,6 +36114,8 @@
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
         crossorigin="anonymous">
     </script>
+    <script src="js/active-menu.js"></script>
+    <script src="js/menu-resizer.js"></script>
     <script src="js/docs.switcher.js"></script>
     <script src="js/toc.js"></script>
     <script src="js/search_custom.js"></script>

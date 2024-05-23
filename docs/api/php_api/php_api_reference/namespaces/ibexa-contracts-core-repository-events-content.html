@@ -15,23 +15,9 @@
     
 
     <script>
-        window.addEventListener('load', function () {
-            const fullPath = document.location.pathname.split('/');
-            const pageUrl = fullPath.slice(-2).join('/');
-            let activeElement = document.querySelector(`a[href="${pageUrl}"]`);
-            let guardian = 0;
-
-            activeElement = activeElement?.closest('.md-nav__item')?.querySelector('.md-nav__toggle');
-
-            while(activeElement) {
-                activeElement.checked = true;
-                guardian++;
-
-                activeElement = activeElement.closest('.md-nav__item')?.closest('.md-nav')?.closest('.md-nav__item')?.querySelector('.md-nav__toggle');
-            
-                if (guardian > 20) {
-                    break; // just to be safe from infinity loops
-                }
+        window.addEventListener('keyup', (event) => {
+            if (event.key === '/') {
+                event.stopImmediatePropagation();
             }
         });
     </script>
@@ -35963,6 +35949,7 @@
             </div>
         </div>
     </div>
+    <div class="main_nav__resize-handler"></div>
 </div>
 
                 <div class="md-content" data-md-component="content">
@@ -36015,106 +36002,132 @@
 </h2>
     <ul class="namespace-list">
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-Content-AddRelationEvent.html">
                     AddRelationEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-Content-BeforeAddRelationEvent.html">
                     BeforeAddRelationEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-Content-BeforeCopyContentEvent.html">
                     BeforeCopyContentEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-Content-BeforeCreateContentDraftEvent.html">
                     BeforeCreateContentDraftEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-Content-BeforeCreateContentEvent.html">
                     BeforeCreateContentEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-Content-BeforeDeleteContentEvent.html">
                     BeforeDeleteContentEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-Content-BeforeDeleteRelationEvent.html">
                     BeforeDeleteRelationEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-Content-BeforeDeleteTranslationEvent.html">
                     BeforeDeleteTranslationEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-Content-BeforeDeleteVersionEvent.html">
                     BeforeDeleteVersionEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-Content-BeforeHideContentEvent.html">
                     BeforeHideContentEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-Content-BeforePublishVersionEvent.html">
                     BeforePublishVersionEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-Content-BeforeRevealContentEvent.html">
                     BeforeRevealContentEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-Content-BeforeUpdateContentEvent.html">
                     BeforeUpdateContentEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-Content-BeforeUpdateContentMetadataEvent.html">
                     BeforeUpdateContentMetadataEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-Content-CopyContentEvent.html">
                     CopyContentEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-Content-CreateContentDraftEvent.html">
                     CreateContentDraftEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-Content-CreateContentEvent.html">
                     CreateContentEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-Content-DeleteContentEvent.html">
                     DeleteContentEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-Content-DeleteRelationEvent.html">
                     DeleteRelationEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-Content-DeleteTranslationEvent.html">
                     DeleteTranslationEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-Content-DeleteVersionEvent.html">
                     DeleteVersionEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-Content-HideContentEvent.html">
                     HideContentEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-Content-PublishVersionEvent.html">
                     PublishVersionEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-Content-RevealContentEvent.html">
                     RevealContentEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-Content-UpdateContentEvent.html">
                     UpdateContentEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-Content-UpdateContentMetadataEvent.html">
                     UpdateContentMetadataEvent
                 </a><p>Event emitted after action execution.</p></li>
@@ -36141,6 +36154,8 @@
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
         crossorigin="anonymous">
     </script>
+    <script src="js/active-menu.js"></script>
+    <script src="js/menu-resizer.js"></script>
     <script src="js/docs.switcher.js"></script>
     <script src="js/toc.js"></script>
     <script src="js/search_custom.js"></script>

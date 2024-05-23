@@ -15,23 +15,9 @@
     
 
     <script>
-        window.addEventListener('load', function () {
-            const fullPath = document.location.pathname.split('/');
-            const pageUrl = fullPath.slice(-2).join('/');
-            let activeElement = document.querySelector(`a[href="${pageUrl}"]`);
-            let guardian = 0;
-
-            activeElement = activeElement?.closest('.md-nav__item')?.querySelector('.md-nav__toggle');
-
-            while(activeElement) {
-                activeElement.checked = true;
-                guardian++;
-
-                activeElement = activeElement.closest('.md-nav__item')?.closest('.md-nav')?.closest('.md-nav__item')?.querySelector('.md-nav__toggle');
-            
-                if (guardian > 20) {
-                    break; // just to be safe from infinity loops
-                }
+        window.addEventListener('keyup', (event) => {
+            if (event.key === '/') {
+                event.stopImmediatePropagation();
             }
         });
     </script>
@@ -35963,6 +35949,7 @@
             </div>
         </div>
     </div>
+    <div class="main_nav__resize-handler"></div>
 </div>
 
                 <div class="md-content" data-md-component="content">
@@ -36023,21 +36010,25 @@
 </h2>
     <ul class="namespace-list">
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="namespaces/ibexa-contracts-core-repository-values-content-query-criterion-image.html">
                     Image
                 </a>
             </li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="namespaces/ibexa-contracts-core-repository-values-content-query-criterion-location.html">
                     Location
                 </a>
             </li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="namespaces/ibexa-contracts-core-repository-values-content-query-criterion-operator.html">
                     Operator
                 </a>
             </li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="namespaces/ibexa-contracts-core-repository-values-content-query-criterion-value.html">
                     Value
                 </a>
@@ -36050,183 +36041,227 @@
 </h2>
     <ul class="namespace-list">
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Ancestor.html">
                     Ancestor
                 </a><p>A criterion that matches content that is ancestor to the given Location path string.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-CompositeCriterion.html">
                     CompositeCriterion
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-ContentId.html">
                     ContentId
                 </a><p>A criterion that matches content based on its id.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-ContentName.html">
                     ContentName
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-ContentTypeGroupId.html">
                     ContentTypeGroupId
                 </a><p>A criterion that will match content based on its ContentTypeGroup id.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-ContentTypeId.html">
                     ContentTypeId
                 </a><p>A criterion that matches content based on its ContentType id.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-ContentTypeIdentifier.html">
                     ContentTypeIdentifier
                 </a><p>A criterion that matches content based on its ContentType Identifier.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-CustomField.html">
                     CustomField
                 </a><p>The Field Criterion class.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-DateMetadata.html">
                     DateMetadata
                 </a><p>A criterion that matches content based on one of the date metadata (created or modified).</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Field.html">
                     Field
                 </a><p>The Field Criterion class.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-FieldRelation.html">
                     FieldRelation
                 </a><p>A criterion that matches Content based on the relations in relation field.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-FullText.html">
                     FullText
                 </a><p>Full text search criterion.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Image.html">
                     Image
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-IsContainer.html">
                     IsContainer
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-IsFieldEmpty.html">
                     IsFieldEmpty
                 </a><p>A criterion that matches content based on if Field is empty.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-IsUserBased.html">
                     IsUserBased
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-IsUserEnabled.html">
                     IsUserEnabled
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-LanguageCode.html">
                     LanguageCode
                 </a><p>A criterion that matches content based on its language code and always-available state.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Location.html">
                     Location
                 </a><p>This is the base class for Location criterions.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-LocationId.html">
                     LocationId
                 </a><p>A criterion that matches content based on its own location id.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-LocationRemoteId.html">
                     LocationRemoteId
                 </a><p>A criterion that matches content based on remote ID of its locations.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-LogicalAnd.html">
                     LogicalAnd
                 </a><p>This criterion implements a logical AND criterion and will only match
 if ALL of the given criteria match.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-LogicalNot.html">
                     LogicalNot
                 </a><p>A NOT logical criterion.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-LogicalOperator.html">
                     LogicalOperator
                 </a><p>Note that the class should ideally have been in a Logical namespace, but it would have then be named &#039;And&#039;,
 and &#039;And&#039; is a PHP reserved word.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-LogicalOr.html">
                     LogicalOr
                 </a><p>This criterion implements a logical OR criterion and will only match
 if AT LEAST ONE of the given criteria match.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-MapLocationDistance.html">
                     MapLocationDistance
                 </a><p>The MapLocationDistance Criterion class.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-MatchAll.html">
                     MatchAll
                 </a><p>A criterion that just matches everything.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-MatchNone.html">
                     MatchNone
                 </a><p>A criterion that just matches nothing.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-MoreLikeThis.html">
                     MoreLikeThis
                 </a><p>A more like this criterion is matched by content which contains similar terms
 found in the given content, text or url fetch.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-ObjectStateId.html">
                     ObjectStateId
                 </a><p>A criterion that matches content based on its state.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-ObjectStateIdentifier.html">
                     ObjectStateIdentifier
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Operator.html">
                     Operator
                 </a><p>Operators struct.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-ParentLocationId.html">
                     ParentLocationId
                 </a><p>A criterion that matches content based on its parent location id.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-RemoteId.html">
                     RemoteId
                 </a><p>A criterion that matches content based on its RemoteId.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-SectionId.html">
                     SectionId
                 </a><p>SectionId Criterion.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-SectionIdentifier.html">
                     SectionIdentifier
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Sibling.html">
                     Sibling
                 </a><p>A criterion that matches content that is sibling to the given Location.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Subtree.html">
                     Subtree
                 </a><p>Criterion that matches content that belongs to a given (list of) Subtree(s).</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-UserEmail.html">
                     UserEmail
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-UserId.html">
                     UserId
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-UserLogin.html">
                     UserLogin
                 </a></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-UserMetadata.html">
                     UserMetadata
                 </a><p>A criterion that matches content based on one of the user metadata (owner,
 group, modifier).</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Value.html">
                     Value
                 </a><p>Struct that stores extra value information for a Criterion object.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Visibility.html">
                     Visibility
                 </a><p>A criterion that matches content based on its visibility.</p></li>
@@ -36253,6 +36288,8 @@ group, modifier).</p></li>
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
         crossorigin="anonymous">
     </script>
+    <script src="js/active-menu.js"></script>
+    <script src="js/menu-resizer.js"></script>
     <script src="js/docs.switcher.js"></script>
     <script src="js/toc.js"></script>
     <script src="js/search_custom.js"></script>

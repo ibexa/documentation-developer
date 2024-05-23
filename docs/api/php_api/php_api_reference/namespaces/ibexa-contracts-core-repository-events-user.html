@@ -15,23 +15,9 @@
     
 
     <script>
-        window.addEventListener('load', function () {
-            const fullPath = document.location.pathname.split('/');
-            const pageUrl = fullPath.slice(-2).join('/');
-            let activeElement = document.querySelector(`a[href="${pageUrl}"]`);
-            let guardian = 0;
-
-            activeElement = activeElement?.closest('.md-nav__item')?.querySelector('.md-nav__toggle');
-
-            while(activeElement) {
-                activeElement.checked = true;
-                guardian++;
-
-                activeElement = activeElement.closest('.md-nav__item')?.closest('.md-nav')?.closest('.md-nav__item')?.querySelector('.md-nav__toggle');
-            
-                if (guardian > 20) {
-                    break; // just to be safe from infinity loops
-                }
+        window.addEventListener('keyup', (event) => {
+            if (event.key === '/') {
+                event.stopImmediatePropagation();
             }
         });
     </script>
@@ -35963,6 +35949,7 @@
             </div>
         </div>
     </div>
+    <div class="main_nav__resize-handler"></div>
 </div>
 
                 <div class="md-content" data-md-component="content">
@@ -36015,90 +36002,112 @@
 </h2>
     <ul class="namespace-list">
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-User-AssignUserToUserGroupEvent.html">
                     AssignUserToUserGroupEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-User-BeforeAssignUserToUserGroupEvent.html">
                     BeforeAssignUserToUserGroupEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-User-BeforeCreateUserEvent.html">
                     BeforeCreateUserEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-User-BeforeCreateUserGroupEvent.html">
                     BeforeCreateUserGroupEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-User-BeforeDeleteUserEvent.html">
                     BeforeDeleteUserEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-User-BeforeDeleteUserGroupEvent.html">
                     BeforeDeleteUserGroupEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-User-BeforeMoveUserGroupEvent.html">
                     BeforeMoveUserGroupEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-User-BeforeUnAssignUserFromUserGroupEvent.html">
                     BeforeUnAssignUserFromUserGroupEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-User-BeforeUpdateUserEvent.html">
                     BeforeUpdateUserEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-User-BeforeUpdateUserGroupEvent.html">
                     BeforeUpdateUserGroupEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-User-BeforeUpdateUserPasswordEvent.html">
                     BeforeUpdateUserPasswordEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-User-BeforeUpdateUserTokenEvent.html">
                     BeforeUpdateUserTokenEvent
                 </a><p>Event emitted before action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-User-CreateUserEvent.html">
                     CreateUserEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-User-CreateUserGroupEvent.html">
                     CreateUserGroupEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-User-DeleteUserEvent.html">
                     DeleteUserEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-User-DeleteUserGroupEvent.html">
                     DeleteUserGroupEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-User-MoveUserGroupEvent.html">
                     MoveUserGroupEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-User-UnAssignUserFromUserGroupEvent.html">
                     UnAssignUserFromUserGroupEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-User-UpdateUserEvent.html">
                     UpdateUserEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-User-UpdateUserGroupEvent.html">
                     UpdateUserGroupEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-User-UpdateUserPasswordEvent.html">
                     UpdateUserPasswordEvent
                 </a><p>Event emitted after action execution.</p></li>
                     <li>
+                <img src="./images/arrow-right.svg" />
                 <a href="classes/Ibexa-Contracts-Core-Repository-Events-User-UpdateUserTokenEvent.html">
                     UpdateUserTokenEvent
                 </a><p>Event emitted after action execution.</p></li>
@@ -36125,6 +36134,8 @@
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
         crossorigin="anonymous">
     </script>
+    <script src="js/active-menu.js"></script>
+    <script src="js/menu-resizer.js"></script>
     <script src="js/docs.switcher.js"></script>
     <script src="js/toc.js"></script>
     <script src="js/search_custom.js"></script>
