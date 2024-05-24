@@ -162,7 +162,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
     !!! note "Quiet PHP 8.2 deprecation notices from 3rd parties "
 
-        To avoid PHP 8.2 deprecation notices rawly appearing in outputs (and, for example, broke REST answers), add the following to your composer.json:
+        To avoid PHP 8.2 deprecation notices rawly appearing in outputs (and, for example, breaking REST answers), add the following to your composer.json:
 
         ```json
         "runtime": {
