@@ -126,7 +126,7 @@ migration
  --------------------------- --------- -------------------- -------------- ------- ----
 ```
 
-### Adding custom Activity Log entries
+### Add custom Activity Log entries
 
 !!! caution
 
@@ -134,7 +134,7 @@ migration
     Do not make database requests or heavy computation at logging time.
     Keep them for activity log list display time.
 
-#### Entry
+#### Create an entry
 
 Your custom features can write into the activity log.
 
@@ -204,7 +204,7 @@ Other actions are displayed after you click the **Show more** button.
 
 ![The example context group displayed on the Recent Activity page](activity_log_group.png "`my_feature` context from the example")
 
-#### Displaying log entries
+#### Display log entries
 
 To display your log entry, if your object's PHP class isn't already covered, you'll have to:
 
