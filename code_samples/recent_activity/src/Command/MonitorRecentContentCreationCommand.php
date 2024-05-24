@@ -55,10 +55,10 @@ class MonitorRecentContentCreationCommand extends Command
             }
             $table = [];
             foreach ($activityLogGroup->getActivityLogs() as $activityLog) {
-                $name = '';
+                $name = "“{$activityLog->getObjectName()}”";
                 $content = $activityLog->getRelatedObject();
-                if ($content && method_exists($content, 'getName')) {
-                    $name = $content->getName() && $content->getName() !== $activityLog->getObjectName() ? "“{$content->getName()}” (formerly “{$activityLog->getObjectName()}”)" : "“{$activityLog->getObjectName()}”";
+                if ($content && method_exists($content, 'getName') && $content->getName() !== $activityLog->getObjectName()) {
+                    $name = "“{$content->getName()}” (formerly “{$activityLog->getObjectName()}”)";
                 }
                 $table[] = [
                     $activityLogGroup->getLoggedAt()->format(\DateTime::ATOM),
