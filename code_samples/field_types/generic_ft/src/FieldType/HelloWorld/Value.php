@@ -10,7 +10,7 @@ final class Value implements ValueInterface
     /**
      * @Assert\NotBlank()
      */
-    private $name;
+    private ?string $name;
 
     public function getName(): ?string
     {

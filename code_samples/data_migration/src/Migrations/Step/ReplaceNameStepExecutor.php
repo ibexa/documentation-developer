@@ -20,7 +20,7 @@ final class ReplaceNameStepExecutor extends AbstractStepExecutor
         $this->contentService = $contentService;
     }
 
-    protected function doHandle(StepInterface $step): void
+    protected function doHandle(StepInterface $step)
     {
         assert($step instanceof ReplaceNameStep);
 
@@ -52,6 +52,8 @@ final class ReplaceNameStepExecutor extends AbstractStepExecutor
                 // Ignore
             }
         }
+
+        return null;
     }
 
     public function canHandle(StepInterface $step): bool

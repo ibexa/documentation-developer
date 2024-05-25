@@ -26,7 +26,7 @@ class UpdateContentCommand extends Command
         parent::__construct('doc:update_content');
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setDescription('Update provided content item with a new name')
@@ -36,7 +36,7 @@ class UpdateContentCommand extends Command
             ]);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);

@@ -17,7 +17,7 @@ class BreadcrumbsMenuSubscriber implements EventSubscriberInterface
         ];
     }
 
-    public function onBreadcrumbsMenuConfigure(ConfigureMenuEvent $event)
+    public function onBreadcrumbsMenuConfigure(ConfigureMenuEvent $event): void
     {
         $menu = $event->getMenu();
 

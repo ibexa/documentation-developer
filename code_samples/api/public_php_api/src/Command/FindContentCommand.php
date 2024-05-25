@@ -20,7 +20,7 @@ class FindContentCommand extends Command
         parent::__construct('doc:find_content');
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setDescription('Lists content belonging to the provided content type.')

@@ -24,7 +24,7 @@ class MyFeatureEventSubscriber implements EventSubscriberInterface
 
     public function onMyFeatureEvent(MyFeatureEvent $event): void
     {
-        /** @var App\MyFeature\MyFeature $object */
+        /** @var \App\MyFeature\MyFeature $object */
         $object = $event->getObject();
         $className = get_class($object);
         $id = (string)$object->id;

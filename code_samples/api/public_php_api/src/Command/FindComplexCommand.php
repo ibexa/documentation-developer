@@ -25,7 +25,7 @@ class FindComplexCommand extends Command
         parent::__construct('doc:find_complex');
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setDescription('Lists content belonging to the provided content type.')

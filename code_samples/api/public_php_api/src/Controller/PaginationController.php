@@ -9,6 +9,7 @@ use Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion;
 use Ibexa\Core\Pagination\Pagerfanta\ContentSearchAdapter;
 use Pagerfanta\Pagerfanta;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class PaginationController extends Controller
 {
@@ -19,7 +20,7 @@ class PaginationController extends Controller
         $this->searchService = $searchService;
     }
 
-    public function showContentAction(Request $request, $locationId)
+    public function showContentAction(Request $request, int $locationId): Response
     {
         $query = new LocationQuery();
         $query->filter = new Criterion\ParentLocationId($locationId);

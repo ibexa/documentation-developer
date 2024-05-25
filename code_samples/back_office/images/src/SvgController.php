@@ -48,7 +48,7 @@ class SvgController extends Controller
         $version = null;
 
         if ($request->query->has('version')) {
-            $version = $request->query->get('version');
+            $version = (int)$request->query->get('version');
         }
 
         $content = $this->contentService->loadContent($contentId, null, $version);

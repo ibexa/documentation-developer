@@ -25,13 +25,13 @@ class ValueObjectVisitorDispatcher extends BaseValueObjectVisitorDispatcher
         $this->valueObjectVisitorDispatcher = $valueObjectVisitorDispatcher;
     }
 
-    public function setOutputVisitor(Visitor $outputVisitor)
+    public function setOutputVisitor(Visitor $outputVisitor): void
     {
         $this->outputVisitor = $outputVisitor;
         $this->valueObjectVisitorDispatcher->setOutputVisitor($outputVisitor);
     }
 
-    public function setOutputGenerator(Generator $outputGenerator)
+    public function setOutputGenerator(Generator $outputGenerator): void
     {
         $this->outputGenerator = $outputGenerator;
         $this->valueObjectVisitorDispatcher->setOutputGenerator($outputGenerator);

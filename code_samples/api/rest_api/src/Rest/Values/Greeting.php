@@ -8,7 +8,7 @@ class Greeting
 
     public string $recipient;
 
-    public function __construct($salutation = 'Hello', $recipient = 'World')
+    public function __construct(string $salutation = 'Hello', string $recipient = 'World')
     {
         $this->salutation = $salutation;
         $this->recipient = $recipient;

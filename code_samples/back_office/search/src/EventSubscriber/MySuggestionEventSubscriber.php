@@ -7,7 +7,6 @@ use Ibexa\Contracts\ProductCatalog\ProductServiceInterface;
 use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
 use Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion;
 use Ibexa\Contracts\Search\Event\BuildSuggestionCollectionEvent;
-use Ibexa\Contracts\Search\Mapper\SearchHitToContentSuggestionMapperInterface;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerAwareTrait;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
@@ -18,14 +17,10 @@ class MySuggestionEventSubscriber implements EventSubscriberInterface, LoggerAwa
 
     private ProductServiceInterface $productService;
 
-    private SearchHitToContentSuggestionMapperInterface $contentSuggestionMapper;
-
     public function __construct(
         ProductServiceInterface $productService,
-        SearchHitToContentSuggestionMapperInterface $contentSuggestionMapper
     ) {
         $this->productService = $productService;
-        $this->contentSuggestionMapper = $contentSuggestionMapper;
     }
 
     public static function getSubscribedEvents(): array
