@@ -51,6 +51,19 @@ This policy is required to view [activity log in user profile]([[= user_doc =]]/
 
     Do not assign `activity_log/read` permission to the Anonymous role, even with the owner limitation, because this role is shared among all unauthenticated users.
 
+## User privacy
+
+!!! caution
+
+    A username of the User who performs the action is logged.
+    When acting through the web server, the User's IP address is also logged.
+    Other access, such as console commands, doesn't log an IP.
+    Your Data Protection Officer or GDPR representative should be aware of this,
+    so they can ensure users are informed if needed, depending on your use case, jurisdiction, and company policy.
+
+    For example, if a content edition feature, such as reader's comments, is available in the front office,
+    the recent activity log records the front users' IPs.
+
 ## PHP API
 
 The `ActivityLogService` PHP API can be used to browse activity logs and write new entries.
@@ -80,19 +93,19 @@ It uses the default `admin` user that has a [permission](#permission-and-securit
 web
 ---
 
- --------------------------- --------- --------------------------- -------- ----------
-  Logged at                   Obj. ID   Object Name                 Action   User
- --------------------------- --------- --------------------------- -------- ----------
-  2024-01-29T15:01:57+00:00   323       “Bar” (formerly “Folder”)   create   jane_doe
- --------------------------- --------- --------------------------- -------- ----------
+ --------------------------- --------- --------------------------- -------- ---------- ------------
+  Logged at                   Obj. ID   Object Name                 Action   User       IP
+ --------------------------- --------- --------------------------- -------- ---------- ------------
+  2024-01-29T15:01:57+00:00   323       “Bar” (formerly “Folder”)   create   jane_doe   172.20.0.5
+ --------------------------- --------- --------------------------- -------- ---------- ------------
 
 migration
 ---------
 
  Migrating file: create_foo_company
- --------------------------- --------- -------------------- -------------- -------
-  Logged at                   Obj. ID   Object Name          Action         User
- --------------------------- --------- -------------------- -------------- -------
+ --------------------------- --------- -------------------- -------------- ------- ----
+  Logged at                   Obj. ID   Object Name          Action         User    IP
+ --------------------------- --------- -------------------- -------------- ------- ----
   2024-01-29T14:58:53+00:00   317       “Foo Company Ltd.“   create         admin
   2024-01-29T14:58:53+00:00   317       “Foo Company Ltd.“   publish        admin
   2024-01-29T14:58:53+00:00   318       “Members“            create         admin
@@ -110,10 +123,10 @@ migration
   2024-01-29T14:58:53+00:00   317       “Foo Company Ltd.“   create_draft   admin
   2024-01-29T14:58:53+00:00   317       “Foo Company Ltd.“   update         admin
   2024-01-29T14:58:53+00:00   317       “Foo Company Ltd.“   publish        admin
- --------------------------- --------- -------------------- -------------- -------
+ --------------------------- --------- -------------------- -------------- ------- ----
 ```
 
-### Adding custom Activity Log entries
+### Add custom Activity Log entries
 
 !!! caution
 
@@ -121,7 +134,7 @@ migration
     Do not make database requests or heavy computation at logging time.
     Keep them for activity log list display time.
 
-#### Entry
+#### Create an entry
 
 Your custom features can write into the activity log.
 
@@ -191,7 +204,7 @@ Other actions are displayed after you click the **Show more** button.
 
 ![The example context group displayed on the Recent Activity page](activity_log_group.png "`my_feature` context from the example")
 
-#### Displaying log entries
+#### Display log entries
 
 To display your log entry, if your object's PHP class isn't already covered, you'll have to:
 
