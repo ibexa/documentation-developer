@@ -596,3 +596,7 @@ div.pills {
 #older-versions {
     cursor: pointer;
 }
+
+[hidden] {
+    display: none !important;
+}
