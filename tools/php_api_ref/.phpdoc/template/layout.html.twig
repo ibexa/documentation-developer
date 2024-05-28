@@ -21,7 +21,12 @@
         <script src="js/search.js"></script>
         <script defer src="js/searchIndex.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-        <script>hljs.highlightAll();</script>
+        <script>
+            hljs.configure({
+                cssSelector: 'pre.prettyprint code'
+            });
+            hljs.highlightAll();
+        </script>
     {% endblock %}
 </head>
 <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="deep-orange">
