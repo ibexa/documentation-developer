@@ -52,7 +52,7 @@ You can access the PHP API by injecting relevant services into your code:
 - By using the Repository's `get[ServiceName]()` methods: [`Repository::getContentService()`](https://github.com/ibexa/core/blob/v4.6.6/src/contracts/Repository/Repository.php#L46), [`getUserService()`](https://github.com/ibexa/core/blob/v4.6.6/src/contracts/Repository/Repository.php#L111), etc.
   (Prefer injecting several Repository's dedicated services instead of the whole Repository if the Repository itself is not needed.)
 
-!!! caution 
+!!! caution
 
     The PHP API's services can be accessed with `Ibexa\Bundle\Core\Controller::getRepository()` by extending it from a [custom controller](controllers.md), but such approach is not recommended, and you should prefer dependency injection.
 ## Value objects
