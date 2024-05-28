@@ -70,7 +70,7 @@ such as [`Content\Relation::getSourceContentInfo()`](php_api_reference/classes/I
 ### Creating and updating objects
 
 Value objects fetch data from the Repository and are read-only.
-To create and modify Repository values you need to use data structures, such as [`ContentService::newContentCreateStruct()`](php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_newContentCreateStruct) or [`LocationService::newLocationUpdateStruct()`](php_api_reference/classes/Ibexa-Contracts-Core-Repository-LocationService.html#method_newLocationUpdateStruct).
+To create and modify Repository values, use data structures, such as [`ContentService::newContentCreateStruct()`](https://github.com/ibexa/core/blob/v4.6.6/src/contracts/Repository/ContentService.php#L572) or [`LocationService::newLocationUpdateStruct()`](https://github.com/ibexa/core/blob/v4.6.6/src/contracts/Repository/LocationService.php#L238).
 
 ### Value info objects
 
