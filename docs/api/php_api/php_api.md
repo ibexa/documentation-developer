@@ -15,10 +15,7 @@ Using the API ensures that your code will be forward compatible with future rele
 
 ## Using API services
 
-You can access the PHP API by injecting relevant services into your code.
-
 The API provides access to Content, User, content types and other features through various services.
-Those services are obtained using `get[ServiceName]()` methods: `getContentService()`, `getUserService()`, etc.
 
 The full list of available services covers:
 
@@ -48,21 +45,32 @@ The full list of available services covers:
 - [UserPreferenceService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/UserPreferenceService.php)
 - [UserService](https://github.com/ibexa/core/blob/main/src/contracts/Repository/UserService.php)
 
+You can access the PHP API by injecting relevant services into your code:
+
+- By using [auto-wiring]([[=symfony_doc=]]/service_container/autowiring.html), and the service classname in the `Ibexa\Contracts` namespace (see `bin/console debug:autowiring | grep Ibexa.Contracts`).
+- By using [service parameters]([[=symfony_doc=]]/service_container.html#service-parameters), and service aliases (see `bin/console debug:autowiring | grep ibexa.api`).
+- By using the Repository's `get[ServiceName]()` methods: [`Repository::getContentService()`](https://github.com/ibexa/core/blob/v4.6.6/src/contracts/Repository/Repository.php#L46), [`getUserService()`](https://github.com/ibexa/core/blob/v4.6.6/src/contracts/Repository/Repository.php#L111), etc.
+  (Prefer injecting several Repository's dedicated services instead of the whole Repository if the Repository itself is not needed.)
+
+!!! caution
+
+    The PHP API's services can be accessed with `Ibexa\Bundle\Core\Controller::getRepository()` by extending it from a [custom controller](controllers.md), but such approach is not recommended, and you should prefer dependency injection.
+
 ## Value objects
 
-The services provide interaction with read-only value objects from the `Ibexa\Contracts\Core\Repository\Values` namespace.
-Those objects are divided into sub-namespaces, such as `Content`, `User` or `ObjectState`.
+The services provide interaction with read-only value objects from the [`Ibexa\Contracts\Core\Repository\Values`](https://github.com/ibexa/core/tree/v4.6.6/src/contracts/Repository/Values) namespace.
+Those objects are divided into sub-namespaces, such as [`Content`](https://github.com/ibexa/core/tree/v4.6.6/src/contracts/Repository/Values/Content), [`User`](https://github.com/ibexa/core/tree/v4.6.6/src/contracts/Repository/Values/User) or [`ObjectState`](https://github.com/ibexa/core/tree/v4.6.6/src/contracts/Repository/Values/ObjectState).
 Each sub-namespace contains a set of value objects,
 such as [`Content\Content`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Content.php) or [`User\Role`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/User/Role.php).
 
 Value objects come with their own properties, such as `$content->id` or `$location->hidden`,
 as well as with methods that provide access to more related information,
-such as `Relation::getSourceContentInfo()` or `Role::getPolicies()`.
+such as [`Content\Relation::getSourceContentInfo()`](https://github.com/ibexa/core/blob/v4.6.6/src/contracts/Repository/Values/Content/Relation.php#L80) or [`User\Role::getPolicies()`](https://github.com/ibexa/core/blob/v4.6.6/src/contracts/Repository/Values/User/Role.php#L60).
 
 ### Creating and updating objects
 
 Value objects fetch data from the Repository and are read-only.
-To create and modify Repository values you need to use structs, such as `getContentCreateStruct()` or `getContentUpdateStruct()`.
+To create and modify Repository values, use data structures, such as [`ContentService::newContentCreateStruct()`](https://github.com/ibexa/core/blob/v4.6.6/src/contracts/Repository/ContentService.php#L572) or [`LocationService::newLocationUpdateStruct()`](https://github.com/ibexa/core/blob/v4.6.6/src/contracts/Repository/LocationService.php#L238).
 
 ### Value info objects
 
