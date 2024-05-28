@@ -60,6 +60,12 @@ if [[ "$DXP_VERSION" == *".*"* ]]; then
   echo "Obtained version: $DXP_VERSION";
 fi;
 
+#if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
+#  MY_PACKAGE='';
+#  MY_BRANCH='';
+#  composer require --no-interaction --ignore-platform-reqs --no-scripts ibexa/$MY_PACKAGE "$MY_BRANCH as $DXP_VERSION";
+#fi;
+
 if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
   echo -n 'Building package→edition map… ';
   map=$PHPDOC_DIR/template/package-edition-map.twig;
