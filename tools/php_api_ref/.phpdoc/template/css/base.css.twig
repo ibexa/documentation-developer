@@ -52,15 +52,11 @@ body.menu-resizing {
     padding-left: 32px;
 }
 
-.md-nav--primary .md-nav[data-md-level="2"] {
-    padding-left: 24px;
-}
-
 .md-nav--primary .md-nav[data-md-level="3"] .md-nav__item {
     padding-left: 0;
 }
 
-.md-nav--primary .md-nav:not([data-md-level="0"]):not([data-md-level="1"]):not([data-md-level="2"])::before {
+.md-nav--primary .md-nav:not([data-md-level="0"]):not([data-md-level="1"])::before {
     content: '';
     display: block;
     z-index: 1;
@@ -164,7 +160,7 @@ body.menu-resizing {
     margin-right: 8px;
 }
 
-.md-nav--primary .md-nav:not([data-md-level="0"]):not([data-md-level="1"]):not([data-md-level="2"]) .md-nav__item--active > label {
+.md-nav--primary .md-nav:not([data-md-level="0"]):not([data-md-level="1"]) .md-nav__item--active > label {
     border-left: 2px solid #AE1164;
 }
 
