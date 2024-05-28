@@ -9,7 +9,7 @@
     <link rel="icon" href="images/favicon.png"/>
             <link rel="stylesheet" href="css/base.css">
         <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
-                        <script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
         <script src="js/search.js"></script>
         <script defer src="js/searchIndex.js"></script>
     
@@ -36018,6 +36018,33 @@
         
         
                 </div>
+        <p>Class for translatable messages, which may contain plural forms.</p>
+
+    <section class="phpdocumentor-description">
+        <p>The message might include replacements, in the form %[A-Za-z]%. Those are
+replaced by the values provided. A raw % can be escaped like %%.</p>
+<p>You need to provide a singular and plural variant for the string. The
+strings provided should be english and will be translated depending on the
+environment language.</p>
+<p>This interface follows the interfaces of XLiff, gettext, Symfony2
+Translations and Zend_Translate. For singular forms you just provide a plain
+string (with optional placeholders without effects on the plural forms). For
+potential plural forms you always provide a singular variant and an english
+simple plural variant. No implementation supports multiple different plural
+forms in one single message.</p>
+<p>The singular / plural string could, for Symfony2, for example be converted
+to &quot;$singular|$plural&quot;, and you would call gettext like: ngettext(
+$singular, $plural, $count ).</p>
+
+    </section>
+
+                    
+
+
+
+
+
+
 
     
     

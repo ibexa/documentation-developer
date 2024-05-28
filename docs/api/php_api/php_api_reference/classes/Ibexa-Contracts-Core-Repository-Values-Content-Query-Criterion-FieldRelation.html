@@ -9,7 +9,7 @@
     <link rel="icon" href="images/favicon.png"/>
             <link rel="stylesheet" href="css/base.css">
         <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
-                        <script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
         <script src="js/search.js"></script>
         <script defer src="js/searchIndex.js"></script>
     
@@ -36028,6 +36028,27 @@
         
         
                 </div>
+        <p>A criterion that matches Content based on the relations in relation field.</p>
+
+    <section class="phpdocumentor-description">
+        <p>This includes Relation and RelationList field types in standard installation, but also any
+other field type storing <a href="%5CIbexa%5CContracts%5CCore%5CRepository%5CValues%5CContent%5CRelation::FIELD"></a>
+type relation.</p>
+<p>Supported operators:</p>
+<ul>
+<li>IN: will match if Content relates to one or more of the given ids through given relation field</li>
+<li>CONTAINS: will match if Content relates to all of the given ids through given relation field</li>
+</ul>
+
+    </section>
+
+                    
+
+
+
+
+
+
 
     
     

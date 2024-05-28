@@ -9,7 +9,7 @@
     <link rel="icon" href="images/favicon.png"/>
             <link rel="stylesheet" href="css/base.css">
         <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
-                        <script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
         <script src="js/search.js"></script>
         <script defer src="js/searchIndex.js"></script>
     
@@ -36031,6 +36031,49 @@
                                     <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-CustomFieldInterface.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Query\CustomFieldInterface">CustomFieldInterface</abbr></a>                            </div>
         
                 </div>
+        <p>Full text search criterion.</p>
+
+    <section class="phpdocumentor-description">
+        <p>The string provided in this criterion is matched as a full text query
+against all indexed content objects in the storage layer.</p>
+<p>Normalization and querying capabilities might depend on the system
+configuration or the used search engine and might differ. To find about
+supported querying capabilities you can use
+<a href="%5CIbexa%5CContracts%5CCore%5CRepository%5CSearchService::supports()"></a> method.</p>
+<p>If supported, advanced full text query has the following semantics:</p>
+<ul>
+<li>If multiple words are specified an OR query is performed.</li>
+<li>Boolean operators are supported: AND (&amp;&amp;), OR (||), NOT (!).</li>
+<li>Required/prohibit operators are supported: +, -.</li>
+<li>Grouping is supported through parentheses.</li>
+<li>Phrases are supported using double quotes.</li>
+<li>Simple wild cards are supported. If an asterisk (<em>) is used at the end or
+beginning of a word this is translated into a wild card query. Thus &quot;fo</em>&quot;
+would match &quot;foo&quot; and &quot;foobar&quot;, for example.</li>
+<li>Advanced language analysis (like stemming, synonym expansion and stop word
+removal) might be applied to the words provided in the query.</li>
+</ul>
+<p>If advanced full text query is not supported, basic query format will be
+available:</p>
+<ul>
+<li>If multiple words are specified an AND query is performed. OR queries are
+not supported.</li>
+<li>Simple wild cards are supported. If an asterisk (<em>) is used at the end or
+beginning of a word this is translated into a wild card query. Thus &quot;fo</em>&quot;
+would match &quot;foo&quot; and &quot;foobar&quot;, for example.</li>
+<li>Simple stop word removal might be applied to the words provided in the
+query.</li>
+</ul>
+
+    </section>
+
+                    
+
+
+
+
+
+
 
     
     

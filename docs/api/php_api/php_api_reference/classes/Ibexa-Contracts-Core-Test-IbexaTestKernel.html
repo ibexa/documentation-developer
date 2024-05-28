@@ -9,7 +9,7 @@
     <link rel="icon" href="images/favicon.png"/>
             <link rel="stylesheet" href="css/base.css">
         <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
-                        <script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
         <script src="js/search.js"></script>
         <script defer src="js/searchIndex.js"></script>
     
@@ -36011,6 +36011,53 @@
                                     <abbr title="\Ibexa\Contracts\Core\Test\IbexaTestKernelInterface">IbexaTestKernelInterface</abbr>                            </div>
         
                 </div>
+    
+
+                                                
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/Ibexa-Contracts-Core-Test-IbexaTestKernel.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">experimental</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description">
+        <p>Baseline test kernel that dependent packages can extend for their integration tests.</p>
+<h2>Configuring the kernel</h2>
+<p>It automatically exposes all Repository-based services for consumption in tests (marking them as public prevents
+them from being removed from test container). A minimal configuration Symfony framework configuration is provided,
+along with Doctrine connection.</p>
+<p>To supply a different configuration, extend IbexaTestKernel::loadConfiguration() method.</p>
+<p>You can supply your own services (which is something you probably want) by extending IbexaTestKernel::loadServices().</p>
+<p>If you need even more control over how the container is built you can do that by extending the
+IbexaTestKernel::registerContainerConfiguration().</p>
+<h2>Adding bundles</h2>
+<p>Bundles can be added by extending IbexaTestKernel::registerBundles() method (just like in any Kernel).</p>
+<h2>Exposing your services</h2>
+<p>To add services to the test Kernel and make them available in tests via IbexaKernelTestCase::getServiceByClassName(),
+you'll need to extend IbexaTestKernel::getExposedServicesByClass() and / or IbexaTestKernel::getExposedServicesById()
+method.</p>
+<p>IbexaTestKernel::getExposedServicesByClass() is a simpler variant provided for services that are registered in
+service container using their FQCN.</p>
+<p>IbexaTestKernel::getExposedServicesById() is useful if your service is not registered as it's FQCN (for example,
+if you have multiple services for the same class / interface).</p>
+<p>If don't need the repository services (or not all), you can replace the IbexaTestKernel::EXPOSED_SERVICES_BY_CLASS and
+IbexaTestKernel::EXPOSED_SERVICES_BY_ID consts in extending class, without changing the methods above.</p>
+
+    </section>
+
+                                    </dd>
+                                                                                    </dl>
+
+
+
+
+
+
 
     
     <h2 id="constants">
