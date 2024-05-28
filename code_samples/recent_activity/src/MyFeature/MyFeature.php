@@ -10,4 +10,9 @@ class MyFeature extends \stdClass
             $this->$propertyName = $propertyValue;
         }
     }
+
+    public function getName(): ?string
+    {
+        return property_exists($this, 'name') ? $this->name : null;
+    }
 }
