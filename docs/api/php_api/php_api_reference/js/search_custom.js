@@ -45,6 +45,10 @@
         });
     });
 
+    window.setTimeout(() => {
+        searchInput.setAttribute('placeholder', 'Search');
+    }, 500);
+
     searchInput.addEventListener('focus', () => {
         searchInput.classList.add('focus-visible');
         searchInput.setAttribute('data-focus-visible-added', '');
