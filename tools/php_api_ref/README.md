@@ -4,7 +4,7 @@
 
 Requires [`jq`](https://stedolan.github.io/jq/download/)
 
-## Usage
+## Basic usage
 
 `tools/php_api_ref/phpdoc.sh` is a script generating PHP API Reference, by default, under `docs/api/php_api/php_api_reference/`.
 
@@ -17,31 +17,31 @@ Requires [`jq`](https://stedolan.github.io/jq/download/)
   tools/php_api_ref/phpdoc.sh ~/.composer/auth.json ./docs/api/php_api/php_api_reference-TMP
   ```
 
-## Templates
+## Maintenance
 
-The phpDocumentor 3.3.1's default theme is used as a base.
+In `tools/php_api_ref/phpdoc.sh`:
 
-Custom templates are located in tools/php_api_ref/.phpdoc/template
+`PHPDOC_VERSION` should always target the last version of phpDocumentor.
 
-They [replace](https://docs.phpdoc.org/3.3/guide/features/theming/custom-styling.html#replacing-whole-objects-or-components) the [phpDocumentor 3.3.1 default template set](https://github.com/phpDocumentor/phpDocumentor/tree/v3.3.1/data/templates/default) by having the same file tree and names.
+`DXP_VERSION` should target the version of Ibexa DXP Commerce corresponding to the main doc's branch.
 
-### Customizations per template:
+### Templates
 
-* …/template/
-  - base.html.twig sets the "global" Twig variable `usesPackages` to `false`, and some JavaScript to animate the tree.
-  - index.html.twig adds the introduction.
-  - edition-tag.html.twig defines a `edition_tag` macro imported by *-title.html.twig templates.
-  - package-edition-map.html.twig defines a `package_edition_map` variable used by the `edition_tag` macro, this template is extended by each template needing this macro.
-  - components/
-    - class-title.html.twig adds the edition tag.
-    - element-found-in.html.twig replaces the link to a summary of the elements found in a file (generally just one class) by a copy of the file path to the reader's clipboard.
-    - header-title.html.twig adds the Ibexa logo linking to the PHP API introduction in the main documentation.
-    - interface-title.html.twig adds the edition tag.
-    - menu.html.twig sorts alphabetically the second-level namespaces in the left sidebar.
-    - method-response.html.twig doesn't display a return type for a `__construct` method, and doesn't add a dash if there is no return description behind it.
-    - method-signature.html.twig doesn't display a return type for a `__construct` method.
-    - sidebar.html.twig removes several entries from left sidebar: no more Packages, Reports/Errors, Reports/Markers nor Indices/Files.
-    - table-of-contents-entry.html.twig doesn't display a return type for a `__construct` method.
-    - tags.html.twig groups tag of the same name, skips the `@todo` tags, and doesn't display a `@uses` or `@see` tag if it's not a link.
-  - css/
-    - custom.css.twig stylizes.
+Custom templates are located in `tools/php_api_ref/.phpdoc/template/` directory.
+They are overriding the default templates from a phpDocumentor version.
+The default templates version is not always the same as the phpDocumentor binary version.
+To update the default templates version, the overriding custom templates must be updated as well to obtain a better or equal result without bug.
+See `PHPDOC_VERSION` and `PHPDOC_TEMPLATE_VERSION`.
+
+## Advanced usage
+
+`tools/php_api_ref/phpdoc.sh` has a set of internal variables that might be edited for particular usages.
+
+`PHPDOC_CONF` can be changed to use a different config file.
+For example, when working on the design, the set of analysed files can be reduced for a quicker PHP API Reference compilation.
+
+`PHP_BINARY` can be edited, for example, to use a different PHP version than the default, or to change verbosity.
+
+`FORCE_DXP_INSTALL` can be changed to `0` (zero) to have a persistent `TMP_DXP_DIR`.
+After a first run to create it, the Ibexa DXP won't be rebuilt by Composer by next runs.
+Time is saved. The DXP's code could even be modified for test purpose.
