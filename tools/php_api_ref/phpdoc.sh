@@ -106,14 +106,18 @@ fi;
 
 echo 'Set phpDocumentor override templates…';
 cp -R $PHPDOC_DIR ./;
-mkdir php_api_reference;
+mkdir -p php_api_reference/js;
 mv ./.phpdoc/template/fonts ./php_api_reference/;
 mv ./.phpdoc/template/images ./php_api_reference/;
-mv ./.phpdoc/template/js ./php_api_reference/;
+mv ./.phpdoc/template/js/*.js ./php_api_reference/js/;
 
 echo 'Run phpDocumentor…';
 curl -LO "https://github.com/phpDocumentor/phpDocumentor/releases/download/v$PHPDOC_VERSION/phpDocumentor.phar";
-$PHP_BINARY phpDocumentor.phar run -t php_api_reference;
+PHPDOC_BIN='phpDocumentor.phar';
+if [[ "$PHPDOC_VERSION" == "3.4."* ]]; then
+  PHPDOC_BIN='phpDocumentor.phar run';
+fi;
+$PHP_BINARY $PHPDOC_BIN -t php_api_reference;
 if [ $? -eq 0 ]; then
   echo -n 'Remove unneeded from phpDocumentor output… ';
   rm -rf ./php_api_reference/files ./php_api_reference/graphs ./php_api_reference/indices ./php_api_reference/packages;
