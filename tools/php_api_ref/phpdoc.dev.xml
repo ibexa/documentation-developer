@@ -8,19 +8,16 @@
     <title>PHP API Reference</title>
     <version number="*">
         <api>
-            <default-package-name>Ibexa</default-package-name>
             <source dsn=".">
-                <path>vendor/ibexa/activity-log/src/contracts/**/*</path>
-                <path>vendor/ibexa/core/src/contracts/Repository/ContentService.php</path>
-                <path>vendor/ibexa/solr/src/contracts/**/*</path>
+                <path>vendor/ibexa/core/src/contracts/Repository/**/*</path>
             </source>
             <ignore hidden="true" symlinks="true">
                 <path>vendor/**/tests/**/*</path>
-                <path>vendor/**/spec/**/*</path>
             </ignore>
             <!-- Hide private elements -->
             <visibility>public</visibility>
             <visibility>protected</visibility>
+            <default-package-name>Ibexa</default-package-name>
         </api>
     </version>
 </phpdocumentor>
