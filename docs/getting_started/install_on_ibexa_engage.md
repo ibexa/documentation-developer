@@ -12,9 +12,7 @@ For more information, see [Qualifio Developers documentation](https://developers
 ## Prepare configuration files
 
 [[= product_name_engage =]] comes with v4.6.6 of [[= product_name_exp=]].
-If you do not have it, follow the instructions below.
-
-First, run the `composer ibexa:setup` command:
+If you do not have it, run the `composer ibexa:setup` command:
 
 ``` bash
 composer require ibexa/connector-qualifio
@@ -78,9 +76,13 @@ To set up a webhook in [[= product_name_connect =]], follow the steps:
 
 3\. Select **Receive participation data**.
 
+![Create scenario](create_scenario.png)
+
 4\. Click **Create a webhook** and provide a name for the new webhook.
 
 5\. Click **Copy address to clipboard** to save the URL.
+
+![Create webhook](create_webhook.png)
 
 ### Configure [[= product_name_engage =]]
 
@@ -95,5 +97,7 @@ To do it, perform the following actions::
 2\. Go to **Engage** -> **Integrations** -> **Integrations** and select **Webhook**.
 
 3\. Paste the URL from the clipboard into **Webhook Host** field and click **Save**.
+
+![Configure Ibexa Engage](configure_ibexa_engage.png)
 
 4\. Then, go to **Engage** -> **Integrations** -> **Push rules** to define the default or specific rules for new campaign or website. Select the created webhook.
