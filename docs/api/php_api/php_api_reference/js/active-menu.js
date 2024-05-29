@@ -16,4 +16,7 @@
             activeElement = navItem.closest('.md-nav').closest('.md-nav__item')?.querySelector('.md-nav__toggle');
         }
     }
+
+    $('.md-nav__item--active > label').last()[0].scrollIntoView(false);
+
 })(window, window.document);
