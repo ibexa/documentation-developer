@@ -181,7 +181,8 @@ html{-webkit-text-size-adjust:none;-moz-text-size-adjust:none;text-size-adjust:n
         margin: 0 -0.8rem;
         padding: 0 .8rem
     }
-}:root > * {
+}
+:root > * {
     --ibexa-orange: rgb(255,71,19);
     --ibexa-red: rgb(219,0,50);
     --ibexa-jazzberry: rgb(174,17,100);
@@ -1264,7 +1265,8 @@ ul.breadcrumbs li.breadcrumb-item-current {
     [data-md-toggle=search]:checked~.md-header .md-search__inner {
         height: 100%;
     }
-}.switcher {
+}
+.switcher {
     font-size: 13px;
     padding-top: 0.2rem;
 }
@@ -1388,6 +1390,7 @@ ul.breadcrumbs li.breadcrumb-item-current {
 .md-header__switcher .rst-other-versions dt {
     display: none;
 }
+
 body.menu-resizing {
     -webkit-touch-callout: none;
       -webkit-user-select: none;
