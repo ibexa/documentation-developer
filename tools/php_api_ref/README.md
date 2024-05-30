@@ -40,7 +40,7 @@ See `PHPDOC_VERSION` and `PHPDOC_TEMPLATE_VERSION`.
 `PHPDOC_CONF` can be changed to use a different config file.
 For example, when working on the design, the set of parsed files can be reduced for a quicker PHP API Reference compilation.
 
-`PHP_BINARY` can be edited, for example, to use a different PHP version than the default, or to change verbosity.
+`PHP_BINARY` can be edited, for example, to use a different PHP version than the default, to change verbosity, or to add `-d memory_limit=-1`.
 
 `FORCE_DXP_INSTALL` can be changed to `0` (zero) to have a persistent `TMP_DXP_DIR`.
 After a first run to create it, the Ibexa DXP won't be rebuilt by Composer by next runs.
