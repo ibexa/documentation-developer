@@ -17,6 +17,8 @@
         }
     }
 
-    $('.md-nav__item--active > label').last()[0].scrollIntoView(false);
+    if ($('.md-nav__item--active > label').length) {
+        $('.md-nav__item--active > label').last()[0].scrollIntoView(false);
+    }
 
 })(window, window.document);
