@@ -740,6 +740,7 @@ nav:
         - Reindex search: search/reindex_search.md
     - Infrastructure and maintenance:
         - Infrastructure and maintenance: infrastructure_and_maintenance/infrastructure_and_maintenance.md
+        - Ibexa Cloud: ibexa_products/ibexa_cloud.md
         - Request lifecycle: infrastructure_and_maintenance/request_lifecycle.md
         - Databases: infrastructure_and_maintenance/databases.md
         - Cache:
