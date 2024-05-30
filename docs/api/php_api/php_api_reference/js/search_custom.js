@@ -47,7 +47,7 @@
 
     window.setTimeout(() => {
         searchInput.setAttribute('placeholder', 'Search');
-    }, 500);
+    }, 1000);
 
     searchInput.addEventListener('focus', () => {
         searchInput.classList.add('focus-visible');
