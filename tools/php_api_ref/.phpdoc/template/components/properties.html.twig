@@ -3,7 +3,7 @@
 {% if properties is not empty %}
         <h2 id="properties">
             Properties
-            {%- include 'components/anchor.html.twig' with { anchor_link: '#properties' } -%}
+            {%- include 'components/anchor.html.twig' with { anchor_link: link(node) ~ '#properties' } -%}
         </h2>
 
         {% for property in properties %}

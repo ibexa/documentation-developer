@@ -4,6 +4,6 @@
         {% include 'components/doc-switcher.html.twig' %}
         {% include 'components/version-switcher.html.twig' %}
         {% include 'components/search.html.twig' %}
-        {% include 'components/source.html.twig' %}
+        {% include 'components/source.html.twig' with { node: node } %}
     </nav>
 </header>

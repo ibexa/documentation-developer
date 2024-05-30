@@ -55,15 +55,18 @@ class MonitorRecentContentCreationCommand extends Command
             }
             $table = [];
             foreach ($activityLogGroup->getActivityLogs() as $activityLog) {
-                /** @var \Ibexa\Contracts\Core\Repository\Values\Content\Content $content */
+                $name = "“{$activityLog->getObjectName()}”";
                 $content = $activityLog->getRelatedObject();
-                $name = $content && $content->getName() && $content->getName() !== $activityLog->getObjectName() ? "“{$content->getName()}” (formerly “{$activityLog->getObjectName()}”)" : "“{$activityLog->getObjectName()}”";
+                if ($content && method_exists($content, 'getName') && $content->getName() !== $activityLog->getObjectName()) {
+                    $name = "“{$content->getName()}” (formerly “{$activityLog->getObjectName()}”)";
+                }
                 $table[] = [
                     $activityLogGroup->getLoggedAt()->format(\DateTime::ATOM),
                     $activityLog->getObjectId(),
                     $name,
                     $activityLog->getAction(),
                     $activityLogGroup->getUser()->login,
+                    $activityLogGroup->getIp() ? $activityLogGroup->getIp()->getIp() : '',
                 ];
             }
             $io->table([
@@ -72,6 +75,7 @@ class MonitorRecentContentCreationCommand extends Command
                 'Object Name',
                 'Action',
                 'User',
+                'IP',
             ], $table);
         }
 

@@ -6,7 +6,9 @@
     {% endif %}
     <{{ header_tag|default('h1') }} id="{{ anchor }}">
         {% block name %}{{ node.name }}{% endblock %}
-        {%- include 'components/anchor.html.twig' with { anchor_link } -%}
+        {% if fqcn is not defined %}
+            {%- include 'components/anchor.html.twig' with { anchor_link } -%}
+        {% endif %}
     </{{ header_tag|default('h1') }}>
     {% if fqcn is defined %}
         <button class="content-header__copy-fqcn copy-to-clipboard" title="{{ fqcn }}" data-copy-value="{{ fqcn }}">Copy FQCN</button>

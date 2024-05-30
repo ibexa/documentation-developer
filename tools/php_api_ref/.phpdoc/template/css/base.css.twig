@@ -5,21 +5,55 @@
 {% include 'css/navigation.css.twig' %}
 {% include 'css/docs.switcher.css.twig' %}
 
+body.menu-resizing {
+    -webkit-touch-callout: none;
+      -webkit-user-select: none;
+       -khtml-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none;
+}
 
 {# --------------------------------------------------------------------------- #}
 {# --------------------------------- Sidebar --------------------------------- #}
 {# --------------------------------------------------------------------------- #}
 
+.main_nav__resize-handler {
+    width: 3px;
+    height: 100%;
+    cursor: ew-resize;
+    position: absolute;
+    top: 0;
+    right: -2px;
+}
+
+.main_nav__resize-handler:hover {
+    background-color: #306CBE;
+}
+
+.main_nav_content,
+.md-sidebar--primary {
+    width: 100%;
+}
+
 .md-sidebar--primary {
     padding-left: 0;
+}
+
+.md-nav--primary .md-nav {
+    position: relative;
 }
 
 .md-nav--primary .md-nav:not([data-md-level="0"]) {
     padding-left: 16px;
 }
 
-.md-nav--primary .md-nav:not([data-md-level="0"]):not([data-md-level="1"]) {
-    position: relative;
+.md-nav--primary .md-nav[data-md-level="1"] {
+    padding-left: 32px;
+}
+
+.md-nav--primary .md-nav[data-md-level="3"] .md-nav__item {
+    padding-left: 0;
 }
 
 .md-nav--primary .md-nav:not([data-md-level="0"]):not([data-md-level="1"])::before {
@@ -75,8 +109,8 @@
 }
 
 .md-nav--primary .md-nav__item--nested > .md-nav__link:not(.level-0) {
-    padding-left: 40px;
-    background-position: 16px 16px;
+    padding-left: 44px;
+    background-position: 20px 16px;
 }
 
 .md-nav--primary .md-nav__item--nested > .md-nav__link:not(.level-0):not(.level-1) {
@@ -86,6 +120,15 @@
 .md-nav--primary .md-nav__item--nested > .md-nav__toggle:checked~.md-nav__link:not(.level-0):not(.level-1) ,
 .md-nav--primary .md-nav__item--nested > .md-nav__toggle:checked~.md-nav > .md-nav__link:not(.level-0):not(.level-1) {
     background-image: url(../images/caret-down.svg);
+}
+
+.md-nav--primary .md-nav__item--nested.md-nav__item--active > .md-nav__link:not(.level-0):not(.level-1):hover {
+    background-image: url(../images/caret-white.svg);
+}
+
+.md-nav--primary .md-nav__item--nested.md-nav__item--active > .md-nav__toggle:checked~.md-nav__link:not(.level-0):not(.level-1):hover ,
+.md-nav--primary .md-nav__item--nested.md-nav__item--active > .md-nav__toggle:checked~.md-nav > .md-nav__link:not(.level-0):not(.level-1):hover {
+    background-image: url(../images/caret-down-white.svg);
 }
 
 .md-nav--primary .level-2,
@@ -117,11 +160,7 @@
     margin-right: 8px;
 }
 
-.md-nav--primary .md-nav__item > .md-nav__toggle:checked ~ .md-nav__link:not(.level-0) {
-    background-color: #F3F3F6;
-}
-
-.md-nav--primary .md-nav__item > .md-nav__toggle:checked ~ .md-nav__link:not(.level-0):not(.level-1) {
+.md-nav--primary .md-nav:not([data-md-level="0"]):not([data-md-level="1"]) .md-nav__item--active > label {
     border-left: 2px solid #AE1164;
 }
 
@@ -130,6 +169,26 @@
     text-overflow: ellipsis;
 }
 
+.md-nav--primary .md-nav__item--active > label.level-0 {
+    background-color: transparent;
+}
+
+.md-nav--primary .md-nav__item--active > label:not(.level-0):hover {
+    background-color: #333333;
+}
+
+.md-nav--primary .md-nav__item--active > label:not(.level-0):hover a {
+    color: #ffffff !important;
+}
+
+.md-nav--primary .md-nav__item--nested.md-nav__item--active > .level-1:hover {
+    background-image: url(../images/plus-white.svg);
+}
+
+.md-nav--primary .md-nav__item--nested.md-nav__item--active > .md-nav__toggle:checked~.level-1:hover,
+.md-nav--primary .md-nav__item--nested.md-nav__item--active > .md-nav__toggle:checked~.md-nav>.level-1:hover {
+    background-image: url(../images/minus-white.svg);
+}
 
 {# --------------------------------------------------------------------------- #}
 {# ------------------------------- Breadcrumbs ------------------------------- #}
@@ -215,6 +274,14 @@ ul.breadcrumbs li.breadcrumb-item-current span {
     font-size: 12px;
     line-height: 18px;
     color: #71767C;
+}
+
+.md-typeset abbr {
+    cursor: default;
+}
+
+.md-typeset a abbr {
+    cursor: pointer;
 }
 
 .md-typeset .content-header__found-in img {
@@ -396,8 +463,17 @@ ul.breadcrumbs li.breadcrumb-item-current span {
     margin: 24px 0 0 0;
 }
 
+.md-typeset ul.namespace-list img {
+    width: 12px;
+    margin-right: 4px;
+    margin-top: 6px;
+}
+
 .md-typeset ul.namespace-list li a {
     text-decoration: underline;
+    white-space: nowrap;
+    color: #3474cc;
+    flex-grow: 1;
 }
 
 .md-typeset ul.namespace-list li p {
