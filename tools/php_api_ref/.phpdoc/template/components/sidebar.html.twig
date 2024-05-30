@@ -1,13 +1,24 @@
-{# https://github.com/phpDocumentor/phpDocumentor/blob/v3.3.1/data/templates/default/components/sidebar.html.twig #}
-<input class="phpdocumentor-sidebar__menu-button" type="checkbox" id="sidebar-button" name="sidebar-button" />
-<label class="phpdocumentor-sidebar__menu-icon" for="sidebar-button">
-    Menu
-</label>
-<aside class="phpdocumentor-column -four phpdocumentor-sidebar">
-    <section class="phpdocumentor-sidebar__category">
-        <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
-        {% for namespace in project.namespace.children %}
-            {% include 'components/menu.html.twig' with {'entry': namespace, 'depth': 1} %}
-        {% endfor %}
-    </section>
-</aside>
+<div class="main_nav">
+    <div class="main_nav_content">
+        <div class="site-header" id="site-name">
+            <a href=".">{{ project.name }}</a>
+            <span class="pill">latest</span>
+        </div>
+        <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+            <div class="md-sidebar__scrollwrap">
+                <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+                        <ul class="md-nav__list">
+                            <li></li>
+                            {% for namespace in project.namespace.children %}
+                                {% include 'components/menu.html.twig' with { entry: namespace, depth: 0 } %}
+                                {% set break = true %}
+                            {% endfor %}
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main_nav__resize-handler"></div>
+</div>

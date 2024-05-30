@@ -45,13 +45,16 @@ The full list of available services covers:
 - [UserPreferenceService](php_api_reference/classes/Ibexa-Contracts-Core-Repository-UserPreferenceService.html)
 - [UserService](php_api_reference/classes/Ibexa-Contracts-Core-Repository-UserService.html)
 
-You can access the PHP API by injecting relevant services into your code.
+You can access the PHP API by injecting relevant services into your code:
 
-- Using [auto-wiring]([[=symfony_doc=]]/service_container/autowiring.html), and the service classname in the `Ibexa\Contracts` namespace (see `bin/console debug:autowiring | grep Ibexa.Contracts`).
-- Using [service parameters]([[=symfony_doc=]]/service_container.html#service-parameters), and the service aliases (see `bin/console debug:autowiring | grep ibexa.api`).
-- Using Repository's `get[ServiceName]()` methods: [`Repository::getContentService()`](php_api_reference/classes/Ibexa-Contracts-Core-Repository-Repository.html#method_getContentService), [`getUserService()`](php_api_reference/classes/Ibexa-Contracts-Core-Repository-Repository.html#method_getUserService), etc.
+- By using [auto-wiring]([[=symfony_doc=]]/service_container/autowiring.html), and the service classname in the `Ibexa\Contracts` namespace (see `bin/console debug:autowiring | grep Ibexa.Contracts`).
+- By using [service parameters]([[=symfony_doc=]]/service_container.html#service-parameters), and service aliases (see `bin/console debug:autowiring | grep ibexa.api`).
+- By using the Repository's `get[ServiceName]()` methods: [`Repository::getContentService()`](php_api_reference/classes/Ibexa-Contracts-Core-Repository-Repository.html#method_getContentService), [`getUserService()`](php_api_reference/classes/Ibexa-Contracts-Core-Repository-Repository.html#method_getUserService), etc.
   (Prefer injecting several Repository's dedicated services instead of the whole Repository if the Repository itself is not needed.)
-- (Not recommended) Using `Ibexa\Bundle\Core\Controller::getRepository()` by extending it from your [custom controller](../../templating/queries_and_controllers/controllers.md#controllers). (Prefer dependency injection.)
+
+!!! caution
+
+    The PHP API's services can be accessed with `Ibexa\Bundle\Core\Controller::getRepository()` by extending it from a [custom controller](controllers.md), but such approach is not recommended, and you should prefer dependency injection.
 
 ## Value objects
 
@@ -67,13 +70,13 @@ such as [`Content\Relation::getSourceContentInfo()`](php_api_reference/classes/I
 ### Creating and updating objects
 
 Value objects fetch data from the Repository and are read-only.
-To create and modify Repository values you need to use data structures, such as [`ContentService::newContentCreateStruct()`](php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_newContentCreateStruct) or [`LocationService::newLocationUpdateStruct()`](php_api_reference/classes/Ibexa-Contracts-Core-Repository-LocationService.html#method_newLocationUpdateStruct).
+To create and modify Repository values, use data structures, such as [`ContentService::newContentCreateStruct()`](https://github.com/ibexa/core/blob/v4.6.6/src/contracts/Repository/ContentService.php#L572) or [`LocationService::newLocationUpdateStruct()`](https://github.com/ibexa/core/blob/v4.6.6/src/contracts/Repository/LocationService.php#L238).
 
 ### Value info objects
 
 Some complex value objects have an `Info` counterpart,
-for example [`ContentInfo`](php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html)
-for [`Content`](php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html).
+for example [`ContentInfo`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/ContentInfo.php)
+for [`Content`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Content.php).
 These objects provide you with lower-level information.
 For instance, `ContentInfo` contains `currentVersionNo` or `remoteId`,
 while `Content` enables you to retrieve Fields, content type, or previous versions.

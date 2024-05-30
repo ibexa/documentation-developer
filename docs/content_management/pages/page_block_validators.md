@@ -66,3 +66,13 @@ Finally, add the validator to one of your block attributes, for example:
 ``` yaml hl_lines="16-18"
 [[= include_file('code_samples/page/custom_block_validator/config/packages/page_blocks.yaml', 0, 1) =]][[= include_file('code_samples/page/custom_block_validator/config/packages/page_blocks.yaml', 3, 20) =]]
 ```
+
+### Custom required validator
+
+By default, only `not_blank` and `not_blank_richtext` validators mark a block attribute as required.
+
+If you create a custom validator `custom_not_blank` with attribute-specific logic, you can extend the `AttributeType` class with a Symfony form type extension to make sure that the attribute is also considered required:
+
+``` php hl_lines="15"
+[[= include_file('code_samples/page/custom_block_validator/src/Form/Extension/AttributeTypeExtension.php') =]]
+```

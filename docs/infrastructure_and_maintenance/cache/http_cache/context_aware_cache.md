@@ -204,6 +204,6 @@ public function addPreferenceHash(FilterResponseEvent $event)
 ```php
 $response->setVary('X-User-Preference-Hash');
 
-// If you _also_ need to vary on eZ permissions, instead use:
+// If you _also_ need to vary on [[= product_name =]] permissions, instead use:
 //$response->setVary(['X-Context-User-Hash', 'X-User-Preference-Hash']);
 ```

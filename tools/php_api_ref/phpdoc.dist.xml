@@ -8,42 +8,16 @@
     <title>PHP API Reference</title>
     <version number="*">
         <api>
-            <default-package-name>Ibexa</default-package-name>
             <source dsn=".">
-                <!-- Whole Ibexa PHP namespaces (4.x, 3.3) - ->
-                <path>vendor/ibexa/</path>
-                <path>vendor/ezsystems/</path>
-                <path>vendor/silversolutions/</path>
-                <!- - Ibexa\Contracts is the Public PHP API (4.x, 3.3) -->
                 <path>vendor/ibexa/**/contracts/**/*</path>
-                <path>vendor/ezsystems/**/contracts/**/*</path>
-                <!-- TODO: Useful classes to add to the PHP API (4.x) - ->
-                <path>vendor/ibexa/**/Exception*/**/*</path>
-                <path>vendor/ibexa/core/src/bundle/Core/Controller.php</path>
-                <path>vendor/ibexa/rest/src/lib/Server/Controller.php</path>
-                <path>vendor/ibexa/**/Pagerfanta/**/*Adapter.php</path>
-                <path>vendor/ibexa/oauth2-client/src/lib/ResourceOwner/**/*</path>
-                <!- - TODO: Useful classes to add to the PHP API (3.3) -->
             </source>
             <ignore hidden="true" symlinks="true">
                 <path>vendor/**/tests/**/*</path>
-                <path>vendor/**/spec/**/*</path>
-
-                <!-- SebastianBergmann\Diff -->
-                <path>vendor/ezsystems/diff/**/*</path>
-
-                <!-- App\QueryType\NearbyPlacesQueryType -->
-                <path>vendor/ibexa/fieldtype-query/doc/examples/nearby_places/NearbyPlacesQueryType.php</path>
-
-                <!-- Hautelook\TemplatedUriBundle -->
-                <path>vendor/ibexa/templated-uri-bundle/Hautelook/**/*</path>
-
-                <!-- Hautelook\TemplatedUriRouter -->
-                <path>vendor/ibexa/templated-uri-router/**/*</path>
             </ignore>
             <!-- Hide private elements -->
             <visibility>public</visibility>
             <visibility>protected</visibility>
+            <default-package-name>Ibexa</default-package-name>
         </api>
     </version>
 </phpdocumentor>

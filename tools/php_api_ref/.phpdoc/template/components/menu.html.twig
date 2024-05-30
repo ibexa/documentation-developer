@@ -1,33 +1,86 @@
-{# https://github.com/phpDocumentor/phpDocumentor/blob/v3.3.1/data/templates/default/components/menu.html.twig #}
-{# https://github.com/phpDocumentor/phpDocumentor/blob/v3.3.1/data/templates/clean/elements/namespaces.sidebar.html.twig #}
-{% if depth > 1 %}
-<svg width="8" height="8">
-    <use xlink:href="../../../images/ez-icons.svg#folder-empty"></use>
-</svg>
-{% endif %}
-<a href="{{ entry|route("url")|raw }}">{{ entry.name | shortFQSEN }}</a>
-{% if entry.children.count or entry.interfaces.count or entry.classes.count or entry.traits.count %}
-    <ul class="phpdocumentor-list depth-{{ depth }}">
-        {% if entry.children.count %}
-        <li class="type-header type-header-namespace">Namespaces</li>
-        {% for child in entry.children|sort_asc %}
-            {% if child.children.count %}
-            <li class="type-namespace">
-                {% include 'components/menu.html.twig' with {'entry': child, 'depth': depth+1} %}
-            </li>
+{% if depth == 0 %}
+    {% if entry.children.count > 0 %}
+        {% for child in entry.children %}
+            {% include 'components/menu-entry.html.twig' with {
+                title: entry.name|shortFQSEN ~ ' ' ~ child.name|shortFQSEN,
+                nav_id: loop.index,
+                expanded: true,
+                entry: child,
+            } %}
+        {% endfor %}
+    {% endif %}
+{% else %}
+
+    {% set index = 0 %}
+
+    {% if entry.children.count > 0 %}
+        {% if depth > 1 %}
+            <label class="md-nav__list-title md-nav__list-title--namespaces">
+                Namespaces
+            </label>
+        {% endif %}
+        <ul class="md-nav__list">
+            {% for child in entry.children %}
+                {% include 'components/menu-entry.html.twig' with {
+                    title: child.name|shortFQSEN,
+                    nav_id: nav_id ~ '-' ~ index,
+                    entry: child,
+                    expanded: false,
+                    icon: 'folder.svg',
+                    type: 'namespace',
+                } %}
+
+                {% set index = index + 1 %}
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if entry.interfaces[0] is defined or entry.classes[0] is defined or entry.traits[0] is defined %}
+        {% if depth > 1 %}
+            <label class="md-nav__list-title">
+                Interfaces, classes, and traits
+            </label>
+        {% endif %}
+        <ul class="md-nav__list">
+            {% if entry.interfaces[0] is defined %}
+                {% for element in entry.interfaces|sort_asc %}
+                    {% include 'components/menu-entry.html.twig' with {
+                        title: element.name|shortFQSEN,
+                        nav_id: nav_id ~ '-' ~ index,
+                        entry: element,
+                        expanded: false,
+                        icon: 'file.svg',
+                    } %}
+
+                    {% set index = index + 1 %}
+                {% endfor %}
             {% endif %}
-        {% endfor %}
-        {% endif %}
-        {% if entry.interfaces.count or entry.classes.count or entry.traits.count %}
-        <li class="type-header type-header-classes">Interfaces, classes and traits</li>
-        {% for element in entry.interfaces.merge(entry.classes).merge(entry.traits)|sort_asc %}
-            <li class="type-element">
-                <svg width="8" height="8">
-                    <use fill="var(--ibexa-jazzberry)" xlink:href="../../../images/ez-icons.svg#file"></use>
-                </svg>
-                <a href="{{ element|route("url")|raw }}">{{ element.name | shortFQSEN }}</a>
-            </li>
-        {% endfor %}
-        {% endif %}
-    </ul>
+            {% if entry.classes[0] is defined %}
+                {% for element in entry.classes|sort_asc %}
+                    {% include 'components/menu-entry.html.twig' with {
+                        title: element.name|shortFQSEN,
+                        nav_id: nav_id ~ '-' ~ index,
+                        entry: element,
+                        expanded: false,
+                        icon: 'file.svg',
+                    } %}
+
+                    {% set index = index + 1 %}
+                {% endfor %}
+            {% endif %}
+            {% if entry.traits[0] is defined %}
+                {% for element in entry.traits|sort_asc %}
+                    {% include 'components/menu-entry.html.twig' with {
+                        title: element.name|shortFQSEN,
+                        nav_id: nav_id ~ '-' ~ index,
+                        entry: element,
+                        expanded: false,
+                        icon: 'file.svg',
+                    } %}
+
+                    {% set index = index + 1 %}
+                {% endfor %}
+            {% endif %}
+        </ul>
+    {% endif %}
 {% endif %}

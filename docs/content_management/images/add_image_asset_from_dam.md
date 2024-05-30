@@ -58,7 +58,7 @@ For more information about displaying content, see [Content rendering](render_co
                Identifier\ContentType: <dam_image_content_type_identifier>
 ```
 
-In you [configuration file](configuration.md#configuration-files) add the following configuration:
+In your [configuration file](configuration.md#configuration-files) add the following configuration:
 
 ``` yaml
 dam_unsplash:

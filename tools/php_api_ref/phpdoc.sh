@@ -6,17 +6,17 @@ AUTH_JSON=${1:-~/.composer/auth.json}; # Path to an auth.json file allowing to i
 OUTPUT_DIR=${2:-./docs/api/php_api/php_api_reference}; # Path to the directory where the built PHP API Reference is hosted
 
 DXP_EDITION='commerce'; # Edition from and for which the Reference is built
-DXP_VERSION='4.6.*@dev'; # Version from and for which the Reference is built
+DXP_VERSION='4.6.*'; # Version from and for which the Reference is built
 DXP_EDITIONS=(oss headless experience commerce); # Available editions ordered by ascending capabilities
-TMP_DXP_DIR=/tmp/ibexa-dxp-phpdoc; # Absolute path of the temporary directory in which Ibexa DXP will be installed and the PHP API Reference built
-PHPDOC_VERSION='3.4.3'; # Version of phpDocumentor used to build the Reference
+PHPDOC_VERSION='3.5.0'; # Version of phpDocumentor used to build the Reference
 PHPDOC_CONF="$(pwd)/tools/php_api_ref/phpdoc.dist.xml"; # Absolute path to phpDocumentor configuration file
 #PHPDOC_CONF="$(pwd)/tools/php_api_ref/phpdoc.dev.xml"; # Absolute path to phpDocumentor configuration file
-PHPDOC_TEMPLATE_VERSION='3.3.1'; # Version of the phpDocumentor base template set
+PHPDOC_TEMPLATE_VERSION='3.5.0'; # Version of the phpDocumentor base template set
 PHPDOC_DIR="$(pwd)/tools/php_api_ref/.phpdoc"; # Absolute path to phpDocumentor resource directory (containing the override template set)
 
 PHP_BINARY="php -d error_reporting=`php -r 'echo E_ALL & ~E_DEPRECATED;'`"; # Avoid depreciation messages from phpDocumentor/Reflection/issues/529 when using PHP 8.2 or higher
-FORCE_DXP_INSTALL=1; # If 1, empty the temporary directory, install DXP from scratch, build, remove temporary directory; if O, potentially reuse the DXP already installed in temporary directory, keep temporary directory for future uses.
+TMP_DXP_DIR=/tmp/ibexa-dxp-phpdoc; # Absolute path of the temporary directory in which Ibexa DXP will be installed and the PHP API Reference built
+FORCE_DXP_INSTALL=1; # If 1, empty the temporary directory, install DXP from scratch, build, remove temporary directory; if 0, potentially reuse the DXP already installed in temporary directory, keep temporary directory for future uses.
 
 if [ ! -d $OUTPUT_DIR ]; then
   echo -n "Creating ${OUTPUT_DIR}… ";
@@ -60,6 +60,12 @@ if [[ "$DXP_VERSION" == *".*"* ]]; then
   echo "Obtained version: $DXP_VERSION";
 fi;
 
+#if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
+#  MY_PACKAGE='';
+#  MY_BRANCH='';
+#  composer require --no-interaction --ignore-platform-reqs --no-scripts ibexa/$MY_PACKAGE "$MY_BRANCH as $DXP_VERSION";
+#fi;
+
 if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
   echo -n 'Building package→edition map… ';
   map=$PHPDOC_DIR/template/package-edition-map.twig;
@@ -100,14 +106,18 @@ fi;
 
 echo 'Set phpDocumentor override templates…';
 cp -R $PHPDOC_DIR ./;
-mkdir php_api_reference;
+mkdir -p php_api_reference/js;
 mv ./.phpdoc/template/fonts ./php_api_reference/;
 mv ./.phpdoc/template/images ./php_api_reference/;
-mv ./.phpdoc/template/js ./php_api_reference/;
+mv ./.phpdoc/template/js/*.js ./php_api_reference/js/;
 
 echo 'Run phpDocumentor…';
 curl -LO "https://github.com/phpDocumentor/phpDocumentor/releases/download/v$PHPDOC_VERSION/phpDocumentor.phar";
-$PHP_BINARY phpDocumentor.phar run -t php_api_reference;
+PHPDOC_BIN='phpDocumentor.phar';
+if [[ "$PHPDOC_VERSION" == "3.4."* ]]; then
+  PHPDOC_BIN='phpDocumentor.phar run';
+fi;
+$PHP_BINARY $PHPDOC_BIN -t php_api_reference;
 if [ $? -eq 0 ]; then
   echo -n 'Remove unneeded from phpDocumentor output… ';
   rm -rf ./php_api_reference/files ./php_api_reference/graphs ./php_api_reference/indices ./php_api_reference/packages;

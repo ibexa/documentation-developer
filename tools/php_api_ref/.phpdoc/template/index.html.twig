@@ -1,30 +1,19 @@
-{# https://github.com/phpDocumentor/phpDocumentor/blob/v3.3.1/data/templates/default/index.html.twig #}
 {% extends 'base.html.twig' %}
 
 {% block content %}
-    <h2>Public PHP API Reference</h2>
+    <div class="main-page">
+        <h1>PHP API Reference</h1>
 
-    <p>
-        Ibexa DXP's Public PHP API is defined in the <a href="namespaces/ibexa-contracts.html"><code>Ibexa\Contracts</code> namespace</a>
-        where consumption backward compatibility is promised.
-    </p>
-    <p>
-        If those <code>Contracts</code> are used for type hinting (including auto-wiring),
-        the received objects will always respect the <code>Contracts</code> in the next minor versions, following <a href="https://semver.org/">SemVer</a>.
-    </p>
+        <p>
+            Ibexa DXP's public PHP API is defined in the
+            <a href="namespaces/ibexa-contracts.html"><code>Ibexa\Contracts</code></a> namespace.
+            Ibexa promises backward compatibility to API consumers.
+        </p>
 
-    {% set node = project.namespace %}
-
-    {{
-    include(
-        'components/table-of-contents.html.twig',
-        {
-            'node': project.namespace,
-            'namespaces': usesNamespaces or not usesPackages ? node.children : [],
-            'packages': usesPackages ? project.package.children : []
-        }
-    )
-    }}
-    {{ include('components/constants.html.twig', {'node': project.namespace}) }}
-    {{ include('components/functions.html.twig', {'node': project.namespace}) }}
+        <p>
+            If those <code>Contracts</code> are used for type hinting (including auto-wiring),
+            the received objects always respect the <code>Contracts</code> in the next minor versions,
+            following the <a href="https://semver.org/">Semantic Versioning Specification</a>.
+        </p>
+    </div>
 {% endblock %}
