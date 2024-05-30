@@ -38,7 +38,7 @@ See `PHPDOC_VERSION` and `PHPDOC_TEMPLATE_VERSION`.
 `tools/php_api_ref/phpdoc.sh` has a set of internal variables that might be edited for particular usages.
 
 `PHPDOC_CONF` can be changed to use a different config file.
-For example, when working on the design, the set of analysed files can be reduced for a quicker PHP API Reference compilation.
+For example, when working on the design, the set of parsed files can be reduced for a quicker PHP API Reference compilation.
 
 `PHP_BINARY` can be edited, for example, to use a different PHP version than the default, or to change verbosity.
 
