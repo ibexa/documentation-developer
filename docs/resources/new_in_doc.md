@@ -12,6 +12,10 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 - [PHP API Reference](https://doc.ibexa.co/en/master/api/php_api/php_api_reference/)
 
+### User management
+
+- [Warning about recent activity log and user privacy](https://doc.ibexa.co/en/latest/administration/recent_activity/recent_activity/#user-privacy)
+
 ## April 2024
 
 ### Product guides
@@ -22,7 +26,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 - [v4.6.0 to v4.6.3 update instructions](https://doc.ibexa.co/en/master/update_and_migration/from_4.5/update_from_4.5/#v463)
 
-### Users
+### User management
 
 - [Recent activity](https://doc.ibexa.co/en/master/administration/recent_activity/recent_activity/)
 - [OAuth server](https://doc.ibexa.co/en/master/users/oauth_server/)
