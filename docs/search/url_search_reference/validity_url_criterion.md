@@ -1,6 +1,6 @@
 # Validity Criterion
 
-The [Validity URL Criterion](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/URL/Query/Criterion/Validity.php) matches URLs based on a validity flag.
+The [Validity URL Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-URL-Query-Criterion-Validity.html) matches URLs based on a validity flag.
 
 ## Arguments
 

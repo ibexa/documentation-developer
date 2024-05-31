@@ -1,6 +1,6 @@
 # CustomField Sort Clause
 
-The [`CustomField` Sort Clause](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/SortClause/CustomField.php)
+The [`CustomField` Sort Clause](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-CustomField.html)
 sorts search results by raw search index fields.
 
 ## Arguments

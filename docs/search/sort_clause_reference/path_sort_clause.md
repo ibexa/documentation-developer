@@ -1,6 +1,6 @@
 # Path Sort Clause
 
-The [`Location\Path` Sort Clause](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/SortClause/Location/Path.php)
+The [`Location\Path` Sort Clause](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-Location-Path.html)
 sorts search results by the pathString of the Location.
 
 !!! note

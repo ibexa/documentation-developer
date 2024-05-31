@@ -1,0 +1,70 @@
+{% set constants = constants(node) %}
+{% set properties = properties(node) %}
+{% set methods = methods(node) %}
+{% set cases = cases(node) %}
+{% set functions = node.functions|default([]) %}
+
+{% if packages|default([]) is not empty %}
+    <h2 id="packages">
+        Packages
+        {%- include 'components/anchor.html.twig' with { anchor_link: link(node) ~ '#packages' } -%}
+    </h2>
+    <ul class="namespace-list">
+        {% for package in packages %}
+            <li>
+                <img src="./images/arrow-right.svg" />
+                <a href="{{ link(package) }}">
+                    {{ package.name }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+{% if namespaces|default([]) is not empty %}
+    <h2 id="namespaces">
+        Namespaces
+        {%- include 'components/anchor.html.twig' with { anchor_link: link(node) ~ '#namespaces' } -%}
+    </h2>
+    <ul class="namespace-list">
+        {% for namespace in namespaces %}
+            <li>
+                <img src="./images/arrow-right.svg" />
+                <a href="{{ link(namespace) }}">
+                    {{ namespace.name }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+{% set joined_data = [] %}
+{% if node.interfaces[0] is defined %}
+    {% set joined_data = joined_data|merge(node.interfaces) %}
+{% endif %}
+{% if node.classes[0] is defined %}
+    {% set joined_data = joined_data|merge(node.classes) %}
+{% endif %}
+{% if node.traits[0] is defined %}
+    {% set joined_data = joined_data|merge(node.traits) %}
+{% endif %}
+
+{% if joined_data is not empty %}
+    <h2 id="interfaces">
+        Interfaces, classes, and traits
+        {%- include 'components/anchor.html.twig' with { anchor_link: link(node) ~ '#interfaces' } -%}
+    </h2>
+    <ul class="namespace-list">
+        {% for entry in joined_data %}
+            <li>
+                <img src="./images/arrow-right.svg" />
+                <a href="{{ link(entry) }}">
+                    {{ entry.name }}
+                </a>
+                {%- if entry.summary -%}
+                    <p>{{ entry.summary }}</p>
+                {%- endif -%}
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
