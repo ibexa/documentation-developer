@@ -1,6 +1,6 @@
 # UserEmail Criterion
 
-The [`UserEmail` Search Criterion](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/Criterion/UserEmail.php)
+The [`UserEmail` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-UserEmail.html)
 searches for content based on the email assigned to the User account.
 
 ## Arguments

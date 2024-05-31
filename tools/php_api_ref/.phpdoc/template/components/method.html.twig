@@ -1,0 +1,17 @@
+{% embed 'components/content-header.html.twig' with { node: method, anchor: 'method_' ~ method.name, anchor_link: link(method), header_tag: 'h3' } %}
+    {% block name %}
+        <img src="./images/{{ method.visibility }}.svg" alt="{{ method.visibility }}" title="{{ method.visibility }}" />
+        {{- parent() -}}()
+    {% endblock %}
+{% endembed %}
+{% include 'components/summary.html.twig' with { node: method } %}
+{% include 'components/method-signature.html.twig' with { node: method } %}
+<div class="phpdocumentor-label-line">
+    {% if method.tags.api %}
+        {% include 'components/label.html.twig' with { name: 'API', value: 'Yes' } %}
+    {% endif %}
+</div>
+{% include 'components/description.html.twig' with { node: method } %}
+{% include 'components/method-arguments.html.twig' with { node: method } %}
+{% include 'components/tags.html.twig' with { node: method } %}
+{% include 'components/method-response.html.twig' with { node: method } %}

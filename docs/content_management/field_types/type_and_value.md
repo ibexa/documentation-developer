@@ -18,7 +18,7 @@ This class must contain as little logic as possible, because the logic is handle
 
 ## Type class
 
-The Type class of a Field Type provides an implementation of the [`Ibexa\Contracts\Core\FieldType\FieldType`](https://github.com/ibexa/core/blob/main/src/contracts/FieldType/FieldType.php) interface.
+The Type class of a Field Type provides an implementation of the [`Ibexa\Contracts\Core\FieldType\FieldType`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-FieldType-FieldType.html) interface.
 
 ### Field Definition handling
 
