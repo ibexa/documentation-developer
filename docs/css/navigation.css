@@ -133,6 +133,10 @@
     padding-bottom: 0.5rem;
 }
 
+.md-nav__link .pill.new {
+    background-color: var(--turquoise-pearl);
+}
+
 .md-nav__link::after {
     font-weight: 700;
 }
