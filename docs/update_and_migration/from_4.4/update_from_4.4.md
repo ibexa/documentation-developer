@@ -6,13 +6,13 @@ description: Update your installation to the latest v4.5 version from v4.4.x.
 
 This update procedure applies if you are using a v4.4 installation.
 
-[[% include 'snippets/update/temporary_v4_conflicts.md' %]]
-
 ## Update from v4.4.x to v4.4.latest
 
 Before you update to v4.5, you need to go through the following steps to update to the latest maintenance release of v4.4 (v[[= latest_tag_4_4 =]]).
 
 ### Update the application to v4.4.latest
+
+[[% include 'snippets/update/temporary_v4_conflicts.md' %]]
 
 Run:
 
@@ -30,6 +30,16 @@ Run:
 
     ``` bash
     composer require ibexa/commerce:[[= latest_tag_4_4 =]] --with-all-dependencies --no-scripts
+    ```
+
+!!! note "Remove temporary Composer `conflict`"
+
+    You can now remove the temporary Composer `conflict` entries from your `composer.json` file:
+    ```diff
+        "conflict": {
+    -        "jms/serializer": ">=3.30.0",
+    -        "gedmo/doctrine-extensions": ">=3.12.0"
+        },
     ```
 
 ## Update from v4.4.latest to v4.5

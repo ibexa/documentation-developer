@@ -14,8 +14,6 @@ Note which version you actually have before starting.
 
 ### Update the application to v4.5.latest
 
-[[% include 'snippets/update/temporary_v4_conflicts.md' %]]
-
 Run:
 
 === "[[= product_name_content =]]"
@@ -32,16 +30,6 @@ Run:
 
     ``` bash
     composer require ibexa/commerce:[[= latest_tag_4_5 =]] --with-all-dependencies --no-scripts
-    ```
-
-!!! note "Remove temporary Composer `conflict`"
-
-    You can now remove the temporary Composer `conflict` entries from your `composer.json` file:
-    ```diff
-        "conflict": {
-    -        "jms/serializer": ">=3.30.0",
-    -        "gedmo/doctrine-extensions": ">=3.12.0"
-        },
     ```
 
 ### Update the database
