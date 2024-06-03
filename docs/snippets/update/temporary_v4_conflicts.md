@@ -1,6 +1,6 @@
-!!! caution "Temporary Composer conflicts needed"
+!!! caution "Temporary need of Composer `conflict`"
 
-    To go through this update add the following conflicts in your `composer.json` file:
+    To go through this update, [map the conflicting packages](https://getcomposer.org/doc/04-schema.md#conflict) in your `composer.json` file as following:
     ```json
     "conflict": {
         "jms/serializer": ">=3.30.0",
