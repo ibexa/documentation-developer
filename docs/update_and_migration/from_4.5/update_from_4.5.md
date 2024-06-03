@@ -6,6 +6,17 @@ description: Update your installation to the latest v4.6 version from v4.5.x.
 
 This update procedure applies if you are using a v4.5 installation.
 
+!!! note "Remove temporary Composer conflicts"
+
+    You can now remove the temporary Composer conflicts from your `composer.json` file:
+    ```diff
+        "conflict": {
+    -        "jms/serializer": ">=3.30.0",
+    -        "gedmo/doctrine-extensions": ">=3.12.0"
+        },
+    ```
+
+
 ## Update from v4.5.x to v4.5.latest
 
 Before you update to v4.6, you need to go through the following steps to update to the latest maintenance release of v4.5 (v[[= latest_tag_4_5 =]]).
