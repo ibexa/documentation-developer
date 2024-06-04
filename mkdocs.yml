@@ -14,7 +14,6 @@ nav:
         - Requirements: getting_started/requirements.md
         - Install Ibexa DXP: getting_started/install_ibexa_dxp.md
         - Install on Ibexa Cloud: getting_started/install_on_ibexa_cloud.md
-        - Install on Ibexa Engage: getting_started/install_on_ibexa_engage.md
         - Install on MacOS and Windows: getting_started/install_on_mac_os_and_windows.md
         - Install with DDEV: getting_started/install_with_ddev.md
         - First steps: getting_started/first_steps.md
@@ -373,6 +372,8 @@ nav:
         - Create Customer Portal: customer_management/cp_page_builder.md
         - Customer Portal Applications: customer_management/cp_applications.md
         - Create registration form: customer_management/create_user_registration_form.md
+    - Ibexa Engage:
+        - Install Ibexa Engage: ibexa_engage/install_ibexa_engage.md
     - Multisite:
         - Multisite: multisite/multisite.md
         - Multisite configuration: multisite/multisite_configuration.md

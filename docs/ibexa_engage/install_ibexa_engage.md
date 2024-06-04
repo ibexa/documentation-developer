@@ -3,7 +3,7 @@ description: Install and configure Ibexa Engage.
 edition: experience
 ---
 
-# Install on [[= product_name_engage =]]
+# Install [[= product_name_engage =]]
 
 [[= product_name_engage =]] is a data collection tool. It enables you to engage your audiences by using the [Qualifio](https://qualifio.com/) tools.
 You can use interactive content to gather valuable data, for example, customer personal data or recent orders list, and create connections.
