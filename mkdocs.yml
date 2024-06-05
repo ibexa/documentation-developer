@@ -374,6 +374,8 @@ nav:
         - Create registration form: customer_management/create_user_registration_form.md
     - Ibexa Engage:
         - Install Ibexa Engage: ibexa_engage/install_ibexa_engage.md
+        - Create campaign with Ibexa Engage: ibexa_engage/create_campaign.md
+        - Integrate Ibexa Engage with Ibexa Connect: ibexa_engage/integrate_ibexa_connect.md
     - Multisite:
         - Multisite: multisite/multisite.md
         - Multisite configuration: multisite/multisite_configuration.md
