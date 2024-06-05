@@ -32,7 +32,7 @@ Then, add the following [YAML configuration](configuration.md#configuration-file
 
 !!! note
 
-    [[= product_name_base =]] configures the `feed_url` and `client_id` values so that the selections can be filled up automatically on [[= product_name =]] side.
+    [[= product_name_base =]] configures the `channel` and `client_id` values so that the selections can be filled up automatically on [[= product_name =]] side.
 
     The `feed_url` and `variable_map` values don't need to be set at the installation process. They are preconfigured and can be overwritten.
 
