@@ -134,7 +134,10 @@
 }
 
 .md-nav__link .pill.new {
-    background-color: var(--turquoise-pearl);
+    margin-right: 15px;
+    background-color: #d9e8ff;
+    color: #3562a0;
+    text-transform: lowercase;
 }
 
 .md-nav__link::after {
