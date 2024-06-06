@@ -89,8 +89,8 @@ post:
                 description: Error - the session does not exist.
     /refresh:
         post:
-            displayName: Refresh session
-            description: Get the session's User information.
+            displayName: Refresh session (deprecated)
+            description: Get the session's User information. Deprecated as of Ibexa DXP 4.6, use GET /user/sessions/current instead.
             headers:
                 Cookie:
                     description: "{sessionName}={sessionID}"
