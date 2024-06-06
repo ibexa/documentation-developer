@@ -9,6 +9,7 @@ displayName: Taxonomy
                     Accept:
                         description: If set, the Taxonomy Entry is returned in XML or JSON format.
                         example:  |
+                            application/vnd.ibexa.api.TaxonomyEntry+xml
                             application/vnd.ibexa.api.TaxonomyEntry+json
                 responses:
                     200:
@@ -30,6 +31,7 @@ displayName: Taxonomy
                     Accept:
                         description: If set, the Taxonomy Entry is returned in XML or JSON format.
                         example:  |
+                            application/vnd.ibexa.api.TaxonomyEntry+xml
                             application/vnd.ibexa.api.TaxonomyEntry+json
                 responses:
                     200:
@@ -51,6 +53,7 @@ displayName: Taxonomy
                     Accept:
                         description: If set, the Taxonomy Entry is returned in XML or JSON format.
                         example:  |
+                            application/vnd.ibexa.api.TaxonomyEntry+xml
                             application/vnd.ibexa.api.TaxonomyEntry+json
                 responses:
                     200:
@@ -120,6 +123,7 @@ displayName: Taxonomy
                 Accept:
                     description: If set, the Assignment is returned in XML or JSON format.
                     example:  |
+                        application/vnd.ibexa.api.TaxonomyEntryAssignment+xml
                         application/vnd.ibexa.api.TaxonomyEntryAssignment+json
             responses:
                 200:
@@ -137,9 +141,6 @@ displayName: Taxonomy
                 displayName: Assign entry
                 description: Assigns taxonomy entry to a content item.
                 headers:
-                    Accept:
-                        example:  |
-                            application/vnd.ibexa.api.TaxonomyEntryAssignToContent+json
                     Content-Type:
                         example:  |
                             application/vnd.ibexa.api.TaxonomyEntryAssignToContent+json
@@ -159,14 +160,11 @@ displayName: Taxonomy
                 displayName: Unassign entry
                 description: Unassigns taxonomy entry from a content item.
                 headers:
-                    Accept:
-                        example:  |
-                            aapplication/vnd.ibexa.api.TaxonomyEntryUnassignFromContent+json
                     Content-Type:
                         example:  |
                             application/vnd.ibexa.api.TaxonomyEntryUnassignFromContent+json
                 body:
-                    application/vnd.ibexa.api.TaxonomyEntryAssignToContent+json:
+                    application/vnd.ibexa.api.TaxonomyEntryUnassignFromContent+json:
                         type: TaxonomyEntryUnassignFromContent
                         example: !include examples/taxonomy/POST/TaxonomyEntryUnassignFromContent.json.example
                 responses:

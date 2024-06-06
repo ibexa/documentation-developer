@@ -5,7 +5,7 @@ post:
         Accept:
             description: If set, the new currency is returned in JSON format.
             example:  |
-                application/vnd.ibexa.api.CurrencyCreate+json
+                application/vnd.ibexa.api.Currency+json
         Content-Type:
             description: The Currency schema encoded in XML or JSON format.
             example:  |
@@ -32,10 +32,6 @@ get:
     headers:
         Accept:
             description: CurrencyList - If set, the currency list returned in XML or JSON format.
-            example:  |
-                application/vnd.ibexa.api.CurrencyList+json
-        Content-Type:
-            description: The CurrencyList schema encoded in XML or JSON format.
             example:  |
                 application/vnd.ibexa.api.CurrencyList+json
     responses:
@@ -78,7 +74,7 @@ get:
             Accept:
                 description: If set, the updated currency is returned in XML or JSON format.
                 example:  |
-                    application/vnd.ibexa.api.CurrencyUpdate+json
+                    application/vnd.ibexa.api.Currency+json
             Content-Type:
                 description: The CurrencyUpdate schema encoded in XML or JSON format.
                 example:  |
@@ -87,7 +83,7 @@ get:
             200:
                 body:
                     application/vnd.ibexa.api.Currency+json:
-                        type: CurrencyUpdate
+                        type: Currency
                         example: !include examples/product/catalog/currency/currency_id/PATCH/Currency.json.example
             400:
                 description: Error - the input does not match the input schema definition.
@@ -122,12 +118,16 @@ get:
                     application/vnd.ibexa.api.CurrencyViewInput+xml
                     application/vnd.ibexa.api.CurrencyViewInput+json
         body:
+            application/vnd.ibexa.api.CurrencyViewInput+xml:
+                type: CurrencyViewInput
             application/vnd.ibexa.api.CurrencyViewInput+json:
                 type: CurrencyViewInput
                 example: !include examples/product/catalog/currency/POST/CurrencyViewInput.json.example
         responses:
             200:
                 body:
+                    application/vnd.ibexa.api.CurrencyView+xml:
+                        type: CurrencyView
                     application/vnd.ibexa.api.CurrencyView+json:
                         type: CurrencyView
                         example: !include examples/product/catalog/currency/POST/CurrencyView.json.example

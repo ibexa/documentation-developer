@@ -48,7 +48,7 @@
                 example:  |
                     application/vnd.ibexa.api.Product+json
             Content-Type:
-                description: The product schema encoded in XML or JSON format.
+                description: An optional product schema encoded in XML or JSON format.
                 example:  |
                     application/vnd.ibexa.api.ProductGet+json
         body:
@@ -138,10 +138,10 @@
                 200:
                     description: OK - creates product price.
                     body:
-                        application/vnd.ibexa.api.PriceCreateStruct+json:
+                        application/vnd.ibexa.api.Price+json:
                             type: PriceCreateStruct
                             example: !include examples/product/catalog/product/code/prices/Price.json.example
-                        application/vnd.ibexa.api.CustomPriceCreateStruct+json:
+                        application/vnd.ibexa.api.CustomPrice+json:
                             type: CustomPriceCreateStruct
                             example: !include examples/product/catalog/product/code/prices/CustomPrice.json.example
                 400:
@@ -251,7 +251,7 @@ get:
         Accept:
             description: If set, the products are returned in XML or JSON format.
             example:  |
-                application/vnd.ibexa.api.ProductListGet+json
+                application/vnd.ibexa.api.ProductList+json
         Content-Type:
             description: The product list schema encoded in XML or JSON format.
             example:  |
@@ -263,7 +263,7 @@ get:
     responses:
         200:
             body:
-                application/vnd.ibexa.api.Product+json:
+                application/vnd.ibexa.api.ProductList+json:
                     type: ProductList
                     example: !include examples/product/catalog/product/GET/ProductList.json.example
         401:
@@ -284,12 +284,16 @@ get:
                     application/vnd.ibexa.api.ProductViewInput+xml
                     application/vnd.ibexa.api.ProductViewInput+json
         body:
+            application/vnd.ibexa.api.ProductViewInput+xml:
+                type: ProductViewInput
             application/vnd.ibexa.api.ProductViewInput+json:
                 type: ProductViewInput
                 example: !include examples/product/catalog/product/POST/ProductViewInput.json.example
         responses:
             200:
                 body:
+                    application/vnd.ibexa.api.ProductView+xml:
+                        type: ProductView
                     application/vnd.ibexa.api.ProductView+json:
                         type: ProductView
                         example: !include examples/product/catalog/product/POST/ProductView.json.example

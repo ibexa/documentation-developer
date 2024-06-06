@@ -32,6 +32,10 @@ get:
                 application/vnd.ibexa.api.ContentTypeInfoList+json:
                     type: ContentTypeInfoList
                     example: !include examples/content/types/GET/ContentTypeInfoList.json.example
+                application/vnd.ibexa.api.ContentTypeList+xml:
+                    type: ContentTypeList
+                application/vnd.ibexa.api.ContentTypeList+json:
+                    type: ContentTypeList
             description: OK - returns a list of content types.
         401:
             description: Error - The user has no permission to read the content types.
@@ -122,9 +126,20 @@ get:
         get:
             displayName: Get Field definition list
             description: Returns all Field definitions of the provided content type.
+            headers:
+                Accept:
+                    description: If set, the Field definitions are returned in XML or JSON format.
+                    example: |
+                        application/vnd.ibexa.api.FieldDefinitionList+xml
+                        application/vnd.ibexa.api.FieldDefinitionList+json
             responses:
                 200:
                     description: OK - return a list of Field definitions.
+                    body:
+                        application/vnd.ibexa.api.FieldDefinitionList+xml:
+                            type: FieldDefinitions
+                        application/vnd.ibexa.api.FieldDefinitionList+json:
+                            type: FieldDefinitions
                 404:
                     description: Error - The content type does not exist.
         /{fieldDefinitionId}:
@@ -243,9 +258,20 @@ get:
             get:
                 displayName: Get Draft Field definition list
                 description: Returns all Field definitions of the provided content type Draft.
+                headers:
+                    Accept:
+                        description: If set, the Field definitions are returned in XML or JSON format.
+                        example: |
+                            application/vnd.ibexa.api.FieldDefinitionList+xml
+                            application/vnd.ibexa.api.FieldDefinitionList+json
                 responses:
                     200:
                         description: OK - return a list of Field definitions.
+                        body:
+                            application/vnd.ibexa.api.FieldDefinitionList+xml:
+                                type: FieldDefinitions
+                            application/vnd.ibexa.api.FieldDefinitionList+json:
+                                type: FieldDefinitions
                     404:
                         description: Error - The content type draft does not exist.
             post:
@@ -266,6 +292,8 @@ get:
                     application/vnd.ibexa.api.FieldDefinitionCreate+xml:
                         type: FieldDefinitionCreate
                         example: !include examples/content/types/content_type_id/draft/field_definitions/POST/FieldDefinitionCreate.xml.example
+                    application/vnd.ibexa.api.FieldDefinitionCreate+json:
+                        type: FieldDefinitionCreate
                 responses:
                     201:
                         description: Field definition created.
@@ -273,6 +301,8 @@ get:
                             application/vnd.ibexa.api.FieldDefinition+xml:
                                 type: FieldDefinition
                                 example: !include examples/content/types/content_type_id/draft/field_definitions/POST/FieldDefinition.xml.example
+                            application/vnd.ibexa.api.FieldDefinition+json:
+                                type: FieldDefinition
                     400:
                         description: Error - The input does not match the input schema definition or validation on the Field definition fails.
                     401:
@@ -321,6 +351,8 @@ get:
                         application/vnd.ibexa.api.FieldDefinitionUpdate+xml:
                             type: FieldDefinitionUpdate
                             example: !include examples/content/types/content_type_id/draft/field_definitions/field_definition_id/PATCH/FieldDefinitionUpdate.xml.example
+                        application/vnd.ibexa.api.FieldDefinitionUpdate+json:
+                            type: FieldDefinitionUpdate
                     responses:
                         200:
                             description: OK - attributes updated.
@@ -328,6 +360,8 @@ get:
                                 application/vnd.ibexa.api.FieldDefinition+xml:
                                     type: FieldDefinition
                                     example: !include examples/content/types/content_type_id/draft/field_definitions/field_definition_id/PATCH/FieldDefinition.xml.example
+                                application/vnd.ibexa.api.FieldDefinition+json:
+                                    type: FieldDefinition
                         400:
                             description: Error - The input does not match the input schema definition.
                         401:
@@ -408,12 +442,12 @@ get:
                 responses:
                     200:
                         body:
-                            application/vnd.ibexa.api.ContentTypeGroup+xml:
+                            application/vnd.ibexa.api.ContentTypeGroupRefList+xml:
                                 type: ContentTypeGroup
-                                example: !include examples/content/types/content_type_id/groups/id/DELETE/ContentTypeGroup.xml.example
-                            application/vnd.ibexa.api.ContentTypeGroup+json:
+                                example: !include examples/content/types/content_type_id/groups/id/DELETE/ContentTypeGroupRefList.xml.example
+                            application/vnd.ibexa.api.ContentTypeGroupRefList+json:
                                 type: ContentTypeGroup
-                                example: !include examples/content/types/content_type_id/groups/id/DELETE/ContentTypeGroup.json.example
+                                example: !include examples/content/types/content_type_id/groups/id/DELETE/ContentTypeGroupRefList.json.example
                     401:
                         description: Error - The user is not authorized to delete this content type.
                     403:

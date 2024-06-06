@@ -1,0 +1,75 @@
+displayName: Segment groups
+get:
+    displayName: List segment groups
+    description: Lists segment groups.
+    headers:
+        Accept:
+            description: If set, the list of segment groups is returned in XML or JSON format.
+            example: |
+                vnd.ibexa.api.SegmentGroupList+xml
+                vnd.ibexa.api.SegmentGroupList+json
+    responses:
+        200:
+            description: OK - list the segment groups.
+            body:
+                vnd.ibexa.api.SegmentGroupList+xml:
+                    type: SegmentGroupList
+                    example: !include examples/segment_groups/GET/SegmentGroupList.xml.example
+                vnd.ibexa.api.SegmentGroupList+json:
+                    type: SegmentGroupList
+                    example: !include examples/segment_groups/GET/SegmentGroupList.json.example
+        401:
+            description: Error - the user is not authorized to list segment groups.
+            body:
+                application\/vnd.ibexa.api.ErrorMessage+xml:
+                    type: ErrorMessage
+                application\/vnd.ibexa.api.ErrorMessage+json:
+                    type: ErrorMessage
+/{identifier}:
+    get:
+        displayName: Load segment group
+        description: Loads segment group.
+        headers:
+            Accept:
+                description: If set, the segment group is returned in XML or JSON format.
+                example: |
+                    vnd.ibexa.api.SegmentGroup+xml
+                    vnd.ibexa.api.SegmentGroup+json
+        responses:
+            200:
+                description: OK - return the segment group.
+                body:
+                    vnd.ibexa.api.SegmentGroup+xml:
+                        type: SegmentGroup
+                        example: !include examples/segment_groups/identifier/GET/SegmentGroup.xml.example
+                    vnd.ibexa.api.SegmentGroup+json:
+                        type: SegmentGroup
+                        example: !include examples/segment_groups/identifier/GET/SegmentGroup.json.example
+            401:
+                description: Error - the user is not authorized to load this segment group.
+            404:
+                description: Error - the identifier doesn't match any segment group.
+    /segments:
+        get:
+            displayName: List segment group's segments
+            description: Lists segment group's segments.
+            headers:
+                Accept:
+                    description: If set, the segment group is returned in XML or JSON format.
+                    example: |
+                        vnd.ibexa.api.SegmentList+xml
+                        vnd.ibexa.api.SegmentList+json
+            responses:
+                200:
+                    description: OK - list the group's segments.
+                    body:
+                        vnd.ibexa.api.SegmentList+xml:
+                            type: SegmentList
+                            example: !include examples/segment_groups/identifier/segments/GET/SegmentList.xml.example
+                        vnd.ibexa.api.SegmentList+json:
+                            type: SegmentList
+                            example: !include examples/segment_groups/identifier/segments/GET/SegmentList.json.example
+                401:
+                    description: Error - the user is not authorized to load this group's segments.
+                404:
+                    description: Error - the identifier doesn't match any segment group.

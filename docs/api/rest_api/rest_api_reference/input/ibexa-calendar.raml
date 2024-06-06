@@ -26,17 +26,17 @@ displayName: Calendar
             Accept:
                 description: If set, the calendar event list is returned in XML or JSON format.
                 example:  |
-                    application/vnd.ibexa.api.ContentInfo+xml
-                    application/vnd.ibexa.api.ContentInfo+json
+                    application/vnd.ibexa.api.EventList+xml
+                    application/vnd.ibexa.api.EventList+json
         responses:
             200:
                 body:
-                    application/vnd.ibexa.api.ContentInfo+xml:
-                        type: ContentInfo
-                        example: !include examples/calendar/event/GET/ContentInfo.xml.example
-                    application/vnd.ibexa.api.ContentInfo+json:
-                        type: ContentInfo
-                        example: !include examples/calendar/event/GET/ContentInfo.json.example
+                    application/vnd.ibexa.api.EventList+xml:
+                        type: EventList
+                        example: !include examples/calendar/event/GET/EventList.xml.example
+                    application/vnd.ibexa.api.EventList+json:
+                        type: EventList
+                        example: !include examples/calendar/event/GET/EventList.json.example
     /grouped-by-day:
         get:
             displayName: Calendar list grouped by day
@@ -64,17 +64,17 @@ displayName: Calendar
                 Accept:
                     description: If set, the calendar event list grouped by day is returned in XML or JSON format.
                     example:  |
-                        application/vnd.ibexa.api.ScheduledVersion+xml
-                        application/vnd.ibexa.api.ScheduledVersion+json
+                        application/vnd.ibexa.api.EventGroupList+xml
+                        application/vnd.ibexa.api.EventGroupList+json
             responses:
                 200:
                     body:
-                        application/vnd.ibexa.api.ContentInfo+xml:
-                            type: ContentInfo
-                            example: !include examples/calendar/event/grouped-by-day/GET/ContentInfo.xml.example
-                        application/vnd.ibexa.api.ContentInfo+json:
-                            type: ContentInfo
-                            example: !include examples/calendar/event/grouped-by-day/GET/ContentInfo.json.example
+                        application/vnd.ibexa.api.EventGroupList+xml:
+                            type: EventGroupList
+                            example: !include examples/calendar/event/grouped-by-day/GET/EventGroupList.xml.example
+                        application/vnd.ibexa.api.EventGroupList+json:
+                            type: EventGroupList
+                            example: !include examples/calendar/event/grouped-by-day/GET/EventGroupList.json.example
     /{eventType}:
         post:
             displayName: Calendar action
@@ -83,10 +83,13 @@ displayName: Calendar
                 Content-Type:
                     example:  |
                         application/vnd.ibexa.api.calendar.future_publication.UnscheduleAction+json
+                        application/vnd.ibexa.api.calendar.future_hide.UnscheduleAction+json
             body:
-                application/vnd.ibexa.api.UnscheduleActionInput+json:
-                    type: RoleAssignInput
-                    example: !include examples/calendar/event/eventType/POST/UnscheduleActionInput.json.example
+                application/vnd.ibexa.api.calendar.future_publication.UnscheduleAction+json:
+                    type: UnscheduleAction
+                    example: !include examples/calendar/event/eventType/POST/future_publication.UnscheduleAction.json.example
+                application/vnd.ibexa.api.calendar.future_hide.UnscheduleAction+json:
+                    type: UnscheduleAction
             responses:
                 204:
                     description: No Content - the action has been unscheduled.

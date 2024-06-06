@@ -1,0 +1,7 @@
+{
+  "UnscheduleAction": {
+    "events": [
+      "future_publication:2"
+    ]
+  }
+}
