@@ -78,10 +78,11 @@ get:
                     application/vnd.ibexa.api.Content+json:
                         type: Content
                         example: !include examples/content/objects/content_id/GET/Content.json.example
-
                     application/vnd.ibexa.api.ContentInfo+xml:
                         type: ContentInfo
                         example: !include examples/content/objects/content_id/GET/ContentInfo.xml.example
+                    application/vnd.ibexa.api.ContentInfo+json:
+                        type: ContentInfo
             401:
                 description: Error - the user is not authorized to read this object. This could also happen if there is no published version yet and another user owns a draft of this content item.
             404:
@@ -107,12 +108,16 @@ get:
             application/vnd.ibexa.api.ContentUpdate+xml:
                 type: ContentInfo
                 example: !include examples/content/objects/content_id/PATCH/ContentUpdate.xml.example
+            application/vnd.ibexa.api.ContentUpdate+json:
+                type: ContentInfo
         responses:
             200:
                 body:
                     application/vnd.ibexa.api.ContentInfo+xml:
                         type: ContentInfo
                         example: !include examples/content/objects/content_id/PATCH/ContentInfo.xml.example
+                    application/vnd.ibexa.api.ContentInfo+json:
+                        type: ContentInfo
             400:
                 description: Error - the input does not match the input schema definition.
             401:
@@ -286,12 +291,16 @@ get:
                     application/vnd.ibexa.api.VersionUpdate+xml:
                         type: VersionUpdate
                         example: !include examples/content/objects/content_id/versions/version_no/PATCH/VersionUpdate.xml.example
+                    application/vnd.ibexa.api.VersionUpdate+json:
+                        type: VersionUpdate
                 responses:
                     200:
                         body:
                             application/vnd.ibexa.api.Version+xml:
                                 type: Version
                                 example: !include examples/content/objects/content_id/versions/version_no/PATCH/Version.xml.example
+                            application/vnd.ibexa.api.Version+json:
+                                type: Version
                     400:
                         description: Error - the input does not match the input schema definition.
                     401:

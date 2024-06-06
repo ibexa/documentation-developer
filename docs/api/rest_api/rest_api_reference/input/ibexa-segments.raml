@@ -1,0 +1,23 @@
+displayName: Segments
+/{identifier}:
+    get:
+        displayName: Load segment
+        description: Loads the identified segment.
+        headers:
+            Accept:
+                description: If set, the segment is returned in XML or JSON
+                example: |
+                    vnd.ibexa.api.Segment+xml
+                    vnd.ibexa.api.Segment+json
+        responses:
+            200:
+                description: OK - Return the segment.
+                body:
+                    vnd.ibexa.api.Segment+xml:
+                        type: Segment
+                    vnd.ibexa.api.Segment+json:
+                        type: Segment
+            401:
+                description: Error - the user is not authorized to load this group's segments.
+            404:
+                description: Error - the identifier doesn't match any segment group.
