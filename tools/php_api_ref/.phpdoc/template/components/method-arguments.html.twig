@@ -12,10 +12,10 @@
         <tbody>
             {% for argument in node.arguments %}
                 <tr>
-                    <td>
+                    <td style="white-space: nowrap;">
                         ${{ argument.name }}
                     </td>
-                    <td>
+                    <td style="white-space: nowrap;">
                         {{ argument.type|route('class:short')|join('|')|raw }}
                     </td>
                     <td {{ argument.default is not null ? 'class="empty"' }}>
@@ -24,8 +24,9 @@
                     <td {{ node.description is not defined or node.description.empty ? 'class="empty"' }}>
                         {% if node.description is not defined or node.description.empty %}
                             -
+                        {% else %}
+                            {{ include('components/description.html.twig', {node: argument}) }}
                         {% endif %}
-                        {{ include('components/description.html.twig', {node: argument}) }}
                     </td>
                 </tr>
             {% endfor %}
