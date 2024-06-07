@@ -7,7 +7,7 @@ edition: experience
 
 [Campaign]([[= user_doc =]]/ibexa_engage/ibexa_engage/#campaign) is a set of concepts, divided into steps, that the user can configure.
 It can contain a welcome screen, an interaction element, a form step, an exit screen, and so on.
-To create new campaign, you need to use Qualifio manager.
+To create new campaign, you need to use Qualifio Manager.
 You can use Qualifio's existing templates and interactive elements, such as quizzes, pools, and forms, to create visually appealing, customized campaigns.
 Users can configure the backgrounds, themes, or designs, and set up a specific time frame for each campaign.
 
