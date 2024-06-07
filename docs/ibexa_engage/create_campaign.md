@@ -22,7 +22,8 @@ For more information about publication channels, see [Publication channel]([[= u
 
 ## Use Campaign block in Page Builder
 
-You can add [Campaign block]([[= user_doc =]]/content_management/block_reference/#campaign-block) in Page Builder to display campaign on the landing page.
+You can add [Campaign block]([[= user_doc =]]/content_management/block_reference/#campaign-block) in Page Builder to display campaign on the Landing Page.
+
 To select campaign, go to **Properties** tab -> **Campaign** and choose campaign from the drop-down list. This list includes all campaigns available on user's Qualifio account which are active or scheduled to launch in the future.
 
 ![Campaign block](campaign_block.png)

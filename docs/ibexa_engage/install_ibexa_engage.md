@@ -7,6 +7,7 @@ edition: experience
 
 [[= product_name_engage =]] is a data collection tool. It enables you to engage your audiences by using the [Qualifio](https://qualifio.com/) tools.
 You can use interactive content to gather valuable data, for example, customer personal data or recent orders list, and create connections.
+
 For more information, see [Qualifio Developers documentation](https://developers.qualifio.com/docs/engage/).
 
 ## Prepare configuration files
@@ -38,4 +39,7 @@ Then, add the following [YAML configuration](configuration.md#configuration-file
 
 ## [[= product_name_engage =]] account
 
+To use [[= product_name_engage =]], you must make arrangements with [[= product_name =]] to define the initial configuration.
 [[= product_name_base =]] team creates and provides user account. An invitation link is sent during the setup process.
+
+For more information, see [Ibexa Engage in User documentation]([[= user_doc =]]/ibexa_engage/ibexa_engage/#request-access).

@@ -5,9 +5,11 @@ edition: experience
 
 # Use Ibexa Connect
 
-You can create workflows using [[= product_name_connect =]].
+You can create workflows using [Ibexa Connect](https://www.ibexa.co/products/features/integration-and-automation).
 [[= product_name_engage =]] collects user data and passes it directly to [[= product_name_connect =]].
 With this data, you can create scenarios, for example, to add a user to newsletter, or to specific user segment group.
+
+For more information, see [Ibexa Connect documentation](https://doc.ibexa.co/projects/connect/en/latest/).
 
 ## Integrate [[= product_name_engage =]] with [[= product_name_connect =]]
 
