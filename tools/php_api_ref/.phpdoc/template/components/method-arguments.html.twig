@@ -18,7 +18,7 @@
                     <td>
                         {{ argument.type|route('class:short')|join('|')|raw }}
                     </td>
-                    <td {{ argument.default is not null ? 'class="empty"' }}>
+                    <td {{ argument.default is empty ? 'class="empty"' }}>
                         {{ argument.default is not null ? argument.default : 'None' }}
                     </td>
                     <td {{ node.description is not defined or node.description.empty ? 'class="empty"' }}>
