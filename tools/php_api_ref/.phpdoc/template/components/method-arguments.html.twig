@@ -12,10 +12,10 @@
         <tbody>
             {% for argument in node.arguments %}
                 <tr>
-                    <td style="white-space: nowrap;">
+                    <td>
                         ${{ argument.name }}
                     </td>
-                    <td style="white-space: nowrap;">
+                    <td>
                         {{ argument.type|route('class:short')|join('|')|raw }}
                     </td>
                     <td {{ argument.default is not null ? 'class="empty"' }}>

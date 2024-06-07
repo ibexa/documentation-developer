@@ -346,12 +346,17 @@ ul.breadcrumbs li.breadcrumb-item-current span {
     color: #71767C;
 }
 
+.md-typeset .method-parameters th,
 .md-typeset .method-parameters td {
     padding: 12px;
 }
 
 .md-typeset .method-parameters td.empty {
     color: #71767C;
+}
+
+.md-typeset .method-parameters tbody td:nth-child(-n + 2) {
+    white-space: nowrap;
 }
 
 .md-typeset .method-parameters td .phpdocumentor-description p:first-of-type {
