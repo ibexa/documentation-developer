@@ -21,7 +21,7 @@ composer require ibexa/engage
 
 This command adds to your project configuration files required for using [[= product_name_engage =]].
 
-Then, add the following [YAML configuration](configuration.md#configuration-files):
+Then, in `config/packages` directory add the following `ibexa_connector_qualifio` [YAML configuration](configuration.md#configuration-files):
 
 ``` yaml
 [[= include_file('code_samples/ibexa_engage/config/packages/ibexa_connector_qualifio.yaml') =]]
