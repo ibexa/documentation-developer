@@ -3,6 +3,13 @@ description: Install and configure Ibexa Engage.
 edition: experience
 ---
 
+# [[= product_name_engage =]] account
+
+To use [[= product_name_engage =]], you must make arrangements with [[= product_name =]] to define the initial configuration.
+[[= product_name_base =]] team creates and provides user account. An invitation link is sent during the setup process.
+
+For more information, see [Ibexa Engage in User documentation]([[= user_doc =]]/ibexa_engage/ibexa_engage/#request-access).
+
 # Install [[= product_name_engage =]]
 
 [[= product_name_engage =]] is a data collection tool. It enables you to engage your audiences by using the [Qualifio](https://qualifio.com/) tools.
@@ -36,10 +43,3 @@ Then, in `config/packages` directory add the following `ibexa_connector_qualifio
     [[= product_name_base =]] configures the `channel` and `client_id` values so that the selections can be filled up automatically on [[= product_name =]] side.
 
     The `feed_url` and `variable_map` values don't need to be set at the installation process. They are preconfigured and can be overwritten.
-
-## [[= product_name_engage =]] account
-
-To use [[= product_name_engage =]], you must make arrangements with [[= product_name =]] to define the initial configuration.
-[[= product_name_base =]] team creates and provides user account. An invitation link is sent during the setup process.
-
-For more information, see [Ibexa Engage in User documentation]([[= user_doc =]]/ibexa_engage/ibexa_engage/#request-access).
