@@ -475,23 +475,23 @@ ibexa_elasticsearch:
                 # ...
 ```
 
-### Language specific analyzis
+### Add language-specific analysers
 
-It is possible to configure language specific analysis like stemming so that searching for "cars" gives hit on content that contains the word "car".
-On a multilingual site, it is possible to have different analyzing configured for different languages, something which
-typically is needed as stemming rules are language specific.
+You can configure Elasticsearch to perform language-specific analysis like stemming.
+This way searching for "cars" returns hits with content that contains the word "car".
+On a multilingual site, you can have different analyzers configured for different languages, something which is typically required because stemming rules are language-specific.
 
 #### Make a copy of the default template
 
-The first step to enable language specific analysis is to make a new template for each language in `config/packages/ibexa_elasticsearch.yaml`.
+To enable a language-specific analyzer, create a new template for each language in `config/packages/ibexa_elasticsearch.yaml` first.
 This template should be based on the `default` template found in `vendor/ibexa/elasticsearch/src/bundle/Resources/config/default-config.yaml`.
 The name of the new template should reflect the language, ie. `english`, `norwegian` or `french`,
 
 #### Change match pattern for the new template
 
-The default template matches on `*_location_*`, `*_content_*`. This pattern is not language specific and cannot be used
-when different templates are going to be used for different languages. In your copy of the default template, change the
-pattern as follows:
+The default template matches on `*_location_*` and `*_content_*`.
+These patterns are not language-specific and you cannot use them if you plan to use different templates for different languages.
+In your copy of the default template, change the pattern as follows:
 
 ```diff
         patterns:
@@ -500,15 +500,14 @@ pattern as follows:
 +            - "*_eng_gb*"
 ```
 
-This pattern matches on English. See [Define a template](#define-a-template) on how to specify the pattern for your language.
+This pattern matches on English.
+For more information about specifying the pattern for your language, see [Define a template](#define-a-template).
 
-#### Create config for language specific analyser.
+#### Create config for language specific analyzer.
 
-[Elastic Search documentation](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/analysis-lang-analyzer.html)
-explains how to configure analyzer for each specific language.
+For information about configuring an analyzer for each specific language, see [Elastic Search documentation](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/analysis-lang-analyzer.html).
 
-Adopopting the [English analyzer](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/analysis-lang-analyzer.html#english-analyzer)
-looks like this in the [[= product_name =]] configuration:
+An adoption of the [English analyzer](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/analysis-lang-analyzer.html#english-analyzer) in [[= product_name =]] configuration looks like this:
 
 ```diff
         english:
