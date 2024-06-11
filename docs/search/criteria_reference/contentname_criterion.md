@@ -5,7 +5,7 @@ searches for content by its name.
 
 ## Arguments
 
-- `value` - int(s) representing the Content name
+- `value` - string(s) representing the Content name(s), the joker `*` can be used for partial search.
 
 ## Example
 
@@ -22,7 +22,10 @@ $query->query = new Criterion\ContentName(['laptop', 'tablet']);
     ```xml
     <Query>
         <Filter>
-            <ContentNameCriterion>laptop</ContentNameCriterion>
+            <OR>
+                <ContentNameCriterion>laptop</ContentNameCriterion>
+                <ContentNameCriterion>tablet</ContentNameCriterion>
+            </OR>
         </Filter>
     </Query>
     ```
@@ -32,7 +35,7 @@ $query->query = new Criterion\ContentName(['laptop', 'tablet']);
     ```json
     "Query": {
         "Filter": {
-            "ContentNameCriterion": "laptop"
+            "ContentNameCriterion": ["laptop", "tablet"]
         }
     }
     ```
