@@ -5,14 +5,14 @@ searches for content by its name.
 
 ## Arguments
 
-- `value` - string(s) representing the Content name(s), the joker `*` can be used for partial search.
+- `value` - string(s) representing the Content name(s), the wildcard character `*` can be used for partial search.
 
 ## Example
 
 ### PHP
 
 ``` php
-$query->query = new Criterion\ContentName(['laptop', 'tablet']);
+$query->query = new Criterion\ContentName('*phone');
 ```
 
 ### REST API
@@ -22,10 +22,7 @@ $query->query = new Criterion\ContentName(['laptop', 'tablet']);
     ```xml
     <Query>
         <Filter>
-            <OR>
-                <ContentNameCriterion>laptop</ContentNameCriterion>
-                <ContentNameCriterion>tablet</ContentNameCriterion>
-            </OR>
+            <ContentNameCriterion>*phone</ContentNameCriterion>
         </Filter>
     </Query>
     ```
@@ -35,7 +32,7 @@ $query->query = new Criterion\ContentName(['laptop', 'tablet']);
     ```json
     "Query": {
         "Filter": {
-            "ContentNameCriterion": ["laptop", "tablet"]
+            "ContentNameCriterion": "*phone"
         }
     }
     ```
