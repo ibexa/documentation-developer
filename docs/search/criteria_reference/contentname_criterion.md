@@ -5,7 +5,7 @@ searches for content by its name.
 
 ## Arguments
 
-- `value` - string representing the Content name, the wildcard character `*` can be used for partial search.
+- `value` - string representing the content name, the wildcard character `*` can be used for partial search.
 
 ## Example
 
