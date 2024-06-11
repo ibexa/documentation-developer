@@ -4,7 +4,7 @@
 {% set has_tags = false %}
 {% for name,seriesOfTag in tags %}
     {% if name in ['see', 'uses'] %}
-        {%  set seriesOfTag = seriesOfTag|filter(tag => '<a ' in tag.reference|route('class:short')) %}
+        {% set seriesOfTag = seriesOfTag|filter(tag => '<a ' in tag.reference|route('class:short')) %}
     {% endif %}
     {% if seriesOfTag|length > 0 %}
         {% set has_tags = true %}
