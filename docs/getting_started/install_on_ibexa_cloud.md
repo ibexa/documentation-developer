@@ -23,7 +23,7 @@ You can adapt the configuration in the following places:
 - `.platform/routes.yml` - routes to additional services, for example Fastly
 
 For details about available configuration settings,
-refer to [Platform.sh documentation.](https://docs.platform.sh/configuration/app.html)
+refer to [Platform.sh documentation](https://docs.platform.sh/create-apps.html).
 
 ### Disk space
 
@@ -48,21 +48,21 @@ Configuration under `hooks` defines the process of building and deploying your p
 to enable services such as Solr or Elasticsearch, or persistent Redis session storage.
 
 For information about available services,
-see [Platform.sh documentation.](https://docs.platform.sh/configuration/services.html)
+see [Platform.sh documentation](https://docs.platform.sh/add-services.html#available-services).
 
 If you enable any of the services, you must uncomment the relevant relationship
 under the `relationship` key in `.platform.app.yaml` as well.
 
 ## 2. Create an account
 
-Log in to https://cloud.ibexa.co or create an account if you don't have one yet.
+Log in to https://console.ibexa.cloud or create an account if you don't have one yet.
 
 Create a project and select its region.
 
 !!! caution
 
-    Don't use https://console.platform.sh/ which doesn't list Ibexa Cloud projects.
-    Use https://cloud.ibexa.co to manage your Ibexa Cloud projects.
+    Don't use https://console.platform.sh/ which doesn't list [[= product_name_cloud =]] projects.
+    Use https://console.ibexa.cloud to manage your [[= product_name_cloud =]] projects.
 
 ## 3. Prepare for hosting
 
