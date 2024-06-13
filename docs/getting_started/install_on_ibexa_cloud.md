@@ -55,14 +55,14 @@ under the `relationship` key in `.platform.app.yaml` as well.
 
 ## 2. Create an account
 
-Log in to https://cloud.ibexa.co or create an account if you don't have one yet.
+Log in to https://console.ibexa.cloud or create an account if you don't have one yet.
 
 Create a project and select its region.
 
 !!! caution
 
     Don't use https://console.platform.sh/ which doesn't list [[= product_name_cloud =]] projects.
-    Use https://cloud.ibexa.co to manage your [[= product_name_cloud =]] projects.
+    Use https://console.ibexa.cloud to manage your [[= product_name_cloud =]] projects.
 
 ## 3. Prepare for hosting
 
