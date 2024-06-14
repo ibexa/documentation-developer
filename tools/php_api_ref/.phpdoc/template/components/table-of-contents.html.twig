@@ -3,6 +3,8 @@
 {% set methods = methods(node) %}
 {% set cases = cases(node) %}
 {% set functions = node.functions|default([]) %}
+{% set breadcrumbs = usesNamespaces ? breadcrumbs(node) : packages(node) %}
+{% set mainFqcn = breadcrumbs|map(breadcrumb => breadcrumb.name)|join('\\') ~ '\\' ~ node.name %}
 
 {% if packages|default([]) is not empty %}
     <h2 id="packages">
@@ -11,11 +13,16 @@
     </h2>
     <ul class="namespace-list">
         {% for package in packages %}
+            {% set fqcn = mainFqcn ~ '\\' ~ package.name %}
+
             <li>
-                <img src="./images/arrow-right.svg" />
-                <a href="{{ link(package) }}">
-                    {{ package.name }}
-                </a>
+                <span>
+                    <img src="./images/arrow-right.svg" class="arrow" />
+                    <a href="{{ link(package) }}">
+                        {{ package.name }}
+                    </a>
+                    <img src="./images/copy.svg" alt="copy" class="copy-to-clipboard" data-copy-value="{{ fqcn }}" title="Copy FQCN" />
+                </span>
             </li>
         {% endfor %}
     </ul>
@@ -28,11 +35,16 @@
     </h2>
     <ul class="namespace-list">
         {% for namespace in namespaces %}
+            {% set fqcn = mainFqcn ~ '\\' ~ namespace.name %}
+
             <li>
-                <img src="./images/arrow-right.svg" />
-                <a href="{{ link(namespace) }}">
-                    {{ namespace.name }}
-                </a>
+                <span>
+                    <img src="./images/arrow-right.svg" class="arrow" />
+                    <a href="{{ link(namespace) }}">
+                        {{ namespace.name }}
+                    </a>
+                    <img src="./images/copy.svg" alt="copy" class="copy-to-clipboard" data-copy-value="{{ fqcn }}" title="Copy FQCN" />
+                </span>
             </li>
         {% endfor %}
     </ul>
@@ -56,11 +68,16 @@
     </h2>
     <ul class="namespace-list">
         {% for entry in joined_data %}
+            {% set fqcn = mainFqcn ~ '\\' ~ entry.name %}
+
             <li>
-                <img src="./images/arrow-right.svg" />
-                <a href="{{ link(entry) }}">
-                    {{ entry.name }}
-                </a>
+                <span>
+                    <img src="./images/arrow-right.svg" class="arrow" />
+                    <a href="{{ link(entry) }}">
+                        {{ entry.name }}
+                    </a>
+                    <img src="./images/copy.svg" alt="copy" class="copy-to-clipboard" data-copy-value="{{ fqcn }}" title="Copy FQCN" />
+                </span>
                 {%- if entry.summary -%}
                     <p>{{ entry.summary }}</p>
                 {%- endif -%}

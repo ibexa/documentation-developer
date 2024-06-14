@@ -9,6 +9,7 @@
     <version number="*">
         <api>
             <source dsn=".">
+                <path>vendor/ibexa/calendar/src/contracts/**/*</path>
                 <path>vendor/ibexa/core/src/contracts/Repository/**/*</path>
             </source>
             <ignore hidden="true" symlinks="true">
