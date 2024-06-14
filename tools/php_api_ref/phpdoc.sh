@@ -9,8 +9,8 @@ DXP_EDITION='commerce'; # Edition from and for which the Reference is built
 DXP_VERSION='4.6.*'; # Version from and for which the Reference is built
 DXP_EDITIONS=(oss headless experience commerce); # Available editions ordered by ascending capabilities
 PHPDOC_VERSION='3.5.0'; # Version of phpDocumentor used to build the Reference
-# PHPDOC_CONF="$(pwd)/tools/php_api_ref/phpdoc.dist.xml"; # Absolute path to phpDocumentor configuration file
-PHPDOC_CONF="$(pwd)/tools/php_api_ref/phpdoc.dev.xml"; # Absolute path to phpDocumentor configuration file
+PHPDOC_CONF="$(pwd)/tools/php_api_ref/phpdoc.dist.xml"; # Absolute path to phpDocumentor configuration file
+#PHPDOC_CONF="$(pwd)/tools/php_api_ref/phpdoc.dev.xml"; # Absolute path to phpDocumentor configuration file
 PHPDOC_TEMPLATE_VERSION='3.5.0'; # Version of the phpDocumentor base template set
 PHPDOC_DIR="$(pwd)/tools/php_api_ref/.phpdoc"; # Absolute path to phpDocumentor resource directory (containing the override template set)
 
