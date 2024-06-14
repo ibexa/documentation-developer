@@ -18,7 +18,7 @@
                     <td>
                         {{ argument.type|route('class:short')|join('|')|raw }}
                     </td>
-                    <td {{ argument.default is empty ? 'class="empty"' }}>
+                    <td{{ argument.default is empty ? ' class="empty"' }}>
                         {% if argument.default is not empty %}
                             {% if 'self::' in argument.default %}
                                 {{ argument.default|replace({'self':argument.method|split('::')[0]})|route('class:short')|raw }}
@@ -29,7 +29,7 @@
                             -
                         {% endif %}
                     </td>
-                    <td {{ argument.description is not defined or argument.description.empty ? 'class="empty"' }}>
+                    <td{{ argument.description is not defined or argument.description.empty ? ' class="empty"' }}>
                         {% if argument.description is not defined or argument.description.empty %}
                             -
                         {% else %}
