@@ -1703,7 +1703,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\DateRange",
             "name": "DateRange",
-            "summary": "",
+            "summary": "Immutable\u0020date\u0020range\u0020representation\u0020where\u0020left\u0020bound\u0020is\u0020inclusive,\u0020right\u0020bound\u0020is\u0020exclusive.",
             "url": "classes/Ibexa-Contracts-Calendar-DateRange.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\DateRange\u003A\u003A__construct\u0028\u0029",
@@ -1713,32 +1713,32 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\DateRange\u003A\u003AgetStartDate\u0028\u0029",
             "name": "getStartDate",
-            "summary": "",
+            "summary": "Returns\u0020left\u0020bound\u0020of\u0020the\u0020range\u0020\u0028inclusive\u0029.",
             "url": "classes/Ibexa-Contracts-Calendar-DateRange.html#method_getStartDate"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\DateRange\u003A\u003AgetEndDate\u0028\u0029",
             "name": "getEndDate",
-            "summary": "",
+            "summary": "Returns\u0020right\u0020bound\u0020of\u0020the\u0020range\u0020\u0028exclusive\u0029.",
             "url": "classes/Ibexa-Contracts-Calendar-DateRange.html#method_getEndDate"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\DateRange\u003A\u003Acontains\u0028\u0029",
             "name": "contains",
-            "summary": "",
+            "summary": "Checks\u0020if\u0020given\u0020date\u0020is\u0020within\u0020the\u0020range.",
             "url": "classes/Ibexa-Contracts-Calendar-DateRange.html#method_contains"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\DateRange\u003A\u003AtoDatePeriod\u0028\u0029",
             "name": "toDatePeriod",
-            "summary": "",
+            "summary": "Converts\u0020date\u0020range\u0020\u0028non\u002Ddiscrete\u0020value\u0029\u0020to\u0020date\u0020period\u0020\u0028discrete\u0020value\u0029\u0020using\u0020given\u0020interval\n\u0028optional,\u0020P1D\u0020used\u0020as\u0020default\u0020value\u0029.",
             "url": "classes/Ibexa-Contracts-Calendar-DateRange.html#method_toDatePeriod"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\DateRange\u003A\u003A__toString\u0028\u0029",
             "name": "__toString",
-            "summary": "",
+            "summary": "Converts\u0020date\u0020range\u0020to\u0020string\u0020representation.",
             "url": "classes/Ibexa-Contracts-Calendar-DateRange.html#method___toString"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\Event",
             "name": "Event",
-            "summary": "",
+            "summary": "Base\u0020class\u0020for\u0020calendar\u0020events.",
             "url": "classes/Ibexa-Contracts-Calendar-Event.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\Event\u003A\u003A__construct\u0028\u0029",
@@ -1763,7 +1763,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\Event\u003A\u003AgetName\u0028\u0029",
             "name": "getName",
-            "summary": "",
+            "summary": "Returns\u0020human\u002Dreadable\u0020label\u0020of\u0020the\u0020event.\u0020For\u0020example\u003A\u0020\u0022Birthday\u0020of\u0020John\u0022.",
             "url": "classes/Ibexa-Contracts-Calendar-Event.html#method_getName"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\Event\u003A\u003AisAfter\u0028\u0029",
@@ -1791,9 +1791,44 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-Calendar-Event.html#method_executeAction"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Calendar\\EventAction\\EventActionCollection",
+            "name": "EventActionCollection",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Calendar-EventAction-EventActionCollection.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Calendar\\EventAction\\EventActionCollection\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Calendar-EventAction-EventActionCollection.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Calendar\\EventAction\\EventActionCollection\u003A\u003Asupports\u0028\u0029",
+            "name": "supports",
+            "summary": "Returns\u0020true\u0020if\u0020action\u0020with\u0020given\u0020identifier\u0020is\u0020supported.",
+            "url": "classes/Ibexa-Contracts-Calendar-EventAction-EventActionCollection.html#method_supports"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Calendar\\EventAction\\EventActionCollection\u003A\u003Aget\u0028\u0029",
+            "name": "get",
+            "summary": "Returns\u0020action\u0020definition\u0020with\u0020given\u0020identifier.",
+            "url": "classes/Ibexa-Contracts-Calendar-EventAction-EventActionCollection.html#method_get"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Calendar\\EventAction\\EventActionCollection\u003A\u003AisEmpty\u0028\u0029",
+            "name": "isEmpty",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Calendar-EventAction-EventActionCollection.html#method_isEmpty"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Calendar\\EventAction\\EventActionCollection\u003A\u003AgetIterator\u0028\u0029",
+            "name": "getIterator",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Calendar-EventAction-EventActionCollection.html#method_getIterator"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Calendar\\EventAction\\EventActionCollection\u003A\u003AcreateEmpty\u0028\u0029",
+            "name": "createEmpty",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Calendar-EventAction-EventActionCollection.html#method_createEmpty"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\EventAction\\EventActionContext",
             "name": "EventActionContext",
-            "summary": "",
+            "summary": "Base\u0020class\u0020for\u0020action\u0020context.\u0020Context\u0020contains\u0020all\u0020necessary\u0020data\u0020to\u0020execute\u0020associated\u0020action.",
             "url": "classes/Ibexa-Contracts-Calendar-EventAction-EventActionContext.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\EventAction\\EventActionContext\u003A\u003A__construct\u0028\u0029",
@@ -1808,7 +1843,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\EventAction\\EventActionInterface",
             "name": "EventActionInterface",
-            "summary": "",
+            "summary": "Represents\u0020event\u0020action.",
             "url": "classes/Ibexa-Contracts-Calendar-EventAction-EventActionInterface.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\EventAction\\EventActionInterface\u003A\u003AgetActionIdentifier\u0028\u0029",
@@ -1848,32 +1883,32 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\EventCollection\u003A\u003Afirst\u0028\u0029",
             "name": "first",
-            "summary": "",
+            "summary": "Returns\u0020first\u0020event\u0020in\u0020collection\u0020\u0028or\u0020null\u0020if\u0020empty\u0029.",
             "url": "classes/Ibexa-Contracts-Calendar-EventCollection.html#method_first"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\EventCollection\u003A\u003Alast\u0028\u0029",
             "name": "last",
-            "summary": "",
+            "summary": "Returns\u0020last\u0020event\u0020in\u0020collection\u0020\u0028or\u0020null\u0020if\u0020empty\u0029.",
             "url": "classes/Ibexa-Contracts-Calendar-EventCollection.html#method_last"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\EventCollection\u003A\u003Afind\u0028\u0029",
             "name": "find",
-            "summary": "",
+            "summary": "Returns\u0020index\u0020of\u0020first\u0020event\u0020matching\u0020given\u0020predicate\u0020or\u0020null\u0020if\u0020not\u0020found.",
             "url": "classes/Ibexa-Contracts-Calendar-EventCollection.html#method_find"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\EventCollection\u003A\u003Afilter\u0028\u0029",
             "name": "filter",
-            "summary": "",
+            "summary": "Returns\u0020collection\u0020of\u0020events\u0020matching\u0020given\u0020predicate.",
             "url": "classes/Ibexa-Contracts-Calendar-EventCollection.html#method_filter"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\EventCollection\u003A\u003Amap\u0028\u0029",
             "name": "map",
-            "summary": "",
+            "summary": "Maps\u0020collection\u0020of\u0020events\u0020using\u0020given\u0020callback.",
             "url": "classes/Ibexa-Contracts-Calendar-EventCollection.html#method_map"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\EventCollection\u003A\u003Aslice\u0028\u0029",
             "name": "slice",
-            "summary": "",
+            "summary": "Slices\u0020collection\u0020of\u0020events.",
             "url": "classes/Ibexa-Contracts-Calendar-EventCollection.html#method_slice"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\EventCollection\u003A\u003AgetIterator\u0028\u0029",
@@ -1888,17 +1923,17 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\EventCollection\u003A\u003AfromIterator\u0028\u0029",
             "name": "fromIterator",
-            "summary": "",
+            "summary": "Creates\u0020events\u0020collection\u0020from\u0020given\u0020iterator.",
             "url": "classes/Ibexa-Contracts-Calendar-EventCollection.html#method_fromIterator"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\EventCollection\u003A\u003Aof\u0028\u0029",
             "name": "of",
-            "summary": "",
+            "summary": "Creates\u0020events\u0020collection\u0020from\u0020given\u0020events.",
             "url": "classes/Ibexa-Contracts-Calendar-EventCollection.html#method_of"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\EventGroup",
             "name": "EventGroup",
-            "summary": "",
+            "summary": "Group\u0020of\u0020events\u0020within\u0020given\u0020date\u0020range\u0020e.g.\u0020today\u0027s\u0020agenda.",
             "url": "classes/Ibexa-Contracts-Calendar-EventGroup.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\EventGroup\u003A\u003AgetGroupKey\u0028\u0029",
@@ -1913,7 +1948,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\EventGroupList",
             "name": "EventGroupList",
-            "summary": "",
+            "summary": "List\u0020of\u0020grouped\u0020events.",
             "url": "classes/Ibexa-Contracts-Calendar-EventGroupList.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\EventGroupList\u003A\u003A__construct\u0028\u0029",
@@ -1943,7 +1978,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\EventList",
             "name": "EventList",
-            "summary": "",
+            "summary": "List\u0020of\u0020events\u0020being\u0020the\u0020result\u0020of\u0020executing\u0020event\u0020query.",
             "url": "classes/Ibexa-Contracts-Calendar-EventList.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\EventList\u003A\u003A__construct\u0028\u0029",
@@ -1958,12 +1993,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\EventList\u003A\u003AgetTotalCount\u0028\u0029",
             "name": "getTotalCount",
-            "summary": "",
+            "summary": "Returns\u0020total\u0020number\u0020of\u0020events\u0020matching\u0020query.",
             "url": "classes/Ibexa-Contracts-Calendar-EventList.html#method_getTotalCount"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\EventList\u003A\u003AgetQuery\u0028\u0029",
             "name": "getQuery",
-            "summary": "",
+            "summary": "Returns\u0020query\u0020used\u0020to\u0020fetch\u0020events.",
             "url": "classes/Ibexa-Contracts-Calendar-EventList.html#method_getQuery"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\EventList\u003A\u003AgetIterator\u0028\u0029",
@@ -1973,17 +2008,17 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\EventList\u003A\u003AgetNextPageQuery\u0028\u0029",
             "name": "getNextPageQuery",
-            "summary": "",
+            "summary": "Returns\u0020next\u0020page\u0020query\u0020or\u0020null\u0020if\u0020no\u0020more\u0020events.",
             "url": "classes/Ibexa-Contracts-Calendar-EventList.html#method_getNextPageQuery"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\EventList\u003A\u003AcreateEmpty\u0028\u0029",
             "name": "createEmpty",
-            "summary": "",
+            "summary": "Creates\u0020empty\u0020event\u0020list.",
             "url": "classes/Ibexa-Contracts-Calendar-EventList.html#method_createEmpty"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\EventQuery",
             "name": "EventQuery",
-            "summary": "",
+            "summary": "Defines\u0020parameters\u0020used\u0020to\u0020fetch\u0020events.",
             "url": "classes/Ibexa-Contracts-Calendar-EventQuery.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\EventQuery\u003A\u003A__construct\u0028\u0029",
@@ -1993,12 +2028,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\EventQuery\u003A\u003AgetDateRange\u0028\u0029",
             "name": "getDateRange",
-            "summary": "",
+            "summary": "Returns\u0020date\u0020range\u0020to\u0020fetch\u0020events\u0020for.",
             "url": "classes/Ibexa-Contracts-Calendar-EventQuery.html#method_getDateRange"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\EventQuery\u003A\u003AgetCount\u0028\u0029",
             "name": "getCount",
-            "summary": "",
+            "summary": "Returns\u0020number\u0020of\u0020events\u0020to\u0020fetch.",
             "url": "classes/Ibexa-Contracts-Calendar-EventQuery.html#method_getCount"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\EventQuery\u003A\u003AgetCursor\u0028\u0029",
@@ -2008,17 +2043,17 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\EventQuery\u003A\u003AgetTypes\u0028\u0029",
             "name": "getTypes",
-            "summary": "",
+            "summary": "Returns\u0020event\u0020types\u0020to\u0020fetch\u0020events\u0020for.",
             "url": "classes/Ibexa-Contracts-Calendar-EventQuery.html#method_getTypes"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\EventQuery\u003A\u003AgetLanguages\u0028\u0029",
             "name": "getLanguages",
-            "summary": "",
+            "summary": "Returns\u0020languages\u0020to\u0020fetch\u0020events\u0020for.",
             "url": "classes/Ibexa-Contracts-Calendar-EventQuery.html#method_getLanguages"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\EventQuery\u003A\u003Amodify\u0028\u0029",
             "name": "modify",
-            "summary": "",
+            "summary": "Allows\u0020to\u0020modify\u0020this\u0020query\u0020using\u0020EventQueryBuilder.",
             "url": "classes/Ibexa-Contracts-Calendar-EventQuery.html#method_modify"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\EventQuery\u003A\u003ADEFAULT_COUNT",
@@ -2028,7 +2063,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\EventQueryBuilder",
             "name": "EventQueryBuilder",
-            "summary": "",
+            "summary": "Allows\u0020to\u0020build\u0020event\u0020query\u0020in\u0020a\u0020fluent\u0020way.",
             "url": "classes/Ibexa-Contracts-Calendar-EventQueryBuilder.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\EventQueryBuilder\u003A\u003A__construct\u0028\u0029",
@@ -2091,9 +2126,34 @@ Search.appendIndex(
             "summary": "Returns\u0020events\u0020matching\u0020given\u0020\u0024query.",
             "url": "classes/Ibexa-Contracts-Calendar-EventSource-EventSourceInterface.html#method_getEvents"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Calendar\\EventSource\\InMemoryEventSource",
+            "name": "InMemoryEventSource",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Calendar-EventSource-InMemoryEventSource.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Calendar\\EventSource\\InMemoryEventSource\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Calendar-EventSource-InMemoryEventSource.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Calendar\\EventSource\\InMemoryEventSource\u003A\u003AgetCount\u0028\u0029",
+            "name": "getCount",
+            "summary": "Returns\u0020the\u0020number\u0020of\u0020events\u0020matching\u0020given\u0020\u0024query.",
+            "url": "classes/Ibexa-Contracts-Calendar-EventSource-InMemoryEventSource.html#method_getCount"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Calendar\\EventSource\\InMemoryEventSource\u003A\u003AloadEvents\u0028\u0029",
+            "name": "loadEvents",
+            "summary": "Bulk\u002Dload\u0020Events\u0020with\u0020given\u0020id\u0027s.",
+            "url": "classes/Ibexa-Contracts-Calendar-EventSource-InMemoryEventSource.html#method_loadEvents"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Calendar\\EventSource\\InMemoryEventSource\u003A\u003AgetEvents\u0028\u0029",
+            "name": "getEvents",
+            "summary": "Returns\u0020events\u0020matching\u0020given\u0020\u0024query.",
+            "url": "classes/Ibexa-Contracts-Calendar-EventSource-InMemoryEventSource.html#method_getEvents"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\EventType\\EventTypeInterface",
             "name": "EventTypeInterface",
-            "summary": "",
+            "summary": "Definition\u0020of\u0020event\u0020type.",
             "url": "classes/Ibexa-Contracts-Calendar-EventType-EventTypeInterface.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\EventType\\EventTypeInterface\u003A\u003AgetTypeIdentifier\u0028\u0029",
@@ -2103,7 +2163,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\EventType\\EventTypeInterface\u003A\u003AgetTypeLabel\u0028\u0029",
             "name": "getTypeLabel",
-            "summary": "Returns\u0020human\u0020readable\u0020label\u0020for\u0020event\u0020type.",
+            "summary": "Returns\u0020human\u002Dreadable\u0020label\u0020for\u0020event\u0020type.",
             "url": "classes/Ibexa-Contracts-Calendar-EventType-EventTypeInterface.html#method_getTypeLabel"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\EventType\\EventTypeInterface\u003A\u003AgetEventName\u0028\u0029",
@@ -2118,7 +2178,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\LanguageBasedEvent",
             "name": "LanguageBasedEvent",
-            "summary": "",
+            "summary": "This\u0020interface\u0020should\u0020be\u0020implemented\u0020by\u0020events\u0020related\u0020to\u0020a\u0020specific\u0020language.\u0020For\u0020example\u003A\u0020scheduled\u0020publication\u0020of\na\u0020content\u0020translation.",
             "url": "classes/Ibexa-Contracts-Calendar-LanguageBasedEvent.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\LanguageBasedEvent\u003A\u003AgetLanguage\u0028\u0029",
@@ -4641,6 +4701,46 @@ Search.appendIndex(
             "summary": "Get\u0020Repository\u0020object.",
             "url": "classes/Ibexa-Contracts-Core-Container.html#method_getRepository"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Event\\Mapper\\ResolveMissingFieldEvent",
+            "name": "ResolveMissingFieldEvent",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Event-Mapper-ResolveMissingFieldEvent.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Event\\Mapper\\ResolveMissingFieldEvent\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Event-Mapper-ResolveMissingFieldEvent.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Event\\Mapper\\ResolveMissingFieldEvent\u003A\u003AgetContent\u0028\u0029",
+            "name": "getContent",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Event-Mapper-ResolveMissingFieldEvent.html#method_getContent"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Event\\Mapper\\ResolveMissingFieldEvent\u003A\u003AgetFieldDefinition\u0028\u0029",
+            "name": "getFieldDefinition",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Event-Mapper-ResolveMissingFieldEvent.html#method_getFieldDefinition"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Event\\Mapper\\ResolveMissingFieldEvent\u003A\u003AgetLanguageCode\u0028\u0029",
+            "name": "getLanguageCode",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Event-Mapper-ResolveMissingFieldEvent.html#method_getLanguageCode"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Event\\Mapper\\ResolveMissingFieldEvent\u003A\u003AgetContext\u0028\u0029",
+            "name": "getContext",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Event-Mapper-ResolveMissingFieldEvent.html#method_getContext"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Event\\Mapper\\ResolveMissingFieldEvent\u003A\u003AsetField\u0028\u0029",
+            "name": "setField",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Event-Mapper-ResolveMissingFieldEvent.html#method_setField"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Event\\Mapper\\ResolveMissingFieldEvent\u003A\u003AgetField\u0028\u0029",
+            "name": "getField",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Event-Mapper-ResolveMissingFieldEvent.html#method_getField"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Event\\NameSchema\\AbstractNameSchemaEvent",
             "name": "AbstractNameSchemaEvent",
             "summary": "",
@@ -4825,6 +4925,16 @@ Search.appendIndex(
             "name": "valuesEqual",
             "summary": "",
             "url": "classes/Ibexa-Contracts-Core-FieldType-Comparable.html#method_valuesEqual"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\FieldType\\DefaultDataFieldStorage",
+            "name": "DefaultDataFieldStorage",
+            "summary": "Interface\u0020for\u0020setting\u0020field\u0020type\u0020data.",
+            "url": "classes/Ibexa-Contracts-Core-FieldType-DefaultDataFieldStorage.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\FieldType\\DefaultDataFieldStorage\u003A\u003AgetDefaultFieldData\u0028\u0029",
+            "name": "getDefaultFieldData",
+            "summary": "Populates\u0020\u003Ccode\u003E\u0024field\u003C\/code\u003E\u0020value\u0020property\u0020with\u0020default\u0020data\u0020based\u0020on\u0020the\u0020external\u0020data.",
+            "url": "classes/Ibexa-Contracts-Core-FieldType-DefaultDataFieldStorage.html#method_getDefaultFieldData"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\FieldType\\FieldConstraintsStorage",
             "name": "FieldConstraintsStorage",
@@ -18221,6 +18331,16 @@ Search.appendIndex(
             "summary": "this\u0020class\u0020represents\u0020a\u0020content\u0020object\u0020in\u0020a\u0020specific\u0020version.",
             "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Content\u003A\u003AgetId\u0028\u0029",
+            "name": "getId",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html#method_getId"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Content\u003A\u003AgetContentInfo\u0028\u0029",
+            "name": "getContentInfo",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html#method_getContentInfo"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Content\u003A\u003AgetVersionInfo\u0028\u0029",
             "name": "getVersionInfo",
             "summary": "Returns\u0020the\u0020VersionInfo\u0020for\u0020this\u0020version.",
@@ -18356,6 +18476,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html#method_isTrashed"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\ContentInfo\u003A\u003A\u0024isHidden",
+            "name": "isHidden",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html#property_isHidden"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\ContentInfo\u003A\u003AgetContentType\u0028\u0029",
             "name": "getContentType",
             "summary": "",
@@ -18400,6 +18525,11 @@ Search.appendIndex(
             "name": "getId",
             "summary": "",
             "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html#method_getId"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\ContentInfo\u003A\u003AgetName\u0028\u0029",
+            "name": "getName",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html#method_getName"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\ContentInfo\u003A\u003ASTATUS_DRAFT",
             "name": "STATUS_DRAFT",
@@ -18485,11 +18615,6 @@ Search.appendIndex(
             "name": "status",
             "summary": "Status\u0020of\u0020the\u0020content.",
             "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html#property_status"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\ContentInfo\u003A\u003A\u0024isHidden",
-            "name": "isHidden",
-            "summary": "",
-            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html#property_isHidden"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\ContentInfo\u003A\u003A\u0024contentType",
             "name": "contentType",
@@ -18701,6 +18826,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Field.html#method_getFieldTypeIdentifier"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Field\u003A\u003AisVirtual\u0028\u0029",
+            "name": "isVirtual",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Field.html#method_isVirtual"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Field\u003A\u003A\u0024id",
             "name": "id",
             "summary": "The\u0020field\u0020id.",
@@ -18808,8 +18938,18 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Location\u003A\u003AgetParentLocation\u0028\u0029",
             "name": "getParentLocation",
-            "summary": "Return\u0020the\u0020parent\u0020location\u0020of\u0020of\u0020this\u0020location.",
+            "summary": "Return\u0020the\u0020parent\u0020location\u0020of\u0020this\u0020location.",
             "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Location.html#method_getParentLocation"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Location\u003A\u003AgetId\u0028\u0029",
+            "name": "getId",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Location.html#method_getId"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Location\u003A\u003AgetContentId\u0028\u0029",
+            "name": "getContentId",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Location.html#method_getContentId"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Location\u003A\u003AisDraft\u0028\u0029",
             "name": "isDraft",
@@ -18830,6 +18970,36 @@ Search.appendIndex(
             "name": "getPathString",
             "summary": "The\u0020path\u0020to\u0020the\u0020Location\u0020represented\u0020by\u0020the\u0020current\u0020instance,\ne.g.\u0020\/1\/2\/4\/23\u0020where\u002023\u0020is\u0020current\u0020id.",
             "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Location.html#method_getPathString"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Location\u003A\u003AgetPath\u0028\u0029",
+            "name": "getPath",
+            "summary": "Same\u0020as\u0020\u007B\u0040see\u0020Location\u003A\u003AgetPathString\u0028\u0029\u007D\u0020but\u0020as\u0020array,\u0020e.g.\u003A\u0020\u003Ccode\u003E\u005B\u0020\u00271\u0027,\u0020\u00272\u0027,\u0020\u00274\u0027,\u0020\u002723\u0027\u0020\u005D\u003C\/code\u003E.",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Location.html#method_getPath"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Location\u003A\u003AisInvisible\u0028\u0029",
+            "name": "isInvisible",
+            "summary": "Indicates\u0020that\u0020the\u0020Location\u0020is\u0020not\u0020visible,\u0020being\u0020either\u0020marked\u0020as\u0020hidden\u0020itself,\u0020or\u0020implicitly\u0020hidden\u0020by\nits\u0020Content\u0020or\u0020an\u0020ancestor\u0020Location.",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Location.html#method_isInvisible"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Location\u003A\u003AisHidden\u0028\u0029",
+            "name": "isHidden",
+            "summary": "Indicates\u0020that\u0020the\u0020Location\u0020is\u0020hidden\u0020either\u0020explicitly\u0020or\u0020by\u0020content.",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Location.html#method_isHidden"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Location\u003A\u003AgetDepth\u0028\u0029",
+            "name": "getDepth",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Location.html#method_getDepth"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Location\u003A\u003A__isset\u0028\u0029",
+            "name": "__isset",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Location.html#method___isset"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Location\u003A\u003A__get\u0028\u0029",
+            "name": "__get",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Location.html#method___get"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Location\u003A\u003ASORT_FIELD_PATH",
             "name": "SORT_FIELD_PATH",
@@ -18965,6 +19135,11 @@ Search.appendIndex(
             "name": "pathString",
             "summary": "The\u0020materialized\u0020path\u0020of\u0020the\u0020location\u0020entry,\u0020eg\u003A\u0020\/1\/2\/.",
             "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Location.html#property_pathString"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Location\u003A\u003A\u0024path",
+            "name": "path",
+            "summary": "Same\u0020as\u0020\u007B\u0040see\u0020Location\u003A\u003A\u0024pathString\u007D\u0020but\u0020as\u0020array,\u0020e.g.\u003A\u0020\u003Ccode\u003E\u005B\u0020\u00271\u0027,\u0020\u00272\u0027,\u0020\u00274\u0027,\u0020\u002723\u0027\u0020\u005D\u003C\/code\u003E.",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Location.html#property_path"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Location\u003A\u003A\u0024depth",
             "name": "depth",
@@ -22766,6 +22941,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-VersionInfo.html#method_getLanguageCodes"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\VersionInfo\u003A\u003AgetVersionNo\u0028\u0029",
+            "name": "getVersionNo",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-VersionInfo.html#method_getVersionNo"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\VersionInfo\u003A\u003AisDraft\u0028\u0029",
             "name": "isDraft",
             "summary": "Returns\u0020true\u0020if\u0020version\u0020is\u0020a\u0020draft.",
@@ -22850,6 +23030,11 @@ Search.appendIndex(
             "name": "getFieldDefinitions",
             "summary": "This\u0020method\u0020returns\u0020the\u0020content\u0020type\u0020field\u0020definitions\u0020from\u0020this\u0020type.",
             "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-ContentType.html#method_getFieldDefinitions"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\ContentType\u003A\u003AgetIdentifier\u0028\u0029",
+            "name": "getIdentifier",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-ContentType.html#method_getIdentifier"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\ContentType\u003A\u003AgetFieldDefinition\u0028\u0029",
             "name": "getFieldDefinition",
@@ -23216,6 +23401,66 @@ Search.appendIndex(
             "summary": "This\u0020method\u0020returns\u0020settings\u0020for\u0020the\u0020field\u0020definition\u0020supported\u0020by\u0020the\u0020field\u0020type.",
             "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-FieldDefinition.html#method_getFieldSettings"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\FieldDefinition\u003A\u003AgetId\u0028\u0029",
+            "name": "getId",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-FieldDefinition.html#method_getId"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\FieldDefinition\u003A\u003AgetFieldGroup\u0028\u0029",
+            "name": "getFieldGroup",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-FieldDefinition.html#method_getFieldGroup"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\FieldDefinition\u003A\u003AgetPosition\u0028\u0029",
+            "name": "getPosition",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-FieldDefinition.html#method_getPosition"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\FieldDefinition\u003A\u003A\u0024isTranslatable",
+            "name": "isTranslatable",
+            "summary": "If\u0020the\u0020field\u0020is\u0020translatable.",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-FieldDefinition.html#property_isTranslatable"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\FieldDefinition\u003A\u003A\u0024isRequired",
+            "name": "isRequired",
+            "summary": "Is\u0020the\u0020field\u0020required.",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-FieldDefinition.html#property_isRequired"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\FieldDefinition\u003A\u003A\u0024isInfoCollector",
+            "name": "isInfoCollector",
+            "summary": "the\u0020flag\u0020if\u0020this\u0020field\u0020is\u0020used\u0020for\u0020information\u0020collection.",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-FieldDefinition.html#property_isInfoCollector"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\FieldDefinition\u003A\u003AgetDefaultValue\u0028\u0029",
+            "name": "getDefaultValue",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-FieldDefinition.html#method_getDefaultValue"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\FieldDefinition\u003A\u003A\u0024isSearchable",
+            "name": "isSearchable",
+            "summary": "Indicates\u0020if\u0020th\u0020the\u0020content\u0020is\u0020searchable\u0020by\u0020this\u0020attribute.",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-FieldDefinition.html#property_isSearchable"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\FieldDefinition\u003A\u003AgetMainLanguageCode\u0028\u0029",
+            "name": "getMainLanguageCode",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-FieldDefinition.html#method_getMainLanguageCode"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\FieldDefinition\u003A\u003A\u0024isThumbnail",
+            "name": "isThumbnail",
+            "summary": "Indicates\u0020if\u0020the\u0020field\u0020can\u0020be\u0020a\u0020thumbnail.",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-FieldDefinition.html#property_isThumbnail"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\FieldDefinition\u003A\u003AgetIdentifier\u0028\u0029",
+            "name": "getIdentifier",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-FieldDefinition.html#method_getIdentifier"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\FieldDefinition\u003A\u003AgetFieldTypeIdentifier\u0028\u0029",
+            "name": "getFieldTypeIdentifier",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-FieldDefinition.html#method_getFieldTypeIdentifier"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\FieldDefinition\u003A\u003A\u0024id",
             "name": "id",
             "summary": "the\u0020unique\u0020id\u0020of\u0020this\u0020field\u0020definition.",
@@ -23241,35 +23486,10 @@ Search.appendIndex(
             "summary": "String\u0020identifier\u0020of\u0020the\u0020field\u0020type.",
             "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-FieldDefinition.html#property_fieldTypeIdentifier"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\FieldDefinition\u003A\u003A\u0024isTranslatable",
-            "name": "isTranslatable",
-            "summary": "If\u0020the\u0020field\u0020is\u0020translatable.",
-            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-FieldDefinition.html#property_isTranslatable"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\FieldDefinition\u003A\u003A\u0024isThumbnail",
-            "name": "isThumbnail",
-            "summary": "Indicates\u0020if\u0020the\u0020field\u0020can\u0020be\u0020a\u0020thumbnail.",
-            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-FieldDefinition.html#property_isThumbnail"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\FieldDefinition\u003A\u003A\u0024isRequired",
-            "name": "isRequired",
-            "summary": "Is\u0020the\u0020field\u0020required.",
-            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-FieldDefinition.html#property_isRequired"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\FieldDefinition\u003A\u003A\u0024isInfoCollector",
-            "name": "isInfoCollector",
-            "summary": "the\u0020flag\u0020if\u0020this\u0020field\u0020is\u0020used\u0020for\u0020information\u0020collection.",
-            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-FieldDefinition.html#property_isInfoCollector"
-        },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\FieldDefinition\u003A\u003A\u0024defaultValue",
             "name": "defaultValue",
             "summary": "Default\u0020value\u0020of\u0020the\u0020field.",
             "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-FieldDefinition.html#property_defaultValue"
-        },                {
-            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\FieldDefinition\u003A\u003A\u0024isSearchable",
-            "name": "isSearchable",
-            "summary": "Indicates\u0020if\u0020th\u0020the\u0020content\u0020is\u0020searchable\u0020by\u0020this\u0020attribute.",
-            "url": "classes/Ibexa-Contracts-Core-Repository-Values-ContentType-FieldDefinition.html#property_isSearchable"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\ContentType\\FieldDefinition\u003A\u003A\u0024mainLanguageCode",
             "name": "mainLanguageCode",
@@ -24983,13 +25203,23 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\User\\User",
             "name": "User",
-            "summary": "This\u0020class\u0020represents\u0020a\u0020user\u0020value.",
+            "summary": "this\u0020class\u0020represents\u0020a\u0020content\u0020object\u0020in\u0020a\u0020specific\u0020version.",
             "url": "classes/Ibexa-Contracts-Core-Repository-Values-User-User.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\User\\User\u003A\u003AgetUserId\u0028\u0029",
             "name": "getUserId",
-            "summary": "The\u0020User\u0020id\u0020of\u0020the\u0020User.",
+            "summary": "The\u0020User\u0020id\u0020of\u0020the\u0020User\u0020this\u0020reference\u0020represent.",
             "url": "classes/Ibexa-Contracts-Core-Repository-Values-User-User.html#method_getUserId"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\User\\User\u003A\u003AgetLogin\u0028\u0029",
+            "name": "getLogin",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-User-User.html#method_getLogin"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\User\\User\u003A\u003AgetPasswordHash\u0028\u0029",
+            "name": "getPasswordHash",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-User-User.html#method_getPasswordHash"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\User\\User\u003A\u003ASUPPORTED_PASSWORD_HASHES",
             "name": "SUPPORTED_PASSWORD_HASHES",
@@ -49106,15 +49336,20 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/ibexa-contracts-core.html"
         },                {
-            "fqsen": "\\Ibexa\\Contracts\\Core\\Event\\NameSchema",
-            "name": "NameSchema",
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Event\\Mapper",
+            "name": "Mapper",
             "summary": "",
-            "url": "namespaces/ibexa-contracts-core-event-nameschema.html"
+            "url": "namespaces/ibexa-contracts-core-event-mapper.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Event",
             "name": "Event",
             "summary": "",
             "url": "namespaces/ibexa-contracts-core-event.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Event\\NameSchema",
+            "name": "NameSchema",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-core-event-nameschema.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Event\\View",
             "name": "View",
