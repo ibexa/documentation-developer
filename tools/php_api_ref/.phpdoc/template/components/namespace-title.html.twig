@@ -1,5 +1,9 @@
+{% set breadcrumbs = usesNamespaces ? breadcrumbs(node) : packages(node) %}
+{% set fqcn = breadcrumbs|map(breadcrumb => breadcrumb.name)|join('\\') ~ '\\' ~ node.name %}
+
 <div class="content-header">
     <h1>
         {{ node.name == '\\' ? 'API Documentation' : node.name }}
     </h1>
+    <button class="content-header__copy-fqcn copy-to-clipboard" title="{{ fqcn }}" data-copy-value="{{ fqcn }}">Copy FQCN</button>
 </div>
