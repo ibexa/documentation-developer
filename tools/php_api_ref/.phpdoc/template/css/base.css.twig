@@ -340,11 +340,14 @@ ul.breadcrumbs li.breadcrumb-item-current span {
     width: 100%;
 }
 
-.md-typeset .method-parameters thead td {
+.md-typeset .method-parameters thead td,
+.md-typeset .method-parameters thead th {
     border-bottom: 1px solid #DCDFE7;
     color: #71767C;
+    text-align: left;
 }
 
+.md-typeset .method-parameters th,
 .md-typeset .method-parameters td {
     padding: 12px;
 }
@@ -353,6 +356,16 @@ ul.breadcrumbs li.breadcrumb-item-current span {
     color: #71767C;
 }
 
+.md-typeset .method-parameters tbody td:nth-child(-n + 2) {
+    white-space: nowrap;
+}
+
+.md-typeset .method-parameters td .phpdocumentor-description p:first-of-type {
+    margin-top: 0;
+}
+.md-typeset .method-parameters td .phpdocumentor-description p:last-of-type {
+    margin-bottom: 0;
+}
 
 {# --------------------------------------------------------------------------- #}
 {# --------------------------------- Search ---------------------------------- #}

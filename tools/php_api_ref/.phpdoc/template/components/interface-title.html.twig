@@ -1,5 +1,5 @@
 {% set breadcrumbs = usesNamespaces ? breadcrumbs(node) : packages(node) %}
-{% set fqcn = breadcrumbs|map(breadcrumb => breadcrumb.name)|join('\\') %}
+{% set fqcn = breadcrumbs|map(breadcrumb => breadcrumb.name)|join('\\') ~ '\\' ~ node.name %}
 
 {% embed 'components/content-header.html.twig' with { 
     anchor: node.name,

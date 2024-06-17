@@ -36105,7 +36105,7 @@
             </div>
         <h1 id="ContentValidator">
         ContentValidator            </h1>
-            <button class="content-header__copy-fqcn copy-to-clipboard" title="Ibexa\Contracts\Core\Repository\Validator" data-copy-value="Ibexa\Contracts\Core\Repository\Validator">Copy FQCN</button>
+            <button class="content-header__copy-fqcn copy-to-clipboard" title="Ibexa\Contracts\Core\Repository\Validator\ContentValidator" data-copy-value="Ibexa\Contracts\Core\Repository\Validator\ContentValidator">Copy FQCN</button>
         <div class="content-header__found-in">
         <abbr title="vendor/ibexa/core/src/contracts/Repository/Validator/ContentValidator.php">ContentValidator.php</abbr>
                 :
@@ -36168,10 +36168,10 @@
     <table class="method-parameters">
         <thead>
             <tr>
-                <td>Name</td>
-                <td>Type</td>
-                <td>Default value</td>
-                <td>Description</td>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
             </tr>
         </thead>
         <tbody>
@@ -36182,13 +36182,12 @@
                     <td>
                         <a href="classes/Ibexa-Contracts-Core-Repository-Values-ValueObject.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\ValueObject">ValueObject</abbr></a>
                     </td>
-                    <td >
-                        None
-                    </td>
                     <td class="empty">
                                                     -
-                                                
-                    </td>
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
                 </tr>
                     </tbody>
     </table>
@@ -36233,10 +36232,10 @@
     <table class="method-parameters">
         <thead>
             <tr>
-                <td>Name</td>
-                <td>Type</td>
-                <td>Default value</td>
-                <td>Description</td>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
             </tr>
         </thead>
         <tbody>
@@ -36247,13 +36246,12 @@
                     <td>
                         <a href="classes/Ibexa-Contracts-Core-Repository-Values-ValueObject.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\ValueObject">ValueObject</abbr></a>
                     </td>
-                    <td >
-                        None
-                    </td>
                     <td class="empty">
                                                     -
-                                                
-                    </td>
+                                            </td>
+                    <td class="empty">
+                                                    -
+                                            </td>
                 </tr>
                             <tr>
                     <td>
@@ -36262,17 +36260,16 @@
                     <td>
                         array&lt;string|int, mixed&gt;
                     </td>
-                    <td class="empty">
-                        []
-                    </td>
-                    <td class="empty">
-                                                    -
-                                                    <section class="phpdocumentor-description">
+                    <td>
+                                                                                    []
+                                                                        </td>
+                    <td>
+                                                        <section class="phpdocumentor-description">
         <p>Additional context parameters to be used by validators.</p>
 
     </section>
 
-                    </td>
+                                            </td>
                 </tr>
                             <tr>
                     <td>
@@ -36281,18 +36278,17 @@
                     <td>
                         array&lt;string|int, string&gt;|null
                     </td>
-                    <td class="empty">
-                        null
-                    </td>
-                    <td class="empty">
-                                                    -
-                                                    <section class="phpdocumentor-description">
+                    <td>
+                                                                                    null
+                                                                        </td>
+                    <td>
+                                                        <section class="phpdocumentor-description">
         <p>List of field identifiers for partial validation or null for
 case of full validation. Empty identifiers array is equal to no validation.</p>
 
     </section>
 
-                    </td>
+                                            </td>
                 </tr>
                     </tbody>
     </table>
@@ -36314,8 +36310,7 @@ case of full validation. Empty identifiers array is equal to no validation.</p>
                                                                                     </dl>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</p>
-            &mdash;
-            <section class="phpdocumentor-description">
+                <section class="phpdocumentor-description">
         <p>Grouped validation errors by field definition ID and language code, in format:
 $returnValue[int $fieldDefinitionId][string $languageCode] = $fieldErrors;</p>
 

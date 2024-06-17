@@ -1,10 +1,10 @@
-{% set tags_to_exlude = ['todo', 'var', 'param', 'property', 'property-read', 'property-write', 'method', 'return', 'package', 'api'] %}
+{% set tags_to_exlude = ['todo', 'var', 'param', 'property', 'property-read', 'property-write', 'method', 'return', 'package', 'api', 'final'] %}
 {% set partial_tags_to_exlude = ['phpstan-'] %}
 {% set tags = node.tags|filter((v,k) => k not in tags_to_exlude and not (k starts with 'phpstan-')) %}
 {% set has_tags = false %}
 {% for name,seriesOfTag in tags %}
     {% if name in ['see', 'uses'] %}
-        {%  set seriesOfTag = seriesOfTag|filter(tag => '<a ' in tag.reference|route('class:short')) %}
+        {% set seriesOfTag = seriesOfTag|filter(tag => '<a ' in tag.reference|route('class:short')) %}
     {% endif %}
     {% if seriesOfTag|length > 0 %}
         {% set has_tags = true %}
