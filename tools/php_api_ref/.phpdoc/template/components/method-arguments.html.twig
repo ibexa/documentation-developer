@@ -3,10 +3,10 @@
     <table class="method-parameters">
         <thead>
             <tr>
-                <td>Name</td>
-                <td>Type</td>
-                <td>Default value</td>
-                <td>Description</td>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
             </tr>
         </thead>
         <tbody>
@@ -18,14 +18,23 @@
                     <td>
                         {{ argument.type|route('class:short')|join('|')|raw }}
                     </td>
-                    <td {{ argument.default is not null ? 'class="empty"' }}>
-                        {{ argument.default is not null ? argument.default : 'None' }}
-                    </td>
-                    <td {{ node.description is not defined or node.description.empty ? 'class="empty"' }}>
-                        {% if node.description is not defined or node.description.empty %}
+                    <td{{ argument.default is empty ? ' class="empty"' }}>
+                        {% if argument.default is not empty %}
+                            {% if 'self::' in argument.default %}
+                                {{ argument.default|replace({'self':argument.method|split('::')[0]})|route('class:short')|raw }}
+                            {% else %}
+                                {{ argument.default }}
+                            {% endif %}
+                        {% else %}
                             -
                         {% endif %}
-                        {{ include('components/description.html.twig', {node: argument}) }}
+                    </td>
+                    <td{{ argument.description is not defined or argument.description.empty ? ' class="empty"' }}>
+                        {% if argument.description is not defined or argument.description.empty %}
+                            -
+                        {% else %}
+                            {{ include('components/description.html.twig', {node: argument}) }}
+                        {% endif %}
                     </td>
                 </tr>
             {% endfor %}
