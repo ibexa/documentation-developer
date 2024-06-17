@@ -24,16 +24,6 @@ ibexa:
                 container_content_type_identifier: folder
 ```
 
-If the `folder` content type doesn't exist or is modified, you can use another one, for example:
-
-```yaml
-ibexa:
-    system:
-        default:
-            dashboard:
-                container_content_type_identifier: user_dashboard_container
-```
-
 Configuration can be set per [SiteAccess](multisite_configuration.md#siteaccess-configuration)
 or [SiteAccess group](multisite_configuration.md#siteaccess-groups).
 
@@ -81,3 +71,15 @@ Determines the content type identifier of the container for dashboards and lets 
 By default all the dashboards containers are set as a folders.
 
 ![Container content type](dashboard_container_type.png)
+
+If the `folder` content type doesn't exist or is modified, you can use another one, for example:
+
+```yaml
+ibexa:
+    system:
+        default:
+            dashboard:
+                container_content_type_identifier: user_dashboard_container
+```
+
+Custom content type should be a container and needs to have a field type with `name` identifier.
