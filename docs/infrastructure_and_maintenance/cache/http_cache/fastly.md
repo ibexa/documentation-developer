@@ -47,7 +47,7 @@ You also need to set up domains, HTTPS and origin configuration (not covered her
 All commands are explained in detail [below](#viewing-and-modifying-the-vcl-configuration):
 
 ``` bash
-fastly vcl custom create --name=ez_main.vcl --version=active --autoclone --content=vendor/ibexa/fastly/fastly/ --version=latest --main
+fastly vcl custom create --name=ez_main.vcl --version=active --autoclone --content=vendor/ibexa/fastly/fastly/ez_main.vcl --main
 fastly vcl custom create --name=ez_user_hash.vcl --content=vendor/ibexa/fastly/fastly/ez_user_hash.vcl --version=latest
 fastly vcl snippet create --name="Re-Enable shielding on restart" --version=latest --priority 100 --type recv --content=vendor/ibexa/fastly/fastly/snippet_re_enable_shielding.vcl
 fastly service-version activate --version=latest
