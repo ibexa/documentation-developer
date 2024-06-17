@@ -82,4 +82,4 @@ ibexa:
                 container_content_type_identifier: user_dashboard_container
 ```
 
-Custom content type should be a container and needs to have a field type with `name` identifier.
+The custom content type should be a container and needs to have a field type with `name` identifier.
