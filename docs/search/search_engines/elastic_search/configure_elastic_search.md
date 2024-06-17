@@ -485,7 +485,7 @@ On a multilingual site, you can have different analyzers configured for differen
 
 To enable a language-specific analyzer, create a new template for each language in `config/packages/ibexa_elasticsearch.yaml` first.
 This template should be based on the `default` template found in `vendor/ibexa/elasticsearch/src/bundle/Resources/config/default-config.yaml`.
-The name of the new template should reflect the language, ie. `english`, `norwegian` or `french`,
+The name of the new template should indicate the language it applies to, for example `eng_gb`, `nor_no` or `fre_fr`.
 
 #### Change match pattern for the new template
 
