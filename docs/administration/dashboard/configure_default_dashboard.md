@@ -24,6 +24,16 @@ ibexa:
                 container_content_type_identifier: folder
 ```
 
+If the `folder` content type doesn't exist or is modified, you can use another one, for example:
+
+```yaml
+ibexa:
+    system:
+        default:
+            dashboard:
+                container_content_type_identifier: user_dashboard_container
+```
+
 Configuration can be set per [SiteAccess](multisite_configuration.md#siteaccess-configuration)
 or [SiteAccess group](multisite_configuration.md#siteaccess-groups).
 
