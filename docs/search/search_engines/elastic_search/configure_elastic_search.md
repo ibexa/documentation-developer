@@ -503,7 +503,7 @@ In your copy of the default template, change the pattern as follows:
 This pattern matches on English.
 For more information about specifying the pattern for your language, see [Define a template](#define-a-template).
 
-#### Create config for language specific analyzer.
+#### Create config for language specific analyzer
 
 For information about configuring an analyzer for each specific language, see [Elastic Search documentation](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/analysis-lang-analyzer.html).
 
