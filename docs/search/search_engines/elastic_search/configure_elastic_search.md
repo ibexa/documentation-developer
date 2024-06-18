@@ -558,8 +558,8 @@ An adoption of the [English analyzer](https://www.elastic.co/guide/en/elasticsea
 +                            type: stemmer
 +                            language: light_english
 +                        "english_possessive_stemmer": {
-+                          "type":       "stemmer",
-+                          "language":   "possessive_english"
++                          "type": "stemmer",
++                          "language": "possessive_english"
 +                        }
                 refresh_interval: "-1"
                 index:
