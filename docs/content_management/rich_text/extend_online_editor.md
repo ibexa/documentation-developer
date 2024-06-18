@@ -281,6 +281,7 @@ in the Online Editor:
 - `table`
 - `tr`
 - `td`
+- `link`
 
 !!! note "Heading elements"
 
