@@ -521,11 +521,18 @@ If your configuration file contains several connection definitions, you can reus
 If you have several index templates, you can apply different combinations of templates to different connections.
 
 ``` yaml
-<connection_name>:
-    # ...
-    index_templates:
-        - default
-        - default_en_us
+ibexa_elasticsearch:
+    connections:
+        <connection_name>:
+            # ...
+            index_templates:
+                - default
+                - custom_default
+        <en_connection_name>:
+            # ...
+            index_templates:
+                - eng_gb
+                - custom_default
 ```
 
 For more information about how Elasticsearch handles settings and mappings from multiple templates that match the same index, see [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/7.x/indices-templates-v1.html#multiple-templates-v1).
