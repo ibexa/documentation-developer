@@ -63,7 +63,7 @@ twig:
 
 ## Add scripts
 
-Now you need to enable the RichText editor. Provide the required script in a new `assets/js/formbuilder-richtext-checkbox.js` file:
+Now you need to enable the Rich Text editor. Provide the required script in a new `assets/js/formbuilder-richtext-checkbox.js` file:
 
 ``` js
 [[= include_file('code_samples/forms/custom_form_attribute/assets/js/formbuilder-richtext-checkbox.js') =]]
@@ -85,7 +85,7 @@ yarn encore dev
 
 ## Implement Field
 
-Now you have to implement the Field, and make sure the value from the RichText attribute is passed on to the field form.
+Now you have to implement the Field, and make sure the value from the Rich Text attribute is passed on to the field form.
 
 Create a `src/FormBuilder/Form/Type/CheckboxWithRichtextDescriptionType.php` file.
 
