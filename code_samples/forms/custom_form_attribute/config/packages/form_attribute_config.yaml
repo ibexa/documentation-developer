@@ -1,7 +1,7 @@
 ibexa_form_builder:
     fields:
         checkbox_with_richtext_description:
-            name: Checkbox with Richtext Description
+            name: Checkbox with Rich Text Description
             category: Default
             thumbnail: '/bundles/ibexaicons/img/all-icons.svg#input-line'
             attributes:
