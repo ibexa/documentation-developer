@@ -118,4 +118,4 @@ In the main menu, click **Content** -> **Forms** -> **Create content**, and sele
 
 You should be able to see the new section in the list of available fields:
 
-![New form](new_form.png)
+![New form](checkbox_with_richtext_description-item.png)
