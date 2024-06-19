@@ -124,10 +124,10 @@ When editing settings, the "Description" attribute has the Rich Text input.
 
 ![Field settings](checkbox_with_richtext_description-edit.png)
 
-The richtext toolbar appears when "Description" field is focused.
+When you enter the "Description" attribute, the Rich Text toolbar appears.
 
-![Richtext toolbar](checkbox_with_richtext_description-focus.png)
+![Rich Text toolbar](checkbox_with_richtext_description-focus.png)
 
-The preview show the checkbox, its label, and its formatted richtext.
+The preview displays the formatted text along with the checkbox and its label.
 
 ![Field preview](checkbox_with_richtext_description-preview.png)
