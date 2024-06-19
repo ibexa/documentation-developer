@@ -513,20 +513,7 @@ An adoption of the [English analyzer](https://www.elastic.co/guide/en/elasticsea
 [[= include_file('code_samples/search/elasticsearch/config/packages/elasticsearch-en.yaml') =]]
 ```
 
-#### Use language template
-
-The language template must be associated to an Elasticsearch connection.
-In the following example, the `eng_gb` template is bound to the `default` connection:
-
-```yaml
-ibexa_elasticsearch:
-    connections:
-        default:
-            hosts:
-                - "%elasticsearch_dsn%"
-            index_templates:
-                - eng-gb
-```
+Then, you must bind this language template to your Elasticsearch connection.
 
 ## Bind templates with connections
 
@@ -538,16 +525,16 @@ If you have several index templates, you can apply different combinations of tem
 ``` yaml
 ibexa_elasticsearch:
     connections:
-        <a_connection_name>:
-            # ...
-            index_templates:
-                - default
-                - common
-        <another_connection_name>:
+        <connection_for_english_only_repository>:
             # ...
             index_templates:
                 - eng_gb
-                - common
+        <connection_for_multilangual_repository>:
+            # ...
+            index_templates:
+                - eng_gb
+                - fre_fr
+                - ger_de
 ```
 
 For more information about how Elasticsearch handles settings and mappings from multiple templates that match the same index, see [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/7.x/indices-templates-v1.html#multiple-templates-v1).
