@@ -55,14 +55,14 @@ under the `relationship` key in `.platform.app.yaml` as well.
 
 ## 2. Create an account
 
-Log in to https://cloud.ibexa.co or create an account if you don't have one yet.
+Log in to https://console.ibexa.cloud or create an account if you don't have one yet.
 
 Create a project and select its region.
 
 !!! caution
 
     Don't use https://console.platform.sh/ which doesn't list [[= product_name_cloud =]] projects.
-    Use https://cloud.ibexa.co to manage your [[= product_name_cloud =]] projects.
+    Use https://console.ibexa.cloud to manage your [[= product_name_cloud =]] projects.
 
 ## 3. Prepare for hosting
 
@@ -85,7 +85,7 @@ When you are done with configuration, push your project to the Platform.sh remot
 git push -u <platform.sh-remote> master
 ```
 
-You can also use the [Ibexa Cloud CLI](https://cli.ibexa.co/) to push your code.
+You can also use the [Ibexa Cloud CLI](https://cli.ibexa.cloud/) to push your code.
 
 ``` bash
 ibexa_cloud push master
@@ -97,9 +97,9 @@ ibexa_cloud push master
 
 !!! caution
 
-    Do not use Platform.sh CLI (`platform`), instead, use the [Ibexa Cloud CLI (`ibexa_cloud`)](https://cli.ibexa.co/).
+    Do not use Platform.sh CLI (`platform`), instead, use the [Ibexa Cloud CLI (`ibexa_cloud`)](https://cli.ibexa.cloud/).
 
-    To install Ibexa Cloud CLI, follow https://cli.ibexa.co/ "Installation instructions".
+    To install Ibexa Cloud CLI, follow https://cli.ibexa.cloud/ "Installation instructions".
 
     Ibexa Cloud CLI and Platform.sh CLI share the same commands and the [same documentation](https://docs.platform.sh/administration/cli.html#3-use), but you have to replace `platform` with `ibexa_cloud`.
 

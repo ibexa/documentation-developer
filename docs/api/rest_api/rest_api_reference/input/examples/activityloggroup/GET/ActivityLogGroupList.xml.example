@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ActivityLogGroupList media-type="application/vnd.ibexa.api.ActivityLogGroupList+xml" href="/api/ibexa/v2/activity-log-group/list">
+ <ActivityLogGroup media-type="application/vnd.ibexa.api.ActivityLogGroup+xml">
+  <user_id>14</user_id>
+  <logged_at>1707478796</logged_at>
+  <ActivityLog media-type="application/vnd.ibexa.api.ActivityLog+xml">
+   <object_id>396</object_id>
+   <object_class>Ibexa\Contracts\Core\Repository\Values\Content\Content</object_class>
+   <action>create</action>
+   <data/>
+  </ActivityLog>
+  <ActivityLog media-type="application/vnd.ibexa.api.ActivityLog+xml">
+   <object_id>396</object_id>
+   <object_class>Ibexa\Contracts\Core\Repository\Values\Content\Content</object_class>
+   <action>publish</action>
+   <data/>
+  </ActivityLog>
+ </ActivityLogGroup>
+ <ActivityLogGroup media-type="application/vnd.ibexa.api.ActivityLogGroup+xml">
+  <user_id>14</user_id>
+  <logged_at>1707475048</logged_at>
+  <ActivityLog media-type="application/vnd.ibexa.api.ActivityLog+xml">
+   <object_id>395</object_id>
+   <object_class>Ibexa\Contracts\Core\Repository\Values\Content\Content</object_class>
+   <action>create</action>
+   <data/>
+  </ActivityLog>
+  <ActivityLog media-type="application/vnd.ibexa.api.ActivityLog+xml">
+   <object_id>395</object_id>
+   <object_class>Ibexa\Contracts\Core\Repository\Values\Content\Content</object_class>
+   <action>publish</action>
+   <data/>
+  </ActivityLog>
+ </ActivityLogGroup>
+</ActivityLogGroupList>

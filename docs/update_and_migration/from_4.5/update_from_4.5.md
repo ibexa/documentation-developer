@@ -398,3 +398,74 @@ To update the schema, and then reindex the content, use the following commands:
 php bin/console ibexa:elasticsearch:put-index-template --overwrite
 php bin/console ibexa:reindex
 ```
+
+## v4.6.2
+
+#### Database update
+
+Run the following scripts:
+
+=== "MySQL"
+
+    ``` bash
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.6.1-to-4.6.2.sql
+    ```
+
+=== "PostgreSQL"
+
+    ``` bash
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.1-to-4.6.2.sql
+    ```
+
+## v4.6.3
+
+### Notification config update
+
+The configuration of the package `ibexa/notifications` has changed.
+This package is required by other packages, such as `ibexa/connector-actito` for [Transactional emails](https://doc.ibexa.co/en/latest/commerce/transactional_emails/transactional_emails/), `ibexa/payment`, or `ibexa/user`.
+
+If you are customizing the configuration of the `ibexa/notifications` package, and using SiteAccess aware configuration to change the `Notification` subscriptions, you have to manually change your configuration by using the new node name `notifier` instead of the old `notifications`.
+
+For example, the following v4.6.2 config:
+
+```yaml hl_lines="4"
+ibexa:
+    system:
+        my_siteacces_name:
+            notifications: # old
+                subscriptions:
+                    Ibexa\Contracts\Shipping\Notification\ShipmentStatusChange:
+                        channels:
+                            - sms
+```
+
+becomes the following from v4.6.3:
+
+```yaml hl_lines="4"
+ibexa:
+    system:
+        my_siteacces_name:
+            notifier: # new
+                subscriptions:
+                    Ibexa\Contracts\Shipping\Notification\ShipmentStatusChange:
+                        channels:
+                            - sms
+```
+
+## v4.6.4
+
+#### Database update
+
+Run the following scripts:
+
+=== "MySQL"
+
+    ``` bash
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.6.3-to-4.6.4.sql
+    ```
+
+=== "PostgreSQL"
+
+    ``` bash
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.3-to-4.6.4.sql
+    ```

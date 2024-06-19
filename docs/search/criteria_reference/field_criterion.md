@@ -1,6 +1,6 @@
 # Field Criterion
 
-The [`Field` Search Criterion](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/Criterion/Field.php)
+The [`Field` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Field.html)
 searches for content based on the content of one of its Fields.
 
 ## Arguments

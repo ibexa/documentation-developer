@@ -1,6 +1,6 @@
 # Score Sort Clause
 
-The [`Score` Sort Clause](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/SortClause/Score.php)
+The [`Score` Sort Clause](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-Score.html)
 orders search results by their score.
 
 ## Arguments

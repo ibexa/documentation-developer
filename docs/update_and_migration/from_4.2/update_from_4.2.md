@@ -129,14 +129,12 @@ Apply the following database update scripts:
 === "MySQL"
 
     ``` bash
-    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.2.2-to-4.2.3.sql
     mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.2.latest-to-4.3.0.sql
     ```
 
 === "PostgreSQL"
 
     ``` bash
-    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.2.2-to-4.2.3.sql
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.2.latest-to-4.3.0.sql
     ```
 

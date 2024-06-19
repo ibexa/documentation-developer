@@ -1,6 +1,6 @@
 # BasePrice Criterion
 
-The [`BasePrice` Search Criterion](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/Criterion/Ancestor.php) searches for products by their base price.
+The [`BasePrice` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-BasePrice.html) searches for products by their base price.
 
 ## Arguments
 

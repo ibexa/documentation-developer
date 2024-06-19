@@ -1,6 +1,6 @@
 # RawStatsAggregation
 
-The [RawStatsAggregation](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/Aggregation/RawStatsAggregation.php) aggregates search results by the value of the selected search index field
+The [RawStatsAggregation](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-RawStatsAggregation.html) aggregates search results by the value of the selected search index field
 and provides statistical information for the values. You can use the provided getters to access the values:
 
 - sum (`getSum()`)

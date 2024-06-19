@@ -49,7 +49,9 @@ nav:
             - 8. Data migration: tutorials/generic_field_type/8_data_migration.md
     - API:
         - API: api/api.md
-        - PHP API: api/php_api/php_api.md
+        - PHP API:
+            - PHP API usage: api/php_api/php_api.md
+            - PHP API reference: api/php_api/php_api_reference/index.html
         - REST API:
             - REST API usage:
                 - REST API usage: api/rest_api/rest_api_usage/rest_api_usage.md
@@ -145,6 +147,10 @@ nav:
             - Multi-file upload: administration/back_office/multifile_upload.md
             - Sub-items list: administration/back_office/subitems_list.md
             - Notifications: administration/back_office/notifications.md
+            - Customize search:
+                - Customize search suggestion: administration/back_office/customize_search_suggestion.md
+                - Customize search sorting: administration/back_office/customize_search_sorting.md
+            - Recent activity: administration/recent_activity/recent_activity.md
     - Content management:
         - Content management: content_management/content_management.md
         - Content management guide: content_management/content_management_guide.md
@@ -285,6 +291,7 @@ nav:
             - Field Twig functions: templating/twig_function_reference/field_twig_functions.md
             - Image Twig functions: templating/twig_function_reference/image_twig_functions.md
             - Product Twig functions: templating/twig_function_reference/product_twig_functions.md
+            - Site context Twig functions: templating/twig_function_reference/site_context_twig_functions.md
             - Storefront Twig functions: templating/twig_function_reference/storefront_twig_functions.md
             - URL Twig functions: templating/twig_function_reference/url_twig_functions.md
             - User Twig functions: templating/twig_function_reference/user_twig_functions.md
@@ -435,6 +442,7 @@ nav:
         - Attribute search in Elasticsearch: personalization/attribute_search_in_elasticsearch.md
     - CDP (Customer Data Platform):
         - Customer Data Platform: cdp/cdp.md
+        - CDP guide: cdp/cdp_guide.md
         - CDP installation: cdp/cdp_installation.md
         - CDP activation:
             - CDP activation: cdp/cdp_activation/cdp_activation.md
@@ -463,6 +471,7 @@ nav:
             - Search Criteria reference: search/criteria_reference/search_criteria_reference.md
             - Ancestor: search/criteria_reference/ancestor_criterion.md
             - ContentId: search/criteria_reference/contentid_criterion.md
+            - ContentName: search/criteria_reference/contentname_criterion.md
             - ContentTypeGroupId: search/criteria_reference/contenttypegroupid_criterion.md
             - ContentTypeId: search/criteria_reference/contenttypeid_criterion.md
             - ContentTypeIdentifier: search/criteria_reference/contenttypeidentifier_criterion.md
@@ -608,6 +617,13 @@ nav:
             - LogicalAnd Criterion: search/url_search_reference/logicaland_url_criterion.md
             - LogicalNot Criterion: search/url_search_reference/logicalnot_url_criterion.md
             - LogicalOr Criterion: search/url_search_reference/logicalor_url_criterion.md
+        - Activity Log Search Criteria:
+            - Activity Log Search Criteria: search/activity_log_search_reference/activity_log_criteria.md
+            - ActionCriterion: search/activity_log_search_reference/action_criterion.md
+            - LoggedAtCriterion: search/activity_log_search_reference/logged_at_criterion.md
+            - ObjectCriterion: search/activity_log_search_reference/object_criterion.md
+            - ObjectNameCriterion: search/activity_log_search_reference/object_name_criterion.md
+            - UserCriterion: search/activity_log_search_reference/user_criterion.md
         - Sort Clause reference:
             - General Sort Clauses:
                 - General Sort Clause reference: search/sort_clause_reference/sort_clause_reference.md
@@ -673,6 +689,7 @@ nav:
                 - URL Sort Clauses: search/url_search_reference/url_search_sort_clauses.md
                 - Id Sort Clause: search/url_search_reference/id_url_sort_clause.md
                 - Url Sort Clause: search/url_search_reference/url_url_sort_clause.md
+            - Activity Log Sort Clauses: search/activity_log_search_reference/activity_log_sort_clauses.md
         - Search API: search/search_api.md
         - Aggregation reference:
               # Content aggregations
@@ -884,8 +901,8 @@ extra:
   latest_tag_4_2: '4.2.4'
   latest_tag_4_3: '4.3.5'
   latest_tag_4_4: '4.4.4'
-  latest_tag_4_5: '4.5.6'
-  latest_tag_4_6: '4.6.2'
+  latest_tag_4_5: '4.5.7'
+  latest_tag_4_6: '4.6.7'
 
   symfony_doc: 'https://symfony.com/doc/5.4'
   user_doc: 'https://doc.ibexa.co/projects/userguide/en/master'

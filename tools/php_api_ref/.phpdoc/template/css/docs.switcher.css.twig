@@ -1,0 +1,124 @@
+.switcher {
+    font-size: 13px;
+    padding-top: 0.2rem;
+}
+
+.docs-switcher {
+    padding-right: 1rem;
+}
+
+.md-header .switcher__selected-item {
+    padding: 0 0.5rem;
+}
+
+.md-header .switcher__selected-item:hover {
+    background-color: var(--codeblock);
+}
+
+.switcher__list dl {
+    margin: 0;
+}
+
+.switcher__list dd {
+    margin: 0;
+    line-height: 1;
+    color: var(--ibexa-dusk-black);
+}
+
+.switcher__list dd:focus,
+.switcher__list dd:hover {
+    background-color: var(--mid-grey);
+}
+
+.switcher__list dd.rtd-current-item {
+    background-image: url(../images/check.svg);
+    background-size: 15px 18px;
+    background-repeat: no-repeat;
+    background-position: 14px;
+}
+
+.switcher__list dd a {
+    padding: 8px 14px 8px 34px;
+    line-height: 2;
+    display: block;
+}
+
+.switcher__selected-item {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.switcher__selected-item .switcher__label {
+    display: block;
+    padding: 12px;
+    line-height: 1rem;
+}
+
+.switcher__selected-item:after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 8px 6px 0 6px;
+    border-color: #fff transparent transparent transparent;
+    transition: transform .4s,-webkit-transform .4s;
+}
+
+.md-header__title[data-md-state=active] .switcher__label,
+.switcher__label {
+    position: relative;
+    transition: none;
+    display: block;
+    opacity: 1;
+    z-index: initial;
+    pointer-events: initial;
+    transform: none;
+    padding-right: .3rem;
+    color: #fff;
+    width: 100%;
+}
+
+.switcher__list {
+    min-width: 100px;
+    margin: 0;
+    opacity: 0;
+    list-style: none;
+    background: #fff;
+    overflow: hidden;
+    border-radius: 2px;
+    max-height: 0;
+    border: 1px solid var(--mid-grey);
+}
+
+.switcher__selected-item--expanded + .switcher__list {
+    opacity: 1;
+    max-height: 500px;
+}
+
+.version-switcher {
+    padding-left: 0;
+    padding-right: 1rem;
+    min-width: 100px;
+}
+
+.md-header__switcher .rst-versions {
+    position: relative !important;
+    min-width: 100px;
+    width: auto;
+    text-align: left;
+    line-height: 1rem;
+    background-color: var(--ibexa-dusk-black);
+}
+
+.md-header__switcher .rst-versions .rst-current-version {
+    color: #fff;
+    background-color: transparent;
+    text-align: right;
+    font-size: 100%;
+}
+
+.md-header__switcher .rst-other-versions dt {
+    display: none;
+}
