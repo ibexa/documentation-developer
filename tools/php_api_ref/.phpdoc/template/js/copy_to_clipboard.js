@@ -7,7 +7,7 @@
 
     copyBtns.forEach((copyBtn) => {
         copyBtn.addEventListener('click', (event) => {
-            const { offsetLeft, offsetTop, offsetWidth, offsetHeight, dataset } = event.target;
+            const { offsetLeft, offsetTop, offsetWidth, offsetHeight, dataset } = $(event.target).closest('.copy-to-clipboard')[0];
             const popoverX = offsetLeft + offsetWidth / 2 - copiedPopoverOffset;
             const popoverY = offsetTop + offsetHeight + 8;
             const hidePopover = () => {
