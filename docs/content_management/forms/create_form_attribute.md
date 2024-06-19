@@ -118,4 +118,16 @@ In the main menu, click **Content** -> **Forms** -> **Create content**, and sele
 
 You should be able to see the new section in the list of available fields:
 
-![New form](checkbox_with_richtext_description-item.png)
+![New form attribute](checkbox_with_richtext_description-item.png)
+
+When the attribute settings are edited, the "Description" field is a richtext textarea.
+
+![Attribute settings](checkbox_with_richtext_description-edit.png)
+
+The richtext toolbar appears when "Description" field is focused.
+
+![Richtext toolbar](checkbox_with_richtext_description-focus.png)
+
+The preview show the checkbox, its label, and its formatted richtext.
+
+![Attribute preview](checkbox_with_richtext_description-preview.png)
