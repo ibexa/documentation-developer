@@ -517,7 +517,7 @@ Then, you must bind this language template to your Elasticsearch connection.
 
 ## Bind templates with connections
 
-Once you have created the field mapping template(s), you must establish a relationship between the templates and a connection. You do this by adding the "index_templates" key to a connection definition.
+After you create an index template (for example, for specific data types or linguistic analysis), you must link it to an Elasticsearch connection by adding the `index_templates` key to the connection definition.
 
 If your configuration file contains several connection definitions, you can reuse the same template for different connections.
 If you have several index templates, you can apply different combinations of templates to different connections.
