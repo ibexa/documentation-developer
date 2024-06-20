@@ -17,7 +17,7 @@ It's provided without a default front office, but with a complete Back Office an
 
 To start using [[= product_name_headless =]] you must purchase a product license.
 For more information, see [[[= product_name_headless =]] license pricing](https://www.ibexa.co/products/pricing?tab=1).
-You can [contact us](https://www.ibexa.co/products/pricing) or [contact one of our partners](https://www.ibexa.co/partners).
+You can [contact us](https://www.ibexa.co/about-ibexa/contact-us) or [contact one of our partners](https://www.ibexa.co/partners).
 
 ## How it works
 
@@ -41,7 +41,7 @@ For performance, several bricks can be added to your stack such as a reverse pro
 
 By using a version control system and environment variables, you can deploy your configuration and extensions on several environments including [[= product_name_cloud =]].
 
-Standard web APIs and [[= product_name_connect =]] help establish interoperability, even if you aren't an advanced developer.
+Standard web APIs and [[[= product_name_connect =]]]([[= connect_doc =]]/general/ibexa_connect/) help establish interoperability, even if you aren't an advanced developer.
 
 ![Ibexa Headless data inputs and outputs](img/headless.png)
 
@@ -74,9 +74,9 @@ Content modeling and management are the foundation of [[= product_name =]] with 
 - Content items are organized as a tree in a repository.
 - An item can have multiple locations in this tree.
 - Content items are typed.
-- Content types are sets of typed data fields, with eventually conditions on the possible values.
+- Content types are sets of typed data fields, with optional conditions on the possible values.
 - Rich Text Field Type comes with an [online editor](online_editor_guide.md).
-- Multilingual, it can store a content in several languages, the content model define which field must be translated, and which don't vary.
+- Multilingual, it can store a content in several languages, the content model defines which field must be translated, and which don't vary.
 
 For more information, see [Content management product guide](content_management_guide.md).
 
@@ -99,7 +99,7 @@ There are many paths to access the content in many shapes:
 - Multichannel, content can be accessed through several channel configurations,
   such as the domain name it replies to, the sub-part of the content tree it starts from, the users rights, or the design theme.
   The Back Office itself is such a channel.
-- Multi-repository, the same platform can use separate databases if impermeability is needed between channel groups.
+- Multi-repository, the same platform can use separate databases if data isolation is needed between channel groups.
 
 ### Advanced features
 
@@ -119,11 +119,12 @@ Like everything in the Back Office, the calendar is extendable: you can add an e
 #### Many ways to structure and organize content
 
 [Product Information Management](pim_guide.md) (PIM) helps organize complex products and their catalogs:
-    - Product are organized per product types × variants × catalogs × categories × tags.
-    - Product attributes are grouped and factorized among product types. For example, fabric + color + size can be shared by many clothing product types.
-    - Product variants can rapidly be created by the automatic declination of attributes having a defined set of values.
+
+- Product are organized per product types × variants × catalogs × categories × tags.
+- Product attributes are grouped and factorized among product types. For example, fabric + color + size can be shared by many clothing product types.
+- Product variants can rapidly be created by the automatic declination of attributes having a defined set of values.
 - With taxonomy, you can tag content items to organize them by topics in a much intuitive way for the editor than a content tree with multiple locations would.
-  Tags themselves are organized in a tree, and synonyms are linked to a favorite terms. This tags organization can be the task of a supervisor who won't need to move content items around a corporate content tree. At search time, tags can be keywords with a high value in relevance score to help the end user having results closer to the searched topic.
+  Tags themselves are organized in a tree, and synonyms are linked to favorite terms. This tags organization can be the task of a supervisor who won't need to move content items around a corporate content tree. At search time, tags can be keywords with a high value in relevance score to help the end user having results closer to the searched topic.
 
 #### Collaboration
 
@@ -159,8 +160,8 @@ Several features help end users collaborate on the content, such as:
 ##### Internet, delivery, web search engines, and social networks
 
 - [[= product_name_headless =]] comes with the support of Fastly content delivery network (CDN).
-  The HTTP cache varies on current user's role and is purged when content change.
-  With is huge network of points of presence (POP) around the world, Fastly is quickly delivering cached content from nearest server for a better user experience.
+  The HTTP cache varies on current user's role and is purged when content changes.
+  With its huge network of points of presence (POP) around the world, Fastly is quickly delivering cached content from nearest server for a better user experience.
 - A Search Engine Optimization (SEO) field implements best practices about web search engine indexing and social network sharing.
   It covers canonical URLs which are mandatory if multiple locations are used for a same content item to avoid duplicate content,
   Open Graph protocol to better describe a content item to social networks and search engine, and Twitter Cards.
