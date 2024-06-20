@@ -148,7 +148,8 @@ php bin/console league:oauth2-server:create-client 'Example OAuth2 Client' examp
 ```
 
 !!! note
-   You can call `--redirect-uri` multiple times.
+
+    You can call `--redirect-uri` multiple times.
 
 Alternatively, you could add redirect URIs after you create a client, by using the `league:oauth2-server:update-client` command.
 For example:
