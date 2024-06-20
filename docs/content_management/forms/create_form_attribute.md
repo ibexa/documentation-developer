@@ -14,7 +14,7 @@ description to the Form.
 ## Configure Form attribute
 
 To create a `richtext_description` attribute,
-add the following configuration under the `ibexa_form_builder_fields` [configuration key](configuration.md#configuration-files):
+add the following configuration under the `ibexa_form_builder.fields` [configuration key](configuration.md#configuration-files):
 
 ``` yaml
 [[= include_file('code_samples/forms/custom_form_attribute/config/packages/form_attribute_config.yaml') =]]
@@ -63,15 +63,15 @@ twig:
 
 ## Add scripts
 
-Now you need to enable the RichText editor. Provide the required script in a new `public/js/formbuilder-richtext-checkbox.js` file:
+Now you need to enable the Rich Text editor. Provide the required script in a new `assets/js/formbuilder-richtext-checkbox.js` file:
 
 ``` js
-[[= include_file('code_samples/forms/custom_form_attribute/public/js/formbuilder-richtext-checkbox.js') =]]
+[[= include_file('code_samples/forms/custom_form_attribute/assets/js/formbuilder-richtext-checkbox.js') =]]
 ```
 
 Then, paste the highlighted part of the code into the `webpack.config.js` file:
 
-``` js hl_lines="49-51"
+``` js hl_lines="49"
 [[= include_file('code_samples/forms/custom_form_attribute/webpack.config.js') =]]
 ```
 
@@ -85,7 +85,7 @@ yarn encore dev
 
 ## Implement Field
 
-Now you have to implement the Field, and make sure the value from the RichText attribute is passed on to the field form.
+Now you have to implement the Field, and make sure the value from the Rich Text attribute is passed on to the field form.
 
 Create a `src/FormBuilder/Form/Type/CheckboxWithRichtextDescriptionType.php` file.
 
@@ -118,4 +118,16 @@ In the left menu select **Forms**, click **Create content** and select **Form**.
 
 You should be able to see the new section in the list of available fields:
 
-![New form](new_form.png)
+![New form field](checkbox_with_richtext_description-item.png)
+
+When editing settings, the "Description" attribute has the Rich Text input.
+
+![Field settings](checkbox_with_richtext_description-edit.png)
+
+When you enter the "Description" attribute, the Rich Text toolbar appears.
+
+![Rich Text toolbar](checkbox_with_richtext_description-focus.png)
+
+The preview displays the formatted text along with the checkbox and its label.
+
+![Field preview](checkbox_with_richtext_description-preview.png)
