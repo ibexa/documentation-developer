@@ -12,10 +12,12 @@
     <ul class="namespace-list">
         {% for package in packages %}
             <li>
-                <img src="./images/arrow-right.svg" />
-                <a href="{{ link(package) }}">
-                    {{ package.name }}
-                </a>
+                <span>
+                    <img src="./images/arrow-right.svg" class="arrow" />
+                    <a href="{{ link(package) }}">
+                        {{ package.name }}
+                    </a>
+                </span>
             </li>
         {% endfor %}
     </ul>
@@ -29,10 +31,12 @@
     <ul class="namespace-list">
         {% for namespace in namespaces %}
             <li>
-                <img src="./images/arrow-right.svg" />
-                <a href="{{ link(namespace) }}">
-                    {{ namespace.name }}
-                </a>
+                <span>
+                    <img src="./images/arrow-right.svg" class="arrow" />
+                    <a href="{{ link(namespace) }}">
+                        {{ namespace.name }}
+                    </a>
+                </span>
             </li>
         {% endfor %}
     </ul>
@@ -57,10 +61,12 @@
     <ul class="namespace-list">
         {% for entry in joined_data %}
             <li>
-                <img src="./images/arrow-right.svg" />
-                <a href="{{ link(entry) }}">
-                    {{ entry.name }}
-                </a>
+                <span>
+                    <img src="./images/arrow-right.svg" class="arrow" />
+                    <a href="{{ link(entry) }}">
+                        {{ entry.name }}
+                    </a>
+                </span>
                 {%- if entry.summary -%}
                     <p>{{ entry.summary }}</p>
                 {%- endif -%}
