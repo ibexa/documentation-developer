@@ -26,11 +26,11 @@ You can add [Campaign block]([[= user_doc =]]/content_management/block_reference
 
 To select campaign, go to **Properties** tab -> **Campaign** and choose campaign from the drop-down list. This list includes all campaigns available on user's Qualifio account which are active or scheduled to launch in the future.
 
-![Campaign block](campaign_block.png)
+![Campaign block](campaign_block.png "Campaign block")
 
 ## Embed campaign in the Rich text field
 
 You can embed campaign in the Rich text field with Campaign custom tag.
 To do it, insert campaign content item in the Rich Text Field and paste Campaign URL.
 
-![Campaign custom tag](campaign_custom_tag.png)
+![Campaign custom tag](campaign_custom_tag.png "Campaign custom tag")

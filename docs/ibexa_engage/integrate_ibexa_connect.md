@@ -30,13 +30,13 @@ To set up a webhook in [[= product_name_connect =]], follow the steps:
 
 3\. Select **Receive participation data**.
 
-![Create scenario](create_scenario.png)
+![Create a scenario](create_scenario.png "Create a scenario")
 
 4\. Click **Create a webhook** and provide a name for the new webhook.
 
 5\. Click **Copy address to clipboard** to save the URL.
 
-![Create webhook](create_webhook.png)
+![Create a webhook](create_webhook.png "Create a webhook")
 
 ### Configure [[= product_name_engage =]]
 
@@ -52,6 +52,6 @@ To do it, perform the following actions::
 
 3\. Paste the URL from the clipboard into **Webhook Host** field and click **Save**.
 
-![Configure Ibexa Engage](configure_ibexa_engage.png)
+![Configure Ibexa Engage](configure_ibexa_engage.png "Configure Ibexa Engage")
 
 4\. Then, go to **Engage** -> **Integrations** -> **Push rules** to define the default or specific rules for new campaign or website. Select the created webhook.
