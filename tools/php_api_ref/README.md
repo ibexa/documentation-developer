@@ -17,6 +17,15 @@ Requires [`jq`](https://stedolan.github.io/jq/download/)
   tools/php_api_ref/phpdoc.sh ~/.composer/auth.json ./docs/api/php_api/php_api_reference-TMP
   ```
 
+## Rebuild example
+
+```bash
+tools/php_api_ref/phpdoc.sh
+git add docs/api/php_api/php_api_reference/
+git commit -m "Rebuild PHP API Ref's HTML"
+git push
+```
+
 ## Maintenance
 
 In `tools/php_api_ref/phpdoc.sh`:
@@ -45,3 +54,12 @@ For example, when working on the design, the set of parsed files can be reduced 
 `FORCE_DXP_INSTALL` can be changed to `0` (zero) to have a persistent `TMP_DXP_DIR`.
 After a first run to create it, the Ibexa DXP won't be rebuilt by Composer by next runs.
 Time is saved. The DXP's code could even be modified for test purpose.
+
+If you change some of those values, please do not commit those changes, and don't commit their output.
+To prevent that, you can make a local copy, and use this copy to generate in a temporary output directory:
+```shell
+cp tools/php_api_ref/phpdoc.sh tools/php_api_ref/phpdoc.dev.sh
+nano phpdoc.dev.sh # Edit and make your changes. For example, change PHPDOC_CONF to use phpdoc.dev.xml.
+nano phpdoc.dev.xml # Edit and make your changes. For example, target only your package.
+tools/php_api_ref/phpdoc.sh ~/.composer/auth.json ./docs/api/php_api/php_api_reference-TMP
+```
