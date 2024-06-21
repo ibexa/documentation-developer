@@ -13,13 +13,13 @@
     {% if fqcn is defined %}
         <button class="content-header__copy-fqcn copy-to-clipboard" title="{{ fqcn }}" data-copy-value="{{ fqcn }}">Copy FQCN</button>
     {% endif %}
-    <div class="content-header__found-in">
+    <div class="content-header__found-in copy-to-clipboard" data-copy-value="{{ node.file.path }}">
         <abbr title="{{ node.file.path }}">{{ node.file.name }}</abbr>
         {% if node.line %}
         :
-        <span>{{ node.line }}</span>
+        <span title="at line {{ node.line }}">{{ node.line }}</span>
         {% endif %}
-        <img src="./images/copy.svg" alt="copy" class="copy-to-clipboard" data-copy-value="{{ node.file.path }}" title="Copy path" />
+        <img src="./images/copy.svg" title="Copy path" />
     </div>
     {% block subheader %}{% endblock %}
     {% if has_subheader %}
