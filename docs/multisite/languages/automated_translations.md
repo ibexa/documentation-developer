@@ -35,9 +35,9 @@ composer require ibexa/automated-translation
     ];
     ```
 
-### Configure automated content translation
+### Configure access to translation services
 
-Before you can start using the feature you must get access to your Google and/or DeepL account.
+Before you can start using the feature you must configure access to your Google and/or DeepL account.
 
 1\. Get the [Google API key](https://developers.google.com/maps/documentation/javascript/get-api-key) and/or [DeepL Pro key](https://support.deepl.com/hc/en-us/articles/360020695820-API-Key-for-DeepL-s-API).
 
