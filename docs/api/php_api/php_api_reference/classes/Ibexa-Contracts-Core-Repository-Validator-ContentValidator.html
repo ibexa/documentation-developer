@@ -36188,10 +36188,10 @@
                 </tr>
                     </tbody>
     </table>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">bool</p>
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_validate">
                 <img src="./images/public.svg" alt="public" title="public" />validate()
             <a class="headerlink" href="classes/Ibexa-Contracts-Core-Repository-Validator-ContentValidator.html#method_validate" title="Permanent link">¶</a>
@@ -36289,7 +36289,15 @@ case of full validation. Empty identifiers array is equal to no validation.</p>
                 </tr>
                     </tbody>
     </table>
-                                                
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</p>
+                <section class="phpdocumentor-description">
+        <p>Grouped validation errors by field definition ID and language code, in format:
+$returnValue[int $fieldDefinitionId][string $languageCode] = $fieldErrors;</p>
+
+    </section>
+
+                                                    
     <h5 class="phpdocumentor-tag-list__heading">
         Tags
         <a href="classes/Ibexa-Contracts-Core-Repository-Validator-ContentValidator.html#method_validate#tags" class="headerlink"><i class="fas fa-link"></i></a>
@@ -36304,15 +36312,7 @@ case of full validation. Empty identifiers array is equal to no validation.</p>
                                                                                      
                                     </dd>
                                                                                     </dl>
-    <h4>Return values</h4>
-    <p class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</p>
-                <section class="phpdocumentor-description">
-        <p>Grouped validation errors by field definition ID and language code, in format:
-$returnValue[int $fieldDefinitionId][string $languageCode] = $fieldErrors;</p>
-
-    </section>
-
-                                </div>
+                            </div>
                     </article>
                 </div>
 

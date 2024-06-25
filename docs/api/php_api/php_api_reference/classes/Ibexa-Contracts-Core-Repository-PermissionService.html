@@ -36256,7 +36256,9 @@ Check if user has access to assign $content to $section.</p>
                 </tr>
                     </tbody>
     </table>
-                                                
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">bool</p>
+                                                    
     <h5 class="phpdocumentor-tag-list__heading">
         Tags
         <a href="classes/Ibexa-Contracts-Core-Repository-PermissionResolver.html#method_canUser#tags" class="headerlink"><i class="fas fa-link"></i></a>
@@ -36286,9 +36288,7 @@ Check if user has access to assign $content to $section.</p>
 
                                     </dd>
                                                                                     </dl>
-    <h4>Return values</h4>
-    <p class="phpdocumentor-signature__response_type">bool</p>
-                <div class="content-header">
+            <div class="content-header">
         <h3 id="method_getCurrentUserReference">
                 <img src="./images/public.svg" alt="public" title="public" />getCurrentUserReference()
             <a class="headerlink" href="classes/Ibexa-Contracts-Core-Repository-PermissionResolver.html#method_getCurrentUserReference" title="Permanent link">¶</a>
@@ -36322,10 +36322,10 @@ Check if user has access to assign $content to $section.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-User-UserReference.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\User\UserReference">UserReference</abbr></a></p>
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_getPermissionsCriterion">
                 <img src="./images/public.svg" alt="public" title="public" />getPermissionsCriterion()
             <a class="headerlink" href="classes/Ibexa-Contracts-Core-Repository-PermissionCriterionResolver.html#method_getPermissionsCriterion" title="Permanent link">¶</a>
@@ -36419,10 +36419,10 @@ however if user has either full or no access then boolean is returned.</p>
                 </tr>
                     </tbody>
     </table>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">bool|<a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion">Criterion</abbr></a></p>
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_getQueryPermissionsCriterion">
                 <img src="./images/public.svg" alt="public" title="public" />getQueryPermissionsCriterion()
             <a class="headerlink" href="classes/Ibexa-Contracts-Core-Repository-PermissionCriterionResolver.html#method_getQueryPermissionsCriterion" title="Permanent link">¶</a>
@@ -36462,10 +36462,10 @@ and <a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criter
 for a user with full and no access respectively.</p>
 
     </section>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion">Criterion</abbr></a></p>
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_hasAccess">
                 <img src="./images/public.svg" alt="public" title="public" />hasAccess()
             <a class="headerlink" href="classes/Ibexa-Contracts-Core-Repository-PermissionResolver.html#method_hasAccess" title="Permanent link">¶</a>
@@ -36574,7 +36574,14 @@ which the information is returned, current user will be used if null</p>
                 </tr>
                     </tbody>
     </table>
-                                                
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">bool|array&lt;string|int, mixed&gt;</p>
+                <section class="phpdocumentor-description">
+        <p>if limitations are on this function an array of limitations is returned</p>
+
+    </section>
+
+                                                    
     <h5 class="phpdocumentor-tag-list__heading">
         Tags
         <a href="classes/Ibexa-Contracts-Core-Repository-PermissionResolver.html#method_hasAccess#tags" class="headerlink"><i class="fas fa-link"></i></a>
@@ -36593,14 +36600,7 @@ which the information is returned, current user will be used if null</p>
 
                                     </dd>
                                                                                     </dl>
-    <h4>Return values</h4>
-    <p class="phpdocumentor-signature__response_type">bool|array&lt;string|int, mixed&gt;</p>
-                <section class="phpdocumentor-description">
-        <p>if limitations are on this function an array of limitations is returned</p>
-
-    </section>
-
-                <div class="content-header">
+            <div class="content-header">
         <h3 id="method_lookupLimitations">
                 <img src="./images/public.svg" alt="public" title="public" />lookupLimitations()
             <a class="headerlink" href="classes/Ibexa-Contracts-Core-Repository-PermissionResolver.html#method_lookupLimitations" title="Permanent link">¶</a>
@@ -36736,7 +36736,9 @@ which the information is returned, current user will be used if null</p>
                 </tr>
                     </tbody>
     </table>
-                                                
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-User-LookupLimitationResult.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\User\LookupLimitationResult">LookupLimitationResult</abbr></a></p>
+                                                    
     <h5 class="phpdocumentor-tag-list__heading">
         Tags
         <a href="classes/Ibexa-Contracts-Core-Repository-PermissionResolver.html#method_lookupLimitations#tags" class="headerlink"><i class="fas fa-link"></i></a>
@@ -36758,9 +36760,7 @@ which the information is returned, current user will be used if null</p>
                                                                                      
                                     </dd>
                                                                                     </dl>
-    <h4>Return values</h4>
-    <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-User-LookupLimitationResult.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\User\LookupLimitationResult">LookupLimitationResult</abbr></a></p>
-                <div class="content-header">
+            <div class="content-header">
         <h3 id="method_setCurrentUserReference">
                 <img src="./images/public.svg" alt="public" title="public" />setCurrentUserReference()
             <a class="headerlink" href="classes/Ibexa-Contracts-Core-Repository-PermissionResolver.html#method_setCurrentUserReference" title="Permanent link">¶</a>
