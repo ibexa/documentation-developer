@@ -1,13 +1,20 @@
 ---
-description: With the automated translation add-on, users can translate content items into multiple languages with Google Translate and other machine translation engines.
+description: With the automated translation add-on, users can translate content items into multiple languages with Google Translate or DeepL.
 ---
 
 # Automated content translation
 
-The automated translation add-on package allows users have content items machine-translated into multiple languages by using external translation engines like Google Translate and DeepL.
+The automated translation add-on package allows users have content items machine-translated into multiple languages by using either Google Translate or DeepL external translation engine.
 The package integrates with [[= product_name =]], and allows users to [request from the UI]([[= user_doc =]]/content_management/translate_content.md#add-translations) that a content item is translated.
 However, you can also run an API command to translate a specific content item.
-Either way, as a result, a new version of a content item is created with all [translatable fields](languages.md#translatable-and-untranslatable-fields) translated into a target language.
+Either way, as a result, a new version of the content item is created with the following [translatable fields](languages.md#translatable-and-untranslatable-fields) translated into a target language:
+
+- in pages: [TextBlock](../../content_management/field_types/field_type_reference//textblockfield.md) and [RichText](../../content_management/field_types/field_type_reference//richtextfield.md)
+- in other content types: [TextLine](../../content_management/field_types/field_type_reference//textlinefield.md) and RichText
+
+!!! note "DeepL limitations"
+
+    At this point a list of languages available when using DeepL is limited to English, German, French, Spanish, Italian, Dutch, Polish and Japanese.
 
 ## Configure automated content translation
 
@@ -63,12 +70,12 @@ ibexa_automated_translation:
 To create a machine translation of a specific content item, run the following command:
 
 ```shell
-php bin/console ibexatranslate [contentId] [serviceName] --from=eng-GB --to=fre-FR
+php bin/console TranslateContentCommand [contentId] [serviceName] --from=eng-GB --to=fre-FR
 ```
 
 ## Add a custom machine translation service
 
-You can configure the automated translation package to use a custom machine translation service.
+By default, the automated translation package can connect to Google Translate or DeepL, but you can configure it to use a custom machine translation service.
 You would do it, for example, when a new service emerges on the market, or your company requires that a specific service is used.
 
 To add a custom engine to a list of available translation services, do the following:
