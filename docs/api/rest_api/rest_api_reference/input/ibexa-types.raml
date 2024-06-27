@@ -634,7 +634,7 @@ CreateStruct:
         data:
             description: 'Notification data.'
             type: array
-            items: mixed
+            items: any
 
 Criterion:
     description: 'Criterion implementations.'
@@ -646,7 +646,7 @@ Criterion:
         value:
             description: 'The value(s) matched by the Criteria.'
             type: array
-            items: mixed
+            items: any
         target:
             description: 'The target used by the Criteria (field, metadata...).'
             type: string
@@ -1128,7 +1128,7 @@ Message:
         values:
             description: 'Translation value objects. May not contain any numbers, which might result in requiring plural forms. Use Plural for that.'
             type: array
-            items: mixed
+            items: any
 
 Notification:
     description: 'This class represents a notification value.'
@@ -1152,7 +1152,7 @@ Notification:
         data:
             description: 'This class represents data.'
             type: array
-            items: mixed
+            items: any
 
 NotificationList:
     description: 'This class represents a notifications list.'
@@ -1352,7 +1352,7 @@ Plural:
         values:
             description: 'Translation value objects. May not contain any numbers, which might result in requiring plural forms. Use MessagePlural for that.'
             type: array
-            items: mixed
+            items: any
 
 Policy:
     description: 'This class represents a policy value.'
@@ -2188,7 +2188,7 @@ ValueObject:
         Properties:
             description: 'Function where list of properties are returned.'
             type: array
-            items: mixed
+            items: any
 
 Version:
     description: 'Returns the VersionInfo for this version.'
@@ -2964,7 +2964,7 @@ AttributeCreate:
             type: integer
         options:
             type: array
-            items: mixed
+            items: any
 
 AttributeUpdate:
     description: 'This class is used to update an attribute.'
@@ -2980,7 +2980,7 @@ AttributeUpdate:
             type: integer
         options:
             type: array
-            items: mixed
+            items: any
 
 AttributeList:
     description: 'This class represents an attribute list.'
@@ -3287,7 +3287,7 @@ ProductVariantCreate:
         attributes:
             description: 'array<int|string,mixed>'
             type: array
-            items: mixed
+            items: any
 
 ProductVariantGenerate:
     description: 'This class is used to generate a product variant.'
@@ -3296,7 +3296,7 @@ ProductVariantGenerate:
         attributes:
             description: 'array<int|string,mixed>'
             type: array
-            items: mixed
+            items: any
 
 ProductVariantUpdate:
     description: 'This class is used to update a product variant.'
@@ -3307,7 +3307,7 @@ ProductVariantUpdate:
         attributes:
             description: 'array<int|string,mixed>'
             type: array
-            items: mixed
+            items: any
 
 ProductVariantViewInput:
     description: 'This class represents a product variant view input.'
@@ -3375,7 +3375,7 @@ TaxonomyEntry:
             type: string
         names:
             type: array
-            items: mixed
+            items: any
         Parent:
             type: TaxonomyEntry
         Content:
@@ -3428,7 +3428,7 @@ TaxonomyEntryUpdateStruct:
             type: string
         names:
             type: array
-            items: mixed
+            items: any
         languageCode:
             type: string
         mainLanguageCode:
@@ -4008,7 +4008,7 @@ PaymentMethodUpdateStruct:
             type: boolean
         options:
             type: array
-            items: mixed
+            items: any
 
 PaymentMethodView:
     type: object
