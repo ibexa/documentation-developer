@@ -70,7 +70,7 @@ ibexa_automated_translation:
 To create a machine translation of a specific content item, run the following command:
 
 ```shell
-php bin/console TranslateContentCommand [contentId] [serviceName] --from=eng-GB --to=fre-FR
+php bin/console ibexa:automated:translate [contentId] [serviceName] --from=eng-GB --to=fre-FR
 ```
 
 ## Add a custom machine translation service
