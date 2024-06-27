@@ -34,3 +34,32 @@ You can also divide the remaining space between additional containers (such as t
 
 
 ## Benefits
+
+### Safety and simplicity
+
+Comprehensive data security procedures guarantee that you maintain complete ownership of your client's data, defining where it's stored.
+You can be sure that the safety protocols are compliant with all applicable legislation.
+What's more, all updates to your code and infrastructure are fully auditable. Global CND (Content Delivert Network) is included and fully managed.
+Ibexa Cloud, thanks to grid architecture and extensive Ibexa support, enables easy deployment.
+
+### High availability and compatibility
+
+Ibexa Cloud is compatible with your choice of public cloud server and support for hosting platforms.
+It's a Git-native development - compatible with Git Flow. You can integrate with, for example, Bitbucket, Github, Gitlab.
+You can instantly clone every branch of both your code and infrastructure.
+If you want to work with services such as MySQL, Kafka, and Elasticsearch, you can simply add them with a line of code.
+
+### Increase in developer productivity
+
+Thanks to Ibexa Cloud, there is around 40% increase in developer productivity, 15% faster user acceptance testing, and 20% more deployments.
+Developer can focus more on important development activities.
+
+### A single provider to manage
+
+Ibexa Cloud - hosting infrastructure, comes together with a software - Ibexa DXP, in a single package.
+Management thus becomes much easier.
+
+### Marketing friendly tool
+
+With instant previews, the marketing team can collaborate easily with developers.
+Team members can also see and provide input on the new feature's actual appearance.
