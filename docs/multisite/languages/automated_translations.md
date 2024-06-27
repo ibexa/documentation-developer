@@ -7,7 +7,7 @@ description: With the automated translation add-on, users can translate content 
 The automated translation add-on package allows users have content items machine-translated into multiple languages by using either Google Translate or DeepL external translation engine.
 The package integrates with [[= product_name =]], and allows users to [request from the UI]([[= user_doc =]]/content_management/translate_content.md#add-translations) that a content item is translated.
 However, you can also run an API command to translate a specific content item.
-Either way, as a result, a new version of the content item is created with the following [translatable fields](languages.md#translatable-and-untranslatable-fields) translated into a target language:
+Either way, as a result, a new version of the content item is created with [translatable fields](languages.md#translatable-and-untranslatable-fields) of the following types translated into a target language:
 
 - in pages: [TextBlock](../../content_management/field_types/field_type_reference//textblockfield.md) and [RichText](../../content_management/field_types/field_type_reference//richtextfield.md)
 - in other content types: [TextLine](../../content_management/field_types/field_type_reference//textlinefield.md) and RichText
@@ -20,7 +20,7 @@ Either way, as a result, a new version of the content item is created with the f
 
 ### Install package
 
-Automated content translation support comes as an additional package that needs to be downloaded and installed separately:
+Automated content translation support comes as an additional package that you must download and install separately:
 
 ```bash
 composer require ibexa/automated-translation
@@ -80,6 +80,6 @@ You would do it, for example, when a new service emerges on the market, or your 
 
 To add a custom engine to a list of available translation services, do the following:
 
-- create a service that implements the ` Ibexa\AutomatedTranslation\Client\ClientInterface`
+- create a service that implements ` Ibexa\AutomatedTranslation\Client\ClientInterface`
 - implement the `translate` method
 - in `services.yaml` file, tag the service as `ibexa.automated_translation.client`
