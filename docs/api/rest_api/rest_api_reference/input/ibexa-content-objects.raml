@@ -449,13 +449,13 @@ get:
                         responses:
                             200:
                                 description: OK - loads a Relation for the given content item.
-                            body:
-                                application/vnd.ibexa.api.Relation+xml:
-                                    type: Relation
-                                    example: !include examples/content/objects/content_id/versions/version_no/relations/relation_id/GET/Relation.xml.example
-                                application/vnd.ibexa.api.Relation+json:
-                                    type: Relation
-                                    example: examples/content/objects/content_id/versions/version_no/relations/relation_id/GET/Relation.json.example
+                                body:
+                                    application/vnd.ibexa.api.Relation+xml:
+                                        type: Relation
+                                        example: !include examples/content/objects/content_id/versions/version_no/relations/relation_id/GET/Relation.xml.example
+                                    application/vnd.ibexa.api.Relation+json:
+                                        type: Relation
+                                        example: examples/content/objects/content_id/versions/version_no/relations/relation_id/GET/Relation.json.example
                             401:
                                 description: Error - the user is not authorized to read this content item.
                             404:
