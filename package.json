@@ -1,8 +1,8 @@
 {
-  "name": "developer-documentation",
+  "name": "Developer Documentation",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@github.com:ezsystems/developer-documentation.git",
+  "repository": "git@github.com:ibexa/documentation-developer.git",
   "scripts": {
      "scss": "node-sass --watch scss -o docs/css"
   },
