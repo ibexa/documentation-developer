@@ -19,6 +19,14 @@ Ibexa Cloud is available in all [[= product_name =]] editions.
 
 Ibexa's Cloud Hosting Platform is designed to streamline the development and testing processes, allowing you to deliver new features much faster.
 It ensures that developers spend less time managing databases, queues, search engines, and operating systems and more time to important development activities.
+As a diverse PaaS, it is intended to let you to concentrate on the important things. It shifts the focus away from fundamental operations and toward improving your digital services with additional features and functionality.
+
+![Ibexa Cloud - capabilities](ibexa_cloud_capabilities.png)
+
+### Automation
+
+Ibexa Cloud automates time-consuming testing processes and encourages ongoing QA testing, so your projects are ready for deployment much faster.
+For further protection and easy rollbacks, it also automates your backup procedures. This guarantees that the framework developers are working within is adaptable, safe, and responsive to their requirements. Thanks to built-in CI/CD features, you can also reduce the need for manual testing and accelerate.
 
 ### Digital tool
 
@@ -32,7 +40,6 @@ Your Ibexa Cloud subscription level determines the overall amount of disk space 
 You can assign disk space to the main app container under the disk key.
 You can also divide the remaining space between additional containers (such as the database) or the search engine in `platform.sh` configuration file, under the specific service definitions.
 
-
 ## Benefits
 
 ### Safety and simplicity
@@ -45,14 +52,19 @@ Ibexa Cloud, thanks to grid architecture and extensive Ibexa support, enables ea
 ### High availability and compatibility
 
 Ibexa Cloud is compatible with your choice of public cloud server and support for hosting platforms.
-It's a Git-native development - compatible with Git Flow. You can integrate with, for example, Bitbucket, Github, Gitlab.
+It's a Git-native development - compatible with Git Flow. You can also integrate with, for example, Bitbucket, Github, Gitlab.
 You can instantly clone every branch of both your code and infrastructure.
 If you want to work with services such as MySQL, Kafka, and Elasticsearch, you can simply add them with a line of code.
+What's more, you can run in your chosen cloud, like Microsoft Azure, Orange, Google Cloud Platform, and regional partners.
+
+### Great customer experience
+
+The Ibexa Cloud PaaS solution enables your company to begin developing effective digital systems that provide exceptional client experiences.
 
 ### Increase in developer productivity
 
 Thanks to Ibexa Cloud, there is around 40% increase in developer productivity, 15% faster user acceptance testing, and 20% more deployments.
-Developer can focus more on important development activities.
+Developer can focus more on important development activities. 
 
 ### A single provider to manage
 
