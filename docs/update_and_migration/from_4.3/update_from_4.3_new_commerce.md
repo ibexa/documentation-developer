@@ -5,6 +5,8 @@ description: Update procedure to v4.4 for people who don't use Commerce packages
 
 This update procedure applies if you have a v4.3 installation, and you do not use Commerce packages.
 
+[[% include 'snippets/update/temporary_v4_conflicts.md' %]]
+
 ## Update from v4.3.x to v4.3.latest
 
 Before you update to v4.4, you need to go through the following steps to update to the latest maintenance release of v4.3 (v[[= latest_tag_4_3 =]]).

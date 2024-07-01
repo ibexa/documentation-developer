@@ -10,6 +10,8 @@ Note that all commerce packages as of v4.4 are deprecated and will be removed in
 Until that time, they will be maintained by [[= product_name_base =]] with fixes, including security fixes, but they won't be further developed.
 Old packages are replaced by [the all-new Ibexa Commerce packages](ibexa_dxp_v4.4.md#all-new-ibexa-commerce-packages).
 
+[[% include 'snippets/update/temporary_v4_conflicts.md' %]]
+
 ## Update from v4.3.x to v4.3.latest
 
 Before you update to v4.4, you need to go through the following steps to update to the latest maintenance release of v4.3 (v[[= latest_tag_4_3 =]]).
