@@ -91,7 +91,7 @@
                                                 "fieldTypeIdentifier": "ibexa_product_specification",
                                                 "fieldValue": {
                                                     "id": 60,
-                                                    "code": "test
+                                                    "code": "test",
                                                     "attributes": []
                                                 }
                                             },

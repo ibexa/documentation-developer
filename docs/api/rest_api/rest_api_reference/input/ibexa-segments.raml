@@ -7,15 +7,15 @@ displayName: Segments
             Accept:
                 description: If set, the segment is returned in XML or JSON
                 example: |
-                    vnd.ibexa.api.Segment+xml
-                    vnd.ibexa.api.Segment+json
+                    application/vnd.ibexa.api.Segment+xml
+                    application/vnd.ibexa.api.Segment+json
         responses:
             200:
                 description: OK - Return the segment.
                 body:
-                    vnd.ibexa.api.Segment+xml:
+                    application/vnd.ibexa.api.Segment+xml:
                         type: Segment
-                    vnd.ibexa.api.Segment+json:
+                    application/vnd.ibexa.api.Segment+json:
                         type: Segment
             401:
                 description: Error - the user is not authorized to load this group's segments.

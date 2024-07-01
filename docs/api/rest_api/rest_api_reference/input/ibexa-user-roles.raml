@@ -49,13 +49,13 @@ post:
             example:  |
                 application/vnd.ibexa.api.RoleInput+json
                 application/vnd.ibexa.api.RoleInput+xml
-            body:
-                application/vnd.ibexa.api.RoleInput+xml:
-                    type: RoleInput
-                    example: !include examples/user/roles/POST/RoleInput.xml.example
-                application/vnd.ibexa.api.RoleInput+json:
-                    type: RoleInput
-                    example: !include examples/user/roles/POST/RoleInput.json.example
+    body:
+        application/vnd.ibexa.api.RoleInput+xml:
+            type: RoleInput
+            example: !include examples/user/roles/POST/RoleInput.xml.example
+        application/vnd.ibexa.api.RoleInput+json:
+            type: RoleInput
+            example: !include examples/user/roles/POST/RoleInput.json.example
     responses:
         201:
             body:
