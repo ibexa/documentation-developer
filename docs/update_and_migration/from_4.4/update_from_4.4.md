@@ -248,31 +248,31 @@ Run the following scripts:
 
 === "MySQL"
 
-    ``` sql
+    ``` bash
     mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.5.1-to-4.5.2.sql
     ```
 
 === "PostgreSQL"
 
-    ``` sql
+    ``` bash
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.5.1-to-4.5.2.sql
     ```
 
 ### v4.5.3
 
-#### Database update
+#### Database update [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 Run the following scripts:
 
 === "MySQL"
 
-    ``` sql
+    ``` bash
     mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.5.2-to-4.5.3.sql
     ```
 
 === "PostgreSQL"
 
-    ``` sql
+    ``` bash
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.5.2-to-4.5.3.sql
     ```
 
@@ -284,12 +284,12 @@ Run the following scripts:
 
 === "MySQL"
 
-    ``` sql
+    ``` bash
     mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.5.3-to-4.5.4.sql
     ```
 
 === "PostgreSQL"
 
-    ``` sql
+    ``` bash
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.5.3-to-4.5.4.sql
     ```
