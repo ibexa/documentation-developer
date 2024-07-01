@@ -262,6 +262,21 @@ ibexa:
                 workflow: new_workflow
 ```
 
+## Manage multiple workflows
+
+When you have multiple checkout workflows, you can specify which one to use by passing an argument with the name of the selected checkout workflow to a button or link that triggers the checkout process.
+
+```twig
+{% set checkout_path = path('ibexa.checkout.init', {
+    cartIdentifier: cart_identifier,
+    checkoutName: 'selected_checkout_name'  # Reference your workflow name here
+}) %}
+
+```
+
+With this setup, you can specify which workflow to use by clicking the button or link that starts the checkout. 
+The argument passed determines which workflow is used, providing flexibility in workflow selection.
+
 ## Define custom Address Field Type formats 
 
 To create custom Address Field Type formats to be used in checkout, make the following changes in the project configuration files. 

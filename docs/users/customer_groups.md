@@ -11,13 +11,13 @@ For example, you can offer a 10% discount for all products in the catalog to use
 
 !!! tip
 
-    Note that customer groups are not the same as [User Groups](user_management.md#user-groups).
+    Note that customer groups are not the same as [User Groups](user_registration.md#user-groups).
     User Groups concern all users in the system and can be used, for example, to handle permissions.
     Customer groups refer specifically to the commerce functionalities and enable handling prices.
 
 ## Enabling customer groups
 
-To enable using customer groups, you need to modify the User Content Type's definition
+To enable using customer groups, you need to modify the User content type's definition
 by adding a [Customer Group Field](customergroupfield.md).
 
 With this Field you can add a user to any of the predefined customer groups.

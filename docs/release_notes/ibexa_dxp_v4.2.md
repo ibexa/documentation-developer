@@ -97,13 +97,13 @@ For more information, see [Product categories](https://doc.ibexa.co/projects/use
 
 ### Cross-content type (CCT) recommendations
 
-If a recommendation scenario has more than one Content Type configured, with cross-content type (CCT) parameter in the request,
-you can now get recommendations for all these Content Types.
+If a recommendation scenario has more than one content type configured, with cross-content type (CCT) parameter in the request,
+you can now get recommendations for all these content types.
 
 ### Taxonomy Field Type
 
 Taxonomy is now [configured with a Field Type](https://doc.ibexa.co/projects/userguide/en/latest/taxonomy/#add-tag),
-so you can use many Fields to add different taxonomy categories, for example, tags and product categories in the same Content Type.
+so you can use many Fields to add different taxonomy categories, for example, tags and product categories in the same content type.
 
 ### Address Field Type
 
@@ -201,7 +201,7 @@ Data migration now supports `attribute` and `attribute_group` types when generat
 
 #### Hide and reveal content actions
 
-You can now hide and reveal Content items in data migrations by using the [`hide` and `reveal` actions](https://doc.ibexa.co/en/latest/guide/data_migration/data_migration_actions/#available-migration-actions).
+You can now hide and reveal content items in data migrations by using the [`hide` and `reveal` actions](https://doc.ibexa.co/en/latest/guide/data_migration/data_migration_actions/#available-migration-actions).
 
 ### Fastly shielding
 
@@ -253,6 +253,16 @@ Thanks to splitting SQL upgrade files into separate product editions, the produc
 
 Now, Events are sent while performing operations within Taxonomy, which considerably extends the Taxonomy feature.
 
-### Protected Segment Groups
+### Protected segment groups
 
-You can now set existing Segment Groups as protected and make them unable to be modified through the user interface.
+You can now set existing [segment groups](https://doc.ibexa.co/en/latest/administration/admin_panel/segments_admin_panel/) as protected, and prevent them from being modified through the user interface.
+It's intended to stop users from breaking data integrity of segments/segment groups maintained by other features or external system integrations, such as [Customer Portal](https://doc.ibexa.co/en/latest/customer_management/customer_portal/) and [CDP](https://doc.ibexa.co/en/latest/cdp/cdp/).
+
+To do it, in your configuration, add the following key for each segment group that you intend to protect:
+
+`ibexa.system.default.segmentation.segment_groups.list.<segment_group_name>.protected`
+
+When you change a value of the setting to `true`, users are no longer able to:
+
+- remove the segment group or change its name or identifier
+- add/remove/modify segments that belong to the segment group

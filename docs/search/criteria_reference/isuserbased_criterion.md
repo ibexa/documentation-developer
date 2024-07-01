@@ -1,12 +1,12 @@
 # IsUserBased Criterion
 
-The [`IsUserBased` Search Criterion](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/Criterion/IsUserBased.php)
+The [`IsUserBased` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-IsUserBased.html)
 searches for content that plays the role of a User account.
 
 !!! note
 
-    In the default setup only the User Content Type is treated as User accounts.
-    However, you can also [set other Content Types to be treated as such](repository_configuration.md#user-identifiers).
+    In the default setup only the User content type is treated as User accounts.
+    However, you can also [set other content types to be treated as such](repository_configuration.md#user-identifiers).
 
 ## Arguments
 

@@ -13,9 +13,9 @@ To begin the tutorial, you need a clean installation of [[= product_name_exp =]]
 
 Get it by following the [Install Ibexa DXP](install_ibexa_dxp.md) guide.
 
-## Add Content Types
+## Add content types
 
-Log in to the Back Office – add `/admin` to your installation's address (`<yourdomain>/admin`) and log in using `admin` as the login and `publish` as the password. Go to Content Types screen and (under the Content category) add two Content Types with the following settings:
+Log in to the Back Office – add `/admin` to your installation's address (`<yourdomain>/admin`) and log in using `admin` as the login and `publish` as the password. Disable the Focus mode, go to content types screen and (under the Content category) add two content types with the following settings:
 
 ### Dog Breed
 
@@ -41,16 +41,16 @@ Log in to the Back Office – add `/admin` to your installation's address (`<y
 | Text line   | Title | `title`    | yes      | yes        | yes          |
 | Text block  | Body  | `body`     | no       | no         | yes          |
 
-### Modify existing Article Content Type
+### Modify existing Article content type
 
-You also need to modify the built-in Article Content Type. It will make inserting photos into articles easier.
+You also need to modify the built-in Article content type. It will make inserting photos into articles easier.
 Edit it to remove the Image Field that has a Content Relation (ezobjectrelation) type, and create a new Field in its place:
 
 | Field Type | Name  | Identifier | Required | Searchable | Translatable |
 |------------|-------|------------|----------|------------|--------------|
 | Image Asset | Image | `image`    |yes       |no          | no           |
 
-![New image Field in the Article Content Type](enterprise_tut_image_in_article_ct.png)
+![New image Field in the Article content type](enterprise_tut_image_in_article_ct.png)
 
 ## Add template, configuration and style files
 
@@ -107,17 +107,17 @@ This is what the structure of the new and modified files should look like:
 
 Now return to the Back Office and create some content for your website.
 
-First, you can hide unneeded Content items from the project root.
+First, you can hide unneeded content items from the project root.
 
 Go to **Content structure** and select "Ibexa Digital Experience Platform".
-In the **Sub-items** section, select all the current sub-items and click the **Hide** icon:
+In the **Sub-items** tab, select all the current sub-items and click the **Hide** icon:
 
-![Hiding Content items you do not need](enterprise_tut_hide_content.png)
+![Hiding content items you do not need](enterprise_tut_hide_content.png)
 
 Next, under "Ibexa Digital Experience Platform", create three Folders. Call them 'All Articles', 'Dog Breed Catalog' and 'All Tips'.
-Remember that you save and close them by using the 'Publish' button.
+Remember that you can **Save and close** them, but you should use the **Publish** button.
 
-Next, create a few Content items of proper Content Types in each of these folders:
+Next, create a few content items of proper content types in each of these folders:
 
 - 4 Articles (at least, to best see the effects of the Content Scheduler block that you will create in step 3.)
 - 3 Dog Breeds

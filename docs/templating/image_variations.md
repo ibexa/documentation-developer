@@ -13,6 +13,8 @@ Built-in image variations include four versions that provide the image at a spec
 
 You can also create custom image variations.
 
+See [Render images](render_images.md) for an example of variation name usage as `alias` parameter when rendering an image field. 
+
 ## Custom image variations
 
 Image variation configuration is [SiteAccess](multisite.md)-aware.

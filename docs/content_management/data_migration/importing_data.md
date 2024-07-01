@@ -15,12 +15,14 @@ and specify the file name within this folder as parameter.
 If you don't specify the file, all files within this directory are used.
 
 ``` bash
-php bin/console ibexa:migrations:migrate --file=my_data_export.yaml
+php bin/console ibexa:migrations:migrate --file=my_data_export.yaml --siteaccess=admin
 ```
 
 Migrations store execution metadata in the `ibexa_migrations` database table.
 This allows incremental upgrades:
 the `ibexa:migrations:migrate` command ignores files that it had previously executed.
+
+The [`--siteaccess` option](exporting_data.md#siteaccess) usage can be relevant when multiple languages or multiple repositories are used.
 
 ## Migration step
 
@@ -61,8 +63,10 @@ The following data migration step modes are available:
 | `object_state`         | &#10004; |          |          |
 | `object_state_group`   | &#10004; |          |          |
 | `payment_method`       | &#10004; |          |          |
+| `product_asset`        | &#10004; |          |          |
 | `product_availability` | &#10004; |          |          |
 | `product_price`        | &#10004; |          |          |
+| `product_variant`      | &#10004; |          |          |
 | `role`                 | &#10004; | &#10004; | &#10004; |
 | `section`              | &#10004; | &#10004; |          |
 | `segment`              | &#10004; | &#10004; | &#10004; |
@@ -84,7 +88,7 @@ A repeatable migration performs the defined migration steps as many times as the
 !!! tip
 
     You can use repeatable migration steps, for example,
-    to quickly generate large numbers of Content items for testing purposes.
+    to quickly generate large numbers of content items for testing purposes.
 
 You can vary the operations using the iteration counter.
 
@@ -203,11 +207,16 @@ requiring either an `__invoke` function or a wrapping service with one.
 
 The following examples show what data you can import using data migrations.
 
-### Content Types
+### Content types
 
-The following example shows how to create a Content Type with two Field definitions.
+The following example shows how to create a content type with two Field definitions.
 
 The required metadata keys are: `identifier`, `mainTranslation`, `contentTypeGroups` and `translations`.
+
+The default values of Field definition properties mirror the underlying PHP API, for example:
+
+- `translatable` defaults to `true`
+- `required` defaults to `false`
 
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/create_blog_post_ct.yaml') =]]
@@ -215,9 +224,9 @@ The required metadata keys are: `identifier`, `mainTranslation`, `contentTypeGro
 
 ### Content items
 
-The following example shows how to create two Content items: a folder and an article inside it.
+The following example shows how to create two content items: a folder and an article inside it.
 
-When creating a Content item, three metadata keys are required:
+When creating a content item, three metadata keys are required:
 `contentType`, `mainTranslation`, and `parentLocationId`.
 
 To use the Location ID of the folder, which is created automatically by the system,
@@ -246,7 +255,7 @@ Adjust the migration file and configure the `image` field data as follows:
                 path: src/Migrations/images/example-image.png
 ```
 
-This migration copies the image to the appropriate directory, 
+This migration copies the image to the appropriate directory,
 in this case `public/var/site/storage/images/3/8/3/0/254-1-eng-GB/example-image.png`,
 enabling swift file migration regardless of storage (local, DFS).
 
@@ -263,7 +272,7 @@ The following example shows the creation of a `Contributor` Role:
 [[= include_file('code_samples/data_migration/examples/create_role.yaml') =]]
 ```
 
-To update an existing Role, 2 policies' modes are available:
+To update an existing Role, two policies' modes are available:
 
 - `replace`: (default) All existing policies are replaced by the ones from the migration.
 - `append`: Migration policies are added while already existing ones are kept.
@@ -299,7 +308,7 @@ You can use an [action](data_migration_actions.md) to assign a Role to the user.
 [[= include_file('code_samples/data_migration/examples/create_user.yaml') =]]
 ```
 
-### Language
+### Languages
 
 The following example shows how to create a language.
 
@@ -310,6 +319,8 @@ The required metadata keys are: `languageCode`, `name`, and `enabled`.
 ```
 
 ### Product catalog
+
+#### Attributes and attribute groups
 
 The following example shows how to create an attribute group with two attributes:
 
@@ -325,17 +336,53 @@ You can also update attributes, including changing which attribute group they be
 
 You can't change the attribute type of an existing attribute.
 
-#### Product type
+#### Product types
 
 The following example shows how to create a product type.
 
-The main part of the migration file is the same as when creating a regular Content Type.
+The main part of the migration file is the same as when creating a regular content type.
 
 A product type must also contain the definition for an `ibexa_product_specification` Field.
 `fieldSettings` contains information about the product attributes.
 
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/create_product_type.yaml') =]]
+```
+
+#### Products
+
+The following example shows how to create a product:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/create_product_variant.yaml', 0, 18) =]]
+```
+
+#### Product variants
+
+The following example shows how to create variants for a product identified by its code:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/create_product_variant.yaml', 19, 29) =]]
+```
+
+#### Product assets
+
+The following example creates an image [content item](#content-items) from a local image file, and then uses it as a product asset for a variant ([created in previous example](#product-variant)):
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/create_product_asset.yaml') =]]
+```
+
+This migration uses a [reference](managing_migrations.md#references) to store the created image Content ID, and then uses it while creating the asset.
+It uses an [expression syntax](#expression-syntax) to [concat (`~`)]([[= symfony_doc =]]/reference/formats/expression_language.html#string-operators)
+the mandatory scheme `ezcontent://` and the image content ID through the [`reference` function](#built-in-functions) used on the reference's name.
+
+#### Product prices
+
+The following example shows how to create a price for a product identified by its code:
+
+``` yaml
+[[= include_file('code_samples/data_migration/examples/create_product_price.yaml') =]]
 ```
 
 #### Customer groups
@@ -354,21 +401,17 @@ The following example shows how to create a currency:
 [[= include_file('code_samples/data_migration/examples/create_currency.yaml') =]]
 ```
 
-#### Prices
-
-The following example shows how to create a price for a product identified by its code:
-
-``` yaml
-[[= include_file('code_samples/data_migration/examples/create_price.yaml') =]]
-```
-
 ### Commerce [[% include 'snippets/commerce_badge.md' %]]
+
+#### Payment methods
 
 The following example shows how to create a payment method:
 
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/create_payment_method.yaml') =]]
 ```
+
+#### Shipping methods
 
 The following example shows how to create a shipping method:
 
@@ -408,19 +451,19 @@ The following example shows how you can create a "Car" tag in the main Taxonomy:
 
 The field identifiers must match the identifiers used in the `ibexa_taxonomy` configuration file.
 
-If the Content Type associated with the tags is changed, the configuration should be adjusted when creating migrations.
+If the content type associated with the tags is changed, the configuration should be adjusted when creating migrations.
 
 !!! note
     If there are multiple taxonomies, the `taxonomy` field is then necessary here (line 21).
 
 
-You can use the following example to assign tags to a Content (Content Type Article has an additional Field):
+You can use the following example to assign tags to a Content (content type Article has an additional Field):
 
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/assign_tag.yaml') =]]
 ```
 
-When updating a Content Type, use:
+When updating a content type, use:
 
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/update_tag.yaml') =]]

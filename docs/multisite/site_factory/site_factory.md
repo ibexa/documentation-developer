@@ -59,7 +59,7 @@ Uncomment the SiteAccess matcher (`Ibexa\SiteFactory\SiteAccessMatcher`):
 ibexa:
     siteaccess:
         match:
-        '@Ibexa\SiteFactory\SiteAccessMatcher': ~
+            '@Ibexa\SiteFactory\SiteAccessMatcher': ~
 ```
 
 `ibexadesign` defines templates for your sites, so add them before continuing.
@@ -100,7 +100,7 @@ ibexa_site_factory:
             thumbnail: /path/to/image/example-thumbnail_2.png
 ```
 
-You can check the results of your work in the Back Office by going to the **Site** tab and selecting the **List** icon.
+You can check the results of your work in the Back Office by going to **Site management** and selecting **Sites**.
 
 There, you should be able to add a new site and choose a design for it.
 

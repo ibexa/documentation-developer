@@ -16,7 +16,7 @@ event tracking and embedding recommendation results into the website.
 ## Track events
 
 The service primarily relies on event tracking.
-For the events to be registered, every Content item or product page must call
+For the events to be registered, every content item or product page must call
 a special tracking URL.
 The easiest way of embedding the tracking URL is placing a one pixel image on every page,
 like in the case of analytical tools or visitor counters.
@@ -29,9 +29,9 @@ where:
 - `<user_ID>` stands either for the user ID or session ID of the user who is currently
 logged into your website (any URL-encoded string is allowed).
 
-- `<content_type_ID>` stands for the [contentTypeId](content_model.md#content-information) of the Content item or product that you want to track and recommend.
+- `<content_type_ID>` stands for the [contentTypeId](content_model.md#content-information) of the content item or product that you want to track and recommend.
 
-- `<content_ID>` stands for the [id](content_model.md#content-information) of the Content item or product that you want to track and recommend.
+- `<content_ID>` stands for the [id](content_model.md#content-information) of the content item or product that you want to track and recommend.
 
 The following examples show how you can integrate a CLICK event:
 
@@ -158,7 +158,7 @@ With this feature, your organization can invite individual visitors to return to
 Before you can start [using triggers]([[= user_doc =]]/personalization/triggers), you must contact [[= product_name_base =]] and define specific conditions, for example:
 
 - the time that must pass before messages start being sent
-- Content Types and attributes that are included in a response
+- content types and attributes that are included in a response
 - a number of repetitions
 
 Triggers are then processed on the Personalization server and responses are delivered to a dedicated endpoint.

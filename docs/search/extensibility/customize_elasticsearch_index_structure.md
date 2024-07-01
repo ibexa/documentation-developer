@@ -17,16 +17,17 @@ which negatively affects performance and can lead to instability.
 
 ## Selecting indexing strategy
 
-In your Elasticsearch configuration you can select one of three built-in strategies
+In your Elasticsearch configuration you can select one of four built-in strategies
 that control grouping documents in the index.
 
 The strategies are:
 
+- `NullGroupResolver` - groups all documents into a single group.
 - `LanguageGroupResolver` - groups documents by language code.
-- `ContentTypeGroupResolver`- groups documents by Content Type ID.
+- `ContentTypeGroupResolver`- groups documents by content type ID.
 - `CompositeGroupResolver` - allows combining multiple group resolves together to have a more granular index.
 
-The default strategy is the composite of language and Content Type ID,
+The default strategy is the composite of language and content type ID,
 resulting in indexes in the form of `<repository>_<document_type>_<language>_<content_type_id>`.
 
 To change the strategy, use the `ibexa_elasticsearch.document_group_resolver` [configuration key](configuration.md#configuration-files):
@@ -36,8 +37,8 @@ ibexa_elasticsearch:
     document_group_resolver: 'Ibexa\Elasticsearch\ElasticSearch\Index\Group\ContentTypeGroupResolver'
 ```
 
-Select the strategy based on the structure of your Repository, taking into accounts data such as the number of Content items,
-Content Types or languages.
+Select the strategy based on the structure of your Repository, taking into accounts data such as the number of content items,
+content types or languages.
 
 ## Custom indexing strategy
 
@@ -46,7 +47,7 @@ This resolver must implement `Ibexa\Contracts\Elasticsearch\ElasticSearch\Index\
 
 ### Create group resolver
 
-In this example, create a `ContentTypeGroupGroupResolver` based on the Content Type Group ID of the document:
+In this example, create a `ContentTypeGroupGroupResolver` based on the content type Group ID of the document:
 
 ``` php
 [[= include_file('code_samples/search/elasticsearch/src/GroupResolver/ContentTypeGroupGroupResolver.php') =]]

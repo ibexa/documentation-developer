@@ -57,6 +57,11 @@
     padding-left: 10px;
     padding-bottom: 10px;
     padding-top: 7rem;
+    height: calc(100vh - 138px);
+}
+
+.md-nav--secondary .md-nav__title {
+    position: relative;
 }
 
 .md-nav--secondary>ul {
@@ -126,6 +131,13 @@
     margin: 0;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
+}
+
+.md-nav__link .pill.new {
+    margin-right: 15px;
+    background-color: #d9e8ff;
+    color: #3562a0;
+    text-transform: lowercase;
 }
 
 .md-nav__link::after {

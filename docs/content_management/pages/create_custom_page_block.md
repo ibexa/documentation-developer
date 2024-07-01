@@ -17,7 +17,7 @@ The following example shows how to create a block that showcases an event.
 First, add the following [YAML configuration](configuration.md#configuration-files):
 
 ``` yaml
-[[= include_file('code_samples/page/custom_page_block/config/packages/page_blocks.yaml', 0, 6) =]][[= include_file('code_samples/page/custom_page_block/config/packages/page_blocks.yaml', 16, 39) =]]
+[[= include_file('code_samples/page/custom_page_block/config/packages/page_blocks.yaml', 0, 6) =]][[= include_file('code_samples/page/custom_page_block/config/packages/page_blocks.yaml', 16, 47) =]]
 ```
 
 `event` is the internal name for the block, and `name` indicates the name under which the block is available in the interface.
@@ -28,11 +28,14 @@ or you can use a custom SVG file.
 
 A block can have multiple attributes that you edit when adding it to a Page.
 In this example, you configure three attributes: name of the event, category it belongs to,
-and an event Content item that you select and embed.
+and an event content item that you select and embed.
 
 For a list of all available attribute types, see [Page block attributes](page_block_attributes.md).
 
-Each attribute can have [validators](page_block_validators.md). The `not_blank` validators in the example ensure that the user fills in the two block fields.
+Each attribute can have [validators](page_block_validators.md).
+The `not_blank` validators in the example ensure that the user fills in the two block fields.
+The `content_type` validator in the example ensure that the user choose a content item of the content type `event`.
+The `regexp` validator ensure that the final value looks like a content ID.
 
 ## Add block templates
 
@@ -90,7 +93,21 @@ document.getElementsByTagName('body')[0].addEventListener('ibexa-render-block-pr
     
     If you consider using React JavaScript library, see [React App block](react_app_block.md).
 
-## Add edit templates
+## Add pre-render event listener
+
+If you need to compute variables to pass to the template, you can listen or subscribe to the block pre-render event.
+
+For example, the following event subscriber loads the `event` content item and passes it to the template as `event_content`:
+
+``` php
+[[= include_file('code_samples/page/custom_page_block/src/Event/Subscriber/BlockEmbedEventEventSubscriber.php') =]]
+```
+
+The block view template could now use `ibexa_render(event_content, {'viewType': 'embed'})` instead of `render(controller('ibexa_content::viewAction', {'contentId': event, 'viewType': 'embed'}))`, other [content Twig functions](content_twig_functions.md), or [field Twig functions](field_twig_functions.md).
+
+For more information, see [Block events](page_blocks.md#block-events).
+
+## Add edit template
 
 You can also customize the template for the block settings modal.
 Do this under the `configuration_template` [configuration key](configuration.md#configuration-files):
@@ -99,11 +116,21 @@ Do this under the `configuration_template` [configuration key](configuration.md#
 [[= include_file('code_samples/page/custom_page_block/config/packages/page_blocks.yaml', 0, 7) =]]
 ```
 
-Place the edit template in `templates/themes/<your_theme>/blocks/event/config.html.twig'`:
+Place the edit template in `templates/themes/<your_theme>/blocks/event/config.html.twig`:
 
 ``` html+twig
 [[= include_file('code_samples/page/custom_page_block/templates/themes/standard/blocks/event/config.html.twig') =]]
 ```
+
+This example template overrides the `embed` attribute widget to customize the Universal Discovery Widget (UDW).
+It adds itself to the `form_templates` and defines a `block_configuration_attribute_embed_widget` block.
+The following UDW configuration is used so only an `event` typed content item can be selected:
+
+``` yaml
+[[= include_file('code_samples/page/custom_page_block/config/packages/page_blocks.yaml', 48, 57) =]]
+```
+
+For more information, see [UDW configuration](browser.md#udw-configuration).
 
 Your custom page block is now ready. 
 Before you can use it in Page Builder, you must [enable it in Page field settings]([[= user_doc =]]/content_management/configure_ct_field_settings/#block-display).

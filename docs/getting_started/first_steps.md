@@ -33,7 +33,7 @@ module.exports = [ibexaConfig, ...customConfigs, projectConfig];
 module.exports = [ eZConfig, ibexaConfig, ...customConfigs ];
 ```
 
-## Add a Content Type
+## Add a content type
 
 1\. In your browser, go to the Back Office: `<your_domain>/admin`, and use the default credentials to log in: `admin/publish`.
 
@@ -41,22 +41,24 @@ module.exports = [ eZConfig, ibexaConfig, ...customConfigs ];
 
     Make sure that you change the default password before you switch your installation 
     from development to production. 
-    For more information about passwords, see [Passwords](user_management.md#passwords).
+    For more information about passwords, see [Passwords](passwords.md).
     For more information about production security, see [Security checklist](security_checklist.md).
 
-2\. Select Admin and go to Content Types.
+2\. In the upper-right corner, click the avatar icon and in the drop-down menu disable the [Focus mode]([[= user_doc =]]/getting_started/#focus-mode).
 
-3\. Enter the Content group and create a new Content Type.
+3\. Select Content and go to content types.
 
-![Creating a Content Type](first-steps-create-ct.png)
+4\. Enter the Content group and create a new content type.
 
-4\. Input the Content Type's name, for example "Blog Post", and identifier: `blog_post`.
+![Creating a content type](first-steps-create-ct.png)
 
-5\. Below, add a Field definition of the type Text Line. Name it "Title" and give it identifier `title`.
+5\. Input the content type's name, for example "Blog Post", and identifier: `blog_post`.
 
-6\. Add another Field definition: Text (type Rich text) with identifier `text`.
+6\. Below, add a Field definition of the type Text Line. Name it "Title" and give it identifier `title`.
 
-7\. Save the Content Type.
+7\. Add another Field definition: Text (type Rich text) with identifier `text`.
+
+8\. Save the content type.
 
 !!! tip "More information"
 
@@ -97,13 +99,13 @@ Content view templates use the [Twig templating engine](https://twig.symfony.com
 
 ## Create content and test view templates
 
-1\. Go to the Back Office, activate Content/Content structure and create a new Content item using the button in the right menu.
+1\. Go to the Back Office, activate Content/Content structure and create a new content item by clicking **Create content**.
 
 ![Creating a Blog Post](first-steps-create-content.png)
 
-2\. Select a Blog Post Content Type. Fill in the Content item and publish it.
+2\. Select a Blog Post content type. Fill in the content item and publish it.
 
-3\. To preview the new Content item on the front page, go to `<yourdomain>/<Content-item-name>`.
+3\. To preview the new content item on the front page, go to `<yourdomain>/<Content-item-name>`.
 For example, if the title of the Blog post is "First blog post", the address will be `<yourdomain>/first-blog-post`.
 
 ![Previewing Content](first-steps-preview-content.png)
@@ -166,11 +168,11 @@ Make sure it is enabled.
 ![Creating a language](first-steps-create-language.png)
 
 3\. Next, go to the Content structure and open the blog post you had created earlier.
-Switch to the Translations tab and add a new translation.
+Switch to the **Translations** tab and add a new translation.
 
 ![Adding a translation](first-steps-add-translation.png)
 
-4\. Select German and base the new translation on the English version. Edit the Content item and publish it.
+4\. Select German and base the new translation on the English version. Edit the content item and publish it.
 
 5\. Go to the front page. The blog post will now display different content, depending on which SiteAccess you enter it from:
 `<yourdomain>/<content-name>` or `<yourdomain>/de/<content-name>`.
@@ -217,7 +219,7 @@ This means that the app will look for the `blog_post.html.twig` file in a folder
 
 ## Set up permissions
 
-To allow a group of users to edit only a specific Content Type (in this example, blog posts), you need to set up permissions for them.
+To allow a group of users to edit only a specific content type (in this example, blog posts), you need to set up permissions for them.
 
 Users and User Groups are assigned Roles. A Role can contain a number of Policies, which are rules that permit the user to perform a specific function.
 Policies can be additionally restricted by Limitations.
@@ -241,9 +243,9 @@ Call the group "Bloggers".
 
 5\. Now add Policies that will allow the User to create and publish content, limited to Blog Posts:
 
-- `Content/Create` with Limitation for Content Type Blog Post
-- `Content/Edit` with Limitation for Content Type Blog Post
-- `Content/Publish` with Limitation for Content Type Blog Post
+- `Content/Create` with Limitation for content type Blog Post
+- `Content/Edit` with Limitation for content type Blog Post
+- `Content/Publish` with Limitation for content type Blog Post
 
 ![Adding Limitations to a Policy](first-steps-policy-limitations.png)
 

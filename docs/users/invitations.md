@@ -16,7 +16,7 @@ such as Editors, or to the specific Roles within the group, for example: Admin, 
 
 ## Creating and sending invitations
 
-Invitations are created with [InvitationService](https://github.com/ibexa/user/blob/main/src/lib/Invitation/InvitationService.php),
+Invitations are created with [InvitationService](../api/php_api/php_api_reference/classes/Ibexa-Contracts-User-Invitation-InvitationService.html),
 but sending them requires additional setup.
 [[= product_name =]] provides you with `Ibexa\User\Invitation\MailSender` implementation of
 `InvitationSender` interface for sending invitations via email.
@@ -48,3 +48,5 @@ Here, you can specify which template should be used for the invitation mail,
 and what should be the expiration time for the invitation link included in that mail.
 If a user does not click the invitation link sent to them in time, you can refresh the invitation.
 Refresh resets the time limit and changes the hash in the invitation link.
+
+You can find more registration related templates in [Register new users documentation](user_registration.md#other-user-management-templates).

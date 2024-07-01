@@ -1,6 +1,6 @@
 # Pattern Criterion
 
-The [`Pattern` URL Criterion](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/URL/Query/Criterion/SectionId.php)
+The [`Pattern` URL Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-URL-Query-Criterion-SectionId.html)
 matches URLs that contain the provided pattern.
 
 ## Arguments
