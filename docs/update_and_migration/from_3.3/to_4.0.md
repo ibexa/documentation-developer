@@ -9,6 +9,8 @@ See [a list of all changed namespaces, configuration key, service names, and oth
 
 An additional compatibility layer makes the process of updating your code easier.
 
+[[% include 'snippets/update/temporary_v4_conflicts.md' %]]
+
 !!! note "Symfony 5.4"
 
     If you are using Symfony 5.3, you need to update your installation to Symfony 5.4.
