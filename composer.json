@@ -1,5 +1,5 @@
 {
-    "name": "ezsystems/developer-documentation",
+    "name": "ibexa/documentation-developer",
     "description": "This repository is the source for the developer documentation for eZ Platform, an open source CMS based on the Symfony Full Stack Framework in PHP.",
     "type": "library",
     "license": "GNU General Public License v2.0",
