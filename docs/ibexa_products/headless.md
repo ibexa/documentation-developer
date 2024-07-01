@@ -120,11 +120,13 @@ Like everything in the Back Office, the calendar is extendable: you can add an e
 
 [Product Information Management](pim_guide.md) (PIM) helps organize complex products and their catalogs:
 
-- Product are organized per product types × variants × catalogs × categories × tags.
+- Products are organized by using product types, variants, catalogs, categories, and tags.
 - Product attributes are grouped and factorized among product types. For example, fabric + color + size can be shared by many clothing product types.
-- Product variants can rapidly be created by the automatic declination of attributes having a defined set of values.
+- Product variants can rapidly be created by the automatic declination of attributes that have a defined set of values.
 - With taxonomy, you can tag content items to organize them by topics in a much intuitive way for the editor than a content tree with multiple locations would.
-  Tags themselves are organized in a tree, and synonyms are linked to favorite terms. This tags organization can be the task of a supervisor who won't need to move content items around a corporate content tree. At search time, tags can be keywords with a high value in relevance score to help the end user having results closer to the searched topic.
+Tags themselves are organized in a tree, and synonyms are linked to favorite terms.
+Tag organization can be handled by a supervisor who won't need to move content items around a corporate content tree.
+At search time, tags can be keywords with a high value in relevance score to help the end user having results closer to the searched topic.
 
 #### Collaboration
 
