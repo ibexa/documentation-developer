@@ -4,6 +4,8 @@ This update procedure applies if you are using v4.0.0.
 
 Go through the following steps to update to v4.1.
 
+[[% include 'snippets/update/temporary_v4_conflicts.md' %]]
+
 !!! note
 
     During the update process you can encounter the following error:
