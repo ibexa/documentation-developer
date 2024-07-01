@@ -759,7 +759,7 @@ nav:
             - Clustering: infrastructure_and_maintenance/clustering/clustering.md
             - Clustering with AWS S3: infrastructure_and_maintenance/clustering/clustering_with_aws_s3.md
             - Clustering with DDEV: infrastructure_and_maintenance/clustering/clustering_with_ddev.md
-            - Ibexa Cloud and DDEV: infrastructure_and_maintenance/clustering/ibexa_cloud_and_ddev.md
+            - DDEV and Ibexa Cloud: infrastructure_and_maintenance/clustering/ddev_and_ibexa_cloud.md
         - DevOps: infrastructure_and_maintenance/devops.md
         - Backup: infrastructure_and_maintenance/backup.md
         - Performance: infrastructure_and_maintenance/performance.md
