@@ -54,7 +54,6 @@ Run the following scripts:
 
 #### Database update [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-Update the database if you are using [[= product_name_exp =]] or [[= product_name_com =]]. [[= product_name_content =]] does not require the database update.
 Run the following scripts:
 
 === "MySQL"
