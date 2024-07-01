@@ -6,6 +6,8 @@ Personalization engine is a cloud-based service that tracks and analyzes custome
 
 The engine uses artificial intelligence and machine learning modeling to learn and create behavioral patterns and generate recommendations ready to be presented on one or more websites hosted by the [[= product_name =]] instance.
 
+![Recommendations](recommendations.png "Recommendations")
+
 ## Availability
 
 Personalization service is available in all supported [[= product_name =]] versions and editions.
@@ -20,9 +22,7 @@ Now, you can start collecting data and boost your business.
 
 ## How does Personalization work
 
-
-![How it works](how_perso_works.png)
-
+![How it works](how_perso_works.png "How personalization works")
 
 Personalization with tracking scripts, monitors  individual sessions from user’s behavior and interest data through events (clicks, viewed articles, pages, purchases) and demographic data (location, industry, occupation).
 
@@ -31,6 +31,11 @@ Next, collects data and computes models thanks to complex algorithms.
 Personalization is SiteAcces-aware, it means it can serve on multiple sites with different customer IDs and deliver recommendations for each site (for example, if you host multi language site).
 
 Use Twig extension to add a tracking script and implement it into your site configuration.
+
+<figure>
+<iframe width=800; height="420"; src="https://demo.arcade.software/lHMUJAsqOqpjyhM10s1C?embed" frameborder="0" allowfullscreen> </iframe>
+<figcaption>Setting up automatic recommendations of trending content</figcaption>
+</figure>
 
 ## Capabilities
 
@@ -52,7 +57,7 @@ Personalization service includes the following model types:
 
 - B2B models - returns items clicked or bought by a segment group of a company
 
-![Structure](categories.png)
+![Structure](categories.png "Model structure")
 
 
 ### Scenarios
@@ -63,10 +68,10 @@ Scenarios are sequences of events. You can use scenarios to determine how and wh
 
 Use segments to get content targeted at particular user groups. Segments calculate models based on the segment attribute factor. Assign users to different recommendation groups and create advanced logic with operators to get best segmentation for your audience.
 
-![Segments](perso_segment_group_or.png)
-
-![Recommendations](recommendations.png)
-
+<figure>
+<iframe width=800; height="420"; src="https://demo.arcade.software/SOxvktvBxbEGIcMMe1j8?embed" frameborder="0" allowfullscreen> </iframe>
+<figcaption>Serving relevant recommendations to users from different segments</figcaption>
+</figure>
 
 ### REST API
 
@@ -107,8 +112,7 @@ Stand out from other companies by provided well-suited content and make a space 
 
 Apply collaborative models with predictive analysis and find out what motivates users to put extra items into their carts. Start building predictions of their behaviors and suggest items, products your visitors are willing to buy.
 
-![Dashboard](perso_dashboard_revenue.png)
-
+![Dashboard](perso_dashboard_revenue.png "Personalization daschboard")
 
 ### Measure your return and boost conversion rates 
 

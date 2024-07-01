@@ -19,6 +19,13 @@ Form Builder is available in [[= product_name_exp =]] and [[= product_name_com =
 
 ## How does Form Builder work
 
+??? tip "Click to see an interactive demo"
+
+    <figure>
+    <iframe width=800; height="420"; src="https://demo.arcade.software/VBhN4seLGSeSuiRGfpom?embed" frameborder="0" allowfullscreen> </iframe>
+    <figcaption>Creating reusable forms</figcaption>
+    </figure>
+
 ### Form Builder interface
 
 Form Builder user interface consists of:

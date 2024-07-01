@@ -115,16 +115,25 @@ Created product has its own list of the tasks required for product configuration
 attributes, assets, content, prices, availability, and so on. 
 You can check how complete the configuration is in the product’s view.
 
-When you create or edit a product, under the product name, 
-you can see visual indication of what part of product information (tasks) you have completed, and what part is still missing.
+When you create or edit a product, under the product name, you can see visual indication of what part of product information (tasks) you have completed, and what part is still missing.
+
+<figure>
+<iframe width=800; height="420"; src="https://demo.arcade.software/utvCMI0owirzWcuYv3GV?embed" frameborder="0" allowfullscreen> </iframe>
+<figcaption>Managing product completeness</figcaption>
+</figure>
 
 ### Catalogs
 
-With catalogs you can create product lists for special purposes, for example, for B2B and B2C uses, for retailers and distributors or for different regions. 
+With catalogs you can create product lists for special purposes, for example, for B2B and B2C uses, for retailers and distributors or for different regions.
 Catalogs contain a sub-set of products from the system.
 
 You can copy existing catalogs, for example, to create a variant version of an offer with slightly differing filters. 
 You can then modify the copied catalog and save the updated version.
+
+<figure>
+<iframe width=800; height="420"; src="https://demo.arcade.software/E5DtksYuTBTmYF2vInbb?embed" frameborder="0" allowfullscreen> </iframe>
+<figcaption>Creating a custom product catalog</figcaption>
+</figure>
 
 ### Catalog filters and custom filter
 
