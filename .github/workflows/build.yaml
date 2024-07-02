@@ -25,11 +25,10 @@ jobs:
               uses: actions/setup-python@v3
               with:
                   python-version: ${{ matrix.python-version }}
-            - name: Install php-cs-fixer
-              run: | 
-                mkdir -p tools/php-cs-fixer
-                composer require --working-dir=tools/php-cs-fixer friendsofphp/php-cs-fixer --dev
-                composer require --working-dir=tools/php-cs-fixer ibexa/code-style:^1.0 --dev
+            - uses: "ramsey/composer-install@v3"
+              with:
+                  working-directory: "tools/php-cs-fixer"
+                  dependency-versions: highest
             - name: Run PHP CS Fixer
               run: tools/php-cs-fixer/vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php -v --show-progress=dots
             - name: Commit changes
