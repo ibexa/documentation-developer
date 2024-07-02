@@ -36,7 +36,7 @@ This command adds to your project configuration files required for using [[= pro
 
 ## Prepare configuration files
 
-In `config/packages` directory add the following `ibexa_connector_qualifio` [YAML configuration](configuration.md#configuration-files):
+In `config/packages` directory add the following `ibexa_connector_qualifio.yaml` [YAML configuration](configuration.md#configuration-files):
 
 ``` yaml
 [[= include_file('code_samples/ibexa_engage/config/packages/ibexa_connector_qualifio.yaml') =]]
