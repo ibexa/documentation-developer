@@ -664,10 +664,6 @@ DateRange:
     description: 'Representation of date range.'
     type: object
 
-datetime:
-    description: 'Representation of date and time.'
-    type: object
-
 Event:
     description: 'Calendar event.'
     type: BaseObject
@@ -2332,7 +2328,7 @@ ContentTypeCreate:
             description: 'If set, this value overrides the current user as creator.'
             type: any
         creationDate:
-            type: DateTime
+            type: datetime
 
 ContentTypeUpdate:
     description: 'This class is used to update a content type.'
@@ -2366,7 +2362,7 @@ ContentTypeUpdate:
             description: 'If set, this value overrides the current user as creator.'
             type: any
         modificationDate:
-            type: DateTime
+            type: datetime
 
 ViewInput:
     description: 'This class represents a View input.'
@@ -3488,10 +3484,6 @@ VatCategory:
         vatValue:
             type: number
 
-DateTime:
-    description: https://www.php.net/manual/en/class.datetime.php
-    type: object
-
 ContentUpdate:
     description: 'This class is used to update a Content.'
     type: object
@@ -3516,9 +3508,9 @@ ContentMetadataUpdate:
         ownerId:
             type: any
         publishedDate:
-            type: DateTime
+            type: datetime
         modificationDate:
-            type: DateTime
+            type: datetime
         mainLanguageCode:
             type: string
         alwaysAvailable:
