@@ -383,6 +383,10 @@ nav:
         - Create Customer Portal: customer_management/cp_page_builder.md
         - Customer Portal Applications: customer_management/cp_applications.md
         - Create registration form: customer_management/create_user_registration_form.md
+    - Ibexa Engage:
+        - Install Ibexa Engage: ibexa_engage/install_ibexa_engage.md
+        - Create campaign with Ibexa Engage: ibexa_engage/create_campaign.md
+        - Integrate Ibexa Engage with Ibexa Connect: ibexa_engage/integrate_ibexa_connect.md
     - Multisite:
         - Multisite: multisite/multisite.md
         - Multisite configuration: multisite/multisite_configuration.md
@@ -892,6 +896,7 @@ extra:
   product_name_connect: 'Ibexa Connect'
   product_name_cloud: 'Ibexa Cloud'
   product_name_oss: 'Ibexa OSS'
+  product_name_engage: 'Ibexa Engage'
   # Global variables - latest tag versions
   latest_tag_2_5: '2.5.32'
   latest_tag_3_3: '3.3.37'
