@@ -190,13 +190,13 @@ $filter
 You can use the `SearchService` or Repository filtering in a controller, as long as you provide the required parameters.
 For example, in the code below, `locationId` is provided to list all children of a Location by using the `SearchService`.
 
-``` php hl_lines="21-23"
+``` php hl_lines="22-24"
 // ...
-[[= include_file('code_samples/api/public_php_api/src/Controller/CustomController.php', 4, 11) =]]    // ...
-[[= include_file('code_samples/api/public_php_api/src/Controller/CustomController.php', 18, 34) =]]
+[[= include_file('code_samples/api/public_php_api/src/Controller/CustomController.php', 4, 12) =]]    // ...
+[[= include_file('code_samples/api/public_php_api/src/Controller/CustomController.php', 19, 35) =]]
 ```
 
-The rendering of results is then relegated to [templates](templates.md) (lines 21-23).
+The rendering of results is then relegated to [templates](templates.md) (lines 22-24).
 
 When using Repository filtering, provide the results of `ContentService::find()` as parameters to the view:
 
@@ -212,9 +212,9 @@ To paginate search or filtering results, it is recommended to use the [Pagerfant
 
 ``` php
 // ...
-[[= include_file('code_samples/api/public_php_api/src/Controller/PaginationController.php', 8, 14) =]]    // ...
-[[= include_file('code_samples/api/public_php_api/src/Controller/PaginationController.php', 21, 31) =]]
-[[= include_file('code_samples/api/public_php_api/src/Controller/PaginationController.php', 32, 42) =]]
+[[= include_file('code_samples/api/public_php_api/src/Controller/PaginationController.php', 8, 15) =]]    // ...
+[[= include_file('code_samples/api/public_php_api/src/Controller/PaginationController.php', 22, 32) =]]
+[[= include_file('code_samples/api/public_php_api/src/Controller/PaginationController.php', 33, 43) =]]
 ```
 
 Pagination can then be rendered for example using the following template:
@@ -337,7 +337,7 @@ With aggregations you can find the count of search results or other result infor
 To do this, you use of the query's `$aggregations` property:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 34, 35) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 39, 40) =]]
 ```
 
 The name of the aggregation must be unique in the given query.
@@ -345,13 +345,13 @@ The name of the aggregation must be unique in the given query.
 Access the results by using the `get()` method of the aggregation:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 39, 40) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 43, 44) =]]
 ```
 
 Aggregation results contain the name of the result and the count of found items:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 45, 48) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 46, 49) =]]
 ```
 
 With field aggregations you can group search results according to the value of a specific Field.
@@ -361,7 +361,7 @@ The following example creates an aggregation named `selection` that groups resul
 according to the value of the `topic` Field in the `article` content type:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 35, 36) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 39, 40) =]]
 ```
 
 With term aggregation you can define additional limits to the results.
@@ -369,7 +369,7 @@ The following example limits the number of terms returned to 5
 and only considers terms that have 10 or more results:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 42, 44) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 34, 37) =]]
 ```
 
 To use a range aggregation, you must provide a `ranges` array containing a set of `Range` objects

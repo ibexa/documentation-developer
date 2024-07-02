@@ -11,12 +11,12 @@ and all other templates [extend](templates.md#connecting-templates) it.
 
 Then, to render breadcrumbs, create a `BreadcrumbController.php` file in `src/Controller`:
 
-``` php hl_lines="26 34"
+``` php hl_lines="27 35"
 [[= include_file('code_samples/front/layouts/breadcrumbs/src/Controller/BreadcrumbController.php') =]]
 ```
 
 The controller uses the [Ancestor Search Criterion](ancestor_criterion.md)
-to find all Ancestors of the current Location (line 26).
+to find all Ancestors of the current Location (line 27).
 It then places the ancestors in the `breadcrumbs` variable that you can use in the template.
 
 Next, call this controller from the page layout template and pass the current Location ID as a parameter:

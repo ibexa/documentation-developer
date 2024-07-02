@@ -29,19 +29,19 @@ To manage prices, use `ProductPriceService`.
 To retrieve the price of a product in the currency for the current context, use `Product::getPrice()`:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 74, 77) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 75, 78) =]]
 ```
 
 To retrieve the price of a product in a specific currency, use `ProductPriceService::getPriceByProductAndCurrency`:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 78, 81) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 79, 82) =]]
 ```
 
 To get all prices (in different currencies) for a given product, use `ProductPriceService::findPricesByProductCode`:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 92, 98) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 93, 99) =]]
 ```
 
 To load price definitions that match given criteria, use `ProductPriceServiceInterface::findPrices`:
@@ -50,14 +50,14 @@ To load price definitions that match given criteria, use `ProductPriceServiceInt
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 12, 16) =]]
 
 // ...
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 99, 109) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 100, 110) =]]
 ```
 
 You can also use `ProductPriceService` to create or modify existing prices.
 For example, to create a new price for a given currency, use `ProductPriceService::createProductPrice` and provide it with a `ProductPriceCreateStruct` object:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 74, 80) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 75, 81) =]]
 ```
 
 !!! note

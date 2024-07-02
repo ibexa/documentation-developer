@@ -92,9 +92,9 @@ which enables it to create a new user in the Repository if the user doesn't exis
 The mapper loads a user (line 51) or creates a new one (line 61),
 based on the information from `resourceOwner`, that's the OAuth2 authorization server.
 
-The new username is set with a `google:` prefix (lines 19, 106), to avoid conflicts with users registered in a regular way.
+The new username is set with a `google:` prefix (lines 19, 109), to avoid conflicts with users registered in a regular way.
 
-``` php hl_lines="19 51 61 106"
+``` php hl_lines="19 54 64 109"
 [[= include_file('code_samples/user_management/oauth_google/src/OAuth/GoogleResourceOwnerMapper.php') =]]
 ```
 
