@@ -13,7 +13,7 @@ description: Install Ibexa DXP on a Linux system and prepare your installation f
 
 !!! note "Installing [[= product_name_oss =]]"
 
-    This installation guide details the steps to install[[= product_name =]] for users who have a subscription agreement with [[= product_name_base =]].
+    This installation guide details the steps to install [[= product_name =]] for users who have a subscription agreement with [[= product_name_base =]].
     If you want to install [[= product_name_oss =]], you do not need authentication tokens or an account on updates.ibexa.co,
     but must adapt the steps shown here to the product edition and the `ibexa/oss-skeleton` repository.
 
@@ -27,7 +27,6 @@ Additional requirements:
 
 - [Node.js](https://nodejs.org/en) and [Yarn](https://classic.yarnpkg.com/en/docs/install/#debian-stable) for asset management.
 - `git` for version control.
-- to use search in the shop front end, you must [install a search engine](#install-and-configure-a-search-engine).
 
 [For production](#prepare-installation-for-production) you also need Apache or nginx as the HTTP server (Apache is used as an example below).
 
@@ -51,12 +50,7 @@ composer -V
 
 !!! tip "Install Composer locally"
 
-    If you want to install Composer inside your project root directory only,
-    run the following command in the terminal:
-
-    ``` bash
-    php -r "readfile('https://getcomposer.org/installer');" | php
-    ```
+    If you want to install Composer inside your project root directory only, follow the instructions on [installing Composer in the current directory](https://getcomposer.org/download/).
 
     If you do so, you must replace `composer` with `php -d memory_limit=-1 composer.phar` in all commands below.
 
@@ -190,10 +184,7 @@ run the following command:
 #### Add project to version control
 
 It is recommended to add your project to version control.
-
-First, create a `.gitignore` file based on the `.gitignore.dist` provided in the project.
-
-Then, initiate your project repository:
+Initiate your project repository:
 
 ``` bash
 git init; git add . > /dev/null; git commit -m "init" > /dev/null
@@ -252,10 +243,6 @@ In `DATABASE_VERSION` you can also configure the database server version (for a 
 #### Install and configure a search engine
 
 You may choose to replace the [default search engine](legacy_search_overview.md) with either Solr or Elasticsearch.
-
-!!! note "Shop front end requirement [[% include 'snippets/commerce_badge.md' %]]"
-
-    Search in the shop front end requires that you have either Solr or Elasticsearch as a search engine.
 
 === "Solr"
 
@@ -325,7 +312,7 @@ The DebugBundle contains the [VarDumper]([[= symfony_doc =]]/components/var_dump
 composer require --dev symfony/debug-bundle
 ```
 
-For detailed information about request treatment, you can eventually install [Symfony Profiler]([[= symfony_doc =]]/profiler.html):
+For detailed information about request treatment, you can also install [Symfony Profiler]([[= symfony_doc =]]/profiler.html):
 
 ``` bash
 composer require --dev symfony/profiler-pack
@@ -337,7 +324,7 @@ To get both features in one go use:
 composer require --dev symfony/debug-pack
 ```
 
-## Prepare installation for production
+## Configure an HTTP server
 
 To use [[= product_name =]] with an HTTP server, you need to [set up directory permissions](#set-up-permissions) and [prepare a virtual host](#set-up-virtual-host).
 
@@ -444,11 +431,6 @@ Finally, remove the temporary file:
 ### Enable the Link manager
 
 To make use of the [Link Manager](url_management.md#enabling-automatic-url-validation).
-
-#### JMS payment secret [[% include 'snippets/commerce_badge.md' %]]
-
-To provide the `JMS_PAYMENT_SECRET` secret for the [[= product_name_com =]] payment system, run `./vendor/defuse/php-encryption/bin/generate-defuse-key`
-and use the generated secret.
 
 ## Ibexa Cloud
 
