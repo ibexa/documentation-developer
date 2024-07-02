@@ -81,14 +81,15 @@ $(document).ready(function() {
         })
         .addClass('external');
 
-    docsearch({
+    let search = docsearch({
         container: '#docsearch',
         appId: '2DNYOU6YJZ',
         apiKey: '21ce3e522455e18e7ee16cf7d66edb4b',
         indexName: 'ezplatform',
         inputSelector: '#search_input',
         transformData: function(hits) {
-            let removedPattern = '¶';
+            const hitsPerPage = 10;
+            const removedPattern = '¶';
             $.each(hits, function(index, hit) {
                 for (let lvl=2; lvl<=6; lvl++) {
                     if (null !== hit.hierarchy['lvl'+lvl]) {
@@ -99,24 +100,51 @@ $(document).ready(function() {
                     }
                 }
             });
+
+            let link = $('.ds-dropdown-menu a.search-page-link');
+            const href = '/en/' + branchName + '/search_results/?sq=' + encodeURI($('#search_input').val()) + '&p=1';
+
+            if (!link.length) {
+                link = $('.ds-dropdown-menu').append(`<div class="search-page-link-wrapper">
+                    <a class="search-page-link" href="">See all results</a>
+                </div>`);
+            }
+
+            link.attr('href', href).show();
+
+            if (hits.length < hitsPerPage) {
+                link.hide();
+            }
         },
         algoliaOptions: {
             facetFilters: ['lang:en', 'version:' + branchName],
             hitsPerPage: 10,
         },
+        handleSelected: function (input, event, suggestion, datasetNumber, context) {
+            if (context.selectionMethod == 'click') {
+                window.location = suggestion.url;
+            } else if (context.selectionMethod == 'enterKey') {
+                window.location = $('.ds-dropdown-menu a.search-page-link').attr('href');
+            }
+        },
         debug: false,
     });
-
-    $(document).on('keypress', '#search_input', function(event) {
-        if (event.keyCode == 13) {
-            event.preventDefault();
-        }
+    search.autocomplete.on('autocomplete:updated', event => {
+        $('.ds-dropdown-menu .ds-suggestion').each(function() {
+            let category = $(this).find('.algolia-docsearch-suggestion--subcategory-column');
+            let content = $(this).find('.algolia-docsearch-suggestion--title');
+            if (content.text().trim() == category.text().trim()) {
+                content.remove();
+            }
+        });
     });
 
-    $(document).on('blur', '#search_input', function(event) {
-        setTimeout(() => {
-            $('#search_input').val('');
-        }, 0);
+    $(document).on('keydown keypress', 'form.md-search__form', function(event) {
+        if (event.keyCode == 13) {
+            event.preventDefault();
+
+            return false
+        }
     });
 
     $('#search_input, label.md-search__icon').on('click', function() {
