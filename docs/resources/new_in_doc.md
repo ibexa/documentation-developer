@@ -6,6 +6,16 @@ description: Overview of major recent additions to Ibexa DXP documentation.
 
 This page contains recent highlights and notable changes in [[= product_name =]] documentation.
 
+## May 2024
+
+### PHP API
+
+- [PHP API Reference](https://doc.ibexa.co/en/master/api/php_api/php_api_reference/)
+
+### Users
+
+- [Warning about recent activity log and user privacy](https://doc.ibexa.co/en/latest/administration/recent_activity/recent_activity/#user-privacy)
+
 ## April 2024
 
 ### Product guides

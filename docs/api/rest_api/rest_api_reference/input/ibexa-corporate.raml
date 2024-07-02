@@ -3,6 +3,12 @@ get:
     displayName: Root Resource
     description: |
         Provides basic information about Corporate Account endpoints and configuration.
+    headers:
+        Accept:
+            description: If set, helps to determine response format.
+            example: |
+                application/vnd.ibexa.api.CorporateAccountRoot+xml
+                application/vnd.ibexa.api.CorporateAccountRoot+json
     responses:
         200:
             description: List of Link objects to specific Corporate Account REST resources
@@ -54,7 +60,6 @@ get:
                 example: |
                     application/vnd.ibexa.api.CompanyList+xml
                     application/vnd.ibexa.api.CompanyList+json
-
         responses:
             200:
                 description: Company list containing Company objects.
@@ -139,7 +144,7 @@ get:
                         application/vnd.ibexa.api.ErrorMessage+xml
                         application/vnd.ibexa.api.ErrorMessage+json
                 X-CSRF-Token:
-                    description: Only needed for session's checking. The {csrfToken} needed on all unsafe http methods with session.
+                    description: Only needed for session's checking. The {csrfToken} needed on all unsafe HTTP methods with session.
             responses:
                 204:
                     description: No Content - given company is deleted.
@@ -252,7 +257,7 @@ get:
                     application/vnd.ibexa.api.MemberCreate+xml:
                         type: MemberCreate
                         example: !include examples/corporate/companies/company_id/members/POST/MemberCreate.xml.example
-                    application/vnd.ibexa.api.CompanyCreate+json:
+                    application/vnd.ibexa.api.MemberCreate+json:
                         type: MemberCreate
                         example: !include examples/corporate/companies/company_id/members/POST/MemberCreate.json.example
                 responses:
@@ -301,7 +306,7 @@ get:
                                 application/vnd.ibexa.api.ErrorMessage+xml
                                 application/vnd.ibexa.api.ErrorMessage+json
                         X-CSRF-Token:
-                            description: Only needed for session's checking. The {csrfToken} needed on all unsafe http methods with session.
+                            description: Only needed for session's checking. The {csrfToken} needed on all unsafe HTTP methods with session.
                     responses:
                         204:
                             description: No Content - given company member is deleted.

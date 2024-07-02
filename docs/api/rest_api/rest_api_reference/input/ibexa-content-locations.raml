@@ -8,6 +8,11 @@ get:
             description: The remote ID of the Location. If present, the Location with the given remote ID is returned.
         urlAlias:
             description: One of the URL aliases of the Location. If present, the Location with given URL Alias is returned.
+    headers:
+        Accept:
+            example: |
+                application/vnd.ibexa.api.LocationList+xml
+                application/vnd.ibexa.api.LocationList+json
     responses:
         307:
             description: Temporary redirect to the main resource URL.
@@ -156,6 +161,8 @@ get:
                         application/vnd.ibexa.api.LocationList+xml:
                             type: LocationList
                             example: !include examples/content/locations/path/children/GET/LocationList.xml.example
+                        application/vnd.ibexa.api.LocationList+json:
+                            type: LocationList
                 401:
                     description: Error - the user is not authorized to read this content item.
                 404:
@@ -180,7 +187,9 @@ get:
                     body:
                         application/vnd.ibexa.api.UrlAliasRefList+xml:
                             type: UrlAliasRefList
-                            exammple: examples/content/locations/path/urlaliases/GET/UrlAliasRefList.xml.example
+                            example: examples/content/locations/path/urlaliases/GET/UrlAliasRefList.xml.example
+                        application/vnd.ibexa.api.UrlAliasRefList+json:
+                            type: UrlAliasRefList
                 400:
                     description: Error - The user has no permission to read URL aliases.
                 401:

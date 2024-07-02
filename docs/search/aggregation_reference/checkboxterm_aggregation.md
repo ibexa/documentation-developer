@@ -1,6 +1,6 @@
 # CheckboxTermAggregation
 
-The Field-based [CheckboxTermAggregation](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/Aggregation/Field/CheckboxTermAggregation.php) aggregates search results by the value of the Checkbox Field.
+The Field-based [CheckboxTermAggregation](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Field-CheckboxTermAggregation.html) aggregates search results by the value of the Checkbox Field.
 
 ## Arguments
 

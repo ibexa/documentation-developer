@@ -1,6 +1,6 @@
 # SelectionTermAggregation
 
-The Field-based [SelectionTermAggregation](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/Aggregation/Field/SelectionTermAggregation.php) aggregates search results by the value of the Selection Field.
+The Field-based [SelectionTermAggregation](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Field-SelectionTermAggregation.html) aggregates search results by the value of the Selection Field.
 
 ## Arguments
 

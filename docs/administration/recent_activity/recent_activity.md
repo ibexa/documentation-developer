@@ -1,5 +1,6 @@
 ---
 description: Log and monitor activity through UI, PHP API and REST API.
+month_change: true
 ---
 
 # Recent activity [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
@@ -40,7 +41,7 @@ For every exact hour, the cronjob line is:
 
 ## Permission and security
 
-The ([`activity_log/read`](policies.md#activity-log)) policy gives a role the access to the **Admin** -> **Activity list**, the dashboard's **Recent activity** block, and the user profile's **Recent activity**.
+The [`activity_log/read`](policies.md#activity-log) policy gives a role the access to the **Admin** -> **Activity list**, the dashboard's **Recent activity** block, and the user profile's **Recent activity**.
 It can be limited to "Only own logs" ([`ActivityLogOwner`](limitation_reference.md#activitylogowner-limitation)).
 
 The policy should be given to every roles having access to the Back Office, at least with the `ActivityLogOwner` owner limitation,

@@ -1,0 +1,43 @@
+{% if node.arguments|length > 0 %}
+    <h4>Parameters</h4>
+    <table class="method-parameters">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for argument in node.arguments %}
+                <tr>
+                    <td>
+                        ${{ argument.name }}
+                    </td>
+                    <td>
+                        {{ argument.type|route('class:short')|join('|')|raw }}
+                    </td>
+                    <td{{ argument.default is empty ? ' class="empty"' }}>
+                        {% if argument.default is not empty %}
+                            {% if 'self::' in argument.default %}
+                                {{ argument.default|replace({'self':argument.method|split('::')[0]})|route('class:short')|raw }}
+                            {% else %}
+                                {{ argument.default }}
+                            {% endif %}
+                        {% else %}
+                            -
+                        {% endif %}
+                    </td>
+                    <td{{ argument.description is not defined or argument.description.empty ? ' class="empty"' }}>
+                        {% if argument.description is not defined or argument.description.empty %}
+                            -
+                        {% else %}
+                            {{ include('components/description.html.twig', {node: argument}) }}
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endif %}

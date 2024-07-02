@@ -32,20 +32,15 @@ post:
         description: Loads given attribute.
         headers:
             Accept:
-                description: AttributeGet - If set, the given attribute is returned in XML or JSON format.
+                description: Attribute - If set, the given attribute is returned in XML or JSON format.
                 example: |
-                    application/vnd.ibexa.api.AttributeGet+json
-            Content-Type:
-                description: The attribute schema encoded in XML or JSON format.
-                example: |
-                    application/vnd.ibexa.api.AttributeGet+json
-        body:
-            application/vnd.ibexa.api.AttributeGet+json:
-                type: AttributeList
-                example: !include examples/product/catalog/attributes/id/GET/AttributeGet.json.example
+                    application/vnd.ibexa.api.Attribute+xml
+                    application/vnd.ibexa.api.Attribute+json
         responses:
             200:
                 body:
+                    application/vnd.ibexa.api.Attribute+xml:
+                        type: Attribute
                     application/vnd.ibexa.api.Attribute+json:
                         type: Attribute
                         example: !include examples/product/catalog/attributes/id/GET/Attribute.json.example
@@ -106,18 +101,13 @@ get:
         Accept:
             description: AttributeList - If set, the attributes list is returned in XML or JSON format.
             example: |
-                application/vnd.ibexa.api.AttributeListGet+json
-        Content-Type:
-            description: The AttributeList schema encoded in XML or JSON format.
-            example: |
-                application/vnd.ibexa.api.AttributeListGet+json
-    body:
-        application/vnd.ibexa.api.AttributeListGet+json:
-            type: AttributeList
-            example: !include examples/product/catalog/attributes/GET/AttributeListGet.json.example
+                application/vnd.ibexa.api.AttributeList+xml
+                application/vnd.ibexa.api.AttributeList+json
     responses:
         200:
             body:
+                application/vnd.ibexa.api.AttributeList+xml:
+                    type: AttributeList
                 application/vnd.ibexa.api.AttributeList+json:
                     type: AttributeList
                     example: !include examples/product/catalog/attributes/GET/AttributeList.json.example
@@ -139,12 +129,16 @@ get:
                     application/vnd.ibexa.api.AttributeViewInput+xml
                     application/vnd.ibexa.api.AttributeViewInput+json
         body:
+            application/vnd.ibexa.api.AttributeViewInput+xml:
+                type: AttributeViewInput
             application/vnd.ibexa.api.AttributeViewInput+json:
                 type: AttributeViewInput
                 example: !include examples/product/catalog/attributes/POST/AttributeViewInput.json.example
         responses:
             200:
                 body:
+                    application/vnd.ibexa.api.AttributeView+xml:
+                        type: AttributeView
                     application/vnd.ibexa.api.AttributeView+json:
                         type: AttributeView
                         example: !include examples/product/catalog/attributes/POST/AttributeView.json.example

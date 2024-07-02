@@ -15,7 +15,7 @@ post:
         Cookie:
             description: Only needed for session's checking {sessionName}={sessionID}.
         X-CSRF-Token:
-            description: Only needed for session's checking. The {csrfToken} needed on all unsafe http methods with session.
+            description: Only needed for session's checking. The {csrfToken} needed on all unsafe HTTP methods with session.
     body:
         application/vnd.ibexa.api.SessionInput+xml:
             type: SessionInput
@@ -81,7 +81,7 @@ post:
             Cookie:
                 description: "{sessionName}={sessionID}"
             X-CSRF-Token:
-                description: The {csrfToken} needed on all unsafe http methods with session.
+                description: The {csrfToken} needed on all unsafe HTTP methods with session.
         responses:
             204:
                 description: OK - session deleted.
@@ -89,13 +89,17 @@ post:
                 description: Error - the session does not exist.
     /refresh:
         post:
-            displayName: Refresh session
-            description: Get the session's User information.
+            displayName: Refresh session (deprecated)
+            description: Get the session's User information. Deprecated as of Ibexa DXP 4.6, use GET /user/sessions/current instead.
             headers:
                 Cookie:
                     description: "{sessionName}={sessionID}"
                 X-CSRF-Token:
-                    description: The {csrfToken} needed on all unsafe http methods with session.
+                    description: The {csrfToken} needed on all unsafe HTTP methods with session.
+                Accept:
+                    example: |
+                        application/vnd.ibexa.api.Session+xml
+                        application/vnd.ibexa.api.Session+json
             responses:
                 200:
                     body:

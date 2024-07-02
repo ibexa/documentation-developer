@@ -8,18 +8,15 @@ get:
             description: If set, the shipments are returned in XML or JSON format.
             example:  |
                 application/vnd.ibexa.api.ShipmentRefList+xml
-        Content-Type:
-            description: The shipments schema encoded in XML or JSON format.
-            example:  |
-                application/vnd.ibexa.api.ShipmentRefList+xml
+                application/vnd.ibexa.api.ShipmentRefList+json
     responses:
         200:
             description: OK - loads the shipments.
             body:
-                application/vnd.ibexa.api.Shipment+xml:
+                application/vnd.ibexa.api.ShipmentRefList+xml:
                     type: Shipment
                     example: !include examples/shipments/GET/ShipmentRefList.xml.example
-                application/vnd.ibexa.api.Shipment+json:
+                application/vnd.ibexa.api.ShipmentRefList+json:
                     type: Shipment
                     example: !include examples/shipments/GET/ShipmentRefList.json.example
         401:
@@ -36,10 +33,7 @@ get:
                 description: If set, the shipment is returned in XML or JSON format.
                 example:  |
                     application/vnd.ibexa.api.Shipment+xml
-            Content-Type:
-                description: The shipment schema encoded in XML or JSON format.
-                example:  |
-                    application/vnd.ibexa.api.Shipment+xml
+                    application/vnd.ibexa.api.Shipment+json
         responses:
             200:
                 description: OK - loads the shipment.
@@ -70,10 +64,10 @@ get:
                     application/vnd.ibexa.api.ShipmentUpdate+xml
                     application/vnd.ibexa.api.ShipmentUpdate+json
         body:
-            application/vnd.ibexa.api.Shipment+xml:
+            application/vnd.ibexa.api.ShipmentUpdate+xml:
                 type: ShipmentUpdate
                 example: !include examples/shipments/identifier/PATCH/ShipmentUpdate.xml.example
-            application/vnd.ibexa.api.Shipment+json:
+            application/vnd.ibexa.api.ShipmentUpdate+json:
                 type: ShipmentUpdate
                 example: !include examples/shipments/identifier/PATCH/ShipmentUpdate.json.example
         responses:
@@ -93,3 +87,13 @@ get:
                 description: Error - the shipment with the given ID does not exist.
             406:
                 description: Error - the shipment cannot be cancelled due to not-allowed workflow transition
+    delete:
+        displayName: Delete shipment
+        description: Deletes a shipment.
+        responses:
+            204:
+                description: No content - shipment is deleted.
+            401:
+                description: Error - the user is not authorized to delete this shipment.
+            404:
+                description: Error - the shipment with the given ID does not exist.

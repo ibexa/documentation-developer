@@ -1,0 +1,20 @@
+{% set breadcrumbs = usesNamespaces ? breadcrumbs(node) : packages(node) %}
+{% set fqcn = breadcrumbs|map(breadcrumb => breadcrumb.name)|join('\\') ~ '\\' ~ node.name %}
+
+{% embed 'components/content-header.html.twig' with { 
+    anchor: node.name,
+    anchor_link: link(node) ~ '#' ~ node.name,
+    fqcn,
+    add_edition: true,
+} %}
+    {% block subheader %}
+        {% if node.parent is not empty %}
+            <div class="content-header__subheader">
+                Extends
+                {% for interface in node.parent %}
+                    {{ interface|route('class:short') }}{% if not loop.last %}, {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endblock %}
+{% endembed %}

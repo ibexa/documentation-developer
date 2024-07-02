@@ -1,7 +1,7 @@
 INHERIT: plugins.yml
 
 site_name: Developer Documentation
-repo_url: https://github.com/ezsystems/developer-documentation
+repo_url: https://github.com/ibexa/documentation-developer
 site_url: https://doc.ibexa.co/en/latest/
 copyright: "Copyright 1999-2024 Ibexa AS and others"
 nav:
@@ -49,7 +49,9 @@ nav:
             - 8. Data migration: tutorials/generic_field_type/8_data_migration.md
     - API:
         - API: api/api.md
-        - PHP API: api/php_api/php_api.md
+        - PHP API:
+            - PHP API usage: api/php_api/php_api.md
+            - PHP API reference: api/php_api/php_api_reference/index.html
         - REST API:
             - REST API usage:
                 - REST API usage: api/rest_api/rest_api_usage/rest_api_usage.md
@@ -381,6 +383,10 @@ nav:
         - Create Customer Portal: customer_management/cp_page_builder.md
         - Customer Portal Applications: customer_management/cp_applications.md
         - Create registration form: customer_management/create_user_registration_form.md
+    - Ibexa Engage:
+        - Install Ibexa Engage: ibexa_engage/install_ibexa_engage.md
+        - Create campaign with Ibexa Engage: ibexa_engage/create_campaign.md
+        - Integrate Ibexa Engage with Ibexa Connect: ibexa_engage/integrate_ibexa_connect.md
     - Multisite:
         - Multisite: multisite/multisite.md
         - Multisite configuration: multisite/multisite_configuration.md
@@ -469,6 +475,7 @@ nav:
             - Search Criteria reference: search/criteria_reference/search_criteria_reference.md
             - Ancestor: search/criteria_reference/ancestor_criterion.md
             - ContentId: search/criteria_reference/contentid_criterion.md
+            - ContentName: search/criteria_reference/contentname_criterion.md
             - ContentTypeGroupId: search/criteria_reference/contenttypegroupid_criterion.md
             - ContentTypeId: search/criteria_reference/contenttypeid_criterion.md
             - ContentTypeIdentifier: search/criteria_reference/contenttypeidentifier_criterion.md
@@ -757,7 +764,7 @@ nav:
             - Clustering: infrastructure_and_maintenance/clustering/clustering.md
             - Clustering with AWS S3: infrastructure_and_maintenance/clustering/clustering_with_aws_s3.md
             - Clustering with DDEV: infrastructure_and_maintenance/clustering/clustering_with_ddev.md
-            - Ibexa Cloud and DDEV: infrastructure_and_maintenance/clustering/ibexa_cloud_and_ddev.md
+            - DDEV and Ibexa Cloud: infrastructure_and_maintenance/clustering/ddev_and_ibexa_cloud.md
         - DevOps: infrastructure_and_maintenance/devops.md
         - Backup: infrastructure_and_maintenance/backup.md
         - Performance: infrastructure_and_maintenance/performance.md
@@ -891,6 +898,7 @@ extra:
   product_name_connect: 'Ibexa Connect'
   product_name_cloud: 'Ibexa Cloud'
   product_name_oss: 'Ibexa OSS'
+  product_name_engage: 'Ibexa Engage'
   # Global variables - latest tag versions
   latest_tag_2_5: '2.5.32'
   latest_tag_3_3: '3.3.37'
@@ -900,7 +908,7 @@ extra:
   latest_tag_4_3: '4.3.5'
   latest_tag_4_4: '4.4.4'
   latest_tag_4_5: '4.5.7'
-  latest_tag_4_6: '4.6.6'
+  latest_tag_4_6: '4.6.7'
 
   symfony_doc: 'https://symfony.com/doc/5.4'
   user_doc: 'https://doc.ibexa.co/projects/userguide/en/master'
