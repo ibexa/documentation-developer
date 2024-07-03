@@ -13,7 +13,7 @@ description: Install Ibexa DXP on a Linux system and prepare your installation f
 
 !!! note "Installing [[= product_name_oss =]]"
 
-    This installation guide details the steps to install [[= product_name =]] for users who have a subscription agreement with [[= product_name_base =]].
+    This installation guide shows in details how to install [[= product_name =]] for users who have a subscription agreement with [[= product_name_base =]].
     If you want to install [[= product_name_oss =]], you do not need authentication tokens or an account on updates.ibexa.co,
     but must adapt the steps shown here to the product edition and the `ibexa/oss-skeleton` repository.
 
@@ -50,7 +50,7 @@ composer -V
 
 !!! tip "Install Composer locally"
 
-    If you want to install Composer inside your project root directory only, follow the instructions on [installing Composer in the current directory](https://getcomposer.org/download/).
+    If you want to install Composer inside your project root directory only, follow the instructions for [installing Composer in the current directory](https://getcomposer.org/download/).
 
     If you do so, you must replace `composer` with `php -d memory_limit=-1 composer.phar` in all commands below.
 
