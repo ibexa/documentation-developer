@@ -59,7 +59,7 @@ though visible arguments are unsafe even if the stack traces only show up in log
 
 ### Disable error output from PHP
 
-Symfony in production mode will prevent exception messages from being visible to end users.
+Symfony in production mode prevents exception messages from being visible to end users.
 However, if Symfony fails to boot properly, such exceptions may end up being visible, including stack traces.
 This can be prevented by [disabling error message output in PHP](https://www.php.net/manual/en/language.errors.basics.php).
 These `php.ini` configuration values should be used on production sites.
