@@ -65,10 +65,10 @@ This can be prevented by [disabling error message output in PHP](https://www.php
 These `php.ini` configuration values should be used on production sites.
 When using [[= product_name_cloud =]], the same settings can be configured in [[= product_name =]]'s `.platform.app.yaml` file.
 
-    ```ini
-    display_errors          = Off
-    display_startup_errors  = Off
-    ```
+```ini
+display_errors          = Off
+display_startup_errors  = Off
+```
 
 ### Other PHP settings
 
