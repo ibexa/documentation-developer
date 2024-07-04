@@ -26,6 +26,9 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 - [Updated Ibexa Cloud domain to ibexa.cloud](https://doc.ibexa.co/en/latest/getting_started/install_on_ibexa_cloud/#4-push-the-project)
 - [v4.6.3 to v4.6.4 update instructions](https://doc.ibexa.co/en/latest/update_and_migration/from_4.5/update_from_4.5/#v464)
 
+### Documentation
+- A "new" pill now appears in the table of content alongside pages which have been recently created, or have recent important updates or additions.
+
 ## May 2024
 
 ### PHP API
