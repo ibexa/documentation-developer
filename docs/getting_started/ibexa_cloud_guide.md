@@ -81,18 +81,29 @@ What's more, you can run in your chosen cloud, like Microsoft Azure, Orange, Goo
 ### Great customer experience
 
 The [[= product_name_cloud =]] as a PaaS solution enables your company to begin developing effective digital systems that provide exceptional client experiences.
+In order to assist business users and developers in creating user-friendly apps, it also offers a number of extra services, including extensive APIs, workflow and design tools, and more.
 
 ### Increase in developer productivity
 
 Thanks to [[= product_name_cloud =]], there is around 40% increase in developer productivity, 15% faster user acceptance testing, and 20% more deployments.
-Developer can focus more on important development activities. 
+Developer can focus more on important development activities.
+Apps can be developed and hosted more quickly and without the risk of infrastructure-related delays or delays.
 
 ### A single provider to manage
 
 [[= product_name_cloud =]]- hosting infrastructure, comes together with a software - Ibexa DXP, in a single package.
 Management thus becomes much easier.
 
+### Scalability and flexibility
+
+[[= product_name_cloud =]] allows for effortless scaling of resources to meet changing workload demands, ensuring high availability and performance.
+
 ### Marketing friendly tool
 
 With instant previews, the marketing team can collaborate easily with developers.
 Team members can also see and provide input on the new feature's actual appearance.
+
+### Lower cost
+
+With PaaS solution there is no need to purchase and maintain hardware or software infrastructure. This reduces the total cost of ownership and operational expenses.
+You only pay for the resources consumed by the applications.
