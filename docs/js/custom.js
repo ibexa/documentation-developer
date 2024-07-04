@@ -3,11 +3,19 @@ let jquery = jQuery;
 
 $(document).ready(function() {
     // replace edit url
-    var branchName = 'master',
-        branchNameRegexp = /\/en\/([a-z0-9-_.]*)\//g.exec(document.location.href);
+    let branchName = 'master';
+    const branchNameRegexp = /\/en\/([a-z0-9-_.]*)\//g.exec(document.location.href);
+    const eolVersions = window.eol_versions ?? [];
 
     if (branchNameRegexp !== null && branchNameRegexp.hasOwnProperty(1) && branchNameRegexp[1].length) {
         branchName = branchNameRegexp[1];
+    }
+
+    // Show warning box for versions that have reached End Of Life
+    if (eolVersions.includes(branchName)) {
+        const warningBox = document.querySelector('#eol-warning-box');
+
+        warningBox.hidden = false;
     }
 
     $('.md-content a.md-icon').each(function() {
@@ -37,7 +45,7 @@ $(document).ready(function() {
     var update = setInterval(function() {
         let ready = false, version = '';
         if ($('readthedocs-flyout').length) {
-            $('dl.versions', $('readthedocs-flyout').prop('shadowRoot')).appendTo('.version-switcher .switcher__list');
+            $('dl.versions', $('readthedocs-flyout').prop('shadowRoot')).prependTo('.version-switcher .switcher__list');
             $('readthedocs-flyout').remove();
             version = $('.switcher__list dl.versions dd strong a').text();
             ready = true;
@@ -61,6 +69,27 @@ $(document).ready(function() {
             if ('master' !== (vl = $('.rst-other-versions.switcher__list dl.versions')).find('dd:first').text()) {
                 vl.find('dd').each(function() {$(this).detach().prependTo(vl)});
             }
+
+            const allVersions = [...document.querySelectorAll('.switcher__list .versions dd')];
+            const olderVersions = document.querySelector('#older-versions');
+
+            if (eolVersions.includes(branchName)) {
+                olderVersions.hidden = false;
+            }
+
+            allVersions
+                .filter((versionNode) => eolVersions.includes(versionNode.textContent))
+                .forEach((versionNode) => {
+                    versionNode.hidden = true;
+                });
+
+            olderVersions.addEventListener('click', (event) => {
+                event.stopPropagation();
+                allVersions.forEach((versionNode) => {
+                    versionNode.hidden = false;
+                });
+                olderVersions.hidden = true;
+            });
         }
     }, 300);
     setTimeout(function() {
