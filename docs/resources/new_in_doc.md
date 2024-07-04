@@ -15,7 +15,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 ### Search
 
 - [Configuring Elasticsearch with analyzers for different languages](https://doc.ibexa.co/en/latest/search/search_engines/elastic_search/configure_elastic_search/#add-language-specific-analysers)
-- [ContentName search criterion](https://doc.ibexa.co/en/master/search/criteria_reference/contentname_criterion/)
+- [ContentName search criterion](https://doc.ibexa.co/en/latest/search/criteria_reference/contentname_criterion/)
 
 ### Dashboard
 
@@ -24,7 +24,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 ### Infrastructure and maintenance
 
 - [Updated Ibexa Cloud domain to ibexa.cloud](https://doc.ibexa.co/en/latest/getting_started/install_on_ibexa_cloud/#4-push-the-project)
-- [v4.6.3 to v4.6.4 update instructions](https://doc.ibexa.co/en/master/update_and_migration/from_4.5/update_from_4.5/#v464)
+- [v4.6.3 to v4.6.4 update instructions](https://doc.ibexa.co/en/latest/update_and_migration/from_4.5/update_from_4.5/#v464)
 
 ## May 2024
 
