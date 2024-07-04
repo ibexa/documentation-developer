@@ -74,7 +74,7 @@ display_startup_errors  = Off
 
 Consider what other security related settings are relevant for your needs.
 The [OWASP PHP Configuration Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/PHP_Configuration_Cheat_Sheet.html)
-contains some recommendations, but please beware it may be out of date as it doesn't mention PHP 8.
+contains several recommendations, but be aware that they may be out of date as they don't mention PHP 8.
 See also [PHP's own security manual](https://www.php.net/manual/en/security.php).
 
 ## [[= product_name =]]
