@@ -592,3 +592,11 @@ div.pills {
     font-weight: bolder;
     padding-bottom: 4px;
 }
+
+#older-versions {
+    cursor: pointer;
+}
+
+[hidden] {
+    display: none !important;
+}
