@@ -73,7 +73,7 @@ $(document).ready(function() {
             const allVersions = [...document.querySelectorAll('.switcher__list .versions dd')];
             const olderVersions = document.querySelector('#older-versions');
 
-            if (eolVersions.includes(branchName)) {
+            if (eolVersions.length > 0) {
                 olderVersions.hidden = false;
             }
 
