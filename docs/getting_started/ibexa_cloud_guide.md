@@ -22,7 +22,7 @@ As a diverse Platform as a Service (PaaS), it's intended to let you to concentra
 
 Ibexa's Cloud Hosting Platform is designed to streamline the development and testing processes, allowing you to deliver new features much faster.
 It ensures that developers spend less time managing databases, queues, search engines, and operating systems and more time to important development activities.
-It shifts the focus away from fundamental operations and toward improving your digital services with additional features and functionality.
+It shifts the focus away from fundamental operations and toward improving your digital services with additional features, and functionality.
 
 ![How does Ibexa Cloud work](ibexa_cloud.png)
 
@@ -47,7 +47,9 @@ PaaS eliminates the requirement to buy and install the necessary hardware and so
 ### Automation
 
 [[= product_name_cloud =]] automates time-consuming testing processes and encourages ongoing QA testing, so your projects are ready for deployment much faster.
-For further protection and easy rollbacks, it also automates your backup procedures. This guarantees that the framework developers are working within is adaptable, safe, and responsive to their requirements. Thanks to built-in CI/CD features, you can also reduce the need for manual testing and accelerate.
+For further protection and easy rollbacks, it also automates your backup procedures.
+This guarantees that the framework developers are working within is adaptable, safe, and responsive to their requirements.
+Thanks to built-in CI/CD features, you can also reduce the need for manual testing and accelerate.
 
 ### Digital tool
 
@@ -68,12 +70,12 @@ You can also divide the remaining space between additional containers (such as t
 Comprehensive data security procedures guarantee that you maintain complete ownership of your client's data, defining where it's stored.
 You can be sure that the safety protocols are compliant with all applicable legislation.
 What's more, all updates to your code and infrastructure are fully auditable. Global CND (Content Delivert Network) is included and fully managed.
-[[= product_name_cloud =]], thanks to grid architecture and extensive Ibexa support, enables easy deployment.
+[[= product_name_cloud =]], thanks to grid architecture and extensive [[= product_name_base =]] support, enables easy deployment.
 
 ### High availability and compatibility
 
 [[= product_name_cloud =]] is compatible with your choice of public cloud server and support for hosting platforms.
-It's a Git-native development - compatible with Git Flow. You can also integrate with, for example, Bitbucket, Github, Gitlab.
+It's a Git-native development - compatible with Git Flow. You can also integrate with, for example, Bitbucket, GitHub, Gitlab.
 You can instantly clone every branch of both your code and infrastructure.
 If you want to work with services such as MySQL, Kafka, and Elasticsearch, you can simply add them with a line of code.
 What's more, you can run in your chosen cloud, like Microsoft Azure, Orange, Google Cloud Platform, and regional partners.
@@ -81,7 +83,7 @@ What's more, you can run in your chosen cloud, like Microsoft Azure, Orange, Goo
 ### Great customer experience
 
 The [[= product_name_cloud =]] as a PaaS solution enables your company to begin developing effective digital systems that provide exceptional client experiences.
-In order to assist business users and developers in creating user-friendly apps, it also offers a number of extra services, including extensive APIs, workflow and design tools, and more.
+To assist business users and developers in creating user-friendly apps, it also offers a number of extra services, including extensive APIs, workflow, design tools, and more.
 
 ### Increase in developer productivity
 
@@ -91,7 +93,7 @@ Apps can be developed and hosted more quickly and without the risk of infrastruc
 
 ### A single provider to manage
 
-[[= product_name_cloud =]]- hosting infrastructure, comes together with a software - Ibexa DXP, in a single package.
+[[= product_name_cloud =]]- hosting infrastructure, comes together with a software - [[= product_name =]] in a single package.
 Management thus becomes much easier.
 
 ### Scalability and flexibility
