@@ -1,6 +1,5 @@
 ---
 description: Log and monitor activity through UI, PHP API and REST API.
-month_change: true
 ---
 
 # Recent activity [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]

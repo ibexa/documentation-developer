@@ -1,5 +1,6 @@
 ---
 description: Configure Elasticsearch to use it with Ibexa DXP.
+month_change: true
 ---
 
 # Configure Elasticsearch
