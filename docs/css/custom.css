@@ -627,5 +627,10 @@ div.path {
     color: var(--ibexa-dusk-black);
 }
 
+#older-versions {
+    cursor: pointer;
+}
 
-
+[hidden] {
+    display: none !important;
+}
