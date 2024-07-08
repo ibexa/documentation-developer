@@ -49,7 +49,27 @@ Such arguments could include passwords or other sensitive information.
 You should also make sure no stack trace is ever visible to end users of production sites,
 though visible arguments are unsafe even if the stack traces only show up in log files.
 
-## eZ Platform
+### Disable error output from PHP
+
+Symfony in production mode prevents exception messages from being visible to end users.
+However, if Symfony fails to boot properly, such exceptions may end up being visible, including stack traces.
+This can be prevented by [disabling error message output in PHP](https://www.php.net/manual/en/language.errors.basics.php).
+These `php.ini` configuration values should be used on production sites.
+When using [[= product_name_cloud =]], the same settings can be configured in [[= product_name =]]'s `.platform.app.yaml` file.
+
+```ini
+display_errors          = Off
+display_startup_errors  = Off
+```
+
+### Other PHP settings
+
+Consider what other security related settings are relevant for your needs.
+The [OWASP PHP Configuration Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/PHP_Configuration_Cheat_Sheet.html)
+contains several recommendations, but be aware that they may be out of date as they don't mention PHP 8.
+See also [PHP's own security manual](https://www.php.net/manual/en/security.php).
+
+## [[= product_name =]]
 
 ### Fully-vetted admin users
 
