@@ -18,15 +18,7 @@ Go through the following steps to update to the latest maintenance release of v3
 
     If you are using v3.3.15 or earlier v3.3 version, or encounter an error related to flex.ibexa.co, you need to [update your Flex server](#update-flex-server) first.
 
-To avoid deprecations when updating from an older PHP version to PHP 8.2 or 8.3, run the following commands:
-
-``` bash
-composer config extra.runtime.error_handler
-"\\Ibexa\\Contracts\\Core\\MVC\\Symfony\\ErrorHandler\\Php82HideDeprecationsErrorHandler"
-composer dump-autoload
-```
-
-Then run:
+Run:
 
 === "[[= product_name_content =]]"
 
@@ -45,6 +37,14 @@ Then run:
     ``` bash
     composer require ibexa/commerce:[[= latest_tag_3_3 =]] --with-all-dependencies --no-scripts
     ```
+
+To avoid deprecations when updating from an older PHP version to PHP 8.2 or 8.3, run the following commands:
+
+``` bash
+composer config extra.runtime.error_handler
+"\\Ibexa\\Contracts\\Core\\MVC\\Symfony\\ErrorHandler\\Php82HideDeprecationsErrorHandler"
+composer dump-autoload
+```
 
 ### Update Flex server
 

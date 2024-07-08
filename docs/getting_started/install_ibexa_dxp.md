@@ -133,9 +133,9 @@ run the following command:
         composer create-project ibexa/commerce-skeleton .
         ```
 
-??? note "Using PHP 7.4, 8.0 or older versions"
+??? note "Using PHP 8.2 or older"
 
-    If you are using PHP 7.4, 8.0 or any older version, use a different set of commands:
+    If you are using PHP 8.2 or any older version, use a different set of commands:
 
     === "[[= product_name_headless =]]"
 
