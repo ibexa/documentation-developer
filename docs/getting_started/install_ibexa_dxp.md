@@ -113,27 +113,29 @@ After this, when running Composer to get updates, you will be asked for a userna
 To use Composer to instantly create a project in the current folder with all the dependencies,
 run the following command:
 
-=== "[[= product_name_headless =]]"
+!!! note "Using PHP 8.3 (recommended)"
 
-    ``` bash
-    composer create-project ibexa/headless-skeleton .
-    ```
+    === "[[= product_name_headless =]]"
 
-=== "[[= product_name_exp =]]"
+        ``` bash
+        composer create-project ibexa/headless-skeleton .
+        ```
 
-    ``` bash
-    composer create-project ibexa/experience-skeleton .
-    ```
+    === "[[= product_name_exp =]]"
 
-=== "[[= product_name_com =]]"
+        ``` bash
+        composer create-project ibexa/experience-skeleton .
+        ```
 
-    ``` bash
-    composer create-project ibexa/commerce-skeleton .
-    ```
+    === "[[= product_name_com =]]"
 
-??? note "Using PHP 7.4, 8.0 or 8.3"
+        ``` bash
+        composer create-project ibexa/commerce-skeleton .
+        ```
 
-    If you are using PHP 7.4, 8.0 or 8.3, use a different set of commands:
+??? note "Using PHP 7.4, 8.0 or older versions"
+
+    If you are using PHP 7.4, 8.0 or any older version, use a different set of commands:
 
     === "[[= product_name_headless =]]"
 

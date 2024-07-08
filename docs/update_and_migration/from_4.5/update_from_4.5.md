@@ -14,7 +14,15 @@ Note which version you actually have before starting.
 
 ### Update the application to v4.5.latest
 
-Run:
+To avoid deprecations when updating from an older PHP version to PHP 8.2 or 8.3, run the following commands:
+
+``` bash
+composer config extra.runtime.error_handler
+"\\Ibexa\\Contracts\\Core\\MVC\\Symfony\\ErrorHandler\\Php82HideDeprecationsErrorHandler"
+composer dump-autoload
+```
+
+Then run:
 
 === "[[= product_name_content =]]"
 
