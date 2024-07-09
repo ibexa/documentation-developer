@@ -133,7 +133,7 @@
     padding-bottom: 0.5rem;
 }
 
-.md-nav__link .pill.new {
+.md-nav__item .pill.new {
     margin-right: 15px;
     background-color: #d9e8ff;
     color: #3562a0;
