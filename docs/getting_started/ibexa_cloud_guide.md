@@ -8,9 +8,9 @@ description: The Ibexa Cloud product guide provides a full description of its fe
 
 [[= product_name_cloud =]] is a cloud hosting platform that enables you to host your application in the cloud by using the [Platform.sh](https://platform.sh/) service.
 It also establishes the framework for the potential growth and improves project delivery.
-As a diverse Platform as a Service (PaaS), it's intended to let you to concentrate on the important things.
+As a diverse Platform as a Service (PaaS), it's designed to allow you to focus on the crucial things.
 
-[[= product_name_cloud =]] is a part of [[= product_name =]] - a software that is designed to provide your business with all the features, functionality, and support you need to transform your business for the digital age.
+[[= product_name_cloud =]] is a part of [[= product_name =]] - a software that is designed to provide your business with all the features, functionality, and support your need to transform your business for the digital age.
 
 ![Ibexa Cloud - part of Ibexa DXP](ibexa_cloud_dxp.png)
 
@@ -20,8 +20,8 @@ As a diverse Platform as a Service (PaaS), it's intended to let you to concentra
 
 ## How does [[= product_name_cloud =]] work
 
-Ibexa's Cloud Hosting Platform is designed to streamline the development and testing processes, allowing you to deliver new features much faster.
-It ensures that developers spend less time managing databases, queues, search engines, and operating systems and more time to important development activities.
+[[= product_name_cloud =]], as a hosting platform, is designed to streamline the development and testing processes, allowing you to deliver new features much faster.
+It ensures that developers dedicate more time to important development activities rather than maintaining databases, queues, search engines, and operating systems.
 It shifts the focus away from fundamental operations and toward improving your digital services with additional features, and functionality.
 
 ![How does Ibexa Cloud work](ibexa_cloud.png)
@@ -47,7 +47,7 @@ PaaS eliminates the requirement to buy and install the necessary hardware and so
 ### Automation
 
 [[= product_name_cloud =]] automates time-consuming testing processes and encourages ongoing QA testing, so your projects are ready for deployment much faster.
-For further protection and easy rollbacks, it also automates your backup procedures.
+For further protection and simple rollbacks, it also automates your backup procedures.
 This guarantees that the framework developers are working within is adaptable, safe, and responsive to their requirements.
 Thanks to built-in CI/CD features, you can also reduce the need for manual testing and accelerate.
 
@@ -70,14 +70,15 @@ You can also divide the remaining space between additional containers (such as t
 Comprehensive data security procedures guarantee that you maintain complete ownership of your client's data, defining where it's stored.
 You can be sure that the safety protocols are compliant with all applicable legislation.
 What's more, all updates to your code and infrastructure are fully auditable. Global CND (Content Delivert Network) is included and fully managed.
-[[= product_name_cloud =]], thanks to grid architecture and extensive [[= product_name_base =]] support, enables easy deployment.
+[[= product_name_cloud =]], thanks to grid architecture and extensive [[= product_name_base =]] support, enables effortless deployment.
 
 ### High availability and compatibility
 
 [[= product_name_cloud =]] is compatible with your choice of public cloud server and support for hosting platforms.
-It's a Git-native development - compatible with Git Flow. You can also integrate with, for example, Bitbucket, GitHub, Gitlab.
+It's a Git-native development - compatible with Git Flow. [[= product_name_cloud =]] deployment integrate naturally at the end of your existing production chain, including staging, and work in progress branch preview.
+You can also integrate with, for example, Bitbucket, GitHub, Gitlab.
 You can instantly clone every branch of both your code and infrastructure.
-If you want to work with services such as MySQL, Kafka, and Elasticsearch, you can simply add them with a line of code.
+If you want to work with services such as MySQL, Kafka, and Elasticsearch, you can add them with a line of code.
 What's more, you can run in your chosen cloud, like Microsoft Azure, Orange, Google Cloud Platform, and regional partners.
 
 ### Great customer experience
@@ -102,7 +103,7 @@ Management thus becomes much easier.
 
 ### Marketing friendly tool
 
-With instant previews, the marketing team can collaborate easily with developers.
+With instant previews, the marketing team can collaborate better with developers.
 Team members can also see and provide input on the new feature's actual appearance.
 
 ### Lower cost
