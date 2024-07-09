@@ -136,8 +136,6 @@ After a moment the installer will ask you to provide a few parameters:
 
 !!! tip
 
-!!! tip
-
     If you want to change any of these parameters later, you can do it in `app/config/parameters.yml`.
 
 !!! tip "Using PostgreSQL"
