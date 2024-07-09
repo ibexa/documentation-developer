@@ -26,7 +26,7 @@ It shifts the focus away from fundamental operations and toward improving your d
 
 ![How does Ibexa Cloud work](ibexa_cloud.png)
 
-## Create account
+## [[= product_name_cloud =]] account
 
 If you want to use [[= product_name_cloud =]], you need to follow [installation process](install_on_ibexa_cloud.md) and check the [requirements](requirements.md#ibexa-cloud-requirements-and-setup).
 
@@ -51,8 +51,8 @@ PaaS eliminates the requirement to buy and install the necessary hardware and so
 
 [[= product_name_cloud =]] automates time-consuming testing processes and encourages ongoing QA testing, so your projects are ready for deployment much faster.
 For further protection and simple rollbacks, it also automates your backup procedures.
-This guarantees that the framework developers are working within is adaptable, safe, and responsive to their requirements.
-Thanks to built-in CI/CD features, you can also reduce the need for manual testing and accelerate.
+This guarantees that the developers are working within a framework that is adaptable, safe, and responsive to their requirements.
+Thanks to built-in CI/CD features, you can also reduce the need for manual testing and accelerate your development.
 
 ### Digital tool
 
@@ -60,24 +60,18 @@ Thanks to built-in CI/CD features, you can also reduce the need for manual testi
 What's more, [[= product_name_cloud =]] as an end-to-end cloud hosting platform, it's scalable, requires little up-front expenditure, and no ongoing maintenance.
 [[= product_name_cloud =]] as a PaaS solution enables you to start constructing effective digital systems that provide great consumer experiences.
 
-### Disk space
-
-Your [[= product_name_cloud =]] subscription level determines the overall amount of disk space available.
-You can assign disk space to the main app container under the disk key.
-You can also divide the remaining space between additional containers (such as the database) or the search engine in `platform.sh` configuration file, under the specific service definitions.
-
 ## Benefits
 
 ### Safety and simplicity
 
 Comprehensive data security procedures guarantee that you maintain complete ownership of your client's data, defining where it's stored.
 You can be sure that the safety protocols are compliant with all applicable legislation.
-What's more, all updates to your code and infrastructure are fully auditable. Global CND (Content Delivert Network) is included and fully managed.
+What's more, all updates to your code and infrastructure are fully auditable. Global CDN (Content Delivery Network) is included and fully managed.
 [[= product_name_cloud =]], thanks to grid architecture and extensive [[= product_name_base =]] support, enables effortless deployment.
 
 ### High availability and compatibility
 
-[[= product_name_cloud =]] is compatible with your choice of public cloud server and support for hosting platforms.
+[[= product_name_cloud =]] is compatible with your choice of public cloud server and supports a variety of hosting platforms.
 It's a Git-native development - compatible with Git Flow. [[= product_name_cloud =]] deployment integrate naturally at the end of your existing production chain, including staging, and work in progress branch preview.
 You can also integrate with, for example, Bitbucket, GitHub, Gitlab.
 You can instantly clone every branch of both your code and infrastructure.
@@ -93,11 +87,11 @@ To assist business users and developers in creating user-friendly apps, it also 
 
 Thanks to [[= product_name_cloud =]], there is around 40% increase in developer productivity, 15% faster user acceptance testing, and 20% more deployments.
 Developer can focus more on important development activities.
-Apps can be developed and hosted more quickly and without the risk of infrastructure-related delays or delays.
+Apps can be developed and hosted more quickly and without the risk of infrastructure-related delays.
 
 ### A single provider to manage
 
-[[= product_name_cloud =]]- hosting infrastructure, comes together with a software - [[= product_name =]] in a single package.
+[[= product_name_cloud =]], as a hosting infrastructure, comes together with a software provided by [[= product_name =]] in a single package.
 Management thus becomes much easier.
 
 ### Scalability and flexibility
