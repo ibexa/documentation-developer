@@ -203,6 +203,6 @@ $(document).ready(function() {
         });
     });
 
-    // Mark higher-level nodes with "New pill", not only the actual item
-    $( ".pill.new:not([hidden])" ).parents(".md-nav__item").uniqueSort().children('label').children('span.pill.new').removeAttr('hidden')
+    // Mark higher-level nodes with "New" pill, not only the actual item
+    $(".pill.new:not([hidden])").parents(".md-nav__item").uniqueSort().children('label').children(".pill.new[hidden]").removeAttr('hidden')
 });
