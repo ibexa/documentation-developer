@@ -28,9 +28,12 @@ It shifts the focus away from fundamental operations and toward improving your d
 
 ## Create account
 
-If you want to use [[= product_name_cloud =]], you need to follow [installation process](install_on_ibexa_cloud.md).
+If you want to use [[= product_name_cloud =]], you need to follow [installation process](install_on_ibexa_cloud.md) and check the [requirements](requirements.md#ibexa-cloud-requirements-and-setup).
 
-You also need to have an account to log in to https://console.ibexa.cloud.
+To use [[= product_name_cloud =]], you must make arrangements with [[= product_name_base =]] to get and set up a user account.
+To do it, fill up the form available at this link: https://www.ibexa.co/resources/brochures/ibexa-cloud.
+
+When you have an account, you can log in to https://console.ibexa.cloud.
 
 ![Ibexa Cloud - welcome page](ibexa_cloud_login.png)
 
