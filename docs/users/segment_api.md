@@ -18,7 +18,7 @@ Get all Segments assigned to the group with `SegmentationService::loadSegmentsAs
 [[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 54, 62) =]]
 ```
 
-Similarly, you can load a Segment in a group by using `SegmentationService::loadSegmentIdentifier()`:
+Similarly, you can load a Segment by using `SegmentationService::loadSegmentByIdentifier()`:
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 62, 63) =]]
