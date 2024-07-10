@@ -31,11 +31,9 @@ It shifts the focus away from fundamental operations and toward improving your d
 If you want to use [[= product_name_cloud =]], you need to follow [installation process](install_on_ibexa_cloud.md) and check the [requirements](requirements.md#ibexa-cloud-requirements-and-setup).
 
 To use [[= product_name_cloud =]], you must make arrangements with [[= product_name_base =]] to get and set up a user account.
-To do it, fill up the form available at this link: https://www.ibexa.co/resources/brochures/ibexa-cloud.
+To do it, contact [[= product_name_base =]] team by filling up the form available at this link: https://www.ibexa.co/about-ibexa/contact-us.
 
 When you have an account, you can log in to https://console.ibexa.cloud.
-
-![Ibexa Cloud - welcome page](ibexa_cloud_login.png)
 
 ## Capabilities
 
@@ -54,6 +52,8 @@ For further protection and simple rollbacks, it also automates your backup proce
 This guarantees that the developers are working within a framework that is adaptable, safe, and responsive to their requirements.
 Thanks to built-in CI/CD features, you can also reduce the need for manual testing and accelerate your development.
 
+![Ibexa Cloud - effort](ibexa_cloud_effort.png)
+
 ### Digital tool
 
 [[= product_name_cloud =]] is a digital tool - it's a perfect starting step toward your company's digital transformation.
@@ -68,20 +68,24 @@ Comprehensive data security procedures guarantee that you maintain complete owne
 You can be sure that the safety protocols are compliant with all applicable legislation.
 What's more, all updates to your code and infrastructure are fully auditable. Global CDN (Content Delivery Network) is included and fully managed.
 [[= product_name_cloud =]], thanks to grid architecture and extensive [[= product_name_base =]] support, enables effortless deployment.
+You can create a clone not only of the code, but also data, as well as the service, and the infrastructure.
+As the infrastructure is exactly the same as what's currently in production, you can be sure that everything will work when you conduct your release and push it live.
 
 ### High availability and compatibility
 
 [[= product_name_cloud =]] is compatible with your choice of public cloud server and supports a variety of hosting platforms.
 It's a Git-native development - compatible with Git Flow. [[= product_name_cloud =]] deployment integrate naturally at the end of your existing production chain, including staging, and work in progress branch preview.
 You can also integrate with, for example, Bitbucket, GitHub, Gitlab.
-You can instantly clone every branch of both your code and infrastructure.
-If you want to work with services such as MySQL, Kafka, and Elasticsearch, you can add them with a line of code.
+You can instantly clone every branch of both your code and infrastructure configuration.
+Platform.sh (and [[= product_name_cloud =]], by extension) uses the [Infrastracture as Code approach](https://docs.platform.sh/learn/overview.html#infrastructure-as-code).
+It means that the infrastracture is described in the code and that is what allows you to clone both code and infrastracture configuration at the same time.
+If you want to work with services such as [MySQL](https://docs.platform.sh/add-services/mysql.html), [Kafka](https://docs.platform.sh/add-services/kafka.html), and [Elasticsearch](https://docs.platform.sh/add-services/elasticsearch.html), you can add them with a line of code.
 What's more, you can run in your chosen cloud, like Microsoft Azure, Orange, Google Cloud Platform, and regional partners.
 
 ### Great customer experience
 
 The [[= product_name_cloud =]] as a PaaS solution enables your company to begin developing effective digital systems that provide exceptional client experiences.
-To assist business users and developers in creating user-friendly apps, it also offers a number of extra services, including extensive APIs, workflow, design tools, and more.
+It gives the user access to all of [[= product_name =]]'s features while hosting them in a cloud environment.
 
 ### Increase in developer productivity
 
@@ -103,7 +107,13 @@ Management thus becomes much easier.
 With instant previews, the marketing team can collaborate better with developers.
 Team members can also see and provide input on the new feature's actual appearance.
 
+### Integrated customer support
+
+Support integration is a part of the combined Platform.sh and [[= product_name_base =]] service.
+In case of an issue, you only have to submit one ticket, no matter whether it has to do with [[= product_name =]] or the cloud infrastructure.
+When you submit a ticket with [[= product_name_cloud =]], the support team looks into the issue and assigns it to the appropriate expert.
+
 ### Lower cost
 
 With PaaS solution there is no need to purchase and maintain hardware or software infrastructure. This reduces the total cost of ownership and operational expenses.
-You only pay for the resources consumed by the applications.
+According to [Forrester Total Economic Impact report](https://platform.sh/blog/platform-sh-drives-meaningful-cost-savings/) from March 2022, a company that uses Platform.sh for three years achieves an investment return of 219%. According to this in-depth analysis, Platform.sh reduces operating expenses for developers and IT by $1 million over the course of three years, and in as little as seven months, break-even point can be reached. 
