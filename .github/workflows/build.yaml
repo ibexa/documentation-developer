@@ -30,7 +30,7 @@ jobs:
             -   name: Run PHP CS Fixer
                 run: ./vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.php -v --show-progress=dots
             -   name: Commit CS-Fixer changes
-                uses: stefanzweifel/git-auto-commit-action@v4
+                uses: stefanzweifel/git-auto-commit-action@v5
                 with:
                     commit_message: PHP CS Fixes
             -   name: Install dependencies
@@ -43,12 +43,12 @@ jobs:
                 
             -   name: Regenerate code snippets
                 id: commit-code-snippets
-                uses: stefanzweifel/git-auto-commit-action@v4
+                uses: stefanzweifel/git-auto-commit-action@v5
                 with:
                     commit_message: Regenerated code snippets
                     file_pattern: "./generated/*"
             -   name: "Warn about code samples change"
-                if: steps.commit-code-snippets.changes_detected
+                if: steps.commit-code-snippets.outputs.changes_detected == "true"
                 uses: actions/github-script@v6
                 with:
                     script: |
