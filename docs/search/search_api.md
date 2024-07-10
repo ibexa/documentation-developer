@@ -299,7 +299,7 @@ For example, to order search results by their publicationg date, from oldest to 
 and then alphabetically by content name, add the following Sort Clauses to the query:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 54, 58) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 55, 59) =]]
 ```
 
 !!! tip
