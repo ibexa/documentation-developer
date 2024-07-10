@@ -55,6 +55,7 @@ class ActivityLogContextTestCommand extends Command
     {
         $this->addArgument('id', InputArgument::REQUIRED, 'A test number');
         var_dump('This change should trigger a new commit and update');
+        var_dump('This change should trigger a new commit and update');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
