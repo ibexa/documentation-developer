@@ -51,13 +51,13 @@ jobs:
                 if: steps.commit-code-snippets.changes_detected == 'true'
                 uses: actions/github-script@v6
                 with:
-                script: |
-                    github.rest.issues.createComment({
-                    issue_number: context.issue.number,
-                    owner: context.repo.owner,
-                    repo: context.repo.repo,
-                    body: 'The content of the code samples has changed. Please review the generated files to verify if the correct content is included.'
-                    })
+                    script: |
+                        github.rest.issues.createComment({
+                        issue_number: context.issue.number,
+                        owner: context.repo.owner,
+                        repo: context.repo.repo,
+                        body: 'The content of the code samples has changed. Please review the generated files to verify if the correct content is included.'
+                        })
 
     vale-check:
         runs-on: ubuntu-latest
