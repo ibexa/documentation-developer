@@ -4,6 +4,7 @@ Do not modify it manually.
 Monitor when it changes to verify if the included snippet is still correct.
 INCLUDED CONTENT BELOW:
 =====
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $id = $input->getArgument('id');
         $this->permissionResolver->setCurrentUserReference($this->userService->loadUserByLogin('admin'));
@@ -23,4 +24,3 @@ INCLUDED CONTENT BELOW:
         $event = new MyFeatureEvent(new MyFeature(['id' => $id, 'name' => "My Feature #$id"]), 'simulate');
         $this->eventDispatcher->dispatch($event);
 
-        $activityLogStruct = $this->activityLogService->build(MyFeature::class, $id, 'complete');
