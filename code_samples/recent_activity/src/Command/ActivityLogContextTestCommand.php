@@ -58,6 +58,7 @@ class ActivityLogContextTestCommand extends Command
         var_dump('This change should trigger a new commit and update');
         var_dump('This change should trigger a new commit and update');
         var_dump('This change should trigger a new commit and update');
+        var_dump('This change should trigger a new commit and update');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
