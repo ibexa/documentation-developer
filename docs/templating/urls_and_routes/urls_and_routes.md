@@ -4,7 +4,7 @@ description: Add links to content items or specific built-in and custom routes i
 
 # URLs and routes
 
-To link to a [Location](url_twig_functions.md#ibexa_path) Twig function.
+To link to a [Location](locations.md) or [Content item](content_model.md#content-items), use the [`ibexa_path()`](url_twig_functions.md#ibexa_path) Twig function.
 You need to provide the function with a Location, Content, ContentInfo or [RouteReference](#routereference) object:
 
 ``` html+twig
