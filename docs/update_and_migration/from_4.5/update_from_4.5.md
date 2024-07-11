@@ -502,3 +502,13 @@ Run the following scripts:
     ``` bash
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.3-to-4.6.4.sql
     ```
+
+## v4.6.8
+
+To avoid deprecations when updating from an older PHP version to PHP 8.2 or 8.3, run the following commands:
+
+``` bash
+composer config extra.runtime.error_handler
+"\\Ibexa\\Contracts\\Core\\MVC\\Symfony\\ErrorHandler\\Php82HideDeprecationsErrorHandler"
+composer dump-autoload
+```

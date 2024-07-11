@@ -125,21 +125,21 @@ run the following command:
     composer create-project ibexa/content-skeleton:^3.3 .
     ```
 
-=== "[[= product_name_exp =]]"
+    === "[[= product_name_exp =]]"
 
     ``` bash
     composer create-project ibexa/experience-skeleton:^3.3 .
     ```
 
-=== "[[= product_name_com =]]"
+    === "[[= product_name_com =]]"
 
     ``` bash
     composer create-project ibexa/commerce-skeleton:^3.3 .
     ```
 
-??? note "Using PHP 8.0, 7.4 or 7.3"
+??? note "Using PHP 8.2 or older"
 
-    If you're using version lower than PHP 8.1, use a different set of commands:
+    If you are using PHP 8.2 or any older version, use a different set of commands:
 
     === "[[= product_name_content =]]"
 
