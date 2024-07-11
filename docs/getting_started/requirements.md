@@ -120,28 +120,12 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
 === "Ibexa DXP v3.3"
 
-    - 8.2 (see note below)
+    - 8.3
+    - 8.2
     - 8.1
     - 8.0 (PHP 8.0 has reached its End of Life. Unless you have extended support from vendors like Debian or Zend, you should use PHP 8.1)
     - 7.4 (PHP 7.4 has reached its End of Life. Unless you have extended support from vendors like Debian or Zend, you should use PHP 8.1)
     - 7.3 (PHP 7.3 has reached its End of Life. Unless you have extended support from vendors like Debian or Zend, you should use PHP 8.1)
-
-    !!! note "Quiet PHP 8.2 deprecation notices from 3rd parties "
-
-        To avoid PHP 8.2 deprecation notices appearing in outputs (and, for example, breaking REST answers),
-        add the following to your `composer.json` after installation:
-
-        ```json
-        "runtime": {
-            "error_handler": "\\Ibexa\\Contracts\\Core\\MVC\\Symfony\\ErrorHandler\\Php82HideDeprecationsErrorHandler"
-        }
-        ```
-
-        Then run the following command:
-
-        ```bash
-        composer dump-autoload
-        ```
 
 === "eZ Platform v2.5"
 
