@@ -1,5 +1,7 @@
 ---
 description: Use Ibexa Engage to collect customer data by creating interactive content.
+edition: experience
+month_change: true
 ---
 
 # [[= product_name_engage =]]
