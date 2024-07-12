@@ -1,5 +1,5 @@
 ---
-description: Install and configure Ibexa Engage
+description: Install and configure Ibexa Engage.
 edition: experience
 month_change: true
 ---

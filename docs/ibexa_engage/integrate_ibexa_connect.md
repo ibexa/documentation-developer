@@ -1,5 +1,5 @@
 ---
-description: Integrate Ibexa Engage with Ibexa Connect
+description: Integrate Ibexa Engage with Ibexa Connect.
 edition: experience
 month_change: true
 ---
