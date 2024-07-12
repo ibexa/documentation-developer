@@ -12,7 +12,7 @@ Default tag configuration is available in `config/packages/ibexa_taxonomy.yaml`
 The associated content type is `tag`.
 
 ``` yaml
-[[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 0, 9 )=]]
+[[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 0, 9) =]]
 ```
 
 ## Configuration keys
@@ -34,8 +34,8 @@ To do it, first, create a new container to store the new taxonomy's items, for e
 Next, under the `ibexa_taxonomy.taxonomies` [key](configuration.md#configuration-files) add the following configuration:
 
 ``` yaml
-[[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 0, 2)=]]        # existing keys
-[[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 9, 17)=]]
+[[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 0, 2) =]]        # existing keys
+[[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 9, 17) =]]
 ```
 
 Replace `<content_categories_remote_id>` with the new container's Location remote ID.
@@ -63,8 +63,8 @@ You can hide the **Content** tab in the **Categories** view.
 In configuration add `assigned_content_tab` with the flag `false` (for other taxonomies this flag is by default set to `true`):
 
 ``` yaml
-[[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 0, 2)=]]        # existing keys
-[[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 9, 17)=]]
+[[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 0, 2) =]]        # existing keys
+[[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 9, 17) =]]
 ```
 
 For more information about available functionalities of tags, see [User Documentation]([[= user_doc =]]/taxonomy).
