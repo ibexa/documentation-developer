@@ -72,8 +72,6 @@ jobs:
                     ref: ${{ github.head_ref }}
             -   name: Log source branch code_samples usage
                 id: source
-                env:
-                    ${{ github.head_ref }}
                 run: |
                     git 
                     echo 'CODE_SAMPLE_USAGE<<CODE_SAMPLE_USAGE_DELIMITER'
