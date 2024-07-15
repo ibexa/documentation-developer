@@ -60,3 +60,48 @@ jobs:
                 with:
                   reporter: github-check
                   filter_mode: added
+
+    code-samples-inclusion-check:
+        runs-on: ubuntu-latest
+        if: github.event_name == 'pull_request'
+
+        steps:
+            -   name: Log source branch code_samples usage
+                id: source
+                uses: actions/checkout@v3
+                with:
+                    ref: github.head_ref
+                run: |
+                    echo 'CODE_SAMPLE_USAGE<<CODE_SAMPLE_USAGE_DELIMITER'
+                    tools/code_samples_usage.php $GITHUB_BASE_REF $GITHUB_HEAD_REF
+                    echo 'CODE_SAMPLE_USAGE_DELIMITER' > "$GITHUB_OUTPUT"
+            -   name: Log target branch code_samples usage
+                id: target
+                uses: actions/checkout@v3
+                with:
+                    ref: github.base_ref
+                run: |
+                    echo 'CODE_SAMPLE_USAGE<<CODE_SAMPLE_USAGE_DELIMITER'
+                    tools/code_samples_usage.php $GITHUB_BASE_REF $GITHUB_HEAD_REF
+                    echo 'CODE_SAMPLE_USAGE_DELIMITER' > "$GITHUB_OUTPUT"
+            -   name: Compare code_samples usages and prepare for output
+                id: diff
+                env:
+                    CODE_SAMPLE_USAGE_SOURCE: ${{ steps.source.outputs.CODE_SAMPLE_USAGE }}
+                    CODE_SAMPLE_USAGE_TARGET: ${{ steps.target.outputs.CODE_SAMPLE_USAGE }}
+                run: |
+                    echo 'CODE_SAMPLE_USAGE<<CODE_SAMPLE_USAGE_DELIMITER'
+                    diff --side-by-side --expand-tabs --width 350 <(echo $CODE_SAMPLE_USAGE_SOURCE) <(echo $CODE_SAMPLE_USAGE_TARGET) | sed 's/`/\`'
+                    echo 'CODE_SAMPLE_USAGE_DELIMITER' > "$GITHUB_OUTPUT"
+            -   name: Display code_samples usage comparison
+                env:
+                    CODE_SAMPLE_USAGE_DIFF: ${{ steps.diff.outputs.CODE_SAMPLE_USAGE }}
+                uses: actions/github-script@v6
+                with:
+                    script: |
+                        github.rest.issues.createComment({
+                            issue_number: context.issue.number,
+                            owner: context.repo.owner,
+                            repo: context.repo.repo,
+                            body: process.env.CODE_SAMPLE_USAGE_DIFF
+                        })
