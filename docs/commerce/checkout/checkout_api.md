@@ -25,7 +25,7 @@ From the developer's perspective, checkouts are referenced with an UUID identifi
 To access a single checkout, use the `CheckoutServiceInterface::getCheckout` method:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Controller/CustomCheckoutController.php', 31, 32) =]]
+[[= include_file('code_samples/api/commerce/src/Controller/CustomCheckoutController.php', 32, 33) =]]
 ```
 
 ## Get single checkout for specific cart
@@ -35,7 +35,7 @@ It can be useful when you want to initiate the checkout process right after
 products are successfully added to a cart.
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Controller/CustomCheckoutController.php', 25, 29) =]]
+[[= include_file('code_samples/api/commerce/src/Controller/CustomCheckoutController.php', 26, 30) =]]
 ```
 
 ## Create checkout
@@ -44,7 +44,7 @@ To create a checkout, use the `CheckoutServiceInterface::createCheckout` method 
 provide it with a `CheckoutCreateStruct` struct that contains a `CartInterface` object.
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Controller/CustomCheckoutController.php', 34, 40) =]]
+[[= include_file('code_samples/api/commerce/src/Controller/CustomCheckoutController.php', 35, 41) =]]
 ```
 
 ## Update checkout
@@ -60,7 +60,7 @@ step of the workflow, as well as a transition name to identify what step will fo
 All data is placed in session storage.
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Controller/CustomCheckoutController.php', 42, 44) =]]
+[[= include_file('code_samples/api/commerce/src/Controller/CustomCheckoutController.php', 43, 45) =]]
 ```
 
 ## Delete checkout
@@ -68,5 +68,5 @@ All data is placed in session storage.
 To delete a checkout from the session, use the `CheckoutServiceInterface::deleteCheckout` method:
 
 ``` php
-[[= include_file('code_samples/api/commerce/src/Controller/CustomCheckoutController.php', 46, 47) =]]
+[[= include_file('code_samples/api/commerce/src/Controller/CustomCheckoutController.php', 47, 48) =]]
 ```
