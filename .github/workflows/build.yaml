@@ -72,6 +72,7 @@ jobs:
                     URL="https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/files"
                     echo 'CODE_SAMPLE_USAGE<<CODE_SAMPLE_USAGE_DELIMITER' >> "$GITHUB_OUTPUT"
                     curl -s -X GET -G $URL | jq -r '.[] | .filename' | grep '^code_samples/' | tr '\n' ' ' >> "$GITHUB_OUTPUT"
+                    echo ''
                     echo 'CODE_SAMPLE_USAGE_DELIMITER' >> "$GITHUB_OUTPUT"
             -   name: Checkout source branch (head_ref)
                 uses: actions/checkout@v3
