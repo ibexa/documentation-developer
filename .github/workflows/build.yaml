@@ -72,9 +72,12 @@ jobs:
                     ref: ${{ github.head_ref }}
             -   name: Log source branch code_samples usage
                 id: source
+                env:
+                    ${{ github.head_ref }}
                 run: |
+                    git 
                     echo 'CODE_SAMPLE_USAGE<<CODE_SAMPLE_USAGE_DELIMITER'
-                    tools/code_samples_usage.php $GITHUB_BASE_REF $GITHUB_HEAD_REF
+                    tools/code_samples/code_samples_usage.php $GITHUB_BASE_REF $GITHUB_HEAD_REF
                     echo 'CODE_SAMPLE_USAGE_DELIMITER' > "$GITHUB_OUTPUT"
             -   name: Checkout target branch (base_ref)
                 uses: actions/checkout@v3
@@ -84,7 +87,7 @@ jobs:
                 id: target
                 run: |
                     echo 'CODE_SAMPLE_USAGE<<CODE_SAMPLE_USAGE_DELIMITER'
-                    tools/code_samples_usage.php $GITHUB_BASE_REF $GITHUB_HEAD_REF
+                    tools/code_samples/code_samples_usage.php $GITHUB_BASE_REF $GITHUB_HEAD_REF
                     echo 'CODE_SAMPLE_USAGE_DELIMITER' > "$GITHUB_OUTPUT"
             -   name: Compare code_samples usages and prepare for output
                 id: diff
