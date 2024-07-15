@@ -91,6 +91,7 @@ jobs:
             -   name: Log target branch code_samples usage
                 id: target
                 run: |
+                    git checkout origin/${{ github.head_ref }} -- tools/code_samples/code_samples_usage.php
                     echo 'CODE_SAMPLE_USAGE<<CODE_SAMPLE_USAGE_DELIMITER' >> "$GITHUB_OUTPUT"
                     php tools/code_samples/code_samples_usage.php ${{ steps.list.outputs.CODE_SAMPLE_USAGE }} >> "$GITHUB_OUTPUT"
                     echo 'CODE_SAMPLE_USAGE_DELIMITER' >> "$GITHUB_OUTPUT"
