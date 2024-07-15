@@ -80,10 +80,7 @@ jobs:
                     ref: ${{ github.head_ref }}
             -   name: Log source branch code_samples usage
                 id: source
-                run: |
-                    echo 'CODE_SAMPLE_USAGE<<CODE_SAMPLE_USAGE_DELIMITER' >> "$GITHUB_OUTPUT"
-                    php tools/code_samples/code_samples_usage.php ${{ steps.list.outputs.CODE_SAMPLE_USAGE }} >> "$GITHUB_OUTPUT"
-                    echo 'CODE_SAMPLE_USAGE_DELIMITER' >> "$GITHUB_OUTPUT"
+                run: php tools/code_samples/code_samples_usage.php ${{ steps.list.outputs.CODE_SAMPLE_USAGE }} > $HOME/code_samples_usage_source.txt
             -   name: Checkout target branch (base_ref)
                 uses: actions/checkout@v3
                 with:
@@ -92,27 +89,19 @@ jobs:
                 id: target
                 run: |
                     git checkout origin/${{ github.head_ref }} -- tools/code_samples/code_samples_usage.php
-                    echo 'CODE_SAMPLE_USAGE<<CODE_SAMPLE_USAGE_DELIMITER' >> "$GITHUB_OUTPUT"
-                    php tools/code_samples/code_samples_usage.php ${{ steps.list.outputs.CODE_SAMPLE_USAGE }} >> "$GITHUB_OUTPUT"
-                    echo 'CODE_SAMPLE_USAGE_DELIMITER' >> "$GITHUB_OUTPUT"
+                    php tools/code_samples/code_samples_usage.php ${{ steps.list.outputs.CODE_SAMPLE_USAGE }} > $HOME/code_samples_usage_target.txt
             -   name: Compare code_samples usages and prepare for output
                 id: diff
-                env:
-                    CODE_SAMPLE_USAGE_SOURCE: ${{ steps.source.outputs.CODE_SAMPLE_USAGE }}
-                    CODE_SAMPLE_USAGE_TARGET: ${{ steps.target.outputs.CODE_SAMPLE_USAGE }}
-                run: |
-                    echo 'CODE_SAMPLE_USAGE<<CODE_SAMPLE_USAGE_DELIMITER' >> "$GITHUB_OUTPUT"
-                    diff --side-by-side --expand-tabs --width 350 <(echo $CODE_SAMPLE_USAGE_SOURCE) <(echo $CODE_SAMPLE_USAGE_TARGET) | sed 's/`/\`/' >> "$GITHUB_OUTPUT"
-                    echo 'CODE_SAMPLE_USAGE_DELIMITER' >> "$GITHUB_OUTPUT"
+                run: diff --side-by-side --expand-tabs --width 350 $HOME/code_samples_usage_source.txt $HOME/code_samples_usage_source.txt | sed 's/`/\`/' > $HOME/code_samples_usage_diff.txt
+            -   run: npm install fs
             -   name: Display code_samples usage comparison
-                env:
-                    CODE_SAMPLE_USAGE_DIFF: ${{ steps.diff.outputs.CODE_SAMPLE_USAGE }}
                 uses: actions/github-script@v6
                 with:
                     script: |
+                        const fs = require('fs')
                         github.rest.issues.createComment({
                             issue_number: context.issue.number,
                             owner: context.repo.owner,
                             repo: context.repo.repo,
-                            body: process.env.CODE_SAMPLE_USAGE_DIFF
+                            body: fs.readFileSync(process.env.HOME + '/code_samples_usage_diff.txt', 'utf8')
                         })
