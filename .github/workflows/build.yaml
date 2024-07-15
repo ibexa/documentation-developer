@@ -73,7 +73,6 @@ jobs:
             -   name: Log source branch code_samples usage
                 id: source
                 run: |
-                    git 
                     echo 'CODE_SAMPLE_USAGE<<CODE_SAMPLE_USAGE_DELIMITER'
                     tools/code_samples/code_samples_usage.php $GITHUB_BASE_REF $GITHUB_HEAD_REF
                     echo 'CODE_SAMPLE_USAGE_DELIMITER' > "$GITHUB_OUTPUT"
