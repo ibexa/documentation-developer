@@ -202,4 +202,7 @@ $(document).ready(function() {
             closeBtn.closest('.notification').setAttribute('hidden', 'hidden');
         });
     });
+
+    // Mark higher-level nodes with "New" pill, not only the actual item
+    $(".pill.new:not([hidden])").parents(".md-nav__item").children('label').children(".pill.new[hidden]").removeAttr('hidden');
 });

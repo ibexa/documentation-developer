@@ -7,7 +7,7 @@
     {% set checked = "checked" if nav_item.active %}
     <input class="md-nav__toggle md-toggle" data-md-toggle="{{ path }}" type="checkbox" id="{{ path }}" {{ checked }}>
     <label class="md-nav__link level-{{ level }}" for="{{ path }}">
-      {{ nav_item.title }}
+      {{ nav_item.title }} <span class="pill new" hidden>New</span>
     </label>
     <nav class="md-nav" aria-label="{{ nav_item.title }}" data-md-level="{{ level }}">
       <label class="md-nav__link-title md-nav__link level-{{ level }}" for="{{ path }}">
