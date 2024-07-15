@@ -1,21 +1,18 @@
 <?php
 
-if (3 === $argc) {
-    $codeSampleFileList = getModifiedCodeSampleFileList($argv[1], $argv[2]);
+if ($argc) {
+    $codeSampleFileList = array_slice($argv, 1);
     foreach ($codeSampleFileList as $codeSampleFile) {
         echo "\n## $codeSampleFile ##\n\n";
         $includingFileList = getIncludingFileList($codeSampleFile);
-        foreach($includingFileList as $includingFile) {
-            $blocks = getInclusionBlocks($includingFile, $codeSampleFile);
-            displayBlocks($blocks, $includingFile);
-        }
     }
 } else {
     $includingFileList = getIncludingFileList();
-    foreach($includingFileList as $includingFile) {
-        $blocks = getInclusionBlocks($includingFile);
-        displayBlocks($blocks, $includingFile);
-    }
+}
+
+foreach($includingFileList as $includingFile) {
+    $blocks = getInclusionBlocks($includingFile, $codeSampleFile);
+    displayBlocks($blocks, $includingFile);
 }
 
 function displayBlocks(array $docFileBlocks, string $docFilePath=null, $lineOffset=0): void
@@ -51,9 +48,9 @@ function displayBlocks(array $docFileBlocks, string $docFilePath=null, $lineOffs
 function getModifiedCodeSampleFileList(string $targetBranch='origin/master', string $sourceBranch='HEAD'): array
 {
     $command = "git diff --name-only $sourceBranch..$targetBranch -- code_samples";
-    $rawModifiedCodeSampleList = shell_exec($command);
-    if (is_string($rawModifiedCodeSampleList)) {
-        return explode(PHP_EOL, trim($rawModifiedCodeSampleList));
+    exec($command, $rawModifiedCodeSampleList, $commandResultCode);
+    if (0 === $commandResultCode) {
+        return $rawModifiedCodeSampleList;
     }
     throw new \RuntimeException("The following Git command failed: $command");
 }
