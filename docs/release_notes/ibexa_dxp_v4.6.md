@@ -401,7 +401,7 @@ Use Qualifio Engage integration to create engaging marketing experiences to your
 Unlike conventional streaming services, integration with SeenThis! service provides an adaptive streaming technology with no limitations.
 It allows you to preserve the best video quality with a minimum amount of data transfer.
 
-For more information, see [SeenThis! block](https://doc.ibexa.co/projects/userguide/en/latest/content_management/block_reference/#seenthis-block).
+For more information, see [SeenThis! block](https://doc.ibexa.co/projects/userguide/en/master/content_management/block_reference/#seenthis-block).
 
 ### API improvements
 
