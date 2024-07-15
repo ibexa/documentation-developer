@@ -102,7 +102,7 @@ jobs:
                     CODE_SAMPLE_USAGE_TARGET: ${{ steps.target.outputs.CODE_SAMPLE_USAGE }}
                 run: |
                     echo 'CODE_SAMPLE_USAGE<<CODE_SAMPLE_USAGE_DELIMITER' >> "$GITHUB_OUTPUT"
-                    diff --side-by-side --expand-tabs --width 350 <(echo $CODE_SAMPLE_USAGE_SOURCE) <(echo $CODE_SAMPLE_USAGE_TARGET) | sed 's/`/\`' >> "$GITHUB_OUTPUT"
+                    diff --side-by-side --expand-tabs --width 350 <(echo $CODE_SAMPLE_USAGE_SOURCE) <(echo $CODE_SAMPLE_USAGE_TARGET) | sed 's/`/\`/' >> "$GITHUB_OUTPUT"
                     echo 'CODE_SAMPLE_USAGE_DELIMITER' >> "$GITHUB_OUTPUT"
             -   name: Display code_samples usage comparison
                 env:
