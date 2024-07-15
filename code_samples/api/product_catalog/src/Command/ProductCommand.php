@@ -39,8 +39,7 @@ final class ProductCommand extends Command
         ProductServiceInterface $productService,
         LocalProductServiceInterface $localProductService,
         ProductAvailabilityServiceInterface $productAvailabilityService
-    )
-    {
+    ) {
         $this->userService = $userService;
         $this->permissionResolver = $permissionResolver;
         $this->productService = $productService;
