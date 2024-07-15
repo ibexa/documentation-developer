@@ -35,9 +35,9 @@ final class AttributeCommand extends Command
         AttributeGroupServiceInterface $attributeGroupService,
         LocalAttributeGroupServiceInterface $localAttributeGroupService,
         AttributeTypeServiceInterface $attributeTypeService,
-        UserService $userService, PermissionResolver $permissionResolver
-    )
-    {
+        UserService $userService,
+        PermissionResolver $permissionResolver
+    ) {
         $this->localAttributeGroupService = $localAttributeGroupService;
         $this->attributeGroupService = $attributeGroupService;
         $this->attributeTypeService = $attributeTypeService;
