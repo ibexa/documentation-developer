@@ -92,7 +92,7 @@ jobs:
                     php tools/code_samples/code_samples_usage.php ${{ steps.list.outputs.CODE_SAMPLE_USAGE }} > $HOME/code_samples_usage_target.txt
             -   name: Compare code_samples usages and prepare for output
                 id: diff
-                run: diff --side-by-side --expand-tabs --width 350 $HOME/code_samples_usage_source.txt $HOME/code_samples_usage_source.txt | sed 's/`/\`/' > $HOME/code_samples_usage_diff.txt
+                run: diff --side-by-side --expand-tabs --width 350 $HOME/code_samples_usage_target.txt $HOME/code_samples_usage_source.txt | sed 's/`/\`/' > $HOME/code_samples_usage_diff.txt
             -   run: npm install fs
             -   name: Display code_samples usage comparison
                 uses: actions/github-script@v6
@@ -103,5 +103,5 @@ jobs:
                             issue_number: context.issue.number,
                             owner: context.repo.owner,
                             repo: context.repo.repo,
-                            body: fs.readFileSync(process.env.HOME + '/code_samples_usage_diff.txt', 'utf8')
+                            body: '<pre>' + fs.readFileSync(process.env.HOME + '/code_samples_usage_diff.txt', 'utf8') + '</pre>'
                         })
