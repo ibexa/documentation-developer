@@ -1,6 +1,6 @@
 <?php
 
-if ($argc) {
+if (1 < $argc) {
     $codeSampleFileList = array_slice($argv, 1);
     foreach ($codeSampleFileList as $codeSampleFile) {
         echo "\n## $codeSampleFile ##\n\n";
@@ -13,7 +13,7 @@ if ($argc) {
 } else {
     $includingFileList = getIncludingFileList();
     foreach($includingFileList as $includingFile) {
-        $blocks = getInclusionBlocks($includingFile, $codeSampleFile);
+        $blocks = getInclusionBlocks($includingFile);
         displayBlocks($blocks, $includingFile);
     }
 }
@@ -34,7 +34,7 @@ function displayBlocks(array $docFileBlocks, string $docFilePath=null, $lineOffs
         $prefixedBlockContentLines = [];
         $blockContents = getBlockContents($block);
         foreach ($blockContents['contents'] as $contentLineNumber => $contentLine) {
-            $prefixedBlockContentLines[] = (in_array($contentLineNumber, $blockContents['highlights']) ? '>' : '|') . $contentLine;
+            $prefixedBlockContentLines[] = str_pad($contentLineNumber, 3, 0, STR_PAD_LEFT) . (in_array($contentLineNumber, $blockContents['highlights']) ? '⫸' : '⫶') . $contentLine;
         }
         echo implode(PHP_EOL, $prefixedBlockContentLines).PHP_EOL.PHP_EOL;
     }
