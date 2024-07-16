@@ -65,7 +65,7 @@ class MonitorRecentContentCreationCommand extends Command
                     $activityLog->getObjectId(),
                     $name,
                     $activityLog->getAction(),
-                    $activityLogGroup->getUser() != null ? $activityLogGroup->getUser()->login : 'No user',
+                    $activityLogGroup->getUser() ? $activityLogGroup->getUser()->login : '',
                     $activityLogGroup->getIp() ? $activityLogGroup->getIp()->getIp() : '',
                 ];
             }
