@@ -19462,6 +19462,17 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-19-0-1" type="checkbox" id="nav-1-19-0-1" >
         <label class="md-nav__link level-3" for="nav-1-19-0-1">
                             <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderConfiguratorInterface.html" title="ProviderConfiguratorInterface">
+                            ProviderConfiguratorInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-19-0-2" type="checkbox" id="nav-1-19-0-2" >
+        <label class="md-nav__link level-3" for="nav-1-19-0-2">
+                            <img src="./images/file.svg" alt="file.svg" />
                                         <a href="classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderService.html" title="ProviderService">
                             ProviderService
                             </a>
@@ -36138,7 +36149,7 @@ against all indexed content objects in the storage layer.</p>
 <p>Normalization and querying capabilities might depend on the system
 configuration or the used search engine and might differ. To find about
 supported querying capabilities you can use
-<a href="%5CIbexa%5CContracts%5CCore%5CRepository%5CSearchService::supports()"></a> method.</p>
+<a href="classes/Ibexa-Contracts-Core-Repository-SearchService.html#method_supports"><abbr title="\Ibexa\Contracts\Core\Repository\SearchService::supports()">SearchService::supports()</abbr></a> method.</p>
 <p>If supported, advanced full text query has the following semantics:</p>
 <ul>
 <li>If multiple words are specified an OR query is performed.</li>
@@ -36146,8 +36157,8 @@ supported querying capabilities you can use
 <li>Required/prohibit operators are supported: +, -.</li>
 <li>Grouping is supported through parentheses.</li>
 <li>Phrases are supported using double quotes.</li>
-<li>Simple wild cards are supported. If an asterisk (<em>) is used at the end or
-beginning of a word this is translated into a wild card query. Thus &quot;fo</em>&quot;
+<li>Simple wild cards are supported. If an asterisk (*) is used at the end or
+beginning of a word this is translated into a wild card query. Thus &quot;fo*&quot;
 would match &quot;foo&quot; and &quot;foobar&quot;, for example.</li>
 <li>Advanced language analysis (like stemming, synonym expansion and stop word
 removal) might be applied to the words provided in the query.</li>

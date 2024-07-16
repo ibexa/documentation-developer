@@ -19462,6 +19462,17 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-19-0-1" type="checkbox" id="nav-1-19-0-1" >
         <label class="md-nav__link level-3" for="nav-1-19-0-1">
                             <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderConfiguratorInterface.html" title="ProviderConfiguratorInterface">
+                            ProviderConfiguratorInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-19-0-2" type="checkbox" id="nav-1-19-0-2" >
+        <label class="md-nav__link level-3" for="nav-1-19-0-2">
+                            <img src="./images/file.svg" alt="file.svg" />
                                         <a href="classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderService.html" title="ProviderService">
                             ProviderService
                             </a>
@@ -36107,11 +36118,44 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/Payment/Workflow/WorkflowResolverInterface.php">
         <abbr title="vendor/ibexa/payment/src/contracts/Payment/Workflow/WorkflowResolverInterface.php">WorkflowResolverInterface.php</abbr>
                 :
-        <span title="at line 13">13</span>
+        <span title="at line 52">52</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
                     </div>
-    
+        <p>Resolves workflow for a given subject.</p>
+
+    <section class="phpdocumentor-description">
+        <p>Is intended to be implemented as a decorator.</p>
+<p>The following example assigns the 'workflow_with_audit' workflow to payment above 100000€, and passes others to
+the default workflow resolver:</p>
+<pre class="prettyprint"><code class="prettyprint">final class WorkflowResolver implements WorkflowResolverInterface
+{
+    public function __construct(
+         private WorkflowResolverInterface $innerWorkflowResolver
+         private Registry $workflowRegistry
+     ) {
+
+     }
+
+    public function resolveWorkflow(WorkflowSubjectInterface $subject): WorkflowInterface
+    {
+         if ($subject instanceof PaymentInterface || $subject instanceof PaymentCreateStruct) {
+             if ($payment-&gt;getAmount()-&gt;greaterThan(Money::EUR(100000)) {
+                 return $this-&gt;workflowRegistry-&gt;get($subject, 'workflow_with_audit');
+             }
+         }
+
+         return $this-&gt;innerWorkflowResolver-&gt;resolveWorkflow($subject);
+    }
+}
+</code></pre>
+<p>and related service definition:</p>
+<pre class="prettyprint"><code class="prettyprint">services:
+   App\Payment\Workflow\WorkflowResolver:
+     decorates: Ibexa\Contracts\Payment\Payment\Workflow\WorkflowResolverInterface
+</code></pre>
+
+    </section>
 
                             
 
@@ -36137,7 +36181,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/Payment/Workflow/WorkflowResolverInterface.php">
         <abbr title="vendor/ibexa/payment/src/contracts/Payment/Workflow/WorkflowResolverInterface.php">WorkflowResolverInterface.php</abbr>
                 :
-        <span title="at line 15">15</span>
+        <span title="at line 54">54</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
