@@ -94,7 +94,7 @@ based on the information from `resourceOwner`, that's the OAuth2 authorization s
 
 The new username is set with a `google:` prefix (lines 19, 109), to avoid conflicts with users registered in a regular way.
 
-``` php hl_lines="19 54 64 109"
+``` php hl_lines="20 54 64 109"
 [[= include_file('code_samples/user_management/oauth_google/src/OAuth/GoogleResourceOwnerMapper.php') =]]
 ```
 
