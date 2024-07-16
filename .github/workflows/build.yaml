@@ -88,13 +88,6 @@ jobs:
                 run: |
                     git checkout origin/${{ github.head_ref }} -- tools/code_samples/code_samples_usage.php
                     php tools/code_samples/code_samples_usage.php ${{ steps.list.outputs.CODE_SAMPLE_USAGE }} > $HOME/code_samples_usage_target.txt
-            -   name: Compare code_samples usages for comment (diff --side-by-side)
-                run: |
-                    echo '# `code_samples/` change report' >> $HOME/code_samples_usage.diff.txt
-                    echo '' >> $HOME/code_samples_usage.diff.txt
-                    echo '<pre>' >> $HOME/code_samples_usage.diff.txt
-                    diff --side-by-side --expand-tabs --width 350 $HOME/code_samples_usage_target.txt $HOME/code_samples_usage_source.txt | sed 's/`/\`/' >> $HOME/code_samples_usage.diff.txt
-                    echo '</pre>' >> $HOME/code_samples_usage.diff.txt
             -   name: Compare code_samples usages for artifact (diff --unified)
                 # diff returns 1 if there is a difference, this is normal but seen as an error by the job.
                 continue-on-error: true
@@ -120,13 +113,18 @@ jobs:
                     issue-number: ${{ github.event.pull_request.number }}
                     comment-author: 'github-actions[bot]'
                     body-includes: 'code_samples/ change report'
-            -   run: npm install fs
+            -   name: Compare code_samples usages for comment (diff --side-by-side)
+                run: |
+                    echo '# `code_samples/` change report' >> $HOME/code_samples_usage.diff.txt
+                    echo '' >> $HOME/code_samples_usage.diff.txt
+                    echo '<pre>' >> $HOME/code_samples_usage.diff.txt
+                    diff --side-by-side --expand-tabs --width 350 $HOME/code_samples_usage_target.txt $HOME/code_samples_usage_source.txt | sed 's/`/\`/' >> $HOME/code_samples_usage.diff.txt
+                    echo '</pre>' >> $HOME/code_samples_usage.diff.txt
+                    echo ${{ steps.artifact.outputs.artifact-url }} >> $HOME/code_samples_usage.diff.txt
             -   name: Create or update comment
                 uses: peter-evans/create-or-update-comment@v4
                 with:
                     comment-id: ${{ steps.find-comment.outputs.comment-id }}
                     issue-number: ${{ github.event.pull_request.number }}
-                    body: |
-                        # `code_samples/` change report
-                        ${{ steps.artifact.outputs.artifact-url }}
+                    body-path: ~/code_samples_usage.diff.txt
                     edit-mode: replace
