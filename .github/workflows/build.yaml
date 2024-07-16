@@ -88,15 +88,17 @@ jobs:
                 run: |
                     git checkout origin/${{ github.head_ref }} -- tools/code_samples/code_samples_usage.php
                     php tools/code_samples/code_samples_usage.php ${{ steps.list.outputs.CODE_SAMPLE_USAGE }} > $HOME/code_samples_usage_target.txt
-            -   name: Compare code_samples usages and prepare for output (diff)
+            -   name: Compare code_samples usages and prepare for output (diff --side-by-side)
                 run: diff --side-by-side --expand-tabs --width 350 $HOME/code_samples_usage_target.txt $HOME/code_samples_usage_source.txt | sed 's/`/\`/' > $HOME/code_samples_usage.diff.txt
-            -   run: npm install -g diff2html-cli
-            -   name: Compare code_samples usages and prepare for output (diff2html)
+            -   name: Compare code_samples usages and prepare for output (diff --unified)
                 continue-on-error: true
                 run: |
                     source_length=`wc -l < $HOME/code_samples_usage_source.txt`
                     target_length=`wc -l < $HOME/code_samples_usage_target.txt`
                     diff -U $(( source_length > target_length ? source_length : target_length )) $HOME/code_samples_usage_target.txt $HOME/code_samples_usage_source.txt > $HOME/code_samples_usage.diff
+            -   run: npm install -g diff2html-cli
+            -   name: Compare code_samples usages and prepare for output (diff2html)
+                run: |
                     cat $HOME/code_samples_usage.diff
                     echo '<!--diff2html-diff-->' > $HOME/diff2html.html
                     diff2html -f html -s side --hwt $HOME/diff2html.html -o stdout -i file -- $HOME/code_samples_usage.diff > $HOME/code_samples_usage.diff.html
