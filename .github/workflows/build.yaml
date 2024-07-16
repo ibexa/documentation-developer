@@ -105,6 +105,7 @@ jobs:
                 with:
                     name: code_samples_usage.diff.html
                     path: ~/code_samples_usage.diff.html
+                    overwrite: true
             -   name: Find Comment
                 uses: peter-evans/find-comment@v3
                 id: find-comment
