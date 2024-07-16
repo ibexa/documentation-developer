@@ -98,7 +98,7 @@ jobs:
             -   name: Convert code_samples usages differences (diff2html)
                 run: |
                     npm install -g diff2html-cli
-                    diff2html -f html -s side -o stdout -i file -- $HOME/code_samples_usage.diff > $HOME/code_samples_usage.diff.html
+                    diff2html -f html -s side -t 'code_samples/ changes report' --su hidden --fct false -o stdout -i file > $HOME/code_samples_usage.diff.html
             -   name: Upload code_samples usages differences artifact
                 id: artifact
                 uses: actions/upload-artifact@v4
@@ -119,6 +119,6 @@ jobs:
                     comment-id: ${{ steps.find-comment.outputs.comment-id }}
                     issue-number: ${{ github.event.pull_request.number }}
                     body: |
-                        # code_samples/ change report
+                        # `code_samples/` change report
                         ${{ steps.artifact.outputs.artifact-url }}
                     edit-mode: replace
