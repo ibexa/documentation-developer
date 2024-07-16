@@ -14,10 +14,6 @@ class WebinarEventTitleFulltextFieldMapper extends ContentFieldMapper
 
     protected LocationHandler $locationHandler;
 
-    /**
-     * @param \Ibexa\Contracts\Core\Persistence\Content\Handler $contentHandler
-     * @param \Ibexa\Contracts\Core\Persistence\Content\Location\Handler $locationHandler
-     */
     public function __construct(
         ContentHandler $contentHandler,
         LocationHandler $locationHandler
