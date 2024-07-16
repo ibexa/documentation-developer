@@ -90,9 +90,9 @@ jobs:
                     php tools/code_samples/code_samples_usage.php ${{ steps.list.outputs.CODE_SAMPLE_USAGE }} > $HOME/code_samples_usage_target.txt
             -   name: Compare code_samples usages and prepare for output (diff)
                 run: diff --side-by-side --expand-tabs --width 350 $HOME/code_samples_usage_target.txt $HOME/code_samples_usage_source.txt | sed 's/`/\`/' > $HOME/code_samples_usage.diff.txt
-            -   name: Compare code_samples usages and prepare for output (diff)
+            -   name: Compare code_samples usages and prepare for output (diff2html)
                 run: |
-                    npm install -g diff2html
+                    npm install -g diff2html-cli
                     source_length=`wc -l $HOME/code_samples_usage_source.txt`
                     target_length=`wc -l $HOME/code_samples_usage_target.txt`
                     diff -U $(( source_length > target_length ? source_length : target_length )) $HOME/code_samples_usage_target.txt $HOME/code_samples_usage_source.txt > $HOME/code_samples_usage.diff
