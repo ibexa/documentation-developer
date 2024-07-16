@@ -68,9 +68,9 @@ function getIncludingFileList(string $codeSampleFilePath=null): array
 {
     $pattern = null === $codeSampleFilePath ? '= include_file' : $codeSampleFilePath;
     $command = "grep '$pattern' -Rl docs | sort";
-    $rawIncludingFileList = shell_exec($command);
-    if (is_string($rawIncludingFileList)) {
-        return explode(PHP_EOL, trim($rawIncludingFileList));
+    exec($command, $rawIncludingFileList, $commandResultCode);
+    if (0 === $commandResultCode) {
+        return $rawIncludingFileList;
     }
     throw new \RuntimeException("The following grep command failed: $command");
 }
