@@ -52,6 +52,14 @@ mkdocs serve
 After a short while your documentation should be reachable at http://localhost:8000. If it isn't, check the output
 of the command.
 
+## Testing the code samples
+
+This repository uses PHPStan to test the code samples. To run the tests locally execute the commands below:
+```bash
+composer update
+composer phpstan
+```
+
 ## Where to View
 
 https://doc.ibexa.co
