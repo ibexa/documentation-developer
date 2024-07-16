@@ -108,12 +108,12 @@ jobs:
                     overwrite: true
             -   name: Compare code_samples usages for comment (diff --side-by-side)
                 run: |
-                    echo '# code_samples/ change report' >> $HOME/code_samples_usage.diff.txt
-                    echo '' >> $HOME/code_samples_usage.diff.txt
-                    echo '<pre>' >> $HOME/code_samples_usage.diff.txt
-                    diff --side-by-side --expand-tabs --width 350 $HOME/code_samples_usage_target.txt $HOME/code_samples_usage_source.txt | sed 's/`/\`/' >> $HOME/code_samples_usage.diff.txt
-                    echo '</pre>' >> $HOME/code_samples_usage.diff.txt
-                    echo ${{ steps.artifact.outputs.artifact-url }} >> $HOME/code_samples_usage.diff.txt
+                    echo '# code_samples/ change report' >> code_samples_usage.diff.md
+                    echo '' >> code_samples_usage.diff.md
+                    echo '<pre>' >> code_samples_usage.diff.md
+                    diff --side-by-side --expand-tabs --width 350 $HOME/code_samples_usage_target.txt $HOME/code_samples_usage_source.txt | sed 's/`/\`/' >> code_samples_usage.diff.md
+                    echo '</pre>' >> code_samples_usage.diff.md
+                    echo ${{ steps.artifact.outputs.artifact-url }} >> code_samples_usage.diff.md
             -   name: Find Comment
                 uses: peter-evans/find-comment@v3
                 id: find-comment
@@ -126,5 +126,5 @@ jobs:
                 with:
                     comment-id: ${{ steps.find-comment.outputs.comment-id }}
                     issue-number: ${{ github.event.pull_request.number }}
-                    body-path: $HOME/code_samples_usage.diff.txt
+                    body-path: code_samples_usage.diff.md
                     edit-mode: replace
