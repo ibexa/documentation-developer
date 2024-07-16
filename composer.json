@@ -12,8 +12,6 @@
         }
     ],
     "require-dev": {
-        "ibexa/code-style": "^1.0",
-        "friendsofphp/php-cs-fixer": "^3.30",
         "phpstan/phpstan": "^1.10",
         "phpstan/phpstan-symfony": "^1.3",
         "ibexa/doctrine-schema": "5.0.x-dev",
