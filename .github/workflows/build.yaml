@@ -79,23 +79,30 @@ jobs:
                 with:
                     ref: ${{ github.head_ref }}
             -   name: Log source branch code_samples usage
-                id: source
                 run: php tools/code_samples/code_samples_usage.php ${{ steps.list.outputs.CODE_SAMPLE_USAGE }} > $HOME/code_samples_usage_source.txt
             -   name: Checkout target branch (base_ref)
                 uses: actions/checkout@v3
                 with:
                     ref: ${{ github.base_ref }}
             -   name: Log target branch code_samples usage
-                id: target
                 run: |
                     git checkout origin/${{ github.head_ref }} -- tools/code_samples/code_samples_usage.php
                     php tools/code_samples/code_samples_usage.php ${{ steps.list.outputs.CODE_SAMPLE_USAGE }} > $HOME/code_samples_usage_target.txt
-            -   name: Compare code_samples usages and prepare for output
-                id: diff
-                run: diff --side-by-side --expand-tabs --width 350 $HOME/code_samples_usage_target.txt $HOME/code_samples_usage_source.txt | sed 's/`/\`/' > $HOME/code_samples_usage_diff.txt
+            -   name: Compare code_samples usages and prepare for output (diff)
+                run: diff --side-by-side --expand-tabs --width 350 $HOME/code_samples_usage_target.txt $HOME/code_samples_usage_source.txt | sed 's/`/\`/' > $HOME/code_samples_usage.diff.txt
+            -   name: Compare code_samples usages and prepare for output (diff)
+                run: |
+                    npm install -g diff2html
+                    source_length=`wc -l $HOME/code_samples_usage_source.txt`
+                    target_length=`wc -l $HOME/code_samples_usage_target.txt`
+                    diff -U $(( source_length > target_length ? source_length : target_length )) $HOME/code_samples_usage_target.txt $HOME/code_samples_usage_source.txt > $HOME/code_samples_usage.diff
+                    echo '<!--diff2html-diff-->' > $HOME/diff2html.html
+                    diff2html -f html -s side --hwt $HOME/diff2html.html -o stdout -i file -- $HOME/code_samples_usage.diff > $HOME/code_samples_usage.diff.html
             -   run: npm install fs
             -   name: Display code_samples usage comparison
                 uses: actions/github-script@v6
+                #TODO: Max body length: 65536 chars
+                #body: '# code_samples change report\n\n<pre>' + fs.readFileSync(process.env.HOME + '/code_samples_usage.diff.txt', 'utf8') + '</pre>'
                 with:
                     script: |
                         const fs = require('fs')
@@ -103,5 +110,5 @@ jobs:
                             issue_number: context.issue.number,
                             owner: context.repo.owner,
                             repo: context.repo.repo,
-                            body: '# code_samples change report\n\n<pre>' + fs.readFileSync(process.env.HOME + '/code_samples_usage_diff.txt', 'utf8') + '</pre>'
+                            body: '# code_samples change report\n\n' + fs.readFileSync(process.env.HOME + '/code_samples_usage.diff.html', 'utf8')
                         })
