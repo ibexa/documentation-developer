@@ -197,7 +197,5 @@ To combine the contents of multiple shopping carts into a target cart, use the `
 This operation is helpful when you want to consolidate items from a reorder cart and a current cart into a single order.
 
 ```php
-[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 151, 154) =]]
-[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 155, 161) =]]
-[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 162, 164) =]]
+[[= include_file('code_samples/api/commerce/src/Command/CartCommand.php', 151, 164) =]]
 ```
