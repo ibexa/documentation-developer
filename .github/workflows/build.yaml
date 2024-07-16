@@ -88,31 +88,36 @@ jobs:
                 run: |
                     git checkout origin/${{ github.head_ref }} -- tools/code_samples/code_samples_usage.php
                     php tools/code_samples/code_samples_usage.php ${{ steps.list.outputs.CODE_SAMPLE_USAGE }} > $HOME/code_samples_usage_target.txt
-            -   name: Compare code_samples usages and prepare for output (diff --side-by-side)
-                run: diff --side-by-side --expand-tabs --width 350 $HOME/code_samples_usage_target.txt $HOME/code_samples_usage_source.txt | sed 's/`/\`/' > $HOME/code_samples_usage.diff.txt
-            -   name: Compare code_samples usages and prepare for output (diff --unified)
+            -   name: Compare code_samples usages (diff)
+                # diff returns 1 if there is a difference, this is normal but seen as an error by the job.
                 continue-on-error: true
                 run: |
                     source_length=`wc -l < $HOME/code_samples_usage_source.txt`
                     target_length=`wc -l < $HOME/code_samples_usage_target.txt`
                     diff -U $(( source_length > target_length ? source_length : target_length )) $HOME/code_samples_usage_target.txt $HOME/code_samples_usage_source.txt > $HOME/code_samples_usage.diff
-            -   run: npm install -g diff2html-cli
-            -   name: Compare code_samples usages and prepare for output (diff2html)
+            -   name: Convert code_samples usages differences (diff2html)
                 run: |
-                    cat $HOME/code_samples_usage.diff
-                    echo '<!--diff2html-diff-->' > $HOME/diff2html.html
-                    diff2html -f html -s side --hwt $HOME/diff2html.html -o stdout -i file -- $HOME/code_samples_usage.diff > $HOME/code_samples_usage.diff.html
-            -   run: npm install fs
-            -   name: Display code_samples usage comparison
-                uses: actions/github-script@v6
-                #TODO: Max body length: 65536 chars
-                #body: '# code_samples change report\n\n<pre>' + fs.readFileSync(process.env.HOME + '/code_samples_usage.diff.txt', 'utf8') + '</pre>'
+                    npm install -g diff2html-cli
+                    diff2html -f html -s side -o stdout -i file -- $HOME/code_samples_usage.diff > $HOME/code_samples_usage.diff.html
+            -   name: Upload code_samples usages differences artifact
+                id: artifact
+                uses: actions/upload-artifact@v4
                 with:
-                    script: |
-                        const fs = require('fs')
-                        github.rest.issues.createComment({
-                            issue_number: context.issue.number,
-                            owner: context.repo.owner,
-                            repo: context.repo.repo,
-                            body: '# code_samples change report\n\n' + fs.readFileSync(process.env.HOME + '/code_samples_usage.diff.html', 'utf8')
-                        })
+                    name: code_samples_usage.diff.html
+                    path: ${{ env.HOME }}/code_samples_usage.diff.html
+            -   name: Find Comment
+                uses: peter-evans/find-comment@v3
+                id: find-comment
+                with:
+                    issue-number: ${{ github.event.pull_request.number }}
+                    comment-author: 'github-actions[bot]'
+                    body-includes: 'code_samples/ change report'
+            -   name: Create or update comment
+                uses: peter-evans/create-or-update-comment@v4
+                with:
+                    comment-id: ${{ steps.find-comment.outputs.comment-id }}
+                    issue-number: ${{ github.event.pull_request.number }}
+                    body: |
+                        # code_samples/ change report
+                        ${{ steps.artifact.outputs.artifact-url }}
+                    edit-mode: replace
