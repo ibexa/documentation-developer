@@ -64,7 +64,7 @@ For example, to create a new price for a given currency, use `ProductPriceServic
 
     Prices operate using the [`Money`](https://github.com/moneyphp/money) library.
     That is why all amounts are provided [in the smallest unit](https://www.moneyphp.org/en/stable/getting-started.html#instantiation).
-    For example, for euro `50000` refers to 50000 cents, equal to 50 euros.
+    For example, for euro `50000` refers to 50000 cents, equal to 500 euros.
 
 ### Resolve prices
 
