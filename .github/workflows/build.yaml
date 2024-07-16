@@ -79,7 +79,7 @@ jobs:
                 with:
                     ref: ${{ github.head_ref }}
             -   name: Log source branch code_samples usage
-                run: php tools/code_samples/code_samples_usage.php ${{ steps.list.outputs.CODE_SAMPLE_USAGE }} > $HOME/code_samples_usage_source.txt
+                run: php tools/code_samples/code_samples_usage.php ${{ steps.list.outputs.CODE_SAMPLE_USAGE }} > ./code_samples_usage_source.txt
             -   name: Checkout target branch (base_ref)
                 uses: actions/checkout@v3
                 with:
@@ -87,25 +87,33 @@ jobs:
             -   name: Log target branch code_samples usage
                 run: |
                     git checkout origin/${{ github.head_ref }} -- tools/code_samples/code_samples_usage.php
-                    php tools/code_samples/code_samples_usage.php ${{ steps.list.outputs.CODE_SAMPLE_USAGE }} > $HOME/code_samples_usage_target.txt
+                    php tools/code_samples/code_samples_usage.php ${{ steps.list.outputs.CODE_SAMPLE_USAGE }} > ./code_samples_usage_target.txt
             -   name: Compare code_samples usages for artifact (diff --unified)
                 # diff returns 1 if there is a difference, this is normal but seen as an error by the job.
                 continue-on-error: true
                 run: |
-                    source_length=`wc -l < $HOME/code_samples_usage_source.txt`
-                    target_length=`wc -l < $HOME/code_samples_usage_target.txt`
-                    diff -U $(( source_length > target_length ? source_length : target_length )) $HOME/code_samples_usage_target.txt $HOME/code_samples_usage_source.txt > $HOME/code_samples_usage.diff
+                    source_length=`wc -l < ./code_samples_usage_source.txt`
+                    target_length=`wc -l < ./code_samples_usage_target.txt`
+                    diff -U $(( source_length > target_length ? source_length : target_length )) ./code_samples_usage_target.txt ./code_samples_usage_source.txt > ./code_samples_usage.diff
             -   name: Convert code_samples usages differences (diff2html)
                 run: |
                     npm install -g diff2html-cli
-                    diff2html -f html -s side -t 'code_samples/ changes report' --su hidden --fct false -o stdout -i file -- $HOME/code_samples_usage.diff > $HOME/code_samples_usage.diff.html
+                    diff2html -f html -s side -t 'code_samples/ changes report' --su hidden --fct false -o stdout -i file -- ./code_samples_usage.diff > ./code_samples_usage.diff.html
             -   name: Upload code_samples usages differences artifact
                 id: artifact
                 uses: actions/upload-artifact@v4
                 with:
                     name: code_samples_usage.diff.html
-                    path: ~/code_samples_usage.diff.html
+                    path: ./code_samples_usage.diff.html
                     overwrite: true
+            -   name: Compare code_samples usages for comment (diff --side-by-side)
+                run: |
+                    echo '# code_samples/ change report' >> ./code_samples_usage.diff.txt
+                    echo '' >> ./code_samples_usage.diff.txt
+                    echo '<pre>' >> ./code_samples_usage.diff.txt
+                    diff --side-by-side --expand-tabs --width 350 ./code_samples_usage_target.txt ./code_samples_usage_source.txt | sed 's/`/\`/' >> ./code_samples_usage.diff.txt
+                    echo '</pre>' >> ./code_samples_usage.diff.txt
+                    echo ${{ steps.artifact.outputs.artifact-url }} >> ./code_samples_usage.diff.txt
             -   name: Find Comment
                 uses: peter-evans/find-comment@v3
                 id: find-comment
@@ -113,18 +121,10 @@ jobs:
                     issue-number: ${{ github.event.pull_request.number }}
                     comment-author: 'github-actions[bot]'
                     body-includes: 'code_samples/ change report'
-            -   name: Compare code_samples usages for comment (diff --side-by-side)
-                run: |
-                    echo '# code_samples/ change report' >> $HOME/code_samples_usage.diff.txt
-                    echo '' >> $HOME/code_samples_usage.diff.txt
-                    echo '<pre>' >> $HOME/code_samples_usage.diff.txt
-                    diff --side-by-side --expand-tabs --width 350 $HOME/code_samples_usage_target.txt $HOME/code_samples_usage_source.txt | sed 's/`/\`/' >> $HOME/code_samples_usage.diff.txt
-                    echo '</pre>' >> $HOME/code_samples_usage.diff.txt
-                    echo ${{ steps.artifact.outputs.artifact-url }} >> $HOME/code_samples_usage.diff.txt
             -   name: Create or update comment
                 uses: peter-evans/create-or-update-comment@v4
                 with:
                     comment-id: ${{ steps.find-comment.outputs.comment-id }}
                     issue-number: ${{ github.event.pull_request.number }}
-                    body-path: ${{ env.HOME }}/code_samples_usage.diff.txt
+                    body-path: ./code_samples_usage.diff.txt
                     edit-mode: replace
