@@ -96,7 +96,7 @@ jobs:
                     source_length=`wc -l < $HOME/code_samples_usage_source.txt`
                     target_length=`wc -l < $HOME/code_samples_usage_target.txt`
                     diff -U $(( source_length > target_length ? source_length : target_length )) $HOME/code_samples_usage_target.txt $HOME/code_samples_usage_source.txt
-                    diff $HOME/code_samples_usage_target.txt $HOME/code_samples_usage_source.txt > $HOME/code_samples_usage.diff
+                    diff -U $(( source_length > target_length ? source_length : target_length )) $HOME/code_samples_usage_target.txt $HOME/code_samples_usage_source.txt > $HOME/code_samples_usage.diff
                     cat $HOME/code_samples_usage.diff
                     echo '<!--diff2html-diff-->' > $HOME/diff2html.html
                     diff2html -f html -s side --hwt $HOME/diff2html.html -o stdout -i file -- $HOME/code_samples_usage.diff > $HOME/code_samples_usage.diff.html
