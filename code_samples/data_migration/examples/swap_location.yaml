@@ -1,0 +1,9 @@
+-
+    type: location
+    mode: swap
+    match1:
+        field: location_remote_id
+        value: f3e90596361e31d496d4026eb624c983
+    match2:
+        field: location_id
+        value: 5
