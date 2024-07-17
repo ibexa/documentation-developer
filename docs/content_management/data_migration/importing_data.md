@@ -173,6 +173,19 @@ Built-in expression language functions that are tagged with `ibexa.migrations.te
                     value: '###XXX project_dir() XXX###'
 ```
 
+- `ibexa.migrations.template.env` - retrieves the value of an environmental variable.
+
+```yaml
+                -
+                    type: user
+                    mode: update
+                    match:
+                        field: login
+                        value: admin
+                    metadata:
+                        password: '###XXX env("ADMIN_PASSWORD") XXX###'
+```
+
 #### Custom functions
 
 To add custom functionality into Migration's expression language declare it as a service
