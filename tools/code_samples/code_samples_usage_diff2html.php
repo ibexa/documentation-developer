@@ -10,7 +10,6 @@
  */
 
 $diffFile = $argv[1];
-echo "?? $diffFile !!";
 
 $diffFileContents = file($diffFile, FILE_IGNORE_NEW_LINES);
 
@@ -18,8 +17,8 @@ $diffFileContents = file($diffFile, FILE_IGNORE_NEW_LINES);
 echo '<table>';
 echo '<thead>';
 echo '<tr>';
-echo '<th scope="col">Before on target branch</th>';
-echo '<th scope="col">After in current PR</th>';
+echo '<th scope="col">Before (on target branch)</th>';
+echo '<th scope="col">After (in current PR)</th>';
 echo '</tr>';
 echo '</thead>';
 echo '<tbody>';
