@@ -3,7 +3,7 @@
 if (1 < $argc) {
     $codeSampleFileList = array_slice($argv, 1);
     foreach ($codeSampleFileList as $codeSampleFile) {
-        echo "\n## $codeSampleFile ##\n\n";
+        echo "\n$codeSampleFile\n\n";
         $includingFileList = getIncludingFileList($codeSampleFile);
         foreach($includingFileList as $includingFile) {
             $blocks = getInclusionBlocks($includingFile, $codeSampleFile);
