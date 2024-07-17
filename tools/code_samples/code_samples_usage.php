@@ -168,7 +168,7 @@ function getBlockContents(array $block): array {
                 } else {
                     $sample = array_slice($includedFilesLines[$includedFilePath], (int)$matches['start'][$matchIndex], (int)$matches['end'][$matchIndex] - (int)$matches['start'][$matchIndex]);
                 }
-                $solvedLine = str_replace($matchString, implode( PHP_EOL.$matches['glue'][$matchIndex], $sample), $solvedLine);
+                $solvedLine = str_replace($matchString, implode( PHP_EOL.$matches['glue'][$matchIndex], $sample).PHP_EOL, $solvedLine);
             }
             $zeroBasedBlockCodeLines = array_merge($zeroBasedBlockCodeLines, explode(PHP_EOL, $solvedLine));
         } elseif (!str_contains($blockSourceLine, '```')) {
