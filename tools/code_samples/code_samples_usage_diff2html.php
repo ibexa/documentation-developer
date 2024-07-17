@@ -32,7 +32,6 @@ foreach ($diffFileContents as $diffLineIndex => $diffLine) {
         // Skip metadata
         continue;
     }
-    $diffLine = str_replace('`', '\`', $diffLine);
     $statusChar = strlen($diffLine) ? $diffLine[0] : '';
     $realLine = $str = substr($diffLine, 1);
     if ($previousStatusChar !== $statusChar) {
