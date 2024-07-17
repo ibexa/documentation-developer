@@ -19462,6 +19462,17 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-19-0-1" type="checkbox" id="nav-1-19-0-1" >
         <label class="md-nav__link level-3" for="nav-1-19-0-1">
                             <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderConfiguratorInterface.html" title="ProviderConfiguratorInterface">
+                            ProviderConfiguratorInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-19-0-2" type="checkbox" id="nav-1-19-0-2" >
+        <label class="md-nav__link level-3" for="nav-1-19-0-2">
+                            <img src="./images/file.svg" alt="file.svg" />
                                         <a href="classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderService.html" title="ProviderService">
                             ProviderService
                             </a>
@@ -36111,7 +36122,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentMethod/Query/Criterion/Name.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentMethod/Query/Criterion/Name.php">Name.php</abbr>
                 :
-        <span title="at line 14">14</span>
+        <span title="at line 27">27</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
                         <div class="content-header__subheader">
@@ -36123,9 +36134,33 @@
                                     <a href="classes/Ibexa-Contracts-Payment-PaymentMethod-Query-CriterionInterface.html"><abbr title="\Ibexa\Contracts\Payment\PaymentMethod\Query\CriterionInterface">CriterionInterface</abbr></a>                            </div>
         
                 </div>
-    
+        <p>Criterion for filtering payment methods by name.</p>
 
-                    
+    <section class="phpdocumentor-description">
+        <p>The following example requests the payment methods named 'PayPal':</p>
+<pre class="prettyprint"><code class="prettyprint">$query = new PaymentMethodQuery();
+$query-&gt;setQuery(new Name('PayPal'));
+
+$paymentMethods = $paymentMethodService-&gt;findPaymentMethods($query);
+</code></pre>
+
+    </section>
+
+                                                            
+    <h5 class="phpdocumentor-tag-list__heading">
+        Tags
+        <a href="classes/Ibexa-Contracts-Payment-PaymentMethod-Query-Criterion-Name.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                                                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">See</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Payment-PaymentMethodServiceInterface.html#method_findPaymentMethods"><abbr title="\Ibexa\Contracts\Payment\PaymentMethodServiceInterface::findPaymentMethods()">PaymentMethodServiceInterface::findPaymentMethods()</abbr></a></span>
+                                                                 
+                                    </dd>
+                                                                                    </dl>
 
 
 
@@ -36525,7 +36560,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentMethod/Query/Criterion/Name.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentMethod/Query/Criterion/Name.php">Name.php</abbr>
                 :
-        <span title="at line 16">16</span>
+        <span title="at line 45">45</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -36541,7 +36576,7 @@
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$operator</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">FieldValueCriterion::COMPARISON_EQ</span><span> ]</span></span><span>)</span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string|array&lt;int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$operator</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">FieldValueCriterion::COMPARISON_EQ</span><span> ]</span></span><span>)</span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -36566,13 +36601,17 @@
                         $value
                     </td>
                     <td>
-                        mixed
+                        string|array&lt;int, string&gt;
                     </td>
                     <td class="empty">
                                                     -
                                             </td>
-                    <td class="empty">
-                                                    -
+                    <td>
+                                                        <section class="phpdocumentor-description">
+        <p>Payment method name.</p>
+
+    </section>
+
                                             </td>
                 </tr>
                             <tr>
@@ -36585,8 +36624,38 @@
                     <td>
                                                                                     FieldValueCriterion::COMPARISON_EQ
                                                                         </td>
-                    <td class="empty">
-                                                    -
+                    <td>
+                                                        <section class="phpdocumentor-description">
+        <p>Comparison operator. &quot;Equal&quot; by default if not given. It can be one of the following:</p>
+<ul>
+<li>
+<a href="classes/Ibexa-Contracts-ProductCatalog-Values-Common-Query-Criterion-FieldValueCriterion.html#constant_COMPARISON_EQ"><abbr title="\Ibexa\Contracts\ProductCatalog\Values\Common\Query\Criterion\FieldValueCriterion::COMPARISON_EQ">FieldValueCriterion::COMPARISON_EQ</abbr></a> (&quot;Equal&quot;, default),</li>
+<li>
+<a href="classes/Ibexa-Contracts-ProductCatalog-Values-Common-Query-Criterion-FieldValueCriterion.html#constant_COMPARISON_NEQ"><abbr title="\Ibexa\Contracts\ProductCatalog\Values\Common\Query\Criterion\FieldValueCriterion::COMPARISON_NEQ">FieldValueCriterion::COMPARISON_NEQ</abbr></a> (&quot;Not equal&quot;),</li>
+<li>
+<a href="classes/Ibexa-Contracts-ProductCatalog-Values-Common-Query-Criterion-FieldValueCriterion.html#constant_COMPARISON_LT"><abbr title="\Ibexa\Contracts\ProductCatalog\Values\Common\Query\Criterion\FieldValueCriterion::COMPARISON_LT">FieldValueCriterion::COMPARISON_LT</abbr></a> (&quot;Less than&quot;),</li>
+<li>
+<a href="classes/Ibexa-Contracts-ProductCatalog-Values-Common-Query-Criterion-FieldValueCriterion.html#constant_COMPARISON_LTE"><abbr title="\Ibexa\Contracts\ProductCatalog\Values\Common\Query\Criterion\FieldValueCriterion::COMPARISON_LTE">FieldValueCriterion::COMPARISON_LTE</abbr></a> (&quot;Less than or equal&quot;),</li>
+<li>
+<a href="classes/Ibexa-Contracts-ProductCatalog-Values-Common-Query-Criterion-FieldValueCriterion.html#constant_COMPARISON_GT"><abbr title="\Ibexa\Contracts\ProductCatalog\Values\Common\Query\Criterion\FieldValueCriterion::COMPARISON_GT">FieldValueCriterion::COMPARISON_GT</abbr></a> (&quot;Greater than&quot;),</li>
+<li>
+<a href="classes/Ibexa-Contracts-ProductCatalog-Values-Common-Query-Criterion-FieldValueCriterion.html#constant_COMPARISON_GTE"><abbr title="\Ibexa\Contracts\ProductCatalog\Values\Common\Query\Criterion\FieldValueCriterion::COMPARISON_GTE">FieldValueCriterion::COMPARISON_GTE</abbr></a> (&quot;Greater than or equal&quot;),</li>
+<li>
+<a href="classes/Ibexa-Contracts-ProductCatalog-Values-Common-Query-Criterion-FieldValueCriterion.html#constant_COMPARISON_IN"><abbr title="\Ibexa\Contracts\ProductCatalog\Values\Common\Query\Criterion\FieldValueCriterion::COMPARISON_IN">FieldValueCriterion::COMPARISON_IN</abbr></a> (&quot;In&quot; with an array),</li>
+<li>
+<a href="classes/Ibexa-Contracts-ProductCatalog-Values-Common-Query-Criterion-FieldValueCriterion.html#constant_COMPARISON_NIN"><abbr title="\Ibexa\Contracts\ProductCatalog\Values\Common\Query\Criterion\FieldValueCriterion::COMPARISON_NIN">FieldValueCriterion::COMPARISON_NIN</abbr></a> (&quot;Not in&quot;),</li>
+<li>
+<a href="classes/Ibexa-Contracts-ProductCatalog-Values-Common-Query-Criterion-FieldValueCriterion.html#constant_COMPARISON_CONTAINS"><abbr title="\Ibexa\Contracts\ProductCatalog\Values\Common\Query\Criterion\FieldValueCriterion::COMPARISON_CONTAINS">FieldValueCriterion::COMPARISON_CONTAINS</abbr></a>,</li>
+<li>
+<a href="classes/Ibexa-Contracts-ProductCatalog-Values-Common-Query-Criterion-FieldValueCriterion.html#constant_COMPARISON_MEMBER_OF"><abbr title="\Ibexa\Contracts\ProductCatalog\Values\Common\Query\Criterion\FieldValueCriterion::COMPARISON_MEMBER_OF">FieldValueCriterion::COMPARISON_MEMBER_OF</abbr></a>,</li>
+<li>
+<a href="classes/Ibexa-Contracts-ProductCatalog-Values-Common-Query-Criterion-FieldValueCriterion.html#constant_COMPARISON_STARTS_WITH"><abbr title="\Ibexa\Contracts\ProductCatalog\Values\Common\Query\Criterion\FieldValueCriterion::COMPARISON_STARTS_WITH">FieldValueCriterion::COMPARISON_STARTS_WITH</abbr></a>,</li>
+<li>
+<a href="classes/Ibexa-Contracts-ProductCatalog-Values-Common-Query-Criterion-FieldValueCriterion.html#constant_COMPARISON_ENDS_WITH"><abbr title="\Ibexa\Contracts\ProductCatalog\Values\Common\Query\Criterion\FieldValueCriterion::COMPARISON_ENDS_WITH">FieldValueCriterion::COMPARISON_ENDS_WITH</abbr></a>.</li>
+</ul>
+
+    </section>
+
                                             </td>
                 </tr>
                     </tbody>

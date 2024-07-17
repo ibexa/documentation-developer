@@ -19462,6 +19462,17 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-19-0-1" type="checkbox" id="nav-1-19-0-1" >
         <label class="md-nav__link level-3" for="nav-1-19-0-1">
                             <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderConfiguratorInterface.html" title="ProviderConfiguratorInterface">
+                            ProviderConfiguratorInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-19-0-2" type="checkbox" id="nav-1-19-0-2" >
+        <label class="md-nav__link level-3" for="nav-1-19-0-2">
+                            <img src="./images/file.svg" alt="file.svg" />
                                         <a href="classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderService.html" title="ProviderService">
                             ProviderService
                             </a>
@@ -36103,7 +36114,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentMethod/PaymentMethodUpdateStruct.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentMethod/PaymentMethodUpdateStruct.php">PaymentMethodUpdateStruct.php</abbr>
                 :
-        <span title="at line 14">14</span>
+        <span title="at line 27">27</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
                         <div class="content-header__subheader">
@@ -36112,17 +36123,33 @@
         
         
                 </div>
-        <p>The base class for all value objects and structs.</p>
+        <p>Structure containing data used to update a payment method.</p>
 
     <section class="phpdocumentor-description">
-        <p>Supports readonly properties by marking them as protected.
-In this case they will only be writable using constructor, and need to be documented
-using property-read <type> &lt;$var&gt; annotation in class doc in addition to inline property doc.
-Writable properties must be public and must be documented inline.</p>
+        <p>The following example updates a payment method name to &quot;Updated name&quot;:</p>
+<pre class="prettyprint"><code class="prettyprint">$updateStruct = new PaymentMethodUpdateStruct();
+$updateStruct-&gt;setName('eng-GB', 'Updated name');
+
+$paymentMethod = $paymentMethodService-&gt;updatePaymentMethod($paymentMethod, $updateStruct);
+</code></pre>
 
     </section>
 
-                    
+                                                            
+    <h5 class="phpdocumentor-tag-list__heading">
+        Tags
+        <a href="classes/Ibexa-Contracts-Payment-PaymentMethod-PaymentMethodUpdateStruct.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                                                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">See</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Payment-PaymentMethodServiceInterface.html#method_updatePaymentMethod"><abbr title="\Ibexa\Contracts\Payment\PaymentMethodServiceInterface::updatePaymentMethod()">PaymentMethodServiceInterface::updatePaymentMethod()</abbr></a></span>
+                                                                 
+                                    </dd>
+                                                                                    </dl>
 
 
 
@@ -36214,10 +36241,11 @@ after object has been created.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentMethod/PaymentMethodUpdateStruct.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentMethod/PaymentMethodUpdateStruct.php">PaymentMethodUpdateStruct.php</abbr>
                 :
-        <span title="at line 58">58</span>
+        <span title="at line 83">83</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Returns updated descriptions or null if the payment method descriptions should not be updated.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36250,10 +36278,11 @@ after object has been created.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentMethod/PaymentMethodUpdateStruct.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentMethod/PaymentMethodUpdateStruct.php">PaymentMethodUpdateStruct.php</abbr>
                 :
-        <span title="at line 29">29</span>
+        <span title="at line 45">45</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Returns updated identifier or null if the identifier should not be updated.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36286,10 +36315,11 @@ after object has been created.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentMethod/PaymentMethodUpdateStruct.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentMethod/PaymentMethodUpdateStruct.php">PaymentMethodUpdateStruct.php</abbr>
                 :
-        <span title="at line 42">42</span>
+        <span title="at line 63">63</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Returns updated names or null if the payment method names should not be updated.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36322,10 +36352,11 @@ after object has been created.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentMethod/PaymentMethodUpdateStruct.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentMethod/PaymentMethodUpdateStruct.php">PaymentMethodUpdateStruct.php</abbr>
                 :
-        <span title="at line 84">84</span>
+        <span title="at line 119">119</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Returns updated options or null if the payment method options should not be updated.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36358,10 +36389,11 @@ after object has been created.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentMethod/PaymentMethodUpdateStruct.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentMethod/PaymentMethodUpdateStruct.php">PaymentMethodUpdateStruct.php</abbr>
                 :
-        <span title="at line 71">71</span>
+        <span title="at line 101">101</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Returns updated enabled status or null if the enabled status should not be updated.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36394,10 +36426,11 @@ after object has been created.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentMethod/PaymentMethodUpdateStruct.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentMethod/PaymentMethodUpdateStruct.php">PaymentMethodUpdateStruct.php</abbr>
                 :
-        <span title="at line 66">66</span>
+        <span title="at line 93">93</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Set new descriptions for the payment methods.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36455,10 +36488,11 @@ after object has been created.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentMethod/PaymentMethodUpdateStruct.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentMethod/PaymentMethodUpdateStruct.php">PaymentMethodUpdateStruct.php</abbr>
                 :
-        <span title="at line 76">76</span>
+        <span title="at line 109">109</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Sets new enabled status for the payment method.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36516,10 +36550,11 @@ after object has been created.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentMethod/PaymentMethodUpdateStruct.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentMethod/PaymentMethodUpdateStruct.php">PaymentMethodUpdateStruct.php</abbr>
                 :
-        <span title="at line 34">34</span>
+        <span title="at line 53">53</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Sets new identifier for the payment method.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36577,10 +36612,11 @@ after object has been created.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentMethod/PaymentMethodUpdateStruct.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentMethod/PaymentMethodUpdateStruct.php">PaymentMethodUpdateStruct.php</abbr>
                 :
-        <span title="at line 50">50</span>
+        <span title="at line 73">73</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Sets new names for the payment methods.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36638,10 +36674,11 @@ after object has been created.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentMethod/PaymentMethodUpdateStruct.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentMethod/PaymentMethodUpdateStruct.php">PaymentMethodUpdateStruct.php</abbr>
                 :
-        <span title="at line 92">92</span>
+        <span title="at line 129">129</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Sets new options for the payment method.</p>
 
 <div class="highlight">
     <table class="highlighttable">

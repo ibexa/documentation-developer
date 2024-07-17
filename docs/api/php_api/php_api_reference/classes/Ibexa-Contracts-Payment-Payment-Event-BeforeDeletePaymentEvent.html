@@ -19462,6 +19462,17 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-19-0-1" type="checkbox" id="nav-1-19-0-1" >
         <label class="md-nav__link level-3" for="nav-1-19-0-1">
                             <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderConfiguratorInterface.html" title="ProviderConfiguratorInterface">
+                            ProviderConfiguratorInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-19-0-2" type="checkbox" id="nav-1-19-0-2" >
+        <label class="md-nav__link level-3" for="nav-1-19-0-2">
+                            <img src="./images/file.svg" alt="file.svg" />
                                         <a href="classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderService.html" title="ProviderService">
                             ProviderService
                             </a>
@@ -36107,7 +36118,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/Payment/Event/BeforeDeletePaymentEvent.php">
         <abbr title="vendor/ibexa/payment/src/contracts/Payment/Event/BeforeDeletePaymentEvent.php">BeforeDeletePaymentEvent.php</abbr>
                 :
-        <span title="at line 14">14</span>
+        <span title="at line 69">69</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
                         <div class="content-header__subheader">
@@ -36116,10 +36127,70 @@
         
         
                 </div>
-        <p>Event emitted before action execution.</p>
+        <p>Event that is dispatched before a payment is deleted.</p>
 
+    <section class="phpdocumentor-description">
+        <p>Typical use cases are to prevent deletion of payment or to perform some action before deletion. See the two examples below.</p>
+<p>The following first example prevents deletion of any payment:</p>
+<pre class="prettyprint"><code class="prettyprint">final class PaymentEventSubscriber implements EventSubscriberInterface
+{
+    public static function getSubscribedEvents(): array
+    {
+        return [
+            BeforeDeletePaymentEvent::class =&gt; 'onBeforeDeletePayment',
+       ];
+    }
 
-                    
+    public function onBeforeDeletePayment(BeforeDeletePaymentEvent $event): void
+    {
+        // Prevent deletion of payment
+        $event-&gt;stopPropagation();
+    }
+}
+</code></pre>
+<p>The second example logs a warning about the payment just before its deletion:</p>
+<pre class="prettyprint"><code class="prettyprint">final class PaymentEventSubscriber implements EventSubscriberInterface
+{
+    private function __construct(private LoggerInterface $logger)
+    {
+    }
+
+    public static function getSubscribedEvents(): array
+    {
+        return [
+            BeforeDeletePaymentEvent::class =&gt; 'onBeforeDeletePayment',
+       ];
+    }
+
+    public function onBeforeDeletePayment(BeforeDeletePaymentEvent $event): void
+    {
+        $this-&gt;logger-&gt;warning(
+             'Payment {identifier} has been deleted',
+             [
+                 'name' =&gt; $event-&gt;getPayment()-&gt;getIdentifier(),
+             ]
+        );
+    }
+}
+</code></pre>
+
+    </section>
+
+                                                            
+    <h5 class="phpdocumentor-tag-list__heading">
+        Tags
+        <a href="classes/Ibexa-Contracts-Payment-Payment-Event-BeforeDeletePaymentEvent.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                                                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">See</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Payment-PaymentServiceInterface.html#method_deletePayment"><abbr title="\Ibexa\Contracts\Payment\PaymentServiceInterface::deletePayment()">PaymentServiceInterface::deletePayment()</abbr></a></span>
+                                                                 
+                                    </dd>
+                                                                                    </dl>
 
 
 
@@ -36144,7 +36215,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/Payment/Event/BeforeDeletePaymentEvent.php">
         <abbr title="vendor/ibexa/payment/src/contracts/Payment/Event/BeforeDeletePaymentEvent.php">BeforeDeletePaymentEvent.php</abbr>
                 :
-        <span title="at line 18">18</span>
+        <span title="at line 73">73</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -36205,10 +36276,11 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/Payment/Event/BeforeDeletePaymentEvent.php">
         <abbr title="vendor/ibexa/payment/src/contracts/Payment/Event/BeforeDeletePaymentEvent.php">BeforeDeletePaymentEvent.php</abbr>
                 :
-        <span title="at line 23">23</span>
+        <span title="at line 81">81</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Returns the payment to be deleted.</p>
 
 <div class="highlight">
     <table class="highlighttable">

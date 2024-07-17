@@ -19462,6 +19462,17 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-19-0-1" type="checkbox" id="nav-1-19-0-1" >
         <label class="md-nav__link level-3" for="nav-1-19-0-1">
                             <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderConfiguratorInterface.html" title="ProviderConfiguratorInterface">
+                            ProviderConfiguratorInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-19-0-2" type="checkbox" id="nav-1-19-0-2" >
+        <label class="md-nav__link level-3" for="nav-1-19-0-2">
+                            <img src="./images/file.svg" alt="file.svg" />
                                         <a href="classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderService.html" title="ProviderService">
                             ProviderService
                             </a>
@@ -36099,11 +36110,12 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentServiceInterface.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentServiceInterface.php">PaymentServiceInterface.php</abbr>
                 :
-        <span title="at line 17">17</span>
+        <span title="at line 20">20</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
                     </div>
-    
+        <p>Service for managing payments.</p>
+
 
                             
 
@@ -36129,10 +36141,11 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentServiceInterface.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentServiceInterface.php">PaymentServiceInterface.php</abbr>
                 :
-        <span title="at line 38">38</span>
+        <span title="at line 54">54</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Creates a new payment.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36175,8 +36188,12 @@
                     <td class="empty">
                                                     -
                                             </td>
-                    <td class="empty">
-                                                    -
+                    <td>
+                                                        <section class="phpdocumentor-description">
+        <p>Struct with data needed to create a new payment.</p>
+
+    </section>
+
                                             </td>
                 </tr>
                     </tbody>
@@ -36195,21 +36212,33 @@
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-BadStateException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\BadStateException">BadStateException</abbr></a></span>
-                                                                                     
+                                                                                         <section class="phpdocumentor-description">
+        <p>If there is no valid initial workflow state for a payment.</p>
+
+    </section>
+
                                     </dd>
                             <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">Throws</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-UnauthorizedException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException">UnauthorizedException</abbr></a></span>
-                                                                                     
+                                                                                         <section class="phpdocumentor-description">
+        <p>If the current user does not have access to the payment.</p>
+
+    </section>
+
                                     </dd>
                             <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">Throws</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Payment-Exception-ValidationFailedExceptionInterface.html"><abbr title="\Ibexa\Contracts\Payment\Exception\ValidationFailedExceptionInterface">ValidationFailedExceptionInterface</abbr></a></span>
-                                                                                     
+                                                                                         <section class="phpdocumentor-description">
+        <p>If the payment creation struct is invalid.</p>
+
+    </section>
+
                                     </dd>
                                                                                     </dl>
             <div class="content-header">
@@ -36220,10 +36249,11 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentServiceInterface.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentServiceInterface.php">PaymentServiceInterface.php</abbr>
                 :
-        <span title="at line 50">50</span>
+        <span title="at line 70">70</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Deletes an existing payment.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36284,7 +36314,11 @@
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-UnauthorizedException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException">UnauthorizedException</abbr></a></span>
-                                                                                     
+                                                                                         <section class="phpdocumentor-description">
+        <p>If the current user does not have access to the payment.</p>
+
+    </section>
+
                                     </dd>
                                                                                     </dl>
             <div class="content-header">
@@ -36295,10 +36329,11 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentServiceInterface.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentServiceInterface.php">PaymentServiceInterface.php</abbr>
                 :
-        <span title="at line 31">31</span>
+        <span title="at line 43">43</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Returns payments matching the given query.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36341,8 +36376,12 @@
                     <td>
                                                                                     null
                                                                         </td>
-                    <td class="empty">
-                                                    -
+                    <td>
+                                                        <section class="phpdocumentor-description">
+        <p>Query used to fetch payments.</p>
+
+    </section>
+
                                             </td>
                 </tr>
                     </tbody>
@@ -36358,10 +36397,11 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentServiceInterface.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentServiceInterface.php">PaymentServiceInterface.php</abbr>
                 :
-        <span title="at line 23">23</span>
+        <span title="at line 28">28</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Returns payment with given id.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36424,14 +36464,22 @@
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-NotFoundException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException">NotFoundException</abbr></a></span>
-                                                                                     
+                                                                                         <section class="phpdocumentor-description">
+        <p>If payment with given id does not exist.</p>
+
+    </section>
+
                                     </dd>
                             <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">Throws</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-UnauthorizedException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException">UnauthorizedException</abbr></a></span>
-                                                                                     
+                                                                                         <section class="phpdocumentor-description">
+        <p>If the current user does not have access to the payment.</p>
+
+    </section>
+
                                     </dd>
                                                                                     </dl>
             <div class="content-header">
@@ -36442,10 +36490,11 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentServiceInterface.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentServiceInterface.php">PaymentServiceInterface.php</abbr>
                 :
-        <span title="at line 29">29</span>
+        <span title="at line 36">36</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Returns payment with given identifier.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36508,14 +36557,22 @@
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-NotFoundException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException">NotFoundException</abbr></a></span>
-                                                                                     
+                                                                                         <section class="phpdocumentor-description">
+        <p>If payment with given identifier does not exist.</p>
+
+    </section>
+
                                     </dd>
                             <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">Throws</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-UnauthorizedException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException">UnauthorizedException</abbr></a></span>
-                                                                                     
+                                                                                         <section class="phpdocumentor-description">
+        <p>If the current user does not have access to the payment.</p>
+
+    </section>
+
                                     </dd>
                                                                                     </dl>
             <div class="content-header">
@@ -36526,10 +36583,11 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentServiceInterface.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentServiceInterface.php">PaymentServiceInterface.php</abbr>
                 :
-        <span title="at line 45">45</span>
+        <span title="at line 63">63</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Updates an existing payment with given data.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36606,21 +36664,33 @@
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-BadStateException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\BadStateException">BadStateException</abbr></a></span>
-                                                                                     
+                                                                                         <section class="phpdocumentor-description">
+        <p>If the payment is not in a state that allows updating.</p>
+
+    </section>
+
                                     </dd>
                             <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">Throws</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-UnauthorizedException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\UnauthorizedException">UnauthorizedException</abbr></a></span>
-                                                                                     
+                                                                                         <section class="phpdocumentor-description">
+        <p>If the current user does not have access to the payment.</p>
+
+    </section>
+
                                     </dd>
                             <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">Throws</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Payment-Exception-ValidationFailedExceptionInterface.html"><abbr title="\Ibexa\Contracts\Payment\Exception\ValidationFailedExceptionInterface">ValidationFailedExceptionInterface</abbr></a></span>
-                                                                                     
+                                                                                         <section class="phpdocumentor-description">
+        <p>If the payment update struct is invalid.</p>
+
+    </section>
+
                                     </dd>
                                                                                     </dl>
                             </div>

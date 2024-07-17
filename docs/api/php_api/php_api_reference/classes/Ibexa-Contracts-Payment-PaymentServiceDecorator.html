@@ -19462,6 +19462,17 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-19-0-1" type="checkbox" id="nav-1-19-0-1" >
         <label class="md-nav__link level-3" for="nav-1-19-0-1">
                             <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderConfiguratorInterface.html" title="ProviderConfiguratorInterface">
+                            ProviderConfiguratorInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-19-0-2" type="checkbox" id="nav-1-19-0-2" >
+        <label class="md-nav__link level-3" for="nav-1-19-0-2">
+                            <img src="./images/file.svg" alt="file.svg" />
                                         <a href="classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderService.html" title="ProviderService">
                             ProviderService
                             </a>
@@ -36099,7 +36110,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentServiceDecorator.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentServiceDecorator.php">PaymentServiceDecorator.php</abbr>
                 :
-        <span title="at line 17">17</span>
+        <span title="at line 42">42</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
             
@@ -36108,9 +36119,27 @@
                                     <a href="classes/Ibexa-Contracts-Payment-PaymentServiceInterface.html"><abbr title="\Ibexa\Contracts\Payment\PaymentServiceInterface">PaymentServiceInterface</abbr></a>                            </div>
         
                 </div>
-    
+        <p>Base class for PaymentServiceInterface decorators.</p>
 
-                    
+    <section class="phpdocumentor-description">
+        <p>Example implementation:</p>
+<pre class="prettyprint"><code class="prettyprint">final class MyPaymentServiceDecorator extends PaymentServiceDecorator
+{
+    public function createPayment(PaymentCreateStruct $createStruct): PaymentInterface
+    {
+        // Customize method behavior here
+    }
+}
+</code></pre>
+<p>and relevant service definition:</p>
+<pre class="prettyprint"><code class="prettyprint">services:
+  App\Payment\MyPaymentServiceDecorator:
+      decorates: Ibexa\Contracts\Payment\PaymentServiceInterface
+</code></pre>
+
+    </section>
+
+                                        
 
 
 
@@ -36136,7 +36165,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentServiceDecorator.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentServiceDecorator.php">PaymentServiceDecorator.php</abbr>
                 :
-        <span title="at line 19">19</span>
+        <span title="at line 44">44</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -36174,7 +36203,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentServiceDecorator.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentServiceDecorator.php">PaymentServiceDecorator.php</abbr>
                 :
-        <span title="at line 21">21</span>
+        <span title="at line 46">46</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -36235,10 +36264,11 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentServiceDecorator.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentServiceDecorator.php">PaymentServiceDecorator.php</abbr>
                 :
-        <span title="at line 41">41</span>
+        <span title="at line 66">66</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Creates a new payment.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36281,8 +36311,12 @@
                     <td class="empty">
                                                     -
                                             </td>
-                    <td class="empty">
-                                                    -
+                    <td>
+                                                        <section class="phpdocumentor-description">
+        <p>Struct with data needed to create a new payment.</p>
+
+    </section>
+
                                             </td>
                 </tr>
                     </tbody>
@@ -36298,10 +36332,11 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentServiceDecorator.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentServiceDecorator.php">PaymentServiceDecorator.php</abbr>
                 :
-        <span title="at line 51">51</span>
+        <span title="at line 76">76</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Deletes an existing payment.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36359,10 +36394,11 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentServiceDecorator.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentServiceDecorator.php">PaymentServiceDecorator.php</abbr>
                 :
-        <span title="at line 36">36</span>
+        <span title="at line 61">61</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Returns payments matching the given query.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36405,8 +36441,12 @@
                     <td>
                                                                                     null
                                                                         </td>
-                    <td class="empty">
-                                                    -
+                    <td>
+                                                        <section class="phpdocumentor-description">
+        <p>Query used to fetch payments.</p>
+
+    </section>
+
                                             </td>
                 </tr>
                     </tbody>
@@ -36422,10 +36462,11 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentServiceDecorator.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentServiceDecorator.php">PaymentServiceDecorator.php</abbr>
                 :
-        <span title="at line 26">26</span>
+        <span title="at line 51">51</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Returns payment with given id.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36485,10 +36526,11 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentServiceDecorator.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentServiceDecorator.php">PaymentServiceDecorator.php</abbr>
                 :
-        <span title="at line 31">31</span>
+        <span title="at line 56">56</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Returns payment with given identifier.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36548,10 +36590,11 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentServiceDecorator.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentServiceDecorator.php">PaymentServiceDecorator.php</abbr>
                 :
-        <span title="at line 46">46</span>
+        <span title="at line 71">71</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Updates an existing payment with given data.</p>
 
 <div class="highlight">
     <table class="highlighttable">
