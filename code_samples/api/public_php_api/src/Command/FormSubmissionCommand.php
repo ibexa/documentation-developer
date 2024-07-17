@@ -58,7 +58,7 @@ final class FormSubmissionCommand extends Command
         foreach ($submissions as $sub) {
             $output->write($sub->getId() . '. submitted on ');
             $output->write($sub->getCreated()->format('Y-m-d H:i:s') . ' by ');
-            $output->writeln($this->userService->loadUser($sub->getUserId())->getName());
+            $output->writeln((string) $this->userService->loadUser($sub->getUserId())->getName());
             foreach ($sub->getValues() as $value) {
                 $output->writeln('- ' . $value->getIdentifier() . ': ' . $value->getDisplayValue());
             }

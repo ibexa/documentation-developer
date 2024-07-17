@@ -3,23 +3,69 @@
     "description": "This repository is the source for the developer documentation for eZ Platform, an open source CMS based on the Symfony Full Stack Framework in PHP.",
     "type": "library",
     "license": "GNU General Public License v2.0",
-    "autoload": {
-        "psr-4": {
-            "EzSystems\\DeveloperDocumentation\\Test\\": "tests/src/"
+    "autoload-dev": {
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://updates.ibexa.co"
         }
-    },
-    "require": {
-        "behat/behat": "^3.4.3",
-        "ezsystems/ezplatform-content-forms": "^1.0@dev",
-        "symfony/property-access": "^5.0"
-    },
+    ],
     "require-dev": {
         "ibexa/code-style": "^1.0",
-        "friendsofphp/php-cs-fixer": "^3.30"
+        "friendsofphp/php-cs-fixer": "^3.30",
+        "phpstan/phpstan": "^1.10",
+        "phpstan/phpstan-symfony": "^1.3",
+        "ibexa/doctrine-schema": "5.0.x-dev",
+        "ibexa/search": "5.0.x-dev",
+        "ibexa/content-forms": "5.0.x-dev",
+        "ibexa/design-engine": "5.0.x-dev",
+        "ibexa/user": "5.0.x-dev",
+        "ibexa/notifications": "5.0.x-dev",
+        "ibexa/fieldtype-richtext": "5.0.x-dev",
+        "ibexa/rest": "5.0.x-dev",
+        "ibexa/http-cache": "5.0.x-dev",
+        "ibexa/core-persistence": "5.0.x-dev",
+        "ibexa/migrations": "5.0.x-dev",
+        "ibexa/icons": "5.0.x-dev",
+        "ibexa/cart": "5.0.x-dev",
+        "ibexa/installer": "5.0.x-dev",
+        "ibexa/product-catalog": "5.0.x-dev",
+        "ibexa/graphql": "5.0.x-dev",
+        "ibexa/personalization": "5.0.x-dev",
+        "ibexa/taxonomy": "5.0.x-dev",
+        "ibexa/scheduler": "5.0.x-dev",
+        "ibexa/cron": "5.0.x-dev",
+        "ibexa/dashboard": "5.0.x-dev",
+        "ibexa/corporate-account": "5.0.x-dev",
+        "ibexa/fieldtype-address": "5.0.x-dev",
+        "ibexa/segmentation": "5.0.x-dev",
+        "ibexa/fieldtype-page": "5.0.x-dev",
+        "ibexa/page-builder": "5.0.x-dev",
+        "ibexa/order-management": "5.0.x-dev",
+        "ibexa/calendar": "5.0.x-dev",
+        "ibexa/payment": "5.0.x-dev",
+        "ibexa/shipping": "5.0.x-dev",
+        "ibexa/fieldtype-matrix": "5.0.x-dev",
+        "ibexa/storefront": "5.0.x-dev",
+        "ibexa/seo": "5.0.x-dev",
+        "ibexa/core": "5.0.x-dev",
+        "ibexa/admin-ui": "5.0.x-dev",
+        "ibexa/activity-log": "5.0.x-dev",
+        "ibexa/workflow": "5.0.x-dev",
+        "ibexa/checkout": "5.0.x-dev",
+        "ibexa/oauth2-server": "5.0.x-dev",
+        "ibexa/elasticsearch": "5.0.x-dev",
+        "ibexa/oauth2-client": "5.0.x-dev",
+        "ibexa/form-builder": "5.0.x-dev",
+        "ibexa/solr": "5.0.x-dev",
+        "ibexa/version-comparison": "5.0.x-dev",
+        "league/oauth2-google": "^4.0"
     },
     "scripts": {
         "fix-cs": "php-cs-fixer fix --config=.php-cs-fixer.php -v --show-progress=dots",
-        "check-cs": "@fix-cs --dry-run"
+        "check-cs": "@fix-cs --dry-run",
+        "phpstan": "phpstan analyse"
     },
     "config": {
         "allow-plugins": false

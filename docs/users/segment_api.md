@@ -15,10 +15,10 @@ To load a Segment Group, use `SegmentationService::loadSegmentGroupByIdentifier(
 Get all Segments assigned to the group with `SegmentationService::loadSegmentsAssignedToGroup()`:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 53, 60) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 54, 62) =]]
 ```
 
-Similarly, you can load a Segment in a group by using `SegmentationService::loadSegmentIdentifier()`:
+Similarly, you can load a Segment by using `SegmentationService::loadSegmentByIdentifier()`:
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 62, 63) =]]
@@ -29,7 +29,7 @@ Similarly, you can load a Segment in a group by using `SegmentationService::load
 You can check whether a User is assigned to a Segment with `SegmentationService::isUserAssignedToSegment()`:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 65, 69) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 66, 71) =]]
 ```
 
 ## Assigning Users
@@ -37,7 +37,7 @@ You can check whether a User is assigned to a Segment with `SegmentationService:
 To assign a User to a Segment, use `SegmentationService::assignUserToSegment()`:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 64, 66) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 64, 65) =]]
 ```
 
 ## Creating Segments
@@ -48,14 +48,14 @@ To create a Segment Group, use `SegmentationService::createSegmentGroup()`
 and provide it with a `SegmentGroupCreateStruct`:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 37, 44) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 38, 45) =]]
 ```
 
 To add a Segment, use `SegmentationService::createSegment()`
 and provide it with a `SegmentCreateStruct`, which takes an existing group as one of the parameters:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 45, 52) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 46, 53) =]]
 ```
 
 ## Updating Segments
