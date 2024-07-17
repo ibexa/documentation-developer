@@ -125,7 +125,7 @@ Get the availability object with `getAvailability()`.
 You can then use `ProductAvailabilityServiceInterface::getStock` to get the stock number for the product:
 
 ```php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 105, 109) =]]        }
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 104, 109) =]]        }
 ```
 
 To change availability for a product, use `updateProductAvailability()` with a `ProductAvailabilityUpdateStruct`
