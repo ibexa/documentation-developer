@@ -43,7 +43,7 @@ foreach ($diffFileContents as $diffLineIndex => $diffLine) {
             case '-':
             case '+ ':
             case '- ':
-                echo "<td>$leftTargetBlock</td><td>$rightSourceBlock</td>";
+                echo "<td><pre>$leftTargetBlock</pre></td><td><pre>$rightSourceBlock</pre></td>";
                 $leftTargetBlock = '';
                 $rightSourceBlock = '';
                 echo '</tr><tr>';
