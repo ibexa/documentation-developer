@@ -159,7 +159,7 @@ jobs:
                     echo '# code_samples/ change report' >> code_samples_usage.diff.md
                     echo '' >> code_samples_usage.diff.md
                     php tools/code_samples/code_samples_usage_diff2html.php $HOME/code_samples_usage.diff >> code_samples_usage.diff.md
-                    echo ${{ steps.artifact.outputs.artifact-url }} >> code_samples_usage.diff.md
+                    echo '<a href="${{ steps.artifact.outputs.artifact-url }}">Download colorized diff</a>' >> code_samples_usage.diff.md
             -   name: Find Comment
                 uses: peter-evans/find-comment@v3
                 id: find-comment
