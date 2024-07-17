@@ -72,10 +72,7 @@ foreach ($diffFileContents as $diffLineIndex => $diffLine) {
     }
     $previousStatusChar = $statusChar;
 }
-
-echo "<td>$leftTargetBlock</td><td>$rightSourceBlock</td>";
-$leftTargetBlock = '';
-$rightSourceBlock = '';
+echo "<td><pre>$leftTargetBlock</pre></td><td><pre>$rightSourceBlock</pre></td>";
 
 echo '</tr>';
 echo '</tbody>';
