@@ -158,7 +158,6 @@ jobs:
                 run: |
                     echo '# code_samples/ change report' >> code_samples_usage.diff.md
                     echo '' >> code_samples_usage.diff.md
-                    php tools/code_samples/code_samples_usage_diff2html.php $HOME/code_samples_usage.diff
                     php tools/code_samples/code_samples_usage_diff2html.php $HOME/code_samples_usage.diff >> code_samples_usage.diff.md
                     echo ${{ steps.artifact.outputs.artifact-url }} >> code_samples_usage.diff.md
             -   name: Find Comment
