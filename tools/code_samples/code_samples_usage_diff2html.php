@@ -59,14 +59,14 @@ foreach ($diffFileContents as $diffLineIndex => $diffLine) {
     switch ($statusChar) {
         case '':
         case ' ':
-            $leftTargetBlock .= "<pre>$realLine</pre><br>";
-            $rightSourceBlock .= "<pre>$realLine</pre><br>";
+            $leftTargetBlock .= "<pre>$realLine</pre>";
+            $rightSourceBlock .= "<pre>$realLine</pre>";
             break;
         case '-':
-            $leftTargetBlock .= "<pre>$realLine</pre><br>";
+            $leftTargetBlock .= "<pre>$realLine</pre>";
             break;
         case '+':
-            $rightSourceBlock .= "<pre>$realLine</pre><br>";
+            $rightSourceBlock .= "<pre>$realLine</pre>";
             break;
         default:
             throw new \RuntimeException("Unknown leading status character: '$statusChar'");
