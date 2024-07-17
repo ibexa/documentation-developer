@@ -19,10 +19,10 @@ class TextAnchorMenuTabListener implements EventSubscriberInterface
         $menu = $event->getMenu();
 
         // if you need to access "Content" tab, use ITEM__CONTENT constant:
-        $menu[ContentEditAnchorMenuBuilder::ITEM__CONTENT];
+        $contentTab = $menu[ContentEditAnchorMenuBuilder::ITEM__CONTENT];
 
         // if you need to access "Meta" tab, use ITEM__META constant:
-        $menu[ContentEditAnchorMenuBuilder::ITEM__META];
+        $metaTab = $menu[ContentEditAnchorMenuBuilder::ITEM__META];
 
         // Adding new tab called "New tab"
         $menu->addChild('New tab', ['attributes' => ['data-target-id' => 'ibexa-edit-content-sections-new-tab']]);

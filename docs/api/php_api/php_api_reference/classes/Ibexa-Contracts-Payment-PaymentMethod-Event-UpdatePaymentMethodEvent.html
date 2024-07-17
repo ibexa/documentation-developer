@@ -19462,6 +19462,17 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-19-0-1" type="checkbox" id="nav-1-19-0-1" >
         <label class="md-nav__link level-3" for="nav-1-19-0-1">
                             <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderConfiguratorInterface.html" title="ProviderConfiguratorInterface">
+                            ProviderConfiguratorInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-19-0-2" type="checkbox" id="nav-1-19-0-2" >
+        <label class="md-nav__link level-3" for="nav-1-19-0-2">
+                            <img src="./images/file.svg" alt="file.svg" />
                                         <a href="classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderService.html" title="ProviderService">
                             ProviderService
                             </a>
@@ -36107,7 +36118,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentMethod/Event/UpdatePaymentMethodEvent.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentMethod/Event/UpdatePaymentMethodEvent.php">UpdatePaymentMethodEvent.php</abbr>
                 :
-        <span title="at line 15">15</span>
+        <span title="at line 49">49</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
                         <div class="content-header__subheader">
@@ -36116,8 +36127,39 @@
         
         
                 </div>
-        <p>Event emitted after action execution.</p>
+        <p>Event dispatched after a payment method is updated.</p>
 
+    <section class="phpdocumentor-description">
+        <p>Typical use case is to perform some action after payment method is updated (e.g. logging, cache purge, reindexing, etc.)</p>
+<p>The following example log the update of the payment method:</p>
+<pre class="prettyprint"><code class="prettyprint">final class PaymentMethodEventSubscriber implements EventSubscriberInterface
+{
+   private function __construct(private LoggerInterface $logger)
+   {
+   }
+
+   public static function getSubscribedEvents(): array
+   {
+       return [
+           UpdatePaymentMethodEvent::class =&gt; 'onUpdatePaymentMethod',
+       ];
+    }
+
+   public function onUpdatePaymentMethod(UpdatePaymentMethodEvent $event): void
+   {
+       $paymentMethod = $event-&gt;getPaymentMethodResult();
+
+       $this-&gt;logger-&gt;info(
+           'Payment method {name} has been updated',
+           [
+               'name' =&gt; $paymentMethod-&gt;getName()
+           ]
+       );
+   }
+}
+</code></pre>
+
+    </section>
 
                     
 
@@ -36144,7 +36186,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentMethod/Event/UpdatePaymentMethodEvent.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentMethod/Event/UpdatePaymentMethodEvent.php">UpdatePaymentMethodEvent.php</abbr>
                 :
-        <span title="at line 23">23</span>
+        <span title="at line 57">57</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -36233,10 +36275,11 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentMethod/Event/UpdatePaymentMethodEvent.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentMethod/Event/UpdatePaymentMethodEvent.php">UpdatePaymentMethodEvent.php</abbr>
                 :
-        <span title="at line 33">33</span>
+        <span title="at line 70">70</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Returns the payment method that has been updated (before update).</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36269,10 +36312,11 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentMethod/Event/UpdatePaymentMethodEvent.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentMethod/Event/UpdatePaymentMethodEvent.php">UpdatePaymentMethodEvent.php</abbr>
                 :
-        <span title="at line 43">43</span>
+        <span title="at line 86">86</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Returns updated payment method (after update).</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36305,10 +36349,11 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentMethod/Event/UpdatePaymentMethodEvent.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentMethod/Event/UpdatePaymentMethodEvent.php">UpdatePaymentMethodEvent.php</abbr>
                 :
-        <span title="at line 38">38</span>
+        <span title="at line 78">78</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Returns update struct used to update payment method.</p>
 
 <div class="highlight">
     <table class="highlighttable">

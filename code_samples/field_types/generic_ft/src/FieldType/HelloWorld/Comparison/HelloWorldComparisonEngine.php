@@ -20,8 +20,8 @@ final class HelloWorldComparisonEngine implements FieldTypeComparisonEngine
     }
 
     /**
-     * @param \Ibexa\VersionComparison\FieldType\TextLine\Value $comparisonDataA
-     * @param \Ibexa\VersionComparison\FieldType\TextLine\Value $comparisonDataB
+     * @param \App\FieldType\HelloWorld\Comparison\Value $comparisonDataA
+     * @param \App\FieldType\HelloWorld\Comparison\Value $comparisonDataB
      */
     public function compareFieldsTypeValues(FieldTypeComparisonValue $comparisonDataA, FieldTypeComparisonValue $comparisonDataB): ComparisonResult
     {
@@ -30,6 +30,10 @@ final class HelloWorldComparisonEngine implements FieldTypeComparisonEngine
         );
     }
 
+    /**
+     * @param \App\FieldType\HelloWorld\Comparison\Value $comparisonDataA
+     * @param \App\FieldType\HelloWorld\Comparison\Value $comparisonDataB
+     */
     public function shouldRunComparison(FieldTypeComparisonValue $comparisonDataA, FieldTypeComparisonValue $comparisonDataB): bool
     {
         return $comparisonDataA->name->value !== $comparisonDataB->name->value;

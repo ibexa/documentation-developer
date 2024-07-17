@@ -19462,6 +19462,17 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-19-0-1" type="checkbox" id="nav-1-19-0-1" >
         <label class="md-nav__link level-3" for="nav-1-19-0-1">
                             <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderConfiguratorInterface.html" title="ProviderConfiguratorInterface">
+                            ProviderConfiguratorInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-19-0-2" type="checkbox" id="nav-1-19-0-2" >
+        <label class="md-nav__link level-3" for="nav-1-19-0-2">
+                            <img src="./images/file.svg" alt="file.svg" />
                                         <a href="classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderService.html" title="ProviderService">
                             ProviderService
                             </a>
@@ -36111,7 +36122,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentMethod/Query/SortClause/Enabled.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentMethod/Query/SortClause/Enabled.php">Enabled.php</abbr>
                 :
-        <span title="at line 14">14</span>
+        <span title="at line 28">28</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
                         <div class="content-header__subheader">
@@ -36123,10 +36134,33 @@
                                     <a href="classes/Ibexa-Contracts-Payment-PaymentMethod-Query-SortClauseInterface.html"><abbr title="\Ibexa\Contracts\Payment\PaymentMethod\Query\SortClauseInterface">SortClauseInterface</abbr></a>                            </div>
         
                 </div>
-        <p>This class is the base for SortClause classes, used to set sorting of currency queries.</p>
+        <p>Sort clause for sorting payment methods by enabled status.</p>
 
+    <section class="phpdocumentor-description">
+        <p>The following example split all payment methods in two groups, the enabled and the disabled:</p>
+<pre class="prettyprint"><code class="prettyprint">$query = new PaymentMethodQuery();
+$query-&gt;addSortClause(new Enabled());
 
-                    
+$paymentMethods = $paymentMethodService-&gt;findPaymentMethods($query);
+</code></pre>
+
+    </section>
+
+                                                            
+    <h5 class="phpdocumentor-tag-list__heading">
+        Tags
+        <a href="classes/Ibexa-Contracts-Payment-PaymentMethod-Query-SortClause-Enabled.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                                                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">See</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Payment-PaymentMethodServiceInterface.html#method_findPaymentMethods"><abbr title="\Ibexa\Contracts\Payment\PaymentMethodServiceInterface::findPaymentMethods()">PaymentMethodServiceInterface::findPaymentMethods()</abbr></a></span>
+                                                                 
+                                    </dd>
+                                                                                    </dl>
 
 
 
@@ -36216,7 +36250,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentMethod/Query/SortClause/Enabled.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentMethod/Query/SortClause/Enabled.php">Enabled.php</abbr>
                 :
-        <span title="at line 16">16</span>
+        <span title="at line 30">30</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>

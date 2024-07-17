@@ -26,7 +26,7 @@ class DeleteContentCommand extends Command
         parent::__construct('doc:delete_content');
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setDefinition([
             new InputArgument('locationId', InputArgument::REQUIRED, 'Location to delete'),

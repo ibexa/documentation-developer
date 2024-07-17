@@ -19462,6 +19462,17 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-19-0-1" type="checkbox" id="nav-1-19-0-1" >
         <label class="md-nav__link level-3" for="nav-1-19-0-1">
                             <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderConfiguratorInterface.html" title="ProviderConfiguratorInterface">
+                            ProviderConfiguratorInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-19-0-2" type="checkbox" id="nav-1-19-0-2" >
+        <label class="md-nav__link level-3" for="nav-1-19-0-2">
+                            <img src="./images/file.svg" alt="file.svg" />
                                         <a href="classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderService.html" title="ProviderService">
                             ProviderService
                             </a>
@@ -36107,11 +36118,34 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentMethod/Type/OptionsFormMapperInterface.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentMethod/Type/OptionsFormMapperInterface.php">OptionsFormMapperInterface.php</abbr>
                 :
-        <span title="at line 13">13</span>
+        <span title="at line 41">41</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
                     </div>
-    
+        <p>Provides the options form used to configure the payment method type.</p>
+
+    <section class="phpdocumentor-description">
+        <p>The following example adds necessary fields to configure &quot;credit_card&quot; payment method type:</p>
+<pre class="prettyprint"><code class="prettyprint">final class CreditCardOptionsFormMapper implements OptionsFormMapperInterface
+{
+   public function createOptionsForm(string $name, FormBuilderInterface $builder, array $context = []): void
+   {
+       $builder-&gt;add($name, CreditCardOptionsType::class, [
+           'disabled' =&gt; $context['translation_mode'],
+       ]);
+   }
+}
+</code></pre>
+<p>The <code class="prettyprint">\Ibexa\Contracts\Payment\PaymentMethod\Type\OptionsFormMapperInterface</code> implementations must be registered as a service
+with <code class="prettyprint">ibexa.payment.payment_method.options.form_mapper</code> tag and <code class="prettyprint">type</code> attribute.</p>
+<pre class="prettyprint"><code class="prettyprint">services:
+   App\PaymentMethod\CreditCardOptionsFormMapper:
+       tags:
+            - name: ibexa.payment.payment_method.options.form_mapper
+              type: credit_card
+</code></pre>
+
+    </section>
 
                             
 
@@ -36137,10 +36171,11 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentMethod/Type/OptionsFormMapperInterface.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentMethod/Type/OptionsFormMapperInterface.php">OptionsFormMapperInterface.php</abbr>
                 :
-        <span title="at line 18">18</span>
+        <span title="at line 55">55</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Attaches the options form to the payment method form.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36162,6 +36197,18 @@
 </div>
 <div class="phpdocumentor-label-line">
     </div>
+    <section class="phpdocumentor-description">
+        <p>The following context keys are available:</p>
+<ul>
+<li>
+<code class="prettyprint">translation_mode</code>: Whether the form is in translation mode.</li>
+<li>
+<code class="prettyprint">language_code</code>: The language code of the form.</li>
+<li>
+<code class="prettyprint">type</code>: The payment method type.</li>
+</ul>
+
+    </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -36183,8 +36230,12 @@
                     <td class="empty">
                                                     -
                                             </td>
-                    <td class="empty">
-                                                    -
+                    <td>
+                                                        <section class="phpdocumentor-description">
+        <p>The name of the target form field.</p>
+
+    </section>
+
                                             </td>
                 </tr>
                             <tr>
@@ -36197,8 +36248,12 @@
                     <td class="empty">
                                                     -
                                             </td>
-                    <td class="empty">
-                                                    -
+                    <td>
+                                                        <section class="phpdocumentor-description">
+        <p>The form builder for the payment method.</p>
+
+    </section>
+
                                             </td>
                 </tr>
                             <tr>
@@ -36211,8 +36266,12 @@
                     <td>
                                                                                     []
                                                                         </td>
-                    <td class="empty">
-                                                    -
+                    <td>
+                                                        <section class="phpdocumentor-description">
+        <p>Additional context for the form mapper.</p>
+
+    </section>
+
                                             </td>
                 </tr>
                     </tbody>

@@ -19462,6 +19462,17 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-19-0-1" type="checkbox" id="nav-1-19-0-1" >
         <label class="md-nav__link level-3" for="nav-1-19-0-1">
                             <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderConfiguratorInterface.html" title="ProviderConfiguratorInterface">
+                            ProviderConfiguratorInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-19-0-2" type="checkbox" id="nav-1-19-0-2" >
+        <label class="md-nav__link level-3" for="nav-1-19-0-2">
+                            <img src="./images/file.svg" alt="file.svg" />
                                         <a href="classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderService.html" title="ProviderService">
                             ProviderService
                             </a>
@@ -36107,11 +36118,39 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentMethod/Voter/VoterInterface.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentMethod/Voter/VoterInterface.php">VoterInterface.php</abbr>
                 :
-        <span title="at line 14">14</span>
+        <span title="at line 47">47</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
                     </div>
-    
+        <p>A voter decides if a payment method is available for a given cart.</p>
+
+    <section class="phpdocumentor-description">
+        <p>The following example is a voter disabling an offline payment method if the cart contains any virtual products:</p>
+<pre class="prettyprint"><code class="prettyprint">final class OfflineVoter implements VoterInterface
+{
+    public function vote(PaymentMethodInterface $method, CartInterface $cart): bool
+    {
+        foreach ($cart-&gt;getEntries() as $entry) {
+            if ($entry-&gt;getProduct()-&gt;getProductType()-&gt;isVirtual()) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+}
+</code></pre>
+<p>The <code class="prettyprint">\Ibexa\Contracts\Payment\PaymentMethod\Voter\VoterInterface</code> implementations must be registered as a service
+with <code class="prettyprint">ibexa.payment.payment_method.voter</code> tag and its <code class="prettyprint">type</code> attribute associating the voter to a payment method's
+identifier.</p>
+<pre class="prettyprint"><code class="prettyprint">services:
+   App\PaymentMethod\OfflineVoter:
+       tags:
+            - name: ibexa.payment.payment_method.voter
+              type: offline
+</code></pre>
+
+    </section>
 
                             
 
@@ -36137,10 +36176,11 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentMethod/Voter/VoterInterface.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentMethod/Voter/VoterInterface.php">VoterInterface.php</abbr>
                 :
-        <span title="at line 16">16</span>
+        <span title="at line 52">52</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Returns true if the payment method is available for the given cart, false otherwise.</p>
 
 <div class="highlight">
     <table class="highlighttable">
