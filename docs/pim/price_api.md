@@ -81,7 +81,6 @@ To resolve a price of a product in the currency for the current context, use eit
 
 ``` php
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 7, 8) =]][[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 11, 12) =]]
-
 // ...
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 111, 115) =]]
 ```
