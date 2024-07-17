@@ -10,6 +10,7 @@
  */
 
 $diffFile = $argv[1];
+echo "?? $diffFile !!";
 
 $diffFileContents = file($diffFile, FILE_IGNORE_NEW_LINES);
 
