@@ -88,7 +88,7 @@ jobs:
                 run: |
                     git checkout origin/${{ github.head_ref }} -- tools/code_samples/code_samples_usage.php
                     php tools/code_samples/code_samples_usage.php ${{ steps.list.outputs.CODE_SAMPLE_USAGE }} > $HOME/code_samples_usage_target.txt
-            -   name: Compare code_samples usages for artifact (diff --unified)
+            -   name: Compare code_samples usages (diff --unified)
                 # diff returns 1 if there is a difference, this is normal but seen as an error by the job.
                 continue-on-error: true
                 run: |
@@ -106,13 +106,11 @@ jobs:
                     name: code_samples_usage.diff.html
                     path: ~/code_samples_usage.diff.html
                     overwrite: true
-            -   name: Compare code_samples usages for comment (diff --side-by-side)
+            -   name: Convert code_samples usages for comment
                 run: |
                     echo '# code_samples/ change report' >> code_samples_usage.diff.md
                     echo '' >> code_samples_usage.diff.md
-                    echo '<pre>' >> code_samples_usage.diff.md
-                    diff --side-by-side --expand-tabs --width 350 $HOME/code_samples_usage_target.txt $HOME/code_samples_usage_source.txt | sed 's/`/\`/' >> code_samples_usage.diff.md
-                    echo '</pre>' >> code_samples_usage.diff.md
+                    php tools/code_samples/code_sample_usage_diff2html.php $HOME/code_samples_usage.diff >> code_samples_usage.diff.md
                     echo ${{ steps.artifact.outputs.artifact-url }} >> code_samples_usage.diff.md
             -   name: Find Comment
                 uses: peter-evans/find-comment@v3
