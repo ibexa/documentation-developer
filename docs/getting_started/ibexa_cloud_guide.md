@@ -68,13 +68,13 @@ Comprehensive data security procedures guarantee that you maintain complete owne
 You can be sure that the safety protocols are compliant with all applicable legislation.
 What's more, all updates to your code and infrastructure are fully auditable. Global CDN (Content Delivery Network) is included and fully managed.
 [[= product_name_cloud =]], thanks to grid architecture and extensive [[= product_name_base =]] support, enables effortless deployment.
-You can create a clone not only of the code, but also data, as well as the service, and the infrastructure.
-As the infrastructure is exactly the same as what's currently in production, you can be sure that everything will work when you conduct your release and push it live.
+You can create a clone not only of the code, but also data and the infrastructure.
+As the infrastructure is exactly the same as what's currently in production, you can be sure that everything works well when you conduct your release and push it live.
 
 ### High availability and compatibility
 
 [[= product_name_cloud =]] is compatible with your choice of public cloud server and supports a variety of hosting platforms.
-It's a Git-native development - compatible with Git Flow. [[= product_name_cloud =]] deployment integrate naturally at the end of your existing production chain, including staging, and work in progress branch preview.
+It's a Git-native development - compatible with Git Flow. [[= product_name_cloud =]] deployment integrates naturally at the end of your existing production chain, including staging, and work in progress branch preview.
 You can also integrate with, for example, Bitbucket, GitHub, Gitlab.
 You can instantly clone every branch of both your code and infrastructure configuration.
 Platform.sh (and [[= product_name_cloud =]], by extension) uses the [Infrastracture as Code approach](https://docs.platform.sh/learn/overview.html#infrastructure-as-code).
