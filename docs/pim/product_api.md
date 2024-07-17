@@ -20,14 +20,14 @@ description: Use PHP API to manage products in PIM, their attributes, availabili
 Get an individual product by using the `productService::getProduct()` method:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 62, 65) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 68, 71) =]]
 ```
 
 Find multiple products with `productService::findProducts()`.
 Provide the method with optional filter, query or Sort Clauses.
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 66, 76) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 72, 82) =]]
 ```
 
 ### Modifying products
@@ -35,7 +35,7 @@ Provide the method with optional filter, query or Sort Clauses.
 To create, update and delete products, use the `LocalProductServiceInterface`.
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 87, 91) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 93, 97) =]]
 ```
 
 To create a product, use `LocalProductService::newProductCreateStruct()`.
@@ -43,13 +43,13 @@ Provide the method with the product type object and the main language code.
 You also need to set (at least) the code for the product and the required Field of the underlying content type, `name`:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 77, 84) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 83, 90) =]]
 ```
 
 To delete a product, use `LocalProductService::deleteProduct()`:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 114, 115) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 120, 121) =]]
 ```
 
 ### Product variants
@@ -125,7 +125,7 @@ Get the availability object with `getAvailability()`.
 You can then use `ProductAvailabilityServiceInterface::getStock` to get the stock number for the product:
 
 ```php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 98, 103) =]]        }
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 105, 109) =]]        }
 ```
 
 To change availability for a product, use `updateProductAvailability()` with a `ProductAvailabilityUpdateStruct`
@@ -133,7 +133,7 @@ and provide it with the product object. The second parameter defines whether pro
 and the third whether its stock is infinite. The fourth parameter is the stock number:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 106, 109) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 112, 115) =]]
 ```
 
 ## Attributes
