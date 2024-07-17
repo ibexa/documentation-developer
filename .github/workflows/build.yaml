@@ -118,12 +118,6 @@ jobs:
                     curl -s -X GET -G $URL | jq -r '.[] | .filename' | grep '^code_samples/' | tr '\n' ' ' >> "$GITHUB_OUTPUT"
                     echo '' >> "$GITHUB_OUTPUT"
                     echo 'CODE_SAMPLE_USAGE_DELIMITER' >> "$GITHUB_OUTPUT"
-            -   name: Checkout source branch (head_ref)
-                uses: actions/checkout@v3
-                with:
-                    ref: ${{ github.head_ref }}
-            -   name: Log source branch code_samples usage
-                run: php tools/code_samples/code_samples_usage.php ${{ steps.list.outputs.CODE_SAMPLE_USAGE }} > $HOME/code_samples_usage_source.txt
             -   name: Checkout target branch (base_ref)
                 uses: actions/checkout@v3
                 with:
@@ -132,6 +126,12 @@ jobs:
                 run: |
                     git checkout origin/${{ github.head_ref }} -- tools/code_samples/code_samples_usage.php
                     php tools/code_samples/code_samples_usage.php ${{ steps.list.outputs.CODE_SAMPLE_USAGE }} > $HOME/code_samples_usage_target.txt
+            -   name: Checkout source branch (head_ref)
+                uses: actions/checkout@v3
+                with:
+                    ref: ${{ github.head_ref }}
+            -   name: Log source branch code_samples usage
+                run: php tools/code_samples/code_samples_usage.php ${{ steps.list.outputs.CODE_SAMPLE_USAGE }} > $HOME/code_samples_usage_source.txt
             -   name: Compare code_samples usages (diff --unified)
                 # diff returns 1 if there is a difference, this is normal but seen as an error by the job.
                 continue-on-error: true
