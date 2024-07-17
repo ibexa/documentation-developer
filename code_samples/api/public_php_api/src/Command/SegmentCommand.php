@@ -27,11 +27,11 @@ class SegmentCommand extends Command
         parent::__construct('doc:segment');
     }
 
-    protected function configure()
+    protected function configure(): void
     {
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);

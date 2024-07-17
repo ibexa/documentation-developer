@@ -153,13 +153,13 @@ In this case you use [`ContentTypeCreateStruct`](../../api/php_api/php_api_refer
 A content type must have at least one name, in the main language, and at least one Field definition.
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/CreateContentTypeCommand.php', 58, 68) =]][[= include_file('code_samples/api/public_php_api/src/Command/CreateContentTypeCommand.php', 75, 84) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/CreateContentTypeCommand.php', 59, 69) =]][[= include_file('code_samples/api/public_php_api/src/Command/CreateContentTypeCommand.php', 76, 85) =]]
 ```
 
 You can specify more details of the Field definition in the create struct, for example:
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/CreateContentTypeCommand.php', 66, 76) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/CreateContentTypeCommand.php', 67, 77) =]]
 ```
 
 ### Copying content types
@@ -167,7 +167,7 @@ You can specify more details of the Field definition in the create struct, for e
 To copy a content type, use [`ContentTypeService::copyContentType`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentTypeService.html#method_copyContentType):
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/CreateContentTypeCommand.php', 88, 89) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/CreateContentTypeCommand.php', 89, 90) =]]
 ```
 
 The copy will automatically be given an identifier based on the original content type identifier
@@ -176,7 +176,7 @@ and the copy's ID, for example: `copy_of_folder_21`.
 To change the identifier of the copy, use a [`ContentTypeUpdateStruct`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-ContentTypeUpdateStruct.html):
 
 ``` php
-[[= include_file('code_samples/api/public_php_api/src/Command/CreateContentTypeCommand.php', 89, 95) =]]
+[[= include_file('code_samples/api/public_php_api/src/Command/CreateContentTypeCommand.php', 90, 96) =]]
 ```
 
 ## Calendar events

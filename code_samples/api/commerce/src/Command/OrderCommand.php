@@ -58,7 +58,7 @@ final class OrderCommand extends Command
         $orderIdentifier = '2e897b31-0d7a-46d3-ba45-4eb65fe02790';
         $order = $this->orderService->getOrderByIdentifier($orderIdentifier);
 
-        $output->writeln(sprintf('Order has status %s', $orderIdentifier, $order->getStatus()));
+        $output->writeln(sprintf('Order %s has status %s', $orderIdentifier, $order->getStatus()));
 
         // Get order by id
         $orderId = 1;
