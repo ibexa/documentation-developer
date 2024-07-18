@@ -1,28 +1,28 @@
 ---
-description: Locations hold published Content items and can be used to control visibility.
+description: Locations hold published content items and can be used to control visibility.
 ---
 
 # Locations
 
-When a new Content item is published, it is automatically placed in a new Location.
+When a new content item is published, it is automatically placed in a new Location.
 
 All Locations form a tree which is the basic way of organizing content in the system.
-Every published Content item has a Location and, as a consequence, also a place in this tree.
+Every published content item has a Location and, as a consequence, also a place in this tree.
 
 ![Content Tree](content_management_tree.png "Content Tree")
 
-A Content item receives a Location only once it has been published.
+A content item receives a Location only once it has been published.
 This means that a new unpublished draft does not have a Location yet.
 Drafts cannot be found in the Content browser. You can find them on the **My dashboard** page, 
 or in your user menu under **Drafts**.
 
 ![Drafts](content_management_drafts.png "Drafts")
 
-A Content item can have more than one Location. It is then present in two or more places in the tree.
+A content item can have more than one Location. It is then present in two or more places in the tree.
 For example, an article can be at the same time under "Local news" and "Sports news".
 Even in such a case, one of these places is always the main Location.
 
-You can change the main Location in the Back Office in the Locations tab,
+You can change the main Location in the Back Office in the **Locations** tab,
 or [through the API](managing_content.md#changing-the-main-location).
 
 ![Locations](content_management_locations.png "Locations")
@@ -33,7 +33,7 @@ The content tree is hierarchical. It has an empty root Location at the top and a
 Every Location (aside from the root) has one parent Location and can have any number of children.
 
 Top level Locations are direct children of the root of the tree.
-The root has Location ID 1, is not related to any Content items and should not be used directly.
+The root has Location ID 1, is not related to any content items and should not be used directly.
 
 Under this root there are preset top level Locations in each installation which cannot be deleted.
 
@@ -46,18 +46,18 @@ can be viewed by selecting the **Content structure** tab in the Content mode int
 
 This part of the tree is typically used for organizing folders, articles, information pages, etc.
 The default ID number of this Location is 2, but it can be [modified via configuration](repository_configuration.md#top-level-locations).
-It contains a Folder Content item.
+It contains a Folder content item.
 
 ### Media
 
 **Media** is the top level Location which stores and organizes information
-that is frequently used by Content items located below the **Content** node.
+that is frequently used by content items located below the **Content** node.
 
 ![Media](content_management_media.png "Media")
 
 It usually contains images, animations, documents and other files.
 The default ID number of the **Media** Location is 43, but it can be [modified via configuration](repository_configuration.md#top-level-locations).
-It contains a Folder Content item.
+It contains a Folder content item.
 
 ### Users
 
@@ -65,13 +65,14 @@ It contains a Folder Content item.
 
 ![Users in admin panel](admin_panel_users.png "Users in admin panel")
 
-A User is simply a Content item of the User account Content Type.
-The Users are organized within User Group Content items below this Location.
+A User is simply a content item of the User account content type.
+The Users are organized within User Group content items below this Location.
 
 In other words, the **Users** Location contains the actual Users and User Groups,
 which can be viewed by selecting the **Users** tab in the Admin Panel.
-The default ID number of the **Users** Location is 5, but it can be [modified via configuration](repository_configuration.md#top-level-locations).
-It contains a User Group Content item.
+
+The default ID number of the **Users** Location is 5.
+It contains User Group content items.
 
 ### Forms [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
@@ -89,8 +90,8 @@ Location visibility allows you to control which parts of the content tree are av
 
 ![Location visibility](content_management_visibility.png "Location visibility")
 
-Once a Content item is published, it cannot be un-published.
-When the Location of a Content item is hidden, the system will not display it on the website.
+Once a content item is published, it cannot be un-published.
+When the Location of a content item is hidden, the system will not display it on the website.
 
 !!! caution "Visibility and permissions"
 
@@ -98,11 +99,11 @@ When the Location of a Content item is hidden, the system will not display it on
     It acts as a filter in the frontend by default. You can choose to respect it or ignore it in your code.
     It isn't permission-based, and **doesn't restrict access to content**. Hidden content can be read through other means, like the REST API.
 
-    If you need to restrict access to a given Content item, you could create a role that grants read access for a given [**Section**](sections.md) or
+    If you need to restrict access to a given content item, you could create a role that grants read access for a given [**Section**](sections.md) or
     [**Object State**](object_states.md), and set a different Section or Object State for the given Content.
     Or use other permission-based [**Limitations**](limitations.md).
 
-If a Content item is hidden, it is invisible in all its Locations.
+If a content item is hidden, it is invisible in all its Locations.
 If a Location is hidden, all of its descendants in the tree will be hidden as well.
 This means that there are three different visibility statuses:
 
@@ -110,10 +111,10 @@ This means that there are three different visibility statuses:
 - Hidden
 - Hidden by superior
 
-All Locations and Content items are visible by default.
+All Locations and content items are visible by default.
 If a Location is made invisible manually, its status is set to Hidden.
 All Locations under it will change status to Hidden by superior.
-A Content item is Hidden by superior only in Locations in which it has a parent Location with the Hidden status.
+A content item is Hidden by superior only in Locations in which it has a parent Location with the Hidden status.
 
 In the following example, the **Content item 1** is Hidden by superior in the **Location A** while still visible in the **Location B**.
 

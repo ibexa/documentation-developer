@@ -176,7 +176,7 @@
                             "isInfoCollector": false,
                             "defaultValue": {
                                 "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://docbook.org/ns/docbook\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"5.0-variant ezpublish-1.0\"/>\n",
-                                "xhtml5edit": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://ez.no/namespaces/ezpublish5/xhtml5/edit\"/>\n"
+                                "xhtml5edit": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://ibexa.co/namespaces/ezpublish5/xhtml5/edit\"/>\n"
                             },
                             "isSearchable": true,
                             "names": {
@@ -211,7 +211,7 @@
                             "isInfoCollector": false,
                             "defaultValue": {
                                 "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://docbook.org/ns/docbook\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"5.0-variant ezpublish-1.0\"/>\n",
-                                "xhtml5edit": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://ez.no/namespaces/ezpublish5/xhtml5/edit\"/>\n"
+                                "xhtml5edit": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://ibexa.co/namespaces/ezpublish5/xhtml5/edit\"/>\n"
                             },
                             "isSearchable": true,
                             "names": {
@@ -477,7 +477,7 @@
                             "isInfoCollector": false,
                             "defaultValue": {
                                 "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://docbook.org/ns/docbook\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"5.0-variant ezpublish-1.0\"/>\n",
-                                "xhtml5edit": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://ez.no/namespaces/ezpublish5/xhtml5/edit\"/>\n"
+                                "xhtml5edit": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://ibexa.co/namespaces/ezpublish5/xhtml5/edit\"/>\n"
                             },
                             "isSearchable": true,
                             "names": {
@@ -512,7 +512,7 @@
                             "isInfoCollector": false,
                             "defaultValue": {
                                 "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://docbook.org/ns/docbook\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"5.0-variant ezpublish-1.0\"/>\n",
-                                "xhtml5edit": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://ez.no/namespaces/ezpublish5/xhtml5/edit\"/>\n"
+                                "xhtml5edit": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://ibexa.co/namespaces/ezpublish5/xhtml5/edit\"/>\n"
                             },
                             "isSearchable": true,
                             "names": {
@@ -743,7 +743,7 @@
                             "isInfoCollector": false,
                             "defaultValue": {
                                 "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://docbook.org/ns/docbook\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"5.0-variant ezpublish-1.0\"/>\n",
-                                "xhtml5edit": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://ez.no/namespaces/ezpublish5/xhtml5/edit\"/>\n"
+                                "xhtml5edit": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://ibexa.co/namespaces/ezpublish5/xhtml5/edit\"/>\n"
                             },
                             "isSearchable": true,
                             "names": {
@@ -892,7 +892,7 @@
                             "isInfoCollector": false,
                             "defaultValue": {
                                 "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://docbook.org/ns/docbook\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"5.0-variant ezpublish-1.0\"/>\n",
-                                "xhtml5edit": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://ez.no/namespaces/ezpublish5/xhtml5/edit\"/>\n"
+                                "xhtml5edit": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://ibexa.co/namespaces/ezpublish5/xhtml5/edit\"/>\n"
                             },
                             "isSearchable": true,
                             "names": {
@@ -922,7 +922,7 @@
                             "isInfoCollector": false,
                             "defaultValue": {
                                 "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://docbook.org/ns/docbook\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"5.0-variant ezpublish-1.0\"/>\n",
-                                "xhtml5edit": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://ez.no/namespaces/ezpublish5/xhtml5/edit\"/>\n"
+                                "xhtml5edit": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://ibexa.co/namespaces/ezpublish5/xhtml5/edit\"/>\n"
                             },
                             "isSearchable": true,
                             "names": {
@@ -1192,7 +1192,7 @@
                             "isInfoCollector": false,
                             "defaultValue": {
                                 "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://docbook.org/ns/docbook\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"5.0-variant ezpublish-1.0\"/>\n",
-                                "xhtml5edit": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://ez.no/namespaces/ezpublish5/xhtml5/edit\"/>\n"
+                                "xhtml5edit": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://ibexa.co/namespaces/ezpublish5/xhtml5/edit\"/>\n"
                             },
                             "isSearchable": true,
                             "names": {
@@ -1812,7 +1812,7 @@
                             "isInfoCollector": false,
                             "defaultValue": {
                                 "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://docbook.org/ns/docbook\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"5.0-variant ezpublish-1.0\"/>\n",
-                                "xhtml5edit": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://ez.no/namespaces/ezpublish5/xhtml5/edit\"/>\n"
+                                "xhtml5edit": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://ibexa.co/namespaces/ezpublish5/xhtml5/edit\"/>\n"
                             },
                             "isSearchable": true,
                             "names": {
@@ -1955,7 +1955,7 @@
                             "isInfoCollector": false,
                             "defaultValue": {
                                 "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://docbook.org/ns/docbook\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"5.0-variant ezpublish-1.0\"/>\n",
-                                "xhtml5edit": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://ez.no/namespaces/ezpublish5/xhtml5/edit\"/>\n"
+                                "xhtml5edit": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://ibexa.co/namespaces/ezpublish5/xhtml5/edit\"/>\n"
                             },
                             "isSearchable": true,
                             "names": {

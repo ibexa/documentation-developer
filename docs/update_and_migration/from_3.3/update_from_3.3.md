@@ -38,6 +38,14 @@ Run:
     composer require ibexa/commerce:[[= latest_tag_3_3 =]] --with-all-dependencies --no-scripts
     ```
 
+To avoid deprecations when updating from an older PHP version to PHP 8.2 or 8.3, run the following commands:
+
+``` bash
+composer config extra.runtime.error_handler
+"\\Ibexa\\Contracts\\Core\\MVC\\Symfony\\ErrorHandler\\Php82HideDeprecationsErrorHandler"
+composer dump-autoload
+```
+
 ### Update Flex server
 
 The `flex.ibexa.co` Flex server has been disabled.
@@ -393,7 +401,7 @@ On Experience or Commerce edition, run the following scripts:
 
 Following [Security advisory: IBEXA-SA-2022-009](https://developers.ibexa.co/security-advisories/ibexa-sa-2022-009-critical-vulnerabilities-in-graphql-role-assignment-ct-editing-and-drafts-tooltips),
 unless you can verify based on your log files that the vulnerability hasn't been exploited,
-you should [revoke passwords](https://doc.ibexa.co/en/latest/users/user_management/#revoking-passwords) for all affected users.
+you should [revoke passwords](https://doc.ibexa.co/en/latest/users/passwords/#revoking-passwords) for all affected users.
 
 ### v3.3.34
 

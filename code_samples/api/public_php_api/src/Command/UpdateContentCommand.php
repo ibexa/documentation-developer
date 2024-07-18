@@ -26,17 +26,17 @@ class UpdateContentCommand extends Command
         parent::__construct('doc:update_content');
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
-            ->setDescription('Update provided Content item with a new name')
+            ->setDescription('Update provided content item with a new name')
             ->setDefinition([
                 new InputArgument('contentId', InputArgument::REQUIRED, 'Content ID'),
-                new InputArgument('newName', InputArgument::REQUIRED, 'New name for the updated Content item'),
+                new InputArgument('newName', InputArgument::REQUIRED, 'New name for the updated content item'),
             ]);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);

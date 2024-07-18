@@ -30,12 +30,13 @@ The following attribute types are available:
 |`url`|URL|-|
 |`text`|Text block|-|
 |`richtext`|Rich text block (see [creating RichText block](create_custom_richtext_block.md))|-|
-|`embed`|Embedded Content item|-|
+|`embed`|Embedded content item|-|
 |`select`|Drop-down with options to select|`choices` lists the available options in `label: value` form</br>`multiple`, when set to true, allows selecting more than one option.
+|`checkbox`|Checkbox|Selects available option if `value: true`.|
 |`multiple`|Checkbox(es)|`choices` lists the available options in `label: value` form.|
 |`radio`|Radio buttons|`choices` lists the available options in `label: value` form.|
 |`locationlist`|Location selection|-|
-|`contenttypelist`|List of Content Types|-|
+|`contenttypelist`|List of content types|-|
 |`schedule_events`,</br>`schedule_snapshots`,</br>`schedule_initial_items`,</br>`schedule_slots`,</br>`schedule_loaded_snapshot`|Used in the Content Scheduler block|-|
 |`nested_attribute`|Defines a group of attributes in a block.|`attributes` - a list of attributes in the group. The attributes in the group are [configured](#page-block-attributes) as regular attributes. </br>`multiple`, when set to true. New groups are added dynamically with the **+ Add** button.|
 
@@ -47,6 +48,10 @@ attributes:
     second_field: string
     third_field: integer
 ```
+
+`embed` and `locationlist` use the Universal Discovery Widget (UDW).
+When creating a block with these two types you can configure the UDW behavior.
+For more information, see [Create custom page block / Add edit template](create_custom_page_block.md#add-edit-template)
 
 ## Custom attribute types
 
@@ -130,19 +135,19 @@ First, make sure you have configured the attributes you want to use in the group
 Next, provide the configuration. See the example:
 
 ``` yaml
-[[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 0,16) =]][[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 19,23) =]]
+[[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 0, 16) =]][[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 19, 23) =]]
 ```
 
 To set validation for each nested attribute:
 
 ``` yaml
-[[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 9,19) =]]
+[[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 9, 19) =]]
 ```
 
 Validators can be also set on a parent attribute (group defining level), it means all validators apply to each nested attribute:
 
 ``` yaml
-[[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 9,16) =]] [[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 19,26) =]]
+[[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 9, 16) =]] [[= include_file('code_samples/page/custom_page_block/config/packages/nested_attribute.yaml', 19, 26) =]]
 ```
 
 !!! caution "Moving attributes between groups"

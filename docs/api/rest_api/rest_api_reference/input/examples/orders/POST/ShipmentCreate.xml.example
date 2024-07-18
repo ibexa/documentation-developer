@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ShipmentCreate>
+    <identifier>abc</identifier>
+    <ShippingMethod media-type="application/vnd.ibexa.api.ShippingMethod+json" href="/api/ibexa/v2/shipping/methods/parcel_locker"/>
+    <Amount>
+        <value>1922</value>
+        <currency>EUR</currency>
+    </Amount>
+    <Owner media-type="application/vnd.ibexa.api.User+json" href="/api/ibexa/v2/user/users/14"/>
+    <Context>
+        <key1>value1</key1>
+        <key2>value2</key2>
+    </Context>
+</ShipmentCreate>

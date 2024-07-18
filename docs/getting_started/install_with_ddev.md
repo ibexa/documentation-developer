@@ -31,7 +31,7 @@ mkdir my-ddev-project && cd my-ddev-project
 Next, configure your DDEV environment with the following command:
 
 ```bash
-ddev config --project-type=php --php-version 8.1 --docroot=public --create-docroot
+ddev config --project-type=php --php-version 8.1 --nodejs-version 18 --docroot=public --create-docroot
 ```
 
 This command sets the project type to PHP, the PHP version to 8.1, the document root to `public` directory, and creates the document root.
@@ -43,7 +43,7 @@ By default, DDEV uses MariaDB.
 To use PostgreSQL instead, run the following command:
 
 ```bash
-ddev config --database=postgres:15
+ddev config --database=postgres:14
 ```
 
 To use MySQL instead, run the following command:
@@ -408,7 +408,7 @@ If the local project needs to answer to real production domains (for example, to
 DDEV can be useful to locally simulate a production cluster.
 
 - See [clustering with DDEV](clustering_with_ddev.md) to add Elasticsearch, Solr, Redis or Memcached to your DDEV installation.
-- See [Ibexa Cloud and DDEV](ibexa_cloud_and_ddev.md) to locally run an [[= product_name =]] project by using DDEV.
+- See [DDEV and Ibexa Cloud](ddev_and_ibexa_cloud.md) to locally run an [[= product_name =]] project by using DDEV.
 
 ## Stop or remove the project
 

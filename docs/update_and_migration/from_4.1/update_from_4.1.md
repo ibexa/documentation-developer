@@ -6,6 +6,8 @@ description: Update your installation to the v4.2.latest version from an v4.1 ve
 
 This update procedure applies if you are using a v4.1 installation.
 
+[[% include 'snippets/update/temporary_v4_conflicts.md' %]]
+
 ## Update from v4.1.x to v4.1.latest
 
 Before you update to v4.2, you need to go through the following steps to update to the latest maintenance release of v4.1 (v[[= latest_tag_4_1 =]]).
@@ -133,9 +135,9 @@ If you have no access to [[= product_name =]]'s `ibexa/installer` package, datab
 
 Following [Security advisory: IBEXA-SA-2022-009](https://developers.ibexa.co/security-advisories/ibexa-sa-2022-009-critical-vulnerabilities-in-graphql-role-assignment-ct-editing-and-drafts-tooltips),
 unless you can verify based on your log files that the vulnerability has not been exploited,
-you should [revoke passwords](https://doc.ibexa.co/en/latest/users/user_management/#revoking-passwords) for all affected users.
+you should [revoke passwords](https://doc.ibexa.co/en/latest/users/passwords/#revoking-passwords) for all affected users.
 
-### Remove `node_modules` and `yarn.lock`
+## Remove `node_modules` and `yarn.lock`
 
 Next, remove `node_modules` and `yarn.lock` before running `composer run post-update-cmd`,
 otherwise you can encounter errors during compiling.

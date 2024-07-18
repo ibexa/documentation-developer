@@ -22,7 +22,7 @@ class FilterLocationCommand extends Command
         parent::__construct('doc:filter_location');
     }
 
-    public function configure()
+    public function configure(): void
     {
         $this->setDescription('Returns children of the provided Location, sorted by name in descending order.');
         $this->setDefinition([

@@ -160,7 +160,7 @@ SECOND_DATABASE_URL=otherdb://otheruser:otherpasswd@otherhost:otherport/otherdbn
 
 ## Field groups configuration
 
-Field groups, used in content and Content Type editing, can be configured under the `repositories` key.
+Field groups, used in content and content type editing, can be configured under the `repositories` key.
 Values entered there are Field group *identifiers*:
 
 ``` yaml
@@ -171,9 +171,9 @@ repositories:
             default: content
 ```
 
-These identifiers can be given human-readable values and can be translated. Those values are used when editing Content Types.
-The translation domain is `ezplatform_fields_groups`.
-This example in `translations/ezplatform_fields_groups.en.yaml` defines English names for Field groups:
+These identifiers can be given human-readable values and can be translated. Those values are used when editing content types.
+The translation domain is `ibexa_fields_groups`.
+This example in `translations/ibexa_fields_groups.en.yaml` defines English names for Field groups:
 
 ``` yaml
 content: Content
@@ -183,7 +183,7 @@ user_data: User data
 
 ## Limit of archived content versions
 
-`default_version_archive_limit` controls the number of archived versions per Content item that are stored in the Repository.
+`default_version_archive_limit` controls the number of archived versions per content item that are stored in the Repository.
 By default it is set to 5. This setting is configured in the following way (typically in `ibexa.yaml`):
 
 ``` yaml
@@ -219,7 +219,7 @@ ibexa:
 Set it to `false` if you have multiple older versions of content and need to avoid performance drops when publishing.
 
 When you set the value to `false`, run [`ibexa:content:cleanup-versions`](#removing-old-versions) periodically
-to make sure that Content item versions that exceed the limit are removed.
+to make sure that content item versions that exceed the limit are removed.
 
 ### Removing old versions
 
@@ -230,7 +230,7 @@ The command takes the following optional parameters:
 - `status` or `t` - status of versions to remove: `draft`, `archived` or `all`
 - `keep` or `k` - number of versions to keep
 - `user` or `u` - the User that the command will be performed as. The User must have the `content/remove`, `content/read` and `content/versionread` Policies. By default the `administrator` user is applied.
-- `excluded-content-types` - exclude versions of one or multiple Content Types from the cleanup procedure; separate multiple Content Types identifiers with the comma.
+- `excluded-content-types` - exclude versions of one or multiple content types from the cleanup procedure; separate multiple content types identifiers with the comma.
 
 `ibexa:content:cleanup-versions --status <status name> --keep <number of versions> --user <user name> --excluded-content-types article,blog_post`
 
@@ -240,7 +240,7 @@ For example, the following command removes archived versions as user `admin`, bu
 
 ## User identifiers
 
-`ibexa_default_settings.yaml` contains two settings that indicate which Content Types are treated like users and user groups:
+`ibexa_default_settings.yaml` contains two settings that indicate which content types are treated like users and user groups:
 
 ``` yaml
 ibexa:
@@ -250,7 +250,7 @@ ibexa:
             user_group_content_type_identifier: [user_group]
 ```
 
-You can override these settings if you have other Content Types that should be treated as users/user groups in the Back Office.
+You can override these settings if you have other content types that should be treated as users/user groups in the Back Office.
 When viewing such Content in the Back Office you will be able to see e.g. the assigned Policies.
 
 ## Top-level Locations

@@ -1,0 +1,95 @@
+displayName: Calendar
+/event:
+    get:
+        displayName: Calendar list
+        description: Calendar event list.
+        queryParameters:
+            start:
+                description: Query start date.
+                type: datetime
+            end:
+                description: Query end date.
+                type: datetime
+            types:
+                description: The types of events that are displayed.
+                type: string
+            languages:
+                description: Language code. Restricts the output of translatable Fields to the given languages.
+                type: string
+            count:
+                description: Number of parameters that are returned in the list.
+                type: string
+            cursor:
+                description: Starting point of calendar event list. It should be taken from the URL.
+                type: string
+        headers:
+            Accept:
+                description: If set, the calendar event list is returned in XML or JSON format.
+                example:  |
+                    application/vnd.ibexa.api.EventList+xml
+                    application/vnd.ibexa.api.EventList+json
+        responses:
+            200:
+                body:
+                    application/vnd.ibexa.api.EventList+xml:
+                        type: EventList
+                        example: !include examples/calendar/event/GET/EventList.xml.example
+                    application/vnd.ibexa.api.EventList+json:
+                        type: EventList
+                        example: !include examples/calendar/event/GET/EventList.json.example
+    /grouped-by-day:
+        get:
+            displayName: Calendar list grouped by day
+            description: Calendar event list grouped by day.
+            queryParameters:
+                start:
+                    description: Query start date.
+                    type: integer
+                end:
+                    description: Query end date.
+                    type: integer
+                types:
+                    description: The types of events that are displayed.
+                    type: string
+                languages:
+                    description: Language code. Restricts the output of event list to the given languages.
+                    type: string
+                count:
+                    description: Number of parameters that are returned in the list.
+                    type: integer
+                cursor:
+                    description: Starting point of calendar event list. It should be taken from the URL.
+                    type: string
+            headers:
+                Accept:
+                    description: If set, the calendar event list grouped by day is returned in XML or JSON format.
+                    example:  |
+                        application/vnd.ibexa.api.EventGroupList+xml
+                        application/vnd.ibexa.api.EventGroupList+json
+            responses:
+                200:
+                    body:
+                        application/vnd.ibexa.api.EventGroupList+xml:
+                            type: EventGroupList
+                            example: !include examples/calendar/event/grouped-by-day/GET/EventGroupList.xml.example
+                        application/vnd.ibexa.api.EventGroupList+json:
+                            type: EventGroupList
+                            example: !include examples/calendar/event/grouped-by-day/GET/EventGroupList.json.example
+    /{eventType}:
+        post:
+            displayName: Calendar action
+            description: A calendar action that e.g. reschedules or unschedules calendar events. The event type should always be copied from an event.
+            headers:
+                Content-Type:
+                    example:  |
+                        application/vnd.ibexa.api.calendar.future_publication.UnscheduleAction+json
+                        application/vnd.ibexa.api.calendar.future_hide.UnscheduleAction+json
+            body:
+                application/vnd.ibexa.api.calendar.future_publication.UnscheduleAction+json:
+                    type: UnscheduleAction
+                    example: !include examples/calendar/event/eventType/POST/future_publication.UnscheduleAction.json.example
+                application/vnd.ibexa.api.calendar.future_hide.UnscheduleAction+json:
+                    type: UnscheduleAction
+            responses:
+                204:
+                    description: No Content - the action has been unscheduled.

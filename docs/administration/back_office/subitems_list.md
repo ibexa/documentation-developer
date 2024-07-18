@@ -64,18 +64,18 @@ Without all the following properties the Sub-items module will not work.
 
 Optionally, Sub-items module can take a following list of props:
 
-- **loadContentInfo** _{Function}_ - loads Content item info. Takes two params:
+- **loadContentInfo** _{Function}_ - loads content item info. Takes two params:
     - **contentIds** _{Array}_ - list of content IDs
     - **callback** _{Function}_ - a callback invoked when content info is loaded
-- **loadContentTypes** _{Function}_ - loads Content Types. Takes one param:
-    - **callback** _{Function}_ - callback invoked when Content Types are loaded
+- **loadContentTypes** _{Function}_ - loads content types. Takes one param:
+    - **callback** _{Function}_ - callback invoked when content types are loaded
 - **loadLocation** _{Function}_ - loads Location. Takes four params:
     - **restInfo** _{Object}_ - REST info params:
         - **token** _{String}_ - the user token
         - **siteaccess** _{String}_ - the current SiteAccess
     - **queryConfig** _{Object}_ - query config:
         - **locationId** _{Number}_ - Location ID
-        - **limit** _{Number}_ - Content item limit
+        - **limit** _{Number}_ - content item limit
         - **offset** _{Number}_ - items offset
         - **sortClauses** _{Object}_ - the Sort Clauses, for example, {LocationPriority: 'ascending'}
     - **callback** _{Function}_ - callback invoked when Location is loaded

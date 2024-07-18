@@ -12,4 +12,4 @@ ibexa:
                         template: '@ibexadesign/full/featured_article.html.twig'
                         match:
                             Identifier\ContentType: article
-                            \App\View\Matcher\Owner: [johndoe, janedoe]
+                            App\Owner: [johndoe, janedoe]

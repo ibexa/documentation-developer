@@ -22,7 +22,7 @@ You can pass the name of an [image variation](#configure-image-variation) as an 
 
 ## Render first image
 
-If a Content item contains more than one image, you may want to select the first filled image to render.
+If a content item contains more than one image, you may want to select the first filled image to render.
 
 This enables you to avoid a situation where, for example, the featured image in an article is missing,
 because the first image Field was left empty.

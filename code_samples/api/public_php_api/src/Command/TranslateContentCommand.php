@@ -18,7 +18,7 @@ class TranslateContentCommand extends Command
 
     private PermissionResolver $permissionResolver;
 
-    public function __construct(ContentService $contentService, UserService $userService, PermissionResolver $permissionResolver, ?string $name = null)
+    public function __construct(ContentService $contentService, UserService $userService, PermissionResolver $permissionResolver)
     {
         $this->contentService = $contentService;
         $this->userService = $userService;
@@ -26,7 +26,7 @@ class TranslateContentCommand extends Command
         parent::__construct('doc:translate_content');
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setDefinition([
@@ -38,7 +38,7 @@ class TranslateContentCommand extends Command
             ]);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);

@@ -38,7 +38,9 @@ class CheckboxWithRichtextDescriptionType extends AbstractType
     {
         // pass the Dom object of the richtext doc to the template
         $dom = new \DOMDocument();
-        $dom->loadXML($options['richtext_description']);
+        if (!empty($options['richtext_description'])) {
+            $dom->loadXML($options['richtext_description']);
+        }
         $view->vars['richtextDescription'] = $dom;
     }
 }

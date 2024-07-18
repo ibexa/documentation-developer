@@ -57,6 +57,26 @@ Such arguments could include passwords or other sensitive information.
 You should also make sure no stack trace is ever visible to end users of production sites,
 though visible arguments are unsafe even if the stack traces only show up in log files.
 
+### Disable error output from PHP
+
+Symfony in production mode prevents exception messages from being visible to end users.
+However, if Symfony fails to boot properly, such exceptions may end up being visible, including stack traces.
+This can be prevented by [disabling error message output in PHP](https://www.php.net/manual/en/language.errors.basics.php).
+These `php.ini` configuration values should be used on production sites.
+When using [[= product_name_cloud =]], the same settings can be configured in [[= product_name =]]'s `.platform.app.yaml` file.
+
+```ini
+display_errors          = Off
+display_startup_errors  = Off
+```
+
+### Other PHP settings
+
+Consider what other security related settings are relevant for your needs.
+The [OWASP PHP Configuration Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/PHP_Configuration_Cheat_Sheet.html)
+contains several recommendations, but be aware that they may be out of date as they don't mention PHP 8.
+See also [PHP's own security manual](https://www.php.net/manual/en/security.php).
+
 ## [[= product_name =]]
 
 ### Fully-vetted admin users
@@ -79,7 +99,7 @@ This is specially important for admin accounts and other privileged users.
 
 !!! tip "Password rules"
 
-    See [setting up password rules](user_management.md#password-rules).
+    See [setting up password rules](passwords.md#password-rules).
 
 ### Secure secrets
 
@@ -144,7 +164,7 @@ See [Change from UTF8 to UTF8MB4](update_db_to_2.5.md#change-from-utf8-to-utf8mb
 
 Use the following checklist to ensure the Roles and Policies are secure:
 
-- Do Roles restrict read/write access to content as they should? Is read/write access to personal data, like User Content items, properly restricted?
+- Do Roles restrict read/write access to content as they should? Is read/write access to personal data, like User content items, properly restricted?
 - Are the Roles and their use properly differentiated and restricted? Is an editor Role used for everyday editorial work?
 - Is the admin Role used only for high-level administrative work? Is the number of people with admin access properly restricted and vetted?
 - Should people be allowed to create new user accounts themselves? Should such accounts be enabled by default, or require vetting by admins?
@@ -158,7 +178,7 @@ The [visibility switcher](https://doc.ibexa.co/en/latest/content_management/loca
 It acts as a filter in the frontend by default. You can choose to respect it or ignore it in your code.
 It isn't permission-based, and doesn't restrict read access to content. Hidden content can be read through other means, like the REST API or GraphQL.
 
-If you need to restrict read access to a given Content item, you could create a role that grants read access for a given
+If you need to restrict read access to a given content item, you could create a role that grants read access for a given
 [**Section**](https://doc.ibexa.co/en/latest/administration/content_organization/sections/)
 or [**Object State**](https://doc.ibexa.co/en/latest/administration/content_organization/object_states/),
 and set a different Section or Object State for the given Content.
@@ -190,7 +210,13 @@ Once you have properly configured secure user roles and permissions, to avoid ex
 
 - Avoid exposing servers on the open internet when not strictly required.
 - Ensure any servers, services, ports and virtual hosts that were opened for testing purposes are shut down before going live.
-- Secure the database with a good password, keys, firewall, etc. Ensure that the database user used by the web app only has access to do the operations needed by [[= product_name =]]. The Data Definition Language (DDL) commands (create, alter, drop, truncate, comment) are not needed for running [[= product_name =]], only for installing and upgrading it. If the web app user does not have these rights, then that reduces the damage that can be done if there is a security breach.
+- Ensure file system permissions are set up in such a way that the web server or PHP user can't access files they shouldn't be able to read.
+- Secure the database with a good password, keys, firewall, etc.
+Optionally, ensure that the database user used by the web app only has permissions to do the operations needed by [[= product_name =]].
+The Data Definition Language (DDL) commands (create, alter, drop, truncate, comment) are only needed for installing and upgrading [[= product_name =]], and not for running it.
+Not granting these rights to web app users reduces the damage that can result from a security breach.
+
+Those steps aren't needed when using [[= product_name_cloud =]], where the provider handles them.
 
 ### Security headers
 

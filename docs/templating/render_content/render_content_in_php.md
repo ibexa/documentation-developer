@@ -1,10 +1,10 @@
 ---
-description: Render Content item from PHP and get the resulting HTML as a string.
+description: Render content item from PHP and get the resulting HTML as a string.
 ---
 
 # Render content in PHP
 
-While in PHP, you may need to render the view of a Content item (for example, for further treatment like PDF conversion, or because you're not in an HTML context).
+While in PHP, you may need to render the view of a content item (for example, for further treatment like PDF conversion, or because you're not in an HTML context).
 
 !!! caution
 

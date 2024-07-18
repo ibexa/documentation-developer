@@ -15,7 +15,7 @@ class MyBlockListener implements EventSubscriberInterface
         ];
     }
 
-    public function onBlockPreRender(PreRenderEvent $event)
+    public function onBlockPreRender(PreRenderEvent $event): void
     {
         $renderRequest = $event->getRenderRequest();
 

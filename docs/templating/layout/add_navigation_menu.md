@@ -1,5 +1,5 @@
 ---
-description: Enrich you site front with a menu displaying selected Content items.
+description: Enrich you site front with a menu displaying selected content items.
 ---
 
 # Add navigation menu
@@ -16,7 +16,7 @@ To select items that should be rendered in the menu, you can use one of the foll
 
 ## Render menu using a query
 
-To create a menu that contains a specific set of Content items, for example all content under the root Location, use a [Query Type](content_queries.md).
+To create a menu that contains a specific set of content items, for example all content under the root Location, use a [Query Type](content_queries.md).
 
 First, in `src/QueryType`, create a custom `MenuQueryType.php` file that queries for all items that you want in the menu:
 
@@ -49,13 +49,13 @@ use the [KNPMenuBundle](https://github.com/KnpLabs/KnpMenuBundle) that is instal
 
 To use it, first create a `MenuBuilder.php` file in `src/Menu`:
 
-``` php hl_lines="20 21 22 26"
+``` php hl_lines="21 22 23 27"
 [[= include_file('code_samples/front/layouts/menu/src/Menu/MenuBuilder.php') =]]
 ```
 
 In the builder, you can define items that you want in the menu.
-For example, lines 20-22 add a specific Location by using the [`ibexa.url.alias`](url_twig_functions.md#ibexa.url.alias) route.
-Line 26 adds a defined system route that leads to the search form.
+For example, lines 21-23 add a specific Location by using the [`ibexa.url.alias`](url_twig_functions.md#ibexa.url.alias) route.
+Line 27 adds a defined system route that leads to the search form.
 
 Next, register the menu builder as a service:
 

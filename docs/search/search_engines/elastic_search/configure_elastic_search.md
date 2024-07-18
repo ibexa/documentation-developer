@@ -1,5 +1,6 @@
 ---
 description: Configure Elasticsearch to use it with Ibexa DXP.
+month_change: true
 ---
 
 # Configure Elasticsearch
@@ -9,8 +10,9 @@ description: Configure Elasticsearch to use it with Ibexa DXP.
 To configure Elasticsearch, first, you need to configure the connections. 
 
 There are two possibilities of connection:
-- using [cluster of Elasticsearch nodes](#cluster)
-- using [Elasticsearch Cloud](#elasticsearch-cloud)
+
+- using [cluster of Elasticsearch nodes](#configure-clustering)
+- using [Elasticsearch Cloud](#configure-elasticsearch-cloud)
 
 No matter which option you choose, you have to define the connection settings under the `connections` key. 
 Set a name of the connection:
@@ -35,8 +37,8 @@ ibexa_elasticsearch:
 Now, you need to decide whether to add a cluster that you administer and manage yourself, or use a cloud
 solution from Elastic, as well as configure additional parameters.
 
-If you want to connect by using a cluster, follow the instructions below in the [Cluster](#cluster) section.
-If you want to use Elasticsearch Cloud, skip to [Elasticsearch Cloud](#elasticsearch-cloud) section.
+If you want to connect by using a cluster, follow the instructions below in the [Cluster](#configure-clustering) section.
+If you want to use Elasticsearch Cloud, skip to [Elasticsearch Cloud](#configure-elasticsearch-cloud) section.
 
 ## Configure clustering
 
@@ -149,7 +151,7 @@ If you prefer a different strategy, or have created your own, custom strategy, y
     connection_selector: Elasticsearch\ConnectionPool\Selectors\<selector_name>
 ```
 
-For more information and a list of available choices, see [Selectors](https://www.elastic.co/guide/en/elasticsearch/client/php-api/current/selectors.html).
+For more information and a list of available choices, see [Selectors](https://www.elastic.co/guide/en/elasticsearch/client/php-api/7.x/selectors.html).
 
 ##### Number of retries
 
@@ -166,7 +168,7 @@ By default, `null` is used, which means that the number of retries equals to the
 Depending on the connection pool that you select, [[= product_name =]]'s reaction to reaching the maximum
 number of retries might differ.
 
-For more information, see [Set retries](https://www.elastic.co/guide/en/elasticsearch/client/php-api/7.x/configuration.html#_set_retries).
+For more information, see [Set retries](https://www.elastic.co/guide/en/elasticsearch/client/php-api/7.x/set-retries.html).
 
 ## Configure Elasticsearch Cloud
 
@@ -308,7 +310,7 @@ To do this, pass the following setting under the `ssl` key:
 verification: false
 ```
 
-For more information, see [Elasticsearch: SSL Encryption](https://www.elastic.co/guide/en/elasticsearch/client/php-api/7.x/security.html#_ssl_encryption_2).
+For more information, see [Elasticsearch: SSL Encryption](https://www.elastic.co/guide/en/elasticsearch/client/php-api/7.x/connceting.html#ssl-encryption).
 
 ### Enable debugging
 
@@ -475,19 +477,66 @@ ibexa_elasticsearch:
                 # ...
 ```
 
+### Add language-specific analysers
+
+You can configure Elasticsearch to perform language-specific analysis like stemming.
+This way searching for "cars" returns hits with content that contains the word "car".
+On a multilingual site, you can have different analyzers configured for different languages, something which is typically required because stemming rules are language-specific.
+
+#### Make a copy of the default template
+
+To enable a language-specific analyzer, create a new template for each language in `config/packages/ibexa_elasticsearch.yaml` first.
+This template should be based on the `default` template found in `vendor/ibexa/elasticsearch/src/bundle/Resources/config/default-config.yaml`.
+The name of the new template should indicate the language it applies to, for example `eng_gb`, `nor_no` or `fre_fr`.
+
+#### Change match pattern for the new template
+
+The default template matches on `*_location_*` and `*_content_*`.
+These patterns are not language-specific and you cannot use them if you plan to use different templates for different languages.
+In your copy of the default template, change the pattern as follows:
+
+```diff
+        patterns:
+-            - '*_location_*'
+-            - '*_content_*'
++            - "*_eng_gb*"
+```
+
+This pattern matches on English.
+For more information about specifying the pattern for your language, see [Define a template](#define-a-template).
+
+#### Create config for language specific analyzer
+
+For information about configuring an analyzer for each specific language, see [Elastic Search documentation](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/analysis-lang-analyzer.html).
+
+An adoption of the [English analyzer](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/analysis-lang-analyzer.html#english-analyzer) in [[= product_name =]] configuration looks like this:
+
+```yaml hl_lines="3-5 15-23 35 41-52 94 99"
+[[= include_file('code_samples/search/elasticsearch/config/packages/elasticsearch-en.yaml') =]]
+```
+
+Then, you must bind this language template to your Elasticsearch connection.
+
 ## Bind templates with connections
 
-Once you have created the field mapping template(s), you must establish a relationship between the templates and a connection. You do this by adding the "index_templates" key to a connection definition.
+After you create an index template (for example, for specific data types or linguistic analysis), you must link it to an Elasticsearch connection by adding the `index_templates` key to the connection definition.
 
 If your configuration file contains several connection definitions, you can reuse the same template for different connections.
 If you have several index templates, you can apply different combinations of templates to different connections.
 
 ``` yaml
-<connection_name>:
-    # ...
-    index_templates:
-        - default
-        - default_en_us
+ibexa_elasticsearch:
+    connections:
+        <connection_for_english_only_repository>:
+            # ...
+            index_templates:
+                - eng_gb
+        <connection_for_multilangual_repository>:
+            # ...
+            index_templates:
+                - eng_gb
+                - fre_fr
+                - ger_de
 ```
 
 For more information about how Elasticsearch handles settings and mappings from multiple templates that match the same index, see [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/7.x/indices-templates-v1.html#multiple-templates-v1).

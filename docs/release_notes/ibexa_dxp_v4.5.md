@@ -69,7 +69,7 @@ This release introduces new page blocks:
 
 ### Translation comparison
 
-With this release, you can compare different versions of translations of a Content item, including comparison between different languages.
+With this release, you can compare different versions of translations of a content item, including comparison between different languages.
 
 You can now choose between two new options of the view:
 
@@ -194,6 +194,11 @@ Product search now supports aggregations, with the following aggregations availa
 - [ProductTypeTerm](https://doc.ibexa.co/en/4.5/search/aggregation_reference/producttypeterm_aggregation/) - based on product type
 
 The new [TaxonomyEntryIdAggregation](https://doc.ibexa.co/en/4.5/search/aggregation_reference/taxonomyentryid_aggregation/) aggregates results based on content taxonomy entries or product categories.
+
+### Tag identifiers
+
+The taxonomy entry identifier uniqueness has been changed from globally unique to unique per taxonomy.
+It's no longer necessary to take other taxonomies into account when creating tags in a taxonomy.
 
 ### Password security
 

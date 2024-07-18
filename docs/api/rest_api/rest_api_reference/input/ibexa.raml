@@ -37,8 +37,8 @@ baseUri: ../rest_api_usage/rest_api_usage/
     /sessions: !include ibexa-user-sessions.raml
     /token: !include ibexa-user-token.raml
 
-#/segments: !include ibexa-segment_groups.raml
-#/segment_groups: !include ibexa-segment_groups.raml
+/segments: !include ibexa-segments.raml
+/segment_groups: !include ibexa-segment-groups.raml
 
 #/personalization/v1: !include ibexa-personalization.raml
 
@@ -53,6 +53,10 @@ baseUri: ../rest_api_usage/rest_api_usage/
 /orders: !include ibexa-orders.raml
 
 /payment-method: !include ibexa-payment-methods.raml
+
+/shipping: !include ibexa-shipping.raml
+
+/shipments: !include ibexa-shipments.raml
 
 /corporate: !include ibexa-corporate.raml
 
@@ -72,5 +76,7 @@ baseUri: ../rest_api_usage/rest_api_usage/
     /vat: !include ibexa-product-vat.raml
 
 /taxonomy: !include ibexa-taxonomy.raml
+
+/activity-log-group: !include ibexa-activityloggroup.raml
 
 types: !include ibexa-types.raml

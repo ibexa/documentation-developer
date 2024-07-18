@@ -26,16 +26,16 @@ class ViewContentCommand extends Command
         parent::__construct('doc:view_content');
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
-            ->setDescription('Output Field values on provided Content item.')
+            ->setDescription('Output Field values on provided content item.')
             ->setDefinition([
                 new InputArgument('contentId', InputArgument::REQUIRED, 'Location ID'),
             ]);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $contentId = $input->getArgument('contentId');
 

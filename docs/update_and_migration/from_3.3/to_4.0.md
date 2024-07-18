@@ -9,6 +9,8 @@ See [a list of all changed namespaces, configuration key, service names, and oth
 
 An additional compatibility layer makes the process of updating your code easier.
 
+[[% include 'snippets/update/temporary_v4_conflicts.md' %]]
+
 !!! note "Symfony 5.4"
 
     If you are using Symfony 5.3, you need to update your installation to Symfony 5.4.
@@ -160,6 +162,10 @@ php bin/console ibexa:migrations:migrate
 ```
 
 ## Update your custom code
+
+### Back Office customization
+
+The v4 version of [[= product_name =]] is using Bootstrap 5 in the Back Office. If you were using Bootstrap 4 for styling, you need to update and adjust all custom Back Office components [following the migration guide from Bootstrap 4](https://getbootstrap.com/docs/5.0/migration/).
 
 ### Online editor
 

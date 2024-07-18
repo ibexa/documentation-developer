@@ -36,10 +36,10 @@ class SectionCommand extends Command
         parent::__construct('doc:section');
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
-            ->setDescription('Creates new section and adds selected Content item to it.')
+            ->setDescription('Creates new section and adds selected content item to it.')
             ->setDefinition([
                 new InputArgument('sectionName', InputArgument::REQUIRED, 'Name of the new Section'),
                 new InputArgument('sectionIdentifier', InputArgument::REQUIRED, 'Identifier of the new Section'),
@@ -47,7 +47,7 @@ class SectionCommand extends Command
             ]);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);

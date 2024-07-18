@@ -1,6 +1,6 @@
 # LocationChildrenTermAggregation
 
-The [LocationChildrenTermAggregation](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Query/Aggregation/Location/LocationChildrenTermAggregation.php) aggregates search results by the number of children of a Location.
+The [LocationChildrenTermAggregation](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Location-LocationChildrenTermAggregation.html) aggregates search results by the number of children of a Location.
 
 ## Arguments
 

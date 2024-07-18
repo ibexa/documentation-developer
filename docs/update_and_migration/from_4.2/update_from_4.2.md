@@ -6,6 +6,8 @@ description: Update your installation to the latest v4.3 version from v4.2.x.
 
 This update procedure applies if you are using a v4.2 installation.
 
+[[% include 'snippets/update/temporary_v4_conflicts.md' %]]
+
 ## Update from v4.2.x to v4.2.latest
 
 Before you update to v4.3, you need to go through the following steps to update to the latest maintenance release of v4.2 (v[[= latest_tag_4_2 =]]).
@@ -75,33 +77,33 @@ run data migration required by the Customer Portal self-registration feature:
 php bin/console ibexa:migrations:import vendor/ibexa/corporate-account/src/bundle/Resources/migrations/corporate_account_registration.yaml --name=012_corporate_account_registration.yaml
 ```
 
-#### Migration to `customer` Content Type
+#### Migration to `customer` content type
 
-This step is required if you have users in your installation that need to be transferred to a new User Content Type: `customer`.
-This Content Type is dedicated to registered frontend customers.
+This step is required if you have users in your installation that need to be transferred to a new User content type: `customer`.
+This content type is dedicated to registered frontend customers.
 This migration is intended for all product versions.
 If there are no users that are customers in your platform, you can skip this step and move on to [executing migrations](#execute-migrations).
 
 ##### Basic migration
 
-Use this option to define a user group that should be migrated to a new Content Type.
+Use this option to define a user group that should be migrated to a new content type.
 
 ```bash
 php bin/console ibexa:migrate:customers  --input-user-group=3a3beb3d09ae0dacebf1d324f61bbc34 --create-content-type
 ```
 
-- `--input-user-group` - represents the remote ID of a User Group you want to migrate to a new Content Type.
+- `--input-user-group` - represents the remote ID of a User Group you want to migrate to a new content type.
 After migration, this will also be the ID of a new Private Customer User Group.
-- `--create-content-type` - if you add this parameter, the system creates the new Content Type based on the one defined in `--input-user-content-type`
+- `--create-content-type` - if you add this parameter, the system creates the new content type based on the one defined in `--input-user-content-type`
 
 ##### Additional parameters
 
-Use the parameters below if you need to change a Content Type name during migration, for example because you already have a `customer` Content Type,
-or you want to define different source Content Type.
-If you don't have custom User Content Types, use the basic migration.
+Use the parameters below if you need to change a content type name during migration, for example because you already have a `customer` content type,
+or you want to define different source content type.
+If you don't have custom User content types, use the basic migration.
 
-- `--input-user-content-type` - defines input Content Type
-- `--output-user-content-type` - defines output Content Type
+- `--input-user-content-type` - defines input content type
+- `--output-user-content-type` - defines output content type
 - `--user` - defines the user that this command should be executed as, default is Admin
 - `--batch-limit` - defines data limit for migration of one batch, default value is 25
 
@@ -129,14 +131,12 @@ Apply the following database update scripts:
 === "MySQL"
 
     ``` bash
-    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.2.2-to-4.2.3.sql
     mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.2.latest-to-4.3.0.sql
     ```
 
 === "PostgreSQL"
 
     ``` bash
-    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.2.2-to-4.2.3.sql
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.2.latest-to-4.3.0.sql
     ```
 
@@ -144,11 +144,24 @@ Apply the following database update scripts:
 
 If you have no access to [[= product_name =]]'s `ibexa/installer` package, database upgrade is not necessary.
 
+### Clean-up taxonomy database
+
+Run the following command for each of your taxonomies to ensure that there are no [content items orphaned during deletion of subtrees](https://doc.ibexa.co/en/latest/content_management/taxonomy/taxonomy/#remove-orphaned-content-items):
+
+`php bin/console ibexa:taxonomy:remove-orphaned-content <taxonomy> --force`
+
+For example:
+
+```bash
+php bin/console ibexa:taxonomy:remove-orphaned-content tags --force
+php bin/console ibexa:taxonomy:remove-orphaned-content product_categories --force
+```
+
 ## Ensure password safety
 
 Following [Security advisory: IBEXA-SA-2022-009](https://developers.ibexa.co/security-advisories/ibexa-sa-2022-009-critical-vulnerabilities-in-graphql-role-assignment-ct-editing-and-drafts-tooltips),
 unless you can verify based on your log files that the vulnerability has not been exploited,
-you should [revoke passwords](https://doc.ibexa.co/en/latest/users/user_management/#revoking-passwords) for all affected users.
+you should [revoke passwords](https://doc.ibexa.co/en/latest/users/passwords/#revoking-passwords) for all affected users.
 
 ## Finish update
 

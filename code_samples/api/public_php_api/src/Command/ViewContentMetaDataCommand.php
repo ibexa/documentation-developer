@@ -39,16 +39,16 @@ class ViewContentMetaDataCommand extends Command
         parent::__construct('doc:view_metadata');
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
-            ->setDescription('Output various metadata about a Content item.')
+            ->setDescription('Output various metadata about a content item.')
             ->setDefinition([
                 new InputArgument('contentId', InputArgument::REQUIRED, 'An existing content ID'),
             ]);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $user = $this->userService->loadUserByLogin('admin');
         $this->permissionResolver->setCurrentUserReference($user);
@@ -74,9 +74,9 @@ class ViewContentMetaDataCommand extends Command
             $output->writeln('URL alias: ' . $urlAlias->path);
         }
 
-        // Content Type
+        // Content type
         $content = $this->contentService->loadContent($contentId);
-        $output->writeln('Content Type: ' . $content->getContentType()->getName());
+        $output->writeln('Content type: ' . $content->getContentType()->getName());
 
         // Versions
         $versionInfos = $this->contentService->loadVersions($contentInfo);
@@ -86,7 +86,7 @@ class ViewContentMetaDataCommand extends Command
             $output->writeln(' in ' . $versionInfo->getInitialLanguage()->name);
         }
 
-        $versionInfoArray = $this->contentService->loadVersions($contentInfo, VersionInfo::STATUS_ARCHIVED);
+        $versionInfoArray = iterator_to_array($this->contentService->loadVersions($contentInfo, VersionInfo::STATUS_ARCHIVED));
         if (count($versionInfoArray)) {
             $output->writeln('Archived versions:');
             foreach ($versionInfoArray as $versionInfo) {

@@ -39,7 +39,7 @@ For a content creation example using PHP, see [Creating content with binary atta
 ## JS
 
 The REST API can help you implement JavaScript / AJAX interaction.
-The following example of an AJAX call retrieves `ContentInfo` (that is, metadata) for a Content item:
+The following example of an AJAX call retrieves `ContentInfo` (that is, metadata) for a content item:
 
 To test it, copy-paste this code into your browser console alongside a page from your website (to share the domain):
 

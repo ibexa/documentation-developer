@@ -1,0 +1,38 @@
+ibexa_connector_qualifio:
+    client_id: 1234
+    channel: 'd882c3f1-1b05-48c8-bc1d-c11a45e2c23a'
+    feed_url: 'https://api.qualif.io/v1/campaignfeed/channels/d882c3f1-1b05-48c8-bc1d-c11a45e2c23a/json?clientId=1234'
+    variable_map:
+        form:
+            shipping_address:
+                first_name: 'firstname'
+                last_name: 'lastname'
+                email: 'email'
+                street: 'address'
+                postal_code: 'zip_code'
+                locality: 'locality'
+                country: 'country'
+                phone_number: 'phone'
+            billing_address:
+                first_name: 'firstname'
+                last_name: 'lastname'
+                email: 'email'
+                street: 'address'
+                postal_code: 'zip_code'
+                locality: 'locality'
+                country: 'country'
+                phone_number: 'phone'
+            content:
+                birthday: 'birthday'
+                first_name: 'firstname'
+                last_name: 'lastname'
+                company: 'company'
+                position: 'position'
+                phone: 'phone'
+                gender: 'gender'
+            account:
+                name: 'name'
+                email: 'email'
+                id: 'userid'
+                remote_id: 'identifier'
+                login: 'login'

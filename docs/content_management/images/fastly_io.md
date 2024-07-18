@@ -136,7 +136,7 @@ ibexa:
                         crop: '30,30,x0,y0'
 ```
 
-You can select defined image variations during Content item creation in the image options.
+You can select defined image variations during content item creation in the image options.
 Variations can include different sizing options and other filters that are applied to the image.
 
 ![Fastly Image Variations](img/fastly_variations.png)
