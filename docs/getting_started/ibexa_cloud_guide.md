@@ -20,15 +20,15 @@ As a diverse Platform as a Service (PaaS), it's designed to allow you to focus o
 
 ## How does [[= product_name_cloud =]] work
 
-[[= product_name_cloud =]], as a hosting platform, is designed to streamline the development and testing processes, allowing you to deliver new features much faster.
+[[= product_name_cloud =]], as a hosting platform, is designed to streamline the development and testing processes, allowing you to deliver new features faster.
 It ensures that developers dedicate more time to important development activities rather than maintaining databases, queues, search engines, and operating systems.
-It shifts the focus away from fundamental operations and toward improving your digital services with additional features, and functionality.
+It shifts the focus away from fundamental operations and toward improving your digital services with additional features and capabilities.
 
 ![How does Ibexa Cloud work](ibexa_cloud.png)
 
 ## [[= product_name_cloud =]] account
 
-If you want to use [[= product_name_cloud =]], you need to follow [installation process](install_on_ibexa_cloud.md) and check the [requirements](requirements.md#ibexa-cloud-requirements-and-setup).
+If you want to use [[= product_name_cloud =]], you need to check the [requirements](requirements.md#ibexa-cloud-requirements-and-setup) and follow [installation process](install_on_ibexa_cloud.md).
 
 To use [[= product_name_cloud =]], you must make arrangements with [[= product_name_base =]] to get and set up a user account.
 To do so, contact your Partner Manager, or Sales representatives team, or fill out the form available at this link: https://www.ibexa.co/about-ibexa/contact-us.
@@ -44,6 +44,12 @@ This cloud computing approach gives users access to a full cloud platform, inclu
 PaaS eliminates the requirement to buy and install the necessary hardware and software. All you have to do is access it and you can start deploying resources and developing right away.
 
 ![How PaaS works](how_paas_works.png)
+
+### Performance management
+
+Make your applications more effective, scalable, and effective by using the [Observability Suite](https://platform.sh/features/observability-suite/).
+This package gives you the the ability to test, profile, and monitor your application before putting it into production.
+Observability Suite comes with each [[= product_name_cloud =]] subscription.
 
 ### Automation
 
@@ -67,7 +73,7 @@ What's more, [[= product_name_cloud =]] as an end-to-end cloud hosting platform,
 Comprehensive data security procedures guarantee that you maintain complete ownership of your client's data, defining where it's stored.
 You can be sure that the safety protocols are compliant with all applicable legislation.
 What's more, all updates to your code and infrastructure are fully auditable. Global CDN (Content Delivery Network) is included and fully managed.
-[[= product_name_cloud =]], thanks to grid architecture and extensive [[= product_name_base =]] support, enables effortless deployment.
+[[= product_name_cloud =]], thanks to extensive [[= product_name_base =]] support, enables effortless deployment.
 You can create a clone not only of the code, but also data and the infrastructure.
 As the infrastructure is exactly the same as what's currently in production, you can be sure that everything works well when you conduct your release and push it live.
 
@@ -80,7 +86,7 @@ You can instantly clone every branch of both your code and infrastructure config
 Platform.sh (and [[= product_name_cloud =]], by extension) uses the [Infrastracture as Code approach](https://docs.platform.sh/learn/overview.html#infrastructure-as-code).
 It means that the infrastracture is described in the code and that is what allows you to clone both code and infrastracture configuration at the same time.
 If you want to work with services such as [MySQL](https://docs.platform.sh/add-services/mysql.html), [Kafka](https://docs.platform.sh/add-services/kafka.html), and [Elasticsearch](https://docs.platform.sh/add-services/elasticsearch.html), you can add them with a line of code.
-What's more, you can run in your chosen cloud, like Microsoft Azure, Orange, Google Cloud Platform, and regional partners.
+What's more, you can run in your chosen cloud, like Microsoft Azure, Orange, or Google Cloud Platform.
 
 ### Great customer experience
 
