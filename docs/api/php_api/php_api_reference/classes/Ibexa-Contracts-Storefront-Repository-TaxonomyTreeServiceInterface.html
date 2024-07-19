@@ -19462,6 +19462,17 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-19-0-1" type="checkbox" id="nav-1-19-0-1" >
         <label class="md-nav__link level-3" for="nav-1-19-0-1">
                             <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderConfiguratorInterface.html" title="ProviderConfiguratorInterface">
+                            ProviderConfiguratorInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-19-0-2" type="checkbox" id="nav-1-19-0-2" >
+        <label class="md-nav__link level-3" for="nav-1-19-0-2">
+                            <img src="./images/file.svg" alt="file.svg" />
                                         <a href="classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderService.html" title="ProviderService">
                             ProviderService
                             </a>
@@ -36133,10 +36144,11 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/storefront/src/contracts/Repository/TaxonomyTreeServiceInterface.php">
         <abbr title="vendor/ibexa/storefront/src/contracts/Repository/TaxonomyTreeServiceInterface.php">TaxonomyTreeServiceInterface.php</abbr>
                 :
-        <span title="at line 24">24</span>
+        <span title="at line 41">41</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Returns true if $needle is a descendant of a given $haystack.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36158,6 +36170,11 @@
 </div>
 <div class="phpdocumentor-label-line">
     </div>
+    <section class="phpdocumentor-description">
+        <p>Entry is considered as descendant if it's the entry itself, one of its direct children,
+one of the children's direct children, and so on.</p>
+
+    </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -36199,10 +36216,10 @@
                 </tr>
                     </tbody>
     </table>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">bool</p>
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_getAncestor">
                 <img src="./images/public.svg" alt="public" title="public" />getAncestor()
             <a class="headerlink" href="classes/Ibexa-Contracts-Storefront-Repository-TaxonomyTreeServiceInterface.html#method_getAncestor" title="Permanent link">¶</a>
@@ -36210,10 +36227,11 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/storefront/src/contracts/Repository/TaxonomyTreeServiceInterface.php">
         <abbr title="vendor/ibexa/storefront/src/contracts/Repository/TaxonomyTreeServiceInterface.php">TaxonomyTreeServiceInterface.php</abbr>
                 :
-        <span title="at line 22">22</span>
+        <span title="at line 33">33</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Returns the ancestor of a given entry at a given level.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36270,16 +36288,38 @@
                     <td class="empty">
                                                     -
                                             </td>
-                    <td class="empty">
-                                                    -
+                    <td>
+                                                        <section class="phpdocumentor-description">
+        <p>The level of the ancestor to return (starting from root). Must be greater than 0.</p>
+
+    </section>
+
                                             </td>
                 </tr>
                     </tbody>
     </table>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Taxonomy-Value-TaxonomyEntry.html"><abbr title="\Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry">TaxonomyEntry</abbr></a></p>
-                <div class="content-header">
+                                                    
+    <h5 class="phpdocumentor-tag-list__heading">
+        Tags
+        <a href="classes/Ibexa-Contracts-Storefront-Repository-TaxonomyTreeServiceInterface.html#method_getAncestor#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">Throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-NotFoundException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\NotFoundException">NotFoundException</abbr></a></span>
+                                                                                         <section class="phpdocumentor-description">
+        <p>If the entry has no ancestor at the given level</p>
+
+    </section>
+
+                                    </dd>
+                                                                                    </dl>
+            <div class="content-header">
         <h3 id="method_getPath">
                 <img src="./images/public.svg" alt="public" title="public" />getPath()
             <a class="headerlink" href="classes/Ibexa-Contracts-Storefront-Repository-TaxonomyTreeServiceInterface.html#method_getPath" title="Permanent link">¶</a>
@@ -36287,10 +36327,11 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/storefront/src/contracts/Repository/TaxonomyTreeServiceInterface.php">
         <abbr title="vendor/ibexa/storefront/src/contracts/Repository/TaxonomyTreeServiceInterface.php">TaxonomyTreeServiceInterface.php</abbr>
                 :
-        <span title="at line 20">20</span>
+        <span title="at line 24">24</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Returns the path to the given entry.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36312,6 +36353,10 @@
 </div>
 <div class="phpdocumentor-label-line">
     </div>
+    <section class="phpdocumentor-description">
+        <p>The path is an ordered iterable of entries starting from the root entry and ending with the given entry.</p>
+
+    </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -36339,28 +36384,27 @@
                 </tr>
                     </tbody>
     </table>
-                                                
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">iterable&lt;string|int, <a href="classes/Ibexa-Contracts-Taxonomy-Value-TaxonomyEntry.html"><abbr title="\Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry">TaxonomyEntry</abbr></a>&gt;</p>
+                                                    
+    <h5 class="phpdocumentor-tag-list__heading">
         Tags
         <a href="classes/Ibexa-Contracts-Storefront-Repository-TaxonomyTreeServiceInterface.html#method_getPath#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
                                                 <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">deprecated</span>
+                    <span class="phpdocumentor-tag__name">Deprecated</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description">
+                                                                                                             <section class="phpdocumentor-description">
         <p>Since ibexa/storefront 4.5: The &quot;TaxonomyTreeServiceInterface::getPath()&quot; method is deprecated, will be removed in 5.0. Use Ibexa\Contracts\Taxonomy\Service\TaxonomyServiceInterface::getPath() instead.</p>
 
     </section>
 
                                     </dd>
                                                                                     </dl>
-    <h4>Return values</h4>
-    <p class="phpdocumentor-signature__response_type">iterable&lt;string|int, <a href="classes/Ibexa-Contracts-Taxonomy-Value-TaxonomyEntry.html"><abbr title="\Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry">TaxonomyEntry</abbr></a>&gt;</p>
-                                </div>
+                            </div>
                     </article>
                 </div>
 

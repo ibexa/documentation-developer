@@ -6,6 +6,30 @@ description: Overview of major recent additions to Ibexa DXP documentation.
 
 This page contains recent highlights and notable changes in [[= product_name =]] documentation.
 
+## June 2024
+
+### Ibexa Engage
+
+- [Learn more about Ibexa Engage](https://doc.ibexa.co/en/latest/ibexa_engage/install_ibexa_engage/)
+
+### Search
+
+- [Configuring Elasticsearch with analyzers for different languages](https://doc.ibexa.co/en/latest/search/search_engines/elastic_search/configure_elastic_search/#add-language-specific-analysers)
+- [ContentName search criterion](https://doc.ibexa.co/en/latest/search/criteria_reference/contentname_criterion/)
+
+### Dashboard
+
+- [Customizing the content type for Dashboard container](https://doc.ibexa.co/en/latest/administration/dashboard/configure_default_dashboard/#container-content-type-identifier)
+
+### Infrastructure and maintenance
+
+- [Updated Ibexa Cloud domain to ibexa.cloud](https://doc.ibexa.co/en/latest/getting_started/install_on_ibexa_cloud/#4-push-the-project)
+- [v4.6.3 to v4.6.4 update instructions](https://doc.ibexa.co/en/latest/update_and_migration/from_4.5/update_from_4.5/#v464)
+
+### Documentation
+
+- A "new" pill now appears in the table of content alongside pages which have been recently created, or have recent important updates or additions.
+
 ## May 2024
 
 ### PHP API

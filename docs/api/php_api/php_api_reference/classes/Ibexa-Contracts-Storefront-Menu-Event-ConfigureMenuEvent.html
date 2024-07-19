@@ -19462,6 +19462,17 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-19-0-1" type="checkbox" id="nav-1-19-0-1" >
         <label class="md-nav__link level-3" for="nav-1-19-0-1">
                             <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderConfiguratorInterface.html" title="ProviderConfiguratorInterface">
+                            ProviderConfiguratorInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-19-0-2" type="checkbox" id="nav-1-19-0-2" >
+        <label class="md-nav__link level-3" for="nav-1-19-0-2">
+                            <img src="./images/file.svg" alt="file.svg" />
                                         <a href="classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderService.html" title="ProviderService">
                             ProviderService
                             </a>
@@ -36107,7 +36118,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/storefront/src/contracts/Menu/Event/ConfigureMenuEvent.php">
         <abbr title="vendor/ibexa/storefront/src/contracts/Menu/Event/ConfigureMenuEvent.php">ConfigureMenuEvent.php</abbr>
                 :
-        <span title="at line 14">14</span>
+        <span title="at line 62">62</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
                         <div class="content-header__subheader">
@@ -36116,7 +36127,73 @@
         
         
                 </div>
-    
+        <p>Event allowing to customize build-in menus.</p>
+
+    <section class="phpdocumentor-description">
+        <p>Storefront menus are based on the <a href="https://github.com/KnpLabs/KnpMenu"></a> and are easily extensible via
+event subscribers. You can listen to the following events:</p>
+<ul>
+<li>
+<code class="prettyprint">ibexa.storefront.breadcrumbs.configure.tree_root</code>
+</li>
+<li>
+<code class="prettyprint">ibexa.storefront.breadcrumbs.configure.taxonomy_entry</code>
+</li>
+<li>
+<code class="prettyprint">ibexa.storefront.breadcrumbs.configure.product</code>
+</li>
+<li>
+<code class="prettyprint">ibexa.storefront.breadcrumbs.configure.user_setting</code>
+</li>
+<li>
+<code class="prettyprint">ibexa.storefront.breadcrumbs.configure.user_settings_group</code>
+</li>
+<li>
+<code class="prettyprint">ibexa.storefront.currency_menu.configure</code>
+</li>
+<li>
+<code class="prettyprint">ibexa.storefront.taxonomy_menu.configure</code>
+</li>
+<li>
+<code class="prettyprint">ibexa.storefront.user_menu.configure</code>
+</li>
+<li>
+<code class="prettyprint">ibexa.storefront.language_menu.configure</code>
+</li>
+<li>
+<code class="prettyprint">ibexa.storefront.region_menu.configure</code>
+</li>
+</ul>
+<p>The example belows shows how to append link to &quot;All entries&quot; to taxonomy menu:</p>
+<pre class="prettyprint"><code class="prettyprint">namespace App\EventSubscriber;
+
+use Ibexa\Contracts\Storefront\Menu\Event\ConfigureMenuEvent;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+
+final readonly class TaxonomyMenuSubscriber implements EventSubscriberInterface
+{
+    public static function getSubscribedEvents(): array
+    {
+        return [
+            'ibexa.storefront.taxonomy_menu.configure' =&gt; 'onMenuConfigure',
+        ];
+    }
+
+    public function onMenuConfigure(ConfigureMenuEvent $event): void
+    {
+        $menu = $event-&gt;getMenu();
+        $menu-&gt;addChild(
+            'all_categories',
+            [
+                'label' =&gt; 'All categories',
+                // ... other options
+            ],
+        );
+    }
+}
+</code></pre>
+
+    </section>
 
                     
 
@@ -36143,7 +36220,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/storefront/src/contracts/Menu/Event/ConfigureMenuEvent.php">
         <abbr title="vendor/ibexa/storefront/src/contracts/Menu/Event/ConfigureMenuEvent.php">ConfigureMenuEvent.php</abbr>
                 :
-        <span title="at line 24">24</span>
+        <span title="at line 72">72</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -36218,7 +36295,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/storefront/src/contracts/Menu/Event/ConfigureMenuEvent.php">
         <abbr title="vendor/ibexa/storefront/src/contracts/Menu/Event/ConfigureMenuEvent.php">ConfigureMenuEvent.php</abbr>
                 :
-        <span title="at line 30">30</span>
+        <span title="at line 78">78</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -36243,10 +36320,10 @@
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><abbr title="\Knp\Menu\ItemInterface">ItemInterface</abbr></p>
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_getOptions">
                 <img src="./images/public.svg" alt="public" title="public" />getOptions()
             <a class="headerlink" href="classes/Ibexa-Contracts-Storefront-Menu-Event-ConfigureMenuEvent.html#method_getOptions" title="Permanent link">¶</a>
@@ -36254,7 +36331,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/storefront/src/contracts/Menu/Event/ConfigureMenuEvent.php">
         <abbr title="vendor/ibexa/storefront/src/contracts/Menu/Event/ConfigureMenuEvent.php">ConfigureMenuEvent.php</abbr>
                 :
-        <span title="at line 38">38</span>
+        <span title="at line 86">86</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -36279,10 +36356,10 @@
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string, mixed&gt;</p>
-                                </div>
+                        
+                            </div>
                     </article>
                 </div>
 

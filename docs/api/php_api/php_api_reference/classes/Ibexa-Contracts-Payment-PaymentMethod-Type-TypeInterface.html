@@ -19462,6 +19462,17 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-19-0-1" type="checkbox" id="nav-1-19-0-1" >
         <label class="md-nav__link level-3" for="nav-1-19-0-1">
                             <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderConfiguratorInterface.html" title="ProviderConfiguratorInterface">
+                            ProviderConfiguratorInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-19-0-2" type="checkbox" id="nav-1-19-0-2" >
+        <label class="md-nav__link level-3" for="nav-1-19-0-2">
+                            <img src="./images/file.svg" alt="file.svg" />
                                         <a href="classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderService.html" title="ProviderService">
                             ProviderService
                             </a>
@@ -36107,11 +36118,28 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentMethod/Type/TypeInterface.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentMethod/Type/TypeInterface.php">TypeInterface.php</abbr>
                 :
-        <span title="at line 11">11</span>
+        <span title="at line 29">29</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
                     </div>
-    
+        <p>Interface for payment method types.</p>
+
+    <section class="phpdocumentor-description">
+        <pre class="prettyprint"><code class="prettyprint">final class CreditCardType implements TypeInterface
+{
+    public function getIdentifier(): string
+    {
+        return 'credit_card';
+    }
+
+    public function getName(): string
+    {
+         return 'Credit Card';
+    }
+}
+</code></pre>
+
+    </section>
 
                             
 
@@ -36137,10 +36165,11 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentMethod/Type/TypeInterface.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentMethod/Type/TypeInterface.php">TypeInterface.php</abbr>
                 :
-        <span title="at line 13">13</span>
+        <span title="at line 36">36</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Returns the identifier of the payment method type.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36162,10 +36191,14 @@
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-                    
+    <section class="phpdocumentor-description">
+        <p>Identifier MUST be unique and SHOULD contain alphanumeric characters and underscores.</p>
+
+    </section>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">string</p>
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_getName">
                 <img src="./images/public.svg" alt="public" title="public" />getName()
             <a class="headerlink" href="classes/Ibexa-Contracts-Payment-PaymentMethod-Type-TypeInterface.html#method_getName" title="Permanent link">¶</a>
@@ -36173,10 +36206,11 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentMethod/Type/TypeInterface.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentMethod/Type/TypeInterface.php">TypeInterface.php</abbr>
                 :
-        <span title="at line 15">15</span>
+        <span title="at line 41">41</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Returns the name of the payment method type.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36198,10 +36232,10 @@
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">string</p>
-                                </div>
+                        
+                            </div>
                     </article>
                 </div>
 

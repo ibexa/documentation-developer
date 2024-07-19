@@ -57,7 +57,7 @@ final class VatCommand extends Command
 
         $vatCategory = $this->vatService->getVatCategoryByIdentifier($region, 'reduced');
 
-        $output->writeln($vatCategory->getVatValue());
+        $output->writeln((string) $vatCategory->getVatValue());
 
         return self::SUCCESS;
     }

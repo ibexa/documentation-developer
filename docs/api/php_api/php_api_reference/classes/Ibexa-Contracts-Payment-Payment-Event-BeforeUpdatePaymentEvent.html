@@ -19462,6 +19462,17 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-19-0-1" type="checkbox" id="nav-1-19-0-1" >
         <label class="md-nav__link level-3" for="nav-1-19-0-1">
                             <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderConfiguratorInterface.html" title="ProviderConfiguratorInterface">
+                            ProviderConfiguratorInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-19-0-2" type="checkbox" id="nav-1-19-0-2" >
+        <label class="md-nav__link level-3" for="nav-1-19-0-2">
+                            <img src="./images/file.svg" alt="file.svg" />
                                         <a href="classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderService.html" title="ProviderService">
                             ProviderService
                             </a>
@@ -36107,7 +36118,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/Payment/Event/BeforeUpdatePaymentEvent.php">
         <abbr title="vendor/ibexa/payment/src/contracts/Payment/Event/BeforeUpdatePaymentEvent.php">BeforeUpdatePaymentEvent.php</abbr>
                 :
-        <span title="at line 16">16</span>
+        <span title="at line 76">76</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
                         <div class="content-header__subheader">
@@ -36116,10 +36127,75 @@
         
         
                 </div>
-        <p>Event emitted before action execution.</p>
+        <p>Event that is dispatched before a payment is updated.</p>
 
+    <section class="phpdocumentor-description">
+        <p>Typical use cases are to prevent update of payment or to perform some action before update. See the two examples below.</p>
+<p>The following example prevents update of cash payments:</p>
+<pre class="prettyprint"><code class="prettyprint">final class PaymentEventSubscriber implements EventSubscriberInterface
+{
+    public static function getSubscribedEvents(): array
+    {
+        return [
+            BeforeUpdatePaymentEvent::class =&gt; 'onBeforeUpdatePayment',
+        ];
+    }
 
-                    
+    public function onBeforeUpdatePayment(BeforeUpdatePaymentEvent $event): void
+    {
+        $payment = $event-&gt;getPayment();
+        if ($payment-&gt;getMethod()-&gt;getType()-&gt;getIdentifier() === 'cash') {
+            // It's not possible to update cash payment
+            $event-&gt;stopPropagation();
+        }
+    }
+}
+</code></pre>
+<p>The following example adds addition context information to the payment update struct before update is executed:</p>
+<pre class="prettyprint"><code class="prettyprint">final class PaymentEventSubscriber implements EventSubscriberInterface
+{
+    public function __construct(private PermissionResolver $permissionResolver)
+    {
+    }
+
+    public static function getSubscribedEvents(): array
+    {
+        return [
+            BeforeUpdatePaymentEvent::class =&gt; 'onBeforeUpdatePayment',
+        ];
+    }
+
+    public function onBeforeUpdatePayment(BeforeUpdatePaymentEvent $event): void
+    {
+        $updateStruct = $event-&gt;getUpdateStruct();
+        if ($updateStruct-&gt;getTransition() !== null) {
+            $context = [
+                'updated_by' =&gt; $this-&gt;permissionResolver-&gt;getCurrentUserReference()-&gt;getUserId(),
+            ];
+
+            $updateStruct-&gt;setContext(new ArrayMap($context));
+        }
+    }
+}
+</code></pre>
+
+    </section>
+
+                                                            
+    <h5 class="phpdocumentor-tag-list__heading">
+        Tags
+        <a href="classes/Ibexa-Contracts-Payment-Payment-Event-BeforeUpdatePaymentEvent.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                                                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">See</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Payment-PaymentServiceInterface.html#method_updatePayment"><abbr title="\Ibexa\Contracts\Payment\PaymentServiceInterface::updatePayment()">PaymentServiceInterface::updatePayment()</abbr></a></span>
+                                                                 
+                                    </dd>
+                                                                                    </dl>
 
 
 
@@ -36144,7 +36220,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/Payment/Event/BeforeUpdatePaymentEvent.php">
         <abbr title="vendor/ibexa/payment/src/contracts/Payment/Event/BeforeUpdatePaymentEvent.php">BeforeUpdatePaymentEvent.php</abbr>
                 :
-        <span title="at line 24">24</span>
+        <span title="at line 84">84</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -36233,10 +36309,11 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/Payment/Event/BeforeUpdatePaymentEvent.php">
         <abbr title="vendor/ibexa/payment/src/contracts/Payment/Event/BeforeUpdatePaymentEvent.php">BeforeUpdatePaymentEvent.php</abbr>
                 :
-        <span title="at line 34">34</span>
+        <span title="at line 97">97</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Returns the payment being updated.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36258,10 +36335,10 @@
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Payment-Payment-PaymentInterface.html"><abbr title="\Ibexa\Contracts\Payment\Payment\PaymentInterface">PaymentInterface</abbr></a></p>
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_getPaymentResult">
                 <img src="./images/public.svg" alt="public" title="public" />getPaymentResult()
             <a class="headerlink" href="classes/Ibexa-Contracts-Payment-Payment-Event-BeforeUpdatePaymentEvent.html#method_getPaymentResult" title="Permanent link">¶</a>
@@ -36269,10 +36346,11 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/Payment/Event/BeforeUpdatePaymentEvent.php">
         <abbr title="vendor/ibexa/payment/src/contracts/Payment/Event/BeforeUpdatePaymentEvent.php">BeforeUpdatePaymentEvent.php</abbr>
                 :
-        <span title="at line 44">44</span>
+        <span title="at line 117">117</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Returns overridden payment.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36294,10 +36372,32 @@
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-                    
+    <section class="phpdocumentor-description">
+        <p>Returns overridden <a href="classes/Ibexa-Contracts-Payment-PaymentServiceInterface.html#method_updatePayment"><abbr title="\Ibexa\Contracts\Payment\PaymentServiceInterface::updatePayment()">PaymentServiceInterface::updatePayment()</abbr></a> result.</p>
+
+    </section>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Payment-Payment-PaymentInterface.html"><abbr title="\Ibexa\Contracts\Payment\Payment\PaymentInterface">PaymentInterface</abbr></a></p>
-                <div class="content-header">
+                                                    
+    <h5 class="phpdocumentor-tag-list__heading">
+        Tags
+        <a href="classes/Ibexa-Contracts-Payment-Payment-Event-BeforeUpdatePaymentEvent.html#method_getPaymentResult#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">Throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\UnexpectedValueException">UnexpectedValueException</abbr></span>
+                                                                                         <section class="phpdocumentor-description">
+        <p>if the payment result is not set</p>
+
+    </section>
+
+                                    </dd>
+                                                                                    </dl>
+            <div class="content-header">
         <h3 id="method_getUpdateStruct">
                 <img src="./images/public.svg" alt="public" title="public" />getUpdateStruct()
             <a class="headerlink" href="classes/Ibexa-Contracts-Payment-Payment-Event-BeforeUpdatePaymentEvent.html#method_getUpdateStruct" title="Permanent link">¶</a>
@@ -36305,10 +36405,11 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/Payment/Event/BeforeUpdatePaymentEvent.php">
         <abbr title="vendor/ibexa/payment/src/contracts/Payment/Event/BeforeUpdatePaymentEvent.php">BeforeUpdatePaymentEvent.php</abbr>
                 :
-        <span title="at line 39">39</span>
+        <span title="at line 105">105</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Returns the data used to update payment.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36330,10 +36431,10 @@
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Payment-Payment-PaymentUpdateStruct.html"><abbr title="\Ibexa\Contracts\Payment\Payment\PaymentUpdateStruct">PaymentUpdateStruct</abbr></a></p>
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_hasPaymentResult">
                 <img src="./images/public.svg" alt="public" title="public" />hasPaymentResult()
             <a class="headerlink" href="classes/Ibexa-Contracts-Payment-Payment-Event-BeforeUpdatePaymentEvent.html#method_hasPaymentResult" title="Permanent link">¶</a>
@@ -36341,10 +36442,12 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/Payment/Event/BeforeUpdatePaymentEvent.php">
         <abbr title="vendor/ibexa/payment/src/contracts/Payment/Event/BeforeUpdatePaymentEvent.php">BeforeUpdatePaymentEvent.php</abbr>
                 :
-        <span title="at line 60">60</span>
+        <span title="at line 142">142</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Returns whether the {@see \Ibexa\Contracts\Payment\PaymentServiceInterface::updatePayment()} result has been
+overridden.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36366,10 +36469,10 @@
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">bool</p>
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_setPaymentResult">
                 <img src="./images/public.svg" alt="public" title="public" />setPaymentResult()
             <a class="headerlink" href="classes/Ibexa-Contracts-Payment-Payment-Event-BeforeUpdatePaymentEvent.html#method_setPaymentResult" title="Permanent link">¶</a>
@@ -36377,10 +36480,11 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/Payment/Event/BeforeUpdatePaymentEvent.php">
         <abbr title="vendor/ibexa/payment/src/contracts/Payment/Event/BeforeUpdatePaymentEvent.php">BeforeUpdatePaymentEvent.php</abbr>
                 :
-        <span title="at line 55">55</span>
+        <span title="at line 133">133</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Overrides payment.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36402,6 +36506,10 @@
 </div>
 <div class="phpdocumentor-label-line">
     </div>
+    <section class="phpdocumentor-description">
+        <p>Overrides <a href="classes/Ibexa-Contracts-Payment-PaymentServiceInterface.html#method_updatePayment"><abbr title="\Ibexa\Contracts\Payment\PaymentServiceInterface::updatePayment()">PaymentServiceInterface::updatePayment()</abbr></a> execution result.</p>
+
+    </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>

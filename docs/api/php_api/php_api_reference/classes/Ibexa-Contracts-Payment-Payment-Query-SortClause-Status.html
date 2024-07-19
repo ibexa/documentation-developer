@@ -19462,6 +19462,17 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-19-0-1" type="checkbox" id="nav-1-19-0-1" >
         <label class="md-nav__link level-3" for="nav-1-19-0-1">
                             <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderConfiguratorInterface.html" title="ProviderConfiguratorInterface">
+                            ProviderConfiguratorInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-19-0-2" type="checkbox" id="nav-1-19-0-2" >
+        <label class="md-nav__link level-3" for="nav-1-19-0-2">
+                            <img src="./images/file.svg" alt="file.svg" />
                                         <a href="classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderService.html" title="ProviderService">
                             ProviderService
                             </a>
@@ -36111,7 +36122,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/Payment/Query/SortClause/Status.php">
         <abbr title="vendor/ibexa/payment/src/contracts/Payment/Query/SortClause/Status.php">Status.php</abbr>
                 :
-        <span title="at line 14">14</span>
+        <span title="at line 27">27</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
                         <div class="content-header__subheader">
@@ -36123,10 +36134,33 @@
                                     <a href="classes/Ibexa-Contracts-Payment-Payment-Query-SortClauseInterface.html"><abbr title="\Ibexa\Contracts\Payment\Payment\Query\SortClauseInterface">SortClauseInterface</abbr></a>                            </div>
         
                 </div>
-        <p>This class is the base for SortClause classes, used to set sorting of currency queries.</p>
+        <p>Sort clause for sorting payments by status.</p>
 
+    <section class="phpdocumentor-description">
+        <p>The following example groups payments by their statuses:</p>
+<pre class="prettyprint"><code class="prettyprint">$query = new PaymentQuery();
+$query-&gt;addSortClause(new Status());
 
-                    
+$payments = $paymentService-&gt;findPayments($query);
+</code></pre>
+
+    </section>
+
+                                                            
+    <h5 class="phpdocumentor-tag-list__heading">
+        Tags
+        <a href="classes/Ibexa-Contracts-Payment-Payment-Query-SortClause-Status.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                                                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">See</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Payment-PaymentServiceInterface.html#method_findPayments"><abbr title="\Ibexa\Contracts\Payment\PaymentServiceInterface::findPayments()">PaymentServiceInterface::findPayments()</abbr></a></span>
+                                                                 
+                                    </dd>
+                                                                                    </dl>
 
 
 
@@ -36216,7 +36250,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/Payment/Query/SortClause/Status.php">
         <abbr title="vendor/ibexa/payment/src/contracts/Payment/Query/SortClause/Status.php">Status.php</abbr>
                 :
-        <span title="at line 16">16</span>
+        <span title="at line 29">29</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -36307,10 +36341,10 @@
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">string</p>
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_getField">
                 <img src="./images/public.svg" alt="public" title="public" />getField()
             <a class="headerlink" href="classes/Ibexa-Contracts-ProductCatalog-Values-Common-Query-SortClause-FieldValueSortClause.html#method_getField" title="Permanent link">¶</a>
@@ -36343,10 +36377,10 @@
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">string</p>
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_setDirection">
                 <img src="./images/public.svg" alt="public" title="public" />setDirection()
             <a class="headerlink" href="classes/Ibexa-Contracts-ProductCatalog-Values-Common-Query-AbstractSortClause.html#method_setDirection" title="Permanent link">¶</a>
@@ -36407,19 +36441,18 @@
                     </tbody>
     </table>
                                                 
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+    <h5 class="phpdocumentor-tag-list__heading">
         Tags
         <a href="classes/Ibexa-Contracts-ProductCatalog-Values-Common-Query-AbstractSortClause.html#method_setDirection#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
                                                 <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
+                    <span class="phpdocumentor-tag__name">Throws</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><abbr title="\InvalidArgumentException">InvalidArgumentException</abbr></span>
-                                                            
-                                                 <section class="phpdocumentor-description">
+                                                                                         <section class="phpdocumentor-description">
         <p>if the given sort direction is invalid</p>
 
     </section>

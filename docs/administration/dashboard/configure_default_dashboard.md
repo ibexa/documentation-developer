@@ -1,6 +1,7 @@
 ---
 title: Default dashboard configuration
 description: Configure default dashboard.
+month_change: true
 ---
 
 # Configure default dashboard

@@ -15,7 +15,7 @@ Follow the instructions below to create and add a new tab called **Images** whic
 First, in `assets/js/image-tab/`, add an `image.tab.module.js` file.
 
 ``` js
-[[= include_file('code_samples/back_office/udw/assets/js/image-tab/image.tab.module.js', 0,14) =]]
+[[= include_file('code_samples/back_office/udw/assets/js/image-tab/image.tab.module.js', 0, 14) =]]
 ```
 
 Next, add the tab to the configuration in the same file.
@@ -29,7 +29,7 @@ Each tab definition is an object containing the following properties:
 |icon|string|Path to the icon, for example, `/bundles/ibexaadminui/img/ibexa-icons.svg#image`.|
 
 ```js
-[[= include_file('code_samples/back_office/udw/assets/js/image-tab/image.tab.module.js', 14,29) =]]
+[[= include_file('code_samples/back_office/udw/assets/js/image-tab/image.tab.module.js', 14, 29) =]]
 ```
 
 The module governs the creation of the new tab.

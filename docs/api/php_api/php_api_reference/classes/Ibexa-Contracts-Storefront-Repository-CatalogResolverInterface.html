@@ -19462,6 +19462,17 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-19-0-1" type="checkbox" id="nav-1-19-0-1" >
         <label class="md-nav__link level-3" for="nav-1-19-0-1">
                             <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderConfiguratorInterface.html" title="ProviderConfiguratorInterface">
+                            ProviderConfiguratorInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-19-0-2" type="checkbox" id="nav-1-19-0-2" >
+        <label class="md-nav__link level-3" for="nav-1-19-0-2">
+                            <img src="./images/file.svg" alt="file.svg" />
                                         <a href="classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderService.html" title="ProviderService">
                             ProviderService
                             </a>
@@ -36103,11 +36114,23 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/storefront/src/contracts/Repository/CatalogResolverInterface.php">
         <abbr title="vendor/ibexa/storefront/src/contracts/Repository/CatalogResolverInterface.php">CatalogResolverInterface.php</abbr>
                 :
-        <span title="at line 14">14</span>
+        <span title="at line 29">29</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
                     </div>
-    
+        <p>The catalog resolver is used to determine the catalog that should be used for a given user.</p>
+
+    <section class="phpdocumentor-description">
+        <p>The following example demonstrates how to list products available for the current user using the catalog resolver:</p>
+<pre class="prettyprint"><code class="prettyprint">$catalog = $catalogResolver-&gt;resolveCatalog();
+if ($catalog !== null) {
+   $products = $productService-&gt;findProducts($catalog-&gt;getQuery());
+   // ...
+}
+</code></pre>
+<p>Logic can be customized by listening to the <a href="classes/Ibexa-Contracts-Storefront-Repository-Event-CatalogResolveEvent.html"><abbr title="\Ibexa\Contracts\Storefront\Repository\Event\CatalogResolveEvent">CatalogResolveEvent</abbr></a> event.</p>
+
+    </section>
 
                             
 
@@ -36133,10 +36156,11 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/storefront/src/contracts/Repository/CatalogResolverInterface.php">
         <abbr title="vendor/ibexa/storefront/src/contracts/Repository/CatalogResolverInterface.php">CatalogResolverInterface.php</abbr>
                 :
-        <span title="at line 16">16</span>
+        <span title="at line 36">36</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Retrieves the catalog for the given user.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36179,16 +36203,20 @@
                     <td>
                                                                                     null
                                                                         </td>
-                    <td class="empty">
-                                                    -
+                    <td>
+                                                        <section class="phpdocumentor-description">
+        <p>The user for which to resolve the catalog. If null, the current user is used.</p>
+
+    </section>
+
                                             </td>
                 </tr>
                     </tbody>
     </table>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-ProductCatalog-Values-CatalogInterface.html"><abbr title="\Ibexa\Contracts\ProductCatalog\Values\CatalogInterface">CatalogInterface</abbr></a>|null</p>
-                                </div>
+                        
+                            </div>
                     </article>
                 </div>
 

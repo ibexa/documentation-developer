@@ -19462,6 +19462,17 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-19-0-1" type="checkbox" id="nav-1-19-0-1" >
         <label class="md-nav__link level-3" for="nav-1-19-0-1">
                             <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderConfiguratorInterface.html" title="ProviderConfiguratorInterface">
+                            ProviderConfiguratorInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-19-0-2" type="checkbox" id="nav-1-19-0-2" >
+        <label class="md-nav__link level-3" for="nav-1-19-0-2">
+                            <img src="./images/file.svg" alt="file.svg" />
                                         <a href="classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderService.html" title="ProviderService">
                             ProviderService
                             </a>
@@ -36103,7 +36114,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/Payment/PaymentCreateStruct.php">
         <abbr title="vendor/ibexa/payment/src/contracts/Payment/PaymentCreateStruct.php">PaymentCreateStruct.php</abbr>
                 :
-        <span title="at line 19">19</span>
+        <span title="at line 32">32</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
                         <div class="content-header__subheader">
@@ -36115,17 +36126,33 @@
                                     <a href="classes/Ibexa-Contracts-Payment-Payment-Workflow-WorkflowSubjectInterface.html"><abbr title="\Ibexa\Contracts\Payment\Payment\Workflow\WorkflowSubjectInterface">WorkflowSubjectInterface</abbr></a>                            </div>
         
                 </div>
-        <p>The base class for all value objects and structs.</p>
+        <p>Structure containing data used to create a payment.</p>
 
     <section class="phpdocumentor-description">
-        <p>Supports readonly properties by marking them as protected.
-In this case they will only be writable using constructor, and need to be documented
-using property-read <type> &lt;$var&gt; annotation in class doc in addition to inline property doc.
-Writable properties must be public and must be documented inline.</p>
+        <p>The following example creates a payment for an order with a total gross amount of 100 EUR:</p>
+<pre class="prettyprint"><code class="prettyprint">$createStruct = new PaymentCreateStruct($paymentMethod, $order, Money::EUR(10000));
+$createStruct-&gt;setContext(new ArrayMap(['channel' =&gt; 'shop']));
+
+$payment = $paymentService-&gt;createPayment($createStruct);
+</code></pre>
 
     </section>
 
-                    
+                                                            
+    <h5 class="phpdocumentor-tag-list__heading">
+        Tags
+        <a href="classes/Ibexa-Contracts-Payment-Payment-PaymentCreateStruct.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                                                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">See</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Payment-PaymentServiceInterface.html#method_createPayment"><abbr title="\Ibexa\Contracts\Payment\PaymentServiceInterface::createPayment()">PaymentServiceInterface::createPayment()</abbr></a></span>
+                                                                 
+                                    </dd>
+                                                                                    </dl>
 
 
 
@@ -36150,7 +36177,7 @@ Writable properties must be public and must be documented inline.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/Payment/PaymentCreateStruct.php">
         <abbr title="vendor/ibexa/payment/src/contracts/Payment/PaymentCreateStruct.php">PaymentCreateStruct.php</abbr>
                 :
-        <span title="at line 34">34</span>
+        <span title="at line 47">47</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -36245,7 +36272,7 @@ after object has been created.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/Payment/PaymentCreateStruct.php">
         <abbr title="vendor/ibexa/payment/src/contracts/Payment/PaymentCreateStruct.php">PaymentCreateStruct.php</abbr>
                 :
-        <span title="at line 73">73</span>
+        <span title="at line 103">103</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -36270,10 +36297,10 @@ after object has been created.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><abbr title="\Money\Money">Money</abbr></p>
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_getContext">
                 <img src="./images/public.svg" alt="public" title="public" />getContext()
             <a class="headerlink" href="classes/Ibexa-Contracts-Payment-Payment-PaymentCreateStruct.html#method_getContext" title="Permanent link">¶</a>
@@ -36281,10 +36308,11 @@ after object has been created.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/Payment/PaymentCreateStruct.php">
         <abbr title="vendor/ibexa/payment/src/contracts/Payment/PaymentCreateStruct.php">PaymentCreateStruct.php</abbr>
                 :
-        <span title="at line 96">96</span>
+        <span title="at line 136">136</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Returns the payment context.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36306,10 +36334,14 @@ after object has been created.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-                    
+    <section class="phpdocumentor-description">
+        <p>The context is a set of key-value pairs that can be used to store additional information about the payment.</p>
+
+    </section>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Collection-MapInterface.html"><abbr title="\Ibexa\Contracts\Core\Collection\MapInterface">MapInterface</abbr></a>&lt;string, mixed&gt;|null</p>
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_getIdentifier">
                 <img src="./images/public.svg" alt="public" title="public" />getIdentifier()
             <a class="headerlink" href="classes/Ibexa-Contracts-Payment-Payment-PaymentCreateStruct.html#method_getIdentifier" title="Permanent link">¶</a>
@@ -36317,10 +36349,11 @@ after object has been created.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/Payment/PaymentCreateStruct.php">
         <abbr title="vendor/ibexa/payment/src/contracts/Payment/PaymentCreateStruct.php">PaymentCreateStruct.php</abbr>
                 :
-        <span title="at line 43">43</span>
+        <span title="at line 61">61</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Returns the payment identifier. If not set, the identifier will be generated automatically.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36342,10 +36375,14 @@ after object has been created.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-                    
+    <section class="phpdocumentor-description">
+        <p>Identifier is a unique string that identifies the payment.</p>
+
+    </section>
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">string|null</p>
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_getMethod">
                 <img src="./images/public.svg" alt="public" title="public" />getMethod()
             <a class="headerlink" href="classes/Ibexa-Contracts-Payment-Payment-PaymentCreateStruct.html#method_getMethod" title="Permanent link">¶</a>
@@ -36353,7 +36390,7 @@ after object has been created.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/Payment/PaymentCreateStruct.php">
         <abbr title="vendor/ibexa/payment/src/contracts/Payment/PaymentCreateStruct.php">PaymentCreateStruct.php</abbr>
                 :
-        <span title="at line 53">53</span>
+        <span title="at line 77">77</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -36378,10 +36415,10 @@ after object has been created.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Payment-PaymentMethod-PaymentMethodInterface.html"><abbr title="\Ibexa\Contracts\Payment\PaymentMethod\PaymentMethodInterface">PaymentMethodInterface</abbr></a></p>
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_getOrder">
                 <img src="./images/public.svg" alt="public" title="public" />getOrder()
             <a class="headerlink" href="classes/Ibexa-Contracts-Payment-Payment-PaymentCreateStruct.html#method_getOrder" title="Permanent link">¶</a>
@@ -36389,10 +36426,11 @@ after object has been created.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/Payment/PaymentCreateStruct.php">
         <abbr title="vendor/ibexa/payment/src/contracts/Payment/PaymentCreateStruct.php">PaymentCreateStruct.php</abbr>
                 :
-        <span title="at line 63">63</span>
+        <span title="at line 90">90</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Returns the order associated with the payment.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36414,10 +36452,10 @@ after object has been created.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-OrderManagement-Value-Order-OrderInterface.html"><abbr title="\Ibexa\Contracts\OrderManagement\Value\Order\OrderInterface">OrderInterface</abbr></a></p>
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_getOwner">
                 <img src="./images/public.svg" alt="public" title="public" />getOwner()
             <a class="headerlink" href="classes/Ibexa-Contracts-Payment-Payment-PaymentCreateStruct.html#method_getOwner" title="Permanent link">¶</a>
@@ -36425,10 +36463,11 @@ after object has been created.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/Payment/PaymentCreateStruct.php">
         <abbr title="vendor/ibexa/payment/src/contracts/Payment/PaymentCreateStruct.php">PaymentCreateStruct.php</abbr>
                 :
-        <span title="at line 83">83</span>
+        <span title="at line 116">116</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Returns the user who owns the payment. If not set, the owner will be set automatically to the current user reference.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36450,10 +36489,10 @@ after object has been created.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Repository-Values-User-UserReference.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\User\UserReference">UserReference</abbr></a>|null</p>
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_setAmount">
                 <img src="./images/public.svg" alt="public" title="public" />setAmount()
             <a class="headerlink" href="classes/Ibexa-Contracts-Payment-Payment-PaymentCreateStruct.html#method_setAmount" title="Permanent link">¶</a>
@@ -36461,7 +36500,7 @@ after object has been created.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/Payment/PaymentCreateStruct.php">
         <abbr title="vendor/ibexa/payment/src/contracts/Payment/PaymentCreateStruct.php">PaymentCreateStruct.php</abbr>
                 :
-        <span title="at line 78">78</span>
+        <span title="at line 108">108</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -36522,10 +36561,11 @@ after object has been created.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/Payment/PaymentCreateStruct.php">
         <abbr title="vendor/ibexa/payment/src/contracts/Payment/PaymentCreateStruct.php">PaymentCreateStruct.php</abbr>
                 :
-        <span title="at line 104">104</span>
+        <span title="at line 148">148</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Sets the payment context.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36547,6 +36587,10 @@ after object has been created.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
+    <section class="phpdocumentor-description">
+        <p>The context is a set of key-value pairs that can be used to store additional information about the payment.</p>
+
+    </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -36583,10 +36627,11 @@ after object has been created.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/Payment/PaymentCreateStruct.php">
         <abbr title="vendor/ibexa/payment/src/contracts/Payment/PaymentCreateStruct.php">PaymentCreateStruct.php</abbr>
                 :
-        <span title="at line 48">48</span>
+        <span title="at line 72">72</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Sets the payment identifier. If not set, the identifier will be generated automatically.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36608,6 +36653,11 @@ after object has been created.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
+    <section class="phpdocumentor-description">
+        <p>Identifier must be unique and contain only alphanumeric characters, hyphen, dashes, and underscores. Maximum
+allowed identifier length is 64 characters.</p>
+
+    </section>
     <h4>Parameters</h4>
     <table class="method-parameters">
         <thead>
@@ -36644,7 +36694,7 @@ after object has been created.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/Payment/PaymentCreateStruct.php">
         <abbr title="vendor/ibexa/payment/src/contracts/Payment/PaymentCreateStruct.php">PaymentCreateStruct.php</abbr>
                 :
-        <span title="at line 58">58</span>
+        <span title="at line 82">82</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -36705,10 +36755,11 @@ after object has been created.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/Payment/PaymentCreateStruct.php">
         <abbr title="vendor/ibexa/payment/src/contracts/Payment/PaymentCreateStruct.php">PaymentCreateStruct.php</abbr>
                 :
-        <span title="at line 68">68</span>
+        <span title="at line 98">98</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Sets the order associated with the payment.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36766,10 +36817,11 @@ after object has been created.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/Payment/PaymentCreateStruct.php">
         <abbr title="vendor/ibexa/payment/src/contracts/Payment/PaymentCreateStruct.php">PaymentCreateStruct.php</abbr>
                 :
-        <span title="at line 88">88</span>
+        <span title="at line 124">124</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Sets the user who owns the payment. If not set, the owner will be set automatically to the current user reference.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36888,10 +36940,10 @@ after object has been created.</p>
                 </tr>
                     </tbody>
     </table>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</p>
-                                </div>
+                        
+                            </div>
                     </article>
                 </div>
 

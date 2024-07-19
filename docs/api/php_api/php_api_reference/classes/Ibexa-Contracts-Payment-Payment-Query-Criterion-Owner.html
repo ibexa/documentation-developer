@@ -19462,6 +19462,17 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-19-0-1" type="checkbox" id="nav-1-19-0-1" >
         <label class="md-nav__link level-3" for="nav-1-19-0-1">
                             <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderConfiguratorInterface.html" title="ProviderConfiguratorInterface">
+                            ProviderConfiguratorInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-19-0-2" type="checkbox" id="nav-1-19-0-2" >
+        <label class="md-nav__link level-3" for="nav-1-19-0-2">
+                            <img src="./images/file.svg" alt="file.svg" />
                                         <a href="classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderService.html" title="ProviderService">
                             ProviderService
                             </a>
@@ -36111,7 +36122,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/Payment/Query/Criterion/Owner.php">
         <abbr title="vendor/ibexa/payment/src/contracts/Payment/Query/Criterion/Owner.php">Owner.php</abbr>
                 :
-        <span title="at line 14">14</span>
+        <span title="at line 27">27</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
                         <div class="content-header__subheader">
@@ -36123,9 +36134,33 @@
                                     <a href="classes/Ibexa-Contracts-Payment-Payment-Query-CriterionInterface.html"><abbr title="\Ibexa\Contracts\Payment\Payment\Query\CriterionInterface">CriterionInterface</abbr></a>                            </div>
         
                 </div>
-    
+        <p>Criterion for filtering payment by owner.</p>
 
-                    
+    <section class="phpdocumentor-description">
+        <p>The following example request payments made by the customer represented in <code class="prettyprint">$userReference</code>:</p>
+<pre class="prettyprint"><code class="prettyprint">$query = new PaymentQuery();
+$query-&gt;setQuery(new Owner($userReference));
+
+$payments = $paymentService-&gt;findPayments($query);
+</code></pre>
+
+    </section>
+
+                                                            
+    <h5 class="phpdocumentor-tag-list__heading">
+        Tags
+        <a href="classes/Ibexa-Contracts-Payment-Payment-Query-Criterion-Owner.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                                                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">See</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Payment-PaymentServiceInterface.html#method_findPayments"><abbr title="\Ibexa\Contracts\Payment\PaymentServiceInterface::findPayments()">PaymentServiceInterface::findPayments()</abbr></a></span>
+                                                                 
+                                    </dd>
+                                                                                    </dl>
 
 
 
@@ -36525,7 +36560,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/Payment/Query/Criterion/Owner.php">
         <abbr title="vendor/ibexa/payment/src/contracts/Payment/Query/Criterion/Owner.php">Owner.php</abbr>
                 :
-        <span title="at line 19">19</span>
+        <span title="at line 32">32</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -36611,10 +36646,10 @@
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">string</p>
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_getOperator">
                 <img src="./images/public.svg" alt="public" title="public" />getOperator()
             <a class="headerlink" href="classes/Ibexa-Contracts-ProductCatalog-Values-Common-Query-Criterion-FieldValueCriterion.html#method_getOperator" title="Permanent link">¶</a>
@@ -36647,10 +36682,10 @@
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">string</p>
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_getValue">
                 <img src="./images/public.svg" alt="public" title="public" />getValue()
             <a class="headerlink" href="classes/Ibexa-Contracts-ProductCatalog-Values-Common-Query-Criterion-FieldValueCriterion.html#method_getValue" title="Permanent link">¶</a>

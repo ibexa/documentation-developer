@@ -19462,6 +19462,17 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-19-0-1" type="checkbox" id="nav-1-19-0-1" >
         <label class="md-nav__link level-3" for="nav-1-19-0-1">
                             <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderConfiguratorInterface.html" title="ProviderConfiguratorInterface">
+                            ProviderConfiguratorInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-19-0-2" type="checkbox" id="nav-1-19-0-2" >
+        <label class="md-nav__link level-3" for="nav-1-19-0-2">
+                            <img src="./images/file.svg" alt="file.svg" />
                                         <a href="classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderService.html" title="ProviderService">
                             ProviderService
                             </a>
@@ -36119,7 +36130,7 @@
 
     <section class="phpdocumentor-description">
         <p>Hashes:</p>
-<p>The <a href="toHash()"></a> method in this class is meant to generate a simple
+<p>The <a href="classes/Ibexa-Contracts-Core-FieldType-FieldType.html#method_toHash"><abbr title="\Ibexa\Contracts\Core\FieldType\FieldType::toHash()">FieldType::toHash()</abbr></a> method in this class is meant to generate a simple
 representation of a value of this field type. Hash does here not refer to
 MD5 or similar hashing algorithms, but rather to hash-map (associative array)
 type representation. This representation must be
@@ -36127,7 +36138,7 @@ usable, to transfer the value over plain text encoding formats, like e.g.
 XML. As a result, the returned &quot;hash&quot; must either be a scalar value, a hash
 array (associative array) a pure numeric array or a nested combination of
 these. It must by no means contain objects, resources or cyclic references.
-The corresponding <a href="fromHash()"></a> method must convert such a
+The corresponding <a href="classes/Ibexa-Contracts-Core-FieldType-FieldType.html#method_fromHash"><abbr title="\Ibexa\Contracts\Core\FieldType\FieldType::fromHash()">FieldType::fromHash()</abbr></a> method must convert such a
 representation back into a value, which is understood by the FieldType.</p>
 
     </section>
@@ -36339,7 +36350,7 @@ Note that this does not include validation after the rules
 from validators, but only plausibility checks for the general data
 format.</p>
 <p>Note that this method must also cope with the empty value for the field
-type as e.g. returned by <a href="getEmptyValue()"></a>.</p>
+type as e.g. returned by <a href="classes/Ibexa-Contracts-Core-FieldType-FieldType.html#method_getEmptyValue"><abbr title="\Ibexa\Contracts\Core\FieldType\FieldType::getEmptyValue()">FieldType::getEmptyValue()</abbr></a>.</p>
 
     </section>
     <h4>Parameters</h4>
@@ -36369,7 +36380,6 @@ type as e.g. returned by <a href="getEmptyValue()"></a>.</p>
                 </tr>
                     </tbody>
     </table>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-FieldType-Value.html"><abbr title="\Ibexa\Contracts\Core\FieldType\Value">Value</abbr></a></p>
                 <section class="phpdocumentor-description">
@@ -36377,7 +36387,8 @@ type as e.g. returned by <a href="getEmptyValue()"></a>.</p>
 
     </section>
 
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_applyDefaultSettings">
                 <img src="./images/public.svg" alt="public" title="public" />applyDefaultSettings()
             <a class="headerlink" href="classes/Ibexa-Contracts-Core-FieldType-Generic-Type.html#method_applyDefaultSettings" title="Permanent link">¶</a>
@@ -36536,7 +36547,7 @@ type as e.g. returned by <a href="getEmptyValue()"></a>.</p>
 <div class="phpdocumentor-label-line">
     </div>
     <section class="phpdocumentor-description">
-        <p>This is the reverse operation of <a href="fieldSettingsToHash()"></a>.
+        <p>This is the reverse operation of <a href="classes/Ibexa-Contracts-Core-FieldType-FieldType.html#method_fieldSettingsToHash"><abbr title="\Ibexa\Contracts\Core\FieldType\FieldType::fieldSettingsToHash()">FieldType::fieldSettingsToHash()</abbr></a>.
 See the class description for more details on a hash format.</p>
 
     </section>
@@ -36633,10 +36644,10 @@ See the class description for more details on a hash format.</p>
                 </tr>
                     </tbody>
     </table>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|scalar|null</p>
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_fromHash">
                 <img src="./images/public.svg" alt="public" title="public" />fromHash()
             <a class="headerlink" href="classes/Ibexa-Contracts-Core-FieldType-Generic-Type.html#method_fromHash" title="Permanent link">¶</a>
@@ -36671,8 +36682,8 @@ See the class description for more details on a hash format.</p>
 <div class="phpdocumentor-label-line">
     </div>
     <section class="phpdocumentor-description">
-        <p>This is the reverse operation to <a href="toHash()"></a>. At least the hash
-format generated by <a href="toHash()"></a> must be converted in reverse.
+        <p>This is the reverse operation to <a href="classes/Ibexa-Contracts-Core-FieldType-FieldType.html#method_toHash"><abbr title="\Ibexa\Contracts\Core\FieldType\FieldType::toHash()">FieldType::toHash()</abbr></a>. At least the hash
+format generated by <a href="classes/Ibexa-Contracts-Core-FieldType-FieldType.html#method_toHash"><abbr title="\Ibexa\Contracts\Core\FieldType\FieldType::toHash()">FieldType::toHash()</abbr></a> must be converted in reverse.
 Additional formats might be supported in the rare case that this is
 necessary. See the class description for more details on a hash format.</p>
 
@@ -36704,10 +36715,10 @@ necessary. See the class description for more details on a hash format.</p>
                 </tr>
                     </tbody>
     </table>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-FieldType-Value.html"><abbr title="\Ibexa\Contracts\Core\FieldType\Value">Value</abbr></a></p>
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_fromPersistenceValue">
                 <img src="./images/public.svg" alt="public" title="public" />fromPersistenceValue()
             <a class="headerlink" href="classes/Ibexa-Contracts-Core-FieldType-Generic-Type.html#method_fromPersistenceValue" title="Permanent link">¶</a>
@@ -36772,10 +36783,10 @@ necessary. See the class description for more details on a hash format.</p>
                 </tr>
                     </tbody>
     </table>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-FieldType-Value.html"><abbr title="\Ibexa\Contracts\Core\FieldType\Value">Value</abbr></a></p>
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_getEmptyValue">
                 <img src="./images/public.svg" alt="public" title="public" />getEmptyValue()
             <a class="headerlink" href="classes/Ibexa-Contracts-Core-FieldType-Generic-Type.html#method_getEmptyValue" title="Permanent link">¶</a>
@@ -36816,10 +36827,10 @@ also used to determine that a user intentionally (or unintentionally) did not
 set a non-empty value.</p>
 
     </section>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-FieldType-Value.html"><abbr title="\Ibexa\Contracts\Core\FieldType\Value">Value</abbr></a></p>
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_getFieldTypeIdentifier">
                 <img src="./images/public.svg" alt="public" title="public" />getFieldTypeIdentifier()
             <a class="headerlink" href="classes/Ibexa-Contracts-Core-FieldType-FieldType.html#method_getFieldTypeIdentifier" title="Permanent link">¶</a>
@@ -36861,10 +36872,10 @@ the implementer. A good identifier could for example take your companies main
 domain name as a prefix in reverse order.</p>
 
     </section>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">string</p>
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_getName">
                 <img src="./images/public.svg" alt="public" title="public" />getName()
             <a class="headerlink" href="classes/Ibexa-Contracts-Core-FieldType-Generic-Type.html#method_getName" title="Permanent link">¶</a>
@@ -36901,7 +36912,7 @@ domain name as a prefix in reverse order.</p>
     <section class="phpdocumentor-description">
         <p>It will be used to generate content name and url alias if current field
 is designated to be used in the content name/urlAlias pattern.</p>
-<p>The used $value can be assumed to be already accepted by <a href="FieldType::acceptValue()"></a>.</p>
+<p>The used $value can be assumed to be already accepted by <a href="classes/Ibexa-Contracts-Core-FieldType-FieldType.html#method_acceptValue"><abbr title="\Ibexa\Contracts\Core\FieldType\FieldType::acceptValue()">FieldType::acceptValue()</abbr></a>.</p>
 
     </section>
     <h4>Parameters</h4>
@@ -36959,10 +36970,10 @@ is designated to be used in the content name/urlAlias pattern.</p>
                 </tr>
                     </tbody>
     </table>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">string</p>
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_getRelations">
                 <img src="./images/public.svg" alt="public" title="public" />getRelations()
             <a class="headerlink" href="classes/Ibexa-Contracts-Core-FieldType-Generic-Type.html#method_getRelations" title="Permanent link">¶</a>
@@ -37028,7 +37039,6 @@ there is an API for handling those.</p>
                 </tr>
                     </tbody>
     </table>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</p>
                 <section class="phpdocumentor-description">
@@ -37050,7 +37060,8 @@ array(
 
     </section>
 
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_getSettingsSchema">
                 <img src="./images/public.svg" alt="public" title="public" />getSettingsSchema()
             <a class="headerlink" href="classes/Ibexa-Contracts-Core-FieldType-Generic-Type.html#method_getSettingsSchema" title="Permanent link">¶</a>
@@ -37202,9 +37213,9 @@ rudimentary settings structures, like e.g. for the &quot;ezstring&quot; FieldTyp
 <div class="phpdocumentor-label-line">
     </div>
     <section class="phpdocumentor-description">
-        <p>Usually, only the value returned by <a href="getEmptyValue()"></a> is
+        <p>Usually, only the value returned by <a href="classes/Ibexa-Contracts-Core-FieldType-FieldType.html#method_getEmptyValue"><abbr title="\Ibexa\Contracts\Core\FieldType\FieldType::getEmptyValue()">FieldType::getEmptyValue()</abbr></a> is
 considered empty. The given $value can be safely assumed to have already
-been processed by <a href="acceptValue()"></a>.</p>
+been processed by <a href="classes/Ibexa-Contracts-Core-FieldType-FieldType.html#method_acceptValue"><abbr title="\Ibexa\Contracts\Core\FieldType\FieldType::acceptValue()">FieldType::acceptValue()</abbr></a>.</p>
 
     </section>
     <h4>Parameters</h4>
@@ -37234,10 +37245,10 @@ been processed by <a href="acceptValue()"></a>.</p>
                 </tr>
                     </tbody>
     </table>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">bool</p>
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_isSearchable">
                 <img src="./images/public.svg" alt="public" title="public" />isSearchable()
             <a class="headerlink" href="classes/Ibexa-Contracts-Core-FieldType-Generic-Type.html#method_isSearchable" title="Permanent link">¶</a>
@@ -37271,10 +37282,10 @@ been processed by <a href="acceptValue()"></a>.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">bool</p>
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_isSingular">
                 <img src="./images/public.svg" alt="public" title="public" />isSingular()
             <a class="headerlink" href="classes/Ibexa-Contracts-Core-FieldType-Generic-Type.html#method_isSingular" title="Permanent link">¶</a>
@@ -37308,10 +37319,10 @@ been processed by <a href="acceptValue()"></a>.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">bool</p>
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_onlyEmptyInstance">
                 <img src="./images/public.svg" alt="public" title="public" />onlyEmptyInstance()
             <a class="headerlink" href="classes/Ibexa-Contracts-Core-FieldType-Generic-Type.html#method_onlyEmptyInstance" title="Permanent link">¶</a>
@@ -37345,10 +37356,10 @@ been processed by <a href="acceptValue()"></a>.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">bool</p>
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_toHash">
                 <img src="./images/public.svg" alt="public" title="public" />toHash()
             <a class="headerlink" href="classes/Ibexa-Contracts-Core-FieldType-Generic-Type.html#method_toHash" title="Permanent link">¶</a>
@@ -37495,7 +37506,6 @@ FieldStorage interface method storeFieldData.</p>
                 </tr>
                     </tbody>
     </table>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Persistence-Content-FieldValue.html"><abbr title="\Ibexa\Contracts\Core\Persistence\Content\FieldValue">FieldValue</abbr></a></p>
                 <section class="phpdocumentor-description">
@@ -37503,7 +37513,8 @@ FieldStorage interface method storeFieldData.</p>
 
     </section>
 
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_validate">
                 <img src="./images/public.svg" alt="public" title="public" />validate()
             <a class="headerlink" href="classes/Ibexa-Contracts-Core-FieldType-Generic-Type.html#method_validate" title="Permanent link">¶</a>
@@ -37582,10 +37593,10 @@ FieldStorage interface method storeFieldData.</p>
                 </tr>
                     </tbody>
     </table>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-FieldType-ValidationError.html"><abbr title="\Ibexa\Contracts\Core\FieldType\ValidationError">ValidationError</abbr></a>&gt;</p>
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_validateFieldSettings">
                 <img src="./images/public.svg" alt="public" title="public" />validateFieldSettings()
             <a class="headerlink" href="classes/Ibexa-Contracts-Core-FieldType-Generic-Type.html#method_validateFieldSettings" title="Permanent link">¶</a>
@@ -37621,7 +37632,7 @@ FieldStorage interface method storeFieldData.</p>
     </div>
     <section class="phpdocumentor-description">
         <p>This methods determines if the given $fieldSettings are structurally
-correct and comply to the settings schema returned by <a href="*">getSettingsSchema()</a>.</p>
+correct and comply to the settings schema returned by <a href="classes/Ibexa-Contracts-Core-FieldType-FieldType.html#method_getSettingsSchema"><abbr title="\Ibexa\Contracts\Core\FieldType\FieldType::getSettingsSchema()">FieldType::getSettingsSchema()</abbr></a>.</p>
 
     </section>
     <h4>Parameters</h4>
@@ -37651,10 +37662,10 @@ correct and comply to the settings schema returned by <a href="*">getSettingsSch
                 </tr>
                     </tbody>
     </table>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-FieldType-ValidationError.html"><abbr title="\Ibexa\Contracts\Core\FieldType\ValidationError">ValidationError</abbr></a>&gt;</p>
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_validateValidatorConfiguration">
                 <img src="./images/public.svg" alt="public" title="public" />validateValidatorConfiguration()
             <a class="headerlink" href="classes/Ibexa-Contracts-Core-FieldType-Generic-Type.html#method_validateValidatorConfiguration" title="Permanent link">¶</a>
@@ -37691,7 +37702,7 @@ correct and comply to the settings schema returned by <a href="*">getSettingsSch
     <section class="phpdocumentor-description">
         <p>This methods determines if the given $validatorConfiguration is
 structurally correct and complies to the validator configuration schema
-returned by <a href="getValidatorConfigurationSchema()"></a>.</p>
+returned by <a href="classes/Ibexa-Contracts-Core-FieldType-FieldType.html#method_getValidatorConfigurationSchema"><abbr title="\Ibexa\Contracts\Core\FieldType\FieldType::getValidatorConfigurationSchema()">FieldType::getValidatorConfigurationSchema()</abbr></a>.</p>
 
     </section>
     <h4>Parameters</h4>
@@ -37721,10 +37732,10 @@ returned by <a href="getValidatorConfigurationSchema()"></a>.</p>
                 </tr>
                     </tbody>
     </table>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Core-FieldType-ValidationError.html"><abbr title="\Ibexa\Contracts\Core\FieldType\ValidationError">ValidationError</abbr></a>&gt;</p>
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_validatorConfigurationFromHash">
                 <img src="./images/public.svg" alt="public" title="public" />validatorConfigurationFromHash()
             <a class="headerlink" href="classes/Ibexa-Contracts-Core-FieldType-Generic-Type.html#method_validatorConfigurationFromHash" title="Permanent link">¶</a>
@@ -37856,10 +37867,10 @@ configuration of the type.</p>
                 </tr>
                     </tbody>
     </table>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|scalar|null</p>
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_checkValueType">
                 <img src="./images/protected.svg" alt="protected" title="protected" />checkValueType()
             <a class="headerlink" href="classes/Ibexa-Contracts-Core-FieldType-Generic-Type.html#method_checkValueType" title="Permanent link">¶</a>
@@ -37941,19 +37952,18 @@ throw new InvalidArgumentException( &quot;Given value type is not supported.&quo
                     </tbody>
     </table>
                                                 
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+    <h5 class="phpdocumentor-tag-list__heading">
         Tags
         <a href="classes/Ibexa-Contracts-Core-FieldType-Generic-Type.html#method_checkValueType#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
                                                 <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
+                    <span class="phpdocumentor-tag__name">Throws</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-InvalidArgumentException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\InvalidArgumentException">InvalidArgumentException</abbr></a></span>
-                                                            
-                                                 <section class="phpdocumentor-description">
+                                                                                         <section class="phpdocumentor-description">
         <p>If the parameter is not an instance of the supported value subtype.</p>
 
     </section>
@@ -38039,7 +38049,6 @@ $inputValue = \My\FieldType\CookieJar\Value( $inputValue );
                 </tr>
                     </tbody>
     </table>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">mixed</p>
                 <section class="phpdocumentor-description">
@@ -38047,7 +38056,8 @@ $inputValue = \My\FieldType\CookieJar\Value( $inputValue );
 
     </section>
 
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_getFieldSettingsConstraints">
                 <img src="./images/protected.svg" alt="protected" title="protected" />getFieldSettingsConstraints()
             <a class="headerlink" href="classes/Ibexa-Contracts-Core-FieldType-Generic-Type.html#method_getFieldSettingsConstraints" title="Permanent link">¶</a>
@@ -38080,25 +38090,24 @@ $inputValue = \My\FieldType\CookieJar\Value( $inputValue );
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-                                                            
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\Validator\Constraints\Collection">Collection</abbr>|null</p>
+                                                                
+    <h5 class="phpdocumentor-tag-list__heading">
         Tags
         <a href="classes/Ibexa-Contracts-Core-FieldType-Generic-Type.html#method_getFieldSettingsConstraints#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
                                                                             <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">see</span>
+                    <span class="phpdocumentor-tag__name">See</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                                     <span class="phpdocumentor-tag-link"><a href="https://symfony.com/doc/current/validation/raw_values.html">https://symfony.com/doc/current/validation/raw_values.html</a></span>
-                                        
-                                             
+                                                                 
                                     </dd>
                                                                                     </dl>
-    <h4>Return values</h4>
-    <p class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\Validator\Constraints\Collection">Collection</abbr>|null</p>
-                <div class="content-header">
+            <div class="content-header">
         <h3 id="method_getFieldValueConstraints">
                 <img src="./images/protected.svg" alt="protected" title="protected" />getFieldValueConstraints()
             <a class="headerlink" href="classes/Ibexa-Contracts-Core-FieldType-Generic-Type.html#method_getFieldValueConstraints" title="Permanent link">¶</a>
@@ -38158,25 +38167,24 @@ $inputValue = \My\FieldType\CookieJar\Value( $inputValue );
                 </tr>
                     </tbody>
     </table>
-                                                            
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\Validator\Constraints\Collection">Collection</abbr>|null</p>
+                                                                
+    <h5 class="phpdocumentor-tag-list__heading">
         Tags
         <a href="classes/Ibexa-Contracts-Core-FieldType-Generic-Type.html#method_getFieldValueConstraints#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
                                                                             <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">see</span>
+                    <span class="phpdocumentor-tag__name">See</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                                     <span class="phpdocumentor-tag-link"><a href="https://symfony.com/doc/current/validation/raw_values.html">https://symfony.com/doc/current/validation/raw_values.html</a></span>
-                                        
-                                             
+                                                                 
                                     </dd>
                                                                                     </dl>
-    <h4>Return values</h4>
-    <p class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\Validator\Constraints\Collection">Collection</abbr>|null</p>
-                <div class="content-header">
+            <div class="content-header">
         <h3 id="method_getSortInfo">
                 <img src="./images/protected.svg" alt="protected" title="protected" />getSortInfo()
             <a class="headerlink" href="classes/Ibexa-Contracts-Core-FieldType-Generic-Type.html#method_getSortInfo" title="Permanent link">¶</a>
@@ -38282,10 +38290,10 @@ value in either sort_key_string or sort_key_int.</p>
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">string</p>
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_mapConstraintViolationList">
                 <img src="./images/protected.svg" alt="protected" title="protected" />mapConstraintViolationList()
             <a class="headerlink" href="classes/Ibexa-Contracts-Core-FieldType-Generic-Type.html#method_mapConstraintViolationList" title="Permanent link">¶</a>
@@ -38345,10 +38353,10 @@ value in either sort_key_string or sort_key_int.</p>
                 </tr>
                     </tbody>
     </table>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</p>
-                                </div>
+                        
+                            </div>
                     </article>
                 </div>
 

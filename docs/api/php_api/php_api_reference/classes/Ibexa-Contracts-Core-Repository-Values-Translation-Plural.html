@@ -19462,6 +19462,17 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-19-0-1" type="checkbox" id="nav-1-19-0-1" >
         <label class="md-nav__link level-3" for="nav-1-19-0-1">
                             <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderConfiguratorInterface.html" title="ProviderConfiguratorInterface">
+                            ProviderConfiguratorInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-19-0-2" type="checkbox" id="nav-1-19-0-2" >
+        <label class="md-nav__link level-3" for="nav-1-19-0-2">
+                            <img src="./images/file.svg" alt="file.svg" />
                                         <a href="classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderService.html" title="ProviderService">
                             ProviderService
                             </a>
@@ -36110,7 +36121,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Repository/Values/Translation/Plural.php">
         <abbr title="vendor/ibexa/core/src/contracts/Repository/Values/Translation/Plural.php">Plural.php</abbr>
                 :
-        <span title="at line 32">32</span>
+        <span title="at line 34">34</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
                         <div class="content-header__subheader">
@@ -36122,20 +36133,21 @@
         <p>Class for translatable messages, which may contain plural forms.</p>
 
     <section class="phpdocumentor-description">
-        <p>The message might include replacements, in the form %[A-Za-z]%. Those are
+        <p>The message might include replacements, in the form <code class="prettyprint">%[A-Za-z]%</code>. Those are
 replaced by the values provided. A raw % can be escaped like %%.</p>
 <p>You need to provide a singular and plural variant for the string. The
-strings provided should be english and will be translated depending on the
+strings provided should be English and will be translated depending on the
 environment language.</p>
-<p>This interface follows the interfaces of XLiff, gettext, Symfony2
-Translations and Zend_Translate. For singular forms you just provide a plain
-string (with optional placeholders without effects on the plural forms). For
-potential plural forms you always provide a singular variant and an english
-simple plural variant. No implementation supports multiple different plural
-forms in one single message.</p>
-<p>The singular / plural string could, for Symfony2, for example be converted
-to &quot;$singular|$plural&quot;, and you would call gettext like: ngettext(
-$singular, $plural, $count ).</p>
+<p>This interface follows the interfaces of XLIFF, gettext, Symfony Translations and Zend_Translate.
+For singular forms you just provide a plain string (with optional placeholders without effects on the plural forms).
+For potential plural forms you always provide a singular variant and an English simple plural variant.
+An instance of this class can be cast to a string. In such case whether to use singular or plural form is determined
+based on the value of first element of $values array (it needs to be 1 for singular, anything else for plural).
+If plurality cannot be inferred from $values, a plural form is assumed as default. To force singular form,
+use <a href="classes/Ibexa-Contracts-Core-Repository-Values-Translation-Message.html"><abbr title="\Ibexa\Contracts\Core\Repository\Values\Translation\Message">Message</abbr></a> instead.</p>
+<p>No implementation supports multiple different plural forms in one single message.</p>
+<p>The singular / plural string could, for Symfony, for example be converted
+to <code class="prettyprint">&quot;$singular|$plural&quot;</code>, and you would call gettext like: <code class="prettyprint">ngettext($singular, $plural, $count ).</code></p>
 
     </section>
 
@@ -36165,7 +36177,7 @@ $singular, $plural, $count ).</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Repository/Values/Translation/Plural.php">
         <abbr title="vendor/ibexa/core/src/contracts/Repository/Values/Translation/Plural.php">Plural.php</abbr>
                 :
-        <span title="at line 48">48</span>
+        <span title="at line 46">46</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -36237,12 +36249,11 @@ the values specified in the values array.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Repository/Values/Translation/Plural.php">
         <abbr title="vendor/ibexa/core/src/contracts/Repository/Values/Translation/Plural.php">Plural.php</abbr>
                 :
-        <span title="at line 56">56</span>
+        <span title="at line 53">53</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
-    <p>Translation value objects. May not contain any numbers, which might
-result in requiring plural forms. Use MessagePlural for that.</p>
+    <p>Translation value objects.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36255,7 +36266,7 @@ result in requiring plural forms. Use MessagePlural for that.</p>
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">protected </span><span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__name">$values</span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">protected </span><span class="phpdocumentor-signature__type">array&lt;string, scalar&gt;&nbsp;</span><span class="phpdocumentor-signature__name">$values</span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -36277,7 +36288,7 @@ result in requiring plural forms. Use MessagePlural for that.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Repository/Values/Translation/Plural.php">
         <abbr title="vendor/ibexa/core/src/contracts/Repository/Values/Translation/Plural.php">Plural.php</abbr>
                 :
-        <span title="at line 65">65</span>
+        <span title="at line 60">60</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -36294,7 +36305,7 @@ result in requiring plural forms. Use MessagePlural for that.</p>
                 </td>
                 <td class="code">
                     <div>
-                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$singular</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$plural</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$values</span></span><span>)</span></code></pre>
+                        <pre><code><span class="phpdocumentor-signature__visibility">public </span><span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$singular</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$plural</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string, scalar&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$values</span></span><span>)</span></code></pre>
                     </div>
                 </td>
             </tr>
@@ -36347,7 +36358,7 @@ result in requiring plural forms. Use MessagePlural for that.</p>
                         $values
                     </td>
                     <td>
-                        array&lt;string|int, mixed&gt;
+                        array&lt;string, scalar&gt;
                     </td>
                     <td class="empty">
                                                     -
@@ -36367,11 +36378,10 @@ result in requiring plural forms. Use MessagePlural for that.</p>
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/core/src/contracts/Repository/Values/Translation/Plural.php">
         <abbr title="vendor/ibexa/core/src/contracts/Repository/Values/Translation/Plural.php">Plural.php</abbr>
                 :
-        <span title="at line 75">75</span>
+        <span title="at line 69">69</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
-    <p>{@inheritdoc}</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36463,10 +36473,10 @@ result in requiring plural forms. Use MessagePlural for that.</p>
                 </tr>
                     </tbody>
     </table>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</p>
-                                </div>
+                        
+                            </div>
                     </article>
                 </div>
 

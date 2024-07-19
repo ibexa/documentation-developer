@@ -19462,6 +19462,17 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-19-0-1" type="checkbox" id="nav-1-19-0-1" >
         <label class="md-nav__link level-3" for="nav-1-19-0-1">
                             <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderConfiguratorInterface.html" title="ProviderConfiguratorInterface">
+                            ProviderConfiguratorInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-19-0-2" type="checkbox" id="nav-1-19-0-2" >
+        <label class="md-nav__link level-3" for="nav-1-19-0-2">
+                            <img src="./images/file.svg" alt="file.svg" />
                                         <a href="classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderService.html" title="ProviderService">
                             ProviderService
                             </a>
@@ -36107,11 +36118,37 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentMethod/Type/OptionsValidatorInterface.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentMethod/Type/OptionsValidatorInterface.php">OptionsValidatorInterface.php</abbr>
                 :
-        <span title="at line 13">13</span>
+        <span title="at line 44">44</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
                     </div>
-    
+        <p>Validates payment method type options.</p>
+
+    <section class="phpdocumentor-description">
+        <p>Example implementation:</p>
+<pre class="prettyprint"><code class="prettyprint">final class CreditCardOptionsValidator implements OptionsValidatorInterface
+{
+    public function validateOptions(OptionsBag $options): array
+    {
+       $errors = [];
+       if (!$options-&gt;has('provider')) {
+           $errors[] = new OptionsValidatorError('provider', 'Provider must be configured explicitly.');
+       }
+
+      return $errors;
+    }
+}
+</code></pre>
+<p>The <code class="prettyprint">\Ibexa\Contracts\Payment\PaymentMethod\Type\OptionsValidatorInterface</code> implementations must be registered as a service
+with <code class="prettyprint">ibexa.payment.payment_method.options.validator</code> tag and <code class="prettyprint">type</code> attribute.</p>
+<pre class="prettyprint"><code class="prettyprint">services:
+   App\PaymentMethod\CreditCardOptionsValidator:
+       tags:
+            - name: ibexa.payment.payment_method.options.validator
+              type: credit_card
+</code></pre>
+
+    </section>
 
                             
 
@@ -36137,7 +36174,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentMethod/Type/OptionsValidatorInterface.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentMethod/Type/OptionsValidatorInterface.php">OptionsValidatorInterface.php</abbr>
                 :
-        <span title="at line 18">18</span>
+        <span title="at line 49">49</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -36189,10 +36226,10 @@
                 </tr>
                     </tbody>
     </table>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/Ibexa-Contracts-Payment-PaymentMethod-Type-OptionsValidatorError.html"><abbr title="\Ibexa\Contracts\Payment\PaymentMethod\Type\OptionsValidatorError">OptionsValidatorError</abbr></a>&gt;</p>
-                                </div>
+                        
+                            </div>
                     </article>
                 </div>
 

@@ -19462,6 +19462,17 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-19-0-1" type="checkbox" id="nav-1-19-0-1" >
         <label class="md-nav__link level-3" for="nav-1-19-0-1">
                             <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderConfiguratorInterface.html" title="ProviderConfiguratorInterface">
+                            ProviderConfiguratorInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-19-0-2" type="checkbox" id="nav-1-19-0-2" >
+        <label class="md-nav__link level-3" for="nav-1-19-0-2">
+                            <img src="./images/file.svg" alt="file.svg" />
                                         <a href="classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderService.html" title="ProviderService">
                             ProviderService
                             </a>
@@ -36107,7 +36118,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentMethod/Event/CreatePaymentMethodEvent.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentMethod/Event/CreatePaymentMethodEvent.php">CreatePaymentMethodEvent.php</abbr>
                 :
-        <span title="at line 15">15</span>
+        <span title="at line 49">49</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
                         <div class="content-header__subheader">
@@ -36116,8 +36127,39 @@
         
         
                 </div>
-        <p>Event emitted after action execution.</p>
+        <p>Event dispatched after payment method is created.</p>
 
+    <section class="phpdocumentor-description">
+        <p>Typical use case is to perform additional operations after payment method creation (e.g. logging, cache purge, reindexing, etc.)</p>
+<p>The following example log the creation of the payment method:</p>
+<pre class="prettyprint"><code class="prettyprint">final class PaymentMethodEventSubscriber implements EventSubscriberInterface
+{
+    private function __construct(private LoggerInterface $logger)
+    {
+    }
+
+    public static function getSubscribedEvents(): array
+    {
+       return [
+           CreatePaymentMethodEvent::class =&gt; 'onCreatePaymentMethod',
+       ];
+    }
+
+   public function onCreatePaymentMethod(CreatePaymentMethodEvent $event): void
+   {
+       $paymentMethod = $event-&gt;getPaymentMethodResult();
+
+       $this-&gt;logger-&gt;info(
+         'Payment method {name} has been created',
+         [
+             'name' =&gt; $paymentMethod-&gt;getName()
+         ]
+       );
+   }
+}
+</code></pre>
+
+    </section>
 
                     
 
@@ -36144,7 +36186,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentMethod/Event/CreatePaymentMethodEvent.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentMethod/Event/CreatePaymentMethodEvent.php">CreatePaymentMethodEvent.php</abbr>
                 :
-        <span title="at line 21">21</span>
+        <span title="at line 55">55</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -36219,10 +36261,11 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentMethod/Event/CreatePaymentMethodEvent.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentMethod/Event/CreatePaymentMethodEvent.php">CreatePaymentMethodEvent.php</abbr>
                 :
-        <span title="at line 27">27</span>
+        <span title="at line 64">64</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Returns create struct used to create payment method.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36244,10 +36287,10 @@
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Payment-PaymentMethod-PaymentMethodCreateStruct.html"><abbr title="\Ibexa\Contracts\Payment\PaymentMethod\PaymentMethodCreateStruct">PaymentMethodCreateStruct</abbr></a></p>
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_getPaymentMethodResult">
                 <img src="./images/public.svg" alt="public" title="public" />getPaymentMethodResult()
             <a class="headerlink" href="classes/Ibexa-Contracts-Payment-PaymentMethod-Event-CreatePaymentMethodEvent.html#method_getPaymentMethodResult" title="Permanent link">¶</a>
@@ -36255,10 +36298,11 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentMethod/Event/CreatePaymentMethodEvent.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentMethod/Event/CreatePaymentMethodEvent.php">CreatePaymentMethodEvent.php</abbr>
                 :
-        <span title="at line 32">32</span>
+        <span title="at line 72">72</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Returns created payment method.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36280,10 +36324,10 @@
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Payment-PaymentMethod-PaymentMethodInterface.html"><abbr title="\Ibexa\Contracts\Payment\PaymentMethod\PaymentMethodInterface">PaymentMethodInterface</abbr></a></p>
-                                </div>
+                        
+                            </div>
                     </article>
                 </div>
 

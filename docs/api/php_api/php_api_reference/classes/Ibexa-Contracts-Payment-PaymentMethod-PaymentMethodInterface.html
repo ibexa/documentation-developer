@@ -19462,6 +19462,17 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-19-0-1" type="checkbox" id="nav-1-19-0-1" >
         <label class="md-nav__link level-3" for="nav-1-19-0-1">
                             <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderConfiguratorInterface.html" title="ProviderConfiguratorInterface">
+                            ProviderConfiguratorInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-19-0-2" type="checkbox" id="nav-1-19-0-2" >
+        <label class="md-nav__link level-3" for="nav-1-19-0-2">
+                            <img src="./images/file.svg" alt="file.svg" />
                                         <a href="classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderService.html" title="ProviderService">
                             ProviderService
                             </a>
@@ -36133,10 +36144,11 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentMethod/PaymentMethodInterface.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentMethod/PaymentMethodInterface.php">PaymentMethodInterface.php</abbr>
                 :
-        <span title="at line 41">41</span>
+        <span title="at line 58">58</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Returns the date and time when the payment method was created.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36158,10 +36170,10 @@
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><abbr title="\DateTimeInterface">DateTimeInterface</abbr></p>
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_getDescription">
                 <img src="./images/public.svg" alt="public" title="public" />getDescription()
             <a class="headerlink" href="classes/Ibexa-Contracts-Payment-PaymentMethod-PaymentMethodInterface.html#method_getDescription" title="Permanent link">¶</a>
@@ -36169,10 +36181,11 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentMethod/PaymentMethodInterface.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentMethod/PaymentMethodInterface.php">PaymentMethodInterface.php</abbr>
                 :
-        <span title="at line 25">25</span>
+        <span title="at line 35">35</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Returns the description of the payment method in given language.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36215,16 +36228,20 @@
                     <td>
                                                                                     null
                                                                         </td>
-                    <td class="empty">
-                                                    -
+                    <td>
+                                                        <section class="phpdocumentor-description">
+        <p>Language code in which the description should be returned or null to use the main language</p>
+
+    </section>
+
                                             </td>
                 </tr>
                     </tbody>
     </table>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">string|null</p>
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_getId">
                 <img src="./images/public.svg" alt="public" title="public" />getId()
             <a class="headerlink" href="classes/Ibexa-Contracts-Payment-PaymentMethod-PaymentMethodInterface.html#method_getId" title="Permanent link">¶</a>
@@ -36257,10 +36274,10 @@
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">int</p>
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_getIdentifier">
                 <img src="./images/public.svg" alt="public" title="public" />getIdentifier()
             <a class="headerlink" href="classes/Ibexa-Contracts-Payment-PaymentMethod-PaymentMethodInterface.html#method_getIdentifier" title="Permanent link">¶</a>
@@ -36293,10 +36310,10 @@
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">string</p>
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_getLanguages">
                 <img src="./images/public.svg" alt="public" title="public" />getLanguages()
             <a class="headerlink" href="classes/Ibexa-Contracts-Payment-PaymentMethod-PaymentMethodInterface.html#method_getLanguages" title="Permanent link">¶</a>
@@ -36304,10 +36321,11 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentMethod/PaymentMethodInterface.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentMethod/PaymentMethodInterface.php">PaymentMethodInterface.php</abbr>
                 :
-        <span title="at line 35">35</span>
+        <span title="at line 49">49</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Returns the list of languages in which the payment method is available.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36329,10 +36347,10 @@
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">array&lt;string|int, string&gt;</p>
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_getMainLanguageCode">
                 <img src="./images/public.svg" alt="public" title="public" />getMainLanguageCode()
             <a class="headerlink" href="classes/Ibexa-Contracts-Payment-PaymentMethod-PaymentMethodInterface.html#method_getMainLanguageCode" title="Permanent link">¶</a>
@@ -36340,10 +36358,11 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentMethod/PaymentMethodInterface.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentMethod/PaymentMethodInterface.php">PaymentMethodInterface.php</abbr>
                 :
-        <span title="at line 30">30</span>
+        <span title="at line 42">42</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Return the main language code of the payment method.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36365,25 +36384,28 @@
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-                                                
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+    <h4>Return values</h4>
+    <p class="phpdocumentor-signature__response_type">string</p>
+                                                    
+    <h5 class="phpdocumentor-tag-list__heading">
         Tags
         <a href="classes/Ibexa-Contracts-Payment-PaymentMethod-PaymentMethodInterface.html#method_getMainLanguageCode#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
                                                 <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
+                    <span class="phpdocumentor-tag__name">Throws</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/Ibexa-Contracts-Core-Repository-Exceptions-BadStateException.html"><abbr title="\Ibexa\Contracts\Core\Repository\Exceptions\BadStateException">BadStateException</abbr></a></span>
-                                                            
-                                             
+                                                                                         <section class="phpdocumentor-description">
+        <p>If the main language code is not set</p>
+
+    </section>
+
                                     </dd>
                                                                                     </dl>
-    <h4>Return values</h4>
-    <p class="phpdocumentor-signature__response_type">string</p>
-                <div class="content-header">
+            <div class="content-header">
         <h3 id="method_getName">
                 <img src="./images/public.svg" alt="public" title="public" />getName()
             <a class="headerlink" href="classes/Ibexa-Contracts-Payment-PaymentMethod-PaymentMethodInterface.html#method_getName" title="Permanent link">¶</a>
@@ -36391,10 +36413,11 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentMethod/PaymentMethodInterface.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentMethod/PaymentMethodInterface.php">PaymentMethodInterface.php</abbr>
                 :
-        <span title="at line 23">23</span>
+        <span title="at line 28">28</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Returns the name of the payment method in given language.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36437,16 +36460,20 @@
                     <td>
                                                                                     null
                                                                         </td>
-                    <td class="empty">
-                                                    -
+                    <td>
+                                                        <section class="phpdocumentor-description">
+        <p>Language code in which the name should be returned or null to use the main language</p>
+
+    </section>
+
                                             </td>
                 </tr>
                     </tbody>
     </table>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">string</p>
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_getOptions">
                 <img src="./images/public.svg" alt="public" title="public" />getOptions()
             <a class="headerlink" href="classes/Ibexa-Contracts-Payment-PaymentMethod-PaymentMethodInterface.html#method_getOptions" title="Permanent link">¶</a>
@@ -36454,7 +36481,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentMethod/PaymentMethodInterface.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentMethod/PaymentMethodInterface.php">PaymentMethodInterface.php</abbr>
                 :
-        <span title="at line 39">39</span>
+        <span title="at line 53">53</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -36479,10 +36506,10 @@
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Core-Options-OptionsBag.html"><abbr title="\Ibexa\Contracts\Core\Options\OptionsBag">OptionsBag</abbr></a></p>
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_getType">
                 <img src="./images/public.svg" alt="public" title="public" />getType()
             <a class="headerlink" href="classes/Ibexa-Contracts-Payment-PaymentMethod-PaymentMethodInterface.html#method_getType" title="Permanent link">¶</a>
@@ -36515,10 +36542,10 @@
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><a href="classes/Ibexa-Contracts-Payment-PaymentMethod-Type-TypeInterface.html"><abbr title="\Ibexa\Contracts\Payment\PaymentMethod\Type\TypeInterface">TypeInterface</abbr></a></p>
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_getUpdatedAt">
                 <img src="./images/public.svg" alt="public" title="public" />getUpdatedAt()
             <a class="headerlink" href="classes/Ibexa-Contracts-Payment-PaymentMethod-PaymentMethodInterface.html#method_getUpdatedAt" title="Permanent link">¶</a>
@@ -36526,10 +36553,11 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentMethod/PaymentMethodInterface.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentMethod/PaymentMethodInterface.php">PaymentMethodInterface.php</abbr>
                 :
-        <span title="at line 43">43</span>
+        <span title="at line 63">63</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Returns the date and time when the payment method was last updated.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36551,10 +36579,10 @@
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><abbr title="\DateTimeInterface">DateTimeInterface</abbr></p>
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_isEnabled">
                 <img src="./images/public.svg" alt="public" title="public" />isEnabled()
             <a class="headerlink" href="classes/Ibexa-Contracts-Payment-PaymentMethod-PaymentMethodInterface.html#method_isEnabled" title="Permanent link">¶</a>
@@ -36562,7 +36590,7 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/payment/src/contracts/PaymentMethod/PaymentMethodInterface.php">
         <abbr title="vendor/ibexa/payment/src/contracts/PaymentMethod/PaymentMethodInterface.php">PaymentMethodInterface.php</abbr>
                 :
-        <span title="at line 37">37</span>
+        <span title="at line 51">51</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
@@ -36587,10 +36615,10 @@
 </div>
 <div class="phpdocumentor-label-line">
     </div>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type">bool</p>
-                                </div>
+                        
+                            </div>
                     </article>
                 </div>
 

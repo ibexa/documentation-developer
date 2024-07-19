@@ -26,7 +26,7 @@ class WorkflowCommand extends Command
         parent::__construct('doc:workflow');
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setDescription('Starts content in the selected workflow and makes the provided transition.')
@@ -37,7 +37,7 @@ class WorkflowCommand extends Command
             ]);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $contentId = $input->getArgument('contentId');
         $workflowName = $input->getArgument('workflowName');

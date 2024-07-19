@@ -19462,6 +19462,17 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-19-0-1" type="checkbox" id="nav-1-19-0-1" >
         <label class="md-nav__link level-3" for="nav-1-19-0-1">
                             <img src="./images/file.svg" alt="file.svg" />
+                                        <a href="classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderConfiguratorInterface.html" title="ProviderConfiguratorInterface">
+                            ProviderConfiguratorInterface
+                            </a>
+                    </label>
+            </li>
+
+                                                        
+    <li class="md-nav__item ">
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1-19-0-2" type="checkbox" id="nav-1-19-0-2" >
+        <label class="md-nav__link level-3" for="nav-1-19-0-2">
+                            <img src="./images/file.svg" alt="file.svg" />
                                         <a href="classes/Ibexa-Contracts-FieldTypeRichText-Configuration-ProviderService.html" title="ProviderService">
                             ProviderService
                             </a>
@@ -36103,13 +36114,66 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/storefront/src/contracts/Menu/ItemFactoryInterface.php">
         <abbr title="vendor/ibexa/storefront/src/contracts/Menu/ItemFactoryInterface.php">ItemFactoryInterface.php</abbr>
                 :
-        <span title="at line 17">17</span>
+        <span title="at line 59">59</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
                     </div>
-    
+        <p>The item factory provides convenient methods to build menu item based on repository objects, including:.</p>
 
-                            
+    <section class="phpdocumentor-description">
+        <ul>
+<li>Content</li>
+<li>Content ID</li>
+<li>Location</li>
+<li>Location ID</li>
+<li>Taxonomy entry</li>
+<li>Product</li>
+</ul>
+<p>The following example demonstrates how to build a menu (using the item factory) using child locations of a given location:</p>
+<pre class="prettyprint"><code class="prettyprint">namespace App\Menu;
+
+use Ibexa\Contracts\Core\Repository\LocationService;
+use Ibexa\Contracts\Storefront\Menu\ItemFactoryInterface;
+use Knp\Menu\ItemInterface;
+
+final class LocationMenuBuilder
+{
+    public function __construct(
+        private ItemFactoryInterface $itemFactory,
+        private LocationService $locationService
+    ) }
+
+    public function build(array $options): ItemInterface
+    {
+        $menu = $this-&gt;itemFactory-&gt;createItem('root');
+
+        $children = $this-&gt;locationService-&gt;loadLocationChildren($options['location'], 0, 10);
+        foreach ($children as $child) {
+            $menu-&gt;addChild($this-&gt;itemFactory-&gt;createLocationItem($child));
+        }
+
+        return $menu;
+    }
+}
+</code></pre>
+
+    </section>
+
+                                                                    
+    <h5 class="phpdocumentor-tag-list__heading">
+        Tags
+        <a href="classes/Ibexa-Contracts-Storefront-Menu-ItemFactoryInterface.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                                                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">See</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><a href="https://symfony.com/bundles/KnpMenuBundle/current/index.html#create-your-first-menu">https://symfony.com/bundles/KnpMenuBundle/current/index.html#create-your-first-menu</a></span>
+                                                                 
+                                    </dd>
+                                                                                                                    </dl>
 
 
 
@@ -36133,10 +36197,11 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/storefront/src/contracts/Menu/ItemFactoryInterface.php">
         <abbr title="vendor/ibexa/storefront/src/contracts/Menu/ItemFactoryInterface.php">ItemFactoryInterface.php</abbr>
                 :
-        <span title="at line 31">31</span>
+        <span title="at line 79">79</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Creates a menu item based on a given content object id.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36193,8 +36258,12 @@
                     <td>
                                                                                     null
                                                                         </td>
-                    <td class="empty">
-                                                    -
+                    <td>
+                                                        <section class="phpdocumentor-description">
+        <p>The name of the menu item. If null, the content name is used.</p>
+
+    </section>
+
                                             </td>
                 </tr>
                             <tr>
@@ -36207,16 +36276,20 @@
                     <td>
                                                                                     []
                                                                         </td>
-                    <td class="empty">
-                                                    -
+                    <td>
+                                                        <section class="phpdocumentor-description">
+        <p>Additional options for the menu item.</p>
+
+    </section>
+
                                             </td>
                 </tr>
                     </tbody>
     </table>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><abbr title="\Knp\Menu\ItemInterface">ItemInterface</abbr></p>
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_createContentItem">
                 <img src="./images/public.svg" alt="public" title="public" />createContentItem()
             <a class="headerlink" href="classes/Ibexa-Contracts-Storefront-Menu-ItemFactoryInterface.html#method_createContentItem" title="Permanent link">¶</a>
@@ -36224,10 +36297,11 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/storefront/src/contracts/Menu/ItemFactoryInterface.php">
         <abbr title="vendor/ibexa/storefront/src/contracts/Menu/ItemFactoryInterface.php">ItemFactoryInterface.php</abbr>
                 :
-        <span title="at line 22">22</span>
+        <span title="at line 67">67</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Creates a menu item based on a given content object.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36284,8 +36358,12 @@
                     <td>
                                                                                     null
                                                                         </td>
-                    <td class="empty">
-                                                    -
+                    <td>
+                                                        <section class="phpdocumentor-description">
+        <p>The name of the menu item. If null, the content name is used.</p>
+
+    </section>
+
                                             </td>
                 </tr>
                             <tr>
@@ -36298,16 +36376,20 @@
                     <td>
                                                                                     []
                                                                         </td>
-                    <td class="empty">
-                                                    -
+                    <td>
+                                                        <section class="phpdocumentor-description">
+        <p>Additional options for the menu item.</p>
+
+    </section>
+
                                             </td>
                 </tr>
                     </tbody>
     </table>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><abbr title="\Knp\Menu\ItemInterface">ItemInterface</abbr></p>
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_createItem">
                 <img src="./images/public.svg" alt="public" title="public" />createItem()
             <a class="headerlink" href="classes/Ibexa-Contracts-Storefront-Menu-ItemFactoryInterface.html#method_createItem" title="Permanent link">¶</a>
@@ -36315,10 +36397,11 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/storefront/src/contracts/Menu/ItemFactoryInterface.php">
         <abbr title="vendor/ibexa/storefront/src/contracts/Menu/ItemFactoryInterface.php">ItemFactoryInterface.php</abbr>
                 :
-        <span title="at line 76">76</span>
+        <span title="at line 138">138</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Creates a menu item based on a given name.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36375,16 +36458,20 @@
                     <td>
                                                                                     []
                                                                         </td>
-                    <td class="empty">
-                                                    -
+                    <td>
+                                                        <section class="phpdocumentor-description">
+        <p>Additional options for the menu item.</p>
+
+    </section>
+
                                             </td>
                 </tr>
                     </tbody>
     </table>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><abbr title="\Knp\Menu\ItemInterface">ItemInterface</abbr></p>
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_createLocationIdItem">
                 <img src="./images/public.svg" alt="public" title="public" />createLocationIdItem()
             <a class="headerlink" href="classes/Ibexa-Contracts-Storefront-Menu-ItemFactoryInterface.html#method_createLocationIdItem" title="Permanent link">¶</a>
@@ -36392,10 +36479,11 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/storefront/src/contracts/Menu/ItemFactoryInterface.php">
         <abbr title="vendor/ibexa/storefront/src/contracts/Menu/ItemFactoryInterface.php">ItemFactoryInterface.php</abbr>
                 :
-        <span title="at line 49">49</span>
+        <span title="at line 103">103</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Creates a menu item based on a given location id.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36452,8 +36540,12 @@
                     <td>
                                                                                     null
                                                                         </td>
-                    <td class="empty">
-                                                    -
+                    <td>
+                                                        <section class="phpdocumentor-description">
+        <p>The name of the menu item. If null, the content name of content associated with the location is used.</p>
+
+    </section>
+
                                             </td>
                 </tr>
                             <tr>
@@ -36466,16 +36558,20 @@
                     <td>
                                                                                     []
                                                                         </td>
-                    <td class="empty">
-                                                    -
+                    <td>
+                                                        <section class="phpdocumentor-description">
+        <p>Additional options for the menu item.</p>
+
+    </section>
+
                                             </td>
                 </tr>
                     </tbody>
     </table>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><abbr title="\Knp\Menu\ItemInterface">ItemInterface</abbr></p>
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_createLocationItem">
                 <img src="./images/public.svg" alt="public" title="public" />createLocationItem()
             <a class="headerlink" href="classes/Ibexa-Contracts-Storefront-Menu-ItemFactoryInterface.html#method_createLocationItem" title="Permanent link">¶</a>
@@ -36483,10 +36579,11 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/storefront/src/contracts/Menu/ItemFactoryInterface.php">
         <abbr title="vendor/ibexa/storefront/src/contracts/Menu/ItemFactoryInterface.php">ItemFactoryInterface.php</abbr>
                 :
-        <span title="at line 40">40</span>
+        <span title="at line 91">91</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Creates a menu item based on a given location.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36543,8 +36640,12 @@
                     <td>
                                                                                     null
                                                                         </td>
-                    <td class="empty">
-                                                    -
+                    <td>
+                                                        <section class="phpdocumentor-description">
+        <p>The name of the menu item. If null, the content name of content associated with the location is used.</p>
+
+    </section>
+
                                             </td>
                 </tr>
                             <tr>
@@ -36557,16 +36658,20 @@
                     <td>
                                                                                     []
                                                                         </td>
-                    <td class="empty">
-                                                    -
+                    <td>
+                                                        <section class="phpdocumentor-description">
+        <p>Additional options for the menu item.</p>
+
+    </section>
+
                                             </td>
                 </tr>
                     </tbody>
     </table>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><abbr title="\Knp\Menu\ItemInterface">ItemInterface</abbr></p>
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_createProductItem">
                 <img src="./images/public.svg" alt="public" title="public" />createProductItem()
             <a class="headerlink" href="classes/Ibexa-Contracts-Storefront-Menu-ItemFactoryInterface.html#method_createProductItem" title="Permanent link">¶</a>
@@ -36574,10 +36679,11 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/storefront/src/contracts/Menu/ItemFactoryInterface.php">
         <abbr title="vendor/ibexa/storefront/src/contracts/Menu/ItemFactoryInterface.php">ItemFactoryInterface.php</abbr>
                 :
-        <span title="at line 67">67</span>
+        <span title="at line 127">127</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Creates a menu item based on a given product.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36634,8 +36740,12 @@
                     <td>
                                                                                     null
                                                                         </td>
-                    <td class="empty">
-                                                    -
+                    <td>
+                                                        <section class="phpdocumentor-description">
+        <p>The name of the menu item. If null, the product name is used.</p>
+
+    </section>
+
                                             </td>
                 </tr>
                             <tr>
@@ -36648,16 +36758,20 @@
                     <td>
                                                                                     []
                                                                         </td>
-                    <td class="empty">
-                                                    -
+                    <td>
+                                                        <section class="phpdocumentor-description">
+        <p>Additional options for the menu item.</p>
+
+    </section>
+
                                             </td>
                 </tr>
                     </tbody>
     </table>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><abbr title="\Knp\Menu\ItemInterface">ItemInterface</abbr></p>
-                <div class="content-header">
+                        
+            <div class="content-header">
         <h3 id="method_createTaxonomyEntryItem">
                 <img src="./images/public.svg" alt="public" title="public" />createTaxonomyEntryItem()
             <a class="headerlink" href="classes/Ibexa-Contracts-Storefront-Menu-ItemFactoryInterface.html#method_createTaxonomyEntryItem" title="Permanent link">¶</a>
@@ -36665,10 +36779,11 @@
         <div class="content-header__found-in copy-to-clipboard" data-copy-value="vendor/ibexa/storefront/src/contracts/Menu/ItemFactoryInterface.php">
         <abbr title="vendor/ibexa/storefront/src/contracts/Menu/ItemFactoryInterface.php">ItemFactoryInterface.php</abbr>
                 :
-        <span title="at line 58">58</span>
+        <span title="at line 115">115</span>
                 <img src="./images/copy.svg" title="Copy path" />
     </div>
         </div>
+    <p>Creates a menu item based on a given taxonomy entry.</p>
 
 <div class="highlight">
     <table class="highlighttable">
@@ -36725,8 +36840,12 @@
                     <td>
                                                                                     null
                                                                         </td>
-                    <td class="empty">
-                                                    -
+                    <td>
+                                                        <section class="phpdocumentor-description">
+        <p>The name of the menu item. If null, the taxonomy name is used.</p>
+
+    </section>
+
                                             </td>
                 </tr>
                             <tr>
@@ -36739,16 +36858,20 @@
                     <td>
                                                                                     []
                                                                         </td>
-                    <td class="empty">
-                                                    -
+                    <td>
+                                                        <section class="phpdocumentor-description">
+        <p>Additional options for the menu item.</p>
+
+    </section>
+
                                             </td>
                 </tr>
                     </tbody>
     </table>
-                    
     <h4>Return values</h4>
     <p class="phpdocumentor-signature__response_type"><abbr title="\Knp\Menu\ItemInterface">ItemInterface</abbr></p>
-                                </div>
+                        
+                            </div>
                     </article>
                 </div>
 
