@@ -85,7 +85,7 @@ You can also integrate with, for example, Bitbucket, GitHub, Gitlab.
 You can instantly clone every branch of both your code and infrastructure configuration.
 Platform.sh (and [[= product_name_cloud =]], by extension) uses the [Infrastracture as Code approach](https://docs.platform.sh/learn/overview.html#infrastructure-as-code).
 It means that the infrastracture is described in the code and that is what allows you to clone both code and infrastracture configuration at the same time.
-If you want to work with services such as [MySQL](https://docs.platform.sh/add-services/mysql.html), [Kafka](https://docs.platform.sh/add-services/kafka.html), and [Elasticsearch](https://docs.platform.sh/add-services/elasticsearch.html), you can add them with a line of code.
+If you want to work with services such as [MySQL](https://docs.platform.sh/add-services/mysql.html) or [Elasticsearch](https://docs.platform.sh/add-services/elasticsearch.html), you can add them with a line of code.
 What's more, you can run in your chosen cloud, like Microsoft Azure, Orange, or Google Cloud Platform.
 
 ### Great customer experience
