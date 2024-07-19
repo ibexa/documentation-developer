@@ -2768,6 +2768,14 @@ CatalogViewInput:
         CatalogQuery:
             type: object
 
+ProductFilter:
+    type: object
+    properties:
+        _media-type:
+            type: string
+        name:
+            type: string
+
 ProductFilterList:
     description: 'This class represents a product filter list.'
     type: object
@@ -2780,6 +2788,14 @@ ProductFilter:
     properties:
         name: string
 
+ProductSortClause:
+    type: object
+    properties:
+        _media-type:
+            type: string
+        name:
+            type: string
+
 ProductSortClauseList:
     description: 'This class represents a product sort clause list.'
     type: object
@@ -2791,12 +2807,21 @@ Currency:
     description: 'This class represents currency.'
     type: object
     properties:
+        _media-type:
+            type: string
+            required: false
+        id:
+            type: integer
+            required: false
         code:
             type: string
+            required: false
         subunits:
             type: integer
+            required: false
         enabled:
             type: boolean
+            required: false
 
 CurrencyList:
     description: 'This class represents a currency list.'
@@ -3102,6 +3127,18 @@ CurrencyViewInput:
     properties:
         CurrencyQuery:
             type: object
+
+AttributeAssignment:
+    type: object
+    properties:
+        _media-type:
+            type: string
+        is_required:
+            type: boolean
+        is_discriminator:
+            type: boolean
+        Attribute:
+            type: Attribute
 
 ProductType:
     description: 'This class represents a product type.'
@@ -3446,6 +3483,16 @@ TaxonomyEntryBulkRemove:
         entries:
             type: TaxonomyEntry[]
 
+TaxonomyEntryMove:
+    type: object
+    properties:
+        entry:
+            type: integer
+        sibling:
+            type: integer
+        position:
+            type: string
+
 TaxonomyEntryBulkMove:
     description: 'This class is used to bulk move taxonomy entries.'
     type: object
@@ -3527,6 +3574,46 @@ ContentMetadataUpdate:
         name:
             type: string
 
+SummaryEntryNames:
+    type: object
+    properties:
+        value:
+            type: array
+            items:
+                type: object
+                properties:
+                    _languageCode:
+                        type: string
+                    '#text':
+                        type: string
+
+SummaryEntry:
+    type: object
+    properties:
+        _media-type:
+            type: string
+        identifier:
+            type: string
+        id:
+            type: integer
+        names:
+            type: SummaryEntryNames
+        quantity:
+            type: integer
+            required: false
+        Price:
+            type: RestPriceWrapper
+        PriceInclVat:
+            type: RestPriceWrapper
+        SubtotalPrice:
+            type: RestPriceWrapper
+        SubtotalPriceInclVat:
+            type: RestPriceWrapper
+        VatCategory:
+            type: VatCategory
+        Product:
+            type: Product
+
 SummaryEntryCollection:
     description: 'This class represents a summary entry collection.'
     type: object
@@ -3571,6 +3658,24 @@ CustomPrice:
             type: string
         custom_rule:
             type: string
+
+RestPrice:
+    type: object
+    properties:
+        _media-type:
+            type: string
+        Price:
+            type: Price
+        formatted:
+            type: string
+
+RestPriceWrapper:
+    type: object
+    properties:
+        _media-type:
+            type: string
+        RestPrice:
+            type: RestPrice
 
 PriceList:
     description: 'This class represents a price list.'
