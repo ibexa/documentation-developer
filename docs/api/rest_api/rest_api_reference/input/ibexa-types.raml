@@ -2799,16 +2799,12 @@ Currency:
     properties:
         id:
             type: integer
-            required: false
         code:
             type: string
-            required: false
         subunits:
             type: integer
-            required: false
         enabled:
             type: boolean
-            required: false
 
 CurrencyList:
     description: 'This class represents a currency list.'
@@ -3583,15 +3579,14 @@ SummaryEntry:
             type: SummaryEntryNames
         quantity:
             type: integer
-            required: false
         Price:
-            type: RestPriceWrapper
+            type: RestPrice
         PriceInclVat:
-            type: RestPriceWrapper
+            type: RestPrice
         SubtotalPrice:
-            type: RestPriceWrapper
+            type: RestPrice
         SubtotalPriceInclVat:
-            type: RestPriceWrapper
+            type: RestPrice
         VatCategory:
             type: VatCategory
         Product:
@@ -3649,12 +3644,6 @@ RestPrice:
             type: Price
         formatted:
             type: string
-
-RestPriceWrapper:
-    type: object
-    properties:
-        RestPrice:
-            type: RestPrice
 
 PriceList:
     description: 'This class represents a price list.'
