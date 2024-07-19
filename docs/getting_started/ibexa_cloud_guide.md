@@ -1,5 +1,6 @@
 ---
 description: The Ibexa Cloud product guide provides a full description of its features as well as the benefits it brings to the client.
+title: Ibexa Cloud product guide
 ---
 
 # [[= product_name_cloud =]] product guide
