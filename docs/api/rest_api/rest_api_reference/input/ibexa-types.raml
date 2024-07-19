@@ -2768,14 +2768,6 @@ CatalogViewInput:
         CatalogQuery:
             type: object
 
-ProductFilter:
-    type: object
-    properties:
-        _media-type:
-            type: string
-        name:
-            type: string
-
 ProductFilterList:
     description: 'This class represents a product filter list.'
     type: object
@@ -2791,8 +2783,6 @@ ProductFilter:
 ProductSortClause:
     type: object
     properties:
-        _media-type:
-            type: string
         name:
             type: string
 
@@ -2807,9 +2797,6 @@ Currency:
     description: 'This class represents currency.'
     type: object
     properties:
-        _media-type:
-            type: string
-            required: false
         id:
             type: integer
             required: false
@@ -3131,8 +3118,6 @@ CurrencyViewInput:
 AttributeAssignment:
     type: object
     properties:
-        _media-type:
-            type: string
         is_required:
             type: boolean
         is_discriminator:
@@ -3590,8 +3575,6 @@ SummaryEntryNames:
 SummaryEntry:
     type: object
     properties:
-        _media-type:
-            type: string
         identifier:
             type: string
         id:
@@ -3662,8 +3645,6 @@ CustomPrice:
 RestPrice:
     type: object
     properties:
-        _media-type:
-            type: string
         Price:
             type: Price
         formatted:
@@ -3672,8 +3653,6 @@ RestPrice:
 RestPriceWrapper:
     type: object
     properties:
-        _media-type:
-            type: string
         RestPrice:
             type: RestPrice
 
