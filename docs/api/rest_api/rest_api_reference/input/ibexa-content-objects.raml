@@ -535,7 +535,9 @@ get:
                 200:
                     body:
                         application/vnd.ibexa.api.LocationList+xml:
-                            type: LocationList
+                            type: Ref[]
+                            xml:
+                                name: LocationList
                             example: !include examples/content/objects/content_id/locations/GET/LocationList.xml.example
                         application/vnd.ibexa.api.LocationList+json:
                             type: LocationList

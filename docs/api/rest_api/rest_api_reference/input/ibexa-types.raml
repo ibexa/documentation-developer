@@ -1083,15 +1083,12 @@ LocationCreateStruct:
             type: integer
 
 LocationList:
-    description: 'This class represents a queried Location list holding a totalCount and a partial list of Locations (by offset/limit parameters and permission filters).'
-    type: object
+    description: 'This class represents a list of location references.'
+    type: BaseObject
     properties:
-        totalCount:
-            description: 'The total count of found Locations (filtered by permissions).'
-            type: integer
-        Locations:
-            description: 'The partial list of Locations controlled by offset/limit.'
-            type: Location[]
+        Location:
+            description: 'The list of location references.'
+            type: Ref[]
 
 LocationQuery:
     description: 'This class is used to perform a Location query.'
