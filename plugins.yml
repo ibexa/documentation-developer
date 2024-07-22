@@ -546,3 +546,4 @@ plugins:
             'content_management/customize_field_type_metadata.md': 'content_management/field_types/customize_field_type_metadata.md'
 
             'getting_started/ibexa_cloud_guide.md': 'ibexa_cloud/ibexa_cloud_guide.md'
+            'getting_started/install_on_ibexa_cloud.md': 'ibexa_cloud/install_on_ibexa_cloud.md'

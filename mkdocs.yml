@@ -13,7 +13,6 @@ nav:
         - Getting started: getting_started/getting_started.md
         - Requirements: getting_started/requirements.md
         - Install Ibexa DXP: getting_started/install_ibexa_dxp.md
-        - Install on Ibexa Cloud: getting_started/install_on_ibexa_cloud.md
         - Install on MacOS and Windows: getting_started/install_on_mac_os_and_windows.md
         - Install with DDEV: getting_started/install_with_ddev.md
         - First steps: getting_started/first_steps.md
@@ -749,7 +748,7 @@ nav:
     - Ibexa Cloud:
         - Ibexa Cloud: ibexa_cloud/ibexa_cloud.md
         - Ibexa Cloud guide: ibexa_cloud/ibexa_cloud_guide.md
-        - Install on Ibexa Cloud: getting_started/install_on_ibexa_cloud.md
+        - Install on Ibexa Cloud: ibexa_cloud/install_on_ibexa_cloud.md
         - DDEV and Ibexa Cloud: infrastructure_and_maintenance/clustering/ddev_and_ibexa_cloud.md
     - Infrastructure and maintenance:
         - Infrastructure and maintenance: infrastructure_and_maintenance/infrastructure_and_maintenance.md
