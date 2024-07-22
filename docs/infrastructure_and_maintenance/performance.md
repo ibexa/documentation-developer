@@ -53,6 +53,7 @@ In production setups:
 - Prefer php-fpm and web server using it over fast-cgi for lower overall memory usage.
 
 ### Symfony
+
 - Review the [Symfony performance documentation]([[= symfony_doc =]]/performance.html) and apply matching suggestions, including OPCache configuration if enabled.
 
 ### Composer
