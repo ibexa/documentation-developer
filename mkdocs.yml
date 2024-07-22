@@ -748,7 +748,7 @@ nav:
             - Manipulate Elasticsearch query: search/extensibility/manipulate_elasticsearch_query.md
         - Reindex search: search/reindex_search.md
     - Ibexa Cloud:
-        - Ibexa Cloud: ibexa_products/ibexa_cloud.md
+        - Ibexa Cloud: ibexa_cloud/ibexa_cloud.md
         - Ibexa Cloud guide: getting_started/ibexa_cloud_guide.md
         - Install on Ibexa Cloud: getting_started/install_on_ibexa_cloud.md
         - DDEV and Ibexa Cloud: infrastructure_and_maintenance/clustering/ddev_and_ibexa_cloud.md
