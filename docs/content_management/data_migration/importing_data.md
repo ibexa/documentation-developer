@@ -157,7 +157,7 @@ Built-in expression language functions that are tagged with `ibexa.migrations.te
                     value: '###XXX to_string(123) XXX###'
 ```
 
-- `ibexa.migrations.template.reference` - references a specific object or resource within your application or configuration. Learn more about [migration references](managing_migrations.md#references).
+- `reference` - references a specific object or resource within your application or configuration. Learn more about [migration references](managing_migrations.md#references).
 
 ```yaml
                 -   fieldDefIdentifier: some_field
@@ -165,12 +165,25 @@ Built-in expression language functions that are tagged with `ibexa.migrations.te
                     value: '###XXX reference("example_reference") XXX###'
 ```
 
-- `ibexa.migrations.template.project_dir` - retrieves the project's root directory path, for example to construct file paths or access project-specific resources.
+- `project_dir` - retrieves the project's root directory path, for example to construct file paths or access project-specific resources.
 
 ```yaml
                 -   fieldDefIdentifier: project_directory
                     languageCode: eng-US
                     value: '###XXX project_dir() XXX###'
+```
+
+- `env` - retrieves the value of an environmental variable.
+
+```yaml
+                -
+                    type: user
+                    mode: update
+                    match:
+                        field: login
+                        value: admin
+                    metadata:
+                        password: '###XXX env("ADMIN_PASSWORD") XXX###'
 ```
 
 #### Custom functions
