@@ -3,9 +3,9 @@ description: Host your Ibexa projects on the cloud.
 page_type: landing_page
 ---
 
-# Ibexa Cloud
+# [[= product_name_cloud =]]
 
-Ibexa Cloud is a cloud hosting platform that enables you to host your application in the cloud using the Platform.sh service.
+[[= product_name_cloud =]] is a cloud hosting platform that enables you to host your application in the cloud using the Platform.sh service.
 
 [[= cards([
 "ibexa_cloud/ibexa_cloud_guide",
