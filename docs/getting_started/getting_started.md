@@ -12,4 +12,4 @@ To get started working with [[= product_name =]], see how you can get an install
     "getting_started/install_ibexa_dxp",
     "ibexa_cloud/install_on_ibexa_cloud",
     "getting_started/first_steps",
-], columns=4) =]]
+], columns=3) =]]
