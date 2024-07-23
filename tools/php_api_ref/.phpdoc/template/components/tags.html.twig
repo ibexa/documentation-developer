@@ -1,4 +1,5 @@
-{% set tags_to_exlude = ['todo', 'var', 'param', 'property', 'property-read', 'property-write', 'method', 'return', 'package', 'api', 'final', 'since', 'template', 'template-extends', 'template-covariant'] %}
+{% set tags_to_exlude = ['todo', 'var', 'param', 'property', 'property-read', 'property-write', 'method', 'return', 'package', 'api', 'final', 'since',
+    'template', 'template-implements', 'template-extends', 'template-covariant'] %}
 {% set tags = node.tags|filter((v,k) => k not in tags_to_exlude and not (k starts with 'phpstan-')) %}
 {% set has_tags = false %}
 {% for name,seriesOfTag in tags %}
