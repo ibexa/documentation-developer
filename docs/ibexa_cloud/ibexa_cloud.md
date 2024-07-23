@@ -11,4 +11,4 @@ Ibexa Cloud is a cloud hosting platform that enables you to host your applicatio
 "ibexa_cloud/ibexa_cloud_guide",
 "ibexa_cloud/install_on_ibexa_cloud",
 "ibexa_cloud/ddev_and_ibexa_cloud",
-], columns=4) =]]
+], columns=3) =]]
