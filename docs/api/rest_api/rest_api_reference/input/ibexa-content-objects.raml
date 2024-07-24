@@ -535,7 +535,23 @@ get:
                 200:
                     body:
                         application/vnd.ibexa.api.LocationList+xml:
-                            type: LocationListXML
+                            schema: |
+                                <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                                  <xs:element name="LocationList">
+                                    <xs:complexType>
+                                      <xs:sequence>
+                                        <xs:element minOccurs="0" maxOccurs="unbounded" name="Location">
+                                          <xs:complexType>
+                                            <xs:attribute name="media-type" type="xs:string" use="required" />
+                                            <xs:attribute name="href" type="xs:string" use="required" />
+                                          </xs:complexType>
+                                        </xs:element>
+                                      </xs:sequence>
+                                      <xs:attribute name="media-type" type="xs:string" use="required" />
+                                      <xs:attribute name="href" type="xs:string" use="required" />
+                                    </xs:complexType>
+                                  </xs:element>
+                                </xs:schema>
                             example: !include examples/content/objects/content_id/locations/GET/LocationList.xml.example
                         application/vnd.ibexa.api.LocationList+json:
                             type: LocationListJSON

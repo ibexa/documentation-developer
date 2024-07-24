@@ -1082,34 +1082,6 @@ LocationCreateStruct:
             required: true
             type: integer
 
-LocationListXML:
-    type: LocationRefXML[]
-    xml:
-        name: LocationList
-        wrapped: true
-    properties:
-        media-type:
-            type: string
-            xml:
-                attribute: true
-        href:
-            type: string
-            xml:
-                attribute: true
-
-LocationRefXML:
-    xml:
-        name: Location
-    properties:
-        media-type:
-            type: string
-            xml:
-                attribute: true
-        href:
-            type: string
-            xml:
-                attribute: true
-
 LocationListJSON:
     properties:
         LocationList:
