@@ -36,11 +36,7 @@ class RenderExtension extends AbstractExtension
                 $methodTypes = $this->getTypes($method);
 
                 foreach ($methodTypes as $type) {
-                    if ('[]' === substr($type, -2)) {
-                        $types[$type] = $typeCollection->getTypeByName(substr($type, 0, -2))->getDefinition()['description'] ?? '';
-                    } else {
-                        $types[$type] = $typeCollection->getTypeByName($type)->getDefinition()['description'] ?? '';
-                    }
+                    $types[$type] = $typeCollection->getTypeByName($type)->getDefinition()['description'] ?? '';
                 }
 
                 return $types;
