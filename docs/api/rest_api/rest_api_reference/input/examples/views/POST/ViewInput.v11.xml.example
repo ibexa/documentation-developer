@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewInput>
+  <identifier>TitleView</identifier>
+  <LocationQuery>
+    <Filter>
+      <FullTextCriterion>Platform</FullTextCriterion>
+      <AND>
+        <OR>
+          <SubtreeCriterion>/1/2/</SubtreeCriterion>
+          <LocationIdCriterion>2</LocationIdCriterion>
+        </OR>
+        <OR>
+          <ContentTypeIdCriterion>1</ContentTypeIdCriterion>
+          <ContentTypeIdentifierCriterion>landing_page</ContentTypeIdentifierCriterion>
+          <ContentTypeIdentifierCriterion>article</ContentTypeIdentifierCriterion>
+        </OR>
+      </AND>
+      <DateMetadataCriterion>
+        <Target>modified</Target>
+        <Value>1033567890</Value>
+        <Operator>gte</Operator>
+      </DateMetadataCriterion>
+    </Filter>
+    <limit>10</limit>
+    <offset>0</offset>
+    <SortClauses>
+      <ContentName>ascending</ContentName>
+    </SortClauses>
+    <Aggregations>
+      <Aggregation>
+        <ContentTypeTermAggregation>
+          <name>some name</name>
+        </ContentTypeTermAggregation>
+      </Aggregation>
+    </Aggregations>
+  </LocationQuery>
+</ViewInput>

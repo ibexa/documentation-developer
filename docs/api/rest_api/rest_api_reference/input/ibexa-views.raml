@@ -26,14 +26,29 @@ post:
         application/vnd.ibexa.api.ViewInput+xml:
             type: ViewInput
             example: !include examples/views/POST/ViewInput.xml.example
+        application/vnd.ibexa.api.ViewInput+xml; version=1.1:
+            type: ViewInput
+            example: !include examples/views/POST/ViewInput.v11.xml.example
         application/vnd.ibexa.api.ViewInput+json:
             type: ViewInput
             example: !include examples/views/POST/ViewInput.json.example
+        application/vnd.ibexa.api.ViewInput+json; version=1.1:
+            type: ViewInput
+            example: !include examples/views/POST/ViewInput.v11.json.example
     responses:
         200:
             body:
+                application/vnd.ibexa.api.View+xml:
+                    type: View
+                    example: !include examples/views/POST/View.xml.example
                 application/vnd.ibexa.api.View+xml; version=1.1:
                     type: View
-                    example: !include examples/views/POST/View.xml.v11.example
+                    example: !include examples/views/POST/View.v11.xml.example
+                application/vnd.ibexa.api.View+json:
+                    type: View
+                    example: !include examples/views/POST/View.json.example
+                application/vnd.ibexa.api.View+json; version=1.1:
+                    type: View
+                    example: !include examples/views/POST/View.v11.json.example
         400:
             description: Error - the input does not match the input schema definition.
