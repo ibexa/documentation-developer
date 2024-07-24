@@ -1,5 +1,6 @@
 ---
 description: The Ibexa Cloud product guide provides a full description of its features as well as the benefits it brings to the client.
+title: Ibexa Cloud product guide
 ---
 
 # [[= product_name_cloud =]] product guide
@@ -122,4 +123,5 @@ When you submit a ticket with [[= product_name_cloud =]], the support team looks
 ### Lower cost
 
 With PaaS solution there is no need to purchase and maintain hardware or software infrastructure. This reduces the total cost of ownership and operational expenses.
-According to [Forrester Total Economic Impact report](https://platform.sh/blog/platform-sh-drives-meaningful-cost-savings/) from March 2022, a company that uses Platform.sh for three years achieves an investment return of 219%. According to this in-depth analysis, Platform.sh reduces operating expenses for developers and IT by $1 million over the course of three years, and in as little as seven months, break-even point can be reached. 
+According to [Forrester Total Economic Impact report](https://platform.sh/blog/platform-sh-drives-meaningful-cost-savings/) from March 2022, a company that uses Platform.sh for three years achieves an investment return of 219%.
+According to this in-depth analysis, Platform.sh reduces operating expenses for developers and IT by $1 million over the course of three years, and in as little as seven months, break-even point can be reached.

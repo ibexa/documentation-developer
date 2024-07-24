@@ -39,7 +39,7 @@
             </a>
         </div>
         <div class="col-12 col-lg-6 col-fhd-3">
-            <a class="info-tile" href="getting_started/install_on_ibexa_cloud/">
+            <a class="info-tile" href="ibexa_cloud/install_on_ibexa_cloud/">
                 <div class="info-tile__circle" style="background-color: #ecf8fb;">
                     <svg width="25" height="18"><use xlink:href="images/icons.svg#install-cloud" /></svg>
                 </div>
