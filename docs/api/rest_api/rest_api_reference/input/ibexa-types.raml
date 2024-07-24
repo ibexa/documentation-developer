@@ -1082,13 +1082,48 @@ LocationCreateStruct:
             required: true
             type: integer
 
+LocationListXML:
+    type: LocationRefXML[]
+    xml:
+        name: LocationList
+    properties:
+        media-type:
+            type: string
+            xml:
+                attribute: true
+        href:
+            type: string
+            xml:
+                attribute: true
+
+LocationRefXML:
+    xml:
+        name: Location
+    properties:
+        media-type:
+            type: string
+            xml:
+                attribute: true
+        href:
+            type: string
+            xml:
+                attribute: true
+
 LocationList:
     description: 'This class represents a list of location references.'
     type: BaseObject
     properties:
         Location:
             description: 'The list of location references.'
-            type: Ref[]
+            type: LocationRef[]
+
+LocationRef:
+    type: object
+    properties:
+        _media-type:
+            type: string
+        _href:
+            type: string
 
 LocationQuery:
     description: 'This class is used to perform a Location query.'

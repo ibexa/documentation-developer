@@ -535,12 +535,13 @@ get:
                 200:
                     body:
                         application/vnd.ibexa.api.LocationList+xml:
-                            type: Ref[]
-                            xml:
-                                name: LocationList
+                            type: LocationListXML
                             example: !include examples/content/objects/content_id/locations/GET/LocationList.xml.example
                         application/vnd.ibexa.api.LocationList+json:
-                            type: LocationList
+                            type: object
+                            properties:
+                                LocationList:
+                                    type: LocationList
                             example: !include examples/content/objects/content_id/locations/GET/LocationList.json.example
                 401:
                     description: Error - the user is not authorized to read this content item.
