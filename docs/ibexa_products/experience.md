@@ -66,3 +66,16 @@ You can take complete control of where and when your content blocks are visible 
 [[= product_name_exp =]] comes with a Publish Later feature that allows you to schedule personalized content and reach different user groups at optimal dates and times to boost performance.
 What's more, you can turn specific content pages and blocks on and off to meet the needs of your marketing campaigns and promotions.
 Publish Later feature combined with Page Builder allows you to show all changes that you plan to the page for the future - just use the slider to see all the upcoming changes.
+
+#### Customer Data Platform (CDP)
+
+With [Customer Data Platform (CDP)](cdp_guide.md) you can create complete customer profiles, including their interactions, behaviors, and preferences.
+CDP helps you to improve engagement, conversion rates, and return on investment by segmenting your audience and delivering tailored campaigns and experiences.
+Additionally, you can manage and analyze campaigns, evaluate customer data, and identify the best ways to improve performance.
+With [[= product_name_cdp =]] you can store and manage large volumes of customer data in a structured manner. This central data storage supports business growth with a scalable infrastructure, helping to futureproof your business.
+
+#### Site Factory
+
+[Site Factory ](multisite/site_factory/site_factory/) is a site management interface, integrated with the Back Office. It enables you to configure new sites without editing YAML-based SiteAccess configuration.
+With this feature you can create and deploy multiple websites at lightning speed and at scale.
+It helps you to manage expenses and resources while industrializing your web presence. Additionally, with localized information and tailored product catalogs and prices, you may quickly enter new markets. 
