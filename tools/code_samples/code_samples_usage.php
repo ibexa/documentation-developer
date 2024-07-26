@@ -125,12 +125,12 @@ function getInclusionBlocks(string $docFilePath, string $codeSampleFilePath=null
 /**
  * @param array<int, string> $block See {@see getInclusionBlocks()} for block definition
  * @return array<string, mixed> list of highlighted line numbers,
- *                              and list of one-based lines of code represented by the block.
+ *                              and trimmed list of one-based lines of code represented by the block.
  *                              ['highlights' => array<int, int>, 'contents' => <int, string>]
  */
 function getBlockContents(array $block): array {
     $blockHighlightedLines = [];
-    $zeroBasedBlockCodeLines = [];
+    $rawBlockCodeLines = [];
     $oneBasedBlockCodeLines = [];
     $includedFilesLines = [];
     foreach ($block as $blockSourceLine) {
@@ -170,13 +170,26 @@ function getBlockContents(array $block): array {
                 }
                 $solvedLine = str_replace($matchString, implode( PHP_EOL.$matches['glue'][$matchIndex], $sample).PHP_EOL, $solvedLine);
             }
-            $zeroBasedBlockCodeLines = array_merge($zeroBasedBlockCodeLines, explode(PHP_EOL, $solvedLine));
+            $rawBlockCodeLines = array_merge($rawBlockCodeLines, explode(PHP_EOL, $solvedLine));
         } elseif (!str_contains($blockSourceLine, '```')) {
-            $zeroBasedBlockCodeLines[] = $blockSourceLine;
+            $rawBlockCodeLines[] = $blockSourceLine;
         }
     }
-    foreach ($zeroBasedBlockCodeLines as $zeroBasedBlockLineIndex => $zeroBasedBlockLine) {
-        $oneBasedBlockCodeLines[$zeroBasedBlockLineIndex+1] = $zeroBasedBlockLine;
+    $firstNotEmptyLineIndex = false;
+    foreach ($rawBlockCodeLines as $rawBlockLineIndex => $rawBlockLine) {
+        if (false === $firstNotEmptyLineIndex && !empty(trim($rawBlockLine))) {
+            $firstNotEmptyLineIndex = $rawBlockLineIndex;
+        }
+        if (false !== $firstNotEmptyLineIndex) {
+            $oneBasedBlockCodeLines[$rawBlockLineIndex - $firstNotEmptyLineIndex + 1] = $rawBlockLine;
+        }
+    }
+    foreach(array_reverse(array_keys($oneBasedBlockCodeLines)) as $oneBasedBlockCodeLineIndex) {
+        if (empty(trim($oneBasedBlockCodeLines[$oneBasedBlockCodeLineIndex]))) {
+            unset($oneBasedBlockCodeLines[$oneBasedBlockCodeLineIndex]);
+        } else {
+            break;
+        }
     }
 
     return [
