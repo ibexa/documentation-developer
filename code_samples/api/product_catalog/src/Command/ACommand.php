@@ -5,4 +5,5 @@ namespace App\Command;
 use Symfony\Component\Console\Command\Command;
 
 final class ACommand extends Command
-{}
+{
+}
