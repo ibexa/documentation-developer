@@ -2,6 +2,10 @@
 description: Use PHP API to manage products in PIM, their attributes, availability and prices.
 ---
 
+``` php
+[[= include_file('code_samples/api/product_catalog/src/Command/ACommand.php', 68, 71) =]]
+```
+
 # Product API
 
 ## Products
