@@ -167,6 +167,15 @@ jobs:
                     issue-number: ${{ github.event.pull_request.number }}
                     comment-author: 'github-actions[bot]'
                     body-includes: 'code_samples/ change report'
+            -   if: steps.find-comment.outputs.comment-id != ''
+                uses: actions/github-script@v6
+                with:
+                    script: |
+                        github.rest.issues.deleteComment({
+                          owner: context.repo.owner,
+                          repo: context.repo.repo,
+                          comment_id: ${{ steps.find-comment.outputs.comment-id }}
+                        })
             -   name: Create or update comment
                 uses: peter-evans/create-or-update-comment@v4
                 with:
