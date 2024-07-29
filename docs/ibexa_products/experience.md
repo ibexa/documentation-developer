@@ -25,7 +25,7 @@ With an active lincese, you can start [installation process](install_ibexa_dxp.m
 
 [[= product_name_exp =]] is based on [Symfony]([[= symfony_doc =]]). With a help of documentation, any developer familiar with Symfony or simply PHP may learn how to use available extension points and extend the platform.
 
-Version control systems and environment variables allow you to deploy your extensions and settings on several environments, such as [[[= product_name_cloud =]]](ibexa_cloud_guide.md).
+Version control systems and environment variables allow you to deploy your extensions and settings on several environments.
 
 [[= product_name_exp =]] is built on [[[= product_name_headless =]]](headless.md). It means that Experience edition includes all bundles, APIs, and [features that comes with Headless](headless.md#core-features).
 
