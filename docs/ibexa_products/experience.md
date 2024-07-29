@@ -1,6 +1,6 @@
 ---
 title: Ibexa Experience
-description: Explore Ibexa Experience' features, capabilities and benefits.
+description: Discover Ibexa Experience and its essential features, capabilities and benefits.
 month_change: true
 ---
 
@@ -27,9 +27,7 @@ With an active lincese, you can start [installation process](install_ibexa_dxp.m
 
 Version control systems and environment variables allow you to deploy your extensions and settings on several environments, such as [[[= product_name_cloud =]]](ibexa_cloud_guide.md).
 
-APIs summary:
-
-- 
+[[= product_name_exp =]] is built on [[[= product_name_headless =]]](headless.md). It means that Experience edition includes all bundles, APIs, and [features that comes with Headless](headless.md#core-features).
 
 ## Capabilities and benefits
 
@@ -42,16 +40,18 @@ It has everything you need to offer a transformative digital experience, from de
 
 #### Page Builder
 
-[[= product_name_exp =]] comes with a [Page Builder](page_builder_guide.md) - a visual tool. Using Page Builder in [[= product_name =]], you can design and modify pages. It involves more than just maintaining, it also includes developing pages, tailored content, and landing pages that are perfectly targeted. Content is composed using ready-to-use elements - blocks, properly configured and customized.
+[[= product_name_exp =]] brings new visual tool - [Page Builder](page_builder_guide.md). Using Page Builder in [[= product_name =]], you can design and modify pages. It involves more than just maintaining, it also includes developing pages, tailored content, and landing pages that are perfectly targeted. Content is composed using ready-to-use elements - blocks, properly configured and customized.
 You also need to select a layout. The layout that is selected has a significant impact on how the content pieces in the drop zones are arranged.
 The interface of Page Builder is intuitive and plain. You can design a page even without advanced technical skills.
 
-![Page Builder - how it works](page_builder_how_it_works.png)
+![Page Builder](page_builder.png)
 
 #### Customizable Dashboard
 
-Starting from Experience edition of [[= product_name =]] you can [customize the Dashboard](https://doc.ibexa.co/projects/userguide/en/latest/getting_started/dashboard/work_with_dashboard/#customize-dashboard).
+Starting from Experience edition of [[= product_name =]] you can [customize the Dashboard]([[= user_doc =]]/getting_started/dashboard/work_with_dashboard/#customize-dashboard).
 You can create customized Dashboard using Dashboard Builder. Dashboard then can be tailored to your specific needs - it contains a set of widgets selected by the user. You can easily preview the sections that you use more often and omit the less significant ones.
+
+![Customizable dashboard](customizable_dashboard.png)
 
 #### Form Builder
 
@@ -60,22 +60,44 @@ With this tool, you can design, deploy, and manage online forms quickly.
 You can create a variety of forms consisting of different fields, including sign-up forms, survey, or questionnaire.
 Additionaly, you can monitor and manage the information obtained from website visitors and adjust your forms if needed.
 
+![Form Builder](form_builder.png)
+
 #### Publish Later
 
-You can take complete control of where and when your content blocks are visible to your predefined audiences and [schedule content publication](https://doc.ibexa.co/projects/userguide/en/latest/content_management/schedule_publishing/).
+You can take complete control of where and when your content blocks are visible to your predefined audiences and [schedule content publication]([[= user_doc =]]/content_management/schedule_publishing/).
 [[= product_name_exp =]] comes with a Publish Later feature that allows you to schedule personalized content and reach different user groups at optimal dates and times to boost performance.
 What's more, you can turn specific content pages and blocks on and off to meet the needs of your marketing campaigns and promotions.
 Publish Later feature combined with Page Builder allows you to show all changes that you plan to the page for the future - just use the slider to see all the upcoming changes.
 
 #### Customer Data Platform (CDP)
 
-With [Customer Data Platform (CDP)](cdp_guide.md) you can create complete customer profiles, including their interactions, behaviors, and preferences.
+With [Customer Data Platform](cdp_guide.md) you can create complete customer profiles, including their interactions, behaviors, and preferences.
 CDP helps you to improve engagement, conversion rates, and return on investment by segmenting your audience and delivering tailored campaigns and experiences.
 Additionally, you can manage and analyze campaigns, evaluate customer data, and identify the best ways to improve performance.
 With [[= product_name_cdp =]] you can store and manage large volumes of customer data in a structured manner. This central data storage supports business growth with a scalable infrastructure, helping to futureproof your business.
 
+![CDP](cdp.png)
+
 #### Site Factory
 
-[Site Factory ](multisite/site_factory/site_factory/) is a site management interface, integrated with the Back Office. It enables you to configure new sites without editing YAML-based SiteAccess configuration.
+[Site Factory ](site_factory.md) is a site management interface, integrated with the Back Office. It enables you to configure new sites without editing YAML-based SiteAccess configuration.
 With this feature you can create and deploy multiple websites at lightning speed and at scale.
 It helps you to manage expenses and resources while industrializing your web presence. Additionally, with localized information and tailored product catalogs and prices, you may quickly enter new markets. 
+
+### Use cases
+
+With [[= product_name_exp =]] your customers are the main focus of all that you do.
+It makes it simpler than ever to create the different touchpoints that your customers have with your brand, giving you the ability to guide them through your significant business procedures. 
+
+#### Build new pages and integrated forms
+
+User interface of [[= product_name_exp =]] is intuitive and plain. With its new features - Page and Form Builder - you can build new pages or forms quickly. Page Builder comes with predefined layouts, blocks, and templates. Thanks to the Site Factory, you can publish as many sites as you want - there's no limit. Form Builder also comes with ready-to-use elements. You can integrate your custom forms and survers into the website. What's more, you can reuse content from existing sites to new pages.
+
+#### Target customers in their preferred channels
+
+If you want to make your product attractive to the customers, you need to know, that each of them is unique and special. You should then remember to tailor your marketing stratehy to their needs and preferences. 
+With [[= product_name_exp =]] you can analyze customer behaviours and collect data with the SEO functionality. It allows you to deliver personalized content and recommendations through different channels. You can also use user segments to distribute specific content in the right channels, at the right time.
+
+#### Build your future
+
+Planning and scheduling is a part of management. With scheduling tools available in Experience edition, you can prepare content publishing timetables, schedule how your website can evolve, and test or previe it before publication. You can use editorial calendars for an easier collaboration.
