@@ -128,8 +128,8 @@ jobs:
                 if: steps.list.outputs.CODE_SAMPLES_CHANGE != ''
                 run: |
                     git fetch origin
-                    git checkout origin/${{ github.head_ref }} -- tools/code_samples/CODE_SAMPLES_CHANGE.php
-                    php tools/code_samples/CODE_SAMPLES_CHANGE.php ${{ steps.list.outputs.CODE_SAMPLES_CHANGE }} > $HOME/CODE_SAMPLES_CHANGE_target.txt
+                    git checkout origin/${{ github.head_ref }} -- tools/code_samples/code_samples_usage.php
+                    php tools/code_samples/code_samples_usage.php ${{ steps.list.outputs.CODE_SAMPLES_CHANGE }} > $HOME/code_samples_usage_target.txt
 
             -   name: Checkout source branch (head_ref)
                 if: steps.list.outputs.CODE_SAMPLES_CHANGE != ''
@@ -138,36 +138,36 @@ jobs:
                     ref: ${{ github.head_ref }}
             -   name: Log source branch code_samples usage
                 if: steps.list.outputs.CODE_SAMPLES_CHANGE != ''
-                run: php tools/code_samples/CODE_SAMPLES_CHANGE.php ${{ steps.list.outputs.CODE_SAMPLES_CHANGE }} > $HOME/CODE_SAMPLES_CHANGE_source.txt
+                run: php tools/code_samples/code_samples_usage.php ${{ steps.list.outputs.CODE_SAMPLES_CHANGE }} > $HOME/code_samples_usage_source.txt
 
             -   name: Compare code_samples usages (diff --unified)
                 if: steps.list.outputs.CODE_SAMPLES_CHANGE != ''
                 # diff returns 1 if there is a difference, this is normal but seen as an error by the job.
                 continue-on-error: true
                 run: |
-                    source_length=`wc -l < $HOME/CODE_SAMPLES_CHANGE_source.txt`
-                    target_length=`wc -l < $HOME/CODE_SAMPLES_CHANGE_target.txt`
-                    diff -U $(( source_length > target_length ? source_length : target_length )) $HOME/CODE_SAMPLES_CHANGE_target.txt $HOME/CODE_SAMPLES_CHANGE_source.txt > $HOME/CODE_SAMPLES_CHANGE.diff
+                    source_length=`wc -l < $HOME/code_samples_usage_source.txt`
+                    target_length=`wc -l < $HOME/code_samples_usage_target.txt`
+                    diff -U $(( source_length > target_length ? source_length : target_length )) $HOME/code_samples_usage_target.txt $HOME/code_samples_usage_source.txt > $HOME/code_samples_usage.diff
             -   name: Convert code_samples usages differences (diff2html)
                 if: steps.list.outputs.CODE_SAMPLES_CHANGE != ''
                 run: |
                     npm install -g diff2html-cli
-                    diff2html -f html -s side -t 'code_samples/ changes report' --su hidden --fct false -o stdout -i file -- $HOME/CODE_SAMPLES_CHANGE.diff > $HOME/CODE_SAMPLES_CHANGE.diff.html
+                    diff2html -f html -s side -t 'code_samples/ changes report' --su hidden --fct false -o stdout -i file -- $HOME/code_samples_usage.diff > $HOME/code_samples_usage.diff.html
             -   name: Upload code_samples usages differences artifact
                 id: artifact
                 if: steps.list.outputs.CODE_SAMPLES_CHANGE != ''
                 uses: actions/upload-artifact@v4
                 with:
-                    name: CODE_SAMPLES_CHANGE.diff.html
-                    path: ~/CODE_SAMPLES_CHANGE.diff.html
+                    name: code_samples_usage.diff.html
+                    path: ~/code_samples_usage.diff.html
                     overwrite: true
             -   name: Convert code_samples usages for comment
                 if: steps.list.outputs.CODE_SAMPLES_CHANGE != ''
                 run: |
-                    echo '# code_samples/ change report' >> CODE_SAMPLES_CHANGE.diff.md
-                    echo '' >> CODE_SAMPLES_CHANGE.diff.md
-                    php tools/code_samples/CODE_SAMPLES_CHANGE_diff2html.php $HOME/CODE_SAMPLES_CHANGE.diff >> CODE_SAMPLES_CHANGE.diff.md
-                    echo '<a href="${{ steps.artifact.outputs.artifact-url }}">Download colorized diff</a>' >> CODE_SAMPLES_CHANGE.diff.md
+                    echo '# code_samples/ change report' >> code_samples_usage.diff.md
+                    echo '' >> code_samples_usage.diff.md
+                    php tools/code_samples/code_samples_usage_diff2html.php $HOME/code_samples_usage.diff >> code_samples_usage.diff.md
+                    echo '<a href="${{ steps.artifact.outputs.artifact-url }}">Download colorized diff</a>' >> code_samples_usage.diff.md
             -   name: Find Comment
                 id: find-comment
                 uses: peter-evans/find-comment@v3
@@ -190,5 +190,5 @@ jobs:
                 uses: peter-evans/create-or-update-comment@v4
                 with:
                     issue-number: ${{ github.event.pull_request.number }}
-                    body-path: CODE_SAMPLES_CHANGE.diff.md
+                    body-path: code_samples_usage.diff.md
                     edit-mode: replace
