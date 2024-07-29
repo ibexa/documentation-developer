@@ -32,14 +32,8 @@ final class ProductCommand extends Command
 
     private ProductAvailabilityServiceInterface $productAvailabilityService;
 
-    public function __construct(
-        UserService $userService,
-        PermissionResolver $permissionResolver,
-        ProductTypeServiceInterface $productTypeService,
-        ProductServiceInterface $productService,
-        LocalProductServiceInterface $localProductService,
-        ProductAvailabilityServiceInterface $productAvailabilityService
-    ) {
+    public function __construct(UserService $userService, PermissionResolver $permissionResolver, ProductTypeServiceInterface $productTypeService, ProductServiceInterface $productService, LocalProductServiceInterface $localProductService, ProductAvailabilityServiceInterface $productAvailabilityService)
+    {
         $this->userService = $userService;
         $this->permissionResolver = $permissionResolver;
         $this->productService = $productService;
