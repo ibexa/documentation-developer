@@ -170,7 +170,6 @@ jobs:
                     echo '<a href="${{ steps.artifact.outputs.artifact-url }}">Download colorized diff</a>' >> CODE_SAMPLES_CHANGE.diff.md
             -   name: Find Comment
                 id: find-comment
-                if: steps.list.outputs.CODE_SAMPLES_CHANGE != ''
                 uses: peter-evans/find-comment@v3
                 with:
                     issue-number: ${{ github.event.pull_request.number }}
