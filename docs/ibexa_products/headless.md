@@ -109,7 +109,7 @@ On top of this strong core, [[= product_name_headless =]] brings tools to increa
 
 [[= product_name_headless =]] is a complete Digital Experience Platform (DXP), which comes with the following components to enhance user's journey:
 
-- [Personalization](personalization_brochure.md) engine, which allows you to recommend content to end users according to their behavior,
+- [Personalization](personalization_guide.md) engine, which allows you to recommend content to end users according to their behavior,
   or, when authenticated, by matching with their segment/group.
 - Content scheduler, which allows you to establish the future of the content and use events to have a living front application, even when the editorial team is absent or reduced.
 This way, visitors can discover new content at midnight, during weekends or vacations.

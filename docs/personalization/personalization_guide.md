@@ -1,3 +1,7 @@
+---
+description: Discover Personalization - a cloud-based service that tracks and analyzes customer behaviors.
+---
+
 # Personalization product guide
 
 ## What is Personalization
