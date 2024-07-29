@@ -114,60 +114,70 @@ jobs:
                 id: list
                 run: |
                     URL="https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/files"
-                    echo 'CODE_SAMPLE_USAGE<<CODE_SAMPLE_USAGE_DELIMITER' >> "$GITHUB_OUTPUT"
+                    echo 'CODE_SAMPLES_CHANGE<<CODE_SAMPLES_CHANGE_DELIMITER' >> "$GITHUB_OUTPUT"
                     curl -s -X GET -G $URL | jq -r '.[] | .filename' | grep '^code_samples/' | tr '\n' ' ' >> "$GITHUB_OUTPUT"
                     echo '' >> "$GITHUB_OUTPUT"
-                    echo 'CODE_SAMPLE_USAGE_DELIMITER' >> "$GITHUB_OUTPUT"
+                    echo 'CODE_SAMPLES_CHANGE_DELIMITER' >> "$GITHUB_OUTPUT"
 
             -   name: Checkout target branch (base_ref)
+                if: steps.list.outputs.CODE_SAMPLES_CHANGE != ''
                 uses: actions/checkout@v3
                 with:
                     ref: ${{ github.base_ref }}
             -   name: Log target branch code_samples usage
+                if: steps.list.outputs.CODE_SAMPLES_CHANGE != ''
                 run: |
                     git fetch origin
-                    git checkout origin/${{ github.head_ref }} -- tools/code_samples/code_samples_usage.php
-                    php tools/code_samples/code_samples_usage.php ${{ steps.list.outputs.CODE_SAMPLE_USAGE }} > $HOME/code_samples_usage_target.txt
+                    git checkout origin/${{ github.head_ref }} -- tools/code_samples/CODE_SAMPLES_CHANGE.php
+                    php tools/code_samples/CODE_SAMPLES_CHANGE.php ${{ steps.list.outputs.CODE_SAMPLES_CHANGE }} > $HOME/CODE_SAMPLES_CHANGE_target.txt
 
             -   name: Checkout source branch (head_ref)
+                if: steps.list.outputs.CODE_SAMPLES_CHANGE != ''
                 uses: actions/checkout@v3
                 with:
                     ref: ${{ github.head_ref }}
             -   name: Log source branch code_samples usage
-                run: php tools/code_samples/code_samples_usage.php ${{ steps.list.outputs.CODE_SAMPLE_USAGE }} > $HOME/code_samples_usage_source.txt
+                if: steps.list.outputs.CODE_SAMPLES_CHANGE != ''
+                run: php tools/code_samples/CODE_SAMPLES_CHANGE.php ${{ steps.list.outputs.CODE_SAMPLES_CHANGE }} > $HOME/CODE_SAMPLES_CHANGE_source.txt
 
             -   name: Compare code_samples usages (diff --unified)
+                if: steps.list.outputs.CODE_SAMPLES_CHANGE != ''
                 # diff returns 1 if there is a difference, this is normal but seen as an error by the job.
                 continue-on-error: true
                 run: |
-                    source_length=`wc -l < $HOME/code_samples_usage_source.txt`
-                    target_length=`wc -l < $HOME/code_samples_usage_target.txt`
-                    diff -U $(( source_length > target_length ? source_length : target_length )) $HOME/code_samples_usage_target.txt $HOME/code_samples_usage_source.txt > $HOME/code_samples_usage.diff
+                    source_length=`wc -l < $HOME/CODE_SAMPLES_CHANGE_source.txt`
+                    target_length=`wc -l < $HOME/CODE_SAMPLES_CHANGE_target.txt`
+                    diff -U $(( source_length > target_length ? source_length : target_length )) $HOME/CODE_SAMPLES_CHANGE_target.txt $HOME/CODE_SAMPLES_CHANGE_source.txt > $HOME/CODE_SAMPLES_CHANGE.diff
             -   name: Convert code_samples usages differences (diff2html)
+                if: steps.list.outputs.CODE_SAMPLES_CHANGE != ''
                 run: |
                     npm install -g diff2html-cli
-                    diff2html -f html -s side -t 'code_samples/ changes report' --su hidden --fct false -o stdout -i file -- $HOME/code_samples_usage.diff > $HOME/code_samples_usage.diff.html
+                    diff2html -f html -s side -t 'code_samples/ changes report' --su hidden --fct false -o stdout -i file -- $HOME/CODE_SAMPLES_CHANGE.diff > $HOME/CODE_SAMPLES_CHANGE.diff.html
             -   name: Upload code_samples usages differences artifact
                 id: artifact
+                if: steps.list.outputs.CODE_SAMPLES_CHANGE != ''
                 uses: actions/upload-artifact@v4
                 with:
-                    name: code_samples_usage.diff.html
-                    path: ~/code_samples_usage.diff.html
+                    name: CODE_SAMPLES_CHANGE.diff.html
+                    path: ~/CODE_SAMPLES_CHANGE.diff.html
                     overwrite: true
             -   name: Convert code_samples usages for comment
+                if: steps.list.outputs.CODE_SAMPLES_CHANGE != ''
                 run: |
-                    echo '# code_samples/ change report' >> code_samples_usage.diff.md
-                    echo '' >> code_samples_usage.diff.md
-                    php tools/code_samples/code_samples_usage_diff2html.php $HOME/code_samples_usage.diff >> code_samples_usage.diff.md
-                    echo '<a href="${{ steps.artifact.outputs.artifact-url }}">Download colorized diff</a>' >> code_samples_usage.diff.md
+                    echo '# code_samples/ change report' >> CODE_SAMPLES_CHANGE.diff.md
+                    echo '' >> CODE_SAMPLES_CHANGE.diff.md
+                    php tools/code_samples/CODE_SAMPLES_CHANGE_diff2html.php $HOME/CODE_SAMPLES_CHANGE.diff >> CODE_SAMPLES_CHANGE.diff.md
+                    echo '<a href="${{ steps.artifact.outputs.artifact-url }}">Download colorized diff</a>' >> CODE_SAMPLES_CHANGE.diff.md
             -   name: Find Comment
-                uses: peter-evans/find-comment@v3
                 id: find-comment
+                if: steps.list.outputs.CODE_SAMPLES_CHANGE != ''
+                uses: peter-evans/find-comment@v3
                 with:
                     issue-number: ${{ github.event.pull_request.number }}
                     comment-author: 'github-actions[bot]'
                     body-includes: 'code_samples/ change report'
-            -   if: steps.find-comment.outputs.comment-id != ''
+            -   name: Delete comment
+                if: steps.find-comment.outputs.comment-id != ''
                 uses: actions/github-script@v6
                 with:
                     script: |
@@ -176,9 +186,10 @@ jobs:
                           repo: context.repo.repo,
                           comment_id: ${{ steps.find-comment.outputs.comment-id }}
                         })
-            -   name: Create or update comment
+            -   name: Create comment
+                if: steps.list.outputs.CODE_SAMPLES_CHANGE != ''
                 uses: peter-evans/create-or-update-comment@v4
                 with:
                     issue-number: ${{ github.event.pull_request.number }}
-                    body-path: code_samples_usage.diff.md
+                    body-path: CODE_SAMPLES_CHANGE.diff.md
                     edit-mode: replace
