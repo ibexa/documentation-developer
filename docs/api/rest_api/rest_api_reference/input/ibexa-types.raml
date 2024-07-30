@@ -1082,16 +1082,26 @@ LocationCreateStruct:
             required: true
             type: integer
 
+LocationListJSON:
+    properties:
+        LocationList:
+            type: LocationList
+
 LocationList:
-    description: 'This class represents a queried Location list holding a totalCount and a partial list of Locations (by offset/limit parameters and permission filters).'
+    description: 'This class represents a list of location references.'
+    type: BaseObject
+    properties:
+        Location:
+            description: 'The list of location references.'
+            type: LocationRef[]
+
+LocationRef:
     type: object
     properties:
-        totalCount:
-            description: 'The total count of found Locations (filtered by permissions).'
-            type: integer
-        Locations:
-            description: 'The partial list of Locations controlled by offset/limit.'
-            type: Location[]
+        _media-type:
+            type: string
+        _href:
+            type: string
 
 LocationQuery:
     description: 'This class is used to perform a Location query.'
