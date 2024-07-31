@@ -102,7 +102,7 @@ TODO: But variant aren't content items…
 
 [Product Twig functions](product_twig_functions.md)
 
-`ibexa_get_product` returns a [`ProductInterface`](../../../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-ProductInterface.html)
+`ibexa_get_product` returns a [`ProductInterface`](../../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-ProductInterface.html)
 
 ### Commerce's `storefront` theme
 
