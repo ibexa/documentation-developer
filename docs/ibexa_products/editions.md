@@ -9,6 +9,6 @@ Three [[= product_name =]] product edtions are available to help you accelerate 
 
 [[= cards([
 "ibexa_products/headless",
-"https://www.ibexa.co/products/ibexa-experience",
+"ibexa_products/experience",
 "https://www.ibexa.co/products/ibexa-commerce",
 ], columns=4) =]]
