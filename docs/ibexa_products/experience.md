@@ -8,8 +8,8 @@ month_change: true
 
 ## What is [[= product_name_exp =]]
 
-[[= product_name_exp =]] focuses on the customer.
-It offers smooth consumer journeys and great online experience. In everything you do, it places your clients first.
+[[= product_name_exp =]] is an [[= product_name =]] edition that focuses on the customer.
+It offers smooth consumer journey and great online experience. In everything you do, it places your clients first.
 
 ## Availability
 
@@ -31,8 +31,8 @@ Version control systems and environment variables allow you to deploy your exten
 
 ## Capabilities and benefits
 
-With [[= product_name_exp =]] you focus can on the customers and treat each of them as a VIP.
-It has everything you need to offer a transformative digital experience, from developing new websites, portals, eye-catching landing pages, and personalized product suggestions to managing SEO strategies across several locations.
+With [[= product_name_exp =]] you can focus on the customers and treat each of them as a VIP.
+It has everything you need to offer a transformative digital experience, from developing new websites, portals, eye-catching landing pages, and personalized product suggestions, to managing SEO strategies across several locations.
 
 ### Core features
 
@@ -40,7 +40,7 @@ It has everything you need to offer a transformative digital experience, from de
 
 #### Page Builder
 
-[[= product_name_exp =]] brings new visual tool - [Page Builder](page_builder_guide.md). Using Page Builder in [[= product_name =]], you can design and modify pages. It involves more than just maintaining, it also includes developing pages, tailored content, and landing pages that are perfectly targeted. Content is composed using ready-to-use elements - blocks, properly configured and customized.
+[[= product_name_exp =]] brings new visual tool - [Page Builder](page_builder_guide.md). With Page Builder you can design and modify pages. It involves more than just maintaining, it also includes developing pages, tailored content, and landing pages that are perfectly targeted. Content is composed using ready-to-use elements - blocks, properly configured and customized.
 You also need to select a layout. The layout that is selected has a significant impact on how the content pieces in the drop zones are arranged.
 The interface of Page Builder is intuitive and plain. You can design a page even without advanced technical skills.
 
@@ -55,7 +55,7 @@ You can create customized Dashboard using Dashboard Builder. Dashboard then can 
 
 #### Form Builder
 
-[Form Builder](form_builder_guide.md) is an intuitive [[= product_name =]] tool that allows you to transform user engagement on your website.
+[Form Builder](form_builder_guide.md) is an intuitive tool that allows you to transform user engagement on your website.
 With this tool, you can design, deploy, and manage online forms quickly.
 You can create a variety of forms consisting of different fields, including sign-up forms, survey, or questionnaire.
 Additionaly, you can monitor and manage the information obtained from website visitors and adjust your forms if needed.
@@ -95,9 +95,9 @@ User interface of [[= product_name_exp =]] is intuitive and plain. With its new 
 
 #### Target customers in their preferred channels
 
-If you want to make your product attractive to the customers, you need to know, that each of them is unique and special. You should then remember to tailor your marketing stratehy to their needs and preferences. 
+If you want to make your product attractive to the customers, you need to know, that each of them is unique and special. You should then remember to tailor your marketing strategy to their needs and preferences. 
 With [[= product_name_exp =]] you can analyze customer behaviours and collect data with the SEO functionality. It allows you to deliver personalized content and recommendations through different channels. You can also use user segments to distribute specific content in the right channels, at the right time.
 
 #### Build your future
 
-Planning and scheduling is a part of management. With scheduling tools available in Experience edition, you can prepare content publishing timetables, schedule how your website can evolve, and test or previe it before publication. You can use editorial calendars for an easier collaboration.
+Planning and scheduling is a part of management. With scheduling tools available in Experience edition, you can prepare content publishing timetables, schedule how your website can evolve, and test or preview it before publication. You can use editorial calendars for an easier collaboration.
