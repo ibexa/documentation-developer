@@ -36,12 +36,6 @@ In this training, you learn how to create complex products, to quote their price
 TODO: Make sure that everything used is in Ibexa DXP Headless scope, so to speak, ibexa/product-catalog
 TODO: Trainees working on Ibexa DXP Commerce could pick examples from ibexa/storefront but others mustn't be frustrated of having installed an inferior edition.
 
-!!! note
-
-    You can use [`experience-skeleton`'s DDEV feature](ddev_interactive_launcher.md#experience)
-
-    For more suggestions about your training environment, see [Training environment](trainings.md#training-environment).
-
 ### Cluster elements
 
 This training needs a reverse proxy for HTTP cache. For a local installation, Varnish is recommended.
