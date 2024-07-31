@@ -2,7 +2,6 @@
 description: PIM training
 ---
 
-[[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 # PIM (Product Information Management)
 
 ## Syllabus
@@ -34,11 +33,12 @@ In this training, you learn how to create complex products, to quote their price
 - [[= product_name_com =]] [[= latest_tag_4_6 =]]
 
 TODO: Make sure that everything used is in Ibexa DXP Headless scope, so to speak, ibexa/product-catalog
+
 TODO: Trainees working on Ibexa DXP Commerce could pick examples from ibexa/storefront but others mustn't be frustrated of having installed an inferior edition.
 
 ### Cluster elements
 
-This training needs a reverse proxy for HTTP cache. For a local installation, Varnish is recommended.
+This training can be run on the minimal stack.
 
 |       Service | Required | Value        |
 |--------------:|:--------:|:-------------|
