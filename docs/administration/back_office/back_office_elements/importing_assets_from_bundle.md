@@ -12,7 +12,7 @@ To import assets from a bundle, configure them in an `ibexa.config.js` file that
 
 ``` js
 const path = require('path');
-git 
+ 
 module.exports = (Encore) => {
 	Encore.addEntry('<entry-name>', [
 		path.resolve(__dirname, '<path_to_file>'),
