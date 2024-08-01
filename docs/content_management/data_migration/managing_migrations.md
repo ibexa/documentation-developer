@@ -66,7 +66,7 @@ ibexa_migrations:
 
     ``` yaml
     ibexa_migrations:
-        migration_directory: %kernel.project_dir%/data/<repository>
+        migration_directory: '%kernel.project_dir%/data/<repository>'
         ...
     ```
 
