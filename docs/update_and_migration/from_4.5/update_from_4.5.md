@@ -512,3 +512,7 @@ composer config extra.runtime.error_handler
 "\\Ibexa\\Contracts\\Core\\MVC\\Symfony\\ErrorHandler\\Php82HideDeprecationsErrorHandler"
 composer dump-autoload
 ```
+
+## v4.6.9
+
+No additional steps needed.
