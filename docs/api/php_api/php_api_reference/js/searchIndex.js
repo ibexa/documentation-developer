@@ -1631,6 +1631,86 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-AdminUi-UniversalDiscovery-Provider.html#constant_SORT_CLAUSE_CONTENT_NAME"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation\\Client\\ClientInterface",
+            "name": "ClientInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AutomatedTranslation-Client-ClientInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation\\Client\\ClientInterface\u003A\u003AsetConfiguration\u0028\u0029",
+            "name": "setConfiguration",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AutomatedTranslation-Client-ClientInterface.html#method_setConfiguration"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation\\Client\\ClientInterface\u003A\u003Atranslate\u0028\u0029",
+            "name": "translate",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AutomatedTranslation-Client-ClientInterface.html#method_translate"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation\\Client\\ClientInterface\u003A\u003AsupportsLanguage\u0028\u0029",
+            "name": "supportsLanguage",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AutomatedTranslation-Client-ClientInterface.html#method_supportsLanguage"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation\\Client\\ClientInterface\u003A\u003AgetServiceAlias\u0028\u0029",
+            "name": "getServiceAlias",
+            "summary": "Use\u0020as\u0020key.",
+            "url": "classes/Ibexa-Contracts-AutomatedTranslation-Client-ClientInterface.html#method_getServiceAlias"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation\\Client\\ClientInterface\u003A\u003AgetServiceFullName\u0028\u0029",
+            "name": "getServiceFullName",
+            "summary": "Use\u0020for\u0020Human.",
+            "url": "classes/Ibexa-Contracts-AutomatedTranslation-Client-ClientInterface.html#method_getServiceFullName"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation\\Encoder\\BlockAttribute\\BlockAttributeEncoderInterface",
+            "name": "BlockAttributeEncoderInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AutomatedTranslation-Encoder-BlockAttribute-BlockAttributeEncoderInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation\\Encoder\\BlockAttribute\\BlockAttributeEncoderInterface\u003A\u003AcanEncode\u0028\u0029",
+            "name": "canEncode",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AutomatedTranslation-Encoder-BlockAttribute-BlockAttributeEncoderInterface.html#method_canEncode"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation\\Encoder\\BlockAttribute\\BlockAttributeEncoderInterface\u003A\u003AcanDecode\u0028\u0029",
+            "name": "canDecode",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AutomatedTranslation-Encoder-BlockAttribute-BlockAttributeEncoderInterface.html#method_canDecode"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation\\Encoder\\BlockAttribute\\BlockAttributeEncoderInterface\u003A\u003Aencode\u0028\u0029",
+            "name": "encode",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AutomatedTranslation-Encoder-BlockAttribute-BlockAttributeEncoderInterface.html#method_encode"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation\\Encoder\\BlockAttribute\\BlockAttributeEncoderInterface\u003A\u003Adecode\u0028\u0029",
+            "name": "decode",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AutomatedTranslation-Encoder-BlockAttribute-BlockAttributeEncoderInterface.html#method_decode"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation\\Encoder\\Field\\FieldEncoderInterface",
+            "name": "FieldEncoderInterface",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AutomatedTranslation-Encoder-Field-FieldEncoderInterface.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation\\Encoder\\Field\\FieldEncoderInterface\u003A\u003AcanEncode\u0028\u0029",
+            "name": "canEncode",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AutomatedTranslation-Encoder-Field-FieldEncoderInterface.html#method_canEncode"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation\\Encoder\\Field\\FieldEncoderInterface\u003A\u003AcanDecode\u0028\u0029",
+            "name": "canDecode",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AutomatedTranslation-Encoder-Field-FieldEncoderInterface.html#method_canDecode"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation\\Encoder\\Field\\FieldEncoderInterface\u003A\u003Aencode\u0028\u0029",
+            "name": "encode",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AutomatedTranslation-Encoder-Field-FieldEncoderInterface.html#method_encode"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation\\Encoder\\Field\\FieldEncoderInterface\u003A\u003Adecode\u0028\u0029",
+            "name": "decode",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-AutomatedTranslation-Encoder-Field-FieldEncoderInterface.html#method_decode"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar\\CalendarServiceInterface",
             "name": "CalendarServiceInterface",
             "summary": "",
@@ -49100,6 +49180,31 @@ Search.appendIndex(
             "name": "UniversalDiscovery",
             "summary": "",
             "url": "namespaces/ibexa-contracts-adminui-universaldiscovery.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation\\Client",
+            "name": "Client",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-automatedtranslation-client.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation",
+            "name": "AutomatedTranslation",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-automatedtranslation.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation\\Encoder\\BlockAttribute",
+            "name": "BlockAttribute",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-automatedtranslation-encoder-blockattribute.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation\\Encoder",
+            "name": "Encoder",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-automatedtranslation-encoder.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\AutomatedTranslation\\Encoder\\Field",
+            "name": "Field",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-automatedtranslation-encoder-field.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Calendar",
             "name": "Calendar",

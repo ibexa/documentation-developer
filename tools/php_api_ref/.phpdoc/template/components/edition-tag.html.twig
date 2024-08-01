@@ -1,22 +1,29 @@
 {% extends "package-edition-map.twig" %}
 
 {% block content %}
-    {% set edition_list = [
+    {# List of displayable editions sorted in inclusion order, each edition includes the previous ones #}
+    {% set edition_pill_list = [
         'experience',
         'commerce',
     ] %}
 
     {% set package = node.file.path|split('/')|slice(1, 2)|join('/') %}
 
-    {% if package_edition_map[package] is defined and package_edition_map[package] in edition_list %}
-        {% set is_supporting = false %}
-        {% for edition in edition_list %}
-            {% if edition == package_edition_map[package] %}
-                {% set is_supporting = true %}
-            {% endif %}
-            {% if is_supporting %}
-                <div class="pill {{ edition }}-pill"></div>
-            {% endif %}
-        {% endfor %}
+    {% if package_edition_map[package] is defined %}
+        {% if package_edition_map[package] in edition_pill_list %}
+            {% set is_supporting = false %}
+            {# display edition pills since minimal edition supporting the package #}
+            {% for edition in edition_pill_list %}
+                {% if edition == package_edition_map[package] %}
+                    {% set is_supporting = true %}
+                {% endif %}
+                {% if is_supporting %}
+                    <div class="pill {{ edition }}-pill"></div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% else %}
+        {# if package is not in an edition #}
+        <div class="pill optional-pill" title="Included in the optional package {{ package }}"></div>
     {% endif %}
 {% endblock %}
