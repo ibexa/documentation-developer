@@ -432,6 +432,8 @@ php bin/console ibexa:elasticsearch:put-index-template --overwrite
 php bin/console ibexa:reindex
 ```
 
+<!-- vale Ibexa.VariablesVersion = NO -->
+
 ## v4.6.2
 
 #### Database update
