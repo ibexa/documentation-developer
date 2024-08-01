@@ -1,7 +1,6 @@
 ---
 description: Create campaign with Ibexa Engage.
 edition: experience
-month_change: true
 ---
 
 # Create campaign
