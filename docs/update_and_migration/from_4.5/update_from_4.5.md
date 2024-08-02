@@ -374,7 +374,7 @@ ibexa:
 
 ### Revisit optional configuration
 
-#### Activity log
+#### Activity log [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 By default, activity log keeps entries for 30 days.
 You can change this value by setting `ibexa.repositories.<name>.activity_log.truncate_after_days` parameter:
