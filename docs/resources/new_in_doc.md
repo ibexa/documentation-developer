@@ -6,6 +6,36 @@ description: Overview of major recent additions to Ibexa DXP documentation.
 
 This page contains recent highlights and notable changes in [[= product_name =]] documentation.
 
+## July 2024
+
+### Getting started
+
+- Added instructions in [Install Ibexa DXP](https://doc.ibexa.co/en/master/getting_started/install_ibexa_dxp/#create-project) about using PHP 8.3 to create a project
+- Updated the [requirements for running v3.3.x on PHP 8.3](https://doc.ibexa.co/en/master/getting_started/requirements/#php)
+
+### Infrastructure and maintenance
+
+- [Added v4.6.4 to v4.6.8 update instructions](https://doc.ibexa.co/en/master/update_and_migration/from_4.5/update_from_4.5/#v468)
+- [Modified v3.3.x to v3.3.latest update instructions](https://doc.ibexa.co/en/master/update_and_migration/from_3.3/update_from_3.3/#update-the-application)
+- Updated the recommendations in [Performance](https://doc.ibexa.co/en/master/infrastructure_and_maintenance/performance/#symfony) by mentioning Symfony
+
+### Data migration
+
+- Added a note about multi-repository scenario in [Managing migration](https://doc.ibexa.co/en/master/content_management/data_migration/managing_migrations/#migration-folders)
+- Updated the instructions for [Importing data](https://doc.ibexa.co/en/master/content_management/data_migration/importing_data/#built-in-functions) by mentioning the `env` function and a possibility of swapping content items assigned to a location
+
+### Ibexa Cloud
+
+- Placed all articles about Ibexa Cloud [in a common location](https://doc.ibexa.co/en/master/ibexa_cloud/ibexa_cloud/)
+
+### Ibexa Engage
+
+- [Added a landing page in the Ibexa Engage area](https://doc.ibexa.co/en/master/ibexa_engage/ibexa_engage/)
+
+### Product guides
+
+- [Ibexa Cloud product guide](https://doc.ibexa.co/en/master/ibexa_cloud/ibexa_cloud_guide/)
+
 ## June 2024
 
 ### Ibexa Engage
