@@ -1,5 +1,6 @@
 ---
 description: Manage data migrations by adding files, converting from Kaliop migration bundle, checking migration status, and setting up configuration.
+month_change: true
 ---
 
 # Managing migrations
