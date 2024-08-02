@@ -432,6 +432,8 @@ php bin/console ibexa:elasticsearch:put-index-template --overwrite
 php bin/console ibexa:reindex
 ```
 
+<!-- vale Ibexa.VariablesVersion = NO -->
+
 ## v4.6.2
 
 #### Database update
@@ -512,3 +514,7 @@ composer config extra.runtime.error_handler
 "\\Ibexa\\Contracts\\Core\\MVC\\Symfony\\ErrorHandler\\Php82HideDeprecationsErrorHandler"
 composer dump-autoload
 ```
+
+## v4.6.9
+
+No additional steps needed.
