@@ -59,7 +59,7 @@ class ActivityLogContextTestCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $id = $input->getArgument('id');
-        $this->permissionResolver->setCurrentUserReference($this->userService->loadUserByLogin('admin'));
+        $this->permissionResolver->setCurentUserReference($this->userService->loadUserByLogin('admin'));
 
         $this->activityLogService->prepareContext('my_feature', 'Operation description');
 
