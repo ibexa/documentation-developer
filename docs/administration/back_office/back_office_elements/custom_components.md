@@ -26,6 +26,8 @@ App\Component\MyNewComponent:
 - [`content-edit-form-after`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/views/themes/admin/user/edit.html.twig#L47)
 - [`content-create-form-before`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/views/themes/admin/user/create.html.twig#L37)
 - [`content-create-form-after`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/views/themes/admin/user/create.html.twig#L45)
+- [`content-form-create-header-actions`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/views/themes/admin/content/create/create.html.twig#L29)
+- [`content-form-edit-header-actions`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/views/themes/admin/content/edit/edit.html.twig#L32)
 - [`dashboard-blocks`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/views/themes/admin/ui/dashboard/dashboard.html.twig#L30)
 - [`dashboard-all-tab-groups`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/views/themes/admin/ui/dashboard/block/all.html.twig#L6)
 - [`dashboard-my-tab-groups`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/views/themes/admin/ui/dashboard/block/me.html.twig#L6)
@@ -34,6 +36,8 @@ App\Component\MyNewComponent:
 - [`login-form-before`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/views/themes/admin/account/login/index.html.twig#L7)
 - [`login-form-after`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/views/themes/admin/account/login/index.html.twig#L70)
 - [`global-search`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/views/themes/admin/ui/layout.html.twig#L129)
+- `product-form-create-header-actions`
+- `product-form-edit-header-actions`
 
 ## Base component classes
 
