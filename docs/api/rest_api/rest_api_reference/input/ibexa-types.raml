@@ -4266,12 +4266,12 @@ Shipment:
                     description: 'Next steps available in the shipment workflow for the current status'
                     type: string[]
         Order:
-            type: Order
+            type: Ref
         Amount:
             type: object
             properties:
                 value:
-                    type: integer
+                    type: string
                 currency:
                     type: string
         createdAt:
@@ -4279,9 +4279,9 @@ Shipment:
         updatedAt:
             type: datetime
         Owner:
-            type: User
+            type: Ref
         Method:
-            type: ShippingMethod
+            type: Ref
 
 ShipmentRefListWrapper:
     type: object
@@ -4313,18 +4313,26 @@ ShipmentCreate:
         Context:
             type: object
 
-# ShipmentUpdate:
-#     description: 'This class represents the update of a shipment.'
-#     type: object
-#     properties:
-#         identifier:
-#             type: string
-#         transition:
-#             type: string
-#         Owner:
-#             type: User
-#         Context:
-#             type: object
+ShipmentUpdateWrapper:
+    properties:
+        ShipmentUpdate: ShipmentUpdate
+
+ShipmentUpdate:
+    description: 'This class represents the update of a shipment.'
+    type: object
+    properties:
+        identifier:
+            type: string
+        transition:
+            type: string
+        Owner:
+            type: Ref
+        Context:
+            type: object
+
+ShippingMethodWrapper:
+    properties:
+        ShippingMethod: ShippingMethod
 
 ShippingMethod:
     description: 'This class represents a shipping method.'
@@ -4351,12 +4359,15 @@ ShippingMethod:
         options:
             type: object
             properties:
-                value:
+                option:
                     type: KeyValue[]
         regions:
-            type: Region[]
+            type: object
+            properties:
+                RegionRefList:
+                    type: Ref[]
         type:
-            type: ShippingMethodType[]
+            type: Ref
 
 MultilingualValue:
     description: 'Object that represents a multilingual (translated) value.'
@@ -4378,12 +4389,20 @@ KeyValue:
         '#text':
             type: string
 
-# ShippingMethodRefList:
-#     description: 'This class represents a list of shipping methods'
-#     type: object
-#     properties:
-#         ShippingMethodRefs:
-#             type: ShippingMethod[]
+ShippingMethodRefListWrapper:
+    properties:
+        ShippingMethodRefList: ShippingMethodRefList
+
+ShippingMethodRefList:
+    description: 'This class represents a list of shipping methods'
+    type: object
+    properties:
+        ShippingMethodRefs:
+            type: Ref[]
+
+ShippingMethodTypeWrapper:
+    properties:
+        ShippingMethodType: ShippingMethodType
 
 ShippingMethodType:
     description: 'This class represents a shipping method type.'
@@ -4394,12 +4413,16 @@ ShippingMethodType:
         name:
             type: string
 
-# ShippingMethodTypesList:
-#     description: 'This class represents a list of shipping method types.'
-#     type: object
-#     properties:
-#         ShippingMethodTypes:
-#             type: ShippingMethodType[]
+ShippingMethodTypesListWrapper:
+    properties:
+        ShippingMethodTypesList: ShippingMethodTypesList
+
+ShippingMethodTypesList:
+    description: 'This class represents a list of shipping method types.'
+    type: object
+    properties:
+        ShippingMethodTypes:
+            type: ShippingMethodType[]
 
 # SalesRepresentativesList:
 #     description: 'This class represents a list of sales representatives.'
