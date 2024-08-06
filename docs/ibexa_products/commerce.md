@@ -41,9 +41,20 @@ Version control systems and environment variables allow you to deploy your exten
 
 #### Order management
 
+With the advanced Order Management tool, you can easily manage your customized purchase process.
+Give your consumers easy access to order reviews, order progress updates, and order cancellation for a smooth purchasing process.
+You can assign and maintain rights so that only authorized users and make modifications. When searching for orders, save time and effort by quickly filtering the results.
+
 #### Merchandizing
 
+Merchandizing assists in keeping the consistency of the brand and providing customized product recommendations with captivating visuals and powerful search features. 
+With this feature you can engage your customers with eye-catching graphics and information. The search engine makes it easy to find what you're looking for by providing quick and easy access to the product catalogs. You can also use recommendations and campaigns to increase average order values and income.
+
 #### Ecommerce
+
+With the Ecommerce feature you can transform your online stores and give your consumers great buying experiences, from initial contact to post-purchase support.
+No matter how complicated your product or sales process are, you can present your offer in an approachable way.
+Creating engaging and personalized shopping experiences with targeted offers and recommendations, helps you to boost sales.
 
 ### Use cases
 
