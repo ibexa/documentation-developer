@@ -15,13 +15,13 @@ displayName: Orders
                     application/vnd.ibexa.api.OrderCreate+json
         body:
             application/vnd.ibexa.api.OrderCreate+json:
-                type: OrderCreate
+                type: OrderCreateWrapper
                 example: !include examples/orders/POST/OrderCreate.json.example
         responses:
             200:
                 body:
                     application/vnd.ibexa.api.Order+json:
-                        type: Order
+                        type: OrderWrapper
                         example: !include examples/orders/POST/Order.json.example
             400:
                 description: Error - the input does not match the input schema definition.
@@ -45,7 +45,7 @@ displayName: Orders
                     application/vnd.ibexa.api.OrderList+xml:
                         type: OrderList
                     application/vnd.ibexa.api.OrderList+json:
-                        type: OrderList
+                        type: OrderListWrapper
                         example: !include examples/orders/GET/OrderList.json.example
             401:
                 description: Error - the user has no permission to read orders.
@@ -67,7 +67,7 @@ displayName: Orders
                         application/vnd.ibexa.api.Order+xml:
                             type: Order
                         application/vnd.ibexa.api.Order+json:
-                            type: Order
+                            type: OrderWrapper
                             example: !include examples/orders/GET/Order.json.example
                 401:
                     description: Error - the user has no permission to read orders.
@@ -90,9 +90,9 @@ displayName: Orders
                         body:
                             application/vnd.ibexa.api.ShipmentRefList+xml:
                                 type: ShipmentRefList
-                                example: !include examples/shipments/GET/ShipmentRefList.xml.example
+                                # example: !include examples/shipments/GET/ShipmentRefList.xml.example
                             application/vnd.ibexa.api.ShipmentRefList+json:
-                                type: ShipmentRefList
+                                type: ShipmentRefListWrapper
                                 example: !include examples/shipments/GET/ShipmentRefList.json.example
                     401:
                         description: Error - the user has no permission to read order's shipment lists.
@@ -115,9 +115,9 @@ displayName: Orders
                 body:
                     application/vnd.ibexa.api.ShipmentCreate+xml:
                         type: ShipmentCreate
-                        example: !include examples/orders/POST/ShipmentCreate.xml.example
+                        # example: !include examples/orders/POST/ShipmentCreate.xml.example
                     application/vnd.ibexa.api.ShipmentCreate+json:
-                        type: ShipmentCreate
+                        type: ShipmentCreateWrapper
                         example: !include examples/orders/POST/ShipmentCreate.json.example
                 responses:
                     200:
@@ -126,7 +126,7 @@ displayName: Orders
                             application/vnd.ibexa.api.Shipment+xml:
                                 type: Shipment
                             application/vnd.ibexa.api.Shipment+json:
-                                type: Shipment
+                                type: ShipmentWrapper
 
     /{id}:
         get:
@@ -145,7 +145,7 @@ displayName: Orders
                         application/vnd.ibexa.api.Order+xml:
                             type: Order
                         application/vnd.ibexa.api.Order+json:
-                            type: Order
+                            type: OrderWrapper
                             example: !include examples/orders/GET/Order.json.example
                 401:
                     description: Error - the user has no permission to read orders.
@@ -156,7 +156,7 @@ displayName: Orders
             description: Updates an order.
             body:
                 application/vnd.ibexa.api.OrderUpdate+json:
-                    type: OrderUpdate
+                    type: OrderUpdateWrapper
                     example: !include examples/orders/PATCH/OrderUpdate.json.example
             headers:
                 Accept:
@@ -171,7 +171,7 @@ displayName: Orders
                 200:
                     body:
                         application/vnd.ibexa.api.Order+json:
-                            type: OrderUpdate
+                            type: OrderWrapper
                             example: !include examples/orders/GET/Order.json.example
                 400:
                     description: Error - the input does not match the input schema definition.
