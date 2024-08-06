@@ -14,10 +14,10 @@ get:
             description: OK - loads the shipments.
             body:
                 application/vnd.ibexa.api.ShipmentRefList+xml:
-                    type: Shipment
-                    example: !include examples/shipments/GET/ShipmentRefList.xml.example
+                    type: ShipmentRefList
+                    # example: !include examples/shipments/GET/ShipmentRefList.xml.example
                 application/vnd.ibexa.api.ShipmentRefList+json:
-                    type: Shipment
+                    type: ShipmentRefListWrapper
                     example: !include examples/shipments/GET/ShipmentRefList.json.example
         401:
             description: Error - the user has no permission to read shipment lists.
@@ -40,9 +40,9 @@ get:
                 body:
                     application/vnd.ibexa.api.Shipment+xml:
                         type: Shipment
-                        example: !include examples/shipments/identifier/GET/Shipment.xml.example
+                        # example: !include examples/shipments/identifier/GET/Shipment.xml.example
                     application/vnd.ibexa.api.Shipment+json:
-                        type: Shipment
+                        type: ShipmentWrapper
                         example: !include examples/shipments/identifier/GET/Shipment.json.example
             401:
                 description: Error - the user has no permission to read shipments.
@@ -66,18 +66,18 @@ get:
         body:
             application/vnd.ibexa.api.ShipmentUpdate+xml:
                 type: ShipmentUpdate
-                example: !include examples/shipments/identifier/PATCH/ShipmentUpdate.xml.example
+                # example: !include examples/shipments/identifier/PATCH/ShipmentUpdate.xml.example
             application/vnd.ibexa.api.ShipmentUpdate+json:
-                type: ShipmentUpdate
+                type: ShipmentUpdateWrapper
                 example: !include examples/shipments/identifier/PATCH/ShipmentUpdate.json.example
         responses:
             200:
                 body:
                     application/vnd.ibexa.api.Shipment+xml:
                         type: Shipment
-                        example: !include examples/shipments/identifier/PATCH/Shipment.xml.example
+                        # example: !include examples/shipments/identifier/PATCH/Shipment.xml.example
                     application/vnd.ibexa.api.Shipment+json:
-                        type: Shipment
+                        type: ShipmentWrapper
                         example: !include examples/shipments/identifier/PATCH/Shipment.json.example
             400:
                 description: Error - the input does not match the input schema definition.
