@@ -22,9 +22,9 @@ get:
             body:
                 application/vnd.ibexa.api.BookmarkList+xml:
                     type: BookmarkList
-                    example: !include examples/bookmark/GET/BookmarkList.xml.example
+                    # example: !include examples/bookmark/GET/BookmarkList.xml.example
                 application/vnd.ibexa.api.BookmarkList+json:
-                    type: BookmarkList
+                    type: BookmarkListWrapper
                     example: !include examples/bookmark/GET/BookmarkList.json.example
         401:
             description: Error - the user is not authorized to list bookmarks.
