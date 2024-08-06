@@ -1,6 +1,13 @@
 UnixTimestamp:
     type: integer
 
+TimezoneDate:
+    type: object
+    properties:
+        date: string
+        timezone_type: integer
+        timezone: string
+
 # Asset:
 #     type: object
 #     description: 'Asset value object'
@@ -2943,12 +2950,12 @@ Currency:
 #         Result:
 #             type: object
 
-# Region:
-#     description: 'This class represents a region.'
-#     type: object
-#     properties:
-#         identifier:
-#             type: string
+Region:
+    description: 'This class represents a region.'
+    type: object
+    properties:
+        identifier:
+            type: string
 
 # RegionList:
 #     description: 'This class represents a region list.'
@@ -3835,153 +3842,183 @@ AttributesList:
         Attributes:
             type: Attribute[]
 
-# OrderList:
-#     description: 'This class represents an orders list.'
-#     type: object
-#     properties:
-#         Orders:
-#             type: Order[]
+OrderListWrapper:
+    type: object
+    properties:
+        OrderList: OrderList
 
-# Order:
-#     description: 'This class represents order.'
-#     type: object
-#     properties:
-#         id:
-#             type: integer
-#         identifier:
-#             type: integer
-#         created:
-#             type: datetime
-#         modified:
-#             type: datetime
-#         status:
-#             type: string
-#         source:
-#             type: string
-#         OrderUser:
-#             type: OrderUser
-#         OrderCurrency:
-#             type: OrderCurrency
-#         OrderValue:
-#             type: OrderValue
-#         OrderCompany:
-#             type: OrderCompany
-#         OrderItemsList:
-#             type: OrderItem[]
-#         context:
-#             type: object
+OrderList:
+    description: 'This class represents an orders list.'
+    type: object
+    properties:
+        Order:
+            type: Order[]
 
-# OrderUser:
-#     description: 'This class represents order user.'
-#     type: object
-#     properties:
-#         id:
-#             type: integer
-#         name:
-#             type: string
-#         email:
-#             type: string
+OrderWrapper:
+    type: object
+    properties:
+        Order: Order
 
-# OrderCurrency:
-#     description: 'This class represents order currency.'
-#     type: object
-#     properties:
-#         id:
-#             type: integer
-#         code:
-#             type: string
+Order:
+    description: 'This class represents order.'
+    type: object
+    properties:
+        id:
+            type: integer
+        identifier:
+            type: string
+        created:
+            type: TimezoneDate
+        modified:
+            type: TimezoneDate
+        status:
+            type: string
+        source:
+            type: string
+            required: false
+        OrderUser:
+            type: OrderUser
+        OrderCurrency:
+            type: OrderCurrency
+        OrderValue:
+            type: OrderValue
+        OrderCompany:
+            type: OrderCompany
+            required: false
+        OrderItemsList:
+            type: OrderItem[]
+        context:
+            type: object
 
-# OrderValue:
-#     description: 'This class represents order value.'
-#     type: object
-#     properties:
-#         vat:
-#             type: string
-#         total_gross:
-#             type: string
-#         total_net:
-#             type: string
+OrderUser:
+    description: 'This class represents order user.'
+    type: object
+    properties:
+        id:
+            type: integer | nil
+        name:
+            type: string
+        email:
+            type: string
 
-# OrderCompany:
-#     description: 'This class represents order company.'
-#     type: object
-#     properties:
-#         id:
-#             type: integer
-#         name:
-#             type: string
+OrderCurrency:
+    description: 'This class represents order currency.'
+    type: object
+    properties:
+        id:
+            type: integer
+        code:
+            type: string
 
-# OrderCreate:
-#     description: 'This class is used to create order.'
-#     type: object
-#     properties:
-#         source:
-#             type: string
-#         OrderUser:
-#             type: OrderUser
-#         OrderCurrency:
-#             type: OrderCurrency
-#         OrderValue:
-#             type: OrderValue
-#         OrderCompany:
-#             type: OrderCompany
-#         items:
-#             type: OrderItem[]
+OrderValue:
+    description: 'This class represents order value.'
+    type: object
+    properties:
+        vat:
+            type: string | OrderPrice
+        total_gross:
+            type: string | OrderPrice
+        total_net:
+            type: string | OrderPrice
 
-# OrderUpdate:
-#     description: 'This class is used to update order.'
-#     type: object
-#     properties:
-#         status:
-#             type: string
-#         transition:
-#             type: string
+OrderCompany:
+    description: 'This class represents order company.'
+    type: object
+    properties:
+        id:
+            type: integer
+        name:
+            type: string
 
-# OrderItemsList:
-#     description: 'This class represents an order items list.'
-#     type: object
-#     properties:
-#         OrderItems:
-#             type: OrderItem[]
+OrderCreateWrapper:
+    type: object
+    properties:
+        OrderCreate: OrderCreate
 
-# OrderItem:
-#     description: 'This class represents order item.'
-#     type: object
-#     properties:
-#         OrderItemValue:
-#             type: OrderItemValue
-#         OrderItemProduct:
-#             type: OrderItemProduct
-#         quantity:
-#             type: integer
-#         context:
-#             type: object
+OrderCreate:
+    description: 'This class is used to create order.'
+    type: object
+    properties:
+        source:
+            type: string
+        OrderUser:
+            type: OrderUser
+        OrderCurrency:
+            type: OrderCurrency
+        OrderValue:
+            type: OrderValue
+        OrderCompany:
+            type: OrderCompany
+        items:
+            type: OrderItemWrapper[]
 
-# OrderItemValue:
-#     description: 'This class represents order item value.'
-#     type: object
-#     properties:
-#         unit_price_gross:
-#             type: string
-#         unit_price_net:
-#             type: string
-#         vat_rate:
-#             type: string
-#         subtotal_price_gross:
-#             type: string
-#         subtotal_price_net:
-#             type: string
+OrderUpdateWrapper:
+    type: object
+    properties:
+        OrderUpdate: OrderUpdate
 
-# OrderItemProduct:
-#     description: 'This class represents order item product.'
-#     type: object
-#     properties:
-#         id:
-#             type: integer
-#         code:
-#             type: string
-#         name:
-#             type: string
+OrderUpdate:
+    description: 'This class is used to update order.'
+    type: object
+    properties:
+        status:
+            type: string
+        transition:
+            type: string
+
+OrderItemWrapper:
+    type: object
+    properties:
+        OrderItem: OrderItem
+
+OrderItem:
+    description: 'This class represents order item.'
+    type: object
+    properties:
+        OrderItemValue:
+            type: OrderItemValue
+        OrderItemProduct:
+            type: OrderItemProduct
+        quantity:
+            type: integer
+            required: false
+        context:
+            type: object
+            required: false
+
+OrderPrice:
+    type: object
+    properties:
+        amount:
+            type: string
+        currency:
+            type: string
+
+OrderItemValue:
+    description: 'This class represents order item value.'
+    type: object
+    properties:
+        unit_price_gross:
+            type: string | OrderPrice
+        unit_price_net:
+            type: string | OrderPrice
+        vat_rate:
+            type: string
+        subtotal_price_gross:
+            type: string | OrderPrice
+        subtotal_price_net:
+            type: string | OrderPrice
+
+OrderItemProduct:
+    description: 'This class represents order item product.'
+    type: object
+    properties:
+        id:
+            type: integer
+        code:
+            type: string
+        name:
+            type: string
 
 # CorporateAccountRoot:
 #     description: 'This class represents Corporate Account Root resource information.'
@@ -4222,59 +4259,74 @@ AttributesList:
 #             type: object
 #             required: true
 
-# Shipment:
-#     description: 'This class represents a single shipment.'
-#     type: object
-#     properties:
-#         id:
-#             type: integer
-#         identifier:
-#             type: string
-#         status:
-#             type: string
-#         transitions:
-#             type: object
-#             properties:
-#                 transitionList:
-#                     description: 'Next steps available in the shipment workflow for the current status'
-#                     type: string[]
-#         Order:
-#             type: Order
-#         Amount:
-#             type: object
-#             properties:
-#                 value:
-#                     type: integer
-#                 currency:
-#                     type: string
-#         createdAt:
-#             type: datetime
-#         updatedAt:
-#             type: datetime
-#         Owner:
-#             type: User
-#         Method:
-#             type: ShippingMethod
+ShipmentWrapper:
+    type: object
+    properties:
+        Shipment: Shipment
 
-# ShipmentRefList:
-#     description: 'This class represents a list of Shipments'
-#     type: object
-#     properties:
-#         shipmentRefList:
-#             type: Shipment[]
+Shipment:
+    description: 'This class represents a single shipment.'
+    type: object
+    properties:
+        id:
+            type: integer
+        identifier:
+            type: string
+        status:
+            type: string
+        transitions:
+            type: object
+            properties:
+                transitionList:
+                    description: 'Next steps available in the shipment workflow for the current status'
+                    type: string[]
+        Order:
+            type: Order
+        Amount:
+            type: object
+            properties:
+                value:
+                    type: integer
+                currency:
+                    type: string
+        createdAt:
+            type: datetime
+        updatedAt:
+            type: datetime
+        Owner:
+            type: User
+        Method:
+            type: ShippingMethod
 
-# ShipmentCreate:
-#     description: 'This class represents the creation of a shipment.'
-#     type: object
-#     properties:
-#         identifier:
-#             type: string
-#         ShippingMethod:
-#             type: ShippingMethod
-#         Owner:
-#             type: User
-#         Context:
-#             type: object
+ShipmentRefListWrapper:
+    type: object
+    properties:
+        ShipmentRefList: ShipmentRefList
+
+ShipmentRefList:
+    description: 'This class represents a list of Shipments'
+    type: object
+    properties:
+        shipmentRefList:
+            type: Shipment[] | Ref[]
+
+ShipmentCreateWrapper:
+    type: object
+    properties:
+        ShipmentCreate: ShipmentCreate
+
+ShipmentCreate:
+    description: 'This class represents the creation of a shipment.'
+    type: object
+    properties:
+        identifier:
+            type: string
+        ShippingMethod:
+            type: ShippingMethod | Ref
+        Owner:
+            type: User | Ref
+        Context:
+            type: object
 
 # ShipmentUpdate:
 #     description: 'This class represents the update of a shipment.'
@@ -4289,57 +4341,57 @@ AttributesList:
 #         Context:
 #             type: object
 
-# ShippingMethod:
-#     description: 'This class represents a shipping method.'
-#     type: object
-#     properties:
-#         identifier:
-#             type: string
-#         name:
-#             type: string
-#         names:
-#             type: object
-#             properties:
-#                 value:
-#                     type: MultilingualValue[]
-#         description:
-#             type: string
-#         descriptions:
-#             type: object
-#             properties:
-#                 value:
-#                     type: MultilingualValue[]
-#         enabled:
-#             type: boolean
-#         options:
-#             type: object
-#             properties:
-#                 value:
-#                     type: KeyValue[]
-#         regions:
-#             type: Region[]
-#         type:
-#             type: ShippingMethodType[]
+ShippingMethod:
+    description: 'This class represents a shipping method.'
+    type: object
+    properties:
+        identifier:
+            type: string
+        name:
+            type: string
+        names:
+            type: object
+            properties:
+                value:
+                    type: MultilingualValue[]
+        description:
+            type: string
+        descriptions:
+            type: object
+            properties:
+                value:
+                    type: MultilingualValue[]
+        enabled:
+            type: boolean
+        options:
+            type: object
+            properties:
+                value:
+                    type: KeyValue[]
+        regions:
+            type: Region[]
+        type:
+            type: ShippingMethodType[]
 
-# MultilingualValue:
-#     description: 'Object that represents a multilingual (translated) value.'
-#     type: Value
-#     properties:
-#         _languageCode:
-#             description: 'Language code.'
-#             type: string
-#         '#text':
-#             description: 'Translation contents.'
-#             type: string
+MultilingualValue:
+    description: 'Object that represents a multilingual (translated) value.'
+    type: Value
+    properties:
+        _languageCode:
+            description: 'Language code.'
+            type: string
+        '#text':
+            description: 'Translation contents.'
+            type: string
 
-# KeyValue:
-#     description: 'Key-value structure'
-#     type: object
-#     properties:
-#         _key:
-#             type: string
-#         '#text':
-#             type: string
+KeyValue:
+    description: 'Key-value structure'
+    type: object
+    properties:
+        _key:
+            type: string
+        '#text':
+            type: string
 
 # ShippingMethodRefList:
 #     description: 'This class represents a list of shipping methods'
@@ -4348,14 +4400,14 @@ AttributesList:
 #         ShippingMethodRefs:
 #             type: ShippingMethod[]
 
-# ShippingMethodType:
-#     description: 'This class represents a shipping method type.'
-#     type: object
-#     properties:
-#         identifier:
-#             type: string
-#         name:
-#             type: string
+ShippingMethodType:
+    description: 'This class represents a shipping method type.'
+    type: object
+    properties:
+        identifier:
+            type: string
+        name:
+            type: string
 
 # ShippingMethodTypesList:
 #     description: 'This class represents a list of shipping method types.'
