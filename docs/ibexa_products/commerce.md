@@ -33,7 +33,7 @@ Version control systems and environment variables allow you to deploy your exten
 
 ## Capabilities and benefits
 
-[[= product_name_com =]]
+[[= product_name_com =]] includes the greatest capabilities to accelerate your digital transformation: Personalized workflows, corporate account management, customized catalogs, and more.
 
 ### Core features
 
@@ -60,7 +60,8 @@ Creating engaging and personalized shopping experiences with targeted offers and
 
 #### Custom ecommerce
 
-Ibexa Commerce is designed for complex enterprises, so it enables you to design flawless sales experiences even if your business model has built-in limitations, like distribution, price, and so on. Thanks to this, [[= product_name_com =]] is fully customizable.
+[[= product_name_com =]] is designed for complex enterprises, so it enables you to design flawless sales experiences even if your business model has built-in limitations, like distribution, price, and so on. Thanks to this, [[= product_name_com =]] is fully customizable.
+You can create online store that really fits your needs.
 
 #### Immersive shopping experiences
 
@@ -70,6 +71,9 @@ The customer experience takes an important step further by facilitating financia
 
 [[= product_name_com =]] gives you the ability to manage your product repository - [PIM](pim_guide.md), and construct an infinite number of product catalogs, each with unique prices, to further customize the experience for your customers.
 
-#### Best-in-class B2B features
+#### Automate business processess
 
-[[= product_name_com =]] includes the greatest B2B-specific capabilities to accelerate your digital transformation: Personalized workflows, corporate account management, customized catalogs, and more.
+With [[= product_name_com =]] automation process becomes easier, what's essential if your company wants to do more with less effort. 
+It comes with all capabilities, including order and inventory management, customer data and custom pricing, which are needed to achieve it.
+You can integrate with over 1,300 standard apps, including your CRM, ERP, PIM and DAM systems, and build custom connectors.
+Also, you can use ready-to-use pre-designed templates.
