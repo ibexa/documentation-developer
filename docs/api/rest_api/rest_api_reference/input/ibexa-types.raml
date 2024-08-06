@@ -4158,91 +4158,119 @@ OrderItemProduct:
 #         errorDescription:
 #             type: string
 
-# PaymentMethod:
-#     type: object
-#     properties:
-#         id:
-#             type: integer
-#             required: true
-#         identifier:
-#             type: string
-#             required: true
-#         enabled:
-#             type: boolean
-#             required: true
-#         name:
-#             type: string
-#             required: true
-#         description:
-#             type: string
-#             required: true
+PaymentMethodWrapper:
+    properties:
+        PaymentMethod: PaymentMethod
 
-# PaymentMethodCreateStruct:
-#     type: object
-#     properties:
-#         identifier:
-#             type: string
-#             required: true
-#         type:
-#             type: string
-#             required: true
-#         names:
-#             description: 'If set this array of names with languageCode keys replace the complete name collection.'
-#             type: string[]
-#         descriptions:
-#             description: 'An array of descriptions with languageCode keys.'
-#             type: string[]
-#         enabled:
-#             type: boolean
-#         options:
-#             type: object
+PaymentMethod:
+    type: object
+    properties:
+        id:
+            type: integer
+            required: true
+        identifier:
+            type: string
+            required: true
+        enabled:
+            type: boolean
+            required: true
+        name:
+            type: string
+            required: true
+        description:
+            type: string
+            required: true
 
-# PaymentMethodUpdateStruct:
-#     type: object
-#     properties:
-#         identifier:
-#             type: string
-#         names:
-#             description: 'If set this array of names with languageCode keys replace the complete name collection.'
-#             type: string[]
-#         descriptions:
-#             description: 'An array of descriptions with languageCode keys.'
-#             type: string[]
-#         enabled:
-#             type: boolean
-#         options:
-#             type: array
-#             items: any
+PaymentMethodCreateStructWrapper:
+    properties:
+        PaymentMethodCreateStruct: PaymentMethodCreateStruct
 
-# PaymentMethodView:
-#     type: object
-#     properties:
-#         identifier:
-#             type: string
-#             required: true
-#         Result:
-#             type: PaymentMethodList
-#             required: true
+PaymentMethodCreateStruct:
+    type: object
+    properties:
+        identifier:
+            type: string
+            required: true
+        type:
+            type: string
+            required: true
+        names:
+            description: 'If set this array of names with languageCode keys replace the complete name collection.'
+            type: object
+        descriptions:
+            description: 'An array of descriptions with languageCode keys.'
+            type: string[]
+            required: false
+        enabled:
+            type: boolean
+            required: false
+        options:
+            type: object
+            required: false
 
-# PaymentMethodList:
-#     type: object
-#     properties:
-#         count:
-#             type: integer
-#             required: true
-#         PaymentMethodList:
-#             type: PaymentMethod[]
-#             required: true
+PaymentMethodUpdateStructWrapper:
+    properties:
+        PaymentMethodUpdateStructParser: PaymentMethodUpdateStruct
 
-# PaymentMethodViewInput:
-#     type: object
-#     properties:
-#         identifier:
-#             type: string
-#             required: true
-#         PaymentMethodQuery:
-#             type: object
-#             required: true
+PaymentMethodUpdateStruct:
+    type: object
+    properties:
+        identifier:
+            type: string
+            required: false
+        names:
+            description: 'If set this array of names with languageCode keys replace the complete name collection.'
+            type: object
+            required: false
+        descriptions:
+            description: 'An array of descriptions with languageCode keys.'
+            type: string[]
+            required: false
+        enabled:
+            type: boolean
+            required: false
+        options:
+            type: array
+            items: any
+            required: false
+
+PaymentMethodViewWrapper:
+    properties:
+        PaymentMethodView: PaymentMethodView
+
+PaymentMethodView:
+    type: object
+    properties:
+        identifier:
+            type: string
+            required: true
+        Result:
+            type: PaymentMethodList
+            required: true
+
+PaymentMethodList:
+    type: object
+    properties:
+        count:
+            type: integer
+            required: true
+        PaymentMethodList:
+            type: PaymentMethod[]
+            required: true
+
+PaymentMethodViewInputWrapper:
+    properties:
+        PaymentMethodViewInput: PaymentMethodViewInput
+
+PaymentMethodViewInput:
+    type: object
+    properties:
+        identifier:
+            type: string
+            required: true
+        PaymentMethodQuery:
+            type: object
+            required: true
 
 ShipmentWrapper:
     type: object

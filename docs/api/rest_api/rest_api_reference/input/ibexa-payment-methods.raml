@@ -16,9 +16,9 @@ post:
     body:
         application/vnd.ibexa.api.PaymentMethodCreateStruct+xml:
             type: PaymentMethodCreateStruct
-            example: !include examples/payment-methods/POST/PaymentMethodCreateStruct.xml.example
+            # example: !include examples/payment-methods/POST/PaymentMethodCreateStruct.xml.example
         application/vnd.ibexa.api.PaymentMethodCreateStruct+json:
-            type: PaymentMethodCreateStruct
+            type: PaymentMethodCreateStructWrapper
             example: !include examples/payment-methods/POST/PaymentMethodCreateStruct.json.example
     responses:
         200:
@@ -27,7 +27,7 @@ post:
                 application/vnd.ibexa.api.PaymentMethod+xml:
                     type: PaymentMethod
                 application/vnd.ibexa.api.PaymentMethod+json:
-                    type: PaymentMethod
+                    type: PaymentMethodWrapper
                     example: !include examples/payment-methods/POST/PaymentMethod.json.example
         400:
             description: Error - the input does not match the input schema definition.
@@ -54,7 +54,7 @@ post:
             application/vnd.ibexa.api.PaymentMethodViewInput+xml:
                 type: PaymentMethodViewInput
             application/vnd.ibexa.api.PaymentMethodViewInput+json:
-                type: PaymentMethodViewInput
+                type: PaymentMethodViewInputWrapper
                 example: !include examples/payment-methods/view/POST/PaymentMethodViewInput.json.example
         responses:
             200:
@@ -62,7 +62,7 @@ post:
                     application/vnd.ibexa.api.PaymentMethodView+xml:
                         type: PaymentMethodView
                     application/vnd.ibexa.api.PaymentMethodView+json:
-                        type: PaymentMethodView
+                        type: PaymentMethodViewWrapper
                         example: !include examples/payment-methods/view/POST/PaymentMethodView.json.example
             400:
                 description: Error - the input does not match the input schema definition.
@@ -81,7 +81,7 @@ post:
                 description: OK - loads the payment method.
                 body:
                     application/vnd.ibexa.api.PaymentMethod+json:
-                        type: PaymentMethod
+                        type: PaymentMethodWrapper
                         example: !include examples/payment-methods/id/GET/PaymentMethod.json.example
             401:
                 description: Error - the user has no permission to read payment methods.
@@ -104,7 +104,7 @@ post:
                     application/vnd.ibexa.api.PaymentMethod+xml:
                         type: PaymentMethod
                     application/vnd.ibexa.api.PaymentMethod+json:
-                        type: PaymentMethod
+                        type: PaymentMethodWrapper
                         example: !include examples/payment-methods/identifier/GET/PaymentMethod.json.example
             401:
                 description: Error - the user has no permission to read payment methods.
@@ -135,9 +135,9 @@ post:
         body:
             application/vnd.ibexa.api.PaymentMethodUpdateStruct+xml:
                 type: PaymentMethodUpdateStruct
-                example: !include examples/payment-methods/identifier/PATCH/PaymentMethodUpdateStruct.xml.example
+                # example: !include examples/payment-methods/identifier/PATCH/PaymentMethodUpdateStruct.xml.example
             application/vnd.ibexa.api.PaymentMethodUpdateStruct+json:
-                type: PaymentMethodUpdateStruct
+                type: PaymentMethodUpdateStructWrapper
                 example: !include examples/payment-methods/identifier/PATCH/PaymentMethodUpdateStruct.json.example
         responses:
             200:
@@ -146,7 +146,7 @@ post:
                     application/vnd.ibexa.api.PaymentMethod+xml:
                         type: PaymentMethod
                     application/vnd.ibexa.api.PaymentMethod+json:
-                        type: PaymentMethod
+                        type: PaymentMethodWrapper
                         example: !include examples/payment-methods/identifier/PATCH/PaymentMethod.json.example
             400:
                 description: Error - the input does not match the input schema definition.
