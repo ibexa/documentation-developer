@@ -3299,76 +3299,111 @@ AttributeTypeList:
         attributeTypes:
             type: AttributeType[]
 
-# CustomerGroup:
-#     description: 'This class represents a customer group.'
-#     type: object
-#     properties:
-#         id:
-#             type: integer
-#         name:
-#             type: string
-#         identifier:
-#             type: string
-#         description:
-#             type: string
-#         users:
-#             description: 'A list of users attached to the customer group.'
-#             type: User[]
-#         global_price_rate:
-#             description: 'A numeric string'
-#             type: string
+CustomerGroupWrapper:
+    properties:
+        CustomerGroup: CustomerGroup
 
-# CustomerGroupList:
-#     description: 'This class represents a customer group list.'
-#     type: object
-#     properties:
-#         customerGroups:
-#             type: CustomerGroup[]
+CustomerGroup:
+    description: 'This class represents a customer group.'
+    type: object
+    properties:
+        id:
+            type: integer
+        name:
+            type: string
+        identifier:
+            type: string
+        description:
+            type: string
+        users:
+            description: 'A list of users attached to the customer group.'
+            type: User[]
+        global_price_rate:
+            description: 'A numeric string'
+            type: string
 
-# CustomerGroupCreate:
-#     description: 'This class is used to create a customer group.'
-#     type: object
-#     properties:
-#         identifier:
-#             type: string
-#         names:
-#             type: object
-#         descriptions:
-#             type: object
-#         global_price_rate:
-#             description: 'numeric-string'
-#             type: string
+CustomerGroupListWrapper:
+    properties:
+        CustomerGroupList: CustomerGroupList
 
-# CustomerGroupUpdate:
-#     description: 'This class is used to update a customer group.'
-#     type: object
-#     properties:
-#         names:
-#             type: object
-#         identifier:
-#             type: string
-#         position:
-#             type: integer
+CustomerGroupList:
+    description: 'This class represents a customer group list.'
+    type: object
+    properties:
+        CustomerGroup:
+            type: CustomerGroup[]
 
-# CustomerGroupViewInput:
-#     description: 'This class represents a customer group view input.'
-#     type: object
-#     properties:
-#         CustomerGroupQuery:
-#             type: object
+CustomerGroupCreateWrapper:
+    properties:
+        CustomerGroupCreate: CustomerGroupCreate
 
-# CustomerGroupView:
-#     description: 'This class represents a customer group view.'
-#     type: object
-#     properties:
-#         CurrencyView:
-#             type: CurrencyView
-#         identifier:
-#             type: string
-#         CurrencyQuery:
-#             type: object
-#         Result:
-#             type: object
+CustomerGroupCreate:
+    description: 'This class is used to create a customer group.'
+    type: object
+    properties:
+        identifier:
+            type: string
+        names:
+            type: object
+        descriptions:
+            type: object
+        global_price_rate:
+            description: 'numeric-string'
+            type: string
+
+CustomerGroupUpdateWrapper:
+    properties:
+        CustomerGroupUpdate: CustomerGroupUpdate
+
+CustomerGroupUpdate:
+    description: 'This class is used to update a customer group.'
+    type: object
+    properties:
+        names:
+            type: object
+        identifier:
+            type: string
+        global_price_rate:
+            type: string
+        descriptions:
+            type: string[]
+            required: false
+
+CustomerGroupViewInputWrapper:
+    properties:
+        ViewInput: CustomerGroupViewInput
+
+CustomerGroupViewInput:
+    description: 'This class represents a customer group view input.'
+    type: object
+    properties:
+        CustomerGroupQuery:
+            type: object
+    xml:
+        name: ViewInput
+
+CustomerGroupViewWrapper:
+    properties:
+        CustomerGroupView: CustomerGroupView
+
+CustomerGroupView:
+    description: 'This class represents a customer group view.'
+    type: object
+    properties:
+        identifier:
+            type: string
+        CustomerGroupQuery:
+            type: object
+        Result:
+            type: CustomerGroupListResult
+
+CustomerGroupListResult:
+    type: BaseObject
+    properties:
+        CustomerGroupList:
+            type: BaseObject
+            properties:
+                CustomerGroup: CustomerGroup[]
 
 CurrencyViewInputWrapper:
     properties:
