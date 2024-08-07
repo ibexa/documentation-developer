@@ -621,32 +621,38 @@ ContentInfo:
 #             description: 'Creator User ID. Creator of the version, in the search API this is referred to as the modifier of the published content.'
 #             type: integer
 
-# Country:
-#     description: 'This class is representing a country.'
-#     type: BaseObject
-#     properties:
-#         _id:
-#             description: 'ID that represents a country name.'
-#             type: string
-#         name:
-#             description: 'Name of the country.'
-#             type: string
-#         Alpha2:
-#             description: 'Two-letter code that represents a country name.'
-#             type: string
-#         Alpha3:
-#             description: 'Three-letter code that represents a country name.'
-#             type: string
-#         IDC:
-#             description: 'IDC'
-#             type: integer
+Country:
+    description: 'This class is representing a country.'
+    type: BaseObject
+    properties:
+        _id:
+            description: 'ID that represents a country name.'
+            type: string
+            xml:
+                attribute: true
+        name:
+            description: 'Name of the country.'
+            type: string
+        Alpha2:
+            description: 'Two-letter code that represents a country name.'
+            type: string
+        Alpha3:
+            description: 'Three-letter code that represents a country name.'
+            type: string
+        IDC:
+            description: 'IDC'
+            type: integer
 
-# CountryList:
-#     description: 'This class is representing an ISO-3166 formatted list of world countries.'
-#     type: BaseObject
-#     properties:
-#         Country:
-#             type: Country[]
+CountryListWrapper:
+    properties:
+        CountryList: CountryList
+
+CountryList:
+    description: 'This class is representing an ISO-3166 formatted list of world countries.'
+    type: BaseObject
+    properties:
+        Country:
+            type: Country[]
 
 # CreateStruct:
 #     description: 'This class is used for creating a notification.'
