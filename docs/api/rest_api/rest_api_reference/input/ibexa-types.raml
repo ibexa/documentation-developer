@@ -1757,34 +1757,54 @@ Relation:
 #             description: 'User.'
 #             type: BaseObject
 
-# SegmentGroupList:
-#     description: 'This class lists segment groups.'
-#     type: BaseObject
-#     properties:
-#         SegmentGroup: SegmentGroup[]
+SegmentGroupListWrapper:
+    type: object
+    properties:
+        SegmentGroupList: SegmentGroupList
 
-# SegmentGroup:
-#     description: 'This class represents a segment group.'
-#     type: BaseObject
-#     properties:
-#         id: integer
-#         identifier: string
-#         name: string
+SegmentGroupList:
+    description: 'This class lists segment groups.'
+    type: BaseObject
+    properties:
+        SegmentGroup: SegmentGroup[]
 
-# SegmentList:
-#     description: 'This class lists segments.'
-#     type: BaseObject
-#     properties:
-#         Segment: Segment[]
+SegmentGroupWrapper:
+    type: object
+    properties:
+        SegmentGroup: SegmentGroup
 
-# Segment:
-#     description: 'This class represents a segment.'
-#     type: BaseObject
-#     properties:
-#         id: integer
-#         identifier: string
-#         name: string
-#         SegmentGroup: SegmentGroup
+SegmentGroup:
+    description: 'This class represents a segment group.'
+    type: BaseObject
+    properties:
+        id: integer
+        identifier: string
+        name: string
+
+SegmentListWrapper:
+    type: object
+    properties:
+        SegmentList: SegmentList
+
+SegmentList:
+    description: 'This class lists segments.'
+    type: BaseObject
+    properties:
+        Segment: Segment[]
+
+SegmentWrapper:
+    type: object
+    properties:
+        Segment: Segment
+
+Segment:
+    description: 'This class represents a segment.'
+    type: BaseObject
+    properties:
+        id: integer
+        identifier: string
+        name: string
+        SegmentGroup: SegmentGroup
 
 # SortClause:
 #     description: 'This class is the base for SortClause classes, used to set sorting of content queries.'
