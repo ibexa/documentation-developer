@@ -12,13 +12,13 @@ post:
                 application/vnd.ibexa.api.ProductTypeCreate+json
     body:
         application/vnd.ibexa.api.ProductTypeCreate+json:
-            type: ProductTypeCreate
+            type: ProductTypeCreateWrapper
             example: !include examples/product/catalog/product_types/POST/ProductTypeCreate.json.example
     responses:
         201:
             body:
                 application/vnd.ibexa.api.ProductType+json:
-                    type: ProductType
+                    type: ProductTypeWrapper
                     example: !include examples/product/catalog/product_types/POST/ProductType.json.example
         400:
             description: Error - the input does not match the input schema definition.
@@ -46,7 +46,7 @@ get:
         application/vnd.ibexa.api.ProductTypeListGet+xml:
             type: ProductTypeListGet
         application/vnd.ibexa.api.ProductTypeListGet+json:
-            type: ProductTypeListGet
+            type: ProductTypeListGetWrapper
             example: !include examples/product/catalog/product_types/GET/ProductTypeListGet.json.example
     responses:
         200:
@@ -54,7 +54,7 @@ get:
                 application/vnd.ibexa.api.ProductTypeList+xml:
                     type: ProductTypeList
                 application/vnd.ibexa.api.ProductTypeList+json:
-                    type: ProductTypeList
+                    type: ProductTypeListWrapper
                     example: !include examples/product/catalog/product_types/GET/ProductTypeList.json.example
         401:
             description: Error - the user has no permission to read product type.
@@ -72,9 +72,9 @@ get:
                 body:
                     application/vnd.ibexa.api.ProductTypeUsage+xml:
                         type: ProductTypeUsage
+                        example: !include examples/product/catalog/product_types/is_used/GET/ProductTypeUsage.xml.example
                     application/vnd.ibexa.api.ProductTypeUsage+json:
-                        type: ProductTypeUsage
-                        example: !include examples/product/catalog/product_types/is_used/GET/ProductTypeUsage.json.example
+                        type: ProductTypeUsageWrapper
             404:
                 description: Error - product type not found.
 /{id}:
@@ -93,7 +93,7 @@ get:
                     application/vnd.ibexa.api.ProductType+xml:
                         type: ProductType
                     application/vnd.ibexa.api.ProductType+json:
-                        type: ProductType
+                        type: ProductTypeWrapper
                         example: !include examples/product/catalog/product_types/id/GET/ProductType.json.example
             401:
                 description: Error - the user has no permission to read product type.
@@ -111,13 +111,13 @@ get:
                     application/vnd.ibexa.api.ProductTypeUpdate+json
         body:
             application/vnd.ibexa.api.ProductTypeUpdate+json:
-                type: ProductTypeUpdate
+                type: ProductTypeUpdateWrapper
                 example: !include examples/product/catalog/product_types/id/PATCH/ProductTypeUpdate.json.example
         responses:
             201:
                 body:
                     application/vnd.ibexa.api.ProductType+json:
-                        type: ProductTypeUpdate
+                        type: ProductTypeWrapper
                         example: !include examples/product/catalog/product_types/id/PATCH/ProductType.json.example
             400:
                 description: Error - the input does not match the input schema definition.
@@ -152,7 +152,7 @@ get:
             application/vnd.ibexa.api.ProductTypeViewInput+xml:
                 type: ProductTypeViewInput
             application/vnd.ibexa.api.ProductTypeViewInput+json:
-                type: ProductTypeViewInput
+                type: ProductTypeViewInputWrapper
                 example: !include examples/product/catalog/product_types/POST/ProductTypeViewInput.json.example
         responses:
             200:
@@ -160,7 +160,7 @@ get:
                     application/vnd.ibexa.api.ProductTypeView+xml:
                         type: ProductTypeView
                     application/vnd.ibexa.api.ProductTypeView+json:
-                        type: ProductTypeView
+                        type: ProductTypeViewWrapper
                         example: !include examples/product/catalog/product_types/POST/ProductTypeView.json.example
             400:
                 description: Error - the input does not match the input schema definition.

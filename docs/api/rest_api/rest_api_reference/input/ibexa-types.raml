@@ -3185,7 +3185,7 @@ Attribute:
         type_identifier:
             type: string
         value:
-            type: boolean
+            type: any
         group:
             type: string
         position:
@@ -3428,6 +3428,10 @@ AttributeAssignment:
         Attribute:
             type: Attribute
 
+ProductTypeWrapper:
+    properties:
+        ProductType: ProductType
+
 ProductType:
     description: 'This class represents a product type.'
     type: object
@@ -3439,65 +3443,84 @@ ProductType:
         AttributeAssignmentList:
             type: AttributeAssignment[]
 
-# ProductTypeUsage:
-#     description: 'This class represents a product type usage.'
-#     type: object
-#     properties:
-#         isUsed:
-#             type: boolean
+ProductTypeUsageWrapper:
+    properties:
+        ProductTypeUsage: ProductTypeUsage
 
-# ProductTypeCreate:
-#     description: 'This class is used to create a product type.'
-#     type: object
-#     properties:
-#         ContentTypeCreateStruct:
-#             type: object
-#         main_language_code:
-#             type: string
-#         assigned_attributes:
-#             type: object
-#             properties:
-#                 identifier:
-#                     type: string
-#                 is_required:
-#                     type: boolean
-#                 is_discriminator:
-#                     type: boolean
+ProductTypeUsage:
+    description: 'This class represents a product type usage.'
+    type: BaseObject
+    properties:
+        is_used:
+            type: boolean
 
-# ProductTypeUpdate:
-#     description: 'This class is used to update a product type.'
-#     type: object
-#     properties:
-#         ContentTypeUpdateStruct:
-#             type: object
-#         assigned_attributes:
-#             type: object
-#             properties:
-#                 identifier:
-#                     type: string
-#                 is_required:
-#                     type: boolean
-#                 is_discriminator:
-#                     type: boolean
+ProductTypeCreateWrapper:
+    properties:
+        ProductTypeCreate: ProductTypeCreate
 
+ProductTypeCreate:
+    description: 'This class is used to create a product type.'
+    type: object
+    properties:
+        ContentTypeCreateStruct:
+            type: object
+        main_language_code:
+            type: string
+        assigned_attributes:
+            type: array
+            items: ProductTypeAssignedAttribute
 
-# ProductTypeViewInput:
-#     description: 'This class represents a product type view input.'
-#     type: object
-#     properties:
-#         ProductTypeQuery:
-#             type: object
+ProductTypeUpdateWrapper:
+    properties:
+        ProductTypeUpdate: ProductTypeUpdate
 
-# ProductTypeView:
-#     description: 'This class represents a product type view.'
-#     type: object
-#     properties:
-#         identifier:
-#             type: string
-#         ProductTypeQuery:
-#             type: object
-#         Result:
-#             type: object
+ProductTypeUpdate:
+    description: 'This class is used to update a product type.'
+    type: object
+    properties:
+        ContentTypeUpdateStruct:
+            type: object
+        assigned_attributes:
+            type: array
+            items: ProductTypeAssignedAttribute
+
+ProductTypeAssignedAttribute:
+    type: object
+    properties:
+        identifier:
+            type: string
+        is_required:
+            type: boolean
+        is_discriminator:
+            type: boolean
+
+ProductTypeViewInputWrapper:
+    properties:
+        ViewInput: ProductTypeViewInput
+
+ProductTypeViewInput:
+    description: 'This class represents a product type view input.'
+    type: object
+    properties:
+        ProductTypeQuery:
+            type: object
+    xml:
+        name: ViewInput
+
+ProductTypeViewWrapper:
+    properties:
+        ProductTypeView: ProductTypeView
+
+ProductTypeView:
+    description: 'This class represents a product type view.'
+    type: object
+    properties:
+        identifier:
+            type: string
+        ProductTypeQuery:
+            type: object
+        Result:
+            type: object
 
 Product:
     description: 'This class represents a product.'
@@ -3712,21 +3735,31 @@ RegionView:
         Result:
             type: object
 
-# ProductTypeList:
-#     description: 'This class represents a product type list.'
-#     type: object
-#     properties:
-#         ProductTypes:
-#             type: ProductType[]
+ProductTypeListWrapper:
+    properties:
+        ProductTypeList: ProductTypeList
 
-# ProductTypeListGet:
-#     description: 'This class represents a product type list query.'
-#     type: object
-#     properties:
-#         name_prefix: string
-#         offset: integer
-#         limit: integer
-#         languages: string[]
+ProductTypeList:
+    description: 'This class represents a product type list.'
+    type: object
+    properties:
+        ProductType:
+            type: ProductType[]
+
+ProductTypeListGetWrapper:
+    properties:
+        ProductTypeListGet: ProductTypeListGet
+
+ProductTypeListGet:
+    description: 'This class represents a product type list query.'
+    type: object
+    properties:
+        name_prefix: string
+        offset: integer
+        limit: integer
+        languages:
+            type: string[]
+            required: false
 
 TaxonomyEntryWrapper:
     properties:
