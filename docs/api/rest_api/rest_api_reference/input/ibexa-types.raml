@@ -3028,6 +3028,10 @@ CurrencyView:
         Result:
             type: object
 
+RegionWrapper:
+    properties:
+        Region: Region
+
 Region:
     description: 'This class represents a region.'
     type: object
@@ -3035,12 +3039,16 @@ Region:
         identifier:
             type: string
 
-# RegionList:
-#     description: 'This class represents a region list.'
-#     type: object
-#     properties:
-#         Regions:
-#             type: Region[]
+RegionListWrapper:
+    properties:
+        RegionList: RegionList
+
+RegionList:
+    description: 'This class represents a region list.'
+    type: object
+    properties:
+        Region:
+            type: Ref[]
 
 AttributeGroup:
     description: 'This class represents an attribute group.'
@@ -3563,23 +3571,33 @@ ProductView:
 #         Result:
 #             type: object
 
-# RegionViewInput:
-#     description: 'This class represents a region view input.'
-#     type: object
-#     properties:
-#         RegionQuery:
-#             type: object
+RegionViewInputWrapper:
+    properties:
+        ViewInput: RegionViewInput
 
-# RegionView:
-#     description: 'This class represents a region view.'
-#     type: object
-#     properties:
-#         identifier:
-#             type: string
-#         RegionQuery:
-#             type: object
-#         Result:
-#             type: object
+RegionViewInput:
+    description: 'This class represents a region view input.'
+    type: object
+    properties:
+        RegionQuery:
+            type: object
+    xml:
+        name: ViewInput
+
+RegionViewWrapper:
+    properties:
+        RegionView: RegionView
+
+RegionView:
+    description: 'This class represents a region view.'
+    type: object
+    properties:
+        identifier:
+            type: string
+        RegionQuery:
+            type: object
+        Result:
+            type: object
 
 # ProductTypeList:
 #     description: 'This class represents a product type list.'
