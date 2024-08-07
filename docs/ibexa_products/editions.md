@@ -5,7 +5,7 @@ page_type: landing_page
 
 # Ibexa DXP editions
 
-Three [[= product_name =]] product edtions are available to help you accelerate your digital transformation at the speed and cost that work best for you.
+Three [[= product_name =]] product editions are available to help you accelerate your digital transformation at the speed and cost that work best for you.
 
 [[= cards([
 "ibexa_products/headless",
