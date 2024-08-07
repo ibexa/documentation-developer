@@ -3209,21 +3209,29 @@ Attribute:
 #         Result:
 #             type: object
 
-# AttributeType:
-#     description: 'This class represents an attribute type.'
-#     type: object
-#     properties:
-#         identifier:
-#             type: string
-#         name:
-#             type: string
+AttributeTypeWrapper:
+    properties:
+        AttributeType: AttributeType
 
-# AttributeTypeList:
-#     description: 'This class represents an attribute type list.'
-#     type: object
-#     properties:
-#         attributeTypes:
-#             type: AttributeType[]
+AttributeType:
+    description: 'This class represents an attribute type.'
+    type: object
+    properties:
+        identifier:
+            type: string
+        name:
+            type: string
+
+AttributeTypeListWrapper:
+    properties:
+        AttributeTypeList: AttributeTypeList
+
+AttributeTypeList:
+    description: 'This class represents an attribute type list.'
+    type: object
+    properties:
+        attributeTypes:
+            type: AttributeType[]
 
 # CustomerGroup:
 #     description: 'This class represents a customer group.'
