@@ -2923,6 +2923,8 @@ CatalogViewInput:
     properties:
         CatalogQuery:
             type: object
+    xml:
+        name: ViewInput
 
 ProductFilterListWrapper:
     properties:
@@ -3050,6 +3052,10 @@ RegionList:
         Region:
             type: Ref[]
 
+AttributeGroupWrapper:
+    properties:
+        AttributeGroup: AttributeGroup
+
 AttributeGroup:
     description: 'This class represents an attribute group.'
     type: object
@@ -3061,68 +3067,104 @@ AttributeGroup:
         position:
             type: integer
 
-# AttributeGroupGet:
-#     description: 'This class represents an attribute group query.'
-#     type: object
-#     properties:
-#         languages: string[]
+AttributeGroupGetWrapper:
+    properties:
+        AttributeGroupGet: AttributeGroupGet
 
-# AttributeGroupCreate:
-#     description: 'This class is used to create an attribute group.'
-#     type: object
-#     properties:
-#         identifier:
-#             type: string
-#         names:
-#             type: string[]
-#         position:
-#             type: integer
+AttributeGroupGet:
+    description: 'This class represents an attribute group query.'
+    type: object
+    properties:
+        languages: string[]
 
-# AttributeGroupUpdate:
-#     description: 'This class is used to update an attribute group.'
-#     type: object
-#     properties:
-#         identifier:
-#             type: string
-#         names:
-#             type: object
-#         position:
-#             type: integer
+AttributeGroupCreateWrapper:
+    properties:
+        AttributeGroupCreate: AttributeGroupCreate
 
-# AttributeGroupList:
-#     description: 'This class represents an attribute group list.'
-#     type: object
-#     properties:
-#         attributeGroups: AttributeGroup[]
+AttributeGroupCreate:
+    description: 'This class is used to create an attribute group.'
+    type: object
+    properties:
+        identifier:
+            type: string
+        names:
+            type: object
+        position:
+            type: integer
 
-# AttributeGroupListGet:
-#     description: 'This class represents an attribute group list request.'
-#     type: object
-#     properties:
-#         prefix: string
-#         offset: integer
-#         limit: integer
+AttributeGroupUpdateWrapper:
+    properties:
+        AttributeGroupUpdate: AttributeGroupUpdate
 
-# AttributeGroupViewInput:
-#     description: 'This class represents an attribute group view input.'
-#     type: object
-#     properties:
-#         identifier: string
-#         AttributeGroupQuery:
-#             type: object
-#             properties:
-#                 limit: integer
-#                 offset: integer
-#                 name_prefix: string
+AttributeGroupUpdate:
+    description: 'This class is used to update an attribute group.'
+    type: object
+    properties:
+        identifier:
+            type: string
+        names:
+            type: object
+        position:
+            type: integer
 
-# AttributeGroupView:
-#     description: 'This class represents an attribute group view.'
-#     type: object
-#     properties:
-#         identifier:
-#             type: string
-#         AttributeGroupList:
-#             type: AttributeGroupList
+AttributeGroupListWrapper:
+    properties:
+        AttributeGroupList: AttributeGroupList
+
+AttributeGroupList:
+    description: 'This class represents an attribute group list.'
+    type: BaseObject
+    properties:
+        AttributeGroup: AttributeGroup[]
+
+AttributeGroupListGetWrapper:
+    properties:
+        AttributeGroupListGet: AttributeGroupListGet
+
+AttributeGroupListGet:
+    description: 'This class represents an attribute group list request.'
+    type: object
+    properties:
+        prefix: string
+        offset: integer
+        limit: integer
+
+AttributeGroupViewInputWrapper:
+    properties:
+        ViewInput: AttributeGroupViewInput
+
+AttributeGroupViewInput:
+    description: 'This class represents an attribute group view input.'
+    type: object
+    properties:
+        identifier: string
+        AttributeGroupQuery:
+            type: object
+            properties:
+                limit: string
+                offset: string
+                name_prefix: string
+    xml:
+        name: ViewInput
+
+AttributeGroupViewWrapper:
+    properties:
+        AttributeGroupView: AttributeGroupView
+
+AttributeGroupView:
+    description: 'This class represents an attribute group view.'
+    type: BaseObject
+    properties:
+        identifier:
+            type: string
+        Result:
+            type: AttributeGroupListResult
+
+AttributeGroupListResult:
+    type: BaseObject
+    properties:
+        count: integer
+        AttributeGroupList: AttributeGroupList
 
 Attribute:
     description: 'This class represents an attribute.'
@@ -3314,6 +3356,8 @@ CurrencyViewInput:
     properties:
         CurrencyQuery:
             type: object
+    xml:
+        name: ViewInput
 
 AttributeAssignment:
     type: object
@@ -3485,6 +3529,8 @@ ProductViewInput:
     properties:
         ProductQuery:
             type: object
+    xml:
+        name: ViewInput
 
 CatalogViewWrapper:
     properties:
