@@ -14,9 +14,9 @@ get:
             body:
                 application/vnd.ibexa.api.SegmentGroupList+xml:
                     type: SegmentGroupList
-                    example: !include examples/segment_groups/GET/SegmentGroupList.xml.example
+                    # example: !include examples/segment_groups/GET/SegmentGroupList.xml.example
                 application/vnd.ibexa.api.SegmentGroupList+json:
-                    type: SegmentGroupList
+                    type: SegmentGroupListWrapper
                     example: !include examples/segment_groups/GET/SegmentGroupList.json.example
         401:
             description: Error - the user is not authorized to list segment groups.
@@ -41,9 +41,9 @@ get:
                 body:
                     application/vnd.ibexa.api.SegmentGroup+xml:
                         type: SegmentGroup
-                        example: !include examples/segment_groups/identifier/GET/SegmentGroup.xml.example
+                        # example: !include examples/segment_groups/identifier/GET/SegmentGroup.xml.example
                     application/vnd.ibexa.api.SegmentGroup+json:
-                        type: SegmentGroup
+                        type: SegmentGroupWrapper
                         example: !include examples/segment_groups/identifier/GET/SegmentGroup.json.example
             401:
                 description: Error - the user is not authorized to load this segment group.
@@ -65,9 +65,9 @@ get:
                     body:
                         application/vnd.ibexa.api.SegmentList+xml:
                             type: SegmentList
-                            example: !include examples/segment_groups/identifier/segments/GET/SegmentList.xml.example
+                            # example: !include examples/segment_groups/identifier/segments/GET/SegmentList.xml.example
                         application/vnd.ibexa.api.SegmentList+json:
-                            type: SegmentList
+                            type: SegmentListWrapper
                             example: !include examples/segment_groups/identifier/segments/GET/SegmentList.json.example
                 401:
                     description: Error - the user is not authorized to load this group's segments.
