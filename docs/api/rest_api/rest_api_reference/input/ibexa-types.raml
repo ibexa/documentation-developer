@@ -90,7 +90,6 @@ BookmarkList:
                     __href:
                         type: string
 
-
 Content:
     description: 'Content ID matcher class.'
     type: BaseObject
@@ -3511,49 +3510,61 @@ Product:
 #         limit: integer
 #         languages: string[]
 
-# TaxonomyEntry:
-#     description: 'This class represents a taxonomy entry.'
-#     type: BaseObject
-#     properties:
-#         id:
-#             type: integer
-#         identifier:
-#             type: string
-#         name:
-#             type: string
-#         mainLanguageCode:
-#             type: string
-#         names:
-#             type: array
-#             items: any
-#         Parent:
-#             type: TaxonomyEntry
-#         Content:
-#             type: Content
-#         taxonomy:
-#             type: string
-#         level:
-#             type: integer
+TaxonomyEntryWrapper:
+    properties:
+        TaxonomyEntry: TaxonomyEntry
 
-# TaxonomyEntryAssignment:
-#     description: 'This class represents a taxonomy entry assignment.'
-#     type: object
-#     properties:
-#         id:
-#             type: integer
-#         Content:
-#             type: Content
-#         Entry:
-#             type: TaxonomyEntry
+TaxonomyEntry:
+    description: 'This class represents a taxonomy entry.'
+    type: BaseObject
+    properties:
+        id:
+            type: integer
+        identifier:
+            type: string
+        name:
+            type: string
+        content:
+            type: Ref
+        taxonomy:
+            type: string
 
-# EntryAssignmentCollection:
-#     description: 'This class represents a taxonomy assignment collection.'
-#     type: object
-#     properties:
-#         Content:
-#             type: Content
-#         assignments:
-#             type: TaxonomyEntryAssignment[]
+TaxonomyEntryAssignmentWrapper:
+    properties:
+        TaxonomyEntryAssignment: TaxonomyEntryAssignment
+
+TaxonomyEntryAssignment:
+    description: 'This class represents a taxonomy entry assignment.'
+    type: object
+    properties:
+        id:
+            type: integer
+        content:
+            type: BaseObject
+            properties:
+                Content:
+                    type: Content
+        entry:
+            type: BaseObject
+            properties:
+                TaxonomyEntry:
+                    type: TaxonomyEntry
+
+EntryAssignmentCollectionWrapper:
+    properties:
+        EntryAssignmentCollection: EntryAssignmentCollection
+
+EntryAssignmentCollection:
+    description: 'This class represents a taxonomy assignment collection.'
+    type: BaseObject
+    properties:
+        content:
+            type: BaseObject
+            properties:
+                Content:
+                    type: Content
+        assignments:
+            type: TaxonomyEntryAssignment[]
 
 # TaxonomyEntryCreateStruct:
 #     description: 'This class is used to create a taxonomy entry.'
@@ -3588,47 +3599,63 @@ Product:
 #         Content:
 #             type: Content
 
-# TaxonomyEntryBulkRemove:
-#     description: 'This class is used to bulk remove taxonomy entries.'
-#     type: object
-#     properties:
-#         entries:
-#             type: TaxonomyEntry[]
+TaxonomyEntryBulkRemoveWrapper:
+    properties:
+        TaxonomyEntryBulkRemove: TaxonomyEntryBulkRemove
 
-# TaxonomyEntryMove:
-#     type: object
-#     properties:
-#         entry:
-#             type: integer
-#         sibling:
-#             type: integer
-#         position:
-#             type: string
+TaxonomyEntryBulkRemove:
+    description: 'This class is used to bulk remove taxonomy entries.'
+    type: object
+    properties:
+        entries:
+            type: integer[]
 
-# TaxonomyEntryBulkMove:
-#     description: 'This class is used to bulk move taxonomy entries.'
-#     type: object
-#     properties:
-#         entries:
-#             type: TaxonomyEntryMove[]
+TaxonomyEntryMove:
+    type: object
+    properties:
+        entry:
+            type: integer
+        sibling:
+            type: integer
+        position:
+            type: string
 
-# TaxonomyEntryAssignToContent:
-#     description: 'This class is used to assign taxonomy entry to content.'
-#     type: object
-#     properties:
-#         content:
-#             type: integer
-#         entries:
-#             type: TaxonomyEntry[]
+TaxonomyEntryBulkMoveWrapper:
+    properties:
+        TaxonomyEntryBulkMove: TaxonomyEntryBulkMove
 
-# TaxonomyEntryUnassignFromContent:
-#     description: 'This class is used to unassign taxonomy entry from content.'
-#     type: object
-#     properties:
-#         content:
-#             type: integer
-#         entries:
-#             type: TaxonomyEntry[]
+TaxonomyEntryBulkMove:
+    description: 'This class is used to bulk move taxonomy entries.'
+    type: object
+    properties:
+        entries:
+            type: TaxonomyEntryMove[]
+
+TaxonomyEntryAssignToContentWrapper:
+    properties:
+        TaxonomyEntryAssignToContent: TaxonomyEntryAssignToContent
+
+TaxonomyEntryAssignToContent:
+    description: 'This class is used to assign taxonomy entry to content.'
+    type: object
+    properties:
+        content:
+            type: integer
+        entries:
+            type: integer[]
+
+TaxonomyEntryUnassignFromContentWrapper:
+    properties:
+        TaxonomyEntryUnassignFromContent: TaxonomyEntryUnassignFromContent
+
+TaxonomyEntryUnassignFromContent:
+    description: 'This class is used to unassign taxonomy entry from content.'
+    type: object
+    properties:
+        content:
+            type: integer
+        entries:
+            type: integer[]
 
 # VatCategoryList:
 #     description: 'This class represents a VAT category list.'
