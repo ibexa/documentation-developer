@@ -3166,6 +3166,10 @@ AttributeGroupListResult:
         count: integer
         AttributeGroupList: AttributeGroupList
 
+AttributeWrapper:
+    properties:
+        Attribute: Attribute
+
 Attribute:
     description: 'This class represents an attribute.'
     type: object
@@ -3182,74 +3186,94 @@ Attribute:
             type: string
         value:
             type: boolean
-        Group:
-            type: AttributeGroup
+        group:
+            type: string
+        position:
+            type: integer
+        options:
+            type: object | array
+
+AttributeCreateWrapper:
+    properties:
+        AttributeCreate: AttributeCreate
+
+AttributeCreate:
+    description: 'This class is used to create an attribute.'
+    type: object
+    properties:
+        identifier:
+            type: string
+        type:
+            type: string
+        group:
+            type: string
+        names:
+            type: object
+        descriptions:
+            type: object
+        position:
+            type: integer
+        options:
+            type: object | array
+
+AttributeUpdateWrapper:
+    properties:
+        AttributeUpdate: AttributeUpdate
+
+AttributeUpdate:
+    description: 'This class is used to update an attribute.'
+    type: object
+    properties:
+        identifier:
+            type: string
+        names:
+            type: object
+        descriptions:
+            type: object
         position:
             type: integer
         options:
             type: object
 
-# AttributeCreate:
-#     description: 'This class is used to create an attribute.'
-#     type: object
-#     properties:
-#         identifier:
-#             type: string
-#         type:
-#             type: string
-#         group:
-#             type: string
-#         names:
-#             type: object
-#         descriptions:
-#             type: object
-#         positions:
-#             type: integer
-#         options:
-#             type: array
-#             items: any
+AttributeListWrapper:
+    properties:
+        AttributeList: AttributeList
 
-# AttributeUpdate:
-#     description: 'This class is used to update an attribute.'
-#     type: object
-#     properties:
-#         identifier:
-#             type: string
-#         names:
-#             type: object
-#         descriptions:
-#             type: object
-#         positions:
-#             type: integer
-#         options:
-#             type: array
-#             items: any
+AttributeList:
+    description: 'This class represents an attribute list.'
+    type: object
+    properties:
+        Attribute: Attribute[]
 
-# AttributeList:
-#     description: 'This class represents an attribute list.'
-#     type: object
-#     properties:
-#         attributes: Attribute[]
+AttributeViewInputWrapper:
+    properties:
+        ViewInput: AttributeViewInput
 
-# AttributeViewInput:
-#     description: 'This class represents an attribute view input.'
-#     type: object
-#     properties:
-#         identifier:
-#             type: string
-#         AttributeQuery:
-#             type: object
+AttributeViewInput:
+    description: 'This class represents an attribute view input.'
+    type: object
+    properties:
+        identifier:
+            type: string
+        AttributeQuery:
+            type: object
+    xml:
+        name: ViewInput
 
-# AttributeView:
-#     description: 'This class represents an attribute view.'
-#     type: object
-#     properties:
-#         identifier:
-#             type: string
-#         AttributeQuery:
-#             type: object
-#         Result:
-#             type: object
+AttributeViewWrapper:
+    properties:
+        AttributeView: AttributeView
+
+AttributeView:
+    description: 'This class represents an attribute view.'
+    type: object
+    properties:
+        identifier:
+            type: string
+        AttributeQuery:
+            type: object
+        Result:
+            type: object
 
 AttributeTypeWrapper:
     properties:
