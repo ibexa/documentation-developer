@@ -672,29 +672,32 @@ CountryList:
 #             type: array
 #             items: any
 
-# Criterion:
-#     description: 'Criterion implementations.'
-#     type: object
-#     properties:
-#         operator:
-#             description: 'The operator used by the Criterion.'
-#             type: string
-#         value:
-#             description: 'The value(s) matched by the Criteria.'
-#             type: array
-#             items: any
-#         target:
-#             description: 'The target used by the Criteria (field, metadata...).'
-#             type: string
-#         valueData:
-#             description: 'Additional value data, required by some Criteria, MapLocationDistance for instance.'
-#             type: Value
-#         Specifications:
-#             description: "Criterion description function. Returns the combination of the Criterion's supported operator/value, as an array of objects."
-#             type: Specifications[]
-#         ValueTypeCheckCallback:
-#             description: 'Returns a callback that checks the values types depending on the operator specifications.'
-#             type: integer
+# TODO: this type is bad because createrios differ greatly between themselves
+Criterion:
+    description: 'Criterion implementations.'
+    type: object
+    properties:
+        operator:
+            description: 'The operator used by the Criterion.'
+            type: string
+            required: false
+        value:
+            description: 'The value(s) matched by the Criteria.'
+            type: array
+            items: any
+            required: false
+        target:
+            description: 'The target used by the Criteria (field, metadata...).'
+            type: string
+            required: false
+        valueData:
+            description: 'Additional value data, required by some Criteria, MapLocationDistance for instance.'
+            type: Value
+            required: false
+        Specifications:
+            description: "Criterion description function. Returns the combination of the Criterion's supported operator/value, as an array of objects."
+            type: Specifications[]
+            required: false
 
 DateRange:
     description: 'Representation of date range.'
@@ -1825,22 +1828,22 @@ Segment:
 #             description: 'Extra target data, required by some sort clauses, field for instance.'
 #             type: Target
 
-# Specifications:
-#     description: 'This class is used by Criteria to describe which operators they support. Instances of this class are returned in an array by the {@see Criterion::getSpecifications()} method.'
-#     type: object
-#     properties:
-#         operator:
-#             description: 'Specified operator, as one of the Operator::* constants.'
-#             type: string
-#         valueFormat:
-#             description: 'Format supported for the Criterion value, either {@see self::FORMAT_SINGLE} for single or {@see self::FORMAT_ARRAY} for multiple.'
-#             type: string
-#         valueTypes:
-#             description: 'Accepted values types, specifying what type of variables are accepted as a value. Criterion input value type description constants: const TYPE_INTEGER = 1; const TYPE_STRING = 2; const TYPE_BOOLEAN = 4.'
-#             type: integer
-#         valueCount:
-#             description: 'Limitation on the number of items as the value. Only usable if {@see $valueFormat} is {@see self::FORMAT_ARRAY}.'
-#             type: integer
+Specifications:
+    description: 'This class is used by Criteria to describe which operators they support. Instances of this class are returned in an array by the {@see Criterion::getSpecifications()} method.'
+    type: object
+    properties:
+        operator:
+            description: 'Specified operator, as one of the Operator::* constants.'
+            type: string
+        valueFormat:
+            description: 'Format supported for the Criterion value, either {@see self::FORMAT_SINGLE} for single or {@see self::FORMAT_ARRAY} for multiple.'
+            type: string
+        valueTypes:
+            description: 'Accepted values types, specifying what type of variables are accepted as a value. Criterion input value type description constants: const TYPE_INTEGER = 1; const TYPE_STRING = 2; const TYPE_BOOLEAN = 4.'
+            type: integer
+        valueCount:
+            description: 'Limitation on the number of items as the value. Only usable if {@see $valueFormat} is {@see self::FORMAT_ARRAY}.'
+            type: integer
 
 # StringLengthValidator:
 #     description: 'Validator for checking min. and max. length of strings.'
@@ -2799,9 +2802,9 @@ CartView:
     type: object
     properties:
         identifier: string
-        Result: ViewResult
+        Result: CartListViewResult
 
-ViewResult:
+CartListViewResult:
     type: object
     properties:
         count: integer
@@ -2822,107 +2825,137 @@ CartMetadataUpdate:
         names: Value[]
         descriptions: Value[]
 
-# Catalog:
-#     description: 'This class represents a catalog.'
-#     type: object
-#     properties:
-#         identifier:
-#             type: string
-#         name:
-#             type: string
-#         description:
-#             type: string
-#         created:
-#             type: integer
-#         modified:
-#             type: integer
-#         status:
-#             type: string
-#         User:
-#             type: User
-#         Criteria:
-#             type: Criterion
+CatalogWrapper:
+    properties:
+        Catalog: Catalog
 
-# CatalogList:
-#     description: 'This class represents a catalog list.'
-#     type: object
-#     properties:
-#         Catalogs:
-#             type: Catalog[]
+Catalog:
+    description: 'This class represents a catalog.'
+    type: object
+    properties:
+        identifier:
+            type: string
+        name:
+            type: string
+        description:
+            type: string
+        created:
+            type: integer
+        modified:
+            type: integer
+        status:
+            type: string
+        User:
+            type: Ref
+        Criteria:
+            type: Criterion[]
 
-# CatalogCreate:
-#     description: 'This class is used to create a catalog.'
-#     type: object
-#     properties:
-#         identifier:
-#             type: string
-#         Criteria:
-#             type: Criterion
-#         names:
-#             type: object
-#         descriptions:
-#             type: object
-#         status:
-#             type: string
-#         creator_id:
-#             type: integer
+CatalogList:
+    description: 'This class represents a catalog list.'
+    type: object
+    properties:
+        Catalog:
+            type: Catalog[]
 
-# CatalogUpdate:
-#     description: 'This class is used to update a catalog.'
-#     type: object
-#     properties:
-#         identifier:
-#             type: string
-#         transition:
-#             type: string
-#         Criteria:
-#             type: Criterion
-#         names:
-#             type: object
-#         descriptions:
-#             type: object
+CatalogCreateWrapper:
+    properties:
+        CatalogCreate: CatalogCreate
 
-# CatalogCopy:
-#     description: 'This class is used to copy a catalog.'
-#     type: object
-#     properties:
-#         identifier:
-#             type: string
-#         creator_id:
-#             description: 'Optional'
-#             type: integer
+CatalogCreate:
+    description: 'This class is used to create a catalog.'
+    type: object
+    properties:
+        identifier:
+            type: string
+        criteria:
+            type: Criterion
+        names:
+            type: object
+        descriptions:
+            type: object
+            required: false
+        status:
+            type: string
+        creator_id:
+            type: integer
+            required: false
 
-# CatalogViewInput:
-#     description: 'This class represents a catalog view input.'
-#     type: object
-#     properties:
-#         CatalogQuery:
-#             type: object
+CatalogUpdateWrapper:
+    properties:
+        CatalogUpdate: CatalogUpdate
 
-# ProductFilterList:
-#     description: 'This class represents a product filter list.'
-#     type: object
-#     properties:
-#         productFilters:
-#             type: ProductFilter[]
+CatalogUpdate:
+    description: 'This class is used to update a catalog.'
+    type: object
+    properties:
+        identifier:
+            type: string
+        transition:
+            type: string
+        criteria:
+            type: Criterion
+        names:
+            type: object
+        descriptions:
+            type: object
 
-# ProductFilter:
-#     type: object
-#     properties:
-#         name: string
+CatalogCopyWrapper:
+    properties:
+        CatalogCopy: CatalogCopy
 
-# ProductSortClause:
-#     type: object
-#     properties:
-#         name:
-#             type: string
+CatalogCopy:
+    description: 'This class is used to copy a catalog.'
+    type: object
+    properties:
+        identifier:
+            type: string
+        creator_id:
+            description: 'Optional'
+            type: integer
 
-# ProductSortClauseList:
-#     description: 'This class represents a product sort clause list.'
-#     type: object
-#     properties:
-#         productSortClauses:
-#             type: ProductSortClause[]
+CatalogViewInputWrapper:
+    properties:
+        ViewInput: CatalogViewInput
+
+CatalogViewInput:
+    description: 'This class represents a catalog view input.'
+    type: object
+    properties:
+        CatalogQuery:
+            type: object
+
+ProductFilterListWrapper:
+    properties:
+        ProductFilterList: ProductFilterList
+
+ProductFilterList:
+    description: 'This class represents a product filter list.'
+    type: object
+    properties:
+        ProductFilter:
+            type: ProductFilter[]
+
+ProductFilter:
+    type: object
+    properties:
+        name: string
+
+ProductSortClause:
+    type: object
+    properties:
+        name:
+            type: string
+
+ProductSortClauseListWrapper:
+    properties:
+        ProductSortClauseList: ProductSortClauseList
+
+ProductSortClauseList:
+    description: 'This class represents a product sort clause list.'
+    type: object
+    properties:
+        ProductSortClause:
+            type: ProductSortClause[]
 
 Currency:
     description: 'This class represents currency.'
@@ -3402,23 +3435,47 @@ Product:
 #             type: array
 #             items: object
 
-# ProductViewInput:
-#     description: 'This class represents a product view input.'
-#     type: object
-#     properties:
-#         ProductQuery:
-#             type: object
+ProductViewInputWrapper:
+    properties:
+        ViewInput: ProductViewInput
 
-# ProductView:
-#     description: 'This class represents a product view.'
-#     type: object
-#     properties:
-#         identifier:
-#             type: string
-#         ProductQuery:
-#             type: object
-#         Result:
-#             type: object
+ProductViewInput:
+    description: 'This class represents a product view input.'
+    type: object
+    properties:
+        ProductQuery:
+            type: object
+
+CatalogViewWrapper:
+    properties:
+        CatalogView: CatalogView
+
+CatalogView:
+    type: BaseObject
+    properties:
+        identifier: string
+        CatalogQuery: Ref
+        Result: CatalogListViewResult
+
+CatalogListViewResult:
+    type: BaseObject
+    properties:
+        CatalogList: CatalogList
+
+ProductViewWrapper:
+    properties:
+        ProductView: ProductView
+
+ProductView:
+    description: 'This class represents a product view.'
+    type: object
+    properties:
+        identifier:
+            type: string
+        ProductQuery:
+            type: object
+        Result:
+            type: object
 
 # ProductVariant:
 #     description: 'This class represents a product variant.'
