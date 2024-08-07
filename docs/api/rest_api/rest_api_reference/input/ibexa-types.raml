@@ -2957,6 +2957,10 @@ ProductSortClauseList:
         ProductSortClause:
             type: ProductSortClause[]
 
+CurrencyWrapper:
+    properties:
+        Currency: Currency
+
 Currency:
     description: 'This class represents currency.'
     type: object
@@ -2970,43 +2974,59 @@ Currency:
         enabled:
             type: boolean
 
-# CurrencyList:
-#     description: 'This class represents a currency list.'
-#     type: object
-#     properties:
-#         Currencies:
-#             type: Currency[]
+CurrencyListWrapper:
+    properties:
+        CurrencyList: CurrencyList
 
-# CurrencyCreate:
-#     description: 'This class is used to create currency.'
-#     type: object
-#     properties:
-#         code:
-#             type: string
-#         subunits:
-#             type: integer
-#         enabled:
-#             type: boolean
+CurrencyList:
+    description: 'This class represents a currency list.'
+    type: BaseObject
+    properties:
+        Currency:
+            type: Currency[]
 
-# CurrencyUpdate:
-#     description: 'This class is used to update currency.'
-#     type: object
-#     properties:
-#         subunits:
-#             type: integer
-#         enabled:
-#             type: boolean
+CurrencyCreateWrapper:
+    properties:
+        CurrencyCreate: CurrencyCreate
 
-# CurrencyView:
-#     description: 'This class represents a currency view.'
-#     type: object
-#     properties:
-#         identifier:
-#             type: string
-#         CurrencyQuery:
-#             type: object
-#         Result:
-#             type: object
+CurrencyCreate:
+    description: 'This class is used to create currency.'
+    type: object
+    properties:
+        code:
+            type: string
+        subunits:
+            type: integer
+        enabled:
+            type: boolean
+
+CurrencyUpdateWrapper:
+    properties:
+        CurrencyUpdate: CurrencyUpdate
+
+CurrencyUpdate:
+    description: 'This class is used to update currency.'
+    type: object
+    properties:
+        subunits:
+            type: integer
+        enabled:
+            type: boolean
+
+CurrencyViewWrapper:
+    properties:
+        CurrencyView: CurrencyView
+
+CurrencyView:
+    description: 'This class represents a currency view.'
+    type: object
+    properties:
+        identifier:
+            type: string
+        CurrencyQuery:
+            type: object
+        Result:
+            type: object
 
 Region:
     description: 'This class represents a region.'
@@ -3268,12 +3288,16 @@ Attribute:
 #         Result:
 #             type: object
 
-# CurrencyViewInput:
-#     description: 'This class represents a currency view input.'
-#     type: object
-#     properties:
-#         CurrencyQuery:
-#             type: object
+CurrencyViewInputWrapper:
+    properties:
+        ViewInput: CurrencyViewInput
+
+CurrencyViewInput:
+    description: 'This class represents a currency view input.'
+    type: object
+    properties:
+        CurrencyQuery:
+            type: object
 
 AttributeAssignment:
     type: object
