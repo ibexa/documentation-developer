@@ -18,14 +18,14 @@ displayName: Monitoring activity
                 type: string
                 description: |
                     Maximum number of returned log groups (default: <code>limit=25</code>)
-                    
+
                     Example: <code>limit=10</code>
             filter:
                 type: array
                 description: |
                     List of filters (no filter by default).
                     A filter is a type and parameters depending on this type.
-                    
+
                     - type: `object_class`, parameter: `class` (a FQCN)
                     - type: `action`, parameter: `value` (the action)
                     - type: `logged_at`, parameters: `value` and `operator`
@@ -40,23 +40,23 @@ displayName: Monitoring activity
                     | Less than or equal    | `<=`  |
                     | Greater than          | `>`   |
                     | Greater than or equal | `>=`  |
-                    
+
                     Example: `filter[0][type]=object_class&filter[0][class]=Ibexa\Contracts\Core\Repository\Values\Content\Content&filter[1][type]=action&filter[1][value]=create&filter[2][type]=logged_at&filter[2][value]=-1hour&filter[2][operator]=>=`
             sort:
                 type: array
                 description: |
                     List of sort clause and direction pairs
                     (default: <code>sort[0][type]=logged_at&sort[0][direction]=ASC</code>)
-                    
+
                     Example: <code>sort[0][type]=logged_at&sort[0][direction]=DESC</code>
         responses:
             200:
                 body:
                     application/vnd.ibexa.api.ActivityLogGroupList+xml:
                         type: ActivityLogGroupList
-                        example: !include examples/activityloggroup/GET/ActivityLogGroupList.xml.example
+                        # example: !include examples/activityloggroup/GET/ActivityLogGroupList.xml.example
                     application/vnd.ibexa.api.ActivityLogGroupList+json:
-                        type: ActivityLogGroupList
+                        type: ActivityLogGroupListWrapper
                         example: !include examples/activityloggroup/GET/ActivityLogGroupList.json.example
             401:
                 description: Error - the user is not authorized to list activities.
@@ -77,18 +77,18 @@ displayName: Monitoring activity
         body:
             application/vnd.ibexa.api.ActivityLogGroupListInput+xml:
                 type: ActivityLogGroupListInput
-                example: !include examples/activityloggroup/POST/ActivityLogGroupListInput.xml.example
+                # example: !include examples/activityloggroup/POST/ActivityLogGroupListInput.xml.example
             application/vnd.ibexa.api.ActivityLogGroupListInput+json:
-                type: ActivityLogGroupListInput
+                type: ActivityLogGroupListInputWrapper
                 example: !include examples/activityloggroup/POST/ActivityLogGroupListInput.json.example
         responses:
             200:
                 body:
                     application/vnd.ibexa.api.ActivityLogGroupList+xml:
                         type: ActivityLogGroupList
-                        example: !include examples/activityloggroup/POST/ActivityLogGroupList.xml.example
+                        # example: !include examples/activityloggroup/POST/ActivityLogGroupList.xml.example
                     application/vnd.ibexa.api.ActivityLogGroupList+json:
-                        type: ActivityLogGroupList
+                        type: ActivityLogGroupListWrapper
                         example: !include examples/activityloggroup/POST/ActivityLogGroupList.json.example
             401:
                 description: Error - the user is not authorized to list activities.
