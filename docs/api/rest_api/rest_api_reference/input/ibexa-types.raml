@@ -143,39 +143,43 @@ Content:
             description: 'Object states.'
             type: BaseObject
 
-# ContentCreate:
-#     description: 'This class is used for creating a new content item.'
-#     type: object
-#     properties:
-#         ContentType:
-#             description: 'The content type for which the new content item is created.'
-#             required: true
-#             type: ContentType
-#         Section:
-#             description: 'The Section the content item is assigned to. If not set the Section of the parent is used or a default Section.'
-#             type: Section
-#         User:
-#             description: 'The owner of the content. If not given the current authenticated User is set as owner.'
-#             type: integer
-#         alwaysAvailable:
-#             description: "Indicates if the content item is shown in the main language if it's not present in an other requested language."
-#             type: boolean
-#         remoteId:
-#             description: 'Remote identifier used as a custom identifier for the content item. Needs to be a unique Content->remoteId string value.'
-#             type: string
-#         mainLanguageCode:
-#             description: 'The main language code for the content. This language will also be used for as initial language for the first created version. It is also used as default language for added fields.'
-#             required: true
-#             type: string
-#         modificationDate:
-#             description: 'Modification date. If not given, the current integer is used.'
-#             type: datetime
-#         LocationCreate:
-#             type: object[]
-#         fields:
-#             type: object
-#             properties:
-#                 field: object[]
+ContentCreate:
+    description: 'This class is used for creating a new content item.'
+    type: object
+    properties:
+        ContentType:
+            description: 'The content type for which the new content item is created.'
+            required: true
+            type: ContentCreateContentType
+        Section:
+            description: 'The Section the content item is assigned to. If not set the Section of the parent is used or a default Section.'
+            type: Section
+            required: false
+        User:
+            description: 'The owner of the content. If not given the current authenticated User is set as owner.'
+            type: integer
+            required: false
+        alwaysAvailable:
+            description: "Indicates if the content item is shown in the main language if it's not present in an other requested language."
+            type: string
+        remoteId:
+            description: 'Remote identifier used as a custom identifier for the content item. Needs to be a unique Content->remoteId string value.'
+            type: string
+            required: false
+        mainLanguageCode:
+            description: 'The main language code for the content. This language will also be used for as initial language for the first created version. It is also used as default language for added fields.'
+            required: true
+            type: string
+        modificationDate:
+            description: 'Modification date. If not given, the current integer is used.'
+            type: datetime
+            required: false
+        LocationCreate:
+            type: object
+        fields:
+            type: object
+            properties:
+                field: object[]
 
 # ContentImageVariation:
 #     description: 'This class represents an image.'
@@ -292,70 +296,85 @@ ContentInfo:
 #             description: 'Adds a field to the field collection. This method could also be implemented by a magic setter so that $fields[$fieldDefIdentifier][$language] = $value or without language $fields[$fieldDefIdentifier] = $value is an equivalent call.'
 #             type: string
 
-# ContentType:
-#     description: 'This class represents a content type.'
-#     type: BaseObject
-#     properties:
-#         id:
-#             description: 'Content type ID.'
-#             type: integer
-#         status:
-#             description: 'The status of the content type. Possible values: const STATUS_DEFINED = 0; Status constant for defined (aka published) Type, const STATUS_DRAFT = 1; Status constant for draft (aka temporary) Type; const STATUS_MODIFIED = 2; Status constant for modified (aka deferred for publishing) Type.'
-#             enum: [ ]
-#         identifier:
-#             description: 'String identifier of a content type.'
-#             type: string
-#         names:
-#             description: 'Name of a content type.'
-#             type: Value[]
-#         descriptions:
-#             description: 'Description of a content type.'
-#             type: Value[]
-#         creationDate:
-#             description: 'Creation date of the content type.'
-#             type: datetime
-#         modificationDate:
-#             description: 'Modification date of the content type.'
-#             type: datetime
-#         Creator:
-#             description: 'Creator User of the content type.'
-#             type: BaseObject
-#         Modifier:
-#             description: 'Modifier User of the content type.'
-#             type: BaseObject
-#         Groups:
-#             description: 'Group User of the content type.'
-#             type: BaseObject
-#         Draft:
-#             description: 'Draft of the content type.'
-#             type: BaseObject
-#         remoteId:
-#             description: 'Unique remote ID of the content type.'
-#             type: string
-#         urlAliasSchema:
-#             description: 'URL alias schema. If nothing is provided, $nameSchema will be used instead.'
-#             type: string
-#         nameSchema:
-#             description: 'Name schema. Can be composed of FieldDefinition identifier place holders.'
-#             type: string
-#         isContainer:
-#             description: 'A flag used to hint if content of this type may have children or not. It is highly recommended to respect this flag and not create/move content below non-containers. But this flag is not considered as part of the content model and the API will not in any way enforce this flag to be respected.'
-#             type: boolean
-#         defaultAlwaysAvailable:
-#             description: 'If an instance of a content type is created the always available flag is set by default to this value.'
-#             type: boolean
-#         defaultSortField:
-#             description: 'Specifies which property the child Locations should be sorted on by default when created. Map for Location sort fields to their respective SortClauses - class name/identifier and modified subnode. One of the fallowing values: const SORT_FIELD_PATH = 1; const SORT_FIELD_PUBLISHED = 2; const SORT_FIELD_MODIFIED = 3; const SORT_FIELD_SECTION = 4; const SORT_FIELD_DEPTH = 5; const SORT_FIELD_PRIORITY = 8; const SORT_FIELD_NAME = 9; const SORT_FIELD_NODE_ID = 11; const SORT_FIELD_CONTENTOBJECT_ID = 12.'
-#             enum: [ ]
-#         defaultSortOrder:
-#             description: 'Specifies whether the sort order should be ascending or descending by default when created. Map for Location sort order to their respective Query SORT constants. Possible values: const SORT_ORDER_DESC = 0; const SORT_ORDER_ASC = 1.'
-#             enum: [ ]
-#         FieldDefinitions:
-#             description: 'This method returns the content type Field definitions from this type.'
-#             type: BaseObject
-#             properties:
-#                 FieldDefinitions:
-#                     type: FieldDefinition[]
+ContentCreateContentType:
+    type: object
+    properties:
+        _href:
+            type: string
+            xml:
+                attribute: true
+                name: href
+        FieldDefinitions:
+            type: BaseObject
+            properties:
+                FieldDefinitions:
+                    type: FieldDefinition[]
+                    required: false
+
+ContentType:
+    description: 'This class represents a content type.'
+    type: BaseObject
+    properties:
+        id:
+            description: 'Content type ID.'
+            type: integer
+        status:
+            description: 'The status of the content type. Possible values: const STATUS_DEFINED = 0; Status constant for defined (aka published) Type, const STATUS_DRAFT = 1; Status constant for draft (aka temporary) Type; const STATUS_MODIFIED = 2; Status constant for modified (aka deferred for publishing) Type.'
+            enum: [ ]
+        identifier:
+            description: 'String identifier of a content type.'
+            type: string
+        names:
+            description: 'Name of a content type.'
+            type: Value[]
+        descriptions:
+            description: 'Description of a content type.'
+            type: Value[]
+        creationDate:
+            description: 'Creation date of the content type.'
+            type: datetime
+        modificationDate:
+            description: 'Modification date of the content type.'
+            type: datetime
+        Creator:
+            description: 'Creator User of the content type.'
+            type: BaseObject
+        Modifier:
+            description: 'Modifier User of the content type.'
+            type: BaseObject
+        Groups:
+            description: 'Group User of the content type.'
+            type: BaseObject
+        Draft:
+            description: 'Draft of the content type.'
+            type: BaseObject
+        remoteId:
+            description: 'Unique remote ID of the content type.'
+            type: string
+        urlAliasSchema:
+            description: 'URL alias schema. If nothing is provided, $nameSchema will be used instead.'
+            type: string
+        nameSchema:
+            description: 'Name schema. Can be composed of FieldDefinition identifier place holders.'
+            type: string
+        isContainer:
+            description: 'A flag used to hint if content of this type may have children or not. It is highly recommended to respect this flag and not create/move content below non-containers. But this flag is not considered as part of the content model and the API will not in any way enforce this flag to be respected.'
+            type: boolean
+        defaultAlwaysAvailable:
+            description: 'If an instance of a content type is created the always available flag is set by default to this value.'
+            type: boolean
+        defaultSortField:
+            description: 'Specifies which property the child Locations should be sorted on by default when created. Map for Location sort fields to their respective SortClauses - class name/identifier and modified subnode. One of the fallowing values: const SORT_FIELD_PATH = 1; const SORT_FIELD_PUBLISHED = 2; const SORT_FIELD_MODIFIED = 3; const SORT_FIELD_SECTION = 4; const SORT_FIELD_DEPTH = 5; const SORT_FIELD_PRIORITY = 8; const SORT_FIELD_NAME = 9; const SORT_FIELD_NODE_ID = 11; const SORT_FIELD_CONTENTOBJECT_ID = 12.'
+            enum: [ ]
+        defaultSortOrder:
+            description: 'Specifies whether the sort order should be ascending or descending by default when created. Map for Location sort order to their respective Query SORT constants. Possible values: const SORT_ORDER_DESC = 0; const SORT_ORDER_ASC = 1.'
+            enum: [ ]
+        FieldDefinitions:
+            description: 'This method returns the content type Field definitions from this type.'
+            type: BaseObject
+            properties:
+                FieldDefinitions:
+                    type: FieldDefinition[]
 
 # ContentTypeCreateStruct:
 #     description: 'This class is used for creating content types.'
@@ -856,52 +875,52 @@ Field:
 #     properties:
 #         FieldDefinition: FieldDefinition[]
 
-# FieldDefinition:
-#     description: 'This class represents a Field definition.'
-#     type: BaseObject
-#     properties:
-#         id:
-#             description: 'The unique ID of this Field definition.'
-#             type: integer
-#         identifier:
-#             description: 'Readable string identifier of a Field definition.'
-#             type: string
-#         fieldType:
-#             description: 'String identifier of the field type.'
-#             type: string
-#         fieldGroup:
-#             description: 'Field group name.'
-#             type: string
-#         position:
-#             description: 'The position of the Field definition in the content type.'
-#             type: integer
-#         isTranslatable:
-#             description: 'If the field is translatable.'
-#             type: boolean
-#         isRequired:
-#             description: 'Is the field required.'
-#             type: boolean
-#         isInfoCollector:
-#             description: 'The flag if this field is used for information collection.'
-#             type: boolean
-#         defaultValue:
-#             description: 'Default value of the field.'
-#             type: any
-#         isSearchable:
-#             description: 'Indicates if th the content is searchable by this attribute.'
-#             type: boolean
-#         names:
-#             description: 'Names of content types.'
-#             type: Value[]
-#         descriptions:
-#             description: 'Descriptions of content types.'
-#             type: Value[]
-#         fieldSettings:
-#             description: 'Settings for the Field definition supported by the field type.'
-#             type: any
-#         validatorConfiguration:
-#             description: 'Validator configuration of this Field definition supported by the field type.'
-#             type: StringLengthValidator
+FieldDefinition:
+    description: 'This class represents a Field definition.'
+    type: BaseObject
+    properties:
+        id:
+            description: 'The unique ID of this Field definition.'
+            type: integer
+        identifier:
+            description: 'Readable string identifier of a Field definition.'
+            type: string
+        fieldType:
+            description: 'String identifier of the field type.'
+            type: string
+        fieldGroup:
+            description: 'Field group name.'
+            type: string
+        position:
+            description: 'The position of the Field definition in the content type.'
+            type: integer
+        isTranslatable:
+            description: 'If the field is translatable.'
+            type: boolean
+        isRequired:
+            description: 'Is the field required.'
+            type: boolean
+        isInfoCollector:
+            description: 'The flag if this field is used for information collection.'
+            type: boolean
+        defaultValue:
+            description: 'Default value of the field.'
+            type: any
+        isSearchable:
+            description: 'Indicates if th the content is searchable by this attribute.'
+            type: boolean
+        names:
+            description: 'Names of content types.'
+            type: Value[]
+        descriptions:
+            description: 'Descriptions of content types.'
+            type: Value[]
+        fieldSettings:
+            description: 'Settings for the Field definition supported by the field type.'
+            type: any
+        validatorConfiguration:
+            description: 'Validator configuration of this Field definition supported by the field type.'
+            type: StringLengthValidator
 
 # FieldDefinitionCreate:
 #     type: BaseObject
@@ -1702,19 +1721,19 @@ Relation:
 #             description: 'The value objects found for the query.'
 #             type: URL[]
 
-# Section:
-#     description: 'This class represents a Section.'
-#     type: BaseObject
-#     properties:
-#         sectionId:
-#             description: 'ID of the Section.'
-#             type: integer
-#         identifier:
-#             description: 'Unique identifier of the Section.'
-#             type: string
-#         name:
-#             description: 'Name of the Section.'
-#             type: string
+Section:
+    description: 'This class represents a Section.'
+    type: BaseObject
+    properties:
+        sectionId:
+            description: 'ID of the Section.'
+            type: integer
+        identifier:
+            description: 'Unique identifier of the Section.'
+            type: string
+        name:
+            description: 'Name of the Section.'
+            type: string
 
 # SectionInput:
 #     type: BaseObject
@@ -1845,16 +1864,16 @@ Specifications:
             description: 'Limitation on the number of items as the value. Only usable if {@see $valueFormat} is {@see self::FORMAT_ARRAY}.'
             type: integer
 
-# StringLengthValidator:
-#     description: 'Validator for checking min. and max. length of strings.'
-#     type: object
-#     properties:
-#         maxStringLength:
-#             description: 'Maximum length of strings.'
-#             type: integer
-#         minStringLength:
-#             description: 'Minimum length of strings.'
-#             type: integer
+StringLengthValidator:
+    description: 'Validator for checking min. and max. length of strings.'
+    type: object
+    properties:
+        maxStringLength:
+            description: 'Maximum length of strings.'
+            type: integer
+        minStringLength:
+            description: 'Minimum length of strings.'
+            type: integer
 
 # SubtreeLimitation:
 #     type: RoleLimitation
@@ -2965,7 +2984,7 @@ CurrencyWrapper:
 
 Currency:
     description: 'This class represents currency.'
-    type: object
+    type: BaseObject
     properties:
         id:
             type: integer
@@ -3522,6 +3541,10 @@ ProductTypeView:
         Result:
             type: object
 
+ProductWrapper:
+    properties:
+        Product: Product
+
 Product:
     description: 'This class represents a product.'
     type: object
@@ -3540,6 +3563,7 @@ Product:
             type: ProductType
         Content:
             type: Content
+            required: false
         Thumbnail:
             type: Thumbnail
             required: false
@@ -3552,54 +3576,86 @@ Product:
         AttributesList:
             type: Attribute[]
 
-# ProductList:
-#     description: 'This class represents a product list.'
-#     type: object
-#     properties:
-#         Products:
-#             type: Product[]
+ProductListWrapper:
+    properties:
+        ProductList: ProductList
 
-# ProductListGet:
-#     description: 'This class represents a product list GET.'
-#     type: object
-#     properties:
-#         offset:
-#             type: integer
-#         limit:
-#             type: integer
-#         languages:
-#             type: string[]
+ProductList:
+    description: 'This class represents a product list.'
+    type: object
+    properties:
+        Product:
+            type: Product[]
 
-# ProductGet:
-#     description: 'This class represents a product GET.'
-#     type: object
-#     properties:
-#         languages:
-#             type: string[]
+ProductListGetWrapper:
+    properties:
+        ProductListGet: ProductListGet
 
-# ProductCreate:
-#     description: 'This class is used to create a product.'
-#     type: object
-#     properties:
-#         ContentCreate:
-#             type: ContentCreate
-#         code:
-#             type: string
-#         attributes:
-#             type: array
-#             items: object
+ProductListGet:
+    description: 'This class represents a product list GET.'
+    type: object
+    properties:
+        offset:
+            type: integer
+        limit:
+            type: integer
+        languages:
+            type: string[]
 
-# ProductUpdate:
-#     description: 'This class is used to update a product.'
-#     type: object
-#     properties:
-#         ContentUpdate:
-#             type: ContentUpdate
-#         code:
-#             type: string
-#         attributes:
-#             type: array
-#             items: object
+ProductGetWrapper:
+    properties:
+        ProductGet: ProductGet
+
+ProductGet:
+    description: 'This class represents a product GET.'
+    type: object
+    properties:
+        languages:
+            type: string[]
+
+ProductCreateWrapper:
+    properties:
+        ProductCreate: ProductCreate
+
+ProductCreate:
+    description: 'This class is used to create a product.'
+    type: object
+    properties:
+        ContentCreate:
+            type: ContentCreate
+        code:
+            type: string
+        attributes:
+            type: object
+
+ProductUpdateWrapper:
+    properties:
+        ProductUpdate: ProductUpdate
+
+ProductUpdate:
+    description: 'This class is used to update a product.'
+    type: object
+    properties:
+        ContentUpdate:
+            type: ProductContentUpdate
+        code:
+            type: string
+        attributes:
+            type: array
+            items: object
+            required: false
+
+ProductContentUpdate:
+    type: object
+    properties:
+        __url:
+            type: string
+            xml:
+                attribute: true
+        fields:
+            properties:
+                field:
+                    type: Field[]
 
 ProductViewInputWrapper:
     properties:
@@ -4010,9 +4066,13 @@ SummaryEntryCollection:
         SummaryEntry:
             type: SummaryEntry[]
 
+PriceWrapper:
+    properties:
+        Price: Price
+
 Price:
     description: 'This class represents a price.'
-    type: object
+    type: BaseObject
     properties:
         amount:
             type: string
@@ -4022,32 +4082,37 @@ Price:
         Currency:
             type: Currency
         money:
-            type: object
+            type: string
             required: false
         base_money:
-            type: object
+            type: string
             required: false
 
-# CustomPrice:
-#     description: 'This class represents a custom price.'
-#     type: object
-#     properties:
-#         amount:
-#             type: string
-#         base_amount:
-#             type: string
-#         Currency:
-#             type: Currency
-#         money:
-#             type: object
-#         base_money:
-#             type: object
-#         custom_money:
-#             type: object
-#         custom_amount:
-#             type: string
-#         custom_rule:
-#             type: string
+CustomPriceWrapper:
+    properties:
+        CustomPrice: CustomPrice
+
+CustomPrice:
+    description: 'This class represents a custom price.'
+    type: BaseObject
+    properties:
+        amount:
+            type: string
+        base_amount:
+            type: string
+        Currency:
+            type: Currency
+        money:
+            type: string
+        base_money:
+            type: string
+        custom_money:
+            type: string
+        custom_amount:
+            type: string
+        custom_rule:
+            type: string | nil
+            required: false
 
 RestPriceWrapper:
     type: BaseObject
@@ -4062,54 +4127,74 @@ RestPrice:
         formatted:
             type: string
 
-# PriceList:
-#     description: 'This class represents a price list.'
-#     type: object
-#     properties:
-#         prices:
-#             type: Price[]
+PriceListWrapper:
+    properties:
+        PriceList: PriceList
 
-# PriceCreateStruct:
-#     description: 'This class represents a price creation structure.'
-#     type: object
-#     properties:
-#         amount:
-#             type: string
-#         currency:
-#             type: string
+PriceList:
+    description: 'This class represents a price list.'
+    type: object
+    properties:
+        prices:
+            type: Price[]
 
-# CustomPriceCreateStruct:
-#     description: 'This class represents a custom price creation structure.'
-#     type: object
-#     properties:
-#         amount:
-#             type: string
-#         currency:
-#             type: string
-#         custom_amount:
-#             type: string
-#         customerGroups:
-#             type: CustomerGroup[]
+PriceCreateStructWrapper:
+    properties:
+        PriceCreateStruct: PriceCreateStruct
 
-# PriceUpdateStruct:
-#     description: 'This class represents a price updating structure.'
-#     type: object
-#     properties:
-#         amount:
-#             type: string
-#         currency:
-#             type: string
+PriceCreateStruct:
+    description: 'This class represents a price creation structure.'
+    type: object
+    properties:
+        amount:
+            type: integer
+        currency:
+            type: string
 
-# CustomPriceUpdateStruct:
-#     description: 'This class represents a custom price updating structure.'
-#     type: object
-#     properties:
-#         amount:
-#             type: string
-#         currency:
-#             type: string
-#         customAmount:
-#             type: string
+CustomPriceCreateStructWrapper:
+    properties:
+        CustomPriceCreateStruct: CustomPriceCreateStruct
+
+CustomPriceCreateStruct:
+    description: 'This class represents a custom price creation structure.'
+    type: object
+    properties:
+        amount:
+            type: integer
+        currency:
+            type: string
+        customAmount:
+            type: integer
+        customerGroup:
+            type: string
+
+PriceUpdateStructWrapper:
+    properties:
+        PriceUpdateStruct: PriceUpdateStruct
+
+PriceUpdateStruct:
+    description: 'This class represents a price updating structure.'
+    type: object
+    properties:
+        amount:
+            type: integer
+        currency:
+            type: string
+
+CustomPriceUpdateStructWrapper:
+    properties:
+        CustomPriceUpdateStruct: CustomPriceUpdateStruct
+
+CustomPriceUpdateStruct:
+    description: 'This class represents a custom price updating structure.'
+    type: object
+    properties:
+        amount:
+            type: integer
+        currency:
+            type: string
+        customAmount:
+            type: integer
 
 VatCategorySummary:
     description: 'This class represents a VAT category summary.'
