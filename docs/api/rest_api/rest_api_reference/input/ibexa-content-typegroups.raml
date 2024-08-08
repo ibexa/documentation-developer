@@ -18,9 +18,9 @@ get:
             body:
                 application/vnd.ibexa.api.ContentTypeGroupList+xml:
                     type: ContentTypeGroupList
-                    example: !include examples/content/typegroups/GET/ContentTypeGroupList.xml.example
+                    # example: !include examples/content/typegroups/GET/ContentTypeGroupList.xml.example
                 application/vnd.ibexa.api.ContentTypeGroupList+json:
-                    type: ContentTypeGroupList
+                    type: ContentTypeGroupListWrapper
                     example: !include examples/content/typegroups/GET/ContentTypeGroupList.json.example
         307:
             description: Temporary redirect.
@@ -45,9 +45,9 @@ post:
     body:
         application/vnd.ibexa.api.ContentTypeGroupInput+xml:
             type: ContentTypeGroupInput
-            example: !include examples/content/typegroups/POST/ContentTypeGroupInput.xml.example
+            # example: !include examples/content/typegroups/POST/ContentTypeGroupInput.xml.example
         application/vnd.ibexa.api.ContentTypeGroupInput+json:
-            type: ContentTypeGroupInput
+            type: ContentTypeGroupInputWrapper
             example: !include examples/content/typegroups/POST/ContentTypeGroupInput.json.example
     responses:
         201:
@@ -55,9 +55,9 @@ post:
             body:
                 application/vnd.ibexa.api.ContentTypeGroup+xml:
                     type: ContentTypeGroup
-                    example: !include examples/content/typegroups/POST/ContentTypeGroup.xml.example
+                    # example: !include examples/content/typegroups/POST/ContentTypeGroup.xml.example
                 application/vnd.ibexa.api.ContentTypeGroup+json:
-                    type: ContentTypeGroup
+                    type: ContentTypeGroupWrapper
                     example: !include examples/content/typegroups/POST/ContentTypeGroup.json.example
         400:
             description: Error - The input does not match the input schema definition.
@@ -82,10 +82,10 @@ post:
                 description: OK - returns the content type group.
                 body:
                     application/vnd.ibexa.api.ContentTypeGroup+xml:
-                        type: ContentTypeGroup
-                        example: !include examples/content/typegroups/content_type_group_id/GET/ContentTypeGroup.xml.example
+                        type: ContentTypeList
+                        # example: !include examples/content/typegroups/content_type_group_id/GET/ContentTypeGroup.xml.example
                     application/vnd.ibexa.api.ContentTypeGroup+json:
-                        type: ContentTypeGroup
+                        type: ContentTypeListWrapper
                         example: !include examples/content/typegroups/content_type_group_id/GET/ContentTypeGroup.json.example
             401:
                 description: Error - The user is not authorized to read this content type group.
@@ -110,9 +110,9 @@ post:
         body:
             application/vnd.ibexa.api.ContentTypeGroupInput+xml:
                 type: ContentTypeGroupInput
-                example: !include examples/content/typegroups/content_type_group_id/PATCH/ContentTypeGroupInput.xml.example
+                # example: !include examples/content/typegroups/content_type_group_id/PATCH/ContentTypeGroupInput.xml.example
             application/vnd.ibexa.api.ContentTypeGroupInput+json:
-                type: ContentTypeGroupInput
+                type: ContentTypeGroupInputWrapper
                 example: !include examples/content/typegroups/content_type_group_id/PATCH/ContentTypeGroupInput.json.example
         responses:
             200:
@@ -120,9 +120,9 @@ post:
                 body:
                     application/vnd.ibexa.api.ContentTypeGroup+xml:
                         type: ContentTypeGroup
-                        example: !include examples/content/typegroups/content_type_group_id/PATCH/ContentTypeGroup.xml.example
+                        # example: !include examples/content/typegroups/content_type_group_id/PATCH/ContentTypeGroup.xml.example
                     application/vnd.ibexa.api.ContentTypeGroup+json:
-                        type: ContentTypeGroup
+                        type: ContentTypeGroupWrapper
                         example: !include examples/content/typegroups/content_type_group_id/PATCH/ContentTypeGroup.json.example
             400:
                 description: Error - The input does not match the input schema definition.
@@ -162,14 +162,14 @@ post:
                     body:
                         application/vnd.ibexa.api.ContentTypeInfoList+xml:
                             type: ContentTypeInfoList
-                            example: !include examples/content/typegroups/content_type_group_id/types/GET/ContentTypeInfoList.xml.example
+                            # example: !include examples/content/typegroups/content_type_group_id/types/GET/ContentTypeInfoList.xml.example
                         application/vnd.ibexa.api.ContentTypeInfoList+json:
-                            type: ContentTypeInfoList
+                            type: ContentTypeInfoListWrapper
                             example: !include examples/content/typegroups/content_type_group_id/types/GET/ContentTypeInfoList.json.example
                         application/vnd.ibexa.api.ContentTypeList+xml:
                             type: ContentTypeList
                         application/vnd.ibexa.api.ContentTypeList+json:
-                            type: ContentTypeList
+                            type: ContentTypeListWrapper
                 401:
                     description: Error - The user has no permission to read the content types.
         post:
@@ -193,9 +193,9 @@ post:
             body:
                 application/vnd.ibexa.api.ContentTypeCreate+xml:
                     type: ContentTypeCreate
-                    example: !include examples/content/typegroups/content_type_group_id/types/POST/ContentTypeCreate.xml.example
+                    # example: !include examples/content/typegroups/content_type_group_id/types/POST/ContentTypeCreate.xml.example
                 application/vnd.ibexa.api.ContentTypeCreate+json:
-                    type: ContentTypeCreate
+                    type: ContentTypeCreateWrapper
                     example: !include examples/content/typegroups/content_type_group_id/types/POST/ContentTypeCreate.json.example
             responses:
                 201:
@@ -203,9 +203,9 @@ post:
                     body:
                         application/vnd.ibexa.api.ContentType+xml:
                             type: ContentType
-                            example: !include examples/content/typegroups/content_type_group_id/types/POST/ContentType.xml.example
+                            # example: !include examples/content/typegroups/content_type_group_id/types/POST/ContentType.xml.example
                         application/vnd.ibexa.api.ContentType+json:
-                            type: ContentType
+                            type: ContentTypeWrapper
                 400:
                     description: Error - The input does not match the input schema definition. Validation on a Field definition fails. Validation of the content type fails, e.g. multiple Fields of a same singular Field Type are provided. Publish is set to true and the input is not complete e.g. no Field definitions are provided.
                 401:
