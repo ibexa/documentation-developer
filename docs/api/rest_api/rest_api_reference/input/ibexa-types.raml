@@ -499,8 +499,12 @@ ContentTypeGroup:
             description: 'Content types.'
             type: BaseObject
 
-# ContentTypeGroupInput:
-#     type: BaseObject
+ContentTypeGroupInputWrapper:
+    properties:
+        ContentTypeGroupInput: ContentTypeGroupInput
+
+ContentTypeGroupInput:
+    type: object
 
 # ContentTypeGroupCreateStruct:
 #     description: 'This class is used for creating a content type group.'
@@ -512,12 +516,17 @@ ContentTypeGroup:
 #         creationDate:
 #             description: 'If set this value overrides the current time for creation.'
 #             type: datetime
-# ContentTypeGroupList:
-#     description: 'List of content type groups.'
-#     type: BaseObject
-#     properties:
-#         ContentTypeGroup:
-#             type: ContentTypeGroup[]
+
+ContentTypeGroupListWrapper:
+    properties:
+        ContentTypeGroupList: ContentTypeGroupList
+
+ContentTypeGroupList:
+    description: 'List of content type groups.'
+    type: BaseObject
+    properties:
+        ContentTypeGroup:
+            type: ContentTypeGroup[]
 
 ContentTypeGroupRef:
     description: 'Content type group reference.'
@@ -2733,41 +2742,48 @@ VersionUpdate:
 #         Result:
 #             type: object
 
-# ContentTypeCreate:
-#     description: 'This class is used to create a content type.'
-#     type: BaseObject
-#     properties:
-#         identifier:
-#             type: string
-#         mainLanguageCode:
-#             type: string
-#         remoteId:
-#             type: string
-#         urlAliasSchema:
-#             type: string
-#         nameSchema:
-#             type: string
-#         isContainer:
-#             type: boolean
-#         defaultSortField:
-#             description: 'Specifies which property the child Locations should be sorted on by default when created.'
-#             type: any
-#         defaultSortOrder:
-#             description: 'Specifies whether the sort order should be ascending or descending by default when created.'
-#             type: any
-#         defaultAlwaysAvailable:
-#             type: boolean
-#         names:
-#             type: Value[]
-#         descriptions:
-#             type: Value[]
-#         FieldDefinition:
-#             type: FieldDefinition
-#         creatorId:
-#             description: 'If set, this value overrides the current user as creator.'
-#             type: any
-#         creationDate:
-#             type: datetime
+ContentTypeCreateWrapper:
+    properties:
+        ContentTypeCreate: ContentTypeCreate
+
+ContentTypeCreate:
+    description: 'This class is used to create a content type.'
+    type: object
+    properties:
+        identifier:
+            type: string
+        mainLanguageCode:
+            type: string
+        remoteId:
+            type: string
+        urlAliasSchema:
+            type: string
+        nameSchema:
+            type: string
+        isContainer:
+            type: boolean
+        defaultSortField:
+            description: 'Specifies which property the child Locations should be sorted on by default when created.'
+            type: any
+        defaultSortOrder:
+            description: 'Specifies whether the sort order should be ascending or descending by default when created.'
+            type: any
+        defaultAlwaysAvailable:
+            type: boolean
+        names:
+            type: ValueObject
+        descriptions:
+            type: ValueObject
+        FieldDefinition:
+            type: FieldDefinition
+            required: false
+        creatorId:
+            description: 'If set, this value overrides the current user as creator.'
+            type: any
+            required: false
+        creationDate:
+            type: datetime
+            required: false
 
 ContentTypeUpdateWrapper:
     properties:
