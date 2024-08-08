@@ -1103,7 +1103,7 @@ Limitation:
     properties:
         _identifier:
             description: 'Returns the limitation identifier (one of the defined constants) or a custom limitation. Constants: CONTENTTYPE = Class; LANGUAGE = Language; LOCATION = Node; OWNER = Owner; PARENTOWNER = ParentOwner; PARENTCONTENTTYPE = ParentClass; PARENTDEPTH = ParentDepth; SECTION = Section; NEWSECTION = NewSection; SITEACCESS = SiteAccess; STATE = State; NEWSTATE = NewState; SUBTREE = Subtree; USERGROUP = Group; PARENTUSERGROUP = ParentGroup; STATUS = Status.'
-            enum: [ 'ContentType', 'Language', 'Location', 'Owner', 'Parentowner', 'ParentContentType', 'ParentDepth', 'Section', 'NewSection','Siteaccess', 'State', 'NewState', 'Subtree', 'UserGroup', 'ParentUserGroup', 'Status' ]
+            enum: [ 'ContentType', 'Language', 'Location', 'Owner', 'Parentowner', 'ParentContentType', 'ParentDepth', 'Section', 'NewSection','SiteAccess', 'State', 'NewState', 'Subtree', 'UserGroup', 'ParentUserGroup', 'Status', 'Class' ]
             xml:
                 attribute: true
                 name: identifier
@@ -1462,22 +1462,30 @@ Location:
 #             type: array
 #             items: any
 
-# Policy:
-#     description: 'This class represents a policy value.'
-#     type: BaseObject
-#     properties:
-#         id:
-#             description: 'ID of the policy.'
-#             type: integer
-#         module:
-#             description: 'Name of module, associated with the Policy e.g. content.'
-#             type: string
-#         function:
-#             description: "Name of the module function Or all functions with '*' e.g. read."
-#             type: string
-#         Limitations:
-#             description: 'Limitations.'
-#             type: Limitation[]
+PolicyWrapper:
+    properties:
+        Policy: Policy
+
+Policy:
+    description: 'This class represents a policy value.'
+    type: BaseObject
+    properties:
+        id:
+            description: 'ID of the policy.'
+            type: integer
+        module:
+            description: 'Name of module, associated with the Policy e.g. content.'
+            type: string
+        function:
+            description: "Name of the module function Or all functions with '*' e.g. read."
+            type: string
+        limitations:
+            description: 'Limitations.'
+            type: object
+            required: false
+            properties:
+                limitation:
+                    type: Limitation[]
 
 # PolicyCreateStruct:
 #     description: 'This class is used to create a policy.'
@@ -1498,12 +1506,16 @@ Location:
 #             description: 'Original policy ID the policy was created from. Used when role status is Role::STATUS_DRAFT.'
 #             type: integer
 
-# PolicyList:
-#     description: 'List of policies.'
-#     type: BaseObject
-#     properties:
-#         Policy:
-#             type: Policy[]
+PolicyListWrapper:
+    properties:
+        PolicyList: PolicyList
+
+PolicyList:
+    description: 'List of policies.'
+    type: BaseObject
+    properties:
+        Policy:
+            type: Policy[]
 
 # PolicyStruct:
 #     description: 'This class is used to edit a policy.'
@@ -1579,6 +1591,10 @@ Relation:
 #         Relation:
 #             type: Relation[]
 
+RoleWrapper:
+    properties:
+        Role: Role
+
 Role:
     description: 'This class represents a role.'
     type: BaseObject
@@ -1631,9 +1647,13 @@ RoleAssignmentList:
 #             description: 'Adds a policy to this role.'
 #             type: PolicyCreateStruct
 
-# RoleDraft:
-#     description: 'This class represents a draft of a role, extends Role.'
-#     type: Role
+RoleDraftWrapper:
+    properties:
+        Role: RoleDraft
+
+RoleDraft:
+    description: 'This class represents a draft of a role, extends Role.'
+    type: Role
 
 RoleLimitation:
     description: 'Role limitation extends Limitation.'
@@ -1647,12 +1667,16 @@ RoleLimitation:
 #             description: 'Readable string identifier of a role.'
 #             type: string
 
-# RoleList:
-#     description: 'This class represents a list roles.'
-#     type: BaseObject
-#     properties:
-#         Role:
-#             type: Role[]
+RoleListWrapper:
+    properties:
+        RoleList: RoleList
+
+RoleList:
+    description: 'This class represents a list roles.'
+    type: BaseObject
+    properties:
+        Role:
+            type: Role[]
 
 # Root:
 #     description: 'This class represents a root.'
@@ -2699,32 +2723,44 @@ UserUpdate:
             type: ContentMetadataUpdate
             required: false
 
-# RoleInput:
-#     description: 'This class represents a Role input.'
-#     type: BaseObject
-#     properties:
-#         identifier:
-#             type: string
+RoleInputWrapper:
+    properties:
+        RoleInput: RoleInput
 
-# PolicyCreate:
-#     description: 'This class is used to create a Policy.'
-#     type: BaseObject
-#     properties:
-#         module:
-#             description: 'Name of module associated with the Policy. For example, content.'
-#             type: string
-#         function:
-#             description: 'Name of the module function, or all functions with ''*''. For example, read.'
-#             type: string
-#         Limitations:
-#             type: Limitation[]
+RoleInput:
+    description: 'This class represents a Role input.'
+    type: object
+    properties:
+        identifier:
+            type: string
 
-# PolicyUpdate:
-#     description: 'This class is used to update a Policy.'
-#     type: BaseObject
-#     properties:
-#         Limitations:
-#             type: Limitation[]
+PolicyCreateWrapper:
+    properties:
+        PolicyCreate: PolicyCreate
+
+PolicyCreate:
+    description: 'This class is used to create a Policy.'
+    type: BaseObject
+    properties:
+        module:
+            description: 'Name of module associated with the Policy. For example, content.'
+            type: string
+        function:
+            description: 'Name of the module function, or all functions with ''*''. For example, read.'
+            type: string
+        Limitations:
+            type: Limitation[]
+
+PolicyUpdateWrapper:
+    properties:
+        PolicyUpdate: PolicyUpdate
+
+PolicyUpdate:
+    description: 'This class is used to update a Policy.'
+    type: BaseObject
+    properties:
+        Limitations:
+            type: Limitation[]
 
 # SessionInput:
 #     description: 'This class represents a session input.'
