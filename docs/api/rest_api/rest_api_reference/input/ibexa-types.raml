@@ -1928,6 +1928,10 @@ RoleList:
 #             description: 'The value objects found for the query.'
 #             type: URL[]
 
+SectionWrapper:
+    properties:
+        Section: Section
+
 Section:
     description: 'This class represents a Section.'
     type: BaseObject
@@ -1942,8 +1946,17 @@ Section:
             description: 'Name of the Section.'
             type: string
 
-# SectionInput:
-#     type: BaseObject
+SectionInputWrapper:
+    properties:
+        SectionInput: SectionInput
+
+SectionInput:
+    type: object
+    properties:
+        identifier:
+            type: string
+        name:
+            type: string
 
 # SectionCreateStruct:
 #     description: 'This class represents a Section.'
@@ -1952,12 +1965,16 @@ Section:
 # SectionLimitation:
 #     type: RoleLimitation
 
-# SectionList:
-#     description: 'This class represents a Section list.'
-#     type: BaseObject
-#     properties:
-#         Section:
-#             type: Section[]
+SectionListWrapper:
+    properties:
+        SectionList: SectionList
+
+SectionList:
+    description: 'This class represents a Section list.'
+    type: BaseObject
+    properties:
+        Section:
+            type: Section[]
 
 # SectionStruct:
 #     description: 'This class is used for updating Section meta data.'
