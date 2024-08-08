@@ -2479,22 +2479,26 @@ VersionInfo:
             description: 'Represents a content item in a specific version.'
             type: BaseObject
 
-# VersionItem:
-#     description: 'Version of content.'
-#     type: BaseObject
-#     properties:
-#         Version:
-#             description: 'Returns the VersionInfo for this version.'
-#             type: BaseObject
-#         VersionInfo:
-#             type: VersionInfo
+VersionItem:
+    description: 'Version of content.'
+    type: BaseObject
+    properties:
+        Version:
+            description: 'Returns the VersionInfo for this version.'
+            type: BaseObject
+        VersionInfo:
+            type: VersionInfo
 
-# VersionList:
-#     description: 'List of all versions of the content.'
-#     type: BaseObject
-#     properties:
-#         VersionItem:
-#             type: VersionItem[]
+VersionListWrapper:
+    properties:
+        VersionList: VersionList
+
+VersionList:
+    description: 'List of all versions of the content.'
+    type: BaseObject
+    properties:
+        VersionItem:
+            type: VersionItem[]
 
 VersionTranslationInfo:
     description: 'Translation information.'
@@ -2664,26 +2668,36 @@ RoleAssignInput:
             description: 'Returns the Limitation of the Role assignment.'
             type: Limitation
 
-# UserUpdate:
-#     description: 'This class is used to update a User.'
-#     type: BaseObject
-#     properties:
-#         login:
-#             type: string
-#         email:
-#             type: string
-#         password:
-#             type: string
-#         enabled:
-#             type: boolean
-#         maxLogin:
-#             type: integer
-#         ContentUpdate:
-#             description: 'The update structure for the profile content.'
-#             type: ContentUpdate
-#         ContentMetadataUpdate:
-#             description: 'The update structure for the profile metadata.'
-#             type: ContentMetadataUpdate
+UserUpdateWrapper:
+    properties:
+        UserUpdate: UserUpdate
+
+UserUpdate:
+    description: 'This class is used to update a User.'
+    type: object
+    properties:
+        login:
+            type: string
+        email:
+            type: string
+            required: false
+        password:
+            type: string
+            required: false
+        enabled:
+            type: boolean
+            required: false
+        maxLogin:
+            type: integer
+            required: false
+        ContentUpdate:
+            description: 'The update structure for the profile content.'
+            type: ContentUpdate
+            required: false
+        ContentMetadataUpdate:
+            description: 'The update structure for the profile metadata.'
+            type: ContentMetadataUpdate
+            required: false
 
 # RoleInput:
 #     description: 'This class represents a Role input.'
@@ -4138,43 +4152,43 @@ VatCategory:
         vatValue:
             type: number | nil
 
-# ContentUpdate:
-#     description: 'This class is used to update a Content.'
-#     type: object
-#     properties:
-#         mainLanguageCode:
-#             type: string
-#         Section:
-#             type: Section
-#         MainLocation:
-#             type: Location
-#         Owner:
-#             type: User
-#         alwaysAvailable:
-#             type: boolean
-#         remoteId:
-#             type: string
+ContentUpdate:
+    description: 'This class is used to update a Content.'
+    type: object
+    properties:
+        mainLanguageCode:
+            type: string
+        Section:
+            type: Section
+        MainLocation:
+            type: Location
+        Owner:
+            type: User
+        alwaysAvailable:
+            type: boolean
+        remoteId:
+            type: string
 
-# ContentMetadataUpdate:
-#     description: 'This class is used to update a Content metadata.'
-#     type: object
-#     properties:
-#         ownerId:
-#             type: any
-#         publishedDate:
-#             type: datetime
-#         modificationDate:
-#             type: datetime
-#         mainLanguageCode:
-#             type: string
-#         alwaysAvailable:
-#             type: boolean
-#         remoteId:
-#             type: string
-#         mainLocationId:
-#             type: any
-#         name:
-#             type: string
+ContentMetadataUpdate:
+    description: 'This class is used to update a Content metadata.'
+    type: object
+    properties:
+        ownerId:
+            type: any
+        publishedDate:
+            type: datetime
+        modificationDate:
+            type: datetime
+        mainLanguageCode:
+            type: string
+        alwaysAvailable:
+            type: boolean
+        remoteId:
+            type: string
+        mainLocationId:
+            type: any
+        name:
+            type: string
 
 SummaryEntryNames:
     type: object
