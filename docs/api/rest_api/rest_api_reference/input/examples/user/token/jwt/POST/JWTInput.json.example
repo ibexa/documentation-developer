@@ -1,5 +1,6 @@
 {
     "JWTInput": {
+        "_media-type": "application/vnd.ibexa.api.JWTInput",
         "username": "admin",
         "password": "publish"
     }
