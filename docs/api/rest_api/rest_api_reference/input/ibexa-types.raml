@@ -2290,33 +2290,55 @@ UrlAliasRefList:
 #             description: 'Modified date.'
 #             type: datetime
 
-# UrlWildcard:
-#     description: 'This class represents a URL alias in the Repository.'
-#     type: BaseObject
-#     properties:
-#         id:
-#             description: 'The unique ID.'
-#             type: integer
-#         sourceUrl:
-#             description: 'The source URL.'
-#             type: string
-#         destinationUrl:
-#             description: 'The destination URL containing placeholders e.g. /destination/{1}.'
-#             type: string
-#         forward:
-#             description: 'Indicates if the URL is redirected or not.'
-#             type: boolean
+UrlWildcardWrapper:
+    properties:
+        UrlWildcard: UrlWildcard
 
-# UrlWildcardCreate:
-#     description: 'Creates a new URL wildcard.'
-#     type: BaseObject
+UrlWildcard:
+    description: 'This class represents a URL alias in the Repository.'
+    type: BaseObject
+    properties:
+        _id:
+            description: 'The unique ID.'
+            type: integer
+            xml:
+                attribute: true
+                name: id
+        sourceUrl:
+            description: 'The source URL.'
+            type: string
+        destinationUrl:
+            description: 'The destination URL containing placeholders e.g. /destination/{1}.'
+            type: string
+        forward:
+            description: 'Indicates if the URL is redirected or not.'
+            type: boolean
 
-# UrlWildcardList:
-#     description: 'List of URL alias in the Repository.'
-#     type: BaseObject
-#     properties:
-#         UrlWildcard:
-#             type: UrlWildcard[]
+UrlWildcardCreateWrapper:
+    properties:
+        URLWildcardCreate: UrlWildcardCreate
+
+UrlWildcardCreate:
+    description: 'Creates a new URL wildcard.'
+    type: object
+    properties:
+        sourceUrl:
+            type: string
+        destinationUrl:
+            type: string
+        forward:
+            type: boolean | string
+
+UrlWildcardListWrapper:
+    properties:
+        UrlWildcardList: UrlWildcardList
+
+UrlWildcardList:
+    description: 'List of URL alias in the Repository.'
+    type: BaseObject
+    properties:
+        UrlWildcard:
+            type: UrlWildcard[]
 
 # URLWildcardTranslationResult:
 #     description: 'This class represents a result of a translated URL wildcard which is not an URLAlias.'
