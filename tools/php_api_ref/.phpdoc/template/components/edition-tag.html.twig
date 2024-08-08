@@ -6,7 +6,16 @@
         'commerce',
     ] %}
 
-    {% set package = node.file.path|split('/')|slice(1, 2)|join('/') %}
+    {% set package = "" %}
+    {% if node.file.path is not empty %}
+        {% set package = node.file.path|split('/')|slice(1, 2)|join('/') %}
+    {% else %}
+        {% for namespace in namespace_package_map|keys %}
+            {% if fqcn starts with namespace %}
+                {% set package = namespace_package_map[namespace] %}
+            {% endif %}
+        {% endfor %}
+    {% endif %}
 
     {% if package_edition_map[package] is defined and package_edition_map[package] in edition_list %}
         {% set is_supporting = false %}
