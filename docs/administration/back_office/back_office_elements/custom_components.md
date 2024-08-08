@@ -36,8 +36,8 @@ App\Component\MyNewComponent:
 - [`login-form-before`](https://github.com/ibexa/admin-ui/blob/4.6/src/bundle/Resources/views/themes/admin/account/login/index.html.twig#L7)
 - [`login-form-after`](https://github.com/ibexa/admin-ui/blob/4.6/src/bundle/Resources/views/themes/admin/account/login/index.html.twig#L84)
 - [`global-search`](https://github.com/ibexa/admin-ui/blob/4.6/src/bundle/Resources/views/themes/admin/ui/layout.html.twig#L137)
-- `product-form-create-header-actions`
-- `product-form-edit-header-actions`
+- `product-create-form-header-actions`
+- `product-edit-form-header-actions`
 
 ## Base component classes
 
