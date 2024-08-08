@@ -1233,6 +1233,7 @@ Location:
         Children:
             description: 'Children Location.'
             type: Ref
+            required: false
         pathString:
             description: 'The materialized path of the Location entry e.g. /1/2/.'
             type: string
@@ -1254,6 +1255,7 @@ Location:
         UrlAliases:
             description: 'This class represents URL aliases.'
             type: Ref
+            required: false
 
 LocationCreateWrapper:
     properties:
@@ -2118,15 +2120,23 @@ StringLengthValidator:
 #     description: 'Base class for translation messages extends ValueObject.'
 #     type: object
 
-# Trash:
-#     type: BaseObject
-#     properties:
-#         TrashItem:
-#             type: TrashItem[]
+TrashWrapper:
+    properties:
+        Trash: Trash
 
-# TrashItem:
-#     description: 'This class represents a trash item, which is actually a trashed Location.'
-#     type: Location
+Trash:
+    type: BaseObject
+    properties:
+        TrashItem:
+            type: TrashItem[]
+
+TrashItemWrapper:
+    properties:
+        TrashItem: TrashItem
+
+TrashItem:
+    description: 'This class represents a trash item, which is actually a trashed Location.'
+    type: Location
 
 Unlink:
     description: 'Unlink a content type group from a content type.'
