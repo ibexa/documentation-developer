@@ -1818,22 +1818,26 @@ Section:
 #     description: 'This class is used to provide data for updating a Section. At least one property has to be set.'
 #     type: object
 
-# Session:
-#     description: 'Value for session.'
-#     type: BaseObject
-#     properties:
-#         name:
-#             description: 'Name.'
-#             type: string
-#         identifier:
-#             description: 'Identifier.'
-#             type: string
-#         csrfToken:
-#             description: 'csrfToken.'
-#             type: string
-#         User:
-#             description: 'User.'
-#             type: BaseObject
+SessionWrapper:
+    properties:
+        Session: Session
+
+Session:
+    description: 'Value for session.'
+    type: BaseObject
+    properties:
+        name:
+            description: 'Name.'
+            type: string
+        identifier:
+            description: 'Identifier.'
+            type: string
+        csrfToken:
+            description: 'csrfToken.'
+            type: string
+        User:
+            description: 'User.'
+            type: BaseObject
 
 SegmentGroupListWrapper:
     type: object
@@ -2762,14 +2766,18 @@ PolicyUpdate:
         Limitations:
             type: Limitation[]
 
-# SessionInput:
-#     description: 'This class represents a session input.'
-#     type: BaseObject
-#     properties:
-#         login:
-#             type: string
-#         password:
-#             type: string
+SessionInputWrapper:
+    properties:
+        SessionInput: SessionInput
+
+SessionInput:
+    description: 'This class represents a session input.'
+    type: BaseObject
+    properties:
+        login:
+            type: string
+        password:
+            type: string
 
 # BaseCommerceResponse:
 #     description: 'Removed'
