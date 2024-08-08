@@ -1027,24 +1027,32 @@ FieldDefinition:
 #             description: 'If set the the searchable flag is set to this value.'
 #             type: boolean
 
-# JWT:
-#     description: 'This class represents the JWT authentication token'
-#     type: object
-#     properties:
-#         token:
-#             description: 'JWT authentication token'
-#             type: string
+JWTWrapper:
+    properties:
+        JWT: JWT
 
-# JWTInput:
-#     description: 'This class represents the input for a JWT authentication token'
-#     type: object
-#     properties:
-#         user:
-#             description: 'User name'
-#             type: string
-#         password:
-#             description: 'User password'
-#             type: string
+JWT:
+    description: 'This class represents the JWT authentication token'
+    type: object
+    properties:
+        token:
+            description: 'JWT authentication token'
+            type: string
+
+JWTInputWrapper:
+    properties:
+        JWTInput: JWTInput
+
+JWTInput:
+    description: 'This class represents the input for a JWT authentication token'
+    type: BaseObject
+    properties:
+        username:
+            description: 'User name'
+            type: string
+        password:
+            description: 'User password'
+            type: string
 
 LanguageWrapper:
     type: object
