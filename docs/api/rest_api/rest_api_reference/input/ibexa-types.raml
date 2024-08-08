@@ -349,6 +349,10 @@ ContentCreateContentType:
                     type: FieldDefinition[]
                     required: false
 
+ContentTypeWrapper:
+    properties:
+        ContentType: ContentType
+
 ContentType:
     description: 'This class represents a content type.'
     type: BaseObject
@@ -358,16 +362,16 @@ ContentType:
             type: integer
         status:
             description: 'The status of the content type. Possible values: const STATUS_DEFINED = 0; Status constant for defined (aka published) Type, const STATUS_DRAFT = 1; Status constant for draft (aka temporary) Type; const STATUS_MODIFIED = 2; Status constant for modified (aka deferred for publishing) Type.'
-            enum: [ ]
+            enum: [ "DEFINED", "DRAFT", "MODIFIED", "PUBLISHED" ]
         identifier:
             description: 'String identifier of a content type.'
             type: string
         names:
             description: 'Name of a content type.'
-            type: Value[]
+            type: ValueObject
         descriptions:
             description: 'Description of a content type.'
-            type: Value[]
+            type: ValueObject
         creationDate:
             description: 'Creation date of the content type.'
             type: datetime
@@ -391,7 +395,7 @@ ContentType:
             type: string
         urlAliasSchema:
             description: 'URL alias schema. If nothing is provided, $nameSchema will be used instead.'
-            type: string
+            type: string | nil
         nameSchema:
             description: 'Name schema. Can be composed of FieldDefinition identifier place holders.'
             type: string
@@ -403,16 +407,13 @@ ContentType:
             type: boolean
         defaultSortField:
             description: 'Specifies which property the child Locations should be sorted on by default when created. Map for Location sort fields to their respective SortClauses - class name/identifier and modified subnode. One of the fallowing values: const SORT_FIELD_PATH = 1; const SORT_FIELD_PUBLISHED = 2; const SORT_FIELD_MODIFIED = 3; const SORT_FIELD_SECTION = 4; const SORT_FIELD_DEPTH = 5; const SORT_FIELD_PRIORITY = 8; const SORT_FIELD_NAME = 9; const SORT_FIELD_NODE_ID = 11; const SORT_FIELD_CONTENTOBJECT_ID = 12.'
-            enum: [ ]
+            enum: [ "PATH", "PUBLISHED", "MODIFIED", "SECTION", "DEPTH", "PRIORITY", "NAME", "NODE_ID", "CONTENTOBJECT_ID" ]
         defaultSortOrder:
             description: 'Specifies whether the sort order should be ascending or descending by default when created. Map for Location sort order to their respective Query SORT constants. Possible values: const SORT_ORDER_DESC = 0; const SORT_ORDER_ASC = 1.'
-            enum: [ ]
+            enum: [ "ASC", "DESC" ]
         FieldDefinitions:
             description: 'This method returns the content type Field definitions from this type.'
-            type: BaseObject
-            properties:
-                FieldDefinitions:
-                    type: FieldDefinition[]
+            type: FieldDefinitions
 
 # ContentTypeCreateStruct:
 #     description: 'This class is used for creating content types.'
@@ -467,31 +468,36 @@ ContentType:
 # ContentTypeDraft:
 #     description: 'This class represents a draft of a content type.'
 #     type: object
-# ContentTypeGroup:
-#     description: 'This class represents a content type group value.'
-#     type: BaseObject
-#     properties:
-#         id:
-#             description: 'Primary key.'
-#             type: integer
-#         identifier:
-#             description: 'Readable string identifier of a group.'
-#             type: string
-#         created:
-#             description: 'Created date (integer).'
-#             type: datetime
-#         modified:
-#             description: 'Modified date (integer).'
-#             type: datetime
-#         Creator:
-#             description: 'Creator User ID.'
-#             type: BaseObject
-#         Modifier:
-#             description: 'Modifier User ID.'
-#             type: BaseObject
-#         ContentTypes:
-#             description: 'Content types.'
-#             type: BaseObject
+
+ContentTypeGroupWrapper:
+    properties:
+        ContentTypeGroup: ContentTypeGroup
+
+ContentTypeGroup:
+    description: 'This class represents a content type group value.'
+    type: BaseObject
+    properties:
+        id:
+            description: 'Primary key.'
+            type: integer
+        identifier:
+            description: 'Readable string identifier of a group.'
+            type: string
+        created:
+            description: 'Created date (integer).'
+            type: datetime
+        modified:
+            description: 'Modified date (integer).'
+            type: datetime
+        Creator:
+            description: 'Creator User ID.'
+            type: BaseObject
+        Modifier:
+            description: 'Modifier User ID.'
+            type: BaseObject
+        ContentTypes:
+            description: 'Content types.'
+            type: BaseObject
 
 # ContentTypeGroupInput:
 #     type: BaseObject
@@ -513,19 +519,26 @@ ContentType:
 #         ContentTypeGroup:
 #             type: ContentTypeGroup[]
 
-# ContentTypeGroupRef:
-#     description: 'Content type group reference.'
-#     type: BaseObject
-#     properties:
-#         Unlink:
-#             type: Unlink
+ContentTypeGroupRef:
+    description: 'Content type group reference.'
+    type: array
+    items:
+        type: BaseObject
+        properties:
+            unlink:
+                type: Unlink
+                required: false
 
-# ContentTypeGroupRefList:
-#     description: 'List of content type groups references.'
-#     type: BaseObject
-#     properties:
-#         ContentTypeGroupRef:
-#             type: ContentTypeGroupRef
+ContentTypeGroupRefListWrapper:
+    properties:
+        ContentTypeGroupRefList: ContentTypeGroupRefList
+
+ContentTypeGroupRefList:
+    description: 'List of content type groups references.'
+    type: BaseObject
+    properties:
+        ContentTypeGroupRef:
+            type: ContentTypeGroupRef
 
 # ContentTypeGroupStruct:
 #     description: 'This class is used for updating a content type group.'
@@ -546,82 +559,94 @@ ContentType:
 #             description: 'If set this value overrides the current time for modified.'
 #             type: datetime
 
-# ContentTypeInfo:
-#     description: 'This class stores content type information.'
-#     type: BaseObject
-#     properties:
-#         id:
-#             description: 'Content type ID.'
-#             type: integer
-#         status:
-#             description: 'The status of the content type. Possible values: const STATUS_DEFINED = 0; Status constant for defined (aka published) Type, const STATUS_DRAFT = 1; Status constant for draft (aka temporary) Type; const STATUS_MODIFIED = 2; Status constant for modified (aka deferred for publishing) Type.'
-#             enum: [ ]
-#         identifier:
-#             description: 'String identifier of a content type.'
-#             type: string
-#         names:
-#             description: 'Name of a content type.'
-#             type: Value[]
-#         descriptions:
-#             description: 'Description of a content type.'
-#             type: Value[]
-#         creationDate:
-#             description: 'Creation date of the content type.'
-#             type: datetime
-#         modificationDate:
-#             description: 'Modification date of the content type.'
-#             type: datetime
-#         Creator:
-#             description: 'Creator User of the content type.'
-#             type: BaseObject
-#         Modifier:
-#             description: 'Modifier User of the content type.'
-#             type: BaseObject
-#         Groups:
-#             description: 'Group User of the content type.'
-#             type: BaseObject
-#         Draft:
-#             description: 'Draft of the content type.'
-#             type: BaseObject
-#         remoteId:
-#             description: 'Unique remote ID of the content type.'
-#             type: string
-#         urlAliasSchema:
-#             description: 'URL alias schema. If nothing is provided, $nameSchema will be used instead.'
-#             type: string
-#         nameSchema:
-#             description: 'Name schema. Can be composed of FieldDefinition identifier place holders.'
-#             type: string
-#         isContainer:
-#             description: 'A flag used to hint if content of this type may have children or not. It is highly recommended to respect this flag and not create/move content below non-containers. But this flag is not considered as part of the content model and the API will not in any way enforce this flag to be respected.'
-#             type: boolean
-#         mainLanguageCode:
-#             description: 'Main language code.'
-#             type: string
-#         defaultAlwaysAvailable:
-#             description: 'If an instance of a content type is created the always available flag is set by default to this value.'
-#             type: boolean
-#         defaultSortField:
-#             description: 'Specifies which property the child Locations should be sorted on by default when created. Map for Location sort fields to their respective SortClauses - class name/identifier and modified subnode. One of the fallowing values: const SORT_FIELD_PATH = 1; const SORT_FIELD_PUBLISHED = 2; const SORT_FIELD_MODIFIED = 3; const SORT_FIELD_SECTION = 4; const SORT_FIELD_DEPTH = 5; const SORT_FIELD_PRIORITY = 8; const SORT_FIELD_NAME = 9; const SORT_FIELD_NODE_ID = 11; const SORT_FIELD_CONTENTOBJECT_ID = 12.'
-#             enum: [ ]
-#         defaultSortOrder:
-#             description: 'Specifies whether the sort order should be ascending or descending by default when created. Map for Location sort order to their respective Query SORT constants. Possible values: const SORT_ORDER_DESC = 0; const SORT_ORDER_ASC = 1.'
-#             enum: [ ]
+ContentTypeInfoWrapper:
+    properties:
+        ContentTypeInfo: ContentTypeInfo
 
-# ContentTypeInfoList:
-#     description: 'List of content type information.'
-#     type: BaseObject
-#     properties:
-#         ContentType:
-#             description: 'This class stores content type information.'
-#             type: ContentTypeInfo[]
+ContentTypeInfo:
+    description: 'This class stores content type information.'
+    type: BaseObject
+    properties:
+        id:
+            description: 'Content type ID.'
+            type: integer
+        status:
+            description: 'The status of the content type. Possible values: const STATUS_DEFINED = 0; Status constant for defined (aka published) Type, const STATUS_DRAFT = 1; Status constant for draft (aka temporary) Type; const STATUS_MODIFIED = 2; Status constant for modified (aka deferred for publishing) Type.'
+            enum: [ "DEFINED", "DRAFT", "MODIFIED", "PUBLISHED" ]
+        identifier:
+            description: 'String identifier of a content type.'
+            type: string
+        names:
+            description: 'Name of a content type.'
+            type: ValueObject
+        descriptions:
+            description: 'Description of a content type.'
+            type: ValueObject
+        creationDate:
+            description: 'Creation date of the content type.'
+            type: datetime
+        modificationDate:
+            description: 'Modification date of the content type.'
+            type: datetime
+        Creator:
+            description: 'Creator User of the content type.'
+            type: BaseObject
+        Modifier:
+            description: 'Modifier User of the content type.'
+            type: BaseObject
+        Groups:
+            description: 'Group User of the content type.'
+            type: BaseObject
+        Draft:
+            description: 'Draft of the content type.'
+            type: BaseObject
+        remoteId:
+            description: 'Unique remote ID of the content type.'
+            type: string
+        urlAliasSchema:
+            description: 'URL alias schema. If nothing is provided, $nameSchema will be used instead.'
+            type: string | nil
+        nameSchema:
+            description: 'Name schema. Can be composed of FieldDefinition identifier place holders.'
+            type: string
+        isContainer:
+            description: 'A flag used to hint if content of this type may have children or not. It is highly recommended to respect this flag and not create/move content below non-containers. But this flag is not considered as part of the content model and the API will not in any way enforce this flag to be respected.'
+            type: boolean
+        mainLanguageCode:
+            description: 'Main language code.'
+            type: string
+        defaultAlwaysAvailable:
+            description: 'If an instance of a content type is created the always available flag is set by default to this value.'
+            type: boolean
+        defaultSortField:
+            description: 'Specifies which property the child Locations should be sorted on by default when created. Map for Location sort fields to their respective SortClauses - class name/identifier and modified subnode. One of the fallowing values: const SORT_FIELD_PATH = 1; const SORT_FIELD_PUBLISHED = 2; const SORT_FIELD_MODIFIED = 3; const SORT_FIELD_SECTION = 4; const SORT_FIELD_DEPTH = 5; const SORT_FIELD_PRIORITY = 8; const SORT_FIELD_NAME = 9; const SORT_FIELD_NODE_ID = 11; const SORT_FIELD_CONTENTOBJECT_ID = 12.'
+            enum: [ "PATH", "PUBLISHED", "MODIFIED", "SECTION", "DEPTH", "PRIORITY", "NAME", "NODE_ID", "CONTENTOBJECT_ID" ]
+        defaultSortOrder:
+            description: 'Specifies whether the sort order should be ascending or descending by default when created. Map for Location sort order to their respective Query SORT constants. Possible values: const SORT_ORDER_DESC = 0; const SORT_ORDER_ASC = 1.'
+            enum: [ "ASC", "DESC" ]
 
-# ContentTypeList:
-#     description: 'List of content types.'
-#     type: BaseObject
-#     properties:
-#         ContentType:
-#             type: ContentType[]
+ContentTypeInfoListWrapper:
+    properties:
+        ContentTypeList: ContentTypeInfoList
+
+ContentTypeInfoList:
+    description: 'List of content type information.'
+    type: BaseObject
+    properties:
+        ContentType:
+            description: 'This class stores content type information.'
+            type: ContentTypeInfo[]
+
+ContentTypeListWrapper:
+    properties:
+        ContentTypeList: ContentTypeList
+
+ContentTypeList:
+    description: 'List of content types.'
+    type: BaseObject
+    properties:
+        ContentType:
+            type: ContentType[]
 
 # ContentTypeUpdateStruct:
 #     description: 'This class is used for updating a content type.'
@@ -908,10 +933,18 @@ Field:
             description: 'A Field Type value or a value type which can be converted by the corresponding field type.'
             type: any
 
-# FieldDefinitions:
-#     type: object
-#     properties:
-#         FieldDefinition: FieldDefinition[]
+FieldDefinitionsWrapper:
+    properties:
+        FieldDefinitions: FieldDefinitions
+
+FieldDefinitions:
+    type: object
+    properties:
+        FieldDefinition: FieldDefinition[]
+
+FieldDefinitionWrapper:
+    properties:
+        FieldDefinition: FieldDefinition
 
 FieldDefinition:
     description: 'This class represents a Field definition.'
@@ -949,22 +982,30 @@ FieldDefinition:
             type: boolean
         names:
             description: 'Names of content types.'
-            type: Value[]
+            type: ValueObject
         descriptions:
             description: 'Descriptions of content types.'
-            type: Value[]
+            type: ValueObject
         fieldSettings:
             description: 'Settings for the Field definition supported by the field type.'
             type: any
         validatorConfiguration:
             description: 'Validator configuration of this Field definition supported by the field type.'
-            type: StringLengthValidator
+            type: StringLengthValidatorWrapper | []
 
-# FieldDefinitionCreate:
-#     type: BaseObject
+FieldDefinitionCreateWrapper:
+    properties:
+        FieldDefinitionCreate: FieldDefinitionCreate
 
-# FieldDefinitionUpdate:
-#     type: BaseObject
+FieldDefinitionCreate:
+    type: BaseObject
+
+FieldDefinitionUpdateWrapper:
+    properties:
+        FieldDefinitionUpdate: FieldDefinitionUpdate
+
+FieldDefinitionUpdate:
+    type: BaseObject
 
 # FieldDefinitionCreateStruct:
 #     description: 'This class is used to create a Field definition.'
@@ -1991,16 +2032,20 @@ Specifications:
             description: 'Limitation on the number of items as the value. Only usable if {@see $valueFormat} is {@see self::FORMAT_ARRAY}.'
             type: integer
 
+StringLengthValidatorWrapper:
+    properties:
+        StringLengthValidator: StringLengthValidator
+
 StringLengthValidator:
     description: 'Validator for checking min. and max. length of strings.'
     type: object
     properties:
         maxStringLength:
             description: 'Maximum length of strings.'
-            type: integer
+            type: integer | nil
         minStringLength:
             description: 'Minimum length of strings.'
-            type: integer
+            type: integer | nil
 
 # SubtreeLimitation:
 #     type: RoleLimitation
@@ -2030,7 +2075,7 @@ Unlink:
         _href:
             type: string
         _method:
-            enum: [ ]
+            enum: [ "DELETE" ]
 
 # URL:
 #     description: 'This class represents a URL in the Repository.'
@@ -2502,6 +2547,12 @@ ValueArray:
     properties:
         value: Value[]
 
+ValueObject:
+    type: object
+    properties:
+        value:
+            type: Value[]
+
 Value:
     description: 'Struct that stores extra value information for a Criterion object.'
     type: object
@@ -2511,7 +2562,7 @@ Value:
             type: string
         '#text':
             description: 'Content type description.'
-            type: string
+            type: string | nil
 
 # ValueObject:
 #     description: 'The base class for all value objects and structs. Supports readonly properties by marking them as protected.'
@@ -2680,39 +2731,56 @@ VersionUpdate:
 #         creationDate:
 #             type: datetime
 
-# ContentTypeUpdate:
-#     description: 'This class is used to update a content type.'
-#     type: BaseObject
-#     properties:
-#         identifier:
-#             type: string
-#         mainLanguageCode:
-#             type: string
-#         remoteId:
-#             type: string
-#         urlAliasSchema:
-#             type: string
-#         nameSchema:
-#             type: string
-#         isContainer:
-#             type: boolean
-#         defaultSortField:
-#             description: 'Specifies which property the child Locations should be sorted on by default when updated.'
-#             type: any
-#         defaultSortOrder:
-#             description: 'Specifies whether the sort order should be ascending or descending by default when updated.'
-#             type: any
-#         defaultAlwaysAvailable:
-#             type: boolean
-#         names:
-#             type: Value[]
-#         descriptions:
-#             type: Value[]
-#         modifierId:
-#             description: 'If set, this value overrides the current user as creator.'
-#             type: any
-#         modificationDate:
-#             type: datetime
+ContentTypeUpdateWrapper:
+    properties:
+        ContentTypeUpdate: ContentTypeUpdate
+
+ContentTypeUpdate:
+    description: 'This class is used to update a content type.'
+    type: BaseObject
+    properties:
+        identifier:
+            type: string
+            required: false
+        mainLanguageCode:
+            type: string
+            required: false
+        remoteId:
+            type: string
+            required: false
+        urlAliasSchema:
+            type: string | nil
+            required: false
+        nameSchema:
+            type: string
+            required: false
+        isContainer:
+            type: boolean
+            required: false
+        defaultSortField:
+            description: 'Specifies which property the child Locations should be sorted on by default when updated.'
+            type: any
+            required: false
+        defaultSortOrder:
+            description: 'Specifies whether the sort order should be ascending or descending by default when updated.'
+            type: any
+            required: false
+        defaultAlwaysAvailable:
+            type: string | boolean
+            required: false
+        names:
+            type: ValueObject
+            required: false
+        descriptions:
+            type: ValueObject
+            required: false
+        modifierId:
+            description: 'If set, this value overrides the current user as creator.'
+            type: any
+            required: false
+        modificationDate:
+            type: datetime
+            required: false
 
 # ViewInput:
 #     description: 'This class represents a View input.'
@@ -4315,17 +4383,8 @@ ContentMetadataUpdate:
             type: string
 
 SummaryEntryNames:
-    type: object
+    type: ValueObject
     properties:
-        value:
-            type: array
-            items:
-                type: object
-                properties:
-                    _languageCode:
-                        type: string
-                    '#text':
-                        type: string
 
 SummaryEntry:
     type: object
@@ -5148,7 +5207,7 @@ MultilingualValue:
             type: string
         '#text':
             description: 'Translation contents.'
-            type: string
+            type: string | nil
 
 KeyValue:
     description: 'Key-value structure'
@@ -5157,7 +5216,7 @@ KeyValue:
         _key:
             type: string
         '#text':
-            type: string
+            type: string | nil
 
 ShippingMethodRefListWrapper:
     properties:
