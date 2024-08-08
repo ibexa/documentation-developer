@@ -14,6 +14,14 @@ Fields:
         field:
             type: Field[]
 
+Href:
+    type: object
+    properties:
+        _href:
+            type: string
+            xml:
+                attribute: true
+
 # Asset:
 #     type: object
 #     description: 'Asset value object'
@@ -96,6 +104,10 @@ BookmarkList:
                     __href:
                         type: string
 
+ContentWrapper:
+    properties:
+        Content: Content
+
 Content:
     description: 'Content ID matcher class.'
     type: BaseObject
@@ -136,9 +148,11 @@ Content:
         lastModificationDate:
             description: 'Content item modification date.'
             type: datetime
+            required: false
         publishedDate:
             description: 'Content item publication date.'
             type: datetime
+            required: false
         mainLanguageCode:
             description: 'The main language code of the content item.'
             type: string
@@ -155,6 +169,10 @@ Content:
             description: 'Object states.'
             type: BaseObject
 
+ContentCreateWrapper:
+    properties:
+        ContentCreate: ContentCreate
+
 ContentCreate:
     description: 'This class is used for creating a new content item.'
     type: object
@@ -162,10 +180,10 @@ ContentCreate:
         ContentType:
             description: 'The content type for which the new content item is created.'
             required: true
-            type: ContentCreateContentType
+            type: ContentCreateContentType | Href
         Section:
             description: 'The Section the content item is assigned to. If not set the Section of the parent is used or a default Section.'
-            type: Section
+            type: Href
             required: false
         User:
             description: 'The owner of the content. If not given the current authenticated User is set as owner.'
@@ -212,6 +230,10 @@ ContentCreate:
 #         fileSize:
 #             description: 'Size of an image file.'
 #             type: integer
+
+ContentInfoWrapper:
+    properties:
+        ContentInfo: ContentInfo
 
 ContentInfo:
     description: 'This class provides all version independent information of the content item.'
@@ -292,13 +314,17 @@ ContentInfo:
 #             description: "If set, will change the content's 'always-available' name."
 #             type: string
 
-# ContentObjectStates:
-#     description: 'Represents a list of object states.'
-#     type: object
-#     properties:
-#         ObjectState:
-#             description: 'List of object state values.'
-#             type: BaseObject[]
+ContentObjectStatesWrapper:
+    properties:
+        ContentObjectStates: ContentObjectStates
+
+ContentObjectStates:
+    description: 'Represents a list of object states.'
+    type: object
+    properties:
+        ObjectState:
+            description: 'List of object state values.'
+            type: Href[]
 
 # ContentStruct:
 #     description: 'Base struct for content create/update structs.'
@@ -1122,6 +1148,10 @@ Limitation:
                 ref:
                     type: Ref[]
 
+LocationWrapper:
+    properties:
+        Location: Location
+
 Location:
     description: 'This class represents a Location in the Repository.'
     type: BaseObject
@@ -1175,8 +1205,29 @@ Location:
             description: 'This class represents URL aliases.'
             type: Ref
 
-# LocationCreate:
-#     type: BaseObject
+LocationCreateWrapper:
+    properties:
+        LocationCreate: LocationCreate
+
+LocationCreate:
+    type: BaseObject
+    properties:
+        ParentLocation:
+            type: object
+            properties:
+                _href:
+                    type: string
+                    xml:
+                        attribute: true
+                        name: href
+        priority:
+            type: string
+        hidden:
+            type: string | boolean
+        sortField:
+            type: string
+        sortOrder:
+            type: string
 
 # LocationCreateStruct:
 #     description: 'This class is used to create a new Location for a content item.'
@@ -1202,16 +1253,17 @@ Location:
 #             required: true
 #             type: integer
 
-# LocationList:
-#     description: 'This class represents a queried Location list holding a totalCount and a partial list of Locations (by offset/limit parameters and permission filters).'
-#     type: object
-#     properties:
-#         totalCount:
-#             description: 'The total count of found Locations (filtered by permissions).'
-#             type: integer
-#         Locations:
-#             description: 'The partial list of Locations controlled by offset/limit.'
-#             type: Location[]
+LocationListWrapper:
+    properties:
+        LocationList: LocationList
+
+LocationList:
+    description: 'This class represents a queried Location list holding a totalCount and a partial list of Locations (by offset/limit parameters and permission filters).'
+    type: BaseObject
+    properties:
+        Location:
+            description: 'The partial list of Locations controlled by offset/limit.'
+            type: Ref[]
 
 # LocationQuery:
 #     description: 'This class is used to perform a Location query.'
@@ -1572,32 +1624,44 @@ PolicyList:
 Ref:
     type: BaseObject
 
+RelationWrapper:
+    properties:
+        Relation: Relation
+
 Relation:
     description: 'Class representing a relation between content.'
     type: BaseObject
     properties:
-        id:
-            description: 'ID of the relation.'
-            type: integer
-        sourceFieldDefinitionIdentifier:
-            description: 'Source content type Field Definition ID. For relation not of type RelationType::COMMON this field denotes the Field definition ID of the attribute where the relation is anchored.'
-            type: string
-        SourceContentInfo:
+        SourceContent:
             description: 'The content of the source content of the relation.'
-            type: ContentInfo
-        DestinationContentInfo:
+            type: Ref
+        DestinationContent:
             description: 'The content of the destination content of the relation.'
-            type: ContentInfo
-        type:
+            type: Ref
+        RelationType:
             description: 'The relation type bitmask. Relations: Relation::COMMON = 1, Relation::EMBED = 2, Relation::LINK = 4, Relation::FIELD = 8, Relation::ASSET = 16'
-            type: integer
+            type: string
 
-# RelationList:
-#     description: 'Class representing a list of relations between content.'
-#     type: BaseObject
-#     properties:
-#         Relation:
-#             type: Relation[]
+RelationCreateWrapper:
+    properties:
+        RelationCreate: RelationCreate
+
+RelationCreate:
+    type: object
+    properties:
+        Destination:
+            type: Href
+
+RelationListWrapper:
+    properties:
+        Relations: RelationList
+
+RelationList:
+    description: 'Class representing a list of relations between content.'
+    type: BaseObject
+    properties:
+        Relation:
+            type: Relation[]
 
 RoleWrapper:
     properties:
@@ -2458,6 +2522,10 @@ Value:
 #             type: array
 #             items: any
 
+VersionWrapper:
+    properties:
+        Version: Version
+
 Version:
     description: 'Returns the VersionInfo for this version.'
     type: BaseObject
@@ -2517,7 +2585,7 @@ VersionInfo:
 
 VersionItem:
     description: 'Version of content.'
-    type: BaseObject
+    type: object
     properties:
         Version:
             description: 'Returns the VersionInfo for this version.'
@@ -2545,16 +2613,20 @@ VersionTranslationInfo:
         Language:
             type: LanguageCode[]
 
-# VersionUpdate:
-#     description: 'This class is used to update a content version.'
-#     type: BaseObject
-#     properties:
-#         modificationDate:
-#             type: datetime
-#         initialLanguageCode:
-#             type: string
-#         fields:
-#             type: Field[]
+VersionUpdateWrapper:
+    properties:
+        VersionUpdate: VersionUpdate
+
+VersionUpdate:
+    description: 'This class is used to update a content version.'
+    type: BaseObject
+    properties:
+        modificationDate:
+            type: datetime
+        initialLanguageCode:
+            type: string
+        fields:
+            type: Field[]
 
 # View: #TODO outdated example
 #     description: 'View.'
