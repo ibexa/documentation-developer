@@ -1374,168 +1374,196 @@ LocationList:
 #             description: 'List of notifications.'
 #             type: Notification[]
 
-# ObjectState:
-#     description: 'This class represents a Object state value.'
-#     type: BaseObject
-#     properties:
-#         id:
-#             description: 'Primary key.'
-#             type: integer
-#         identifier:
-#             description: 'Readable string identifier of the Object state.'
-#             type: string
-#         priority:
-#             description: 'Priority for ordering.'
-#             type: integer
-#         ObjectStateGroup:
-#             description: 'The Object state group this Object state belongs to.'
-#             type: BaseObject
-#         languageCodes:
-#             description: 'The available language codes for names an descriptions.'
-#             type: string[]
-#         names:
-#             description: 'Names.'
-#             type: object
-#             properties:
-#                 Value:
-#                     type: Value
-#         descriptions:
-#             description: 'Descriptions.'
-#             type: object
-#             properties:
-#                 Value:
-#                     type: Value
+ObjectStateWrapper:
+    properties:
+        ObjectState: ObjectState
 
-# ObjectStateCreate:
-#     description: 'This class represents a value for creating Object states.'
-#     type: object
-#     properties:
-#         identifier:
-#             description: 'Readable unique string identifier of a group.'
-#             required: true
-#             type: string
-#         priority:
-#             description: 'Priority for ordering. If not set the Object state is created as the last one.'
-#             type: integer
-#         defaultLanguageCode:
-#             description: 'The default language code.'
-#             required: true
-#             type: string
-#         languageCodes:
-#             description: 'Language codes.'
-#             type: string
-#         names:
-#             description: 'An array of names with languageCode keys. At least one name in the main language is required.'
-#             required: true
-#             type: object
-#             properties:
-#                 value: Value[]
-#         descriptions:
-#             description: 'An array of descriptions with languageCode keys.'
-#             type: object
-#             properties:
-#                 value: Value[]
+ObjectState:
+    description: 'This class represents a Object state value.'
+    type: BaseObject
+    properties:
+        id:
+            description: 'Primary key.'
+            type: integer
+        identifier:
+            description: 'Readable string identifier of the Object state.'
+            type: string
+        priority:
+            description: 'Priority for ordering.'
+            type: integer
+        ObjectStateGroup:
+            description: 'The Object state group this Object state belongs to.'
+            type: BaseObject
+        languageCodes:
+            description: 'The available language codes for names an descriptions.'
+            type: string
+        names:
+            description: 'Names.'
+            type: ValueObject
+        descriptions:
+            description: 'Descriptions.'
+            type: ValueObject
 
-# ObjectStateGroup:
-#     description: 'This class represents an Object state group value.'
-#     type: BaseObject
-#     properties:
-#         id:
-#             description: 'Primary key.'
-#             type: integer
-#         identifier:
-#             description: 'Readable string identifier of a group.'
-#             type: string
-#         defaultLanguageCode:
-#             description: 'The default language code.'
-#             type: string
-#         languageCodes:
-#             description: 'The available language codes for names an descriptions.'
-#             type: string[]
-#         ObjectStates:
-#             description: 'Object States.'
-#             type: BaseObject
-#         Names:
-#             description: 'List of names.'
-#             type: object
-#             properties:
-#                 Value:
-#                     type: Value
-#         Descriptions:
-#             description: 'List of descriptions.'
-#             type: object
-#             properties:
-#                 Value:
-#                     type: Value
+ObjectStateCreateWrapper:
+    properties:
+        ObjectStateCreate: ObjectStateCreate
 
-# ObjectStateGroupCreate:
-#     description: 'This class represents a value for creating Object state groups.'
-#     type: object
-#     properties:
-#         identifier:
-#             description: 'Readable unique string identifier of a group.'
-#             required: true
-#             type: string
-#         defaultLanguageCode:
-#             description: 'The default language code.'
-#             required: true
-#             type: string
-#         names:
-#             description: 'An array of names with languageCode keys. At least one name in the main language is required.'
-#             required: true
-#             type: string[]
-#         descriptions:
-#             description: 'An array of descriptions with languageCode keys.'
-#             type: string[]
+ObjectStateCreate:
+    description: 'This class represents a value for creating Object states.'
+    type: object
+    properties:
+        identifier:
+            description: 'Readable unique string identifier of a group.'
+            required: true
+            type: string
+        priority:
+            description: 'Priority for ordering. If not set the Object state is created as the last one.'
+            type: string
+        defaultLanguageCode:
+            description: 'The default language code.'
+            required: true
+            type: string
+        languageCodes:
+            description: 'Language codes.'
+            type: string
+        names:
+            description: 'An array of names with languageCode keys. At least one name in the main language is required.'
+            required: true
+            type: object
+            properties:
+                value: Value[]
+        descriptions:
+            description: 'An array of descriptions with languageCode keys.'
+            type: object
+            properties:
+                value: Value[]
 
-# ObjectStateGroupList:
-#     description: 'List of Object state groups.'
-#     type: BaseObject
-#     properties:
-#         ObjectStateGroup:
-#             description: 'This class represents an Object state group value.'
-#             type: ObjectStateGroup
+ObjectStateGroupWrapper:
+    properties:
+        ObjectStateGroup: ObjectStateGroup
 
-# ObjectStateGroupUpdate:
-#     description: 'This class represents a value for updating Object state groups.'
-#     type: object
-#     properties:
-#         identifier:
-#             description: 'Readable unique string identifier of a group.'
-#             type: string
-#         defaultLanguageCode:
-#             description: 'The default language code.'
-#             type: string
-#         names:
-#             description: 'An array of names with languageCode keys.'
-#             type: string[]
-#         descriptions:
-#             description: 'An array of descriptions with languageCode keys.'
-#             type: string[]
+ObjectStateGroup:
+    description: 'This class represents an Object state group value.'
+    type: BaseObject
+    properties:
+        id:
+            description: 'Primary key.'
+            type: integer
+        identifier:
+            description: 'Readable string identifier of a group.'
+            type: string
+        defaultLanguageCode:
+            description: 'The default language code.'
+            type: string
+        languageCodes:
+            description: 'The available language codes for names an descriptions.'
+            type: string
+        ObjectStates:
+            description: 'Object States.'
+            type: BaseObject
+        names:
+            description: 'List of names.'
+            type: ValueObject
+        descriptions:
+            description: 'List of descriptions.'
+            type: ValueObject
 
-# ObjectStateList:
-#     description: 'List of Object states.'
-#     type: BaseObject
-#     properties:
-#         ObjectState:
-#             type: ObjectState[]
+ObjectStateGroupCreateWrapper:
+    properties:
+        ObjectStateGroupCreate: ObjectStateGroupCreate
 
-# ObjectStateUpdate:
-#     description: 'This class represents a value for updating Object states.'
-#     type: object
-#     properties:
-#         identifier:
-#             description: 'Readable unique string identifier of a group.'
-#             type: string
-#         defaultLanguageCode:
-#             description: 'The default language code.'
-#             type: string
-#         names:
-#             description: 'An array of names with languageCode keys.'
-#             type: string[]
-#         descriptions:
-#             description: 'An array of descriptions with languageCode keys.'
-#             type: string[]
+ObjectStateGroupCreate:
+    description: 'This class represents a value for creating Object state groups.'
+    type: object
+    properties:
+        identifier:
+            description: 'Readable unique string identifier of a group.'
+            required: true
+            type: string
+        defaultLanguageCode:
+            description: 'The default language code.'
+            required: true
+            type: string
+        names:
+            description: 'An array of names with languageCode keys. At least one name in the main language is required.'
+            required: true
+            type: ValueObject
+        descriptions:
+            description: 'An array of descriptions with languageCode keys.'
+            type: ValueObject
+
+ObjectStateGroupListWrapper:
+    properties:
+        ObjectStateGroupList: ObjectStateGroupList
+
+ObjectStateGroupList:
+    description: 'List of Object state groups.'
+    type: BaseObject
+    properties:
+        ObjectStateGroup:
+            description: 'This class represents an Object state group value.'
+            type: ObjectStateGroup[]
+
+ObjectStateGroupUpdateWrapper:
+    properties:
+        ObjectStateGroupUpdate: ObjectStateGroupUpdate
+
+ObjectStateGroupUpdate:
+    description: 'This class represents a value for updating Object state groups.'
+    type: object
+    properties:
+        identifier:
+            description: 'Readable unique string identifier of a group.'
+            type: string
+            required: false
+        defaultLanguageCode:
+            description: 'The default language code.'
+            type: string
+            required: false
+        names:
+            description: 'An array of names with languageCode keys.'
+            type: ValueObject
+            required: false
+        descriptions:
+            description: 'An array of descriptions with languageCode keys.'
+            type: ValueObject
+            required: false
+
+ObjectStateListWrapper:
+    properties:
+        ObjectStateList: ObjectStateList
+
+ObjectStateList:
+    description: 'List of Object states.'
+    type: BaseObject
+    properties:
+        ObjectState:
+            type: ObjectState[]
+
+ObjectStateUpdateWrapper:
+    properties:
+        ObjectStateUpdate: ObjectStateUpdate
+
+ObjectStateUpdate:
+    description: 'This class represents a value for updating Object states.'
+    type: object
+    properties:
+        identifier:
+            description: 'Readable unique string identifier of a group.'
+            type: string
+            required: false
+        defaultLanguageCode:
+            description: 'The default language code.'
+            type: string
+            required: false
+        names:
+            description: 'An array of names with languageCode keys.'
+            type: ValueObject
+            required: false
+        descriptions:
+            description: 'An array of descriptions with languageCode keys.'
+            type: ValueObject
+            required: false
 
 # PasswordValidationContext:
 #     description: 'Context of the password validation.'
