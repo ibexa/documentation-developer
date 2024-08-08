@@ -29,7 +29,7 @@ With an active license, you can start [installation process](install_ibexa_dxp.m
 
 [[= product_name_exp =]] is built on [[[= product_name_headless =]]](headless.md). It means that Experience edition includes all bundles, APIs, and [features that come with Headless](headless.md#core-features).
 
-Version control systems and environment variables allow you to deploy your projects and settings on several environments, such as [Ibexa Cloud](ibexa_cloud_guide.md).
+Version control systems and environment variables allow you to deploy your projects and settings on several environments, such as Ibexa Cloud.
 
 ## Capabilities and benefits
 
