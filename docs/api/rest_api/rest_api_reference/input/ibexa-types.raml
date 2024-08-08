@@ -3701,67 +3701,88 @@ ProductView:
         Result:
             type: object
 
-# ProductVariant:
-#     description: 'This class represents a product variant.'
-#     type: object
-#     properties:
-#         code:
-#             type: string
-#         name:
-#             type: string
-#         Product:
-#             type: Product
-#         DiscriminatorAttributesList:
-#             type: Attribute[]
+ProductVariantWrapper:
+    properties:
+        ProductVariant: ProductVariant
 
-# ProductVariantCreate:
-#     description: 'This class is used to create a product variant.'
-#     type: object
-#     properties:
-#         code:
-#             type: string
-#         attributes:
-#             description: 'array<int|string,mixed>'
-#             type: array
-#             items: any
+ProductVariant:
+    description: 'This class represents a product variant.'
+    type: object
+    properties:
+        code:
+            type: string
+        name:
+            type: string
+        Product:
+            type: Product
+        DiscriminatorAttributesList:
+            type: Attribute[]
 
-# ProductVariantGenerate:
-#     description: 'This class is used to generate a product variant.'
-#     type: object
-#     properties:
-#         attributes:
-#             description: 'array<int|string,mixed>'
-#             type: array
-#             items: any
+ProductVariantCreateWrapper:
+    properties:
+        ProductVariantCreate: ProductVariantCreate
 
-# ProductVariantUpdate:
-#     description: 'This class is used to update a product variant.'
-#     type: object
-#     properties:
-#         code:
-#             type: string
-#         attributes:
-#             description: 'array<int|string,mixed>'
-#             type: array
-#             items: any
+ProductVariantCreate:
+    description: 'This class is used to create a product variant.'
+    type: object
+    properties:
+        code:
+            type: string
+        attributes:
+            description: 'array<int|string,mixed>'
+            type: object
 
-# ProductVariantViewInput:
-#     description: 'This class represents a product variant view input.'
-#     type: object
-#     properties:
-#         ProductVariantQuery:
-#             type: object
+ProductVariantGenerateWrapper:
+    properties:
+        ProductVariantGenerate: ProductVariantGenerate
 
-# ProductVariantView:
-#     description: 'This class represents a product variant view.'
-#     type: object
-#     properties:
-#         identifier:
-#             type: string
-#         ProductVariantQuery:
-#             type: object
-#         Result:
-#             type: object
+ProductVariantGenerate:
+    description: 'This class is used to generate a product variant.'
+    type: object
+    properties:
+        attributes:
+            description: 'array<int|string,mixed>'
+            type: object
+
+ProductVariantUpdateWrapper:
+    properties:
+        ProductVariantUpdate: ProductVariantUpdate
+
+ProductVariantUpdate:
+    description: 'This class is used to update a product variant.'
+    type: object
+    properties:
+        code:
+            type: string
+        attributes:
+            description: 'array<int|string,mixed>'
+            type: object
+
+ProductVariantViewInputWrapper:
+    properties:
+        ViewInput: ProductVariantViewInput
+
+ProductVariantViewInput:
+    description: 'This class represents a product variant view input.'
+    type: object
+    properties:
+        ProductVariantQuery:
+            type: object
+
+ProductVariantViewWrapper:
+    properties:
+        ProductVariantView: ProductVariantView
+
+ProductVariantView:
+    description: 'This class represents a product variant view.'
+    type: object
+    properties:
+        identifier:
+            type: string
+        ProductVariantQuery:
+            type: object
+        Result:
+            type: object
 
 RegionViewInputWrapper:
     properties:
