@@ -3985,12 +3985,20 @@ TaxonomyEntryUnassignFromContent:
         entries:
             type: integer[]
 
-# VatCategoryList:
-#     description: 'This class represents a VAT category list.'
-#     type: object
-#     properties:
-#         VatCategories:
-#             type: VatCategory[]
+VatCategoryListWrapper:
+    properties:
+        VatCategoryList: VatCategoryList
+
+VatCategoryList:
+    description: 'This class represents a VAT category list.'
+    type: object
+    properties:
+        VatCategory:
+            type: VatCategory[]
+
+VatCategoryWrapper:
+    properties:
+        VatCategory: VatCategory
 
 VatCategory:
     description: 'This class represents a VAT category.'
@@ -4001,7 +4009,7 @@ VatCategory:
         region:
             type: string
         vatValue:
-            type: number
+            type: number | nil
 
 # ContentUpdate:
 #     description: 'This class is used to update a Content.'
