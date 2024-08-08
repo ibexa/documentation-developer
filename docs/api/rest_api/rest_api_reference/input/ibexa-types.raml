@@ -8,6 +8,12 @@ TimezoneDate:
         timezone_type: integer
         timezone: string
 
+Fields:
+    type: object
+    properties:
+        field:
+            type: Field[]
+
 # Asset:
 #     type: object
 #     description: 'Asset value object'
@@ -97,9 +103,15 @@ Content:
         _remoteId:
             description: 'Remote ID of the content type.'
             type: string
+            xml:
+                attribute: true
+                name: remoteId
         _id:
             description: 'Unique ID of the content type.'
             type: integer
+            xml:
+                attribute: true
+                name: id
         ContentType:
             description: 'Content type.'
             type: BaseObject
@@ -1085,16 +1097,22 @@ LanguageList:
 #             description: 'Indicates if the language is enabled or not.'
 #             type: boolean
 
-# Limitation:
-#     description: 'This class represents a Limitation applied to a policy.'
-#     type: BaseObject
-#     properties:
-#         _identifier:
-#             description: 'Returns the limitation identifier (one of the defined constants) or a custom limitation. Constants: CONTENTTYPE = Class; LANGUAGE = Language; LOCATION = Node; OWNER = Owner; PARENTOWNER = ParentOwner; PARENTCONTENTTYPE = ParentClass; PARENTDEPTH = ParentDepth; SECTION = Section; NEWSECTION = NewSection; SITEACCESS = SiteAccess; STATE = State; NEWSTATE = NewState; SUBTREE = Subtree; USERGROUP = Group; PARENTUSERGROUP = ParentGroup; STATUS = Status.'
-#             enum: [ 'CONTENTTYPE', 'LANGUAGE', 'LOCATION', 'OWNER', 'PARENTOWNER', 'PARENTCONTENTTYPE', 'PARENTDEPTH', 'SECTION', 'NEWSECTION','SITEACCESS', 'STATE', 'NEWSTATE', 'SUBTREE', 'USERGROUP', 'PARENTUSERGROUP', 'STATUS' ]
-#         Values:
-#             description: 'A read-only list of IDs or identifiers for which the limitation should be applied. The value of this property must conform to a hash, which means that it may only consist of array and scalar values, but must not contain objects or resources.'
-#             type: Ref[]
+Limitation:
+    description: 'This class represents a Limitation applied to a policy.'
+    type: object
+    properties:
+        _identifier:
+            description: 'Returns the limitation identifier (one of the defined constants) or a custom limitation. Constants: CONTENTTYPE = Class; LANGUAGE = Language; LOCATION = Node; OWNER = Owner; PARENTOWNER = ParentOwner; PARENTCONTENTTYPE = ParentClass; PARENTDEPTH = ParentDepth; SECTION = Section; NEWSECTION = NewSection; SITEACCESS = SiteAccess; STATE = State; NEWSTATE = NewState; SUBTREE = Subtree; USERGROUP = Group; PARENTUSERGROUP = ParentGroup; STATUS = Status.'
+            enum: [ 'ContentType', 'Language', 'Location', 'Owner', 'Parentowner', 'ParentContentType', 'ParentDepth', 'Section', 'NewSection','Siteaccess', 'State', 'NewState', 'Subtree', 'UserGroup', 'ParentUserGroup', 'Status' ]
+            xml:
+                attribute: true
+                name: identifier
+        values:
+            description: 'A read-only list of IDs or identifiers for which the limitation should be applied. The value of this property must conform to a hash, which means that it may only consist of array and scalar values, but must not contain objects or resources.'
+            type: object
+            properties:
+                ref:
+                    type: Ref[]
 
 Location:
     description: 'This class represents a Location in the Repository.'
@@ -1561,34 +1579,43 @@ Relation:
 #         Relation:
 #             type: Relation[]
 
-# Role:
-#     description: 'This class represents a role.'
-#     type: BaseObject
-#     properties:
-#         identifier:
-#             description: 'Readable string identifier of a role.'
-#             type: string
-#         Policies:
-#             description: 'Returns the list of policies of this role.'
-#             type: BaseObject
+Role:
+    description: 'This class represents a role.'
+    type: BaseObject
+    properties:
+        identifier:
+            description: 'Readable string identifier of a role.'
+            type: string
+        Policies:
+            description: 'Returns the list of policies of this role.'
+            type: BaseObject
 
-# RoleAssignment:
-#     description: 'This value object represents an assignment of a User or User group to a role including a limitation.'
-#     type: BaseObject
-#     properties:
-#         Limitation:
-#             description: 'Returns the limitation of the role assignment.'
-#             type: RoleLimitation
-#         Role:
-#             description: 'Returns the role to which the User or User group is assigned to.'
-#             type: Ref
+RoleAssignmentWrapper:
+    properties:
+        RoleAssignment: RoleAssignment
 
-# RoleAssignmentList:
-#     description: 'This value object represents a list of assignments of a User or User group to a role including a limitation.'
-#     type: BaseObject
-#     properties:
-#         RoleAssignment:
-#             type: RoleAssignment[]
+RoleAssignment:
+    description: 'This value object represents an assignment of a User or User group to a role including a limitation.'
+    type: BaseObject
+    properties:
+        limitation:
+            description: 'Returns the limitation of the role assignment.'
+            type: RoleLimitation
+            required: false
+        Role:
+            description: 'Returns the role to which the User or User group is assigned to.'
+            type: Ref
+
+RoleAssignmentListWrapper:
+    properties:
+        RoleAssignmentList: RoleAssignmentList
+
+RoleAssignmentList:
+    description: 'This value object represents a list of assignments of a User or User group to a role including a limitation.'
+    type: BaseObject
+    properties:
+        RoleAssignment:
+            type: RoleAssignment[]
 
 # RoleCreateStruct:
 #     description: 'This class is used to create a new role.'
@@ -1608,9 +1635,9 @@ Relation:
 #     description: 'This class represents a draft of a role, extends Role.'
 #     type: Role
 
-# RoleLimitation:
-#     description: 'Role limitation extends Limitation.'
-#     type: Limitation
+RoleLimitation:
+    description: 'Role limitation extends Limitation.'
+    type: Limitation
 
 # RoleUpdateStruct:
 #     description: 'This class is used to update a role.'
@@ -1896,14 +1923,14 @@ StringLengthValidator:
 #     description: 'This class represents a trash item, which is actually a trashed Location.'
 #     type: Location
 
-# Unlink:
-#     description: 'Unlink a content type group from a content type.'
-#     type: object
-#     properties:
-#         _href:
-#             type: string
-#         _method:
-#             enum: [ ]
+Unlink:
+    description: 'Unlink a content type group from a content type.'
+    type: object
+    properties:
+        _href:
+            type: string
+        _method:
+            enum: [ ]
 
 # URL:
 #     description: 'This class represents a URL in the Repository.'
@@ -2051,6 +2078,10 @@ StringLengthValidator:
 #             description: 'Indicates if the URL is redirected or not.'
 #             type: boolean
 
+UserWrapper:
+    properties:
+        User: User
+
 User:
     description: 'This class represents a User value.'
     type: BaseObject
@@ -2145,24 +2176,86 @@ User:
 #             description: 'Indicates if the User is enabled after creation.'
 #             type: boolean
 
-# UserGroup:
-#     description: 'This class represents a User group.'
-#     type: BaseObject
-#     properties:
-#         Unassign:
-#             type: Unlink
+UserGroupWrapper:
+    properties:
+        UserGroup: UserGroup
+
+UserGroup:
+    description: 'Content ID matcher class.'
+    type: BaseObject
+    properties:
+        _remoteId:
+            description: 'Remote ID of the content type.'
+            type: string
+            xml:
+                attribute: true
+                name: remoteId
+        _id:
+            description: 'Unique ID of the content type.'
+            type: integer
+            xml:
+                attribute: true
+                name: id
+        ContentType:
+            description: 'Content type.'
+            type: Ref
+        name:
+            type: string
+        Versions:
+            description: 'Returns the VersionInfo for this version.'
+            type: Ref
+        Section:
+            description: 'The Section to which the content item is assigned to.'
+            type: Ref
+        MainLocation:
+            type: Ref
+        Locations:
+            description: 'Location of the content item.'
+            type: Ref
+        Owner:
+            description: 'The owner of the content item.'
+            type: Ref
+        lastModificationDate:
+            description: 'Content item modification date.'
+            type: datetime
+        mainLanguageCode:
+            description: 'The main language code of the content item.'
+            type: string
+        alwaysAvailable:
+            type: boolean
+        Version:
+            type: Version
+        ParentUserGroup:
+            type: Ref
+        Subgroups:
+            type: Ref
+        Users:
+            type: Ref
+        Roles:
+            type: Ref
+
+UserGroupUnassign:
+    description: 'This class represents a User group.'
+    type: BaseObject
+    properties:
+        Unassign:
+            type: Unlink
 
 # UserGroupCreateStruct:
 #     description: 'This class is used to create a new User group in the Repository, extends ContentCreateStruct.'
 #     type: object
 
-# UserGroupRefList:
-#     description: 'Returns a list of the sub groups.'
-#     type: BaseObject
-#     properties:
-#         UserGroup:
-#             description: 'This class represents a User group.'
-#             type: UserGroup
+UserGroupRefListWrapper:
+    properties:
+        UserGroupRefList: UserGroupRefList
+
+UserGroupRefList:
+    description: 'Returns a list of the sub groups.'
+    type: BaseObject
+    properties:
+        UserGroup:
+            description: 'This class represents a User group.'
+            type: Ref[]
 
 # UserGroupRoleAssignment:
 #     description: 'This class represents a User group to role assignment.'
@@ -2172,9 +2265,21 @@ User:
 #             description: 'Returns the User group to which the role is assigned to.'
 #             type: UserGroup
 
-# UserGroupUpdate:
-#     description: 'This class is used to update a User group in the Repository.'
-#     type: BaseObject
+UserGroupUpdateWrapper:
+    properties:
+        UserGroupUpdate: UserGroupUpdate
+
+UserGroupUpdate:
+    description: 'This class is used to update a User group in the Repository.'
+    type: object
+    properties:
+        Section:
+            properties:
+                _href:
+                    type: string
+                    xml:
+                        attribute: true
+                        name: href
 
 # UserGroupUpdateStruct:
 #     description: 'This class is used to update a User group in the Repository.'
@@ -2187,9 +2292,13 @@ User:
 #             description: 'The update structure for the profile meta data.'
 #             type: ContentMetadataUpdateStruct
 
-# UserGroupList:
-#     description: 'This class represents a User Group list.'
-#     type: BaseObject
+UserGroupListWrapper:
+    properties:
+        UserGroupList: UserGroupList
+
+UserGroupList:
+    description: 'This class represents a User Group list.'
+    type: BaseObject
 
 UserListWrapper:
     properties:
@@ -2235,13 +2344,17 @@ UserList:
 #             description: 'Value of User preference e.g. America/New_York.'
 #             type: string
 
-# UserRefList:
-#     description: 'Returns a list of the users.'
-#     type: BaseObject
-#     properties:
-#         User:
-#             description: 'This class represents a User.'
-#             type: BaseObject[]
+UserRefListWrapper:
+    properties:
+        UserRefList: UserRefList
+
+UserRefList:
+    description: 'Returns a list of the users.'
+    type: BaseObject
+    properties:
+        User:
+            description: 'This class represents a User.'
+            type: BaseObject[]
 
 # UserRoleAssignment:
 #     description: 'This class represents a User to role assignment.'
@@ -2499,47 +2612,57 @@ VersionTranslationInfo:
 #         FilterQuery:
 #             type: object
 
-# UserCreate:
-#     description: 'This class is used to create a User.'
-#     type: BaseObject
-#     properties:
-#         mainLanguageCode:
-#             type: string
-#         remoteId:
-#             type: string
-#         login:
-#             type: string
-#         email:
-#             type: string
-#         password:
-#             type: string
-#         enabled:
-#             type: boolean
+UserCreateWrapper:
+    properties:
+        UserCreate: UserCreate
 
-# UserGroupCreate:
-#     description: 'This class is used to create a User Group.'
-#     type: BaseObject
-#     properties:
-#         mainLanguageCode:
-#             type: string
-#         remoteId:
-#             type: string
-#         fields:
-#             type: Field[]
+UserCreate:
+    description: 'This class is used to create a User.'
+    type: object
+    properties:
+        mainLanguageCode:
+            type: string
+        remoteId:
+            type: string
+        login:
+            type: string
+        email:
+            type: string
+        password:
+            type: string
+        enabled:
+            type: boolean
+            required: false
 
-# RoleAssignInput:
-#     description: 'This class represents a Role assign input.'
-#     type: BaseObject
-#     properties:
-#         id:
-#             description: 'The unique ID of the Role assignment.'
-#             type: integer
-#         Role:
-#             description: 'Returns the Role to which the user or user group is assigned to.'
-#             type: Role
-#         Limitation:
-#             description: 'Returns the Limitation of the Role assignment.'
-#             type: Limitation
+UserGroupCreateWrapper:
+    properties:
+        UserGroupCreate: UserGroupCreate
+
+UserGroupCreate:
+    description: 'This class is used to create a User Group.'
+    type: object
+    properties:
+        mainLanguageCode:
+            type: string
+        remoteId:
+            type: string
+        fields:
+            type: Fields
+
+RoleAssignInputWrapper:
+    properties:
+        RoleAssignInput: RoleAssignInput
+
+RoleAssignInput:
+    description: 'This class represents a Role assign input.'
+    type: object
+    properties:
+        Role:
+            description: 'Returns the Role to which the user or user group is assigned to.'
+            type: Ref
+        limitation:
+            description: 'Returns the Limitation of the Role assignment.'
+            type: Limitation
 
 # UserUpdate:
 #     description: 'This class is used to update a User.'
