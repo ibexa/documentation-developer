@@ -25,13 +25,13 @@ get:
                 application/vnd.ibexa.api.UserList+xml:
                     type: UserList
                 application/vnd.ibexa.api.UserList+json:
-                    type: UserList
+                    type: UserListWrapper
                     example: !include examples/user/users/GET/UserList.json.example
                 application/vnd.ibexa.api.UserRefList+xml:
                     type: UserRefList
-                    example: !include examples/user/users/GET/UserRefList.xml.example
+                    # example: !include examples/user/users/GET/UserRefList.xml.example
                 application/vnd.ibexa.api.UserRefList+json:
-                    type: UserRefList
+                    type: UserRefListWrapper
         404:
             description: If there are no visibile Users matching the filter.
 head:
@@ -87,9 +87,9 @@ head:
                 body:
                     application/vnd.ibexa.api.User+xml:
                         type: UserList
-                        example: !include examples/user/users/user_id/GET/User.xml.example
+                        # example: !include examples/user/users/user_id/GET/User.xml.example
                     application/vnd.ibexa.api.User+json:
-                        type: UserList
+                        type: UserListWrapper
                         example: !include examples/user/users/user_id/GET/User.json.example
             401:
                 description: Error - the user has no permission to read Users.
@@ -115,9 +115,9 @@ head:
         body:
             application/vnd.ibexa.api.UserUpdate+xml:
                 type: UserUpdate
-                example: !include examples/user/users/user_id/PATCH/UserUpdate.xml.example
+                # example: !include examples/user/users/user_id/PATCH/UserUpdate.xml.example
             application/vnd.ibexa.api.UserUpdate+json:
-                type: UserUpdate
+                type: UserUpdateWrapper
                 example: !include examples/user/users/user_id/PATCH/UserUpdate.json.example
         responses:
             200:
@@ -125,9 +125,9 @@ head:
                 body:
                     application/vnd.ibexa.api.User+xml:
                         type: User
-                        example: !include examples/user/users/user_id/PATCH/User.xml.example
+                        # example: !include examples/user/users/user_id/PATCH/User.xml.example
                     application/vnd.ibexa.api.User+json:
-                        type: User
+                        type: UserWrapper
                         example: !include examples/user/users/user_id/PATCH/User.json.example
             400:
                 description: Error - the input does not match the input schema definition.
@@ -171,9 +171,9 @@ head:
                     body:
                         application/vnd.ibexa.api.UserGroupRefList+xml:
                             type: UserGroupRefList
-                            example: !include examples/user/users/user_id/groups/GET/UserGroupRefList.xml.example
+                            # example: !include examples/user/users/user_id/groups/GET/UserGroupRefList.xml.example
                         application/vnd.ibexa.api.UserGroupRefList+json:
-                            type: UserGroupRefList
+                            type: UserGroupRefListWrapper
                             #example: !include examples/user/users/user_id/groups/GET/UserGroupRefList.json.example
                 401:
                     description: Error - the user has no permission to read User Groups.
@@ -196,9 +196,9 @@ head:
                     body:
                         application/vnd.ibexa.api.UserGroupRefList+xml:
                             type: UserGroupRefList
-                            example: !include examples/user/users/user_id/groups/POST/UserGroupRefList.xml.example
+                            # example: !include examples/user/users/user_id/groups/POST/UserGroupRefList.xml.example
                         application/vnd.ibexa.api.UserGroupRefList+json:
-                            type: UserGroupRefList
+                            type: UserGroupRefListWrapper
                             example: !include examples/user/users/user_id/groups/POST/UserGroupRefList.json.example
                 401:
                     description: Error - the user is not authorized to assign User Groups.
@@ -221,9 +221,9 @@ head:
                         body:
                             application/vnd.ibexa.api.UserGroupRefList+xml:
                                 type: UserGroupRefList
-                                example: !include examples/user/users/user_id/groups/group_id/DELETE/UserGroupRefList.xml.example
+                                # example: !include examples/user/users/user_id/groups/group_id/DELETE/UserGroupRefList.xml.example
                             application/vnd.ibexa.api.UserGroupRefList+json:
-                                type: UserGroupRefList
+                                type: UserGroupRefListWrapper
                     401:
                         description: Error - the user is not authorized to unassign User Groups.
                     403:
@@ -245,9 +245,9 @@ head:
                     body:
                         application/vnd.ibexa.api.RoleAssignmentList+xml:
                             type: RoleAssignmentList
-                            example: !include examples/user/users/user_id/roles/GET/RoleAssignmentList.xml.example
+                            # example: !include examples/user/users/user_id/roles/GET/RoleAssignmentList.xml.example
                         application/vnd.ibexa.api.RoleAssignmentList+json:
-                            type: RoleAssignmentList
+                            type: RoleAssignmentListWrapper
                             example: !include examples/user/users/user_id/roles/GET/RoleAssignmentList.json.example
                 400:
                     description: Error - the user has no permission to read Roles.
@@ -268,18 +268,18 @@ head:
             body:
                 application/vnd.ibexa.api.RoleAssignInput+xml:
                     type: RoleAssignInput
-                    example: !include examples/user/users/user_id/roles/POST/RoleAssignInput.xml.example
+                    # example: !include examples/user/users/user_id/roles/POST/RoleAssignInput.xml.example
                 application/vnd.ibexa.api.RoleAssignInput+json:
-                    type: RoleAssignInput
+                    type: RoleAssignInputWrapper
                     example: !include examples/user/users/user_id/roles/POST/RoleAssignInput.json.example
             responses:
                 200:
                     body:
                         application/vnd.ibexa.api.RoleAssignmentList+xml:
                             type: RoleAssignmentList
-                            example: !include examples/user/users/user_id/roles/POST/RoleAssignmentList.xml.example
+                            # example: !include examples/user/users/user_id/roles/POST/RoleAssignmentList.xml.example
                         application/vnd.ibexa.api.RoleAssignmentList+json:
-                            type: RoleAssignmentList
+                            type: RoleAssignmentListWrapper
                             example: !include examples/user/users/user_id/roles/POST/RoleAssignmentList.json.example
                 400:
                     description: Error - validation of limitation in RoleAssignInput fails.
@@ -301,9 +301,9 @@ head:
                         body:
                             application/vnd.ibexa.api.RoleAssignment+xml:
                                 type: RoleAssignment
-                                example: !include examples/user/users/user_id/roles/role_id/GET/RoleAssignment.xml.example
+                                # example: !include examples/user/users/user_id/roles/role_id/GET/RoleAssignment.xml.example
                             application/vnd.ibexa.api.RoleAssignment+json:
-                                type: RoleAssignment
+                                type: RoleAssignmentWrapper
                                 example: !include examples/user/users/user_id/roles/role_id/GET/RoleAssignment.json.example
                     401:
                         description: Error - the user has no permission to read Roles.
@@ -321,9 +321,9 @@ head:
                         body:
                             application/vnd.ibexa.api.RoleAssignmentList+xml:
                                 type: RoleAssignmentList
-                                example: !include examples/user/users/user_id/roles/role_id/DELETE/RoleAssignmentList.xml.example
+                                # example: !include examples/user/users/user_id/roles/role_id/DELETE/RoleAssignmentList.xml.example
                             application/vnd.ibexa.api.RoleAssignmentList+json:
-                                type: RoleAssignmentList
+                                type: RoleAssignmentListWrapper
                                 example: !include examples/user/users/user_id/roles/role_id/DELETE/RoleAssignmentList.json.example
                     401:
                         description: Error - the user is not authorized to delete this content type.
@@ -367,6 +367,6 @@ head:
                         application/vnd.ibexa.api.VersionList+xml:
                             type: VersionList
                         application/vnd.ibexa.api.VersionList+json:
-                            type: VersionList
+                            type: VersionListWrapper
                 401:
                     description: Error - the current user is not authorized to list the drafts of the given user.
