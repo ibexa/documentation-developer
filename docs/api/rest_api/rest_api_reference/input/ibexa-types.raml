@@ -2191,12 +2191,16 @@ User:
 #     description: 'This class represents a User Group list.'
 #     type: BaseObject
 
-# UserList:
-#     description: 'This class represents a list of users.'
-#     type: BaseObject
-#     properties:
-#         User:
-#             type: User[]
+UserListWrapper:
+    properties:
+        UserList: UserList
+
+UserList:
+    description: 'This class represents a list of users.'
+    type: BaseObject
+    properties:
+        User:
+            type: User[]
 
 # UserPreference:
 #     description: 'This class represents a User preference value.'
