@@ -2170,8 +2170,34 @@ Unlink:
 #             description: 'Modified date.'
 #             type: datetime
 
-# UrlAliasCreate:
-#     type: BaseObject
+UrlAliasCreateWrapper:
+    properties:
+        UrlAliasCreate: UrlAliasCreate
+
+UrlAliasCreate:
+    type: object
+    properties:
+        _type:
+            type: string
+        location:
+            type: Href
+            required: false
+        resource:
+            type: string
+            required: false
+        languageCode:
+            type: string
+            required: false
+        alwaysAvailable:
+            type: string | boolean
+            required: false
+        forward:
+            type: string | boolean
+            required: false
+
+UrlAliasWrapper:
+    properties:
+        UrlAlias: UrlAlias
 
 UrlAlias:
     description: 'This class represents a URL alias in the Repository.'
@@ -2179,10 +2205,16 @@ UrlAlias:
     properties:
         _id:
             description: 'A unique identifier for the alias.'
-            type: integer
+            type: string
+            xml:
+                attribute: true
+                name: id
         _type:
             description: 'The type of the URL Alias i.e. one of URLAlias::LOCATION=0, URLAlias::RESOURCE=1, URLAlias::VIRTUAL=2.'
-            enum: [ ]
+            enum: [ "LOCATION", "RESOURCE", "VIRTUAL" ]
+            xml:
+                attribute: true
+                name: type
         resource:
             description: 'If type = URLAlias::LOCATION it is a Location ID otherwise a string (e.g. /content/search).'
             type: any
@@ -2191,7 +2223,7 @@ UrlAlias:
             type: string
         languageCodes:
             description: 'The languageCodes for which this path is valid.'
-            type: string[]
+            type: string
         alwaysAvailable:
             description: 'Fallback indicator for other languages.'
             type: boolean
@@ -2214,7 +2246,7 @@ UrlAliasRefList:
     type: BaseObject
     properties:
         UrlAlias:
-            type: UrlAlias[]
+            type: Ref[]
 
 # UrlQuery:
 #     description: 'This class is used to perform a URL query.'
