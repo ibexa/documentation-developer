@@ -80,12 +80,21 @@ Publish Later feature combined with Page Builder allows you to show all changes 
 
 Through the [[= product_name =]] Customer Portal and customer management that comes with it, you can manage company accounts, establish new ones, and communicate with your partners in a personalized space.
 With the help of this feature, you can create customized areas that give users a smooth, integrated experience and provide them access to a variety of resources, apps, and services from a single point of entry.
-Using this tool, your customers can change their organization details, invite and see members, self-register, access their order history, and more.
+Using this tool, your customers can change their organization details, invite and see members, self-register, and more.
+
+#### Segments
+
+[Segmentation](https://doc.ibexa.co/en/latest/administration/admin_panel/segments_admin_panel/) allows you to split up the user base.
+Using segments you can display specific content to specific Users and tailor the content that the visitors can see.
+The Targeting and Dynamic targeting blocks available in the Page Builder use them right out of the box.
+Segments work also with the [Personalization](personalization_brochure.md), where you can assign users to different recommendation groups and create advanced logic with operators to get best segmentation for your audience.
+
+![Segments](segments.png)
 
 #### Customer Data Platform (CDP)
 
 [Customer Data Platform](cdp_guide.md) is an add-on available for Experience and Commerce edition of [[= product_name =]].
-To use it, you must make arrangements with Ibexa DXP to define the initial configuration.
+To use it, you must make arrangements with [[= product_name_base =]] to define the initial configuration.
 With CDP you can create complete customer profiles, including their interactions, behaviors, and preferences.
 CDP helps you to improve engagement, conversion rates, and return on investment by segmenting your audience and delivering tailored campaigns and experiences.
 Additionally, you can manage and analyze campaigns, evaluate customer data, and identify the best ways to improve performance.
@@ -100,7 +109,7 @@ To use it, you must make arrangements with [[= product_name_base =]] to define t
 Ibexa Engage is a data collection tool. It gives you the ability to use the [Qualifio](https://qualifio.com/) tools to engage your audiences. You can use Qualifio's existing templates and interactive elements, such as quizzes, pools, and forms, to create visually appealing, customized campaigns and collect important data.
 To promote your campaign, you can add a Campaign block to a page in Page Builder or embed a campaign within the Rich Text field by using a Campaign custom tag.
 
-[Ibexa Engage]()
+![Ibexa Engage](ibexa_engage.png)
 
 ### Use cases
 
@@ -115,7 +124,8 @@ User interface of [[= product_name_exp =]] is intuitive and plain. With its new 
 
 If you want to make your product attractive to the customers, you need to know, that each of them is unique and special. You should then remember to tailor your marketing strategy to their needs and preferences. 
 [[= product_name_exp =]] allows you to deliver personalized content and recommendations through different channels.
-With the available add-ons you can also create audiences to distribute specific content in the right channels, at the right time, analyze customer behaviours, and collect important data.
+With segmentation you can create audiences to distribute specific content in the right channels, at the right time.
+Available add-ons give you even more possibilities - you can analyze customer behaviours, use interactive content, and collect important data.
 
 #### Build your future
 
