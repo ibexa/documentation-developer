@@ -15,18 +15,18 @@ post:
     body:
         application/vnd.ibexa.api.SectionInput+xml:
             type: SectionInput
-            example: !include examples/content/sections/POST/SectionInput.xml.example
+            # example: !include examples/content/sections/POST/SectionInput.xml.example
         application/vnd.ibexa.api.SectionInput+json:
-            type: SectionInput
+            type: SectionInputWrapper
             example: !include examples/content/sections/POST/SectionInput.json.example
     responses:
         201:
             body:
                 application/vnd.ibexa.api.Section+xml:
                     type: Section
-                    example: !include examples/content/sections/POST/Section.xml.example
+                    # example: !include examples/content/sections/POST/Section.xml.example
                 application/vnd.ibexa.api.Section+json:
-                    type: Section
+                    type: SectionWrapper
                     example: !include examples/content/sections/POST/Section.json.example
 get:
     displayName: Get Sections
@@ -47,9 +47,9 @@ get:
             body:
                 application/vnd.ibexa.api.SectionList+xml:
                     type: SectionList
-                    example: !include examples/content/sections/GET/SectionList.xml.example
+                    # example: !include examples/content/sections/GET/SectionList.xml.example
                 application/vnd.ibexa.api.SectionList+json:
-                    type: SectionList
+                    type: SectionListWrapper
                     example: !include examples/content/sections/GET/SectionList.json.example
         401:
             description: Error - The user has no permission to read the Section.
@@ -70,9 +70,9 @@ get:
                 body:
                     application/vnd.ibexa.api.Section+xml:
                         type: Section
-                        example: !include examples/content/sections/section_id/GET/Section.xml.example
+                        # example: !include examples/content/sections/section_id/GET/Section.xml.example
                     application/vnd.ibexa.api.Section+json:
-                        type: Section
+                        type: SectionWrapper
                         example: !include examples/content/sections/section_id/GET/Section.json.example
             401:
                 description: Error - The user is not authorized to read this Section.
@@ -97,9 +97,9 @@ get:
         body:
             application/vnd.ibexa.api.SectionInput+xml:
                 type: SectionInput
-                example: !include examples/content/sections/section_id/PATCH/SectionInput.xml.example
+                # example: !include examples/content/sections/section_id/PATCH/SectionInput.xml.example
             application/vnd.ibexa.api.SectionInput+json:
-                type: SectionInput
+                type: SectionInputWrapper
                 example: !include examples/content/sections/section_id/PATCH/SectionInput.json.example
         responses:
             200:
@@ -107,9 +107,9 @@ get:
                 body:
                     application/vnd.ibexa.api.Section+xml:
                         type: Section
-                        example: !include examples/content/sections/section_id/PATCH/Section.xml.example
+                        # example: !include examples/content/sections/section_id/PATCH/Section.xml.example
                     application/vnd.ibexa.api.Section+json:
-                        type: Section
+                        type: SectionWrapper
                         example: !include examples/content/sections/section_id/PATCH/Section.json.example
             400:
                 description: Error - the input does not match the input schema definition.
