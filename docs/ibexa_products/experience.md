@@ -86,8 +86,8 @@ Using this tool, your customers can change their organization details, invite an
 
 [Segmentation](https://doc.ibexa.co/en/latest/administration/admin_panel/segments_admin_panel/) allows you to split up the user base.
 Using segments you can display specific content to specific Users and tailor the content that the visitors can see.
-The Targeting and Dynamic targeting blocks available in the Page Builder use them right out of the box.
-Segments work also with the [Personalization](personalization_brochure.md), where you can assign users to different recommendation groups and create advanced logic with operators to get best segmentation for your audience.
+The Targeting block is available in the Page Builder and you can use it right out of the box.
+Segments work also with the [Personalization](personalization_brochure.md), where you can assign users to different recommendation groups and create advanced logic with operators to provide your audience with the best recommendations.
 
 ![Segments](segments.png)
 
