@@ -167,7 +167,7 @@ Content:
             type: boolean
         status:
             description: 'Status of the content. Possible values: const STATUS_DRAFT = 0;const STATUS_PUBLISHED = 1; const STATUS_TRASHED = 2.'
-            #enum: ['DRAFT', 'PUBLISHED', 'TRASHED']
+            enum: [ 'DRAFT', 'PUBLISHED', 'TRASHED' ]
         ObjectStates:
             description: 'Object states.'
             type: BaseObject
@@ -291,34 +291,34 @@ ContentInfo:
 #                description: 'Status of the content. Possible values: const STATUS_DRAFT = 0;const STATUS_PUBLISHED = 1; const STATUS_TRASHED = 2.'
 #                type: integer
 
-# ContentMetadataUpdateStruct:
-#     description: 'With this class data can be provided to update version independent Fields of the content item. It is used in content update methods. At least one property in this class must be set.'
-#     type: object
-#     properties:
-#         ownerId:
-#             description: 'If set this value changes the owner ID of the content item.'
-#             type: integer
-#         publishedDate:
-#             description: 'If set this value overrides the publication date of the content. (Used in staging scenarios).'
-#             type: datetime
-#         modificationDate:
-#             description: 'If set this value overrides the modification date. (Used for staging scenarios).'
-#             type: datetime
-#         mainLanguageCode:
-#             description: 'If set the main language of the content item is changed.'
-#             type: string
-#         alwaysAvailable:
-#             description: 'If set this value changes the always available flag.'
-#             type: boolean
-#         remoteId:
-#             description: 'If set this value changes the remoteId. Needs to be a unique Content->remoteId string value.'
-#             type: string
-#         mainLocationId:
-#             description: 'If set  main Location is changed to this value. If the content item has multiple Locations, $mainLocationId will point to the main one.'
-#             type: integer
-#         name:
-#             description: "If set, will change the content's 'always-available' name."
-#             type: string
+ContentMetadataUpdateStruct:
+    description: 'With this class data can be provided to update version independent Fields of the content item. It is used in content update methods. At least one property in this class must be set.'
+    type: object
+    properties:
+        ownerId:
+            description: 'If set this value changes the owner ID of the content item.'
+            type: integer
+        publishedDate:
+            description: 'If set this value overrides the publication date of the content. (Used in staging scenarios).'
+            type: datetime
+        modificationDate:
+            description: 'If set this value overrides the modification date. (Used for staging scenarios).'
+            type: datetime
+        mainLanguageCode:
+            description: 'If set the main language of the content item is changed.'
+            type: string
+        alwaysAvailable:
+            description: 'If set this value changes the always available flag.'
+            type: boolean
+        remoteId:
+            description: 'If set this value changes the remoteId. Needs to be a unique Content->remoteId string value.'
+            type: string
+        mainLocationId:
+            description: 'If set  main Location is changed to this value. If the content item has multiple Locations, $mainLocationId will point to the main one.'
+            type: integer
+        name:
+            description: "If set, will change the content's 'always-available' name."
+            type: string
 
 ContentObjectStatesWrapper:
     properties:
@@ -332,13 +332,13 @@ ContentObjectStates:
             description: 'List of object state values.'
             type: Href[]
 
-# ContentStruct:
-#     description: 'Base struct for content create/update structs.'
-#     type: object
-#     properties:
-#         setField:
-#             description: 'Adds a field to the field collection. This method could also be implemented by a magic setter so that $fields[$fieldDefIdentifier][$language] = $value or without language $fields[$fieldDefIdentifier] = $value is an equivalent call.'
-#             type: string
+ContentStruct:
+    description: 'Base struct for content create/update structs.'
+    type: object
+    properties:
+        setField:
+            description: 'Adds a field to the field collection. This method could also be implemented by a magic setter so that $fields[$fieldDefIdentifier][$language] = $value or without language $fields[$fieldDefIdentifier] = $value is an equivalent call.'
+            type: string
 
 ContentCreateContentType:
     type: object
@@ -421,59 +421,58 @@ ContentType:
             description: 'This method returns the content type Field definitions from this type.'
             type: FieldDefinitions
 
-# ContentTypeCreateStruct:
-#     description: 'This class is used for creating content types.'
-#     type: object
-#     properties:
-#         identifier:
-#             description: 'String unique identifier of a type.'
-#             required: true
-#             type: string
-#         mainLanguageCode:
-#             description: 'Main language Code.'
-#             required: true
-#             type: string
-#         remoteId:
-#             description: 'The remote ID.'
-#             type: string
-#         urlAliasSchema:
-#             description: 'URL alias schema.'
-#             type: string
-#         nameSchema:
-#             description: 'Name schema.'
-#             type: string
-#         isContainer:
-#             description: 'Determines if the type is a container.'
-#             type: boolean
-#         defaultSortField:
-#             description: 'Specifies which property the child Locations should be sorted on by default when created.'
-#             type: integer
-#         defaultSortOrder:
-#             description: 'Specifies whether the sort order should be ascending or descending by default when created.'
-#             type: integer
-#         defaultAlwaysAvailable:
-#             description: 'If an instance of a content type is created the always available flag is set by default this this value.'
-#             type: boolean
-#         names:
-#             description: 'An array of names with languageCode keys. At least one name in the main language is required.'
-#             required: true
-#             type: string[]
-#         descriptions:
-#             description: 'An array of descriptions with languageCode keys.'
-#             type: string[]
-#         addFieldDefinition:
-#             description: 'Adds a new Field definition.'
-#             type: FieldDefinitionCreateStruct
-#         creatorId:
-#             description: 'If set this value overrides the current User as creator.'
-#             type: integer
-#         creationDate:
-#             description: 'f set this value overrides the current time for creation.'
-#             type: datetime
-
-# ContentTypeDraft:
-#     description: 'This class represents a draft of a content type.'
-#     type: object
+ContentTypeCreateStruct:
+    description: 'This class is used for creating content types.'
+    type: object
+    properties:
+        identifier:
+            description: 'String unique identifier of a type.'
+            required: true
+            type: string
+        mainLanguageCode:
+            description: 'Main language Code.'
+            required: true
+            type: string
+        remoteId:
+            description: 'The remote ID.'
+            type: string
+        urlAliasSchema:
+            description: 'URL alias schema.'
+            type: string
+        nameSchema:
+            description: 'Name schema.'
+            type: string
+        isContainer:
+            description: 'Determines if the type is a container.'
+            type: boolean
+        defaultSortField:
+            description: 'Specifies which property the child Locations should be sorted on by default when created.'
+            type: string
+        defaultSortOrder:
+            description: 'Specifies whether the sort order should be ascending or descending by default when created.'
+            type: string
+        defaultAlwaysAvailable:
+            description: 'If an instance of a content type is created the always available flag is set by default this this value.'
+            type: boolean
+        names:
+            description: 'An array of names with languageCode keys. At least one name in the main language is required.'
+            type: ValueObject
+            required: false
+        descriptions:
+            description: 'An array of descriptions with languageCode keys.'
+            type: ValueObject
+            required: false
+        addFieldDefinition:
+            description: 'Adds a new Field definition.'
+            type: FieldDefinitionCreateStruct
+            required: false
+        creatorId:
+            description: 'If set this value overrides the current User as creator.'
+            type: integer
+            required: false
+        creationDate:
+            description: 'f set this value overrides the current time for creation.'
+            type: datetime
 
 ContentTypeGroupWrapper:
     properties:
@@ -512,16 +511,16 @@ ContentTypeGroupInputWrapper:
 ContentTypeGroupInput:
     type: object
 
-# ContentTypeGroupCreateStruct:
-#     description: 'This class is used for creating a content type group.'
-#     type: object
-#     properties:
-#         creatorId:
-#             description: 'If set this value overrides the current User as creator.'
-#             type: integer
-#         creationDate:
-#             description: 'If set this value overrides the current time for creation.'
-#             type: datetime
+ContentTypeGroupCreateStruct:
+    description: 'This class is used for creating a content type group.'
+    type: object
+    properties:
+        creatorId:
+            description: 'If set this value overrides the current User as creator.'
+            type: integer
+        creationDate:
+            description: 'If set this value overrides the current time for creation.'
+            type: datetime
 
 ContentTypeGroupListWrapper:
     properties:
@@ -555,24 +554,24 @@ ContentTypeGroupRefList:
         ContentTypeGroupRef:
             type: ContentTypeGroupRef
 
-# ContentTypeGroupStruct:
-#     description: 'This class is used for updating a content type group.'
-#     type: object
-#     properties:
-#         identifier:
-#             description: 'Readable and unique string identifier of a group.'
-#             type: string
+ContentTypeGroupStruct:
+    description: 'This class is used for updating a content type group.'
+    type: object
+    properties:
+        identifier:
+            description: 'Readable and unique string identifier of a group.'
+            type: string
 
-# ContentTypeGroupUpdateStruct:
-#     description: 'This class is used for updating a content type group.'
-#     type: object
-#     properties:
-#         modifierId:
-#             description: 'If set this value overrides the current User as modifier.'
-#             type: integer
-#         modificationDate:
-#             description: 'If set this value overrides the current time for modified.'
-#             type: datetime
+ContentTypeGroupUpdateStruct:
+    description: 'This class is used for updating a content type group.'
+    type: object
+    properties:
+        modifierId:
+            description: 'If set this value overrides the current User as modifier.'
+            type: integer
+        modificationDate:
+            description: 'If set this value overrides the current time for modified.'
+            type: datetime
 
 ContentTypeInfoWrapper:
     properties:
@@ -720,16 +719,16 @@ ContentTypeUpdateStruct:
             type: ValueObject
             required: false
 
-# ContentUpdateStruct:
-#     description: 'This class is used for updating the fields of a content item draft.'
-#     type: object
-#     properties:
-#         initialLanguageCode:
-#             description: 'The language code of the version. This code is used as the language code of the translation (which is shown in the admin interface). It is also used as default language for added fields.'
-#             type: string
-#         creatorId:
-#             description: 'Creator User ID. Creator of the version, in the search API this is referred to as the modifier of the published content.'
-#             type: integer
+ContentUpdateStruct:
+    description: 'This class is used for updating the fields of a content item draft.'
+    type: object
+    properties:
+        initialLanguageCode:
+            description: 'The language code of the version. This code is used as the language code of the translation (which is shown in the admin interface). It is also used as default language for added fields.'
+            type: string
+        creatorId:
+            description: 'Creator User ID. Creator of the version, in the search API this is referred to as the modifier of the published content.'
+            type: integer
 
 Country:
     description: 'This class is representing a country.'
@@ -765,23 +764,23 @@ CountryList:
         Country:
             type: Country[]
 
-# CreateStruct:
-#     description: 'This class is used for creating a notification.'
-#     type: object
-#     properties:
-#         ownerId:
-#             description: 'Owner ID.'
-#             type: integer
-#         type:
-#             description: 'This class represents type.'
-#             type: string
-#         isPending:
-#             description: 'If the notification is pending.'
-#             type: boolean
-#         data:
-#             description: 'Notification data.'
-#             type: array
-#             items: any
+CreateStruct:
+    description: 'This class is used for creating a notification.'
+    type: object
+    properties:
+        ownerId:
+            description: 'Owner ID.'
+            type: integer
+        type:
+            description: 'This class represents type.'
+            type: string
+        isPending:
+            description: 'If the notification is pending.'
+            type: boolean
+        data:
+            description: 'Notification data.'
+            type: array
+            items: any
 
 Criterion:
     description: 'Criterion implementations.'
@@ -1035,92 +1034,92 @@ FieldDefinitionUpdateWrapper:
 FieldDefinitionUpdate:
     type: BaseObject
 
-# FieldDefinitionCreateStruct:
-#     description: 'This class is used to create a Field definition.'
-#     type: object
-#     properties:
-#         fieldTypeIdentifier:
-#             description: 'String identifier of the field type.'
-#             required: true
-#             type: string
-#         identifier:
-#             description: 'Readable string identifier of a Field definition. Needs to be unique within the context of the content type this is added to.'
-#             required: true
-#             type: string
-#         names:
-#             description: 'An array of names with languageCode keys.'
-#             type: Value[]
-#         descriptions:
-#             description: 'An array of descriptions with languageCode keys.'
-#             type: Value[]
-#         fieldGroup:
-#             description: 'Field group name.'
-#             type: string
-#         position:
-#             description: 'The position of the Field definition in the content type if not set the field is added at the end.'
-#             type: integer
-#         isTranslatable:
-#             description: 'Indicates if the field is translatable.'
-#             type: boolean
-#         isRequired:
-#             description: 'Indicates if the field is required.'
-#             type: boolean
-#         isInfoCollector:
-#             description: 'Indicates if this attribute is used for information collection.'
-#             type: boolean
-#         validatorConfiguration:
-#             description: 'The validator configuration supported by the field type.'
-#             type: any
-#         fieldSettings:
-#             description: 'The settings supported by the field type.'
-#             type: any
-#         defaultValue:
-#             description: 'Default value of the field.'
-#             type: any
-#         isSearchable:
-#             description: 'Indicates if th the content is searchable by this attribute.'
-#             type: boolean
+FieldDefinitionCreateStruct:
+    description: 'This class is used to create a Field definition.'
+    type: object
+    properties:
+        fieldTypeIdentifier:
+            description: 'String identifier of the field type.'
+            required: true
+            type: string
+        identifier:
+            description: 'Readable string identifier of a Field definition. Needs to be unique within the context of the content type this is added to.'
+            required: true
+            type: string
+        names:
+            description: 'An array of names with languageCode keys.'
+            type: Value[]
+        descriptions:
+            description: 'An array of descriptions with languageCode keys.'
+            type: Value[]
+        fieldGroup:
+            description: 'Field group name.'
+            type: string
+        position:
+            description: 'The position of the Field definition in the content type if not set the field is added at the end.'
+            type: integer
+        isTranslatable:
+            description: 'Indicates if the field is translatable.'
+            type: boolean
+        isRequired:
+            description: 'Indicates if the field is required.'
+            type: boolean
+        isInfoCollector:
+            description: 'Indicates if this attribute is used for information collection.'
+            type: boolean
+        validatorConfiguration:
+            description: 'The validator configuration supported by the field type.'
+            type: any
+        fieldSettings:
+            description: 'The settings supported by the field type.'
+            type: any
+        defaultValue:
+            description: 'Default value of the field.'
+            type: any
+        isSearchable:
+            description: 'Indicates if th the content is searchable by this attribute.'
+            type: boolean
 
-# FieldDefinitionUpdateStruct:
-#     description: 'This class is used to update a Field definition.'
-#     type: object
-#     properties:
-#         identifier:
-#             description: 'If set the identifier of a Field definition is changed to this value. Needs to be unique within the context of the content type this is added to.'
-#             type: string
-#         names:
-#             description: 'If set this array of names with languageCode keys replace the complete name collection.'
-#             type: Value[]
-#         descriptions:
-#             description: 'If set this array of descriptions with languageCode keys replace the complete description collection.'
-#             type: Value[]
-#         fieldGroup:
-#             description: 'If set the field group is changed to this name.'
-#             type: string
-#         position:
-#             description: 'If set the position of the field in the content type.'
-#             type: integer
-#         isTranslatable:
-#             description: 'If set translatable flag is set to this value.'
-#             type: boolean
-#         isRequired:
-#             description: 'If set the required flag is set to this value.'
-#             type: boolean
-#         isInfoCollector:
-#             description: 'If set the information collector flag is set to this value.'
-#             type: boolean
-#         validatorConfiguration:
-#             description: 'If set this validator configuration supported by the Field Type replaces the existing one.'
-#             type: any
-#         fieldSettings:
-#             description: 'If set this settings supported by the Field Type replaces the existing ones.'
-#             type: any
-#         defaultValue:
-#             description: 'If set the default value for this field is changed to the given value.'
-#             type: any
-#         isSearchable:
-#             description: 'If set the the searchable flag is set to this value.'
-#             type: boolean
+FieldDefinitionUpdateStruct:
+    description: 'This class is used to update a Field definition.'
+    type: object
+    properties:
+        identifier:
+            description: 'If set the identifier of a Field definition is changed to this value. Needs to be unique within the context of the content type this is added to.'
+            type: string
+        names:
+            description: 'If set this array of names with languageCode keys replace the complete name collection.'
+            type: Value[]
+        descriptions:
+            description: 'If set this array of descriptions with languageCode keys replace the complete description collection.'
+            type: Value[]
+        fieldGroup:
+            description: 'If set the field group is changed to this name.'
+            type: string
+        position:
+            description: 'If set the position of the field in the content type.'
+            type: integer
+        isTranslatable:
+            description: 'If set translatable flag is set to this value.'
+            type: boolean
+        isRequired:
+            description: 'If set the required flag is set to this value.'
+            type: boolean
+        isInfoCollector:
+            description: 'If set the information collector flag is set to this value.'
+            type: boolean
+        validatorConfiguration:
+            description: 'If set this validator configuration supported by the Field Type replaces the existing one.'
+            type: any
+        fieldSettings:
+            description: 'If set this settings supported by the Field Type replaces the existing ones.'
+            type: any
+        defaultValue:
+            description: 'If set the default value for this field is changed to the given value.'
+            type: any
+        isSearchable:
+            description: 'If set the the searchable flag is set to this value.'
+            type: boolean
 
 JWTWrapper:
     properties:
@@ -1186,19 +1185,19 @@ LanguageList:
         Language:
             type: Language[]
 
-# LanguageCreateStruct:
-#     description: 'This class represents a value for creating a language.'
-#     type: object
-#     properties:
-#         languageCode:
-#             description: 'The languageCode code. Needs to be a unique.'
-#             type: string
-#         name:
-#             description: 'Human readable name of the language.'
-#             type: string
-#         enabled:
-#             description: 'Indicates if the language is enabled or not.'
-#             type: boolean
+LanguageCreateStruct:
+    description: 'This class represents a value for creating a language.'
+    type: object
+    properties:
+        languageCode:
+            description: 'The languageCode code. Needs to be a unique.'
+            type: string
+        name:
+            description: 'Human readable name of the language.'
+            type: string
+        enabled:
+            description: 'Indicates if the language is enabled or not.'
+            type: boolean
 
 Limitation:
     description: 'This class represents a Limitation applied to a policy.'
@@ -1300,29 +1299,29 @@ LocationCreate:
         sortOrder:
             type: string
 
-# LocationCreateStruct:
-#     description: 'This class is used to create a new Location for a content item.'
-#     type: object
-#     properties:
-#         priority:
-#             description: 'Location priority. Position of the Location among its siblings when sorted using priority sort order.'
-#             type: integer
-#         hidden:
-#             description: 'Indicates that the Location entity has been explicitly marked as hidden.'
-#             type: boolean
-#         remoteId:
-#             description: 'An universally unique string identifier. Needs to be a unique Location->remoteId string value.'
-#             type: integer
-#         sortField:
-#             description: 'Specifies which property the child locations should be sorted on. Valid values are found at {@link Location::SORT_FIELD_*}.'
-#             type: integer
-#         sortOrder:
-#             description: 'Specifies whether the sort order should be ascending or descending.  Valid values are {@link Location::SORT_ORDER_*}.'
-#             type: integer
-#         parentLocationId:
-#             description: 'The ID of the parent Location under which the new Location should be created.'
-#             required: true
-#             type: integer
+LocationCreateStruct:
+    description: 'This class is used to create a new Location for a content item.'
+    type: object
+    properties:
+        priority:
+            description: 'Location priority. Position of the Location among its siblings when sorted using priority sort order.'
+            type: integer
+        hidden:
+            description: 'Indicates that the Location entity has been explicitly marked as hidden.'
+            type: boolean
+        remoteId:
+            description: 'An universally unique string identifier. Needs to be a unique Location->remoteId string value.'
+            type: integer
+        sortField:
+            description: 'Specifies which property the child locations should be sorted on. Valid values are found at {@link Location::SORT_FIELD_*}.'
+            type: integer
+        sortOrder:
+            description: 'Specifies whether the sort order should be ascending or descending.  Valid values are {@link Location::SORT_ORDER_*}.'
+            type: integer
+        parentLocationId:
+            description: 'The ID of the parent Location under which the new Location should be created.'
+            required: true
+            type: integer
 
 LocationListWrapper:
     properties:
@@ -1363,52 +1362,52 @@ LocationUpdateStruct:
             description: 'If set the sortOrder is changed. The sort order specifies whether the sort order should be ascending or descending. Valid values are {@link Location::SORT_ORDER_*}.'
             enum: [ 'ASC', 'DESC' ]
 
-# Message:
-#     description: 'Class for translatable messages, which only occur in singular form. The message might include replacements, in the form %[A-Za-z]%. Those are replaced by the values provided. A raw % can be escaped like %%.'
-#     type: object
-#     properties:
-#         message:
-#             description: 'Message string. Might use replacements like %foo%, which are replaced by the values specified in the values array.'
-#             type: string
-#         values:
-#             description: 'Translation value objects. May not contain any numbers, which might result in requiring plural forms. Use Plural for that.'
-#             type: array
-#             items: any
+Message:
+    description: 'Class for translatable messages, which only occur in singular form. The message might include replacements, in the form %[A-Za-z]%. Those are replaced by the values provided. A raw % can be escaped like %%.'
+    type: object
+    properties:
+        message:
+            description: 'Message string. Might use replacements like %foo%, which are replaced by the values specified in the values array.'
+            type: string
+        values:
+            description: 'Translation value objects. May not contain any numbers, which might result in requiring plural forms. Use Plural for that.'
+            type: array
+            items: any
 
-# Notification:
-#     description: 'This class represents a notification value.'
-#     type: object
-#     properties:
-#         id:
-#             description: 'This class represents ID.'
-#             type: integer
-#         ownerId:
-#             description: 'Owner ID.'
-#             type: integer
-#         isPending:
-#             description: 'If the notification is pending.'
-#             type: boolean
-#         type:
-#             description: 'This class represents type.'
-#             type: string
-#         created:
-#             description: 'Creation date.'
-#             type: datetime
-#         data:
-#             description: 'This class represents data.'
-#             type: array
-#             items: any
+Notification:
+    description: 'This class represents a notification value.'
+    type: object
+    properties:
+        id:
+            description: 'This class represents ID.'
+            type: integer
+        ownerId:
+            description: 'Owner ID.'
+            type: integer
+        isPending:
+            description: 'If the notification is pending.'
+            type: boolean
+        type:
+            description: 'This class represents type.'
+            type: string
+        created:
+            description: 'Creation date.'
+            type: datetime
+        data:
+            description: 'This class represents data.'
+            type: array
+            items: any
 
-# NotificationList:
-#     description: 'This class represents a notifications list.'
-#     type: object
-#     properties:
-#         totalCount:
-#             description: 'Number of notifications.'
-#             type: integer
-#         items:
-#             description: 'List of notifications.'
-#             type: Notification[]
+NotificationList:
+    description: 'This class represents a notifications list.'
+    type: object
+    properties:
+        totalCount:
+            description: 'Number of notifications.'
+            type: integer
+        items:
+            description: 'List of notifications.'
+            type: Notification[]
 
 ObjectStateWrapper:
     properties:
@@ -1652,24 +1651,24 @@ Policy:
                 limitation:
                     type: Limitation[]
 
-# PolicyCreateStruct:
-#     description: 'This class is used to create a policy.'
-#     type: object
-#     properties:
-#         module:
-#             description: 'Name of module, associated with the Policy e.g. content.'
-#             type: string
-#         function:
-#             description: 'Name of the module function Or all functions with "*" e.g. read.'
-#             type: string
+PolicyCreateStruct:
+    description: 'This class is used to create a policy.'
+    type: object
+    properties:
+        module:
+            description: 'Name of module, associated with the Policy e.g. content.'
+            type: string
+        function:
+            description: 'Name of the module function Or all functions with "*" e.g. read.'
+            type: string
 
-# PolicyDraft:
-#     description: 'Original policy ID the policy was created from.'
-#     type: object
-#     properties:
-#         originalId:
-#             description: 'Original policy ID the policy was created from. Used when role status is Role::STATUS_DRAFT.'
-#             type: integer
+PolicyDraft:
+    description: 'Original policy ID the policy was created from.'
+    type: object
+    properties:
+        originalId:
+            description: 'Original policy ID the policy was created from. Used when role status is Role::STATUS_DRAFT.'
+            type: integer
 
 PolicyListWrapper:
     properties:
@@ -1682,20 +1681,20 @@ PolicyList:
         Policy:
             type: Policy[]
 
-# PolicyStruct:
-#     description: 'This class is used to edit a policy.'
-#     type: object
-#     properties:
-#         Limitations:
-#             description: 'Returns list of limitations added to policy.'
-#             type: Limitation[]
-#         Limitation:
-#             description: 'Adds a limitation with the given identifier and list of values.'
-#             type: Limitation
+PolicyStruct:
+    description: 'This class is used to edit a policy.'
+    type: object
+    properties:
+        Limitations:
+            description: 'Returns list of limitations added to policy.'
+            type: Limitation[]
+        Limitation:
+            description: 'Adds a limitation with the given identifier and list of values.'
+            type: Limitation
 
-# PolicyUpdateStruct:
-#     description: 'This class is used for updating a policy. The limitations of the policy are replaced with those which are added in instances of this class.'
-#     type: object
+PolicyUpdateStruct:
+    description: 'This class is used for updating a policy. The limitations of the policy are replaced with those which are added in instances of this class.'
+    type: object
 
 Query:
     description: 'This class is used to perform a Content query.'
@@ -1818,19 +1817,19 @@ RoleAssignmentList:
         RoleAssignment:
             type: RoleAssignment[]
 
-# RoleCreateStruct:
-#     description: 'This class is used to create a new role.'
-#     type: object
-#     properties:
-#         identifier:
-#             description: 'Readable string identifier of a role.'
-#             type: string
-#         Policies:
-#             description: 'Returns policies associated with the role.'
-#             type: PolicyCreateStruct[]
-#         Policy:
-#             description: 'Adds a policy to this role.'
-#             type: PolicyCreateStruct
+RoleCreateStruct:
+    description: 'This class is used to create a new role.'
+    type: object
+    properties:
+        identifier:
+            description: 'Readable string identifier of a role.'
+            type: string
+        Policies:
+            description: 'Returns policies associated with the role.'
+            type: PolicyCreateStruct[]
+        Policy:
+            description: 'Adds a policy to this role.'
+            type: PolicyCreateStruct
 
 RoleDraftWrapper:
     properties:
@@ -1844,13 +1843,13 @@ RoleLimitation:
     description: 'Role limitation extends Limitation.'
     type: Limitation
 
-# RoleUpdateStruct:
-#     description: 'This class is used to update a role.'
-#     type: object
-#     properties:
-#         identifier:
-#             description: 'Readable string identifier of a role.'
-#             type: string
+RoleUpdateStruct:
+    description: 'This class is used to update a role.'
+    type: object
+    properties:
+        identifier:
+            description: 'Readable string identifier of a role.'
+            type: string
 
 RoleListWrapper:
     properties:
@@ -1954,16 +1953,16 @@ Root:
             description: 'Refresh given session.'
             type: BaseObject
 
-# SearchResult:
-#     description: 'The total number of URLs.'
-#     type: object
-#     properties:
-#         totalCount:
-#             description: 'The total number of URLs.'
-#             type: integer
-#         items:
-#             description: 'The value objects found for the query.'
-#             type: URL[]
+SearchResult:
+    description: 'The total number of URLs.'
+    type: object
+    properties:
+        totalCount:
+            description: 'The total number of URLs.'
+            type: integer
+        items:
+            description: 'The value objects found for the query.'
+            type: URL[]
 
 SectionWrapper:
     properties:
@@ -1995,12 +1994,12 @@ SectionInput:
         name:
             type: string
 
-# SectionCreateStruct:
-#     description: 'This class represents a Section.'
-#     type: object
+SectionCreateStruct:
+    description: 'This class represents a Section.'
+    type: object
 
-# SectionLimitation:
-#     type: RoleLimitation
+SectionLimitation:
+    type: RoleLimitation
 
 SectionListWrapper:
     properties:
@@ -2013,20 +2012,20 @@ SectionList:
         Section:
             type: Section[]
 
-# SectionStruct:
-#     description: 'This class is used for updating Section meta data.'
-#     type: object
-#     properties:
-#         identifier:
-#             description: 'If set the Unique identifier of the Section is changes. Needs to be a unique Section->identifier string value.'
-#             type: string
-#         name:
-#             description: 'If set the name of the Section is changed.'
-#             type: string
+SectionStruct:
+    description: 'This class is used for updating Section meta data.'
+    type: object
+    properties:
+        identifier:
+            description: 'If set the Unique identifier of the Section is changes. Needs to be a unique Section->identifier string value.'
+            type: string
+        name:
+            description: 'If set the name of the Section is changed.'
+            type: string
 
-# SectionUpdateStruct:
-#     description: 'This class is used to provide data for updating a Section. At least one property has to be set.'
-#     type: object
+SectionUpdateStruct:
+    description: 'This class is used to provide data for updating a Section. At least one property has to be set.'
+    type: object
 
 SessionWrapper:
     properties:
@@ -2144,16 +2143,16 @@ StringLengthValidator:
             description: 'Minimum length of strings.'
             type: integer | nil
 
-# SubtreeLimitation:
-#     type: RoleLimitation
+SubtreeLimitation:
+    type: RoleLimitation
 
 Target:
     description: 'Struct that stores extra target information for a SortClause object.'
     type: object
 
-# Translation:
-#     description: 'Base class for translation messages extends ValueObject.'
-#     type: object
+Translation:
+    description: 'Base class for translation messages extends ValueObject.'
+    type: object
 
 TrashWrapper:
     properties:
@@ -2182,28 +2181,28 @@ Unlink:
         _method:
             enum: [ "DELETE" ]
 
-# URL:
-#     description: 'This class represents a URL in the Repository.'
-#     type: object
-#     properties:
-#         id:
-#             description: 'The unique ID of the URL.'
-#             type: integer
-#         url:
-#             description: 'URL itself e.g. "https://ibexa.co".'
-#             type: string
-#         isValid:
-#             description: 'Is URL valid?'
-#             type: boolean
-#         lastChecked:
-#             description: 'Date of last check.'
-#             type: datetime
-#         created:
-#             description: 'Creation date.'
-#             type: datetime
-#         modified:
-#             description: 'Modified date.'
-#             type: datetime
+URL:
+    description: 'This class represents a URL in the Repository.'
+    type: object
+    properties:
+        id:
+            description: 'The unique ID of the URL.'
+            type: integer
+        url:
+            description: 'URL itself e.g. "https://ibexa.co".'
+            type: string
+        isValid:
+            description: 'Is URL valid?'
+            type: boolean
+        lastChecked:
+            description: 'Date of last check.'
+            type: datetime
+        created:
+            description: 'Creation date.'
+            type: datetime
+        modified:
+            description: 'Modified date.'
+            type: datetime
 
 UrlAliasCreateWrapper:
     properties:
@@ -2283,47 +2282,47 @@ UrlAliasRefList:
         UrlAlias:
             type: Ref[]
 
-# UrlQuery:
-#     description: 'This class is used to perform a URL query.'
-#     type: object
-#     properties:
-#         filter:
-#             description: 'The Query filter.'
-#             type: Criterion
-#         sortClauses:
-#             description: 'Query sorting clauses.'
-#             type: SortClause[]
-#         offset:
-#             description: 'Query offset. Sets the offset for search hits, used for paging the results.'
-#             type: integer
-#         limit:
-#             description: 'Query limit. Limit for number of search hits to return. If value is `0`, search query will not return any search hits, useful for doing a count.'
-#             type: integer
+UrlQuery:
+    description: 'This class is used to perform a URL query.'
+    type: object
+    properties:
+        filter:
+            description: 'The Query filter.'
+            type: Criterion
+        sortClauses:
+            description: 'Query sorting clauses.'
+            type: SortClause[]
+        offset:
+            description: 'Query offset. Sets the offset for search hits, used for paging the results.'
+            type: integer
+        limit:
+            description: 'Query limit. Limit for number of search hits to return. If value is `0`, search query will not return any search hits, useful for doing a count.'
+            type: integer
 
-# UsageSearchResult:
-#     description: 'This class is used to find usage search results.'
-#     type: object
-#     properties:
-#         totalCount:
-#             description: 'The total number of content objects using URL.'
-#             type: integer
-#         items:
-#             description: 'The value objects found for the query.'
-#             type: ContentInfo[]
+UsageSearchResult:
+    description: 'This class is used to find usage search results.'
+    type: object
+    properties:
+        totalCount:
+            description: 'The total number of content objects using URL.'
+            type: integer
+        items:
+            description: 'The value objects found for the query.'
+            type: ContentInfo[]
 
-# URLUpdateStruct:
-#     description: 'Structure used to update URL data.'
-#     type: object
-#     properties:
-#         url:
-#             description: 'URL itself e.g. "https://ibexa.co".'
-#             type: string
-#         isValid:
-#             description: 'Is URL valid?'
-#             type: boolean
-#         lastChecked:
-#             description: 'Modified date.'
-#             type: datetime
+URLUpdateStruct:
+    description: 'Structure used to update URL data.'
+    type: object
+    properties:
+        url:
+            description: 'URL itself e.g. "https://ibexa.co".'
+            type: string
+        isValid:
+            description: 'Is URL valid?'
+            type: boolean
+        lastChecked:
+            description: 'Modified date.'
+            type: datetime
 
 UrlWildcardWrapper:
     properties:
@@ -2375,16 +2374,16 @@ UrlWildcardList:
         UrlWildcard:
             type: UrlWildcard[]
 
-# URLWildcardTranslationResult:
-#     description: 'This class represents a result of a translated URL wildcard which is not an URLAlias.'
-#     type: object
-#     properties:
-#         uri:
-#             description: 'The found resource URI.'
-#             type: string
-#         forward:
-#             description: 'Indicates if the URL is redirected or not.'
-#             type: boolean
+URLWildcardTranslationResult:
+    description: 'This class represents a result of a translated URL wildcard which is not an URLAlias.'
+    type: object
+    properties:
+        uri:
+            description: 'The found resource URI.'
+            type: string
+        forward:
+            description: 'Indicates if the URL is redirected or not.'
+            type: boolean
 
 UserWrapper:
     properties:
@@ -2460,29 +2459,30 @@ User:
         Roles:
             description: 'Roles.'
             type: BaseObject
-#            maxLogin:
-#                description: 'Max number of time User is allowed to login.'
-#                type: integer
+        maxLogin:
+            description: 'Max number of time User is allowed to login.'
+            type: integer
+            required: false
 
-# UserCreateStruct:
-#     description: 'This class is used to create a new User in the Repository.'
-#     type: object
-#     properties:
-#         login:
-#             description: 'User login.'
-#             required: true
-#             type: string
-#         email:
-#             description: 'User email address.'
-#             required: true
-#             type: string
-#         password:
-#             description: 'The plain password.'
-#             required: true
-#             type: string
-#         enabled:
-#             description: 'Indicates if the User is enabled after creation.'
-#             type: boolean
+UserCreateStruct:
+    description: 'This class is used to create a new User in the Repository.'
+    type: object
+    properties:
+        login:
+            description: 'User login.'
+            required: true
+            type: string
+        email:
+            description: 'User email address.'
+            required: true
+            type: string
+        password:
+            description: 'The plain password.'
+            required: true
+            type: string
+        enabled:
+            description: 'Indicates if the User is enabled after creation.'
+            type: boolean
 
 UserGroupWrapper:
     properties:
@@ -2549,9 +2549,9 @@ UserGroupUnassign:
         Unassign:
             type: Unlink
 
-# UserGroupCreateStruct:
-#     description: 'This class is used to create a new User group in the Repository, extends ContentCreateStruct.'
-#     type: object
+UserGroupCreateStruct:
+    description: 'This class is used to create a new User group in the Repository, extends ContentCreateStruct.'
+    type: object
 
 UserGroupRefListWrapper:
     properties:
@@ -2565,13 +2565,13 @@ UserGroupRefList:
             description: 'This class represents a User group.'
             type: Ref[]
 
-# UserGroupRoleAssignment:
-#     description: 'This class represents a User group to role assignment.'
-#     type: object
-#     properties:
-#         UserGroup:
-#             description: 'Returns the User group to which the role is assigned to.'
-#             type: UserGroup
+UserGroupRoleAssignment:
+    description: 'This class represents a User group to role assignment.'
+    type: object
+    properties:
+        UserGroup:
+            description: 'Returns the User group to which the role is assigned to.'
+            type: UserGroup
 
 UserGroupUpdateWrapper:
     properties:
@@ -2589,16 +2589,16 @@ UserGroupUpdate:
                         attribute: true
                         name: href
 
-# UserGroupUpdateStruct:
-#     description: 'This class is used to update a User group in the Repository.'
-#     type: object
-#     properties:
-#         contentUpdateStruct:
-#             description: 'The update structure for the profile content.'
-#             type: ContentUpdateStruct
-#         contentMetadataUpdateStruct:
-#             description: 'The update structure for the profile meta data.'
-#             type: ContentMetadataUpdateStruct
+UserGroupUpdateStruct:
+    description: 'This class is used to update a User group in the Repository.'
+    type: object
+    properties:
+        contentUpdateStruct:
+            description: 'The update structure for the profile content.'
+            type: ContentUpdateStruct
+        contentMetadataUpdateStruct:
+            description: 'The update structure for the profile meta data.'
+            type: ContentMetadataUpdateStruct
 
 UserGroupListWrapper:
     properties:
@@ -2619,38 +2619,38 @@ UserList:
         User:
             type: User[]
 
-# UserPreference:
-#     description: 'This class represents a User preference value.'
-#     type: object
-#     properties:
-#         name:
-#             description: 'Name of User preference e.g. timezone.'
-#             type: string
-#         value:
-#             description: 'Value of User preference e.g. America/New_York.'
-#             type: string
+UserPreference:
+    description: 'This class represents a User preference value.'
+    type: object
+    properties:
+        name:
+            description: 'Name of User preference e.g. timezone.'
+            type: string
+        value:
+            description: 'Value of User preference e.g. America/New_York.'
+            type: string
 
-# UserPreferenceList:
-#     description: 'List of User preferences.'
-#     type: object
-#     properties:
-#         totalCount:
-#             description: 'The total number of User preferences.'
-#             type: integer
-#         items:
-#             description: 'List of User preferences.'
-#             type: UserPreference[]
+UserPreferenceList:
+    description: 'List of User preferences.'
+    type: object
+    properties:
+        totalCount:
+            description: 'The total number of User preferences.'
+            type: integer
+        items:
+            description: 'List of User preferences.'
+            type: UserPreference[]
 
-# UserPreferenceSetStruct:
-#     description: 'This class creates User preferences.'
-#     type: object
-#     properties:
-#         name:
-#             description: 'Name of User preference e.g. timezone.'
-#             type: string
-#         value:
-#             description: 'Value of User preference e.g. America/New_York.'
-#             type: string
+UserPreferenceSetStruct:
+    description: 'This class creates User preferences.'
+    type: object
+    properties:
+        name:
+            description: 'Name of User preference e.g. timezone.'
+            type: string
+        value:
+            description: 'Value of User preference e.g. America/New_York.'
+            type: string
 
 UserRefListWrapper:
     properties:
@@ -2664,47 +2664,47 @@ UserRefList:
             description: 'This class represents a User.'
             type: BaseObject[]
 
-# UserRoleAssignment:
-#     description: 'This class represents a User to role assignment.'
-#     type: object
-#     properties:
-#         User:
-#             description: 'Returns the User to which the role is assigned to.'
-#             type: User
+UserRoleAssignment:
+    description: 'This class represents a User to role assignment.'
+    type: object
+    properties:
+        User:
+            description: 'Returns the User to which the role is assigned to.'
+            type: User
 
-# UserTokenUpdateStruct:
-#     description: 'This class is used to update a User token in the Repository.'
-#     type: object
-#     properties:
-#         hashKey:
-#             description: 'Hash key date for User account.'
-#             type: string
-#         time:
-#             description: 'Time to which the token is valid.'
-#             type: datetime
+UserTokenUpdateStruct:
+    description: 'This class is used to update a User token in the Repository.'
+    type: object
+    properties:
+        hashKey:
+            description: 'Hash key date for User account.'
+            type: string
+        time:
+            description: 'Time to which the token is valid.'
+            type: datetime
 
-# UserUpdateStruct:
-#     description: 'This class is used to update a User in the Repository.'
-#     type: object
-#     properties:
-#         email:
-#             description: 'If set the email address is updated with this value.'
-#             type: string
-#         password:
-#             description: 'If set the password is updated with this plain password.'
-#             type: string
-#         enabled:
-#             description: 'Flag to Signal if User is enabled or not. If set the enabled status is changed to this value.'
-#             type: boolean
-#         maxLogin:
-#             description: 'Max number of time User is allowed to login. If set the maximum number of login attempts is changed to this value.'
-#             type: integer
-#         contentUpdateStruct:
-#             description: 'The update structure for the profile content.'
-#             type: ContentUpdateStruct
-#         contentMetadataUpdateStruct:
-#             description: 'The update structure  for the profile meta data.'
-#             type: ContentMetadataUpdateStruct
+UserUpdateStruct:
+    description: 'This class is used to update a User in the Repository.'
+    type: object
+    properties:
+        email:
+            description: 'If set the email address is updated with this value.'
+            type: string
+        password:
+            description: 'If set the password is updated with this plain password.'
+            type: string
+        enabled:
+            description: 'Flag to Signal if User is enabled or not. If set the enabled status is changed to this value.'
+            type: boolean
+        maxLogin:
+            description: 'Max number of time User is allowed to login. If set the maximum number of login attempts is changed to this value.'
+            type: integer
+        contentUpdateStruct:
+            description: 'The update structure for the profile content.'
+            type: ContentUpdateStruct
+        contentMetadataUpdateStruct:
+            description: 'The update structure  for the profile meta data.'
+            type: ContentMetadataUpdateStruct
 
 ValueArray:
     properties:
@@ -2726,15 +2726,6 @@ Value:
         '#text':
             description: 'Content type description.'
             type: string | nil
-
-# ValueObject:
-#     description: 'The base class for all value objects and structs. Supports readonly properties by marking them as protected.'
-#     type: object
-#     properties:
-#         Properties:
-#             description: 'Function where list of properties are returned.'
-#             type: array
-#             items: any
 
 VersionWrapper:
     properties:
@@ -3225,9 +3216,9 @@ BasketHeaderData:
     description: 'Removed'
     type: object
 
-# BasketLinesData:
-#     description: 'Removed'
-#     type: object
+BasketLinesData:
+    description: 'Removed'
+    type: object
 
 PriceResponseWrapper:
     properties:
@@ -4053,7 +4044,7 @@ ProductTypeCreate:
     type: object
     properties:
         ContentTypeCreateStruct:
-            type: object
+            type: ContentTypeCreateStruct
         main_language_code:
             type: string
         assigned_attributes:
@@ -4466,38 +4457,38 @@ EntryAssignmentCollection:
         assignments:
             type: TaxonomyEntryAssignment[]
 
-# TaxonomyEntryCreateStruct:
-#     description: 'This class is used to create a taxonomy entry.'
-#     type: BaseObject
-#     properties:
-#         identifier:
-#             type: string
-#         taxonomy:
-#             type: string
-#         Parent:
-#             type: TaxonomyEntry
-#         Content:
-#             type: Content
+TaxonomyEntryCreateStruct:
+    description: 'This class is used to create a taxonomy entry.'
+    type: BaseObject
+    properties:
+        identifier:
+            type: string
+        taxonomy:
+            type: string
+        Parent:
+            type: TaxonomyEntry
+        Content:
+            type: Content
 
-# TaxonomyEntryUpdateStruct:
-#     description: 'This class is used to update a taxonomy entry.'
-#     type: BaseObject
-#     properties:
-#         identifier:
-#             type: string
-#         name:
-#             type: string
-#         names:
-#             type: array
-#             items: any
-#         languageCode:
-#             type: string
-#         mainLanguageCode:
-#             type: string
-#         Parent:
-#             type: TaxonomyEntry
-#         Content:
-#             type: Content
+TaxonomyEntryUpdateStruct:
+    description: 'This class is used to update a taxonomy entry.'
+    type: BaseObject
+    properties:
+        identifier:
+            type: string
+        name:
+            type: string
+        names:
+            type: array
+            items: any
+        languageCode:
+            type: string
+        mainLanguageCode:
+            type: string
+        Parent:
+            type: TaxonomyEntry
+        Content:
+            type: Content
 
 TaxonomyEntryBulkRemoveWrapper:
     properties:
