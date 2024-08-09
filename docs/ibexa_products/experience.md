@@ -23,7 +23,7 @@ You can also [contact us](https://www.ibexa.co/about-ibexa/contact-us) or [one o
 
 ### Technical backstage
 
-With an active license, you can start the [installation process](install_ibexa_dxp.md) through Composer.
+With an active license, you can start the [installation process](install_ibexa_dxp.md) that uses the Composer.
 
 [[= product_name_exp =]] is based on [Symfony]([[= symfony_doc =]]).
 With a help of documentation and trainings, any developer familiar with Symfony or simply PHP may learn how to use available extension points and extend the platform.
