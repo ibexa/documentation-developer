@@ -1,5 +1,6 @@
 {
   "ContentTypeUpdate": {
+    "_media-type": "application/vnd.ibexa.api.ContentTypeUpdate",
     "defaultAlwaysAvailable": "true"
   }
 }

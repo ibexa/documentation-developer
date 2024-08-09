@@ -21,14 +21,14 @@ get:
             body:
                 application/vnd.ibexa.api.UserGroupList+xml:
                     type: UserGroupList
-                    example: !include examples/user/groups/GET/UserGroupList.xml.example
+                    # example: !include examples/user/groups/GET/UserGroupList.xml.example
                 application/vnd.ibexa.api.UserGroupList+json:
-                    type: UserGroupList
+                    type: UserGroupListWrapper
                     example: !include examples/user/groups/GET/UserGroupList.json.example
                 application/vnd.ibexa.api.UserGroupRefList+xml:
                     type: UserGroupRefList
                 application/vnd.ibexa.api.UserGroupRefList+json:
-                    type: UserGroupRefList
+                    type: UserGroupRefListWrapper
         401:
             description: Error - the user has no permission to read User Groups.
 /root:
@@ -57,9 +57,9 @@ get:
         body:
             application/vnd.ibexa.api.UserGroupCreate+xml:
                 type: UserGroupCreate
-                example: !include examples/user/groups/path/subgroups/POST/UserGroupCreate.xml.example
+                # example: !include examples/user/groups/path/subgroups/POST/UserGroupCreate.xml.example
             application/vnd.ibexa.api.UserGroupCreate+json:
-                type: UserGroupCreate
+                type: UserGroupCreateWrapper
                 example: !include examples/user/groups/path/subgroups/POST/UserGroupCreate.json.example
         responses:
             201:
@@ -67,9 +67,9 @@ get:
                 body:
                     application/vnd.ibexa.api.UserGroup+xml:
                         type: UserGroup
-                        example: !include examples/user/groups/path/subgroups/POST/UserGroup.xml.example
+                        # example: !include examples/user/groups/path/subgroups/POST/UserGroup.xml.example
                     application/vnd.ibexa.api.UserGroup+json:
-                        type: UserGroup
+                        type: UserGroupWrapper
                         example: !include examples/user/groups/path/subgroups/POST/UserGroup.json.example
             400:
                 description: Error - the input does not match the input schema definition.
@@ -93,9 +93,9 @@ get:
                 body:
                     application/vnd.ibexa.api.UserGroup+xml:
                         type: UserGroup
-                        example: !include examples/user/groups/path/GET/UserGroup.xml.example
+                        # example: !include examples/user/groups/path/GET/UserGroup.xml.example
                     application/vnd.ibexa.api.UserGroup+json:
-                        type: UserGroup
+                        type: UserGroupWrapper
                         example: !include examples/user/groups/path/GET/UserGroup.json.example
             401:
                 description: Error - the user has no permission to read User Groups.
@@ -121,9 +121,9 @@ get:
         body:
             application/vnd.ibexa.api.UserGroupUpdate+xml:
                 type: UserGroupUpdate
-                example: !include examples/user/groups/path/PATCH/UserGroupUpdate.xml.example
+                # example: !include examples/user/groups/path/PATCH/UserGroupUpdate.xml.example
             application/vnd.ibexa.api.UserGroupUpdate+json:
-                type: UserGroupUpdate
+                type: UserGroupUpdateWrapper
                 example: !include examples/user/groups/path/PATCH/UserGroupUpdate.json.example
         responses:
             200:
@@ -131,9 +131,9 @@ get:
                 body:
                     application/vnd.ibexa.api.UserGroup+xml:
                         type: UserGroup
-                        example: !include examples/user/groups/path/PATCH/UserGroup.xml.example
+                        # example: !include examples/user/groups/path/PATCH/UserGroup.xml.example
                     application/vnd.ibexa.api.UserGroup+json:
-                        type: UserGroup
+                        type: UserGroupWrapper
                         example: !include examples/user/groups/path/PATCH/UserGroup.json.example
             400:
                 description: Error - the input does not match the input schema definition.
@@ -151,21 +151,21 @@ get:
                 description: Error - the user is not authorized to delete this content type.
             403:
                 description: Error - the User Group is not empty.
-    move:
-        displayName: Move User Group
-        description: Moves the User Group to another parent. MOVE or POST with header X-HTTP-Method-Override MOVE.
-        headers:
-            Destination:
-                description: A parent group resource to which the Location is moved.
-        responses:
-            201:
-                description: Created - moves the User Group to another parent.
-            401:
-                description: Error - the user is not authorized to update the User Group.
-            403:
-                description: Error - the new parent does not exist.
-            404:
-                description: Error - the User Group does not exist.
+    # move:
+    #     displayName: Move User Group
+    #     description: Moves the User Group to another parent. MOVE or POST with header X-HTTP-Method-Override MOVE.
+    #     headers:
+    #         Destination:
+    #             description: A parent group resource to which the Location is moved.
+    #     responses:
+    #         201:
+    #             description: Created - moves the User Group to another parent.
+    #         401:
+    #             description: Error - the user is not authorized to update the User Group.
+    #         403:
+    #             description: Error - the new parent does not exist.
+    #         404:
+    #             description: Error - the User Group does not exist.
     /users:
         get:
             displayName: Load Users of Group
@@ -193,9 +193,9 @@ get:
                             type: UserList
                         application/vnd.ibexa.api.UserRefList+xml:
                             type: UserRefList
-                            example: !include examples/user/groups/id/users/GET/UserRefList.xml.example
+                            # example: !include examples/user/groups/id/users/GET/UserRefList.xml.example
                         application/vnd.ibexa.api.UserRefList+json:
-                            type: UserRefList
+                            type: UserRefListWrapper
                             example: !include examples/user/groups/id/users/GET/UserRefList.json.example
                 401:
                     description: Error - the user has no permission to read User Groups.
@@ -218,18 +218,18 @@ get:
             body:
                 application/vnd.ibexa.api.UserCreate+xml:
                     type: UserCreate
-                    example: !include examples/user/groups/path/users/POST/UserCreate.xml.example
+                    # example: !include examples/user/groups/path/users/POST/UserCreate.xml.example
                 application/vnd.ibexa.api.UserCreate+json:
-                    type: UserCreate
+                    type: UserCreateWrapper
                     example: !include examples/user/groups/path/users/POST/UserCreate.json.example
             responses:
                 201:
                     body:
                         application/vnd.ibexa.api.User+xml:
                             type: User
-                            example: !include examples/user/groups/path/users/POST/User.xml.example
+                            # example: !include examples/user/groups/path/users/POST/User.xml.example
                         application/vnd.ibexa.api.User+json:
-                            type: User
+                            type: UserWrapper
                             example: !include examples/user/groups/path/users/POST/User.json.example
                 400:
                     description: Error - the input does not match the input schema definition.
@@ -263,12 +263,12 @@ get:
                         application/vnd.ibexa.api.UserGroupList+xml:
                             type: UserGroupList
                         application/vnd.ibexa.api.UserGroupList+json:
-                            type: UserGroupList
+                            type: UserGroupListWrapper
                         application/vnd.ibexa.api.UserGroupRefList+xml:
                             type: UserGroupRefList
-                            example: !include examples/user/groups/id/subgroups/GET/UserGroupRefList.xml.example
+                            # example: !include examples/user/groups/id/subgroups/GET/UserGroupRefList.xml.example
                         application/vnd.ibexa.api.UserGroupRefList+json:
-                            type: UserGroupRefList
+                            type: UserGroupRefListWrapper
                             example: !include examples/user/groups/id/subgroups/GET/UserGroupRefList.json.example
                 401:
                     description: Error - the user has no permission to read User Groups.
@@ -291,18 +291,18 @@ get:
             body:
                 application/vnd.ibexa.api.UserGroupCreate+xml:
                     type: UserGroupCreate
-                    example: !include examples/user/groups/path/subgroups/POST/UserGroupCreate.xml.example
+                    # example: !include examples/user/groups/path/subgroups/POST/UserGroupCreate.xml.example
                 application/vnd.ibexa.api.UserGroupCreate+json:
-                    type: UserGroupCreate
+                    type: UserGroupCreateWrapper
                     example: !include examples/user/groups/path/subgroups/POST/UserGroupCreate.json.example
             responses:
                 201:
                     body:
                         application/vnd.ibexa.api.UserGroup+xml:
                             type: UserGroup
-                            example: !include examples/user/groups/path/subgroups/POST/UserGroup.xml.example
+                            # example: !include examples/user/groups/path/subgroups/POST/UserGroup.xml.example
                         application/vnd.ibexa.api.UserGroup+json:
-                            type: UserGroup
+                            type: UserGroupWrapper
                             example: !include examples/user/groups/path/subgroups/POST/UserGroup.json.example
                 400:
                     description: Error - the input does not match the input schema definition.
@@ -323,9 +323,9 @@ get:
                     body:
                         application/vnd.ibexa.api.RoleAssignmentList+xml:
                             type: RoleAssignmentList
-                            example: !include examples/user/groups/path/roles/GET/RoleAssignmentList.xml.example
+                            # example: !include examples/user/groups/path/roles/GET/RoleAssignmentList.xml.example
                         application/vnd.ibexa.api.RoleAssignmentList+json:
-                            type: RoleAssignmentList
+                            type: RoleAssignmentListWrapper
                             #example: !include examples/user/groups/path/roles/GET/RoleAssignmentList.json.example
                 400:
                     description: Error - the user has no permission to read Roles.
@@ -346,18 +346,18 @@ get:
             body:
                 application/vnd.ibexa.api.RoleAssignInput+xml:
                     type: RoleAssignInput
-                    example: !include examples/user/groups/path/roles/POST/RoleAssignInput.xml.example
+                    # example: !include examples/user/groups/path/roles/POST/RoleAssignInput.xml.example
                 application/vnd.ibexa.api.RoleAssignInput+json:
-                    type: RoleAssignInput
+                    type: RoleAssignInputWrapper
                     example: !include examples/user/groups/path/roles/POST/RoleAssignInput.json.example
             responses:
                 200:
                     body:
                         application/vnd.ibexa.api.RoleAssignmentList+xml:
                             type: RoleAssignmentList
-                            example: !include examples/user/groups/path/roles/POST/RoleAssignmentList.xml.example
+                            # example: !include examples/user/groups/path/roles/POST/RoleAssignmentList.xml.example
                         application/vnd.ibexa.api.RoleAssignmentList+json:
-                            type: RoleAssignmentList
+                            type: RoleAssignmentListWrapper
                             example: !include examples/user/groups/path/roles/POST/RoleAssignmentList.json.example
                 400:
                     description: Error - validation of limitation in RoleAssignInput fails.
@@ -379,11 +379,10 @@ get:
                         body:
                             application/vnd.ibexa.api.RoleAssignment+xml:
                                 type: RoleAssignment
-                                example: !include examples/user/groups/path/roles/role_id/GET/RoleAssignment.xml.example
+                                # example: !include examples/user/groups/path/roles/role_id/GET/RoleAssignment.xml.example
                             application/vnd.ibexa.api.RoleAssignment+json:
-                                type: RoleAssignment
+                                type: RoleAssignmentWrapper
                                 example: !include examples/user/groups/path/roles/role_id/GET/RoleAssignment.json.example
-                            
                     401:
                         description: Error - the user has no permission to read Roles.
             delete:
@@ -400,9 +399,9 @@ get:
                         body:
                             application/vnd.ibexa.api.RoleAssignmentList+xml:
                                 type: RoleAssignmentList
-                                example: !include examples/user/groups/path/roles/role_id/DELETE/RoleAssignmentList.xml.example
+                                # example: !include examples/user/groups/path/roles/role_id/DELETE/RoleAssignmentList.xml.example
                             application/vnd.ibexa.api.RoleAssignmentList+json:
-                                type: RoleAssignmentList
+                                type: RoleAssignmentListWrapper
                                 example: !include examples/user/groups/path/roles/role_id/DELETE/RoleAssignmentList.json.example
                     401:
                         description: Error - the user is not authorized to delete this Role assignment.

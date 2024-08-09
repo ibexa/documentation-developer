@@ -5,6 +5,7 @@
       },
     "mainLanguageCode": "eng-GB",
     "LocationCreate": {
+      "_media-type": "application/vnd.ibexa.api.LocationCreate",
       "ParentLocation": {
         "_href": "/api/ibexa/v2/content/locations/1/2"
        },
@@ -29,7 +30,7 @@
           "fieldDefinitionIdentifier": "intro",
           "languageCode": "eng-GB",
           "fieldTypeIdentifier": "ezrichtext",
-          "fieldValue": 
+          "fieldValue":
            {
                 "xml": "<section xmlns=\"http://ibexa.co/namespaces/ezpublish5/xhtml5/edit\"><p>draft draft</p></section>"
             }

@@ -28,14 +28,14 @@ get:
             body:
                 application/vnd.ibexa.api.ContentTypeInfoList+xml:
                     type: ContentTypeInfoList
-                    example: !include examples/content/types/GET/ContentTypeInfoList.xml.example
+                    # example: !include examples/content/types/GET/ContentTypeInfoList.xml.example
                 application/vnd.ibexa.api.ContentTypeInfoList+json:
-                    type: ContentTypeInfoList
+                    type: ContentTypeInfoListWrapper
                     example: !include examples/content/types/GET/ContentTypeInfoList.json.example
                 application/vnd.ibexa.api.ContentTypeList+xml:
                     type: ContentTypeList
                 application/vnd.ibexa.api.ContentTypeList+json:
-                    type: ContentTypeList
+                    type: ContentTypeListWrapper
             description: OK - returns a list of content types.
         401:
             description: Error - The user has no permission to read the content types.
@@ -56,23 +56,23 @@ get:
                 body:
                     application/vnd.ibexa.api.ContentType+xml:
                         type: ContentType
-                        example: !include examples/content/types/content_type_id/GET/ContentType.xml.example
+                        # example: !include examples/content/types/content_type_id/GET/ContentType.xml.example
                     application/vnd.ibexa.api.ContentType+json:
-                        type: ContentType
+                        type: ContentTypeWrapper
                         example: !include examples/content/types/content_type_id/GET/ContentType.json.example
                 description: OK - returns the content type.
             401:
                 description: Error - The user is not authorized to read this content type.
             404:
                 description: Error - The content type does not exist.
-    copy:
-        displayName: Copy content type
-        description: Copies a content type. A new remote ID is generated, and the identifier of the copy is set to 'copy_of_originalBaseIdentifier_newTypeId' (or another random string). COPY or POST with header X-HTTP-Method-Override COPY.
-        responses:
-            201:
-                description: Copy of the content type created.
-            401:
-                description: Error - The user is not authorized to copy this content type.
+    # copy:
+    #     displayName: Copy content type
+    #     description: Copies a content type. A new remote ID is generated, and the identifier of the copy is set to 'copy_of_originalBaseIdentifier_newTypeId' (or another random string). COPY or POST with header X-HTTP-Method-Override COPY.
+    #     responses:
+    #         201:
+    #             description: Copy of the content type created.
+    #         401:
+    #             description: Error - The user is not authorized to copy this content type.
     post:
         displayName: Create Draft
         description: Creates a draft and updates it with the given data.
@@ -90,9 +90,9 @@ get:
         body:
             application/vnd.ibexa.api.ContentTypeUpdate+xml:
                 type: ContentTypeUpdate
-                example: !include examples/content/types/content_type_id/POST/ContentTypeUpdate.xml.example
+                # example: !include examples/content/types/content_type_id/POST/ContentTypeUpdate.xml.example
             application/vnd.ibexa.api.ContentTypeUpdate+json:
-                type: ContentTypeUpdate
+                type: ContentTypeUpdateWrapper
                 example: !include examples/content/types/content_type_id/POST/ContentTypeUpdate.json.example
         responses:
             201:
@@ -100,9 +100,9 @@ get:
                 body:
                     application/vnd.ibexa.api.ContentTypeInfo+xml:
                         type: ContentTypeInfo
-                        example: !include examples/content/types/content_type_id/POST/ContentTypeInfo.xml.example
+                        # example: !include examples/content/types/content_type_id/POST/ContentTypeInfo.xml.example
                     application/vnd.ibexa.api.ContentTypeInfo+json:
-                        type: ContentTypeInfo
+                        type: ContentTypeInfoWrapper
                         example: !include examples/content/types/content_type_id/POST/ContentTypeInfo.json.example
             400:
                 description: Error - The input does not match the input schema definition.
@@ -139,7 +139,7 @@ get:
                         application/vnd.ibexa.api.FieldDefinitionList+xml:
                             type: FieldDefinitions
                         application/vnd.ibexa.api.FieldDefinitionList+json:
-                            type: FieldDefinitions
+                            type: FieldDefinitionsWrapper
                 404:
                     description: Error - The content type does not exist.
         /{fieldDefinitionId}:
@@ -158,9 +158,9 @@ get:
                         body:
                             application/vnd.ibexa.api.FieldDefinition+xml:
                                 type: FieldDefinition
-                                example: !include examples/content/types/content_type_id/field_definition_id/GET/FieldDefinition.xml.example
+                                # example: !include examples/content/types/content_type_id/field_definition_id/GET/FieldDefinition.xml.example
                             application/vnd.ibexa.api.FieldDefinition+json:
-                                type: FieldDefinition
+                                type: FieldDefinitionWrapper
                                 example: !include examples/content/types/content_type_id/field_definition_id/GET/FieldDefinition.json.example
                     401:
                         description: Error - The user is not authorized to read the content type.
@@ -182,7 +182,7 @@ get:
                         application/vnd.ibexa.api.ContentType+xml:
                             type: ContentType
                         application/vnd.ibexa.api.ContentType+json:
-                            type: ContentType
+                            type: ContentTypeWrapper
                     description: OK - returns the content type.
                 401:
                     description: Error - The user is not authorized to read this content type.
@@ -205,9 +205,9 @@ get:
             body:
                 application/vnd.ibexa.api.ContentTypeUpdate+xml:
                     type: ContentTypeUpdate
-                    example: !include examples/content/types/content_type_id/draft/PATCH/ContentTypeUpdate.xml.example
+                    # example: !include examples/content/types/content_type_id/draft/PATCH/ContentTypeUpdate.xml.example
                 application/vnd.ibexa.api.ContentTypeUpdate+json:
-                    type: ContentTypeUpdate
+                    type: ContentTypeUpdateWrapper
                     example: !include examples/content/types/content_type_id/draft/PATCH/ContentTypeUpdate.json.example
             responses:
                 200:
@@ -215,9 +215,9 @@ get:
                     body:
                         application/vnd.ibexa.api.ContentTypeInfo+xml:
                             type: ContentTypeInfo
-                            example: !include examples/content/types/content_type_id/draft/PATCH/ContentTypeInfo.xml.example
+                            # example: !include examples/content/types/content_type_id/draft/PATCH/ContentTypeInfo.xml.example
                         application/vnd.ibexa.api.ContentTypeInfo+json:
-                            type: ContentTypeInfo
+                            type: ContentTypeInfoWrapper
                             example: !include examples/content/types/content_type_id/draft/PATCH/ContentTypeInfo.json.example
 
                 400:
@@ -228,22 +228,22 @@ get:
                     description: Error - A content type with the given new identifier already exists.
                 404:
                     description: Error - There is no draft for this content type.
-        publish:
-            displayName: Publish content type draft
-            description: Publishes a content type draft. PUBLISH or POST with header X-HTTP-Method-Override PUBLISH.
-            responses:
-                200:
-                    body:
-                        application/vnd.ibexa.api.ContentType+xml:
-                            type: ContentType
-                            example: !include examples/content/types/content_type_id/draft/PUBLISH/ContentType.xml.example
-                    description: Content type draft published.
-                401:
-                    description: Error - The user is not authorized to publish this content type draft.
-                403:
-                    description: Error - The content type draft is not complete, e.g. there is no Field definition provided.
-                404:
-                    description: Error - If there is no draft or content type with the given ID.
+        # publish:
+        #     displayName: Publish content type draft
+        #     description: Publishes a content type draft. PUBLISH or POST with header X-HTTP-Method-Override PUBLISH.
+        #     responses:
+        #         200:
+        #             body:
+        #                 application/vnd.ibexa.api.ContentType+xml:
+        #                     type: ContentType
+        #                     # example: !include examples/content/types/content_type_id/draft/PUBLISH/ContentType.xml.example
+        #             description: Content type draft published.
+        #         401:
+        #             description: Error - The user is not authorized to publish this content type draft.
+        #         403:
+        #             description: Error - The content type draft is not complete, e.g. there is no Field definition provided.
+        #         404:
+        #             description: Error - If there is no draft or content type with the given ID.
         delete:
             displayName: Delete content type draft
             description: Deletes the provided content type draft.
@@ -271,7 +271,7 @@ get:
                             application/vnd.ibexa.api.FieldDefinitionList+xml:
                                 type: FieldDefinitions
                             application/vnd.ibexa.api.FieldDefinitionList+json:
-                                type: FieldDefinitions
+                                type: FieldDefinitionsWrapper
                     404:
                         description: Error - The content type draft does not exist.
             post:
@@ -291,18 +291,18 @@ get:
                 body:
                     application/vnd.ibexa.api.FieldDefinitionCreate+xml:
                         type: FieldDefinitionCreate
-                        example: !include examples/content/types/content_type_id/draft/field_definitions/POST/FieldDefinitionCreate.xml.example
+                        # example: !include examples/content/types/content_type_id/draft/field_definitions/POST/FieldDefinitionCreate.xml.example
                     application/vnd.ibexa.api.FieldDefinitionCreate+json:
-                        type: FieldDefinitionCreate
+                        type: FieldDefinitionCreateWrapper
                 responses:
                     201:
                         description: Field definition created.
                         body:
                             application/vnd.ibexa.api.FieldDefinition+xml:
                                 type: FieldDefinition
-                                example: !include examples/content/types/content_type_id/draft/field_definitions/POST/FieldDefinition.xml.example
+                                # example: !include examples/content/types/content_type_id/draft/field_definitions/POST/FieldDefinition.xml.example
                             application/vnd.ibexa.api.FieldDefinition+json:
-                                type: FieldDefinition
+                                type: FieldDefinitionWrapper
                     400:
                         description: Error - The input does not match the input schema definition or validation on the Field definition fails.
                     401:
@@ -325,9 +325,9 @@ get:
                             body:
                                 application/vnd.ibexa.api.FieldDefinition+xml:
                                     type: FieldDefinition
-                                    example: !include examples/content/types/content_type_id/draft/field_definitions/field_definition_id/GET/FieldDefinition.xml.example
+                                    # example: !include examples/content/types/content_type_id/draft/field_definitions/field_definition_id/GET/FieldDefinition.xml.example
                                 application/vnd.ibexa.api.FieldDefinition+json:
-                                    type: FieldDefinition
+                                    type: FieldDefinitionWrapper
                                     example: !include examples/content/types/content_type_id/draft/field_definitions/field_definition_id/GET/FieldDefinition.json.example
                         401:
                             description: Error - The user is not authorized to read the content type draft.
@@ -350,18 +350,18 @@ get:
                     body:
                         application/vnd.ibexa.api.FieldDefinitionUpdate+xml:
                             type: FieldDefinitionUpdate
-                            example: !include examples/content/types/content_type_id/draft/field_definitions/field_definition_id/PATCH/FieldDefinitionUpdate.xml.example
+                            # example: !include examples/content/types/content_type_id/draft/field_definitions/field_definition_id/PATCH/FieldDefinitionUpdate.xml.example
                         application/vnd.ibexa.api.FieldDefinitionUpdate+json:
-                            type: FieldDefinitionUpdate
+                            type: FieldDefinitionUpdateWrapper
                     responses:
                         200:
                             description: OK - attributes updated.
                             body:
                                 application/vnd.ibexa.api.FieldDefinition+xml:
                                     type: FieldDefinition
-                                    example: !include examples/content/types/content_type_id/draft/field_definitions/field_definition_id/PATCH/FieldDefinition.xml.example
+                                    # example: !include examples/content/types/content_type_id/draft/field_definitions/field_definition_id/PATCH/FieldDefinition.xml.example
                                 application/vnd.ibexa.api.FieldDefinition+json:
-                                    type: FieldDefinition
+                                    type: FieldDefinitionWrapper
                         400:
                             description: Error - The input does not match the input schema definition.
                         401:
@@ -393,9 +393,9 @@ get:
                     body:
                         application/vnd.ibexa.api.ContentTypeGroupRefList+xml:
                             type: ContentTypeGroupRefList
-                            example: !include examples/content/types/content_type_id/groups/GET/ContentTypeGroupRefList.xml.example
+                            # example: !include examples/content/types/content_type_id/groups/GET/ContentTypeGroupRefList.xml.example
                         application/vnd.ibexa.api.ContentTypeGroupRefList+json:
-                            type: ContentTypeGroupRefList
+                            type: ContentTypeGroupRefListWrapper
                             example: !include examples/content/types/content_type_id/groups/GET/ContentTypeGroupRefList.json.example
                 401:
                     description: Error - The user is not authorized to read this content type.
@@ -419,10 +419,9 @@ get:
                     body:
                         application/vnd.ibexa.api.ContentTypeGroupRefList+xml:
                             type: ContentTypeGroupRefList
-                            example: !include examples/content/types/content_type_id/groups/POST/ContentTypeGroupRefList.xml.example
+                            # example: !include examples/content/types/content_type_id/groups/POST/ContentTypeGroupRefList.xml.example
                         application/vnd.ibexa.api.ContentTypeGroupRefList+json:
-                            type: ContentTypeGroupRefList
-                            example: !include examples/content/types/content_type_id/groups/POST/ContentTypeGroupRefList.json.example
+                            type: ContentTypeGroupRefListWrapper
                 400:
                     description: Error - The input does not match the input schema definition.
                 401:
@@ -443,10 +442,10 @@ get:
                     200:
                         body:
                             application/vnd.ibexa.api.ContentTypeGroupRefList+xml:
-                                type: ContentTypeGroup
-                                example: !include examples/content/types/content_type_id/groups/id/DELETE/ContentTypeGroupRefList.xml.example
+                                type: ContentTypeGroupRefList
+                                # example: !include examples/content/types/content_type_id/groups/id/DELETE/ContentTypeGroupRefList.xml.example
                             application/vnd.ibexa.api.ContentTypeGroupRefList+json:
-                                type: ContentTypeGroup
+                                type: ContentTypeGroupRefListWrapper
                                 example: !include examples/content/types/content_type_id/groups/id/DELETE/ContentTypeGroupRefList.json.example
                     401:
                         description: Error - The user is not authorized to delete this content type.
