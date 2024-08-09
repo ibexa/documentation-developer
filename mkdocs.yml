@@ -9,6 +9,7 @@ nav:
     - Ibexa DXP editions:
         - Editions: ibexa_products/editions.md
         - Ibexa Headless: ibexa_products/headless.md
+        - Ibexa Experience: ibexa_products/experience.md
     - Getting started:
         - Getting started: getting_started/getting_started.md
         - Requirements: getting_started/requirements.md
