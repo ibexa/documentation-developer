@@ -657,49 +657,62 @@ ContentTypeList:
         ContentType:
             type: ContentType[]
 
-# ContentTypeUpdateStruct:
-#     description: 'This class is used for updating a content type.'
-#     type: object
-#     properties:
-#         identifier:
-#             description: 'If set the unique identifier of a type is changed to this value.'
-#             type: string
-#         remoteId:
-#             description: 'If set the remote ID is changed to this value.'
-#             type: string
-#         urlAliasSchema:
-#             description: 'If set the URL alias schema is changed to this value.'
-#             type: string
-#         nameSchema:
-#             description: 'f set the name schema is changed to this value.'
-#             type: string
-#         isContainer:
-#             description: 'If set the container flag is set to this value.'
-#             type: boolean
-#         mainLanguageCode:
-#             description: 'If set the main language is changed to this value.'
-#             type: string
-#         defaultSortField:
-#             description: 'If set the default sort field is changed to this value.'
-#             type: integer
-#         defaultSortOrder:
-#             description: 'If set the default sort order is set to this value.'
-#             type: integer
-#         defaultAlwaysAvailable:
-#             description: 'If set the default always available flag is set to this value.'
-#             type: boolean
-#         modifierId:
-#             description: 'If set this value overrides the current User as creator.'
-#             type: integer
-#         modificationDate:
-#             description: 'If set this value overrides the current time for creation.'
-#             type: datetime
-#         names:
-#             description: 'If set this array of names with languageCode keys replace the complete name collection.'
-#             type: Value[]
-#         descriptions:
-#             description: 'If set this array of descriptions with languageCode keys replace the complete description collection.'
-#             type: Value[]
+ContentTypeUpdateStruct:
+    description: 'This class is used for updating a content type.'
+    type: object
+    properties:
+        identifier:
+            description: 'If set the unique identifier of a type is changed to this value.'
+            type: string
+            required: false
+        remoteId:
+            description: 'If set the remote ID is changed to this value.'
+            type: string
+            required: false
+        urlAliasSchema:
+            description: 'If set the URL alias schema is changed to this value.'
+            type: string
+            required: false
+        nameSchema:
+            description: 'f set the name schema is changed to this value.'
+            type: string
+            required: false
+        isContainer:
+            description: 'If set the container flag is set to this value.'
+            type: boolean
+            required: false
+        mainLanguageCode:
+            description: 'If set the main language is changed to this value.'
+            type: string
+            required: false
+        defaultSortField:
+            description: 'If set the default sort field is changed to this value.'
+            enum: [ "PATH", "PUBLISHED", "MODIFIED", "SECTION", "DEPTH", "PRIORITY", "NAME", "NODE_ID", "CONTENTOBJECT_ID" ]
+            required: false
+        defaultSortOrder:
+            description: 'If set the default sort order is set to this value.'
+            enum: [ "ASC", "DESC" ]
+            required: false
+        defaultAlwaysAvailable:
+            description: 'If set the default always available flag is set to this value.'
+            type: boolean
+            required: false
+        modifierId:
+            description: 'If set this value overrides the current User as creator.'
+            type: integer
+            required: false
+        modificationDate:
+            description: 'If set this value overrides the current time for creation.'
+            type: datetime
+            required: false
+        names:
+            description: 'If set this array of names with languageCode keys replace the complete name collection.'
+            type: ValueObject
+            required: false
+        descriptions:
+            description: 'If set this array of descriptions with languageCode keys replace the complete description collection.'
+            type: ValueObject
+            required: false
 
 # ContentUpdateStruct:
 #     description: 'This class is used for updating the fields of a content item draft.'
@@ -3062,77 +3075,135 @@ SessionInput:
         password:
             type: string
 
-# BaseCommerceResponse:
-#     description: 'Removed'
-#     type: object
+BaseCommerceResponse:
+    description: 'Removed'
+    type: object
 
-# Basket:
-#     description: 'Removed'
-#     type: BaseCommerceResponse
+BasketWrapper:
+    properties:
+        Basket: Basket
 
-# BasketLineData:
-#     description: 'Removed'
-#     type: object
+Basket:
+    description: 'Removed'
+    type: BaseCommerceResponse
 
-# PartyTypeInput:
-#     description: 'Removed'
-#     type: object
+BasketLineDataWrapper:
+    properties:
+        BasketLineData: BasketLineData
+
+BasketLineData:
+    description: 'Removed'
+    type: array
+    items:
+        type: object
+
+PartyTypeInputWrapper:
+    properties:
+        PartyData: PartyTypeInput
+
+PartyTypeInput:
+    description: 'Removed'
+    type: object
 
 # Party:
 #     description: 'Removed'
 #     type: object
 
-# ShippingMethodDataResponse:
-#     description: 'Removed'
-#     type: BaseCommerceResponse
+ShippingMethodDataResponseWrapper:
+    properties:
+        ShippingMethodDataResponse: ShippingMethodDataResponse
 
-# PaymentMethodDataResponse:
-#     description: 'Removed'
-#     type: BaseCommerceResponse
+ShippingMethodDataResponse:
+    description: 'Removed'
+    type: BaseCommerceResponse
 
-# ShippingAddressesResponse:
-#     description: 'Removed'
-#     type: BaseCommerceResponse
+PaymentMethodDataResponseWrapper:
+    properties:
+        PaymentMethodDataResponse: PaymentMethodDataResponse
 
-# BasketListResponse:
-#     description: 'Removed'
-#     type: BaseCommerceResponse
+PaymentMethodDataResponse:
+    description: 'Removed'
+    type: BaseCommerceResponse
 
-# ValidationResponse:
-#     description: 'Removed'
-#     type: BaseCommerceResponse
+ShippingAddressesResponseWrapper:
+    properties:
+        ShippingAddressesResponse: ShippingAddressesResponse
 
-# CountrySelectionResponse:
-#     description: 'Removed'
-#     type: BaseCommerceResponse
+ShippingAddressesResponse:
+    description: 'Removed'
+    type: BaseCommerceResponse
 
-# ShippingMethodData:
-#     description: 'Removed'
-#     type: object
+BasketListResponseWrapper:
+    properties:
+        BasketListResponse: BasketListResponse
 
-# PaymentMethodData:
-#     description: 'Removed'
-#     type: object
+BasketListResponse:
+    description: 'Removed'
+    type: BaseCommerceResponse
 
-# VoucherData:
-#     description: 'Removed'
-#     type: object
+ValidationResponseWrapper:
+    properties:
+        ValidationResponse: ValidationResponse
 
-# CustomerPriceData:
-#     description: 'Removed'
-#     type: object
+ValidationResponse:
+    description: 'Removed'
+    type: BaseCommerceResponse
 
-# BasketHeaderData:
-#     description: 'Removed'
-#     type: object
+CountrySelectionResponseWrapper:
+    properties:
+        CountrySelectionResponse: CountrySelectionResponse
+
+CountrySelectionResponse:
+    description: 'Removed'
+    type: BaseCommerceResponse
+
+ShippingMethodData:
+    description: 'Removed'
+    type: object
+
+PaymentMethodDataWrapper:
+    properties:
+        PaymentMethodData: PaymentMethodData
+
+PaymentMethodData:
+    description: 'Removed'
+    type: object
+
+VoucherDataWrapper:
+    properties:
+        VoucherData: VoucherData
+
+VoucherData:
+    description: 'Removed'
+    type: object
+
+CustomerPriceDataWrapper:
+    properties:
+        PriceResponse: CustomerPriceData
+
+CustomerPriceData:
+    description: 'Removed'
+    type: object
+
+BasketHeaderDataWrapper:
+    properties:
+        BasketHeaderData: BasketHeaderData
+
+BasketHeaderData:
+    description: 'Removed'
+    type: object
 
 # BasketLinesData:
 #     description: 'Removed'
 #     type: object
 
-# PriceResponse:
-#     description: 'Removed'
-#     type: BaseCommerceResponse
+PriceResponseWrapper:
+    properties:
+        PriceResponse: PriceResponse
+
+PriceResponse:
+    description: 'Removed'
+    type: BaseCommerceResponse
 
 CartWrapper:
     properties:
@@ -3966,7 +4037,7 @@ ProductTypeUpdate:
     type: object
     properties:
         ContentTypeUpdateStruct:
-            type: object
+            type: ContentTypeUpdateStruct
         assigned_attributes:
             type: array
             items: ProductTypeAssignedAttribute
