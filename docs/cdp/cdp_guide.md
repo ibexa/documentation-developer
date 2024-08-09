@@ -1,5 +1,6 @@
 ---
 description: The Ibexa CDP (Customer Data Platform) product guide provides a full description of its features as well as the benefits it brings to the client.
+edition: experience
 ---
 
 # [[= product_name_cdp =]] product guide
@@ -16,7 +17,7 @@ It includes first, second, and third-party data from multiple sources such as tr
 
 ## Availability
 
-[[= product_name_cdp =]] is available in all [[= product_name =]] editions.
+[[= product_name_cdp =]] is available in [[= product_name_exp =]] and [[= product_name_com =]] editions.
 
 ## How does Ibexa CDP work
 
