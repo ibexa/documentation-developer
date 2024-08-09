@@ -912,25 +912,25 @@ UnscheduleAction:
             description: list of events
             type: string[]
 
-# FacetBuilder:
-#     description: 'This class is the base class for facet builders.'
-#     type: object
-#     properties:
-#         name:
-#             description: 'The name of the facet.'
-#             type: string
-#         global:
-#             description: 'If true the facet runs in a global mode not restricted by the query.'
-#             type: boolean
-#         filter:
-#             description: 'An additional facet filter that will further filter the documents the facet will be executed on.'
-#             type: Criterion
-#         limit:
-#             description: 'Number of facets (terms) returned.'
-#             type: integer
-#         minCount:
-#             description: 'Specifies the minimum count. Only facet groups with more or equal results are returned.'
-#             type: integer
+FacetBuilder:
+    description: 'This class is the base class for facet builders.'
+    type: object
+    properties:
+        name:
+            description: 'The name of the facet.'
+            type: string
+        global:
+            description: 'If true the facet runs in a global mode not restricted by the query.'
+            type: boolean
+        filter:
+            description: 'An additional facet filter that will further filter the documents the facet will be executed on.'
+            type: Criterion
+        limit:
+            description: 'Number of facets (terms) returned.'
+            type: integer
+        minCount:
+            description: 'Specifies the minimum count. Only facet groups with more or equal results are returned.'
+            type: integer
 
 Field:
     description: 'This class represents a field of a content item.'
@@ -1330,9 +1330,9 @@ LocationList:
             description: 'The partial list of Locations controlled by offset/limit.'
             type: Ref[]
 
-# LocationQuery:
-#     description: 'This class is used to perform a Location query.'
-#     type: object
+LocationQuery:
+    description: 'This class is used to perform a Location query.'
+    type: object
 
 LocationUpdateStructWrapper:
     properties:
@@ -1691,34 +1691,42 @@ PolicyList:
 #     description: 'This class is used for updating a policy. The limitations of the policy are replaced with those which are added in instances of this class.'
 #     type: object
 
-# Query:
-#     description: 'This class is used to perform a Content query.'
-#     type: object
-#     properties:
-#         filter:
-#             description: 'The Query filter. Can contain multiple criterion, as items of a logical one (by default AND).'
-#             type: Criterion
-#         query:
-#             description: 'The Query query. Can contain multiple criterion, as items of a logical one (by default AND).'
-#             type: Criterion
-#         sortClauses:
-#             description: 'Query sorting clauses.'
-#             type: SortClause[]
-#         facetBuilders:
-#             description: "An array of facet builders. Search engines may ignore any, or given facet builders they don't support and will just return search result facets supported by the engine. API consumer should dynamically iterate over returned facets for further use."
-#             type: FacetBuilder[]
-#         offset:
-#             description: 'Query offset. Sets the offset for search hits, used for paging the results.'
-#             type: integer
-#         limit:
-#             description: 'Query limit. Limit for number of search hits to return. If value is `0`, search query will not return any search hits, useful for doing a count.'
-#             type: integer
-#         spellcheck:
-#             description: 'If true spellcheck suggestions are returned.'
-#             type: boolean
-#         performCount:
-#             description: 'If true, search engine should perform count even if that means extra lookup.'
-#             type: boolean
+Query:
+    description: 'This class is used to perform a Content query.'
+    type: object
+    properties:
+        Filter:
+            description: 'The Query filter. Can contain multiple criterion, as items of a logical one (by default AND).'
+            type: Criterion
+            required: false
+        Query:
+            description: 'The Query query. Can contain multiple criterion, as items of a logical one (by default AND).'
+            type: Criterion
+            required: false
+        sortClauses:
+            description: 'Query sorting clauses.'
+            type: SortClause[]
+            required: false
+        facetBuilders:
+            description: "An array of facet builders. Search engines may ignore any, or given facet builders they don't support and will just return search result facets supported by the engine. API consumer should dynamically iterate over returned facets for further use."
+            type: FacetBuilder[]
+            required: false
+        offset:
+            description: 'Query offset. Sets the offset for search hits, used for paging the results.'
+            type: integer
+            required: false
+        limit:
+            description: 'Query limit. Limit for number of search hits to return. If value is `0`, search query will not return any search hits, useful for doing a count.'
+            type: integer
+            required: false
+        spellcheck:
+            description: 'If true spellcheck suggestions are returned.'
+            type: boolean
+            required: false
+        performCount:
+            description: 'If true, search engine should perform count even if that means extra lookup.'
+            type: boolean
+            required: false
 
 Ref:
     type: BaseObject
@@ -2076,19 +2084,19 @@ Segment:
         name: string
         SegmentGroup: SegmentGroup
 
-# SortClause:
-#     description: 'This class is the base for SortClause classes, used to set sorting of content queries.'
-#     type: object
-#     properties:
-#         direction:
-#             description: 'Sort direction. One of Query::SORT_ASC or Query::SORT_DESC.'
-#             type: string
-#         target:
-#             description: 'Sort target, high level: section_identifier, attribute_value, etc.'
-#             type: string
-#         targetData:
-#             description: 'Extra target data, required by some sort clauses, field for instance.'
-#             type: Target
+SortClause:
+    description: 'This class is the base for SortClause classes, used to set sorting of content queries.'
+    type: object
+    properties:
+        direction:
+            description: 'Sort direction. One of Query::SORT_ASC or Query::SORT_DESC.'
+            type: string
+        target:
+            description: 'Sort target, high level: section_identifier, attribute_value, etc.'
+            type: string
+        targetData:
+            description: 'Extra target data, required by some sort clauses, field for instance.'
+            type: Target
 
 Specifications:
     description: 'This class is used by Criteria to describe which operators they support. Instances of this class are returned in an array by the {@see Criterion::getSpecifications()} method.'
@@ -2125,9 +2133,9 @@ StringLengthValidator:
 # SubtreeLimitation:
 #     type: RoleLimitation
 
-# Target:
-#     description: 'Struct that stores extra target information for a SortClause object.'
-#     type: object
+Target:
+    description: 'Struct that stores extra target information for a SortClause object.'
+    type: object
 
 # Translation:
 #     description: 'Base class for translation messages extends ValueObject.'
@@ -2820,21 +2828,21 @@ VersionUpdate:
         fields:
             type: Field[]
 
-# View: #TODO outdated example
-#     description: 'View.'
-#     type: BaseObject
-#     properties:
-#         identifier:
-#             description: 'Content identifier.'
-#             type: string
-#         User:
-#             type: User
-#         public:
-#             type: boolean
-#         LocationQuery:
-#             type: LocationQuery
-#         Result:
-#             type: object
+View: #TODO outdated example
+    description: 'View.'
+    type: BaseObject
+    properties:
+        identifier:
+            description: 'Content identifier.'
+            type: string
+        User:
+            type: User
+        public:
+            type: boolean
+        LocationQuery:
+            type: LocationQuery
+        Result:
+            type: object
 
 ContentTypeCreateWrapper:
     properties:
@@ -2930,15 +2938,25 @@ ContentTypeUpdate:
             type: datetime
             required: false
 
-# ViewInput:
-#     description: 'This class represents a View input.'
-#     type: BaseObject
-#     properties:
-#         identifier:
-#             description: 'Content identifier.'
-#             type: string
-#         FilterQuery:
-#             type: object
+ViewInputWrapper:
+    properties:
+        ViewInput: ViewInput
+
+ViewInput:
+    description: 'This class represents a View input.'
+    type: object
+    properties:
+        identifier:
+            description: 'Content identifier.'
+            type: string
+        languageCode:
+            type: string
+            required: false
+        useAlwaysAvailable:
+            type: string
+            required: false
+        Query:
+            type: Query
 
 UserCreateWrapper:
     properties:
