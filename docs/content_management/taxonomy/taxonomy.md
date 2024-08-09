@@ -70,7 +70,7 @@ In configuration add `assigned_content_tab` with the flag `false` (for other tax
 ### Hide menu item
 
 By default, for each taxonomy, a menu item is added to the main menu.
-You can hide this menu item via the `register_main_menu` option:
+You can hide this menu item by setting a value of the `register_main_menu` configuration key:
 
 ``` yaml
 [[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 0, 2) =]]        # existing keys
