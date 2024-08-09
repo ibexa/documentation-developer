@@ -1,5 +1,6 @@
 ---
 description: Data export schedule in Ibexa CDP.
+edition: experience
 ---
 
 # CDP data export schedule

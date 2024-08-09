@@ -1,5 +1,6 @@
 ---
 description: Step-by-step configuration procedure of Ibexa CDP.
+edition: experience
 ---
 
 # Configuration

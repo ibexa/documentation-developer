@@ -1,5 +1,6 @@
 ---
 description: Client-side Tracking in Ibexa CDP.
+edition: experience
 ---
 
 # Add Client-side Tracking
