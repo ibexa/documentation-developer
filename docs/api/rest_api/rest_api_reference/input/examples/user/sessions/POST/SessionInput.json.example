@@ -1,6 +1,5 @@
 {
   "SessionInput": {
-    "_media-type": "application/vnd.ibexa.api.SessionInput",
     "login": "admin",
     "password": "secret"
   }

@@ -1,6 +1,5 @@
 {
     "LocationCreate": {
-        "_media-type": "application/vnd.ibexa.api.LocationCreate",
         "ParentLocation": {
             "_href": "/api/ibexa/v2/content/locations/1/59"
         },

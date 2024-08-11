@@ -1140,7 +1140,7 @@ JWTInputWrapper:
 
 JWTInput:
     description: 'This class represents the input for a JWT authentication token'
-    type: BaseObject
+    type: object
     properties:
         username:
             description: 'User name'
@@ -1215,7 +1215,7 @@ Limitation:
             type: object
             properties:
                 ref:
-                    type: Ref[]
+                    type: Href[]
 
 LocationWrapper:
     properties:
@@ -1281,7 +1281,7 @@ LocationCreateWrapper:
         LocationCreate: LocationCreate
 
 LocationCreate:
-    type: BaseObject
+    type: object
     properties:
         ParentLocation:
             type: object
@@ -1782,7 +1782,7 @@ RoleWrapper:
 
 Role:
     description: 'This class represents a role.'
-    type: BaseObject
+    type: object
     properties:
         identifier:
             description: 'Readable string identifier of a role.'
@@ -2034,7 +2034,7 @@ SessionWrapper:
 
 Session:
     description: 'Value for session.'
-    type: BaseObject
+    type: object
     properties:
         name:
             description: 'Name.'
@@ -2907,7 +2907,7 @@ ContentTypeUpdateWrapper:
 
 ContentTypeUpdate:
     description: 'This class is used to update a content type.'
-    type: BaseObject
+    type: object
     properties:
         identifier:
             type: string
@@ -3100,7 +3100,7 @@ SessionInputWrapper:
 
 SessionInput:
     description: 'This class represents a session input.'
-    type: BaseObject
+    type: object
     properties:
         login:
             type: string
