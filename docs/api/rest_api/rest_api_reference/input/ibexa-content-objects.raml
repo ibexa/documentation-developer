@@ -183,32 +183,31 @@ get:
                     description: Temporary redirect.
                 404:
                     description: Error - the resource does not exist.
-        # TODO: revert to copy
-        post:
-            displayName: Create a draft from current version
-            description: The system creates a new draft as a copy of the current version. COPY or POST with header X-HTTP-Method-Override COPY.
-            headers:
-                Accept:
-                    description: If set, the updated version is returned in XML or JSON format.
-                    example:  |
-                        application/vnd.ibexa.api.Version+xml
-                        application/vnd.ibexa.api.Version+json
-            responses:
-                201:
-                    description: Created
-                    body:
-                        application/vnd.ibexa.api.Version+xml:
-                            type: Version
-                            example: !include examples/content/objects/content_id/currentversion/COPY/Version.xml.example
-                        application/vnd.ibexa.api.Version+json:
-                            type: VersionWrapper
-                            example: !include examples/content/objects/content_id/currentversion/COPY/Version.json.example
-                401:
-                    description: Error - the user is not authorized to update this content item.
-                403:
-                    description: Error - the current version is already a draft.
-                404:
-                    description: Error - the content item was not found.
+        # copy:
+        #     displayName: Create a draft from current version
+        #     description: The system creates a new draft as a copy of the current version. COPY or POST with header X-HTTP-Method-Override COPY.
+        #     headers:
+        #         Accept:
+        #             description: If set, the updated version is returned in XML or JSON format.
+        #             example:  |
+        #                 application/vnd.ibexa.api.Version+xml
+        #                 application/vnd.ibexa.api.Version+json
+        #     responses:
+        #         201:
+        #             description: Created
+        #             body:
+        #                 application/vnd.ibexa.api.Version+xml:
+        #                     type: Version
+        #                     example: !include examples/content/objects/content_id/currentversion/COPY/Version.xml.example
+        #                 application/vnd.ibexa.api.Version+json:
+        #                     type: VersionWrapper
+        #                     example: !include examples/content/objects/content_id/currentversion/COPY/Version.json.example
+        #         401:
+        #             description: Error - the user is not authorized to update this content item.
+        #         403:
+        #             description: Error - the current version is already a draft.
+        #         404:
+        #             description: Error - the content item was not found.
     /versions:
         get:
             displayName: List versions
@@ -312,30 +311,29 @@ get:
                         description: Error - the content ID or version ID does not exist.
                     412:
                         description: Error - the current ETag does not match with the one provided in the If-Match header.
-            # TODO: revert to copy
-            post:
-                displayName: Create a draft from a version
-                description: The system creates a new draft as a copy of the given version. COPY or POST with header X-HTTP-Method-Override COPY.
-                headers:
-                    Accept:
-                        description: If set, the updated version is returned in XML or JSON format.
-                        example:  |
-                            application/vnd.ibexa.api.Version+xml
-                            application/vnd.ibexa.api.Version+json
-                responses:
-                    201:
-                        description: Created.
-                        body:
-                            application/vnd.ibexa.api.Version+xml:
-                                type: Version
-                                example: !include examples/content/objects/content_id/versions/version_no/COPY/Version.xml.example
-                            application/vnd.ibexa.api.Version+json:
-                                type: VersionWrapper
-                                example: !include examples/content/objects/content_id/versions/version_no/COPY/Version.json.example
-                    401:
-                        description: Error - the user is not authorized to update this content item.
-                    404:
-                        description: Error - the content item was not found.
+            # copy:
+            #     displayName: Create a draft from a version
+            #     description: The system creates a new draft as a copy of the given version. COPY or POST with header X-HTTP-Method-Override COPY.
+            #     headers:
+            #         Accept:
+            #             description: If set, the updated version is returned in XML or JSON format.
+            #             example:  |
+            #                 application/vnd.ibexa.api.Version+xml
+            #                 application/vnd.ibexa.api.Version+json
+            #     responses:
+            #         201:
+            #             description: Created.
+            #             body:
+            #                 application/vnd.ibexa.api.Version+xml:
+            #                     type: Version
+            #                     example: !include examples/content/objects/content_id/versions/version_no/COPY/Version.xml.example
+            #                 application/vnd.ibexa.api.Version+json:
+            #                     type: VersionWrapper
+            #                     example: !include examples/content/objects/content_id/versions/version_no/COPY/Version.json.example
+            #         401:
+            #             description: Error - the user is not authorized to update this content item.
+            #         404:
+            #             description: Error - the content item was not found.
             delete:
                 displayName: Delete content version
                 description: Deletes the content version.
