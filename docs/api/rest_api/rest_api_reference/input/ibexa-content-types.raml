@@ -28,7 +28,7 @@ get:
             body:
                 application/vnd.ibexa.api.ContentTypeInfoList+xml:
                     type: ContentTypeInfoList
-                    # example: !include examples/content/types/GET/ContentTypeInfoList.xml.example
+                    example: !include examples/content/types/GET/ContentTypeInfoList.xml.example
                 application/vnd.ibexa.api.ContentTypeInfoList+json:
                     type: ContentTypeInfoListWrapper
                     example: !include examples/content/types/GET/ContentTypeInfoList.json.example
@@ -56,7 +56,7 @@ get:
                 body:
                     application/vnd.ibexa.api.ContentType+xml:
                         type: ContentType
-                        # example: !include examples/content/types/content_type_id/GET/ContentType.xml.example
+                        example: !include examples/content/types/content_type_id/GET/ContentType.xml.example
                     application/vnd.ibexa.api.ContentType+json:
                         type: ContentTypeWrapper
                         example: !include examples/content/types/content_type_id/GET/ContentType.json.example
@@ -90,7 +90,7 @@ get:
         body:
             application/vnd.ibexa.api.ContentTypeUpdate+xml:
                 type: ContentTypeUpdate
-                # example: !include examples/content/types/content_type_id/POST/ContentTypeUpdate.xml.example
+                example: !include examples/content/types/content_type_id/POST/ContentTypeUpdate.xml.example
             application/vnd.ibexa.api.ContentTypeUpdate+json:
                 type: ContentTypeUpdateWrapper
                 example: !include examples/content/types/content_type_id/POST/ContentTypeUpdate.json.example
@@ -100,7 +100,7 @@ get:
                 body:
                     application/vnd.ibexa.api.ContentTypeInfo+xml:
                         type: ContentTypeInfo
-                        # example: !include examples/content/types/content_type_id/POST/ContentTypeInfo.xml.example
+                        example: !include examples/content/types/content_type_id/POST/ContentTypeInfo.xml.example
                     application/vnd.ibexa.api.ContentTypeInfo+json:
                         type: ContentTypeInfoWrapper
                         example: !include examples/content/types/content_type_id/POST/ContentTypeInfo.json.example
@@ -158,7 +158,7 @@ get:
                         body:
                             application/vnd.ibexa.api.FieldDefinition+xml:
                                 type: FieldDefinition
-                                # example: !include examples/content/types/content_type_id/field_definition_id/GET/FieldDefinition.xml.example
+                                example: !include examples/content/types/content_type_id/field_definition_id/GET/FieldDefinition.xml.example
                             application/vnd.ibexa.api.FieldDefinition+json:
                                 type: FieldDefinitionWrapper
                                 example: !include examples/content/types/content_type_id/field_definition_id/GET/FieldDefinition.json.example
@@ -205,7 +205,7 @@ get:
             body:
                 application/vnd.ibexa.api.ContentTypeUpdate+xml:
                     type: ContentTypeUpdate
-                    # example: !include examples/content/types/content_type_id/draft/PATCH/ContentTypeUpdate.xml.example
+                    example: !include examples/content/types/content_type_id/draft/PATCH/ContentTypeUpdate.xml.example
                 application/vnd.ibexa.api.ContentTypeUpdate+json:
                     type: ContentTypeUpdateWrapper
                     example: !include examples/content/types/content_type_id/draft/PATCH/ContentTypeUpdate.json.example
@@ -215,7 +215,7 @@ get:
                     body:
                         application/vnd.ibexa.api.ContentTypeInfo+xml:
                             type: ContentTypeInfo
-                            # example: !include examples/content/types/content_type_id/draft/PATCH/ContentTypeInfo.xml.example
+                            example: !include examples/content/types/content_type_id/draft/PATCH/ContentTypeInfo.xml.example
                         application/vnd.ibexa.api.ContentTypeInfo+json:
                             type: ContentTypeInfoWrapper
                             example: !include examples/content/types/content_type_id/draft/PATCH/ContentTypeInfo.json.example
@@ -236,7 +236,7 @@ get:
         #             body:
         #                 application/vnd.ibexa.api.ContentType+xml:
         #                     type: ContentType
-        #                     # example: !include examples/content/types/content_type_id/draft/PUBLISH/ContentType.xml.example
+        #                     example: !include examples/content/types/content_type_id/draft/PUBLISH/ContentType.xml.example
         #             description: Content type draft published.
         #         401:
         #             description: Error - The user is not authorized to publish this content type draft.
@@ -291,7 +291,7 @@ get:
                 body:
                     application/vnd.ibexa.api.FieldDefinitionCreate+xml:
                         type: FieldDefinitionCreate
-                        # example: !include examples/content/types/content_type_id/draft/field_definitions/POST/FieldDefinitionCreate.xml.example
+                        example: !include examples/content/types/content_type_id/draft/field_definitions/POST/FieldDefinitionCreate.xml.example
                     application/vnd.ibexa.api.FieldDefinitionCreate+json:
                         type: FieldDefinitionCreateWrapper
                 responses:
@@ -300,7 +300,7 @@ get:
                         body:
                             application/vnd.ibexa.api.FieldDefinition+xml:
                                 type: FieldDefinition
-                                # example: !include examples/content/types/content_type_id/draft/field_definitions/POST/FieldDefinition.xml.example
+                                example: !include examples/content/types/content_type_id/draft/field_definitions/POST/FieldDefinition.xml.example
                             application/vnd.ibexa.api.FieldDefinition+json:
                                 type: FieldDefinitionWrapper
                     400:
@@ -325,7 +325,7 @@ get:
                             body:
                                 application/vnd.ibexa.api.FieldDefinition+xml:
                                     type: FieldDefinition
-                                    # example: !include examples/content/types/content_type_id/draft/field_definitions/field_definition_id/GET/FieldDefinition.xml.example
+                                    example: !include examples/content/types/content_type_id/draft/field_definitions/field_definition_id/GET/FieldDefinition.xml.example
                                 application/vnd.ibexa.api.FieldDefinition+json:
                                     type: FieldDefinitionWrapper
                                     example: !include examples/content/types/content_type_id/draft/field_definitions/field_definition_id/GET/FieldDefinition.json.example
@@ -350,7 +350,7 @@ get:
                     body:
                         application/vnd.ibexa.api.FieldDefinitionUpdate+xml:
                             type: FieldDefinitionUpdate
-                            # example: !include examples/content/types/content_type_id/draft/field_definitions/field_definition_id/PATCH/FieldDefinitionUpdate.xml.example
+                            example: !include examples/content/types/content_type_id/draft/field_definitions/field_definition_id/PATCH/FieldDefinitionUpdate.xml.example
                         application/vnd.ibexa.api.FieldDefinitionUpdate+json:
                             type: FieldDefinitionUpdateWrapper
                     responses:
@@ -359,7 +359,7 @@ get:
                             body:
                                 application/vnd.ibexa.api.FieldDefinition+xml:
                                     type: FieldDefinition
-                                    # example: !include examples/content/types/content_type_id/draft/field_definitions/field_definition_id/PATCH/FieldDefinition.xml.example
+                                    example: !include examples/content/types/content_type_id/draft/field_definitions/field_definition_id/PATCH/FieldDefinition.xml.example
                                 application/vnd.ibexa.api.FieldDefinition+json:
                                     type: FieldDefinitionWrapper
                         400:
@@ -393,7 +393,7 @@ get:
                     body:
                         application/vnd.ibexa.api.ContentTypeGroupRefList+xml:
                             type: ContentTypeGroupRefList
-                            # example: !include examples/content/types/content_type_id/groups/GET/ContentTypeGroupRefList.xml.example
+                            example: !include examples/content/types/content_type_id/groups/GET/ContentTypeGroupRefList.xml.example
                         application/vnd.ibexa.api.ContentTypeGroupRefList+json:
                             type: ContentTypeGroupRefListWrapper
                             example: !include examples/content/types/content_type_id/groups/GET/ContentTypeGroupRefList.json.example
@@ -419,7 +419,7 @@ get:
                     body:
                         application/vnd.ibexa.api.ContentTypeGroupRefList+xml:
                             type: ContentTypeGroupRefList
-                            # example: !include examples/content/types/content_type_id/groups/POST/ContentTypeGroupRefList.xml.example
+                            example: !include examples/content/types/content_type_id/groups/POST/ContentTypeGroupRefList.xml.example
                         application/vnd.ibexa.api.ContentTypeGroupRefList+json:
                             type: ContentTypeGroupRefListWrapper
                 400:
@@ -443,7 +443,7 @@ get:
                         body:
                             application/vnd.ibexa.api.ContentTypeGroupRefList+xml:
                                 type: ContentTypeGroupRefList
-                                # example: !include examples/content/types/content_type_id/groups/id/DELETE/ContentTypeGroupRefList.xml.example
+                                example: !include examples/content/types/content_type_id/groups/id/DELETE/ContentTypeGroupRefList.xml.example
                             application/vnd.ibexa.api.ContentTypeGroupRefList+json:
                                 type: ContentTypeGroupRefListWrapper
                                 example: !include examples/content/types/content_type_id/groups/id/DELETE/ContentTypeGroupRefList.json.example

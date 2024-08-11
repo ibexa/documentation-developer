@@ -17,7 +17,7 @@ post:
     body:
         application/vnd.ibexa.api.ContentCreate+xml:
             type: ContentCreate
-            # example: !include examples/content/objects/POST/ContentCreate.xml.example
+            example: !include examples/content/objects/POST/ContentCreate.xml.example
         application/vnd.ibexa.api.ContentCreate+json:
             type: ContentCreateWrapper
             example: !include examples/content/objects/POST/ContentCreate.json.example
@@ -26,13 +26,13 @@ post:
             body:
                 application/vnd.ibexa.api.Content+xml:
                     type: Content
-                    # example: !include examples/content/objects/POST/Content.xml.example
+                    example: !include examples/content/objects/POST/Content.xml.example
                 application/vnd.ibexa.api.Content+json:
                     type: ContentWrapper
                     example: !include examples/content/objects/POST/Content.json.example
                 application/vnd.ibexa.api.ContentInfo+xml:
                     type: ContentInfoWrapper
-                    # example: !include examples/content/objects/POST/ContentInfo.xml.example
+                    example: !include examples/content/objects/POST/ContentInfo.xml.example
         400:
             description: Error - the input does not match the input schema definition or the validation on a field fails.
         401:
@@ -74,13 +74,13 @@ get:
                 body:
                     application/vnd.ibexa.api.Content+xml:
                         type: Content
-                        # example: !include examples/content/objects/content_id/GET/Content.xml.example
+                        example: !include examples/content/objects/content_id/GET/Content.xml.example
                     application/vnd.ibexa.api.Content+json:
                         type: ContentWrapper
                         example: !include examples/content/objects/content_id/GET/Content.json.example
                     application/vnd.ibexa.api.ContentInfo+xml:
                         type: ContentInfo
-                        # example: !include examples/content/objects/content_id/GET/ContentInfo.xml.example
+                        example: !include examples/content/objects/content_id/GET/ContentInfo.xml.example
                     application/vnd.ibexa.api.ContentInfo+json:
                         type: ContentInfoWrapper
             401:
@@ -107,7 +107,7 @@ get:
         body:
             application/vnd.ibexa.api.ContentUpdate+xml:
                 type: ContentInfo
-                # example: !include examples/content/objects/content_id/PATCH/ContentUpdate.xml.example
+                example: !include examples/content/objects/content_id/PATCH/ContentUpdate.xml.example
             application/vnd.ibexa.api.ContentUpdate+json:
                 type: ContentInfoWrapper
         responses:
@@ -115,7 +115,7 @@ get:
                 body:
                     application/vnd.ibexa.api.ContentInfo+xml:
                         type: ContentInfo
-                        # example: !include examples/content/objects/content_id/PATCH/ContentInfo.xml.example
+                        example: !include examples/content/objects/content_id/PATCH/ContentInfo.xml.example
                     application/vnd.ibexa.api.ContentInfo+json:
                         type: ContentInfoWrapper
             400:
@@ -175,7 +175,7 @@ get:
                     body:
                         application/vnd.ibexa.api.Version+xml:
                             type: Version
-                            # example: !include examples/content/objects/content_id/currentversion/GET/Version.xml.example
+                            example: !include examples/content/objects/content_id/currentversion/GET/Version.xml.example
                         application/vnd.ibexa.api.Version+json:
                             type: VersionWrapper
                             example: !include examples/content/objects/content_id/currentversion/GET/Version.json.example
@@ -199,7 +199,7 @@ get:
                     body:
                         application/vnd.ibexa.api.Version+xml:
                             type: Version
-                            # example: !include examples/content/objects/content_id/currentversion/COPY/Version.xml.example
+                            example: !include examples/content/objects/content_id/currentversion/COPY/Version.xml.example
                         application/vnd.ibexa.api.Version+json:
                             type: VersionWrapper
                             example: !include examples/content/objects/content_id/currentversion/COPY/Version.json.example
@@ -224,7 +224,7 @@ get:
                     body:
                         application/vnd.ibexa.api.VersionList+xml:
                             type: VersionList
-                            # example: !include examples/content/objects/content_id/versions/GET/VersionList.xml.example
+                            example: !include examples/content/objects/content_id/versions/GET/VersionList.xml.example
                         application/vnd.ibexa.api.VersionList+json:
                             type: VersionListWrapper
                             example: !include examples/content/objects/content_id/versions/GET/VersionList.json.example
@@ -258,7 +258,7 @@ get:
                         body:
                             application/vnd.ibexa.api.Version+xml:
                                 type: Version
-                                # example: !include examples/content/objects/content_id/versions/version_no/GET/Version.xml.example
+                                example: !include examples/content/objects/content_id/versions/version_no/GET/Version.xml.example
                             application/vnd.ibexa.api.Version+json:
                                 type: VersionWrapper
                                 example: !include examples/content/objects/content_id/versions/version_no/GET/Version.json.example
@@ -291,7 +291,7 @@ get:
                 body:
                     application/vnd.ibexa.api.VersionUpdate+xml:
                         type: VersionUpdate
-                        # example: !include examples/content/objects/content_id/versions/version_no/PATCH/VersionUpdate.xml.example
+                        example: !include examples/content/objects/content_id/versions/version_no/PATCH/VersionUpdate.xml.example
                     application/vnd.ibexa.api.VersionUpdate+json:
                         type: VersionUpdateWrapper
                 responses:
@@ -299,7 +299,7 @@ get:
                         body:
                             application/vnd.ibexa.api.Version+xml:
                                 type: Version
-                                # example: !include examples/content/objects/content_id/versions/version_no/PATCH/Version.xml.example
+                                example: !include examples/content/objects/content_id/versions/version_no/PATCH/Version.xml.example
                             application/vnd.ibexa.api.Version+json:
                                 type: VersionWrapper
                     400:
@@ -328,7 +328,7 @@ get:
                         body:
                             application/vnd.ibexa.api.Version+xml:
                                 type: Version
-                                # example: !include examples/content/objects/content_id/versions/version_no/COPY/Version.xml.example
+                                example: !include examples/content/objects/content_id/versions/version_no/COPY/Version.xml.example
                             application/vnd.ibexa.api.Version+json:
                                 type: VersionWrapper
                                 example: !include examples/content/objects/content_id/versions/version_no/COPY/Version.json.example
@@ -399,7 +399,7 @@ get:
                             body:
                                 application/vnd.ibexa.api.RelationList+xml:
                                     type: RelationList
-                                    # example: !include examples/content/objects/content_id/versions/version_no/relations/GET/RelationList.xml.example
+                                    example: !include examples/content/objects/content_id/versions/version_no/relations/GET/RelationList.xml.example
                                 application/vnd.ibexa.api.RelationList+json:
                                     type: RelationListWrapper
                                     example: !include examples/content/objects/content_id/versions/version_no/relations/GET/RelationList.json.example
@@ -424,7 +424,7 @@ get:
                     body:
                         application/vnd.ibexa.api.RelationCreate+xml:
                             type: RelationCreate
-                            # example: !include examples/content/objects/content_id/versions/version_no/relations/POST/RelationCreate.xml.example
+                            example: !include examples/content/objects/content_id/versions/version_no/relations/POST/RelationCreate.xml.example
                         application/vnd.ibexa.api.RelationCreate+json:
                             type: RelationCreateWrapper
                             example: !include examples/content/objects/content_id/versions/version_no/relations/POST/RelationCreate.json.example
@@ -433,7 +433,7 @@ get:
                             body:
                                 application/vnd.ibexa.api.Relation+xml:
                                     type: Relation
-                                    # example: !include examples/content/objects/content_id/versions/version_no/relations/POST/Relation.xml.example
+                                    example: !include examples/content/objects/content_id/versions/version_no/relations/POST/Relation.xml.example
                                 application/vnd.ibexa.api.Relation+json:
                                     type: RelationWrapper
                                     example: !include examples/content/objects/content_id/versions/version_no/relations/POST/Relation.json.example
@@ -453,7 +453,7 @@ get:
                                 body:
                                     application/vnd.ibexa.api.Relation+xml:
                                         type: Relation
-                                        # example: !include examples/content/objects/content_id/versions/version_no/relations/relation_id/GET/Relation.xml.example
+                                        example: !include examples/content/objects/content_id/versions/version_no/relations/relation_id/GET/Relation.xml.example
                                     application/vnd.ibexa.api.Relation+json:
                                         type: RelationWrapper
                             401:
@@ -501,7 +501,7 @@ get:
             body:
                 application/vnd.ibexa.api.LocationCreate+xml:
                     type: LocationCreate
-                    # example: !include examples/content/objects/content_id/locations/POST/LocationCreate.xml.example
+                    example: !include examples/content/objects/content_id/locations/POST/LocationCreate.xml.example
                 application/vnd.ibexa.api.LocationCreate+json:
                     type: LocationCreateWrapper
                     example: !include examples/content/objects/content_id/locations/POST/LocationCreate.json.example
@@ -510,7 +510,7 @@ get:
                     body:
                         application/vnd.ibexa.api.Location+xml:
                             type: Location
-                            # example: !include examples/content/objects/content_id/locations/POST/Location.xml.example
+                            example: !include examples/content/objects/content_id/locations/POST/Location.xml.example
                         application/vnd.ibexa.api.Location+json:
                             type: LocationWrapper
                             example: !include examples/content/objects/content_id/locations/POST/Location.json.example
@@ -536,7 +536,7 @@ get:
                     body:
                         application/vnd.ibexa.api.LocationList+xml:
                             type: LocationList
-                            # example: !include examples/content/objects/content_id/locations/GET/LocationList.xml.example
+                            example: !include examples/content/objects/content_id/locations/GET/LocationList.xml.example
                         application/vnd.ibexa.api.LocationList+json:
                             type: LocationListWrapper
                             example: !include examples/content/objects/content_id/locations/GET/LocationList.json.example
@@ -562,7 +562,7 @@ get:
                     body:
                         application/vnd.ibexa.api.ContentObjectStates+xml:
                             type: ContentObjectStates
-                            # example: !include examples/content/objects/content_id/objectstates/GET/ContentObjectStates.xml.example
+                            example: !include examples/content/objects/content_id/objectstates/GET/ContentObjectStates.xml.example
                         application/vnd.ibexa.api.ContentObjectStates+json:
                             type: ContentObjectStatesWrapper
                             example: !include examples/content/objects/content_id/objectstates/GET/ContentObjectStates.json.example
@@ -587,7 +587,7 @@ get:
             body:
                 application/vnd.ibexa.api.ContentObjectStates+xml:
                     type: ContentObjectStates
-                    # example: !include examples/content/objects/content_id/objectstates/PATCH/ContentObjectStates.request.xml.example
+                    example: !include examples/content/objects/content_id/objectstates/PATCH/ContentObjectStates.request.xml.example
                 application/vnd.ibexa.api.ContentObjectStates+json:
                     type: ContentObjectStatesWrapper
                     example: !include examples/content/objects/content_id/objectstates/PATCH/ContentObjectStates.request.json.example
@@ -597,7 +597,7 @@ get:
                     body:
                         application/vnd.ibexa.api.ContentObjectStates+xml:
                             type: ContentObjectStates
-                            # example: !include examples/content/objects/content_id/objectstates/PATCH/ContentObjectStates.response.xml.example
+                            example: !include examples/content/objects/content_id/objectstates/PATCH/ContentObjectStates.response.xml.example
                         application/vnd.ibexa.api.ContentObjectStates+json:
                             type: ContentObjectStatesWrapper
                             example: !include examples/content/objects/content_id/objectstates/PATCH/ContentObjectStates.response.json.example
