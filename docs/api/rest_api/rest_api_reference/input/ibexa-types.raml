@@ -217,25 +217,25 @@ ContentCreate:
             properties:
                 field: object[]
 
-# ContentImageVariation:
-#     description: 'This class represents an image.'
-#     type: BaseObject
-#     properties:
-#         uri:
-#             description: 'This class represents a URI.'
-#             type: string
-#         contentType:
-#             description: 'Type of an image.'
-#             type: string
-#         width:
-#             description: 'Width of an image.'
-#             type: integer
-#         height:
-#             description: 'Height of an image.'
-#             type: integer
-#         fileSize:
-#             description: 'Size of an image file.'
-#             type: integer
+ContentImageVariation:
+    description: 'This class represents an image.'
+    type: BaseObject
+    properties:
+        uri:
+            description: 'This class represents a URI.'
+            type: string
+        contentType:
+            description: 'Type of an image.'
+            type: string
+        width:
+            description: 'Width of an image.'
+            type: integer
+        height:
+            description: 'Height of an image.'
+            type: integer
+        fileSize:
+            description: 'Size of an image file.'
+            type: integer
 
 ContentInfoWrapper:
     properties:
@@ -1600,31 +1600,31 @@ ObjectStateUpdate:
             type: ValueObject
             required: false
 
-# PasswordValidationContext:
-#     description: 'Context of the password validation.'
-#     type: object
-#     properties:
-#         contentType:
-#             description: 'Content type of the password owner.'
-#             type: ContentType
-#         user:
-#             description: 'Owner of the password.'
-#             type: User
+PasswordValidationContext:
+    description: 'Context of the password validation.'
+    type: object
+    properties:
+        contentType:
+            description: 'Content type of the password owner.'
+            type: ContentType
+        user:
+            description: 'Owner of the password.'
+            type: User
 
-# Plural:
-#     description: 'Class for translatable messages, which may contain plural forms. The message might include replacements, in the form %[A-Za-z]%. Those are replaced by the values provided. A raw % can be escaped like %%.'
-#     type: object
-#     properties:
-#         singular:
-#             description: 'Singular string. Might use replacements like %foo%, which are replaced by the values specified in the values array.'
-#             type: string
-#         plural:
-#             description: 'Message string. Might use replacements like %foo%, which are replaced by the values specified in the values array.'
-#             type: string
-#         values:
-#             description: 'Translation value objects. May not contain any numbers, which might result in requiring plural forms. Use MessagePlural for that.'
-#             type: array
-#             items: any
+Plural:
+    description: 'Class for translatable messages, which may contain plural forms. The message might include replacements, in the form %[A-Za-z]%. Those are replaced by the values provided. A raw % can be escaped like %%.'
+    type: object
+    properties:
+        singular:
+            description: 'Singular string. Might use replacements like %foo%, which are replaced by the values specified in the values array.'
+            type: string
+        plural:
+            description: 'Message string. Might use replacements like %foo%, which are replaced by the values specified in the values array.'
+            type: string
+        values:
+            description: 'Translation value objects. May not contain any numbers, which might result in requiring plural forms. Use MessagePlural for that.'
+            type: array
+            items: any
 
 PolicyWrapper:
     properties:
