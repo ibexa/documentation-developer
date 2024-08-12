@@ -234,18 +234,18 @@ post:
                     description: Error - there is no draft or Role with the given ID.
                 412:
                     description: Error - the current ETag does not match with the one provided in the If-Match header.
-        # publish:
-        #     displayName: Publish Role draft
-        #     description: Publishes a Role draft. PUBLISH or POST with header X-HTTP-Method-Override PUBLISH.
-        #     responses:
-        #         204:
-        #             description: No Content.
-        #         401:
-        #             description: Error - the user is not authorized to publish this content type draft.
-        #         403:
-        #             description: Error - the content type draft is not complete e.g. there is no Field definition provided.
-        #         404:
-        #             description: Error - there is no draft or Role with the given ID.
+        publish:
+            displayName: Publish Role draft
+            description: Publishes a Role draft. PUBLISH or POST with header X-HTTP-Method-Override PUBLISH.
+            responses:
+                204:
+                    description: No Content.
+                401:
+                    description: Error - the user is not authorized to publish this content type draft.
+                403:
+                    description: Error - the content type draft is not complete e.g. there is no Field definition provided.
+                404:
+                    description: Error - there is no draft or Role with the given ID.
         delete:
             displayName: Delete Role draft
             description: The given Role draft is deleted.

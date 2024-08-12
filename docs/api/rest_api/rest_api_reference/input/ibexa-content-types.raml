@@ -65,14 +65,14 @@ get:
                 description: Error - The user is not authorized to read this content type.
             404:
                 description: Error - The content type does not exist.
-    # copy:
-    #     displayName: Copy content type
-    #     description: Copies a content type. A new remote ID is generated, and the identifier of the copy is set to 'copy_of_originalBaseIdentifier_newTypeId' (or another random string). COPY or POST with header X-HTTP-Method-Override COPY.
-    #     responses:
-    #         201:
-    #             description: Copy of the content type created.
-    #         401:
-    #             description: Error - The user is not authorized to copy this content type.
+    copy:
+        displayName: Copy content type
+        description: Copies a content type. A new remote ID is generated, and the identifier of the copy is set to 'copy_of_originalBaseIdentifier_newTypeId' (or another random string). COPY or POST with header X-HTTP-Method-Override COPY.
+        responses:
+            201:
+                description: Copy of the content type created.
+            401:
+                description: Error - The user is not authorized to copy this content type.
     post:
         displayName: Create Draft
         description: Creates a draft and updates it with the given data.
@@ -228,22 +228,22 @@ get:
                     description: Error - A content type with the given new identifier already exists.
                 404:
                     description: Error - There is no draft for this content type.
-        # publish:
-        #     displayName: Publish content type draft
-        #     description: Publishes a content type draft. PUBLISH or POST with header X-HTTP-Method-Override PUBLISH.
-        #     responses:
-        #         200:
-        #             body:
-        #                 application/vnd.ibexa.api.ContentType+xml:
-        #                     type: ContentType
-        #                     example: !include examples/content/types/content_type_id/draft/PUBLISH/ContentType.xml.example
-        #             description: Content type draft published.
-        #         401:
-        #             description: Error - The user is not authorized to publish this content type draft.
-        #         403:
-        #             description: Error - The content type draft is not complete, e.g. there is no Field definition provided.
-        #         404:
-        #             description: Error - If there is no draft or content type with the given ID.
+        publish:
+            displayName: Publish content type draft
+            description: Publishes a content type draft. PUBLISH or POST with header X-HTTP-Method-Override PUBLISH.
+            responses:
+                200:
+                    body:
+                        application/vnd.ibexa.api.ContentType+xml:
+                            type: ContentType
+                            example: !include examples/content/types/content_type_id/draft/PUBLISH/ContentType.xml.example
+                    description: Content type draft published.
+                401:
+                    description: Error - The user is not authorized to publish this content type draft.
+                403:
+                    description: Error - The content type draft is not complete, e.g. there is no Field definition provided.
+                404:
+                    description: Error - If there is no draft or content type with the given ID.
         delete:
             displayName: Delete content type draft
             description: Deletes the provided content type draft.

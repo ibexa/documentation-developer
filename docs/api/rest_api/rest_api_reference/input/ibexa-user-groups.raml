@@ -151,21 +151,21 @@ get:
                 description: Error - the user is not authorized to delete this content type.
             403:
                 description: Error - the User Group is not empty.
-    # move:
-    #     displayName: Move User Group
-    #     description: Moves the User Group to another parent. MOVE or POST with header X-HTTP-Method-Override MOVE.
-    #     headers:
-    #         Destination:
-    #             description: A parent group resource to which the Location is moved.
-    #     responses:
-    #         201:
-    #             description: Created - moves the User Group to another parent.
-    #         401:
-    #             description: Error - the user is not authorized to update the User Group.
-    #         403:
-    #             description: Error - the new parent does not exist.
-    #         404:
-    #             description: Error - the User Group does not exist.
+    move:
+        displayName: Move User Group
+        description: Moves the User Group to another parent. MOVE or POST with header X-HTTP-Method-Override MOVE.
+        headers:
+            Destination:
+                description: A parent group resource to which the Location is moved.
+        responses:
+            201:
+                description: Created - moves the User Group to another parent.
+            401:
+                description: Error - the user is not authorized to update the User Group.
+            403:
+                description: Error - the new parent does not exist.
+            404:
+                description: Error - the User Group does not exist.
     /users:
         get:
             displayName: Load Users of Group

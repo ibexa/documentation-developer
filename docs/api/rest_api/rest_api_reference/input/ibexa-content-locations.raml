@@ -51,34 +51,34 @@ get:
                 description: Error - the user is not authorized to read this Location.
             404:
                 description: Error - the Location with the given path does not exist.
-    # move:
-    #     displayName: Move subtree
-    #     description: Moves Location to a different parent. The destination can also be '/content/trash' where the Location is put into the trash. (NOTE - Be aware that the user might lose access to the item after it has been moved, for example when read access is limited by a subtree). MOVE or POST with header X-HTTP-Method-Override MOVE.
-    #     headers:
-    #         Destination:
-    #             description: A parent Location resource to which the Location is moved e.g. '/api/ibexa/v2/content/locations/1/63'.
-    #     responses:
-    #         201:
-    #             description: Created. If destination is '/api/ibexa/v2/content/trash' and content only has one Location (NOTE - Like on normal subtree moves, be aware that the user might lose access to the item after it has been moved to Trash.)
-    #         204:
-    #             description: No Content. If destination is '/api/ibexa/v2/content/trash' and content still has other Locations (no trash item is created).
-    #         401:
-    #             description: Error - the user is not authorized to move this Location.
-    #         404:
-    #             description: Error - the Location with the given ID does not exist.
-    # copy:
-    #     displayName: Copy subtree
-    #     description: Copies the subtree to a different parent. COPY or POST with header X-HTTP-Method-Override COPY.
-    #     headers:
-    #         Destination:
-    #             description: A parent Location resource to which the Location is moved e.g. '/api/ibexa/v2/content/locations/1/63'.
-    #     responses:
-    #         201:
-    #             description: Created. Copied the subtree to a different parent.
-    #         401:
-    #             description: Error - the user is not authorized to move this Location.
-    #         404:
-    #             description: Error - the Location with the given ID does not exist.
+    move:
+        displayName: Move subtree
+        description: Moves Location to a different parent. The destination can also be '/content/trash' where the Location is put into the trash. (NOTE - Be aware that the user might lose access to the item after it has been moved, for example when read access is limited by a subtree). MOVE or POST with header X-HTTP-Method-Override MOVE.
+        headers:
+            Destination:
+                description: A parent Location resource to which the Location is moved e.g. '/api/ibexa/v2/content/locations/1/63'.
+        responses:
+            201:
+                description: Created. If destination is '/api/ibexa/v2/content/trash' and content only has one Location (NOTE - Like on normal subtree moves, be aware that the user might lose access to the item after it has been moved to Trash.)
+            204:
+                description: No Content. If destination is '/api/ibexa/v2/content/trash' and content still has other Locations (no trash item is created).
+            401:
+                description: Error - the user is not authorized to move this Location.
+            404:
+                description: Error - the Location with the given ID does not exist.
+    copy:
+        displayName: Copy subtree
+        description: Copies the subtree to a different parent. COPY or POST with header X-HTTP-Method-Override COPY.
+        headers:
+            Destination:
+                description: A parent Location resource to which the Location is moved e.g. '/api/ibexa/v2/content/locations/1/63'.
+        responses:
+            201:
+                description: Created. Copied the subtree to a different parent.
+            401:
+                description: Error - the user is not authorized to move this Location.
+            404:
+                description: Error - the Location with the given ID does not exist.
     delete:
         displayName: Delete subtree
         description: Deletes the complete subtree for the given path. Every content item which does not have any other Location is deleted. Otherwise the deleted Location is removed from the content item. The children are recursively deleted.
@@ -125,19 +125,19 @@ get:
                 description: Error - the user is not authorized to update this Location.
             404:
                 description: Error - the Location with the given ID does not exist.
-    # swap:
-    #     displayName: Swap Location
-    #     description: Swaps the Location of a content item with the given Location of another content item. SWAP or POST with header X-HTTP-Method-Override SWAP.
-    #     headers:
-    #         Destination:
-    #             description: A parent Location resource to which the Location is moved e.g. '/api/ibexa/v2/content/locations/1/63'.
-    #     responses:
-    #         204:
-    #             description: No Content. Swapped the Location of a content item with the given Location of another content item.
-    #         401:
-    #             description: Error - the user is not authorized to swap this Location.
-    #         404:
-    #             description: Error - the Location with the given ID does not exist.
+    swap:
+        displayName: Swap Location
+        description: Swaps the Location of a content item with the given Location of another content item. SWAP or POST with header X-HTTP-Method-Override SWAP.
+        headers:
+            Destination:
+                description: A parent Location resource to which the Location is moved e.g. '/api/ibexa/v2/content/locations/1/63'.
+        responses:
+            204:
+                description: No Content. Swapped the Location of a content item with the given Location of another content item.
+            401:
+                description: Error - the user is not authorized to swap this Location.
+            404:
+                description: Error - the Location with the given ID does not exist.
     /children:
         get:
             displayName: Get child Locations.

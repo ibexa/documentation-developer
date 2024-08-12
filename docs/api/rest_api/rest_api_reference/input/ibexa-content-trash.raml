@@ -55,21 +55,21 @@ delete:
                 description: Error - The user has no permission to read the item in Trash.
             404:
                 description: Error - An item in Trash with the provided ID does not exist.
-    # move:
-    #     displayName: Untrash content item
-    #     description: Restores an item from Trash. MOVE or POST with header X-HTTP-Method-Override MOVE.
-    #     headers:
-    #         Destination:
-    #             description: If the destination Location URI is provided, the item from Trash is restored under this Location, otherwise it is restored under its original parent Location.
-    #     responses:
-    #         201:
-    #             description: Item restored.
-    #         401:
-    #             description: Error - The user is not authorized to restore this item from Trash.
-    #         403:
-    #             description: Error - The provided parent Location does not exist.
-    #         404:
-    #             description: Error - The provided item does not exist in Trash.
+    move:
+        displayName: Untrash content item
+        description: Restores an item from Trash. MOVE or POST with header X-HTTP-Method-Override MOVE.
+        headers:
+            Destination:
+                description: If the destination Location URI is provided, the item from Trash is restored under this Location, otherwise it is restored under its original parent Location.
+        responses:
+            201:
+                description: Item restored.
+            401:
+                description: Error - The user is not authorized to restore this item from Trash.
+            403:
+                description: Error - The provided parent Location does not exist.
+            404:
+                description: Error - The provided item does not exist in Trash.
     delete:
         displayName: Delete Trash item
         description: Deletes the provided item from Trash.
