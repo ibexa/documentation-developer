@@ -1,5 +1,6 @@
 ---
 description: Step-by-step data export procedure in Ibexa CDP.
+edition: experience
 ---
 
 # Data export

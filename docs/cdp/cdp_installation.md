@@ -1,5 +1,6 @@
 ---
 description: Installation of standalone Ibexa CDP package.
+edition: experience
 ---
 
 # Ibexa CDP installation
