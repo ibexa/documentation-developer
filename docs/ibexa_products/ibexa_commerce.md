@@ -31,7 +31,7 @@ With an active lincese, you can start [installation process](install_ibexa_dxp.m
 
 Version control systems and environment variables allow you to deploy your extensions and settings on several environments, such as [Ibexa Cloud](ibexa_cloud_guide.md).
 
-[[= product_name_com =]] is built on [[[= product_name_headless =]]](headless.md) and includes all bundles, APIs, and [features that comes with Headless edition](headless.md#core-features) as well as Experience features.
+[[= product_name_com =]] is built on [[[= product_name_headless =]]](headless.md) and includes all bundles, APIs, and [features that comes with Headless edition](headless.md#core-features) as well as [Experience features](experience.md#core-features).
 
 ## Capabilities and benefits
 
