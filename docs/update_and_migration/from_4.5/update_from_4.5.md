@@ -520,4 +520,4 @@ No additional steps needed.
 
 ## v4.6.10
 
-A command dealing with the duplicated entries caused by [IBX-8562](https://issues.ibexa.co/browse/IBX-8562) will be provided here in the near future.
+A command to deal with the duplicated entries caused by [IBX-8562](https://issues.ibexa.co/browse/IBX-8562) will be available soon.
