@@ -8,10 +8,10 @@ month_change: true
 
 ## What is [[= product_name_com =]]
 
-[[= product_name_com =]] is one of the edition offered by [[= product_name =]].
-This edition assists you in managing each aspect of the customer journey by combining content, customization, and commerce functions into a single, dedicated interface.
-[[= product_name_com =]] offers companies a streamlined, unified platform where they can personalize each component of the online shopping experience.
-You can completely revamp your online stores with and give your consumers exceptional purchasing experiences, from first contact to post-purchase support.
+[[= product_name_com =]] is the most powerful edition offered by [[= product_name_base =]].
+It assists you in managing each aspect of your customers' journey by combining content management, customization, and commerce functions into a single, dedicated solution.
+[[= product_name_com =]] offers a streamlined, unified platform where you can personalize each component of the online shopping experience.
+You can completely revamp your online stores and give your consumers exceptional purchasing experiences, from first contact to post-purchase support.
 
 ![Ibexa Commerce](ibexa_commerce.png)
 
@@ -25,37 +25,38 @@ You can also [contact us](https://www.ibexa.co/about-ibexa/contact-us) or [one o
 
 ### Technical backstage
 
-With an active lincese, you can start [installation process](install_ibexa_dxp.md) that uses the Composer.
+With an active lincese, you can start the [installation process](install_ibexa_dxp.md) that uses the Composer.
 
-[[= product_name_com =]] is based on [Symfony]([[= symfony_doc =]]). With a help of documentation and trainings, any developer familiar with Symfony or simply PHP may learn how to use available extension points and extend the platform.
+[[= product_name_com =]] is based on [Symfony]([[= symfony_doc =]]).
+With a help of documentation and trainings, any developer familiar with Symfony or even PHP alone can learn how to use available extension points and extend the platform.
 
 Version control systems and environment variables allow you to deploy your extensions and settings on several environments, such as [Ibexa Cloud](ibexa_cloud_guide.md).
 
-[[= product_name_com =]] is built on [[[= product_name_headless =]]](headless.md) and includes all bundles, APIs, and [features that comes with Headless edition](headless.md#core-features) as well as [Experience features](experience.md#core-features).
+[[= product_name_com =]] is built on [[[= product_name_ext =]]](experience.md) and includes all bundles, APIs, and features that come with both [Headless](headless.md#core-features) and [Experience](experience.md#core-features) editions.
 
 ## Capabilities and benefits
 
-[[= product_name_com =]] includes the greatest capabilities to accelerate your digital transformation: Personalized workflows, corporate account management, customized catalogs, and more.
+With [[= product_name_com =]] you can focus on accelerating your transformation into a fully-fledged eCommerce.
+It comes with all the necessary tools: customized catalogs, integration with CDP, personalized checkout workflows, payment gateway integration, transactional emails, and more.
 
 ### Core features
 
 [[= product_name_com =]] includes all the features you need to launch your online store and reduce the time it takes to go live.
 
-#### Order management
-
-With the advanced [Order management]([[= user_doc =]]/commerce/order_management/order_management/) tools, you can easily manage your customized purchase process.
-The Order management module allows users to review order details and updates, track order completion status, and cancel orders that are created when store customers purchase products, for a smooth purchasing process.
-You can also assign and maintain rights so that only authorized users and make modifications.
-When searching for orders you can use filters, so you save time and reduce effort.
-
-![Order management](order_management.png)
-
 #### Merchandizing
 
 Merchandizing assists in keeping the consistency of the brand and providing customized product recommendations with captivating visuals and powerful search features. 
-With this feature you can engage your customers with eye-catching graphics and information
+With this feature, you can engage your customers with eye-catching graphics and information.
 The search engine makes it easy to find what you're looking for by providing quick and easy access to the product catalogs.
 You can also use recommendations and campaigns to increase average order values and income.
+
+#### Order management
+
+With the advanced [Order management]([[= user_doc =]]/commerce/order_management/order_management/) tools, you can you can manage orders with ease.
+Depending on your permissions, you can search for orders, review their details and updates, track completion status, and cancel orders that are created when store customers purchase products.
+When searching for orders, you can use filters to save time and reduce effort.
+
+![Order management](order_management.png)
 
 #### eCommerce
 
@@ -71,7 +72,7 @@ Recommendations can be used to propose related, alternative, or complimentary pr
 
 #### Custom eCommerce
 
-[[= product_name_com =]] is designed for complex enterprises, so it enables you to design flawless sales experiences even if your business model has built-in limitations, like distribution, price, and so on. Thanks to this, [[= product_name_com =]] is fully customizable.
+[[= product_name_com =]] is designed for complex enterprises and is fully customizable. It enables you to design flawless sales experiences regardless of the complexity of your business model.
 You can create online store that really fits your needs.
 
 #### Immersive shopping experiences
