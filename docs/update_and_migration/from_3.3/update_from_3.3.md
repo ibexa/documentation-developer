@@ -41,8 +41,7 @@ Run:
 To avoid deprecations when updating from an older PHP version to PHP 8.2 or 8.3, run the following commands:
 
 ``` bash
-composer config extra.runtime.error_handler
-"\\Ibexa\\Contracts\\Core\\MVC\\Symfony\\ErrorHandler\\Php82HideDeprecationsErrorHandler"
+composer config extra.runtime.error_handler "\\Ibexa\\Contracts\\Core\\MVC\\Symfony\\ErrorHandler\\Php82HideDeprecationsErrorHandler"
 composer dump-autoload
 ```
 
