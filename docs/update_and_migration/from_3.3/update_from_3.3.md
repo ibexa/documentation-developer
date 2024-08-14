@@ -170,6 +170,8 @@ If you are using MySQL, run the following update script:
 mysql -u<username> -p<password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-3.3.1-to-3.3.2.sql
 ```
 
+<!-- vale Ibexa.VariablesVersion = NO -->
+
 ### v3.3.4
 
 #### Migration Bundle
@@ -419,3 +421,7 @@ Run the following scripts:
     ``` sql
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-3.3.33-to-3.3.34.sql
     ```
+
+### v3.3.40
+
+A command dealing with the duplicated entries caused by [IBX-8562](https://issues.ibexa.co/browse/IBX-8562) will be provided here in the near future.
