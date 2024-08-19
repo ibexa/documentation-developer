@@ -31,7 +31,7 @@ In this step you'll add the first content type, Ride.
 
 Go to the admin interface (`<yourdomain>/admin`) and log in with the default username: `admin` and the default password: `publish`. 
 
-In the upper-right corner, click the avatar icon to unfold the drop-down menu and disable the [Focus mode]([[= user_doc =]]/getting_started/#focus-mode).
+In the upper-right corner, click the avatar icon to unfold the drop-down menu and disable the [Focus mode]([[= user_doc =]]/getting_started/discover_ui/#focus-mode).
 
 In the main menu, go to **Content** -> **Content types**.
 
