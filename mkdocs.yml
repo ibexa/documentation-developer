@@ -59,6 +59,7 @@ nav:
                 - REST responses: api/rest_api/rest_api_usage/rest_responses.md
                 - Testing REST API: api/rest_api/rest_api_usage/testing_rest_api.md
             - REST API reference: api/rest_api/rest_api_reference/rest_api_reference.html
+            - NEW REST API reference: rest/rest.md
             - Extending REST API:
                 - Adding custom media type: api/rest_api/extending_rest_api/adding_custom_media_type.md
                 - Creating new REST resource: api/rest_api/extending_rest_api/creating_new_rest_resource.md

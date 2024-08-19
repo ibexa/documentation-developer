@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Web site created using create-react-app" />
+    <link rel="apple-touch-icon" href="/logo192.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <title>React App</title>
+    <script defer="defer" src="/static/js/main.74149ae4.js"></script>
+    <link href="/static/css/main.1c746339.css" rel="stylesheet">
+</head>
+
+<body><noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <h1>Redoc in action</h1>
+    <script src="https://cdn.redoc.ly/redoc/latest/bundles/redoc.standalone.js"></script>
+    <div id="redoc-container"></div>
+    <script>
+    Redoc.init("https://gist.githubusercontent.com/mnocon/c52c5c1be4810f637c49a4f8040fd1c0/raw/c2ab62907051a77bf549d233d95d2986827cb457/api.yaml", 
+    { expandResponses: "200,400" }, document.getElementById("redoc-container"), (function (e) { 
+        console.log(e)
+        document.querySelector('[title]').setAttribute("style", "background-color: red") 
+        })
+    )</script>
+</body>
+
+</html>
