@@ -47,7 +47,7 @@ Standard web APIs and [[[= product_name_connect =]]]([[= connect_doc =]]/general
 
 APIs summary:
 
-- The REST and GraphQL APIs give access to access the content in standardized ways.
+- The REST and GraphQL APIs give access to the content in standardized ways.
 - The OAuth 2 [Client](oauth_client.md) and [Server](oauth_server.md) allow to connect to an SSO or be the SSO.
 - The design engine and its theme templates mechanism allows to serve the content in several shapes.
 - The PHP API opens [[= product_name_headless =]] to extendability to fit your needs.
