@@ -318,6 +318,15 @@ nav:
             - Add login form: templating/layout/add_login_form.md
             - Add navigation menu: templating/layout/add_navigation_menu.md
             - Add search form to front page: templating/layout/add_search_form.md
+    - AI Actions:
+        - AI Actions: ai_actions/ai_actions.md
+        - AI Actions Guide: ai_actions/ai_actions_guide.md
+        - Install AI Actions: ai_actions/install_ai_actions.md
+        - Extend AI Actions: ai_actions/extend_ai_actions.md
+        - Alt text generation:
+            - Enable alt text generation: ai_actions/alt_text/enable_alt_text_generation.md
+            - Configure alt text generation: ai_actions/alt_text/configure_alt_text_generation.md
+            - Customize alt text generation: ai_actions/alt_text/customize_alt_text_generation.md
     - PIM (Product management):
         - PIM (Product management): pim/pim.md
         - PIM guide: pim/pim_guide.md
