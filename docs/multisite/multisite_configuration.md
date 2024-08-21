@@ -147,7 +147,7 @@ ibexa:
           languages: ['ger-DE']
 ```
 
-The language setting for the `de` siteaccess will in this case be `['ger-DE','eng-GB']`, not `['de-de']`.
+The language setting for the `de` siteaccess will in this case be `['ger-DE','eng-GB']`, not `['ger-DE']`.
 
 ### SiteAccesses and Page Builder [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
