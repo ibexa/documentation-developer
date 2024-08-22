@@ -1,81 +1,63 @@
 ---
-description: Integrate DAM with your Ibexa DXP project to use an effective tool for managing media assets.
+description: Integrate DAM with your Ibexa DXP project to use an effective tool for managing marketing assets.
 ---
 
 
 # Integrate DAM with DXP
 
+DAM integration with [[= product_name =]] is dedicated to [[= product_name_base =]] users who also use Actito services. It enables using assets repository stored in the DXP in the Actito platform to build and insert marketing assets into campaign emails.
+For more information, see [Actito documentation](https://cdn3.actito.com/fe/actito-documentation/docs/Using_Assets_from_a_DAM/#connection-to-ibexa).
+
 ## Enable Elasticsearch or Solr
 
-A search engine is an important component of the DAM. To ensure proper indexing and search results, DAM requires one of
+To ensure proper indexing and search results, DAM requires one of
 the following search engines on your server:
 
-- Elasticsearch
-- Solr
-
-To install and configure search engine of your choice, go to [Elasticsearch documentation](search/search_engines/elastic_search/install_elastic_search.md)
-or to [Solr documentation](search/search_engines/solr_search_engine/install_solr.md)
+- [Elasticsearch](install_elastic_search.md)
+- [Solr](install_solr.md)
 
 
 ## Enable OAuth Servers
 
-Next, enable 0Auth Server authentication. To do it, follow steps to the Client section.
-https://doc.ibexa.co/en/latest/users/oauth_server/.
+Next, enable 0Auth Server authentication. To do it, follow steps up to the [Client section](oauth_server.md).
 
 ## Install DAM package
 
 Install dedicated DAM `ibexa/dam-user` package into your [[= product_name =]] instance.
 
-Run `composer require ibexa/dam-user`.
+To install, run the following command:
+
+```bash
+composer require ibexa/dam-user
+```
 
 Add the `ibexa_dam_oauth2_client_user` table to the database:
 
-`php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/dam-user/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <database_name>`
+```bash
+php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/dam-user/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <database_name>
+```
 
-Add technical users to your [[= product_name =]] instance.
+Next, add technical users, required by DAM to your [[= product_name =]] instance.
 
-Import migration file:
-`php bin/console ibexa:migrations:import vendor/ibexa/dam-user/src/bundle/Resources/migrations/2024_07_11_09_10_dam_technical_users.yaml`
+To do it, first, import the migration file:
 
-Run migrations:
-`php bin/console ibexa:migrations:migrate`.
+```bash
+    php bin/console ibexa:migrations:import vendor/ibexa/dam-user/src/bundle/Resources/migrations/2024_07_11_09_10_dam_technical_users.yaml
+```
 
-Two new user roles and users should be now in the Back Office.
+Next, run migrations:
+
+```bash
+php bin/console ibexa:migrations:migrate
+```
+
+Two new user roles and users should be now visibile in the Back Office.
 
 Create OAuth2 client for the DXP user:
 
-`php bin/console ibexa:dam:create-oauth2-client <client-name> <user-identifier>`.
-
-
-
-<!-- Create database tables for `ibexa_0auth_server`:
-
-```sql
-CREATE TABLE `ibexa_dam_oauth2_client_user` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `client_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `created_at` datetime NOT NULL,
-  `expires_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `ibexa_oauth2_client_id` (`client_id`),
-  KEY `ibexa_user_id` (`user_id`),
-  CONSTRAINT `FK_CDDB196119EB6921` FOREIGN KEY (`client_id`) REFERENCES `ibexa_oauth2_client` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `FK_CDDB1961A76ED395` FOREIGN KEY (`user_id`) REFERENCES `ezuser` (`contentobject_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+```bash
+php bin/console ibexa:dam:create-oauth2-client <client-name> <user-identifier>
 ```
-
-run migration file (migracja po zainstalowaniu paczki powinna tu trafic)
-
-### Create and map user
-
-DAM requires two user roles, 
-You need to have two new types of users: creator and reader users (editors)
-
-
-### Install dedicated DAM support package
-
-### Run migration -->
 
 ## Override admin-ui
 
@@ -175,14 +157,13 @@ nelmio_cors.options_provider.config:
             priority: 255
 ```
 
-and set the location id to 51
-
+Set the `location ID` to `51`.
 ```yaml
 parameters:
     ibexa.dam_app.image.root_location_id: 51
 ```
 
-Add DAM ConfigProvider:
+Add DAM `ConfigProvider`:
 
 ```yaml
 app.config.provider.dam_app:
@@ -194,6 +175,6 @@ app.config.provider.dam_app:
         - { name: ibexa.admin_ui.config.provider, key: 'damApp' }
 ```
 
-!!! important
+!!! caution
     
-    location 51
+    Location ID must be set to 51, if you provide different location ID, your asset library won't be accessible from DAM.
