@@ -21,6 +21,7 @@ Href:
             type: string
             xml:
                 attribute: true
+                name: href
 
 # Asset:
 #     type: object
@@ -72,11 +73,13 @@ BaseObject:
             type: string
             xml:
                 attribute: true
+                name: media-type
         _href:
             type: string
             required: false
             xml:
                 attribute: true
+                name: href
 
 BookmarkListWrapper:
     type: object
@@ -737,6 +740,7 @@ Country:
             type: string
             xml:
                 attribute: true
+                name: id
         name:
             description: 'Name of the country.'
             type: string
@@ -4220,6 +4224,7 @@ ProductContentUpdate:
             type: string
             xml:
                 attribute: true
+                name: url
         fields:
             properties:
                 field:
