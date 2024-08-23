@@ -27,7 +27,7 @@ You can also [contact us](https://www.ibexa.co/about-ibexa/contact-us) or [one o
 
 ### Technical backstage
 
-With an active lincese, you can start the [installation process](install_ibexa_dxp.md) that uses the Composer.
+With an active license, you can start the [installation process](install_ibexa_dxp.md) that uses the Composer.
 
 [[= product_name_com =]] is based on [Symfony]([[= symfony_doc =]]).
 With a help of documentation and trainings, any developer familiar with Symfony or even PHP alone can learn how to use available extension points and extend the platform.
@@ -62,7 +62,7 @@ The [Payment](payment.md) component allows users to search for payment methods a
 
 #### Shipping management
 
-With the [Shipping](shipping_management.md) component ussers can create and manage shipments, search for shipments, filter search results, and define and manage various shipping methods. Depending on their role, users can also enable or disable shipping methods, change status of shipments, and cancel shipments.
+With the [Shipping](shipping_management.md) component users can create and manage shipments, search for shipments, filter search results, and define and manage various shipping methods. Depending on their role, users can also enable or disable shipping methods, change status of shipments, and cancel shipments.
 
 ![Shipping management](shipping_management.png)
 
@@ -83,7 +83,7 @@ The value it brings makes it a crucial component in merchandizing. You can set u
 
 #### Transactional emails
 
-Commerce allows you to send transactional emails - messages that [[= product_name_base =]] can send through [Actito](https://www.actito.com/en-BE/) gateway to your end-users. These emails includes notifications about changes in the status of various actions taken in relation to your commerce presence.
+Commerce allows you to send transactional emails - messages that [[= product_name_base =]] can send through [Actito](https://www.actito.com/en-BE/) gateway to your end-users. These emails include notifications about changes in the status of various actions taken in relation to your commerce presence.
 With this feature you can also [create email campaigns](transactional_emails.md##create-email-campaigns) to engage users and increase sales.
 
 ### Use cases
@@ -115,7 +115,7 @@ You can create online store that really fits your needs.
 
 [[= product_name_com =]] contains the best B2B features to help you speed your digital transformation, such as corporate account management, tailored catalogs, customized workflows, effortless reordering, custom pricing, and more.
 
-#### Automate business processess
+#### Automate business processes
 
 With [[= product_name_com =]] automation process becomes easier, what's essential if your company wants to do more with less effort. 
 It comes with all capabilities, including order and inventory management, customer data and custom pricing, which are needed to achieve it.
