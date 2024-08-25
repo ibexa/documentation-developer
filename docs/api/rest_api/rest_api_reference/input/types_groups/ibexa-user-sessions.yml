@@ -1,0 +1,65 @@
+#             type: SessionInput
+#             type: SessionInputWrapper
+#                     type: Session
+#                     type: SessionWrapper
+#                     type: Session
+#                     type: SessionWrapper
+#                         type: Session
+#                         type: SessionWrapper
+
+#                             type: Session
+#                             type: SessionWrapper
+# a
+
+
+    Session:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: Value for session.
+          type: object
+          required:
+            - name
+            - identifier
+            - csrfToken
+            - User
+          properties:
+            name:
+              description: Name.
+              type: string
+            identifier:
+              description: Identifier.
+              type: string
+            csrfToken:
+              description: csrfToken.
+              type: string
+            User:
+              description: User.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+    SessionWrapper:
+      type: object
+      required:
+        - Session
+      properties:
+        Session:
+          $ref: "#/components/schemas/Session"
+    SessionInput:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: This class represents a session input.
+          type: object
+          required:
+            - login
+            - password
+          properties:
+            login:
+              type: string
+            password:
+              type: string
+    SessionInputWrapper:
+      type: object
+      required:
+        - SessionInput
+      properties:
+        SessionInput:
+          $ref: "#/components/schemas/SessionInput"

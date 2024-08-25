@@ -1,0 +1,473 @@
+#                 type: ProductCreateWrapper
+#                         type: ProductWrapper
+#                 type: ProductGetWrapper
+#                         type: ProductWrapper
+#                 type: ProductUpdateWrapper
+#                         type: ProductWrapper
+#                             type: PriceListWrapper
+#                     type: PriceCreateStructWrapper
+#                     type: CustomPriceCreateStructWrapper
+#                             type: PriceWrapper
+#                             type: CustomPriceWrapper
+#                                 type: PriceWrapper
+#                                         type: CustomPriceWrapper
+#                         type: PriceUpdateStructWrapper
+#                         type: CustomPriceUpdateStructWrapper
+#                                 type: PriceWrapper
+#                                 type: CustomPriceWrapper
+#             type: ProductListGetWrapper
+#                     type: ProductListWrapper
+#                 type: ProductViewInput
+#                 type: ProductViewInputWrapper
+#                         type: ProductView
+#                         type: ProductViewWrapper
+# a
+
+
+    ProductSortClause:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+    ProductSortClauseList:
+      description: This class represents a product sort clause list.
+      type: object
+      required:
+        - ProductSortClause
+      properties:
+        ProductSortClause:
+          type: array
+          items:
+            $ref: "#/components/schemas/ProductSortClause"
+    ProductSortClauseListWrapper:
+      type: object
+      required:
+        - ProductSortClauseList
+      properties:
+        ProductSortClauseList:
+          $ref: "#/components/schemas/ProductSortClauseList"
+    Product:
+      description: This class represents a product.
+      type: object
+      required:
+        - code
+        - name
+        - ProductType
+        - AttributesList
+      properties:
+        isVariant:
+          type: boolean
+        isBaseProduct:
+          type: boolean
+        code:
+          type: string
+        name:
+          type: string
+        ProductType:
+          type:
+            $ref: "#/components/schemas/ProductType"
+        Content:
+          type:
+            $ref: "#/components/schemas/Content"
+        Thumbnail:
+          $ref: "#/components/schemas/Thumbnail"
+        created_at:
+          type: integer
+        updated_at:
+          type: integer
+        AttributesList:
+          type: array
+          items:
+            $ref: "#/components/schemas/Attribute"
+    ProductWrapper:
+      type: object
+      required:
+        - Product
+      properties:
+        Product:
+          $ref: "#/components/schemas/Product"
+    ProductCreate:
+      description: This class is used to create a product.
+      type: object
+      required:
+        - ContentCreate
+        - code
+        - attributes
+      properties:
+        ContentCreate:
+          type:
+            $ref: "#/components/schemas/ContentCreate"
+        code:
+          type: string
+        attributes:
+          type: object
+    ProductCreateWrapper:
+      type: object
+      required:
+        - ProductCreate
+      properties:
+        ProductCreate:
+          $ref: "#/components/schemas/ProductCreate"
+    ProductUpdate:
+      description: This class is used to update a product.
+      type: object
+      required:
+        - ContentUpdate
+        - code
+      properties:
+        ContentUpdate:
+          $ref: "#/components/schemas/ContentUpdate"
+        code:
+          type: string
+        attributes:
+          type: array
+          items:
+            type: object
+    ProductUpdateWrapper:
+      type: object
+      required:
+        - ProductUpdate
+      properties:
+        ProductUpdate:
+          $ref: "#/components/schemas/ProductUpdate"
+    ProductContentUpdate:
+      type: object
+      required:
+        - __url
+        - fields
+      properties:
+        __url:
+          xml:
+            attribute: true
+            name: url
+          type: string
+        fields:
+          type: object
+          required:
+            - field
+          properties:
+            field:
+              type: array
+              items:
+                $ref: "#/components/schemas/Field"
+    ProductView:
+      description: This class represents a product view.
+      type: object
+      required:
+        - identifier
+        - ProductQuery
+        - Result
+      properties:
+        identifier:
+          type: string
+        ProductQuery:
+          type: object
+        Result:
+          type: object
+    ProductViewWrapper:
+      type: object
+      required:
+        - ProductView
+      properties:
+        ProductView:
+          $ref: "#/components/schemas/ProductView"
+    ProductViewInput:
+      description: This class represents a product view input.
+      xml:
+        name: ViewInput
+      type: object
+      required:
+        - ProductQuery
+      properties:
+        ProductQuery:
+          type: object
+    ProductViewInputWrapper:
+      type: object
+      required:
+        - ViewInput
+      properties:
+        ViewInput:
+          $ref: "#/components/schemas/ProductViewInput"
+    ProductList:
+      description: This class represents a product list.
+      type: object
+      required:
+        - Product
+      properties:
+        Product:
+          type: array
+          items:
+            $ref: "#/components/schemas/Product"
+    ProductListWrapper:
+      type: object
+      required:
+        - ProductList
+      properties:
+        ProductList:
+          $ref: "#/components/schemas/ProductList"
+    ProductListGet:
+      description: This class represents a product list GET.
+      type: object
+      required:
+        - offset
+        - limit
+        - languages
+      properties:
+        offset:
+          type: integer
+        limit:
+          type: integer
+        languages:
+          type: array
+          items:
+            type: string
+    ProductListGetWrapper:
+      type: object
+      required:
+        - ProductListGet
+      properties:
+        ProductListGet:
+          $ref: "#/components/schemas/ProductListGet"
+    ProductGet:
+      description: This class represents a product GET.
+      type: object
+      required:
+        - languages
+      properties:
+        languages:
+          type: array
+          items:
+            type: string
+    ProductGetWrapper:
+      type: object
+      required:
+        - ProductGet
+      properties:
+        ProductGet:
+          $ref: "#/components/schemas/ProductGet"
+    ProductFilter:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+    ProductFilterList:
+      description: This class represents a product filter list.
+      type: object
+      required:
+        - ProductFilter
+      properties:
+        ProductFilter:
+          type: array
+          items:
+            $ref: "#/components/schemas/ProductFilter"
+    ProductFilterListWrapper:
+      type: object
+      required:
+        - ProductFilterList
+      properties:
+        ProductFilterList:
+          $ref: "#/components/schemas/ProductFilterList"
+    Price:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: This class represents a price.
+          type: object
+          required:
+            - amount
+            - Currency
+          properties:
+            amount:
+              type: string
+            base_amount:
+              type: string
+            Currency:
+              type:
+                $ref: "#/components/schemas/Currency"
+            money:
+              type: string
+            base_money:
+              type: string
+    PriceWrapper:
+      type: object
+      required:
+        - Price
+      properties:
+        Price:
+          $ref: "#/components/schemas/Price"
+    PriceCreateStruct:
+      description: This class represents a price creation structure.
+      type: object
+      required:
+        - amount
+        - currency
+      properties:
+        amount:
+          type: integer
+        currency:
+          type: string
+    PriceCreateStructWrapper:
+      type: object
+      required:
+        - PriceCreateStruct
+      properties:
+        PriceCreateStruct:
+          $ref: "#/components/schemas/PriceCreateStruct"
+    RestPrice:
+      type: object
+      required:
+        - Price
+        - formatted
+      properties:
+        Price:
+          type:
+            $ref: "#/components/schemas/Price"
+        formatted:
+          type: string
+    RestPriceWrapper:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - type: object
+          required:
+            - RestPrice
+          properties:
+            RestPrice:
+              $ref: "#/components/schemas/RestPrice"
+    CustomPrice:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: This class represents a custom price.
+          type: object
+          required:
+            - amount
+            - base_amount
+            - Currency
+            - money
+            - base_money
+            - custom_money
+            - custom_amount
+          properties:
+            amount:
+              type: string
+            base_amount:
+              type: string
+            Currency:
+              type:
+                $ref: "#/components/schemas/Currency"
+            money:
+              type: string
+            base_money:
+              type: string
+            custom_money:
+              type: string
+            custom_amount:
+              type: string
+            custom_rule:
+              type: [string, 'null']
+    CustomPriceWrapper:
+      type: object
+      required:
+        - CustomPrice
+      properties:
+        CustomPrice:
+          $ref: "#/components/schemas/CustomPrice"
+    CustomPriceCreateStruct:
+      description: This class represents a custom price creation structure.
+      type: object
+      required:
+        - amount
+        - currency
+        - customAmount
+        - customerGroup
+      properties:
+        amount:
+          type: integer
+        currency:
+          type: string
+        customAmount:
+          type: integer
+        customerGroup:
+          type: string
+    CustomPriceCreateStructWrapper:
+      type: object
+      required:
+        - CustomPriceCreateStruct
+      properties:
+        CustomPriceCreateStruct:
+          $ref: "#/components/schemas/CustomPriceCreateStruct"
+    CustomPriceUpdateStruct:
+      description: This class represents a custom price updating structure.
+      type: object
+      required:
+        - amount
+        - currency
+        - customAmount
+      properties:
+        amount:
+          type: integer
+        currency:
+          type: string
+        customAmount:
+          type: integer
+    CustomPriceUpdateStructWrapper:
+      type: object
+      required:
+        - CustomPriceUpdateStruct
+      properties:
+        CustomPriceUpdateStruct:
+          $ref: "#/components/schemas/CustomPriceUpdateStruct"
+    PriceUpdateStruct:
+      description: This class represents a price updating structure.
+      type: object
+      required:
+        - amount
+        - currency
+      properties:
+        amount:
+          type: integer
+        currency:
+          type: string
+    PriceUpdateStructWrapper:
+      type: object
+      required:
+        - PriceUpdateStruct
+      properties:
+        PriceUpdateStruct:
+          $ref: "#/components/schemas/PriceUpdateStruct"
+    PriceList:
+      description: This class represents a price list.
+      type: object
+      required:
+        - prices
+      properties:
+        prices:
+          type: array
+          items:
+            $ref: "#/components/schemas/Price"
+    PriceListWrapper:
+      type: object
+      required:
+        - PriceList
+      properties:
+        PriceList:
+          $ref: "#/components/schemas/PriceList"
+    Thumbnail:
+      description: This class represents a thumbnail that can be a target URL or a Base64 data.
+      type: object
+      required:
+        - resource
+        - width
+        - height
+        - mimeType
+      properties:
+        resource:
+          type: string
+        width:
+          type: [integer, 'null']
+        height:
+          type: [integer, 'null']
+        mimeType:
+          type: string

@@ -1,0 +1,100 @@
+#                         type: Segment
+#                         type: SegmentWrapper
+# from ibexa-segment-groups
+#                     type: SegmentGroupList
+#                     type: SegmentGroupListWrapper
+#                     type: ErrorMessage
+#                     type: ErrorMessage
+#                         type: SegmentGroup
+#                         type: SegmentGroupWrapper
+#                             type: SegmentList
+#                             type: SegmentListWrapper
+
+
+    Segment:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: This class represents a segment.
+          type: object
+          required:
+            - id
+            - identifier
+            - name
+            - SegmentGroup
+          properties:
+            id:
+              type: integer
+            identifier:
+              type: string
+            name:
+              type: string
+            SegmentGroup:
+              $ref: "#/components/schemas/SegmentGroup"
+    SegmentWrapper:
+      type: object
+      required:
+        - Segment
+      properties:
+        Segment:
+          $ref: "#/components/schemas/Segment"
+    SegmentList:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: This class lists segments.
+          type: object
+          required:
+            - Segment
+          properties:
+            Segment:
+              type: array
+              items:
+                $ref: "#/components/schemas/Segment"
+    SegmentListWrapper:
+      type: object
+      required:
+        - SegmentList
+      properties:
+        SegmentList:
+          $ref: "#/components/schemas/SegmentList"
+    SegmentGroup:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: This class represents a segment group.
+          type: object
+          required:
+            - id
+            - identifier
+            - name
+          properties:
+            id:
+              type: integer
+            identifier:
+              type: string
+            name:
+              type: string
+    SegmentGroupWrapper:
+      type: object
+      required:
+        - SegmentGroup
+      properties:
+        SegmentGroup:
+          $ref: "#/components/schemas/SegmentGroup"
+    SegmentGroupList:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: This class lists segment groups.
+          type: object
+          required:
+            - SegmentGroup
+          properties:
+            SegmentGroup:
+              type: array
+              items:
+                $ref: "#/components/schemas/SegmentGroup"
+    SegmentGroupListWrapper:
+      type: object
+      required:
+        - SegmentGroupList
+      properties:
+        SegmentGroupList:
+          $ref: "#/components/schemas/SegmentGroupList"

@@ -1,0 +1,127 @@
+#                 type: ProductVariantCreateWrapper
+#                 type: ProductVariantGenerateWrapper
+#                 type: ProductVariantUpdateWrapper
+#                         type: ProductVariantWrapper
+#                 type: ProductVariantViewInput
+#                 type: ProductVariantViewInputWrapper
+#                         type: ProductVariantView
+#                         type: ProductVariantViewWrapper
+# a
+
+    ProductVariant:
+      description: This class represents a product variant.
+      type: object
+      required:
+        - code
+        - name
+        - Product
+        - DiscriminatorAttributesList
+      properties:
+        code:
+          type: string
+        name:
+          type: string
+        Product:
+          type:
+            $ref: "#/components/schemas/Product"
+        DiscriminatorAttributesList:
+          type: array
+          items:
+            $ref: "#/components/schemas/Attribute"
+    ProductVariantWrapper:
+      type: object
+      required:
+        - ProductVariant
+      properties:
+        ProductVariant:
+          $ref: "#/components/schemas/ProductVariant"
+    ProductVariantView:
+      description: This class represents a product variant view.
+      type: object
+      required:
+        - identifier
+        - ProductVariantQuery
+        - Result
+      properties:
+        identifier:
+          type: string
+        ProductVariantQuery:
+          type: object
+        Result:
+          type: object
+    ProductVariantViewWrapper:
+      type: object
+      required:
+        - ProductVariantView
+      properties:
+        ProductVariantView:
+          $ref: "#/components/schemas/ProductVariantView"
+    ProductVariantViewInput:
+      description: This class represents a product variant view input.
+      type: object
+      required:
+        - ProductVariantQuery
+      properties:
+        ProductVariantQuery:
+          type: object
+    ProductVariantViewInputWrapper:
+      type: object
+      required:
+        - ViewInput
+      properties:
+        ViewInput:
+          $ref: "#/components/schemas/ProductVariantViewInput"
+    ProductVariantCreate:
+      description: This class is used to create a product variant.
+      type: object
+      required:
+        - code
+        - attributes
+      properties:
+        code:
+          type: string
+        attributes:
+          description: array<int|string,mixed>
+          type: object
+    ProductVariantCreateWrapper:
+      type: object
+      required:
+        - ProductVariantCreate
+      properties:
+        ProductVariantCreate:
+          $ref: "#/components/schemas/ProductVariantCreate"
+    ProductVariantUpdate:
+      description: This class is used to update a product variant.
+      type: object
+      required:
+        - code
+        - attributes
+      properties:
+        code:
+          type: string
+        attributes:
+          description: array<int|string,mixed>
+          type: object
+    ProductVariantUpdateWrapper:
+      type: object
+      required:
+        - ProductVariantUpdate
+      properties:
+        ProductVariantUpdate:
+          $ref: "#/components/schemas/ProductVariantUpdate"
+    ProductVariantGenerate:
+      description: This class is used to generate a product variant.
+      type: object
+      required:
+        - attributes
+      properties:
+        attributes:
+          description: array<int|string,mixed>
+          type: object
+    ProductVariantGenerateWrapper:
+      type: object
+      required:
+        - ProductVariantGenerate
+      properties:
+        ProductVariantGenerate:
+          $ref: "#/components/schemas/ProductVariantGenerate"

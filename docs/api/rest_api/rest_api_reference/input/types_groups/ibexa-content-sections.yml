@@ -1,0 +1,76 @@
+#             type: SectionInput
+#             type: SectionInputWrapper
+#                     type: Section
+#                     type: SectionWrapper
+#                     type: SectionList
+#                     type: SectionListWrapper
+#                         type: Section
+#                         type: SectionWrapper
+#                 type: SectionInput
+#                 type: SectionInputWrapper
+#                         type: Section
+#                         type: SectionWrapper
+# a
+
+    Section:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: This class represents a Section.
+          type: object
+          required:
+            - sectionId
+            - identifier
+            - name
+          properties:
+            sectionId:
+              description: ID of the Section.
+              type: integer
+            identifier:
+              description: Unique identifier of the Section.
+              type: string
+            name:
+              description: Name of the Section.
+              type: string
+    SectionWrapper:
+      type: object
+      required:
+        - Section
+      properties:
+        Section:
+          $ref: "#/components/schemas/Section"
+    SectionInput:
+      type: object
+      required:
+        - identifier
+        - name
+      properties:
+        identifier:
+          type: string
+        name:
+          type: string
+    SectionInputWrapper:
+      type: object
+      required:
+        - SectionInput
+      properties:
+        SectionInput:
+          $ref: "#/components/schemas/SectionInput"
+    SectionList:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: This class represents a Section list.
+          type: object
+          required:
+            - Section
+          properties:
+            Section:
+              type: array
+              items:
+                $ref: "#/components/schemas/Section"
+    SectionListWrapper:
+      type: object
+      required:
+        - SectionList
+      properties:
+        SectionList:
+          $ref: "#/components/schemas/SectionList"

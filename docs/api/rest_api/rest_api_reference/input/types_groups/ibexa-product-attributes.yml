@@ -1,0 +1,185 @@
+#             type: AttributeCreateWrapper
+#                     type: AttributeWrapper
+#                         type: Attribute
+#                         type: AttributeWrapper
+#                 type: AttributeUpdateWrapper
+#                         type: AttributeWrapper
+#                     type: AttributeList
+#                     type: AttributeListWrapper
+#                 type: AttributeViewInput
+#                 type: AttributeViewInputWrapper
+#                         type: AttributeView
+#                         type: AttributeViewWrapper
+# a
+
+
+    Attribute:
+      description: This class represents an attribute.
+      type: object
+      required:
+        - name
+        - identifier
+        - description
+        - type
+        - type_identifier
+        - value
+        - group
+        - position
+        - options
+      properties:
+        name:
+          type: string
+        identifier:
+          type: string
+        description:
+          type: string
+        type:
+          type: string
+        type_identifier:
+          type: string
+        value: {}
+        group:
+          type: string
+        position:
+          type: integer
+        options:
+          type: [object, array]
+    AttributeWrapper:
+      type: object
+      required:
+        - Attribute
+      properties:
+        Attribute:
+          $ref: "#/components/schemas/Attribute"
+    AttributeCreate:
+      description: This class is used to create an attribute.
+      type: object
+      required:
+        - identifier
+        - type
+        - group
+        - names
+        - descriptions
+        - position
+        - options
+      properties:
+        identifier:
+          type: string
+        type:
+          type: string
+        group:
+          type: string
+        names:
+          type: object
+        descriptions:
+          type: object
+        position:
+          type: integer
+        options:
+          type: [object, array]
+    AttributeCreateWrapper:
+      type: object
+      required:
+        - AttributeCreate
+      properties:
+        AttributeCreate:
+          $ref: "#/components/schemas/AttributeCreate"
+    AttributeUpdate:
+      description: This class is used to update an attribute.
+      type: object
+      required:
+        - identifier
+        - names
+        - descriptions
+        - position
+        - options
+      properties:
+        identifier:
+          type: string
+        names:
+          type: object
+        descriptions:
+          type: object
+        position:
+          type: integer
+        options:
+          type: object
+    AttributeUpdateWrapper:
+      type: object
+      required:
+        - AttributeUpdate
+      properties:
+        AttributeUpdate:
+          $ref: "#/components/schemas/AttributeUpdate"
+    AttributeList:
+      description: This class represents an attribute list.
+      type: object
+      required:
+        - Attribute
+      properties:
+        Attribute:
+          type: array
+          items:
+            $ref: "#/components/schemas/Attribute"
+    AttributeListWrapper:
+      type: object
+      required:
+        - AttributeList
+      properties:
+        AttributeList:
+          $ref: "#/components/schemas/AttributeList"
+    AttributeView:
+      description: This class represents an attribute view.
+      type: object
+      required:
+        - identifier
+        - AttributeQuery
+        - Result
+      properties:
+        identifier:
+          type: string
+        AttributeQuery:
+          type: object
+        Result:
+          type: object
+    AttributeViewWrapper:
+      type: object
+      required:
+        - AttributeView
+      properties:
+        AttributeView:
+          $ref: "#/components/schemas/AttributeView"
+    AttributeViewInput:
+      description: This class represents an attribute view input.
+      xml:
+        name: ViewInput
+      type: object
+      required:
+        - identifier
+        - AttributeQuery
+      properties:
+        identifier:
+          type: string
+        AttributeQuery:
+          type: object
+    AttributeViewInputWrapper:
+      type: object
+      required:
+        - ViewInput
+      properties:
+        ViewInput:
+          $ref: "#/components/schemas/AttributeViewInput"
+    AttributeAssignment:
+      type: object
+      required:
+        - is_required
+        - is_discriminator
+        - Attribute
+      properties:
+        is_required:
+          type: boolean
+        is_discriminator:
+          type: boolean
+        Attribute:
+          type:
+            $ref: "#/components/schemas/Attribute"

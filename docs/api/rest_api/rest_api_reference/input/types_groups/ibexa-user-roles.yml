@@ -1,0 +1,334 @@
+#                     type: RoleList
+#                     type: RoleListWrapper
+#             type: RoleInput
+#             type: RoleInputWrapper
+#                     type: Role
+#                     type: RoleWrapper
+#                         type: Role
+#                         type: RoleWrapper
+#                         type: RoleDraft
+#                         type: RoleDraftWrapper
+#                 type: RoleInput
+#                 type: RoleInputWrapper
+#                         type: Role
+#                         type: RoleWrapper
+#                             type: Role
+#                             type: RoleWrapper
+#                     type: RoleInput
+#                     type: RoleInputWrapper
+#                             type: Role
+#                             type: RoleWrapper
+#                             type: PolicyList
+#                             type: PolicyListWrapper
+#                     type: PolicyCreate
+#                     type: PolicyCreateWrapper
+#                             type: Policy
+#                             type: PolicyWrapper
+#                         type: PolicyUpdate
+#                         type: PolicyUpdateWrapper
+#                                 type: Policy
+#                                 type: PolicyWrapper
+#                                 type: Policy
+#                                 type: PolicyWrapper
+# from ibexa-user-policies
+
+#                     type: PolicyList
+#                     type: PolicyListWrapper
+
+# from ibexa-user-users
+
+#          type: RoleAssignmentList
+#                             type: RoleAssignmentListWrapper
+#                     type: RoleAssignInput
+#                     type: RoleAssignInputWrapper
+#                             type: RoleAssignmentList
+#                             type: RoleAssignmentListWrapper
+#                                 type: RoleAssignment
+#                                 type: RoleAssignmentWrapper
+#                                 type: RoleAssignmentList
+#                                 type: RoleAssignmentListWrapper
+
+
+    Role:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: This class represents a role.
+          type: object
+          required:
+            - identifier
+            - Policies
+          properties:
+            identifier:
+              description: Readable string identifier of a role.
+              type: string
+            Policies:
+              description: Returns the list of policies of this role.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+    RoleWrapper:
+      type: object
+      required:
+        - Role
+      properties:
+        Role:
+          $ref: "#/components/schemas/Role"
+    RoleDraft:
+      description: This class represents a draft of a role, extends Role.
+      type:
+        $ref: "#/components/schemas/Role"
+    RoleDraftWrapper:
+      type: object
+      required:
+        - Role
+      properties:
+        Role:
+          $ref: "#/components/schemas/RoleDraft"
+    RoleInput:
+      description: This class represents a Role input.
+      type: object
+      required:
+        - identifier
+      properties:
+        identifier:
+          type: string
+    RoleInputWrapper:
+      type: object
+      required:
+        - RoleInput
+      properties:
+        RoleInput:
+          $ref: "#/components/schemas/RoleInput"
+    RoleList:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: This class represents a list roles.
+          type: object
+          required:
+            - Role
+          properties:
+            Role:
+              type: array
+              items:
+                $ref: "#/components/schemas/Role"
+    RoleListWrapper:
+      type: object
+      required:
+        - RoleList
+      properties:
+        RoleList:
+          $ref: "#/components/schemas/RoleList"
+    Policy:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: This class represents a policy value.
+          type: object
+          required:
+            - id
+            - module
+            - function
+          properties:
+            id:
+              description: ID of the policy.
+              type: integer
+            module:
+              description: Name of module, associated with the Policy e.g. content.
+              type: string
+            function:
+              description: Name of the module function Or all functions with '*' e.g. read.
+              type: string
+            limitations:
+              description: Limitations.
+              type: object
+              required:
+                - limitation
+              properties:
+                limitation:
+                  type: array
+                  items:
+                    $ref: "#/components/schemas/Limitation"
+    PolicyWrapper:
+      type: object
+      required:
+        - Policy
+      properties:
+        Policy:
+          $ref: "#/components/schemas/Policy"
+    Limitation:
+      description: This class represents a Limitation applied to a policy.
+      type: object
+      required:
+        - _identifier
+        - values
+      properties:
+        _identifier:
+          description: "Returns the limitation identifier (one of the defined constants) or a custom limitation. Constants: CONTENTTYPE = Class; LANGUAGE = Language; LOCATION = Node; OWNER = Owner; PARENTOWNER = ParentOwner; PARENTCONTENTTYPE = ParentClass; PARENTDEPTH = ParentDepth; SECTION = Section; NEWSECTION = NewSection; SITEACCESS = SiteAccess; STATE = State; NEWSTATE = NewState; SUBTREE = Subtree; USERGROUP = Group; PARENTUSERGROUP = ParentGroup; STATUS = Status."
+          enum:
+            - ContentType
+            - Language
+            - Location
+            - Owner
+            - Parentowner
+            - ParentContentType
+            - ParentDepth
+            - Section
+            - NewSection
+            - SiteAccess
+            - State
+            - NewState
+            - Subtree
+            - UserGroup
+            - ParentUserGroup
+            - Status
+            - Class
+          xml:
+            attribute: true
+            name: identifier
+          type: string
+        values:
+          description: A read-only list of IDs or identifiers for which the limitation should be applied. The value of this property must conform to a hash, which means that it may only consist of array and scalar values, but must not contain objects or resources.
+          type: object
+          required:
+            - ref
+          properties:
+            ref:
+              type: array
+              items:
+                $ref: "#/components/schemas/Ref"
+    PolicyList:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: List of policies.
+          type: object
+          required:
+            - Policy
+          properties:
+            Policy:
+              type: array
+              items:
+                $ref: "#/components/schemas/Policy"
+    PolicyListWrapper:
+      type: object
+      required:
+        - PolicyList
+      properties:
+        PolicyList:
+          $ref: "#/components/schemas/PolicyList"
+    PolicyCreate:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: This class is used to create a Policy.
+          type: object
+          required:
+            - module
+            - function
+            - Limitations
+          properties:
+            module:
+              description: Name of module associated with the Policy. For example, content.
+              type: string
+            function:
+              description: Name of the module function, or all functions with ''*''. For example, read.
+              type: string
+            Limitations:
+              type: array
+              items:
+                $ref: "#/components/schemas/Limitation"
+    PolicyCreateWrapper:
+      type: object
+      required:
+        - PolicyCreate
+      properties:
+        PolicyCreate:
+          $ref: "#/components/schemas/PolicyCreate"
+    PolicyUpdate:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: This class is used to update a Policy.
+          type: object
+          required:
+            - Limitations
+          properties:
+            Limitations:
+              type: array
+              items:
+                $ref: "#/components/schemas/Limitation"
+    PolicyUpdateWrapper:
+      type: object
+      required:
+        - PolicyUpdate
+      properties:
+        PolicyUpdate:
+          $ref: "#/components/schemas/PolicyUpdate"
+    RoleAssignment:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: This value object represents an assignment of a User or User group to a role including a limitation.
+          type: object
+          required:
+            - Role
+          properties:
+            limitation:
+              description: Returns the limitation of the role assignment.
+            Role:
+              description: Returns the role to which the User or User group is assigned to.
+              type:
+                $ref: "#/components/schemas/Ref"
+    RoleAssignmentWrapper:
+      type: object
+      required:
+        - RoleAssignment
+      properties:
+        RoleAssignment:
+          $ref: "#/components/schemas/RoleAssignment"
+    RoleAssignInput:
+      description: This class represents a Role assign input.
+      type: object
+      required:
+        - Role
+        - limitation
+      properties:
+        Role:
+          description: Returns the Role to which the user or user group is assigned to.
+          type:
+            $ref: "#/components/schemas/Ref"
+        limitation:
+          description: Returns the Limitation of the Role assignment.
+          type:
+            $ref: "#/components/schemas/Limitation"
+    RoleAssignInputWrapper:
+      type: object
+      required:
+        - RoleAssignInput
+      properties:
+        RoleAssignInput:
+          $ref: "#/components/schemas/RoleAssignInput"
+    RoleAssignmentList:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: This value object represents a list of assignments of a User or User group to a role including a limitation.
+          type: object
+          required:
+            - RoleAssignment
+          properties:
+            RoleAssignment:
+              type: array
+              items:
+                $ref: "#/components/schemas/RoleAssignment"
+    RoleAssignmentListWrapper:
+      type: object
+      required:
+        - RoleAssignmentList
+      properties:
+        RoleAssignmentList:
+          $ref: "#/components/schemas/RoleAssignmentList"
+    # RoleLimitation:
+    #   description: Role limitation extends Limitation.
+    #   type: object
+    #   x-amf-merge:
+    #     -
+    #       $ref: "#/components/schemas/Limitation"
+
+
+    #   x-amf-merge:
+    #     -
+    #       $ref: "#/components/schemas/BaseObject"

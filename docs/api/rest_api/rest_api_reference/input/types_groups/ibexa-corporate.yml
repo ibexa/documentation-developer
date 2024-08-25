@@ -1,0 +1,348 @@
+#                     type: CorporateAccountRoot
+#                     type: CorporateAccountRootWrapper
+#                         type: CompanyList
+#                         type: CompanyListWrapper
+#                         type: ErrorMessage
+#                 type: CompanyCreate
+#                 type: CompanyCreateWrapper
+#                         type: Company
+#                         type: CompanyWrapper
+#                             type: CompanyWrapper
+#                             type: Company
+#                     type: CompanyUpdate
+#                     type: CompanyUpdateWrapper
+#                             type: Company
+#                             type: CompanyWrapper
+#                                 type: MemberList
+#                                 type: MemberListWrapper
+#                                 type: ErrorMessage
+#                         type: MemberCreate
+#                         type: MemberCreateWrapper
+#                                 type: Member
+#                                 type: MemberWrapper
+#                                     type: Member
+#                                     type: MemberWrapper
+#                             type: MemberUpdate
+#                             type: MemberUpdateWrapper
+#                                     type: Member
+#                                     type: MemberWrapper
+#                         type: SalesRepresentativesList
+#                         type: SalesRepresentativesListWrapper
+#                         type: ErrorMessage
+# a
+
+
+    CorporateAccountRoot:
+      description: This class represents Corporate Account Root resource information.
+      type: object
+      required:
+        - links
+      properties:
+        links:
+          xml:
+            wrapped: false
+          type: array
+          items:
+            $ref: "#/components/schemas/Link"
+    CorporateAccountRootWrapper:
+      type: object
+      required:
+        - CorporateAccountRoot
+      properties:
+        CorporateAccountRoot:
+          $ref: "#/components/schemas/CorporateAccountRoot"
+    Link:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: This class represents REST resource information.
+          type: object
+          required:
+            - _rel
+          properties:
+            _rel:
+              description: Unique identifier of a resource.
+              xml:
+                attribute: true
+                name: rel
+              type: string
+    Company:
+      description: This class represents a company.
+      type: object
+      required:
+        - id
+        - name
+        - Content
+        - billingAddress
+        - contactId
+        - salesRepresentativeId
+        - defaultAddressId
+        - addressBookId
+        - membersId
+        - MemberList
+        - Location
+        - locationPath
+        - isActive
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        Content:
+          type:
+            $ref: "#/components/schemas/Content"
+        billingAddress:
+          $ref: "#/components/schemas/BillingAddress"
+        contactId:
+          type: [integer, 'null']
+        salesRepresentativeId:
+          type: integer
+        defaultAddressId:
+          type: [integer, 'null']
+        addressBookId:
+          description: Address book Folder Content ID.
+          type: integer
+        membersId:
+          description: Members Folder Content ID.
+          type: integer
+        MemberList:
+          description: Reference to Members List resource.
+          type:
+            $ref: "#/components/schemas/BaseObject"
+        Location:
+          description: Reference to Location resource.
+          type:
+            $ref: "#/components/schemas/BaseObject"
+        locationPath:
+          description: Company content item Location path string.
+          type: string
+        isActive:
+          type: boolean
+    CompanyWrapper:
+      type: object
+      required:
+        - Company
+      properties:
+        Company:
+          $ref: "#/components/schemas/Company"
+    CompanyCreate:
+      description: This class is used to create a company.
+      type: object
+      required:
+        - fields
+      properties:
+        fields:
+          type: object
+          required:
+            - field
+          properties:
+            field:
+              description: Fields of a Company content item.
+              type: array
+              items:
+                $ref: "#/components/schemas/Field"
+    CompanyCreateWrapper:
+      type: object
+      required:
+        - CompanyCreate
+      properties:
+        CompanyCreate:
+          $ref: "#/components/schemas/CompanyCreate"
+    CompanyUpdate:
+      description: This class is used to update a Company.
+      type: object
+      required:
+        - fields
+      properties:
+        fields:
+          type: object
+          required:
+            - field
+          properties:
+            field:
+              description: Fields of a Company content item.
+              type: array
+              items:
+                $ref: "#/components/schemas/Field"
+    CompanyUpdateWrapper:
+      type: object
+      required:
+        - CompanyUpdate
+      properties:
+        CompanyUpdate:
+          $ref: "#/components/schemas/CompanyUpdate"
+    CompanyList:
+      description: This class represents a list of companies.
+      type: object
+      required:
+        - companies
+      properties:
+        companies:
+          type: array
+          items:
+            $ref: "#/components/schemas/Company"
+    CompanyListWrapper:
+      type: object
+      required:
+        - CompanyList
+      properties:
+        CompanyList:
+          $ref: "#/components/schemas/CompanyList"
+    Member:
+      description: This class represents a company member.
+      type: object
+      required:
+        - id
+        - name
+        - Company
+        - User
+        - Role
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        Company:
+          type:
+            $ref: "#/components/schemas/Company"
+        User:
+          description: Underlying User object of a member.
+          type:
+            $ref: "#/components/schemas/User"
+        Role:
+          description: Reference to the member role in a Company resource.
+          type:
+            $ref: "#/components/schemas/BaseObject"
+    MemberWrapper:
+      type: object
+      required:
+        - Member
+      properties:
+        Member:
+          $ref: "#/components/schemas/Member"
+    MemberCreate:
+      description: This class is used to create a member.
+      type: object
+      required:
+        - login
+        - email
+        - password
+        - Role
+        - fields
+      properties:
+        login:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+        Role:
+          description: Reference to a Role resource company member should be given.
+          type:
+            $ref: "#/components/schemas/BaseObject"
+        fields:
+          type: object
+          required:
+            - field
+          properties:
+            field:
+              description: Fields of a Member content item.
+              type: array
+              items:
+                $ref: "#/components/schemas/Field"
+    MemberCreateWrapper:
+      type: object
+      required:
+        - MemberCreate
+      properties:
+        MemberCreate:
+          $ref: "#/components/schemas/MemberCreate"
+    MemberUpdate:
+      description: This class is used to update a member.
+      type: object
+      required:
+        - email
+        - password
+        - enabled
+        - maxLogin
+        - Role
+        - fields
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+        enabled:
+          type: boolean
+        maxLogin:
+          description: Max number of failed login attempts.
+          type: integer
+        Role:
+          description: Reference to a Role resource company member should be given.
+          type:
+            $ref: "#/components/schemas/BaseObject"
+        fields:
+          type: object
+          required:
+            - field
+          properties:
+            field:
+              description: Fields of a Member content item.
+              type: array
+              items:
+                $ref: "#/components/schemas/Field"
+    MemberUpdateWrapper:
+      type: object
+      required:
+        - MemberUpdate
+      properties:
+        MemberUpdate:
+          $ref: "#/components/schemas/MemberUpdate"
+    MemberList:
+      description: This class represents a list of company members.
+      type: object
+      required:
+        - members
+      properties:
+        members:
+          type: array
+          items:
+            $ref: "#/components/schemas/Member"
+    MemberListWrapper:
+      type: object
+      required:
+        - MemberList
+      properties:
+        MemberList:
+          $ref: "#/components/schemas/MemberList"
+    SalesRepresentativesList:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: This class represents a list of sales representatives.
+          type: object
+          required:
+            - users
+          properties:
+            users:
+              type: array
+              items:
+                $ref: "#/components/schemas/User"
+    SalesRepresentativesListWrapper:
+      type: object
+      required:
+        - SalesRepresentativesList
+      properties:
+        SalesRepresentativesList:
+          $ref: "#/components/schemas/SalesRepresentativesList"
+    BillingAddress:
+      type: object
+      required:
+        - name
+        - country
+        - fields
+      properties:
+        name:
+          type: [string, 'null']
+        country:
+          type: [string, 'null']
+        fields:
+          type: [object, array]

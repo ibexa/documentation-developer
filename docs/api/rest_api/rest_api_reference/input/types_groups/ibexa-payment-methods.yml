@@ -1,0 +1,146 @@
+
+#             type: PaymentMethodCreateStruct
+#             type: PaymentMethodCreateStructWrapper
+#                     type: PaymentMethod
+#                     type: PaymentMethodWrapper
+#                 type: PaymentMethodViewInput
+#                 type: PaymentMethodViewInputWrapper
+#                         type: PaymentMethodView
+#                         type: PaymentMethodViewWrapper
+#                         type: PaymentMethodWrapper
+#                         type: PaymentMethod
+#                         type: PaymentMethodWrapper
+#                 type: PaymentMethodUpdateStruct
+#                 type: PaymentMethodUpdateStructWrapper
+#                         type: PaymentMethod
+#                         type: PaymentMethodWrapper
+# a
+
+
+    PaymentMethod:
+      type: object
+      required:
+        - id
+        - identifier
+        - enabled
+        - name
+        - description
+      properties:
+        id:
+          type: integer
+        identifier:
+          type: string
+        enabled:
+          type: boolean
+        name:
+          type: string
+        description:
+          type: string
+    PaymentMethodWrapper:
+      type: object
+      required:
+        - PaymentMethod
+      properties:
+        PaymentMethod:
+          $ref: "#/components/schemas/PaymentMethod"
+    PaymentMethodCreateStruct:
+      type: object
+      required:
+        - identifier
+        - type
+        - names
+      properties:
+        identifier:
+          type: string
+        type:
+          type: string
+        names:
+          description: If set this array of names with languageCode keys replace the complete name collection.
+          type: object
+        descriptions:
+          description: An array of descriptions with languageCode keys.
+          type: array
+          items:
+            type: string
+        enabled:
+          type: boolean
+        options:
+          type: object
+    PaymentMethodCreateStructWrapper:
+      type: object
+      required:
+        - PaymentMethodCreateStruct
+      properties:
+        PaymentMethodCreateStruct:
+          $ref: "#/components/schemas/PaymentMethodCreateStruct"
+    PaymentMethodUpdateStruct:
+      type: object
+      properties:
+        identifier:
+          type: string
+        names:
+          description: If set this array of names with languageCode keys replace the complete name collection.
+          type: object
+        descriptions:
+          description: An array of descriptions with languageCode keys.
+          type: array
+          items:
+            type: string
+        enabled:
+          type: boolean
+        options:
+          type: array
+          items: {}
+    PaymentMethodUpdateStructWrapper:
+      type: object
+      required:
+        - PaymentMethodUpdateStructParser
+      properties:
+        PaymentMethodUpdateStructParser:
+          $ref: "#/components/schemas/PaymentMethodUpdateStruct"
+    PaymentMethodView:
+      type: object
+      required:
+        - identifier
+        - Result
+      properties:
+        identifier:
+          type: string
+        Result:
+          $ref: "#/components/schemas/PaymentMethodList"
+    PaymentMethodViewWrapper:
+      type: object
+      required:
+        - PaymentMethodView
+      properties:
+        PaymentMethodView:
+          $ref: "#/components/schemas/PaymentMethodView"
+    PaymentMethodViewInput:
+      type: object
+      required:
+        - identifier
+        - PaymentMethodQuery
+      properties:
+        identifier:
+          type: string
+        PaymentMethodQuery:
+          type: object
+    PaymentMethodViewInputWrapper:
+      type: object
+      required:
+        - PaymentMethodViewInput
+      properties:
+        PaymentMethodViewInput:
+          $ref: "#/components/schemas/PaymentMethodViewInput"
+    PaymentMethodList:
+      type: object
+      required:
+        - count
+        - PaymentMethodList
+      properties:
+        count:
+          type: integer
+        PaymentMethodList:
+          type: array
+          items:
+            $ref: "#/components/schemas/PaymentMethod"

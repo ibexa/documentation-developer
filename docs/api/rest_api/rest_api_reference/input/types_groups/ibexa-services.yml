@@ -1,0 +1,55 @@
+#                         type: CountryList
+#                         type: CountryListWrapper
+# a
+
+
+
+    CountryList:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: This class is representing an ISO-3166 formatted list of world countries.
+          type: object
+          required:
+            - Country
+          properties:
+            Country:
+              type: array
+              items:
+                $ref: "#/components/schemas/Country"
+    Country:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: This class is representing a country.
+          type: object
+          required:
+            - _id
+            - name
+            - Alpha2
+            - Alpha3
+            - IDC
+          properties:
+            _id:
+              description: ID that represents a country name.
+              xml:
+                attribute: true
+                name: id
+              type: string
+            name:
+              description: Name of the country.
+              type: string
+            Alpha2:
+              description: Two-letter code that represents a country name.
+              type: string
+            Alpha3:
+              description: Three-letter code that represents a country name.
+              type: string
+            IDC:
+              description: IDC
+              type: integer
+    CountryListWrapper:
+      type: object
+      required:
+        - CountryList
+      properties:
+        CountryList:
+          $ref: "#/components/schemas/CountryList"

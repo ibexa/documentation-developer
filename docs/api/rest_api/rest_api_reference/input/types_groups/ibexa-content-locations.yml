@@ -1,0 +1,205 @@
+#                     type: Location
+#                     type: LocationWrapper
+#                         type: Location
+#                         type: LocationWrapper
+#                 type: LocationUpdateStruct
+#                 type: LocationUpdateStructWrapper
+#                         type: Location
+#                         type: LocationWrapper
+#                             type: LocationList
+#                             type: LocationList
+#                             type: UrlAliasRefList
+#                             type: UrlAliasRefListWrapper
+# a
+
+    # LocationQuery:
+    #   description: This class is used to perform a Location query.
+    #   type: object
+    Location:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: This class represents a Location in the Repository.
+          type: object
+          required:
+            - id
+            - priority
+            - hidden
+            - invisible
+            - remoteId
+            - ContentInfo
+            - ParentLocation
+            - pathString
+            - depth
+            - childCount
+            - sortField
+            - sortOrder
+            - Content
+          properties:
+            id:
+              description: The ID of the Location.
+              type: integer
+            priority:
+              description: Location priority. Position of the Location among its siblings when sorted using priority sort order.
+              type: integer
+            hidden:
+              description: Indicates that the Location entity has been explicitly marked as hidden.
+              type: boolean
+            invisible:
+              description: Indicates that the Location is implicitly marked as hidden by a parent Location.
+              type: boolean
+            remoteId:
+              description: Remote ID, universally unique identifier.
+              type: string
+            ContentInfo:
+              description: This class provides all version independent information of the content item.
+              type:
+                $ref: "#/components/schemas/ContentInfo"
+            ParentLocation:
+              description: Parent Location.
+            Children:
+              description: Children Location.
+            pathString:
+              description: The materialized path of the Location entry e.g. /1/2/.
+              type: string
+            depth:
+              description: Depth Location has in the Location tree.
+              type: integer
+            childCount:
+              description: Depth Location has in the Location tree.
+              type: integer
+            sortField:
+              description: "Specifies which property the child Locations should be sorted on. Map for Location sort fields to their respective SortClauses - class name/identifier and modified subnode. One of the fallowing values: PATH."
+              enum:
+                - PATH
+                - PUBLISHED
+                - MODIFIED
+                - SECTION
+                - DEPTH
+                - CLASS_IDENTIFIER
+                - CLASS_NAME
+                - PRIORITY
+                - NAME
+                - MODIFIED_SUBNODE
+                - NODE_ID
+                - CONTENTOBJECT_ID
+              type: string
+            sortOrder:
+              description: "Specifies whether the sort order should be ascending or descending. Map for Location sort order to their respective Query SORT constants. One of the fallowing values: const SORT_ORDER_DESC = 0; const SORT_ORDER_ASC = 1."
+              enum:
+                - ASC
+                - DESC
+              type: string
+            Content:
+              description: Represents a content item in a specific version.
+            UrlAliases:
+              description: This class represents URL aliases.
+    LocationWrapper:
+      type: object
+      required:
+        - Location
+      properties:
+        Location:
+          $ref: "#/components/schemas/Location"
+    LocationCreate:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - type: object
+          required:
+            - ParentLocation
+            - priority
+            - hidden
+            - sortField
+            - sortOrder
+          properties:
+            ParentLocation:
+              type: object
+              required:
+                - _href
+              properties:
+                _href:
+                  xml:
+                    attribute: true
+                    name: href
+                  type: string
+            priority:
+              type: string
+            hidden:
+              type: [string, boolean]
+            sortField:
+              type: string
+            sortOrder:
+              type: string
+    LocationCreateWrapper:
+      type: object
+      required:
+        - LocationCreate
+      properties:
+        LocationCreate:
+          $ref: "#/components/schemas/LocationCreate"
+    LocationUpdateStruct:
+      description: This class is used for updating Location meta data.
+      type: object
+      required:
+        - priority
+        - remoteId
+        - hidden
+        - sortField
+        - sortOrder
+      properties:
+        priority:
+          description: If set the Location priority is changed to the new value.
+          type: string
+        remoteId:
+          description: If set the Location gets a new remoteId. Needs to be a unique Location->remoteId string value.
+          type: string
+        hidden:
+          type: boolean
+        sortField:
+          description: If set the sortField is changed. The sort field specifies which property the child Locations should be sorted on. Valid values are found at {@link Location::SORT_FIELD_*}.
+          enum:
+            - PATH
+            - PUBLISHED
+            - MODIFIED
+            - SECTION
+            - DEPTH
+            - CLASS_IDENTIFIER
+            - CLASS_NAME
+            - PRIORITY
+            - NAME
+            - MODIFIED_SUBNODE
+            - NODE_ID
+            - CONTENTOBJECT_ID
+          type: string
+        sortOrder:
+          description: If set the sortOrder is changed. The sort order specifies whether the sort order should be ascending or descending. Valid values are {@link Location::SORT_ORDER_*}.
+          enum:
+            - ASC
+            - DESC
+          type: string
+    LocationUpdateStructWrapper:
+      type: object
+      required:
+        - LocationUpdate
+      properties:
+        LocationUpdate:
+          $ref: "#/components/schemas/LocationUpdateStruct"
+    LocationList:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: This class represents a queried Location list holding a totalCount and a partial list of Locations (by offset/limit parameters and permission filters).
+          type: object
+          required:
+            - Location
+          properties:
+            Location:
+              description: The partial list of Locations controlled by offset/limit.
+              type: array
+              items:
+                $ref: "#/components/schemas/Ref"
+    LocationListWrapper:
+      type: object
+      required:
+        - LocationList
+      properties:
+        LocationList:
+          $ref: "#/components/schemas/LocationList"

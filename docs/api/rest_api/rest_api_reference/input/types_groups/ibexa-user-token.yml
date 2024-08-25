@@ -1,0 +1,44 @@
+#                 type: JWTInput
+#                 type: JWTInputWrapper
+#                         type: JWT
+#                         type: JWTWrapper
+# a
+
+    JWT:
+      description: This class represents the JWT authentication token
+      type: object
+      required:
+        - token
+      properties:
+        token:
+          description: JWT authentication token
+          type: string
+    JWTWrapper:
+      type: object
+      required:
+        - JWT
+      properties:
+        JWT:
+          $ref: "#/components/schemas/JWT"
+    JWTInput:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: This class represents the input for a JWT authentication token
+          type: object
+          required:
+            - username
+            - password
+          properties:
+            username:
+              description: User name
+              type: string
+            password:
+              description: User password
+              type: string
+    JWTInputWrapper:
+      type: object
+      required:
+        - JWTInput
+      properties:
+        JWTInput:
+          $ref: "#/components/schemas/JWTInput"

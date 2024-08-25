@@ -1,0 +1,57 @@
+#                         type: VatCategoryListWrapper
+#                             type: VatCategoryWrapper
+# a
+
+    VatCategory:
+      description: This class represents a VAT category.
+      type: object
+      required:
+        - identifier
+        - region
+        - vatValue
+      properties:
+        identifier:
+          type: string
+        region:
+          type: string
+        vatValue:
+          type: [number, 'null']
+    VatCategoryWrapper:
+      type: object
+      required:
+        - VatCategory
+      properties:
+        VatCategory:
+          $ref: "#/components/schemas/VatCategory"
+    VatCategoryList:
+      description: This class represents a VAT category list.
+      type: object
+      required:
+        - VatCategory
+      properties:
+        VatCategory:
+          type: array
+          items:
+            $ref: "#/components/schemas/VatCategory"
+    VatCategoryListWrapper:
+      type: object
+      required:
+        - VatCategoryList
+      properties:
+        VatCategoryList:
+          $ref: "#/components/schemas/VatCategoryList"
+    VatCategorySummary:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: This class represents a VAT category summary.
+          type: object
+          required:
+            - VatCategory
+            - RestPrice
+          properties:
+            VatCategory:
+              type:
+                $ref: "#/components/schemas/VatCategory"
+            RestPrice:
+              type:
+                $ref: "#/components/schemas/RestPrice"

@@ -1,0 +1,83 @@
+#                     type: UrlWildcardList
+#                     type: UrlWildcardListWrapper
+#             type: UrlWildcardCreate
+#             type: UrlWildcardCreateWrapper
+#                     type: UrlWildcard
+#                     type: UrlWildcardWrapper
+#                         type: UrlWildcard
+#                         type: UrlWildcardWrapper
+# a
+
+    UrlWildcard:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: This class represents a URL alias in the Repository.
+          type: object
+          required:
+            - _id
+            - sourceUrl
+            - destinationUrl
+            - forward
+          properties:
+            _id:
+              description: The unique ID.
+              xml:
+                attribute: true
+                name: id
+              type: integer
+            sourceUrl:
+              description: The source URL.
+              type: string
+            destinationUrl:
+              description: The destination URL containing placeholders e.g. /destination/{1}.
+              type: string
+            forward:
+              description: Indicates if the URL is redirected or not.
+              type: boolean
+    UrlWildcardWrapper:
+      type: object
+      required:
+        - UrlWildcard
+      properties:
+        UrlWildcard:
+          $ref: "#/components/schemas/UrlWildcard"
+    UrlWildcardCreate:
+      description: Creates a new URL wildcard.
+      type: object
+      required:
+        - sourceUrl
+        - destinationUrl
+        - forward
+      properties:
+        sourceUrl:
+          type: string
+        destinationUrl:
+          type: string
+        forward:
+          type: [string, boolean]
+    UrlWildcardCreateWrapper:
+      type: object
+      required:
+        - URLWildcardCreate
+      properties:
+        URLWildcardCreate:
+          $ref: "#/components/schemas/UrlWildcardCreate"
+    UrlWildcardList:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: List of URL alias in the Repository.
+          type: object
+          required:
+            - UrlWildcard
+          properties:
+            UrlWildcard:
+              type: array
+              items:
+                $ref: "#/components/schemas/UrlWildcard"
+    UrlWildcardListWrapper:
+      type: object
+      required:
+        - UrlWildcardList
+      properties:
+        UrlWildcardList:
+          $ref: "#/components/schemas/UrlWildcardList"

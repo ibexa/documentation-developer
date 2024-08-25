@@ -1,0 +1,57 @@
+#                         type: ActivityLogGroupList
+#                         type: ActivityLogGroupListWrapper
+#                 type: ActivityLogGroupListInput
+#                 type: ActivityLogGroupListInputWrapper
+#                         type: ActivityLogGroupList
+#                         type: ActivityLogGroupListWrapper
+# a
+
+
+    ActivityLog:
+      description: This class represents an activity log entry.
+      type: object
+    ActivityLogGroup:
+      type: object
+      required:
+        - user_id
+        - logged_at
+        - ActivityLogEntries
+      properties:
+        user_id:
+          description: The ID of the user performing the logged actions
+          type: integer
+        logged_at:
+          description: Timestamp representing when the group has been logged
+          type: integer
+        ActivityLogEntries:
+          description: Log entries from the group
+          type: array
+          items:
+            $ref: "#/components/schemas/ActivityLog"
+    ActivityLogGroupListInput:
+      description: This class represents the activity log group search query's criteria and sort clauses.
+      type: object
+    ActivityLogGroupListInputWrapper:
+      type: object
+      required:
+        - ActivityLogGroupListInput
+      properties:
+        ActivityLogGroupListInput:
+          $ref: "#/components/schemas/ActivityLogGroupListInput"
+    ActivityLogGroupList:
+      description: This class represents activity log context groups
+      type: object
+      required:
+        - ActivityLogGroups
+      properties:
+        ActivityLogGroups:
+          type: array
+          items:
+            $ref: "#/components/schemas/ActivityLogGroup"
+    ActivityLogGroupListWrapper:
+      type: object
+      required:
+        - ActivityLogGroupList
+      properties:
+        ActivityLogGroupList:
+          $ref: "#/components/schemas/ActivityLogGroupList"

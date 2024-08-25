@@ -1,0 +1,559 @@
+#             type: ContentCreate
+#             type: ContentCreateWrapper
+#                     type: Content
+#                     type: ContentWrapper
+#                     type: ContentInfoWrapper
+#                         type: Content
+#                         type: ContentWrapper
+#                         type: ContentInfo
+#                         type: ContentInfoWrapper
+#                 type: ContentInfo
+#                 type: ContentInfoWrapper
+#                         type: ContentInfo
+#                         type: ContentInfoWrapper
+#                             type: Version
+#                             type: VersionWrapper
+#                             type: Version
+#                             type: VersionWrapper
+#                             type: VersionList
+#                             type: VersionListWrapper
+#                                 type: Version
+#                                 type: VersionWrapper
+#                         type: VersionUpdate
+#                         type: VersionUpdateWrapper
+#                                 type: Version
+#                                 type: VersionWrapper
+#                                 type: Version
+#                                 type: VersionWrapper
+#                                     type: RelationList
+#                                     type: RelationListWrapper
+#                             type: RelationCreate
+#                             type: RelationCreateWrapper
+#                                     type: Relation
+#                                     type: RelationWrapper
+#                                         type: Relation
+#                                         type: RelationWrapper
+#                     type: LocationCreate
+#                     type: LocationCreateWrapper
+#                             type: Location
+#                             type: LocationWrapper
+#                             type: LocationList
+#                             type: LocationListWrapper
+#                             type: ContentObjectStates
+#                             type: ContentObjectStatesWrapper
+#                     type: ContentObjectStates
+#                     type: ContentObjectStatesWrapper
+#                             type: ContentObjectStates
+#                             type: ContentObjectStatesWrapper
+
+# from ibexa-user-users
+
+#                             type: VersionList
+#                             type: VersionListWrapper
+
+
+    Content:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: Content ID matcher class.
+          type: object
+          required:
+            - _remoteId
+            - _id
+            - ContentType
+            - Name
+            - Versions
+            - CurrentVersion
+            - Section
+            - Locations
+            - Owner
+            - mainLanguageCode
+            - currentVersionNo
+            - alwaysAvailable
+            - status
+            - ObjectStates
+          properties:
+            _remoteId:
+              description: Remote ID of the content type.
+              xml:
+                attribute: true
+                name: remoteId
+              type: string
+            _id:
+              description: Unique ID of the content type.
+              xml:
+                attribute: true
+                name: id
+              type: integer
+            ContentType:
+              description: Content type.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+            Name:
+              description: Name of the domain object in a given language.
+              type: string
+            Versions:
+              description: Returns the VersionInfo for this version.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+            CurrentVersion:
+              description: Current version.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+            Section:
+              description: The Section to which the content item is assigned to.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+            Locations:
+              description: Location of the content item.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+            Owner:
+              description: The owner of the content item.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+            lastModificationDate:
+              description: Content item modification date.
+              type: string
+              format: date-time
+            publishedDate:
+              description: Content item publication date.
+              type: string
+              format: date-time
+            mainLanguageCode:
+              description: The main language code of the content item.
+              type: string
+            currentVersionNo:
+              description: Current version number is the version number of the published version or the version number of a newly created draft (which is 1).
+              type: integer
+            alwaysAvailable:
+              description: Indicates if the content item is shown in the main language if it's not present in an other requested language.
+              type: boolean
+            status:
+              description: "Status of the content. Possible values: const STATUS_DRAFT = 0;const STATUS_PUBLISHED = 1; const STATUS_TRASHED = 2."
+              type: string
+            ObjectStates:
+              description: Object states.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+    ContentWrapper:
+      type: object
+      required:
+        - Content
+      properties:
+        Content:
+          $ref: "#/components/schemas/Content"
+    ContentCreate:
+      description: This class is used for creating a new content item.
+      type: object
+      required:
+        - ContentType
+        - mainLanguageCode
+        - LocationCreate
+        - fields
+      properties:
+        ContentType:
+          description: The content type for which the new content item is created.
+          type:
+            oneOf:
+              - "#/components/schemas/Content"
+              - "#/components/schemas/Href"
+        Section:
+          description: The Section the content item is assigned to. If not set the Section of the parent is used or a default Section.
+          type:
+            $ref: "#/components/schemas/Href"
+        User:
+          description: The owner of the content. If not given the current authenticated User is set as owner.
+          type: integer
+        alwaysAvailable:
+          description: Indicates if the content item is shown in the main language if it's not present in an other requested language.
+          type: string
+        remoteId:
+          description: Remote identifier used as a custom identifier for the content item. Needs to be a unique Content->remoteId string value.
+          type: string
+        mainLanguageCode:
+          description: The main language code for the content. This language will also be used for as initial language for the first created version. It is also used as default language for added fields.
+          type: string
+        modificationDate:
+          description: Modification date. If not given, the current integer is used.
+          type: string
+          format: date-time
+        LocationCreate:
+          type: object
+        fields:
+          type: object
+          required:
+            - field
+          properties:
+            field:
+              type: array
+              items:
+                type: object
+    ContentCreateWrapper:
+      type: object
+      required:
+        - ContentCreate
+      properties:
+        ContentCreate:
+          $ref: "#/components/schemas/ContentCreate"
+    ContentUpdate:
+      description: This class is used to update a Content.
+      type: object
+      required:
+        - mainLanguageCode
+        - Section
+        - MainLocation
+        - Owner
+        - alwaysAvailable
+        - remoteId
+      properties:
+        mainLanguageCode:
+          type: string
+        Section:
+          type:
+            $ref: "#/components/schemas/Section"
+        MainLocation:
+          type:
+            $ref: "#/components/schemas/Location"
+        Owner:
+          type:
+            $ref: "#/components/schemas/User"
+        alwaysAvailable:
+          type: boolean
+        remoteId:
+          type: string
+    ContentInfo:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: This class provides all version independent information of the content item.
+          type: object
+          required:
+            - Content
+          properties:
+            Content:
+              description: Content ID matcher class.
+              type:
+                $ref: "#/components/schemas/Content"
+    ContentInfoWrapper:
+      type: object
+      required:
+        - ContentInfo
+      properties:
+        ContentInfo:
+          $ref: "#/components/schemas/ContentInfo"
+    ContentMetadataUpdate:
+      description: This class is used to update a Content metadata.
+      type: object
+      required:
+        - ownerId
+        - publishedDate
+        - modificationDate
+        - mainLanguageCode
+        - alwaysAvailable
+        - remoteId
+        - mainLocationId
+        - name
+      properties:
+        ownerId: {}
+        publishedDate:
+          type: string
+          format: date-time
+        modificationDate:
+          type: string
+          format: date-time
+        mainLanguageCode:
+          type: string
+        alwaysAvailable:
+          type: boolean
+        remoteId:
+          type: string
+        mainLocationId: {}
+        name:
+          type: string
+    ContentCreateContentType:
+      type: object
+      required:
+        - _href
+        - FieldDefinitions
+      properties:
+        _href:
+          xml:
+            attribute: true
+            name: href
+          type: string
+        FieldDefinitions:
+          allOf:
+            - ref: "#/components/schemas/BaseObject"
+            - type: object
+              properties:
+                FieldDefinitions:
+                  type: array
+                  items:
+                    $ref: "#/components/schemas/FieldDefinition"
+    ContentObjectStates:
+      description: Represents a list of object states.
+      type: object
+      required:
+        - ObjectState
+      properties:
+        ObjectState:
+          description: List of object state values.
+          type: array
+          items:
+            $ref: "#/components/schemas/Href"
+    ContentObjectStatesWrapper:
+      type: object
+      required:
+        - ContentObjectStates
+      properties:
+        ContentObjectStates:
+          $ref: "#/components/schemas/ContentObjectStates"
+    VersionInfo:
+      description: This class holds version information data. It also contains the corresponding {@link Content} to which the version belongs to.
+      type: object
+      required:
+        - id
+        - versionNo
+        - status
+        - modificationDate
+        - Creator
+        - creationDate
+        - initialLanguageCode
+        - languageCodes
+        - VersionTranslationInfo
+        - names
+        - Content
+      properties:
+        id:
+          description: Version ID.
+          type: integer
+        versionNo:
+          description: Version number. In contrast to {@link $id}, this is the version number, which only increments in scope of a single content item.
+          type: integer
+        status:
+          description: "One of: VersionInfo::STATUS_DRAFT=0, VersionInfo::STATUS_PUBLISHED=1, VersionInfo::STATUS_ARCHIVED=3."
+          enum:
+            - DRAFT
+            - PUBLISHED
+            - ARCHIVED
+          type: string
+        modificationDate:
+          description: The last modified date of this version.
+          type: string
+          format: date-time
+        Creator:
+          description: Creator of the version, in the search API this is referred to as the modifier of the published content.
+          type:
+            $ref: "#/components/schemas/BaseObject"
+        creationDate:
+          description: Content creation date.
+          type: string
+          format: date-time
+        initialLanguageCode:
+          description: The language code which is used for labeling a translation.
+          type: string
+        languageCodes:
+          description: List of languages in this version. Reflects which languages fields exists in for this version.
+          type: string
+        VersionTranslationInfo:
+          description: Translation information.
+        names:
+          description: Names.
+          type:
+            $ref: "#/components/schemas/ValueArray"
+        Content:
+          description: Represents a content item in a specific version.
+          type:
+            $ref: "#/components/schemas/BaseObject"
+    Version:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: Returns the VersionInfo for this version.
+          type: object
+          required:
+            - VersionInfo
+            - Fields
+            - Relations
+          properties:
+            VersionInfo:
+              description: VersionInfo for this version.
+            Fields:
+              type: object
+              required:
+                - field
+              properties:
+                field:
+                  description: Fields of a Company content item.
+                  type: array
+                  items:
+                    $ref: "#/components/schemas/Field"
+            Relations:
+              allOf:
+                - ref: "#/components/schemas/BaseObject"
+                - description: Relations of the user.
+                  type: object
+                  required:
+                    - Relation
+                  properties:
+                    Relation:
+                      type: array
+                      items:
+                        $ref: "#/components/schemas/Relation"
+    VersionWrapper:
+      type: object
+      required:
+        - Version
+      properties:
+        Version:
+          $ref: "#/components/schemas/Version"
+    VersionUpdate:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: This class is used to update a content version.
+          type: object
+          required:
+            - modificationDate
+            - initialLanguageCode
+            - fields
+          properties:
+            modificationDate:
+              type: string
+              format: date-time
+            initialLanguageCode:
+              type: string
+            fields:
+              type: array
+              items:
+                $ref: "#/components/schemas/Field"
+    VersionUpdateWrapper:
+      type: object
+      required:
+        - VersionUpdate
+      properties:
+        VersionUpdate:
+          $ref: "#/components/schemas/VersionUpdate"
+    VersionList:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: List of all versions of the content.
+          type: object
+          required:
+            - VersionItem
+          properties:
+            VersionItem:
+              type: array
+              items:
+                $ref: "#/components/schemas/VersionItem"
+    VersionListWrapper:
+      type: object
+      required:
+        - VersionList
+      properties:
+        VersionList:
+          $ref: "#/components/schemas/VersionList"
+    VersionItem:
+      description: Version of content.
+      type: object
+      required:
+        - Version
+        - VersionInfo
+      properties:
+        Version:
+          description: Returns the VersionInfo for this version.
+          type:
+            $ref: "#/components/schemas/BaseObject"
+        VersionInfo:
+          type:
+            $ref: "#/components/schemas/VersionInfo"
+    VersionTranslationInfo:
+      description: Translation information.
+      type: object
+      required:
+        - _media-type
+        - Language
+      properties:
+        _media-type:
+          type: string
+        Language:
+          type: array
+          items:
+            $ref: "#/components/schemas/LanguageCode"
+    LanguageCode:
+      description: Language code.
+      type: object
+      required:
+        - languageCode
+      properties:
+        languageCode:
+          type: string
+    Relation:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: Class representing a relation between content.
+          type: object
+          required:
+            - SourceContent
+            - DestinationContent
+            - RelationType
+          properties:
+            SourceContent:
+              description: The content of the source content of the relation.
+              type:
+                $ref: "#/components/schemas/Ref"
+            DestinationContent:
+              description: The content of the destination content of the relation.
+              type:
+                $ref: "#/components/schemas/Ref"
+            RelationType:
+              description: "The relation type bitmask. Relations: Relation::COMMON = 1, Relation::EMBED = 2, Relation::LINK = 4, Relation::FIELD = 8, Relation::ASSET = 16"
+              type: string
+    RelationWrapper:
+      type: object
+      required:
+        - Relation
+      properties:
+        Relation:
+          $ref: "#/components/schemas/Relation"
+    RelationCreate:
+      type: object
+      required:
+        - Destination
+      properties:
+        Destination:
+          type:
+            $ref: "#/components/schemas/Href"
+    RelationCreateWrapper:
+      type: object
+      required:
+        - RelationCreate
+      properties:
+        RelationCreate:
+          $ref: "#/components/schemas/RelationCreate"
+    RelationList:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: Class representing a list of relations between content.
+          type: object
+          required:
+            - Relation
+          properties:
+            Relation:
+              type: array
+              items:
+                $ref: "#/components/schemas/Relation"
+    RelationListWrapper:
+      type: object
+      required:
+        - Relations
+      properties:
+        Relations:
+          $ref: "#/components/schemas/RelationList"
+    Fields:
+      type: object
+      required:
+        - field
+      properties:
+        field:
+          type: array
+          items:
+            $ref: "#/components/schemas/Field"

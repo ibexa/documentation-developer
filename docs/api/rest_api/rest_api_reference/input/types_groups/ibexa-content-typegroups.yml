@@ -1,0 +1,125 @@
+#                     type: ContentTypeGroupList
+#                     type: ContentTypeGroupListWrapper
+#             type: ContentTypeGroupInput
+#             type: ContentTypeGroupInputWrapper
+#                     type: ContentTypeGroup
+#                     type: ContentTypeGroupWrapper
+#                         type: ContentTypeList
+#                         type: ContentTypeListWrapper
+#                 type: ContentTypeGroupInput
+#                 type: ContentTypeGroupInputWrapper
+#                         type: ContentTypeGroup
+#                         type: ContentTypeGroupWrapper
+#                             type: ContentTypeInfoList
+#                             type: ContentTypeInfoListWrapper
+#                             type: ContentTypeList
+#                             type: ContentTypeListWrapper
+#                     type: ContentTypeCreate
+#                     type: ContentTypeCreateWrapper
+#                             type: ContentType
+#                             type: ContentTypeWrapper
+# a
+
+    ContentTypeGroup:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: This class represents a content type group value.
+          type: object
+          required:
+            - id
+            - identifier
+            - created
+            - modified
+            - Creator
+            - Modifier
+            - ContentTypes
+          properties:
+            id:
+              description: Primary key.
+              type: integer
+            identifier:
+              description: Readable string identifier of a group.
+              type: string
+            created:
+              description: Created date (integer).
+              type: string
+              format: date-time
+            modified:
+              description: Modified date (integer).
+              type: string
+              format: date-time
+            Creator:
+              description: Creator User ID.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+            Modifier:
+              description: Modifier User ID.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+            ContentTypes:
+              description: Content types.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+    ContentTypeGroupWrapper:
+      type: object
+      required:
+        - ContentTypeGroup
+      properties:
+        ContentTypeGroup:
+          $ref: "#/components/schemas/ContentTypeGroup"
+    ContentTypeGroupInput:
+      type: object
+    ContentTypeGroupInputWrapper:
+      type: object
+      required:
+        - ContentTypeGroupInput
+      properties:
+        ContentTypeGroupInput:
+          $ref: "#/components/schemas/ContentTypeGroupInput"
+    ContentTypeGroupListWrapper:
+      type: object
+      required:
+        - ContentTypeGroupList
+      properties:
+        ContentTypeGroupList:
+          $ref: "#/components/schemas/ContentTypeGroupList"
+    ContentTypeGroupRef:
+      description: Content type group reference.
+      type: array
+      items:
+        allOf:
+          - ref: "#/components/schemas/BaseObject"
+            type: object
+            properties:
+              unlink:
+                $ref: "#/components/schemas/Unlink"
+    ContentTypeGroupRefList:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: List of content type groups references.
+          type: object
+          required:
+            - ContentTypeGroupRef
+          properties:
+            ContentTypeGroupRef:
+              type:
+                $ref: "#/components/schemas/ContentTypeGroupRef"
+    ContentTypeGroupList:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: List of content type groups.
+          type: object
+          required:
+            - ContentTypeGroup
+          properties:
+            ContentTypeGroup:
+              type: array
+              items:
+                $ref: "#/components/schemas/ContentTypeGroup"
+    ContentTypeGroupRefListWrapper:
+      type: object
+      required:
+        - ContentTypeGroupRefList
+      properties:
+        ContentTypeGroupRefList:
+          $ref: "#/components/schemas/ContentTypeGroupRefList"

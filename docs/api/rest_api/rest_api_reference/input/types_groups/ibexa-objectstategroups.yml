@@ -1,0 +1,266 @@
+#                     type: ObjectStateGroupList
+#                     type: ObjectStateGroupListWrapper
+#             type: ObjectStateGroupCreate
+#             type: ObjectStateGroupCreateWrapper
+#                     type: ObjectStateGroup
+#                     type: ObjectStateGroupWrapper
+#                         type: ObjectStateGroup
+#                         type: ObjectStateGroupWrapper
+#                 type: ObjectStateGroupUpdate
+#                 type: ObjectStateGroupUpdateWrapper
+#                         type: ObjectStateGroup
+#                         type: ObjectStateGroupWrapper
+#                             type: ObjectStateList
+#                             type: ObjectStateListWrapper
+#                     type: ObjectStateCreate
+#                     type: ObjectStateCreateWrapper
+#                             type: ObjectState
+#                             type: ObjectStateWrapper
+#                                 type: ObjectState
+#                                 type: ObjectStateWrapper
+#                         type: ObjectStateUpdate
+#                         type: ObjectStateUpdateWrapper
+#                                 type: ObjectState
+#                                 type: ObjectStateWrapper
+# a
+
+
+    ObjectState:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: This class represents a Object state value.
+          type: object
+          required:
+            - id
+            - identifier
+            - priority
+            - ObjectStateGroup
+            - languageCodes
+            - names
+            - descriptions
+          properties:
+            id:
+              description: Primary key.
+              type: integer
+            identifier:
+              description: Readable string identifier of the Object state.
+              type: string
+            priority:
+              description: Priority for ordering.
+              type: integer
+            ObjectStateGroup:
+              description: The Object state group this Object state belongs to.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+            languageCodes:
+              description: The available language codes for names an descriptions.
+              type: string
+            names:
+              description: Names.
+            descriptions:
+              description: Descriptions.
+    ObjectStateWrapper:
+      type: object
+      required:
+        - ObjectState
+      properties:
+        ObjectState:
+          $ref: "#/components/schemas/ObjectState"
+    ObjectStateCreate:
+      description: This class represents a value for creating Object states.
+      type: object
+      required:
+        - identifier
+        - priority
+        - defaultLanguageCode
+        - languageCodes
+        - names
+        - descriptions
+      properties:
+        identifier:
+          description: Readable unique string identifier of a group.
+          type: string
+        priority:
+          description: Priority for ordering. If not set the Object state is created as the last one.
+          type: string
+        defaultLanguageCode:
+          description: The default language code.
+          type: string
+        languageCodes:
+          description: Language codes.
+          type: string
+        names:
+          description: An array of names with languageCode keys. At least one name in the main language is required.
+          type: object
+          required:
+            - value
+          properties:
+            value:
+              type: array
+              items:
+                $ref: "#/components/schemas/Value"
+        descriptions:
+          description: An array of descriptions with languageCode keys.
+          type: object
+          required:
+            - value
+          properties:
+            value:
+              type: array
+              items:
+                $ref: "#/components/schemas/Value"
+    ObjectStateCreateWrapper:
+      type: object
+      required:
+        - ObjectStateCreate
+      properties:
+        ObjectStateCreate:
+          $ref: "#/components/schemas/ObjectStateCreate"
+    ObjectStateUpdate:
+      description: This class represents a value for updating Object states.
+      type: object
+      properties:
+        identifier:
+          description: Readable unique string identifier of a group.
+          type: string
+        defaultLanguageCode:
+          description: The default language code.
+          type: string
+        names:
+          description: An array of names with languageCode keys.
+        descriptions:
+          description: An array of descriptions with languageCode keys.
+    ObjectStateUpdateWrapper:
+      type: object
+      required:
+        - ObjectStateUpdate
+      properties:
+        ObjectStateUpdate:
+          $ref: "#/components/schemas/ObjectStateUpdate"
+    ObjectStateList:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: List of Object states.
+          type: object
+          required:
+            - ObjectState
+          properties:
+            ObjectState:
+              type: array
+              items:
+                $ref: "#/components/schemas/ObjectState"
+    ObjectStateListWrapper:
+      type: object
+      required:
+        - ObjectStateList
+      properties:
+        ObjectStateList:
+          $ref: "#/components/schemas/ObjectStateList"
+    ObjectStateGroup:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: This class represents an Object state group value.
+          type: object
+          required:
+            - id
+            - identifier
+            - defaultLanguageCode
+            - languageCodes
+            - ObjectStates
+            - names
+            - descriptions
+          properties:
+            id:
+              description: Primary key.
+              type: integer
+            identifier:
+              description: Readable string identifier of a group.
+              type: string
+            defaultLanguageCode:
+              description: The default language code.
+              type: string
+            languageCodes:
+              description: The available language codes for names an descriptions.
+              type: string
+            ObjectStates:
+              description: Object States.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+            names:
+              description: List of names.
+            descriptions:
+              description: List of descriptions.
+    ObjectStateGroupWrapper:
+      type: object
+      required:
+        - ObjectStateGroup
+      properties:
+        ObjectStateGroup:
+          $ref: "#/components/schemas/ObjectStateGroup"
+    ObjectStateGroupCreate:
+      description: This class represents a value for creating Object state groups.
+      type: object
+      required:
+        - identifier
+        - defaultLanguageCode
+        - names
+        - descriptions
+      properties:
+        identifier:
+          description: Readable unique string identifier of a group.
+          type: string
+        defaultLanguageCode:
+          description: The default language code.
+          type: string
+        names:
+          description: An array of names with languageCode keys. At least one name in the main language is required.
+        descriptions:
+          description: An array of descriptions with languageCode keys.
+    ObjectStateGroupCreateWrapper:
+      type: object
+      required:
+        - ObjectStateGroupCreate
+      properties:
+        ObjectStateGroupCreate:
+          $ref: "#/components/schemas/ObjectStateGroupCreate"
+    ObjectStateGroupUpdate:
+      description: This class represents a value for updating Object state groups.
+      type: object
+      properties:
+        identifier:
+          description: Readable unique string identifier of a group.
+          type: string
+        defaultLanguageCode:
+          description: The default language code.
+          type: string
+        names:
+          description: An array of names with languageCode keys.
+        descriptions:
+          description: An array of descriptions with languageCode keys.
+    ObjectStateGroupUpdateWrapper:
+      type: object
+      required:
+        - ObjectStateGroupUpdate
+      properties:
+        ObjectStateGroupUpdate:
+          $ref: "#/components/schemas/ObjectStateGroupUpdate"
+    ObjectStateGroupList:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: List of Object state groups.
+          type: object
+          required:
+            - ObjectStateGroup
+          properties:
+            ObjectStateGroup:
+              description: This class represents an Object state group value.
+              type: array
+              items:
+                $ref: "#/components/schemas/ObjectStateGroup"
+    ObjectStateGroupListWrapper:
+      type: object
+      required:
+        - ObjectStateGroupList
+      properties:
+        ObjectStateGroupList:
+          $ref: "#/components/schemas/ObjectStateGroupList"

@@ -1,0 +1,36 @@
+#                     type: Trash
+#                     type: TrashWrapper
+#                         type: TrashItem
+#                         type: TrashItemWrapper
+# a
+
+
+    Trash:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - type: object
+          required:
+            - TrashItem
+          properties:
+            TrashItem:
+              type: array
+              items:
+                $ref: "#/components/schemas/TrashItem"
+    TrashWrapper:
+      type: object
+      required:
+        - Trash
+      properties:
+        Trash:
+          $ref: "#/components/schemas/Trash"
+    TrashItem:
+      description: This class represents a trash item, which is actually a trashed Location.
+      type:
+        $ref: "#/components/schemas/Location"
+    TrashItemWrapper:
+      type: object
+      required:
+        - TrashItem
+      properties:
+        TrashItem:
+          $ref: "#/components/schemas/TrashItem"

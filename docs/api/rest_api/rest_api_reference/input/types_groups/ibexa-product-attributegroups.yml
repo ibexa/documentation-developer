@@ -1,0 +1,204 @@
+#             type: AttributeGroupListGetWrapper
+#                     type: AttributeGroupList
+#                     type: AttributeGroupListWrapper
+#             type: AttributeGroupCreateWrapper
+#                     type: AttributeGroupWrapper
+#                 type: AttributeGroupGet
+#                 type: AttributeGroupGetWrapper
+#                         type: AttributeGroup
+#                         type: AttributeGroupWrapper
+#                 type: AttributeGroupUpdate
+#                 type: AttributeGroupUpdateWrapper
+#                         type: AttributeGroup
+#                         type: AttributeGroupWrapper
+#                 type: AttributeGroupViewInput
+#                 type: AttributeGroupViewInputWrapper
+#                         type: AttributeGroupView
+#                         type: AttributeGroupViewWrapper
+# a
+
+
+
+    AttributeGroup:
+      description: This class represents an attribute group.
+      type: object
+      required:
+        - name
+        - identifier
+        - position
+      properties:
+        name:
+          type: string
+        identifier:
+          type: string
+        position:
+          type: integer
+    AttributeGroupWrapper:
+      type: object
+      required:
+        - AttributeGroup
+      properties:
+        AttributeGroup:
+          $ref: "#/components/schemas/AttributeGroup"
+    AttributeGroupCreate:
+      description: This class is used to create an attribute group.
+      type: object
+      required:
+        - identifier
+        - names
+        - position
+      properties:
+        identifier:
+          type: string
+        names:
+          type: object
+        position:
+          type: integer
+    AttributeGroupCreateWrapper:
+      type: object
+      required:
+        - AttributeGroupCreate
+      properties:
+        AttributeGroupCreate:
+          $ref: "#/components/schemas/AttributeGroupCreate"
+    AttributeGroupUpdate:
+      description: This class is used to update an attribute group.
+      type: object
+      required:
+        - identifier
+        - names
+        - position
+      properties:
+        identifier:
+          type: string
+        names:
+          type: object
+        position:
+          type: integer
+    AttributeGroupUpdateWrapper:
+      type: object
+      required:
+        - AttributeGroupUpdate
+      properties:
+        AttributeGroupUpdate:
+          $ref: "#/components/schemas/AttributeGroupUpdate"
+    AttributeGroupList:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: This class represents an attribute group list.
+          type: object
+          required:
+            - AttributeGroup
+          properties:
+            AttributeGroup:
+              type: array
+              items:
+                $ref: "#/components/schemas/AttributeGroup"
+    AttributeGroupListWrapper:
+      type: object
+      required:
+        - AttributeGroupList
+      properties:
+        AttributeGroupList:
+          $ref: "#/components/schemas/AttributeGroupList"
+    AttributeGroupListGet:
+      description: This class represents an attribute group list request.
+      type: object
+      required:
+        - prefix
+        - offset
+        - limit
+      properties:
+        prefix:
+          type: string
+        offset:
+          type: integer
+        limit:
+          type: integer
+    AttributeGroupListGetWrapper:
+      type: object
+      required:
+        - AttributeGroupListGet
+      properties:
+        AttributeGroupListGet:
+          $ref: "#/components/schemas/AttributeGroupListGet"
+    AttributeGroupGet:
+      description: This class represents an attribute group query.
+      type: object
+      required:
+        - languages
+      properties:
+        languages:
+          type: array
+          items:
+            type: string
+    AttributeGroupGetWrapper:
+      type: object
+      required:
+        - AttributeGroupGet
+      properties:
+        AttributeGroupGet:
+          $ref: "#/components/schemas/AttributeGroupGet"
+    AttributeGroupListResult:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - type: object
+          required:
+            - count
+            - AttributeGroupList
+          properties:
+            count:
+              type: integer
+            AttributeGroupList:
+              $ref: "#/components/schemas/AttributeGroupList"
+    AttributeGroupView:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: This class represents an attribute group view.
+          type: object
+          required:
+            - identifier
+            - Result
+          properties:
+            identifier:
+              type: string
+            Result:
+              $ref: "#/components/schemas/AttributeGroupListResult"
+    AttributeGroupViewWrapper:
+      type: object
+      required:
+        - AttributeGroupView
+      properties:
+        AttributeGroupView:
+          $ref: "#/components/schemas/AttributeGroupView"
+    AttributeGroupViewInput:
+      description: This class represents an attribute group view input.
+      xml:
+        name: ViewInput
+      type: object
+      required:
+        - identifier
+        - AttributeGroupQuery
+      properties:
+        identifier:
+          type: string
+        AttributeGroupQuery:
+          type: object
+          required:
+            - limit
+            - offset
+            - name_prefix
+          properties:
+            limit:
+              type: string
+            offset:
+              type: string
+            name_prefix:
+              type: string
+    AttributeGroupViewInputWrapper:
+      type: object
+      required:
+        - ViewInput
+      properties:
+        ViewInput:
+          $ref: "#/components/schemas/AttributeGroupViewInput"

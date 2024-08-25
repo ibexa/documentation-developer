@@ -1,0 +1,84 @@
+#                     type: RegionList
+#                     type: RegionListWrapper
+
+#                         type: Region
+#                         type: RegionWrapper
+
+#                 type: RegionViewInput
+#                 type: RegionViewInputWrapper
+#                         type: RegionView
+#                         type: RegionViewWrapper
+# a
+
+
+
+    Region:
+      description: This class represents a region.
+      type: object
+      required:
+        - identifier
+      properties:
+        identifier:
+          type: string
+    RegionWrapper:
+      type: object
+      required:
+        - Region
+      properties:
+        Region:
+          $ref: "#/components/schemas/Region"
+    RegionList:
+      description: This class represents a region list.
+      type: object
+      required:
+        - Region
+      properties:
+        Region:
+          type: array
+          items:
+            $ref: "#/components/schemas/Ref"
+    RegionListWrapper:
+      type: object
+      required:
+        - RegionList
+      properties:
+        RegionList:
+          $ref: "#/components/schemas/RegionList"
+    RegionView:
+      description: This class represents a region view.
+      type: object
+      required:
+        - identifier
+        - RegionQuery
+        - Result
+      properties:
+        identifier:
+          type: string
+        RegionQuery:
+          type: object
+        Result:
+          type: object
+    RegionViewWrapper:
+      type: object
+      required:
+        - RegionView
+      properties:
+        RegionView:
+          $ref: "#/components/schemas/RegionView"
+    RegionViewInput:
+      description: This class represents a region view input.
+      xml:
+        name: ViewInput
+      type: object
+      required:
+        - RegionQuery
+      properties:
+        RegionQuery:
+          type: object
+    RegionViewInputWrapper:
+      type: object
+      required:
+        - ViewInput
+      properties:
+        ViewInput:
+          $ref: "#/components/schemas/RegionViewInput"

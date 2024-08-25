@@ -1,0 +1,200 @@
+
+#                         type: BasketListResponseWrapper
+#                         type: ValidationResponse
+#                             type: BasketWrapper
+#                                 type: ValidationResponseWrapper
+#                         type: PartyTypeInputWrapper
+#                                 type: BasketWrapper
+#                                 type: ValidationResponseWrapper
+#                         type: ShippingMethodData
+#                                 type: BasketWrapper
+#                                 type: ValidationResponseWrapper
+#                         type: PaymentMethodDataWrapper
+#                                 type: BasketWrapper
+#                                 type: ValidationResponseWrapper
+#                         type: VoucherDataWrapper
+#                                 type: BasketWrapper
+#                                 type: ValidationResponseWrapper
+#                         type: BasketLineDataWrapper
+#                                 type: BasketWrapper
+#                                 type: ValidationResponseWrapper
+#                             type: BasketWrapper
+#                         type: BasketHeaderDataWrapper
+#                                 type: BasketWrapper
+#                         type: BasketHeaderDataWrapper
+#                                 type: BasketWrapper
+#                         type: BasketLineDataWrapper
+#                                 type: BasketWrapper
+#                                 type: ValidationResponseWrapper
+#                                 type: BasketWrapper
+#                                 type: ValidationResponseWrapper
+#                             type: BasketWrapper
+#                             type: ValidationResponseWrapper
+
+#                             type: PaymentMethodDataResponseWrapper
+
+#                             type: ShippingMethodDataResponseWrapper
+
+#                         type: ShippingAddressesResponseWrapper
+
+#                 type: CustomerPriceDataWrapper
+#                         type: PriceResponseWrapper
+#                         type: CountrySelectionResponseWrapper
+
+
+    Basket:
+      description: Removed
+      type:
+        $ref: "#/components/schemas/BaseCommerceResponse"
+    BasketWrapper:
+      type: object
+      required:
+        - Basket
+      properties:
+        Basket:
+          $ref: "#/components/schemas/Basket"
+    BasketHeaderData:
+      description: Removed
+      type: object
+    BasketHeaderDataWrapper:
+      type: object
+      required:
+        - BasketHeaderData
+      properties:
+        BasketHeaderData:
+          $ref: "#/components/schemas/BasketHeaderData"
+    BasketListResponse:
+      description: Removed
+      type:
+        $ref: "#/components/schemas/BaseCommerceResponse"
+    BasketListResponseWrapper:
+      type: object
+      required:
+        - BasketListResponse
+      properties:
+        BasketListResponse:
+          $ref: "#/components/schemas/BasketListResponse"
+    BasketLineData:
+      description: Removed
+      type: array
+      items:
+        type: object
+    BasketLineDataWrapper:
+      type: object
+      required:
+        - BasketLineData
+      properties:
+        BasketLineData:
+          $ref: "#/components/schemas/BasketLineData"
+    PartyTypeInput:
+      description: Removed
+      type: object
+    PartyTypeInputWrapper:
+      type: object
+      required:
+        - PartyData
+      properties:
+        PartyData:
+          $ref: "#/components/schemas/PartyTypeInput"
+    ShippingMethodData:
+      description: Removed
+      type: object
+    ShippingMethodDataResponse:
+      description: Removed
+      type:
+        $ref: "#/components/schemas/BaseCommerceResponse"
+    ShippingMethodDataResponseWrapper:
+      type: object
+      required:
+        - ShippingMethodDataResponse
+      properties:
+        ShippingMethodDataResponse:
+          $ref: "#/components/schemas/ShippingMethodDataResponse"
+    PaymentMethodData:
+      description: Removed
+      type: object
+    PaymentMethodDataWrapper:
+      type: object
+      required:
+        - PaymentMethodData
+      properties:
+        PaymentMethodData:
+          $ref: "#/components/schemas/PaymentMethodData"
+    PaymentMethodDataResponse:
+      description: Removed
+      type:
+        $ref: "#/components/schemas/BaseCommerceResponse"
+    PaymentMethodDataResponseWrapper:
+      type: object
+      required:
+        - PaymentMethodDataResponse
+      properties:
+        PaymentMethodDataResponse:
+          $ref: "#/components/schemas/PaymentMethodDataResponse"
+    ShippingAddressesResponse:
+      description: Removed
+      type:
+        $ref: "#/components/schemas/BaseCommerceResponse"
+    ShippingAddressesResponseWrapper:
+      type: object
+      required:
+        - ShippingAddressesResponse
+      properties:
+        ShippingAddressesResponse:
+          $ref: "#/components/schemas/ShippingAddressesResponse"
+    ValidationResponse:
+      description: Removed
+      type:
+        $ref: "#/components/schemas/BaseCommerceResponse"
+    ValidationResponseWrapper:
+      type: object
+      required:
+        - ValidationResponse
+      properties:
+        ValidationResponse:
+          $ref: "#/components/schemas/ValidationResponse"
+    VoucherData:
+      description: Removed
+      type: object
+    VoucherDataWrapper:
+      type: object
+      required:
+        - VoucherData
+      properties:
+        VoucherData:
+          $ref: "#/components/schemas/VoucherData"
+    CustomerPriceData:
+      description: Removed
+      type: object
+    CustomerPriceDataWrapper:
+      type: object
+      required:
+        - PriceResponse
+      properties:
+        PriceResponse:
+          $ref: "#/components/schemas/CustomerPriceData"
+    PriceResponse:
+      description: Removed
+      type:
+        $ref: "#/components/schemas/BaseCommerceResponse"
+    PriceResponseWrapper:
+      type: object
+      required:
+        - PriceResponse
+      properties:
+        PriceResponse:
+          $ref: "#/components/schemas/PriceResponse"
+    CountrySelectionResponse:
+      description: Removed
+      type:
+        $ref: "#/components/schemas/BaseCommerceResponse"
+    CountrySelectionResponseWrapper:
+      type: object
+      required:
+        - CountrySelectionResponse
+      properties:
+        CountrySelectionResponse:
+          $ref: "#/components/schemas/CountrySelectionResponse"
+    BaseCommerceResponse:
+      description: Removed
+      type: object

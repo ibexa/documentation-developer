@@ -1,0 +1,172 @@
+#                     type: CustomerGroupListWrapper
+#             type: CustomerGroupCreateWrapper
+#                     type: CustomerGroupWrapper
+
+#                         type: CustomerGroupWrapper
+#                 type: CustomerGroupUpdateWrapper
+#                         type: CustomerGroupWrapper
+
+#                 type: CustomerGroupViewInput
+#                 type: CustomerGroupViewInputWrapper
+#                         type: CustomerGroupView
+#                         type: CustomerGroupViewWrapper
+# a
+
+
+    CustomerGroup:
+      description: This class represents a customer group.
+      type: object
+      required:
+        - id
+        - name
+        - identifier
+        - description
+        - users
+        - global_price_rate
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        identifier:
+          type: string
+        description:
+          type: string
+        users:
+          description: A list of users attached to the customer group.
+          type: array
+          items:
+            $ref: "#/components/schemas/User"
+        global_price_rate:
+          description: A numeric string
+          type: string
+    CustomerGroupWrapper:
+      type: object
+      required:
+        - CustomerGroup
+      properties:
+        CustomerGroup:
+          $ref: "#/components/schemas/CustomerGroup"
+    CustomerGroupCreate:
+      description: This class is used to create a customer group.
+      type: object
+      required:
+        - identifier
+        - names
+        - descriptions
+        - global_price_rate
+      properties:
+        identifier:
+          type: string
+        names:
+          type: object
+        descriptions:
+          type: object
+        global_price_rate:
+          description: numeric-string
+          type: string
+    CustomerGroupCreateWrapper:
+      type: object
+      required:
+        - CustomerGroupCreate
+      properties:
+        CustomerGroupCreate:
+          $ref: "#/components/schemas/CustomerGroupCreate"
+    CustomerGroupUpdate:
+      description: This class is used to update a customer group.
+      type: object
+      required:
+        - names
+        - identifier
+        - global_price_rate
+      properties:
+        names:
+          type: object
+        identifier:
+          type: string
+        global_price_rate:
+          type: string
+        descriptions:
+          type: array
+          items:
+            type: string
+    CustomerGroupUpdateWrapper:
+      type: object
+      required:
+        - CustomerGroupUpdate
+      properties:
+        CustomerGroupUpdate:
+          $ref: "#/components/schemas/CustomerGroupUpdate"
+    CustomerGroupList:
+      description: This class represents a customer group list.
+      type: object
+      required:
+        - CustomerGroup
+      properties:
+        CustomerGroup:
+          type: array
+          items:
+            $ref: "#/components/schemas/CustomerGroup"
+    CustomerGroupListWrapper:
+      type: object
+      required:
+        - CustomerGroupList
+      properties:
+        CustomerGroupList:
+          $ref: "#/components/schemas/CustomerGroupList"
+    CustomerGroupListResult:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - type: object
+          required:
+            - CustomerGroupList
+          properties:
+            CustomerGroupList:
+              allOf:
+                - ref: "#/components/schemas/BaseObject"
+                - type: object
+                  required:
+                    - CustomerGroup
+                  properties:
+                    CustomerGroup:
+                      type: array
+                      items:
+                        $ref: "#/components/schemas/CustomerGroup"
+    CustomerGroupViewInput:
+      description: This class represents a customer group view input.
+      xml:
+        name: ViewInput
+      type: object
+      required:
+        - CustomerGroupQuery
+      properties:
+        CustomerGroupQuery:
+          type: object
+    CustomerGroupViewInputWrapper:
+      type: object
+      required:
+        - ViewInput
+      properties:
+        ViewInput:
+          $ref: "#/components/schemas/CustomerGroupViewInput"
+    CustomerGroupView:
+      description: This class represents a customer group view.
+      type: object
+      required:
+        - identifier
+        - CustomerGroupQuery
+        - Result
+      properties:
+        identifier:
+          type: string
+        CustomerGroupQuery:
+          type: object
+        Result:
+          $ref: "#/components/schemas/CustomerGroupListResult"
+    CustomerGroupViewWrapper:
+      type: object
+      required:
+        - CustomerGroupView
+      properties:
+        CustomerGroupView:
+          $ref: "#/components/schemas/CustomerGroupView"

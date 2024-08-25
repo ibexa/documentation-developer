@@ -1,0 +1,196 @@
+#             type: ProductTypeCreateWrapper
+#                     type: ProductTypeWrapper
+#             type: ProductTypeListGet
+#             type: ProductTypeListGetWrapper
+#                     type: ProductTypeList
+#                     type: ProductTypeListWrapper
+#                         type: ProductTypeUsage
+#                         type: ProductTypeUsageWrapper
+#                         type: ProductType
+#                         type: ProductTypeWrapper
+#                 type: ProductTypeUpdateWrapper
+#                         type: ProductTypeWrapper
+#                 type: ProductTypeViewInput
+#                 type: ProductTypeViewInputWrapper
+#                         type: ProductTypeView
+#                         type: ProductTypeViewWrapper
+# a
+
+
+    ProductType:
+      description: This class represents a product type.
+      type: object
+      required:
+        - identifier
+        - name
+        - AttributeAssignmentList
+      properties:
+        identifier:
+          type: string
+        name:
+          type: string
+        AttributeAssignmentList:
+          type: array
+          items:
+            $ref: "#/components/schemas/AttributeAssignment"
+    ProductTypeWrapper:
+      type: object
+      required:
+        - ProductType
+      properties:
+        ProductType:
+          $ref: "#/components/schemas/ProductType"
+    ProductTypeCreate:
+      description: This class is used to create a product type.
+      type: object
+      required:
+        - ContentTypeCreateStruct
+        - main_language_code
+        - assigned_attributes
+      properties:
+        ContentTypeCreateStruct:
+          type: object
+        main_language_code:
+          type: string
+        assigned_attributes:
+          type: array
+          items:
+            $ref: "#/components/schemas/ProductTypeAssignedAttribute"
+    ProductTypeCreateWrapper:
+      type: object
+      required:
+        - ProductTypeCreate
+      properties:
+        ProductTypeCreate:
+          $ref: "#/components/schemas/ProductTypeCreate"
+    ProductTypeUpdate:
+      description: This class is used to update a product type.
+      type: object
+      required:
+        - ContentTypeUpdateStruct
+        - assigned_attributes
+      properties:
+        ContentTypeUpdateStruct:
+          type:
+            $ref: "#/components/schemas/ContentTypeUpdateStruct"
+        assigned_attributes:
+          type: array
+          items:
+            $ref: "#/components/schemas/ProductTypeAssignedAttribute"
+    ProductTypeUpdateWrapper:
+      type: object
+      required:
+        - ProductTypeUpdate
+      properties:
+        ProductTypeUpdate:
+          $ref: "#/components/schemas/ProductTypeUpdate"
+    ProductTypeUsage:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: This class represents a product type usage.
+          type: object
+          required:
+            - is_used
+          properties:
+            is_used:
+              type: boolean
+    ProductTypeUsageWrapper:
+      type: object
+      required:
+        - ProductTypeUsage
+      properties:
+        ProductTypeUsage:
+          $ref: "#/components/schemas/ProductTypeUsage"
+    ProductTypeView:
+      description: This class represents a product type view.
+      type: object
+      required:
+        - identifier
+        - ProductTypeQuery
+        - Result
+      properties:
+        identifier:
+          type: string
+        ProductTypeQuery:
+          type: object
+        Result:
+          type: object
+    ProductTypeViewWrapper:
+      type: object
+      required:
+        - ProductTypeView
+      properties:
+        ProductTypeView:
+          $ref: "#/components/schemas/ProductTypeView"
+    ProductTypeList:
+      description: This class represents a product type list.
+      type: object
+      required:
+        - ProductType
+      properties:
+        ProductType:
+          type: array
+          items:
+            $ref: "#/components/schemas/ProductType"
+    ProductTypeListWrapper:
+      type: object
+      required:
+        - ProductTypeList
+      properties:
+        ProductTypeList:
+          $ref: "#/components/schemas/ProductTypeList"
+    ProductTypeListGet:
+      description: This class represents a product type list query.
+      type: object
+      required:
+        - name_prefix
+        - offset
+        - limit
+      properties:
+        name_prefix:
+          type: string
+        offset:
+          type: integer
+        limit:
+          type: integer
+        languages:
+          type: array
+          items:
+            type: string
+    ProductTypeListGetWrapper:
+      type: object
+      required:
+        - ProductTypeListGet
+      properties:
+        ProductTypeListGet:
+          $ref: "#/components/schemas/ProductTypeListGet"
+    ProductTypeViewInput:
+      description: This class represents a product type view input.
+      xml:
+        name: ViewInput
+      type: object
+      required:
+        - ProductTypeQuery
+      properties:
+        ProductTypeQuery:
+          type: object
+    ProductTypeViewInputWrapper:
+      type: object
+      required:
+        - ViewInput
+      properties:
+        ViewInput:
+          $ref: "#/components/schemas/ProductTypeViewInput"
+    ProductTypeAssignedAttribute:
+      type: object
+      required:
+        - identifier
+        - is_required
+        - is_discriminator
+      properties:
+        identifier:
+          type: string
+        is_required:
+          type: boolean
+        is_discriminator:
+          type: boolean

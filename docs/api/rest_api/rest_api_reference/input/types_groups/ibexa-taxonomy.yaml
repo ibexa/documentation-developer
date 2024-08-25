@@ -1,0 +1,202 @@
+#                                 type: TaxonomyEntry
+#                                 type: TaxonomyEntryWrapper
+#                                 type: TaxonomyEntry
+#                                 type: TaxonomyEntryWrapper
+#                                 type: TaxonomyEntry
+#                                 type: TaxonomyEntryWrapper
+#                     type: TaxonomyEntryBulkRemove
+#                     type: TaxonomyEntryBulkRemoveWrapper
+#                         type: TaxonomyEntryBulkMove
+#                         type: TaxonomyEntryBulkMoveWrapper
+#                             type: TaxonomyEntryAssignment
+#                             type: TaxonomyEntryAssignmentWrapper
+#                         type: TaxonomyEntryAssignToContentWrapper
+#                         type: TaxonomyEntryUnassignFromContentWrapper
+#                                 type: EntryAssignmentCollection
+#                                 type: EntryAssignmentCollectionWrapper
+# a
+
+    TaxonomyEntry:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: This class represents a taxonomy entry.
+          type: object
+          required:
+            - id
+            - identifier
+            - name
+            - content
+            - taxonomy
+          properties:
+            id:
+              type: integer
+            identifier:
+              type: string
+            name:
+              type: string
+            content:
+              type:
+                $ref: "#/components/schemas/Ref"
+            taxonomy:
+              type: string
+    TaxonomyEntryWrapper:
+      type: object
+      required:
+        - TaxonomyEntry
+      properties:
+        TaxonomyEntry:
+          $ref: "#/components/schemas/TaxonomyEntry"
+    TaxonomyEntryBulkRemove:
+      description: This class is used to bulk remove taxonomy entries.
+      type: object
+      required:
+        - entries
+      properties:
+        entries:
+          type: array
+          items:
+            type: integer
+    TaxonomyEntryBulkRemoveWrapper:
+      type: object
+      required:
+        - TaxonomyEntryBulkRemove
+      properties:
+        TaxonomyEntryBulkRemove:
+          $ref: "#/components/schemas/TaxonomyEntryBulkRemove"
+    TaxonomyEntryMove:
+      type: object
+      required:
+        - entry
+        - sibling
+        - position
+      properties:
+        entry:
+          type: integer
+        sibling:
+          type: integer
+        position:
+          type: string
+    TaxonomyEntryBulkMove:
+      description: This class is used to bulk move taxonomy entries.
+      type: object
+      required:
+        - entries
+      properties:
+        entries:
+          type: array
+          items:
+            $ref: "#/components/schemas/TaxonomyEntryMove"
+    TaxonomyEntryBulkMoveWrapper:
+      type: object
+      required:
+        - TaxonomyEntryBulkMove
+      properties:
+        TaxonomyEntryBulkMove:
+          $ref: "#/components/schemas/TaxonomyEntryBulkMove"
+    TaxonomyEntryAssignment:
+      description: This class represents a taxonomy entry assignment.
+      type: object
+      required:
+        - id
+        - content
+        - entry
+      properties:
+        id:
+          type: integer
+        content:
+          allOf:
+            - ref: "#/components/schemas/BaseObject"
+            - type: object
+              required:
+                - Content
+              properties:
+                Content:
+                  type:
+                    $ref: "#/components/schemas/Content"
+        entry:
+          allOf:
+            - ref: "#/components/schemas/BaseObject"
+            - type: object
+              required:
+                - TaxonomyEntry
+              properties:
+                TaxonomyEntry:
+                  type:
+                    $ref: "#/components/schemas/TaxonomyEntry"
+    TaxonomyEntryAssignmentWrapper:
+      type: object
+      required:
+        - TaxonomyEntryAssignment
+      properties:
+        TaxonomyEntryAssignment:
+          $ref: "#/components/schemas/TaxonomyEntryAssignment"
+    TaxonomyEntryAssignToContent:
+      description: This class is used to assign taxonomy entry to content.
+      type: object
+      required:
+        - content
+        - entries
+      properties:
+        content:
+          type: integer
+        entries:
+          type: array
+          items:
+            type: integer
+    TaxonomyEntryAssignToContentWrapper:
+      type: object
+      required:
+        - TaxonomyEntryAssignToContent
+      properties:
+        TaxonomyEntryAssignToContent:
+          $ref: "#/components/schemas/TaxonomyEntryAssignToContent"
+    TaxonomyEntryUnassignFromContent:
+      description: This class is used to unassign taxonomy entry from content.
+      type: object
+      required:
+        - content
+        - entries
+      properties:
+        content:
+          type: integer
+        entries:
+          type: array
+          items:
+            type: integer
+    TaxonomyEntryUnassignFromContentWrapper:
+      type: object
+      required:
+        - TaxonomyEntryUnassignFromContent
+      properties:
+        TaxonomyEntryUnassignFromContent:
+          $ref: "#/components/schemas/TaxonomyEntryUnassignFromContent"
+    EntryAssignmentCollection:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: This class represents a taxonomy assignment collection.
+          type: object
+          required:
+            - content
+            - assignments
+          properties:
+            content:
+              allOf:
+                - ref: "#/components/schemas/BaseObject"
+                - type: object
+                  required:
+                    - Content
+                  properties:
+                    Content:
+                      type:
+                        $ref: "#/components/schemas/Content"
+            assignments:
+              type: array
+              items:
+                $ref: "#/components/schemas/TaxonomyEntryAssignment"
+    EntryAssignmentCollectionWrapper:
+      type: object
+      required:
+        - EntryAssignmentCollection
+      properties:
+        EntryAssignmentCollection:
+          $ref: "#/components/schemas/EntryAssignmentCollection"

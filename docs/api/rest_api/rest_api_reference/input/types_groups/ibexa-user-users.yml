@@ -1,0 +1,235 @@
+#                     type: UserList
+#                     type: UserListWrapper
+#                     type: UserRefList
+#                     type: UserRefListWrapper
+#                         type: UserList
+#                         type: UserListWrapper
+#                 type: UserUpdate
+#                 type: UserUpdateWrapper
+#                         type: User
+#                         type: UserWrapper
+#                             type: UserGroupRefList
+#                             type: UserGroupRefListWrapper
+#                             type: UserGroupRefList
+#                             type: UserGroupRefListWrapper
+#                                 type: UserGroupRefList
+#                                 type: UserGroupRefListWrapper
+#                     #         type: RoleAssignmentList
+#                     #         type: RoleAssignmentListWrapper
+#                     # type: RoleAssignInput
+#                     # type: RoleAssignInputWrapper
+#                     #         type: RoleAssignmentList
+#                     #         type: RoleAssignmentListWrapper
+#                     #             type: RoleAssignment
+#                     #             type: RoleAssignmentWrapper
+#                     #             type: RoleAssignmentList
+#                     #             type: RoleAssignmentListWrapper
+#                     #         type: VersionList
+#                     #         type: VersionListWrapper
+# a
+
+    User:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: This class represents a User value.
+          type: object
+          required:
+            - _id
+            - _remoteId
+            - ContentType
+            - name
+            - Versions
+            - Section
+            - MainLocation
+            - Locations
+            - Groups
+            - Owner
+            - publishDate
+            - lastModificationDate
+            - mainLanguageCode
+            - alwaysAvailable
+            - Version
+            - login
+            - email
+            - enabled
+            - UserGroups
+            - Roles
+          properties:
+            _id:
+              description: Unique ID of the content type.
+              xml:
+                attribute: true
+                name: id
+              type: integer
+            _remoteId:
+              description: Remote ID of the content type.
+              xml:
+                attribute: true
+                name: remoteId
+              type: string
+            ContentType:
+              description: This class represents a content type.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+            name:
+              description: Name of the domain object in a given language.
+              type: string
+            Versions:
+              description: Returns the VersionInfo for this version.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+            Section:
+              description: The Section to which the content item is assigned.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+            MainLocation:
+              description: Main Location of the object.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+            Locations:
+              description: Locations of the object.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+            Groups:
+              description: Group User of the content type.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+            Owner:
+              description: The owner of the content item.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+            publishDate:
+              description: Content publication date.
+              type: string
+              format: date-time
+            lastModificationDate:
+              description: Content modification date.
+              type: string
+              format: date-time
+            mainLanguageCode:
+              description: The main language code of the content item.
+              type: string
+            alwaysAvailable:
+              description: Indicates if the content item is shown in the main language if it's not present in an other requested language.
+              type: boolean
+            Version:
+              description: Returns the VersionInfo for this version.
+            login:
+              description: User login.
+              type: string
+            email:
+              description: User email address.
+              type: string
+            enabled:
+              description: Flag to Signal if User is enabled or not. User can not login if false.
+              type: boolean
+            UserGroups:
+              description: User groups.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+            Roles:
+              description: Roles.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+    UserWrapper:
+      type: object
+      required:
+        - User
+      properties:
+        User:
+          $ref: "#/components/schemas/User"
+    UserList:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: This class represents a list of users.
+          type: object
+          required:
+            - User
+          properties:
+            User:
+              type: array
+              items:
+                $ref: "#/components/schemas/User"
+    UserListWrapper:
+      type: object
+      required:
+        - UserList
+      properties:
+        UserList:
+          $ref: "#/components/schemas/UserList"
+    UserRefList:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: Returns a list of the users.
+          type: object
+          required:
+            - User
+          properties:
+            User:
+              description: This class represents a User.
+              type: array
+              items:
+                $ref: "#/components/schemas/BaseObject"
+    UserRefListWrapper:
+      type: object
+      required:
+        - UserRefList
+      properties:
+        UserRefList:
+          $ref: "#/components/schemas/UserRefList"
+    UserUpdate:
+      description: This class is used to update a User.
+      type: object
+      required:
+        - login
+      properties:
+        login:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+        enabled:
+          type: boolean
+        maxLogin:
+          type: integer
+        ContentUpdate:
+          description: The update structure for the profile content.
+        ContentMetadataUpdate:
+          description: The update structure for the profile metadata.
+    UserUpdateWrapper:
+      type: object
+      required:
+        - UserUpdate
+      properties:
+        UserUpdate:
+          $ref: "#/components/schemas/UserUpdate"
+    UserCreate:
+      description: This class is used to create a User.
+      type: object
+      required:
+        - mainLanguageCode
+        - remoteId
+        - login
+        - email
+        - password
+      properties:
+        mainLanguageCode:
+          type: string
+        remoteId:
+          type: string
+        login:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+        enabled:
+          type: boolean
+    UserCreateWrapper:
+      type: object
+      required:
+        - UserCreate
+      properties:
+        UserCreate:
+          $ref: "#/components/schemas/UserCreate"

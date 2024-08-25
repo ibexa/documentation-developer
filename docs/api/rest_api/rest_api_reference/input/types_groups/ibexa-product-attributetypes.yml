@@ -1,0 +1,43 @@
+#                     type: AttributeTypeList
+#                     type: AttributeTypeListWrapper
+#                         type: AttributeType
+#                         type: AttributeTypeWrapper
+# a
+
+    AttributeType:
+      description: This class represents an attribute type.
+      type: object
+      required:
+        - identifier
+        - name
+      properties:
+        identifier:
+          type: string
+        name:
+          type: string
+    AttributeTypeWrapper:
+      type: object
+      required:
+        - AttributeType
+      properties:
+        AttributeType:
+          $ref: "#/components/schemas/AttributeType"
+    AttributeTypeList:
+      description: This class represents an attribute type list.
+      type: object
+      required:
+        - attributeTypes
+      properties:
+        attributeTypes:
+          type: array
+          items:
+            $ref: "#/components/schemas/AttributeType"
+    AttributeTypeListWrapper:
+      type: object
+      required:
+        - AttributeTypeList
+      properties:
+        AttributeTypeList:
+          $ref: "#/components/schemas/AttributeTypeList"
+    CartList:
+      type: object

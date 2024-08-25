@@ -1,0 +1,602 @@
+#                     type: ContentTypeInfoList
+#                     type: ContentTypeInfoListWrapper
+#                     type: ContentTypeList
+#                     type: ContentTypeListWrapper
+#                         type: ContentType
+#                         type: ContentTypeWrapper
+#                 type: ContentTypeUpdate
+#                 type: ContentTypeUpdateWrapper
+#                         type: ContentTypeInfo
+#                         type: ContentTypeInfoWrapper
+#                             type: FieldDefinitions
+#                             type: FieldDefinitionsWrapper
+#                                 type: FieldDefinition
+#                                 type: FieldDefinitionWrapper
+#                             type: ContentType
+#                             type: ContentTypeWrapper
+#                     type: ContentTypeUpdate
+#                     type: ContentTypeUpdateWrapper
+#                             type: ContentTypeInfo
+#                             type: ContentTypeInfoWrapper
+#                                 type: FieldDefinitions
+#                                 type: FieldDefinitionsWrapper
+#                         type: FieldDefinitionCreate
+#                         type: FieldDefinitionCreateWrapper
+#                                 type: FieldDefinition
+#                                 type: FieldDefinitionWrapper
+#                                     type: FieldDefinition
+#                                     type: FieldDefinitionWrapper
+#                             type: FieldDefinitionUpdate
+#                             type: FieldDefinitionUpdateWrapper
+#                                     type: FieldDefinition
+#                                     type: FieldDefinitionWrapper
+#                             type: ContentTypeGroupRefList
+#                             type: ContentTypeGroupRefListWrapper
+#                             type: ContentTypeGroupRefList
+#                             type: ContentTypeGroupRefListWrapper
+#                                 type: ContentTypeGroupRefList
+#                                 type: ContentTypeGroupRefListWrapper
+# a
+
+
+
+    ContentType:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: This class represents a content type.
+          type: object
+          required:
+            - id
+            - status
+            - identifier
+            - names
+            - descriptions
+            - creationDate
+            - modificationDate
+            - Creator
+            - Modifier
+            - Groups
+            - Draft
+            - remoteId
+            - urlAliasSchema
+            - nameSchema
+            - isContainer
+            - defaultAlwaysAvailable
+            - defaultSortField
+            - defaultSortOrder
+            - FieldDefinitions
+          properties:
+            id:
+              description: Content type ID.
+              type: integer
+            status:
+              description: "The status of the content type. Possible values: const STATUS_DEFINED = 0; Status constant for defined (aka published) Type, const STATUS_DRAFT = 1; Status constant for draft (aka temporary) Type; const STATUS_MODIFIED = 2; Status constant for modified (aka deferred for publishing) Type."
+              enum:
+                - DEFINED
+                - DRAFT
+                - MODIFIED
+                - PUBLISHED
+              type: string
+            identifier:
+              description: String identifier of a content type.
+              type: string
+            names:
+              description: Name of a content type.
+            descriptions:
+              description: Description of a content type.
+            creationDate:
+              description: Creation date of the content type.
+              type: string
+              format: date-time
+            modificationDate:
+              description: Modification date of the content type.
+              type: string
+              format: date-time
+            Creator:
+              description: Creator User of the content type.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+            Modifier:
+              description: Modifier User of the content type.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+            Groups:
+              description: Group User of the content type.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+            Draft:
+              description: Draft of the content type.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+            remoteId:
+              description: Unique remote ID of the content type.
+              type: string
+            urlAliasSchema:
+              description: URL alias schema. If nothing is provided, $nameSchema will be used instead.
+              type: [string, 'null']
+            nameSchema:
+              description: Name schema. Can be composed of FieldDefinition identifier place holders.
+              type: string
+            isContainer:
+              description: A flag used to hint if content of this type may have children or not. It is highly recommended to respect this flag and not create/move content below non-containers. But this flag is not considered as part of the content model and the API will not in any way enforce this flag to be respected.
+              type: boolean
+            defaultAlwaysAvailable:
+              description: If an instance of a content type is created the always available flag is set by default to this value.
+              type: boolean
+            defaultSortField:
+              description: "Specifies which property the child Locations should be sorted on by default when created. Map for Location sort fields to their respective SortClauses - class name/identifier and modified subnode. One of the fallowing values: const SORT_FIELD_PATH = 1; const SORT_FIELD_PUBLISHED = 2; const SORT_FIELD_MODIFIED = 3; const SORT_FIELD_SECTION = 4; const SORT_FIELD_DEPTH = 5; const SORT_FIELD_PRIORITY = 8; const SORT_FIELD_NAME = 9; const SORT_FIELD_NODE_ID = 11; const SORT_FIELD_CONTENTOBJECT_ID = 12."
+              enum:
+                - PATH
+                - PUBLISHED
+                - MODIFIED
+                - SECTION
+                - DEPTH
+                - PRIORITY
+                - NAME
+                - NODE_ID
+                - CONTENTOBJECT_ID
+              type: string
+            defaultSortOrder:
+              description: "Specifies whether the sort order should be ascending or descending by default when created. Map for Location sort order to their respective Query SORT constants. Possible values: const SORT_ORDER_DESC = 0; const SORT_ORDER_ASC = 1."
+              enum:
+                - ASC
+                - DESC
+              type: string
+            FieldDefinitions:
+              description: This method returns the content type Field definitions from this type.
+    ContentTypeWrapper:
+      type: object
+      required:
+        - ContentType
+      properties:
+        ContentType:
+          $ref: "#/components/schemas/ContentType"
+    ContentTypeCreate:
+      description: This class is used to create a content type.
+      type: object
+      required:
+        - identifier
+        - mainLanguageCode
+        - remoteId
+        - urlAliasSchema
+        - nameSchema
+        - isContainer
+        - defaultSortField
+        - defaultSortOrder
+        - defaultAlwaysAvailable
+        - names
+        - descriptions
+      properties:
+        identifier:
+          type: string
+        mainLanguageCode:
+          type: string
+        remoteId:
+          type: string
+        urlAliasSchema:
+          type: string
+        nameSchema:
+          type: string
+        isContainer:
+          type: boolean
+        defaultSortField:
+          description: Specifies which property the child Locations should be sorted on by default when created.
+        defaultSortOrder:
+          description: Specifies whether the sort order should be ascending or descending by default when created.
+        defaultAlwaysAvailable:
+          type: boolean
+        names:
+          type:
+            $ref: "#/components/schemas/ValueObject"
+        descriptions:
+          type:
+            $ref: "#/components/schemas/ValueObject"
+        FieldDefinition:
+          type:
+            $ref: "#/components/schemas/FieldDefinition"
+        creatorId:
+          description: If set, this value overrides the current user as creator.
+        creationDate:
+          type: string
+          format: date-time
+    ContentTypeCreateWrapper:
+      type: object
+      required:
+        - ContentTypeCreate
+      properties:
+        ContentTypeCreate:
+          $ref: "#/components/schemas/ContentTypeCreate"
+    ContentTypeUpdateStruct:
+      description: This class is used for updating a content type.
+      type: object
+      properties:
+        identifier:
+          description: If set the unique identifier of a type is changed to this value.
+          type: string
+        remoteId:
+          description: If set the remote ID is changed to this value.
+          type: string
+        urlAliasSchema:
+          description: If set the URL alias schema is changed to this value.
+          type: string
+        nameSchema:
+          description: f set the name schema is changed to this value.
+          type: string
+        isContainer:
+          description: If set the container flag is set to this value.
+          type: boolean
+        mainLanguageCode:
+          description: If set the main language is changed to this value.
+          type: string
+        defaultSortField:
+          description: If set the default sort field is changed to this value.
+          enum:
+            - PATH
+            - PUBLISHED
+            - MODIFIED
+            - SECTION
+            - DEPTH
+            - PRIORITY
+            - NAME
+            - NODE_ID
+            - CONTENTOBJECT_ID
+          type: string
+        defaultSortOrder:
+          description: If set the default sort order is set to this value.
+          enum:
+            - ASC
+            - DESC
+          type: string
+        defaultAlwaysAvailable:
+          description: If set the default always available flag is set to this value.
+          type: boolean
+        modifierId:
+          description: If set this value overrides the current User as creator.
+          type: integer
+        modificationDate:
+          description: If set this value overrides the current time for creation.
+          type: string
+          format: date-time
+        names:
+          description: If set this array of names with languageCode keys replace the complete name collection.
+        descriptions:
+          description: If set this array of descriptions with languageCode keys replace the complete description collection.
+    ContentTypeUpdate:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: This class is used to update a content type.
+          type: object
+          properties:
+            identifier:
+              type: string
+            mainLanguageCode:
+              type: string
+            remoteId:
+              type: string
+            urlAliasSchema:
+              type: [string, 'null']
+            nameSchema:
+              type: string
+            isContainer:
+              type: boolean
+            defaultSortField:
+              description: Specifies which property the child Locations should be sorted on by default when updated.
+            defaultSortOrder:
+              description: Specifies whether the sort order should be ascending or descending by default when updated.
+            defaultAlwaysAvailable:
+              type: [string, boolean]
+            names:
+              type:
+                $ref: "#/components/schemas/ValueObject"
+            descriptions:
+              type:
+                $ref: "#/components/schemas/ValueObject"
+            modifierId:
+              description: If set, this value overrides the current user as creator.
+            modificationDate:
+              type: string
+              format: date-time
+    ContentTypeUpdateWrapper:
+      type: object
+      required:
+        - ContentTypeUpdate
+      properties:
+        ContentTypeUpdate:
+          $ref: "#/components/schemas/ContentTypeUpdate"
+    ContentTypeList:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: List of content types.
+          type: object
+          required:
+            - ContentType
+          properties:
+            ContentType:
+              type: array
+              items:
+                $ref: "#/components/schemas/ContentType"
+    ContentTypeListWrapper:
+      type: object
+      required:
+        - ContentTypeList
+      properties:
+        ContentTypeList:
+          $ref: "#/components/schemas/ContentTypeList"
+    ContentTypeInfo:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: This class stores content type information.
+          type: object
+          required:
+            - id
+            - status
+            - identifier
+            - names
+            - descriptions
+            - creationDate
+            - modificationDate
+            - Creator
+            - Modifier
+            - Groups
+            - Draft
+            - remoteId
+            - urlAliasSchema
+            - nameSchema
+            - isContainer
+            - mainLanguageCode
+            - defaultAlwaysAvailable
+            - defaultSortField
+            - defaultSortOrder
+          properties:
+            id:
+              description: Content type ID.
+              type: integer
+            status:
+              description: "The status of the content type. Possible values: const STATUS_DEFINED = 0; Status constant for defined (aka published) Type, const STATUS_DRAFT = 1; Status constant for draft (aka temporary) Type; const STATUS_MODIFIED = 2; Status constant for modified (aka deferred for publishing) Type."
+              enum:
+                - DEFINED
+                - DRAFT
+                - MODIFIED
+                - PUBLISHED
+              type: string
+            identifier:
+              description: String identifier of a content type.
+              type: string
+            names:
+              description: Name of a content type.
+            descriptions:
+              description: Description of a content type.
+            creationDate:
+              description: Creation date of the content type.
+              type: string
+              format: date-time
+            modificationDate:
+              description: Modification date of the content type.
+              type: string
+              format: date-time
+            Creator:
+              description: Creator User of the content type.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+            Modifier:
+              description: Modifier User of the content type.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+            Groups:
+              description: Group User of the content type.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+            Draft:
+              description: Draft of the content type.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+            remoteId:
+              description: Unique remote ID of the content type.
+              type: string
+            urlAliasSchema:
+              description: URL alias schema. If nothing is provided, $nameSchema will be used instead.
+              type: [string, 'null']
+            nameSchema:
+              description: Name schema. Can be composed of FieldDefinition identifier place holders.
+              type: string
+            isContainer:
+              description: A flag used to hint if content of this type may have children or not. It is highly recommended to respect this flag and not create/move content below non-containers. But this flag is not considered as part of the content model and the API will not in any way enforce this flag to be respected.
+              type: boolean
+            mainLanguageCode:
+              description: Main language code.
+              type: string
+            defaultAlwaysAvailable:
+              description: If an instance of a content type is created the always available flag is set by default to this value.
+              type: boolean
+            defaultSortField:
+              description: "Specifies which property the child Locations should be sorted on by default when created. Map for Location sort fields to their respective SortClauses - class name/identifier and modified subnode. One of the fallowing values: const SORT_FIELD_PATH = 1; const SORT_FIELD_PUBLISHED = 2; const SORT_FIELD_MODIFIED = 3; const SORT_FIELD_SECTION = 4; const SORT_FIELD_DEPTH = 5; const SORT_FIELD_PRIORITY = 8; const SORT_FIELD_NAME = 9; const SORT_FIELD_NODE_ID = 11; const SORT_FIELD_CONTENTOBJECT_ID = 12."
+              enum:
+                - PATH
+                - PUBLISHED
+                - MODIFIED
+                - SECTION
+                - DEPTH
+                - PRIORITY
+                - NAME
+                - NODE_ID
+                - CONTENTOBJECT_ID
+              type: string
+            defaultSortOrder:
+              description: "Specifies whether the sort order should be ascending or descending by default when created. Map for Location sort order to their respective Query SORT constants. Possible values: const SORT_ORDER_DESC = 0; const SORT_ORDER_ASC = 1."
+              enum:
+                - ASC
+                - DESC
+              type: string
+    ContentTypeInfoWrapper:
+      type: object
+      required:
+        - ContentTypeInfo
+      properties:
+        ContentTypeInfo:
+          $ref: "#/components/schemas/ContentTypeInfo"
+    ContentTypeInfoList:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: List of content type information.
+          type: object
+          required:
+            - ContentType
+          properties:
+            ContentType:
+              description: This class stores content type information.
+              type: array
+              items:
+                $ref: "#/components/schemas/ContentTypeInfo"
+    ContentTypeInfoListWrapper:
+      type: object
+      required:
+        - ContentTypeList
+      properties:
+        ContentTypeList:
+          $ref: "#/components/schemas/ContentTypeInfoList"
+    Field:
+      description: This class represents a field of a content item.
+      type: object
+      required:
+        - fieldDefinitionIdentifier
+        - fieldValue
+      properties:
+        id:
+          description: The field ID.
+          type: integer
+        fieldDefinitionIdentifier:
+          description: The Field definition identifier.
+          type: string
+        languageCode:
+          description: The language code.
+          type: string
+        fieldTypeIdentifier:
+          description: Field Type identifier.
+          type: string
+        fieldValue:
+          description: A Field Type value or a value type which can be converted by the corresponding field type.
+    FieldDefinition:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: This class represents a Field definition.
+          type: object
+          required:
+            - id
+            - identifier
+            - fieldType
+            - fieldGroup
+            - position
+            - isTranslatable
+            - isRequired
+            - isInfoCollector
+            - defaultValue
+            - isSearchable
+            - names
+            - descriptions
+            - fieldSettings
+            - validatorConfiguration
+          properties:
+            id:
+              description: The unique ID of this Field definition.
+              type: integer
+            identifier:
+              description: Readable string identifier of a Field definition.
+              type: string
+            fieldType:
+              description: String identifier of the field type.
+              type: string
+            fieldGroup:
+              description: Field group name.
+              type: string
+            position:
+              description: The position of the Field definition in the content type.
+              type: integer
+            isTranslatable:
+              description: If the field is translatable.
+              type: boolean
+            isRequired:
+              description: Is the field required.
+              type: boolean
+            isInfoCollector:
+              description: The flag if this field is used for information collection.
+              type: boolean
+            defaultValue:
+              description: Default value of the field.
+            isSearchable:
+              description: Indicates if th the content is searchable by this attribute.
+              type: boolean
+            names:
+              description: Names of content types.
+            descriptions:
+              description: Descriptions of content types.
+            fieldSettings:
+              description: Settings for the Field definition supported by the field type.
+            validatorConfiguration:
+              description: Validator configuration of this Field definition supported by the field type.
+              type:
+                oneOf:
+                  - StringLengthValidatorWrapper
+                  - array
+    FieldDefinitionWrapper:
+      type: object
+      required:
+        - FieldDefinition
+      properties:
+        FieldDefinition:
+          $ref: "#/components/schemas/FieldDefinition"
+    FieldDefinitionCreate:
+      type:
+        $ref: "#/components/schemas/BaseObject"
+    FieldDefinitionCreateWrapper:
+      type: object
+      required:
+        - FieldDefinitionCreate
+      properties:
+        FieldDefinitionCreate:
+          $ref: "#/components/schemas/FieldDefinitionCreate"
+    FieldDefinitionUpdate:
+      type:
+        $ref: "#/components/schemas/BaseObject"
+    FieldDefinitionUpdateWrapper:
+      type: object
+      required:
+        - FieldDefinitionUpdate
+      properties:
+        FieldDefinitionUpdate:
+          $ref: "#/components/schemas/FieldDefinitionUpdate"
+    FieldDefinitions:
+      type: object
+      required:
+        - FieldDefinition
+      properties:
+        FieldDefinition:
+          type: array
+          items:
+            $ref: "#/components/schemas/FieldDefinition"
+    FieldDefinitionsWrapper:
+      type: object
+      required:
+        - FieldDefinitions
+      properties:
+        FieldDefinitions:
+          $ref: "#/components/schemas/FieldDefinitions"
+    StringLengthValidator:
+      description: Validator for checking min. and max. length of strings.
+      type: object
+      required:
+        - maxStringLength
+        - minStringLength
+      properties:
+        maxStringLength:
+          description: Maximum length of strings.
+          type: [integer, null]
+        minStringLength:
+          description: Minimum length of strings.
+          type: [integer, null]
+    StringLengthValidatorWrapper:
+      type: object
+      required:
+        - StringLengthValidator
+      properties:
+        StringLengthValidator:
+          $ref: "#/components/schemas/StringLengthValidator"

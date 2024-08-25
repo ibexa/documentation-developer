@@ -1,0 +1,155 @@
+#             type: ViewInput
+#             type: ViewInputWrapper
+# a
+
+
+    View:
+      description: View.
+      type: object
+      required:
+        - identifier
+        - User
+        - public
+        - LocationQuery
+        - Result
+      properties:
+        identifier:
+          description: Content identifier.
+          type: string
+        User:
+          type:
+            $ref: "#/components/schemas/User"
+        public:
+          type: boolean
+        LocationQuery:
+          type:
+            $ref: "#/components/schemas/LocationQuery"
+        Result:
+          type:
+        $ref: "#/components/schemas/BaseObject"
+    ViewInput:
+      description: This class represents a View input.
+      type: object
+      required:
+        - identifier
+        - Query
+      properties:
+        identifier:
+          description: Content identifier.
+          type: string
+        languageCode:
+          type: string
+        useAlwaysAvailable:
+          type: string
+        Query:
+          type:
+            $ref: "#/components/schemas/Query"
+    ViewInputWrapper:
+      type: object
+      required:
+        - ViewInput
+      properties:
+        ViewInput:
+          $ref: "#/components/schemas/ViewInput"
+    Query:
+      description: This class is used to perform a Content query.
+      type: object
+      properties:
+        Filter:
+          description: The Query filter. Can contain multiple criterion, as items of a logical one (by default AND).
+          type:
+            $ref: "#/components/schemas/Criterion"
+        Query:
+          description: The Query query. Can contain multiple criterion, as items of a logical one (by default AND).
+          type:
+            $ref: "#/components/schemas/Criterion"
+        sortClauses:
+          description: Query sorting clauses.
+          type: array
+          items:
+            $ref: "#/components/schemas/SortClause"
+        facetBuilders:
+          description: An array of facet builders. Search engines may ignore any, or given facet builders they don't support and will just return search result facets supported by the engine. API consumer should dynamically iterate over returned facets for further use.
+          type: array
+          items:
+            $ref: "#/components/schemas/FacetBuilder"
+        offset:
+          description: Query offset. Sets the offset for search hits, used for paging the results.
+          type: integer
+        limit:
+          description: Query limit. Limit for number of search hits to return. If value is `0`, search query will not return any search hits, useful for doing a count.
+          type: integer
+        spellcheck:
+          description: If true spellcheck suggestions are returned.
+          type: boolean
+        performCount:
+          description: If true, search engine should perform count even if that means extra lookup.
+          type: boolean
+    Criterion:
+      description: Criterion implementations.
+      type: object
+      properties:
+        operator:
+          description: The operator used by the Criterion.
+          type: string
+        value:
+          description: The value(s) matched by the Criteria.
+          type: array
+          items: {}
+        target:
+          description: The target used by the Criteria (field, metadata...).
+          type: string
+        valueData:
+          description: Additional value data, required by some Criteria, MapLocationDistance for instance.
+        Specifications:
+          description: Criterion description function. Returns the combination of the Criterion's supported operator/value, as an array of objects.
+          type: array
+          items:
+            $ref: "#/components/schemas/Specifications"
+    FacetBuilder:
+      description: This class is the base class for facet builders.
+      type: object
+      required:
+        - name
+        - global
+        - filter
+        - limit
+        - minCount
+      properties:
+        name:
+          description: The name of the facet.
+          type: string
+        global:
+          description: If true the facet runs in a global mode not restricted by the query.
+          type: boolean
+        filter:
+          description: An additional facet filter that will further filter the documents the facet will be executed on.
+          type:
+            $ref: "#/components/schemas/Criterion"
+        limit:
+          description: Number of facets (terms) returned.
+          type: integer
+        minCount:
+          description: Specifies the minimum count. Only facet groups with more or equal results are returned.
+          type: integer
+    Specifications:
+      description: This class is used by Criteria to describe which operators they support. Instances of this class are returned in an array by the {@see Criterion::getSpecifications()} method.
+      type: object
+      required:
+        - operator
+        - valueFormat
+        - valueTypes
+        - valueCount
+      properties:
+        operator:
+          description: Specified operator, as one of the Operator::* constants.
+          type: string
+        valueFormat:
+          description: Format supported for the Criterion value, either {@see self::FORMAT_SINGLE} for single or {@see self::FORMAT_ARRAY} for multiple.
+          type: string
+        valueTypes:
+          description: "Accepted values types, specifying what type of variables are accepted as a value. Criterion input value type description constants: const TYPE_INTEGER = 1; const TYPE_STRING = 2; const TYPE_BOOLEAN = 4."
+          type: integer
+        valueCount:
+          description: Limitation on the number of items as the value. Only usable if {@see $valueFormat} is {@see self::FORMAT_ARRAY}.
+          type: integer

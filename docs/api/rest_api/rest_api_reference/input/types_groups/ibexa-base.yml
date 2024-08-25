@@ -1,0 +1,83 @@
+    UnixTimestamp:
+      type: integer
+    Href:
+      type: object
+      required:
+        - _href
+      properties:
+        _href:
+          xml:
+            attribute: true
+            name: href
+          type: string
+    ValueArray:
+      type: object
+      required:
+        - value
+      properties:
+        value:
+          type: array
+          items:
+            $ref: "#/components/schemas/Value"
+    SortClause:
+      description: This class is the base for SortClause classes, used to set sorting of content queries.
+      type: object
+      required:
+        - direction
+        - target
+        - targetData
+      properties:
+        direction:
+          description: Sort direction. One of Query::SORT_ASC or Query::SORT_DESC.
+          type: string
+        target:
+          description: "Sort target, high level: section_identifier, attribute_value, etc."
+          type: string
+        targetData:
+          description: Extra target data, required by some sort clauses, field for instance.
+          type:
+            $ref: "#/components/schemas/Target"
+    Target:
+      description: Struct that stores extra target information for a SortClause object.
+      type: object
+    ErrorMessage:
+      description: Represents an error response. Might contain additional properties depending on an error type.
+      type: object
+      required:
+        - errorCode
+        - errorMessage
+        - errorDescription
+      properties:
+        errorCode:
+          type: integer
+        errorMessage:
+          type: string
+        errorDescription:
+          type: string
+    ValueObject:
+      type: object
+      required:
+        - value
+      properties:
+        value:
+          type: array
+          items:
+            $ref: "#/components/schemas/Value"
+    Ref:
+      type:
+        $ref: "#/components/schemas/BaseObject"
+    BaseObject:
+      type: object
+      required:
+        - _media-type
+      properties:
+        _media-type:
+          xml:
+            attribute: true
+            name: media-type
+          type: string
+        _href:
+          xml:
+            attribute: true
+            name: href
+          type: string

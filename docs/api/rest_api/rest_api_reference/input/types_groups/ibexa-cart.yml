@@ -1,0 +1,297 @@
+#             type: CartCreate
+#             type: CartCreateWrapper
+#                     type: Cart
+#                     type: CartWrapper
+#                 type: CartViewInput
+#                 type: CartViewInputWrapper
+#                         type: CartView
+#                         type: CartViewWrapper
+#                         type: Cart
+#                         type: CartWrapper
+#                 type: CartMetadataUpdate
+#                 type: CartMetadataUpdateWrapper
+#                     type: CartEntryAdd
+#                     type: CartEntryAddWrapper
+#                         type: CartEntryUpdate
+#                         type: CartEntryUpdateWrapper
+#                             type: CartSummary
+#                             type: CartSummaryWrapper
+# a
+
+
+    Cart:
+      description: This class represents a Cart
+      type: object
+      required:
+        - id
+        - identifier
+        - owner
+        - Currency
+        - entries
+      properties:
+        id:
+          description: Cart ID
+          type: integer
+        identifier:
+          description: Cart unique identifier
+          type: string
+        owner:
+          description: User reference
+          type:
+            $ref: "#/components/schemas/Ref"
+        Currency:
+          type:
+            $ref: "#/components/schemas/Currency"
+        entries:
+          type: array
+          items:
+            $ref: "#/components/schemas/CartEntry"
+    CartWrapper:
+      type: object
+      required:
+        - Cart
+      properties:
+        Cart:
+          $ref: "#/components/schemas/Cart"
+    CartCreate:
+      description: This class represents a new Cart to create
+      type: object
+      required:
+        - name
+        - currencyCode
+      properties:
+        name:
+          description: the name of the new Cart
+          type: string
+        currencyCode:
+          description: the currency code such as `EUR`
+          type: string
+        context:
+          description: associative array of scalars describing additional, contextual data attached to the cart
+          type: object
+    CartCreateWrapper:
+      type: object
+      required:
+        - CartCreate
+      properties:
+        CartCreate:
+          $ref: "#/components/schemas/CartCreate"
+    CartProduct:
+      description: This class represents a cart entry product
+      type: object
+      required:
+        - code
+      properties:
+        code:
+          description: product's code
+          type: string
+    CartView:
+      description: This class represents a cart view.
+      type: object
+      required:
+        - identifier
+        - Result
+      properties:
+        identifier:
+          type: string
+        Result:
+          $ref: "#/components/schemas/CartListViewResult"
+    CartViewWrapper:
+      type: object
+      required:
+        - CartView
+      properties:
+        CartView:
+          $ref: "#/components/schemas/CartView"
+    CartViewInput:
+      description: This class represents a cart view input.
+      type: object
+      required:
+        - identifier
+        - CartQuery
+      properties:
+        identifier:
+          type: string
+        CartQuery:
+          $ref: "#/components/schemas/CartViewInput"
+    CartViewInputWrapper:
+      type: object
+      required:
+        - CartViewInput
+      properties:
+        CartViewInput:
+          $ref: "#/components/schemas/CartViewInput"
+    CartQuery:
+      type: object
+      required:
+        - offset
+        - limit
+        - ownerId
+      properties:
+        offset:
+          type: integer
+        limit:
+          type: integer
+        ownerId:
+          type: integer
+    CartEntry:
+      type: object
+      required:
+        - identifier
+        - id
+        - names
+        - quantity
+        - Price
+      properties:
+        identifier:
+          type: string
+        id:
+          type: integer
+        names:
+          type: array
+          items:
+            type: object
+        quantity:
+          type: integer
+        Price:
+          $ref: "#/components/schemas/Price"
+    CartEntryAdd:
+      description: This class represents a cart entry
+      type: object
+      required:
+        - quantity
+        - Product
+      properties:
+        quantity:
+          description: the quantity of entry items
+          type: integer
+        Product:
+          description: product data
+        context:
+          description: associative array of scalars describing additional, contextual data attached to the cart entry
+          type: object
+    CartEntryAddWrapper:
+      type: object
+      required:
+        - CartEntryAdd
+      properties:
+        CartEntryAdd:
+          $ref: "#/components/schemas/CartEntryAdd"
+    CartEntryUpdate:
+      type: object
+      required:
+        - quantity
+      properties:
+        quantity:
+          type: integer
+        context:
+          description: associative array of scalars describing additional, contextual data attached to the cart entry
+          type: object
+    CartEntryUpdateWrapper:
+      type: object
+      required:
+        - CartEntryUpdate
+      properties:
+        CartEntryUpdate:
+          $ref: "#/components/schemas/CartEntryUpdate"
+    CartMetadataUpdate:
+      description: This class represents the update of cart metadata.
+      type: object
+      required:
+        - identifier
+        - defaultLanguageCode
+        - names
+        - descriptions
+      properties:
+        identifier:
+          type: string
+        defaultLanguageCode:
+          type: string
+        names:
+          type: array
+          items:
+            $ref: "#/components/schemas/Value"
+        descriptions:
+          type: array
+          items:
+            $ref: "#/components/schemas/Value"
+    CartMetadataUpdateWrapper:
+      type: object
+      required:
+        - CartMetadataUpdate
+      properties:
+        CartMetadataUpdate:
+          $ref: "#/components/schemas/CartMetadataUpdate"
+    CartSummary:
+      description: This class represents a cart summary.
+      type: object
+      required:
+        - id
+        - identifier
+        - name
+        - createdAt
+        - updatedAt
+        - Owner
+        - SummaryEntryCollection
+        - TotalPrice
+        - TotalPriceInclVat
+        - vatCategorySummary
+        - Currency
+      properties:
+        id:
+          type: integer
+        identifier:
+          type: string
+        name:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        Owner:
+          type:
+            $ref: "#/components/schemas/Ref"
+        SummaryEntryCollection:
+          $ref: "#/components/schemas/SummaryEntryCollection"
+        TotalPrice:
+          $ref: "#/components/schemas/RestPriceWrapper"
+        TotalPriceInclVat:
+          $ref: "#/components/schemas/RestPriceWrapper"
+        vatCategorySummary:
+          type: array
+          items:
+            $ref: "#/components/schemas/VatCategorySummary"
+        Currency:
+          $ref: "#/components/schemas/Currency"
+    CartSummaryWrapper:
+      type: object
+      required:
+        - CartSummary
+      properties:
+        CartSummary:
+          $ref: "#/components/schemas/CartSummary"
+    CartListViewResult:
+      type: object
+      required:
+        - count
+        - Result
+      properties:
+        count:
+          type: integer
+        Result:
+          $ref: "#/components/schemas/CartList"
+    SummaryEntryCollection:
+      description: This class represents a summary entry collection.
+      type: object
+      required:
+        - count
+        - SummaryEntry
+      properties:
+        count:
+          type: string
+        SummaryEntry:
+          type: array
+          items:
+            $ref: "#/components/schemas/SummaryEntry"

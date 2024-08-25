@@ -1,0 +1,145 @@
+#             type: string
+#                     type: Root
+#                     type: RootWrapper
+# a
+
+    Root:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: This class represents a root.
+          type: object
+          required:
+            - content
+            - contentByRemoteId
+            - contentTypes
+            - contentTypeByIdentifier
+            - contentTypeGroups
+            - contentTypeGroupByIdentifier
+            - users
+            - roles
+            - rootLocation
+            - rootUserGroup
+            - rootMediaFolder
+            - locationByRemoteId
+            - locationByPath
+            - trash
+            - sections
+            - views
+            - objectStateGroups
+            - objectStates
+            - globalUrlAliases
+            - urlWildcards
+            - createSession
+            - refreshSession
+          properties:
+            content:
+              description: Content.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+            contentByRemoteId:
+              description: Content by the given remote ID.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+            contentTypes:
+              description: Content types.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+            contentTypeByIdentifier:
+              description: Content type by the given identifier.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+            contentTypeGroups:
+              description: Content type Groups.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+            contentTypeGroupByIdentifier:
+              description: Content type Groups by the given identifier.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+            users:
+              description: Users.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+            usersByRoleId:
+              description: Users by Role ID.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+            usersByRemoteId:
+              description: Users by remote ID.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+            usersByEmail:
+              description: Users by e-mail.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+            usersByLogin:
+              description: Users by login.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+            roles:
+              description: Roles.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+            rootLocation:
+              description: Root Location.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+            rootUserGroup:
+              description: Root User Group.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+            rootMediaFolder:
+              description: Root media folder.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+            locationByRemoteId:
+              description: Location by remote ID.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+            locationByPath:
+              description: Location by path.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+            trash:
+              description: Trash.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+            sections:
+              description: Sections.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+            views:
+              description: Views.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+            objectStateGroups:
+              description: Object state groups.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+            objectStates:
+              description: Object states.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+            globalUrlAliases:
+              description: Global URL aliases.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+            urlWildcards:
+              description: URL Wildcards.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+            createSession:
+              description: Creates a new session based on the credentials provided as POST parameters.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+            refreshSession:
+              description: Refresh given session.
+              type:
+                $ref: "#/components/schemas/BaseObject"
+    RootWrapper:
+      type: object
+      required:
+        - Root
+      properties:
+        Root:
+          $ref: "#/components/schemas/Root"

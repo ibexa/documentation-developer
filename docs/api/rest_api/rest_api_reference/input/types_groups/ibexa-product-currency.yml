@@ -1,0 +1,133 @@
+#             type: CurrencyCreateWrapper
+#                     type: CurrencyWrapper
+#                     type: CurrencyListWrapper
+#                         type: CurrencyWrapper
+#                 type: CurrencyUpdateWrapper
+#                         type: CurrencyWrapper
+
+#                 type: CurrencyViewInput
+#                 type: CurrencyViewInputWrapper
+#                         type: CurrencyView
+#                         type: CurrencyViewWrapper
+# a
+
+    Currency:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: This class represents currency.
+          type: object
+          required:
+            - id
+            - code
+            - subunits
+            - enabled
+          properties:
+            id:
+              type: integer
+            code:
+              type: string
+            subunits:
+              type: integer
+            enabled:
+              type: boolean
+    CurrencyWrapper:
+      type: object
+      required:
+        - Currency
+      properties:
+        Currency:
+          $ref: "#/components/schemas/Currency"
+    CurrencyCreate:
+      description: This class is used to create currency.
+      type: object
+      required:
+        - code
+        - subunits
+        - enabled
+      properties:
+        code:
+          type: string
+        subunits:
+          type: integer
+        enabled:
+          type: boolean
+    CurrencyCreateWrapper:
+      type: object
+      required:
+        - CurrencyCreate
+      properties:
+        CurrencyCreate:
+          $ref: "#/components/schemas/CurrencyCreate"
+    CurrencyUpdate:
+      description: This class is used to update currency.
+      type: object
+      required:
+        - subunits
+        - enabled
+      properties:
+        subunits:
+          type: integer
+        enabled:
+          type: boolean
+    CurrencyUpdateWrapper:
+      type: object
+      required:
+        - CurrencyUpdate
+      properties:
+        CurrencyUpdate:
+          $ref: "#/components/schemas/CurrencyUpdate"
+    CurrencyView:
+      description: This class represents a currency view.
+      type: object
+      required:
+        - identifier
+        - CurrencyQuery
+        - Result
+      properties:
+        identifier:
+          type: string
+        CurrencyQuery:
+          type: object
+        Result:
+          type: object
+    CurrencyViewWrapper:
+      type: object
+      required:
+        - CurrencyView
+      properties:
+        CurrencyView:
+          $ref: "#/components/schemas/CurrencyView"
+    CurrencyViewInput:
+      description: This class represents a currency view input.
+      xml:
+        name: ViewInput
+      type: object
+      required:
+        - CurrencyQuery
+      properties:
+        CurrencyQuery:
+          type: object
+    CurrencyViewInputWrapper:
+      type: object
+      required:
+        - ViewInput
+      properties:
+        ViewInput:
+          $ref: "#/components/schemas/CurrencyViewInput"
+    CurrencyList:
+      description: This class represents a currency list.
+      type: object
+      required:
+        - Currency
+      properties:
+        Currency:
+          type: array
+          items:
+            $ref: "#/components/schemas/Currency"
+    CurrencyListWrapper:
+      type: object
+      required:
+        - CurrencyList
+      properties:
+        CurrencyList:
+          $ref: "#/components/schemas/CurrencyList"

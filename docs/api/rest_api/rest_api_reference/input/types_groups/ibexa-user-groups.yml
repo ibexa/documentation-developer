@@ -1,0 +1,245 @@
+#                     type: UserGroupList
+#                     type: UserGroupListWrapper
+#                     type: UserGroupRefList
+#                     type: UserGroupRefListWrapper
+#                 type: UserGroupCreate
+#                 type: UserGroupCreateWrapper
+#                         type: UserGroup
+#                         type: UserGroupWrapper
+#                         type: UserGroup
+#                         type: UserGroupWrapper
+#                 type: UserGroupUpdate
+#                 type: UserGroupUpdateWrapper
+#                         type: UserGroup
+#                         type: UserGroupWrapper
+#                             type: UserList
+#                             type: UserList
+#                             type: UserRefList
+#                             type: UserRefListWrapper
+#                     type: UserCreate
+#                     type: UserCreateWrapper
+#                             type: User
+#                             type: UserWrapper
+#                             type: UserGroupList
+#                             type: UserGroupListWrapper
+#                             type: UserGroupRefList
+#                             type: UserGroupRefListWrapper
+#                     type: UserGroupCreate
+#                     type: UserGroupCreateWrapper
+#                             type: UserGroup
+#                             type: UserGroupWrapper
+#                 #             type: RoleAssignmentList
+#                 #             type: RoleAssignmentListWrapper
+#                 #     type: RoleAssignInput
+#                 #     type: RoleAssignInputWrapper
+#                 #             type: RoleAssignmentList
+#                 #             type: RoleAssignmentListWrapper
+#                 #                 type: RoleAssignment
+#                 #                 type: RoleAssignmentWrapper
+#                 #                 type: RoleAssignmentList
+#                 #                 type: RoleAssignmentListWrapper
+# from ibexa-user-current---
+#                     type: UserList
+#                     type: UserListWrapper
+
+# from ibexa-user-users---
+#                              type: UserGroupRefList
+# #                             type: UserGroupRefListWrapper
+# #                             type: UserGroupRefList
+# #                             type: UserGroupRefListWrapper
+# #                                 type: UserGroupRefList
+# #                                 type: UserGroupRefListWrapper
+
+
+
+    UserGroup:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: Content ID matcher class.
+          type: object
+          required:
+            - _remoteId
+            - _id
+            - ContentType
+            - name
+            - Versions
+            - Section
+            - MainLocation
+            - Locations
+            - Owner
+            - lastModificationDate
+            - mainLanguageCode
+            - alwaysAvailable
+            - Version
+            - ParentUserGroup
+            - Subgroups
+            - Users
+            - Roles
+          properties:
+            _remoteId:
+              description: Remote ID of the content type.
+              xml:
+                attribute: true
+                name: remoteId
+              type: string
+            _id:
+              description: Unique ID of the content type.
+              xml:
+                attribute: true
+                name: id
+              type: integer
+            ContentType:
+              description: Content type.
+              type:
+                $ref: "#/components/schemas/Ref"
+            name:
+              type: string
+            Versions:
+              description: Returns the VersionInfo for this version.
+              type:
+                $ref: "#/components/schemas/Ref"
+            Section:
+              description: The Section to which the content item is assigned to.
+              type:
+                $ref: "#/components/schemas/Ref"
+            MainLocation:
+              type:
+                $ref: "#/components/schemas/Ref"
+            Locations:
+              description: Location of the content item.
+              type:
+                $ref: "#/components/schemas/Ref"
+            Owner:
+              description: The owner of the content item.
+              type:
+                $ref: "#/components/schemas/Ref"
+            lastModificationDate:
+              description: Content item modification date.
+              type: string
+              format: date-time
+            mainLanguageCode:
+              description: The main language code of the content item.
+              type: string
+            alwaysAvailable:
+              type: boolean
+            Version:
+              $ref: "#/components/schemas/Version"
+            ParentUserGroup:
+              type:
+                $ref: "#/components/schemas/Ref"
+            Subgroups:
+              type:
+                $ref: "#/components/schemas/Ref"
+            Users:
+              type:
+                $ref: "#/components/schemas/Ref"
+            Roles:
+              type:
+                $ref: "#/components/schemas/Ref"
+    UserGroupWrapper:
+      type: object
+      required:
+        - UserGroup
+      properties:
+        UserGroup:
+          $ref: "#/components/schemas/UserGroup"
+    UserGroupList:
+      description: This class represents a User Group list.
+      type:
+        $ref: "#/components/schemas/BaseObject"
+    UserGroupListWrapper:
+      type: object
+      required:
+        - UserGroupList
+      properties:
+        UserGroupList:
+          $ref: "#/components/schemas/UserGroupList"
+    UserGroupRefList:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: Returns a list of the sub groups.
+          type: object
+          required:
+            - UserGroup
+          properties:
+            UserGroup:
+              description: This class represents a User group.
+              type: array
+              items:
+                $ref: "#/components/schemas/Ref"
+    UserGroupRefListWrapper:
+      type: object
+      required:
+        - UserGroupRefList
+      properties:
+        UserGroupRefList:
+          $ref: "#/components/schemas/UserGroupRefList"
+    UserGroupCreate:
+      description: This class is used to create a User Group.
+      type: object
+      required:
+        - mainLanguageCode
+        - remoteId
+        - fields
+      properties:
+        mainLanguageCode:
+          type: string
+        remoteId:
+          type: string
+        fields:
+          type:
+            $ref: "#/components/schemas/Fields"
+    UserGroupCreateWrapper:
+      type: object
+      required:
+        - UserGroupCreate
+      properties:
+        UserGroupCreate:
+          $ref: "#/components/schemas/UserGroupCreate"
+    UserGroupUpdate:
+      description: This class is used to update a User group in the Repository.
+      type: object
+      required:
+        - Section
+      properties:
+        Section:
+          type: object
+          required:
+            - _href
+          properties:
+            _href:
+              xml:
+                attribute: true
+                name: href
+              type: string
+    UserGroupUpdateWrapper:
+      type: object
+      required:
+        - UserGroupUpdate
+      properties:
+        UserGroupUpdate:
+          $ref: "#/components/schemas/UserGroupUpdate"
+    UserGroupUnassign:
+      allOf:
+        - ref: "#/components/schemas/BaseObject"
+        - description: This class represents a User group.
+          type: object
+          required:
+            - Unassign
+          properties:
+            Unassign:
+              type:
+                $ref: "#/components/schemas/Unlink"
+    Unlink:
+      description: Unlink a content type group from a content type.
+      type: object
+      required:
+        - _href
+        - _method
+      properties:
+        _href:
+          type: string
+        _method:
+          enum:
+            - DELETE
+          type: string
