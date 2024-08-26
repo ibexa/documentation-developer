@@ -145,27 +145,27 @@ or `LocalAttributeGroupServiceInterface` to modify attribute groups.
 `AttributeGroupServiceInterface::findAttributeGroups()` get all attribute groups, base on optional query:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductAttributeCommand.php', 71, 72) =]]
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductAttributeCommand.php', 92, 97) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 71, 72) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 92, 97) =]]
 ```
 
 To create an attribute group, use `LocalAttributeGroupServiceinterface::createAttributeGroup`
 and provide it with an `AttributeGroupCreateStruct`:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductAttributeCommand.php', 66, 70) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 66, 70) =]]
 ```
 
 To get information about product attributes, use the `AttributeDefinitionServiceInterface`,
 or `LocalAttributeDefinitionServiceInterface` to modify attributes.
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductAttributeCommand.php', 78, 80) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 78, 80) =]]
 ```
 
 To create an attribute, use `LocalAttributeGroupServiceinterface::createAttributeDefinition`
 and provide it with an `AttributeDefinitionCreateStruct`:
 
 ``` php
-[[= include_file('code_samples/api/product_catalog/src/Command/ProductAttributeCommand.php', 83, 89) =]]
+[[= include_file('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 83, 89) =]]
 ```
