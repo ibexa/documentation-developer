@@ -53,7 +53,7 @@ BookmarkList:
     description: 'List of bookmarked Locations.'
     type: object
     properties:
-        totalCount:
+        count:
             description: 'The total number of bookmarks.'
             type: integer
         items:
@@ -1858,8 +1858,8 @@ UrlAliasRefList:
     description: 'List of URL alias in the Repository.'
     type: BaseObject
     properties:
-        URLAlias:
-            type: URLAlias[]
+        UrlAlias:
+            type: UrlAlias[]
 
 UrlQuery:
     description: 'This class is used to perform a URL query.'
@@ -2775,6 +2775,17 @@ ProductFilterList:
         productFilters:
             type: ProductFilter[]
 
+ProductFilter:
+    type: object
+    properties:
+        name: string
+
+ProductSortClause:
+    type: object
+    properties:
+        name:
+            type: string
+
 ProductSortClauseList:
     description: 'This class represents a product sort clause list.'
     type: object
@@ -2786,6 +2797,8 @@ Currency:
     description: 'This class represents currency.'
     type: object
     properties:
+        id:
+            type: integer
         code:
             type: string
         subunits:
@@ -3097,6 +3110,16 @@ CurrencyViewInput:
     properties:
         CurrencyQuery:
             type: object
+
+AttributeAssignment:
+    type: object
+    properties:
+        is_required:
+            type: boolean
+        is_discriminator:
+            type: boolean
+        Attribute:
+            type: Attribute
 
 ProductType:
     description: 'This class represents a product type.'
@@ -3441,6 +3464,16 @@ TaxonomyEntryBulkRemove:
         entries:
             type: TaxonomyEntry[]
 
+TaxonomyEntryMove:
+    type: object
+    properties:
+        entry:
+            type: integer
+        sibling:
+            type: integer
+        position:
+            type: string
+
 TaxonomyEntryBulkMove:
     description: 'This class is used to bulk move taxonomy entries.'
     type: object
@@ -3522,6 +3555,43 @@ ContentMetadataUpdate:
         name:
             type: string
 
+SummaryEntryNames:
+    type: object
+    properties:
+        value:
+            type: array
+            items:
+                type: object
+                properties:
+                    _languageCode:
+                        type: string
+                    '#text':
+                        type: string
+
+SummaryEntry:
+    type: object
+    properties:
+        identifier:
+            type: string
+        id:
+            type: integer
+        names:
+            type: SummaryEntryNames
+        quantity:
+            type: integer
+        Price:
+            type: RestPrice
+        PriceInclVat:
+            type: RestPrice
+        SubtotalPrice:
+            type: RestPrice
+        SubtotalPriceInclVat:
+            type: RestPrice
+        VatCategory:
+            type: VatCategory
+        Product:
+            type: Product
+
 SummaryEntryCollection:
     description: 'This class represents a summary entry collection.'
     type: object
@@ -3565,6 +3635,14 @@ CustomPrice:
         custom_amount:
             type: string
         custom_rule:
+            type: string
+
+RestPrice:
+    type: object
+    properties:
+        Price:
+            type: Price
+        formatted:
             type: string
 
 PriceList:
