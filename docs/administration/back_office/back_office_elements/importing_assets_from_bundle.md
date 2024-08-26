@@ -12,7 +12,7 @@ To import assets from a bundle, configure them in an `ibexa.config.js` file that
 
 ``` js
 const path = require('path');
-git 
+ 
 module.exports = (Encore) => {
 	Encore.addEntry('<entry-name>', [
 		path.resolve(__dirname, '<path_to_file>'),
@@ -42,23 +42,23 @@ create an `ibexa.config.manager.js` file:
 ``` js
 const path = require('path');
 
-module.exports = (IbexaConfig, IbexaConfigManager) => {
-	IbexaConfigManager.replace({
-	    IbexaConfig,
+module.exports = (ibexaConfig, ibexaConfigManager) => {
+	ibexaConfigManager.replace({
+	    ibexaConfig,
 	    entryName: '<entry-name>',
 	    itemToReplace: path.resolve(__dirname, '<path_to_old_file>'),
 	    newItem: path.resolve(__dirname, '<path_to_new_file>'),
 	});
-	IbexaConfigManager.remove({
-	    IbexaConfig,
+	ibexaConfigManager.remove({
+	    ibexaConfig,
 	    entryName: '<entry-name>',
 	    itemsToRemove: [
 	        path.resolve(__dirname, '<path_to_old_file>'),
 	        path.resolve(__dirname, '<path_to_old_file>'),
 	    ],
 	});
-	IbexaConfigManager.add({
-	    IbexaConfig,
+	ibexaConfigManager.add({
+	    ibexaConfig,
 	    entryName: '<entry-name>',
 	    newItems: [
 	        path.resolve(__dirname, '<path_to_new_file>'),
@@ -117,15 +117,15 @@ To overwrite the built-in assets, use the following configuration to replace, re
 in `webpack.config.js`:
 
 ``` js
-IbexaConfigManager.replace({
-    IbexaConfig,
+ibexaConfigManager.replace({
+    ibexaConfig,
     entryName: '<entry-name>',
     itemToReplace: path.resolve(__dirname, '<path_to_old_file>'),
     newItem: path.resolve(__dirname, '<path_to_new_file>'),
 });
 
-IbexaConfigManager.remove({
-    IbexaConfig,
+ibexaConfigManager.remove({
+    ibexaConfig,
     entryName: '<entry-name>',
     itemsToRemove: [
         path.resolve(__dirname, '<path_to_old_file>'),
@@ -133,8 +133,8 @@ IbexaConfigManager.remove({
     ],
 });
 
-IbexaConfigManager.add({
-    IbexaConfig,
+ibexaConfigManager.add({
+    ibexaConfig,
     entryName: '<entry-name>',
     newItems: [
         path.resolve(__dirname, '<path_to_new_file>'),

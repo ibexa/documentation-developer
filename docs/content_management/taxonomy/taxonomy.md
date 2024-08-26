@@ -67,6 +67,17 @@ In configuration add `assigned_content_tab` with the flag `false` (for other tax
 [[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 9, 17) =]]
 ```
 
+### Hide menu item
+
+By default, for each taxonomy, a menu item is added to the main menu.
+You can hide this menu item by setting a value of the `register_main_menu` configuration key:
+
+``` yaml
+[[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 0, 2) =]]        # existing keys
+[[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 9, 10) =]]            # existing keys
+[[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 17, 18) =]]
+```
+
 For more information about available functionalities of tags, see [User Documentation]([[= user_doc =]]/taxonomy).
 
 ## Hide delete button on large subtree

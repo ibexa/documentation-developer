@@ -1,6 +1,7 @@
 ---
 description: Import data into your Repository from prepared YAML files.
 page_type: reference
+month_change: true
 ---
 
 # Importing data
