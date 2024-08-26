@@ -1,6 +1,7 @@
 ---
 description: Host your Ibexa projects on the cloud.
 page_type: landing_page
+month_change: true
 ---
 
 # [[= product_name_cloud =]]

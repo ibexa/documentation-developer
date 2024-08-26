@@ -374,7 +374,7 @@ ibexa:
 
 ### Revisit optional configuration
 
-#### Activity log
+#### Activity log [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 By default, activity log keeps entries for 30 days.
 You can change this value by setting `ibexa.repositories.<name>.activity_log.truncate_after_days` parameter:
@@ -390,7 +390,7 @@ ibexa:
 
 ### Revisit permissions
 
-#### Recent activity
+#### Recent activity [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 You must add the "Activity Log / Read" policy (`activity_log/read`) to every role that has access to the Back Office, at least with the "Only own log" limitation.
 This policy is mandatory to display the "Recent activity" block in [dashboards](#dashboard-migration), and the "Recent activity" block in [user profiles](#user-profile).
@@ -431,6 +431,8 @@ To update the schema, and then reindex the content, use the following commands:
 php bin/console ibexa:elasticsearch:put-index-template --overwrite
 php bin/console ibexa:reindex
 ```
+
+<!-- vale Ibexa.VariablesVersion = NO -->
 
 ## v4.6.2
 
@@ -508,7 +510,14 @@ Run the following scripts:
 To avoid deprecations when updating from an older PHP version to PHP 8.2 or 8.3, run the following commands:
 
 ``` bash
-composer config extra.runtime.error_handler
-"\\Ibexa\\Contracts\\Core\\MVC\\Symfony\\ErrorHandler\\Php82HideDeprecationsErrorHandler"
+composer config extra.runtime.error_handler "\\Ibexa\\Contracts\\Core\\MVC\\Symfony\\ErrorHandler\\Php82HideDeprecationsErrorHandler"
 composer dump-autoload
 ```
+
+## v4.6.9
+
+No additional steps needed.
+
+## v4.6.10
+
+A command to deal with duplicated database entries, as reported in [IBX-8562](https://issues.ibexa.co/browse/IBX-8562), will be available soon.
