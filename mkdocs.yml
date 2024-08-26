@@ -8,8 +8,8 @@ nav:
     - Ibexa Developer Documentation: index.md
     - Ibexa DXP editions:
         - Editions: ibexa_products/editions.md
-        - Ibexa Headless: ibexa_products/headless.md
-        - Ibexa Experience: ibexa_products/experience.md
+        - Ibexa Headless: ibexa_products/ibexa_headless.md
+        - Ibexa Experience: ibexa_products/ibexa_experience.md
         - Ibexa Commerce: ibexa_products/ibexa_commerce.md
     - Getting started:
         - Getting started: getting_started/getting_started.md
@@ -186,8 +186,9 @@ nav:
             - React App page block: content_management/pages/react_app_block.md
             - Ibexa Connect scenario block: content_management/pages/ibexa_connect_scenario_block.md
         - Forms:
-            - Form Builder guide: content_management/forms/form_builder_guide.md
             - Forms: content_management/forms/forms.md
+            - Form Builder guide: content_management/forms/form_builder_guide.md
+            - Work with Forms: content_management/forms/work_with_forms.md
             - Form API: content_management/forms/form_api.md
             - Create custom Form field: content_management/forms/create_custom_form_field.md
             - Create Form attribute: content_management/forms/create_form_attribute.md

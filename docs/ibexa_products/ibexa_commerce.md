@@ -34,7 +34,7 @@ With a help of documentation and trainings, any developer familiar with Symfony 
 
 Version control systems and environment variables allow you to deploy your extensions and settings on several environments, such as [Ibexa Cloud](ibexa_cloud_guide.md).
 
-[[= product_name_com =]] is built on [[[= product_name_exp =]]](experience.md) and includes all bundles, APIs, and features that come with both [Headless](headless.md#core-features) and [Experience](experience.md#core-features) editions.
+[[= product_name_com =]] is built on [[[= product_name_exp =]]](ibexa_experience.md) and includes all bundles, APIs, and features that come with both [Headless](ibexa_headless.md#core-features) and [Experience](ibexa_experience.md#core-features) editions.
 
 ## Capabilities and benefits
 

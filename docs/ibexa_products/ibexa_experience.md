@@ -13,6 +13,8 @@ It offers smooth consumer journey and great online experience. In everything you
 With Experience edition you can empower Editors to quickly create new pages or personalized content, and improve their daily work.
 It also provides tools for using segmentation and targeting, and it can be widely used in B2B thanks its features and integrations.
 
+![Ibexa Experience](ibexa_experience.png)
+
 ## Availability
 
 To start using [[= product_name_exp =]], you need to purchase a product license.
@@ -28,7 +30,7 @@ With an active license, you can start the [installation process](install_ibexa_d
 [[= product_name_exp =]] is based on [Symfony]([[= symfony_doc =]]).
 With a help of documentation and trainings, any developer familiar with Symfony or simply PHP may learn how to use available extension points and extend the platform.
 
-[[= product_name_exp =]] is built on top of [[[= product_name_headless =]]](headless.md), therefore it includes all bundles, APIs, and [features that come with Headless edition](headless.md#core-features), but also more advanced features for digital experience management.
+[[= product_name_exp =]] is built on top of [[[= product_name_headless =]]](ibexa_headless.md), therefore it includes all bundles, APIs, and [features that come with Headless edition](ibexa_headless.md#core-features), but also more advanced features for digital experience management.
 
 Version control systems and environment variables allow you to deploy your projects and settings on several environments, such as Ibexa Cloud.
 
@@ -93,14 +95,14 @@ Using this tool, your customers can change their organization details, invite an
 [Segmentation](https://doc.ibexa.co/en/latest/administration/admin_panel/segments_admin_panel/) allows you to split up the user base.
 By assigning users to segments, you can display specific content to selected visitors and tailor the content that they can see.
 One of the tools that you can use right out of the box is the Targeting block that is available in the Page Builder.
-Segmentation is also useful with the [Personalization](personalization_brochure.md).
+Segmentation is also useful with the [Personalization](personalization_guide.md).
 You can assign users to different recommendation groups and create advanced logic with operators to provide your audience with the best recommendations.
 
 ![Segments](segments.png)
 
 #### Customer Data Platform (CDP)
 
-[Ibexa CDP](cdp_guide.md) is an add-on available for both Experience and Commerce editions of [[= product_name =]].
+[Ibexa CDP](cdp_guide.md) is an add-on available for both Experience and [Commerce](ibexa_commerce.md) editions of [[= product_name =]].
 To use it, you must make arrangements with [[= product_name_base =]] to define the initial configuration.
 Once you activate [[= product_name_cdp =]], you can create complete customer profiles, including their interactions, behavior, and preferences.
 It helps you improve user engagement, conversion rates, and return on investment by segmenting your audience and delivering tailored campaigns and experiences.
@@ -112,7 +114,7 @@ This central data storage supports business growth with a scalable infrastructur
 
 #### Ibexa Engage
 
-Another add-on available for Experience and Commerce edition is [Ibexa Engage](ibexa_engage.md).
+Another add-on available for Experience and [Commerce](ibexa_commerce.md) edition is [Ibexa Engage](ibexa_engage.md).
 To use it, you must make arrangements with [[= product_name_base =]] to define the initial configuration, and then get and set up a user account.
 Ibexa Engage is a data collection tool.
 It gives you the ability to use the [Qualifio](https://qualifio.com/) tools to engage your audiences. You can use Qualifio's existing templates and interactive elements, such as quizzes, pools, and forms, to create visually appealing, customized campaigns and collect important data.

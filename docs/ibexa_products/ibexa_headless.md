@@ -13,6 +13,8 @@ It provides tools to collaboratively create content, and interfaces (API) to dis
 Multilingual, multichannel, extensible, [[= product_name_headless =]] is an advanced Content Management Framework (CMF), a Product Information Management (PIM) platform, as well as a Digital Asset Management (DAM) repository.
 It's provided without a default front office, but with a complete Back Office and several APIs to manage and access content.
 
+![Ibexa Headless](ibexa_headless.png)
+
 ## Availability
 
 To start using [[= product_name_headless =]] you must purchase a product license.
