@@ -32,11 +32,15 @@ function displayBlocks(array $docFileBlocks, string $docFilePath = null, $lineOf
         echo implode(PHP_EOL, $prefixedBlockLines) . PHP_EOL . PHP_EOL;
 
         $prefixedBlockContentLines = [];
-        $blockContents = getBlockContents($block);
-        foreach ($blockContents['contents'] as $contentLineNumber => $contentLine) {
-            $prefixedBlockContentLines[] = str_pad($contentLineNumber, 3, 0, STR_PAD_LEFT) . (in_array($contentLineNumber, $blockContents['highlights']) ? '⫸' : '⫶') . $contentLine;
+        try {
+            $blockContents = getBlockContents($block);
+            foreach ($blockContents['contents'] as $contentLineNumber => $contentLine) {
+                $prefixedBlockContentLines[] = str_pad($contentLineNumber, 3, 0, STR_PAD_LEFT) . (in_array($contentLineNumber, $blockContents['highlights']) ? '⫸' : '⫶') . $contentLine;
+            }
+            echo implode(PHP_EOL, $prefixedBlockContentLines) . PHP_EOL . PHP_EOL;
+        } catch (Exception $exception) {
+            echo $exception->getMessage() . PHP_EOL . PHP_EOL;
         }
-        echo implode(PHP_EOL, $prefixedBlockContentLines) . PHP_EOL . PHP_EOL;
     }
 }
 
