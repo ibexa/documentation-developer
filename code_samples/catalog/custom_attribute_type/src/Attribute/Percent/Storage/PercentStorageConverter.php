@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Attribute\Percent\Storage;
 
 use Ibexa\Contracts\ProductCatalog\Local\Attribute\StorageConverterInterface;
-use Ibexa\ProductCatalog\Local\Persistence\Legacy\Attribute\Boolean\StorageSchema;
+use Ibexa\ProductCatalog\Local\Persistence\Legacy\Attribute\Float\StorageSchema;
 use Webmozart\Assert\Assert;
 
 final class PercentStorageConverter implements StorageConverterInterface
