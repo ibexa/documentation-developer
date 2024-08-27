@@ -1,6 +1,6 @@
 ---
 title: Ibexa Headless
-description: Explore Ibexa Headless' features, capabilities and benefits.
+description: Get to know Ibexa Headless - an edition that focuses on content management.
 ---
 
 # Ibexa DXP Headless edition product guide

@@ -35,7 +35,7 @@ Compare all features available in [[= product_name_headless =]], [[= product_nam
 | [Form Builder](form_builder_guide.md) |  | &#10004; | &#10004; |
 | [Publish Later]([[= user_doc =]]/content_management/schedule_publishing/#date-based-publishing) |  | &#10004; | &#10004; |
 | [Corporate account management]([[= user_doc =]]/customer_management/manage_customers/) |  | &#10004; | &#10004; |
-| [Customer Portal](customer_portal.md) |  | &#10004; | &#10004; |
+| [Customer Portal](customer_portal_guide.md) |  | &#10004; | &#10004; |
 | [Segments](segments_admin_panel.md) |  | &#10004; | &#10004; |
 | [Ibexa Engage add-on]([[= user_doc =]]/ibexa_engage/ibexa_engage/) |  | &#10004; | &#10004; |
 | [Customer Data Platform (CDP) add-on](cdp_guide.md) |  | &#10004; | &#10004; |
@@ -43,5 +43,4 @@ Compare all features available in [[= product_name_headless =]], [[= product_nam
 | [Payment management](payment.md) |  |  | &#10004; |
 | [Shipping management](shipping_management.md) |  |  | &#10004; |
 | [Storefront](storefront.md) |  |  | &#10004; |
-| [Relevant faceted search](search_for_content.md#filtered-search) |  |  | &#10004; |
 | [Transactional emails](transactional_emails.md) |  |  | &#10004; |

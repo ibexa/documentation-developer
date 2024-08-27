@@ -1,5 +1,5 @@
 ---
-description: The Form Builder product guide provides a full description of its features as well as the benefits it brings to the client.
+description: See the Form Builder product guide and learn how to create various forms to increase the functionality of your website.
 edition: experience
 ---
 

@@ -380,7 +380,8 @@ nav:
             - Transactional email variables reference: commerce/transactional_emails/transactional_emails_parameters.md
             - Customize transactional emails: commerce/transactional_emails/extend_transactional_emails.md
     - Customer management:
-        - Customer Portal guide: customer_management/customer_portal.md
+        - Customer Portal: customer_management/customer_portal.md
+        - Customer Portal guide: customer_management/customer_portal_guide.md
         - Customer Portal configuration: customer_management/cp_configuration.md
         - Create Customer Portal: customer_management/cp_page_builder.md
         - Customer Portal Applications: customer_management/cp_applications.md

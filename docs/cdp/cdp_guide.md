@@ -1,5 +1,5 @@
 ---
-description: The Ibexa CDP (Customer Data Platform) product guide provides a full description of its features as well as the benefits it brings to the client.
+description: The Ibexa CDP product guide describes all the possibilities tha Customer Data Platform offers to help you build great customer experiences.
 edition: experience
 ---
 
