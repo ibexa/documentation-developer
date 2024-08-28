@@ -3,7 +3,7 @@ description: The Ibexa CDP product guide describes all the possibilities that th
 edition: experience
 ---
 
-# Customer Data Platform (CDP) product guide
+# Ibexa Customer Data Platform (CDP) product guide
 
 ## What is [[= product_name_cdp =]]
 

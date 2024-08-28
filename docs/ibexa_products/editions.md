@@ -13,6 +13,8 @@ Three [[= product_name =]] product editions are available to help you accelerate
 "ibexa_products/ibexa_commerce"
 ], columns=3) =]]
 
+## Feature comparison
+
 Compare all features available in [[= product_name_headless =]], [[= product_name_exp =]], and [[= product_name_com =]] to help you choose the right products for your needs:
 
 | Feature | [[= product_name_headless =]] | [[= product_name_exp =]] | [[= product_name_com =]] |

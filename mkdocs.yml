@@ -153,8 +153,8 @@ nav:
                 - Customize search sorting: administration/back_office/customize_search_sorting.md
             - Recent activity: administration/recent_activity/recent_activity.md
     - Content management:
-        - Content management guide: content_management/content_management_guide.md
         - Content management: content_management/content_management.md
+        - Content management guide: content_management/content_management_guide.md
         - Content model: content_management/content_model.md
         - Locations: content_management/locations.md
         - Content Relations: content_management/content_relations.md
@@ -178,8 +178,8 @@ nav:
             - Binary and Media download: content_management/file_management/binary_and_media_download.md
             - File URL handling: content_management/file_management/file_url_handling.md
         - Pages:
-            - Page Builder guide: content_management/pages/page_builder_guide.md
             - Pages: content_management/pages/pages.md
+            - Page Builder guide: content_management/pages/page_builder_guide.md
             - Page blocks: content_management/pages/page_blocks.md
             - Page block attributes: content_management/pages/page_block_attributes.md
             - Page block validators: content_management/pages/page_block_validators.md
@@ -322,8 +322,8 @@ nav:
             - Add navigation menu: templating/layout/add_navigation_menu.md
             - Add search form to front page: templating/layout/add_search_form.md
     - PIM (Product management):
-        - PIM guide: pim/pim_guide.md
         - PIM (Product management): pim/pim.md
+        - PIM guide: pim/pim_guide.md
         - PIM configuration: pim/pim_configuration.md
         - Products: pim/products.md
         - Product API: pim/product_api.md
@@ -418,8 +418,8 @@ nav:
         - Limitation reference: permissions/limitation_reference.md
         - Custom Policies: permissions/custom_policies.md
     - Users:
-        - User management guide: users/user_management_guide.md
         - Users: users/users.md
+        - User management guide: users/user_management_guide.md
         - User setup:
           - Invitations: users/invitations.md
           - Registration: users/user_registration.md
@@ -433,8 +433,8 @@ nav:
           - Customer groups: users/customer_groups.md
           - Segment API: users/segment_api.md
     - Personalization:
-        - Personalization guide : personalization/personalization_guide.md
         - Personalization: personalization/personalization.md
+        - Personalization guide : personalization/personalization_guide.md
         - How Personalization works: personalization/how_it_works.md
         - Enable Personalization: personalization/enable_personalization.md
         - Integrate recommendation service: personalization/integrate_recommendation_service.md
@@ -450,8 +450,8 @@ nav:
         - Track with ibexa-tracker.js: personalization/tracking_with_ibexa-tracker.md
         - Attribute search in Elasticsearch: personalization/attribute_search_in_elasticsearch.md
     - CDP (Customer Data Platform):
-        - CDP guide: cdp/cdp_guide.md
         - Customer Data Platform: cdp/cdp.md
+        - CDP guide: cdp/cdp_guide.md
         - CDP installation: cdp/cdp_installation.md
         - CDP activation:
             - CDP activation: cdp/cdp_activation/cdp_activation.md
@@ -751,8 +751,8 @@ nav:
             - Manipulate Elasticsearch query: search/extensibility/manipulate_elasticsearch_query.md
         - Reindex search: search/reindex_search.md
     - Ibexa Cloud:
-        - Ibexa Cloud guide: ibexa_cloud/ibexa_cloud_guide.md
         - Ibexa Cloud: ibexa_cloud/ibexa_cloud.md
+        - Ibexa Cloud guide: ibexa_cloud/ibexa_cloud_guide.md
         - Install on Ibexa Cloud: ibexa_cloud/install_on_ibexa_cloud.md
         - DDEV and Ibexa Cloud: ibexa_cloud/ddev_and_ibexa_cloud.md
     - Infrastructure and maintenance:

@@ -1,7 +1,6 @@
 ---
 description: Check all the capabilities and advantages that the Customer Portal offers to the clients by reading the Customer Portal product guide.
 edition: experience
-page_type: landing_page
 ---
 
 # Customer Portal product guide
@@ -23,7 +22,7 @@ Customer Portal is available in [[= product_name_exp =]]. It is also compatible 
 ## How does Customer Portal work?
 
 Customer Portal is a component based on content types. 
-This means that [[= product_name =]] provide containers, user management, content management, so you can focus on business logic and general outlook of the portal for your B2B clients.
+This means that [[= product_name =]] provides containers, user management, content management, so you can focus on business logic and general outlook of the portal for your B2B clients.
 
 ### Customer Portal
 
@@ -36,11 +35,11 @@ With user differentiation, company buyers can only purchase products while compa
 
 Custom Customer Portal can be created and edited in Page Builder to meet the needs of each business type, company, or market they operate on.
 
-To create a new Customer Portal, go to Content and from the menu select Content structure. 
+To create a new Customer Portal, go to Content and, from the menu, select Content structure. 
 There, navigate to the root container for your Customer Portals and select Customer Portal Page. 
 In the Page Builder creation box, you see the Customer Portal layout where you can add a dedicated Customer Portal block, 
 Sales Representative, or choose from a selection of blocks available to your [[= product_name =]] version.
-If built in page blocks are not sufficient to fulfill your needs, you can add your own.
+If the built-in page blocks are not sufficient to fulfill your needs, you can add your own.
 
 ![Editable in Page Builder](img/cp_edit_in_page_builder.png)
 
@@ -135,7 +134,7 @@ By giving users power to manage their own accounts, you reduce the need for admi
 
 Self-registration allows your customers to take control of their business accounts.
 This not only improves customer satisfaction but also reduces the administrative burden on your team. 
-With the ability to integrate with [[= product_name_connect =]] you are able to fully automate the process.
+With the ability to integrate with [[= product_name_connect =]], you are able to fully automate the process.
 
 ### Address book
 
