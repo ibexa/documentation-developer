@@ -71,6 +71,16 @@ Now, configure the database connection for your [[= product_name =]] project. De
     ddev config --web-environment-add DATABASE_URL=mysql://db:db@db:3306/db
     ```
 
+    To ensure character set when outside Symfony, like using the database client `ddev mysql`, add the following database server configuration.
+
+    Create the file `.ddev/mysql/utf8mb4.cnf` with the following content:
+
+    ```cfg
+    [mysqld]
+    character-set-server = utf8mb4
+    collation-server = utf8mb4_unicode_520_ci
+    ```
+
 === "PostgreSQL"
 
     ```bash
