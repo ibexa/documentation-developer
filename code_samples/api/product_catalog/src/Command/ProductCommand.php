@@ -32,7 +32,6 @@ final class ProductCommand extends Command
 
     private ProductAvailabilityServiceInterface $productAvailabilityService;
 
-    //TMP
     public function __construct(
         UserService $userService,
         PermissionResolver $permissionResolver,
