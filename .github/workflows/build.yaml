@@ -109,6 +109,8 @@ jobs:
         name: Check code samples inclusion
         runs-on: ubuntu-latest
         if: github.event_name == 'pull_request'
+        permissions:
+            discussions: read
 
         steps:
             -   name: List modified files
