@@ -156,6 +156,7 @@ jobs:
                     diff -U $(( source_length > target_length ? source_length : target_length )) $HOME/code_samples_usage_target.txt $HOME/code_samples_usage_source.txt > $HOME/code_samples_usage.diff
                     echo $?
                     cat $HOME/code_samples_usage.diff
+                    wc -l $HOME/code_samples_usage.diff
             -   name: Convert code_samples usages differences (diff2html)
                 if: steps.list.outputs.CODE_SAMPLES_CHANGE != ''
                 # npm warn deprecated mkdirp@0.3.0: Legacy versions of mkdirp are no longer supported. Please update to mkdirp 1.x. (Note that the API surface has changed to use Promises in 1.x.)
