@@ -109,6 +109,11 @@ jobs:
         name: Check code samples inclusion
         runs-on: ubuntu-latest
         if: github.event_name == 'pull_request'
+        permissions:
+            # Needed to find previous comment
+            issues: write
+            # Needed to post new comment
+            pull-requests: write
 
         steps:
             -   name: List modified files
