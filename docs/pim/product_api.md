@@ -19,14 +19,14 @@ description: Use PHP API to manage products in PIM, their attributes, availabili
 
 Get an individual product by using the `productService::getProduct()` method:
 
-``` php
+``` php hl_lines="1"
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 68, 71) =]]
 ```
 
 Find multiple products with `productService::findProducts()`.
 Provide the method with optional filter, query or Sort Clauses.
 
-``` php
+``` php hl_lines="6"
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 72, 82) =]]
 ```
 
