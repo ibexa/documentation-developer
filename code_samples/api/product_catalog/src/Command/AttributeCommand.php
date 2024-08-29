@@ -99,3 +99,5 @@ final class AttributeCommand extends Command
         return self::SUCCESS;
     }
 }
+
+class_alias(AttributeCommand::class, 'App\Command\ProductAttributeCommand');
