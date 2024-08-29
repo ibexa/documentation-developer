@@ -110,7 +110,7 @@ jobs:
         runs-on: ubuntu-latest
         if: github.event_name == 'pull_request'
         permissions:
-            discussions: read
+            discussions: write
 
         steps:
             -   name: List modified files
