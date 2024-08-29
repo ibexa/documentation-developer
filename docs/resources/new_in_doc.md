@@ -311,7 +311,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
     - [Customer portal](https://doc.ibexa.co/en/master/customer_management/customer_portal/)
     - [Form Builder](https://doc.ibexa.co/en/master/content_management/forms/form_builder_guide/)
     - [Online editor](https://doc.ibexa.co/en/master/content_management/rich_text/online_editor_guide/)
-    - [Personalization](https://doc.ibexa.co/en/master/personalization/personalization_product_guide/)
+    - [Personalization](https://doc.ibexa.co/en/master/personalization/personalization_guide/)
     - [PIM](https://doc.ibexa.co/en/master/pim/pim_guide/)
 
 - [Updated bundles list](https://doc.ibexa.co/en/master/administration/project_organization/bundles/)

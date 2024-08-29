@@ -1,11 +1,11 @@
 ---
-description: Dicover various of Ibexa DXP features.
+description: Discover various Ibexa DXP features.
 page_type: landing_page
 ---
 
 # Product guides
 
-[[= product_name =]] product edtions comes with a variety of features.
+[[= product_name =]] product editions come with a variety of features.
 Discover the primary ones with the help of product guides. Condensed content allows you to quickly learn about their availability, capabilities, and benefits.
 
 [[= cards([

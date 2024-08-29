@@ -27,22 +27,30 @@ Compare all features available in [[= product_name_headless =]], [[= product_nam
 | [SEO]([[= user_doc =]]/search_engine_optimization/seo/) | &#10004; | &#10004; | &#10004; |
 | [Content translation]([[= user_doc =]]/content_management/translate_content/) | &#10004; | &#10004; | &#10004; |
 | [Search]([[= user_doc =]]/search/search_for_content/) | &#10004; | &#10004; | &#10004; |
-| [Collaboration workspace]([[= user_doc =]]/content_management/workflow_management/editorial_workflow/) | &#10004; | &#10004; | &#10004; |
+| [Editorial workflow]([[= user_doc =]]/content_management/workflow_management/editorial_workflow/) | &#10004; | &#10004; | &#10004; |
 | [Digital Asset Management]([[= user_doc =]]/dam/ibexa_dam/) | &#10004; | &#10004; | &#10004; |
 | [Product Information Management]([[= user_doc =]]/pim/pim/) | &#10004; | &#10004; | &#10004; |
 | [Personalization](personalization_guide.md) | &#10004; | &#10004; | &#10004; |
+| [Migrations](managing_migrations.md) | &#10004; | &#10004; | &#10004; |
+| [[[= product_name_connect =]]]([[= connect_doc =]]) | &#10004; | &#10004; | &#10004; |
+| [OAuth client](oauth_client.md) | &#10004; | &#10004; | &#10004; |
+| [OAuth Server](oauth_server.md) | &#10004; | &#10004; | &#10004; |
 | [Site Factory](site_factory.md) |  | &#10004; | &#10004; |
 | [Customizable Dashboard]([[= user_doc =]]/getting_started/dashboard/work_with_dashboard/#customize-dashboard) |  | &#10004; | &#10004; |
 | [Page Builder](page_builder_guide.md) |  | &#10004; | &#10004; |
 | [Form Builder](form_builder_guide.md) |  | &#10004; | &#10004; |
-| [Publish Later]([[= user_doc =]]/content_management/schedule_publishing/#date-based-publishing) |  | &#10004; | &#10004; |
+| [Scheduler tab]([[= user_doc =]]/content_management/schedule_publishing/#scheduler-tab) |  | &#10004; | &#10004; |
+| [Content Scheduler block]([[= user_doc =]]/content_management/schedule_publishing/#content-scheduler-block) |  | &#10004; | &#10004; |
 | [Corporate account management]([[= user_doc =]]/customer_management/manage_customers/) |  | &#10004; | &#10004; |
 | [Customer Portal](customer_portal_guide.md) |  | &#10004; | &#10004; |
 | [Segments](segments_admin_panel.md) |  | &#10004; | &#10004; |
+| [Recent activity](recent_activity.md) |  | &#10004; | &#10004; |
 | [Ibexa Engage add-on]([[= user_doc =]]/ibexa_engage/ibexa_engage/) |  | &#10004; | &#10004; |
 | [Customer Data Platform (CDP) add-on](cdp_guide.md) |  | &#10004; | &#10004; |
 | [Order management](order_management.md) |  |  | &#10004; |
 | [Payment management](payment.md) |  |  | &#10004; |
 | [Shipping management](shipping_management.md) |  |  | &#10004; |
+| [Cart](cart.md) |  |  | &#10004; |
+| [Checkout](checkout.md) |  |  | &#10004; |
 | [Storefront](storefront.md) |  |  | &#10004; |
 | [Transactional emails](transactional_emails.md) |  |  | &#10004; |
