@@ -6,7 +6,7 @@
         'commerce',
     ] %}
 
-    {% set package = "" %}
+    {% set package = '' %}
     {% if node.file.path is not empty %}
         {% set package = node.file.path|split('/')|slice(1, 2)|join('/') %}
     {% else %}
