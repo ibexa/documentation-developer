@@ -110,8 +110,10 @@ jobs:
         runs-on: ubuntu-latest
         if: github.event_name == 'pull_request'
         permissions:
-            #pull-requests: write
+            # Needed to find previous comment
             issues: write
+            # Needed to post new comment
+            pull-requests: write
 
         steps:
             -   name: List modified files
