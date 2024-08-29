@@ -111,6 +111,7 @@ jobs:
         if: github.event_name == 'pull_request'
         permissions:
             pull-requests: write
+            issues: write
 
         steps:
             -   name: List modified files
