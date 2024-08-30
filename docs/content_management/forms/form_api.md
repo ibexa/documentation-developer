@@ -7,7 +7,7 @@ edition: experience
 
 ## Form submissions
 
-To manage form submissions created in the [Form Builder](forms.md), use `FormSubmissionServiceInterface`.
+To manage form submissions created in the [Form Builder](form_builder_guide.md), use `FormSubmissionServiceInterface`.
 
 ### Getting form submissions
 
