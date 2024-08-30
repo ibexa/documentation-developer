@@ -156,9 +156,8 @@ jobs:
                     target_length=`wc -l < $HOME/code_samples_usage_target.txt`
                     diff -U $(( source_length > target_length ? source_length : target_length )) $HOME/code_samples_usage_target.txt $HOME/code_samples_usage_source.txt > $HOME/code_samples_usage.diff
                     echo "CODE_SAMPLES_DIFF=$(wc -l < $HOME/code_samples_usage.diff | xargs)" >> "$GITHUB_OUTPUT"
-                    echo $GITHUB_OUTPUT
             -   name: Convert code_samples usages differences (diff2html)
-                if: ${{ failure() && steps.list.outputs.CODE_SAMPLES_CHANGE != '' }}
+                if: steps.list.outputs.CODE_SAMPLES_CHANGE != ''
                 # npm warn deprecated mkdirp@0.3.0: Legacy versions of mkdirp are no longer supported. Please update to mkdirp 1.x. (Note that the API surface has changed to use Promises in 1.x.)
                 # Error: Process completed with exit code 3.
                 continue-on-error: true
