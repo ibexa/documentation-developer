@@ -8,8 +8,8 @@ nav:
     - Ibexa Developer Documentation: index.md
     - Ibexa DXP editions:
         - Editions: ibexa_products/editions.md
-        - Ibexa Headless: ibexa_products/headless.md
-        - Ibexa Experience: ibexa_products/experience.md
+        - Ibexa Headless: ibexa_products/ibexa_headless.md
+        - Ibexa Experience: ibexa_products/ibexa_experience.md
         - Ibexa Commerce: ibexa_products/ibexa_commerce.md
     - Getting started:
         - Getting started: getting_started/getting_started.md
@@ -168,7 +168,8 @@ nav:
             - Extend Image Editor: content_management/images/extend_image_editor.md
             - Add Image Asset from DAM: content_management/images/add_image_asset_from_dam.md
             - Fastly Image Optimizer: content_management/images/fastly_io.md
-        - Rich Text:
+        - RichText:
+            - RichText: content_management/rich_text/rich_text.md
             - Online Editor guide: content_management/rich_text/online_editor_guide.md
             - Extend Online Editor: content_management/rich_text/extend_online_editor.md
             - Create custom RichText block: content_management/rich_text/create_custom_richtext_block.md
@@ -177,8 +178,8 @@ nav:
             - Binary and Media download: content_management/file_management/binary_and_media_download.md
             - File URL handling: content_management/file_management/file_url_handling.md
         - Pages:
-            - Page Builder guide: content_management/pages/page_builder_guide.md
             - Pages: content_management/pages/pages.md
+            - Page Builder guide: content_management/pages/page_builder_guide.md
             - Page blocks: content_management/pages/page_blocks.md
             - Page block attributes: content_management/pages/page_block_attributes.md
             - Page block validators: content_management/pages/page_block_validators.md
@@ -186,8 +187,9 @@ nav:
             - React App page block: content_management/pages/react_app_block.md
             - Ibexa Connect scenario block: content_management/pages/ibexa_connect_scenario_block.md
         - Forms:
-            - Form Builder guide: content_management/forms/form_builder_guide.md
             - Forms: content_management/forms/forms.md
+            - Form Builder guide: content_management/forms/form_builder_guide.md
+            - Work with Forms: content_management/forms/work_with_forms.md
             - Form API: content_management/forms/form_api.md
             - Create custom Form field: content_management/forms/create_custom_form_field.md
             - Create Form attribute: content_management/forms/create_form_attribute.md
@@ -379,7 +381,8 @@ nav:
             - Transactional email variables reference: commerce/transactional_emails/transactional_emails_parameters.md
             - Customize transactional emails: commerce/transactional_emails/extend_transactional_emails.md
     - Customer management:
-        - Customer Portal guide: customer_management/customer_portal.md
+        - Customer Portal: customer_management/customer_portal.md
+        - Customer Portal guide: customer_management/customer_portal_guide.md
         - Customer Portal configuration: customer_management/cp_configuration.md
         - Create Customer Portal: customer_management/cp_page_builder.md
         - Customer Portal Applications: customer_management/cp_applications.md
@@ -431,7 +434,7 @@ nav:
           - Segment API: users/segment_api.md
     - Personalization:
         - Personalization: personalization/personalization.md
-        - Personalization guide : personalization/personalization_brochure.md
+        - Personalization guide : personalization/personalization_guide.md
         - How Personalization works: personalization/how_it_works.md
         - Enable Personalization: personalization/enable_personalization.md
         - Integrate recommendation service: personalization/integrate_recommendation_service.md
@@ -833,6 +836,8 @@ nav:
             - Report and follow issues: resources/contributing/report_and_follow_issues.md
             - Contribute translations: resources/contributing/contribute_translations.md
             - Package structure: resources/contributing/package_structure.md
+    - Product guides:
+        - Product guides: product_guides/product_guides.md
     - Release notes:
         - Release notes: release_notes/release_notes.md
         - Ibexa DXP v4.6 LTS: release_notes/ibexa_dxp_v4.6.md

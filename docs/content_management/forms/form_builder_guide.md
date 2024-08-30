@@ -1,5 +1,5 @@
 ---
-description: The Form Builder product guide provides a full description of its features as well as the benefits it brings to the client.
+description: See the Form Builder product guide and learn how to create various forms to increase the functionality of your website.
 edition: experience
 ---
 
@@ -64,7 +64,7 @@ To learn more, see [Work with forms]([[= user_doc =]]/content_management/work_wi
 
 ### Forms management
 
-[Form](forms.md) is one of available [content items]([[= user_doc =]]/content_management/content_items/) that you can find in the platform. 
+[Form](work_with_forms.md) is one of available [content items]([[= user_doc =]]/content_management/content_items/) that you can find in the platform. 
 You can work with it as with other regular items: create new one, edit existing one, move, etc.
 
 You can manage all the existing forms. To do it, in a selected place of the content tree find your form and click on it.
