@@ -147,19 +147,18 @@ jobs:
                 run: php tools/code_samples/code_samples_usage.php ${{ steps.list.outputs.CODE_SAMPLES_CHANGE }} > $HOME/code_samples_usage_source.txt
 
             -   name: Compare code_samples usages (diff --unified)
-                id: diff-diff
                 if: steps.list.outputs.CODE_SAMPLES_CHANGE != ''
                 # diff returns 1 if there is a difference, this is normal but seen as an error by the job.
                 continue-on-error: true
                 run: |
                     source_length=`wc -l < $HOME/code_samples_usage_source.txt`
                     target_length=`wc -l < $HOME/code_samples_usage_target.txt`
-                    echo 'CODE_SAMPLES_DIFF<<CODE_SAMPLES_DIFF_DELIMITER' >> "$GITHUB_OUTPUT"
-                    echo 'TEST' >> "$GITHUB_OUTPUT"
-                    echo 'CODE_SAMPLES_DIFF_DELIMITER' >> "$GITHUB_OUTPUT"
                     diff -U $(( source_length > target_length ? source_length : target_length )) $HOME/code_samples_usage_target.txt $HOME/code_samples_usage_source.txt > $HOME/code_samples_usage.diff
-                    #echo "CODE_SAMPLES_DIFF=$(wc -l < $HOME/code_samples_usage.diff | xargs)" >> "$GITHUB_OUTPUT"
-
+            -   name: Check for differences
+                id: diff
+                if: steps.list.outputs.CODE_SAMPLES_CHANGE != ''
+                run: |
+                    echo "CODE_SAMPLES_DIFF=$(wc -l < $HOME/code_samples_usage.diff | xargs)" >> "$GITHUB_OUTPUT"
             -   name: Convert code_samples usages differences (diff2html)
                 if: steps.list.outputs.CODE_SAMPLES_CHANGE != ''
                 #if: steps.diff.outputs.CODE_SAMPLES_DIFF != '0'
@@ -183,7 +182,7 @@ jobs:
                     echo '# code_samples/ change report' >> code_samples_usage.diff.md
                     echo '' >> code_samples_usage.diff.md
                     echo ${{ steps.list.outputs.CODE_SAMPLES_CHANGE }} >> code_samples_usage.diff.md
-                    echo ${{ steps.diff-diff.outputs.CODE_SAMPLES_DIFF }} >> code_samples_usage.diff.md
+                    echo ${{ steps.diff.outputs.CODE_SAMPLES_DIFF }} >> code_samples_usage.diff.md
                     echo '' >> code_samples_usage.diff.md
                     php tools/code_samples/code_samples_usage_diff2html.php $HOME/code_samples_usage.diff >> code_samples_usage.diff.md
                     echo '<a href="${{ steps.artifact.outputs.artifact-url }}">Download colorized diff</a>' >> code_samples_usage.diff.md
