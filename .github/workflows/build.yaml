@@ -147,7 +147,7 @@ jobs:
                 run: php tools/code_samples/code_samples_usage.php ${{ steps.list.outputs.CODE_SAMPLES_CHANGE }} > $HOME/code_samples_usage_source.txt
 
             -   name: Compare code_samples usages (diff --unified)
-                id: diff
+                id: diff-diff
                 if: steps.list.outputs.CODE_SAMPLES_CHANGE != ''
                 # diff returns 1 if there is a difference, this is normal but seen as an error by the job.
                 continue-on-error: true
@@ -183,7 +183,7 @@ jobs:
                     echo '# code_samples/ change report' >> code_samples_usage.diff.md
                     echo '' >> code_samples_usage.diff.md
                     echo ${{ steps.list.outputs.CODE_SAMPLES_CHANGE }} >> code_samples_usage.diff.md
-                    echo ${{ steps.diff.outputs.CODE_SAMPLES_DIFF }} >> code_samples_usage.diff.md
+                    echo ${{ steps.diff-diff.outputs.CODE_SAMPLES_DIFF }} >> code_samples_usage.diff.md
                     echo '' >> code_samples_usage.diff.md
                     php tools/code_samples/code_samples_usage_diff2html.php $HOME/code_samples_usage.diff >> code_samples_usage.diff.md
                     echo '<a href="${{ steps.artifact.outputs.artifact-url }}">Download colorized diff</a>' >> code_samples_usage.diff.md
