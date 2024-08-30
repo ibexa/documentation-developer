@@ -157,7 +157,7 @@ jobs:
                     diff -U $(( source_length > target_length ? source_length : target_length )) $HOME/code_samples_usage_target.txt $HOME/code_samples_usage_source.txt > $HOME/code_samples_usage.diff
                     #echo "CODE_SAMPLES_DIFF=$(wc -l < $HOME/code_samples_usage.diff | xargs)" >> "$GITHUB_OUTPUT"
                     echo 'CODE_SAMPLES_DIFF<<CODE_SAMPLES_DIFF_DELIMITER' >> "$GITHUB_OUTPUT"
-                    wc -l < $HOME/code_samples_usage.diff | xargs >> "$GITHUB_OUTPUT"
+                    echo 'TEST' >> "$GITHUB_OUTPUT"
                     echo 'CODE_SAMPLES_DIFF_DELIMITER' >> "$GITHUB_OUTPUT"
 
             -   name: Convert code_samples usages differences (diff2html)
