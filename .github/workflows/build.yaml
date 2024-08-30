@@ -200,7 +200,7 @@ jobs:
                           comment_id: ${{ steps.find-comment.outputs.comment-id }}
                         })
             -   name: Create comment
-                if: steps.list.outputs.CODE_SAMPLES_CHANGE != '' && steps.diff.outputs.CODE_SAMPLES_DIFF != '0'
+                if: steps.list.outputs.CODE_SAMPLES_CHANGE != ''
                 uses: peter-evans/create-or-update-comment@v4
                 with:
                     issue-number: ${{ github.event.pull_request.number }}
