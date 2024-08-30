@@ -1,6 +1,6 @@
 ---
 title: Ibexa Headless
-description: Explore Ibexa Headless' features, capabilities and benefits.
+description: Get to know Ibexa Headless - an edition that focuses on content management.
 ---
 
 # Ibexa DXP Headless edition product guide
@@ -12,6 +12,8 @@ It provides tools to collaboratively create content, and interfaces (API) to dis
 
 Multilingual, multichannel, extensible, [[= product_name_headless =]] is an advanced Content Management Framework (CMF), a Product Information Management (PIM) platform, as well as a Digital Asset Management (DAM) repository.
 It's provided without a default front office, but with a complete Back Office and several APIs to manage and access content.
+
+![Ibexa Headless](ibexa_headless.png)
 
 ## Availability
 
@@ -109,7 +111,7 @@ On top of this strong core, [[= product_name_headless =]] brings tools to increa
 
 [[= product_name_headless =]] is a complete Digital Experience Platform (DXP), which comes with the following components to enhance user's journey:
 
-- [Personalization](personalization_brochure.md) engine, which allows you to recommend content to end users according to their behavior,
+- [Personalization](personalization_guide.md) engine, which allows you to recommend content to end users according to their behavior,
   or, when authenticated, by matching with their segment/group.
 - Content scheduler, which allows you to establish the future of the content and use events to have a living front application, even when the editorial team is absent or reduced.
 This way, visitors can discover new content at midnight, during weekends or vacations.

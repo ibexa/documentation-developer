@@ -1,5 +1,5 @@
 ---
-description: The Ibexa Cloud product guide provides a full description of its features as well as the benefits it brings to the client.
+description: Learn how to host your application and improve your business processess by using Ibexa Cloud hosting platform.
 title: Ibexa Cloud product guide
 month_change: true
 ---

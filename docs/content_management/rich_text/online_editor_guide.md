@@ -1,5 +1,5 @@
 ---
-description: The Online Editor product guide provides a full description of its features as well as the benefits it brings to the client.
+description: Learn how to use the Online Editor, a tool that allows you to edit RichText Fields in any content item in Ibexa DXP.
 ---
 
 # Online Editor product guide
