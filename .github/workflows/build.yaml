@@ -160,8 +160,7 @@ jobs:
                 run: |
                     echo "CODE_SAMPLES_DIFF=$(wc -l < $HOME/code_samples_usage.diff | xargs)" >> "$GITHUB_OUTPUT"
             -   name: Convert code_samples usages differences (diff2html)
-                if: steps.list.outputs.CODE_SAMPLES_CHANGE != ''
-                #if: steps.diff.outputs.CODE_SAMPLES_DIFF != '0'
+                if: steps.list.outputs.CODE_SAMPLES_CHANGE != '' && steps.diff.outputs.CODE_SAMPLES_DIFF != '0'
                 # npm warn deprecated mkdirp@0.3.0: Legacy versions of mkdirp are no longer supported. Please update to mkdirp 1.x. (Note that the API surface has changed to use Promises in 1.x.)
                 # Error: Process completed with exit code 3.
                 continue-on-error: true
@@ -170,14 +169,14 @@ jobs:
                     diff2html -f html -s side -t 'code_samples/ changes report' --su hidden --fct false -o stdout -i file -- $HOME/code_samples_usage.diff > $HOME/code_samples_usage.diff.html
             -   name: Upload code_samples usages differences artifact
                 id: artifact
-                if: steps.list.outputs.CODE_SAMPLES_CHANGE != ''
+                if: steps.list.outputs.CODE_SAMPLES_CHANGE != '' && steps.diff.outputs.CODE_SAMPLES_DIFF != '0'
                 uses: actions/upload-artifact@v4
                 with:
                     name: code_samples_usage.diff.html
                     path: ~/code_samples_usage.diff.html
                     overwrite: true
             -   name: Convert code_samples usages for comment
-                if: steps.list.outputs.CODE_SAMPLES_CHANGE != ''
+                if: steps.list.outputs.CODE_SAMPLES_CHANGE != '' && steps.diff.outputs.CODE_SAMPLES_DIFF != '0'
                 run: |
                     echo '# code_samples/ change report' >> code_samples_usage.diff.md
                     echo '' >> code_samples_usage.diff.md
@@ -204,7 +203,7 @@ jobs:
                           comment_id: ${{ steps.find-comment.outputs.comment-id }}
                         })
             -   name: Create comment
-                if: steps.list.outputs.CODE_SAMPLES_CHANGE != ''
+                if: steps.list.outputs.CODE_SAMPLES_CHANGE != '' && steps.diff.outputs.CODE_SAMPLES_DIFF != '0'
                 uses: peter-evans/create-or-update-comment@v4
                 with:
                     issue-number: ${{ github.event.pull_request.number }}
