@@ -126,6 +126,17 @@ First, run:
 The `recipes:install` command installs new YAML configuration files.
 Review the old YAML files and move your custom configuration to the relevant new files.
 
+## Update Ibexa Cloud settings
+
+If you are using Ibexa Cloud you need to get the latest Ibexa Cloud configuration.
+Run the command:
+
+``` bash
+composer ibexa:setup --platformsh
+```
+
+Review the changes applied to .platform.app.yaml and .platform/* and commit them to git.
+
 ## Remove `node_modules` and `yarn.lock`
 
 Next, remove `node_modules` and `yarn.lock` before running `composer run post-update-cmd`,
