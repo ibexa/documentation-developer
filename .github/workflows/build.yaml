@@ -161,9 +161,6 @@ jobs:
                     echo "CODE_SAMPLES_DIFF=$(wc -l < $HOME/code_samples_usage.diff | xargs)" >> "$GITHUB_OUTPUT"
             -   name: Convert code_samples usages differences (diff2html)
                 if: steps.list.outputs.CODE_SAMPLES_CHANGE != '' && steps.diff.outputs.CODE_SAMPLES_DIFF != '0'
-                # npm warn deprecated mkdirp@0.3.0: Legacy versions of mkdirp are no longer supported. Please update to mkdirp 1.x. (Note that the API surface has changed to use Promises in 1.x.)
-                # Error: Process completed with exit code 3.
-                continue-on-error: true
                 run: |
                     npm install -g diff2html-cli
                     diff2html -f html -s side -t 'code_samples/ changes report' --su hidden --fct false -o stdout -i file -- $HOME/code_samples_usage.diff > $HOME/code_samples_usage.diff.html
