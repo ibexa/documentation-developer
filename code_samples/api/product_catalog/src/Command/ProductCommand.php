@@ -19,6 +19,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 // TMP
+// TMP
 final class ProductCommand extends Command
 {
     private UserService $userService;
