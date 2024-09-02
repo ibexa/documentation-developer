@@ -68,7 +68,7 @@ or be `reverse` to a different transition (line 9).
 
 When moving a content item through a transition, the user can select a reviewer.
 Assigning a reviewer is mandatory if you set `reviewers.required` to `true` for this transition.
-You can set restrictions on who can review the content by setting `user_group` to the location id of some user group.
+You can restrict who can review the content item by setting `user_group` to the location id of a user group.
 
 To be able to search for users for review, the user must have the content/read Policy without any Limitation,
 or with a Limitation that allows reading users.
