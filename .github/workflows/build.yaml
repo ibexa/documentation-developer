@@ -111,9 +111,9 @@ jobs:
         if: github.event_name == 'pull_request'
         permissions:
             # Needed to find previous comment
-            issues: read
+            #issues: read
             # Needed to post new comment
-            pull-requests: write
+            #pull-requests: write
 
         steps:
             -   name: List modified files
