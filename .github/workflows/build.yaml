@@ -113,7 +113,7 @@ jobs:
             # Needed to find previous comment
             issues: none
             # Needed to post new comment
-            pull-requests: none
+            pull-requests: write
 
         steps:
             -   name: List modified files
