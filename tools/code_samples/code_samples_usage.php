@@ -56,7 +56,8 @@ function displayBlocks(array $docFileBlocks, string $docFilePath = null, $lineOf
 function getIncludingFileList(string $codeSampleFilePath = null): array
 {
     $pattern = null === $codeSampleFilePath ? '= include_file' : $codeSampleFilePath;
-    $command = "grep '$pattern' -Rl docs | sort";
+    $pattern = escapeshellarg($pattern);
+    $command = "grep $pattern -Rl docs | sort";
     exec($command, $rawIncludingFileList, $commandResultCode);
     if (0 === $commandResultCode) {
         return $rawIncludingFileList;
