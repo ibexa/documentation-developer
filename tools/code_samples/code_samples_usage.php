@@ -48,21 +48,6 @@ function displayBlocks(array $docFileBlocks, string $docFilePath = null, $lineOf
 // FRAMEWORK
 
 /**
- * @param string $targetBranch Branch to compare to.
- * @param string $sourceBranch Branch to compare from. By default, the current branch HEAD
- * @return array<int, string> List of file paths from code_samples/ directory.
- */
-function getModifiedCodeSampleFileList(string $targetBranch = 'origin/master', string $sourceBranch = 'HEAD'): array
-{
-    $command = "git diff --name-only $sourceBranch..$targetBranch -- code_samples";
-    exec($command, $rawModifiedCodeSampleList, $commandResultCode);
-    if (0 === $commandResultCode) {
-        return $rawModifiedCodeSampleList;
-    }
-    throw new RuntimeException("The following Git command failed: $command");
-}
-
-/**
  * @param string $codeSampleFilePath The path from project root to an included file.
  *                                  If given, files including this one are returned.
  *                                  If null, all files including a file are returned.
