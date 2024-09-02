@@ -110,8 +110,6 @@ jobs:
         runs-on: ubuntu-latest
         if: github.event_name == 'pull_request'
         permissions:
-            # Needed to find previous comment
-            issues: read
             # Needed to post new comment
             pull-requests: write
 
