@@ -413,6 +413,12 @@ The following migration example allows users with the `Editor` role to access th
                     values: []
 ```
 
+## Update Solr configuration
+
+Solr configuration changes with the addition of new features such as spellchecking.
+
+[Generate the new configuration files using `generate-solr-config.sh`](install_solr.md#continue-solr-configuration).
+
 ## Update Elasticsearch schema
 
 Elasticsearch schema's templates change, for example, with the addition of new features such as spellchecking.
