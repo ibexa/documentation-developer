@@ -48,7 +48,6 @@ To load price definitions that match given criteria, use `ProductPriceServiceInt
 
 ``` php
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 12, 16) =]]
-
 // ...
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductPriceCommand.php', 100, 110) =]]
 ```
