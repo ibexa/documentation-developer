@@ -24,10 +24,14 @@ Form Builder is available in [[= product_name_exp =]] and [[= product_name_com =
 Form Builder user interface consists of:
 
 A. Drop zone
+
 B. Form fields toolbar
+
 C. Save button
+
 D. Search bar
-E. Close button
+
+E. Discard button
 
 ![Form Builder interface](img/form_builder_interface.png)
 
