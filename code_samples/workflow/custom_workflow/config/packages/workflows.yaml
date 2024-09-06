@@ -30,6 +30,7 @@ ezplatform:
                             icon: '/bundles/ibexaplatformicons/img/all-icons.svg#notice'
                             reviewers:
                                 required: true
+                                user_group: 13
                             actions:
                                 legal_transition_action:
                                     data:
