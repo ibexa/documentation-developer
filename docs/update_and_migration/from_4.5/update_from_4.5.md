@@ -514,6 +514,19 @@ composer config extra.runtime.error_handler "\\Ibexa\\Contracts\\Core\\MVC\\Symf
 composer dump-autoload
 ```
 
+### Ibexa Cloud
+
+Update Platform.sh configuration for PHP 8.3.
+
+Generate new configuration with the the following command:
+
+```bash
+composer ibexa:setup --platformsh
+```
+
+Review the changes applied to `.platform.app.yaml` and `.platform/`,
+merge with your custom settings if needed, and commit them to Git.
+
 ## v4.6.9
 
 No additional steps needed.
