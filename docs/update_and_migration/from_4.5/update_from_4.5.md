@@ -518,7 +518,7 @@ composer dump-autoload
 
 Update Platform.sh configuration for PHP 8.3.
 
-Generate new configuration with the the following command:
+Generate new configuration with the following command:
 
 ```bash
 composer ibexa:setup --platformsh
