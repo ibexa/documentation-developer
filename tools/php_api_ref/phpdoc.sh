@@ -7,6 +7,7 @@ OUTPUT_DIR=${2:-./docs/api/php_api/php_api_reference}; # Path to the directory w
 
 DXP_EDITION='commerce'; # Edition from and for which the Reference is built
 DXP_VERSION='4.6.*'; # Version from and for which the Reference is built
+DXP_ADD_ONS=(automated-translation); # Packages not included in $DXP_EDITION but added to the Reference, listed without their vendor "ibexa"
 DXP_EDITIONS=(oss headless experience commerce); # Available editions ordered by ascending capabilities
 PHPDOC_VERSION='3.5.0'; # Version of phpDocumentor used to build the Reference
 PHPDOC_CONF="$(pwd)/tools/php_api_ref/phpdoc.dist.xml"; # Absolute path to phpDocumentor configuration file
@@ -58,6 +59,12 @@ fi;
 if [[ "$DXP_VERSION" == *".*"* ]]; then
   DXP_VERSION=$(composer -n show ibexa/$DXP_EDITION | grep -E "^version" | cut -d 'v' -f 3);
   echo "Obtained version: $DXP_VERSION";
+fi;
+
+if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
+  for additional_package in ${DXP_ADD_ONS[@]}; do
+    composer require --no-interaction --ignore-platform-reqs --no-scripts ibexa/$additional_package:$DXP_VERSION
+  done;
 fi;
 
 #if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
