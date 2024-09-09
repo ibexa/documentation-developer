@@ -56,21 +56,21 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Ibexa Engage
 
-- [Learn more about Ibexa Engage](https://doc.ibexa.co/en/latest/ibexa_engage/install_ibexa_engage/)
+- [Learn more about Ibexa Engage](https://doc.ibexa.co/en/master/ibexa_engage/install_ibexa_engage/)
 
 ### Search
 
-- [Configuring Elasticsearch with analyzers for different languages](https://doc.ibexa.co/en/latest/search/search_engines/elastic_search/configure_elastic_search/#add-language-specific-analysers)
-- [ContentName search criterion](https://doc.ibexa.co/en/latest/search/criteria_reference/contentname_criterion/)
+- [Configuring Elasticsearch with analyzers for different languages](https://doc.ibexa.co/en/master/search/search_engines/elastic_search/configure_elastic_search/#add-language-specific-analysers)
+- [ContentName search criterion](https://doc.ibexa.co/en/master/search/criteria_reference/contentname_criterion/)
 
 ### Dashboard
 
-- [Customizing the content type for Dashboard container](https://doc.ibexa.co/en/latest/administration/dashboard/configure_default_dashboard/#container-content-type-identifier)
+- [Customizing the content type for Dashboard container](https://doc.ibexa.co/en/master/administration/dashboard/configure_default_dashboard/#container-content-type-identifier)
 
 ### Infrastructure and maintenance
 
-- [Updated Ibexa Cloud domain to ibexa.cloud](https://doc.ibexa.co/en/latest/getting_started/install_on_ibexa_cloud/#4-push-the-project)
-- [v4.6.3 to v4.6.4 update instructions](https://doc.ibexa.co/en/latest/update_and_migration/from_4.5/update_from_4.5/#v464)
+- [Updated Ibexa Cloud domain to ibexa.cloud](https://doc.ibexa.co/en/master/getting_started/install_on_ibexa_cloud/#4-push-the-project)
+- [v4.6.3 to v4.6.4 update instructions](https://doc.ibexa.co/en/master/update_and_migration/from_4.5/update_from_4.5/#v464)
 
 ### Documentation
 
@@ -84,7 +84,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Users
 
-- [Warning about recent activity log and user privacy](https://doc.ibexa.co/en/latest/administration/recent_activity/recent_activity/#user-privacy)
+- [Warning about recent activity log and user privacy](https://doc.ibexa.co/en/master/administration/recent_activity/recent_activity/#user-privacy)
 
 ## April 2024
 
@@ -336,7 +336,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### New home page
 
-- Redesigned [home page for the user documentation](https://doc.ibexa.co/projects/userguide/en/latest/)
+- Redesigned [home page for the user documentation](https://doc.ibexa.co/projects/userguide/en/master/)
 
 ### Administration
 
@@ -379,7 +379,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### New home page
 
-- Redesigned [home page for the developer documentation](https://doc.ibexa.co/en/latest/)
+- Redesigned [home page for the developer documentation](https://doc.ibexa.co/en/master/)
 
 ### Getting started
 
