@@ -14,7 +14,9 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 - [Ibexa Commerce product guide](https://doc.ibexa.co/en/master/ibexa_products/ibexa_commerce/)
 - Added [page collecting all feature product guides](https://doc.ibexa.co/en/master/product_guides/product_guides/)
 
-### Documentation
+### Data migration
+
+- Added a note about [multi-repository and dynamic migration folders](https://doc.ibexa.co/en/master/content_management/data_migration/managing_migrations/#migration-folders)
 
 ## July 2024
 
