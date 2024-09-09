@@ -6,6 +6,16 @@ description: Overview of major recent additions to Ibexa DXP documentation.
 
 This page contains recent highlights and notable changes in [[= product_name =]] documentation.
 
+## August 2024
+
+### Product guides
+
+- [Ibexa Experience product guide](https://doc.ibexa.co/en/master/ibexa_products/ibexa_experience/)
+- [Ibexa Commerce product guide](https://doc.ibexa.co/en/master/ibexa_products/ibexa_commerce/)
+- Added [page collecting all feature product guides](https://doc.ibexa.co/en/master/product_guides/product_guides/)
+
+### Documentation
+
 ## July 2024
 
 ### Getting started
