@@ -156,7 +156,7 @@ use eZ\Publish\Core\MVC\Symfony\Security\Authorization\Attribute;
 
 public function performAccessCheck(): void
 {
-    parent:performAccessCheck();
+    parent::performAccessCheck();
     $this->denyAccessUnlessGranted(new Attribute('section', 'view'));
 }
 ```
