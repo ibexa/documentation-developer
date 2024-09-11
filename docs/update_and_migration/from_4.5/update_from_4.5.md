@@ -518,14 +518,12 @@ composer dump-autoload
 
 Update Platform.sh configuration for PHP 8.3.
 
-Generate new configuration with the following command:
+Edit `.platform.app.yaml` and increase PHP version to 8.3 in the application type:
 
-```bash
-composer ibexa:setup --platformsh
+```diff
+- type: php:8.1
++ type: php:8.3
 ```
-
-Review the changes applied to `.platform.app.yaml` and `.platform/`,
-merge with your custom settings if needed, and commit them to Git.
 
 ## v4.6.9
 
