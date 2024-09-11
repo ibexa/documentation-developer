@@ -1,6 +1,7 @@
 ---
 description: Discover various Ibexa DXP features.
 page_type: landing_page
+month_change: true
 ---
 
 # Product guides
