@@ -1,6 +1,5 @@
 Jinja2==2.10
 Markdown==3.0.1
-MarkupSafe==1.0
 PyYAML==3.13
 Pygments==2.2.0
 alabaster==0.7.11
