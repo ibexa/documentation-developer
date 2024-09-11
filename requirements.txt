@@ -16,4 +16,4 @@ singledispatch==3.4.0.3
 six==1.11.0
 tornado==4.5.3
 pymdown-extensions==5.0
-git+git://github.com/damianz5/mdx_ez_code_example@master#egg=mdx_ezcodeexample
+git+https://github.com/damianz5/mdx_ez_code_example@master#egg=mdx_ezcodeexample
