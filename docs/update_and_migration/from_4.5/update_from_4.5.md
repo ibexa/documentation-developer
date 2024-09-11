@@ -514,17 +514,6 @@ composer config extra.runtime.error_handler "\\Ibexa\\Contracts\\Core\\MVC\\Symf
 composer dump-autoload
 ```
 
-### Ibexa Cloud
-
-Update Platform.sh configuration for PHP 8.3.
-
-Edit `.platform.app.yaml` and increase PHP version to 8.3 in the application type:
-
-```diff
-- type: php:8.1
-+ type: php:8.3
-```
-
 ## v4.6.9
 
 No additional steps needed.
@@ -537,7 +526,7 @@ A command to deal with duplicated database entries, as reported in [IBX-8562](ht
 
 ### Ibexa Cloud
 
-Update Platform.sh configuration for Varnish.
+Update Platform.sh configuration for PHP and Varnish.
 
 Generate new configuration with the following command:
 
