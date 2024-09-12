@@ -415,9 +415,42 @@ The following migration example allows users with the `Editor` role to access th
 
 ## Update Solr configuration
 
-Solr configuration changes with the addition of new features such as spellchecking.
+Solr configuration changes with the addition spellchecking feature.
 
-[Generate the new configuration files using `generate-solr-config.sh`](install_solr.md#continue-solr-configuration).
+Configure the `spellcheck` component:
+
+```xml
+  <searchComponent name="spellcheck" class="solr.SpellCheckComponent">
+    <lst name="spellchecker">
+      <str name="name">default</str>
+      <str name="field">meta_content__text_t</str>
+      <str name="classname">solr.DirectSolrSpellChecker</str>
+      <str name="distanceMeasure">internal</str>
+      <float name="accuracy">0.5</float>
+      <int name="maxEdits">2</int>
+      <int name="minPrefix">1</int>
+      <int name="maxInspections">5</int>
+      <int name="minQueryLength">4</int>
+      <float name="maxQueryFrequency">0.01</float>
+    </lst>
+  </searchComponent>
+```
+
+Add this `spellcheck` component to `/select`:
+
+```xml
+  <requestHandler name="/select" class="solr.SearchHandler">
+    <arr name="last-components">
+      <str>spellcheck</str>
+    </arr>
+    <!-- […] -->
+  </requestHandler>
+```
+
+!!! note
+
+    You can [generate new Solr configuration files using `generate-solr-config.sh`](install_solr.md#continue-solr-configuration),
+    and compare with your current configuration to merge those `spellcheck` configurations.
 
 ## Update Elasticsearch schema
 
