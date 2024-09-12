@@ -56,13 +56,16 @@ if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
 fi;
 
 if [[ "$DXP_VERSION" == *".*"* ]]; then
+  export COMPOSER_ROOT_VERSION=0.0.0;
   DXP_VERSION=$(composer -n show ibexa/$DXP_EDITION | grep -E "^version" | cut -d 'v' -f 3);
   echo "Obtained version: $DXP_VERSION";
 fi;
 
+export COMPOSER_ROOT_VERSION=$DXP_VERSION;
+
 #if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
 #  MY_PACKAGE='';
-#  MY_BRANCH='';
+#  MY_BRANCH='-dev';
 #  composer require --no-interaction --ignore-platform-reqs --no-scripts ibexa/$MY_PACKAGE "$MY_BRANCH as $DXP_VERSION";
 #fi;
 
