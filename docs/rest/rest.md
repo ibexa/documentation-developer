@@ -5,12 +5,10 @@ nav: false
 
 <!-- vale off -->
 
-# Rest reference
-
 <script src="https://cdn.redoc.ly/redoc/latest/bundles/redoc.standalone.js"></script>
 <div id="redoc-container"></div>
 <script>
-Redoc.init("https://gist.githubusercontent.com/mnocon/c52c5c1be4810f637c49a4f8040fd1c0/raw/c2ab62907051a77bf549d233d95d2986827cb457/api.yaml",
+Redoc.init("https://gist.githubusercontent.com/mnocon/0094456f313ea2943b3b852bf76d9a95/raw/3423f2d97bba77e5080179cb9e2994c98d8dec9f/api_no_logo.yaml",
 { expandResponses: "200,400",
     nativeScrollbars: true,
     theme: {
@@ -21,6 +19,6 @@ Redoc.init("https://gist.githubusercontent.com/mnocon/c52c5c1be4810f637c49a4f804
     }
   },
 document.querySelector("#redoc-container"), (function (e) { 
-    document.querySelector('#redoc-container [title]').setAttribute("style", "background-color: red") 
+    document.querySelector('#redoc-container [title]').setAttribute("style", "background-color: grey") 
     })
 )</script>
