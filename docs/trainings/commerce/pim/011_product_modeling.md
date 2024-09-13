@@ -86,68 +86,67 @@ As you can see, it's a rich and complex matrix.
 And it doesn't involve different brands and models for the same feature yet.
 
 - Bicycle:
-  - Frameset:
-    - Frame:
-      - Size: [XS, S, M, L, XL]
-      - Shape/Features: [Diamond, Step-through, Diamond w/ suspension, Folding, Recumbent, Cargo, Tandem, …]
-      - Material: [Steel, Aluminium, Titanium, Carbon, Wood, Bamboo, Mixed, …]
-      - Paint job: […]
-    - Fork
-      - Size: [XS, S, M, L, XL]
-      - Suspension: yes/no
-      - Paint job: […]
-  - Handlebar:
-    - Shape: [Standard, Drop, Bullhorn, Flat, Riser, …]
-    - Paint job: […]
-  - Saddle:
-    - Shape: [Thin, Large, Noseless, …]
-    - Cushion material: [Foam, Gel, …]
-    - Cover material: [Spandex, Vinyl, Kevlar, Leather, …]
-    - Paint job: […]
-  - Saddlepost:
-    - Material: [Steel, Aluminium, Titanium, Carbon, Wood, Bamboo, Mixed, …]
-    - Type: [Rigid, Suspension, Dropper, …]
-    - Attachment: [Quick release, Bolt/nut, Anti-thief, …]
-  - Gears:
-    - Front gears:
-      - Speed count: [1…3]
-      - Type: [Single, External, Hub internal, Crank gearbox, …]
-      - Control transmission: [Bowden cable, Hydraulic, Electronic, …]
-      - Control type: [Lever, Ring, …]
-      - Control placement: [Handlebar, Frame, …]
-    - Rear gears:
-      - Speed count: [1…8]
-      - Control type: [Bowden cable, Hydraulic, Electronic, …]
-      - Type: [Single, External, Hub internal, Crank gearbox, …]
-      - Control transmission: [Bowden cable, Hydraulic, Electronic, …]
-      - Control type: [Lever, Ring, …]
-      - Control placement: [Handlebar, Frame, …]
-  - Transmission: [Chain, Belt, Shaft, …]
-  - Wheel set:
-    - Rear wheel:
-      - Axle attachment: [Quick release, Bolt/nut, Thru, Anti-thief, …]
-      - Diameter: [622 mm (road 700C, mountain 29″), 584 mm (road 650B, mountain 27.5″), 559 mm (mountain 26″), 406 mm (mountain 20″), …]
-      - Type: [Standard spokes, G3 spokes, Disc, …]
-      - Brake: [Caliper, Disk, Roller, Drum, …]
-      - Rim material: [Aluminium, Steel, Carbon, …]
-      - Tire shape: [City, Race, Mountain, Fat, Mixed, …]
-      - Tire insert: [Clincher/Tube, Tubular, Tubeless, Foam, Solid, …]
-      - Paint job: […]
-    - Front wheel:
-      - Same as rear: ☑yes/☐no
-      - Axle attachment: [Same as rear, Quick release, Bolt/nut, Thru, Anti-thief, …]
-      - Diameter: [Same as rear, 622 mm (road 700C, mountain 29″), 584 mm (road 650B, mountain 27.5″), 559 mm (mountain 26″), 406 mm (mountain 20″), …]
-      - Type: [Same as rear, Standard spokes, G3 spokes, Disc, …]
-      - Brake: [Same as rear, Caliper, V, Disk, Roller, …]
-      - Rim material: [Same as rear, Aluminium, Steel, Carbon, …]
-      - Tire shape: [Same as rear, City, Race, Mountain, Fat, Mixed, …]
-      - Tire insert: [Same as rear, Clincher/Tube, Tubular, Tubeless, Foam, Solid, …]
-      - Paint job: [Same as rear, Same as rear, …]
-  - Electric assistance:
-    - Electric assistance: ☐yes/☑no
-    - Motor placement: [Front wheel, Rear wheel, Crank, …]
-    - Battery placement: [Center, Rear, …]
-    - Regulation: [EU pedelec, EU speed pedelec, …]
+    - Frameset:
+        - Frame:
+            - Size: [XS, S, M, L, XL]
+            - Shape/Features: [Diamond, Step-through, Diamond w/ suspension, Folding, Recumbent, Cargo, Tandem, …]
+            - Material: [Steel, Aluminium, Titanium, Carbon, Wood, Bamboo, Mixed, …]
+            - Paint job: […]
+        - Fork
+            - Size: [XS, S, M, L, XL]
+            - Suspension: yes/no
+            - Paint job: […]
+    - Handlebar:
+        - Shape: [Standard, Drop, Bullhorn, Flat, Riser, …]
+        - Paint job: […]
+    - Saddle:
+        - Shape: [Thin, Large, Noseless, …]
+        - Cushion material: [Foam, Gel, …]
+        - Cover material: [Spandex, Vinyl, Kevlar, Leather, …]
+        - Paint job: […]
+    - Saddlepost:
+        - Material: [Steel, Aluminium, Titanium, Carbon, Wood, Bamboo, Mixed, …]
+        - Type: [Rigid, Suspension, Dropper, …]
+        - Attachment: [Quick release, Bolt/nut, Anti-thief, …]
+    - Gears:
+        - Front gears:
+            - Speed count: [1…3]
+            - Type: [Single, External, Hub internal, Crank gearbox, …]
+            - Control transmission: [Bowden cable, Hydraulic, Electronic, …]
+            - Control type: [Lever, Ring, …]
+            - Control placement: [Handlebar, Frame, …]
+        - Rear gears:
+            - Speed count: [1…8]
+            - Control type: [Bowden cable, Hydraulic, Electronic, …]
+            - Type: [Single, External, Hub internal, Crank gearbox, …]
+            - Control transmission: [Bowden cable, Hydraulic, Electronic, …]
+            - Control type: [Lever, Ring, …]
+            - Control placement: [Handlebar, Frame, …]
+    - Transmission: [Chain, Belt, Shaft, …]
+    - Wheel set:
+        - Rear wheel:
+            - Axle attachment: [Quick release, Bolt/nut, Thru, Anti-thief, …]
+            - Diameter: [622 mm (road 700C, mountain 29″), 584 mm (road 650B, mountain 27.5″), 559 mm (mountain 26″), 406 mm (mountain 20″), …]
+            - Type: [Standard spokes, G3 spokes, Disc, …]
+            - Brake: [Caliper, Disk, Roller, Drum, …]
+            - Rim material: [Aluminium, Steel, Carbon, …]
+            - Tire shape: [City, Race, Mountain, Fat, Mixed, …]
+            - Tire insert: [Clincher/Tube, Tubular, Tubeless, Foam, Solid, …]
+            - Paint job: […]
+        - Front wheel:
+            - Same as rear: ☑yes/☐no
+            - Axle attachment: [Same as rear, Quick release, Bolt/nut, Thru, Anti-thief, …]
+            - Diameter: [Same as rear, 622 mm (road 700C, mountain 29″), 584 mm (road 650B, mountain 27.5″), 559 mm (mountain 26″), 406 mm (mountain 20″), …]
+            - Type: [Same as rear, Standard spokes, G3 spokes, Disc, …]
+            - Brake: [Same as rear, Caliper, V, Disk, Roller, …]
+            - Rim material: [Same as rear, Aluminium, Steel, Carbon, …]
+            - Tire shape: [Same as rear, City, Race, Mountain, Fat, Mixed, …]
+            - Tire insert: [Same as rear, Clincher/Tube, Tubular, Tubeless, Foam, Solid, …]
+    - Electric assistance:
+        - Electric assistance: ☐yes/☑no
+        - Motor placement: [Front wheel, Rear wheel, Crank, …]
+        - Battery placement: [Center, Rear, …]
+        - Regulation: [EU pedelec, EU speed pedelec, …]
 
 A bad practice would be to try to have a unique product type for modeling all the bikes from the catalog.
 For example, series of product won't necessarily vary on the same attributes.
@@ -159,18 +158,18 @@ TODO: To have one product type per base product can happen.
 Mountain Bike (MTB)
 - MTB 4 series
     - Fuji (3776€) (MTBS4-4)
-      - Frame: [Diamond, Step-through]
-      - TODO
+        - Frame: [Diamond, Step-through]
+        - TODO
     - Matterhorn (4478€) (MTBS4-5)
     - Annapurna (8091€) (MTBS4-6)
-      - Frame: [Diamond w/ suspension]
+        - Frame: [Diamond w/ suspension]
     - Etna (3369€) (MTBS4-7)
 - MTB 5 series
-  - Kilimanjaro (5895€) (MTBS5-0)
-  - Stádda (1392€) (MTBS5-1)
-  - Aconcagua (6960€) (MTBS5-2)
-  - Ventoux (1910€) (MTBS5-3)
-  - Castor (4225€) (MTBS5-4)
+    - Kilimanjaro (5895€) (MTBS5-0)
+    - Stádda (1392€) (MTBS5-1)
+    - Aconcagua (6960€) (MTBS5-2)
+    - Ventoux (1910€) (MTBS5-3)
+    - Castor (4225€) (MTBS5-4)
 
 
 - Create the attribute groups
