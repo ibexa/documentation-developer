@@ -63,3 +63,26 @@ nano phpdoc.dev.sh # Edit and make your changes. For example, change PHPDOC_CONF
 nano phpdoc.dev.xml # Edit and make your changes. For example, target only your package.
 tools/php_api_ref/phpdoc.sh ~/.composer/auth.json ./docs/api/php_api/php_api_reference-TMP
 ```
+
+### Test a branch
+
+To load a package on a development branch instead of a released version,
+uncommented in `phpdoc.sh` the piece of code about `MY_PACKAGE` and `MY_BRANCH`,
+and set the value of those two variables.
+
+`MY_PACKAGE` is the name of the Ibexa package without the vendor.
+
+`MY_BRANCH` is the Composer constraint targeting the branch.
+It's the name of the branch prefixed with `dev-` (e.g. `dev-improved_contentservice_phpdoc`),
+or a branch alias suffixed with `-dev` (e.g. `4.6.x-dev`).
+See https://getcomposer.org/doc/articles/aliases.md for more.
+
+The following example load `ibexa/core` package at the `HEAD` of `4.6` branch using its alias.
+
+```bash
+if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
+  MY_PACKAGE='core';
+  MY_BRANCH='4.6.x-dev';
+  composer require --no-interaction --ignore-platform-reqs --no-scripts ibexa/$MY_PACKAGE "$MY_BRANCH as $DXP_VERSION";
+fi;
+```
