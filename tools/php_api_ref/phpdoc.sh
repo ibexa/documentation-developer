@@ -65,7 +65,7 @@ export COMPOSER_ROOT_VERSION=$DXP_VERSION;
 
 #if [ 0 -eq $DXP_ALREADY_EXISTS ]; then
 #  MY_PACKAGE='';
-#  MY_BRANCH='-dev';
+#  MY_BRANCH='';
 #  composer require --no-interaction --ignore-platform-reqs --no-scripts ibexa/$MY_PACKAGE "$MY_BRANCH as $DXP_VERSION";
 #fi;
 
