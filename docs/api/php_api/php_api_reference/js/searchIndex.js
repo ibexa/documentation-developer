@@ -5956,6 +5956,11 @@ Search.appendIndex(
             "summary": "Get\u0020bookmark\u0020by\u0020user\u0020id\u0020and\u0020location\u0020id.",
             "url": "classes/Ibexa-Contracts-Core-Persistence-Bookmark-Handler.html#method_loadByUserIdAndLocationId"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Persistence\\Bookmark\\Handler\u003A\u003AloadUserIdsByLocation\u0028\u0029",
+            "name": "loadUserIdsByLocation",
+            "summary": "Get\u0020user\u0020ids\u0020who\u0020have\u0020bookmarked\u0020given\u0020location.",
+            "url": "classes/Ibexa-Contracts-Core-Persistence-Bookmark-Handler.html#method_loadUserIdsByLocation"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Persistence\\Bookmark\\Handler\u003A\u003AloadUserBookmarks\u0028\u0029",
             "name": "loadUserBookmarks",
             "summary": "Loads\u0020bookmarks\u0020owned\u0020by\u0020user.",
@@ -20525,6 +20530,21 @@ Search.appendIndex(
             "name": "getSpecifications",
             "summary": "Criterion\u0020description\u0020function.",
             "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Location-Depth.html#method_getSpecifications"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Criterion\\Location\\IsBookmarked",
+            "name": "IsBookmarked",
+            "summary": "This\u0020criterion\u0020only\u0020works\u0020for\u0020current\u0020user\u0020reference.",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Location-IsBookmarked.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Criterion\\Location\\IsBookmarked\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Performs\u0020operator\u0020validation\u0020based\u0020on\u0020the\u0020Criterion\u0020specifications\u0020returned\u0020by\u0020\u007B\u0040see\u0020getSpecifications\u0028\u0029\u007D.",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Location-IsBookmarked.html#method___construct"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Criterion\\Location\\IsBookmarked\u003A\u003AgetSpecifications\u0028\u0029",
+            "name": "getSpecifications",
+            "summary": "Criterion\u0020description\u0020function.",
+            "url": "classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Location-IsBookmarked.html#method_getSpecifications"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Core\\Repository\\Values\\Content\\Query\\Criterion\\Location\\IsMainLocation",
             "name": "IsMainLocation",
@@ -37221,6 +37241,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Ibexa-Contracts-ProductCatalog-Local-LocalProductTypeServiceDecorator.html#method_findProductTypes"
         },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Local\\LocalProductTypeServiceDecorator\u003A\u003AaddContentTypeFieldDefinition\u0028\u0029",
+            "name": "addContentTypeFieldDefinition",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Local-LocalProductTypeServiceDecorator.html#method_addContentTypeFieldDefinition"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Local\\LocalProductTypeServiceDecorator\u003A\u003AremoveContentTypeFieldDefinition\u0028\u0029",
+            "name": "removeContentTypeFieldDefinition",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Local-LocalProductTypeServiceDecorator.html#method_removeContentTypeFieldDefinition"
+        },                {
             "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Local\\LocalProductTypeServiceDecorator\u003A\u003A\u0024innerService",
             "name": "innerService",
             "summary": "",
@@ -37265,6 +37295,16 @@ Search.appendIndex(
             "name": "deleteProductTypeTranslation",
             "summary": "",
             "url": "classes/Ibexa-Contracts-ProductCatalog-Local-LocalProductTypeServiceInterface.html#method_deleteProductTypeTranslation"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Local\\LocalProductTypeServiceInterface\u003A\u003AaddContentTypeFieldDefinition\u0028\u0029",
+            "name": "addContentTypeFieldDefinition",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Local-LocalProductTypeServiceInterface.html#method_addContentTypeFieldDefinition"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Local\\LocalProductTypeServiceInterface\u003A\u003AremoveContentTypeFieldDefinition\u0028\u0029",
+            "name": "removeContentTypeFieldDefinition",
+            "summary": "",
+            "url": "classes/Ibexa-Contracts-ProductCatalog-Local-LocalProductTypeServiceInterface.html#method_removeContentTypeFieldDefinition"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\ProductCatalog\\Local\\Values\\Asset\\AssetCreateStruct",
             "name": "AssetCreateStruct",
@@ -51385,6 +51425,26 @@ Search.appendIndex(
             "name": "Input",
             "summary": "",
             "url": "namespaces/ibexa-contracts-rest-input.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Rest\\Input\\Parser\\Query\\Criterion",
+            "name": "Criterion",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-rest-input-parser-query-criterion.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Rest\\Input\\Parser\\Query",
+            "name": "Query",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-rest-input-parser-query.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Rest\\Input\\Parser",
+            "name": "Parser",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-rest-input-parser.html"
+        },                {
+            "fqsen": "\\Ibexa\\Contracts\\Rest\\Input\\Parser\\Query\\SortClause",
+            "name": "SortClause",
+            "summary": "",
+            "url": "namespaces/ibexa-contracts-rest-input-parser-query-sortclause.html"
         },                {
             "fqsen": "\\Ibexa\\Contracts\\Rest\\Output\\Exceptions",
             "name": "Exceptions",
