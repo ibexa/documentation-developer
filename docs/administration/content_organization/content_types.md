@@ -65,6 +65,8 @@ Each content type is characterized by a set of metadata which define the general
 Aside from the metadata, a content type may contain any number of Field definitions (but has to contain at least one).
 They determine what Fields of what Field Types will be included in all content items based on this content type.
 
+![Field definitions](admin_panel_field_definitions.png)
+
 ![Diagram of an example content type](content_model_type_diagram.png)
 
 !!! note
