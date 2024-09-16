@@ -417,7 +417,7 @@ The following migration example allows users with the `Editor` role to access th
 
 Solr configuration changes with the addition spellchecking feature.
 
-Configure the `spellcheck` component:
+Configure the `spellcheck` component in `solrconfig.xml`:
 
 ```xml
   <searchComponent name="spellcheck" class="solr.SpellCheckComponent">
@@ -436,7 +436,7 @@ Configure the `spellcheck` component:
   </searchComponent>
 ```
 
-Add this `spellcheck` component to `/select`:
+Add this `spellcheck` component to the `/select` request handler: 
 
 ```xml
   <requestHandler name="/select" class="solr.SearchHandler">
@@ -451,6 +451,8 @@ Add this `spellcheck` component to `/select`:
 
     You can [generate new Solr configuration files using `generate-solr-config.sh`](install_solr.md#continue-solr-configuration),
     and compare with your current configuration to merge those `spellcheck` configurations.
+
+Restart Solr for `solrconfig.xml` changes to take effect.
 
 ## Update Elasticsearch schema
 
