@@ -521,3 +521,18 @@ No additional steps needed.
 ## v4.6.10
 
 A command to deal with duplicated database entries, as reported in [IBX-8562](https://issues.ibexa.co/browse/IBX-8562), will be available soon.
+
+## v4.6.11
+
+### Ibexa Cloud
+
+Update Platform.sh configuration for PHP and Varnish.
+
+Generate new configuration with the following command:
+
+```bash
+composer ibexa:setup --platformsh
+```
+
+Review the changes applied to `.platform.app.yaml` and `.platform/`,
+merge with your custom settings if needed, and commit them to Git.
