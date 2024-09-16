@@ -15,13 +15,15 @@ By editing pages you can customize the layout and content of your website.
 
 To create a new page:
 
-A\. In the main menu, go to **Content**.
+1\. In the main menu, go to **Content**.
 
-B\. Select **Content structure**.
+2\. Select **Content structure**.
 
-C\. On the right-side toolbar, click **Create content** and from the list of content items select **Landing Page**.
+3\. On the right-side toolbar, click **Create content**.
 
-D\. Select the layout and click **Create**.
+4\. From the list of content items select **Landing Page**.
+
+5\. Select the layout and click **Create**.
 
 ![Create page](create_page.png)
 
