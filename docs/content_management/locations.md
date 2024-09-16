@@ -9,12 +9,11 @@ When a new content item is published, it is automatically placed in a new Locati
 All Locations form a tree which is the basic way of organizing content in the system.
 Every published content item has a Location and, as a consequence, also a place in this tree.
 
-![Content Tree](content_management_tree.png "Content Tree")
+![Content Tree - locations](content_management_tree_locations.png "Content Tree - locations")
 
 A content item receives a Location only once it has been published.
 This means that a new unpublished draft does not have a Location yet.
-Drafts cannot be found in the Content browser. You can find them on the **My dashboard** page, 
-or in your user menu under **Drafts**.
+You can find drats in the **Drafts** tab in the **Content** menu.
 
 ![Drafts](content_management_drafts.png "Drafts")
 
