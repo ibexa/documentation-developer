@@ -449,7 +449,7 @@ Add this `spellcheck` component to the `/select` request handler:
 
 !!! note
 
-    You can [generate new Solr configuration files using `generate-solr-config.sh`](solr.md#generating-configuration),
+    You can [generate new Solr configuration files using `generate-solr-config.sh`](https://doc.ibexa.co/en/4.6/search/search_engines/solr_search_engine/install_solr/#generate-solr-configuration-automatically),
     and merge `spellcheck` configuration by comparing new files with your existing setup.
 
 Restart Solr for `solrconfig.xml` changes to take effect.
