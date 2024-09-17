@@ -422,6 +422,11 @@ Run the following scripts:
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-3.3.33-to-3.3.34.sql
     ```
 
-### v3.3.40
+### v3.3.41
 
-A command to deal with duplicated database entries, as reported in [IBX-8562](https://issues.ibexa.co/browse/IBX-8562), will be available soon.
+Run the command to deal with duplicated database entries (as reported in [IBX-8562](https://issues.ibexa.co/browse/IBX-8562)).
+
+First, take a look at the available options for this command by running `php bin/console help ibexa:content:remove-duplicate-fields`.
+For example, to not overload the database, treatment can be devided into batches with a delay between them.
+
+TODO: Any advice about running this in production? On Ibexa Cloud?
