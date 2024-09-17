@@ -415,7 +415,7 @@ The following migration example allows users with the `Editor` role to access th
 
 ## Update Solr configuration
 
-Solr configuration changes with the addition spellchecking feature.
+Solr configuration changes with the addition of spellchecking feature.
 
 Configure the `spellcheck` component in `solrconfig.xml`:
 
@@ -450,7 +450,7 @@ Add this `spellcheck` component to the `/select` request handler:
 !!! note
 
     You can [generate new Solr configuration files using `generate-solr-config.sh`](install_solr.md#continue-solr-configuration),
-    and compare with your current configuration to merge those `spellcheck` configurations.
+    and merge `spellcheck` configuration by comparing new files with your existing setup.
 
 Restart Solr for `solrconfig.xml` changes to take effect.
 
