@@ -166,21 +166,44 @@ Use the `Accept` header; you may need to add an `Authorization` header if authen
 To check whether the `content` endpoint is working as expected, perform the following request:
 
 ```
-GET http://<yourdomain>/api/ezp/v2/ibexa_personalization/v1/content/{contentId}
+GET http://<yourdomain>/api/ibexa/v2/personalization/v1/content/id/{contentId}
 Accept application/vnd.ez.api.Content+json
 Authorization Basic xxxxxxxx
 ```
 
-Additionally, check whether the `contenttypes` endpoint is working with the following request:
+### Export item information
 
+To get recommendations you must first export the item information to the Personalization server.
+
+After you [define item types to be tracked and recommended](#set-up-item-type-tracking),
+start the full export.
+
+You do it with the `ibexa:personalization:run-export` command.
+
+If your installation hosts only one SiteAccess, run the following command to export your data:
+
+``` bash
+php bin/console ibexa:personalization:run-export
+    --item-type-identifier-list=<item_type>,<item_type>
+    --languages=<language>,<language>
 ```
-GET http://<yourdomain>/api/ezp/v2/ibexa_personalization/v1/contenttypes/38?page=1&page_size=10
-Accept application/vnd.ez.api.Content+json
-Authorization Basic xxxxxxxx
+
+If your installation hosts multiple SiteAccesses with different customer IDs, 
+you must run the export separately for each of the `<site_access_name>`/`<customer_id>` pairs.
+
+``` bash
+php bin/console ibexa:personalization:run-export
+    --item-type-identifier-list=<item_type>,<item_type>
+    --siteaccess=<site_access_name>
+    --customer-id=<customer_id>
+    --license-key=<license_key>
+    --languages=<language>,<language>
 ```
 
-The `content` endpoint returns one item and the `contenttypes` endpoint returns many.
+The bundle exporter collects all content related to the `<site_access_name>`/`<customer_id>` 
+pair and store it in files within the public/var/export folder.
 
+Export files have a similar structure:
 ``` json
 {
     "contentList": {
@@ -221,37 +244,7 @@ The `content` endpoint returns one item and the `contenttypes` endpoint returns 
     }
 }
 ```
-### Export item information
 
-To get recommendations you must first export the item information to the Personalization server.
-
-After you [define item types to be tracked and recommended](#set-up-item-type-tracking),
-start the full export.
-
-You do it with the `ibexa:personalization:run-export` command.
-
-If your installation hosts only one SiteAccess, run the following command to export your data:
-
-``` bash
-php bin/console ibexa:personalization:run-export
-    --item-type-identifier-list=<item_type>,<item_type>
-    -—languages=<language>,<language>
-```
-
-If your installation hosts multiple SiteAccesses with different customer IDs, 
-you must run the export separately for each of the `<site_access_name>`/`<customer_id>` pairs.
-
-``` bash
-php bin/console ibexa:personalization:run-export
-    --item-type-identifier-list=<item_type>,<item_type>
-    --siteaccess=<site_access_name>
-    --customer-id=<customer_id>
-    --license-key=<license_key>
-    -—languages=<language>,<language>
-```
-
-The bundle exporter collects all content related to the `<site_access_name>`/`<customer_id>` 
-pair and stores it in files.
 After finishing, the system sends a POST request to the endpoint and informs the 
 Personalization server to fetch new content.
 An internal workflow is then triggered, so that the generated files are downloaded 
