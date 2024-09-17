@@ -218,7 +218,7 @@ And apply the following database script:
         gatewayName VARCHAR(255) NOT NULL,
         details LONGTEXT DEFAULT NULL COMMENT '(DC2Type:object)',
         PRIMARY KEY(hash)
-    ) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB;
+    ) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_520_ci` ENGINE = InnoDB;
     ```
 
 === "PostgreSQL"
