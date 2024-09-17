@@ -413,6 +413,47 @@ The following migration example allows users with the `Editor` role to access th
                     values: []
 ```
 
+## Update Solr configuration
+
+Solr configuration changes with the addition of spellchecking feature.
+
+Configure the `spellcheck` component in `solrconfig.xml`:
+
+```xml
+  <searchComponent name="spellcheck" class="solr.SpellCheckComponent">
+    <lst name="spellchecker">
+      <str name="name">default</str>
+      <str name="field">meta_content__text_t</str>
+      <str name="classname">solr.DirectSolrSpellChecker</str>
+      <str name="distanceMeasure">internal</str>
+      <float name="accuracy">0.5</float>
+      <int name="maxEdits">2</int>
+      <int name="minPrefix">1</int>
+      <int name="maxInspections">5</int>
+      <int name="minQueryLength">4</int>
+      <float name="maxQueryFrequency">0.01</float>
+    </lst>
+  </searchComponent>
+```
+
+Add this `spellcheck` component to the `/select` request handler: 
+
+```xml
+  <requestHandler name="/select" class="solr.SearchHandler">
+    <arr name="last-components">
+      <str>spellcheck</str>
+    </arr>
+    <!-- […] -->
+  </requestHandler>
+```
+
+!!! note
+
+    You can [generate new Solr configuration files using `generate-solr-config.sh`](install_solr.md#generate-solr-configuration-automatically),
+    and merge `spellcheck` configuration by comparing new files with your existing setup.
+
+Restart Solr for `solrconfig.xml` changes to take effect.
+
 ## Update Elasticsearch schema
 
 Elasticsearch schema's templates change, for example, with the addition of new features such as spellchecking.
@@ -521,3 +562,18 @@ No additional steps needed.
 ## v4.6.10
 
 A command to deal with duplicated database entries, as reported in [IBX-8562](https://issues.ibexa.co/browse/IBX-8562), will be available soon.
+
+## v4.6.11
+
+### Ibexa Cloud
+
+Update Platform.sh configuration for PHP and Varnish.
+
+Generate new configuration with the following command:
+
+```bash
+composer ibexa:setup --platformsh
+```
+
+Review the changes applied to `.platform.app.yaml` and `.platform/`,
+merge with your custom settings if needed, and commit them to Git.

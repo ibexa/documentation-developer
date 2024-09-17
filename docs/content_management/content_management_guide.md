@@ -1,5 +1,5 @@
 ---
-description: The content management product guide provides a full description of its features as well as the benefits it brings to the client.
+description: Read the content management product guide and learn how to create, modify, and display information to the target audience.
 ---
 
 # Content management product guide
@@ -163,7 +163,7 @@ These operations, like in your computer’s file system, can apply both to indiv
 
 Content items can be hidden when necessary, for example, until a certain event, like a Holiday Sale or Board announcement comes. Hidden content items are not visible to website visitors and are greyed out in the Content Tree.
 
-![Hidden content item](img/hiddent_content_item.png)
+![Hidden content item](img/hidden_content_item.png)
 
 Editors can also move obsolete content items to Trash, and ultimately delete them.
 

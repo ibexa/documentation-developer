@@ -2,6 +2,11 @@
 {% set fqcn = breadcrumbs|map(breadcrumb => breadcrumb.name)|join('\\') ~ '\\' ~ node.name %}
 
 <div class="content-header">
+    {% if add_edition|default(false) %}
+        <div class="pills">
+            {% include 'components/edition-tag.html.twig' %}
+        </div>
+    {% endif %}
     <h1>
         {{ node.name == '\\' ? 'API Documentation' : node.name }}
     </h1>
