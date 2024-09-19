@@ -34,7 +34,7 @@ All project assets are accessible through the `assets` path.
     the `yarn encore <dev|prod>` command:
     
     ```
-    php bin/console bazinga:js-translation:dump assets --merge-domains
+    php bin/console bazinga:js-translation:dump public/assets --merge-domains
     ```
 
 ## Configuration
