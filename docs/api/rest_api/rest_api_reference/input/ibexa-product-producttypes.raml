@@ -33,20 +33,26 @@ get:
     description: Returns a list of product types. Deprecated as of Ibexa DXP 4.3, use POST /product/catalog/product_types/view instead.
     headers:
         Accept:
-            description: ProductTypeListGet - If set, the product type list is returned in XML or JSON format.
+            description: ProductTypeList - If set, the product type list is returned in XML or JSON format.
             example:  |
-                application/vnd.ibexa.api.ProductTypeListGet+json
+                application/vnd.ibexa.api.ProductTypeList+xml
+                application/vnd.ibexa.api.ProductTypeList+json
         Content-Type:
             description: The ProductTypeList schema encoded in XML or JSON format.
             example:  |
+                application/vnd.ibexa.api.ProductTypeListGet+xml
                 application/vnd.ibexa.api.ProductTypeListGet+json
     body:
+        application/vnd.ibexa.api.ProductTypeListGet+xml:
+            type: ProductTypeListGet
         application/vnd.ibexa.api.ProductTypeListGet+json:
-            type: ProductTypeList
+            type: ProductTypeListGet
             example: !include examples/product/catalog/product_types/GET/ProductTypeListGet.json.example
     responses:
         200:
             body:
+                application/vnd.ibexa.api.ProductTypeList+xml:
+                    type: ProductTypeList
                 application/vnd.ibexa.api.ProductTypeList+json:
                     type: ProductTypeList
                     example: !include examples/product/catalog/product_types/GET/ProductTypeList.json.example
@@ -56,9 +62,16 @@ get:
     get:
         displayName: Check product type usage
         description: Checks whether the product type is in use.
+        headers:
+            Accept:
+                example: |
+                    application/vnd.ibexa.api.ProductTypeUsage+xml
+                    application/vnd.ibexa.api.ProductTypeUsage+json
         responses:
             200:
                 body:
+                    application/vnd.ibexa.api.ProductTypeUsage+xml:
+                        type: ProductTypeUsage
                     application/vnd.ibexa.api.ProductTypeUsage+json:
                         type: ProductTypeUsage
                         example: !include examples/product/catalog/product_types/is_used/GET/ProductTypeUsage.json.example
@@ -70,16 +83,15 @@ get:
         description: Returns the given product type.
         headers:
             Accept:
-                description: ProductTypeGet - If set, the product type is returned in XML or JSON format.
+                description: ProductType - If set, the product type is returned in XML or JSON format.
                 example:  |
-                    application/vnd.ibexa.api.ProductTypeGet+json
-            Content-Type:
-                description: The ProductType schema encoded in XML or JSON format.
-                example:  |
-                    application/vnd.ibexa.api.ProductTypeGet+json
+                    application/vnd.ibexa.api.ProductType+xml
+                    application/vnd.ibexa.api.ProductType+json
         responses:
             200:
                 body:
+                    application/vnd.ibexa.api.ProductType+xml:
+                        type: ProductType
                     application/vnd.ibexa.api.ProductType+json:
                         type: ProductType
                         example: !include examples/product/catalog/product_types/id/GET/ProductType.json.example
@@ -137,12 +149,16 @@ get:
                     application/vnd.ibexa.api.ProductTypeViewInput+xml
                     application/vnd.ibexa.api.ProductTypeViewInput+json
         body:
+            application/vnd.ibexa.api.ProductTypeViewInput+xml:
+                type: ProductTypeViewInput
             application/vnd.ibexa.api.ProductTypeViewInput+json:
                 type: ProductTypeViewInput
                 example: !include examples/product/catalog/product_types/POST/ProductTypeViewInput.json.example
         responses:
             200:
                 body:
+                    application/vnd.ibexa.api.ProductTypeView+xml:
+                        type: ProductTypeView
                     application/vnd.ibexa.api.ProductTypeView+json:
                         type: ProductTypeView
                         example: !include examples/product/catalog/product_types/POST/ProductTypeView.json.example

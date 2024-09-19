@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- https://docs.phpdoc.org/guide/references/configuration.html -->
+<phpdocumentor
+        configVersion="3"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="https://www.phpdoc.org"
+>
+    <title>PHP API Reference</title>
+    <version number="*">
+        <api>
+            <source dsn=".">
+                <path>vendor/ibexa/**/contracts/**/*</path>
+            </source>
+            <ignore hidden="true" symlinks="true">
+                <path>vendor/**/tests/**/*</path>
+            </ignore>
+            <!-- Hide private elements -->
+            <visibility>public</visibility>
+            <visibility>protected</visibility>
+            <default-package-name>Ibexa</default-package-name>
+        </api>
+    </version>
+</phpdocumentor>

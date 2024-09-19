@@ -6,48 +6,154 @@ description: Overview of major recent additions to Ibexa DXP documentation.
 
 This page contains recent highlights and notable changes in [[= product_name =]] documentation.
 
+## August 2024
+
+### Product guides
+
+- [Ibexa Experience product guide](https://doc.ibexa.co/en/master/ibexa_products/ibexa_experience/)
+- [Ibexa Commerce product guide](https://doc.ibexa.co/en/master/ibexa_products/ibexa_commerce/)
+- Added [page collecting all feature product guides](https://doc.ibexa.co/en/master/product_guides/product_guides/)
+
+### Content management
+
+- Added how to [hide a taxonomy menu item](https://doc.ibexa.co/en/master/content_management/taxonomy/taxonomy/#hide-menu-item)
+
+### Data migration
+
+- Added a note about [multi-repository and dynamic migration folders](https://doc.ibexa.co/en/master/content_management/data_migration/managing_migrations/#migration-folders)
+
+## July 2024
+
+### Getting started
+
+- Added instructions in [Install Ibexa DXP](https://doc.ibexa.co/en/master/getting_started/install_ibexa_dxp/#create-project) about using PHP 8.3 to create a project
+- Updated the [requirements for running v3.3.x on PHP 8.3](https://doc.ibexa.co/en/master/getting_started/requirements/#php)
+
+### Infrastructure and maintenance
+
+- [Added v4.6.4 to v4.6.8 update instructions](https://doc.ibexa.co/en/master/update_and_migration/from_4.5/update_from_4.5/#v468)
+- [Modified v3.3.x to v3.3.latest update instructions](https://doc.ibexa.co/en/master/update_and_migration/from_3.3/update_from_3.3/#update-the-application)
+- Updated the recommendations in [Performance](https://doc.ibexa.co/en/master/infrastructure_and_maintenance/performance/#symfony) by mentioning Symfony
+
+### Data migration
+
+- Added a note about multi-repository scenario in [Managing migration](https://doc.ibexa.co/en/master/content_management/data_migration/managing_migrations/#migration-folders)
+- Updated the instructions for [Importing data](https://doc.ibexa.co/en/master/content_management/data_migration/importing_data/#built-in-functions) by mentioning the `env` function and a possibility of swapping content items assigned to a location
+
+### Ibexa Cloud
+
+- Placed all articles about Ibexa Cloud [in a common location](https://doc.ibexa.co/en/master/ibexa_cloud/ibexa_cloud/)
+
+### Ibexa Engage
+
+- [Added a landing page in the Ibexa Engage area](https://doc.ibexa.co/en/master/ibexa_engage/ibexa_engage/)
+
+### Product guides
+
+- [Ibexa Cloud product guide](https://doc.ibexa.co/en/master/ibexa_cloud/ibexa_cloud_guide/)
+
+## June 2024
+
+### Ibexa Engage
+
+- [Learn more about Ibexa Engage](https://doc.ibexa.co/en/master/ibexa_engage/install_ibexa_engage/)
+
+### Search
+
+- [Configuring Elasticsearch with analyzers for different languages](https://doc.ibexa.co/en/master/search/search_engines/elastic_search/configure_elastic_search/#add-language-specific-analysers)
+- [ContentName search criterion](https://doc.ibexa.co/en/master/search/criteria_reference/contentname_criterion/)
+
+### Dashboard
+
+- [Customizing the content type for Dashboard container](https://doc.ibexa.co/en/master/administration/dashboard/configure_default_dashboard/#container-content-type-identifier)
+
+### Infrastructure and maintenance
+
+- [Updated Ibexa Cloud domain to ibexa.cloud](https://doc.ibexa.co/en/master/getting_started/install_on_ibexa_cloud/#4-push-the-project)
+- [v4.6.3 to v4.6.4 update instructions](https://doc.ibexa.co/en/master/update_and_migration/from_4.5/update_from_4.5/#v464)
+
+### Documentation
+
+- A "new" pill now appears in the table of content alongside pages which have been recently created, or have recent important updates or additions.
+
+## May 2024
+
+### PHP API
+
+- [PHP API Reference](https://doc.ibexa.co/en/master/api/php_api/php_api_reference/)
+
+### Users
+
+- [Warning about recent activity log and user privacy](https://doc.ibexa.co/en/master/administration/recent_activity/recent_activity/#user-privacy)
+
+## April 2024
+
+### Product guides
+
+- [Ibexa CDP product guide](https://doc.ibexa.co/en/master/cdp/cdp_guide/)
+
+### Infrastructure and maintenance
+
+- [v4.6.0 to v4.6.3 update instructions](https://doc.ibexa.co/en/master/update_and_migration/from_4.5/update_from_4.5/#v463)
+
+### Users
+
+- [Recent activity](https://doc.ibexa.co/en/master/administration/recent_activity/recent_activity/)
+- [OAuth server](https://doc.ibexa.co/en/master/users/oauth_server/)
+- Updated [OAuth client](https://doc.ibexa.co/en/master/users/oauth_client/)
+
+### Back Office
+
+- [Customize Back Office search suggestions](https://doc.ibexa.co/en/master/administration/back_office/customize_search_suggestion/)
+- [Customize Back Office search result sorting](https://doc.ibexa.co/en/master/administration/back_office/customize_search_sorting/)
+
+### Templating
+
+- [Site context Twig function `ibexa_site_context_aware`](https://doc.ibexa.co/en/master/templating/twig_function_reference/site_context_twig_functions/#ibexa_site_context_aware)
+- [Storefront Twig function `ibexa_get_anonymous_user_id`](https://doc.ibexa.co/en/master/templating/twig_function_reference/storefront_twig_functions/#ibexa_get_anonymous_user_id)
+
 ## March 2024
 
 ### Permissions
 
-- Updated [Custom Policies](custom_policies.md) article
+- Updated [Custom Policies](https://doc.ibexa.co/en/master/permissions/custom_policies/) article
 
 ### Content management
 
-- Updated [BinaryFile Field Type](binaryfilefield.md) description
+- Updated [BinaryFile Field Type](https://doc.ibexa.co/en/master/content_management/field_types/field_type_reference/binaryfilefield/) description
 
 ### Commerce
 
-- Description of [integration with Payum](payum_integration.md) and payment processing gateways
+- Description of [integration with Payum](https://doc.ibexa.co/en/master/commerce/payment/payum_integration/) and payment processing gateways
 
 ### Search
 
-- Updated [Elasticsearch search engine](elastic_search_overview.md) description
+- Updated [Elasticsearch search engine](https://doc.ibexa.co/en/master/search/search_engines/elastic_search/elastic_search_overview/) description
 - New Search Criteria:
-    - [Image](image_criterion.md)
-    - [ImageDimensions](imagedimensions_criterion.md)
-    - [ImageFileSize](imagefilesize_criterion.md)
-    - [ImageHeight](imageheight_criterion.md)
-    - [ImageMimeType](imagemimetype_criterion.md)
-    - [ImageOrientation](imageorientation_criterion.md)
-    - [ImageWidth](imagewidth_criterion.md)
+    - [Image](https://doc.ibexa.co/en/master/search/criteria_reference/image_criterion/)
+    - [ImageDimensions](https://doc.ibexa.co/en/master/search/criteria_reference/imagedimensions_criterion/)
+    - [ImageFileSize](https://doc.ibexa.co/en/master/search/criteria_reference/imagefilesize_criterion/)
+    - [ImageHeight](https://doc.ibexa.co/en/master/search/criteria_reference/imageheight_criterion/)
+    - [ImageMimeType](https://doc.ibexa.co/en/master/search/criteria_reference/imagemimetype_criterion/)
+    - [ImageOrientation](https://doc.ibexa.co/en/master/search/criteria_reference/imageorientation_criterion/)
+    - [ImageWidth](https://doc.ibexa.co/en/master/search/criteria_reference/imagewidth_criterion/)
 
 ## February 2024
 
 ### Dashboard
 
 - New dashboard sections in user documentation:
-    - [Dashboard](https://doc.ibexa.co/projects/userguide/en/latest/getting_started/dashboard/dashboard/)
-    - [Work with dashboard](https://doc.ibexa.co/projects/userguide/en/latest/getting_started/dashboard/work_with_dashboard/)
-    - [Dashboard block reference](https://doc.ibexa.co/projects/userguide/en/latest/getting_started/dashboard/dashboard_block_reference/)
+    - [Dashboard](https://doc.ibexa.co/projects/userguide/en/master/getting_started/dashboard/dashboard/)
+    - [Work with dashboard](https://doc.ibexa.co/projects/userguide/en/master/getting_started/dashboard/work_with_dashboard/)
+    - [Dashboard block reference](https://doc.ibexa.co/projects/userguide/en/master/getting_started/dashboard/dashboard_block_reference/)
 - Dashboard section in developer documentation:
-    - [Configure default dashboard](https://doc.ibexa.co/en/latest/administration/dashboard/configure_default_dashboard/)
-    - [Customize dashboard](https://doc.ibexa.co/en/latest/administration/dashboard/customize_dashboard/)
-    - [PHP API Dashboard service](https://doc.ibexa.co/en/latest/administration/dashboard/php_api_dashboard_service/)
+    - [Configure default dashboard](https://doc.ibexa.co/en/master/administration/dashboard/configure_default_dashboard/)
+    - [Customize dashboard](https://doc.ibexa.co/en/master/administration/dashboard/customize_dashboard/)
+    - [PHP API Dashboard service](https://doc.ibexa.co/en/master/administration/dashboard/php_api_dashboard_service/)
 
 ### DAM
 
-- [Ibexa DAM](https://doc.ibexa.co/projects/userguide/en/latest/dam/ibexa_dam/)
+- [Ibexa DAM](https://doc.ibexa.co/projects/userguide/en/master/dam/ibexa_dam/)
 
 ### PIM
 
@@ -55,13 +161,13 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### REST API
 
-- [Shipment REST API](https://doc.ibexa.co/en/latest/api/rest_api/rest_api_reference/rest_api_reference.html#shipments)
+- [Shipment REST API](https://doc.ibexa.co/en/master/api/rest_api/rest_api_reference/rest_api_reference.html#shipments)
 
 ### Others
 
-- [Updated Create custom view matcher article](https://doc.ibexa.co/en/latest/templating/templates/create_custom_view_matcher/)
-- [Actito transactional email integration](https://doc.ibexa.co/en/latest/commerce/transactional_emails/transactional_emails/#configure-actito-integration)
-- [Described user profile](https://doc.ibexa.co/projects/userguide/en/latest/getting_started/get_started/#edit-user-profile)
+- [Updated Create custom view matcher article](https://doc.ibexa.co/en/master/templating/templates/create_custom_view_matcher/)
+- [Actito transactional email integration](https://doc.ibexa.co/en/master/commerce/transactional_emails/transactional_emails/#configure-actito-integration)
+- [Described user profile](https://doc.ibexa.co/projects/userguide/en/master/getting_started/get_started/#edit-user-profile)
 
 ## January 2024
 
@@ -221,7 +327,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
     - [Customer portal](https://doc.ibexa.co/en/master/customer_management/customer_portal/)
     - [Form Builder](https://doc.ibexa.co/en/master/content_management/forms/form_builder_guide/)
     - [Online editor](https://doc.ibexa.co/en/master/content_management/rich_text/online_editor_guide/)
-    - [Personalization](https://doc.ibexa.co/en/master/personalization/personalization_brochure/)
+    - [Personalization](https://doc.ibexa.co/en/master/personalization/personalization_guide/)
     - [PIM](https://doc.ibexa.co/en/master/pim/pim_guide/)
 
 - [Updated bundles list](https://doc.ibexa.co/en/master/administration/project_organization/bundles/)
@@ -230,7 +336,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### New home page
 
-- Redesigned [home page for the user documentation](https://doc.ibexa.co/projects/userguide/en/latest/)
+- Redesigned [home page for the user documentation](https://doc.ibexa.co/projects/userguide/en/master/)
 
 ### Administration
 
@@ -273,7 +379,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### New home page
 
-- Redesigned [home page for the developer documentation](https://doc.ibexa.co/en/latest/)
+- Redesigned [home page for the developer documentation](https://doc.ibexa.co/en/master/)
 
 ### Getting started
 

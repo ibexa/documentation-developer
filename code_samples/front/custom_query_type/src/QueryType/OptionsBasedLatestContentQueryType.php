@@ -31,7 +31,7 @@ class OptionsBasedLatestContentQueryType extends OptionsResolverBasedQueryType i
         ]);
     }
 
-    protected function configureOptions(OptionsResolver $resolver)
+    protected function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefined(['contentType', 'limit']);
         $resolver->setAllowedTypes('contentType', 'array');

@@ -10,6 +10,7 @@ use Ibexa\Contracts\Core\Repository\Values\Content\Query\CriterionInterface;
 use Ibexa\Contracts\Core\Repository\Values\User\Limitation;
 use Ibexa\Contracts\Core\Repository\Values\User\UserReference;
 use Ibexa\Contracts\Core\Repository\Values\ValueObject;
+use Ibexa\Core\Base\Exceptions\InvalidArgumentException;
 use Ibexa\Core\Base\Exceptions\InvalidArgumentType;
 use Ibexa\Core\FieldType\ValidationError;
 
@@ -20,7 +21,7 @@ class CustomLimitationType implements Type
         if (!$limitationValue instanceof CustomLimitationValue) {
             throw new InvalidArgumentType(
                 '$limitationValue',
-                FieldGroupLimitation::class,
+                CustomLimitationValue::class,
                 $limitationValue
             );
         }
@@ -75,7 +76,7 @@ class CustomLimitationType implements Type
         throw new NotImplementedException(__METHOD__);
     }
 
-    public function valueSchema(): void
+    public function valueSchema()
     {
         throw new NotImplementedException(__METHOD__);
     }

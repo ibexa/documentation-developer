@@ -61,7 +61,7 @@ By adding the `Ibexa\Bundle\OAuth2Client\Security\Authenticator\OAuth2Authentica
 
 Resource owner mappers map the data received from the OAuth2 authorization server to user information in the Repository.
 
-Resource owner mappers must implement the `Ibexa\Contracts\OAuth2Client\ResourceOwner\ResourceOwnerMapper` interface.
+Resource owner mappers must implement the [`Ibexa\Contracts\OAuth2Client\ResourceOwner\ResourceOwnerMapper`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-OAuth2Client-ResourceOwner-ResourceOwnerMapper.html) interface.
 Four implementations of `ResourceOwnerMapper` are proposed by default:
 
 - `ResourceOwnerToExistingUserMapper` is the base class extended by the following mappers:
@@ -92,9 +92,9 @@ which enables it to create a new user in the Repository if the user doesn't exis
 The mapper loads a user (line 51) or creates a new one (line 61),
 based on the information from `resourceOwner`, that's the OAuth2 authorization server.
 
-The new username is set with a `google:` prefix (lines 19, 106), to avoid conflicts with users registered in a regular way.
+The new username is set with a `google:` prefix (lines 19, 109), to avoid conflicts with users registered in a regular way.
 
-``` php hl_lines="19 51 61 106"
+``` php hl_lines="20 54 64 109"
 [[= include_file('code_samples/user_management/oauth_google/src/OAuth/GoogleResourceOwnerMapper.php') =]]
 ```
 

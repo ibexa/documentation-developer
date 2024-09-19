@@ -1,5 +1,6 @@
 ---
 description: Manage data migrations by adding files, converting from Kaliop migration bundle, checking migration status, and setting up configuration.
+month_change: true
 ---
 
 # Managing migrations
@@ -56,6 +57,21 @@ ibexa_migrations:
     migration_directory: %kernel.project_dir%/src/Migrations/MyMigrations/
     migrations_files_subdir: migration_files
 ```
+
+!!! note "Multi-repository scenario"
+
+    In multi-repository environments, where data for different websites is stored in separate databases, you can migrate such databases separately, to prevent the migration processes from affecting each other.
+
+    The `ibexa_migrations.migration_directory` setting accepts a placeholder within a path.
+    The placeholder is dynamically replaced by a name of the repository that you want to migrate, based on the selected SiteAccess.
+
+    ``` yaml
+    ibexa_migrations:
+        migration_directory: '%kernel.project_dir%/data/<repository>'
+        ...
+    ```
+
+    Then, when you run the migration command, you must use the [`--siteaccess` option](exporting_data.md#siteaccess) and provide the name of the SiteAccess that you want to migrate.
 
 ## Preview configuration
 

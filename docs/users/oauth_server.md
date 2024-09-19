@@ -18,6 +18,20 @@ You can install it with the following command:
 composer require ibexa/oauth2-server --with-all-dependencies
 ```
 
+Add the tables needed by the bundle:
+
+=== "MySQL"
+
+    ```bash
+    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/oauth2-server/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
+    ```
+
+=== "PostgreSQL"
+
+    ```bash
+    php bin/console ibexa:doctrine:schema:dump-sql --force-platform=postgres vendor/ibexa/oauth2-server/src/bundle/Resources/config/schema.yaml | psql <database_name>
+    ```
+
 Then, in `config/bundles.php`, at the end of an array with a list of bundles, add the following two lines :
 
 ```php
@@ -29,22 +43,6 @@ return [
     League\Bundle\OAuth2ServerBundle\LeagueOAuth2ServerBundle::class => ['all' => true],
 ];
 ```
-
-Add the tables needed by the bundle:
-
-=== "MySQL"
-
-    ```bash
-    mysql -u <username> -p <password> <database_name> -e 'SET FOREIGN_KEY_CHECKS=0;'
-    php bin/console ibexa:doctrine:schema:dump-sql vendor/ibexa/oauth2-server/src/bundle/Resources/config/schema.yaml | mysql -u <username> -p <password> <database_name>
-    mysql -u <username> -p <password> <database_name> -e 'SET FOREIGN_KEY_CHECKS=1;'
-    ```
-
-=== "PostgreSQL"
-
-    ```bash
-    php bin/console ibexa:doctrine:schema:dump-sql --force-platform=postgres vendor/ibexa/oauth2-server/src/bundle/Resources/config/schema.yaml | psql <database_name>
-    ```
 
 ## Authorization Server configuration
 
@@ -148,7 +146,8 @@ php bin/console league:oauth2-server:create-client 'Example OAuth2 Client' examp
 ```
 
 !!! note
-   You can call `--redirect-uri` multiple times.
+
+    You can call `--redirect-uri` multiple times.
 
 Alternatively, you could add redirect URIs after you create a client, by using the `league:oauth2-server:update-client` command.
 For example:

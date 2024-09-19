@@ -166,6 +166,10 @@ post:
                         application/vnd.ibexa.api.ContentTypeInfoList+json:
                             type: ContentTypeInfoList
                             example: !include examples/content/typegroups/content_type_group_id/types/GET/ContentTypeInfoList.json.example
+                        application/vnd.ibexa.api.ContentTypeList+xml:
+                            type: ContentTypeList
+                        application/vnd.ibexa.api.ContentTypeList+json:
+                            type: ContentTypeList
                 401:
                     description: Error - The user has no permission to read the content types.
         post:
@@ -190,7 +194,7 @@ post:
                 application/vnd.ibexa.api.ContentTypeCreate+xml:
                     type: ContentTypeCreate
                     example: !include examples/content/typegroups/content_type_group_id/types/POST/ContentTypeCreate.xml.example
-                application/vnd.ez.api.ContentTypeCreate+json:
+                application/vnd.ibexa.api.ContentTypeCreate+json:
                     type: ContentTypeCreate
                     example: !include examples/content/typegroups/content_type_group_id/types/POST/ContentTypeCreate.json.example
             responses:
@@ -200,6 +204,8 @@ post:
                         application/vnd.ibexa.api.ContentType+xml:
                             type: ContentType
                             example: !include examples/content/typegroups/content_type_group_id/types/POST/ContentType.xml.example
+                        application/vnd.ibexa.api.ContentType+json:
+                            type: ContentType
                 400:
                     description: Error - The input does not match the input schema definition. Validation on a Field definition fails. Validation of the content type fails, e.g. multiple Fields of a same singular Field Type are provided. Publish is set to true and the input is not complete e.g. no Field definitions are provided.
                 401:

@@ -101,13 +101,13 @@ post:
                     application/vnd.ibexa.api.ObjectStateGroupUpdate+xml
             If-Match:
                 description: ETag
-                body:
-                    application/vnd.ibexa.api.ObjectStateGroupUpdate+xml:
-                        type: ObjectStateGroupUpdate
-                        example: !include examples/content/objectstategroups/object_state_group_id/PATCH/ObjectStateGroupUpdate.xml.example
-                    application/vnd.ibexa.api.ObjectStateGroupUpdate+json:
-                        type: ObjectStateGroupUpdate
-                        example: !include examples/content/objectstategroups/object_state_group_id/PATCH/ObjectStateGroupUpdate.json.example
+        body:
+            application/vnd.ibexa.api.ObjectStateGroupUpdate+xml:
+                type: ObjectStateGroupUpdate
+                example: !include examples/content/objectstategroups/object_state_group_id/PATCH/ObjectStateGroupUpdate.xml.example
+            application/vnd.ibexa.api.ObjectStateGroupUpdate+json:
+                type: ObjectStateGroupUpdate
+                example: !include examples/content/objectstategroups/object_state_group_id/PATCH/ObjectStateGroupUpdate.json.example
         responses:
             200:
                 description: OK - Object stated group updated.

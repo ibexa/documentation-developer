@@ -32,26 +32,59 @@ Run:
     composer require ibexa/commerce:[[= latest_tag_4_5 =]] --with-all-dependencies --no-scripts
     ```
 
-### Update the database
+### v4.5.2
 
-Depending on the version you started from, you may have several scripts to run:
+#### Database update
+
+Run the following scripts:
 
 === "MySQL"
 
     ``` bash
     mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.5.1-to-4.5.2.sql
-    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.5.2-to-4.5.3.sql
-    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.5.3-to-4.5.4.sql
     ```
 
 === "PostgreSQL"
 
     ``` bash
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.5.1-to-4.5.2.sql
-    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.5.2-to-4.5.3.sql
-    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.5.3-to-4.5.4.sql
     ```
 
+### v4.5.3
+
+#### Database update [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+
+Run the following scripts:
+
+=== "MySQL"
+
+    ``` bash
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.5.2-to-4.5.3.sql
+    ```
+
+=== "PostgreSQL"
+
+    ``` bash
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.5.2-to-4.5.3.sql
+    ```
+
+### v4.5.4
+
+#### Database update
+
+Run the following scripts:
+
+=== "MySQL"
+
+    ``` bash
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.5.3-to-4.5.4.sql
+    ```
+
+=== "PostgreSQL"
+
+    ``` bash
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.5.3-to-4.5.4.sql
+    ```
 ## Update from v4.5.latest to v4.6
 
 When you have the latest version of v4.5, you can update to v4.6.
@@ -185,7 +218,7 @@ And apply the following database script:
         gatewayName VARCHAR(255) NOT NULL,
         details LONGTEXT DEFAULT NULL COMMENT '(DC2Type:object)',
         PRIMARY KEY(hash)
-    ) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB;
+    ) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_520_ci` ENGINE = InnoDB;
     ```
 
 === "PostgreSQL"
@@ -341,7 +374,7 @@ ibexa:
 
 ### Revisit optional configuration
 
-#### Activity log
+#### Activity log [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 By default, activity log keeps entries for 30 days.
 You can change this value by setting `ibexa.repositories.<name>.activity_log.truncate_after_days` parameter:
@@ -357,7 +390,7 @@ ibexa:
 
 ### Revisit permissions
 
-#### Recent activity
+#### Recent activity [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 You must add the "Activity Log / Read" policy (`activity_log/read`) to every role that has access to the Back Office, at least with the "Only own log" limitation.
 This policy is mandatory to display the "Recent activity" block in [dashboards](#dashboard-migration), and the "Recent activity" block in [user profiles](#user-profile).
@@ -380,6 +413,47 @@ The following migration example allows users with the `Editor` role to access th
                     values: []
 ```
 
+## Update Solr configuration
+
+Solr configuration changes with the addition of spellchecking feature.
+
+Configure the `spellcheck` component in `solrconfig.xml`:
+
+```xml
+  <searchComponent name="spellcheck" class="solr.SpellCheckComponent">
+    <lst name="spellchecker">
+      <str name="name">default</str>
+      <str name="field">meta_content__text_t</str>
+      <str name="classname">solr.DirectSolrSpellChecker</str>
+      <str name="distanceMeasure">internal</str>
+      <float name="accuracy">0.5</float>
+      <int name="maxEdits">2</int>
+      <int name="minPrefix">1</int>
+      <int name="maxInspections">5</int>
+      <int name="minQueryLength">4</int>
+      <float name="maxQueryFrequency">0.01</float>
+    </lst>
+  </searchComponent>
+```
+
+Add this `spellcheck` component to the `/select` request handler: 
+
+```xml
+  <requestHandler name="/select" class="solr.SearchHandler">
+    <arr name="last-components">
+      <str>spellcheck</str>
+    </arr>
+    <!-- […] -->
+  </requestHandler>
+```
+
+!!! note
+
+    You can [generate new Solr configuration files using `generate-solr-config.sh`](install_solr.md#generate-solr-configuration-automatically),
+    and merge `spellcheck` configuration by comparing new files with your existing setup.
+
+Restart Solr for `solrconfig.xml` changes to take effect.
+
 ## Update Elasticsearch schema
 
 Elasticsearch schema's templates change, for example, with the addition of new features such as spellchecking.
@@ -398,6 +472,8 @@ To update the schema, and then reindex the content, use the following commands:
 php bin/console ibexa:elasticsearch:put-index-template --overwrite
 php bin/console ibexa:reindex
 ```
+
+<!-- vale Ibexa.VariablesVersion = NO -->
 
 ## v4.6.2
 
@@ -451,3 +527,53 @@ ibexa:
                         channels:
                             - sms
 ```
+
+## v4.6.4
+
+#### Database update
+
+Run the following scripts:
+
+=== "MySQL"
+
+    ``` bash
+    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.6.3-to-4.6.4.sql
+    ```
+
+=== "PostgreSQL"
+
+    ``` bash
+    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.6.3-to-4.6.4.sql
+    ```
+
+## v4.6.8
+
+To avoid deprecations when updating from an older PHP version to PHP 8.2 or 8.3, run the following commands:
+
+``` bash
+composer config extra.runtime.error_handler "\\Ibexa\\Contracts\\Core\\MVC\\Symfony\\ErrorHandler\\Php82HideDeprecationsErrorHandler"
+composer dump-autoload
+```
+
+## v4.6.9
+
+No additional steps needed.
+
+## v4.6.10
+
+A command to deal with duplicated database entries, as reported in [IBX-8562](https://issues.ibexa.co/browse/IBX-8562), will be available soon.
+
+## v4.6.11
+
+### Ibexa Cloud
+
+Update Platform.sh configuration for PHP and Varnish.
+
+Generate new configuration with the following command:
+
+```bash
+composer ibexa:setup --platformsh
+```
+
+Review the changes applied to `.platform.app.yaml` and `.platform/`,
+merge with your custom settings if needed, and commit them to Git.

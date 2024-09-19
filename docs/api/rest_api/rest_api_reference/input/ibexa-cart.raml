@@ -8,13 +8,22 @@ post:
             example: |
                 application/vnd.ibexa.api.CartCreate+xml
                 application/vnd.ibexa.api.CartCreate+json
+        Accept:
+            description: If set, the created Cart is returned in XML or JSON format.
+            example: |
+                application/vnd.ibexa.api.Cart+xml
+                application/vnd.ibexa.api.Cart+json
     body:
+        application/vnd.ibexa.api.CartCreate+xml:
+            type: CartCreate
         application/vnd.ibexa.api.CartCreate+json:
             type: CartCreate
             example: !include examples/cart/POST/CartCreate.json.example
     responses:
         200:
             body:
+                application/vnd.ibexa.api.Cart+xml:
+                    type: Cart
                 application/vnd.ibexa.api.Cart+json:
                     type: Cart
                     example: !include examples/cart/POST/Cart.json.example
@@ -36,26 +45,38 @@ post:
                     application/vnd.ibexa.api.CartViewInput+xml
                     application/vnd.ibexa.api.CartViewInput+json
         body:
+            application/vnd.ibexa.api.CartViewInput+xml:
+                type: CartViewInput
             application/vnd.ibexa.api.CartViewInput+json:
                 type: CartViewInput
                 example: !include examples/cart/view/CartViewInput.json.example
         responses:
             200:
                 description: OK - returns a view and its results
-                #body:
-                #    application/vnd.ibexa.api.CartView+xml:
-                #    application/vnd.ibexa.api.CartView+json:
+                body:
+                    application/vnd.ibexa.api.CartView+xml:
+                        type: CartView
+                    application/vnd.ibexa.api.CartView+json:
+                        type: CartView
 /{identifier}:
     get:
         displayName: Get Cart
         description: Gets Cart by its identifier.
+        headers:
+            Accept:
+                description: The Cart is returned in XML or JSON format.
+                example: |
+                    application/vnd.ibexa.api.Cart+xml
+                    application/vnd.ibexa.api.Cart+json
         responses:
             200:
                 description: OK - return the cart
-                #body:
-                #    application/vnd.ibexa.api.Cart+json:
-                #        type: Cart
-                #        example: !include examples/cart/POST/Cart.json.example
+                body:
+                    application/vnd.ibexa.api.Cart+xml:
+                        type: Cart
+                    application/vnd.ibexa.api.Cart+json:
+                        type: Cart
+                        example: !include examples/cart/POST/Cart.json.example
             401:
                 description: Error - the user is not authorized to get this cart.
             404:
@@ -68,10 +89,15 @@ post:
         description: Updates identified Cart's metadata from payload.
         headers:
             Content-Type:
-                description: The CartMetadataUpdateStruct schema encoded in XML or JSON format.
+                description: The CartMetadataUpdate schema encoded in XML or JSON format.
                 example: |
-                    application/vnd.ibexa.api.CartMetadataUpdateStruct+xml
-                    application/vnd.ibexa.api.CartMetadataUpdateStruct+json
+                    application/vnd.ibexa.api.CartMetadataUpdate+xml
+                    application/vnd.ibexa.api.CartMetadataUpdate+json
+        body:
+            application/vnd.ibexa.api.CartMetadataUpdate+xml:
+                type: CartMetadataUpdate
+            application/vnd.ibexa.api.CartMetadataUpdate+json:
+                type: CartMetadataUpdate
     /entry:
         post:
             displayName: Add Entry to Cart
@@ -85,6 +111,8 @@ post:
             body:
                 application/vnd.ibexa.api.CartEntryAdd+xml:
                     type: CartEntryAdd
+                application/vnd.ibexa.api.CartEntryAdd+json:
+                    type: CartEntryAdd
                     example: !include examples/cart/entry/POST/CartEntryAdd.json.example
         /{entryId}:
             delete:
@@ -95,10 +123,15 @@ post:
                 description: Updates the given entry from the given Cart.
                 headers:
                     Content-Type:
-                        description: The EntryUpdateStruct schema encoded in XML or JSON format.
+                        description: The CartEntryUpdate schema encoded in XML or JSON format.
                         example: |
-                            application/vnd.ibexa.api.EntryUpdateStruct+xml
-                            application/vnd.ibexa.api.EntryUpdateStruct+json
+                            application/vnd.ibexa.api.CartEntryUpdate+xml
+                            application/vnd.ibexa.api.CartEntryUpdate+json
+                body:
+                    application/vnd.ibexa.api.CartEntryUpdate+xml:
+                        type: CartEntryUpdate
+                    application/vnd.ibexa.api.CartEntryUpdate+json:
+                        type: CartEntryUpdate
     /empty:
         post:
             displayName: Empty Cart
@@ -123,7 +156,9 @@ post:
             responses:
                 200:
                     body:
-                        application/vnd.ibexa.api.CountriesLis+json:
+                        application/vnd.ibexa.api.CartSummary+xml:
+                            type: CartSummary
+                        application/vnd.ibexa.api.CartSummary+json:
                             type: CartSummary
                             example: !include examples/cart/summary/CartSummary.json.example
                 401:

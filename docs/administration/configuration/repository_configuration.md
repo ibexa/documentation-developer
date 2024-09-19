@@ -172,8 +172,8 @@ repositories:
 ```
 
 These identifiers can be given human-readable values and can be translated. Those values are used when editing content types.
-The translation domain is `ezplatform_fields_groups`.
-This example in `translations/ezplatform_fields_groups.en.yaml` defines English names for Field groups:
+The translation domain is `ibexa_fields_groups`.
+This example in `translations/ibexa_fields_groups.en.yaml` defines English names for Field groups:
 
 ``` yaml
 content: Content

@@ -12,6 +12,8 @@ Before you update to v4.5, you need to go through the following steps to update 
 
 ### Update the application to v4.4.latest
 
+[[% include 'snippets/update/temporary_v4_conflicts.md' %]]
+
 Run:
 
 === "[[= product_name_content =]]"
@@ -28,6 +30,16 @@ Run:
 
     ``` bash
     composer require ibexa/commerce:[[= latest_tag_4_4 =]] --with-all-dependencies --no-scripts
+    ```
+
+!!! note "Remove temporary Composer `conflict`"
+
+    You can now remove the temporary Composer `conflict` entries from your `composer.json` file:
+    ```diff
+        "conflict": {
+    -        "jms/serializer": ">=3.30.0",
+    -        "gedmo/doctrine-extensions": ">=3.12.0"
+        },
     ```
 
 ## Update from v4.4.latest to v4.5
@@ -236,31 +248,31 @@ Run the following scripts:
 
 === "MySQL"
 
-    ``` sql
+    ``` bash
     mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.5.1-to-4.5.2.sql
     ```
 
 === "PostgreSQL"
 
-    ``` sql
+    ``` bash
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.5.1-to-4.5.2.sql
     ```
 
 ### v4.5.3
 
-#### Database update
+#### Database update [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 Run the following scripts:
 
 === "MySQL"
 
-    ``` sql
+    ``` bash
     mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.5.2-to-4.5.3.sql
     ```
 
 === "PostgreSQL"
 
-    ``` sql
+    ``` bash
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.5.2-to-4.5.3.sql
     ```
 
@@ -272,12 +284,12 @@ Run the following scripts:
 
 === "MySQL"
 
-    ``` sql
+    ``` bash
     mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.5.3-to-4.5.4.sql
     ```
 
 === "PostgreSQL"
 
-    ``` sql
+    ``` bash
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.5.3-to-4.5.4.sql
     ```

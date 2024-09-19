@@ -4,10 +4,18 @@ namespace App\MyFeature;
 
 class MyFeature extends \stdClass
 {
+    /**
+     * @param array<string, mixed> $properties
+     */
     public function __construct(array $properties)
     {
         foreach ($properties as $propertyName => $propertyValue) {
             $this->$propertyName = $propertyValue;
         }
+    }
+
+    public function getName(): ?string
+    {
+        return property_exists($this, 'name') ? $this->name : null;
     }
 }

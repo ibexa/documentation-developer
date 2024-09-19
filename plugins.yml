@@ -105,6 +105,9 @@ plugins:
             'guide/page/create_custom_page_block.md': 'content_management/pages/create_custom_page_block.md'
             'guide/form_builder/forms.md': 'content_management/forms/forms.md'
             'api/public_php_api_managing_forms.md': 'content_management/forms/form_api.md'
+            'ibexa_products/experience.md': 'ibexa_products/ibexa_experience.md'
+            'ibexa_products/headless.md': 'ibexa_products/ibexa_headless.md'
+            'personalization/personalization_brochure.md': 'personalization/personalization_guide.md'
             'guide/form_builder/create_custom_form_field.md': 'content_management/forms/create_custom_form_field.md'
             'guide/form_builder/customize_email_notifications.md': 'content_management/forms/customize_email_notifications.md'
             'guide/workflow/workflow.md': 'content_management/workflow/workflow.md'
@@ -544,3 +547,7 @@ plugins:
             'infrastructure_and_maintenance/repository_api.md': 'api/php_api/php_api.md'
 
             'content_management/customize_field_type_metadata.md': 'content_management/field_types/customize_field_type_metadata.md'
+
+            'getting_started/ibexa_cloud_guide.md': 'ibexa_cloud/ibexa_cloud_guide.md'
+            'getting_started/install_on_ibexa_cloud.md': 'ibexa_cloud/install_on_ibexa_cloud.md'
+            'infrastructure_and_maintenance/clustering/ddev_and_ibexa_cloud.md': 'ibexa_cloud/ddev_and_ibexa_cloud.md'

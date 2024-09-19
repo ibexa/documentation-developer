@@ -1,5 +1,5 @@
 ---
-description: The user management product guide provides a full description of its features as well as the benefits it brings to the client.
+description: Find out what's User management and check what functions Ibexa DXP offers in this area to effectively manage the digital ecosystem.
 ---
 
 # User management product guide
