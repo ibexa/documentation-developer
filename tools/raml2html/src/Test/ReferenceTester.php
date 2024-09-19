@@ -19,6 +19,7 @@ class ReferenceTester
         'vendor/ibexa/cart/src/bundle/Resources/config/routing_rest.yaml',
         'vendor/ibexa/connect/src/bundle/Resources/config/routing_rest.yaml',
         'vendor/ibexa/connector-dam/src/bundle/Resources/config/routing_rest.yaml',
+        'vendor/ibexa/connector-qualifio/src/bundle/Resources/config/routing_rest.yaml',
         //'vendor/ibexa/corporate-account/src/bundle/Resources/config/routing_rest.yaml', // imports the 4 following files
         'vendor/ibexa/corporate-account/src/bundle/Resources/config/routing/rest/companies.yaml',
         'vendor/ibexa/corporate-account/src/bundle/Resources/config/routing/rest/members.yaml',
