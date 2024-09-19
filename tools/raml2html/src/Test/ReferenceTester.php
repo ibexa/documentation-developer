@@ -170,13 +170,14 @@ class ReferenceTester
                 continue;
             }
             $lineParts = preg_split('/\s+/', $outputLine);
-            $routeId = $lineParts[0];
-            $methods = explode('|', $lineParts[1]);
+            $routeProperties = array_combine(['Name', 'Method', 'Scheme', 'Host', 'Path'], $lineParts);
+            $routeId = $routeProperties['Name'];
+            $methods = explode('|', $routeProperties['Method']);
             foreach ($methods as $method) {
                 if ('OPTIONS' === $method) {
                     continue;
                 }
-                $routePath = str_replace($this->apiUri, '', $lineParts[4]);
+                $routePath = str_replace($this->apiUri, '', $routeProperties['Path']);
                 if (!array_key_exists($routePath, $confRoutes)) {
                     $confRoutes[$routePath] = ['methods' => []];
                 }
