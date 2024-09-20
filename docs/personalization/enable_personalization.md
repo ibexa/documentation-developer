@@ -249,7 +249,7 @@ php bin/console ibexa:personalization:run-export
 ```
 
 The bundle exporter collects all content related to the `<site_access_name>`/`<customer_id>` 
-pair and stores it in files.
+pair and stores it in files to the folder `public/var/export/yyyy/mm/dd/hh/mm` of your project.
 After finishing, the system sends a POST request to the endpoint and informs the 
 Personalization server to fetch new content.
 An internal workflow is then triggered, so that the generated files are downloaded 
