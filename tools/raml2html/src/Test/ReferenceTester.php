@@ -12,28 +12,33 @@ class ReferenceTester
 
     public const DEFAULT_FILE_LIST = [
         'vendor/ibexa/rest/src/bundle/Resources/config/routing.yml',
-        // `find vendor/ibexa -name "*rest*.yaml" -and -wholename "*rout*" -and -not -wholename "*test*" | sort`
-        'vendor/ibexa/activity-log/src/bundle/Resources/config/routing/rest.yaml', // directly prefixed /api/ibexa/v2
+        // `find vendor/ibexa -wholename "*rout*rest*.y*ml" -and -not -wholename "*test*" | sort`
+        'vendor/ibexa/activity-log/src/bundle/Resources/config/routing/rest.yaml',
         //'vendor/ibexa/admin-ui/src/bundle/Resources/config/routing_rest.yaml',
         'vendor/ibexa/calendar/src/bundle/Resources/config/routing_rest.yaml',
         'vendor/ibexa/cart/src/bundle/Resources/config/routing_rest.yaml',
         'vendor/ibexa/connect/src/bundle/Resources/config/routing_rest.yaml',
         'vendor/ibexa/connector-dam/src/bundle/Resources/config/routing_rest.yaml',
         'vendor/ibexa/connector-qualifio/src/bundle/Resources/config/routing_rest.yaml',
-        //'vendor/ibexa/corporate-account/src/bundle/Resources/config/routing_rest.yaml', // imports the 4 following files
         'vendor/ibexa/corporate-account/src/bundle/Resources/config/routing/rest/companies.yaml',
         'vendor/ibexa/corporate-account/src/bundle/Resources/config/routing/rest/members.yaml',
         'vendor/ibexa/corporate-account/src/bundle/Resources/config/routing/rest/sales_representatives.yaml',
         'vendor/ibexa/corporate-account/src/bundle/Resources/config/routing/rest/root.yaml',
+        //'vendor/ibexa/corporate-account/src/bundle/Resources/config/routing_rest.yaml', // only imports the 4 previous files
         'vendor/ibexa/fieldtype-query/src/bundle/Resources/config/routing/rest.yaml',
         'vendor/ibexa/order-management/src/bundle/Resources/config/routing_rest.yaml',
         'vendor/ibexa/payment/src/bundle/Resources/config/routing_rest.yaml',
-        //'vendor/ibexa/personalization/src/bundle/Resources/config/routing_rest.yaml', // prefixed /personalization/v1
-        'vendor/ibexa/product-catalog/src/bundle/Resources/config/routing_rest.yaml', // contains few /personalization/v1
+        //'vendor/ibexa/personalization/src/bundle/Resources/config/routing_rest.yaml', // prefixed /api/ibexa/v2/personalization/v1
+        'vendor/ibexa/product-catalog/src/bundle/Resources/config/routing_rest.yaml', // contains few /api/ibexa/v2/personalization/v1
         //'vendor/ibexa/scheduler/src/bundle/Resources/config/routing_rest.yaml', // prefixed /api/datebasedpublisher/v1
         'vendor/ibexa/segmentation/src/bundle/Resources/config/routing_rest.yaml',
         'vendor/ibexa/shipping/src/bundle/Resources/config/routing/rest.yaml',
         'vendor/ibexa/taxonomy/src/bundle/Resources/config/routing_rest.yaml',
+    ];
+
+    public const EXCLUDED_BUNDLE_LIST = [
+        'Ibexa\Bundle\AdminUi',
+        'Ibexa\Bundle\Personalization',
     ];
 
     public const METHOD_LIST = [
@@ -154,7 +159,7 @@ class ReferenceTester
     {
         $confRoutes = [];
 
-        $routerCommand = 'debug:router --format=txt';
+        $routerCommand = 'debug:router --format=txt --show-controllers';
         $consolePathLastChar = substr($consolePath, -1);
         if (in_array($consolePathLastChar, ['"', "'"])) {
             $consoleCommand = substr($consolePath, 0, -1) . " {$routerCommand}{$consolePathLastChar}";
@@ -170,9 +175,13 @@ class ReferenceTester
                 continue;
             }
             $lineParts = preg_split('/\s+/', $outputLine);
-            $routeProperties = array_combine(['Name', 'Method', 'Scheme', 'Host', 'Path'], $lineParts);
+            $routeProperties = array_combine(['Name', 'Method', 'Scheme', 'Host', 'Path', 'Controller'], $lineParts);
             $routeId = $routeProperties['Name'];
             $methods = explode('|', $routeProperties['Method']);
+            $bundle = implode('\\', array_slice(explode('\\', $routeProperties['Controller']), 0, 3));
+            if (in_array($bundle, self::EXCLUDED_BUNDLE_LIST)) {
+                continue;
+            }
             foreach ($methods as $method) {
                 if ('OPTIONS' === $method) {
                     continue;
