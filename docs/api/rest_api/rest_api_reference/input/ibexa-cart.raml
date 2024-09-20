@@ -88,7 +88,7 @@ post:
         displayName: Update Cart's metadata
         description: Updates identified Cart's metadata from payload.
         headers:
-            Content-Type:
+            Accept:
                 description: The CartMetadataUpdate schema encoded in XML or JSON format.
                 example: |
                     application/vnd.ibexa.api.CartMetadataUpdate+xml
@@ -165,3 +165,24 @@ post:
                     description: Error - The user is not authorized to read this Cart.
                 404:
                     description: Error - Cart not found.
+    /validate:
+        post:
+            displayName: Cart Validation
+            description: Validates a Cart against constraints
+            headers:
+                Accept:
+                    description: If set, the Cart Constraint Violations are returned in XML or JSON format.
+                    example: |
+                        application/vnd.ibexa.api.CartConstraintViolationList+xml
+                        application/vnd.ibexa.api.CartConstraintViolationList+json
+            responses:
+                200:
+                    body:
+                        application/vnd.ibexa.api.CartConstraintViolationList+xml:
+                            type: CartConstraintViolationList
+                        application/vnd.ibexa.api.CartConstraintViolationList+json:
+                            type: CartConstraintViolationListWrapper
+/authorize:
+    post:
+        displayName: Cart Authorization
+        description: Return the CSRF token needed by anonymous users to manipulate their Cart
