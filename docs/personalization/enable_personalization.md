@@ -162,12 +162,12 @@ Place the following code snippet in the `<head>` section of your header template
 You can verify the import controller of the bundle by calling the local API.
 As the API uses token based authorization you first need a valid bearer token.
 
-When you publish a Content Item a bearer token will be created and saved to the ibexa_token db table.
+When you publish a content item a bearer token is created and saved to the `ibexa_token` db table.
 
 Additionally a POST request is send to the Personalization Engine,  containing the token
 and the Rest URL where the Personalization Engine can fetch the changed Content.
 
-The BEARER_TOKEN will be the newest one in `ibexa_token` table having `type=1` and `identifier=update`. The token will by default be valid for 1 day.
+The BEARER_TOKEN is the newest one in `ibexa_token` table having `type=1` and `identifier=update`. The token has a default lifetime of one day.
 
 You can use this token to check what is provided to the Personalization Engine:
 
@@ -237,7 +237,7 @@ To get recommendations you must first export the item information to the Persona
 After you [define item types to be tracked and recommended](#set-up-item-type-tracking),
 start the full export.
 
-You need to run the `ibexa:personalization:run-export command per SiteAccesses that you want to use together with Personalization. Please note that you need different customer IDs for different SiteAccesses.
+You need to run the `ibexa:personalization:run-export command per SiteAccesses that you want to use together with Personalization. You need different customer IDs for different SiteAccesses.
 
 ``` bash
 php bin/console ibexa:personalization:run-export
