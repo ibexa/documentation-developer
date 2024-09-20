@@ -167,7 +167,7 @@ When you publish a content item a bearer token is created and saved to the `ibex
 Additionally a POST request is send to the Personalization Engine,  containing the token
 and the Rest URL where the Personalization Engine can fetch the changed Content.
 
-The BEARER_TOKEN is the newest one in `ibexa_token` table having `type=1` and `identifier=update`. The token has a default lifetime of one day.
+The `BEARER_TOKEN` is the newest one in `ibexa_token` table having `type=1` and `identifier=update`. The token has a default lifetime of one day.
 
 You can use this token to check what is provided to the Personalization Engine:
 
@@ -184,7 +184,7 @@ Additionally, check whether the `contentlist` endpoint is working with the foll
 
 curl --location '{PERSONALIZATION_HOST_URI}/api/ibexa/v2/personalization/v1/contentlist/{comma_separated_content_ids}?lang={comma_separated_languages}' \
 --header 'Accept: application/vnd.ibexa.api.ContentList+json' \
---header 'AUTHORIZATION: Bearer {BEARER_TOKEN}'
+--header 'Authorization: Bearer {BEARER_TOKEN}'
 
 ```
 
