@@ -160,25 +160,35 @@ Place the following code snippet in the `<head>` section of your header template
 ### Check whether the bundle provides REST data
 
 You can verify the import controller of the bundle by calling the local API.
-Use the `Accept` header; you may need to add an `Authorization` header if authentication is required.
+As the API uses token based authorization you first need a valid bearer token.
 
-To check whether the `content` endpoint is working as expected, perform the following request:
+When you publish a Content Item a bearer token will be created and saved to the ibexa_token db table.
+
+Additionally a POST request is send to the Personalization Engine,  containing the token
+and the Rest URL where the Personalization Engine can fetch the changed Content.
+
+The BEARER_TOKEN will be the newest one in `ibexa_token` table having `type=1` and `identifier=update`. The token will by default be valid for 1 day.
+
+You can use this token to check what is provided to the Personalization Engine:
+
 
 ```
-GET http://<yourdomain>/api/ibexa/v2/personalization/v1/content/{contentId}
-Accept application/vnd.ibexa.api.Content+json
-Authorization Basic xxxxxxxx
+curl --location '{PERSONALIZATION_HOST_URI}/api/ibexa/v2/personalization/v1/content/id/{contentId}?lang={comma_separated_languages}' \
+--header 'Accept: application/vnd.ibexa.api.Content+json' \
+--header 'Authorization: Bearer {BEARER_TOKEN}'
 ```
 
-Additionally, check whether the `contenttypes` endpoint is working with the following request:
+Additionally, check whether the `contentlist` endpoint is working with the following request:
 
 ```
-GET http://<yourdomain>/api/ibexa/v2/personalization/v1/contenttypes/38?page=1&page_size=10
-Accept application/vnd.ibexa.api.Content+json
-Authorization Basic xxxxxxxx
+
+curl --location '{PERSONALIZATION_HOST_URI}/api/ibexa/v2/personalization/v1/contentlist/{comma_separated_content_ids}?lang={comma_separated_languages}' \
+--header 'Accept: application/vnd.ibexa.api.ContentList+json' \
+--header 'AUTHORIZATION: Bearer {BEARER_TOKEN}'
+
 ```
 
-The `content` endpoint returns one item and the `contenttypes` endpoint returns many.
+The `content` endpoint returns one item and the `contentlist` endpoint returns many.
 
 ``` json
 {
@@ -227,18 +237,7 @@ To get recommendations you must first export the item information to the Persona
 After you [define item types to be tracked and recommended](#set-up-item-type-tracking),
 start the full export.
 
-You do it with the `ibexa:personalization:run-export` command.
-
-If your installation hosts only one SiteAccess, run the following command to export your data:
-
-``` bash
-php bin/console ibexa:personalization:run-export
-    --item-type-identifier-list=<item_type>,<item_type>
-    --languages=<language>,<language>
-```
-
-If your installation hosts multiple SiteAccesses with different customer IDs, 
-you must run the export separately for each of the `<site_access_name>`/`<customer_id>` pairs.
+You need to run the `ibexa:personalization:run-export command per SiteAccesses that you want to use together with Personalization. Please note that you need different customer IDs for different SiteAccesses.
 
 ``` bash
 php bin/console ibexa:personalization:run-export
