@@ -172,7 +172,7 @@ The `BEARER_TOKEN` is the newest one in `ibexa_token` table having `type=1` and 
 You can use this token to check what is provided to the Personalization Engine:
 
 
-```
+```bash
 curl --location '{PERSONALIZATION_HOST_URI}/api/ibexa/v2/personalization/v1/content/id/{contentId}?lang={comma_separated_languages}' \
 --header 'Accept: application/vnd.ibexa.api.Content+json' \
 --header 'Authorization: Bearer {BEARER_TOKEN}'
@@ -180,12 +180,10 @@ curl --location '{PERSONALIZATION_HOST_URI}/api/ibexa/v2/personalization/v1/cont
 
 Additionally, check whether the `contentlist` endpoint is working with the following request:
 
-```
-
+```bash
 curl --location '{PERSONALIZATION_HOST_URI}/api/ibexa/v2/personalization/v1/contentlist/{comma_separated_content_ids}?lang={comma_separated_languages}' \
 --header 'Accept: application/vnd.ibexa.api.ContentList+json' \
 --header 'Authorization: Bearer {BEARER_TOKEN}'
-
 ```
 
 The `content` endpoint returns one item and the `contentlist` endpoint returns many.
