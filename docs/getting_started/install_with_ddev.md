@@ -92,7 +92,7 @@ Now, configure the database connection for your [[= product_name =]] project. De
 If you're using macOS or Windows, you might want to enable [Mutagen](https://ddev.readthedocs.io/en/latest/users/install/performance/#mutagen) to improve performance. You can do this by running the following command:
 
 ```bash
-ddev config --mutagen-enabled
+ddev config --performance-mode=mutagen
 ```
 
 See [DDEV performance documentation](https://ddev.readthedocs.io/en/latest/users/install/performance/) for more.
