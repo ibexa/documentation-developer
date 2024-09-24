@@ -103,7 +103,7 @@ By default, DDEV uses ports 80 and 443.
 You can [set different ports](https://ddev.readthedocs.io/en/latest/users/usage/troubleshooting/#method-2-fix-port-conflicts-by-configuring-your-project-to-use-different-ports) with a command like the following:
 
 ```bash
-ddev config --http-port=8080 --https-port=8443
+ddev config --router-http-port=8080 --router-https-port=8443
 ```
 
 ### 3. Start DDEV
