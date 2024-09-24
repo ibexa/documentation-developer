@@ -31,7 +31,7 @@ mkdir my-ddev-project && cd my-ddev-project
 Next, configure your DDEV environment with the following command:
 
 ```bash
-ddev config --project-type=php --php-version 8.1 --nodejs-version 18 --docroot=public --create-docroot
+ddev config --project-type=php --php-version 8.1 --nodejs-version 18 --docroot=public
 ```
 
 This command sets the project type to PHP, the PHP version to 8.1, the document root to `public` directory, and creates the document root.
@@ -401,7 +401,6 @@ Some DDEV configs can be shared among developers. For example, a common `.ddev/c
 Compared to running a clean install like described in [Installation steps](#installation), you can proceed as follows:
 
 - In [1. Create a DDEV project directory](#1-create-a-ddev-project-directory), you can use an existing directory that contains an [[= product_name =]] project instead of creating an empty directory.
-- In [2. Configure DDEV / Configure PHP version and document root](#configure-php-version-and-document-root), don't create the Document root, remove the `--create-docroot` option.
 - In [5. Create [[= product_name =]] project](#5-create-project), use only `ddev composer install` instead of `ddev composer create`.
 - Populate the database with [Ibexa data migration](importing_data.md) or [`ddev import-db`](https://ddev.readthedocs.io/en/latest/users/usage/commands/#import-db).
 
