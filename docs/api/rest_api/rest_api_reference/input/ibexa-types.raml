@@ -82,6 +82,7 @@ BaseObject:
                 name: href
 
 BookmarkListWrapper:
+    description: 'Anonymous JSON object with only a BookmarkList property.'
     type: object
     properties:
         BookmarkList:
@@ -108,6 +109,8 @@ BookmarkList:
                         type: string
 
 ContentWrapper:
+    description: 'Anonymous JSON object with only a Content property.'
+    type: object
     properties:
         Content: Content
 
@@ -173,6 +176,8 @@ Content:
             type: BaseObject
 
 ContentCreateWrapper:
+    description: 'Anonymous JSON object with only a ContentCreate property.'
+    type: object
     properties:
         ContentCreate: ContentCreate
 
@@ -238,6 +243,8 @@ ContentImageVariation:
             type: integer
 
 ContentInfoWrapper:
+    description: 'Anonymous JSON object with only a ContentInfo property.'
+    type: object
     properties:
         ContentInfo: ContentInfo
 
@@ -321,6 +328,8 @@ ContentMetadataUpdateStruct:
             type: string
 
 ContentObjectStatesWrapper:
+    description: 'Anonymous JSON object with only a ContentObjectStates property.'
+    type: object
     properties:
         ContentObjectStates: ContentObjectStates
 
@@ -356,6 +365,8 @@ ContentCreateContentType:
                     required: false
 
 ContentTypeWrapper:
+    description: 'Anonymous JSON object with only a ContentType property.'
+    type: object
     properties:
         ContentType: ContentType
 
@@ -475,6 +486,8 @@ ContentTypeCreateStruct:
             type: datetime
 
 ContentTypeGroupWrapper:
+    description: 'Anonymous JSON object with only a ContentTypeGroup property.'
+    type: object
     properties:
         ContentTypeGroup: ContentTypeGroup
 
@@ -505,6 +518,8 @@ ContentTypeGroup:
             type: BaseObject
 
 ContentTypeGroupInputWrapper:
+    description: 'Anonymous JSON object with only a ContentTypeGroupInput property.'
+    type: object
     properties:
         ContentTypeGroupInput: ContentTypeGroupInput
 
@@ -523,6 +538,8 @@ ContentTypeGroupCreateStruct:
             type: datetime
 
 ContentTypeGroupListWrapper:
+    description: 'Anonymous JSON object with only a ContentTypeGroupList property.'
+    type: object
     properties:
         ContentTypeGroupList: ContentTypeGroupList
 
@@ -544,6 +561,8 @@ ContentTypeGroupRef:
                 required: false
 
 ContentTypeGroupRefListWrapper:
+    description: 'Anonymous JSON object with only a ContentTypeGroupRefList property.'
+    type: object
     properties:
         ContentTypeGroupRefList: ContentTypeGroupRefList
 
@@ -574,6 +593,8 @@ ContentTypeGroupUpdateStruct:
             type: datetime
 
 ContentTypeInfoWrapper:
+    description: 'Anonymous JSON object with only a ContentTypeInfo property.'
+    type: object
     properties:
         ContentTypeInfo: ContentTypeInfo
 
@@ -640,6 +661,8 @@ ContentTypeInfo:
             enum: [ "ASC", "DESC" ]
 
 ContentTypeInfoListWrapper:
+    description: 'Anonymous JSON object with only a ContentTypeInfoList property.'
+    type: object
     properties:
         ContentTypeList: ContentTypeInfoList
 
@@ -652,6 +675,8 @@ ContentTypeInfoList:
             type: ContentTypeInfo[]
 
 ContentTypeListWrapper:
+    description: 'Anonymous JSON object with only a ContentTypeList property.'
+    type: object
     properties:
         ContentTypeList: ContentTypeList
 
@@ -754,6 +779,8 @@ Country:
             type: integer
 
 CountryListWrapper:
+    description: 'Anonymous JSON object with only a CountryList property.'
+    type: object
     properties:
         CountryList: CountryList
 
@@ -868,6 +895,7 @@ EventGroup:
             type: Event[]
 
 EventGroupListWrapper:
+    description: 'Anonymous JSON object with only a EventGroupList property.'
     type: object
     properties:
         EventGroupList: EventGroupList
@@ -880,6 +908,7 @@ EventGroupList:
             type: EventGroup[]
 
 EventListWrapper:
+    description: 'Anonymous JSON object with only a EventList property.'
     type: object
     properties:
         EventList: EventList
@@ -905,6 +934,7 @@ EventList:
             type: Event[]
 
 UnscheduleActionWrapper:
+    description: 'Anonymous JSON object with only a UnscheduleAction property.'
     type: object
     properties:
         UnscheduleAction: UnscheduleAction
@@ -961,6 +991,8 @@ Field:
             type: any
 
 FieldDefinitionsWrapper:
+    description: 'Anonymous JSON object with only a FieldDefinitions property.'
+    type: object
     properties:
         FieldDefinitions: FieldDefinitions
 
@@ -970,6 +1002,8 @@ FieldDefinitions:
         FieldDefinition: FieldDefinition[]
 
 FieldDefinitionWrapper:
+    description: 'Anonymous JSON object with only a FieldDefinition property.'
+    type: object
     properties:
         FieldDefinition: FieldDefinition
 
@@ -1021,6 +1055,8 @@ FieldDefinition:
             type: StringLengthValidatorWrapper | []
 
 FieldDefinitionCreateWrapper:
+    description: 'Anonymous JSON object with only a FieldDefinitionCreate property.'
+    type: object
     properties:
         FieldDefinitionCreate: FieldDefinitionCreate
 
@@ -1028,6 +1064,8 @@ FieldDefinitionCreate:
     type: BaseObject
 
 FieldDefinitionUpdateWrapper:
+    description: 'Anonymous JSON object with only a FieldDefinitionUpdate property.'
+    type: object
     properties:
         FieldDefinitionUpdate: FieldDefinitionUpdate
 
@@ -1122,6 +1160,8 @@ FieldDefinitionUpdateStruct:
             type: boolean
 
 JWTWrapper:
+    description: 'Anonymous JSON object with only a JWT property.'
+    type: object
     properties:
         JWT: JWT
 
@@ -1134,6 +1174,8 @@ JWT:
             type: string
 
 JWTInputWrapper:
+    description: 'Anonymous JSON object with only a JWTInput property.'
+    type: object
     properties:
         JWTInput: JWTInput
 
@@ -1149,6 +1191,7 @@ JWTInput:
             type: string
 
 LanguageWrapper:
+    description: 'Anonymous JSON object with only a Language property.'
     type: object
     properties:
         Language: Language
@@ -1175,6 +1218,8 @@ LanguageCode:
             type: string
 
 LanguageListWrapper:
+    description: 'Anonymous JSON object with only a LanguageList property.'
+    type: object
     properties:
         LanguageList: LanguageList
 
@@ -1217,6 +1262,8 @@ Limitation:
                     type: Href[]
 
 LocationWrapper:
+    description: 'Anonymous JSON object with only a Location property.'
+    type: object
     properties:
         Location: Location
 
@@ -1276,6 +1323,8 @@ Location:
             required: false
 
 LocationCreateWrapper:
+    description: 'Anonymous JSON object with only a LocationCreate property.'
+    type: object
     properties:
         LocationCreate: LocationCreate
 
@@ -1324,6 +1373,8 @@ LocationCreateStruct:
             type: integer
 
 LocationListWrapper:
+    description: 'Anonymous JSON object with only a LocationList property.'
+    type: object
     properties:
         LocationList: LocationList
 
@@ -1339,11 +1390,13 @@ LocationQuery:
     description: 'This class is used to perform a Location query.'
     type: object
 
-LocationUpdateStructWrapper:
+LocationUpdateWrapper:
+    description: 'Anonymous JSON object with only a LocationUpdate property.'
+    type: object
     properties:
-        LocationUpdate: LocationUpdateStruct
+        LocationUpdate: LocationUpdate
 
-LocationUpdateStruct:
+LocationUpdate:
     description: 'This class is used for updating Location meta data.'
     type: object
     properties:
@@ -1410,6 +1463,8 @@ NotificationList:
             type: Notification[]
 
 ObjectStateWrapper:
+    description: 'Anonymous JSON object with only a ObjectState property.'
+    type: object
     properties:
         ObjectState: ObjectState
 
@@ -1440,6 +1495,8 @@ ObjectState:
             type: ValueObject
 
 ObjectStateCreateWrapper:
+    description: 'Anonymous JSON object with only a ObjectStateCreate property.'
+    type: object
     properties:
         ObjectStateCreate: ObjectStateCreate
 
@@ -1474,6 +1531,8 @@ ObjectStateCreate:
                 value: Value[]
 
 ObjectStateGroupWrapper:
+    description: 'Anonymous JSON object with only a ObjectStateGroup property.'
+    type: object
     properties:
         ObjectStateGroup: ObjectStateGroup
 
@@ -1504,6 +1563,8 @@ ObjectStateGroup:
             type: ValueObject
 
 ObjectStateGroupCreateWrapper:
+    description: 'Anonymous JSON object with only a ObjectStateGroupCreate property.'
+    type: object
     properties:
         ObjectStateGroupCreate: ObjectStateGroupCreate
 
@@ -1528,6 +1589,8 @@ ObjectStateGroupCreate:
             type: ValueObject
 
 ObjectStateGroupListWrapper:
+    description: 'Anonymous JSON object with only a ObjectStateGroupList property.'
+    type: object
     properties:
         ObjectStateGroupList: ObjectStateGroupList
 
@@ -1540,6 +1603,8 @@ ObjectStateGroupList:
             type: ObjectStateGroup[]
 
 ObjectStateGroupUpdateWrapper:
+    description: 'Anonymous JSON object with only a ObjectStateGroupUpdate property.'
+    type: object
     properties:
         ObjectStateGroupUpdate: ObjectStateGroupUpdate
 
@@ -1565,6 +1630,8 @@ ObjectStateGroupUpdate:
             required: false
 
 ObjectStateListWrapper:
+    description: 'Anonymous JSON object with only a ObjectStateList property.'
+    type: object
     properties:
         ObjectStateList: ObjectStateList
 
@@ -1576,6 +1643,8 @@ ObjectStateList:
             type: ObjectState[]
 
 ObjectStateUpdateWrapper:
+    description: 'Anonymous JSON object with only a ObjectStateUpdate property.'
+    type: object
     properties:
         ObjectStateUpdate: ObjectStateUpdate
 
@@ -1627,6 +1696,8 @@ Plural:
             items: any
 
 PolicyWrapper:
+    description: 'Anonymous JSON object with only a Policy property.'
+    type: object
     properties:
         Policy: Policy
 
@@ -1671,6 +1742,8 @@ PolicyDraft:
             type: integer
 
 PolicyListWrapper:
+    description: 'Anonymous JSON object with only a PolicyList property.'
+    type: object
     properties:
         PolicyList: PolicyList
 
@@ -1737,6 +1810,8 @@ Ref:
     type: BaseObject
 
 RelationWrapper:
+    description: 'Anonymous JSON object with only a Relation property.'
+    type: object
     properties:
         Relation: Relation
 
@@ -1755,6 +1830,8 @@ Relation:
             type: string
 
 RelationCreateWrapper:
+    description: 'Anonymous JSON object with only a RelationCreate property.'
+    type: object
     properties:
         RelationCreate: RelationCreate
 
@@ -1765,6 +1842,8 @@ RelationCreate:
             type: Href
 
 RelationListWrapper:
+    description: 'Anonymous JSON object with only a Relations property.'
+    type: object
     properties:
         Relations: RelationList
 
@@ -1776,6 +1855,8 @@ RelationList:
             type: Relation[]
 
 RoleWrapper:
+    description: 'Anonymous JSON object with only a Role property.'
+    type: object
     properties:
         Role: Role
 
@@ -1791,6 +1872,8 @@ Role:
             type: BaseObject
 
 RoleAssignmentWrapper:
+    description: 'Anonymous JSON object with only a RoleAssignment property.'
+    type: object
     properties:
         RoleAssignment: RoleAssignment
 
@@ -1807,6 +1890,8 @@ RoleAssignment:
             type: Ref
 
 RoleAssignmentListWrapper:
+    description: 'Anonymous JSON object with only a RoleAssignmentList property.'
+    type: object
     properties:
         RoleAssignmentList: RoleAssignmentList
 
@@ -1832,6 +1917,8 @@ RoleCreateStruct:
             type: PolicyCreateStruct
 
 RoleDraftWrapper:
+    description: 'Anonymous JSON object with only a Role property.'
+    type: object
     properties:
         Role: RoleDraft
 
@@ -1852,6 +1939,8 @@ RoleUpdateStruct:
             type: string
 
 RoleListWrapper:
+    description: 'Anonymous JSON object with only a RoleList property.'
+    type: object
     properties:
         RoleList: RoleList
 
@@ -1863,6 +1952,8 @@ RoleList:
             type: Role[]
 
 RootWrapper:
+    description: 'Anonymous JSON object with only a Root property.'
+    type: object
     properties:
         Root: Root
 
@@ -1965,6 +2056,8 @@ SearchResult:
             type: URL[]
 
 SectionWrapper:
+    description: 'Anonymous JSON object with only a Section property.'
+    type: object
     properties:
         Section: Section
 
@@ -1983,6 +2076,8 @@ Section:
             type: string
 
 SectionInputWrapper:
+    description: 'Anonymous JSON object with only a SectionInput property.'
+    type: object
     properties:
         SectionInput: SectionInput
 
@@ -2002,6 +2097,8 @@ SectionLimitation:
     type: RoleLimitation
 
 SectionListWrapper:
+    description: 'Anonymous JSON object with only a SectionList property.'
+    type: object
     properties:
         SectionList: SectionList
 
@@ -2028,6 +2125,8 @@ SectionUpdateStruct:
     type: object
 
 SessionWrapper:
+    description: 'Anonymous JSON object with only a Session property.'
+    type: object
     properties:
         Session: Session
 
@@ -2049,6 +2148,7 @@ Session:
             type: BaseObject
 
 SegmentGroupListWrapper:
+    description: 'Anonymous JSON object with only a SegmentGroupList property.'
     type: object
     properties:
         SegmentGroupList: SegmentGroupList
@@ -2060,6 +2160,7 @@ SegmentGroupList:
         SegmentGroup: SegmentGroup[]
 
 SegmentGroupWrapper:
+    description: 'Anonymous JSON object with only a SegmentGroup property.'
     type: object
     properties:
         SegmentGroup: SegmentGroup
@@ -2073,6 +2174,7 @@ SegmentGroup:
         name: string
 
 SegmentListWrapper:
+    description: 'Anonymous JSON object with only a SegmentList property.'
     type: object
     properties:
         SegmentList: SegmentList
@@ -2084,6 +2186,7 @@ SegmentList:
         Segment: Segment[]
 
 SegmentWrapper:
+    description: 'Anonymous JSON object with only a Segment property.'
     type: object
     properties:
         Segment: Segment
@@ -2129,6 +2232,8 @@ Specifications:
             type: integer
 
 StringLengthValidatorWrapper:
+    description: 'Anonymous JSON object with only a StringLengthValidator property.'
+    type: object
     properties:
         StringLengthValidator: StringLengthValidator
 
@@ -2155,6 +2260,8 @@ Translation:
     type: object
 
 TrashWrapper:
+    description: 'Anonymous JSON object with only a Trash property.'
+    type: object
     properties:
         Trash: Trash
 
@@ -2165,6 +2272,8 @@ Trash:
             type: TrashItem[]
 
 TrashItemWrapper:
+    description: 'Anonymous JSON object with only a TrashItem property.'
+    type: object
     properties:
         TrashItem: TrashItem
 
@@ -2205,6 +2314,8 @@ URL:
             type: datetime
 
 UrlAliasCreateWrapper:
+    description: 'Anonymous JSON object with only a UrlAliasCreate property.'
+    type: object
     properties:
         UrlAliasCreate: UrlAliasCreate
 
@@ -2230,6 +2341,8 @@ UrlAliasCreate:
             required: false
 
 UrlAliasWrapper:
+    description: 'Anonymous JSON object with only a UrlAlias property.'
+    type: object
     properties:
         UrlAlias: UrlAlias
 
@@ -2272,6 +2385,8 @@ UrlAlias:
             type: boolean
 
 UrlAliasRefListWrapper:
+    description: 'Anonymous JSON object with only a UrlAliasRefList property.'
+    type: object
     properties:
         UrlAliasRefList: UrlAliasRefList
 
@@ -2325,6 +2440,8 @@ URLUpdateStruct:
             type: datetime
 
 UrlWildcardWrapper:
+    description: 'Anonymous JSON object with only a UrlWildcard property.'
+    type: object
     properties:
         UrlWildcard: UrlWildcard
 
@@ -2349,6 +2466,8 @@ UrlWildcard:
             type: boolean
 
 UrlWildcardCreateWrapper:
+    description: 'Anonymous JSON object with only a URLWildcardCreate property.'
+    type: object
     properties:
         URLWildcardCreate: UrlWildcardCreate
 
@@ -2364,6 +2483,8 @@ UrlWildcardCreate:
             type: boolean | string
 
 UrlWildcardListWrapper:
+    description: 'Anonymous JSON object with only a UrlWildcardList property.'
+    type: object
     properties:
         UrlWildcardList: UrlWildcardList
 
@@ -2386,6 +2507,8 @@ URLWildcardTranslationResult:
             type: boolean
 
 UserWrapper:
+    description: 'Anonymous JSON object with only a User property.'
+    type: object
     properties:
         User: User
 
@@ -2485,6 +2608,8 @@ UserCreateStruct:
             type: boolean
 
 UserGroupWrapper:
+    description: 'Anonymous JSON object with only a UserGroup property.'
+    type: object
     properties:
         UserGroup: UserGroup
 
@@ -2554,6 +2679,8 @@ UserGroupCreateStruct:
     type: object
 
 UserGroupRefListWrapper:
+    description: 'Anonymous JSON object with only a UserGroupRefList property.'
+    type: object
     properties:
         UserGroupRefList: UserGroupRefList
 
@@ -2574,6 +2701,8 @@ UserGroupRoleAssignment:
             type: UserGroup
 
 UserGroupUpdateWrapper:
+    description: 'Anonymous JSON object with only a UserGroupUpdate property.'
+    type: object
     properties:
         UserGroupUpdate: UserGroupUpdate
 
@@ -2601,6 +2730,8 @@ UserGroupUpdateStruct:
             type: ContentMetadataUpdateStruct
 
 UserGroupListWrapper:
+    description: 'Anonymous JSON object with only a UserGroupList property.'
+    type: object
     properties:
         UserGroupList: UserGroupList
 
@@ -2609,6 +2740,8 @@ UserGroupList:
     type: BaseObject
 
 UserListWrapper:
+    description: 'Anonymous JSON object with only a UserList property.'
+    type: object
     properties:
         UserList: UserList
 
@@ -2653,6 +2786,8 @@ UserPreferenceSetStruct:
             type: string
 
 UserRefListWrapper:
+    description: 'Anonymous JSON object with only a UserRefList property.'
+    type: object
     properties:
         UserRefList: UserRefList
 
@@ -2728,6 +2863,8 @@ Value:
             type: string | nil
 
 VersionWrapper:
+    description: 'Anonymous JSON object with only a Version property.'
+    type: object
     properties:
         Version: Version
 
@@ -2799,6 +2936,8 @@ VersionItem:
             type: VersionInfo
 
 VersionListWrapper:
+    description: 'Anonymous JSON object with only a VersionList property.'
+    type: object
     properties:
         VersionList: VersionList
 
@@ -2819,6 +2958,8 @@ VersionTranslationInfo:
             type: LanguageCode[]
 
 VersionUpdateWrapper:
+    description: 'Anonymous JSON object with only a VersionUpdate property.'
+    type: object
     properties:
         VersionUpdate: VersionUpdate
 
@@ -2850,6 +2991,8 @@ View: #TODO outdated example
             type: object
 
 ContentTypeCreateWrapper:
+    description: 'Anonymous JSON object with only a ContentTypeCreate property.'
+    type: object
     properties:
         ContentTypeCreate: ContentTypeCreate
 
@@ -2893,6 +3036,8 @@ ContentTypeCreate:
             required: false
 
 ContentTypeUpdateWrapper:
+    description: 'Anonymous JSON object with only a ContentTypeUpdate property.'
+    type: object
     properties:
         ContentTypeUpdate: ContentTypeUpdate
 
@@ -2944,6 +3089,8 @@ ContentTypeUpdate:
             required: false
 
 ViewInputWrapper:
+    description: 'Anonymous JSON object with only a ViewInput property.'
+    type: object
     properties:
         ViewInput: ViewInput
 
@@ -2964,6 +3111,8 @@ ViewInput:
             type: Query
 
 UserCreateWrapper:
+    description: 'Anonymous JSON object with only a UserCreate property.'
+    type: object
     properties:
         UserCreate: UserCreate
 
@@ -2986,6 +3135,8 @@ UserCreate:
             required: false
 
 UserGroupCreateWrapper:
+    description: 'Anonymous JSON object with only a UserGroupCreate property.'
+    type: object
     properties:
         UserGroupCreate: UserGroupCreate
 
@@ -3001,6 +3152,8 @@ UserGroupCreate:
             type: Fields
 
 RoleAssignInputWrapper:
+    description: 'Anonymous JSON object with only a RoleAssignInput property.'
+    type: object
     properties:
         RoleAssignInput: RoleAssignInput
 
@@ -3016,6 +3169,8 @@ RoleAssignInput:
             type: Limitation
 
 UserUpdateWrapper:
+    description: 'Anonymous JSON object with only a UserUpdate property.'
+    type: object
     properties:
         UserUpdate: UserUpdate
 
@@ -3047,6 +3202,8 @@ UserUpdate:
             required: false
 
 RoleInputWrapper:
+    description: 'Anonymous JSON object with only a RoleInput property.'
+    type: object
     properties:
         RoleInput: RoleInput
 
@@ -3058,6 +3215,8 @@ RoleInput:
             type: string
 
 PolicyCreateWrapper:
+    description: 'Anonymous JSON object with only a PolicyCreate property.'
+    type: object
     properties:
         PolicyCreate: PolicyCreate
 
@@ -3075,6 +3234,8 @@ PolicyCreate:
             type: Limitation[]
 
 PolicyUpdateWrapper:
+    description: 'Anonymous JSON object with only a PolicyUpdate property.'
+    type: object
     properties:
         PolicyUpdate: PolicyUpdate
 
@@ -3086,6 +3247,8 @@ PolicyUpdate:
             type: Limitation[]
 
 SessionInputWrapper:
+    description: 'Anonymous JSON object with only a SessionInput property.'
+    type: object
     properties:
         SessionInput: SessionInput
 
@@ -3103,6 +3266,8 @@ BaseCommerceResponse:
     type: object
 
 BasketWrapper:
+    description: 'Anonymous JSON object with only a Basket property.'
+    type: object
     properties:
         Basket: Basket
 
@@ -3111,6 +3276,8 @@ Basket:
     type: BaseCommerceResponse
 
 BasketLineDataWrapper:
+    description: 'Anonymous JSON object with only a BasketLineData property.'
+    type: object
     properties:
         BasketLineData: BasketLineData
 
@@ -3121,6 +3288,8 @@ BasketLineData:
         type: object
 
 PartyTypeInputWrapper:
+    description: 'Anonymous JSON object with only a PartyData property.'
+    type: object
     properties:
         PartyData: PartyTypeInput
 
@@ -3133,6 +3302,8 @@ Party:
     type: object
 
 ShippingMethodDataResponseWrapper:
+    description: 'Anonymous JSON object with only a ShippingMethodDataResponse property.'
+    type: object
     properties:
         ShippingMethodDataResponse: ShippingMethodDataResponse
 
@@ -3141,6 +3312,8 @@ ShippingMethodDataResponse:
     type: BaseCommerceResponse
 
 PaymentMethodDataResponseWrapper:
+    description: 'Anonymous JSON object with only a PaymentMethodDataResponse property.'
+    type: object
     properties:
         PaymentMethodDataResponse: PaymentMethodDataResponse
 
@@ -3149,6 +3322,8 @@ PaymentMethodDataResponse:
     type: BaseCommerceResponse
 
 ShippingAddressesResponseWrapper:
+    description: 'Anonymous JSON object with only a ShippingAddressesResponse property.'
+    type: object
     properties:
         ShippingAddressesResponse: ShippingAddressesResponse
 
@@ -3157,6 +3332,8 @@ ShippingAddressesResponse:
     type: BaseCommerceResponse
 
 BasketListResponseWrapper:
+    description: 'Anonymous JSON object with only a BasketListResponse property.'
+    type: object
     properties:
         BasketListResponse: BasketListResponse
 
@@ -3165,6 +3342,8 @@ BasketListResponse:
     type: BaseCommerceResponse
 
 ValidationResponseWrapper:
+    description: 'Anonymous JSON object with only a ValidationResponse property.'
+    type: object
     properties:
         ValidationResponse: ValidationResponse
 
@@ -3173,6 +3352,8 @@ ValidationResponse:
     type: BaseCommerceResponse
 
 CountrySelectionResponseWrapper:
+    description: 'Anonymous JSON object with only a CountrySelectionResponse property.'
+    type: object
     properties:
         CountrySelectionResponse: CountrySelectionResponse
 
@@ -3185,6 +3366,8 @@ ShippingMethodData:
     type: object
 
 PaymentMethodDataWrapper:
+    description: 'Anonymous JSON object with only a PaymentMethodData property.'
+    type: object
     properties:
         PaymentMethodData: PaymentMethodData
 
@@ -3193,6 +3376,8 @@ PaymentMethodData:
     type: object
 
 VoucherDataWrapper:
+    description: 'Anonymous JSON object with only a VoucherData property.'
+    type: object
     properties:
         VoucherData: VoucherData
 
@@ -3201,6 +3386,7 @@ VoucherData:
     type: object
 
 CustomerPriceDataWrapper:
+    type: object
     properties:
         PriceResponse: CustomerPriceData
 
@@ -3209,6 +3395,8 @@ CustomerPriceData:
     type: object
 
 BasketHeaderDataWrapper:
+    description: 'Anonymous JSON object with only a BasketHeaderData property.'
+    type: object
     properties:
         BasketHeaderData: BasketHeaderData
 
@@ -3221,6 +3409,8 @@ BasketLinesData:
     type: object
 
 PriceResponseWrapper:
+    description: 'Anonymous JSON object with only a PriceResponse property.'
+    type: object
     properties:
         PriceResponse: PriceResponse
 
@@ -3229,6 +3419,8 @@ PriceResponse:
     type: BaseCommerceResponse
 
 CartWrapper:
+    description: 'Anonymous JSON object with only a Cart property.'
+    type: object
     properties:
         Cart: Cart
 
@@ -3251,6 +3443,8 @@ Cart:
             type: CartEntry[]
 
 CartCreateWrapper:
+    description: 'Anonymous JSON object with only a CartCreate property.'
+    type: object
     properties:
         CartCreate: CartCreate
 
@@ -3281,6 +3475,8 @@ CartEntry:
         Price: Price
 
 CartEntryUpdateWrapper:
+    description: 'Anonymous JSON object with only a CartEntryUpdate property.'
+    type: object
     properties:
         CartEntryUpdate: CartEntryUpdate
 
@@ -3294,6 +3490,8 @@ CartEntryUpdate:
             required: false
 
 CartEntryAddWrapper:
+    description: 'Anonymous JSON object with only a CartEntryAdd property.'
+    type: object
     properties:
         CartEntryAdd: CartEntryAdd
 
@@ -3324,6 +3522,8 @@ CartProduct:
             required: true
 
 CartSummaryWrapper:
+    description: 'Anonymous JSON object with only a CartSummary property.'
+    type: object
     properties:
         CartSummary: CartSummary
 
@@ -3355,6 +3555,8 @@ CartSummary:
             type: Currency
 
 CartViewInputWrapper:
+    description: 'Anonymous JSON object with only a CartViewInput property.'
+    type: object
     properties:
         CartViewInput: CartViewInput
 
@@ -3375,6 +3577,8 @@ CartQuery:
         ownerId: integer
 
 CartViewWrapper:
+    description: 'Anonymous JSON object with only a CartView property.'
+    type: object
     properties:
         CartView: CartView
 
@@ -3391,9 +3595,13 @@ CartListViewResult:
         count: integer
         Result: CartList
 
-CartList: object
+CartList:
+    description: 'This class represents a cart list.'
+    type: object
 
 CartMetadataUpdateWrapper:
+    description: 'Anonymous JSON object with only a CartMetadataUpdate property.'
+    type: object
     properties:
         CartMetadataUpdate: CartMetadataUpdate
 
@@ -3407,6 +3615,8 @@ CartMetadataUpdate:
         descriptions: Value[]
 
 CatalogWrapper:
+    description: 'Anonymous JSON object with only a Catalog property.'
+    type: object
     properties:
         Catalog: Catalog
 
@@ -3439,6 +3649,8 @@ CatalogList:
             type: Catalog[]
 
 CatalogCreateWrapper:
+    description: 'Anonymous JSON object with only a CatalogCreate property.'
+    type: object
     properties:
         CatalogCreate: CatalogCreate
 
@@ -3462,6 +3674,8 @@ CatalogCreate:
             required: false
 
 CatalogUpdateWrapper:
+    description: 'Anonymous JSON object with only a CatalogUpdate property.'
+    type: object
     properties:
         CatalogUpdate: CatalogUpdate
 
@@ -3481,6 +3695,8 @@ CatalogUpdate:
             type: object
 
 CatalogCopyWrapper:
+    description: 'Anonymous JSON object with only a CatalogCopy property.'
+    type: object
     properties:
         CatalogCopy: CatalogCopy
 
@@ -3495,6 +3711,8 @@ CatalogCopy:
             type: integer
 
 CatalogViewInputWrapper:
+    description: 'Anonymous JSON object with only a ViewInput property.'
+    type: object
     properties:
         ViewInput: CatalogViewInput
 
@@ -3508,6 +3726,8 @@ CatalogViewInput:
         name: ViewInput
 
 ProductFilterListWrapper:
+    description: 'Anonymous JSON object with only a ProductFilterList property.'
+    type: object
     properties:
         ProductFilterList: ProductFilterList
 
@@ -3530,6 +3750,8 @@ ProductSortClause:
             type: string
 
 ProductSortClauseListWrapper:
+    description: 'Anonymous JSON object with only a ProductSortClauseList property.'
+    type: object
     properties:
         ProductSortClauseList: ProductSortClauseList
 
@@ -3541,6 +3763,8 @@ ProductSortClauseList:
             type: ProductSortClause[]
 
 CurrencyWrapper:
+    description: 'Anonymous JSON object with only a Currency property.'
+    type: object
     properties:
         Currency: Currency
 
@@ -3558,6 +3782,8 @@ Currency:
             type: boolean
 
 CurrencyListWrapper:
+    description: 'Anonymous JSON object with only a CurrencyList property.'
+    type: object
     properties:
         CurrencyList: CurrencyList
 
@@ -3569,6 +3795,8 @@ CurrencyList:
             type: Currency[]
 
 CurrencyCreateWrapper:
+    description: 'Anonymous JSON object with only a CurrencyCreate property.'
+    type: object
     properties:
         CurrencyCreate: CurrencyCreate
 
@@ -3584,6 +3812,8 @@ CurrencyCreate:
             type: boolean
 
 CurrencyUpdateWrapper:
+    description: 'Anonymous JSON object with only a CurrencyUpdate property.'
+    type: object
     properties:
         CurrencyUpdate: CurrencyUpdate
 
@@ -3597,6 +3827,8 @@ CurrencyUpdate:
             type: boolean
 
 CurrencyViewWrapper:
+    description: 'Anonymous JSON object with only a CurrencyView property.'
+    type: object
     properties:
         CurrencyView: CurrencyView
 
@@ -3612,6 +3844,8 @@ CurrencyView:
             type: object
 
 RegionWrapper:
+    description: 'Anonymous JSON object with only a Region property.'
+    type: object
     properties:
         Region: Region
 
@@ -3623,6 +3857,8 @@ Region:
             type: string
 
 RegionListWrapper:
+    description: 'Anonymous JSON object with only a RegionList property.'
+    type: object
     properties:
         RegionList: RegionList
 
@@ -3634,6 +3870,8 @@ RegionList:
             type: Ref[]
 
 AttributeGroupWrapper:
+    description: 'Anonymous JSON object with only a AttributeGroup property.'
+    type: object
     properties:
         AttributeGroup: AttributeGroup
 
@@ -3649,6 +3887,8 @@ AttributeGroup:
             type: integer
 
 AttributeGroupGetWrapper:
+    description: 'Anonymous JSON object with only a AttributeGroupGet property.'
+    type: object
     properties:
         AttributeGroupGet: AttributeGroupGet
 
@@ -3659,6 +3899,8 @@ AttributeGroupGet:
         languages: string[]
 
 AttributeGroupCreateWrapper:
+    description: 'Anonymous JSON object with only a AttributeGroupCreate property.'
+    type: object
     properties:
         AttributeGroupCreate: AttributeGroupCreate
 
@@ -3674,6 +3916,8 @@ AttributeGroupCreate:
             type: integer
 
 AttributeGroupUpdateWrapper:
+    description: 'Anonymous JSON object with only a AttributeGroupUpdate property.'
+    type: object
     properties:
         AttributeGroupUpdate: AttributeGroupUpdate
 
@@ -3689,6 +3933,8 @@ AttributeGroupUpdate:
             type: integer
 
 AttributeGroupListWrapper:
+    description: 'Anonymous JSON object with only a AttributeGroupList property.'
+    type: object
     properties:
         AttributeGroupList: AttributeGroupList
 
@@ -3699,6 +3945,8 @@ AttributeGroupList:
         AttributeGroup: AttributeGroup[]
 
 AttributeGroupListGetWrapper:
+    description: 'Anonymous JSON object with only a AttributeGroupListGet property.'
+    type: object
     properties:
         AttributeGroupListGet: AttributeGroupListGet
 
@@ -3711,6 +3959,8 @@ AttributeGroupListGet:
         limit: integer
 
 AttributeGroupViewInputWrapper:
+    description: 'Anonymous JSON object with only a ViewInput property.'
+    type: object
     properties:
         ViewInput: AttributeGroupViewInput
 
@@ -3729,6 +3979,8 @@ AttributeGroupViewInput:
         name: ViewInput
 
 AttributeGroupViewWrapper:
+    description: 'Anonymous JSON object with only a AttributeGroupView property.'
+    type: object
     properties:
         AttributeGroupView: AttributeGroupView
 
@@ -3748,6 +4000,8 @@ AttributeGroupListResult:
         AttributeGroupList: AttributeGroupList
 
 AttributeWrapper:
+    description: 'Anonymous JSON object with only a Attribute property.'
+    type: object
     properties:
         Attribute: Attribute
 
@@ -3775,6 +4029,8 @@ Attribute:
             type: object | array
 
 AttributeCreateWrapper:
+    description: 'Anonymous JSON object with only a AttributeCreate property.'
+    type: object
     properties:
         AttributeCreate: AttributeCreate
 
@@ -3798,6 +4054,8 @@ AttributeCreate:
             type: object | array
 
 AttributeUpdateWrapper:
+    description: 'Anonymous JSON object with only a AttributeUpdate property.'
+    type: object
     properties:
         AttributeUpdate: AttributeUpdate
 
@@ -3817,6 +4075,8 @@ AttributeUpdate:
             type: object
 
 AttributeListWrapper:
+    description: 'Anonymous JSON object with only a AttributeList property.'
+    type: object
     properties:
         AttributeList: AttributeList
 
@@ -3827,6 +4087,8 @@ AttributeList:
         Attribute: Attribute[]
 
 AttributeViewInputWrapper:
+    description: 'Anonymous JSON object with only a ViewInput property.'
+    type: object
     properties:
         ViewInput: AttributeViewInput
 
@@ -3842,6 +4104,8 @@ AttributeViewInput:
         name: ViewInput
 
 AttributeViewWrapper:
+    description: 'Anonymous JSON object with only a AttributeView property.'
+    type: object
     properties:
         AttributeView: AttributeView
 
@@ -3857,6 +4121,8 @@ AttributeView:
             type: object
 
 AttributeTypeWrapper:
+    description: 'Anonymous JSON object with only a AttributeType property.'
+    type: object
     properties:
         AttributeType: AttributeType
 
@@ -3870,6 +4136,8 @@ AttributeType:
             type: string
 
 AttributeTypeListWrapper:
+    description: 'Anonymous JSON object with only a AttributeTypeList property.'
+    type: object
     properties:
         AttributeTypeList: AttributeTypeList
 
@@ -3881,6 +4149,8 @@ AttributeTypeList:
             type: AttributeType[]
 
 CustomerGroupWrapper:
+    description: 'Anonymous JSON object with only a CustomerGroup property.'
+    type: object
     properties:
         CustomerGroup: CustomerGroup
 
@@ -3904,6 +4174,8 @@ CustomerGroup:
             type: string
 
 CustomerGroupListWrapper:
+    description: 'Anonymous JSON object with only a CustomerGroupList property.'
+    type: object
     properties:
         CustomerGroupList: CustomerGroupList
 
@@ -3915,6 +4187,8 @@ CustomerGroupList:
             type: CustomerGroup[]
 
 CustomerGroupCreateWrapper:
+    description: 'Anonymous JSON object with only a CustomerGroupCreate property.'
+    type: object
     properties:
         CustomerGroupCreate: CustomerGroupCreate
 
@@ -3933,6 +4207,8 @@ CustomerGroupCreate:
             type: string
 
 CustomerGroupUpdateWrapper:
+    description: 'Anonymous JSON object with only a CustomerGroupUpdate property.'
+    type: object
     properties:
         CustomerGroupUpdate: CustomerGroupUpdate
 
@@ -3951,6 +4227,8 @@ CustomerGroupUpdate:
             required: false
 
 CustomerGroupViewInputWrapper:
+    description: 'Anonymous JSON object with only a ViewInput property.'
+    type: object
     properties:
         ViewInput: CustomerGroupViewInput
 
@@ -3964,6 +4242,8 @@ CustomerGroupViewInput:
         name: ViewInput
 
 CustomerGroupViewWrapper:
+    description: 'Anonymous JSON object with only a CustomerGroupView property.'
+    type: object
     properties:
         CustomerGroupView: CustomerGroupView
 
@@ -3987,6 +4267,8 @@ CustomerGroupListResult:
                 CustomerGroup: CustomerGroup[]
 
 CurrencyViewInputWrapper:
+    description: 'Anonymous JSON object with only a ViewInput property.'
+    type: object
     properties:
         ViewInput: CurrencyViewInput
 
@@ -4010,6 +4292,8 @@ AttributeAssignment:
             type: Attribute
 
 ProductTypeWrapper:
+    description: 'Anonymous JSON object with only a ProductType property.'
+    type: object
     properties:
         ProductType: ProductType
 
@@ -4025,6 +4309,8 @@ ProductType:
             type: AttributeAssignment[]
 
 ProductTypeUsageWrapper:
+    description: 'Anonymous JSON object with only a ProductTypeUsage property.'
+    type: object
     properties:
         ProductTypeUsage: ProductTypeUsage
 
@@ -4036,6 +4322,8 @@ ProductTypeUsage:
             type: boolean
 
 ProductTypeCreateWrapper:
+    description: 'Anonymous JSON object with only a ProductTypeCreate property.'
+    type: object
     properties:
         ProductTypeCreate: ProductTypeCreate
 
@@ -4052,6 +4340,8 @@ ProductTypeCreate:
             items: ProductTypeAssignedAttribute
 
 ProductTypeUpdateWrapper:
+    description: 'Anonymous JSON object with only a ProductTypeUpdate property.'
+    type: object
     properties:
         ProductTypeUpdate: ProductTypeUpdate
 
@@ -4076,6 +4366,8 @@ ProductTypeAssignedAttribute:
             type: boolean
 
 ProductTypeViewInputWrapper:
+    description: 'Anonymous JSON object with only a ViewInput property.'
+    type: object
     properties:
         ViewInput: ProductTypeViewInput
 
@@ -4089,6 +4381,8 @@ ProductTypeViewInput:
         name: ViewInput
 
 ProductTypeViewWrapper:
+    description: 'Anonymous JSON object with only a ProductTypeView property.'
+    type: object
     properties:
         ProductTypeView: ProductTypeView
 
@@ -4104,6 +4398,8 @@ ProductTypeView:
             type: object
 
 ProductWrapper:
+    description: 'Anonymous JSON object with only a Product property.'
+    type: object
     properties:
         Product: Product
 
@@ -4139,6 +4435,8 @@ Product:
             type: Attribute[]
 
 ProductListWrapper:
+    description: 'Anonymous JSON object with only a ProductList property.'
+    type: object
     properties:
         ProductList: ProductList
 
@@ -4150,6 +4448,8 @@ ProductList:
             type: Product[]
 
 ProductListGetWrapper:
+    description: 'Anonymous JSON object with only a ProductListGet property.'
+    type: object
     properties:
         ProductListGet: ProductListGet
 
@@ -4165,6 +4465,8 @@ ProductListGet:
             type: string[]
 
 ProductGetWrapper:
+    description: 'Anonymous JSON object with only a ProductGet property.'
+    type: object
     properties:
         ProductGet: ProductGet
 
@@ -4176,6 +4478,8 @@ ProductGet:
             type: string[]
 
 ProductCreateWrapper:
+    description: 'Anonymous JSON object with only a ProductCreate property.'
+    type: object
     properties:
         ProductCreate: ProductCreate
 
@@ -4191,6 +4495,8 @@ ProductCreate:
             type: object
 
 ProductUpdateWrapper:
+    description: 'Anonymous JSON object with only a ProductUpdate property.'
+    type: object
     properties:
         ProductUpdate: ProductUpdate
 
@@ -4221,6 +4527,8 @@ ProductContentUpdate:
                     type: Field[]
 
 ProductViewInputWrapper:
+    description: 'Anonymous JSON object with only a ViewInput property.'
+    type: object
     properties:
         ViewInput: ProductViewInput
 
@@ -4234,6 +4542,8 @@ ProductViewInput:
         name: ViewInput
 
 CatalogViewWrapper:
+    description: 'Anonymous JSON object with only a CatalogView property.'
+    type: object
     properties:
         CatalogView: CatalogView
 
@@ -4250,6 +4560,8 @@ CatalogListViewResult:
         CatalogList: CatalogList
 
 ProductViewWrapper:
+    description: 'Anonymous JSON object with only a ProductView property.'
+    type: object
     properties:
         ProductView: ProductView
 
@@ -4265,6 +4577,8 @@ ProductView:
             type: object
 
 ProductVariantWrapper:
+    description: 'Anonymous JSON object with only a ProductVariant property.'
+    type: object
     properties:
         ProductVariant: ProductVariant
 
@@ -4282,6 +4596,8 @@ ProductVariant:
             type: Attribute[]
 
 ProductVariantCreateWrapper:
+    description: 'Anonymous JSON object with only a ProductVariantCreate property.'
+    type: object
     properties:
         ProductVariantCreate: ProductVariantCreate
 
@@ -4296,6 +4612,8 @@ ProductVariantCreate:
             type: object
 
 ProductVariantGenerateWrapper:
+    description: 'Anonymous JSON object with only a ProductVariantGenerate property.'
+    type: object
     properties:
         ProductVariantGenerate: ProductVariantGenerate
 
@@ -4308,6 +4626,8 @@ ProductVariantGenerate:
             type: object
 
 ProductVariantUpdateWrapper:
+    description: 'Anonymous JSON object with only a ProductVariantUpdate property.'
+    type: object
     properties:
         ProductVariantUpdate: ProductVariantUpdate
 
@@ -4322,6 +4642,8 @@ ProductVariantUpdate:
             type: object
 
 ProductVariantViewInputWrapper:
+    description: 'Anonymous JSON object with only a ViewInput property.'
+    type: object
     properties:
         ViewInput: ProductVariantViewInput
 
@@ -4333,6 +4655,8 @@ ProductVariantViewInput:
             type: object
 
 ProductVariantViewWrapper:
+    description: 'Anonymous JSON object with only a ProductVariantView property.'
+    type: object
     properties:
         ProductVariantView: ProductVariantView
 
@@ -4348,6 +4672,8 @@ ProductVariantView:
             type: object
 
 RegionViewInputWrapper:
+    description: 'Anonymous JSON object with only a ViewInput property.'
+    type: object
     properties:
         ViewInput: RegionViewInput
 
@@ -4361,6 +4687,8 @@ RegionViewInput:
         name: ViewInput
 
 RegionViewWrapper:
+    description: 'Anonymous JSON object with only a RegionView property.'
+    type: object
     properties:
         RegionView: RegionView
 
@@ -4376,6 +4704,8 @@ RegionView:
             type: object
 
 ProductTypeListWrapper:
+    description: 'Anonymous JSON object with only a ProductTypeList property.'
+    type: object
     properties:
         ProductTypeList: ProductTypeList
 
@@ -4387,6 +4717,8 @@ ProductTypeList:
             type: ProductType[]
 
 ProductTypeListGetWrapper:
+    description: 'Anonymous JSON object with only a ProductTypeListGet property.'
+    type: object
     properties:
         ProductTypeListGet: ProductTypeListGet
 
@@ -4402,6 +4734,8 @@ ProductTypeListGet:
             required: false
 
 TaxonomyEntryWrapper:
+    description: 'Anonymous JSON object with only a TaxonomyEntry property.'
+    type: object
     properties:
         TaxonomyEntry: TaxonomyEntry
 
@@ -4421,6 +4755,8 @@ TaxonomyEntry:
             type: string
 
 TaxonomyEntryAssignmentWrapper:
+    description: 'Anonymous JSON object with only a TaxonomyEntryAssignment property.'
+    type: object
     properties:
         TaxonomyEntryAssignment: TaxonomyEntryAssignment
 
@@ -4442,6 +4778,8 @@ TaxonomyEntryAssignment:
                     type: TaxonomyEntry
 
 EntryAssignmentCollectionWrapper:
+    description: 'Anonymous JSON object with only a EntryAssignmentCollection property.'
+    type: object
     properties:
         EntryAssignmentCollection: EntryAssignmentCollection
 
@@ -4491,6 +4829,8 @@ TaxonomyEntryUpdateStruct:
             type: Content
 
 TaxonomyEntryBulkRemoveWrapper:
+    description: 'Anonymous JSON object with only a TaxonomyEntryBulkRemove property.'
+    type: object
     properties:
         TaxonomyEntryBulkRemove: TaxonomyEntryBulkRemove
 
@@ -4512,6 +4852,8 @@ TaxonomyEntryMove:
             type: string
 
 TaxonomyEntryBulkMoveWrapper:
+    description: 'Anonymous JSON object with only a TaxonomyEntryBulkMove property.'
+    type: object
     properties:
         TaxonomyEntryBulkMove: TaxonomyEntryBulkMove
 
@@ -4523,6 +4865,8 @@ TaxonomyEntryBulkMove:
             type: TaxonomyEntryMove[]
 
 TaxonomyEntryAssignToContentWrapper:
+    description: 'Anonymous JSON object with only a TaxonomyEntryAssignToContent property.'
+    type: object
     properties:
         TaxonomyEntryAssignToContent: TaxonomyEntryAssignToContent
 
@@ -4536,6 +4880,8 @@ TaxonomyEntryAssignToContent:
             type: integer[]
 
 TaxonomyEntryUnassignFromContentWrapper:
+    description: 'Anonymous JSON object with only a TaxonomyEntryUnassignFromContent property.'
+    type: object
     properties:
         TaxonomyEntryUnassignFromContent: TaxonomyEntryUnassignFromContent
 
@@ -4549,6 +4895,8 @@ TaxonomyEntryUnassignFromContent:
             type: integer[]
 
 VatCategoryListWrapper:
+    description: 'Anonymous JSON object with only a VatCategoryList property.'
+    type: object
     properties:
         VatCategoryList: VatCategoryList
 
@@ -4560,6 +4908,8 @@ VatCategoryList:
             type: VatCategory[]
 
 VatCategoryWrapper:
+    description: 'Anonymous JSON object with only a VatCategory property.'
+    type: object
     properties:
         VatCategory: VatCategory
 
@@ -4649,6 +4999,8 @@ SummaryEntryCollection:
             type: SummaryEntry[]
 
 PriceWrapper:
+    description: 'Anonymous JSON object with only a Price property.'
+    type: object
     properties:
         Price: Price
 
@@ -4671,6 +5023,8 @@ Price:
             required: false
 
 CustomPriceWrapper:
+    description: 'Anonymous JSON object with only a CustomPrice property.'
+    type: object
     properties:
         CustomPrice: CustomPrice
 
@@ -4697,6 +5051,7 @@ CustomPrice:
             required: false
 
 RestPriceWrapper:
+    description: 'Anonymous JSON object with only a RestPrice property.'
     type: BaseObject
     properties:
         RestPrice: RestPrice
@@ -4710,6 +5065,8 @@ RestPrice:
             type: string
 
 PriceListWrapper:
+    description: 'Anonymous JSON object with only a PriceList property.'
+    type: object
     properties:
         PriceList: PriceList
 
@@ -4721,6 +5078,8 @@ PriceList:
             type: Price[]
 
 PriceCreateStructWrapper:
+    description: 'Anonymous JSON object with only a PriceCreateStruct property.'
+    type: object
     properties:
         PriceCreateStruct: PriceCreateStruct
 
@@ -4734,6 +5093,8 @@ PriceCreateStruct:
             type: string
 
 CustomPriceCreateStructWrapper:
+    description: 'Anonymous JSON object with only a CustomPriceCreateStruct property.'
+    type: object
     properties:
         CustomPriceCreateStruct: CustomPriceCreateStruct
 
@@ -4751,6 +5112,8 @@ CustomPriceCreateStruct:
             type: string
 
 PriceUpdateStructWrapper:
+    description: 'Anonymous JSON object with only a PriceUpdateStruct property.'
+    type: object
     properties:
         PriceUpdateStruct: PriceUpdateStruct
 
@@ -4764,6 +5127,8 @@ PriceUpdateStruct:
             type: string
 
 CustomPriceUpdateStructWrapper:
+    description: 'Anonymous JSON object with only a CustomPriceUpdateStruct property.'
+    type: object
     properties:
         CustomPriceUpdateStruct: CustomPriceUpdateStruct
 
@@ -4808,6 +5173,7 @@ AttributesList:
             type: Attribute[]
 
 OrderListWrapper:
+    description: 'Anonymous JSON object with only a OrderList property.'
     type: object
     properties:
         OrderList: OrderList
@@ -4820,6 +5186,7 @@ OrderList:
             type: Order[]
 
 OrderWrapper:
+    description: 'Anonymous JSON object with only a Order property.'
     type: object
     properties:
         Order: Order
@@ -4896,6 +5263,7 @@ OrderCompany:
             type: string
 
 OrderCreateWrapper:
+    description: 'Anonymous JSON object with only a OrderCreate property.'
     type: object
     properties:
         OrderCreate: OrderCreate
@@ -4918,6 +5286,7 @@ OrderCreate:
             type: OrderItemWrapper[]
 
 OrderUpdateWrapper:
+    description: 'Anonymous JSON object with only a OrderUpdate property.'
     type: object
     properties:
         OrderUpdate: OrderUpdate
@@ -4932,6 +5301,7 @@ OrderUpdate:
             type: string
 
 OrderItemWrapper:
+    description: 'Anonymous JSON object with only a OrderItem property.'
     type: object
     properties:
         OrderItem: OrderItem
@@ -4986,6 +5356,8 @@ OrderItemProduct:
             type: string
 
 CorporateAccountRootWrapper:
+    description: 'Anonymous JSON object with only a CorporateAccountRoot property.'
+    type: object
     properties:
         CorporateAccountRoot: CorporateAccountRoot
 
@@ -5010,6 +5382,8 @@ Link:
                 name: rel
 
 CompanyWrapper:
+    description: 'Anonymous JSON object with only a Company property.'
+    type: object
     properties:
         Company: Company
 
@@ -5057,6 +5431,8 @@ BillingAddress:
         fields: object | array
 
 CompanyCreateWrapper:
+    description: 'Anonymous JSON object with only a CompanyCreate property.'
+    type: object
     properties:
         CompanyCreate: CompanyCreate
 
@@ -5071,6 +5447,8 @@ CompanyCreate:
                     type: Field[]
 
 CompanyUpdateWrapper:
+    description: 'Anonymous JSON object with only a CompanyUpdate property.'
+    type: object
     properties:
         CompanyUpdate: CompanyUpdate
 
@@ -5085,6 +5463,8 @@ CompanyUpdate:
                     type: Field[]
 
 CompanyListWrapper:
+    description: 'Anonymous JSON object with only a CompanyList property.'
+    type: object
     properties:
         CompanyList: CompanyList
 
@@ -5096,6 +5476,8 @@ CompanyList:
             type: Company[]
 
 MemberWrapper:
+    description: 'Anonymous JSON object with only a Member property.'
+    type: object
     properties:
         Member: Member
 
@@ -5117,6 +5499,8 @@ Member:
             type: BaseObject
 
 MemberListWrapper:
+    description: 'Anonymous JSON object with only a MemberList property.'
+    type: object
     properties:
         MemberList: MemberList
 
@@ -5128,6 +5512,8 @@ MemberList:
             type: Member[]
 
 MemberCreateWrapper:
+    description: 'Anonymous JSON object with only a MemberCreate property.'
+    type: object
     properties:
         MemberCreate: MemberCreate
 
@@ -5151,6 +5537,8 @@ MemberCreate:
                     type: Field[]
 
 MemberUpdateWrapper:
+    description: 'Anonymous JSON object with only a MemberUpdate property.'
+    type: object
     properties:
         MemberUpdate: MemberUpdate
 
@@ -5188,6 +5576,8 @@ ErrorMessage:
             type: string
 
 PaymentMethodWrapper:
+    description: 'Anonymous JSON object with only a PaymentMethod property.'
+    type: object
     properties:
         PaymentMethod: PaymentMethod
 
@@ -5211,6 +5601,8 @@ PaymentMethod:
             required: true
 
 PaymentMethodCreateStructWrapper:
+    description: 'Anonymous JSON object with only a PaymentMethodCreateStruct property.'
+    type: object
     properties:
         PaymentMethodCreateStruct: PaymentMethodCreateStruct
 
@@ -5238,8 +5630,10 @@ PaymentMethodCreateStruct:
             required: false
 
 PaymentMethodUpdateStructWrapper:
+    description: 'Anonymous JSON object with only a PaymentMethodUpdateStruct property.'
+    type: object
     properties:
-        PaymentMethodUpdateStructParser: PaymentMethodUpdateStruct
+        PaymentMethodUpdateStruct: PaymentMethodUpdateStruct
 
 PaymentMethodUpdateStruct:
     type: object
@@ -5264,6 +5658,8 @@ PaymentMethodUpdateStruct:
             required: false
 
 PaymentMethodViewWrapper:
+    description: 'Anonymous JSON object with only a PaymentMethodView property.'
+    type: object
     properties:
         PaymentMethodView: PaymentMethodView
 
@@ -5288,6 +5684,8 @@ PaymentMethodList:
             required: true
 
 PaymentMethodViewInputWrapper:
+    description: 'Anonymous JSON object with only a PaymentMethodViewInput property.'
+    type: object
     properties:
         PaymentMethodViewInput: PaymentMethodViewInput
 
@@ -5302,6 +5700,7 @@ PaymentMethodViewInput:
             required: true
 
 ShipmentWrapper:
+    description: 'Anonymous JSON object with only a Shipment property.'
     type: object
     properties:
         Shipment: Shipment
@@ -5341,6 +5740,7 @@ Shipment:
             type: Ref
 
 ShipmentRefListWrapper:
+    description: 'Anonymous JSON object with only a ShipmentRefList property.'
     type: object
     properties:
         ShipmentRefList: ShipmentRefList
@@ -5353,6 +5753,7 @@ ShipmentRefList:
             type: Ref[]
 
 ShipmentCreateWrapper:
+    description: 'Anonymous JSON object with only a ShipmentCreate property.'
     type: object
     properties:
         ShipmentCreate: ShipmentCreate
@@ -5371,6 +5772,8 @@ ShipmentCreate:
             type: object
 
 ShipmentUpdateWrapper:
+    description: 'Anonymous JSON object with only a ShipmentUpdate property.'
+    type: object
     properties:
         ShipmentUpdate: ShipmentUpdate
 
@@ -5388,6 +5791,8 @@ ShipmentUpdate:
             type: object
 
 ShippingMethodWrapper:
+    description: 'Anonymous JSON object with only a ShippingMethod property.'
+    type: object
     properties:
         ShippingMethod: ShippingMethod
 
@@ -5447,6 +5852,8 @@ KeyValue:
             type: string | nil
 
 ShippingMethodRefListWrapper:
+    description: 'Anonymous JSON object with only a ShippingMethodRefList property.'
+    type: object
     properties:
         ShippingMethodRefList: ShippingMethodRefList
 
@@ -5458,6 +5865,8 @@ ShippingMethodRefList:
             type: Ref[]
 
 ShippingMethodTypeWrapper:
+    description: 'Anonymous JSON object with only a ShippingMethodType property.'
+    type: object
     properties:
         ShippingMethodType: ShippingMethodType
 
@@ -5471,6 +5880,8 @@ ShippingMethodType:
             type: string
 
 ShippingMethodTypesListWrapper:
+    description: 'Anonymous JSON object with only a ShippingMethodTypesList property.'
+    type: object
     properties:
         ShippingMethodTypesList: ShippingMethodTypesList
 
@@ -5482,6 +5893,8 @@ ShippingMethodTypesList:
             type: ShippingMethodType[]
 
 SalesRepresentativesListWrapper:
+    description: 'Anonymous JSON object with only a SalesRepresentativesList property.'
+    type: object
     properties:
         SalesRepresentativesList: SalesRepresentativesList
 
@@ -5493,6 +5906,8 @@ SalesRepresentativesList:
             type: User[]
 
 ActivityLogGroupListInputWrapper:
+    description: 'Anonymous JSON object with only a ActivityLogGroupListInput property.'
+    type: object
     properties:
         ActivityLogGroupListInput: ActivityLogGroupListInput
 
@@ -5501,6 +5916,8 @@ ActivityLogGroupListInput:
     type: object
 
 ActivityLogGroupListWrapper:
+    description: 'Anonymous JSON object with only a ActivityLogGroupList property.'
+    type: object
     properties:
         ActivityLogGroupList: ActivityLogGroupList
 

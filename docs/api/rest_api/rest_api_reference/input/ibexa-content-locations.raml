@@ -107,10 +107,10 @@ get:
                 description: ETag
         body:
             application/vnd.ibexa.api.LocationUpdate+xml:
-                type: LocationUpdateStruct
+                type: LocationUpdate
                 example: !include examples/content/locations/location_id/PATCH/LocationUpdate.xml.example
             application/vnd.ibexa.api.LocationUpdate+json:
-                type: LocationUpdateStructWrapper
+                type: LocationUpdateWrapper
                 example: !include examples/content/locations/location_id/PATCH/LocationUpdate.json.example
         responses:
             200:
