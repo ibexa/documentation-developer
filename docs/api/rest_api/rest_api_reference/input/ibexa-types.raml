@@ -3614,6 +3614,29 @@ CartMetadataUpdate:
         names: Value[]
         descriptions: Value[]
 
+CartConstraintViolationListWrapper:
+    description: 'JSON object with only a CartConstraintViolationList property.'
+    type: object
+    properties:
+        CartConstraintViolationList: CartConstraintViolationList
+
+CartConstraintViolationList:
+    description: 'This class represents a list of cart constraint violations.'
+    type: object
+    properties:
+        violations:
+            type: array
+            items: CartConstraintViolation
+            #TODO: CartConstraintViolationWrapper?
+
+CartConstraintViolation:
+    description: 'This class represents a cart constraint violation.'
+    type: object
+    properties:
+        code: string
+        propertyPath: string
+        message: string
+
 CatalogWrapper:
     description: 'JSON object with only a Catalog property.'
     type: object
