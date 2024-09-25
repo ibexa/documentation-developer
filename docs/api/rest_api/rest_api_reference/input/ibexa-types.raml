@@ -1,3 +1,28 @@
+UnixTimestamp:
+    type: integer
+
+TimezoneDate:
+    type: object
+    properties:
+        date: string
+        timezone_type: integer
+        timezone: string
+
+Fields:
+    type: object
+    properties:
+        field:
+            type: Field[]
+
+Href:
+    type: object
+    properties:
+        _href:
+            type: string
+            xml:
+                attribute: true
+                name: href
+
 Asset:
     type: object
     description: 'Asset value object'
@@ -46,8 +71,22 @@ BaseObject:
     properties:
         _media-type:
             type: string
+            xml:
+                attribute: true
+                name: media-type
         _href:
             type: string
+            required: false
+            xml:
+                attribute: true
+                name: href
+
+BookmarkListWrapper:
+    description: 'JSON object with only a BookmarkList property.'
+    type: object
+    properties:
+        BookmarkList:
+            type: BookmarkList
 
 BookmarkList:
     description: 'List of bookmarked Locations.'
@@ -58,7 +97,22 @@ BookmarkList:
             type: integer
         items:
             description: 'List of bookmarked Locations.'
-            type: Location[]
+            type: array
+            items:
+                type: object
+                properties:
+                    Location:
+                        type: Location
+                    _media-type:
+                        type: string
+                    __href:
+                        type: string
+
+ContentWrapper:
+    description: 'JSON object with only a Content property.'
+    type: object
+    properties:
+        Content: Content
 
 Content:
     description: 'Content ID matcher class.'
@@ -67,9 +121,15 @@ Content:
         _remoteId:
             description: 'Remote ID of the content type.'
             type: string
+            xml:
+                attribute: true
+                name: remoteId
         _id:
             description: 'Unique ID of the content type.'
             type: integer
+            xml:
+                attribute: true
+                name: id
         ContentType:
             description: 'Content type.'
             type: BaseObject
@@ -94,9 +154,11 @@ Content:
         lastModificationDate:
             description: 'Content item modification date.'
             type: datetime
+            required: false
         publishedDate:
             description: 'Content item publication date.'
             type: datetime
+            required: false
         mainLanguageCode:
             description: 'The main language code of the content item.'
             type: string
@@ -108,10 +170,16 @@ Content:
             type: boolean
         status:
             description: 'Status of the content. Possible values: const STATUS_DRAFT = 0;const STATUS_PUBLISHED = 1; const STATUS_TRASHED = 2.'
-            #enum: ['DRAFT', 'PUBLISHED', 'TRASHED']
+            enum: [ 'DRAFT', 'PUBLISHED', 'TRASHED' ]
         ObjectStates:
             description: 'Object states.'
             type: BaseObject
+
+ContentCreateWrapper:
+    description: 'JSON object with only a ContentCreate property.'
+    type: object
+    properties:
+        ContentCreate: ContentCreate
 
 ContentCreate:
     description: 'This class is used for creating a new content item.'
@@ -120,19 +188,23 @@ ContentCreate:
         ContentType:
             description: 'The content type for which the new content item is created.'
             required: true
-            type: ContentType
+            type: ContentCreateContentType | Href
         Section:
             description: 'The Section the content item is assigned to. If not set the Section of the parent is used or a default Section.'
-            type: Section
+            type: Href
+            required: false
         User:
             description: 'The owner of the content. If not given the current authenticated User is set as owner.'
             type: integer
+            required: false
         alwaysAvailable:
             description: "Indicates if the content item is shown in the main language if it's not present in an other requested language."
-            type: boolean
+            type: string
+            required: false
         remoteId:
             description: 'Remote identifier used as a custom identifier for the content item. Needs to be a unique Content->remoteId string value.'
             type: string
+            required: false
         mainLanguageCode:
             description: 'The main language code for the content. This language will also be used for as initial language for the first created version. It is also used as default language for added fields.'
             required: true
@@ -140,10 +212,13 @@ ContentCreate:
         modificationDate:
             description: 'Modification date. If not given, the current integer is used.'
             type: datetime
+            required: false
         LocationCreate:
-            type: object[]
+            type: object
+            required: true
         fields:
             type: object
+            required: true
             properties:
                 field: object[]
 
@@ -166,6 +241,12 @@ ContentImageVariation:
         fileSize:
             description: 'Size of an image file.'
             type: integer
+
+ContentInfoWrapper:
+    description: 'JSON object with only a ContentInfo property.'
+    type: object
+    properties:
+        ContentInfo: ContentInfo
 
 ContentInfo:
     description: 'This class provides all version independent information of the content item.'
@@ -246,13 +327,19 @@ ContentMetadataUpdateStruct:
             description: "If set, will change the content's 'always-available' name."
             type: string
 
+ContentObjectStatesWrapper:
+    description: 'JSON object with only a ContentObjectStates property.'
+    type: object
+    properties:
+        ContentObjectStates: ContentObjectStates
+
 ContentObjectStates:
     description: 'Represents a list of object states.'
     type: object
     properties:
         ObjectState:
             description: 'List of object state values.'
-            type: BaseObject[]
+            type: Href[]
 
 ContentStruct:
     description: 'Base struct for content create/update structs.'
@@ -261,6 +348,27 @@ ContentStruct:
         setField:
             description: 'Adds a field to the field collection. This method could also be implemented by a magic setter so that $fields[$fieldDefIdentifier][$language] = $value or without language $fields[$fieldDefIdentifier] = $value is an equivalent call.'
             type: string
+
+ContentCreateContentType:
+    type: object
+    properties:
+        _href:
+            type: string
+            xml:
+                attribute: true
+                name: href
+        FieldDefinitions:
+            type: BaseObject
+            properties:
+                FieldDefinitions:
+                    type: FieldDefinition[]
+                    required: false
+
+ContentTypeWrapper:
+    description: 'JSON object with only a ContentType property.'
+    type: object
+    properties:
+        ContentType: ContentType
 
 ContentType:
     description: 'This class represents a content type.'
@@ -271,16 +379,16 @@ ContentType:
             type: integer
         status:
             description: 'The status of the content type. Possible values: const STATUS_DEFINED = 0; Status constant for defined (aka published) Type, const STATUS_DRAFT = 1; Status constant for draft (aka temporary) Type; const STATUS_MODIFIED = 2; Status constant for modified (aka deferred for publishing) Type.'
-            enum: [ ]
+            enum: [ "DEFINED", "DRAFT", "MODIFIED", "PUBLISHED" ]
         identifier:
             description: 'String identifier of a content type.'
             type: string
         names:
             description: 'Name of a content type.'
-            type: Value[]
+            type: ValueObject
         descriptions:
             description: 'Description of a content type.'
-            type: Value[]
+            type: ValueObject
         creationDate:
             description: 'Creation date of the content type.'
             type: datetime
@@ -304,7 +412,7 @@ ContentType:
             type: string
         urlAliasSchema:
             description: 'URL alias schema. If nothing is provided, $nameSchema will be used instead.'
-            type: string
+            type: string | nil
         nameSchema:
             description: 'Name schema. Can be composed of FieldDefinition identifier place holders.'
             type: string
@@ -316,16 +424,13 @@ ContentType:
             type: boolean
         defaultSortField:
             description: 'Specifies which property the child Locations should be sorted on by default when created. Map for Location sort fields to their respective SortClauses - class name/identifier and modified subnode. One of the fallowing values: const SORT_FIELD_PATH = 1; const SORT_FIELD_PUBLISHED = 2; const SORT_FIELD_MODIFIED = 3; const SORT_FIELD_SECTION = 4; const SORT_FIELD_DEPTH = 5; const SORT_FIELD_PRIORITY = 8; const SORT_FIELD_NAME = 9; const SORT_FIELD_NODE_ID = 11; const SORT_FIELD_CONTENTOBJECT_ID = 12.'
-            enum: [ ]
+            enum: [ "PATH", "PUBLISHED", "MODIFIED", "SECTION", "DEPTH", "PRIORITY", "NAME", "NODE_ID", "CONTENTOBJECT_ID" ]
         defaultSortOrder:
             description: 'Specifies whether the sort order should be ascending or descending by default when created. Map for Location sort order to their respective Query SORT constants. Possible values: const SORT_ORDER_DESC = 0; const SORT_ORDER_ASC = 1.'
-            enum: [ ]
+            enum: [ "ASC", "DESC" ]
         FieldDefinitions:
             description: 'This method returns the content type Field definitions from this type.'
-            type: BaseObject
-            properties:
-                FieldDefinitions:
-                    type: FieldDefinition[]
+            type: FieldDefinitions
 
 ContentTypeCreateStruct:
     description: 'This class is used for creating content types.'
@@ -353,33 +458,39 @@ ContentTypeCreateStruct:
             type: boolean
         defaultSortField:
             description: 'Specifies which property the child Locations should be sorted on by default when created.'
-            type: integer
+            type: string
         defaultSortOrder:
             description: 'Specifies whether the sort order should be ascending or descending by default when created.'
-            type: integer
+            type: string
         defaultAlwaysAvailable:
             description: 'If an instance of a content type is created the always available flag is set by default this this value.'
             type: boolean
         names:
             description: 'An array of names with languageCode keys. At least one name in the main language is required.'
-            required: true
-            type: string[]
+            type: ValueObject
+            required: false
         descriptions:
             description: 'An array of descriptions with languageCode keys.'
-            type: string[]
+            type: ValueObject
+            required: false
         addFieldDefinition:
             description: 'Adds a new Field definition.'
             type: FieldDefinitionCreateStruct
+            required: false
         creatorId:
             description: 'If set this value overrides the current User as creator.'
             type: integer
+            required: false
         creationDate:
             description: 'f set this value overrides the current time for creation.'
             type: datetime
 
-ContentTypeDraft:
-    description: 'This class represents a draft of a content type.'
+ContentTypeGroupWrapper:
+    description: 'JSON object with only a ContentTypeGroup property.'
     type: object
+    properties:
+        ContentTypeGroup: ContentTypeGroup
+
 ContentTypeGroup:
     description: 'This class represents a content type group value.'
     type: BaseObject
@@ -406,8 +517,14 @@ ContentTypeGroup:
             description: 'Content types.'
             type: BaseObject
 
+ContentTypeGroupInputWrapper:
+    description: 'JSON object with only a ContentTypeGroupInput property.'
+    type: object
+    properties:
+        ContentTypeGroupInput: ContentTypeGroupInput
+
 ContentTypeGroupInput:
-    type: BaseObject
+    type: object
 
 ContentTypeGroupCreateStruct:
     description: 'This class is used for creating a content type group.'
@@ -419,6 +536,13 @@ ContentTypeGroupCreateStruct:
         creationDate:
             description: 'If set this value overrides the current time for creation.'
             type: datetime
+
+ContentTypeGroupListWrapper:
+    description: 'JSON object with only a ContentTypeGroupList property.'
+    type: object
+    properties:
+        ContentTypeGroupList: ContentTypeGroupList
+
 ContentTypeGroupList:
     description: 'List of content type groups.'
     type: BaseObject
@@ -428,10 +552,19 @@ ContentTypeGroupList:
 
 ContentTypeGroupRef:
     description: 'Content type group reference.'
-    type: BaseObject
+    type: array
+    items:
+        type: BaseObject
+        properties:
+            unlink:
+                type: Unlink
+                required: false
+
+ContentTypeGroupRefListWrapper:
+    description: 'JSON object with only a ContentTypeGroupRefList property.'
+    type: object
     properties:
-        Unlink:
-            type: Unlink
+        ContentTypeGroupRefList: ContentTypeGroupRefList
 
 ContentTypeGroupRefList:
     description: 'List of content type groups references.'
@@ -459,6 +592,12 @@ ContentTypeGroupUpdateStruct:
             description: 'If set this value overrides the current time for modified.'
             type: datetime
 
+ContentTypeInfoWrapper:
+    description: 'JSON object with only a ContentTypeInfo property.'
+    type: object
+    properties:
+        ContentTypeInfo: ContentTypeInfo
+
 ContentTypeInfo:
     description: 'This class stores content type information.'
     type: BaseObject
@@ -468,16 +607,16 @@ ContentTypeInfo:
             type: integer
         status:
             description: 'The status of the content type. Possible values: const STATUS_DEFINED = 0; Status constant for defined (aka published) Type, const STATUS_DRAFT = 1; Status constant for draft (aka temporary) Type; const STATUS_MODIFIED = 2; Status constant for modified (aka deferred for publishing) Type.'
-            enum: [ ]
+            enum: [ "DEFINED", "DRAFT", "MODIFIED", "PUBLISHED" ]
         identifier:
             description: 'String identifier of a content type.'
             type: string
         names:
             description: 'Name of a content type.'
-            type: Value[]
+            type: ValueObject
         descriptions:
             description: 'Description of a content type.'
-            type: Value[]
+            type: ValueObject
         creationDate:
             description: 'Creation date of the content type.'
             type: datetime
@@ -501,7 +640,7 @@ ContentTypeInfo:
             type: string
         urlAliasSchema:
             description: 'URL alias schema. If nothing is provided, $nameSchema will be used instead.'
-            type: string
+            type: string | nil
         nameSchema:
             description: 'Name schema. Can be composed of FieldDefinition identifier place holders.'
             type: string
@@ -516,10 +655,16 @@ ContentTypeInfo:
             type: boolean
         defaultSortField:
             description: 'Specifies which property the child Locations should be sorted on by default when created. Map for Location sort fields to their respective SortClauses - class name/identifier and modified subnode. One of the fallowing values: const SORT_FIELD_PATH = 1; const SORT_FIELD_PUBLISHED = 2; const SORT_FIELD_MODIFIED = 3; const SORT_FIELD_SECTION = 4; const SORT_FIELD_DEPTH = 5; const SORT_FIELD_PRIORITY = 8; const SORT_FIELD_NAME = 9; const SORT_FIELD_NODE_ID = 11; const SORT_FIELD_CONTENTOBJECT_ID = 12.'
-            enum: [ ]
+            enum: [ "PATH", "PUBLISHED", "MODIFIED", "SECTION", "DEPTH", "PRIORITY", "NAME", "NODE_ID", "CONTENTOBJECT_ID" ]
         defaultSortOrder:
             description: 'Specifies whether the sort order should be ascending or descending by default when created. Map for Location sort order to their respective Query SORT constants. Possible values: const SORT_ORDER_DESC = 0; const SORT_ORDER_ASC = 1.'
-            enum: [ ]
+            enum: [ "ASC", "DESC" ]
+
+ContentTypeInfoListWrapper:
+    description: 'JSON object with only a ContentTypeInfoList property.'
+    type: object
+    properties:
+        ContentTypeList: ContentTypeInfoList
 
 ContentTypeInfoList:
     description: 'List of content type information.'
@@ -528,6 +673,12 @@ ContentTypeInfoList:
         ContentType:
             description: 'This class stores content type information.'
             type: ContentTypeInfo[]
+
+ContentTypeListWrapper:
+    description: 'JSON object with only a ContentTypeList property.'
+    type: object
+    properties:
+        ContentTypeList: ContentTypeList
 
 ContentTypeList:
     description: 'List of content types.'
@@ -543,42 +694,55 @@ ContentTypeUpdateStruct:
         identifier:
             description: 'If set the unique identifier of a type is changed to this value.'
             type: string
+            required: false
         remoteId:
             description: 'If set the remote ID is changed to this value.'
             type: string
+            required: false
         urlAliasSchema:
             description: 'If set the URL alias schema is changed to this value.'
             type: string
+            required: false
         nameSchema:
             description: 'f set the name schema is changed to this value.'
             type: string
+            required: false
         isContainer:
             description: 'If set the container flag is set to this value.'
             type: boolean
+            required: false
         mainLanguageCode:
             description: 'If set the main language is changed to this value.'
             type: string
+            required: false
         defaultSortField:
             description: 'If set the default sort field is changed to this value.'
-            type: integer
+            enum: [ "PATH", "PUBLISHED", "MODIFIED", "SECTION", "DEPTH", "PRIORITY", "NAME", "NODE_ID", "CONTENTOBJECT_ID" ]
+            required: false
         defaultSortOrder:
             description: 'If set the default sort order is set to this value.'
-            type: integer
+            enum: [ "ASC", "DESC" ]
+            required: false
         defaultAlwaysAvailable:
             description: 'If set the default always available flag is set to this value.'
             type: boolean
+            required: false
         modifierId:
             description: 'If set this value overrides the current User as creator.'
             type: integer
+            required: false
         modificationDate:
             description: 'If set this value overrides the current time for creation.'
             type: datetime
+            required: false
         names:
             description: 'If set this array of names with languageCode keys replace the complete name collection.'
-            type: Value[]
+            type: ValueObject
+            required: false
         descriptions:
             description: 'If set this array of descriptions with languageCode keys replace the complete description collection.'
-            type: Value[]
+            type: ValueObject
+            required: false
 
 ContentUpdateStruct:
     description: 'This class is used for updating the fields of a content item draft.'
@@ -598,6 +762,9 @@ Country:
         _id:
             description: 'ID that represents a country name.'
             type: string
+            xml:
+                attribute: true
+                name: id
         name:
             description: 'Name of the country.'
             type: string
@@ -610,6 +777,12 @@ Country:
         IDC:
             description: 'IDC'
             type: integer
+
+CountryListWrapper:
+    description: 'JSON object with only a CountryList property.'
+    type: object
+    properties:
+        CountryList: CountryList
 
 CountryList:
     description: 'This class is representing an ISO-3166 formatted list of world countries.'
@@ -643,26 +816,31 @@ Criterion:
         operator:
             description: 'The operator used by the Criterion.'
             type: string
+            required: false
         value:
             description: 'The value(s) matched by the Criteria.'
             type: array
             items: any
+            required: false
         target:
             description: 'The target used by the Criteria (field, metadata...).'
             type: string
+            required: false
         valueData:
             description: 'Additional value data, required by some Criteria, MapLocationDistance for instance.'
             type: Value
+            required: false
         Specifications:
             description: "Criterion description function. Returns the combination of the Criterion's supported operator/value, as an array of objects."
             type: Specifications[]
-        ValueTypeCheckCallback:
-            description: 'Returns a callback that checks the values types depending on the operator specifications.'
-            type: integer
+            required: false
 
 DateRange:
     description: 'Representation of date range.'
-    type: object
+    type: BaseObject
+    properties:
+        startDate: string
+        endDate: string
 
 Event:
     description: 'Calendar event.'
@@ -697,42 +875,69 @@ EventGroup:
     description: 'Event group.'
     type: BaseObject
     properties:
-        currentPage:
+        _currentPage:
             description: 'Current page representation.'
             type: string
+            xml:
+                attribute: true
+                name: currentPage
         nextPage:
             description: 'Next page representation.'
             type: string
+            required: false
         groupKey:
             type: DateRange
+            required: false
         totalCount:
             description: 'Total count of events.'
             type: integer
         events:
             type: Event[]
 
+EventGroupListWrapper:
+    description: 'JSON object with only a EventGroupList property.'
+    type: object
+    properties:
+        EventGroupList: EventGroupList
+
 EventGroupList:
     description: 'Grouped calendar event list.'
-    type: EventList
+    type: BaseObject
     properties:
         groups:
             type: EventGroup[]
+
+EventListWrapper:
+    description: 'JSON object with only a EventList property.'
+    type: object
+    properties:
+        EventList: EventList
 
 EventList:
     description: 'List of calendar events.'
     type: BaseObject
     properties:
-        currentPage:
+        _currentPage:
             description: 'Current page representation.'
             type: string
+            xml:
+                attribute: true
+                name: currentPage
         nextPage:
             description: 'Next page representation.'
             type: string
+            required: false
         totalCount:
             description: 'Total count of events.'
             type: integer
         events:
             type: Event[]
+
+UnscheduleActionWrapper:
+    description: 'JSON object with only a UnscheduleAction property.'
+    type: object
+    properties:
+        UnscheduleAction: UnscheduleAction
 
 UnscheduleAction:
     description: 'This class represents events to unschedule'
@@ -769,23 +974,38 @@ Field:
         id:
             description: 'The field ID.'
             type: integer
+            required: false
         fieldDefinitionIdentifier:
             description: 'The Field definition identifier.'
             type: string
         languageCode:
             description: 'The language code.'
             type: string
+            required: false
         fieldTypeIdentifier:
             description: 'Field Type identifier.'
             type: string
+            required: false
         fieldValue:
             description: 'A Field Type value or a value type which can be converted by the corresponding field type.'
             type: any
+
+FieldDefinitionsWrapper:
+    description: 'JSON object with only a FieldDefinitions property.'
+    type: object
+    properties:
+        FieldDefinitions: FieldDefinitions
 
 FieldDefinitions:
     type: object
     properties:
         FieldDefinition: FieldDefinition[]
+
+FieldDefinitionWrapper:
+    description: 'JSON object with only a FieldDefinition property.'
+    type: object
+    properties:
+        FieldDefinition: FieldDefinition
 
 FieldDefinition:
     description: 'This class represents a Field definition.'
@@ -823,19 +1043,31 @@ FieldDefinition:
             type: boolean
         names:
             description: 'Names of content types.'
-            type: Value[]
+            type: ValueObject
         descriptions:
             description: 'Descriptions of content types.'
-            type: Value[]
+            type: ValueObject
         fieldSettings:
             description: 'Settings for the Field definition supported by the field type.'
             type: any
         validatorConfiguration:
             description: 'Validator configuration of this Field definition supported by the field type.'
-            type: StringLengthValidator
+            type: StringLengthValidatorWrapper | []
+
+FieldDefinitionCreateWrapper:
+    description: 'JSON object with only a FieldDefinitionCreate property.'
+    type: object
+    properties:
+        FieldDefinitionCreate: FieldDefinitionCreate
 
 FieldDefinitionCreate:
     type: BaseObject
+
+FieldDefinitionUpdateWrapper:
+    description: 'JSON object with only a FieldDefinitionUpdate property.'
+    type: object
+    properties:
+        FieldDefinitionUpdate: FieldDefinitionUpdate
 
 FieldDefinitionUpdate:
     type: BaseObject
@@ -927,6 +1159,12 @@ FieldDefinitionUpdateStruct:
             description: 'If set the the searchable flag is set to this value.'
             type: boolean
 
+JWTWrapper:
+    description: 'JSON object with only a JWT property.'
+    type: object
+    properties:
+        JWT: JWT
+
 JWT:
     description: 'This class represents the JWT authentication token'
     type: object
@@ -935,22 +1173,34 @@ JWT:
             description: 'JWT authentication token'
             type: string
 
+JWTInputWrapper:
+    description: 'JSON object with only a JWTInput property.'
+    type: object
+    properties:
+        JWTInput: JWTInput
+
 JWTInput:
     description: 'This class represents the input for a JWT authentication token'
     type: object
     properties:
-        user:
+        username:
             description: 'User name'
             type: string
         password:
             description: 'User password'
             type: string
 
+LanguageWrapper:
+    description: 'JSON object with only a Language property.'
+    type: object
+    properties:
+        Language: Language
+
 Language:
     description: 'This class represents a language in the Repository.'
     type: BaseObject
     properties:
-        id:
+        languageId:
             description: 'The language ID (auto generated).'
             type: integer
         languageCode:
@@ -959,9 +1209,6 @@ Language:
         name:
             description: 'Human readable name of the language.'
             type: string
-        enabled:
-            description: 'Indicates if the language is enabled or not.'
-            type: boolean
 
 LanguageCode:
     description: 'Language code.'
@@ -969,6 +1216,12 @@ LanguageCode:
     properties:
         languageCode:
             type: string
+
+LanguageListWrapper:
+    description: 'JSON object with only a LanguageList property.'
+    type: object
+    properties:
+        LanguageList: LanguageList
 
 LanguageList:
     description: 'List of languages.'
@@ -993,14 +1246,26 @@ LanguageCreateStruct:
 
 Limitation:
     description: 'This class represents a Limitation applied to a policy.'
-    type: BaseObject
+    type: object
     properties:
         _identifier:
             description: 'Returns the limitation identifier (one of the defined constants) or a custom limitation. Constants: CONTENTTYPE = Class; LANGUAGE = Language; LOCATION = Node; OWNER = Owner; PARENTOWNER = ParentOwner; PARENTCONTENTTYPE = ParentClass; PARENTDEPTH = ParentDepth; SECTION = Section; NEWSECTION = NewSection; SITEACCESS = SiteAccess; STATE = State; NEWSTATE = NewState; SUBTREE = Subtree; USERGROUP = Group; PARENTUSERGROUP = ParentGroup; STATUS = Status.'
-            enum: [ 'CONTENTTYPE', 'LANGUAGE', 'LOCATION', 'OWNER', 'PARENTOWNER', 'PARENTCONTENTTYPE', 'PARENTDEPTH', 'SECTION', 'NEWSECTION','SITEACCESS', 'STATE', 'NEWSTATE', 'SUBTREE', 'USERGROUP', 'PARENTUSERGROUP', 'STATUS' ]
-        Values:
+            enum: [ 'ContentType', 'Language', 'Location', 'Owner', 'Parentowner', 'ParentContentType', 'ParentDepth', 'Section', 'NewSection','SiteAccess', 'State', 'NewState', 'Subtree', 'UserGroup', 'ParentUserGroup', 'Status', 'Class' ]
+            xml:
+                attribute: true
+                name: identifier
+        values:
             description: 'A read-only list of IDs or identifiers for which the limitation should be applied. The value of this property must conform to a hash, which means that it may only consist of array and scalar values, but must not contain objects or resources.'
-            type: Ref[]
+            type: object
+            properties:
+                ref:
+                    type: Href[]
+
+LocationWrapper:
+    description: 'JSON object with only a Location property.'
+    type: object
+    properties:
+        Location: Location
 
 Location:
     description: 'This class represents a Location in the Repository.'
@@ -1033,6 +1298,7 @@ Location:
         Children:
             description: 'Children Location.'
             type: Ref
+            required: false
         pathString:
             description: 'The materialized path of the Location entry e.g. /1/2/.'
             type: string
@@ -1054,9 +1320,33 @@ Location:
         UrlAliases:
             description: 'This class represents URL aliases.'
             type: Ref
+            required: false
+
+LocationCreateWrapper:
+    description: 'JSON object with only a LocationCreate property.'
+    type: object
+    properties:
+        LocationCreate: LocationCreate
 
 LocationCreate:
-    type: BaseObject
+    type: object
+    properties:
+        ParentLocation:
+            type: object
+            properties:
+                _href:
+                    type: string
+                    xml:
+                        attribute: true
+                        name: href
+        priority:
+            type: string
+        hidden:
+            type: string | boolean
+        sortField:
+            type: string
+        sortOrder:
+            type: string
 
 LocationCreateStruct:
     description: 'This class is used to create a new Location for a content item.'
@@ -1082,37 +1372,48 @@ LocationCreateStruct:
             required: true
             type: integer
 
-LocationList:
-    description: 'This class represents a queried Location list holding a totalCount and a partial list of Locations (by offset/limit parameters and permission filters).'
+LocationListWrapper:
+    description: 'JSON object with only a LocationList property.'
     type: object
     properties:
-        totalCount:
-            description: 'The total count of found Locations (filtered by permissions).'
-            type: integer
-        Locations:
+        LocationList: LocationList
+
+LocationList:
+    description: 'This class represents a queried Location list holding a totalCount and a partial list of Locations (by offset/limit parameters and permission filters).'
+    type: BaseObject
+    properties:
+        Location:
             description: 'The partial list of Locations controlled by offset/limit.'
-            type: Location[]
+            type: Ref[]
 
 LocationQuery:
     description: 'This class is used to perform a Location query.'
     type: object
 
-LocationUpdateStruct:
+LocationUpdateWrapper:
+    description: 'JSON object with only a LocationUpdate property.'
+    type: object
+    properties:
+        LocationUpdate: LocationUpdate
+
+LocationUpdate:
     description: 'This class is used for updating Location meta data.'
     type: object
     properties:
         priority:
             description: 'If set the Location priority is changed to the new value.'
-            type: integer
+            type: string
         remoteId:
             description: 'If set the Location gets a new remoteId. Needs to be a unique Location->remoteId string value.'
-            type: integer
+            type: string
+        hidden:
+            type: boolean
         sortField:
             description: 'If set the sortField is changed. The sort field specifies which property the child Locations should be sorted on. Valid values are found at {@link Location::SORT_FIELD_*}.'
-            type: integer
+            enum: [ 'PATH', 'PUBLISHED', 'MODIFIED', 'SECTION', 'DEPTH', 'CLASS_IDENTIFIER', 'CLASS_NAME', 'PRIORITY', 'NAME', 'MODIFIED_SUBNODE', 'NODE_ID', 'CONTENTOBJECT_ID' ]
         sortOrder:
             description: 'If set the sortOrder is changed. The sort order specifies whether the sort order should be ascending or descending. Valid values are {@link Location::SORT_ORDER_*}.'
-            type: integer
+            enum: [ 'ASC', 'DESC' ]
 
 Message:
     description: 'Class for translatable messages, which only occur in singular form. The message might include replacements, in the form %[A-Za-z]%. Those are replaced by the values provided. A raw % can be escaped like %%.'
@@ -1161,6 +1462,12 @@ NotificationList:
             description: 'List of notifications.'
             type: Notification[]
 
+ObjectStateWrapper:
+    description: 'JSON object with only a ObjectState property.'
+    type: object
+    properties:
+        ObjectState: ObjectState
+
 ObjectState:
     description: 'This class represents a Object state value.'
     type: BaseObject
@@ -1179,19 +1486,19 @@ ObjectState:
             type: BaseObject
         languageCodes:
             description: 'The available language codes for names an descriptions.'
-            type: string[]
+            type: string
         names:
             description: 'Names.'
-            type: object
-            properties:
-                Value:
-                    type: Value
+            type: ValueObject
         descriptions:
             description: 'Descriptions.'
-            type: object
-            properties:
-                Value:
-                    type: Value
+            type: ValueObject
+
+ObjectStateCreateWrapper:
+    description: 'JSON object with only a ObjectStateCreate property.'
+    type: object
+    properties:
+        ObjectStateCreate: ObjectStateCreate
 
 ObjectStateCreate:
     description: 'This class represents a value for creating Object states.'
@@ -1203,7 +1510,7 @@ ObjectStateCreate:
             type: string
         priority:
             description: 'Priority for ordering. If not set the Object state is created as the last one.'
-            type: integer
+            type: string
         defaultLanguageCode:
             description: 'The default language code.'
             required: true
@@ -1223,6 +1530,12 @@ ObjectStateCreate:
             properties:
                 value: Value[]
 
+ObjectStateGroupWrapper:
+    description: 'JSON object with only a ObjectStateGroup property.'
+    type: object
+    properties:
+        ObjectStateGroup: ObjectStateGroup
+
 ObjectStateGroup:
     description: 'This class represents an Object state group value.'
     type: BaseObject
@@ -1238,22 +1551,22 @@ ObjectStateGroup:
             type: string
         languageCodes:
             description: 'The available language codes for names an descriptions.'
-            type: string[]
+            type: string
         ObjectStates:
             description: 'Object States.'
             type: BaseObject
-        Names:
+        names:
             description: 'List of names.'
-            type: object
-            properties:
-                Value:
-                    type: Value
-        Descriptions:
+            type: ValueObject
+        descriptions:
             description: 'List of descriptions.'
-            type: object
-            properties:
-                Value:
-                    type: Value
+            type: ValueObject
+
+ObjectStateGroupCreateWrapper:
+    description: 'JSON object with only a ObjectStateGroupCreate property.'
+    type: object
+    properties:
+        ObjectStateGroupCreate: ObjectStateGroupCreate
 
 ObjectStateGroupCreate:
     description: 'This class represents a value for creating Object state groups.'
@@ -1270,10 +1583,16 @@ ObjectStateGroupCreate:
         names:
             description: 'An array of names with languageCode keys. At least one name in the main language is required.'
             required: true
-            type: string[]
+            type: ValueObject
         descriptions:
             description: 'An array of descriptions with languageCode keys.'
-            type: string[]
+            type: ValueObject
+
+ObjectStateGroupListWrapper:
+    description: 'JSON object with only a ObjectStateGroupList property.'
+    type: object
+    properties:
+        ObjectStateGroupList: ObjectStateGroupList
 
 ObjectStateGroupList:
     description: 'List of Object state groups.'
@@ -1281,7 +1600,13 @@ ObjectStateGroupList:
     properties:
         ObjectStateGroup:
             description: 'This class represents an Object state group value.'
-            type: ObjectStateGroup
+            type: ObjectStateGroup[]
+
+ObjectStateGroupUpdateWrapper:
+    description: 'JSON object with only a ObjectStateGroupUpdate property.'
+    type: object
+    properties:
+        ObjectStateGroupUpdate: ObjectStateGroupUpdate
 
 ObjectStateGroupUpdate:
     description: 'This class represents a value for updating Object state groups.'
@@ -1290,15 +1615,25 @@ ObjectStateGroupUpdate:
         identifier:
             description: 'Readable unique string identifier of a group.'
             type: string
+            required: false
         defaultLanguageCode:
             description: 'The default language code.'
             type: string
+            required: false
         names:
             description: 'An array of names with languageCode keys.'
-            type: string[]
+            type: ValueObject
+            required: false
         descriptions:
             description: 'An array of descriptions with languageCode keys.'
-            type: string[]
+            type: ValueObject
+            required: false
+
+ObjectStateListWrapper:
+    description: 'JSON object with only a ObjectStateList property.'
+    type: object
+    properties:
+        ObjectStateList: ObjectStateList
 
 ObjectStateList:
     description: 'List of Object states.'
@@ -1307,6 +1642,12 @@ ObjectStateList:
         ObjectState:
             type: ObjectState[]
 
+ObjectStateUpdateWrapper:
+    description: 'JSON object with only a ObjectStateUpdate property.'
+    type: object
+    properties:
+        ObjectStateUpdate: ObjectStateUpdate
+
 ObjectStateUpdate:
     description: 'This class represents a value for updating Object states.'
     type: object
@@ -1314,15 +1655,19 @@ ObjectStateUpdate:
         identifier:
             description: 'Readable unique string identifier of a group.'
             type: string
+            required: false
         defaultLanguageCode:
             description: 'The default language code.'
             type: string
+            required: false
         names:
             description: 'An array of names with languageCode keys.'
-            type: string[]
+            type: ValueObject
+            required: false
         descriptions:
             description: 'An array of descriptions with languageCode keys.'
-            type: string[]
+            type: ValueObject
+            required: false
 
 PasswordValidationContext:
     description: 'Context of the password validation.'
@@ -1350,6 +1695,12 @@ Plural:
             type: array
             items: any
 
+PolicyWrapper:
+    description: 'JSON object with only a Policy property.'
+    type: object
+    properties:
+        Policy: Policy
+
 Policy:
     description: 'This class represents a policy value.'
     type: BaseObject
@@ -1363,9 +1714,13 @@ Policy:
         function:
             description: "Name of the module function Or all functions with '*' e.g. read."
             type: string
-        Limitations:
+        limitations:
             description: 'Limitations.'
-            type: Limitation[]
+            type: object
+            required: false
+            properties:
+                limitation:
+                    type: Limitation[]
 
 PolicyCreateStruct:
     description: 'This class is used to create a policy.'
@@ -1385,6 +1740,12 @@ PolicyDraft:
         originalId:
             description: 'Original policy ID the policy was created from. Used when role status is Role::STATUS_DRAFT.'
             type: integer
+
+PolicyListWrapper:
+    description: 'JSON object with only a PolicyList property.'
+    type: object
+    properties:
+        PolicyList: PolicyList
 
 PolicyList:
     description: 'List of policies.'
@@ -1412,58 +1773,79 @@ Query:
     description: 'This class is used to perform a Content query.'
     type: object
     properties:
-        filter:
+        Filter:
             description: 'The Query filter. Can contain multiple criterion, as items of a logical one (by default AND).'
             type: Criterion
-        query:
+            required: false
+        Query:
             description: 'The Query query. Can contain multiple criterion, as items of a logical one (by default AND).'
             type: Criterion
+            required: false
         sortClauses:
             description: 'Query sorting clauses.'
             type: SortClause[]
+            required: false
         facetBuilders:
             description: "An array of facet builders. Search engines may ignore any, or given facet builders they don't support and will just return search result facets supported by the engine. API consumer should dynamically iterate over returned facets for further use."
             type: FacetBuilder[]
+            required: false
         offset:
             description: 'Query offset. Sets the offset for search hits, used for paging the results.'
             type: integer
+            required: false
         limit:
             description: 'Query limit. Limit for number of search hits to return. If value is `0`, search query will not return any search hits, useful for doing a count.'
             type: integer
+            required: false
         spellcheck:
             description: 'If true spellcheck suggestions are returned.'
             type: boolean
+            required: false
         performCount:
             description: 'If true, search engine should perform count even if that means extra lookup.'
             type: boolean
+            required: false
 
 Ref:
     type: BaseObject
+
+RelationWrapper:
+    description: 'JSON object with only a Relation property.'
+    type: object
     properties:
-        _media-type:
-            type: string
-        _href:
-            type: string
+        Relation: Relation
 
 Relation:
     description: 'Class representing a relation between content.'
     type: BaseObject
     properties:
-        id:
-            description: 'ID of the relation.'
-            type: integer
-        sourceFieldDefinitionIdentifier:
-            description: 'Source content type Field Definition ID. For relation not of type RelationType::COMMON this field denotes the Field definition ID of the attribute where the relation is anchored.'
-            type: string
-        SourceContentInfo:
+        SourceContent:
             description: 'The content of the source content of the relation.'
-            type: ContentInfo
-        DestinationContentInfo:
+            type: Ref
+        DestinationContent:
             description: 'The content of the destination content of the relation.'
-            type: ContentInfo
-        type:
+            type: Ref
+        RelationType:
             description: 'The relation type bitmask. Relations: Relation::COMMON = 1, Relation::EMBED = 2, Relation::LINK = 4, Relation::FIELD = 8, Relation::ASSET = 16'
-            type: integer
+            type: string
+
+RelationCreateWrapper:
+    description: 'JSON object with only a RelationCreate property.'
+    type: object
+    properties:
+        RelationCreate: RelationCreate
+
+RelationCreate:
+    type: object
+    properties:
+        Destination:
+            type: Href
+
+RelationListWrapper:
+    description: 'JSON object with only a Relations property.'
+    type: object
+    properties:
+        Relations: RelationList
 
 RelationList:
     description: 'Class representing a list of relations between content.'
@@ -1472,9 +1854,15 @@ RelationList:
         Relation:
             type: Relation[]
 
+RoleWrapper:
+    description: 'JSON object with only a Role property.'
+    type: object
+    properties:
+        Role: Role
+
 Role:
     description: 'This class represents a role.'
-    type: BaseObject
+    type: object
     properties:
         identifier:
             description: 'Readable string identifier of a role.'
@@ -1483,16 +1871,29 @@ Role:
             description: 'Returns the list of policies of this role.'
             type: BaseObject
 
+RoleAssignmentWrapper:
+    description: 'JSON object with only a RoleAssignment property.'
+    type: object
+    properties:
+        RoleAssignment: RoleAssignment
+
 RoleAssignment:
     description: 'This value object represents an assignment of a User or User group to a role including a limitation.'
     type: BaseObject
     properties:
-        Limitation:
+        limitation:
             description: 'Returns the limitation of the role assignment.'
             type: RoleLimitation
+            required: false
         Role:
             description: 'Returns the role to which the User or User group is assigned to.'
             type: Ref
+
+RoleAssignmentListWrapper:
+    description: 'JSON object with only a RoleAssignmentList property.'
+    type: object
+    properties:
+        RoleAssignmentList: RoleAssignmentList
 
 RoleAssignmentList:
     description: 'This value object represents a list of assignments of a User or User group to a role including a limitation.'
@@ -1515,6 +1916,12 @@ RoleCreateStruct:
             description: 'Adds a policy to this role.'
             type: PolicyCreateStruct
 
+RoleDraftWrapper:
+    description: 'JSON object with only a Role property.'
+    type: object
+    properties:
+        Role: RoleDraft
+
 RoleDraft:
     description: 'This class represents a draft of a role, extends Role.'
     type: Role
@@ -1531,12 +1938,24 @@ RoleUpdateStruct:
             description: 'Readable string identifier of a role.'
             type: string
 
+RoleListWrapper:
+    description: 'JSON object with only a RoleList property.'
+    type: object
+    properties:
+        RoleList: RoleList
+
 RoleList:
     description: 'This class represents a list roles.'
     type: BaseObject
     properties:
         Role:
             type: Role[]
+
+RootWrapper:
+    description: 'JSON object with only a Root property.'
+    type: object
+    properties:
+        Root: Root
 
 Root:
     description: 'This class represents a root.'
@@ -1566,15 +1985,19 @@ Root:
         usersByRoleId:
             description: 'Users by Role ID.'
             type: BaseObject
+            required: false
         usersByRemoteId:
             description: 'Users by remote ID.'
             type: BaseObject
+            required: false
         usersByEmail:
             description: 'Users by e-mail.'
             type: BaseObject
+            required: false
         usersByLogin:
             description: 'Users by login.'
             type: BaseObject
+            required: false
         roles:
             description: 'Roles.'
             type: BaseObject
@@ -1632,6 +2055,12 @@ SearchResult:
             description: 'The value objects found for the query.'
             type: URL[]
 
+SectionWrapper:
+    description: 'JSON object with only a Section property.'
+    type: object
+    properties:
+        Section: Section
+
 Section:
     description: 'This class represents a Section.'
     type: BaseObject
@@ -1646,8 +2075,19 @@ Section:
             description: 'Name of the Section.'
             type: string
 
+SectionInputWrapper:
+    description: 'JSON object with only a SectionInput property.'
+    type: object
+    properties:
+        SectionInput: SectionInput
+
 SectionInput:
-    type: BaseObject
+    type: object
+    properties:
+        identifier:
+            type: string
+        name:
+            type: string
 
 SectionCreateStruct:
     description: 'This class represents a Section.'
@@ -1655,6 +2095,12 @@ SectionCreateStruct:
 
 SectionLimitation:
     type: RoleLimitation
+
+SectionListWrapper:
+    description: 'JSON object with only a SectionList property.'
+    type: object
+    properties:
+        SectionList: SectionList
 
 SectionList:
     description: 'This class represents a Section list.'
@@ -1678,9 +2124,15 @@ SectionUpdateStruct:
     description: 'This class is used to provide data for updating a Section. At least one property has to be set.'
     type: object
 
+SessionWrapper:
+    description: 'JSON object with only a Session property.'
+    type: object
+    properties:
+        Session: Session
+
 Session:
     description: 'Value for session.'
-    type: BaseObject
+    type: object
     properties:
         name:
             description: 'Name.'
@@ -1695,11 +2147,23 @@ Session:
             description: 'User.'
             type: BaseObject
 
+SegmentGroupListWrapper:
+    description: 'JSON object with only a SegmentGroupList property.'
+    type: object
+    properties:
+        SegmentGroupList: SegmentGroupList
+
 SegmentGroupList:
     description: 'This class lists segment groups.'
     type: BaseObject
     properties:
         SegmentGroup: SegmentGroup[]
+
+SegmentGroupWrapper:
+    description: 'JSON object with only a SegmentGroup property.'
+    type: object
+    properties:
+        SegmentGroup: SegmentGroup
 
 SegmentGroup:
     description: 'This class represents a segment group.'
@@ -1709,11 +2173,23 @@ SegmentGroup:
         identifier: string
         name: string
 
+SegmentListWrapper:
+    description: 'JSON object with only a SegmentList property.'
+    type: object
+    properties:
+        SegmentList: SegmentList
+
 SegmentList:
     description: 'This class lists segments.'
     type: BaseObject
     properties:
         Segment: Segment[]
+
+SegmentWrapper:
+    description: 'JSON object with only a Segment property.'
+    type: object
+    properties:
+        Segment: Segment
 
 Segment:
     description: 'This class represents a segment.'
@@ -1755,16 +2231,22 @@ Specifications:
             description: 'Limitation on the number of items as the value. Only usable if {@see $valueFormat} is {@see self::FORMAT_ARRAY}.'
             type: integer
 
+StringLengthValidatorWrapper:
+    description: 'JSON object with only a StringLengthValidator property.'
+    type: object
+    properties:
+        StringLengthValidator: StringLengthValidator
+
 StringLengthValidator:
     description: 'Validator for checking min. and max. length of strings.'
     type: object
     properties:
         maxStringLength:
             description: 'Maximum length of strings.'
-            type: integer
+            type: integer | nil
         minStringLength:
             description: 'Minimum length of strings.'
-            type: integer
+            type: integer | nil
 
 SubtreeLimitation:
     type: RoleLimitation
@@ -1777,11 +2259,23 @@ Translation:
     description: 'Base class for translation messages extends ValueObject.'
     type: object
 
+TrashWrapper:
+    description: 'JSON object with only a Trash property.'
+    type: object
+    properties:
+        Trash: Trash
+
 Trash:
     type: BaseObject
     properties:
         TrashItem:
             type: TrashItem[]
+
+TrashItemWrapper:
+    description: 'JSON object with only a TrashItem property.'
+    type: object
+    properties:
+        TrashItem: TrashItem
 
 TrashItem:
     description: 'This class represents a trash item, which is actually a trashed Location.'
@@ -1794,7 +2288,7 @@ Unlink:
         _href:
             type: string
         _method:
-            enum: [ ]
+            enum: [ "DELETE" ]
 
 URL:
     description: 'This class represents a URL in the Repository.'
@@ -1819,8 +2313,38 @@ URL:
             description: 'Modified date.'
             type: datetime
 
+UrlAliasCreateWrapper:
+    description: 'JSON object with only a UrlAliasCreate property.'
+    type: object
+    properties:
+        UrlAliasCreate: UrlAliasCreate
+
 UrlAliasCreate:
-    type: BaseObject
+    type: object
+    properties:
+        _type:
+            type: string
+        location:
+            type: Href
+            required: false
+        resource:
+            type: string
+            required: false
+        languageCode:
+            type: string
+            required: false
+        alwaysAvailable:
+            type: string | boolean
+            required: false
+        forward:
+            type: string | boolean
+            required: false
+
+UrlAliasWrapper:
+    description: 'JSON object with only a UrlAlias property.'
+    type: object
+    properties:
+        UrlAlias: UrlAlias
 
 UrlAlias:
     description: 'This class represents a URL alias in the Repository.'
@@ -1828,10 +2352,16 @@ UrlAlias:
     properties:
         _id:
             description: 'A unique identifier for the alias.'
-            type: integer
+            type: string
+            xml:
+                attribute: true
+                name: id
         _type:
             description: 'The type of the URL Alias i.e. one of URLAlias::LOCATION=0, URLAlias::RESOURCE=1, URLAlias::VIRTUAL=2.'
-            enum: [ ]
+            enum: [ "LOCATION", "RESOURCE", "VIRTUAL" ]
+            xml:
+                attribute: true
+                name: type
         resource:
             description: 'If type = URLAlias::LOCATION it is a Location ID otherwise a string (e.g. /content/search).'
             type: any
@@ -1840,7 +2370,7 @@ UrlAlias:
             type: string
         languageCodes:
             description: 'The languageCodes for which this path is valid.'
-            type: string[]
+            type: string
         alwaysAvailable:
             description: 'Fallback indicator for other languages.'
             type: boolean
@@ -1854,12 +2384,18 @@ UrlAlias:
             description: 'If false this alias was autogenerated otherwise manually created.'
             type: boolean
 
+UrlAliasRefListWrapper:
+    description: 'JSON object with only a UrlAliasRefList property.'
+    type: object
+    properties:
+        UrlAliasRefList: UrlAliasRefList
+
 UrlAliasRefList:
     description: 'List of URL alias in the Repository.'
     type: BaseObject
     properties:
         UrlAlias:
-            type: UrlAlias[]
+            type: Ref[]
 
 UrlQuery:
     description: 'This class is used to perform a URL query.'
@@ -1903,13 +2439,22 @@ URLUpdateStruct:
             description: 'Modified date.'
             type: datetime
 
+UrlWildcardWrapper:
+    description: 'JSON object with only a UrlWildcard property.'
+    type: object
+    properties:
+        UrlWildcard: UrlWildcard
+
 UrlWildcard:
     description: 'This class represents a URL alias in the Repository.'
     type: BaseObject
     properties:
-        id:
+        _id:
             description: 'The unique ID.'
             type: integer
+            xml:
+                attribute: true
+                name: id
         sourceUrl:
             description: 'The source URL.'
             type: string
@@ -1920,9 +2465,28 @@ UrlWildcard:
             description: 'Indicates if the URL is redirected or not.'
             type: boolean
 
+UrlWildcardCreateWrapper:
+    description: 'JSON object with only a URLWildcardCreate property.'
+    type: object
+    properties:
+        URLWildcardCreate: UrlWildcardCreate
+
 UrlWildcardCreate:
     description: 'Creates a new URL wildcard.'
-    type: BaseObject
+    type: object
+    properties:
+        sourceUrl:
+            type: string
+        destinationUrl:
+            type: string
+        forward:
+            type: boolean | string
+
+UrlWildcardListWrapper:
+    description: 'JSON object with only a UrlWildcardList property.'
+    type: object
+    properties:
+        UrlWildcardList: UrlWildcardList
 
 UrlWildcardList:
     description: 'List of URL alias in the Repository.'
@@ -1942,16 +2506,28 @@ URLWildcardTranslationResult:
             description: 'Indicates if the URL is redirected or not.'
             type: boolean
 
+UserWrapper:
+    description: 'JSON object with only a User property.'
+    type: object
+    properties:
+        User: User
+
 User:
     description: 'This class represents a User value.'
     type: BaseObject
     properties:
-        id:
+        _id:
             description: 'Unique ID of the content type.'
             type: integer
-        remoteId:
+            xml:
+                attribute: true
+                name: id
+        _remoteId:
             description: 'Remote ID of the content type.'
             type: string
+            xml:
+                attribute: true
+                name: remoteId
         ContentType:
             description: 'This class represents a content type.'
             type: BaseObject
@@ -2006,9 +2582,10 @@ User:
         Roles:
             description: 'Roles.'
             type: BaseObject
-#            maxLogin:
-#                description: 'Max number of time User is allowed to login.'
-#                type: integer
+        maxLogin:
+            description: 'Max number of time User is allowed to login.'
+            type: integer
+            required: false
 
 UserCreateStruct:
     description: 'This class is used to create a new User in the Repository.'
@@ -2030,7 +2607,67 @@ UserCreateStruct:
             description: 'Indicates if the User is enabled after creation.'
             type: boolean
 
+UserGroupWrapper:
+    description: 'JSON object with only a UserGroup property.'
+    type: object
+    properties:
+        UserGroup: UserGroup
+
 UserGroup:
+    description: 'Content ID matcher class.'
+    type: BaseObject
+    properties:
+        _remoteId:
+            description: 'Remote ID of the content type.'
+            type: string
+            xml:
+                attribute: true
+                name: remoteId
+        _id:
+            description: 'Unique ID of the content type.'
+            type: integer
+            xml:
+                attribute: true
+                name: id
+        ContentType:
+            description: 'Content type.'
+            type: Ref
+        name:
+            type: string
+        Versions:
+            description: 'Returns the VersionInfo for this version.'
+            type: Ref
+        Section:
+            description: 'The Section to which the content item is assigned to.'
+            type: Ref
+        MainLocation:
+            type: Ref
+        Locations:
+            description: 'Location of the content item.'
+            type: Ref
+        Owner:
+            description: 'The owner of the content item.'
+            type: Ref
+        lastModificationDate:
+            description: 'Content item modification date.'
+            type: datetime
+        mainLanguageCode:
+            description: 'The main language code of the content item.'
+            type: string
+        alwaysAvailable:
+            type: boolean
+        Version:
+            type: Version
+        ParentUserGroup:
+            type: Ref
+        Subgroups:
+            type: Ref
+        Users:
+            type: Ref
+        Roles:
+            type: Ref
+
+UserGroupUnassign:
     description: 'This class represents a User group.'
     type: BaseObject
     properties:
@@ -2041,13 +2678,19 @@ UserGroupCreateStruct:
     description: 'This class is used to create a new User group in the Repository, extends ContentCreateStruct.'
     type: object
 
+UserGroupRefListWrapper:
+    description: 'JSON object with only a UserGroupRefList property.'
+    type: object
+    properties:
+        UserGroupRefList: UserGroupRefList
+
 UserGroupRefList:
     description: 'Returns a list of the sub groups.'
     type: BaseObject
     properties:
         UserGroup:
             description: 'This class represents a User group.'
-            type: UserGroup
+            type: Ref[]
 
 UserGroupRoleAssignment:
     description: 'This class represents a User group to role assignment.'
@@ -2057,9 +2700,23 @@ UserGroupRoleAssignment:
             description: 'Returns the User group to which the role is assigned to.'
             type: UserGroup
 
+UserGroupUpdateWrapper:
+    description: 'JSON object with only a UserGroupUpdate property.'
+    type: object
+    properties:
+        UserGroupUpdate: UserGroupUpdate
+
 UserGroupUpdate:
     description: 'This class is used to update a User group in the Repository.'
-    type: BaseObject
+    type: object
+    properties:
+        Section:
+            properties:
+                _href:
+                    type: string
+                    xml:
+                        attribute: true
+                        name: href
 
 UserGroupUpdateStruct:
     description: 'This class is used to update a User group in the Repository.'
@@ -2072,9 +2729,21 @@ UserGroupUpdateStruct:
             description: 'The update structure for the profile meta data.'
             type: ContentMetadataUpdateStruct
 
+UserGroupListWrapper:
+    description: 'JSON object with only a UserGroupList property.'
+    type: object
+    properties:
+        UserGroupList: UserGroupList
+
 UserGroupList:
     description: 'This class represents a User Group list.'
     type: BaseObject
+
+UserListWrapper:
+    description: 'JSON object with only a UserList property.'
+    type: object
+    properties:
+        UserList: UserList
 
 UserList:
     description: 'This class represents a list of users.'
@@ -2115,6 +2784,12 @@ UserPreferenceSetStruct:
         value:
             description: 'Value of User preference e.g. America/New_York.'
             type: string
+
+UserRefListWrapper:
+    description: 'JSON object with only a UserRefList property.'
+    type: object
+    properties:
+        UserRefList: UserRefList
 
 UserRefList:
     description: 'Returns a list of the users.'
@@ -2166,6 +2841,16 @@ UserUpdateStruct:
             description: 'The update structure  for the profile meta data.'
             type: ContentMetadataUpdateStruct
 
+ValueArray:
+    properties:
+        value: Value[]
+
+ValueObject:
+    type: object
+    properties:
+        value:
+            type: Value[]
+
 Value:
     description: 'Struct that stores extra value information for a Criterion object.'
     type: object
@@ -2175,16 +2860,13 @@ Value:
             type: string
         '#text':
             description: 'Content type description.'
-            type: string
+            type: string | nil
 
-ValueObject:
-    description: 'The base class for all value objects and structs. Supports readonly properties by marking them as protected.'
+VersionWrapper:
+    description: 'JSON object with only a Version property.'
     type: object
     properties:
-        Properties:
-            description: 'Function where list of properties are returned.'
-            type: array
-            items: any
+        Version: Version
 
 Version:
     description: 'Returns the VersionInfo for this version.'
@@ -2194,8 +2876,10 @@ Version:
             description: 'VersionInfo for this version.'
             type: VersionInfo
         Fields:
-            description: 'Fields.'
-            type: Field
+            properties:
+                field:
+                    description: 'Fields of a Company content item.'
+                    type: Field[]
         Relations:
             description: 'Relations of the user.'
             type: BaseObject
@@ -2215,7 +2899,7 @@ VersionInfo:
             type: integer
         status:
             description: 'One of: VersionInfo::STATUS_DRAFT=0, VersionInfo::STATUS_PUBLISHED=1, VersionInfo::STATUS_ARCHIVED=3.'
-            enum: [ ]
+            enum: [DRAFT, PUBLISHED, ARCHIVED]
         modificationDate:
             description: 'The last modified date of this version.'
             type: datetime
@@ -2230,26 +2914,32 @@ VersionInfo:
             type: string
         languageCodes:
             description: 'List of languages in this version. Reflects which languages fields exists in for this version.'
-            type: string[]
+            type: string
         VersionTranslationInfo:
             description: 'Translation information.'
             type: VersionTranslationInfo
         names:
             description: 'Names.'
-            type: Value
+            type: ValueArray
         Content:
             description: 'Represents a content item in a specific version.'
             type: BaseObject
 
 VersionItem:
     description: 'Version of content.'
-    type: BaseObject
+    type: object
     properties:
         Version:
             description: 'Returns the VersionInfo for this version.'
             type: BaseObject
         VersionInfo:
             type: VersionInfo
+
+VersionListWrapper:
+    description: 'JSON object with only a VersionList property.'
+    type: object
+    properties:
+        VersionList: VersionList
 
 VersionList:
     description: 'List of all versions of the content.'
@@ -2266,6 +2956,12 @@ VersionTranslationInfo:
             type: string # Always "application/vnd.ibexa.api.VersionTranslationInfo+json"
         Language:
             type: LanguageCode[]
+
+VersionUpdateWrapper:
+    description: 'JSON object with only a VersionUpdate property.'
+    type: object
+    properties:
+        VersionUpdate: VersionUpdate
 
 VersionUpdate:
     description: 'This class is used to update a content version.'
@@ -2294,9 +2990,15 @@ View: #TODO outdated example
         Result:
             type: object
 
+ContentTypeCreateWrapper:
+    description: 'JSON object with only a ContentTypeCreate property.'
+    type: object
+    properties:
+        ContentTypeCreate: ContentTypeCreate
+
 ContentTypeCreate:
     description: 'This class is used to create a content type.'
-    type: BaseObject
+    type: object
     properties:
         identifier:
             type: string
@@ -2319,64 +3021,104 @@ ContentTypeCreate:
         defaultAlwaysAvailable:
             type: boolean
         names:
-            type: Value[]
+            type: ValueObject
         descriptions:
-            type: Value[]
+            type: ValueObject
         FieldDefinition:
             type: FieldDefinition
+            required: false
         creatorId:
             description: 'If set, this value overrides the current user as creator.'
             type: any
+            required: false
         creationDate:
             type: datetime
+            required: false
+
+ContentTypeUpdateWrapper:
+    description: 'JSON object with only a ContentTypeUpdate property.'
+    type: object
+    properties:
+        ContentTypeUpdate: ContentTypeUpdate
 
 ContentTypeUpdate:
     description: 'This class is used to update a content type.'
-    type: BaseObject
+    type: object
     properties:
         identifier:
             type: string
+            required: false
         mainLanguageCode:
             type: string
+            required: false
         remoteId:
             type: string
+            required: false
         urlAliasSchema:
-            type: string
+            type: string | nil
+            required: false
         nameSchema:
             type: string
+            required: false
         isContainer:
             type: boolean
+            required: false
         defaultSortField:
             description: 'Specifies which property the child Locations should be sorted on by default when updated.'
             type: any
+            required: false
         defaultSortOrder:
             description: 'Specifies whether the sort order should be ascending or descending by default when updated.'
             type: any
+            required: false
         defaultAlwaysAvailable:
-            type: boolean
+            type: string | boolean
+            required: false
         names:
-            type: Value[]
+            type: ValueObject
+            required: false
         descriptions:
-            type: Value[]
+            type: ValueObject
+            required: false
         modifierId:
             description: 'If set, this value overrides the current user as creator.'
             type: any
+            required: false
         modificationDate:
             type: datetime
+            required: false
+
+ViewInputWrapper:
+    description: 'JSON object with only a ViewInput property.'
+    type: object
+    properties:
+        ViewInput: ViewInput
 
 ViewInput:
     description: 'This class represents a View input.'
-    type: BaseObject
+    type: object
     properties:
         identifier:
             description: 'Content identifier.'
             type: string
-        FilterQuery:
-            type: object
+        languageCode:
+            type: string
+            required: false
+        useAlwaysAvailable:
+            type: string
+            required: false
+        Query:
+            type: Query
+
+UserCreateWrapper:
+    description: 'JSON object with only a UserCreate property.'
+    type: object
+    properties:
+        UserCreate: UserCreate
 
 UserCreate:
     description: 'This class is used to create a User.'
-    type: BaseObject
+    type: object
     properties:
         mainLanguageCode:
             type: string
@@ -2390,59 +3132,93 @@ UserCreate:
             type: string
         enabled:
             type: boolean
+            required: false
+
+UserGroupCreateWrapper:
+    description: 'JSON object with only a UserGroupCreate property.'
+    type: object
+    properties:
+        UserGroupCreate: UserGroupCreate
 
 UserGroupCreate:
     description: 'This class is used to create a User Group.'
-    type: BaseObject
+    type: object
     properties:
         mainLanguageCode:
             type: string
         remoteId:
             type: string
         fields:
-            type: Field[]
+            type: Fields
+
+RoleAssignInputWrapper:
+    description: 'JSON object with only a RoleAssignInput property.'
+    type: object
+    properties:
+        RoleAssignInput: RoleAssignInput
 
 RoleAssignInput:
     description: 'This class represents a Role assign input.'
-    type: BaseObject
+    type: object
     properties:
-        id:
-            description: 'The unique ID of the Role assignment.'
-            type: integer
         Role:
             description: 'Returns the Role to which the user or user group is assigned to.'
-            type: Role
-        Limitation:
+            type: Ref
+        limitation:
             description: 'Returns the Limitation of the Role assignment.'
             type: Limitation
 
+UserUpdateWrapper:
+    description: 'JSON object with only a UserUpdate property.'
+    type: object
+    properties:
+        UserUpdate: UserUpdate
+
 UserUpdate:
     description: 'This class is used to update a User.'
-    type: BaseObject
+    type: object
     properties:
         login:
             type: string
         email:
             type: string
+            required: false
         password:
             type: string
+            required: false
         enabled:
             type: boolean
+            required: false
         maxLogin:
             type: integer
+            required: false
         ContentUpdate:
             description: 'The update structure for the profile content.'
             type: ContentUpdate
+            required: false
         ContentMetadataUpdate:
             description: 'The update structure for the profile metadata.'
             type: ContentMetadataUpdate
+            required: false
+
+RoleInputWrapper:
+    description: 'JSON object with only a RoleInput property.'
+    type: object
+    properties:
+        RoleInput: RoleInput
 
 RoleInput:
     description: 'This class represents a Role input.'
-    type: BaseObject
+    type: object
     properties:
         identifier:
             type: string
+
+PolicyCreateWrapper:
+    description: 'JSON object with only a PolicyCreate property.'
+    type: object
+    properties:
+        PolicyCreate: PolicyCreate
 
 PolicyCreate:
     description: 'This class is used to create a Policy.'
@@ -2457,6 +3233,12 @@ PolicyCreate:
         Limitations:
             type: Limitation[]
 
+PolicyUpdateWrapper:
+    description: 'JSON object with only a PolicyUpdate property.'
+    type: object
+    properties:
+        PolicyUpdate: PolicyUpdate
+
 PolicyUpdate:
     description: 'This class is used to update a Policy.'
     type: BaseObject
@@ -2464,9 +3246,15 @@ PolicyUpdate:
         Limitations:
             type: Limitation[]
 
+SessionInputWrapper:
+    description: 'JSON object with only a SessionInput property.'
+    type: object
+    properties:
+        SessionInput: SessionInput
+
 SessionInput:
     description: 'This class represents a session input.'
-    type: BaseObject
+    type: object
     properties:
         login:
             type: string
@@ -2477,13 +3265,33 @@ BaseCommerceResponse:
     description: 'Removed'
     type: object
 
+BasketWrapper:
+    description: 'JSON object with only a Basket property.'
+    type: object
+    properties:
+        Basket: Basket
+
 Basket:
     description: 'Removed'
     type: BaseCommerceResponse
 
+BasketLineDataWrapper:
+    description: 'JSON object with only a BasketLineData property.'
+    type: object
+    properties:
+        BasketLineData: BasketLineData
+
 BasketLineData:
     description: 'Removed'
+    type: array
+    items:
+        type: object
+
+PartyTypeInputWrapper:
+    description: 'JSON object with only a PartyData property.'
     type: object
+    properties:
+        PartyData: PartyTypeInput
 
 PartyTypeInput:
     description: 'Removed'
@@ -2493,25 +3301,61 @@ Party:
     description: 'Removed'
     type: object
 
+ShippingMethodDataResponseWrapper:
+    description: 'JSON object with only a ShippingMethodDataResponse property.'
+    type: object
+    properties:
+        ShippingMethodDataResponse: ShippingMethodDataResponse
+
 ShippingMethodDataResponse:
     description: 'Removed'
     type: BaseCommerceResponse
+
+PaymentMethodDataResponseWrapper:
+    description: 'JSON object with only a PaymentMethodDataResponse property.'
+    type: object
+    properties:
+        PaymentMethodDataResponse: PaymentMethodDataResponse
 
 PaymentMethodDataResponse:
     description: 'Removed'
     type: BaseCommerceResponse
 
+ShippingAddressesResponseWrapper:
+    description: 'JSON object with only a ShippingAddressesResponse property.'
+    type: object
+    properties:
+        ShippingAddressesResponse: ShippingAddressesResponse
+
 ShippingAddressesResponse:
     description: 'Removed'
     type: BaseCommerceResponse
+
+BasketListResponseWrapper:
+    description: 'JSON object with only a BasketListResponse property.'
+    type: object
+    properties:
+        BasketListResponse: BasketListResponse
 
 BasketListResponse:
     description: 'Removed'
     type: BaseCommerceResponse
 
+ValidationResponseWrapper:
+    description: 'JSON object with only a ValidationResponse property.'
+    type: object
+    properties:
+        ValidationResponse: ValidationResponse
+
 ValidationResponse:
     description: 'Removed'
     type: BaseCommerceResponse
+
+CountrySelectionResponseWrapper:
+    description: 'JSON object with only a CountrySelectionResponse property.'
+    type: object
+    properties:
+        CountrySelectionResponse: CountrySelectionResponse
 
 CountrySelectionResponse:
     description: 'Removed'
@@ -2521,17 +3365,40 @@ ShippingMethodData:
     description: 'Removed'
     type: object
 
+PaymentMethodDataWrapper:
+    description: 'JSON object with only a PaymentMethodData property.'
+    type: object
+    properties:
+        PaymentMethodData: PaymentMethodData
+
 PaymentMethodData:
     description: 'Removed'
     type: object
+
+VoucherDataWrapper:
+    description: 'JSON object with only a VoucherData property.'
+    type: object
+    properties:
+        VoucherData: VoucherData
 
 VoucherData:
     description: 'Removed'
     type: object
 
+CustomerPriceDataWrapper:
+    type: object
+    properties:
+        PriceResponse: CustomerPriceData
+
 CustomerPriceData:
     description: 'Removed'
     type: object
+
+BasketHeaderDataWrapper:
+    description: 'JSON object with only a BasketHeaderData property.'
+    type: object
+    properties:
+        BasketHeaderData: BasketHeaderData
 
 BasketHeaderData:
     description: 'Removed'
@@ -2541,9 +3408,21 @@ BasketLinesData:
     description: 'Removed'
     type: object
 
+PriceResponseWrapper:
+    description: 'JSON object with only a PriceResponse property.'
+    type: object
+    properties:
+        PriceResponse: PriceResponse
+
 PriceResponse:
     description: 'Removed'
     type: BaseCommerceResponse
+
+CartWrapper:
+    description: 'JSON object with only a Cart property.'
+    type: object
+    properties:
+        Cart: Cart
 
 Cart:
     description: 'This class represents a Cart'
@@ -2557,11 +3436,17 @@ Cart:
             type: string
         owner:
             description: 'User reference'
-            type: User
+            type: Ref
         Currency:
             type: Currency
         entries:
             type: CartEntry[]
+
+CartCreateWrapper:
+    description: 'JSON object with only a CartCreate property.'
+    type: object
+    properties:
+        CartCreate: CartCreate
 
 CartCreate:
     description: 'This class represents a new Cart to create'
@@ -2589,6 +3474,12 @@ CartEntry:
         quantity: integer
         Price: Price
 
+CartEntryUpdateWrapper:
+    description: 'JSON object with only a CartEntryUpdate property.'
+    type: object
+    properties:
+        CartEntryUpdate: CartEntryUpdate
+
 CartEntryUpdate:
     type: object
     properties:
@@ -2597,6 +3488,12 @@ CartEntryUpdate:
             description: associative array of scalars describing additional, contextual data attached to the cart entry
             type: object
             required: false
+
+CartEntryAddWrapper:
+    description: 'JSON object with only a CartEntryAdd property.'
+    type: object
+    properties:
+        CartEntryAdd: CartEntryAdd
 
 CartEntryAdd:
     description: 'This class represents a cart entry'
@@ -2624,6 +3521,12 @@ CartProduct:
             type: string
             required: true
 
+CartSummaryWrapper:
+    description: 'JSON object with only a CartSummary property.'
+    type: object
+    properties:
+        CartSummary: CartSummary
+
 CartSummary:
     description: 'This class represents a cart summary.'
     type: object
@@ -2639,17 +3542,23 @@ CartSummary:
         updatedAt:
             type: datetime
         Owner:
-            type: User
+            type: Ref
         SummaryEntryCollection:
             type: SummaryEntryCollection
         TotalPrice:
-            type: Price
+            type: RestPriceWrapper
         TotalPriceInclVat:
-            type: Price
+            type: RestPriceWrapper
         vatCategorySummary:
-            type: VatCategorySummary
+            type: VatCategorySummary[]
         Currency:
             type: Currency
+
+CartViewInputWrapper:
+    description: 'JSON object with only a CartViewInput property.'
+    type: object
+    properties:
+        CartViewInput: CartViewInput
 
 CartViewInput:
     description: 'This class represents a cart view input.'
@@ -2667,20 +3576,34 @@ CartQuery:
         limit: integer
         ownerId: integer
 
+CartViewWrapper:
+    description: 'JSON object with only a CartView property.'
+    type: object
+    properties:
+        CartView: CartView
+
 CartView:
     description: 'This class represents a cart view.'
     type: object
     properties:
         identifier: string
-        Result: ViewResult
+        Result: CartListViewResult
 
-ViewResult:
+CartListViewResult:
     type: object
     properties:
         count: integer
         Result: CartList
 
-CartList: object
+CartList:
+    description: 'This class represents a cart list.'
+    type: object
+
+CartMetadataUpdateWrapper:
+    description: 'JSON object with only a CartMetadataUpdate property.'
+    type: object
+    properties:
+        CartMetadataUpdate: CartMetadataUpdate
 
 CartMetadataUpdate:
     description: 'This class represents the update of cart metadata.'
@@ -2690,6 +3613,12 @@ CartMetadataUpdate:
         defaultLanguageCode: string
         names: Value[]
         descriptions: Value[]
+
+CatalogWrapper:
+    description: 'JSON object with only a Catalog property.'
+    type: object
+    properties:
+        Catalog: Catalog
 
 Catalog:
     description: 'This class represents a catalog.'
@@ -2708,16 +3637,22 @@ Catalog:
         status:
             type: string
         User:
-            type: User
+            type: Ref
         Criteria:
-            type: Criterion
+            type: Criterion[]
 
 CatalogList:
     description: 'This class represents a catalog list.'
     type: object
     properties:
-        Catalogs:
+        Catalog:
             type: Catalog[]
+
+CatalogCreateWrapper:
+    description: 'JSON object with only a CatalogCreate property.'
+    type: object
+    properties:
+        CatalogCreate: CatalogCreate
 
 CatalogCreate:
     description: 'This class is used to create a catalog.'
@@ -2725,16 +3660,24 @@ CatalogCreate:
     properties:
         identifier:
             type: string
-        Criteria:
+        criteria:
             type: Criterion
         names:
             type: object
         descriptions:
             type: object
+            required: false
         status:
             type: string
         creator_id:
             type: integer
+            required: false
+
+CatalogUpdateWrapper:
+    description: 'JSON object with only a CatalogUpdate property.'
+    type: object
+    properties:
+        CatalogUpdate: CatalogUpdate
 
 CatalogUpdate:
     description: 'This class is used to update a catalog.'
@@ -2744,12 +3687,18 @@ CatalogUpdate:
             type: string
         transition:
             type: string
-        Criteria:
+        criteria:
             type: Criterion
         names:
             type: object
         descriptions:
             type: object
+
+CatalogCopyWrapper:
+    description: 'JSON object with only a CatalogCopy property.'
+    type: object
+    properties:
+        CatalogCopy: CatalogCopy
 
 CatalogCopy:
     description: 'This class is used to copy a catalog.'
@@ -2761,18 +3710,32 @@ CatalogCopy:
             description: 'Optional'
             type: integer
 
+CatalogViewInputWrapper:
+    description: 'JSON object with only a ViewInput property.'
+    type: object
+    properties:
+        ViewInput: CatalogViewInput
+
 CatalogViewInput:
     description: 'This class represents a catalog view input.'
     type: object
     properties:
         CatalogQuery:
             type: object
+    xml:
+        name: ViewInput
+
+ProductFilterListWrapper:
+    description: 'JSON object with only a ProductFilterList property.'
+    type: object
+    properties:
+        ProductFilterList: ProductFilterList
 
 ProductFilterList:
     description: 'This class represents a product filter list.'
     type: object
     properties:
-        productFilters:
+        ProductFilter:
             type: ProductFilter[]
 
 ProductFilter:
@@ -2786,16 +3749,28 @@ ProductSortClause:
         name:
             type: string
 
+ProductSortClauseListWrapper:
+    description: 'JSON object with only a ProductSortClauseList property.'
+    type: object
+    properties:
+        ProductSortClauseList: ProductSortClauseList
+
 ProductSortClauseList:
     description: 'This class represents a product sort clause list.'
     type: object
     properties:
-        productSortClauses:
+        ProductSortClause:
             type: ProductSortClause[]
+
+CurrencyWrapper:
+    description: 'JSON object with only a Currency property.'
+    type: object
+    properties:
+        Currency: Currency
 
 Currency:
     description: 'This class represents currency.'
-    type: object
+    type: BaseObject
     properties:
         id:
             type: integer
@@ -2806,12 +3781,24 @@ Currency:
         enabled:
             type: boolean
 
-CurrencyList:
-    description: 'This class represents a currency list.'
+CurrencyListWrapper:
+    description: 'JSON object with only a CurrencyList property.'
     type: object
     properties:
-        Currencies:
+        CurrencyList: CurrencyList
+
+CurrencyList:
+    description: 'This class represents a currency list.'
+    type: BaseObject
+    properties:
+        Currency:
             type: Currency[]
+
+CurrencyCreateWrapper:
+    description: 'JSON object with only a CurrencyCreate property.'
+    type: object
+    properties:
+        CurrencyCreate: CurrencyCreate
 
 CurrencyCreate:
     description: 'This class is used to create currency.'
@@ -2824,6 +3811,12 @@ CurrencyCreate:
         enabled:
             type: boolean
 
+CurrencyUpdateWrapper:
+    description: 'JSON object with only a CurrencyUpdate property.'
+    type: object
+    properties:
+        CurrencyUpdate: CurrencyUpdate
+
 CurrencyUpdate:
     description: 'This class is used to update currency.'
     type: object
@@ -2832,6 +3825,12 @@ CurrencyUpdate:
             type: integer
         enabled:
             type: boolean
+
+CurrencyViewWrapper:
+    description: 'JSON object with only a CurrencyView property.'
+    type: object
+    properties:
+        CurrencyView: CurrencyView
 
 CurrencyView:
     description: 'This class represents a currency view.'
@@ -2844,6 +3843,12 @@ CurrencyView:
         Result:
             type: object
 
+RegionWrapper:
+    description: 'JSON object with only a Region property.'
+    type: object
+    properties:
+        Region: Region
+
 Region:
     description: 'This class represents a region.'
     type: object
@@ -2851,12 +3856,24 @@ Region:
         identifier:
             type: string
 
+RegionListWrapper:
+    description: 'JSON object with only a RegionList property.'
+    type: object
+    properties:
+        RegionList: RegionList
+
 RegionList:
     description: 'This class represents a region list.'
     type: object
     properties:
-        Regions:
-            type: Region[]
+        Region:
+            type: Ref[]
+
+AttributeGroupWrapper:
+    description: 'JSON object with only a AttributeGroup property.'
+    type: object
+    properties:
+        AttributeGroup: AttributeGroup
 
 AttributeGroup:
     description: 'This class represents an attribute group.'
@@ -2869,11 +3886,23 @@ AttributeGroup:
         position:
             type: integer
 
+AttributeGroupGetWrapper:
+    description: 'JSON object with only a AttributeGroupGet property.'
+    type: object
+    properties:
+        AttributeGroupGet: AttributeGroupGet
+
 AttributeGroupGet:
     description: 'This class represents an attribute group query.'
     type: object
     properties:
         languages: string[]
+
+AttributeGroupCreateWrapper:
+    description: 'JSON object with only a AttributeGroupCreate property.'
+    type: object
+    properties:
+        AttributeGroupCreate: AttributeGroupCreate
 
 AttributeGroupCreate:
     description: 'This class is used to create an attribute group.'
@@ -2882,9 +3911,15 @@ AttributeGroupCreate:
         identifier:
             type: string
         names:
-            type: string[]
+            type: object
         position:
             type: integer
+
+AttributeGroupUpdateWrapper:
+    description: 'JSON object with only a AttributeGroupUpdate property.'
+    type: object
+    properties:
+        AttributeGroupUpdate: AttributeGroupUpdate
 
 AttributeGroupUpdate:
     description: 'This class is used to update an attribute group.'
@@ -2897,11 +3932,23 @@ AttributeGroupUpdate:
         position:
             type: integer
 
-AttributeGroupList:
-    description: 'This class represents an attribute group list.'
+AttributeGroupListWrapper:
+    description: 'JSON object with only a AttributeGroupList property.'
     type: object
     properties:
-        attributeGroups: AttributeGroup[]
+        AttributeGroupList: AttributeGroupList
+
+AttributeGroupList:
+    description: 'This class represents an attribute group list.'
+    type: BaseObject
+    properties:
+        AttributeGroup: AttributeGroup[]
+
+AttributeGroupListGetWrapper:
+    description: 'JSON object with only a AttributeGroupListGet property.'
+    type: object
+    properties:
+        AttributeGroupListGet: AttributeGroupListGet
 
 AttributeGroupListGet:
     description: 'This class represents an attribute group list request.'
@@ -2911,6 +3958,12 @@ AttributeGroupListGet:
         offset: integer
         limit: integer
 
+AttributeGroupViewInputWrapper:
+    description: 'JSON object with only a ViewInput property.'
+    type: object
+    properties:
+        ViewInput: AttributeGroupViewInput
+
 AttributeGroupViewInput:
     description: 'This class represents an attribute group view input.'
     type: object
@@ -2919,18 +3972,38 @@ AttributeGroupViewInput:
         AttributeGroupQuery:
             type: object
             properties:
-                limit: integer
-                offset: integer
+                limit: string
+                offset: string
                 name_prefix: string
+    xml:
+        name: ViewInput
+
+AttributeGroupViewWrapper:
+    description: 'JSON object with only a AttributeGroupView property.'
+    type: object
+    properties:
+        AttributeGroupView: AttributeGroupView
 
 AttributeGroupView:
     description: 'This class represents an attribute group view.'
-    type: object
+    type: BaseObject
     properties:
         identifier:
             type: string
-        AttributeGroupList:
-            type: AttributeGroupList
+        Result:
+            type: AttributeGroupListResult
+
+AttributeGroupListResult:
+    type: BaseObject
+    properties:
+        count: integer
+        AttributeGroupList: AttributeGroupList
+
+AttributeWrapper:
+    description: 'JSON object with only a Attribute property.'
+    type: object
+    properties:
+        Attribute: Attribute
 
 Attribute:
     description: 'This class represents an attribute.'
@@ -2947,13 +4020,19 @@ Attribute:
         type_identifier:
             type: string
         value:
-            type: boolean
-        Group:
-            type: AttributeGroup
+            type: any
+        group:
+            type: string
         position:
             type: integer
         options:
-            type: object
+            type: object | array
+
+AttributeCreateWrapper:
+    description: 'JSON object with only a AttributeCreate property.'
+    type: object
+    properties:
+        AttributeCreate: AttributeCreate
 
 AttributeCreate:
     description: 'This class is used to create an attribute.'
@@ -2969,11 +4048,16 @@ AttributeCreate:
             type: object
         descriptions:
             type: object
-        positions:
+        position:
             type: integer
         options:
-            type: array
-            items: any
+            type: object | array
+
+AttributeUpdateWrapper:
+    description: 'JSON object with only a AttributeUpdate property.'
+    type: object
+    properties:
+        AttributeUpdate: AttributeUpdate
 
 AttributeUpdate:
     description: 'This class is used to update an attribute.'
@@ -2985,17 +4069,28 @@ AttributeUpdate:
             type: object
         descriptions:
             type: object
-        positions:
+        position:
             type: integer
         options:
-            type: array
-            items: any
+            type: object
+
+AttributeListWrapper:
+    description: 'JSON object with only a AttributeList property.'
+    type: object
+    properties:
+        AttributeList: AttributeList
 
 AttributeList:
     description: 'This class represents an attribute list.'
     type: object
     properties:
-        attributes: Attribute[]
+        Attribute: Attribute[]
+
+AttributeViewInputWrapper:
+    description: 'JSON object with only a ViewInput property.'
+    type: object
+    properties:
+        ViewInput: AttributeViewInput
 
 AttributeViewInput:
     description: 'This class represents an attribute view input.'
@@ -3005,6 +4100,14 @@ AttributeViewInput:
             type: string
         AttributeQuery:
             type: object
+    xml:
+        name: ViewInput
+
+AttributeViewWrapper:
+    description: 'JSON object with only a AttributeView property.'
+    type: object
+    properties:
+        AttributeView: AttributeView
 
 AttributeView:
     description: 'This class represents an attribute view.'
@@ -3017,6 +4120,12 @@ AttributeView:
         Result:
             type: object
 
+AttributeTypeWrapper:
+    description: 'JSON object with only a AttributeType property.'
+    type: object
+    properties:
+        AttributeType: AttributeType
+
 AttributeType:
     description: 'This class represents an attribute type.'
     type: object
@@ -3026,12 +4135,24 @@ AttributeType:
         name:
             type: string
 
+AttributeTypeListWrapper:
+    description: 'JSON object with only a AttributeTypeList property.'
+    type: object
+    properties:
+        AttributeTypeList: AttributeTypeList
+
 AttributeTypeList:
     description: 'This class represents an attribute type list.'
     type: object
     properties:
         attributeTypes:
             type: AttributeType[]
+
+CustomerGroupWrapper:
+    description: 'JSON object with only a CustomerGroup property.'
+    type: object
+    properties:
+        CustomerGroup: CustomerGroup
 
 CustomerGroup:
     description: 'This class represents a customer group.'
@@ -3052,12 +4173,24 @@ CustomerGroup:
             description: 'A numeric string'
             type: string
 
+CustomerGroupListWrapper:
+    description: 'JSON object with only a CustomerGroupList property.'
+    type: object
+    properties:
+        CustomerGroupList: CustomerGroupList
+
 CustomerGroupList:
     description: 'This class represents a customer group list.'
     type: object
     properties:
-        customerGroups:
+        CustomerGroup:
             type: CustomerGroup[]
+
+CustomerGroupCreateWrapper:
+    description: 'JSON object with only a CustomerGroupCreate property.'
+    type: object
+    properties:
+        CustomerGroupCreate: CustomerGroupCreate
 
 CustomerGroupCreate:
     description: 'This class is used to create a customer group.'
@@ -3073,6 +4206,12 @@ CustomerGroupCreate:
             description: 'numeric-string'
             type: string
 
+CustomerGroupUpdateWrapper:
+    description: 'JSON object with only a CustomerGroupUpdate property.'
+    type: object
+    properties:
+        CustomerGroupUpdate: CustomerGroupUpdate
+
 CustomerGroupUpdate:
     description: 'This class is used to update a customer group.'
     type: object
@@ -3081,8 +4220,17 @@ CustomerGroupUpdate:
             type: object
         identifier:
             type: string
-        position:
-            type: integer
+        global_price_rate:
+            type: string
+        descriptions:
+            type: string[]
+            required: false
+
+CustomerGroupViewInputWrapper:
+    description: 'JSON object with only a ViewInput property.'
+    type: object
+    properties:
+        ViewInput: CustomerGroupViewInput
 
 CustomerGroupViewInput:
     description: 'This class represents a customer group view input.'
@@ -3090,19 +4238,39 @@ CustomerGroupViewInput:
     properties:
         CustomerGroupQuery:
             type: object
+    xml:
+        name: ViewInput
+
+CustomerGroupViewWrapper:
+    description: 'JSON object with only a CustomerGroupView property.'
+    type: object
+    properties:
+        CustomerGroupView: CustomerGroupView
 
 CustomerGroupView:
     description: 'This class represents a customer group view.'
     type: object
     properties:
-        CurrencyView:
-            type: CurrencyView
         identifier:
             type: string
-        CurrencyQuery:
+        CustomerGroupQuery:
             type: object
         Result:
-            type: object
+            type: CustomerGroupListResult
+
+CustomerGroupListResult:
+    type: BaseObject
+    properties:
+        CustomerGroupList:
+            type: BaseObject
+            properties:
+                CustomerGroup: CustomerGroup[]
+
+CurrencyViewInputWrapper:
+    description: 'JSON object with only a ViewInput property.'
+    type: object
+    properties:
+        ViewInput: CurrencyViewInput
 
 CurrencyViewInput:
     description: 'This class represents a currency view input.'
@@ -3110,6 +4278,8 @@ CurrencyViewInput:
     properties:
         CurrencyQuery:
             type: object
+    xml:
+        name: ViewInput
 
 AttributeAssignment:
     type: object
@@ -3120,6 +4290,12 @@ AttributeAssignment:
             type: boolean
         Attribute:
             type: Attribute
+
+ProductTypeWrapper:
+    description: 'JSON object with only a ProductType property.'
+    type: object
+    properties:
+        ProductType: ProductType
 
 ProductType:
     description: 'This class represents a product type.'
@@ -3132,47 +4308,68 @@ ProductType:
         AttributeAssignmentList:
             type: AttributeAssignment[]
 
-ProductTypeUsage:
-    description: 'This class represents a product type usage.'
+ProductTypeUsageWrapper:
+    description: 'JSON object with only a ProductTypeUsage property.'
     type: object
     properties:
-        isUsed:
+        ProductTypeUsage: ProductTypeUsage
+
+ProductTypeUsage:
+    description: 'This class represents a product type usage.'
+    type: BaseObject
+    properties:
+        is_used:
             type: boolean
+
+ProductTypeCreateWrapper:
+    description: 'JSON object with only a ProductTypeCreate property.'
+    type: object
+    properties:
+        ProductTypeCreate: ProductTypeCreate
 
 ProductTypeCreate:
     description: 'This class is used to create a product type.'
     type: object
     properties:
         ContentTypeCreateStruct:
-            type: object
+            type: ContentTypeCreateStruct
         main_language_code:
             type: string
         assigned_attributes:
-            type: object
-            properties:
-                identifier:
-                    type: string
-                is_required:
-                    type: boolean
-                is_discriminator:
-                    type: boolean
+            type: array
+            items: ProductTypeAssignedAttribute
+
+ProductTypeUpdateWrapper:
+    description: 'JSON object with only a ProductTypeUpdate property.'
+    type: object
+    properties:
+        ProductTypeUpdate: ProductTypeUpdate
 
 ProductTypeUpdate:
     description: 'This class is used to update a product type.'
     type: object
     properties:
         ContentTypeUpdateStruct:
-            type: object
+            type: ContentTypeUpdateStruct
         assigned_attributes:
-            type: object
-            properties:
-                identifier:
-                    type: string
-                is_required:
-                    type: boolean
-                is_discriminator:
-                    type: boolean
+            type: array
+            items: ProductTypeAssignedAttribute
 
+ProductTypeAssignedAttribute:
+    type: object
+    properties:
+        identifier:
+            type: string
+        is_required:
+            type: boolean
+        is_discriminator:
+            type: boolean
+
+ProductTypeViewInputWrapper:
+    description: 'JSON object with only a ViewInput property.'
+    type: object
+    properties:
+        ViewInput: ProductTypeViewInput
 
 ProductTypeViewInput:
     description: 'This class represents a product type view input.'
@@ -3180,6 +4377,14 @@ ProductTypeViewInput:
     properties:
         ProductTypeQuery:
             type: object
+    xml:
+        name: ViewInput
+
+ProductTypeViewWrapper:
+    description: 'JSON object with only a ProductTypeView property.'
+    type: object
+    properties:
+        ProductTypeView: ProductTypeView
 
 ProductTypeView:
     description: 'This class represents a product type view.'
@@ -3192,14 +4397,22 @@ ProductTypeView:
         Result:
             type: object
 
+ProductWrapper:
+    description: 'JSON object with only a Product property.'
+    type: object
+    properties:
+        Product: Product
+
 Product:
     description: 'This class represents a product.'
     type: object
     properties:
         isVariant:
             type: boolean
+            required: false
         isBaseProduct:
             type: boolean
+            required: false
         code:
             type: string
         name:
@@ -3208,21 +4421,37 @@ Product:
             type: ProductType
         Content:
             type: Content
+            required: false
         Thumbnail:
             type: Thumbnail
+            required: false
         created_at:
-            type: datetime
+            type: UnixTimestamp
+            required: false
         updated_at:
-            type: datetime
+            type: UnixTimestamp
+            required: false
         AttributesList:
-            type: AttributesList
+            type: Attribute[]
+
+ProductListWrapper:
+    description: 'JSON object with only a ProductList property.'
+    type: object
+    properties:
+        ProductList: ProductList
 
 ProductList:
     description: 'This class represents a product list.'
     type: object
     properties:
-        Products:
+        Product:
             type: Product[]
+
+ProductListGetWrapper:
+    description: 'JSON object with only a ProductListGet property.'
+    type: object
+    properties:
+        ProductListGet: ProductListGet
 
 ProductListGet:
     description: 'This class represents a product list GET.'
@@ -3235,12 +4464,24 @@ ProductListGet:
         languages:
             type: string[]
 
+ProductGetWrapper:
+    description: 'JSON object with only a ProductGet property.'
+    type: object
+    properties:
+        ProductGet: ProductGet
+
 ProductGet:
     description: 'This class represents a product GET.'
     type: object
     properties:
         languages:
             type: string[]
+
+ProductCreateWrapper:
+    description: 'JSON object with only a ProductCreate property.'
+    type: object
+    properties:
+        ProductCreate: ProductCreate
 
 ProductCreate:
     description: 'This class is used to create a product.'
@@ -3251,20 +4492,45 @@ ProductCreate:
         code:
             type: string
         attributes:
-            type: array
-            items: object
+            type: object
+
+ProductUpdateWrapper:
+    description: 'JSON object with only a ProductUpdate property.'
+    type: object
+    properties:
+        ProductUpdate: ProductUpdate
 
 ProductUpdate:
     description: 'This class is used to update a product.'
     type: object
     properties:
         ContentUpdate:
-            type: ContentUpdate
+            type: ProductContentUpdate
         code:
             type: string
         attributes:
             type: array
             items: object
+            required: false
+
+ProductContentUpdate:
+    type: object
+    properties:
+        __url:
+            type: string
+            xml:
+                attribute: true
+                name: url
+        fields:
+            properties:
+                field:
+                    type: Field[]
+
+ProductViewInputWrapper:
+    description: 'JSON object with only a ViewInput property.'
+    type: object
+    properties:
+        ViewInput: ProductViewInput
 
 ProductViewInput:
     description: 'This class represents a product view input.'
@@ -3272,6 +4538,32 @@ ProductViewInput:
     properties:
         ProductQuery:
             type: object
+    xml:
+        name: ViewInput
+
+CatalogViewWrapper:
+    description: 'JSON object with only a CatalogView property.'
+    type: object
+    properties:
+        CatalogView: CatalogView
+
+CatalogView:
+    type: BaseObject
+    properties:
+        identifier: string
+        CatalogQuery: Ref
+        Result: CatalogListViewResult
+
+CatalogListViewResult:
+    type: BaseObject
+    properties:
+        CatalogList: CatalogList
+
+ProductViewWrapper:
+    description: 'JSON object with only a ProductView property.'
+    type: object
+    properties:
+        ProductView: ProductView
 
 ProductView:
     description: 'This class represents a product view.'
@@ -3283,6 +4575,12 @@ ProductView:
             type: object
         Result:
             type: object
+
+ProductVariantWrapper:
+    description: 'JSON object with only a ProductVariant property.'
+    type: object
+    properties:
+        ProductVariant: ProductVariant
 
 ProductVariant:
     description: 'This class represents a product variant.'
@@ -3297,6 +4595,12 @@ ProductVariant:
         DiscriminatorAttributesList:
             type: Attribute[]
 
+ProductVariantCreateWrapper:
+    description: 'JSON object with only a ProductVariantCreate property.'
+    type: object
+    properties:
+        ProductVariantCreate: ProductVariantCreate
+
 ProductVariantCreate:
     description: 'This class is used to create a product variant.'
     type: object
@@ -3305,8 +4609,13 @@ ProductVariantCreate:
             type: string
         attributes:
             description: 'array<int|string,mixed>'
-            type: array
-            items: any
+            type: object
+
+ProductVariantGenerateWrapper:
+    description: 'JSON object with only a ProductVariantGenerate property.'
+    type: object
+    properties:
+        ProductVariantGenerate: ProductVariantGenerate
 
 ProductVariantGenerate:
     description: 'This class is used to generate a product variant.'
@@ -3314,8 +4623,13 @@ ProductVariantGenerate:
     properties:
         attributes:
             description: 'array<int|string,mixed>'
-            type: array
-            items: any
+            type: object
+
+ProductVariantUpdateWrapper:
+    description: 'JSON object with only a ProductVariantUpdate property.'
+    type: object
+    properties:
+        ProductVariantUpdate: ProductVariantUpdate
 
 ProductVariantUpdate:
     description: 'This class is used to update a product variant.'
@@ -3325,8 +4639,13 @@ ProductVariantUpdate:
             type: string
         attributes:
             description: 'array<int|string,mixed>'
-            type: array
-            items: any
+            type: object
+
+ProductVariantViewInputWrapper:
+    description: 'JSON object with only a ViewInput property.'
+    type: object
+    properties:
+        ViewInput: ProductVariantViewInput
 
 ProductVariantViewInput:
     description: 'This class represents a product variant view input.'
@@ -3334,6 +4653,12 @@ ProductVariantViewInput:
     properties:
         ProductVariantQuery:
             type: object
+
+ProductVariantViewWrapper:
+    description: 'JSON object with only a ProductVariantView property.'
+    type: object
+    properties:
+        ProductVariantView: ProductVariantView
 
 ProductVariantView:
     description: 'This class represents a product variant view.'
@@ -3346,12 +4671,26 @@ ProductVariantView:
         Result:
             type: object
 
+RegionViewInputWrapper:
+    description: 'JSON object with only a ViewInput property.'
+    type: object
+    properties:
+        ViewInput: RegionViewInput
+
 RegionViewInput:
     description: 'This class represents a region view input.'
     type: object
     properties:
         RegionQuery:
             type: object
+    xml:
+        name: ViewInput
+
+RegionViewWrapper:
+    description: 'JSON object with only a RegionView property.'
+    type: object
+    properties:
+        RegionView: RegionView
 
 RegionView:
     description: 'This class represents a region view.'
@@ -3364,12 +4703,24 @@ RegionView:
         Result:
             type: object
 
+ProductTypeListWrapper:
+    description: 'JSON object with only a ProductTypeList property.'
+    type: object
+    properties:
+        ProductTypeList: ProductTypeList
+
 ProductTypeList:
     description: 'This class represents a product type list.'
     type: object
     properties:
-        ProductTypes:
+        ProductType:
             type: ProductType[]
+
+ProductTypeListGetWrapper:
+    description: 'JSON object with only a ProductTypeListGet property.'
+    type: object
+    properties:
+        ProductTypeListGet: ProductTypeListGet
 
 ProductTypeListGet:
     description: 'This class represents a product type list query.'
@@ -3378,7 +4729,15 @@ ProductTypeListGet:
         name_prefix: string
         offset: integer
         limit: integer
-        languages: string[]
+        languages:
+            type: string[]
+            required: false
+
+TaxonomyEntryWrapper:
+    description: 'JSON object with only a TaxonomyEntry property.'
+    type: object
+    properties:
+        TaxonomyEntry: TaxonomyEntry
 
 TaxonomyEntry:
     description: 'This class represents a taxonomy entry.'
@@ -3390,19 +4749,16 @@ TaxonomyEntry:
             type: string
         name:
             type: string
-        mainLanguageCode:
-            type: string
-        names:
-            type: array
-            items: any
-        Parent:
-            type: TaxonomyEntry
-        Content:
-            type: Content
+        content:
+            type: Ref
         taxonomy:
             type: string
-        level:
-            type: integer
+
+TaxonomyEntryAssignmentWrapper:
+    description: 'JSON object with only a TaxonomyEntryAssignment property.'
+    type: object
+    properties:
+        TaxonomyEntryAssignment: TaxonomyEntryAssignment
 
 TaxonomyEntryAssignment:
     description: 'This class represents a taxonomy entry assignment.'
@@ -3410,17 +4766,32 @@ TaxonomyEntryAssignment:
     properties:
         id:
             type: integer
-        Content:
-            type: Content
-        Entry:
-            type: TaxonomyEntry
+        content:
+            type: BaseObject
+            properties:
+                Content:
+                    type: Content
+        entry:
+            type: BaseObject
+            properties:
+                TaxonomyEntry:
+                    type: TaxonomyEntry
+
+EntryAssignmentCollectionWrapper:
+    description: 'JSON object with only a EntryAssignmentCollection property.'
+    type: object
+    properties:
+        EntryAssignmentCollection: EntryAssignmentCollection
 
 EntryAssignmentCollection:
     description: 'This class represents a taxonomy assignment collection.'
-    type: object
+    type: BaseObject
     properties:
-        Content:
-            type: Content
+        content:
+            type: BaseObject
+            properties:
+                Content:
+                    type: Content
         assignments:
             type: TaxonomyEntryAssignment[]
 
@@ -3457,12 +4828,18 @@ TaxonomyEntryUpdateStruct:
         Content:
             type: Content
 
+TaxonomyEntryBulkRemoveWrapper:
+    description: 'JSON object with only a TaxonomyEntryBulkRemove property.'
+    type: object
+    properties:
+        TaxonomyEntryBulkRemove: TaxonomyEntryBulkRemove
+
 TaxonomyEntryBulkRemove:
     description: 'This class is used to bulk remove taxonomy entries.'
     type: object
     properties:
         entries:
-            type: TaxonomyEntry[]
+            type: integer[]
 
 TaxonomyEntryMove:
     type: object
@@ -3474,12 +4851,24 @@ TaxonomyEntryMove:
         position:
             type: string
 
+TaxonomyEntryBulkMoveWrapper:
+    description: 'JSON object with only a TaxonomyEntryBulkMove property.'
+    type: object
+    properties:
+        TaxonomyEntryBulkMove: TaxonomyEntryBulkMove
+
 TaxonomyEntryBulkMove:
     description: 'This class is used to bulk move taxonomy entries.'
     type: object
     properties:
         entries:
             type: TaxonomyEntryMove[]
+
+TaxonomyEntryAssignToContentWrapper:
+    description: 'JSON object with only a TaxonomyEntryAssignToContent property.'
+    type: object
+    properties:
+        TaxonomyEntryAssignToContent: TaxonomyEntryAssignToContent
 
 TaxonomyEntryAssignToContent:
     description: 'This class is used to assign taxonomy entry to content.'
@@ -3488,7 +4877,13 @@ TaxonomyEntryAssignToContent:
         content:
             type: integer
         entries:
-            type: TaxonomyEntry[]
+            type: integer[]
+
+TaxonomyEntryUnassignFromContentWrapper:
+    description: 'JSON object with only a TaxonomyEntryUnassignFromContent property.'
+    type: object
+    properties:
+        TaxonomyEntryUnassignFromContent: TaxonomyEntryUnassignFromContent
 
 TaxonomyEntryUnassignFromContent:
     description: 'This class is used to unassign taxonomy entry from content.'
@@ -3497,14 +4892,26 @@ TaxonomyEntryUnassignFromContent:
         content:
             type: integer
         entries:
-            type: TaxonomyEntry[]
+            type: integer[]
+
+VatCategoryListWrapper:
+    description: 'JSON object with only a VatCategoryList property.'
+    type: object
+    properties:
+        VatCategoryList: VatCategoryList
 
 VatCategoryList:
     description: 'This class represents a VAT category list.'
     type: object
     properties:
-        VatCategories:
+        VatCategory:
             type: VatCategory[]
+
+VatCategoryWrapper:
+    description: 'JSON object with only a VatCategory property.'
+    type: object
+    properties:
+        VatCategory: VatCategory
 
 VatCategory:
     description: 'This class represents a VAT category.'
@@ -3515,7 +4922,7 @@ VatCategory:
         region:
             type: string
         vatValue:
-            type: number
+            type: number | nil
 
 ContentUpdate:
     description: 'This class is used to update a Content.'
@@ -3556,17 +4963,7 @@ ContentMetadataUpdate:
             type: string
 
 SummaryEntryNames:
-    type: object
-    properties:
-        value:
-            type: array
-            items:
-                type: object
-                properties:
-                    _languageCode:
-                        type: string
-                    '#text':
-                        type: string
+    type: ValueObject
 
 SummaryEntry:
     type: object
@@ -3580,13 +4977,13 @@ SummaryEntry:
         quantity:
             type: integer
         Price:
-            type: RestPrice
+            type: RestPriceWrapper
         PriceInclVat:
-            type: RestPrice
+            type: RestPriceWrapper
         SubtotalPrice:
-            type: RestPrice
+            type: RestPriceWrapper
         SubtotalPriceInclVat:
-            type: RestPrice
+            type: RestPriceWrapper
         VatCategory:
             type: VatCategory
         Product:
@@ -3597,28 +4994,43 @@ SummaryEntryCollection:
     type: object
     properties:
         count:
-            type: integer
+            type: string
         SummaryEntry:
             type: SummaryEntry[]
 
+PriceWrapper:
+    description: 'JSON object with only a Price property.'
+    type: object
+    properties:
+        Price: Price
+
 Price:
     description: 'This class represents a price.'
-    type: object
+    type: BaseObject
     properties:
         amount:
             type: string
         base_amount:
             type: string
+            required: false
         Currency:
             type: Currency
         money:
-            type: object
+            type: string
+            required: false
         base_money:
-            type: object
+            type: string
+            required: false
+
+CustomPriceWrapper:
+    description: 'JSON object with only a CustomPrice property.'
+    type: object
+    properties:
+        CustomPrice: CustomPrice
 
 CustomPrice:
     description: 'This class represents a custom price.'
-    type: object
+    type: BaseObject
     properties:
         amount:
             type: string
@@ -3627,15 +5039,22 @@ CustomPrice:
         Currency:
             type: Currency
         money:
-            type: object
+            type: string
         base_money:
-            type: object
+            type: string
         custom_money:
-            type: object
+            type: string
         custom_amount:
             type: string
         custom_rule:
-            type: string
+            type: string | nil
+            required: false
+
+RestPriceWrapper:
+    description: 'JSON object with only a RestPrice property.'
+    type: BaseObject
+    properties:
+        RestPrice: RestPrice
 
 RestPrice:
     type: object
@@ -3645,6 +5064,12 @@ RestPrice:
         formatted:
             type: string
 
+PriceListWrapper:
+    description: 'JSON object with only a PriceList property.'
+    type: object
+    properties:
+        PriceList: PriceList
+
 PriceList:
     description: 'This class represents a price list.'
     type: object
@@ -3652,56 +5077,80 @@ PriceList:
         prices:
             type: Price[]
 
+PriceCreateStructWrapper:
+    description: 'JSON object with only a PriceCreateStruct property.'
+    type: object
+    properties:
+        PriceCreateStruct: PriceCreateStruct
+
 PriceCreateStruct:
     description: 'This class represents a price creation structure.'
     type: object
     properties:
         amount:
-            type: string
+            type: integer
         currency:
             type: string
+
+CustomPriceCreateStructWrapper:
+    description: 'JSON object with only a CustomPriceCreateStruct property.'
+    type: object
+    properties:
+        CustomPriceCreateStruct: CustomPriceCreateStruct
 
 CustomPriceCreateStruct:
     description: 'This class represents a custom price creation structure.'
     type: object
     properties:
         amount:
-            type: string
+            type: integer
         currency:
             type: string
-        custom_amount:
+        customAmount:
+            type: integer
+        customerGroup:
             type: string
-        customerGroups:
-            type: CustomerGroup[]
+
+PriceUpdateStructWrapper:
+    description: 'JSON object with only a PriceUpdateStruct property.'
+    type: object
+    properties:
+        PriceUpdateStruct: PriceUpdateStruct
 
 PriceUpdateStruct:
     description: 'This class represents a price updating structure.'
     type: object
     properties:
         amount:
-            type: string
+            type: integer
         currency:
             type: string
+
+CustomPriceUpdateStructWrapper:
+    description: 'JSON object with only a CustomPriceUpdateStruct property.'
+    type: object
+    properties:
+        CustomPriceUpdateStruct: CustomPriceUpdateStruct
 
 CustomPriceUpdateStruct:
     description: 'This class represents a custom price updating structure.'
     type: object
     properties:
         amount:
-            type: string
+            type: integer
         currency:
             type: string
         customAmount:
-            type: string
+            type: integer
 
 VatCategorySummary:
     description: 'This class represents a VAT category summary.'
-    type: object
+    type: BaseObject
     properties:
-        subtotal:
-            type: Price
-        vatCategory:
+        VatCategory:
             type: VatCategory
+        RestPrice:
+            type: RestPrice
 
 Thumbnail:
     description: 'This class represents a thumbnail that can be a target URL or a Base64 data.'
@@ -3710,9 +5159,9 @@ Thumbnail:
         resource:
             type: string
         width:
-            type: integer
+            type: integer | nil
         height:
-            type: integer
+            type: integer | nil
         mimeType:
             type: string
 
@@ -3723,12 +5172,24 @@ AttributesList:
         Attributes:
             type: Attribute[]
 
+OrderListWrapper:
+    description: 'JSON object with only a OrderList property.'
+    type: object
+    properties:
+        OrderList: OrderList
+
 OrderList:
     description: 'This class represents an orders list.'
     type: object
     properties:
-        Orders:
+        Order:
             type: Order[]
+
+OrderWrapper:
+    description: 'JSON object with only a Order property.'
+    type: object
+    properties:
+        Order: Order
 
 Order:
     description: 'This class represents order.'
@@ -3737,15 +5198,16 @@ Order:
         id:
             type: integer
         identifier:
-            type: integer
+            type: string
         created:
-            type: datetime
+            type: TimezoneDate
         modified:
-            type: datetime
+            type: TimezoneDate
         status:
             type: string
         source:
             type: string
+            required: false
         OrderUser:
             type: OrderUser
         OrderCurrency:
@@ -3754,6 +5216,7 @@ Order:
             type: OrderValue
         OrderCompany:
             type: OrderCompany
+            required: false
         OrderItemsList:
             type: OrderItem[]
         context:
@@ -3764,7 +5227,7 @@ OrderUser:
     type: object
     properties:
         id:
-            type: integer
+            type: integer | nil
         name:
             type: string
         email:
@@ -3784,11 +5247,11 @@ OrderValue:
     type: object
     properties:
         vat:
-            type: string
+            type: string | OrderPrice
         total_gross:
-            type: string
+            type: string | OrderPrice
         total_net:
-            type: string
+            type: string | OrderPrice
 
 OrderCompany:
     description: 'This class represents order company.'
@@ -3798,6 +5261,12 @@ OrderCompany:
             type: integer
         name:
             type: string
+
+OrderCreateWrapper:
+    description: 'JSON object with only a OrderCreate property.'
+    type: object
+    properties:
+        OrderCreate: OrderCreate
 
 OrderCreate:
     description: 'This class is used to create order.'
@@ -3814,7 +5283,13 @@ OrderCreate:
         OrderCompany:
             type: OrderCompany
         items:
-            type: OrderItem[]
+            type: OrderItemWrapper[]
+
+OrderUpdateWrapper:
+    description: 'JSON object with only a OrderUpdate property.'
+    type: object
+    properties:
+        OrderUpdate: OrderUpdate
 
 OrderUpdate:
     description: 'This class is used to update order.'
@@ -3825,12 +5300,11 @@ OrderUpdate:
         transition:
             type: string
 
-OrderItemsList:
-    description: 'This class represents an order items list.'
+OrderItemWrapper:
+    description: 'JSON object with only a OrderItem property.'
     type: object
     properties:
-        OrderItems:
-            type: OrderItem[]
+        OrderItem: OrderItem
 
 OrderItem:
     description: 'This class represents order item.'
@@ -3842,23 +5316,33 @@ OrderItem:
             type: OrderItemProduct
         quantity:
             type: integer
+            required: false
         context:
             type: object
+            required: false
+
+OrderPrice:
+    type: object
+    properties:
+        amount:
+            type: string
+        currency:
+            type: string
 
 OrderItemValue:
     description: 'This class represents order item value.'
     type: object
     properties:
         unit_price_gross:
-            type: string
+            type: string | OrderPrice
         unit_price_net:
-            type: string
+            type: string | OrderPrice
         vat_rate:
             type: string
         subtotal_price_gross:
-            type: string
+            type: string | OrderPrice
         subtotal_price_net:
-            type: string
+            type: string | OrderPrice
 
 OrderItemProduct:
     description: 'This class represents order item product.'
@@ -3871,20 +5355,37 @@ OrderItemProduct:
         name:
             type: string
 
+CorporateAccountRootWrapper:
+    description: 'JSON object with only a CorporateAccountRoot property.'
+    type: object
+    properties:
+        CorporateAccountRoot: CorporateAccountRoot
+
 CorporateAccountRoot:
     description: 'This class represents Corporate Account Root resource information.'
     type: object
     properties:
-        link:
+        links:
             type: Link[]
+            xml:
+                wrapped: false
 
 Link:
     description: 'This class represents REST resource information.'
     type: BaseObject
     properties:
-        rel:
+        _rel:
             description: 'Unique identifier of a resource.'
             type: string
+            xml:
+                attribute: true
+                name: rel
+
+CompanyWrapper:
+    description: 'JSON object with only a Company property.'
+    type: object
+    properties:
+        Company: Company
 
 Company:
     description: 'This class represents a company.'
@@ -3897,20 +5398,20 @@ Company:
         Content:
             type: Content
         billingAddress:
-            type: string
+            type: BillingAddress
         contactId:
-            type: integer
+            type: integer | nil
         salesRepresentativeId:
             type: integer
         defaultAddressId:
-            type: integer
+            type: integer | nil
         addressBookId:
             description: 'Address book Folder Content ID.'
             type: integer
         membersId:
             description: 'Members Folder Content ID.'
             type: integer
-        MembersList:
+        MemberList:
             description: 'Reference to Members List resource.'
             type: BaseObject
         Location:
@@ -3922,35 +5423,63 @@ Company:
         isActive:
             type: boolean
 
+BillingAddress:
+    type: object
+    properties:
+        name: string | nil
+        country: string | nil
+        fields: object | array
+
+CompanyCreateWrapper:
+    description: 'JSON object with only a CompanyCreate property.'
+    type: object
+    properties:
+        CompanyCreate: CompanyCreate
+
 CompanyCreate:
     description: 'This class is used to create a company.'
     type: object
     properties:
-        remoteId:
-            type: string
-        modificationDate:
-            type: string
-        User:
-            description: 'User value.'
-            type: User
         fields:
-            description: 'Fields of a Company content item.'
-            type: Field[]
+            properties:
+                field:
+                    description: 'Fields of a Company content item.'
+                    type: Field[]
+
+CompanyUpdateWrapper:
+    description: 'JSON object with only a CompanyUpdate property.'
+    type: object
+    properties:
+        CompanyUpdate: CompanyUpdate
 
 CompanyUpdate:
     description: 'This class is used to update a Company.'
     type: object
     properties:
         fields:
-            description: 'Fields of a Company content item.'
-            type: Field[]
+            properties:
+                field:
+                    description: 'Fields of a Company content item.'
+                    type: Field[]
+
+CompanyListWrapper:
+    description: 'JSON object with only a CompanyList property.'
+    type: object
+    properties:
+        CompanyList: CompanyList
 
 CompanyList:
     description: 'This class represents a list of companies.'
     type: object
     properties:
-        Company:
+        companies:
             type: Company[]
+
+MemberWrapper:
+    description: 'JSON object with only a Member property.'
+    type: object
+    properties:
+        Member: Member
 
 Member:
     description: 'This class represents a company member.'
@@ -3969,12 +5498,24 @@ Member:
             description: 'Reference to the member role in a Company resource.'
             type: BaseObject
 
+MemberListWrapper:
+    description: 'JSON object with only a MemberList property.'
+    type: object
+    properties:
+        MemberList: MemberList
+
 MemberList:
     description: 'This class represents a list of company members.'
     type: object
     properties:
-        Member:
+        members:
             type: Member[]
+
+MemberCreateWrapper:
+    description: 'JSON object with only a MemberCreate property.'
+    type: object
+    properties:
+        MemberCreate: MemberCreate
 
 MemberCreate:
     description: 'This class is used to create a member.'
@@ -3990,8 +5531,16 @@ MemberCreate:
             description: 'Reference to a Role resource company member should be given.'
             type: BaseObject
         fields:
-            description: 'Fields of a Member content item.'
-            type: Field[]
+            properties:
+                field:
+                    description: 'Fields of a Member content item.'
+                    type: Field[]
+
+MemberUpdateWrapper:
+    description: 'JSON object with only a MemberUpdate property.'
+    type: object
+    properties:
+        MemberUpdate: MemberUpdate
 
 MemberUpdate:
     description: 'This class is used to update a member.'
@@ -4010,8 +5559,10 @@ MemberUpdate:
             description: 'Reference to a Role resource company member should be given.'
             type: BaseObject
         fields:
-            description: 'Fields of a Member content item.'
-            type: Field[]
+            properties:
+                field:
+                    description: 'Fields of a Member content item.'
+                    type: Field[]
 
 ErrorMessage:
     description: 'Represents an error response. Might contain additional properties depending on an error type.'
@@ -4023,6 +5574,12 @@ ErrorMessage:
             type: string
         errorDescription:
             type: string
+
+PaymentMethodWrapper:
+    description: 'JSON object with only a PaymentMethod property.'
+    type: object
+    properties:
+        PaymentMethod: PaymentMethod
 
 PaymentMethod:
     type: object
@@ -4043,6 +5600,12 @@ PaymentMethod:
             type: string
             required: true
 
+PaymentMethodCreateStructWrapper:
+    description: 'JSON object with only a PaymentMethodCreateStruct property.'
+    type: object
+    properties:
+        PaymentMethodCreateStruct: PaymentMethodCreateStruct
+
 PaymentMethodCreateStruct:
     type: object
     properties:
@@ -4054,31 +5617,51 @@ PaymentMethodCreateStruct:
             required: true
         names:
             description: 'If set this array of names with languageCode keys replace the complete name collection.'
-            type: string[]
+            type: object
         descriptions:
             description: 'An array of descriptions with languageCode keys.'
             type: string[]
+            required: false
         enabled:
             type: boolean
+            required: false
         options:
             type: object
+            required: false
+
+PaymentMethodUpdateStructWrapper:
+    description: 'JSON object with only a PaymentMethodUpdateStruct property.'
+    type: object
+    properties:
+        PaymentMethodUpdateStruct: PaymentMethodUpdateStruct
 
 PaymentMethodUpdateStruct:
     type: object
     properties:
         identifier:
             type: string
+            required: false
         names:
             description: 'If set this array of names with languageCode keys replace the complete name collection.'
-            type: string[]
+            type: object
+            required: false
         descriptions:
             description: 'An array of descriptions with languageCode keys.'
             type: string[]
+            required: false
         enabled:
             type: boolean
+            required: false
         options:
             type: array
             items: any
+            required: false
+
+PaymentMethodViewWrapper:
+    description: 'JSON object with only a PaymentMethodView property.'
+    type: object
+    properties:
+        PaymentMethodView: PaymentMethodView
 
 PaymentMethodView:
     type: object
@@ -4100,6 +5683,12 @@ PaymentMethodList:
             type: PaymentMethod[]
             required: true
 
+PaymentMethodViewInputWrapper:
+    description: 'JSON object with only a PaymentMethodViewInput property.'
+    type: object
+    properties:
+        PaymentMethodViewInput: PaymentMethodViewInput
+
 PaymentMethodViewInput:
     type: object
     properties:
@@ -4109,6 +5698,12 @@ PaymentMethodViewInput:
         PaymentMethodQuery:
             type: object
             required: true
+
+ShipmentWrapper:
+    description: 'JSON object with only a Shipment property.'
+    type: object
+    properties:
+        Shipment: Shipment
 
 Shipment:
     description: 'This class represents a single shipment.'
@@ -4127,12 +5722,12 @@ Shipment:
                     description: 'Next steps available in the shipment workflow for the current status'
                     type: string[]
         Order:
-            type: Order
+            type: Ref
         Amount:
             type: object
             properties:
                 value:
-                    type: integer
+                    type: string
                 currency:
                     type: string
         createdAt:
@@ -4140,16 +5735,28 @@ Shipment:
         updatedAt:
             type: datetime
         Owner:
-            type: User
+            type: Ref
         Method:
-            type: ShippingMethod
+            type: Ref
+
+ShipmentRefListWrapper:
+    description: 'JSON object with only a ShipmentRefList property.'
+    type: object
+    properties:
+        ShipmentRefList: ShipmentRefList
 
 ShipmentRefList:
     description: 'This class represents a list of Shipments'
     type: object
     properties:
         shipmentRefList:
-            type: Shipment[]
+            type: Ref[]
+
+ShipmentCreateWrapper:
+    description: 'JSON object with only a ShipmentCreate property.'
+    type: object
+    properties:
+        ShipmentCreate: ShipmentCreate
 
 ShipmentCreate:
     description: 'This class represents the creation of a shipment.'
@@ -4158,11 +5765,17 @@ ShipmentCreate:
         identifier:
             type: string
         ShippingMethod:
-            type: ShippingMethod
+            type: Ref
         Owner:
-            type: User
+            type: Ref
         Context:
             type: object
+
+ShipmentUpdateWrapper:
+    description: 'JSON object with only a ShipmentUpdate property.'
+    type: object
+    properties:
+        ShipmentUpdate: ShipmentUpdate
 
 ShipmentUpdate:
     description: 'This class represents the update of a shipment.'
@@ -4173,9 +5786,15 @@ ShipmentUpdate:
         transition:
             type: string
         Owner:
-            type: User
+            type: Ref
         Context:
             type: object
+
+ShippingMethodWrapper:
+    description: 'JSON object with only a ShippingMethod property.'
+    type: object
+    properties:
+        ShippingMethod: ShippingMethod
 
 ShippingMethod:
     description: 'This class represents a shipping method.'
@@ -4202,12 +5821,15 @@ ShippingMethod:
         options:
             type: object
             properties:
-                value:
+                option:
                     type: KeyValue[]
         regions:
-            type: Region[]
+            type: object
+            properties:
+                RegionRefList:
+                    type: Ref[]
         type:
-            type: ShippingMethodType[]
+            type: Ref
 
 MultilingualValue:
     description: 'Object that represents a multilingual (translated) value.'
@@ -4218,7 +5840,7 @@ MultilingualValue:
             type: string
         '#text':
             description: 'Translation contents.'
-            type: string
+            type: string | nil
 
 KeyValue:
     description: 'Key-value structure'
@@ -4227,14 +5849,26 @@ KeyValue:
         _key:
             type: string
         '#text':
-            type: string
+            type: string | nil
+
+ShippingMethodRefListWrapper:
+    description: 'JSON object with only a ShippingMethodRefList property.'
+    type: object
+    properties:
+        ShippingMethodRefList: ShippingMethodRefList
 
 ShippingMethodRefList:
     description: 'This class represents a list of shipping methods'
     type: object
     properties:
         ShippingMethodRefs:
-            type: ShippingMethod[]
+            type: Ref[]
+
+ShippingMethodTypeWrapper:
+    description: 'JSON object with only a ShippingMethodType property.'
+    type: object
+    properties:
+        ShippingMethodType: ShippingMethodType
 
 ShippingMethodType:
     description: 'This class represents a shipping method type.'
@@ -4245,6 +5879,12 @@ ShippingMethodType:
         name:
             type: string
 
+ShippingMethodTypesListWrapper:
+    description: 'JSON object with only a ShippingMethodTypesList property.'
+    type: object
+    properties:
+        ShippingMethodTypesList: ShippingMethodTypesList
+
 ShippingMethodTypesList:
     description: 'This class represents a list of shipping method types.'
     type: object
@@ -4252,33 +5892,54 @@ ShippingMethodTypesList:
         ShippingMethodTypes:
             type: ShippingMethodType[]
 
-SalesRepresentativesList:
-    description: 'This class represents a list of sales representatives.'
+SalesRepresentativesListWrapper:
+    description: 'JSON object with only a SalesRepresentativesList property.'
     type: object
     properties:
-        Users:
+        SalesRepresentativesList: SalesRepresentativesList
+
+SalesRepresentativesList:
+    description: 'This class represents a list of sales representatives.'
+    type: BaseObject
+    properties:
+        users:
             type: User[]
+
+ActivityLogGroupListInputWrapper:
+    description: 'JSON object with only a ActivityLogGroupListInput property.'
+    type: object
+    properties:
+        ActivityLogGroupListInput: ActivityLogGroupListInput
 
 ActivityLogGroupListInput:
     description: "This class represents the activity log group search query's criteria and sort clauses."
     type: object
+
+ActivityLogGroupListWrapper:
+    description: 'JSON object with only a ActivityLogGroupList property.'
+    type: object
+    properties:
+        ActivityLogGroupList: ActivityLogGroupList
 
 ActivityLogGroupList:
     description: "This class represents activity log context groups"
     type: object
     properties:
         ActivityLogGroups:
-            type: object
-            properties:
-                user_id:
-                    type: integer
-                    description: "The ID of the user performing the logged actions"
-                logged_at:
-                    type: integer
-                    description: "Timestamp representing when the group has been logged"
-                ActivityLogEntries:
-                    type: ActivityLog[]
-                    description: "Log entries from the group"
+            type: ActivityLogGroup[]
+
+ActivityLogGroup:
+    type: object
+    properties:
+        user_id:
+            type: integer
+            description: "The ID of the user performing the logged actions"
+        logged_at:
+            type: integer
+            description: "Timestamp representing when the group has been logged"
+        ActivityLogEntries:
+            type: ActivityLog[]
+            description: "Log entries from the group"
 
 ActivityLog:
     description: 'This class represents an activity log entry.'

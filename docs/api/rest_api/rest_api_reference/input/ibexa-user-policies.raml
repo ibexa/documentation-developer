@@ -18,7 +18,7 @@ get:
                     type: PolicyList
                     example: !include examples/user/policies/GET/PolicyList.xml.example
                 application/vnd.ibexa.api.PolicyList+json:
-                    type: PolicyList
+                    type: PolicyListWrapper
                     example: !include examples/user/policies/GET/PolicyList.json.example
         401:
             description: Error - the user has no permission to read Roles.
