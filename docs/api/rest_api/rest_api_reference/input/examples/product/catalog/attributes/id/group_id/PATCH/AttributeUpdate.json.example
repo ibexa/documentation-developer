@@ -1,13 +1,15 @@
 {
     "AttributeUpdate": {
         "identifier": "attr_group",
+        "names": {
             "eng-GB": "Attribute Group"
         },
         "descriptions": {
-            "eng-GB": "description" 
+            "eng-GB": "description"
         },
-        "position": 0, 
-        "options": { 
+        "position": 0,
+        "options": {
             "foo": "bar"
         }
+    }
 }

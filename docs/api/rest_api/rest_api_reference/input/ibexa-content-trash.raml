@@ -20,7 +20,7 @@ get:
                     type: Trash
                     example: !include examples/content/trash/GET/Trash.xml.example
                 application/vnd.ibexa.api.Trash+json:
-                    type: Trash
+                    type: TrashWrapper
                     example: !include examples/content/trash/GET/Trash.json.example
         401:
             description: Error - The user has no permission to read the Trash.
@@ -49,7 +49,7 @@ delete:
                         type: TrashItem
                         example: !include examples/content/trash/trash_itemid/GET/TrashItem.xml.example
                     application/vnd.ibexa.api.TrashItem+json:
-                        type: TrashItem
+                        type: TrashItemWrapper
                         example: !include examples/content/trash/trash_itemid/GET/TrashItem.json.example
             401:
                 description: Error - The user has no permission to read the item in Trash.
