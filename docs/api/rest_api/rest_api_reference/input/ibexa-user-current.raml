@@ -15,7 +15,7 @@ get:
                     type: UserList
                     example: !include examples/user/users/user_id/GET/User.xml.example
                 application/vnd.ibexa.api.User+json:
-                    type: UserList
+                    type: UserListWrapper
                     example: !include examples/user/users/user_id/GET/User.json.example
         401:
             description: Error - the user has no permission to read Users. For example, Anonymous user can't load oneself.

@@ -17,7 +17,7 @@ get:
                     type: CorporateAccountRoot
                     example: !include examples/corporate/GET/CorporateAccountRoot.xml.example
                 application/vnd.ibexa.api.CorporateAccountRoot+json:
-                    type: CorporateAccountRoot
+                    type: CorporateAccountRootWrapper
                     example: !include examples/corporate/GET/CorporateAccountRoot.json.example
 
 /companies:
@@ -68,7 +68,7 @@ get:
                         type: CompanyList
                         example: !include examples/corporate/companies/GET/CompanyList.xml.example
                     application/vnd.ibexa.api.CompanyList+json:
-                        type: CompanyList
+                        type: CompanyListWrapper
                         example: !include examples/corporate/companies/GET/CompanyList.json.example
             400:
                 description: Returned when invalid Criterion or Sort clause is used
@@ -94,7 +94,7 @@ get:
                 type: CompanyCreate
                 example: !include examples/corporate/companies/POST/CompanyCreate.xml.example
             application/vnd.ibexa.api.CompanyCreate+json:
-                type: CompanyCreate
+                type: CompanyCreateWrapper
                 example: !include examples/corporate/companies/POST/CompanyCreate.json.example
         responses:
             201:
@@ -103,7 +103,7 @@ get:
                         type: Company
                         example: !include examples/corporate/companies/company_id/GET/Company.xml.example
                     application/vnd.ibexa.api.Company+json:
-                        type: Company
+                        type: CompanyWrapper
                         example: !include examples/corporate/companies/company_id/GET/Company.json.example
             400:
                 description: Error - the input does not match the input schema definition.
@@ -125,7 +125,7 @@ get:
                 200:
                     body:
                         application/vnd.ibexa.api.Company+json:
-                            type: Company
+                            type: CompanyWrapper
                             example: !include examples/corporate/companies/company_id/GET/Company.json.example
                         application/vnd.ibexa.api.Company+xml:
                             type: Company
@@ -173,7 +173,7 @@ get:
                     type: CompanyUpdate
                     example: !include examples/corporate/companies/company_id/PATCH/CompanyUpdate.xml.example
                 application/vnd.ibexa.api.CompanyUpdate+json:
-                    type: CompanyUpdate
+                    type: CompanyUpdateWrapper
                     example: !include examples/corporate/companies/company_id/PATCH/CompanyUpdate.json.example
             responses:
                 200:
@@ -183,7 +183,7 @@ get:
                             type: Company
                             example: !include examples/corporate/companies/company_id/GET/Company.xml.example
                         application/vnd.ibexa.api.Company+json:
-                            type: Company
+                            type: CompanyWrapper
                             example: !include examples/corporate/companies/company_id/GET/Company.json.example
                 400:
                     description: Error - the input does not match the input schema definition.
@@ -232,7 +232,7 @@ get:
                                 type: MemberList
                                 example: !include examples/corporate/companies/company_id/members/GET/MemberList.xml.example
                             application/vnd.ibexa.api.MemberList+json:
-                                type: MemberList
+                                type: MemberListWrapper
                                 example: !include examples/corporate/companies/company_id/members/GET/MemberList.json.example
                     400:
                         body:
@@ -258,7 +258,7 @@ get:
                         type: MemberCreate
                         example: !include examples/corporate/companies/company_id/members/POST/MemberCreate.xml.example
                     application/vnd.ibexa.api.MemberCreate+json:
-                        type: MemberCreate
+                        type: MemberCreateWrapper
                         example: !include examples/corporate/companies/company_id/members/POST/MemberCreate.json.example
                 responses:
                     201:
@@ -267,7 +267,7 @@ get:
                                 type: Member
                                 example: !include examples/corporate/companies/company_id/members/member_id/GET/Member.xml.example
                             application/vnd.ibexa.api.Member+json:
-                                type: Member
+                                type: MemberWrapper
                                 example: !include examples/corporate/companies/company_id/members/member_id/GET/Member.json.example
                     400:
                         description: Error - the input does not match the input schema definition.
@@ -290,7 +290,7 @@ get:
                                     type: Member
                                     example: !include examples/corporate/companies/company_id/members/member_id/GET/Member.xml.example
                                 application/vnd.ibexa.api.Member+json:
-                                    type: Member
+                                    type: MemberWrapper
                                     example: !include examples/corporate/companies/company_id/members/member_id/GET/Member.json.example
                         401:
                             description: Error - The user is not authorized to read this company.
@@ -335,7 +335,7 @@ get:
                             type: MemberUpdate
                             example: !include examples/corporate/companies/company_id/members/member_id/PATCH/MemberUpdate.xml.example
                         application/vnd.ibexa.api.MemberUpdate+json:
-                            type: MemberUpdate
+                            type: MemberUpdateWrapper
                             example: !include examples/corporate/companies/company_id/members/member_id/PATCH/MemberUpdate.json.example
                     responses:
                         200:
@@ -345,7 +345,7 @@ get:
                                     type: Member
                                     example: !include examples/corporate/companies/company_id/members/member_id/GET/Member.xml.example
                                 application/vnd.ibexa.api.Member+json:
-                                    type: Member
+                                    type: MemberWrapper
                                     example: !include examples/corporate/companies/company_id/members/member_id/GET/Member.json.example
                         400:
                             description: Error - the input does not match the input schema definition.
@@ -380,7 +380,7 @@ get:
                         type: SalesRepresentativesList
                         example: !include examples/corporate/sales-representatives/GET/SalesRepresentativesList.xml.example
                     application/vnd.ibexa.api.SalesRepresentativesList+json:
-                        type: SalesRepresentativesList
+                        type: SalesRepresentativesListWrapper
                         example: !include examples/corporate/sales-representatives/GET/SalesRepresentativesList.json.example
             401:
                 description: Error - the user is not authorized to read Sales Representatives List.

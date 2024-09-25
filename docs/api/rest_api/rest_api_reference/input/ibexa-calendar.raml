@@ -35,7 +35,7 @@ displayName: Calendar
                         type: EventList
                         example: !include examples/calendar/event/GET/EventList.xml.example
                     application/vnd.ibexa.api.EventList+json:
-                        type: EventList
+                        type: EventListWrapper
                         example: !include examples/calendar/event/GET/EventList.json.example
     /grouped-by-day:
         get:
@@ -73,7 +73,7 @@ displayName: Calendar
                             type: EventGroupList
                             example: !include examples/calendar/event/grouped-by-day/GET/EventGroupList.xml.example
                         application/vnd.ibexa.api.EventGroupList+json:
-                            type: EventGroupList
+                            type: EventGroupListWrapper
                             example: !include examples/calendar/event/grouped-by-day/GET/EventGroupList.json.example
     /{eventType}:
         post:
@@ -86,10 +86,10 @@ displayName: Calendar
                         application/vnd.ibexa.api.calendar.future_hide.UnscheduleAction+json
             body:
                 application/vnd.ibexa.api.calendar.future_publication.UnscheduleAction+json:
-                    type: UnscheduleAction
+                    type: UnscheduleActionWrapper
                     example: !include examples/calendar/event/eventType/POST/future_publication.UnscheduleAction.json.example
                 application/vnd.ibexa.api.calendar.future_hide.UnscheduleAction+json:
-                    type: UnscheduleAction
+                    type: UnscheduleActionWrapper
             responses:
                 204:
                     description: No Content - the action has been unscheduled.

@@ -29,7 +29,7 @@
           "fieldDefinitionIdentifier": "intro",
           "languageCode": "eng-GB",
           "fieldTypeIdentifier": "ezrichtext",
-          "fieldValue": 
+          "fieldValue":
            {
                 "xml": "<section xmlns=\"http://ibexa.co/namespaces/ezpublish5/xhtml5/edit\"><p>draft draft</p></section>"
             }
