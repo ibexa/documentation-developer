@@ -3593,7 +3593,7 @@ CartListViewResult:
     type: object
     properties:
         count: integer
-        Result: CartList
+        CartList: CartList
 
 CartList:
     description: 'This class represents a cart list.'
@@ -3636,6 +3636,12 @@ CartConstraintViolation:
         code: string
         propertyPath: string
         message: string
+
+Token:
+    description: 'This class represents a CSRF token'
+    type: object
+    properties:
+        value: string
 
 CatalogWrapper:
     description: 'JSON object with only a Catalog property.'
