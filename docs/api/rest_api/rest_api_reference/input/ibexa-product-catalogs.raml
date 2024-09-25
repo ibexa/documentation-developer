@@ -12,13 +12,13 @@ post:
                 application/vnd.ibexa.api.CatalogCreate+json
     body:
         application/vnd.ibexa.api.CatalogCreate+json:
-            type: CatalogCreate
+            type: CatalogCreateWrapper
             example: !include examples/product/catalog/catalog/POST/CatalogCreate.json.example
     responses:
         201:
             body:
                 application/vnd.ibexa.api.CatalogCreate+json:
-                    type: Catalog
+                    type: CatalogWrapper
                     example: !include examples/product/catalog/catalog/identifier/GET/Catalog.json.example
         400:
             description: Error - the input does not match the input schema definition.
@@ -52,7 +52,7 @@ post:
                     application/vnd.ibexa.api.Catalog+xml:
                         type: Catalog
                     application/vnd.ibexa.api.Catalog+json:
-                        type: Catalog
+                        type: CatalogWrapper
                         example: !include examples/product/catalog/catalog/identifier/GET/Catalog.json.example
             401:
                 description: Error - the user is not authorized to view this catalog.
@@ -72,13 +72,13 @@ post:
                     application/vnd.ibexa.api.CatalogUpdate+json
         body:
             application/vnd.ibexa.api.CatalogUpdate+json:
-                type: CatalogUpdate
+                type: CatalogUpdateWrapper
                 example: !include examples/product/catalog/catalog/identifier/PATCH/CatalogUpdate.json.example
         responses:
             201:
                 body:
                     application/vnd.ibexa.api.Catalog+json:
-                        type: CatalogUpdate
+                        type: CatalogWrapper
                         example: !include examples/product/catalog/catalog/identifier/PATCH/Catalog.json.example
             400:
                 description: Error - the input does not match the input schema definition.
@@ -103,13 +103,13 @@ post:
                     application/vnd.ibexa.api.CatalogCopy+json
         body:
             application/vnd.ibexa.api.CatalogCopy+json:
-                type: CatalogCopy
+                type: CatalogCopyWrapper
                 example: !include examples/product/catalog/catalog/identifier/POST/CatalogCopy.json.example
         responses:
             201:
                 body:
                     application/vnd.ibexa.api.Catalog+json:
-                        type: CatalogCopy
+                        type: CatalogWrapper
                         example: !include examples/product/catalog/catalog/identifier/POST/Catalog.json.example
             400:
                 description: Error - the input does not match the input schema definition.
@@ -138,15 +138,15 @@ post:
             application/vnd.ibexa.api.CatalogViewInput+xml:
                 type: CatalogViewInput
             application/vnd.ibexa.api.CatalogViewInput+json:
-                type: CatalogViewInput
+                type: CatalogViewInputWrapper
                 example: !include examples/product/catalog/catalog/POST/CatalogViewInput.json.example
         responses:
             200:
                 body:
                     application/vnd.ibexa.api.CatalogView+xml:
-                        type: ProductView
+                        type: CatalogView
                     application/vnd.ibexa.api.CatalogView+json:
-                        type: ProductView
+                        type: CatalogViewWrapper
                         example: !include examples/product/catalog/catalog/POST/CatalogView.json.example
             400:
                 description: Error - the input does not match the input schema definition.
@@ -170,7 +170,7 @@ post:
             application/vnd.ibexa.api.ProductViewInput+xml:
                 type: ProductViewInput
             application/vnd.ibexa.api.ProductViewInput+json:
-                type: ProductViewInput
+                type: ProductViewInputWrapper
                 example: !include examples/product/catalog/catalog/POST/CatalogProductsViewInput.json.example
         responses:
             200:
@@ -178,7 +178,7 @@ post:
                     application/vnd.ibexa.api.ProductView+xml:
                         type: ProductView
                     application/vnd.ibexa.api.ProductView+json:
-                        type: ProductView
+                        type: ProductViewWrapper
                         example: !include examples/product/catalog/catalog/POST/CatalogProductsView.json.example
             400:
                 description: Error - the input does not match the input schema definition.
@@ -199,7 +199,7 @@ post:
                     application/vnd.ibexa.api.ProductFilterList+xml:
                         type: ProductFilterList
                     application/vnd.ibexa.api.ProductFilterList+json:
-                        type: ProductFilterList
+                        type: ProductFilterListWrapper
                         example: !include examples/product/catalog/catalog/GET/ProductFilterList.json.example
 
 /sort_clauses:
@@ -218,5 +218,5 @@ post:
                     application/vnd.ibexa.api.ProductSortClauseList+xml:
                         type: ProductSortClauseList
                     application/vnd.ibexa.api.ProductSortClauseList+json:
-                        type: ProductSortClauseList
+                        type: ProductSortClauseListWrapper
                         example: !include examples/product/catalog/catalog/GET/ProductSortClauseList.json.example

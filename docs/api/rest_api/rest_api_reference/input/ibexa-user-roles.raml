@@ -24,7 +24,7 @@ get:
                     type: RoleList
                     example: !include examples/user/roles/GET/RoleList.xml.example
                 application/vnd.ibexa.api.RoleList+json:
-                    type: RoleList
+                    type: RoleListWrapper
                     example: !include examples/user/roles/GET/RoleList.json.example
         401:
             description: Error - the user has no permission to read Roles.
@@ -54,7 +54,7 @@ post:
             type: RoleInput
             example: !include examples/user/roles/POST/RoleInput.xml.example
         application/vnd.ibexa.api.RoleInput+json:
-            type: RoleInput
+            type: RoleInputWrapper
             example: !include examples/user/roles/POST/RoleInput.json.example
     responses:
         201:
@@ -63,7 +63,7 @@ post:
                     type: Role
                     example: !include examples/user/roles/POST/Role.xml.example
                 application/vnd.ibexa.api.Role+json:
-                    type: Role
+                    type: RoleWrapper
                     example: !include examples/user/roles/POST/Role.json.example
         400:
             description: Error - the input does not match the input schema definition.
@@ -89,7 +89,7 @@ post:
                         type: Role
                         example: !include examples/user/roles/id/GET/Role.xml.example
                     application/vnd.ibexa.api.Role+json:
-                        type: Role
+                        type: RoleWrapper
                         example: !include examples/user/roles/id/GET/Role.json.example
             401:
                 description: Error - the user has no permission to read Roles.
@@ -116,7 +116,7 @@ post:
                         type: RoleDraft
                         example: !include examples/user/roles/id/POST/RoleDraft.xml.example
                     application/vnd.ibexa.api.RoleDraft+json:
-                        type: RoleDraft
+                        type: RoleDraftWrapper
                         example: !include examples/user/roles/id/POST/RoleDraft.json.example
             401:
                 description: Error - the user is not authorized to create a Role or a Role draft
@@ -141,7 +141,7 @@ post:
                 type: RoleInput
                 example: !include examples/user/roles/id/PATCH/RoleInput.xml.example
             application/vnd.ibexa.api.RoleInput+json:
-                type: RoleInput
+                type: RoleInputWrapper
                 example: !include examples/user/roles/id/PATCH/RoleInput.json.example
         responses:
             200:
@@ -151,7 +151,7 @@ post:
                         type: Role
                         example: !include examples/user/roles/id/PATCH/Role.xml.example
                     application/vnd.ibexa.api.Role+json:
-                        type: Role
+                        type: RoleWrapper
                         example: !include examples/user/roles/id/PATCH/Role.json.example
             400:
                 description: Error - the input does not match the input schema definition.
@@ -187,8 +187,8 @@ post:
                             type: Role
                             example: !include examples/user/roles/id/draft/GET/Role.xml.example
                         application/vnd.ibexa.api.Role+json:
-                            type: Role
-                            example: !include examples/user/roles/id/draft/GET/Role.json.example    
+                            type: RoleWrapper
+                            example: !include examples/user/roles/id/draft/GET/Role.json.example
                 401:
                     description: Error - the user has no permission to read Roles.
                 404:
@@ -214,7 +214,7 @@ post:
                     type: RoleInput
                     example: !include examples/user/roles/id/draft/PATCH/RoleInput.xml.example
                 application/vnd.ibexa.api.RoleInput+json:
-                    type: RoleInput
+                    type: RoleInputWrapper
                     example: !include examples/user/roles/id/draft/PATCH/RoleInput.json.example
             responses:
                 200:
@@ -224,7 +224,7 @@ post:
                             type: Role
                             example: !include examples/user/roles/id/draft/PATCH/Role.xml.example
                         application/vnd.ibexa.api.Role+json:
-                            type: Role
+                            type: RoleWrapper
                             example: !include examples/user/roles/id/draft/PATCH/Role.json.example
                 400:
                     description: Error - the input does not match the input schema definition.
@@ -271,7 +271,7 @@ post:
                             type: PolicyList
                             example: !include examples/user/roles/id/policies/GET/PolicyList.xml.example
                         application/vnd.ibexa.api.PolicyList+json:
-                            type: PolicyList
+                            type: PolicyListWrapper
                             example: !include examples/user/roles/id/policies/GET/PolicyList.json.example
                 401:
                     description: Error - the user has no permission to read Roles.
@@ -305,7 +305,7 @@ post:
                     type: PolicyCreate
                     example: !include examples/user/roles/id/policies/POST/PolicyCreate.xml.example
                 application/vnd.ibexa.api.PolicyCreate+json:
-                    type: PolicyCreate
+                    type: PolicyCreateWrapper
             responses:
                 201:
                     body:
@@ -313,7 +313,7 @@ post:
                             type: Policy
                             example: !include examples/user/roles/id/policies/POST/Policy.xml.example
                         application/vnd.ibexa.api.Policy+json:
-                            type: Policy
+                            type: PolicyWrapper
                 400:
                     description: Error - the input does not match the input schema definition or validation of limitation in PolicyCreate fails.
                 401:
@@ -344,7 +344,7 @@ post:
                         type: PolicyUpdate
                         example: !include examples/user/roles/id/policies/id/PATCH/PolicyUpdate.xml.example
                     application/vnd.ibexa.api.PolicyUpdate+json:
-                        type: PolicyUpdate
+                        type: PolicyUpdateWrapper
                 responses:
                     200:
                         body:
@@ -352,7 +352,7 @@ post:
                                 type: Policy
                                 example: !include examples/user/roles/id/policies/id/PATCH/Policy.xml.example
                             application/vnd.ibexa.api.Policy+json:
-                                type: Policy
+                                type: PolicyWrapper
                     400:
                         description: Error - the input does not match the input schema definition or validation of limitation in PolicyUpdate fails.
                     401:
@@ -379,7 +379,7 @@ post:
                                 type: Policy
                                 example: !include examples/user/roles/id/policies/id/GET/Policy.xml.example
                             application/vnd.ibexa.api.Policy+json:
-                                type: Policy
+                                type: PolicyWrapper
                                 example: !include examples/user/roles/id/policies/id/GET/Policy.json.example
                     401:
                         description: Error - the user has no permission to read Roles.

@@ -10,7 +10,7 @@ get:
         200:
             body:
                 application/vnd.ibexa.api.CustomerGroupList+json:
-                    type: CustomerGroupList
+                    type: CustomerGroupListWrapper
                     example: !include examples/product/catalog/customer_groups/GET/CustomerGroupList.json.example
         401:
             description: Error - the user has no permission to read customer groups.
@@ -28,13 +28,13 @@ post:
                 application/vnd.ibexa.api.CustomerGroupCreate+json
     body:
         application/vnd.ibexa.api.CustomerGroupCreate+json:
-            type: CustomerGroupCreate
+            type: CustomerGroupCreateWrapper
             example: !include examples/product/catalog/customer_groups/POST/CustomerGroupCreate.json.example
     responses:
         201:
             body:
                 application/vnd.ibexa.api.CustomerGroup+json:
-                    type: CustomerGroup
+                    type: CustomerGroupWrapper
                     example: !include examples/product/catalog/customer_groups/POST/CustomerGroup.json.example
         400:
             description: Error - the input does not match the input schema definition.
@@ -56,7 +56,7 @@ post:
             200:
                 body:
                     application/vnd.ibexa.api.CustomerGroup+json:
-                        type: CustomerGroup
+                        type: CustomerGroupWrapper
                         example: !include examples/product/catalog/customer_groups/identifier/GET/CustomerGroup.json.example
             401:
                 description: Error - the user has no permission to read customer groups.
@@ -74,13 +74,13 @@ post:
                     application/vnd.ibexa.api.CustomerGroupUpdate+json
         body:
             application/vnd.ibexa.api.CustomerGroupUpdate+json:
-                type: CustomerGroupUpdate
+                type: CustomerGroupUpdateWrapper
                 example: !include examples/product/catalog/customer_groups/identifier/PATCH/CustomerGroupUpdate.json.example
         responses:
             201:
                 body:
                     application/vnd.ibexa.api.CustomerGroup+json:
-                        type: CustomerGroup
+                        type: CustomerGroupWrapper
                         example: !include examples/product/catalog/customer_groups/identifier/PATCH/CustomerGroup.json.example
             400:
                 description: Error - the input does not match the input schema definition.
@@ -114,7 +114,7 @@ post:
             application/vnd.ibexa.api.CustomerGroupViewInput+xml:
                 type: CustomerGroupViewInput
             application/vnd.ibexa.api.CustomerGroupViewInput+json:
-                type: CustomerGroupViewInput
+                type: CustomerGroupViewInputWrapper
                 example: !include examples/product/catalog/customer_groups/POST/CustomerGroupViewInput.json.example
         responses:
             200:
@@ -122,7 +122,7 @@ post:
                     application/vnd.ibexa.api.CustomerGroupView+xml:
                         type: CustomerGroupView
                     application/vnd.ibexa.api.CustomerGroupView+json:
-                        type: CustomerGroupView
+                        type: CustomerGroupViewWrapper
                         example: !include examples/product/catalog/customer_groups/POST/CustomerGroupView.json.example
             400:
                 description: Error - the input does not match the input schema definition.

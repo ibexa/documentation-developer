@@ -13,13 +13,13 @@
                     application/vnd.ibexa.api.ProductCreate+json
         body:
             application/vnd.ibexa.api.ProductCreate+json:
-                type: ProductCreate
+                type: ProductCreateWrapper
                 example: !include examples/product/catalog/product/POST/ProductCreate.json.example
         responses:
             201:
                 body:
                     application/vnd.ibexa.api.ProductCreate+json:
-                        type: Product
+                        type: ProductWrapper
                         example: !include examples/product/catalog/product/code/GET/Product.json.example
             400:
                 description: Error - the input does not match the input schema definition.
@@ -53,13 +53,13 @@
                     application/vnd.ibexa.api.ProductGet+json
         body:
             application/vnd.ibexa.api.ProductGet+json:
-                type: ProductGet
+                type: ProductGetWrapper
                 example: !include examples/product/catalog/product/code/GET/ProductGet.json.example
         responses:
             200:
                 body:
                     application/vnd.ibexa.api.Product+json:
-                        type: Product
+                        type: ProductWrapper
                         example: !include examples/product/catalog/product/code/GET/Product.json.example
             401:
                 description: Error - the user is not authorized to view this product.
@@ -79,13 +79,13 @@
                     application/vnd.ibexa.api.ProductUpdate+json
         body:
             application/vnd.ibexa.api.ProductUpdate+json:
-                type: ProductUpdate
+                type: ProductUpdateWrapper
                 example: !include examples/product/catalog/product/code/PATCH/ProductUpdate.json.example
         responses:
             201:
                 body:
                     application/vnd.ibexa.api.Product+json:
-                        type: ProductUpdate
+                        type: ProductWrapper
                         example: !include examples/product/catalog/product/code/PATCH/Product.json.example
             400:
                 description: Error - the input does not match the input schema definition.
@@ -109,7 +109,7 @@
                     description: OK - loads the list of product prices.
                     body:
                         application/vnd.ibexa.api.PriceList+json:
-                            type: PriceList
+                            type: PriceListWrapper
                             example: !include examples/product/catalog/product/code/prices/GET/PriceList.json.example
                 401:
                     description: Error - the user has no permission to read prices.
@@ -129,20 +129,20 @@
                         application/vnd.ibexa.api.CustomPriceCreateStruct+json
             body:
                 application/vnd.ibexa.api.PriceCreateStruct+json:
-                    type: PriceCreateStruct
+                    type: PriceCreateStructWrapper
                     example: !include examples/product/catalog/product/code/prices/POST/PriceCreateStruct.json.example
                 application/vnd.ibexa.api.CustomPriceCreateStruct+json:
-                    type: CustomPriceCreateStruct
+                    type: CustomPriceCreateStructWrapper
                     example: !include examples/product/catalog/product/code/prices/POST/CustomPriceCreateStruct.json.example
             responses:
                 200:
                     description: OK - creates product price.
                     body:
                         application/vnd.ibexa.api.Price+json:
-                            type: PriceCreateStruct
+                            type: PriceWrapper
                             example: !include examples/product/catalog/product/code/prices/Price.json.example
                         application/vnd.ibexa.api.CustomPrice+json:
-                            type: CustomPriceCreateStruct
+                            type: CustomPriceWrapper
                             example: !include examples/product/catalog/product/code/prices/CustomPrice.json.example
                 400:
                     description: Error - the input does not match the input schema definition.
@@ -162,7 +162,7 @@
                         description: OK - gets price in given currency.
                         body:
                             application/vnd.ibexa.api.Price+json:
-                                type: Price
+                                type: PriceWrapper
                                 example: !include examples/product/catalog/product/code/prices/currencyCode/GET/Price.json.example
                     401:
                         description: Error - the user has no permission to read prices.
@@ -183,7 +183,7 @@
                                 description: OK - gets price in given currency and customer group.
                                 body:
                                     application/vnd.ibexa.api.CustomPrice+json:
-                                        type: Price
+                                        type: CustomPriceWrapper
                                         example: !include examples/product/catalog/product/code/prices/currencyCode/customer-group/customerGroupIdentifier/GET/CustomPrice.json.example
                             401:
                                 description: Error - the user has no permission to read prices.
@@ -223,23 +223,21 @@
                             application/vnd.ibexa.api.CustomPriceUpdateStruct+json
                 body:
                     application/vnd.ibexa.api.PriceUpdateStruct+json:
-                        type: PriceUpdateStruct
-                        example:
-                            !include examples/product/catalog/product/code/prices/id/PATCH/PriceUpdate.json.example
+                        type: PriceUpdateStructWrapper
+                        example: !include examples/product/catalog/product/code/prices/id/PATCH/PriceUpdate.json.example
                     application/vnd.ibexa.api.CustomPriceUpdateStruct+json:
-                        type: CustomPriceUpdateStruct
-                        example: 
-                            !include examples/product/catalog/product/code/prices/id/PATCH/CustomPriceUpdate.json.example
+                        type: CustomPriceUpdateStructWrapper
+                        example: !include examples/product/catalog/product/code/prices/id/PATCH/CustomPriceUpdate.json.example
                 responses:
                     200:
                         description: OK - updates product price.
                         body:
                             application/vnd.ibexa.api.Price+json:
-                                type: Price
-                                example: !include examples/product/catalog/product/code/prices/id/PATCH/PriceUpdate.json.example
+                                type: PriceWrapper
+                                example: !include examples/product/catalog/product/code/prices/id/Price.json.example
                             application/vnd.ibexa.api.CustomPrice+json:
-                                type: CustomPrice
-                                example: !include examples/product/catalog/product/code/prices/id/PATCH/CustomPriceUpdate.json.example
+                                type: CustomPriceWrapper
+                                example: !include examples/product/catalog/product/code/prices/id/CustomPrice.json.example
                     400:
                         description: Error - the input does not match the input schema definition.
                     401:
@@ -258,13 +256,13 @@ get:
                 application/vnd.ibexa.api.ProductListGet+json
     body:
         application/vnd.ibexa.api.ProductListGet+json:
-            type: ProductListGet
+            type: ProductListGetWrapper
             example: !include examples/product/catalog/product/GET/ProductListGet.json.example
     responses:
         200:
             body:
                 application/vnd.ibexa.api.ProductList+json:
-                    type: ProductList
+                    type: ProductListWrapper
                     example: !include examples/product/catalog/product/GET/ProductList.json.example
         401:
             description: Error - the user has no permission to read product.
@@ -287,7 +285,7 @@ get:
             application/vnd.ibexa.api.ProductViewInput+xml:
                 type: ProductViewInput
             application/vnd.ibexa.api.ProductViewInput+json:
-                type: ProductViewInput
+                type: ProductViewInputWrapper
                 example: !include examples/product/catalog/product/POST/ProductViewInput.json.example
         responses:
             200:
@@ -295,7 +293,7 @@ get:
                     application/vnd.ibexa.api.ProductView+xml:
                         type: ProductView
                     application/vnd.ibexa.api.ProductView+json:
-                        type: ProductView
+                        type: ProductViewWrapper
                         example: !include examples/product/catalog/product/POST/ProductView.json.example
             400:
                 description: Error - the input does not match the input schema definition.
