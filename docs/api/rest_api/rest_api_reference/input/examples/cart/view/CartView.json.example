@@ -11,10 +11,10 @@
                     {
                         "_media-type": "application\/vnd.ibexa.api.Cart+json",
                         "id": 1,
-                        "identifier": "289ab191-c6ea-45af-9adb-a5060d997361",
+                        "identifier": "e79b5dba-c701-4c64-8032-73719a513e50",
                         "name": "Default",
-                        "createdAt": "2024-09-25T14:44:07+00:00",
-                        "updatedAt": "2024-09-25T14:44:07+00:00",
+                        "createdAt": "2024-09-26T09:16:56+00:00",
+                        "updatedAt": "2024-09-26T09:16:56+00:00",
                         "owner": {
                             "_media-type": "application\/vnd.ibexa.api.User+json",
                             "_href": "\/api\/ibexa\/v2\/user\/users\/10"

@@ -16,6 +16,7 @@ post:
     body:
         application/vnd.ibexa.api.CartCreate+xml:
             type: CartCreate
+            example: !include examples/cart/POST/CartCreate.xml.example
         application/vnd.ibexa.api.CartCreate+json:
             type: CartCreateWrapper
             example: !include examples/cart/POST/CartCreate.json.example
@@ -24,6 +25,7 @@ post:
             body:
                 application/vnd.ibexa.api.Cart+xml:
                     type: Cart
+                    example: !include examples/cart/POST/Cart.xml.example
                 application/vnd.ibexa.api.Cart+json:
                     type: CartWrapper
                     example: !include examples/cart/POST/Cart.json.example
@@ -47,6 +49,7 @@ post:
         body:
             application/vnd.ibexa.api.CartViewInput+xml:
                 type: CartViewInput
+                example: !include examples/cart/view/CartViewInput.xml.example
             application/vnd.ibexa.api.CartViewInput+json:
                 type: CartViewInputWrapper
                 example: !include examples/cart/view/CartViewInput.json.example
@@ -181,8 +184,10 @@ post:
                     body:
                         application/vnd.ibexa.api.CartConstraintViolationList+xml:
                             type: CartConstraintViolationList
+                            example: !include examples/cart/identifier/validate/CartConstraintViolationList.xml.example
                         application/vnd.ibexa.api.CartConstraintViolationList+json:
                             type: CartConstraintViolationListWrapper
+                            example: !include examples/cart/identifier/validate/CartConstraintViolationList.json.example
 /authorize:
     post:
         displayName: Cart Authorization
@@ -197,6 +202,7 @@ post:
                 body:
                     application/vnd.ibexa.api.Token+xml:
                         type: Token
+                        example: !include examples/cart/authorize/Token.xml.example
                     application/vnd.ibexa.api.CartConstraintViolationList+json:
                         type: Token
                         example: !include examples/cart/authorize/Token.json.example
