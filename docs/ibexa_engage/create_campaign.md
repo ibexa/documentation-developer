@@ -35,7 +35,7 @@ If size fields are blank, the system sets default template values. It's recommen
 ## Embed campaign in the Rich text field
 
 You can embed campaign in the Rich text field with Campaign custom tag.
-To do it, insert campaign content item in the Rich Text Field and choose campaign from the drop-down list.
+To do it, insert **Campaign** content item in the Rich Text Field and choose campaign from the drop-down list.
 This list includes all campaigns available on user's Qualifio account which are active or scheduled to launch in the future.
 
 You can set the dimensions of the field in which the campaign is displayed. To do it, insert width and height values in the proper fields.
