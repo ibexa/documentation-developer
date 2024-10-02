@@ -20,8 +20,8 @@ For other security related subjects, see:
 
 !!! caution "SiteAccess login"
 
-    The Anonymous user is used to perform the authentification requests.
-    Therefore, Anonymous users must have `user/login` permission on the SiteAccess that matches the REST domain or is passed through the [`X-Siteaccess` header](rest_requests.md#siteaccess).
+    The anonymous user is used to perform the authentification requests.
+    Therefore, "Anonymous" role must have `user/login` permission on the SiteAccess that matches the REST domain or is passed through the [`X-Siteaccess` header](rest_requests.md#siteaccess).
 
 ## Session-based authentication
 
