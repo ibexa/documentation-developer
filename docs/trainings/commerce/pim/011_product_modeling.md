@@ -41,6 +41,7 @@ The "Product specification" field type (`ibexa_product_specification`) brings in
 
 Notice that you don't need to add a field or an attribute for price.
 Prices are handled by a particular side mechanism, the price engine, which is treated later in the training with VAT, currencies, etc.
+But, also notice that VAT is set at Product Type level. 
 
 ## Attributes VS Fields
 
@@ -108,6 +109,9 @@ And it doesn't involve different brands and models for the same feature yet.
         - Material: [Steel, Aluminium, Titanium, Carbon, Wood, Bamboo, Mixed, …]
         - Type: [Rigid, Suspension, Dropper, …]
         - Attachment: [Quick release, Bolt/nut, Anti-thief, …]
+    - Pedals:
+        - Type: [Flat, Quill, Clipless, …]
+        - Foldable: yes/no
     - Gears:
         - Front gears:
             - Speed count: [1…3]
@@ -116,7 +120,7 @@ And it doesn't involve different brands and models for the same feature yet.
             - Control type: [Lever, Ring, …]
             - Control placement: [Handlebar, Frame, …]
         - Rear gears:
-            - Speed count: [1…8]
+            - Speed count: [1…12]
             - Control type: [Bowden cable, Hydraulic, Electronic, …]
             - Type: [Single, External, Hub internal, Crank gearbox, …]
             - Control transmission: [Bowden cable, Hydraulic, Electronic, …]
@@ -152,32 +156,37 @@ A bad practice would be to try to have a unique product type for modeling all th
 For example, series of product won't necessarily vary on the same attributes.
 TODO: To have one product type per base product can happen.
 
+The exercise consists into modeling the following catalog of mountain bikes (MTB).
+The catalog is split in series, each series got few base products with variations.
 
+To simplify casual customer experience (and above all the exercise), the vendor don't give a lot of choices.
 
+- Manufacturers, brands and models are predefined.
+- Front and rear gears, transmission and shifting system are set in one bundle with predefined models.
 
-Mountain Bike (MTB)
-- MTB 4 series
-    - Fuji (3776€) (MTBS4-4)
-        - Frame: [Diamond, Step-through]
-        - TODO
-    - Matterhorn (4478€) (MTBS4-5)
-    - Annapurna (8091€) (MTBS4-6)
-        - Frame: [Diamond w/ suspension]
-    - Etna (3369€) (MTBS4-7)
-- MTB 5 series
-    - Kilimanjaro (5895€) (MTBS5-0)
-    - Stádda (1392€) (MTBS5-1)
-    - Aconcagua (6960€) (MTBS5-2)
-    - Ventoux (1910€) (MTBS5-3)
-    - Castor (4225€) (MTBS5-4)
+The following table shows only properties that can vary. When not all combinations are available, the product has multiple lines.
 
+| Name        | Code         | Material  | Frame shapes               | Frameset + wheel sizes | Saddle           | Paint job              | Gears  | Price |
+|:------------|:-------------|:----------|:---------------------------|:-----------------------|:-----------------|:-----------------------|:-------|------:|
+| Fuji        | MTB-S4-4-1-* | Aluminium | Diamond                    | [S, M, L, XL] + 29″    | Thin             | [Sakura, Ronin]        | B-2x10 | 3776€ |
+| Fuji        | MTB-S4-4-2-* | Aluminium | [Diamond, Step-through]    | [S, M, L] + 29″        | [Thin, Large]    | [Sakura, Ronin]        | B-1x10 | 3676€ |
+| Fuji        | MTB-S4-4-3-* | Aluminium | [Diamond, Step-through]    | XS + 27.5″             | [Thin, Large]    | [Sakura, Ronin]        | B-1x08 | 3666€ |
+| Matterhorn  | MTB-S4-5-*   | Aluminium | Diamond                    | [S, M, L, XL] + 29″    | [Thin, Large]    | [Snow, Rock]           | B-2x12 | 4478€ |
+| Annapurna   | MTB-S4-6-*   | Carbon    | Diamond w/ suspension      | [S, M, L, XL] + 29″    | [Thin, Noseless] | Annapurna              | A-3x12 | 8091€ |
+| Etna        | MTB-S4-7-1-* | Aluminium | [Diamond, Step-through]    | [S, M, L, XL] + 29″    | [Thin, Large]    | Etna                   | B-1x06 | 3369€ |
+| Etna        | MTB-S4-7-2-* | Aluminium | [Diamond, Step-through]    | XS + 27.5″             | [Thin, Large]    | Etna                   | B-1x06 | 3339€ |
+| Kilimanjaro | MTB-S5-0-*   | Aluminium | Step-through w/ suspension | [S, M, L, XL] + 29″    | [Thin, Large]    | [Shira, Mawenzi, Kibo] | A-2x12 | 5895€ |
+| Stádda      | MTB-S5-1-*   | Aluminium | Step-through               | XS + [26″, 27.5″]      | Large            | [Sunrise, Sunset]      | C-1x03 | 1392€ |
+| Aconcagua   | MTB-S5-2-*   | Carbon    | Diamond w/ suspension      | [S, M, L, XL] + 29″    | [Thin, Noseless] | [Condor, Llama]        | A-3x12 | 6960€ |
+| Ventoux     | MTB-S5-3-*   | Aluminium | Step-through               | XS + [26″, 27.5″]      | [Thin, Large]    | [Provence, Mistral]    | C-1x04 | 1910€ |
+| Castor      | MTB-S5-4-*   | Aluminium | Diamond                    | [S, M, L, XL] + 29″    | [Thin, Large]    | [Castor, Pollux]       | B-2x12 | 4225€ |
 
-- Create the attribute groups
+- Create the attribute group(s)
 - Create the attributes
-- Create the product types
+- Create the product type(s)
 - Create the products
+- Create the variants
 
-TODO: Variants
 TODO: [Create custom product code generator strategy](create_product_code_generator.md) 
 
 Your new products are in the "Uncategorized products" section of the **Products** admin page.
