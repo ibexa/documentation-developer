@@ -18,6 +18,11 @@ For other security related subjects, see:
 - [Cross-origin requests](rest_responses.md#cross-origin)
 - [`access_control`]([[= symfony_doc =]]/security/access_control.html)
 
+!!! caution "SiteAccess login"
+
+    The anonymous user is used to access the ressource even if authentification with the REST server has been established.
+    Anonymous user must have user/login policy on the SiteAccess used by the REST domain.
+
 ## Session-based authentication
 
 This authentication method requires a session cookie to be sent with each request.
