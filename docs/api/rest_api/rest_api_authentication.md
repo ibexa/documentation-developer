@@ -20,7 +20,7 @@ For other security related subjects, see:
 
 !!! caution "SiteAccess login"
 
-    The anonymous user is used to access the ressource even if authentification with the REST server has been established.
+    The anonymous user is used to perform the request even if authentification with the REST server has been established to access the ressource.
     Anonymous user must have `user/login` policy on the SiteAccess matched by the REST domain or passed through [`X-Siteaccess` header](rest_requests.md#siteaccess).
 
 ## Session-based authentication
