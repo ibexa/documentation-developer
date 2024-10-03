@@ -1,10 +1,10 @@
 ---
-description: Add custom drop down menus to Back Office interface.
+description: Add custom drop down menus to back office interface.
 ---
 
 # Add drop-downs
 
-In [[= product_name =]], you can create a reusable custom drop-down and implement it anywhere in the Back Office.
+In [[= product_name =]], you can create a reusable custom drop-down and implement it anywhere in the back office.
 Follow the steps below to learn how to integrate this component to fit it to your project needs.
 
 ## Create `<select>` input

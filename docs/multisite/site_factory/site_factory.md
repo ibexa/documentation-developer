@@ -1,11 +1,11 @@
 ---
-description: Site Factory allows creating multiple sites (SiteAccesses) from the Back Office.
+description: Site Factory allows creating multiple sites (SiteAccesses) from the back office.
 edition: experience
 ---
 
 # Site Factory
 
-Site Factory is a site management interface, integrated with the Back Office.
+Site Factory is a site management interface, integrated with the back office.
 It enables you to configure new sites without editing [YAML-based SiteAccess configuration](multisite_configuration.md).
 
 !!! note
@@ -100,7 +100,7 @@ ibexa_site_factory:
             thumbnail: /path/to/image/example-thumbnail_2.png
 ```
 
-You can check the results of your work in the Back Office by going to **Site management** and selecting **Sites**.
+You can check the results of your work in the back office by going to **Site management** and selecting **Sites**.
 
 There, you should be able to add a new site and choose a design for it.
 
@@ -174,7 +174,7 @@ Now, all new directories are created under "Ibexa DXP".
 
 The Site Factory is set up, now you can provide sufficient permissions to the Users.
 
-Set the below Policies to allow Users to:
+Set the below policies to allow users to:
 
 - `site/view` - enter the Site Factory interface
 - `site/create` - create sites

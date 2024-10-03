@@ -1,5 +1,5 @@
 ---
-description: Field Type FormMappers allow Field editing, while custom templates ensure the Field can be rendered both in the Back office and on site front.
+description: Field Type FormMappers allow Field editing, while custom templates ensure the Field can be rendered both in the back office and on site front.
 ---
 
 # Form and template
@@ -180,11 +180,11 @@ ibexa:
                     priority: 10
 ```
 
-## Back Office templates
+## Back office templates
 
-### Back Office view template
+### Back office view template
 
-For templates for previewing the Field in the Back Office,
+For templates for previewing the Field in the back office,
 using the design engine is recommended with `ibexa_standard_design.override_kernel_templates` set to `true`.
 With the design engine you can apply a template (e.g. `Resources/views/themes/admin/content_fields.html.twig`) without any extra configuration.
 
@@ -200,7 +200,7 @@ ibexa:
 
 ### Field edit template
 
-To use a template for the Field edit form in the Back Office, you need to specify it in configuration
+To use a template for the Field edit form in the back office, you need to specify it in configuration
 under the `twig.form_themes` [configuration key](configuration.md#configuration-files):
 
 ``` yaml

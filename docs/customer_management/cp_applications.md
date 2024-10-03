@@ -6,7 +6,7 @@ edition: experience
 # Customer Portal applications
 
 New business customers can apply for a company account.
-Applications go through the approval process in the Back Office where they can be accepted, rejected or put on hold.
+Applications go through the approval process in the back office where they can be accepted, rejected or put on hold.
 If they are accepted, the business partner receives an invitation link to the Customer Portal,
 where they can set up their team and manage their account.
 
@@ -15,11 +15,11 @@ If provided options are too limited, you can customize an approval process by yo
 
 ## Roles and policies
 
-Any user can become application approver, as long as they have the `Company Application/Workflow` Policy assigned to their Role.
+Any user can become application approver, as long as they have the `Company Application/Workflow` policy assigned to their role.
 There, you can define between which states the user may move applications.
 For example, the assistant can put new applications on hold, or reject them, and only the manager can accept them.
 
-![Company Application Policy](img/cp_company_application_policy.png)
+![Company Application policy](img/cp_company_application_policy.png)
 
 ## Customer Portal application configuration
 

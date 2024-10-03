@@ -1,10 +1,10 @@
 ---
-description: Create a custom menu in the Back Office.
+description: Create a custom menu in the back office.
 ---
 
 # Add menu item
 
-To add a new menu entry in the Back Office, you need to use an event subscriber
+To add a new menu entry in the back office, you need to use an event subscriber
 and subscribe to [one of the events](back_office_menus.md#menu-events) dispatched when building menus.
 
 The following example shows how to add a "Content list" item to the main top menu
@@ -49,7 +49,7 @@ Finally, create the `templates/themes/admin/list/all_content_list.html.twig` fil
 ```
 
 This template uses the [reusable table template](reusable_components.md#tables)
-to render a table that fits the style of the Back Office.
+to render a table that fits the style of the back office.
 
 You can configure the columns of the table in the `head_cols` variable
 and the regular table rows in `body_rows`.

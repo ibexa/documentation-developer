@@ -33,6 +33,6 @@ Section ID numbers are not recycled. If a Section is removed, its ID number will
 ### Registering users
 
 Registration form for your website is placed under this address: <yourdomain>/register.
-By default, new Users created in this way are placed in the Guest accounts group.
+By default, new users created in this way are placed in the Guest accounts group.
 To give your users a possibility to register themselves, follow the instructions 
 on [enabling account registration](8_enable_account_registration.md).

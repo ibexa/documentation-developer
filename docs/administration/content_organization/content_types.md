@@ -36,11 +36,11 @@ Each content type is characterized by a set of metadata which define the general
 
 <a id="content-name-pattern"></a>**Content name pattern** – a pattern that defines what name a new content item based on this content type gets. The pattern usually consists of Field identifiers that tell the system which Fields it should use when generating the name of a content item. Each Field identifier has to be surrounded with angle brackets. Text outside the angle brackets will be included literally. If no pattern is provided, the system will automatically use the first Field. (Optional.)
 
-**URL alias name pattern** – a pattern which controls how the virtual URLs of the Locations will be generated when content items are created based on this content type. Note that only the last part of the virtual URL is affected. The pattern works in the same way as the Content name pattern. Text outside the angle brackets will be converted using the selected method of URL transformation. If no pattern is provided, the system will automatically use the name of the content item itself. (Optional.)
+**URL alias name pattern** – a pattern which controls how the virtual URLs of the Locations will be generated when content items are created based on this content type. Note that only the last part of the virtual URL is affected. The pattern works in the same way as the content name pattern. Text outside the angle brackets will be converted using the selected method of URL transformation. If no pattern is provided, the system will automatically use the name of the content item itself. (Optional.)
 
-!!! tip "Changing URL alias and Content name patterns"
+!!! tip "Changing URL alias and content name patterns"
 
-    If you change the Content name pattern or the URL alias name pattern,
+    If you change the content name pattern or the URL alias name pattern,
     existing content items will not be modified automatically.
     The new pattern will only be applied after you modify the content item and save a new version.
 

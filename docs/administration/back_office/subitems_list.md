@@ -1,5 +1,5 @@
 ---
-description: Inject a sub-items list into your Back Office customizations.
+description: Inject a sub-items list into your back office customizations.
 ---
 
 # Sub-items list

@@ -31,7 +31,7 @@ Due to this storage limitation, searching content using the Country Field Type o
 |[ContentTypeIdentifier](contenttypeidentifier_criterion.md)|Identifier of the content item's content type|&#10004; |&#10004; |&#10004; |
 |[CurrencyCodeCriterion](currencycode_criterion.md)|Currency code|&#10004; |&#10004; |&#10004; |
 |[DateMetadata](datemetadata_criterion.md)|The date when content was created or last modified|&#10004; |&#10004; |&#10004; |
-|[Depth](depth_criterion.md)|Location depth in the Content tree| |&#10004; |&#10004; |
+|[Depth](depth_criterion.md)|Location depth in the content tree| |&#10004; |&#10004; |
 |[Field](field_criterion.md)|Content of one of content item's Fields|&#10004; |&#10004; | |
 |[FieldRelation](fieldrelation_criterion.md)|Content items the content in question has Relations to|&#10004; |&#10004; | |
 |[FullText](fulltext_criterion.md)|Full text content of a content item's Fields|&#10004; |&#10004; | |

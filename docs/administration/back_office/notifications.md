@@ -1,5 +1,5 @@
 ---
-description: You can send notifications to users who work with the Back Office by using notification bars or notifications in the user menu.
+description: You can send notifications to users who work with the back office by using notification bars or notifications in the user menu.
 ---
 
 # Notifications
@@ -7,18 +7,18 @@ description: You can send notifications to users who work with the Back Office b
 You can send two types on notifications to the users.
 
 [Notification bar](#notification-bars) is displayed in specific situations as a message bar appearing at the bottom of the page.
-It appears to whoever is doing a specific operation in the Back Office.
+It appears to whoever is doing a specific operation in the back office.
 
 ![Example of an info notification](notification2.png "Example of the notification bar")
 
 [Custom notifications](#create-custom-notifications) are sent to a specific user.
-They will appear in their profile in the Back Office.
+They will appear in their profile in the back office.
 
 ![Notification in profile](notification3.png)
 
 ## Notification bars
 
-Notifications are displayed as a message bar in the Back Office.
+Notifications are displayed as a message bar in the back office.
 There are four types of notifications: `info`, `success`, `warning` and `error`.
 
 ### Displaying notifications from PHP

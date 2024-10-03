@@ -1,5 +1,5 @@
 ---
-description: Add a new tab to the Back Office dashboard that welcomes every user after logging in.
+description: Add a new tab to the back office dashboard that welcomes every user after logging in.
 ---
 
 # Create dashboard tab

@@ -33,7 +33,7 @@ For the request to return recommendations, you must provide the following parame
 |---|---|---|
 |`customerid`|A customer ID (for example "00000"), as defined when [enabling Personalization](enable_personalization.md#set-up-customer-credentials). Can be used to identify a website in installations that [hosts multiple SiteAccesses]([[= user_doc =]]/personalization/use_cases/#multiple-website-hosting).|alphanumeric|
 |`userid`|An ID of the tracked user in the website (for example, an internal customer code, a session code or a cookie for anonymous users.|alphanumeric|
-|`scenarioid`|An ID of the scenario used for providing recommendations, as defined in the Back Office.|alphanumeric|
+|`scenarioid`|An ID of the scenario used for providing recommendations, as defined in the back office.|alphanumeric|
 |`extension`|A format of the response (either JSON or JSONP).|`json` or `jsonp`|
 
 !!! caution "Parameter encoding limitations"

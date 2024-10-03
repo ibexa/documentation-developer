@@ -92,8 +92,8 @@ Use this option to define a user group that should be migrated to a new content 
 php bin/console ibexa:migrate:customers  --input-user-group=3a3beb3d09ae0dacebf1d324f61bbc34 --create-content-type
 ```
 
-- `--input-user-group` - represents the remote ID of a User Group you want to migrate to a new content type.
-After migration, this will also be the ID of a new Private Customer User Group.
+- `--input-user-group` - represents the remote ID of a user group you want to migrate to a new content type.
+After migration, this will also be the ID of a new Private Customer user group.
 - `--create-content-type` - if you add this parameter, the system creates the new content type based on the one defined in `--input-user-content-type`
 
 ##### Additional parameters

@@ -38,7 +38,7 @@ When a system runs out of RAM, you may see `Killed` when trying to clear the cac
 
 ## Upload size limit
 
-To make use of the Back Office, the defined maximum upload size must be consistent with the maximum file size defined in the content type using a File, Media or Image Field.
+To make use of the back office, the defined maximum upload size must be consistent with the maximum file size defined in the content type using a File, Media or Image Field.
 
 This is done by setting `LimitRequestBody` for Apache or `client_max_body_size` for nginx.
 

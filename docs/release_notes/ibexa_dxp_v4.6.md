@@ -35,7 +35,7 @@ For more information, see [Customizable dashboard](https://doc.ibexa.co/projects
 
 ### UX and UI improvements
 
-Several improvements to the Back Office interface enhance the user experience.
+Several improvements to the back office interface enhance the user experience.
 
 #### Page Builder improvements [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
@@ -68,7 +68,7 @@ For more information, see [Edit embedded content items](https://doc.ibexa.co/pro
 
 #### Focus mode
 
-With multiple changes to the Back Office UI intended to expose the most important information and actions, editors can now better focus on their work.
+With multiple changes to the back office UI intended to expose the most important information and actions, editors can now better focus on their work.
 The UI is now more friendly and appealing for marketers and editors, with simplified Content structure, designed with new and non-advanced users in mind.
 For more information, see [Focus mode](https://doc.ibexa.co/projects/userguide/en/latest/getting_started/discover_ui/#focus-mode).
 
@@ -79,14 +79,14 @@ As part of this effort, some other changes were introduced that apply to both re
 - In content item details view, tabs have been reordered by their relevance
 - **Authors** and **Sub-items** are now separate tabs in content item details view
 - Former **Details** tab is now called **Technical details** and changed its position
-- Preview is available in many new places, such as the **View** tab in content item details view, or as miniatures when you hover over the Content Tree
+- Preview is available in many new places, such as the **View** tab in content item details view, or as miniatures when you hover over the content tree
 - `ibexa_is_focus_mode_on` and `ibexa_is_focus_mode_off` Twig helpers have been introduced, which check whether focus mode is enabled or not.
 
 ![Sub-items tab](img/4.6_sub_items_tab.png "Sub-items tab")
 
 #### Ability to change site context
 
-With a drop-down list added to the top bar, which changes the site context, editors can choose that the Content Tree shows only those content items that belong to the selected website.
+With a drop-down list added to the top bar, which changes the site context, editors can choose that the content tree shows only those content items that belong to the selected website.
 And if content items belong to multiple websites but use different designs or languages depending on the SiteAccess settings, their previews also change.
 
 As part of this effort, the name of the "Sites" area of the main menu has changed to "Site management".
@@ -136,7 +136,7 @@ For more information, see [user profile and settings documentation](https://doc.
 #### Recent activity log
 
 Several actions on the repository or the application are logged.
-In the Back Office, last activity logs can be listed on a dedicated interface (Admin -> Activity list),
+In the back office, last activity logs can be listed on a dedicated interface (Admin -> Activity list),
 on the dashboard within Recent activity block, or on the user profile.
 
 ![Recent activity log](img/4.6_activity_list.png "Recent activity log")
@@ -145,7 +145,7 @@ For more information,
 see feature's [user documentation](https://doc.ibexa.co/projects/userguide/en/master/recent_activity/recent_activity/),
 and [developer documentation](https://doc.ibexa.co/en/master/administration/recent_activity/recent_activity/).
 
-#### Back Office search
+#### back office search
 
 ##### Search bar, suggestions, autocompletion, and spellcheck
 
@@ -173,7 +173,7 @@ and how to [customize search sorting](https://doc.ibexa.co/en/master/administrat
 
 #### New and updated content type icons
 
-To help users quickly identify different content types in the Back Office, all content type references are now accompanied with icons.
+To help users quickly identify different content types in the back office, all content type references are now accompanied with icons.
 Also, content type icons have changed slightly.
 
 ![Content type icons](img/4.6_content_type_icons.png "Content type icons")

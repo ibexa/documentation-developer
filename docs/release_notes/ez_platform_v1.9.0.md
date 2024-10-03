@@ -20,7 +20,7 @@ You can now create collections of content quickly: upload multiple files in bulk
 
 #### Content browser
 
-In version 1.8 we introduced a new Content Browser in the Universal Discovery Widget (UDW). This Content Browser is now used to browse content everywhere, also when accessing the content tree through the left pane in Platform UI. This allows users to reach the entire repository from this toolbar (which was previously limited in terms of number of items per level), it also provides a much more consistent user experience. To reflect this change, the Content tree button has been renamed **Content browse**.
+In version 1.8 we introduced a new Content Browser in the Universal Discovery Widget (UDW). This Content Browser is now used to browse content everywhere, also when accessing the content tree through the left pane in Platform UI. This allows users to reach the entire repository from this toolbar (which was previously limited in terms of number of items per level), it also provides a much more consistent user experience. To reflect this change, the content tree button has been renamed **Content browse**.
 
 ![](contentbrowse.gif)
 

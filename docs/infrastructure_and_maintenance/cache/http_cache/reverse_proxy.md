@@ -72,7 +72,7 @@ Failing to configure reverse proxies correctly may introduce several problems, i
 
 - [[= product_name =]] generating links with a wrong protocol schema (HTTP instead of HTTPS) if HTTPS termination is done before the web server due to the `X-Forward-Proto` headers being ignored
 - [[= product_name =]] generating links with wrong port numbers due to the `X-Forward-Port` headers being ignored
-- Back Office showing the login screen because JWT tokens are not accepted due to the `X-Forward-For` headers being ignored
+- back office showing the login screen because JWT tokens are not accepted due to the `X-Forward-For` headers being ignored
 
 ### Configure Symfony front controller
 
@@ -326,11 +326,11 @@ with the following logic in the out-of-the-box VCL:
 Serving grace is not always allowed by default because:
 
 - It is a safe default. Even if just for anonymous users, stale cache can easily be confusing during acceptance testing.
-- It means REST API, which is used by the Back Office, would serve stale data, breaking the UI.
+- It means REST API, which is used by the back office, would serve stale data, breaking the UI.
 
 !!! tip "Customizing stale cache handling"
 
     If you want to use grace handling for logged-in users as well, you can adapt the provided VCL to add a condition
-    for opting out if the request has a cookie and the path contains REST API prefix to make sure the Back Office is not negatively affected.
+    for opting out if the request has a cookie and the path contains REST API prefix to make sure the back office is not negatively affected.
 
     If you want to disable grace mode, you can adapt the VCL to do hard instead of soft purges, or set grace/stale time to `0s`.

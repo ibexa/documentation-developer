@@ -15,9 +15,9 @@ enables you to perform search queries using the PHP API.
 
 The service should be [injected into the constructor of your command or controller](php_api.md#service-container).
 
-!!! tip "SearchService in the Back Office"
+!!! tip "SearchService in the back office"
 
-    `SearchService` is also used in the Back Office of [[= product_name =]],
+    `SearchService` is also used in the back office of [[= product_name =]],
     in components such as Universal Discovery Widget or Sub-items List.
 
 ### Performing a search

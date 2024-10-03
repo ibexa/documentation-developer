@@ -151,6 +151,6 @@ Register the storage definition as a service and tag it with `ibexa.product_cata
 
 ## Use new attribute type
 
-In the Back Office you can now add a new Percent attribute to your product type and create a product with it.
+In the back office you can now add a new Percent attribute to your product type and create a product with it.
 
 ![Creating a product with a custom Percent attribute](catalog_custom_attribute_type.png)

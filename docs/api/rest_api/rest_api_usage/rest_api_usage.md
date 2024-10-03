@@ -8,7 +8,7 @@ The REST API in [[= product_name =]] allows you to interact with an [[= product_
 following a [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) interaction model.
 
 Each resource (URI) interacts with a part of the system (like content, users or search).
-Every interaction with the Repository than you can do from Back Office or using the [Public PHP API](php_api.md) can also be done using the REST API.
+Every interaction with the Repository than you can do from back office or using the [Public PHP API](php_api.md) can also be done using the REST API.
 
 The REST API uses HTTP methods (such as `GET` and `PUBLISH`), as well as HTTP headers to specify the type of request.
 

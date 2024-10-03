@@ -1,10 +1,10 @@
 ---
-description: Tabs are used for content view, in dashboard, system information and other parts of the Back Office and are extensible.
+description: Tabs are used for content view, in dashboard, system information and other parts of the back office and are extensible.
 ---
 
-# Back Office tabs
+# Back office tabs
 
-Many elements of the Back Office interface, such as content view, dashboard or system information, are built using tabs.
+Many elements of the back office interface, such as content view, dashboard or system information, are built using tabs.
 
 ![Tabs in System Information](tabs_system_info.png)
 

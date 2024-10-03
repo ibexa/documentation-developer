@@ -21,7 +21,7 @@ page_type: reference
 
 #### Icon size variants
 
-The default icon size in the Back Office is `32px`. To change the default size, in the template add the modifier to the class name.
+The default icon size in the back office is `32px`. To change the default size, in the template add the modifier to the class name.
 
 ``` twig
 <svg class="ibexa-icon ibexa-icon--medium">

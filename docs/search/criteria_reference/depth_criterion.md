@@ -1,7 +1,7 @@
 # Depth Criterion
 
 The [`Location\Depth` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Location-Depth.html)
-searches for Locations based on their depth in the Content tree.
+searches for Locations based on their depth in the content tree.
 
 This Criterion is available only for Location Search.
 

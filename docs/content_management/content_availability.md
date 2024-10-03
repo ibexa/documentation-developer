@@ -19,7 +19,7 @@ corresponding to the current SiteAccess.
 
 !!! note
 
-    There is currently no way in the Back Office to edit the Content availability flag
+    There is currently no way in the back office to edit the Content availability flag
     for an already published content item.
     
     To do this via [PHP API](creating_content.md#updating-content), set the [`alwaysAvailable` property](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentMetadataUpdateStruct.html#property_alwaysAvailable) of the Content metadata.

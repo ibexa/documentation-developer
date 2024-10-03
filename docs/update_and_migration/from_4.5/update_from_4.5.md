@@ -265,7 +265,7 @@ php bin/console ibexa:migrations:migrate --file=2023_09_23_14_15_dashboard_struc
 
 !!! caution
 
-    The `2023_10_10_16_14_dashboard_permissions.yaml` migration creates a Role dedicated for dashboard management and assigns it to the Editors User Group. If you have custom User Groups which need to manipulate dashboards, you need to skip this migration, copy it to your migrations folder (by default, `src/Migrations/Ibexa/migrations`) and adjust it according to your needs before execution.
+    The `2023_10_10_16_14_dashboard_permissions.yaml` migration creates a Role dedicated for dashboard management and assigns it to the Editors user group. If you have custom user groups which need to manipulate dashboards, you need to skip this migration, copy it to your migrations folder (by default, `src/Migrations/Ibexa/migrations`) and adjust it according to your needs before execution.
 
 For [[= product_name_com =]] there's an additional migration:
 ``` bash
@@ -340,7 +340,7 @@ ibexa:
                 field_groups: ['about', 'contact']
 ```
 
-You can use your own content type that represents the Back Office user, or use the default one provided by [[= product_name =]]:
+You can use your own content type that represents the back office user, or use the default one provided by [[= product_name =]]:
 
 ```bash
 php bin/console ibexa:migrations:import vendor/ibexa/installer/src/bundle/Resources/install/migrations/2023_12_07_20_23_editor_content_type.yaml --name=2023_12_07_20_23_editor_content_type.yaml
@@ -350,7 +350,7 @@ php bin/console ibexa:migrations:migrate --file=2023_12_07_20_23_editor_content_
 
 #### Site context
 
-Site context is used in Content Tree to display only those content items that belong to the selected website.
+Site context is used in content tree to display only those content items that belong to the selected website.
 
 You can add locations that shoudn't be publicly accessible to the list of excluded paths:
 
@@ -392,7 +392,7 @@ ibexa:
 
 #### Recent activity [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-You must add the "Activity Log / Read" policy (`activity_log/read`) to every role that has access to the Back Office, at least with the "Only own log" limitation.
+You must add the "Activity Log / Read" policy (`activity_log/read`) to every role that has access to the back office, at least with the "Only own log" limitation.
 This policy is mandatory to display the "Recent activity" block in [dashboards](#dashboard-migration), and the "Recent activity" block in [user profiles](#user-profile).
 
 The following migration example allows users with the `Editor` role to access their own activity log:

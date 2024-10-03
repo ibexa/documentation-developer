@@ -137,7 +137,7 @@ Note that you should test your migrations. See [Importing data](importing_data.m
 !!! caution
 
     [`--siteaccess` option](#siteaccess) usage can be relevant when multiple languages or multiple repositories are used.
-    To prevent translation loss, it is recommended that you use the SiteAccess that has all the languages used in your implementation, most likely the Back Office one.
+    To prevent translation loss, it is recommended that you use the SiteAccess that has all the languages used in your implementation, most likely the back office one.
 
 ## type
 
@@ -200,7 +200,7 @@ The following combinations of types are modes are available:
 The optional `--siteaccess` option enables you to export (or import) data in a SiteAccess configuration's context.
 If not provided, the [default SiteAccess](multisite_configuration.md#default-siteaccess) is used.
 
-It is recommended that you use the SiteAccess of the target repository's Back Office.
+It is recommended that you use the SiteAccess of the target repository's back office.
 
 Specifying the SiteAccess can be mandatory, for example, when you use several SiteAccesses to handle [several languages](languages.md#using-siteaccesses-for-handling-translations).
 Export and import commands only work with languages supported by the context SiteAccess.

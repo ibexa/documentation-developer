@@ -16,7 +16,7 @@ Customized dashboard displays a set of widgets selected by the user.
 
 To customize dashboard, you need to have `dashboard/cutomize` [policy](permission_overview.md).
 
-By default, all the users belonging to the `Editors` User Group, have `Dashboard`[Role](roles_admin_panel.md) assigned, so they can edit, create, or delete dashboard.
+By default, all the users belonging to the `Editors` user group, have `Dashboard`[role](roles_admin_panel.md) assigned, so they can edit, create, or delete dashboard.
 If, by any reason, you want to narrow this permission, you can set up specific [limitations](limitations.md).
 
 ## Add custom layout

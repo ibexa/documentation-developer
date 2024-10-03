@@ -97,7 +97,7 @@ Provide the template mapping under the `ibexa.system.<scope>.field_templates` [c
 
 ## Final results
 
-Finally, you should be able to add a new content type in the Back Office interface.
+Finally, you should be able to add a new content type in the back office interface.
 Navigate to **Content types** tab and under **Content** category create a new content type:
 
 ![Creating new content type](extending_field_type_create.png)

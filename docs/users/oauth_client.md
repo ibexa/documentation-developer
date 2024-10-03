@@ -107,7 +107,7 @@ Configure the service by using the `ibexa.oauth2_client.resource_owner_mapper` t
 ## Add login button
 
 After you have activated the OAuth2 client for the `admin` SiteAccess,
-you need to add a **Log in with Google** to the Back Office login form.
+you need to add a **Log in with Google** to the back office login form.
 
 Create the following template file in `templates/themes/admin/account/login/oauth2_login.html.twig`:
 
@@ -128,4 +128,4 @@ services:
 [[= include_file('code_samples/user_management/oauth_google/config/custom_services.yaml', 7, 13) =]]
 ```
 
-![Log in to the Back Office with Google](log_in_via_google.png)
+![Log in to the back office with Google](log_in_via_google.png)

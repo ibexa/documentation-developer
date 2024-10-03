@@ -46,9 +46,9 @@ see the [How to Remove a Bundle]([[= symfony_doc =]]/bundles/remove.html) instru
 
 |Bundle|Description|
 |---------|-----------|
-|[ibexa/admin-ui](https://github.com/ibexa/admin-ui)|Back Office interface|
-|[ibexa/admin-ui-assets](https://github.com/ibexa/admin-ui-assets)|Assets for the Back Office|
-|[ibexa/content-forms](https://github.com/ibexa/content-forms)|Form-based integration for the Symfony Forms into Content and User objects in kernel|
+|[ibexa/admin-ui](https://github.com/ibexa/admin-ui)|Back office interface|
+|[ibexa/admin-ui-assets](https://github.com/ibexa/admin-ui-assets)|Assets for the back office|
+|[ibexa/content-forms](https://github.com/ibexa/content-forms)|Form-based integration for the Symfony Forms into content and user objects in kernel|
 |[ibexa/core](https://github.com/ibexa/core)|Core of the [[= product_name =]] application|
 |[ibexa/core-persistence](https://github.com/ibexa/core-persistence)|Core system persistence|
 |[ibexa/cron](https://github.com/ibexa/cron)|Cron package for use with the `ibexa:cron:run` command|
@@ -73,13 +73,13 @@ see the [How to Remove a Bundle]([[= symfony_doc =]]/bundles/remove.html) instru
 |Bundle|Description|
 |---------|-----------|
 |ibexa/oss|Core packages|
-|ibexa/content-tree|Content Tree functionality|
+|ibexa/content-tree|content tree functionality|
 |ibexa/connect|[Ibexa Connect](https://doc.ibexa.co/projects/connect/en/latest/)|
 |ibexa/calendar|Calendar tab with a calendar widget|
 |ibexa/connector-dam|Connector for DAM (Digital Asset Management) systems|
 |ibexa/elasticsearch|Integration with Elasticsearch search engine|
 |ibexa/fastly|Fastly support for `http-cache`, for use on Platform.sh or standalone|
-|ibexa/icons|Icon set for the Back Office|
+|ibexa/icons|Icon set for the back office|
 |ibexa/image-editor|[Image Editor](configure_image_editor.md)|
 |ibexa/installer|Provides the `ibexa:install` command|
 |ibexa/measurement|Measurement Field Type and measurement product catalog attribute|
@@ -130,7 +130,7 @@ see the [How to Remove a Bundle]([[= symfony_doc =]]/bundles/remove.html) instru
 |ibexa/order-management|Order management|
 |ibexa/payment|Payment handling|
 |ibexa/shipping|Shipping handling|
-|ibexa/commerce-admin-ui|Shop-related Back Office functionalities **deprecated** |
+|ibexa/commerce-admin-ui|Shop-related back office functionalities **deprecated** |
 |ibexa/commerce-erp-admin|ERP connection for the shop **deprecated** |
 |ibexa/commerce-order-history|Order history functionality **deprecated** |
 |ibexa/commerce-page-builder|Shop-related Page blocks **deprecated** |

@@ -495,7 +495,7 @@ php bin/console assetic:dump --env=prod
 
 ##### Unstyled login screen after upgrade
 
-It is possible that after the upgrade your admin screen will be unstyled. This may happen because the new SiteAccess will not be available in the database. You can fix it by editing the permissions for the Anonymous user. Go to Roles in the Admin Panel and edit the Limitations of the Anonymous user's user/login policy. Add all SiteAccesses to the Limitation, save, and clear the browser cache. The login screen should now show proper styling.
+It is possible that after the upgrade your admin screen will be unstyled. This may happen because the new SiteAccess will not be available in the database. You can fix it by editing the permissions for the Anonymous user. Go to **Roles** in the Admin Panel and edit the limitations of the Anonymous user's `user/login` policy. Add all SiteAccesses to the limitation, save, and clear the browser cache. The login screen should now show proper styling.
 
 ##### Translating URLs
 

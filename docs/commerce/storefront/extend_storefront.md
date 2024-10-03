@@ -11,7 +11,7 @@ With the `ibexa\storefront` package come the following built-in menus:
 
 | Item   | Value     | Description |
 |------------|----------|---------|
-| [Breadcrumbs](#breadcrumbs-menu)| - | Renders breadcrumbs for Content Tree Root, Taxonomy Entry, Product, User settings and User settings group | 
+| [Breadcrumbs](#breadcrumbs-menu)| - | Renders breadcrumbs for content tree Root, Taxonomy Entry, Product, User settings and User settings group | 
 | [Taxonomy](#taxonomy-menu)| - | It can render a menu for product categories or tags |               
 | Currency| `currency_menu` | Renders a menu to change the active currency |               
 | Language| `language_menu` | Renders a menu to change the active language |

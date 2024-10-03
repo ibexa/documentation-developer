@@ -25,7 +25,7 @@ By default, it is set to `PT1H` (one hour).
 
 In case of a security situation such as a data leakage, you may need to force users to change their passwords.
 You can do it with the help of the `ibexa:user:expire-password` command,
-which revokes the passwords for specific users, User Groups or users belonging to the chosen content type.
+which revokes the passwords for specific users, user groups or users belonging to the chosen content type.
 
 To select which users to revoke passwords for, use one of the following options with the command:
 
@@ -59,7 +59,7 @@ You can change the [password attributes](#password-attributes) or [password expi
 
 To access the password settings:
 
-1. In the Back Office, go to **Content** -> **Content types**.
+1. In the back office, go to **Content** -> **Content types**.
 1. In the **Content type groups** table, click **Users**.
 1. Edit the **User** content type.
 1. In the **Field definitions** list, view the settings for **User account (ezuser)**.
@@ -87,7 +87,7 @@ In the **User account (ezuser)** Field definition, you can set password expirati
 ![Password expiry settings](password_expiry.png)
 
 You can also decide when the user is notified that they need to change their password.
-The notification is displayed in the Back Office after login and in the User content item's preview.
+The notification is displayed in the back office after login and in the User content item's preview.
 
 ## Repeating passwords
 

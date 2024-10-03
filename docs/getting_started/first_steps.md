@@ -35,7 +35,7 @@ module.exports = [ eZConfig, ibexaConfig, ...customConfigs ];
 
 ## Add a content type
 
-1\. In your browser, go to the Back Office: `<your_domain>/admin`, and use the default credentials to log in: `admin/publish`.
+1\. In your browser, go to the back office: `<your_domain>/admin`, and use the default credentials to log in: `admin/publish`.
 
 !!! caution "Password change"
 
@@ -99,7 +99,7 @@ Content view templates use the [Twig templating engine](https://twig.symfony.com
 
 ## Create content and test view templates
 
-1\. Go to the Back Office, activate Content/Content structure and create a new content item by clicking **Create content**.
+1\. Go to the back office, activate Content/Content structure and create a new content item by clicking **Create content**.
 
 ![Creating a Blog Post](first-steps-create-content.png)
 
@@ -162,7 +162,7 @@ de:
 
 This means that German will be used as the main language for this SiteAccess, and English as a fallback.
 
-2\. Go to the Back Office and select **Admin** > **Languages**. Add a new language called "German", with the language code `ger-DE`.
+2\. Go to the back office and select **Admin** > **Languages**. Add a new language called "German", with the language code `ger-DE`.
 Make sure it is enabled.
 
 ![Creating a language](first-steps-create-language.png)
@@ -221,19 +221,19 @@ This means that the app will look for the `blog_post.html.twig` file in a folder
 
 To allow a group of users to edit only a specific content type (in this example, blog posts), you need to set up permissions for them.
 
-Users and User Groups are assigned Roles. A Role can contain a number of Policies, which are rules that permit the user to perform a specific function.
-Policies can be additionally restricted by Limitations.
+Users and user groups are assigned roles. A role can contain a number of policies, which are rules that permit the user to perform a specific function.
+Policies can be additionally restricted by limitations.
 
-1\. Go to Admin > Users. Create a new User Group (the same way you create regular Content).
+1\. Go to Admin > Users. Create a new user group (the same way you create regular Content).
 Call the group "Bloggers".
 
 2\. In the new group create a User. Remember their username and password. Mark the user as "Enabled".
 
 ![Creating a User](first-steps-create-user.png)
 
-3\. Go to Admin > Roles. Create a new Role called "Blogger".
+3\. Go to **Admin** -> **Roles**. Create a new role called "Blogger".
 
-4\. Add Policies that will allow the User to log in:
+4\. Add policies that will allow the User to log in:
 
 - `User/Login`
 - `Content/Read`
@@ -241,17 +241,17 @@ Call the group "Bloggers".
 - `Section/View`
 - `Content/Reverserelatedlist`
 
-5\. Now add Policies that will allow the User to create and publish content, limited to Blog Posts:
+5\. Now add policies that will allow the User to create and publish content, limited to Blog Posts:
 
 - `Content/Create` with Limitation for content type Blog Post
 - `Content/Edit` with Limitation for content type Blog Post
 - `Content/Publish` with Limitation for content type Blog Post
 
-![Adding Limitations to a Policy](first-steps-policy-limitations.png)
+![Adding Limitations to a policy](first-steps-policy-limitations.png)
 
-6\. In the Assignments tab assign the "Blogger" Role to the "Bloggers" group.
+6\. In the Assignments tab assign the "Blogger" role to the "Bloggers" group.
 
-![Assigning a Role](first-steps-assign-roles.png)
+![Assigning a role](first-steps-assign-roles.png)
 
 You can now log out and log in again as the new User.
 You will be able to create Blog Posts only.

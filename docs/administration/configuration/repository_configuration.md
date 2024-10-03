@@ -229,7 +229,7 @@ The command takes the following optional parameters:
 
 - `status` or `t` - status of versions to remove: `draft`, `archived` or `all`
 - `keep` or `k` - number of versions to keep
-- `user` or `u` - the User that the command will be performed as. The User must have the `content/remove`, `content/read` and `content/versionread` Policies. By default the `administrator` user is applied.
+- `user` or `u` - the User that the command will be performed as. The User must have the `content/remove`, `content/read` and `content/versionread` policies. By default the `administrator` user is applied.
 - `excluded-content-types` - exclude versions of one or multiple content types from the cleanup procedure; separate multiple content types identifiers with the comma.
 
 `ibexa:content:cleanup-versions --status <status name> --keep <number of versions> --user <user name> --excluded-content-types article,blog_post`
@@ -250,12 +250,12 @@ ibexa:
             user_group_content_type_identifier: [user_group]
 ```
 
-You can override these settings if you have other content types that should be treated as users/user groups in the Back Office.
-When viewing such Content in the Back Office you will be able to see e.g. the assigned Policies.
+You can override these settings if you have other content types that should be treated as users/user groups in the back office.
+When viewing such content in the back office you will be able to see e.g. the assigned policies.
 
 ## Top-level Locations
 
-You can change the default path for top-level Locations such as Content or Media in the Back Office, e.g.:
+You can change the default path for top-level Locations such as content or media in the back office, e.g.:
 
 ```yaml
 ibexa:

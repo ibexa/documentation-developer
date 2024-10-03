@@ -62,7 +62,7 @@ The template with the greatest priority is used as the default one.
 
 ## Add block JavaScript
 
-If your block is animated with JavaScript, you may have to take precaution to keep it working when previewed in Back Office's Page Builder.
+If your block is animated with JavaScript, you may have to take precaution to keep it working when previewed in back office's Page Builder.
 
 If you use an event related to the page being loaded to trigger the initialisation of your custom block, a freshly added block doesn't work in the Page Builder preview.
 For example, the [`DOMContentLoaded`](https://developer.mozilla.org/en-US/docs/Web/API/Document/DOMContentLoaded_event) event isn't fired when a block is dragged into the page as the DOM is already loaded.

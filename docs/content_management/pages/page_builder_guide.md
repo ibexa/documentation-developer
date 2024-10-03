@@ -29,8 +29,8 @@ To create a new page:
 
 ### Edit page
 
-You can edit any existing page by using Page Builder. To do it, in the Back Office go to **Content** and select **Content structure**.
-Then, from the Content Tree choose the page and click **Edit**.
+You can edit any existing page by using Page Builder. To do it, in the back office go to **Content** and select **Content structure**.
+Then, from the content tree choose the page and click **Edit**.
 
 ## What is Page Builder
 
@@ -93,7 +93,7 @@ Page Builder has two main views that you can use while creating a page:
 
 ![Page blocks](page_blocks_toolbar.png)
 
-- Structure view - shows a structure of the page, including its division into zones and the blocks that it contains. It follows the behavior of the Content Tree. Structure view has ability to reorder blocks using drag and drop.
+- Structure view - shows a structure of the page, including its division into zones and the blocks that it contains. It follows the behavior of the content tree. Structure view has ability to reorder blocks using drag and drop.
 
 ![Structure view](structure_view.png)
 

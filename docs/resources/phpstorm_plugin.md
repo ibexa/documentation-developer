@@ -83,7 +83,7 @@ The plugin provides the following built-in file templates:
 
 | Name | Comment |
 |---|---|
-| Back Office tab | Class implementing `Ibexa\Contracts\AdminUi\Tab` |
+| Back office tab | Class implementing `Ibexa\Contracts\AdminUi\Tab` |
 | Block event subscriber | Event subscriber for `BlockRenderEvents::getBlockPreRenderEventName(...)` event |
 | Command | Symfony command that uses content repository |
 | Composite Criterion | Criterion class based on `\Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\CompositeCriterion` |

@@ -275,35 +275,35 @@ enabling swift file migration regardless of storage (local, DFS).
 
 ### Roles
 
-The following example shows how to create a Role.
-A Role requires the `identifier` metadata key.
+The following example shows how to create a role.
+A role requires the `identifier` metadata key.
 
-For each Policy assigned to the Role, you select the module and function, with optional Limitations.
+For each policy assigned to the role, you select the module and function, with optional Limitations.
 
-The following example shows the creation of a `Contributor` Role:
+The following example shows the creation of a `Contributor` role:
 
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/create_role.yaml') =]]
 ```
 
-To update an existing Role, two policies' modes are available:
+To update an existing role, two policies' modes are available:
 
 - `replace`: (default) All existing policies are replaced by the ones from the migration.
 - `append`: Migration policies are added while already existing ones are kept.
 
-The following example shows how to replace the policies of the existing `Editor` Role:
+The following example shows how to replace the policies of the existing `Editor` role:
 
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/update_role.yaml', 0, 16) =]]
 ```
 
-The following example shows the addition of a policy to the `Anonymous` Role:
+The following example shows the addition of a policy to the `Anonymous` role:
 
 ``` yaml hl_lines="7"
 [[= include_file('code_samples/data_migration/examples/update_role.yaml', 18, 32) =]]
 ```
 
-The following example shows how to delete the `Contributor` Role:
+The following example shows how to delete the `Contributor` role:
 
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/delete_role.yaml') =]]
@@ -325,7 +325,7 @@ The following example shows how to create a user.
 The required metadata keys are: `login`, `email`, `password`, `enabled`, `mainLanguage`, and `contentType`.
 You also need to provide the user group's remote content ID.
 
-You can use an [action](data_migration_actions.md) to assign a Role to the user.
+You can use an [action](data_migration_actions.md) to assign a role to the user.
 
 ``` yaml hl_lines="22-23"
 [[= include_file('code_samples/data_migration/examples/create_user.yaml') =]]

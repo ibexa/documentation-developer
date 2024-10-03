@@ -11,8 +11,8 @@ For example, you can offer a 10% discount for all products in the catalog to use
 
 !!! tip
 
-    Note that customer groups are not the same as [User Groups](user_registration.md#user-groups).
-    User Groups concern all users in the system and can be used, for example, to handle permissions.
+    Note that customer groups are not the same as [user groups](user_registration.md#user-groups).
+    User groups concern all users in the system and can be used, for example, to handle permissions.
     Customer groups refer specifically to the commerce functionalities and enable handling prices.
 
 ## Enabling customer groups

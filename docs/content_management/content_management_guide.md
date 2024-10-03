@@ -36,7 +36,7 @@ You can then publish the content directly, by building a website or a web store,
 
 ## Content structure
 
-All content in [[= product_name =]] is organized hierarchically, into what is called a [**Content Tree**](content_tree.md). 
+All content in [[= product_name =]] is organized hierarchically, into what is called a [**content tree**](content_tree.md). 
 This tree-like structure repeats throughout the system, and applies to content, taxonomies, categories, and the like.
 
 Traditional as the structure may look, with relations and multiple location support, 
@@ -110,7 +110,7 @@ Certain editions of [[= product_name =]] come with a visual [Form Builder]([[= u
 
 ## Content management capabilities
 
-Each content item has at least one location within the Content Tree, and can have several versions and multiple translations. 
+Each content item has at least one location within the content tree, and can have several versions and multiple translations. 
 It can also have related assets, such as images or other media, and assigned keywords, or tags.
 
 You can use these characteristics in combination with system features to create the most comprehensive and functional digital presence for your organization.
@@ -119,7 +119,7 @@ You can use these characteristics in combination with system features to create 
 
 #### Locations
 
-When a content item is created and published, it is assigned a place in the Content Tree, designated by a Location ID. 
+When a content item is created and published, it is assigned a place in the content tree, designated by a Location ID. 
 A single content item can have more than one Location ID, which means that the same content can be found on different branches of the tree. 
 However, a single location can have only one content item assigned to it.
 
@@ -150,18 +150,18 @@ Editors can compare different translations of the same content items with the Co
 
 #### Relations
 
-A [relation](content_relations.md) can exist between any two content items in the Content Tree. 
+A [relation](content_relations.md) can exist between any two content items in the content tree. 
 For example, blog posts featured in the website's main page are in a relation with the page that they are embedded in. 
 Or, instead of direct attachments, an article can use images that are separate content items outside the article and are referenced through a relation.
 
 ## Content arrangement
 
-In [[= product_name =]], content items can be moved and copied between branches of the Content Tree. 
+In [[= product_name =]], content items can be moved and copied between branches of the content tree. 
 These operations, like in your computer’s file system, can apply both to individual content items as well as folders or groups.
 
 ![Content organization operations](img/content_arrangement.png)
 
-Content items can be hidden when necessary, for example, until a certain event, like a Holiday Sale or Board announcement comes. Hidden content items are not visible to website visitors and are greyed out in the Content Tree.
+Content items can be hidden when necessary, for example, until a certain event, like a Holiday Sale or Board announcement comes. Hidden content items are not visible to website visitors and are greyed out in the content tree.
 
 ![Hidden content item](img/hidden_content_item.png)
 
@@ -183,27 +183,27 @@ This way you can classify content and make it easier for end users to find the c
 ### Access control
 
 When your [[= product_name =]] instance has multiple contributors and visitors, administrators can give them access to different areas of the website and different capabilities. 
-It is done by creating Roles, with each role having a different set of [permissions](permission_overview.md), the most fitting example being the `content/edit` permission limited to an `Articles/BookReviews/Historical` subtree of the Content Tree.
+It is done by creating roles, with each role having a different set of [permissions](permission_overview.md), the most fitting example being the `content/edit` permission limited to an `Articles/BookReviews/Historical` subtree of the content tree.
 
-In the next steps, after you create User groups, you’d assign Roles to these groups, and add individual users to each of such groups. 
+In the next steps, after you create user groups, you’d assign roles to these groups, and add individual users to each of such groups. 
 For more technical information about permissions and limitations, see [Permission use cases](permission_use_cases.md).
 
 There are, however, mechanisms to control access to content with even more convenience.
 
 ### Sections
 
-You can divide your Content Tree into nominal parts to better organize it.
+You can divide your content tree into nominal parts to better organize it.
 Once you have defined sections, for example, Media or Forms, and assigned them to content items, 
-you can decide which Roles have access to which Section of the tree.
+you can decide which roles have access to which Section of the tree.
 
 The setting is inherited, which means that a child content item inherits a value of this setting from its parent. 
-Changing a Section setting does not result in moving a content item to a different location within a Content Tree.
+Changing a Section setting does not result in moving a content item to a different location within a content tree.
 
 ![Members of the Media Section](img/sections.png)
 
 ### Object states
 
-While reviewing the details of each individual content item in your Content Tree, you can assign a state to it, for example, “Locked” or “Not locked”. 
+While reviewing the details of each individual content item in your content tree, you can assign a state to it, for example, “Locked” or “Not locked”. 
 Then you can set a permission that allows or denies users access to content items in a specific state. 
 This setting is not inherited.
 

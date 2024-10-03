@@ -102,10 +102,10 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 - [OAuth server](https://doc.ibexa.co/en/master/users/oauth_server/)
 - Updated [OAuth client](https://doc.ibexa.co/en/master/users/oauth_client/)
 
-### Back Office
+### Back office
 
-- [Customize Back Office search suggestions](https://doc.ibexa.co/en/master/administration/back_office/customize_search_suggestion/)
-- [Customize Back Office search result sorting](https://doc.ibexa.co/en/master/administration/back_office/customize_search_sorting/)
+- [Customize back office search suggestions](https://doc.ibexa.co/en/master/administration/back_office/customize_search_suggestion/)
+- [Customize back office search result sorting](https://doc.ibexa.co/en/master/administration/back_office/customize_search_sorting/)
 
 ### Templating
 
@@ -116,7 +116,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Permissions
 
-- Updated [Custom Policies](https://doc.ibexa.co/en/master/permissions/custom_policies/) article
+- Updated [Custom policies](https://doc.ibexa.co/en/master/permissions/custom_policies/) article
 
 ### Content management
 

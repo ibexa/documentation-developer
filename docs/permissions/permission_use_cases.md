@@ -4,11 +4,11 @@ description: Set up permission sets for common use cases.
 
 # Permission use cases
 
-Here are a few examples of sets of Policies that you can use to get some common permission configurations.
+Here are a few examples of sets of policies that you can use to get some common permission configurations.
 
-## Enter Back Office
+## Enter back office
 
-To allow the User to enter the Back Office interface and view all content, set the following Policies:
+To allow the User to enter the back office interface and view all content, set the following policies:
 
 - `user/login`
 - `content/read`
@@ -16,12 +16,12 @@ To allow the User to enter the Back Office interface and view all content, set t
 - `section/view`
 - `content/reverserelatedlist`
 
-These Policies are necessary for all other cases below that require access to the content structure.
+These policies are necessary for all other cases below that require access to the content structure.
 
 ## Create content without publishing [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 You can use this option together with [[= product_name_exp =]]'s content review options.
-Users assigned with these Policies can create content, but cannot publish it.
+Users assigned with these policies can create content, but cannot publish it.
 To publish, they must send the content for review to another User with proper permissions 
 (for example, senior editor, proofreader, etc.).
 
@@ -33,7 +33,7 @@ as [[= product_name_headless =]] does not allow the User to continue working wit
 
 ## Create and publish content
 
-To create and publish content, users must additionally have the following Policies:
+To create and publish content, users must additionally have the following policies:
 
 - `content/create`
 - `content/edit`
@@ -43,51 +43,51 @@ This also lets the user copy and move content, as well as add new Locations to a
 
 ## Move content
 
-To move a content item or a Subtree to another Location, the user must have the following Policies:
+To move a content item or a Subtree to another Location, the user must have the following policies:
 
 - `content/read` - on the source Location
 - `content/create` - on the target Location
 
 ## Remove content
 
-To send content to Trash, the User needs to have the `content/remove` Policy.
+To send content to Trash, the User needs to have the `content/remove` policy.
 If content has more than one language, the User must have access to all the languages.
-That is, the `content/remove` Policy must have either no Limitation, or a Limitation for all languages of the content item.
+That is, the `content/remove` policy must have either no limitation, or a limitation for all languages of the content item.
 
-To remove an archived version of content, the User must have the `content/versionremove` Policy.
+To remove an archived version of content, the User must have the `content/versionremove` policy.
 
-Further manipulation of Trash requires the `content/restore` Policy to restore items from Trash, and `content/cleantrash` to completely delete all content from the Trash.
+Further manipulation of Trash requires the `content/restore` policy to restore items from Trash, and `content/cleantrash` to completely delete all content from the Trash.
 
 !!! caution
 
-    With the `content/cleantrash` Policy, the User can empty the Trash even if they do not have access to the trashed content,
+    With the `content/cleantrash` policy, the User can empty the Trash even if they do not have access to the trashed content,
     for example, because it belonged to a Section that the User does not have permissions for.
 
 ## Restrict editing to part of the tree
 
-If you want to let the User create or edit content, but only in one part of the content tree, use Limitations.
-Three Limitations that you could use here are `Section` Limitation, `Location` Limitation and `Subtree of Location` Limitation.
+If you want to let the User create or edit content, but only in one part of the content tree, use limitations.
+Three limitations that you could use here are `Section` limitation, `Location` limitation and `Subtree of Location` limitation.
 
-### Section Limitation
+### Section limitation
 
 Let's assume you have two Folders under your Home: Blog and Articles.
-You can let a User create content for the blogs, but not in Articles, by adding a `Section` Limitation to 
+You can let a User create content for the blogs, but not in Articles, by adding a `Section` limitation to 
 the Blog content item.
 This allows the User to publish content anywhere under this Location in the structure.
 Section does not have to belong to the same Subtree of Location in the content structure, any Locations can be assigned to it.
 
-### Location Limitation
+### Location limitation
 
-If you add a `Location` Limitation and point to the same Location, the User is able to publish content directly 
+If you add a `Location` limitation and point to the same Location, the User is able to publish content directly 
 under the selected Location, but not anywhere deeper in its Subtree of Location.
 
-### Subtree of Location Limitation
+### Subtree of Location limitation
 
-To limit the User's access to a subtree, use the `Subtree of Location` Limitation.
-You do it by creating two new Roles for a User Group:
+To limit the User's access to a subtree, use the `Subtree of Location` limitation.
+You do it by creating two new roles for a user group:
  
- 1. Role with a `Subtree` Limitation for the User
- 1. Role with a `Location` Limitation for the Subtree
+ 1. Role with a `Subtree` limitation for the User
+ 1. Role with a `Location` limitation for the Subtree
 
 Follow the example below to learn how to do that.
 
@@ -97,45 +97,45 @@ Edit access to them in the **Admin Panel**.
 ![Subtree file structure](subtree_usability_notes_1.png)
 
 To give the vegetarian editors access only to the **Vegetarian** dinner recipes section,
- create a new Role, for example, *EditorVeg*.
-Next, add to it a `content/read` Policy with the `Subtree` Limitation for `Cookbook/Dinner recipes/Vegetarian`.
-Assign the Role to the vegetarian editors User Group.
+ create a new role, for example, *EditorVeg*.
+Next, add to it a `content/read` policy with the `Subtree` limitation for `Cookbook/Dinner recipes/Vegetarian`.
+Assign the role to the vegetarian editors user group.
 It allows users from that group to access the **Vegetarian** container but not **Cookbook** and **Dinner recipes**.
 
 To give users access to **Cookbook** and **Dinner recipes** containers, 
-create a new Role, for example, *EditorVegAccess*.
-Next, add to it a `content/read` Policy with the `Location` Limitations **Cookbook** and **Dinner recipes**.
-Assign the new Role to the vegetarian editors User Group as well.
+create a new role, for example, *EditorVegAccess*.
+Next, add to it a `content/read` policy with the `Location` limitations **Cookbook** and **Dinner recipes**.
+Assign the new role to the vegetarian editors user group as well.
 Only then the limitations are combined with `AND`, resulting in an empty set.
 
-The vegetarian editors should now see the following Content Tree:
+The vegetarian editors should now see the following content tree:
 
 ![Limited subtree file structure](subtree_usability_notes_2.png)
 
-When a Policy has more than one Limitation, all of them have to apply, or the Policy does not work.
-For example, a `Location` Limitation on Location `1/2` and `Subtree of Location` Limitation on `1/2/55` cannot work together,
+When a policy has more than one limitation, all of them have to apply, or the policy does not work.
+For example, a `Location` limitation on Location `1/2` and `Subtree of Location` limitation on `1/2/55` cannot work together,
 because no Location can satisfy both those requirements at the same time.
-To combine more than one Limitation with the *or* relation, not *and*,
-you can split your Policy in two, each with one of these Limitations.
+To combine more than one limitation with the *or* relation, not *and*,
+you can split your policy in two, each with one of these limitations.
 
 ## Manage Locations
 
-To add a new Location to a content item, the Policies required for publishing content are enough.
-To allow the User to remove a Location, grant them the following Policies:
+To add a new Location to a content item, the policies required for publishing content are enough.
+To allow the User to remove a Location, grant them the following policies:
 
 - `content/remove`
 - `content/manage_locations`
 
-Hiding and revealing Location requires one more Policy: `content/hide`.
+Hiding and revealing Location requires one more policy: `content/hide`.
 
 ## Editorial workflows
 
 You can control which stages in an editorial workflow the user can work with.
 
-Do this by adding the `WorkflowStageLimitation` to `content` Policies such as `content/edit` or `content/publish`.
+Do this by adding the `WorkflowStageLimitation` to `content` policies such as `content/edit` or `content/publish`.
 
 You can also control which transitions the user can pass content through.
-Do this by using the `workflow/change_stage` Policy together with the `WorkflowTransitionLimitation`.
+Do this by using the `workflow/change_stage` policy together with the `WorkflowTransitionLimitation`.
 
 For example, to enable the user to edit only content in the "Design" stage
 and to pass it after creating design to the "Proofread stage", use following permissions:
@@ -152,12 +152,12 @@ To enable upload, you need you set the following permissions:
 - `content/read`
 - `content/publish`
 
-You can control what content items can be uploaded and where by using Limitations
-on the `content/create` and `content/publish` Policies.
+You can control what content items can be uploaded and where by using imitations
+on the `content/create` and `content/publish` policies.
 
-A Location Limitation limits the uploading to a specific Location in the tree. 
-A content type Limitation controls the content types that are allowed.
-For example, you can set the Location Limitation on a **Pictures** Folder, and add a content type Limitation
+A Location limitation limits the uploading to a specific Location in the tree. 
+A content type limitation controls the content types that are allowed.
+For example, you can set the Location limitation on a **Pictures** Folder, and add a content type limitation
 that only allows content items of type **Image**. 
 This ensures that only files of type `image` can be uploaded,
 and only to the **Pictures** Folder.
@@ -171,18 +171,18 @@ To let users create and assign taxonomy entries, set the following permissions:
 - `taxonomy/read` to see the Taxonomy interface
 - `taxonomy/manage` to create, edit and delete tags
 
-With Limitations, you can configure whether permissions apply to Tags, Product categories or both.
+With limitations, you can configure whether permissions apply to Tags, Product categories or both.
 
 ## Register Users
 
-To allow anonymous users to register through the `/register` route, grant the `user/register` Policy to the Anonymous User Group.
+To allow anonymous users to register through the `/register` route, grant the `user/register` policy to the Anonymous user group.
 
 ## Admin
 
-To access the [administration panel](admin_panel.md) in the Back Office, the User must have the `setup/administrate` Policy.
+To access the [administration panel](admin_panel.md) in the back office, the User must have the `setup/administrate` policy.
 This allows the User to view the languages and content types.
 
-Additional Policies are needed for each section of the Admin.
+Additional policies are needed for each section of the Admin.
 
 ### System Information
 
@@ -209,8 +209,8 @@ Additional Policies are needed for each section of the Admin.
 
 ### Roles
 
-- `role/read` to view the list of Roles in Admin
-- `role/create`, `role/update`, `role/assign` and `role/delete` to manage Roles
+- `role/read` to view the list of roles in Admin
+- `role/create`, `role/update`, `role/assign` and `role/delete` to manage roles
 
 ### Users
 
@@ -250,14 +250,14 @@ Out of the box, [[= product_name_com =]] comes with the *Storefront User* Role t
 
 - `product/view`, `product_type/view` and `catalog/view`, to allow them to view a product 
 list and product details
-- `cart/view`, `cart/create` and `cart/edit` with the `CartOwner` Limitation set to `self`, to allow them to add items to their own shopping cart, modify their cart, and delete it
+- `cart/view`, `cart/create` and `cart/edit` with the `CartOwner` limitation set to `self`, to allow them to add items to their own shopping cart, modify their cart, and delete it
 - `checkout/view`, `checkout/create`, `checkout/update` and `checkout/delete`, to allow 
 them to proceed to checkout and interact with the checkout process
 
-You can modify the default Roles by preventing anonymous users from being able to proceed with the checkout process,
-and creating the *Registered Buyer* Role that enables logged-in users to purchase products. 
+You can modify the default roles by preventing anonymous users from being able to proceed with the checkout process,
+and creating the *Registered Buyer* role that enables logged-in users to purchase products. 
 
-You could do this by moving permissions that relate to checkout from the *Storefront User* Role to the *Registered Buyer* Role,
+You could do this by moving permissions that relate to checkout from the *Storefront User* role to the *Registered Buyer* role,
 and granting *Registered Buyer* with the `user/register` and `user/login` permissions which control access to registration and login.
 
 See below for a detailed listing of permissions that apply to Commerce, together with their meaning.
@@ -265,7 +265,7 @@ See below for a detailed listing of permissions that apply to Commerce, together
 !!! note "Owner limitation"
 
     For anonymous users, orders, shipments, and/or payments are saved with a 'null' user reference. 
-    Therefore, when you apply the 'Owner/self' Limitation to any of the permissions below, anonymous users are not allowed to interact with any of these entities.
+    Therefore, when you apply the `Owner/self` imitation to any of the permissions below, anonymous users are not allowed to interact with any of these entities.
 
 ### Cart 
 
@@ -277,7 +277,7 @@ interact with carts:
 - `cart/create` - to create a new cart
 - `cart/edit` - to allow user to add products to their cart
 
-To further control access to a cart, you can use the `CartOwner` Limitation 
+To further control access to a cart, you can use the `CartOwner` limitation 
 and set its value to `self`. 
 This way users can only interact with their own carts.
 
@@ -301,7 +301,7 @@ interact with orders:
 - `order/update` - to allow the user to change status of an existing order 
 - `order/cancel` - to allow the user to cancel an existing order 
 
-To further control access to an order, you can use the `OrderOwner` Limitation 
+To further control access to an order, you can use the `OrderOwner` limitation 
 and set its value to `self`. 
 This way users can only interact with their own orders.
 
@@ -324,7 +324,7 @@ interact with shipping methods and shipments.
 - `shipment/update` - to allow the user to change status of an existing shipment 
 - `shipment/delete` - to allow the user to cancel an existing shipment 
 
-To further control access to a shipment, you can use the `ShipmentOwner` Limitation 
+To further control access to a shipment, you can use the `ShipmentOwner` limitation 
 and set its value to `self`. 
 This way users can only interact with their own shipments.
 
@@ -347,6 +347,6 @@ interact with payment methods and payments.
 - `payment/edit` - to allow the user to modify an existing payment 
 - `payment/delete` - to allow the user to delete an existing payment 
 
-To further control access to a payment, you can use the `PaymentOwner` Limitation 
+To further control access to a payment, you can use the `PaymentOwner` limitation 
 and set its value to `self`. 
 This way users can only interact with their own payments.

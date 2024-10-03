@@ -12,7 +12,7 @@
 
 ### Redesigned user interface
 
-The the Back Office has undergone a complete redesign, including revised look and feel,
+The the back office has undergone a complete redesign, including revised look and feel,
 simplified navigation and more streamlined workflows.
 
 ![New UI](4.0_new_ui.png)

@@ -148,7 +148,7 @@ This release introduces a few simplifications to API use for content types:
 
 - Exposes `content->getContentType()` for easier use, including from Twig as `content.contentType`. When iterating over the result set of content/Locations these will effectively be loaded all at once.
 - Adds possibility to load several content types in bulk using `ContentTypeService->loadContentTypeList()`.
-- `UserService` now exposes `isUser()` and `isUserGroup()`. They do not need to do a lookup to the database in order to tell if a content item is of type User or User Group.
+- `UserService` now exposes `isUser()` and `isUserGroup()`. They do not need to do a lookup to the database in order to tell if a content item is of type user or user group.
 
 #### Load multiple Locations
 

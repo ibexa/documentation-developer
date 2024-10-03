@@ -324,7 +324,7 @@ The username is the customer ID and the password is the license key.
 
 ##### Personalization backend
 
-In the Back Office, go to **Personalization** > **Import** and review the list of historical import operations to see whether a full import was successful.
+In the back office, go to **Personalization** > **Import** and review the list of historical import operations to see whether a full import was successful.
 
 ![Item Import tab with full import results](reco_full_import.png)
 
@@ -332,7 +332,7 @@ In the Back Office, go to **Personalization** > **Import** and review the list o
 
 The Personalization server is automatically kept in sync with the content in [[= product_name =]].
 
-Every time an editor creates, updates or deletes content in the Back Office,
+Every time an editor creates, updates or deletes content in the back office,
 a notification is sent to https://admin.perso.ibexa.co/.
 The personalization service also notifies other components of the Personalization server
 and it eventually fetches the affected content and updates it internally.
@@ -392,7 +392,7 @@ render(controller('ibexa_personalization::showRecommendationsAction', {
 | Parameter        | Type   | Description   |
 |------------------|--------|---------------|
 | `contextItems`   | int    | ID of the content you want to get recommendations for. |
-| `scenario`       | string | Scenario used to display recommendations. You can create custom scenarios in the Back Office. |
+| `scenario`       | string | Scenario used to display recommendations. You can create custom scenarios in the back office. |
 | `outputTypeId`   | string | Item type that you expect in response, for example, `blog_post`. |
 | `crossContentType`| bool | If set to `true`, returns recommendations for all content types specified in the scenario. |
 | `limit`          | int    | Number of recommendations to fetch. |
@@ -566,6 +566,6 @@ and results that come from these websites.
 
 ## Configure recommendation logic
 
-When you enable the Personalization, you can go back to the Back Office, 
+When you enable the Personalization, you can go back to the back office, 
 refresh the Personalization dashboard and proceed with [configuring the logic]([[= user_doc =]]/personalization/perso_configuration) 
 used to calculate the recommendation results.

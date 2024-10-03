@@ -1,10 +1,10 @@
 ---
-description: Speed up creating Back Office templates with the help of ready-made reusable components.
+description: Speed up creating back office templates with the help of ready-made reusable components.
 ---
 
 # Reusable components
 
-When you extend the Back Office, you can use base Twig templates for commonly used UI components such as tables or tabs.
+When you extend the back office, you can use base Twig templates for commonly used UI components such as tables or tabs.
 
 The available templates are:
 

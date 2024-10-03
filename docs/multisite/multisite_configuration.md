@@ -38,9 +38,9 @@ A SiteAccess can be part of several groups. SiteAccess configuration has always 
 
 #### `admin` SiteAccess
 
-The predefined `admin` SiteAccess in `admin_group` (configured in `config/packages/ibexa_admin_ui.yaml`) serves the Back Office.
+The predefined `admin` SiteAccess in `admin_group` (configured in `config/packages/ibexa_admin_ui.yaml`) serves the back office.
 Do not remove this group.
-If you need a multisite setup with multiple Back Offices, add any additional administration SiteAccesses to `admin_group`.
+If you need a multisite setup with multiple back offices, add any additional administration SiteAccesses to `admin_group`.
 
 In cases where the sites are on separate databases, each needs its own [repository](repository_configuration.md)
 (including their own storage and search connection), var dir, [cache pool](persistence_cache.md#persistence-cache-configuration),
@@ -75,10 +75,10 @@ ibexa:
 
 ### SiteAccess name
 
-To create a better editorial experience, you can replace the SiteAccess code in the Back Office
+To create a better editorial experience, you can replace the SiteAccess code in the back office
 with a human-readable name of the website, for example `Company site` or `Summer Sale`.
 
-You can also translate SiteAccess names. Displayed names depend on the current Back Office language.
+You can also translate SiteAccess names. Displayed names depend on the current back office language.
 
 To define translations or SiteAccess names, place them in YAML file with correct language code,
 for example `translations/ibexa_siteaccess.en.yaml`:
@@ -119,9 +119,9 @@ ibexa:
             # This value is only used if there is no setting for global scope, SiteAccess or SiteAccess group
 ```
 
-`global` and `default` scopes include the `admin` SiteAccess, which is responsible for the Back Office.
+`global` and `default` scopes include the `admin` SiteAccess, which is responsible for the back office.
 For example, the following configuration defines both the front template for articles
-and the template used in the Back Office, unless you configure other templates for a specific SiteAccess or SiteAccess group:
+and the template used in the back office, unless you configure other templates for a specific SiteAccess or SiteAccess group:
 
 ``` yaml
 ibexa:
@@ -167,7 +167,7 @@ ibexa:
 
     If an admin SiteAccess in your installation uses a different domain than the front SiteAccesses,
     be sure to use SSL (https protocol).
-    Otherwise, you cannot preview content in Page Builder from the Back Office.
+    Otherwise, you cannot preview content in Page Builder from the back office.
 
 #### SiteAccess switching in Page Builder
 

@@ -28,7 +28,7 @@ You must then register it as a service with the `ibexa.product_catalog.customer_
 ## Currency
 
 [[= product_name =]] ships with a list of available currencies, and you can also add custom currencies.
-To use currencies in your shop, you need to first enable them in the Back Office.
+To use currencies in your shop, you need to first enable them in the back office.
 
 ## VAT
 

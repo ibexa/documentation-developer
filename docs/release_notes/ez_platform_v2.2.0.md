@@ -59,7 +59,7 @@ You can find the list of all bookmarks in *Browse content* section. There, you c
 
 ### Standard design
 
-eZ Platform now comes with two designs using the [design engine](https://doc.ibexa.co/en/2.5/guide/design_engine): `standard` for content view and `admin` for the Back Office.
+eZ Platform now comes with two designs using the [design engine](https://doc.ibexa.co/en/2.5/guide/design_engine): `standard` for content view and `admin` for the back office.
 See [default designs](https://doc.ibexa.co/en/2.5/guide/design_engine/#default-designs) for more information.
 
 !!! caution
@@ -67,13 +67,13 @@ See [default designs](https://doc.ibexa.co/en/2.5/guide/design_engine/#default-d
     If you encounter problems during upgrading, disable the override
     by setting `ez_platform_standard_design.override_kernel_templates` to `false`.
 
-### Previewing User and User Group permissions
+### Previewing user and user group permissions
 
-When viewing User or User Group content items you can now preview what permissions are assigned to them.
+When viewing user or user group content items you can now preview what permissions are assigned to them.
 
 ![Preview of permissions assigned to a User](2.2_permissions_in_user_view.png)
 
-You can also [select which content types are treated the same way as User of User Group](https://doc.ibexa.co/en/2.5/guide/config_repository/#user-identifiers) for these purposes.
+You can also [select which content types are treated the same way as user of user group](https://doc.ibexa.co/en/2.5/guide/config_repository/#user-identifiers) for these purposes.
 
 ### Change from UTF8 to UTF8MB4
 

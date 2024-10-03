@@ -1,10 +1,10 @@
 ---
-description: Create a custom Policy to cover non-standard permission needs.
+description: Create a custom policy to cover non-standard permission needs.
 ---
 
-# Custom Policies
+# Custom policies
 
-The content Repository uses [Roles and Policies](permissions.md) to give Users access to different functions of the system.
+The content Repository uses [roles and policies](permissions.md) to give Users access to different functions of the system.
 
 Any bundle can expose available Policies via a `PolicyProvider` which can be added to IbexaCoreBundle's [service container](php_api.md#service-container) extension.
 
@@ -12,7 +12,7 @@ Any bundle can expose available Policies via a `PolicyProvider` which can be add
 
 A `PolicyProvider` object provides a hash containing declared modules, functions and Limitations.
 
-- Each Policy provider provides a collection of permission *modules*.
+- Each policy provider provides a collection of permission *modules*.
 - Each module can provide *functions* (for example, in `content/read`, "content" is the module, and "read" is the function)
 - Each function can provide a collection of Limitations.
 
@@ -60,13 +60,13 @@ class MyPolicyProvider implements PolicyProviderInterface
 }
 ```
 
-!!! note "Extend existing Policies"
+!!! note "Extend existing policies"
 
-    While a `PolicyProvider` may provide new functions to an existing Policy module,
+    While a `PolicyProvider` may provide new functions to an existing policy module,
     or additional Limitations to an existing function,
     it's however strongly recommended to create your own modules.
 
-    It's impossible to remove an existing module, function or limitation from a Policy.
+    It's impossible to remove an existing module, function or limitation from a policy.
 
 ### YamlPolicyProvider
 
@@ -176,7 +176,7 @@ services:
 
 #### Form mapper
 
-To provide support for editing custom policies in the Back Office, you need to implement [`Ibexa\AdminUi\Limitation\LimitationFormMapperInterface`](https://github.com/ibexa/admin-ui/blob/4.5/src/lib/Limitation/LimitationFormMapperInterface.php).
+To provide support for editing custom policies in the back office, you need to implement [`Ibexa\AdminUi\Limitation\LimitationFormMapperInterface`](https://github.com/ibexa/admin-ui/blob/4.5/src/lib/Limitation/LimitationFormMapperInterface.php).
 
 - `mapLimitationForm` adds the limitation field as a child to a provided Symfony form.
 - `getFormTemplate` returns the path to the template to use for rendering the limitation form. Here it use [`form_label`]([[= symfony_doc =]]/form/form_customization.html#reference-forms-twig-label) and [`form_widget`]([[= symfony_doc =]]/form/form_customization.html#reference-forms-twig-widget) to do so.

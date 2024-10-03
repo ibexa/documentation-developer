@@ -5,7 +5,7 @@ description: You can enable users to create new content in the Repository by usi
 # User-generated content
 
 [[= product_name =]] comes with content edition features via the Symfony stack.
-They are meant to allow the implementation of user-generated content from the front end, without entering the Back Office.
+They are meant to allow the implementation of user-generated content from the front end, without entering the back office.
 
 ## Creating a new draft
 

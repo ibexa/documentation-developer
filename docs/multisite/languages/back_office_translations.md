@@ -1,12 +1,12 @@
 ---
-description: The language of the Back Office is selected automatically based on browser language, or you can choose it manually in user settings.
+description: The language of the back office is selected automatically based on browser language, or you can choose it manually in user settings.
 ---
 
-# Back Office translations
+# Back office translations
 
-## Enabling Back Office languages
+## Enabling back office languages
 
-All translations are available as a part of [[= product_name =]]. To enable Back Office translations, use the following configuration:
+All translations are available as a part of [[= product_name =]]. To enable back office translations, use the following configuration:
 
 ``` yaml
 ibexa:
@@ -15,8 +15,8 @@ ibexa:
             enabled: true
 ```
 
-Then clear the cache. Now you can reload your [[= product_name =]] Back Office.
-If your browser language is set to French, the Back Office will be displayed in French.
+Then clear the cache. Now you can reload your [[= product_name =]] back office.
+If your browser language is set to French, the back office will be displayed in French.
 
 !!! tip "Checking browser language"
 
@@ -32,13 +32,13 @@ If your browser language is set to French, the Back Office will be displayed in 
 
     Then, run `composer run post-update-cmd` and clear the cache.
 
-### Contributing Back Office translations
+### Contributing back office translations
 
 To learn how to contribute to a translation, see [Contributing translations](contribute_translations.md).
 
-### Selecting Back Office language
+### Selecting back office language
 
-Once you have language packages enabled, you can switch the language of the Back Office
+Once you have language packages enabled, you can switch the language of the back office
 in the User Settings menu.
 
 Otherwise, the language will be selected based on the browser language.
@@ -47,7 +47,7 @@ based on `parameters.locale_fallback` in `config/packages/ibexa.yaml`.
 
 ## Custom string translations
 
-When you extend the Back Office you often need to provide labels for new elements.
+When you extend the back office you often need to provide labels for new elements.
 It is good practice to provide your labels in translations files, instead of literally,
 so they can be reused and translated into other languages.
 
@@ -120,4 +120,4 @@ The language to display will then be selected automatically based on [user prefe
 
 !!! note
 
-    You may need to clear the cache after adding new translations, before they are available in the Back Office.
+    You may need to clear the cache after adding new translations, before they are available in the back office.

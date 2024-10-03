@@ -19,7 +19,7 @@ publishing the draft will not overwrite later modifications.
 
 ### Adding available languages
 
-The multilanguage system operates based on a global translation list that contains all languages available in the installation. Languages can be [added to this list from the Admin Panel](https://doc.ibexa.co/projects/userguide/en/latest/content_management/translate_content/) in the Back Office. After adding a language be sure to dump all assets to the file system:
+The multilanguage system operates based on a global translation list that contains all languages available in the installation. Languages can be [added to this list from the Admin Panel](https://doc.ibexa.co/projects/userguide/en/latest/content_management/translate_content/) in the back office. After adding a language be sure to dump all assets to the file system:
 
 ```
 yarn encore <environment>
@@ -40,9 +40,9 @@ For example, let's say that you need to store information about marathon contest
 
 ### Access control
 
-You can control whether a User or User Group is able to translate content or not. You do this by adding a [Language Limitation](limitation_reference.md#language-limitation) to Policies that allow creating or editing content. This Limitation enables you to define which Role can work with which languages in the system. (For more information of the permissions system, see [Permissions](permissions.md).)
+You can control whether a user or user group is able to translate content or not. You do this by adding a [Language limitation](limitation_reference.md#language-limitation) to policies that allow creating or editing content. This Limitation enables you to define which role can work with which languages in the system. (For more information of the permissions system, see [Permissions](permissions.md).)
 
-In addition, you can also control the access to the global translation list by using the Content/Translations Policy. This Policy allows users to add and remove languages from the global translation list.
+In addition, you can also control the access to the global translation list by using the Content/Translations policy. This policy allows users to add and remove languages from the global translation list.
 
 ## Using SiteAccesses for handling translations
 

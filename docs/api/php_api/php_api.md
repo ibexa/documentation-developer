@@ -95,13 +95,13 @@ One of the responsibilities of the Repository is user authentication. Every acti
 
 When using the PHP API, authentication is performed in three ways:
 
-- [automatically in the Back Office](#back-office-authentication)
+- [automatically in the back office](#back-office-authentication)
 - [using `sudo()`](#using-sudo)
 - by [setting the Repository user](#setting-the-repository-user)
 
-### Back Office authentication
+### Back office authentication
 
-When actions are performed through the Back Office, they are executed as the logged-in User.
+When actions are performed through the back office, they are executed as the logged-in User.
 This User's permissions will affect the behavior of the Repository.
 The User may, for example, not be allowed to create content, or view a particular Section.
 

@@ -4,12 +4,12 @@ description: Learn how to use your custom Field Type by adding a Field to a cont
 
 # Step 5 - Add a new Point 2D Field
 
-All actions in this step are done in the admin interface also called the Back Office.
+All actions in this step are done in the admin interface also called the back office.
 Go to the admin interface (`<yourdomain>/admin`) and log in with the default username: `admin` and the default password: `publish`. 
 
 ## Add new content type
 
-In the Back Office, the main menu, go to the **Content types** page.
+In the back office, the main menu, go to the **Content types** page.
 Under **Content** category, create a new content type:
 
 ![Creating new content type](create_new_content_type.png)

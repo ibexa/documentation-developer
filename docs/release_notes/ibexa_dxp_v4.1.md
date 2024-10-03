@@ -44,16 +44,16 @@ The new Measurement product attribute enables describing products with different
 
 ### User interface improvements
 
-Several improvements to the Back Office interface enhance the user experience.
+Several improvements to the back office interface enhance the user experience.
 These include:
 
 - "Go to top" button
 - new DateTime widget
 - view switcher between lists, grids and calendar.
 
-Several new options have been added to the Content Tree's contextual menu, including Hide/Reveal, Create, Edit and Add translation, Add/Remove from bookmarks.
+Several new options have been added to the content tree's contextual menu, including Hide/Reveal, Create, Edit and Add translation, Add/Remove from bookmarks.
 
-![New Content Tree options](4.1_content_tree.png)
+![New content tree options](4.1_content_tree.png)
 
 ## Other changes
 

@@ -71,4 +71,4 @@ Example:
 !!! note
 
     The option to automatically get user coordinates through the "Locate me" button
-    is only available when the Back Office is served through the `https://` protocol.
+    is only available when the back office is served through the `https://` protocol.

@@ -62,7 +62,7 @@ Then, register the mapper as a service:
 [[= include_file('code_samples/forms/custom_form_field/config/custom_services.yaml', 0, 7) =]]
 ```
 
-Now you can go to Back Office and build a new form.
+Now you can go to back office and build a new form.
 You should be able to see the new section in the list of available fields:
 
 ![Custom form fields](extending_form_builder_custom_form_fields.png)

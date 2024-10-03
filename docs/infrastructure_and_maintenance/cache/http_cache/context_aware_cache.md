@@ -7,7 +7,7 @@ description: Context-aware HTTP cache caches requests depending on the logged-in
 [[= product_name =]] allows caching requests made by logged-in users.
 This is called (user) context-aware cache.
 
-It means that HTTP cache is unique per set of user permissions (Roles and Limitations), 
+It means that HTTP cache is unique per set of user permissions (roles and limitations), 
 and there are variations of cache shared only among users that have the exact same permissions. 
 So if a user browses a list of children Locations, they will only see children Locations 
 they have access to, even if their rendering is served from HTTP cache.
@@ -132,7 +132,7 @@ This solution requires more effort (controller, VCL logic and adapting your own 
 
 For information on how user context hashes are generated, see [FOSHttpCacheBundle documentation](https://foshttpcachebundle.readthedocs.io/en/latest/features/user-context.html#generating-hashes).
 
-[[= product_name =]] implements a custom context provider in order to make user context hash reflect the current User's Roles and Limitations.
+[[= product_name =]] implements a custom context provider in order to make user context hash reflect the current User's roles and Limitations.
 This is needed given [[= product_name =]]'s more complex permission model compared to Symfony's.
 
 You can technically extend the user context hash by [implementing your own custom context provider(s)](https://foshttpcachebundle.readthedocs.io/en/latest/reference/configuration/user-context.html#custom-context-providers).

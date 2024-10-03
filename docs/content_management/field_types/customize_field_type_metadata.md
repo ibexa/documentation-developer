@@ -1,5 +1,5 @@
 ---
-description: You can customize which Field Type metadata should be disabled in the Back Office.
+description: You can customize which Field Type metadata should be disabled in the back office.
 ---
 
 # Customize Field Type metadata
@@ -7,7 +7,7 @@ description: You can customize which Field Type metadata should be disabled in t
 When creating a content type definition, you add Fields and configure their metadata,
 such as whether they are required, translatable, and so on.
 
-If needed, you can customize that some of those options are disabled in the Back Office for specific Field Types.
+If needed, you can customize that some of those options are disabled in the back office for specific Field Types.
 To do this, add custom service definition for `ModifyFieldDefinitionsCollectionTypeExtension` 
 
 For example, this configuration means that no Image Field can be set as required in the definition of a content type:

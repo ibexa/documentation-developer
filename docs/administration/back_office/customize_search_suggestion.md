@@ -4,7 +4,7 @@ description: Customize search suggestion configuration and sources.
 
 # Customize search suggestion
 
-In the Back Office, when you start typing in the search field on the top bar, suggestions about what you could be looking for show up directly under the field.
+In the back office, when you start typing in the search field on the top bar, suggestions about what you could be looking for show up directly under the field.
 For more information about using this feature to search for content, see [user documentation]([[= user_doc =]]/search/search_for_content).
 
 ## Configuration
@@ -35,7 +35,7 @@ After this event, the suggestion collection is sorted by score and truncated to 
     ```
 
 The following example is boosting Product suggestions.
-It's a subscriber that passes after the default one (because priority is set to zero), adds matching products at a score above the earlier Content suggestions, and avoids duplicates.
+It's a subscriber that passes after the default one (because priority is set to zero), adds matching products at a score above the earlier content suggestions, and avoids duplicates.
 
 - If the suggestion source finds a number of matching products that is equal or greater than the `result_limit`, only those products end up in the suggestion.
 - If it finds less than `result_limit` products, those products are on top of the suggestion, followed by items from another suggestion source until the limit is met.
@@ -85,7 +85,7 @@ services:
     At this point, it's possible to test the suggestion JSON.
     The route is `/suggestion` with a GET parameter `query` for the searched text.
 
-    For example, log in to the Back Office to have a session cookie, then access the route through the Back Office SiteAccess, such as `<yourdomain>/admin/suggestion?query=platform`.
+    For example, log in to the back office to have a session cookie, then access the route through the back office SiteAccess, such as `<yourdomain>/admin/suggestion?query=platform`.
     If you have a product with "platform" in its name, it is returned as the first suggestion.
 
 A JavaScript renderer displays the normalized product suggestion.
@@ -103,7 +103,7 @@ It's registered as `autocomplete.renderers.<type>` by using the type identifier 
  })(window, document, window.ibexa, window.Routing);
 ```
 
-To fit into the Back Office design, you can take HTML structure and CSS class names from an existing suggestion template `vendor/ibexa/admin-ui/src/bundle/Resources/views/themes/admin/ui/global_search_autocomplete_content_item.html.twig`.
+To fit into the back office design, you can take HTML structure and CSS class names from an existing suggestion template `vendor/ibexa/admin-ui/src/bundle/Resources/views/themes/admin/ui/global_search_autocomplete_content_item.html.twig`.
 
 To allow template override and ease HTML writing, the example is also loading a template to render the HTML.
 
@@ -113,7 +113,7 @@ Here is a complete `assets/js/admin.search.autocomplete.product.js` from the pro
 [[= include_file('code_samples/back_office/search/assets/js/admin.search.autocomplete.product.js') =]]
 ```
 
-To be loaded in the Back Office layout, this file must be added to Webpack entry `ibexa-admin-ui-layout-js`. 
+To be loaded in the back office layout, this file must be added to Webpack entry `ibexa-admin-ui-layout-js`. 
 At the end of `webpack.config.js`, add it by using `ibexaConfigManager`:
 
 ``` javascript

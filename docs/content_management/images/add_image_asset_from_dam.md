@@ -75,7 +75,7 @@ dam_unsplash:
 You can customize the parameters according to your needs. 
 For more information about supported parameters, see the [Unsplash documentation](https://unsplash.com/documentation#dynamically-resizable-images).
 
-In the Back Office, go to **Admin** > **Content types**.
+In the back office, go to **Admin** > **Content types**.
 In the **Content** group, create a content type for DAM images, which includes the ImageAsset Field. 
 
 Now, when you use the Embed block in the Page Builder, you should see a DAM Image.

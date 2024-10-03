@@ -10,7 +10,7 @@ To do it, subscribe to `Ibexa\Contracts\ElasticSearchEngine\Query\Event\QueryFil
 The following example shows how to add an additional Search Criterion to all queries.
 
 Depending on your configuration, this might impact all search queries,
-including those used for search and content tree in the Back Office.
+including those used for search and content tree in the back office.
 
 ``` php hl_lines="34"
 <?php

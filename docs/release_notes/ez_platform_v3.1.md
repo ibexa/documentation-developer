@@ -10,7 +10,7 @@
 
 ## Notable changes
 
-[eZ Commerce](https://github.com/ezsystems/ezcommerce) now uses Symfony 5 and is fully integrated into the eZ Platform Back Office.
+[eZ Commerce](https://github.com/ezsystems/ezcommerce) now uses Symfony 5 and is fully integrated into the eZ Platform back office.
 
 Refer to [eZ Commerce documentation](https://doc.ezplatform.com/projects/ezcommerce/en/latest/) for more information.
 
@@ -65,11 +65,11 @@ This release of eZ Platform introduces the following new features:
     
 ### URL management UI
 
-You can now manage URL addresses and URL wildcards with a comfortable user interface that is available in the Back Office. You can create, modify and delete URL wildcards, as well as decide if the user should be redirected to the new address on clicking the link.
+You can now manage URL addresses and URL wildcards with a comfortable user interface that is available in the back office. You can create, modify and delete URL wildcards, as well as decide if the user should be redirected to the new address on clicking the link.
 
 !!! note
 
-    As of this release, the Link manager is no longer part of the Content panel, and now it belongs to the Admin panel of the Back Office.
+    As of this release, the Link manager is no longer part of the Content panel, and now it belongs to the Admin panel of the back office.
 
 ![URL Management UI](3_1_URL_Management.png "URL Management UI")
 

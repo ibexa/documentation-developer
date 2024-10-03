@@ -4,7 +4,7 @@ description: Create route to to enable binary and media files download.
 
 # Binary and Media download
 
-You can restrict files stored in BinaryFile or Media Fields to certain user Roles.
+You can restrict files stored in BinaryFile or Media Fields to certain user roles.
 These files are not publicly downloadable from disk, and are instead served by Symfony, using a custom route that runs the necessary checks.
 This route is automatically generated as the `url` property for those Field values.
 

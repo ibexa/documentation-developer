@@ -14,10 +14,10 @@
 
 ### New UI
 
-This version offers a completely reworked user interface, covering all of the Back Office,
+This version offers a completely reworked user interface, covering all of the back office,
 including eCommerce administration.
 
-![New Content structure](3.2_new_ui_content_structure.png "New Back Office interface")
+![New Content structure](3.2_new_ui_content_structure.png "New back office interface")
 
 ![Commerce administration](3.2_commerce_cockpit.png "Commerce cockpit")
 
@@ -48,7 +48,7 @@ depending on the Segments they belong to.
 
 ![Targeting block](3.2_targeting_block.png)
 
-You can [configure Segments](https://doc.ibexa.co/en/latest/guide/admin_panel/#segments) in the Back Office.
+You can [configure Segments](https://doc.ibexa.co/en/latest/guide/admin_panel/#segments) in the back office.
 
 [Segmentation API](https://doc.ibexa.co/en/latest/api/public_php_api_managing_users/#segments) enables you to create and edit Segments and Segment Groups,
 as well as assign Users to Segments.
@@ -80,11 +80,11 @@ See [Install Ibexa Platform](https://doc.ibexa.co/en/latest/getting_started/inst
 
 ### Site Factory improvements [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-You can now define User Group skeletons where you define Policies and Limitations that apply to a specific User Group. 
+You can now define user group skeletons where you define policies and limitations that apply to a specific user group. 
 You can then associate a number of such skeletons with a site template. 
-User Group skeletons survive deleting a site.
+User group skeletons survive deleting a site.
 
-See [Configure User Group skeleton](https://doc.ibexa.co/en/latest/guide/multisite/site_factory_configuration/#user-group-skeletons) for more information.
+See [Configure user group skeleton](https://doc.ibexa.co/en/latest/guide/multisite/site_factory_configuration/#user-group-skeletons) for more information.
 
 ### Calendar widget improvements
 
@@ -97,7 +97,7 @@ For more information, see [Calendar widget](https://doc.ibexa.co/projects/usergu
 
 ### Cloning content types
 
-When creating content types in the Back Office, you do not have to start from scratch.
+When creating content types in the back office, you do not have to start from scratch.
 You can now clone an existing content type instead.
 
 To do this, click the **Copy** icon located next to the content type that you want to clone.

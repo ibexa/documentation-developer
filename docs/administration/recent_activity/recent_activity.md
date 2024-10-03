@@ -4,18 +4,18 @@ description: Log and monitor activity through UI, PHP API and REST API.
 
 # Recent activity [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-Recent activity log displays last actions in the repository (whatever their origin is, for example, Back Office, REST, migration, CLI, or CRON).
+Recent activity log displays last actions in the repository (whatever their origin is, for example, back office, REST, migration, CLI, or CRON).
 
 ![Recent activity](admin_panel_recent_activity.png)
 
-To learn more about its Back Office usage and the actions logged by default, see [Recent activity in the User documentation]([[= user_doc =]]/recent_activity/recent_activity/).
+To learn more about its back office usage and the actions logged by default, see [Recent activity in the User documentation]([[= user_doc =]]/recent_activity/recent_activity/).
 
 ## Configuration and cronjob
 
 With some configuration, you can customize the log length in the database or on screen.
 A command maintains the log size in database, it should be scheduled through CRON.
 
-- The configuration `ibexa.system.<scope>.activity_log.pagination.activity_logs_limit` sets the number of log items shown per page in the Back Office (default value: 25). 
+- The configuration `ibexa.system.<scope>.activity_log.pagination.activity_logs_limit` sets the number of log items shown per page in the back office (default value: 25). 
 A log item is a group of entries, or an entry without group.
 - The configuration `ibexa.repositories.<repository>.activity_log.truncate_after_days` sets the number of days a log entry is kept before it's deleted by the `ibexa:activity-log:truncate` command (default value: 30 days).
 
@@ -45,7 +45,7 @@ For every exact hour, the cronjob line is:
 The [`activity_log/read`](policies.md#activity-log) policy gives a role the access to the **Admin** -> **Activity list**, the dashboard's **Recent activity** block, and the user profile's **Recent activity**.
 It can be limited to "Only own logs" ([`ActivityLogOwner`](limitation_reference.md#activitylogowner-limitation)).
 
-The policy should be given to every roles having access to the Back Office, at least with the `ActivityLogOwner` owner limitation,
+The policy should be given to every roles having access to the back office, at least with the `ActivityLogOwner` owner limitation,
 to allow them to use the "Recent activity" block in the [default dashboard](configure_default_dashboard.md) or their [custom dashboard](customize_dashboard.md).
 This policy is required to view [activity log in user profile]([[= user_doc =]]/recent_activity/recent_activity/#user-profile), if [profile]([[= user_doc =]]/getting_started/get_started/#edit-user-profile) is enabled.
 
@@ -169,7 +169,7 @@ If you log several related entries at once, you can group them into a context.
 Context is a set of actions done for the same purpose, for example, it could group the actions of a CRON that fetches third party data and updates Content items.
 The built-in contexts include:
 
-- `web` - groups actions made in the Back Office, like the update and the publishing of a new content item's version
+- `web` - groups actions made in the back office, like the update and the publishing of a new content item's version
 - `migration` - groups every action from a migration file execution
 
 A context group counts as one item in regard to `activity_logs_limit` configuration and `ActivityLogService::findGroups`'s `$limit` argument.
@@ -177,7 +177,7 @@ A context group counts as one item in regard to `activity_logs_limit` configurat
 To open a context group, use `ActivityLogService::prepareContext` which has two arguments:
 
 - `$source` - describes, usually through a short identifier, what is triggering the set of actions. 
-For example, some already existing sources are `web` (incl. actions from the Back Office), `graphql`, `rest` and `migration`
+For example, some already existing sources are `web` (incl. actions from the back office), `graphql`, `rest` and `migration`
 - `$description` - an optional, more specific contextualisation.
 For example, `migration` context source is associated with the migration file name in its context description
 
@@ -200,7 +200,7 @@ Context groups can't be nested.
 If a new context is prepared when a context is already grouping log entries, this new context is ignored.
 To start a new context, make sure to previously dismiss the existing one.
 
-When displayed in the Back Office, a context group is folded below its first entry.
+When displayed in the back office, a context group is folded below its first entry.
 The `my_feature` context from the example is folded below its first action, the `init` action.
 Other actions are displayed after you click the **Show more** button.
 

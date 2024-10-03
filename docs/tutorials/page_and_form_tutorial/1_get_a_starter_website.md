@@ -15,7 +15,7 @@ Get it by following the [Install Ibexa DXP](install_ibexa_dxp.md) guide.
 
 ## Add content types
 
-Log in to the Back Office – add `/admin` to your installation's address (`<yourdomain>/admin`) and log in using `admin` as the login and `publish` as the password. Disable the Focus mode, go to content types screen and (under the Content category) add two content types with the following settings:
+Log in to the back office – add `/admin` to your installation's address (`<yourdomain>/admin`) and log in using `admin` as the login and `publish` as the password. Disable the Focus mode, go to content types screen and (under the Content category) add two content types with the following settings:
 
 ### Dog Breed
 
@@ -105,7 +105,7 @@ This is what the structure of the new and modified files should look like:
 
 ## Create content
 
-Now return to the Back Office and create some content for your website.
+Now return to the back office and create some content for your website.
 
 First, you can hide unneeded content items from the project root.
 

@@ -1,7 +1,7 @@
-# Tab switcher in Content edit page
+# Tab switcher in content edit page
 
 Tabs switcher allows separating the default Field Types in the content type from the Field Types that enhance the content with new functionalities.
-The best example of such Field Types are SEO or Taxonomy, as these are not typical Field Types but a Field Types that handle functionalities for the whole Content object.
+The best example of such Field Types are SEO or Taxonomy, as these are not typical Field Types but a Field Types that handle functionalities for the whole content object.
 
 The following example shows how to add a Meta tab with automatically assigned Taxonomy Field Type.
 
@@ -32,9 +32,9 @@ ibexa:
 
 ### Configure Field groups for Meta tab
 
-The default configuration makes the `ibexa_taxonomy_entry_assignment` Field always visible in the Meta tab in the Content form. 
-With this new feature, you can indicate what Field types, previously set in the Back Office content type, are shown in the Meta tab section in the Content form. 
-You can automatically move all Field types from Metadata group to the Meta tab in the Content form.
+The default configuration makes the `ibexa_taxonomy_entry_assignment` Field always visible in the Meta tab in the content form. 
+With this new feature, you can indicate what Field types, previously set in the back office content type, are shown in the Meta tab section in the content form. 
+You can automatically move all Field types from Metadata group to the Meta tab in the content form.
 To do it, use the following configuration:
 
 ```yaml
@@ -74,7 +74,7 @@ First, create an event listener in the `src/EventListener/TextAnchorMenuTabListe
 
 A new custom tab is defined in the line 28, the line 31 defines items for the second level.
 
-For new tabs it is also required to render its section in the Content editing form. To do it, register the UI Component:
+For new tabs it is also required to render its section in the content editing form. To do it, register the UI Component:
 
 ```yaml
 [[= include_file('code_samples/back_office/content_type/config/custom_services.yaml') =]]

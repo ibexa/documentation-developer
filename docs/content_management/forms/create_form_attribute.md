@@ -113,7 +113,7 @@ Create a `src/FormBuilder/FormSubmission/Converter/RichtextDescriptionFieldSubmi
 [[= include_file('code_samples/forms/custom_form_attribute/src/FormBuilder/FormSubmission/Converter/RichtextDescriptionFieldSubmissionConverter.php') =]]
 ```
 
-Now you can go to Back Office and build a new form.
+Now you can go to back office and build a new form.
 In the main menu, click **Content** -> **Forms** -> **Create content**, and select **Form**.
 
 You should be able to see the new section in the list of available fields:

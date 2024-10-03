@@ -1,8 +1,8 @@
 ---
-description: Configure SiteAccess, displayed content items, depth and root location for the Content Tree.
+description: Configure SiteAccess, displayed content items, depth and root location for the content tree.
 ---
 
-# Content Tree
+# Content tree
 
 With this configuration you can:
 
@@ -11,7 +11,7 @@ With this configuration you can:
 - set maximum depth of expanded tree
 - hide content types
 - set a tree root Location
-- override Content Tree's root for specific Locations
+- override content tree's root for specific Locations
 
 ```yaml
 ibexa:
@@ -25,15 +25,15 @@ ibexa:
                 children_load_max_limit: 200
                 # maximum depth of expanded tree
                 tree_max_depth: 10
-                # content types to display in Content Tree, value of '*' allows all CTs to be displayed
+                # content types to display in content tree, value of '*' allows all CTs to be displayed
                 allowed_content_types: '*'
-                # Content Tree won't display these content types, can be used only when 'allowed_content_types' is set to '*'
+                # content tree won't display these content types, can be used only when 'allowed_content_types' is set to '*'
                 ignored_content_types:
                    - post
                    - article
                 # ID of Location to use as tree root. If omitted - content.tree_root.location_id setting is used.
                 tree_root_location_id: 2
-                # list of Location IDs for which Content Tree's root Location will be changed
+                # list of Location IDs for which content tree's root Location will be changed
                 contextual_tree_root_location_ids:
                    - 2 # Home (Content structure)
                    - 5 # Users

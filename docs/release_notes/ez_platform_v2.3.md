@@ -45,7 +45,7 @@
 
     ![Form Builder](2.3_form_builder.png)
 
-    You can preview and download submissions in the Back Office.
+    You can preview and download submissions in the back office.
 
     ![Form Builder submissions](2.3_form_builder_submissions.png)
 
@@ -76,7 +76,7 @@ You can now access and set user preferences in the user menu.
 
 ![User preferences screen with time zone settings](2.3_user_preferences.png)
 
-It is covered by the `user/preferences` Policy.
+It is covered by the `user/preferences` policy.
 
 ### Dates in preferred timezone
 
@@ -97,9 +97,9 @@ Improvements to the API cover:
 - [`ASSET` Relation type](https://github.com/ezsystems/ezpublish-kernel/blob/v7.3.0-rc2/eZ/Publish/Core/REST/Client/Input/Parser/Relation.php#L84)
 - `TrashItem->trashed` timestamp covers when a content item was placed in Trash
 
-#### Back Office translations
+#### Back office translations
 
-There are three new ways you can now contribute to Back Office translations:
+There are three new ways you can now contribute to back office translations:
 - translate in-context with bookmarks
 - translate in-context with console
 - translate directly on the Crowdin website

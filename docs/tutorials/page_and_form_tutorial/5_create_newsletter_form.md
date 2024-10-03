@@ -117,8 +117,8 @@ Refresh the Page and enter a couple of mock submissions.
 
 ### Manage the submissions
 
-You can view all submissions in the Back Office.
-Go to **Forms** page. From the Content tree, select the Form and click the **Submissions** tab.
+You can view all submissions in the back office.
+Go to **Forms** page. From the content tree, select the Form and click the **Submissions** tab.
 There, after selecting submission(s), click **Download submissions** or **Delete submission**.
 To see details about a submission, click the view icon.
 

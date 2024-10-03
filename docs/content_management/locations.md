@@ -9,7 +9,7 @@ When a new content item is published, it is automatically placed in a new Locati
 All Locations form a tree which is the basic way of organizing content in the system.
 Every published content item has a Location and, as a consequence, also a place in this tree.
 
-![Content Tree - locations](content_management_tree_locations.png "Content Tree - locations")
+![Content tree - locations](content_management_tree_locations.png "Content tree - locations")
 
 A content item receives a Location only once it has been published.
 This means that a new unpublished draft does not have a Location yet.
@@ -21,7 +21,7 @@ A content item can have more than one Location. It is then present in two or mor
 For example, an article can be at the same time under "Local news" and "Sports news".
 Even in such a case, one of these places is always the main Location.
 
-You can change the main Location in the Back Office in the **Locations** tab,
+You can change the main Location in the back office in the **Locations** tab,
 or [through the API](managing_content.md#changing-the-main-location).
 
 ![Locations](content_management_locations.png "Locations")
@@ -65,13 +65,13 @@ It contains a Folder content item.
 ![Users in admin panel](admin_panel_users.png "Users in admin panel")
 
 A User is simply a content item of the User account content type.
-The Users are organized within User Group content items below this Location.
+The Users are organized within user group content items below this Location.
 
-In other words, the **Users** Location contains the actual Users and User Groups,
+In other words, the **Users** Location contains the actual Users and user groups,
 which can be viewed by selecting the **Users** tab in the Admin Panel.
 
 The default ID number of the **Users** Location is 5.
-It contains User Group content items.
+It contains user group content items.
 
 ### Forms [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 

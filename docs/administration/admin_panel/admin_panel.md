@@ -1,5 +1,5 @@
 ---
-description: Ibexa DXP Back Office contains managements options for permissions, users, languages, content types, as well as system information.
+description: Ibexa DXP back office contains managements options for permissions, users, languages, content types, as well as system information.
 page_type: landing_page
 ---
 

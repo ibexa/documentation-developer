@@ -14,7 +14,7 @@ and creating [custom buttons](https://ckeditor.com/docs/ckeditor4/latest/guide/w
 Online Editor is based on the CKEditor5.
 Refer to [CKEditor5 documentation](https://ckeditor.com/docs/ckeditor5/latest/index.html) to learn 
 how you can extend the Online Editor with even more elements.
-For more information about extending the Back Office, see [Extend Back Office](back_office.md).
+For more information about extending the back office, see [Extend back office](back_office.md).
 
 ## Configure custom tags
 
@@ -58,7 +58,7 @@ Add labels for the new tag by providing translations in `translations/custom_tag
 ```
 
 Now you can use the tag.
-In the Back Office, create or edit a content item that has a RichText Field Type.
+In the back office, create or edit a content item that has a RichText Field Type.
 In the Online Editor, click **Add**, and from the list of available tags select the FactBox tag icon.
 
 ![FactBox Tag](custom_tag_factbox.png "FactBox Tag in the Online Editor")
@@ -105,7 +105,7 @@ Add labels for the tag by providing translations in `translations/custom_tags.en
 ```
 
 Now you can use the tag.
-In the Back Office, create or edit a content item that has a RichText Field Type.
+In the back office, create or edit a content item that has a RichText Field Type.
 In the Online Editor's toolbar, click **Show more items**, and from the list of available tags select the Link tag icon.
 
 ![Link Tag](custom_tag_link.png "Link Tag in the Online Editor") 
@@ -186,7 +186,7 @@ The template files for the front end could look as follows:
 <div {% if id is defined %}id="{{ id }}"{% endif %} class="{% if align is defined %}align-{{ align }}{% endif %} ezstyle-{{ name }}">{% apply spaceless %}{{ content|raw }}{% endapply %}</div>
 ```
 
-Templates for Content View in the Back Office would be `templates/themes/admin/field_type/ezrichtext/custom_styles/highlighted_word.html.twig` and `templates/themes/admin/field_type/ezrichtext/custom_styles/highlighted_block.html.twig` respectively (assuming that the Back Office SiteAccess uses the default `admin` theme).
+Templates for Content View in the back office would be `templates/themes/admin/field_type/ezrichtext/custom_styles/highlighted_word.html.twig` and `templates/themes/admin/field_type/ezrichtext/custom_styles/highlighted_block.html.twig` respectively (assuming that the back office SiteAccess uses the default `admin` theme).
 
 ### Use cases
 

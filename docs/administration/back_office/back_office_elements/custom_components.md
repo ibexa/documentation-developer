@@ -1,10 +1,10 @@
 ---
-description: Back Office components allow you to inject any custom widgets into selected places of the user interface.
+description: Back office components allow you to inject any custom widgets into selected places of the user interface.
 ---
 
 # Custom components
 
-The Back Office has designated places where you can use your own components.
+The back office has designated places where you can use your own components.
 
 Components enable you to inject widgets (for example, **My dashboard** blocks) and HTML code (for example, a tag for loading JS or CSS files).
 A component is any class that implements the `Renderable` interface.

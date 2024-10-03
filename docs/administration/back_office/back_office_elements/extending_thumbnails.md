@@ -1,5 +1,5 @@
 ---
-description: Customize thumbnails use for content items in the Back Office.
+description: Customize thumbnails use for content items in the back office.
 ---
 
 # Extending thumbnails
@@ -53,7 +53,7 @@ Next, add the strategy with the `ibexa.repository.thumbnail.strategy.content` ta
 
 Priority `100` will allow this strategy to be used first on a clean installation or before any other strategy with lower priority.
 
-At this point you can go to the Back Office and check the results.
+At this point you can go to the back office and check the results.
 
 !!! note "Thumbnail mechanism "
 
@@ -110,4 +110,4 @@ Next, add the strategy with the `ibexa.repository.thumbnail.strategy.field` tag 
             - { name: ibexa.repository.thumbnail.strategy.field, priority: 100 }
 ```
  
-At this point you can go to the Back Office and check the results.
+At this point you can go to the back office and check the results.

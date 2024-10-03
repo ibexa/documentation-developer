@@ -84,7 +84,7 @@ See also [PHP's own security manual](https://www.php.net/manual/en/security.php)
 Make sure Admin users and other privileged users who have access to System Information and setup in the back end
 are vetted and fully trustworthy.
 
-As administrator you have access to full information about the system through the `setup/system_info` Policy,
+As administrator you have access to full information about the system through the `setup/system_info` policy,
 and also to user data, Role editing, and many other critical aspects.
 
 ### Strong passwords
@@ -117,7 +117,7 @@ before they have logged in, including would-be attackers. If an attacker uses th
 address, the attacker does not receive the email. But they could still try to guess the password reset link. That's why
 this interval should be as short as possible. 5 minutes is often enough.
 
-[[= product_name =]] allows you to create and send invitations to create an account in the frontend as a customer, the Back Office
+[[= product_name =]] allows you to create and send invitations to create an account in the frontend as a customer, the back office
 as an employee, or the Corporate Portal as a business partner. You can send invitations to individual users or in
 bulk. These invitations time out according to the parameter
 `ibexa.site_access.config.default.user_invitation.hash_expiration_time`. This can safely be longer than the "forgot password" time,
@@ -160,16 +160,16 @@ The older UTF8 can lead to truncation with 4-byte characters, like some emoji, w
 
 See [Change from UTF8 to UTF8MB4](update_db_to_2.5.md#change-from-utf8-to-utf8mb4).
 
-### Use secure Roles and Policies
+### Use secure roles and policies
 
-Use the following checklist to ensure the Roles and Policies are secure:
+Use the following checklist to ensure the roles and policies are secure:
 
-- Do Roles restrict read/write access to content as they should? Is read/write access to personal data, like User content items, properly restricted?
-- Are the Roles and their use properly differentiated and restricted? Is an editor Role used for everyday editorial work?
-- Is the admin Role used only for high-level administrative work? Is the number of people with admin access properly restricted and vetted?
+- Do roles restrict read/write access to content as they should? Is read/write access to personal data, like User content items, properly restricted?
+- Are the roles and their use properly differentiated and restricted? Is an editor role used for everyday editorial work?
+- Is the admin role used only for high-level administrative work? Is the number of people with admin access properly restricted and vetted?
 - Should people be allowed to create new user accounts themselves? Should such accounts be enabled by default, or require vetting by admins?
-- Is the Role of self-created new users restricted as intended?
-- Is there a clear Role separation between the organisation's internal and external users?
+- Is the role of self-created new users restricted as intended?
+- Is there a clear role separation between the organisation's internal and external users?
 - Is access to user data properly restricted, in accordance with GDPR?
 
 ### Do not use "hide" for read access restriction
@@ -188,8 +188,8 @@ Or use other permission-based [**Limitations**](https://doc.ibexa.co/en/latest/p
 
 Security should be a multi-layered exercise. It is wise to minimize what features you make available to the world, even if there are no known or suspected vulnerabilities in those features, and even if your content is properly protected by roles and policies. Reduce your attack surface by exposing only what you must.
 
-- If possible, make the Back Office unavailable on the open internet.
-- [Symfony FOSJsRoutingBundle](https://github.com/FriendsOfSymfony/FOSJsRoutingBundle) is required in those releases where it is included, to expose routes to JavaScript. It exposes only the required routes, nothing more. It is only required in the Back Office site access though, so you can consider blocking it in other site accesses. You should also go through your own custom routes, and decide for each if you need to expose them or not. See the documentation on [YAML route definitions for exposure](https://github.com/FriendsOfSymfony/FOSJsRoutingBundle/blob/master/Resources/doc/usage.rst#generating-uris).
+- If possible, make the back office unavailable on the open internet.
+- [Symfony FOSJsRoutingBundle](https://github.com/FriendsOfSymfony/FOSJsRoutingBundle) is required in those releases where it is included, to expose routes to JavaScript. It exposes only the required routes, nothing more. It is only required in the back office site access though, so you can consider blocking it in other site accesses. You should also go through your own custom routes, and decide for each if you need to expose them or not. See the documentation on [YAML route definitions for exposure](https://github.com/FriendsOfSymfony/FOSJsRoutingBundle/blob/master/Resources/doc/usage.rst#generating-uris).
 - By default, a [Powered-By header](https://doc.ibexa.co/en/latest/update_and_migration/from_1.x_2.x/update_db_to_2.5/#powered-by-header) is set. It specifies what version of the DXP is running. For example, `x-powered-by: Ibexa Experience v4`. This doesn't expose anything that couldn't be detected through other means. But if you wish to obscure this, you can either omit the version number, or disable the header entirely.
 - Consider whether certain interfaces must be left available on the open internet. For example:
     - The `/search` and `/graphql` endpoints

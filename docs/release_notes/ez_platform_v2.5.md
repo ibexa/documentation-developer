@@ -13,17 +13,17 @@ description: eZ Platform v2.5 is the last Long Term Support release in the v2 li
 
 ## Notable changes
 
-### Content Tree
+### Content tree
 
-You can now navigate through your website with a Content Tree.
-It will allow you to easily browse your content in the Back Office.
+You can now navigate through your website with a content tree.
+It will allow you to easily browse your content in the back office.
 Each content item has a unique icon that helps you identify it without opening.
 
-![Content Tree in the menu](left_menu_tree.png "Content Tree in the menu")
+![Content tree in the menu](left_menu_tree.png "Content tree in the menu")
 
-For more information on custom configuration, see [Content Tree](https://doc.ibexa.co/en/2.5/guide/config_back_office/#content-tree) in the developer documentation.
+For more information on custom configuration, see [content tree](https://doc.ibexa.co/en/2.5/guide/config_back_office/#content-tree) in the developer documentation.
 
-For full description of the interface, see [Content Tree](https://doc.ibexa.co/projects/userguide/en/2.5/content_model/#content-tree) in the user documentation.
+For full description of the interface, see [content tree](https://doc.ibexa.co/projects/userguide/en/2.5/content_model/#content-tree) in the user documentation.
 
 ### Webpack Encore
 
@@ -94,7 +94,7 @@ You can now easily use [custom CK Editor plugins](https://doc.ibexa.co/en/2.5/gu
 
 ### Hiding and revealing content
 
-You can now hide and reveal content items from the Back Office.
+You can now hide and reveal content items from the back office.
 Hidden content will be unavailable on the front page regardless of permissions or [Location visibility](https://doc.ibexa.co/en/2.5/guide/content_management/#location-visibility).
 
 ![Icon for hiding content](2.5_hide_content_icon.png)
@@ -109,15 +109,15 @@ The Dashboard now shows the version of eZ Platform you are running.
 
 The User Settings menu has been expanded with the following options:
 
-- Preferred language of the Back Office
+- Preferred language of the back office
 - Preferred date format
 - Option to enable or disable a character counter for Rich Text Fields
 
 ![User settings screen with new settings](2.5_user_settings.png)
 
-### Various Back Office improvements
+### Various back office improvements
 
-This release introduced several Back Office improvements to facilitate editorial experience, including:
+This release introduced several back office improvements to facilitate editorial experience, including:
 
 - [Icons for content types and the ability to define them](https://doc.ibexa.co/en/2.5/guide/extending/extending_back_office/#custom-content-type-icons)
 - Ability to collapse and expand content preview to have easier access to the Sub-items list
@@ -125,13 +125,13 @@ This release introduced several Back Office improvements to facilitate editorial
 - Simpler assigning of Object States to content
 
 
-![Back Office improvements](2.5_back_office_improvements.png)
+![Back office improvements](2.5_back_office_improvements.png)
 
 ### Permissions
 
 #### Content/Create policy for Users
 
-You can now define a 'Content/Create' policy for a User or a User group.
+You can now define a 'Content/Create' policy for a User or a user group.
 It will enable or disable (if not set) the **Create** button in your dashboard.
 
 #### Universal Discovery Widget
@@ -230,7 +230,7 @@ instead of throwing an exception. The following methods are affected:
 - `RoleService::getRoleAssignmentsForUser`
 - `RoleService::getRoleAssignmentsForUserGroup`
 
-`content/cleantrash` Policy now allows the user to empty the trash
+`content/cleantrash` policy now allows the user to empty the trash
 even if they would not have access to the trashed content.
 
 ### Docker environment
@@ -277,7 +277,7 @@ With v2.5.6 you can optionally use Solr 7.7. To enable it:
 
 ### Search result improvements
 
-When searching in the Back Office you can now select languages to filter results through.
+When searching in the back office you can now select languages to filter results through.
 
 ### Searchable Matrix Field
 

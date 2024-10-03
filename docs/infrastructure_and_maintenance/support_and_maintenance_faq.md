@@ -30,17 +30,17 @@ related to the code which generates the problem.
 
 The most important clues around increasing overall performance of your [[= product_name =]]-based project can be found in [the Performance documentation page](performance.md).
 
-#### How can I translate my Back Office?
+#### How can I translate my back office?
 
-The language of the Back Office is based on the browser language.
+The language of the back office is based on the browser language.
 In order to change it you should install the proper package for your language (see [language packages list](https://github.com/ezplatform-i18n)).
-Once you have language packages installed, you can switch the language of the Back Office in the User Settings menu.
+Once you have language packages installed, you can switch the language of the back office in the User Settings menu.
 
 If you do not have a language defined in the browser, it will be selected based on the `parameters.locale_fallback` parameter located in `config/packages/ibexa.yaml`.
 
 To read more about language managing in [[= product_name =]], see the following doc pages:
 
-- [Back Office languages](back_office_translations.md)
+- [Back office languages](back_office_translations.md)
 - [Multi-language SiteAccesses and corresponding translations](set_up_translation_siteaccess.md)
 
 #### How can I apply patches to the installation?

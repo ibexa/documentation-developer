@@ -94,7 +94,7 @@ In `templates/point2d_field.html.twig` replace the content with:
 
 ## Edit the content type
 
-Now, in the Back Office, you can go to **Content types** and see the results of your work by editing the Point 2D content type.
+Now, in the back office, you can go to **Content types** and see the results of your work by editing the Point 2D content type.
 
 !!! tip
 
