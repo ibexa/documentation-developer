@@ -12,10 +12,13 @@ use Ibexa\ProductCatalog\Local\Repository\CodeGenerator\CodeGeneratorRegistryInt
 final class ProductTypeCodeGeneratorDispatcher implements CodeGeneratorInterface
 {
     private CodeGeneratorRegistryInterface $codeGeneratorRegistry;
+
     private string $defaultCodeGeneratorIdentifier;
+
     private array $productTypeCodeGeneratorMap;
 
-    public function __construct(CodeGeneratorRegistryInterface $codeGeneratorRegistry, string $defaultCodeGeneratorIdentifier='incremental', array $productTypeCodeGeneratorMap=[]) {
+    public function __construct(CodeGeneratorRegistryInterface $codeGeneratorRegistry, string $defaultCodeGeneratorIdentifier = 'incremental', array $productTypeCodeGeneratorMap = [])
+    {
         $this->codeGeneratorRegistry = $codeGeneratorRegistry;
         $this->defaultCodeGeneratorIdentifier = $defaultCodeGeneratorIdentifier;
         $this->productTypeCodeGeneratorMap = $productTypeCodeGeneratorMap;

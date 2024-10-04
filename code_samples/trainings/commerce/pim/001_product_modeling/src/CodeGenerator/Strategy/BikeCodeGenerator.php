@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\CodeGenerator\Strategy;
 
 use Ibexa\Contracts\Core\Exception\InvalidArgumentException;
-use Ibexa\Contracts\Core\Repository\Exceptions\NotImplementedException;
 use Ibexa\Contracts\ProductCatalog\Local\CodeGenerator\CodeGeneratorContext;
 use Ibexa\Contracts\ProductCatalog\Local\CodeGenerator\CodeGeneratorInterface;
 
