@@ -1,0 +1,14 @@
+services:
+    # …
+
+    App\CodeGenerator\Strategy\ProductTypeCodeGeneratorDispatcher:
+        arguments:
+            $defaultCodeGeneratorIdentifier: 'incremental'
+            $productTypeCodeGeneratorMap:
+                bike: 'bike'
+        tags:
+            - { name: 'ibexa.product_catalog.code_generator', type: 'per_product_type_code_generator' }
+
+    App\CodeGenerator\Strategy\BikeCodeGenerator:
+        tags:
+            - { name: 'ibexa.product_catalog.code_generator', type: 'bike' }

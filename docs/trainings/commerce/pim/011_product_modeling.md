@@ -159,6 +159,19 @@ TODO: To have one product type per base product can happen.
 The exercise consists into modeling the following catalog of mountain bikes (MTB).
 The catalog is split in series, each series got few base products with variations.
 
+- Mountain Bike
+    - 4 Series
+        - Fuji
+        - Matterhorn
+        - Annapurna
+        - Etna
+    - 5 Series
+        - Kilimanjaro
+        - Stádda
+        - Aconcagua
+        - Ventoux
+        - Castor
+
 To simplify casual customer experience (and above all the exercise), the vendor don't give a lot of choices.
 
 - Manufacturers, brands and models are predefined.
@@ -166,28 +179,64 @@ To simplify casual customer experience (and above all the exercise), the vendor 
 
 The following table shows only properties that can vary. When not all combinations are available, the product has multiple lines.
 
-| Name        | Code         | Material  | Frame shapes               | Frameset + wheel sizes | Saddle           | Paint job              | Gears  | Price |
-|:------------|:-------------|:----------|:---------------------------|:-----------------------|:-----------------|:-----------------------|:-------|------:|
-| Fuji        | MTB-S4-4-1-* | Aluminium | Diamond                    | [S, M, L, XL] + 29″    | Thin             | [Sakura, Ronin]        | B-2x10 | 3776€ |
-| Fuji        | MTB-S4-4-2-* | Aluminium | [Diamond, Step-through]    | [S, M, L] + 29″        | [Thin, Large]    | [Sakura, Ronin]        | B-1x10 | 3676€ |
-| Fuji        | MTB-S4-4-3-* | Aluminium | [Diamond, Step-through]    | XS + 27.5″             | [Thin, Large]    | [Sakura, Ronin]        | B-1x08 | 3666€ |
-| Matterhorn  | MTB-S4-5-*   | Aluminium | Diamond                    | [S, M, L, XL] + 29″    | [Thin, Large]    | [Snow, Rock]           | B-2x12 | 4478€ |
-| Annapurna   | MTB-S4-6-*   | Carbon    | Diamond w/ suspension      | [S, M, L, XL] + 29″    | [Thin, Noseless] | Annapurna              | A-3x12 | 8091€ |
-| Etna        | MTB-S4-7-1-* | Aluminium | [Diamond, Step-through]    | [S, M, L, XL] + 29″    | [Thin, Large]    | Etna                   | B-1x06 | 3369€ |
-| Etna        | MTB-S4-7-2-* | Aluminium | [Diamond, Step-through]    | XS + 27.5″             | [Thin, Large]    | Etna                   | B-1x06 | 3339€ |
-| Kilimanjaro | MTB-S5-0-*   | Aluminium | Step-through w/ suspension | [S, M, L, XL] + 29″    | [Thin, Large]    | [Shira, Mawenzi, Kibo] | A-2x12 | 5895€ |
-| Stádda      | MTB-S5-1-*   | Aluminium | Step-through               | XS + [26″, 27.5″]      | Large            | [Sunrise, Sunset]      | C-1x03 | 1392€ |
-| Aconcagua   | MTB-S5-2-*   | Carbon    | Diamond w/ suspension      | [S, M, L, XL] + 29″    | [Thin, Noseless] | [Condor, Llama]        | A-3x12 | 6960€ |
-| Ventoux     | MTB-S5-3-*   | Aluminium | Step-through               | XS + [26″, 27.5″]      | [Thin, Large]    | [Provence, Mistral]    | C-1x04 | 1910€ |
-| Castor      | MTB-S5-4-*   | Aluminium | Diamond                    | [S, M, L, XL] + 29″    | [Thin, Large]    | [Castor, Pollux]       | B-2x12 | 4225€ |
+| Name        | Base code | Material  | Frame shapes               | Frameset + wheel sizes | Saddle           | Paint job              |  Gears   | Price |
+|:------------|:----------|:----------|:---------------------------|:-----------------------|:-----------------|:-----------------------|:--------:|------:|
+| Fuji        | MTB-S4-4  | Aluminium | Diamond                    | [S, M, L, XL] + 29″    | Thin             | [Sakura, Ronin]        | G02-2x10 | 3776€ |
+| Fuji        | MTB-S4-4  | Aluminium | [Diamond, Step-through]    | [S, M, L] + 29″        | [Thin, Large]    | [Sakura, Ronin]        | G02-1x10 | 3676€ |
+| Fuji        | MTB-S4-4  | Aluminium | [Diamond, Step-through]    | XS + 27.5″             | [Thin, Large]    | [Sakura, Ronin]        | G02-1x08 | 3666€ |
+| Matterhorn  | MTB-S4-5  | Aluminium | Diamond                    | [S, M, L, XL] + 29″    | [Thin, Large]    | [Snow, Rock]           | G02-2x12 | 4478€ |
+| Annapurna   | MTB-S4-6  | Carbon    | Diamond w/ suspension      | [S, M, L, XL] + 29″    | [Thin, Noseless] | Annapurna              | G01-3x12 | 8091€ |
+| Etna        | MTB-S4-7  | Aluminium | [Diamond, Step-through]    | [S, M, L, XL] + 29″    | [Thin, Large]    | Etna                   | G02-1x06 | 3369€ |
+| Etna        | MTB-S4-7  | Aluminium | [Diamond, Step-through]    | XS + 27.5″             | [Thin, Large]    | Etna                   | G02-1x06 | 3339€ |
+| Kilimanjaro | MTB-S5-0  | Aluminium | Step-through w/ suspension | [S, M, L, XL] + 29″    | [Thin, Large]    | [Shira, Mawenzi, Kibo] | G03-2x12 | 5895€ |
+| Stádda      | MTB-S5-1  | Aluminium | Step-through               | XS + [26″, 27.5″]      | Large            | [Sunrise, Sunset]      | G04-1x03 | 1392€ |
+| Aconcagua   | MTB-S5-2  | Carbon    | Diamond w/ suspension      | [S, M, L, XL] + 29″    | [Thin, Noseless] | [Condor, Llama]        | G01-3x12 | 6960€ |
+| Ventoux     | MTB-S5-3  | Aluminium | Step-through               | XS + [26″, 27.5″]      | [Thin, Large]    | [Provence, Mistral]    | G04-1x04 | 1910€ |
+| Castor      | MTB-S5-4  | Aluminium | Diamond                    | [S, M, L, XL] + 29″    | [Thin, Large]    | [Castor, Pollux]       | G03-2x12 | 4225€ |
 
 - Create the attribute group(s)
 - Create the attributes
 - Create the product type(s)
 - Create the products
-- Create the variants
+- Create the product variants
 
-TODO: [Create custom product code generator strategy](create_product_code_generator.md) 
+The product variants codes can be generated automatically from the base product code
+by the default 'incremental' code generator as product variants codes won't be used in the training.
+But, if you're curious, you can read or implements as a bonus the following custom code generators.
+
+??? note "Bonus: Code generator"
+
+    A code generator is associated to a whole catalog/repository.
+
+    See how to [create custom product code generator strategy](create_product_code_generator.md).
+
+    To be able to generate product variants' codes from their attributes, a filtering/dispatching code generator is needed.
+
+    In `config/services.yaml`, the code generator services declaration looks like this:
+    ```yaml
+    [[= include_file('code_samples/trainings/commerce/pim/001_product_modeling/config/services.yaml', 0, None, '    ') =]]
+    ```
+    The `ProductTypeCodeGeneratorDispatcher` is a code generator using other code generator depending on the product type. Its service receive a map associating product type itendifier to code generator type identifier.
+    It also have a default code generator for product type not in the map.
+
+    ```php
+    [[= include_file('code_samples/trainings/commerce/pim/001_product_modeling/src/CodeGenerator/Strategy/ProductTypeCodeGeneratorDispatcher.php', 0, None, '    ') =]]
+    ```
+
+    The `BikeCodeGenerator` is a code generator dedicated to the `bike` product type. It must cover every `bike` attributes that can vary to ensure code unicity.
+
+    ```php
+    [[= include_file('code_samples/trainings/commerce/pim/001_product_modeling/src/CodeGenerator/Strategy/BikeCodeGenerator.php', 0, None, '    ') =]]
+    ```
+
+    In `config/packages/ibexa_product_catalog.yaml` is set the use of `per_product_type_code_generator` for the `default` engine/repository:
+    ```yaml hl_lines="8"
+    [[= include_file('code_samples/trainings/commerce/pim/001_product_modeling/config/packages/ibexa_product_catalog.yaml', 0, None, '    ') =]]
+    ```
+
+??? note "TODO: Possible solution(s)"
+
+    TODO: Propose grouped attributes and product type(s), illustrate their usage with few products and product variants.
 
 Your new products are in the "Uncategorized products" section of the **Products** admin page.
 It's now time to fix this in the next chapter.
