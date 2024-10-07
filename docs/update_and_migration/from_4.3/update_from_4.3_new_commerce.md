@@ -344,7 +344,29 @@ The removable table are prefixed with `ses_` and `sve_`.
 === "PostgreSQL"
 
     ```sql
-    TODO
+    SHOW TABLES FROM <database_name> WHERE Tables_in_<database_name> LIKE 'ses_%' OR Tables_in_<database_name> LIKE 'sve_%';
+    ```
+
+    ```sql
+    FOR table_row IN 
+      SELECT
+        table_schema,
+        table_name
+      FROM
+        information_schema.tables
+      WHERE
+        table_type = 'BASE TABLE'
+      AND
+        table_schema = '<database_name>'
+      AND
+        (
+          table_name LIKE ('ses_%')
+          OR
+          table_name LIKE ('sve_%')
+        )                
+    LOOP
+      EXECUTE 'DROP TABLE ' || table_row.table_schema || '.' || table_row.table_name;
+    END LOOP;
     ```
 
 #### Ibexa Open Source
