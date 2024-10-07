@@ -40,9 +40,9 @@ final class FormSubmissionCommand extends Command
 
         $formValue = $content->getFieldValue('form', 'eng-GB')->getFormValue();
         $data = [
-            ['identifier' => 'single_line', 'name' => 'Line', 'value' => 'The name'],
-            ['identifier' => 'number', 'name' => 'Number', 'value' => 123],
-            ['identifier' => 'checkbox', 'name' => 'Checkbox', 'value' => 0],
+            ['id' => 'single_line', 'name' => 'Line', 'value' => 'The name'],
+            ['id' => 'number', 'name' => 'Number', 'value' => 123],
+            ['id' => 'checkbox', 'name' => 'Checkbox', 'value' => 0],
         ];
 
         $this->formSubmissionService->create(
