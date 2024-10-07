@@ -318,6 +318,35 @@ Apply the following database update scripts:
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/commerce/ibexa-4.3.latest-to-4.4.0.sql
     ```
 
+If you used old Commerce packages before, and have migrated everything, you can remove the old tables.
+The removable table are prefixed with `ses_` and `sve_`.
+
+=== "MySQL"
+
+    To list the removable tables:
+    ``` sql
+    SHOW TABLES FROM `<database_name>` WHERE `Tables_in_<database_name>` LIKE 'ses_%' OR `Tables_in_<database_name>` LIKE 'sve_%';
+    ```
+
+    To build a query to drop all those tables and execute it as a statement:
+    ``` sql
+    SELECT CONCAT('DROP TABLE ', GROUP_CONCAT('`', `table_schema`, '`.`', `table_name`, '`' SEPARATOR ', '))
+      INTO @drop_query
+      FROM `information_schema`.`tables`
+      WHERE `table_schema` = '<database_name>' AND (`table_name` LIKE 'ses_%' OR `table_name` LIKE 'sve_%')
+    ;
+    
+    PREPARE drop_stmt FROM @drop_query;
+    EXECUTE drop_stmt;
+    DEALLOCATE PREPARE drop_stmt;
+    ```
+
+=== "PostgreSQL"
+
+    ```sql
+    TODO
+    ```
+
 #### Ibexa Open Source
 
 If you have no access to Ibexa DXP's `ibexa/installer` package, database upgrade is not necessary.
