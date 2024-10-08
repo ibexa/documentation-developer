@@ -343,30 +343,29 @@ The removable table are prefixed with `ses_` and `sve_`.
 
 === "PostgreSQL"
 
+    To list the removable tables:
     ```sql
-    SHOW TABLES FROM <database_name> WHERE Tables_in_<database_name> LIKE 'ses_%' OR Tables_in_<database_name> LIKE 'sve_%';
+    SELECT tableowner, tablename
+      FROM pg_catalog.pg_tables
+      WHERE schemaname='public' AND tableowner='<database_name>' AND (tablename LIKE 'ses_%' OR tablename LIKE 'sve_%');
     ```
 
+    To loop through the tables to drop them (be sure to use the right database with `\connect <database_name>;`.):
     ```sql
-    FOR table_row IN
-      SELECT
-        table_schema,
-        table_name
-      FROM
-        information_schema.tables
-      WHERE
-        table_type = 'BASE TABLE'
-      AND
-        table_schema = '<database_name>'
-      AND
-        (
-          table_name LIKE ('ses_%')
-          OR
-          table_name LIKE ('sve_%')
-        )
-    LOOP
-      EXECUTE 'DROP TABLE ' || table_row.table_schema || '.' || table_row.table_name;
-    END LOOP;
+    DO $drop$
+      DECLARE table_row RECORD;
+      BEGIN
+        FOR table_row IN
+          SELECT table_catalog, table_name
+            FROM information_schema.tables
+            WHERE table_schema = 'public' AND table_type = 'BASE TABLE'
+              AND table_catalog = 'db' AND (table_name LIKE ('ses_%') OR table_name LIKE ('sve_%'))
+          LOOP
+            EXECUTE 'DROP TABLE ' || table_row.table_name;
+          END LOOP
+        ;
+      END
+    $drop$;
     ```
 
 #### Ibexa Open Source
