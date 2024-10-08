@@ -580,7 +580,7 @@ merge with your custom settings if needed, and commit them to Git.
 
 ## v4.6.12
 
-Enable the new bundle `ibexa/core-search` in `config/bundles.php`with the following line if it has not been added by the recipies:
+If the new bundle `ibexa/core-search` has not been added by the recipies, enable it by adding the following line in `config/bundles.php`:
 
 ```php
     Ibexa\Bundle\CoreSearch\IbexaCoreSearchBundle::class => ['all' => true],
