@@ -323,49 +323,81 @@ The removable tables are prefixed with `ses_` and `sve_`.
 
 === "MySQL"
 
-    To list the removable tables:
+    To be on the right database, adapt the following command:
     ``` sql
-    SHOW TABLES FROM `<database_name>` WHERE `Tables_in_<database_name>` LIKE 'ses_%' OR `Tables_in_<database_name>` LIKE 'sve_%';
+    USE <database_name>;
     ```
 
-    To build a query to drop all those tables and execute it as a statement:
+    Then, to remove all the old tables, run the following queries:
     ``` sql
-    SELECT CONCAT('DROP TABLE ', GROUP_CONCAT('`', `table_schema`, '`.`', `table_name`, '`' SEPARATOR ', '))
-      INTO @drop_query
-      FROM `information_schema`.`tables`
-      WHERE `table_schema` = '<database_name>' AND (`table_name` LIKE 'ses_%' OR `table_name` LIKE 'sve_%')
-    ;
-
-    PREPARE drop_stmt FROM @drop_query;
-    EXECUTE drop_stmt;
-    DEALLOCATE PREPARE drop_stmt;
+    DROP TABLE IF EXISTS ses_basket;
+    DROP TABLE IF EXISTS ses_basket_line;
+    DROP TABLE IF EXISTS ses_content_modification_queue;
+    DROP TABLE IF EXISTS ses_customer_prices;
+    DROP TABLE IF EXISTS ses_customer_sku;
+    DROP TABLE IF EXISTS ses_download;
+    DROP TABLE IF EXISTS ses_externaldata;
+    DROP TABLE IF EXISTS ses_gdpr_log;
+    DROP TABLE IF EXISTS ses_invoice;
+    DROP TABLE IF EXISTS ses_log_erp;
+    DROP TABLE IF EXISTS ses_log_mail;
+    DROP TABLE IF EXISTS ses_log_search;
+    DROP TABLE IF EXISTS ses_payment_basket_map;
+    DROP TABLE IF EXISTS ses_price;
+    DROP TABLE IF EXISTS ses_shipping_cost;
+    DROP TABLE IF EXISTS ses_stat_sessions;
+    DROP TABLE IF EXISTS ses_stock;
+    DROP TABLE IF EXISTS ses_token;
+    DROP TABLE IF EXISTS sve_class;
+    DROP TABLE IF EXISTS sve_class_attributes;
+    DROP TABLE IF EXISTS sve_object;
+    DROP TABLE IF EXISTS sve_object_attributes;
+    DROP TABLE IF EXISTS sve_object_attributes_tmp;
+    DROP TABLE IF EXISTS sve_object_catalog;
+    DROP TABLE IF EXISTS sve_object_catalog_tmp;
+    DROP TABLE IF EXISTS sve_object_tmp;
+    DROP TABLE IF EXISTS sve_object_urls;
+    DROP TABLE IF EXISTS sve_object_urls_tmp;
     ```
 
 === "PostgreSQL"
 
-    To list the removable tables:
-    ```sql
-    SELECT tableowner, tablename
-      FROM pg_catalog.pg_tables
-      WHERE schemaname='public' AND tableowner='<database_name>' AND (tablename LIKE 'ses_%' OR tablename LIKE 'sve_%');
+    To be on the right database, adapt the following command:
+    ``` sql
+    \connect <database_name>;
     ```
 
-    To loop through the tables to drop them (be sure to use the right database with `\connect <database_name>;`.):
-    ```sql
-    DO $drop$
-      DECLARE table_row RECORD;
-      BEGIN
-        FOR table_row IN
-          SELECT table_catalog, table_name
-            FROM information_schema.tables
-            WHERE table_schema = 'public' AND table_type = 'BASE TABLE'
-              AND table_catalog = 'db' AND (table_name LIKE ('ses_%') OR table_name LIKE ('sve_%'))
-          LOOP
-            EXECUTE 'DROP TABLE ' || table_row.table_name;
-          END LOOP
-        ;
-      END
-    $drop$;
+
+    Then, to remove all the old tables, run the following queries:
+    ``` sql
+    DROP TABLE IF EXISTS ses_basket;
+    DROP TABLE IF EXISTS ses_basket_line;
+    DROP TABLE IF EXISTS ses_content_modification_queue;
+    DROP TABLE IF EXISTS ses_customer_prices;
+    DROP TABLE IF EXISTS ses_customer_sku;
+    DROP TABLE IF EXISTS ses_download;
+    DROP TABLE IF EXISTS ses_externaldata;
+    DROP TABLE IF EXISTS ses_gdpr_log;
+    DROP TABLE IF EXISTS ses_invoice;
+    DROP TABLE IF EXISTS ses_log_erp;
+    DROP TABLE IF EXISTS ses_log_mail;
+    DROP TABLE IF EXISTS ses_log_search;
+    DROP TABLE IF EXISTS ses_payment_basket_map;
+    DROP TABLE IF EXISTS ses_price;
+    DROP TABLE IF EXISTS ses_shipping_cost;
+    DROP TABLE IF EXISTS ses_stat_sessions;
+    DROP TABLE IF EXISTS ses_stock;
+    DROP TABLE IF EXISTS ses_token;
+    DROP TABLE IF EXISTS sve_class;
+    DROP TABLE IF EXISTS sve_class_attributes;
+    DROP TABLE IF EXISTS sve_object;
+    DROP TABLE IF EXISTS sve_object_attributes;
+    DROP TABLE IF EXISTS sve_object_attributes_tmp;
+    DROP TABLE IF EXISTS sve_object_catalog;
+    DROP TABLE IF EXISTS sve_object_catalog_tmp;
+    DROP TABLE IF EXISTS sve_object_tmp;
+    DROP TABLE IF EXISTS sve_object_urls;
+    DROP TABLE IF EXISTS sve_object_urls_tmp;
     ```
 
 #### Ibexa Open Source
