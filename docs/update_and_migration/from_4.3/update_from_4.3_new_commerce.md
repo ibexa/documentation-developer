@@ -319,7 +319,7 @@ Apply the following database update scripts:
     ```
 
 If you used old Commerce packages before, and have migrated everything, you can remove the old tables.
-The removable table are prefixed with `ses_` and `sve_`.
+The removable tables are prefixed with `ses_` and `sve_`.
 
 === "MySQL"
 
