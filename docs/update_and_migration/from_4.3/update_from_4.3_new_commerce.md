@@ -335,10 +335,7 @@ The removable table are prefixed with `ses_` and `sve_`.
       FROM `information_schema`.`tables`
       WHERE `table_schema` = '<database_name>' AND (`table_name` LIKE 'ses_%' OR `table_name` LIKE 'sve_%')
     ;
-    
-    PREPARE drop_stmt FROM @drop_query;
-    EXECUTE drop_stmt;
-    DEALLOCATE PREPARE drop_stmt;
+    EXECUTE IMMEDIATE @drop_query;
     ```
 
 === "PostgreSQL"
