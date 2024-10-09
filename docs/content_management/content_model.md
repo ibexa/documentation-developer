@@ -27,7 +27,7 @@ The Fields can cover data ranging from single variables and text lines to media 
 General information about a content item is stored in a [`ContentInfo`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html) object.
 `ContentInfo` does not include Fields. It contains following information:
 
-**`id`** - the unique ID of the Content object. These numbers are not recycled, so if an item is deleted, its ID will not be reused when a new one is created.
+**`id`** - the unique ID of the Content object. These numbers are not recycled, so if an item is deleted, its ID isn't reused when a new one is created.
 
 **`contentTypeId`** - the unique numerical ID of the content type, on which the content item is based.
 
@@ -49,10 +49,10 @@ See [Sections](sections.md) for more information.
 
 **`ownerId`** - ID of the User who initially created the content item.
 It's set by the system the first time the content item is published.
-The ownership of an item cannot be modified and will not change even if the owner is removed from the system.
+The ownership of an item cannot be modified and doesn't change even if the owner is removed from the system.
 
 **`modificationDate`** - date and time when the content item was last modified.
-This is set by the system and cannot be modified manually, but will change every time the item is published again.
+This is set by the system and cannot be modified manually, but changes every time the item is published again.
 
 **`publishedDate`** - date and time when the content item was published for the first time.
 This is set by the system and cannot be modified.
@@ -100,7 +100,7 @@ Aside from the Field Type, the Field definition in a content type provides the f
 
 **Description** – a detailed description of the Field.
 
-**Required** – a flag which indicates if the Field is required for the system to accept the content item. By default, if a Field is flagged as Required, a user will not be able to publish a content item without filling in this Field.
+**Required** – a flag which indicates if the Field is required for the system to accept the content item. By default, if a Field is flagged as Required, a user isn't able to publish a content item without filling in this Field.
 
 !!! note
     You can use the `ContentService::validate()` method to decide whether the required Fields or whole content items are checked for 
@@ -108,7 +108,7 @@ Aside from the Field Type, the Field definition in a content type provides the f
 
     The Required flag is in no way related to Field validation. A Field's value is validated whether the Field is set as required or not.
 
-**[Searchable](search.md)** – a flag which indicates if the value of the Field will be indexed for searching.
+**[Searchable](search.md)** – a flag which indicates if the value of the Field is indexed for searching.
 
 The Searchable flag is not available for some Fields, because some Field Types do not allow searching through their values.
 

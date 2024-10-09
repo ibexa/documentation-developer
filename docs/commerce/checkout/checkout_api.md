@@ -55,7 +55,7 @@ The last update time and status are also stored.
 
 To update the checkout, use the `CheckoutServiceInterface::updateCheckout` method 
 and provide it with the `CheckoutUpdateStruct` struct that contains data collected at each 
-step of the workflow, as well as a transition name to identify what step will follow. 
+step of the workflow, as well as a transition name to identify what step follows. 
 
 All data is placed in session storage.
 

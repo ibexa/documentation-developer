@@ -5,7 +5,7 @@ description: Customize thumbnails use for content items in the back office.
 # Extending thumbnails
 
 The thumbnails API enable you to easily choose an image for a specific content.
-If you do not want to use custom thumbnails, `ContentType` will be used instead.
+If you do not want to use custom thumbnails, `ContentType` is used instead.
 
 ## Thumbnail mechanism 
 
@@ -25,16 +25,16 @@ For example for users thumbnails can be downloaded from an avatar-generating ser
 For this layer there are following default implementations:
 
 - The mechanism looks for Fields that can be thumbnail, if found, the mechanism moves to the second layer.
-- If there are no Fields that can be a thumbnail, the content type icon will be used as a thumbnail.
+- If there are no Fields that can be a thumbnail, the content type icon is used as a thumbnail.
 
 ### Second layer
 
 Second layer of mechanism enables selection of thumbnail from a Field that the first layer has found. 
 It searches the content type for all the Fields e.g. images with function "Can be a thumbnail" turned on.
 
-If there is more than one Field in the content type that can be used as a thumbnail, this layer will return the first nonempty Field as a thumbnail.
+If there is more than one Field in the content type that can be used as a thumbnail, this layer returns the first nonempty Field as a thumbnail.
 
-This mechanism can be modified to fit your site needs, so you can decide from where and how the thumbnails will be downloaded.
+This mechanism can be modified to fit your site needs, so you can decide from where and how the thumbnails is downloaded.
 
 ### Create a thumbnail mechanism 
 
@@ -51,7 +51,7 @@ Next, add the strategy with the `ibexa.repository.thumbnail.strategy.content` ta
 [[= include_file('code_samples/back_office/thumbnails/config/custom_services.yaml') =]]
 ```
 
-Priority `100` will allow this strategy to be used first on a clean installation or before any other strategy with lower priority.
+Priority `100` allows this strategy to be used first on a clean installation or before any other strategy with lower priority.
 
 At this point you can go to the back office and check the results.
 
@@ -69,8 +69,8 @@ Any Field Type can generate a thumbnail, e.g.:
 
 ### Add eztext Field as thumbnail
 
-First, create a strategy that will add support for `eztext` as the thumbnail.
-It will enable you to add a thumbnail URL in the text field.
+First, create a strategy that adds support for `eztext` as the thumbnail.
+It enables you to add a thumbnail URL in the text field.
 
 Add `FieldValueUrl.php` in `src/Thumbnails`.
 

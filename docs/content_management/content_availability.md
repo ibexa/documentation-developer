@@ -11,10 +11,10 @@ It's automatically applied to any new content item of this Type.
 
 ![Default content availability](availability_flag.png "Default content availability")
 
-A content item with this flag will be available in its main language
+A content item with this flag is available in its main language
 even if it's not translated into the language of the current SiteAccess.
 
-Without the flag, a content item will not be available at all if it does not have a language version
+Without the flag, a content item isn't available at all if it does not have a language version
 corresponding to the current SiteAccess.
 
 !!! note
@@ -33,5 +33,5 @@ For example, you can assign the flag to a Blog content type which is intended to
 in multiple languages. If the Blog is in English only, it would not be visible for readers
 using the Norwegian or German SiteAcceses.
 However, if you set the default availability flag for the Blog content type,
-it will be displayed to them in English (if it's set as a main language) and will enable the users to browse individual
+it's displayed to them in English (if it's set as a main language) and enables the users to browse individual
 posts in other languages.

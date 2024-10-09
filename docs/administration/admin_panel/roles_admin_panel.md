@@ -36,7 +36,7 @@ A user can also belong to many groups, for example, Administrators, Editors, Sub
 
 Best practice is to avoid assigning roles to users directly.
 Model your content (content types, Sections, Locations etc.) in a way that can be accessed by generic roles.
-That way system will be more secure and easier to manage.
+That way system is be more secure and easier to manage.
 This approach also improves performance. Role assignments and policies are taken into account during search/load queries.
 
 See [Permissions overview](permissions.md) for further information

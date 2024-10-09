@@ -5,7 +5,7 @@ description: A content type is a base for new content items.
 # Content types
 
 A content type is a base for new content items.
-It defines what Fields will be available in the content item.
+It defines what Fields are available in the content item.
 
 ![Content types](admin_panel_content_types.png "Content types")
 
@@ -34,17 +34,17 @@ Each content type is characterized by a set of metadata which define the general
 
 **Description** – a detailed description of the content type. (Optional.)
 
-<a id="content-name-pattern"></a>**Content name pattern** – a pattern that defines what name a new content item based on this content type gets. The pattern usually consists of Field identifiers that tell the system which Fields it should use when generating the name of a content item. Each Field identifier has to be surrounded with angle brackets. Text outside the angle brackets will be included literally. If no pattern is provided, the system will automatically use the first Field. (Optional.)
+<a id="content-name-pattern"></a>**Content name pattern** – a pattern that defines what name a new content item based on this content type gets. The pattern usually consists of Field identifiers that tell the system which Fields it should use when generating the name of a content item. Each Field identifier has to be surrounded with angle brackets. Text outside the angle brackets is included literally. If no pattern is provided, the system automatically uses the first Field. (Optional.)
 
-**URL alias name pattern** – a pattern which controls how the virtual URLs of the Locations will be generated when content items are created based on this content type. Note that only the last part of the virtual URL is affected. The pattern works in the same way as the content name pattern. Text outside the angle brackets will be converted using the selected method of URL transformation. If no pattern is provided, the system will automatically use the name of the content item itself. (Optional.)
+**URL alias name pattern** – a pattern which controls how the virtual URLs of the Locations are generated when content items are created based on this content type. Note that only the last part of the virtual URL is affected. The pattern works in the same way as the content name pattern. Text outside the angle brackets is converted using the selected method of URL transformation. If no pattern is provided, the system automatically uses the name of the content item itself. (Optional.)
 
 !!! tip "Changing URL alias and content name patterns"
 
     If you change the content name pattern or the URL alias name pattern,
-    existing content items will not be modified automatically.
-    The new pattern will only be applied after you modify the content item and save a new version.
+    existing content items cannot be modified automatically.
+    The new pattern is only applied after you modify the content item and save a new version.
 
-    The old URL aliases will continue to redirect to the same content items.
+    The old URL aliases continue to redirect to the same content items.
 
 **Container** – a flag which indicates if content items based on this content type are allowed to have sub-items or not (mainly relevant for actions via the UI, not validated by every PHP API).
 
@@ -52,7 +52,7 @@ Each content type is characterized by a set of metadata which define the general
 
     This flag was added for convenience and only affects the interface. In other words, it doesn't control any actual low-level logic, it simply controls the way the graphical user interface behaves.
 
-**Sort children by default by** – rule for sorting sub-items. If the instances of this content type can serve as containers, their children will be sorted according to what is selected here.
+**Sort children by default by** – rule for sorting sub-items. If the instances of this content type can serve as containers, their children are sorted according to what is selected here.
 
 **Sort children by default in order** – another rule for sorting sub-items. This decides the sort order for the criterion chosen above.
 
@@ -63,7 +63,7 @@ Each content type is characterized by a set of metadata which define the general
 ## Field definitions
 
 Aside from the metadata, a content type may contain any number of Field definitions (but has to contain at least one).
-They determine what Fields of what Field Types will be included in all content items based on this content type.
+They determine what Fields of what Field Types are included in all content items based on this content type.
 
 ![Field definitions](admin_panel_field_definitions.png)
 
@@ -89,16 +89,16 @@ They determine what Fields of what Field Types will be included in all content i
 
 A content type and its Field definitions can be modified after creation,
 even if there are already content items based on it in the system.
-When a content type is modified, each of its instances will be changed as well.
-If a new Field definition is added to a content type, this Field will appear (empty) in every relevant content item.
-If a Field definition is deleted from the content type, all the corresponding Fields will be removed from content items of this type.
+When a content type is modified, each of its instances are changed as well.
+If a new Field definition is added to a content type, this Field appears (empty) in every relevant content item.
+If a Field definition is deleted from the content type, all the corresponding Fields are removed from content items of this type.
 
 ## Removing content types
 
-System content types are by default used for the File Uploads and removing them will cause errors.
+System content types are by default used for the File Uploads and removing them can cause errors.
 
 If you decide to remove a `file` or `image` content type, or change their identifiers,
-you will need to change the configuration, so it reflects the available content types.
+you need to change the configuration, so it reflects the available content types.
 
 Example configuration:
 

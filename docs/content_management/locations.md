@@ -90,7 +90,7 @@ Location visibility allows you to control which parts of the content tree are av
 ![Location visibility](content_management_visibility.png "Location visibility")
 
 Once a content item is published, it cannot be un-published.
-When the Location of a content item is hidden, the system will not display it on the website.
+When the Location of a content item is hidden, the system doesn't display it on the website.
 
 !!! caution "Visibility and permissions"
 
@@ -103,7 +103,7 @@ When the Location of a content item is hidden, the system will not display it on
     Or use other permission-based [**Limitations**](limitations.md).
 
 If a content item is hidden, it's invisible in all its Locations.
-If a Location is hidden, all of its descendants in the tree will be hidden as well.
+If a Location is hidden, all of its descendants in the tree are hidden as well.
 This means that there are three different visibility statuses:
 
 - Visible
@@ -112,7 +112,7 @@ This means that there are three different visibility statuses:
 
 All Locations and content items are visible by default.
 If a Location is made invisible manually, its status is set to Hidden.
-All Locations under it will change status to Hidden by superior.
+All Locations under it change status to Hidden by superior.
 A content item is Hidden by superior only in Locations in which it has a parent Location with the Hidden status.
 
 In the following example, the **Content item 1** is Hidden by superior in the **Location A** while still visible in the **Location B**.
@@ -120,10 +120,10 @@ In the following example, the **Content item 1** is Hidden by superior in the **
 ![Visibility in two locations](locations_visibility.png)
 
 From the visitor's perspective a Location behaves the same whether its status is Hidden or Hidden by superior –
-it will be unavailable on the front page.
+it's unavailable on the front page.
 
 The difference is that a Location Hidden by superior cannot be revealed separately from their parent(s).
-It will only become visible once all of its parent Locations are made visible again.
+It only becomes visible once all of its parent Locations are made visible again.
 
 A Hidden by superior status does not override a Hidden status.
 This means that if a Location is Hidden manually and later one of its ancestors is hidden as well,
@@ -136,24 +136,24 @@ The way visibility works can be illustrated using the following scenarios:
 
 ![Hiding a visible Location](node_visibility_hide.png)
 
-When you hide a Location that was visible before, it will get the status Hidden.
-Its child Locations will be Hidden by superior.
-The visibility status of child Locations that were already Hidden or Hidden by superior will not change.
+When you hide a Location that was visible before, it gets the status Hidden.
+Its child Locations are Hidden by superior.
+The visibility status of child Locations that were already Hidden or Hidden by superior doesn't change.
 
 #### Hiding a Location which is Hidden by superior
 
 ![Hiding a Location which is Hidden by superior](node_visibility_hide_invisible.png)
 
-When you explicitly hide a Location which was Hidden by superior, it will get the status Hidden.
-Since the underlying Locations are already either Hidden or Hidden by superior, their visibility status will not be changed.
+When you explicitly hide a Location which was Hidden by superior, it gets the status Hidden.
+Since the underlying Locations are already either Hidden or Hidden by superior, their visibility status doesn't changed.
 
 #### Revealing a Location with a visible ancestor
 
 ![Revealing a Location with a visible ancestor](node_visibility_unhide1.png)
 
-When you reveal a Location which has a visible ancestor, this Location and its children will become visible.
-However, child Locations that were explicitly hidden by a user will keep their Hidden status
-(and their children will remain Hidden by superior).
+When you reveal a Location which has a visible ancestor, this Location and its children become visible.
+However, child Locations that were explicitly hidden by a user keep their Hidden status
+(and their children remain Hidden by superior).
 
 #### Revealing a Location with a Hidden ancestor
 

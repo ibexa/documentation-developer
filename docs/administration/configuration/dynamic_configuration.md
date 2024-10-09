@@ -55,8 +55,8 @@ $myParamSettingAdmin = $configResolver->getParameter( 'my_param', 'myapp', 'admi
 Both `getParameter()` and `hasParameter()` can take three arguments:
 
 1. `$paramName` - the name of the parameter
-2. `$namespace` - your application namespace, `myapp` in the previous example. If null, the default namespace will be used, which is `ibexa.site_access.config` by default.
-3. `$scope` - a SiteAccess name. If null, the current SiteAccess will be used.
+2. `$namespace` - your application namespace, `myapp` in the previous example. If null, the default namespace is used, which is `ibexa.site_access.config` by default.
+3. `$scope` - a SiteAccess name. If null, the current SiteAccess is used.
 
 ## Inject ConfigResolver into services
 

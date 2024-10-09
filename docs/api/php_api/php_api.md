@@ -11,7 +11,7 @@ You can use it to create, read, update, manage, and delete all objects available
 content and related objects such as Sections, Locations, content types, languages, etc.
 
 The PHP API is built on top of a layered architecture, including a persistence SPI that abstracts storage.
-Using the API ensures that your code will be forward compatible with future releases based on other storage engines.
+Using the API ensures that your code is forward compatible with future releases based on other storage engines.
 
 ## Using API services
 
@@ -102,7 +102,7 @@ When using the PHP API, authentication is performed in three ways:
 ### Back office authentication
 
 When actions are performed through the back office, they're executed as the logged-in User.
-This User's permissions will affect the behavior of the Repository.
+This User's permissions affects the behavior of the Repository.
 The User may, for example, not be allowed to create content, or view a particular Section.
 
 ### Using `sudo()`

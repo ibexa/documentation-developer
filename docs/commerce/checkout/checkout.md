@@ -42,9 +42,9 @@ As far as shipping details are concerned, checkout can behave differently, depen
 on whether the buyer is a corporate account member, a registered customer, or 
 an individual.
 
-- Corporate account members will see a company's billing address, and several shipping addresses to pick from, as predefined in the company profile.
-- Registered customers will be able see and modify the addresses that they defined at registration
-- Individuals will be able to enter both addresses at checkout
+- Corporate account members can see a company's billing address, and several shipping addresses to pick from, as predefined in the company profile.
+- Registered customers are able see and modify the addresses that they defined at registration
+- Individuals are able to enter both addresses at checkout
 
 For more information about shipping and billing addresses, see [Configure checkout](configure_checkout.md#configure-shipping-and-billing-address-field-format).
 

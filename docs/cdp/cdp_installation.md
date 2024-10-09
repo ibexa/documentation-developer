@@ -11,9 +11,9 @@ First, you need to register your [[= product_name_cdp =]] account, then you can 
 ## Register in Ibexa CDP dashboard
 
 If you decide to acquire [[= product_name_cdp =]] contact your sales representative,
-they will provide you with a registration link to [[= product_name_cdp =]].
-After registration, you will get access to a separate instance
-where you will find data required for configuring, activating and using this feature.
+they provide you with a registration link to [[= product_name_cdp =]].
+After registration, you get access to a separate instance
+where you can find data required for configuring, activating and using this feature.
 
 ## Install CDP package
 
@@ -25,7 +25,7 @@ To download it run:
 composer require ibexa/cdp
 ```
 
-Flex will install and activate the package.
+Flex installs and activate the package.
 After an installation process is finished, go to `config/packages/security.yaml`
 and uncomment `ibexa_cdp` rule.
 

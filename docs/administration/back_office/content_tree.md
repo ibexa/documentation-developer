@@ -19,7 +19,7 @@ ibexa:
         # any SiteAccess or SiteAccess group
         admin_group:
             content_tree_module:
-                # defines how many children will be shown after expanding parent
+                # defines how many children is be shown after expanding parent
                 load_more_limit: 15
                 # users won't be able to load more children than that
                 children_load_max_limit: 200
@@ -33,7 +33,7 @@ ibexa:
                    - article
                 # ID of Location to use as tree root. If omitted - content.tree_root.location_id setting is used.
                 tree_root_location_id: 2
-                # list of Location IDs for which content tree's root Location will be changed
+                # list of Location IDs for which content tree's root Location is changed
                 contextual_tree_root_location_ids:
                    - 2 # Home (Content structure)
                    - 5 # Users

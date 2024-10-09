@@ -14,4 +14,4 @@ All user groups and users can be accessed in the Admin panel by selecting **User
 !!! caution
 
     Be careful not to delete an existing user account.
-    If you do this, content created by this user will be broken and the application can face malfunction.
+    If you do this, content created by this user can be broken and the application can face malfunction.

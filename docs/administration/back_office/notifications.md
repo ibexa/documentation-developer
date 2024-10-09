@@ -12,7 +12,7 @@ It appears to whoever is doing a specific operation in the back office.
 ![Example of an info notification](notification2.png "Example of the notification bar")
 
 [Custom notifications](#create-custom-notifications) are sent to a specific user.
-They will appear in their profile in the back office.
+They appears in their profile in the back office.
 
 ![Notification in profile](notification3.png)
 
@@ -53,7 +53,7 @@ Dispatch the event with `document.body.dispatchEvent(eventInfo);`.
 
 ## Create custom notifications
 
-You can send your own custom notifications to the user which will be displayed in the user menu.
+You can send your own custom notifications to the user which are displayed in the user menu.
 
 To create a new notification you must use the `createNotification(Ibexa\Contracts\Core\Repository\Values\Notification\CreateStruct $createStruct)` method from `Ibexa\Contracts\Core\Repository\NotificationService`.
 

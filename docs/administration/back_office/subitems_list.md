@@ -51,7 +51,7 @@ The `<SubItemsModule />` module can handle additional properties. There are two 
 
 ### Required props
 
-Without all the following properties the Sub-items module will not work.
+Without all the following properties the Sub-items module cannot work.
 
 - **parentLocationId** _{Number}_ - parent Location ID
 - **restInfo** _{Object}_ - backend config object:
