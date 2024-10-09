@@ -136,4 +136,4 @@ Your custom page block is now ready.
 
 !!! caution
 
-    Before you can use it in Page Builder, you must [enable it in Page field settings]([[= user_doc =]]/content_management/configure_ct_field_settings/#block-display).
+    Before you can use the block in Page Builder, it needs to be enabled. This can be done manually in [Page field settings]([[= user_doc =]]/content_management/configure_ct_field_settings/#block-display) or by using the migration action [`add_block_to_available_blocks`](data_migration_actions.md#content-types).
