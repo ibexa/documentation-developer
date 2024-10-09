@@ -16,13 +16,13 @@ See a first conceptualisation of what a product is, and what a product type is, 
 In fact, a product type is really a content type from the hidden system group `product` with a field of type “Product specification” (`ibexa_product_specification`).
 
 The presence of an `ibexa_product_specification` field is what distinct product type from content type.
-Don't remove this field from a product type (or it will become a unreachable hidden content type).
-Don't add such field to a content type (or it will become an uneditable broken product type).
+Don't remove this field from a product type (or it becomes a unreachable hidden content type).
+Don't add such field to a content type (or it becomes an uneditable broken product type).
 
 TODO: What happens if you have several `ibexa_product_specification` fields?
 
 You can trick the system URL to display a product type as a content type but know that this is dangerous and mustn't be exposed to final users.
-Always prefer the dedicated route (as the Back Office does) `/product-type/view/<product_type_identifier` (`ibexa.product_catalog.product_type.view`).
+Always prefer the dedicated route (as the back office does) `/product-type/view/<product_type_identifier` (`ibexa.product_catalog.product_type.view`).
 To view it through `/contenttypegroup/<product_group_id>/contenttype/<product_type_id>` (`ibexa.content_type.view`) is doable. You could even edit it from there. But this is strongly not recommended.
 
 TODO: move to somewhere in the exercise
@@ -41,7 +41,7 @@ The "Product specification" field type (`ibexa_product_specification`) brings in
 
 Notice that you don't need to add a field or an attribute for price.
 Prices are handled by a particular side mechanism, the price engine, which is treated later in the training with VAT, currencies, etc.
-But, also notice that VAT is set at Product Type level. 
+But, also notice that VAT is set at product type level.
 
 ## Attributes VS Fields
 
