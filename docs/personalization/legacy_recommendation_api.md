@@ -7,7 +7,7 @@ description: An old method of fetching recommendations from the system using rec
 !!! caution
 
     This is a page describing the old version of the recommendation API. 
-    It is available for reference purposes only.
+    it's available for reference purposes only.
 
     Use the new [Recommendation API](recommendation_api.md) instead.
 
@@ -26,7 +26,7 @@ number of events must be collected and the model build must finish successfully.
 
     If you plan to use [JSONP](https://www.w3schools.com/js/js_json_jsonp.asp), authentication 
     must be disabled.
-    If it is enabled in your solution (can be easily tested with a recommendation request in a browser), please contact the eZ Recommender support (<support@yoochoose.com>) for further information and disabling.
+    If it's enabled in your solution (can be easily tested with a recommendation request in a browser), please contact the eZ Recommender support (<support@yoochoose.com>) for further information and disabling.
 
 ## Getting recommendations
 
@@ -46,7 +46,7 @@ The embedded parameters `solutionid`, `clientid` and `userid` are the same as us
 
 | Parameter Name | Description | Values |
 |-----|-----|------|
-| `scenarioid` | The ID of the scenario used for providing recommendations. It is configured or predefined in the Administration GUI. | alphanumeric |
+| `scenarioid` | The ID of the scenario used for providing recommendations. it's configured or predefined in the Administration GUI. | alphanumeric |
 | `extension` | The format the server generates the response in. There are three formats supported: JSON, XML and JSONP. See the chapter [Response Handling](#response-handling) below for more information | json, xml or jsonp |
 
 ## Basic Request Parameters
@@ -58,8 +58,8 @@ Using additional query string parameters one can customize the recommendation re
 |`numrecs`|Defines the number of recommendations that should be delivered. Keep this amount as low as possible as this increases the response time of the recommendation call.|1 to 50 (default "10")|
 |`contextitems` (required for context based recommendations)|Comma-separated list of items that the user is currently viewing on the webpage. All items must be from the same type. The type is defined in the scenario configuration.|comma separated list of item IDs (1 to 2147483647)|
 |`itemid` (deprecated)|A single item to be used as a source for creating recommendations. This parameter is deprecated. Use `contextitems` instead.|1 to 2147483647|
-|`outputtypeid` (required, if the scenario defined multiple output item types, otherwise it is optional)|Item type of the requested recommendations. This can differ from the input item type, for example, if you want to get recommendations for pictures based on an article the item type for pictures has to be used here. For a web shop this is probably not needed as only one type of items is tracked. Multiple item types are available only for advanced license.|numeric|
-|`categorypath`|Base category path for providing recommendations. The format is the same as the category path for the event tracking. It is possible to add this parameter multiple times. The order of recommendations from the different categories is defined by the calculated relevance.|alphanumeric[/alphanumeric]*|
+|`outputtypeid` (required, if the scenario defined multiple output item types, otherwise it's optional)|Item type of the requested recommendations. This can differ from the input item type, for example, if you want to get recommendations for pictures based on an article the item type for pictures has to be used here. For a web shop this is probably not needed as only one type of items is tracked. Multiple item types are available only for advanced license.|numeric|
+|`categorypath`|Base category path for providing recommendations. The format is the same as the category path for the event tracking. it's possible to add this parameter multiple times. The order of recommendations from the different categories is defined by the calculated relevance.|alphanumeric[/alphanumeric]*|
 |`jsonpcallback` (used only for JSONP request)|Function or method name for a JSONP request. It can be a function ("callme"), or a method ("obj.callme").|valid JavaScript function call (by default "jsonpCallback")|
 
 An example of the recommendation request: 
@@ -191,7 +191,7 @@ This feature helps to find "better" template for articles, which are located in 
 
 For example there is an article about football in the USA.
 The article is located in both categories "/Sport/Football" and "/America/USA".
-Depending on the category it is shown with a football field or the USA flag in the background.
+Depending on the category it's shown with a football field or the USA flag in the background.
 
 If this article is recommended and is clicked in the category "/Sport/Cricket" it must open with the "football" template.
 If the article is clicked in the category "/America/Canada" it must open with the "USA" template.
@@ -219,7 +219,7 @@ The last modification timestamp indicates a change that could influence the reco
 | Bestselling products last 7 days | no context | 24 hours | The model with the 7 days scope is usually built once a day. It can be easily cached for 24 hours. It has no context and can therefore be cached globally for all the users of a customer. |
 | Also bought products in the last month | current product | 24 hours | The model with the 30 days scope is usually built once a day. The context is always the same. It can be cached for every product. The same result can be used for all users of a customer. |
 | Also consumed read articles in the last hour | current article | 30 minutes | Models with a short scope are usually built several times a day or even per hour. In this case the expiration time is set to the half of the model build frequency/period. |
-| Personalized recommendation based on the user's statistic | customers click history | now | Although the statistic model is not updated within minutes, it is very likely that the context will be changed shortly (customer clicks another product and therefore the click is added to his history). The expiration time should not be much longer than the user activity on the web page. |
+| Personalized recommendation based on the user's statistic | customers click history | now | Although the statistic model is not updated within minutes, it's very likely that the context will be changed shortly (customer clicks another product and therefore the click is added to his history). The expiration time should not be much longer than the user activity on the web page. |
 
 In most cases you do not need to calculate the expiration time manually. The table above is provided for the orientation, how the Expires header of the HTTP response is calculated by the recommendation engine and already provided to your caching system. You just need to make sure that the Expires header is used in the configuration of your caching system instead of a static value out of your configuration.
 
@@ -229,7 +229,7 @@ There are several ways to integrate the REST calls to the Recommendation engine 
 
 #### **Simple Way**
 
-The simplest way to load recommendations is to synchronously request the Recommendation Engine for recommendations as they are needed.
+The simplest way to load recommendations is to synchronously request the Recommendation Engine for recommendations as they're needed.
 This way is sufficient in most cases. The most important drawback is that the request time increases by the time of the recommendation request.
 If the network is overloaded or the Recommendation Engine is not available it can lock the request.
 
@@ -237,17 +237,17 @@ If the network is overloaded or the Recommendation Engine is not available it ca
 
 You can place the code that loads the data from the eZ Recommender at the bottom of the generated document and flush the output buffer to the client just before requesting recommendations.
 The browser will get a whole page to render and can display it even if the very end of the page is still loading.
-Then the JavaScript code with the recommendation information loaded at the bottom of the page must fill the gaps on the page with recommendation as soon as it is completely loaded.
+Then the JavaScript code with the recommendation information loaded at the bottom of the page must fill the gaps on the page with recommendation as soon as it's completely loaded.
 
 #### Non-blocking loading in the background
 
-If the website is implemented in a language which supports multithreading or non-blocking I/O, it is possible to start the recommendation request just after the browser request is received.
+If the website is implemented in a language which supports multithreading or non-blocking I/O, it's possible to start the recommendation request just after the browser request is received.
 The page generation and the recommendation requests will be accomplished in parallel.
 By combining this idea with the previous solution and placing the recommendation results at the bottom of the page you can avoid any interruption in the processing.
 
 #### Loading from JavaScript using JSONP
 
-It is not possible to request the recommendation controller server directly from the JavaScript (over AJAX library or directly over XMLHttpRequest) because of the cross-domain restriction in most browsers.
+it's not possible to request the recommendation controller server directly from the JavaScript (over AJAX library or directly over XMLHttpRequest) because of the cross-domain restriction in most browsers.
 One of the possible technique to work around this limitation is [JSONP](https://en.wikipedia.org/wiki/JSONP).
 
 #### Loading over proxy

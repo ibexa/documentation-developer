@@ -53,7 +53,7 @@ You can find the list of all bookmarks in *Browse content* section. There, you c
 
 ### Image placeholders
 
-[Placeholder generator](https://doc.ibexa.co/en/2.5/guide/images/#setting-placeholder-generator) enables you to replace any missing image with downloaded or generated image placeholder. It can be used when you are working on an existing database and you are not able to download uploaded images to your local development environment because of their large size.
+[Placeholder generator](https://doc.ibexa.co/en/2.5/guide/images/#setting-placeholder-generator) enables you to replace any missing image with downloaded or generated image placeholder. It can be used when you're working on an existing database and you're not able to download uploaded images to your local development environment because of their large size.
 
 ![Placeholder GenericProvider](2.2_placeholder_generic_provider.png)
 

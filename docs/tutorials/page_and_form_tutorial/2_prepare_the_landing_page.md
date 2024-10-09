@@ -23,7 +23,7 @@ Go to the front page of your website (`<yourdomain>`). You can see that it looks
 
 Log in to the back office. Go to **Content Structure**.
 The **Ibexa Digital Experience Platform** content item is the first page that is shown to the visitor.
-Here you can check what content type it belongs to: it is a Landing Page.
+Here you can check what content type it belongs to: it's a Landing Page.
 
 ![Ibexa Digital Experience Platform is a Landing Page](enterprise_tut_home_is_an_lp.png)
 
@@ -37,7 +37,7 @@ Remove the Tag block. Hover over it and select the trash icon from the menu.
 Click the **Field** button on the left of the top bar to switch to editing Page Fields.
 Change the Title of the page to "Home". Then, publish the Page to update its name.
 
-The design for the website you are making needs a layout with two zones: a main column and a narrower sidebar.
+The design for the website you're making needs a layout with two zones: a main column and a narrower sidebar.
 [[= product_name_exp =]] provides only a one-zone default layout, so you need to create a new one.
 
 Preparing a new layout requires three things:

@@ -38,7 +38,7 @@ To install it, run the following command:
 composer require symfony/debug-pack
 ```
 
-After you have installed Symfony Web Debug Toolbar, it will be available when running [[= product_name =]] in the `dev` environment. It is extended with some [[= product_name =]]-specific information:
+After you have installed Symfony Web Debug Toolbar, it will be available when running [[= product_name =]] in the `dev` environment. it's extended with some [[= product_name =]]-specific information:
 
 ![Ibexa DXP info in Web Debug Toolbar](web_debug_toolbar.png "Ibexa DXP info in Web Debug Toolbar")
 
@@ -67,7 +67,7 @@ include Symfony cache use, and a [persistence cache](persistence_cache.md#persis
 
     For long-running scripts, see [Long-running console commands](performance.md#long-running-console-commands).
 
-If you are running out of memory and don't need to keep track of cache hits and misses, you can disable persistence cache logging, represented by the setting `parameters.ibexa.spi.persistence.cache.persistenceLogger.enableCallLogging`. In `config_dev.yaml`:
+If you're running out of memory and don't need to keep track of cache hits and misses, you can disable persistence cache logging, represented by the setting `parameters.ibexa.spi.persistence.cache.persistenceLogger.enableCallLogging`. In `config_dev.yaml`:
 
 ``` yaml
 parameters:

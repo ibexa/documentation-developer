@@ -244,7 +244,7 @@ For example, when plugin detects deprecated configuration key usage, it marks th
 
 ## Known issues
 
-It is not possible to create new project with Docker as PHP remote interpreter.
+it's not possible to create new project with Docker as PHP remote interpreter.
 See [related JetBrains issue](https://youtrack.jetbrains.com/issue/WI-61330) for more details.
 
 ## Feedback

@@ -114,7 +114,7 @@ For example, if the title of the Blog post is "First blog post", the address wil
 
 You can use SiteAccesses to serve different versions of the website.
 
-SiteAccesses are used depending on matching rules. They are set up in YAML configuration under the `ibexa.siteaccess.list` key.
+SiteAccesses are used depending on matching rules. they're set up in YAML configuration under the `ibexa.siteaccess.list` key.
 
 1\. In `config/packages/ibexa.yaml` add a new SiteAccess called `de` for the German version of the website:
 
@@ -163,7 +163,7 @@ de:
 This means that German will be used as the main language for this SiteAccess, and English as a fallback.
 
 2\. Go to the back office and select **Admin** > **Languages**. Add a new language called "German", with the language code `ger-DE`.
-Make sure it is enabled.
+Make sure it's enabled.
 
 ![Creating a language](first-steps-create-language.png)
 

@@ -25,7 +25,7 @@ Every Field Type may have its own options, and comes with its own editing and vi
 
 The site will use two content types: **Ride** and **Landmark**.
 A Ride is a route of a bike trip. It can include one or more Landmarks - interesting places you can see along the way.
-More than one Ride can visit the same Landmark, so it is similar to an N-N relationship model in a database.
+More than one Ride can visit the same Landmark, so it's similar to an N-N relationship model in a database.
 
 In this step you'll add the first content type, Ride.
 
@@ -35,7 +35,7 @@ In the upper-right corner, click the avatar icon to unfold the drop-down menu an
 
 In the main menu, go to **Content** -> **Content types**.
 
-You will see a list of **Content type groups**. They are used to group content types in a logical way.
+You will see a list of **Content type groups**. they're used to group content types in a logical way.
 
 Select **Content** and then click the **Create** button. 
 
@@ -63,7 +63,7 @@ Confirm the creation of the content type by clicking **Save and close**.
 
 !!! note
 
-    If you are using [[= product_name_exp =]], the root content item in your installation is
+    If you're using [[= product_name_exp =]], the root content item in your installation is
     a Page called "Ibexa Digital Experience Platform".
     
     For this tutorial, swap it with its child, a Folder called "Ibexa Platform".
@@ -81,4 +81,4 @@ While in the folder, create a few of Rides using the **Create content** button, 
 
 ![Ready for Step 3](bike_tutorial_all_rides_admin.png)
 
-Once you have two or more Rides in the Folder, you are ready to customize the homepage of the website.
+Once you have two or more Rides in the Folder, you're ready to customize the homepage of the website.

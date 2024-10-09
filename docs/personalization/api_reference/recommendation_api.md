@@ -110,7 +110,7 @@ For more information, see inline comments below.
 !!! note "Previewing recommendations"
 
     You can preview the actual responses that come from the Personalization server 
-    and how they are rendered in the user interface.
+    and how they're rendered in the user interface.
     For more information, see [Previewing scenario results]([[= user_doc =]]/personalization/previewing_scenario).
     
 For more information about integrating recommendations in the web page, 

@@ -57,7 +57,7 @@ For example:
 But the following configuration would be invalid:
 
 - `ibexa.co` domain can use `ibexa_repo`
-- `ibexa.co/doc` **cannot** use `doc_repo`, as it is under the same domain.
+- `ibexa.co/doc` **cannot** use `doc_repo`, as it's under the same domain.
 
 Invalid configuration causes problems for different parts of the system,
 for example back-end UI, REST interface and other non-SiteAccess-aware Symfony routes
@@ -66,7 +66,7 @@ such as `/_fos_user_context_hash` used by [HTTP cache](http_cache.md).
 ### Entity manager
 
 If you use the [Doctrine entity manager](https://www.doctrine-project.org/projects/doctrine-orm/en/2.10/tutorials/getting-started.html#obtaining-the-entitymanager),
-you are unable to connect different SiteAccesses to different databases.
+you're unable to connect different SiteAccesses to different databases.
 
 To have this possibility, you need to use the SiteAccess-aware entity manager: `ibexa.doctrine.orm.entity_manager`.
 
@@ -184,7 +184,7 @@ user_data: User data
 ## Limit of archived content versions
 
 `default_version_archive_limit` controls the number of archived versions per content item that are stored in the Repository.
-By default it is set to 5. This setting is configured in the following way (typically in `ibexa.yaml`):
+By default it's set to 5. This setting is configured in the following way (typically in `ibexa.yaml`):
 
 ``` yaml
 ibexa:

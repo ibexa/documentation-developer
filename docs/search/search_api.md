@@ -182,7 +182,7 @@ $filter
 
 !!! tip
 
-    It is recommended to use an IDE that can recognize type hints when working with Repository Filtering.
+    it's recommended to use an IDE that can recognize type hints when working with Repository Filtering.
     If you try to use an unsupported Criterion or Sort Clause, the IDE will indicate an issue.
 
 ## Searching in a controller
@@ -208,7 +208,7 @@ When using Repository filtering, provide the results of `ContentService::find()`
 
 ### Paginating search results
 
-To paginate search or filtering results, it is recommended to use the [Pagerfanta library](https://github.com/BabDev/Pagerfanta) and [[[= product_name =]]'s adapters for it.](https://github.com/ibexa/core/blob/main/src/lib/Pagination/Pagerfanta/Pagerfanta.php)
+To paginate search or filtering results, it's recommended to use the [Pagerfanta library](https://github.com/BabDev/Pagerfanta) and [[[= product_name =]]'s adapters for it.](https://github.com/ibexa/core/blob/main/src/lib/Pagination/Pagerfanta/Pagerfanta.php)
 
 ``` php
 // ...
@@ -315,7 +315,7 @@ For a list of supported Criteria and Sort Clauses, see [Search in trash referenc
 
 !!! note
 
-    Searching through the trashed content items operates directly on the database, therefore you cannot use external search engines, such as Solr or Elasticsearch, and it is impossible to reindex the data.
+    Searching through the trashed content items operates directly on the database, therefore you cannot use external search engines, such as Solr or Elasticsearch, and it's impossible to reindex the data.
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/FindInTrashCommand.php', 34, 41) =]]
@@ -324,7 +324,7 @@ For a list of supported Criteria and Sort Clauses, see [Search in trash referenc
 !!! caution
 
     Make sure that you set the Criterion on the `filter` property.
-    It is impossible to use the `query` property, because the search in trash operation filters the database instead of querying.
+    it's impossible to use the `query` property, because the search in trash operation filters the database instead of querying.
 
 ## Aggregation
 

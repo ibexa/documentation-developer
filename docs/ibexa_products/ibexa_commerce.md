@@ -71,7 +71,7 @@ Depending on their role, users can also enable or disable shipping methods, chan
 #### Storefront
 
 The [Storefront](storefront.md) package includes a starter kit for developers.
-It is a foundational set of components that developers can customize and extend to create their own web store implementations.
+it's a foundational set of components that developers can customize and extend to create their own web store implementations.
 It contains default UI components and widgets that can be modified to [create a customized web store](customize_storefront_layout.md).
 
 #### Relevant faceted search

@@ -13,7 +13,7 @@ The `Ibexa\Contracts\Core\FieldType\Indexable` interface defines the methods bel
 
 ### `getIndexData(Field $field, FieldDefinition $fieldDefinition)`
 
-This method returns the actual index data for the provided `Ibexa\Contracts\Core\Persistence\Content\Field`. The index data consists of an array of `Ibexa\Contracts\Core\Search\Field` instances. They are described below in further detail.
+This method returns the actual index data for the provided `Ibexa\Contracts\Core\Persistence\Content\Field`. The index data consists of an array of `Ibexa\Contracts\Core\Search\Field` instances. they're described below in further detail.
 
 ### `getIndexDefinition()`
 

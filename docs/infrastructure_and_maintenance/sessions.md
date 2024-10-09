@@ -5,7 +5,7 @@ description: Ibexa DXP uses Symfony to handle user sessions, with support for Si
 # Sessions
 
 Sessions are handled by the Symfony framework, specifically API and underlying session handlers provided by the HttpFoundation component.
-It is further enhanced in [[= product_name =]] with support for SiteAccess-aware session cookie configuration.
+it's further enhanced in [[= product_name =]] with support for SiteAccess-aware session cookie configuration.
 
 !!! note
 
@@ -121,7 +121,7 @@ Alternatively if you have needs to configure Redis servers dynamically:
 
     For [[= product_name_cloud =]] (and Platform.sh), this is already configured in `config/env/platformsh.php` based on `.platform.yaml` config.
 
-If you are on `php-redis` v4.2.0 and higher, you can optionally tweak [`php-redis` settings](https://github.com/phpredis/phpredis#session-locking) for session locking.
+If you're on `php-redis` v4.2.0 and higher, you can optionally tweak [`php-redis` settings](https://github.com/phpredis/phpredis#session-locking) for session locking.
 
 Ideally keep [persistence cache](persistence_cache.md) and session data separated:
 
@@ -134,7 +134,7 @@ If you want to make sure sessions survive Redis or server restarts, consider usi
 ##### Alternative storing sessions in database using PDO
 
 For setups where database is preferred for storing sessions, you may use Symfony's PdoSessionHandler,
-although it is not currently recommended from performance perspective.
+although it's not currently recommended from performance perspective.
 
 Below is a configuration example for [[= product_name =]]. Refer to the [Symfony Cookbook]([[= symfony_doc =]]/doctrine/pdo_session_storage.html) for full documentation.
 

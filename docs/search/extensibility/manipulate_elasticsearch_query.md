@@ -4,7 +4,7 @@ description: Manipulate the search query when using the Elasticsearch search eng
 
 # Manipulate Elasticsearch query
 
-You can customize the search query before it is executed.
+You can customize the search query before it's executed.
 To do it, subscribe to `Ibexa\Contracts\ElasticSearchEngine\Query\Event\QueryFilterEvent`.
 
 The following example shows how to add an additional Search Criterion to all queries.

@@ -74,7 +74,7 @@ First, create an event listener in the `src/EventListener/TextAnchorMenuTabListe
 
 A new custom tab is defined in the line 28, the line 31 defines items for the second level.
 
-For new tabs it is also required to render its section in the content editing form. To do it, register the UI Component:
+For new tabs it's also required to render its section in the content editing form. To do it, register the UI Component:
 
 ```yaml
 [[= include_file('code_samples/back_office/content_type/config/custom_services.yaml') =]]

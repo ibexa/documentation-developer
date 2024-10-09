@@ -42,7 +42,7 @@ Place the `factbox.html.twig` template in the
 
 !!! tip
 
-    If an attribute is not required, check if it is defined by adding a check 
+    If an attribute is not required, check if it's defined by adding a check 
     in the template, for example:
 
     ```html+twig
@@ -72,7 +72,7 @@ You can also place custom tags inline with the following configuration:
 ```
 
 `is_inline` is an optional key.
-The default value is `false`, therefore, if it is not set, the custom tag is 
+The default value is `false`, therefore, if it's not set, the custom tag is 
 treated as a block tag.
 
 ### Use cases
@@ -80,7 +80,7 @@ treated as a block tag.
 #### Link tag
 
 You can configure a custom tag with a `link` attribute that offers a basic UI with text input.
-It is useful when migrating from eZ Publish to [[= product_name =]].
+It's useful when migrating from eZ Publish to [[= product_name =]].
 
 The configuration is:
 
@@ -170,7 +170,7 @@ Add labels for the new styles by providing translations in `translations/custom_
 ### Rendering
 
 The `template` key points to the template that is used to render the custom style. 
-It is recommended that you use the [design engine](design_engine.md).
+It's recommended that you use the [design engine](design_engine.md).
 
 The template files for the front end could look as follows:
 
@@ -312,7 +312,7 @@ You can also set each attribute to be `required` and set its `default_value`.
 
 For the `choice` type, you must provide an array of available `choices`.
 By adding `multiple`, you can decide whether more than one option can be selected.
-It is set to `false` by default.
+It's set to `false` by default.
 
 Use the example below to add two data attributes, `custom_attribute` and 
 `another_attribute` to the Heading element in the `admin_group` SiteAccess:

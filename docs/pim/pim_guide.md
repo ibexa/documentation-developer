@@ -22,7 +22,7 @@ product-specific information such as attributes, assets, prices, and others.
 PIM lets you group products into categories and catalogs.
 
 Catalogs are collections of products selected by using configurable filters. 
-They are specific to each of your sites or storefronts and only contain 
+they're specific to each of your sites or storefronts and only contain 
 the products in them that you wish to sell in their associated storefronts.
 
 Catalogs contain a complete list of related products that can be displayed on a store site. You can have as many catalogs as required.
@@ -205,12 +205,12 @@ Therefore, if your specific requirements are not met, you must extend the applic
 ##### Simplified presentation of PIM-related blocks and views
 
 Enabling Remote PIM impacts a number of application views and blocks, such as Product view, Product list, Catalog and Product Collection.
-They are simplified, for example, they do not include thumbnails and other assets, or refer to URL aliases.
+they're simplified, for example, they do not include thumbnails and other assets, or refer to URL aliases.
 You can customize them by extending the default implementation.
 
 ##### Limited HTTP Caching
 
-In the context of remote PIM, it is impossible to use [content-aware HTTP caching](content_aware_cache.md) with `ibexa_http_cache_tag_relation_ids`.
+In the context of remote PIM, it's impossible to use [content-aware HTTP caching](content_aware_cache.md) with `ibexa_http_cache_tag_relation_ids`.
 
 ## How to get started
 
@@ -237,7 +237,7 @@ Products have underlying content items, which means you can customize the conten
 
 Product attributes help you to create products with detailed, complicated specification. 
 Thanks to this, you can create product variants based on multiple product attributes that include different information about a product. 
-Additionally, product attributes are collected in groups so they are easier to manage.
+Additionally, product attributes are collected in groups so they're easier to manage.
 
 ![Multiple attribute types](img/product_attribute_types.png)
 

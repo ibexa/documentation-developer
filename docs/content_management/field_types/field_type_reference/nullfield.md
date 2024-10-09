@@ -8,7 +8,7 @@ This Field Type is used as fallback for migration scenarios, and for testing pur
 
 ## Description
 
-The Null Field Type serves as an aid when migrating from eZ Publish Platform and earlier legacy versions. It is a dummy for legacy Field Types that are not implemented in [[= product_name =]].
+The Null Field Type serves as an aid when migrating from eZ Publish Platform and earlier legacy versions. It's a dummy for legacy Field Types that are not implemented in [[= product_name =]].
 
 Null Field Type will accept anything provided as a value and is usually combined with:
 

@@ -17,7 +17,7 @@ Depending on your context, you either want to create a Platform User, return an 
 Whenever an *external* user is matched (i.e. one that does not come from Platform repository, like coming from LDAP), [[= product_name =]] kernel initiates an `MVCEvents::INTERACTIVE_LOGIN` event.
 Every service listening to this event receives an `Ibexa\Core\MVC\Symfony\Event\InteractiveLoginEvent` object which contains the original security token (that holds the matched user) and the request.
 
-Then, it is up to the listener to retrieve a Platform User from the Repository and to assign it back to the event object.
+Then, it's up to the listener to retrieve a Platform User from the Repository and to assign it back to the event object.
 This user is injected into the repository and used for the rest of the request.
 
 If no [[= product_name =]] User is returned, the Anonymous User is used.
@@ -31,7 +31,7 @@ The *API user* is mainly used for permission checks against the repository and
 
 ### Customize the User class
 
-It is possible to customize the user class used by extending `Ibexa\Core\MVC\Symfony\Security\EventListener\SecurityListener` service, which defaults to `Ibexa\Core\MVC\Symfony\Security\EventListener\SecurityListener`.
+it's possible to customize the user class used by extending `Ibexa\Core\MVC\Symfony\Security\EventListener\SecurityListener` service, which defaults to `Ibexa\Core\MVC\Symfony\Security\EventListener\SecurityListener`.
 
 You can override `getUser()` to return whatever User class you want, as long as it implements `Ibexa\Core\MVC\Symfony\Security\UserInterface`.
 

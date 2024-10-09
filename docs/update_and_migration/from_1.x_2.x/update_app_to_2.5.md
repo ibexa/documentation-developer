@@ -21,8 +21,8 @@ disable it by removing the `new EzSystems\PlatformEEAssetsBundle\EzSystemsPlatfo
 Since v2.5 eZ Platform uses [Webpack Encore]([[= symfony_doc =]]/frontend.html#webpack-encore) for asset management.
 You need to install [Node.js](https://nodejs.org/en) and [Yarn](https://classic.yarnpkg.com/en/docs/install) to update to this version.
 
-In v2.5 it is still possible to use Assetic, like in earlier versions.
-However, if you are using the latest Bootstrap version, [`scssphp`](https://github.com/leafo/scssphp)
+In v2.5 it's still possible to use Assetic, like in earlier versions.
+However, if you're using the latest Bootstrap version, [`scssphp`](https://github.com/leafo/scssphp)
 will not compile correctly with Assetic.
 In this case, use Webpack Encore. See [Importing assets from a bundle](importing_assets_from_bundle.md) for more information.
 

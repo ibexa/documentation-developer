@@ -58,8 +58,8 @@ The following table lists some of the available options and their meaning:
 | Switch | Option | Description |
 |--------------|------------|------------|
 | `-l` | `--language-code=LANGUAGE-CODE` | Passes a language code, for example, "eng-GB". |
-| `-u` | `--user[=USER]` | Passes a repository username. By default it is "admin". |
-| `-c` | `--batch-size[=BATCH-SIZE]` | Passes a number of URLs to check in a single iteration. Set it to avoid using too much memory. By default it is set to 50. |
+| `-u` | `--user[=USER]` | Passes a repository username. By default it's "admin". |
+| `-c` | `--batch-size[=BATCH-SIZE]` | Passes a number of URLs to check in a single iteration. Set it to avoid using too much memory. By default it's set to 50. |
 | | `--siteaccess[=SITEACCESS]` | Passes a SiteAccess to use for operations. If not provided, the default SiteAccess is used. |
 
 ## Form-uploaded files

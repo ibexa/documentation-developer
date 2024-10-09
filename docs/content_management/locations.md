@@ -4,7 +4,7 @@ description: Locations hold published content items and can be used to control v
 
 # Locations
 
-When a new content item is published, it is automatically placed in a new Location.
+When a new content item is published, it's automatically placed in a new Location.
 
 All Locations form a tree which is the basic way of organizing content in the system.
 Every published content item has a Location and, as a consequence, also a place in this tree.
@@ -17,7 +17,7 @@ You can find drats in the **Drafts** tab in the **Content** menu.
 
 ![Drafts](content_management_drafts.png "Drafts")
 
-A content item can have more than one Location. It is then present in two or more places in the tree.
+A content item can have more than one Location. It's then present in two or more places in the tree.
 For example, an article can be at the same time under "Local news" and "Sports news".
 Even in such a case, one of these places is always the main Location.
 
@@ -96,13 +96,13 @@ When the Location of a content item is hidden, the system will not display it on
 
     The [visibility switcher](https://doc.ibexa.co/en/latest/content_management/locations/#location-visibility) is a convenient feature for withdrawing content from the frontend.
     It acts as a filter in the frontend by default. You can choose to respect it or ignore it in your code.
-    It isn't permission-based, and **doesn't restrict access to content**. Hidden content can be read through other means, like the REST API.
+    it'sn't permission-based, and **doesn't restrict access to content**. Hidden content can be read through other means, like the REST API.
 
     If you need to restrict access to a given content item, you could create a role that grants read access for a given [**Section**](sections.md) or
     [**Object State**](object_states.md), and set a different Section or Object State for the given Content.
     Or use other permission-based [**Limitations**](limitations.md).
 
-If a content item is hidden, it is invisible in all its Locations.
+If a content item is hidden, it's invisible in all its Locations.
 If a Location is hidden, all of its descendants in the tree will be hidden as well.
 This means that there are three different visibility statuses:
 

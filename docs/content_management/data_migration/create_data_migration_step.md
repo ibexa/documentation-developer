@@ -32,7 +32,7 @@ in `src/Migrations/Step/ReplaceNameStepNormalizer.php`:
 [[= include_file('code_samples/data_migration/src/Migrations/Step/ReplaceNameStepNormalizer.php') =]]
 ```
 
-Then, tag the step normalizer, so it is recognized by the serializer used for migrations.
+Then, tag the step normalizer, so it's recognized by the serializer used for migrations.
 
 ``` yaml
 [[= include_file('code_samples/data_migration/config/custom_services.yaml', 18, 23) =]]

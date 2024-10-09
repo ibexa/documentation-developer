@@ -33,14 +33,14 @@ Notes:
   order to allow clearing cache by alternative indexes.
   For instance tree operations or changes to content types are
   examples of operations that also need to invalidate content cache by tags.
-- Search is not defined as persistence and the queries themselves are not planned to be cached as they are too complex by design (for example, full text).
+- Search is not defined as persistence and the queries themselves are not planned to be cached as they're too complex by design (for example, full text).
   Use [Solr](solr_overview.md) which caches this for you to improve scale/performance, and to offload your database.
 
 For further details on which calls are cached or not, see details in the [Symfony Web Debug Toolbar](devops.md#web-debug-toolbar)
 which has info on cache use in two places:
 
 - Symfony Cache tab: for Symfony Cache itself, the tab shows cache lookups to cache backends
-- [[= product_name_base =]] tab: shows calls made to database back end, and if they are cached or not
+- [[= product_name_base =]] tab: shows calls made to database back end, and if they're cached or not
 
 To see where and how to contribute additional caches, refer to the [source code](https://github.com/ibexa/core/blob/main/src/lib/Persistence/Cache/Readme.md).
 
@@ -121,7 +121,7 @@ parameters:
 
     **TTL and Limit need to have a low value.** Setting limit high will increase memory use.
     High TTL value also increases exponentially risk for system acting on stale metadata (e.g. content type definitions).
-    The only case where it is safe to increase these values is for dev environment with single concurrency on writes.
+    The only case where it's safe to increase these values is for dev environment with single concurrency on writes.
     In prod environment you should only consider reducing them if you have heavy concurrency writes.
 
 ### Redis
@@ -140,9 +140,9 @@ There are two Redis adapters available out of the box that fit different needs.
 
 **Requirement**: Redis server configured with eviction [`maxmemory-policy`](https://redis.io/docs/reference/eviction/#eviction-policies):
 `volatile-ttl`, `volatile-lru` or `volatile-lfu` (Redis 4.0+).
-Use of LRU or LFU is recommended. It is also possible to use `noeviction`, but it is usually not practical.
+Use of LRU or LFU is recommended. it's also possible to use `noeviction`, but it's usually not practical.
 
-**Pros**: It is typically faster than `RedisAdapter`, because fewer lookups needed to cache backend.
+**Pros**: it's typically faster than `RedisAdapter`, because fewer lookups needed to cache backend.
 
 **Cons**: Consumes much more memory. To avoid situations where Redis stops accepting new cache
 (warnings about `Failed to save key`), set aside enough memory for the Redis server.
@@ -292,7 +292,7 @@ And as [[= product_name =]] requires that instances use a cluster-aware cache in
 
 !!! caution "Use unique vendor prefix for Cache key"
 
-    When reusing the cache service within your own code, it is very important to not conflict with the cache keys used by others.
+    When reusing the cache service within your own code, it's very important to not conflict with the cache keys used by others.
     That is why the example of usage below starts with a unique `myApp` key.
     For the namespace of your own cache, you must do the same.
 

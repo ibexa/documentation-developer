@@ -64,7 +64,7 @@ ibexa:
 ```
 
 VAT rates configuration accepts additional flags under the `extras` key.
-It is an extension point that you can build upon to add custom functionalities. 
+it's an extension point that you can build upon to add custom functionalities. 
 You can use it, for example, to pass additional information to the UI or define region-specific exclusions when calculating the tax values.
 
 For each VAT category value, setting a value to "null" (~) is equal to making the following setting:
@@ -117,4 +117,4 @@ ibexa:
                         - product_availability
 ```
 
-The order of filters in this configuration reflects the order in which they are displayed in the back office.
+The order of filters in this configuration reflects the order in which they're displayed in the back office.

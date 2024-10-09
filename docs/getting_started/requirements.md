@@ -7,7 +7,7 @@ description: System, component and package requirements for running Ibexa DXP.
 # Requirements
 
 This document covers all supported versions of the product.
-To review the requirements, select the specific version of Ibexa DXP you are interested in.
+To review the requirements, select the specific version of Ibexa DXP you're interested in.
 
 The following server requirements cover both running the software on-premise and on third-party PaaS providers.
 
@@ -376,12 +376,12 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
     ### Ibexa Cloud Setup support matrix
 
-    All Ibexa DXP features are supported in accordance with the example above. For example: As Legacy Bridge is not supported with v3, it is not supported on Ibexa Cloud either.
+    All Ibexa DXP features are supported in accordance with the example above. For example: As Legacy Bridge is not supported with v3, it's not supported on Ibexa Cloud either.
 
     !!! note
 
         As Platform.sh does not support a configuration with multiple PostgreSQL databases,
-        for Ibexa Cloud / Platform.sh it is impossible to have a DFS table in a separate database.
+        for Ibexa Cloud / Platform.sh it's impossible to have a DFS table in a separate database.
 
     ### Recommended Ibexa Cloud setup
 
@@ -395,7 +395,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
     Make sure to set aside time and budget for:
 
-    - Verifying your requirements and ensuring they are supported by Platform.sh
+    - Verifying your requirements and ensuring they're supported by Platform.sh
     - Additional time for adaptation and configuration work, and testing by your development team
     - Additional consulting/onboarding time with Platform.sh, Ibexa technical services, and/or one of the many partners with prior experience using Platform.sh with Ibexa DXP
 
@@ -423,12 +423,12 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
     ### Ibexa Cloud Setup support matrix
 
-    All Ibexa DXP features are supported in accordance with the example above. For example: As Legacy Bridge is not supported with v3, it is not supported on Ibexa Cloud either.
+    All Ibexa DXP features are supported in accordance with the example above. For example: As Legacy Bridge is not supported with v3, it's not supported on Ibexa Cloud either.
 
     !!! note
 
         As Platform.sh does not support a configuration with multiple PostgreSQL databases,
-        for Ibexa Cloud / Platform.sh it is impossible to have a DFS table in a separate database.
+        for Ibexa Cloud / Platform.sh it's impossible to have a DFS table in a separate database.
 
     ### Recommended Ibexa Cloud setup
 
@@ -442,7 +442,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
     Make sure to set aside time and budget for:
 
-    - Verifying your requirements and ensuring they are supported by Platform.sh
+    - Verifying your requirements and ensuring they're supported by Platform.sh
     - Additional time for adaptation and configuration work, and testing by your development team
     - Additional consulting/onboarding time with Platform.sh, Ibexa technical services, and/or one of the many partners with prior experience using Platform.sh with Ibexa DXP
 
@@ -480,7 +480,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
     Because of the large range of possible configurations of eZ Publish legacy, there is no ready-made recommended setup.
     Make sure to set aside time and budget for:
 
-    - Verifying your legacy configuration and ensuring it is supported by Platform.sh
+    - Verifying your legacy configuration and ensuring it's supported by Platform.sh
     - Additional time for adaptation and configuration work, and testing by your own team
     - Additional consulting/onboarding time with Platform.sh, Ibexa technical services, and/or one of the many partners with prior experience using Platform.sh with eZ Publish legacy
 
@@ -489,7 +489,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
     ### Experimental/custom Platform.sh setups
 
     Any use of experimental versions or setups is not eligible for use with eZ Platform Cloud.
-    However, it is possible to use an eZ Enterprise subscription in combination with a Platform.sh contract,
+    However, it's possible to use an eZ Enterprise subscription in combination with a Platform.sh contract,
     where you or a partner take ownership of the configuration to set up the project.
 
     Such projects are possible by means of custom integrations/configuration,
@@ -497,14 +497,14 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
     !!! tip "Use a partner with prior experience on legacy and Platform.sh"
 
-        If you are in need of setting up your legacy project on Platform.sh for a transitional period,
+        If you're in need of setting up your legacy project on Platform.sh for a transitional period,
         eZ can put you in contact with a partner experienced in setting up older projects on Platform.sh.
         This will save you a lot of time and effort.
         
     !!! note
 
         As Platform.sh does not support a configuration with multiple PostgreSQL databases,
-        for eZ Platform Cloud / Platform.sh it is impossible to have a DFS table in a separate database.
+        for eZ Platform Cloud / Platform.sh it's impossible to have a DFS table in a separate database.
 
     ### Custom integrations
 

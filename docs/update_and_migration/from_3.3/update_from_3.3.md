@@ -4,7 +4,7 @@ description: Update your installation to the latest v3.3 version from an earlier
 
 # Update from v3.3.x to v3.3.latest
 
-This update procedure applies if you are using a v3.3 installation without the latest maintenance release.
+This update procedure applies if you're using a v3.3 installation without the latest maintenance release.
 
 Go through the following steps to update to the latest maintenance release of v3.3 (v[[= latest_tag_3_3 =]]).
 
@@ -16,7 +16,7 @@ Go through the following steps to update to the latest maintenance release of v3
 
 !!! note
 
-    If you are using v3.3.15 or earlier v3.3 version, or encounter an error related to flex.ibexa.co, you need to [update your Flex server](#update-flex-server) first.
+    If you're using v3.3.15 or earlier v3.3 version, or encounter an error related to flex.ibexa.co, you need to [update your Flex server](#update-flex-server) first.
 
 Run:
 
@@ -48,7 +48,7 @@ composer dump-autoload
 ### Update Flex server
 
 The `flex.ibexa.co` Flex server has been disabled.
-If you are using v3.3.15 or earlier v3.3 version, you need to update your Flex server.
+If you're using v3.3.15 or earlier v3.3 version, you need to update your Flex server.
 In your `composer.json` check whether the `https://flex.ibexa.co` endpoint is still listed in `extra.symfony.endpoint`.
 If that's the case, you need to perform the following update procedure.
 
@@ -93,11 +93,11 @@ Review the changes to make sure your custom configuration wasn't affected.
 
 Remove the `vendor` folder to prevent issues related to the [new Flex server](#update-flex-server).
 
-Then, perform a database upgrade and other steps relevant to the version you are updating to.
+Then, perform a database upgrade and other steps relevant to the version you're updating to.
 
 !!! caution "Clear Redis cache"
 
-    If you are using Redis as your persistence cache storage you should always clear it manually after an upgrade.
+    If you're using Redis as your persistence cache storage you should always clear it manually after an upgrade.
     You can do it by executing the following command:
 
     ```bash
@@ -164,7 +164,7 @@ php bin/console ibexa:upgrade --force
 
 #### Database update
 
-If you are using MySQL, run the following update script:
+If you're using MySQL, run the following update script:
 
 ``` sql
 mysql -u<username> -p<password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-3.3.1-to-3.3.2.sql
@@ -212,7 +212,7 @@ See https://github.com/ibexa/website-skeleton/pull/5/files for details of the pa
 
 #### Commerce configuration
 
-If you are using Commerce, run the following migration action to update the way Commerce configuration is stored:
+If you're using Commerce, run the following migration action to update the way Commerce configuration is stored:
 
 ``` bash
 mkdir --parent src/Migrations/Ibexa/migrations
@@ -292,7 +292,7 @@ Run the following scripts:
 
     Prior to v3.3.13, Symfony 5.3 was used by default.
 
-    If you are still using Symfony 5.3, you need to update your installation to Symfony 5.4.
+    If you're still using Symfony 5.3, you need to update your installation to Symfony 5.4.
     To do this, update your `composer.json` to refer to `5.4.*` instead or `5.3.*`.
 
     Refer to the relevant website skeleton: [content](https://github.com/ibexa/content-skeleton/blob/v3.3.13/composer.json), [experience](https://github.com/ibexa/experience-skeleton/blob/v3.3.13/composer.json), [commerce](https://github.com/ibexa/commerce-skeleton/blob/v3.3.13/composer.json).
@@ -368,11 +368,11 @@ See [Update Flex server](#update-flex-server).
 
 #### VCL configuration for Fastly
 
-Ibexa DXP now supports Fastly shielding. If you are using Fastly and want to use shielding, you need to update your VCL files.
+Ibexa DXP now supports Fastly shielding. If you're using Fastly and want to use shielding, you need to update your VCL files.
 
 !!! tip
 
-    Even if you do not plan to use Fastly shielding, it is recommended to update the VCL files for future compatibility.
+    Even if you do not plan to use Fastly shielding, it's recommended to update the VCL files for future compatibility.
 
 1. Locate the `vendor/ezsystems/ezplatform-http-cache-fastly/fastly/ez_main.vcl` file and update your VCL file with the recent changes.
 2. Do the same with `vendor/ezsystems/ezplatform-http-cache-fastly/fastly/ez_user_hash.vcl`.

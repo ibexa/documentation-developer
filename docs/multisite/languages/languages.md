@@ -32,7 +32,7 @@ yarn encore <environment>
 
 Language versions consist of translated values of the content item's Fields. In the content type definition every Field is set to be Translatable or not.
 
-[[= product_name =]] does not decide by itself which Fields can be translated and which cannot. For some Field values the need for a translation can be obvious, for example for the body of an article. In other cases, for instance images without text, integer numbers or e-mail addresses, translation is usually unnecessary. Despite that, [[= product_name =]] gives you the possibility to mark any Field as translatable regardless of its Field Type. It is only your decision to exclude the translation possibility for those Fields where it makes no sense.
+[[= product_name =]] does not decide by itself which Fields can be translated and which cannot. For some Field values the need for a translation can be obvious, for example for the body of an article. In other cases, for instance images without text, integer numbers or e-mail addresses, translation is usually unnecessary. Despite that, [[= product_name =]] gives you the possibility to mark any Field as translatable regardless of its Field Type. it's only your decision to exclude the translation possibility for those Fields where it makes no sense.
 
 When a Field is not flagged as Translatable, its value will be copied from the initial/main translation when a new language version is created. This copied value cannot be modified. When a Field is Translatable, you will have to enter its value in a new language version manually.
 
@@ -180,4 +180,4 @@ When setting up SiteAccesses with different language versions, you can specify a
 
 You can also assign a Default content availability flag to content types (available in the Admin Panel). When this flag is assigned, content items of this type will be available even when they do not have a language version in any of the languages configured for the current SiteAccess.
 
-Note that if a language is not provided in the list of prioritized languages and it is not the content item's first language, the URL alias for this content in this language will not be generated.
+Note that if a language is not provided in the list of prioritized languages and it's not the content item's first language, the URL alias for this content in this language will not be generated.

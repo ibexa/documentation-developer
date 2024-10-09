@@ -10,7 +10,7 @@ as well as references to important parts of the documentation and tools useful f
 #### What information should I specify when creating a Customer Support ticket?
 
 When reporting a problem to Customer Support the most important information is the version of [[= product_name =]] which is used in the project.
-The best way to specify it is to provide the list of currently installed packages by running:
+The best way to specify it's to provide the list of currently installed packages by running:
 
 ``` bash
 composer show ibexa/*
@@ -50,7 +50,7 @@ Remember to clear the cache afterwards.
 
 As an alternative to manually applying the patch, you can use [composer-patches](https://github.com/cweagans/composer-patches).
 You can apply patches received from the Support, community or the others by using your `composer.json` file.
-For checking the versions you are on, refer to your `composer.lock`.
+For checking the versions you're on, refer to your `composer.lock`.
 All you need is to specify which package will receive patches and give the path/URL to the actual file.
 This should be done inside the `extra` section. Packages which should receive patches
 will be removed during `composer update` or `composer require` so they can be re-installed and re-patched.

@@ -101,7 +101,7 @@ When using the PHP API, authentication is performed in three ways:
 
 ### Back office authentication
 
-When actions are performed through the back office, they are executed as the logged-in User.
+When actions are performed through the back office, they're executed as the logged-in User.
 This User's permissions will affect the behavior of the Repository.
 The User may, for example, not be allowed to create content, or view a particular Section.
 
@@ -156,9 +156,9 @@ $permissionResolver->setCurrentUserReference($user);
 PHP API uses [Exceptions](https://www.php.net/exceptions) to handle errors.
 Each API method may throw different exceptions, depending on what it does.
 
-It is good practice to cover every exception you expect to happen.
+It's good practice to cover every exception you expect to happen.
 
-For example if you are using a command which takes the Content ID as a parameter,
+For example if you're using a command which takes the Content ID as a parameter,
 the ID may either not exist, or the referenced content item may not be visible to the user.
 
 Both cases should be covered with error messages:
@@ -180,7 +180,7 @@ try {
 [Symfony dependency injection]([[= symfony_doc =]]/components/dependency_injection.html) ensures that any required services are available in your custom code
 (for example, controllers) when you inject them into the constructor.
 
-Symfony service container uses service tags to dedicate services to a specific purpose. They are usually used for extension points.
+Symfony service container uses service tags to dedicate services to a specific purpose. they're usually used for extension points.
 
 [[= product_name =]] exposes multiple features using service tags. For example, Field Types are tagged `ibexa.field_type`.
 

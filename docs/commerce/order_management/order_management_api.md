@@ -52,7 +52,7 @@ it with the `Ibexa\Contracts\OrderManagement\Value\OrderCreateStruct` object tha
 
 ## Update order
 
-You can update the order after it is created. 
+You can update the order after it's created. 
 You could do it to support a scenario when, for example, the order is processed manually and its status has to be changed in the system. 
 To update order information, use the `OrderService::updateOrder` method:
 

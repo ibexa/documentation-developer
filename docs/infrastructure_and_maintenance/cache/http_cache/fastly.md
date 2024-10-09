@@ -10,7 +10,7 @@ Fastly provides a [Fastly CLI](https://developer.fastly.com/reference/cli/) for 
 Ibexa Cloud is delivered with Fastly preconfigured. 
 It means that you don't have to do any changes to the Fastly configuration to make your site work. 
 The information provided here is only applicable if you want to change the default Fastly configuration on Ibexa Cloud, 
-or if you are not using Ibexa Cloud and want to configure Fastly to work with [[= product_name =]] on premise.
+or if you're not using Ibexa Cloud and want to configure Fastly to work with [[= product_name =]] on premise.
 
 !!! note "The Fastly Web Interface is not available for Ibexa Cloud"
     It's recommend for Ibexa Cloud customers to use the Fastly CLI instead of using the Fastly API directly with `curl`, and so on.
@@ -217,10 +217,10 @@ fastly service-version activate --version=latest
 
 You can also add VCL code to the Fastly configuration without modifying the custom `.vcl` files directly. 
 You do it by creating [snippets](https://docs.fastly.com/en/guides/about-vcl-snippets).
-It is recommended that you use snippets instead of changing the VCL files provided by [[= product_name =]] as much as possible, which makes it easier to upgrade the [[= product_name =]] VCL configuration later.
+it's recommended that you use snippets instead of changing the VCL files provided by [[= product_name =]] as much as possible, which makes it easier to upgrade the [[= product_name =]] VCL configuration later.
 
 When you use snippets, the snippet code is injected into the VCL where the `#FASTLY ...` macros are placed.
-For example, if you create a snippet for the `recv` subroutine, it is injected into the `ez_main.vcl` file, the
+For example, if you create a snippet for the `recv` subroutine, it's injected into the `ez_main.vcl` file, the
 line where `#FASTLY recv` is found.
 
 ### List available snippets for specific version
@@ -236,7 +236,7 @@ KlUh0J1fnw1JY1aEQ0up    8        Re-Enable shielding on restart  false    1iJWIf
 
 ### Get details of installed snippets
 
-Use the `vcl snippet list` command with the `--verbose` option to get information such as: priority, which subroutine it is attached to (`vcl_recv`, `vcl_fetch` etc.) and the code itself.
+Use the `vcl snippet list` command with the `--verbose` option to get information such as: priority, which subroutine it's attached to (`vcl_recv`, `vcl_fetch` etc.) and the code itself.
 
 ``` bash
 fastly vcl snippet list --version=active -v
@@ -443,7 +443,7 @@ declare local var.username STRING;
 declare local var.password STRING;
 declare local var.result STRING;
 
-# Basic auth is checked on edge nodes only. The logic below makes sure that it is only run at the edge.
+# Basic auth is checked on edge nodes only. The logic below makes sure that it's only run at the edge.
 if (fastly.ff.visits_this_service == 0 && req.restarts == 0) {
   if (req.http.Authorization ~ "(?i)^Basic ([a-z0-9_=]+)$") {
     set var.credential = digest.base64_decode(re.group.1);

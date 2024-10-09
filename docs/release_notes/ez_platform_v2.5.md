@@ -101,7 +101,7 @@ Hidden content will be unavailable on the front page regardless of permissions o
 
 ### Product version preview
 
-The Dashboard now shows the version of eZ Platform you are running.
+The Dashboard now shows the version of eZ Platform you're running.
 
 ![eZ Platform version](2.5_product_version.png)
 
@@ -202,7 +202,7 @@ It enables you to set up a cluster of Solr servers for highly available and faul
 
 #### Custom attributes
 
-It is now possible to add [custom data attributes and CSS classes](https://doc.ibexa.co/en/2.5/guide/extending/extending_online_editor/#custom-data-attributes-and-classes) to elements in the Online Editor.
+it's now possible to add [custom data attributes and CSS classes](https://doc.ibexa.co/en/2.5/guide/extending/extending_online_editor/#custom-data-attributes-and-classes) to elements in the Online Editor.
 
 #### Translatable custom tag choice attributes
 

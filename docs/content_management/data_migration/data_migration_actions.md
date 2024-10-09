@@ -20,7 +20,7 @@ You can find which migration steps support actions in the table below:
 Actions are optional operations that can be run after the main "body" of a migration has been executed
 (that is, content has been created / updated, Object state has been added, and so on).
 Their purpose is to allow additional operations to be performed as part of this particular migration.
-They are executed inside the same transaction, so in the event of failure they cause database rollback to occur.
+they're executed inside the same transaction, so in the event of failure they cause database rollback to occur.
 
 For example, when updating a content type object, some fields might be removed:
 ``` yaml

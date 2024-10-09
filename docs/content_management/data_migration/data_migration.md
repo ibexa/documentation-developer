@@ -15,7 +15,7 @@ between installations.
 You can use migrations in projects that require the same data to be present across multiple instances.
 They can be useful for project templates. Migrations are able to store shared data, so they can be applied for each new project you start,
 or incrementally upgrade older projects to your new standard, if needed.
-They are a developer-friendly tool that allows you to share data without writing code.
+they're a developer-friendly tool that allows you to share data without writing code.
 
 You can run data migrations either with a command, or with the [PHP API](data_migration_api.md).
 

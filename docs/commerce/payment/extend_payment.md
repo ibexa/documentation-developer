@@ -18,7 +18,7 @@ Code samples below show how this could be done if your organization wants to use
 
 !!! note "Gateway integration requirement"
 
-    [[= product_name =]] does not come with gateway redirects. Whether you are an integrator or an end customer, it is your responsibility to implement payment gateway integration.
+    [[= product_name =]] does not come with gateway redirects. Whether you're an integrator or an end customer, it's your responsibility to implement payment gateway integration.
 
 ### Define custom payment method type
 

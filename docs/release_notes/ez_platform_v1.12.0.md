@@ -4,7 +4,7 @@
 
 **The FAST TRACK v1.12.0 release of eZ Platform and eZ Platform Enterprise Edition is available as of October 31, 2017.**
 
-If you are looking for the Long Term Support (LTS) release, see [https://ezplatform.com/Blog/Long-Term-Support-is-Here](https://ezplatform.com/Blog/Long-Term-Support-is-Here)
+If you're looking for the Long Term Support (LTS) release, see [https://ezplatform.com/Blog/Long-Term-Support-is-Here](https://ezplatform.com/Blog/Long-Term-Support-is-Here)
 
 ## Notable changes since v1.11.0
 
@@ -82,7 +82,7 @@ To update to this version, follow the [updating guide](https://doc.ibexa.co/en/
 
     This means:
     - There is a new VCL
-    - Requires Varnish 4.1+ with `varnish-modules` _(incl. xkey)_, or Varnish Plus where it is built in
+    - Requires Varnish 4.1+ with `varnish-modules` _(incl. xkey)_, or Varnish Plus where it's built in
 
     Further reading in [doc/varnish/varnish.md](https://github.com/ezsystems/ezplatform/blob/master/doc/varnish/varnish.md).
 

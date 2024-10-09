@@ -29,9 +29,9 @@ You can then proceed with consecutive upgrades to further versions: v1.13 LTS an
 
 !!! note
 
-    If you are migrating from a legacy eZ Publish version, this page contains the information you need. However, first have a look at an overview of the process in [Migrating from eZ Publish](migrating_from_ez_publish.md).
+    If you're migrating from a legacy eZ Publish version, this page contains the information you need. However, first have a look at an overview of the process in [Migrating from eZ Publish](migrating_from_ez_publish.md).
 
-This section describes how to upgrade your existing  eZ Publish Platform  5.4/2014.11 installation to eZ Platform and eZ Enterprise. Make sure that you have a working [backup](backup.md) of the site before you do the actual upgrade, and that the installation you are performing the upgrade on is offline.
+This section describes how to upgrade your existing  eZ Publish Platform  5.4/2014.11 installation to eZ Platform and eZ Enterprise. Make sure that you have a working [backup](backup.md) of the site before you do the actual upgrade, and that the installation you're performing the upgrade on is offline.
 
 ### Note on Paths
 
@@ -44,7 +44,7 @@ This section describes how to upgrade your existing  eZ Publish Platform  5.4
     - PHP 7.1 or higher
     - MariaDB or MySQL 5.5 or higher _(Postgres possible for upgrades, but not yet supported by the installer for new installations)_
     - Browser from 2017 or newer for use with eZ Platform backend UI
-- This page assumes you have composer installed on the machine and that it is a recent version.
+- This page assumes you have composer installed on the machine and that it's a recent version.
 
 !!! tip "Clearing cache"
 
@@ -181,7 +181,7 @@ As eZ Publish legacy is installed via composer, we need to take care of placing 
 
 1. For design and settings files that you typically version in git, you can now take advantage of Legacy Bridge's built-in symlink convention. So as installation already hinted about, you can generate a structure and set up symlinks using `bin/console ezpublish:legacy:symlink -c`. This will create folders you can use below in `<new-ez-root>/src/legacy_files/`.
 
-1. The same goes for the `<new-ez-root>/ezpublish_legacy/var/[<site>/]storage` folder. However, as it is typically not versioned in git, there's no predefined convention for this. If you create a folder within your project structure for symlinking into this folder, as opposed to a mount somewhere else, make sure to mark this folder as ignored by git once it and the corresponding `.keep` file have been added to your checkout. The example below will assume `<new-ez-root>/src/legacy_files/storage` was created for this purpose, if you opt for something else just adjust the instructions.
+1. The same goes for the `<new-ez-root>/ezpublish_legacy/var/[<site>/]storage` folder. However, as it's typically not versioned in git, there's no predefined convention for this. If you create a folder within your project structure for symlinking into this folder, as opposed to a mount somewhere else, make sure to mark this folder as ignored by git once it and the corresponding `.keep` file have been added to your checkout. The example below will assume `<new-ez-root>/src/legacy_files/storage` was created for this purpose, if you opt for something else just adjust the instructions.
 
 #### 2.5.2 Upgrade the legacy distribution files
 
@@ -238,9 +238,9 @@ Import to your database the changes provided in one of the following files. It's
 
 `Postgres: <new-ez-root>/vendor/ezsystems/ezpublish-kernel/data/update/postgres/dbupdate-5.4.0-to-6.13.0.sql`
 
-### 3.2. Once you are ready to migrate content to Platform Field Types
+### 3.2. Once you're ready to migrate content to Platform Field Types
 
-Steps here should only be done once you are ready to move away from legacy and Legacy Bridge, as the following Field Types are not supported by legacy. In other words, content you have migrated will not be editable in legacy admin interface anymore, but rather in the more modern eZ Platform back-end UI, allowing you to take full advantage of what the Platform has to offer.
+Steps here should only be done once you're ready to move away from legacy and Legacy Bridge, as the following Field Types are not supported by legacy. In other words, content you have migrated will not be editable in legacy admin interface anymore, but rather in the more modern eZ Platform back-end UI, allowing you to take full advantage of what the Platform has to offer.
 
 The Field Types unsupported in eZ Platform are:
 
@@ -264,13 +264,13 @@ For Field Types which do not have specific procedures below, you must take one o
 
 #### 3.2.1 Migrate XmlText content to RichText
 
-You should test the XmlText to RichText conversion before you apply it to a production database. RichText has a stricter validation compared to XmlText and you may have to fix some of your XmlText before you are able to convert it to RichText.
+You should test the XmlText to RichText conversion before you apply it to a production database. RichText has a stricter validation compared to XmlText and you may have to fix some of your XmlText before you're able to convert it to RichText.
 Run the conversion script on a copy of your production database as the script is rather resource-intensive.
 
 `php -d memory_limit=1536M bin/console ezxmltext:convert-to-richtext --dry-run --export-dir=ezxmltext-export --export-dir-filter=notice,warning,error --concurrency 4 -v`
 
 - `-d memory_limit=1536M` specifies that each conversion process gets 1536MB of memory. This should be more than sufficient for most databases. If you have small `ezxmltext` documents, you may decrease the limit. If you have huge `ezxmltext` documents, you may need to increase it. See PHP documentation for more information about the [memory_limit setting](http://php.net/manual/en/ini.core.php#ini.memory-limit).
-- `--dry-run` prevents the conversion script from writing anything back to the database. It just tests if it is able to convert all the `ezxmltext` documents.
+- `--dry-run` prevents the conversion script from writing anything back to the database. It just tests if it's able to convert all the `ezxmltext` documents.
 - `--export-dir` specifies a directory where it will dump the `ezxmltext` for content object attributes which the conversion script finds problems with
 - `--export-dir-filter` specifies what severity the problems found needs to be before the script dumps the `ezxmltext`:
     - `notice`: `ezxmltext` contains problems which the conversion tool was able to fix automatically and likely do not need manual intervention
@@ -305,7 +305,7 @@ If the `--image-content-types` option is not specified, the default setting `ima
 
     There is no corresponding `ImagesClassList[]` setting in eZ Platform. So even though you have customer image classes, you don't need to configure this in the eZ Platform configuration when migrating.
 
-If you later realize that you provided the convert script with incorrect image content type identifiers, it is perfectly safe to re-execute the command as long as you use the `--fix-embedded-images-only`.
+If you later realize that you provided the convert script with incorrect image content type identifiers, it's perfectly safe to re-execute the command as long as you use the `--fix-embedded-images-only`.
 
 So, if you first ran the command:
 
@@ -428,7 +428,7 @@ When the conversion tool detects links with no reference it will issue a warning
 
 The `<literal>` tag is not yet supported in eZ Platform. For more information about this, please have a look at [EZP-29328](https://issues.ibexa.co/browse/EZP-29328) and [EZP-29027](https://issues.ibexa.co/browse/EZP-29027).
 
-When you are ready to migrate your eZ Publish XmlText content to the eZ Platform RichText format and start using pure eZ Platform setup, start the conversion script without the `--dry-run` option. Execute the following from &lt;new-ez-root&gt;:
+When you're ready to migrate your eZ Publish XmlText content to the eZ Platform RichText format and start using pure eZ Platform setup, start the conversion script without the `--dry-run` option. Execute the following from &lt;new-ez-root&gt;:
 
 `php -d memory_limit=1536M bin/console ezxmltext:convert-to-richtext --export-dir=ezxmltext-export --export-dir-filter=notice,warning,error --concurrency 4 -v`
 
@@ -480,7 +480,7 @@ If you use Varnish, the recommended Varnish (4 or higher) VCL configuration can 
 
 The officially recommended virtual configuration is now shipped in the `doc` folder, for both apache2 (`doc/apache2`) and nginx (`doc/nginx`). Both are built to be easy to understand and use, but aren't meant as drop-in replacements for your existing configuration.
 
-As was the case starting 5.4, one notable change is that `SetEnvIf` is now used to dynamically change rewrite rules depending on the Symfony environment. It is currently used for the assetic production rewrite rules.
+As was the case starting 5.4, one notable change is that `SetEnvIf` is now used to dynamically change rewrite rules depending on the Symfony environment. it's currently used for the assetic production rewrite rules.
 
 ## Step 5: Link assets
 
@@ -495,7 +495,7 @@ php bin/console assetic:dump --env=prod
 
 ##### Unstyled login screen after upgrade
 
-It is possible that after the upgrade your admin screen will be unstyled. This may happen because the new SiteAccess will not be available in the database. You can fix it by editing the permissions for the Anonymous user. Go to **Roles** in the Admin Panel and edit the limitations of the Anonymous user's `user/login` policy. Add all SiteAccesses to the limitation, save, and clear the browser cache. The login screen should now show proper styling.
+it's possible that after the upgrade your admin screen will be unstyled. This may happen because the new SiteAccess will not be available in the database. You can fix it by editing the permissions for the Anonymous user. Go to **Roles** in the Admin Panel and edit the limitations of the Anonymous user's `user/login` policy. Add all SiteAccesses to the limitation, save, and clear the browser cache. The login screen should now show proper styling.
 
 ##### Translating URLs
 
@@ -575,7 +575,7 @@ bin/console ezflow:migrate <legacy path> —ini=<block definitions> [—ini=<ano
 bin/console ezflow:migrate /var/www/legacy.application.com/ —ini=extension/myapplication/settings/block.ini.append.php
 ```
 
-**5.** You will be warned about the need to create a [backup](backup.md) of your database. **Proceed only if you are sure you have done it.**
+**5.** You will be warned about the need to create a [backup](backup.md) of your database. **Proceed only if you're sure you have done it.**
 
 A `MigrationBundle` will be generated in the `src/` folder.
 

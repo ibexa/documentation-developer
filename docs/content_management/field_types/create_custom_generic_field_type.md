@@ -18,7 +18,7 @@ reduces the number of classes which must be created, and simplifies the tagging 
 ## Define value object
 
 First, create `Value.php` in the `src/FieldType/HelloWorld` directory.
-The Value class of a Field Type contains only the basic logic of a Field Type, the rest of it is handled by the `Type` class.
+The Value class of a Field Type contains only the basic logic of a Field Type, the rest of it's handled by the `Type` class.
 For more information about Field Type Value see [Value handling](type_and_value.md#value-handling).
 
 The `HelloWorld` Value class should contain:

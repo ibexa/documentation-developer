@@ -7,7 +7,7 @@ edition: experience
 
 New business customers can apply for a company account.
 Applications go through the approval process in the back office where they can be accepted, rejected or put on hold.
-If they are accepted, the business partner receives an invitation link to the Customer Portal,
+If they're accepted, the business partner receives an invitation link to the Customer Portal,
 where they can set up their team and manage their account.
 
 For more information on company self-registration, see [user guide documentation](https://doc.ibexa.co/projects/userguide/en/latest/customer_management/company_self_registration/).

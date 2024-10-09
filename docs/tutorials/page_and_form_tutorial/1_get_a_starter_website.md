@@ -97,7 +97,7 @@ php bin/console cache:clear
 In the `src` folder create a `QueryType` subfolder and add [`QueryType/MenuQueryType.php`](https://github.com/ibexa/documentation-developer/blob/master/code_samples/tutorials/page_tutorial_starting_point/src/QueryType/MenuQueryType.php) to it.
 
 This file takes care of displaying the top menu (read up on it [in the documentation](content_queries.md#query-types)).
-It is not the scope of this tutorial and we won't go here into detail on how it works.
+it's not the scope of this tutorial and we won't go here into detail on how it works.
 
 This is what the structure of the new and modified files should look like:
 
@@ -128,4 +128,4 @@ Next, create a few content items of proper content types in each of these folder
 When you need an image, you can use one from [this image pack](img/photos.zip).
 This will let you compare effects of your work to screenshots in the tutorial.
 
-At this point you are ready to proceed with the next step.
+At this point you're ready to proceed with the next step.

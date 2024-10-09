@@ -4,12 +4,12 @@ description: Use HTTP methods to correlate metadata with user data and combine u
 
 # User API
 
-When generating recommendations, it is useful to have the ability to correlate metadata 
+When generating recommendations, it's useful to have the ability to correlate metadata 
 with user data and combine users into clusters of certain type.
 Such metadata can be gender, ZIP code, discount rate, etc. 
 You can use the following user metadata import format to enrich the tracked data with information that cannot be calculated and must be provided by the end-user. 
 
-If you plan to import user metadata, contact support@ibexa.co to ensure that you are compliant with privacy regulations.
+If you plan to import user metadata, contact support@ibexa.co to ensure that you're compliant with privacy regulations.
 
 !!! note "Authentication"
 

@@ -133,7 +133,7 @@ For more information and a list of available choices, see [Connection pool](http
 
 !!! tip "Load tests recommendation"
 
-    If you change the connection pool setting, it is recommended that you to perform load tests
+    If you change the connection pool setting, it's recommended that you to perform load tests
     to check whether the change does not negatively impact the performance of your environment.
 
 #### Connection selector
@@ -302,7 +302,7 @@ ibexa_elasticsearch:
 If you configure both `ca_cert` and `cert` entries, the `ca_cert` parameter takes precedence over the `cert` parameter.
 
 After you have configured SSL, you can still disable it, for example when the certificates
-expire, or you are migrating to a new set of certificates.
+expire, or you're migrating to a new set of certificates.
 To do this, pass the following setting under the `ssl` key:
 
 ``` yaml

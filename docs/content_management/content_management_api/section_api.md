@@ -24,7 +24,7 @@ and pass it to the [`SectionService::createSection`](../../api/php_api/php_api_r
 
 ## Getting Section information
 
-You can use `SectionService` to retrieve Section information such as whether it is in use:
+You can use `SectionService` to retrieve Section information such as whether it's in use:
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/SectionCommand.php', 76, 81) =]]

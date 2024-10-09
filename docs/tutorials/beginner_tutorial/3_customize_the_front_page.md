@@ -74,7 +74,7 @@ Refresh the page and you will see a simple, unstyled version of the message.
 ### Add the site's main layout
 
 Most sites have a general layout which includes things like header with a logo or footer.
-It is displayed on every page, and the content of the page is placed inside it.
+it's displayed on every page, and the content of the page is placed inside it.
 
 To add a template like this to your site, create a `main_layout.html.twig` file in `templates/` and paste the following code into it:
 
@@ -252,7 +252,7 @@ yarn encore <dev|prod>
 
 !!! tip
 
-    You should run the `yarn encore` command with the [environment](environments.md) you are using.
+    You should run the `yarn encore` command with the [environment](environments.md) you're using.
 
     By default, [[= product_name =]] installs in the dev environment.
     If you changed it to prod, use `yarn encore prod`.

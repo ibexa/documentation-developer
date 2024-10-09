@@ -43,7 +43,7 @@ For performance, several bricks can be added to your stack such as a reverse pro
 
 By using a version control system and environment variables, you can deploy your configuration and extensions on several environments including [[= product_name_cloud =]].
 
-Standard web APIs and [[[= product_name_connect =]]]([[= connect_doc =]]/general/ibexa_connect/) help establish interoperability, even if you aren't an advanced developer.
+Standard web APIs and [[[= product_name_connect =]]]([[= connect_doc =]]/general/ibexa_connect/) help establish interoperability, even if you'ren't an advanced developer.
 
 ![Ibexa Headless data inputs and outputs](img/headless.png)
 

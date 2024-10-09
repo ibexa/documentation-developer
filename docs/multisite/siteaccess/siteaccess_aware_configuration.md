@@ -6,7 +6,7 @@ description: Make sure your custom development's configuration can be used with 
 
 The [Symfony Config component]([[= symfony_doc =]]/components/config.html) makes it possible to define semantic configuration, exposed to the end developer.
 This configuration is validated by rules you define, e.g. validating type (string, array, integer, boolean and so on).
-Usually, after it is validated and processed, this semantic configuration is then mapped to internal *key/value* parameters stored in the service container.
+Usually, after it's validated and processed, this semantic configuration is then mapped to internal *key/value* parameters stored in the service container.
 
 [[= product_name =]] uses this for its core configuration, but adds another configuration level, the SiteAccess.
 For each defined SiteAccess, you need to be able to use the same configuration tree to define SiteAccess-specific config.
@@ -26,7 +26,7 @@ For more information about the ConfigResolver, namespaces and scopes, see [confi
     If you need to use different settings per Repository, not per SiteAccess,
     see [Repository-aware configuration](repository_configuration.md#repository-aware-configuration).
 
-The example below assumes you are using an `Acme\ExampleBundle`.
+The example below assumes you're using an `Acme\ExampleBundle`.
 Remember to register the bundle by adding it to `config/bundles.php`:
 
 ``` php
@@ -130,17 +130,17 @@ class AcmeExampleExtension extends Extension
         $processor->mapConfig(
             $config,
             // Any kind of callable can be used here.
-            // It is called for each declared scope/SiteAccess.
+            // it's called for each declared scope/SiteAccess.
             static function ($scopeSettings, $currentScope, ContextualizerInterface $contextualizer) {
                 // Maps the "name" setting to "acme_example.<$currentScope>.name" container parameter
-                // It is then possible to retrieve this parameter through ConfigResolver in the application code:
+                // it's then possible to retrieve this parameter through ConfigResolver in the application code:
                 // $helloSetting = $configResolver->getParameter( 'name', 'acme_example' );
                 $contextualizer->setContextualParameter('name', $currentScope, $scopeSettings['name']);
             }
         );
 
         // Now map "custom_setting" and ensure the key defined for "my_siteaccess" overrides the one for "my_siteaccess_group"
-        // It is done outside the closure as it is needed only once.
+        // it's done outside the closure as it's needed only once.
         $processor->mapConfigArray('custom_setting', $config);
     }
 }
@@ -172,7 +172,7 @@ parameters:
 
 When you define a hash as semantic config, you sometimes do not want the SiteAccess settings to replace the default or group values,
 but enrich them by appending new entries. This is possible by using `$processor->mapConfigArray()`,
-which you must call outside the closure (before or after), so that it is called only once.
+which you must call outside the closure (before or after), so that it's called only once.
 
 ``` php
 $processor->mapConfigArray('custom_setting', $config);
@@ -260,7 +260,7 @@ Instead of passing a callable to `$processor->mapConfig()`, you can pass an inst
 `Ibexa\Bundle\Core\DependencyInjection\Configuration\SiteAccessAware\ConfigurationMapperInterface`.
 
 This can be useful if you have a lot of configuration to map and do not want to pollute 
-your service container extension class (it is better for maintenance).
+your service container extension class (it's better for maintenance).
 
 #### Merging hash values between scopes
 

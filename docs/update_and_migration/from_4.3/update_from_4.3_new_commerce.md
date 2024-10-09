@@ -126,7 +126,7 @@ Review the old YAML files and move your custom configuration to the relevant new
 ### Flysystem v2
 
 Local adapters' `directory` key changed to `location`.
-It is defined in `config/packages/oneup_flysystem.yaml`:
+it's defined in `config/packages/oneup_flysystem.yaml`:
 
 ```yaml
 oneup_flysystem:
@@ -145,7 +145,7 @@ composer recipe:install --force --reset -- oneup/flysystem-bundle
 ### Remove `ibexa/commerce-*` packages with dependencies
 
 Remove the following bundles from `config/bundles.php`.
-You do not have to remove third-party bundles (`FOS\` to `JMS\`) if they are used by your installation.
+You do not have to remove third-party bundles (`FOS\` to `JMS\`) if they're used by your installation.
 
 === "[[= product_name_content =]]"
 
@@ -246,7 +246,7 @@ You do not have to remove third-party bundles (`FOS\` to `JMS\`) if they are use
     ```
 
 Next, remove related extensions' configuration.
-You do not have to remove third-party bundles (for example `config/packages/fos_rest.yaml`) if they are used by your installation.
+You do not have to remove third-party bundles (for example `config/packages/fos_rest.yaml`) if they're used by your installation.
 
 === "[[= product_name_content =]]"
 
@@ -299,7 +299,7 @@ Finally, remove related routes by deleting `config/routes/ibexa_commerce.yaml` f
 
 ### Update the database
 
-Next, update the database if you are using Ibexa Commerce.
+Next, update the database if you're using Ibexa Commerce.
 Ibexa Content and Ibexa Experience do not require the database update.
 
 [[% include 'snippets/update/db/db_backup_warning.md' %]]
@@ -339,7 +339,7 @@ composer run post-install-cmd
 
 ### Customer Portal self-registration
 
-If you are using Ibexa Experience or Ibexa Commerce,
+If you're using Ibexa Experience or Ibexa Commerce,
 you can now run data migration required by the Customer Portal applications feature to finish the update process:
 
 ```bash

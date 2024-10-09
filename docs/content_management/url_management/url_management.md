@@ -203,7 +203,7 @@ Use it when:
 
 !!! caution
 
-    Before you apply the command, back up your database and make sure it is not modified while the command is running.
+    Before you apply the command, back up your database and make sure it's not modified while the command is running.
 
 
 Execute the following command to regenerate aliases:
@@ -263,4 +263,4 @@ $repository->sudo(function ($repository) use ($urlWildcardService, $source, $des
 ```
 
 If `$redirect` is set to `true`, the redirection changes the URL address.
-If it is `false`, the old URL address is be used, with the new content.
+If it's `false`, the old URL address is be used, with the new content.

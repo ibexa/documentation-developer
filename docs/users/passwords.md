@@ -19,7 +19,7 @@ The template for this email is located in `Resources/views/forgot_password/mail/
 You can [customize it according to your needs](add_login_form.md#customize-login-form).
 
 The validity of the password recovery token can be set using the `ibexa.system.<siteaccess>.security.token_interval_spec` parameter.
-By default, it is set to `PT1H` (one hour).
+By default, it's set to `PT1H` (one hour).
 
 ## Revoking passwords
 

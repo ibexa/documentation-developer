@@ -22,7 +22,7 @@ If you want to use a web server, you need to install it as well:
 - For Windows: Apache
 - For macOS: Apache/nginx
 
-The instructions below assume that you are using Apache.
+The instructions below assume that you're using Apache.
 
 ??? note "Windows"
 

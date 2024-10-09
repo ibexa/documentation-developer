@@ -159,14 +159,14 @@ For example:
 -
     type: reference
     mode: save
-    # You can also use 'references.yaml', in this case it is overridden
+    # You can also use 'references.yaml', in this case it's overridden
     filename: 'new_references.yaml'
 ```
 
 !!! note
 
-    You don't need to save references if they are used in the same migration file.
-    References are stored in memory during migration, whether they are used or not.
+    You don't need to save references if they're used in the same migration file.
+    References are stored in memory during migration, whether they're used or not.
 
 ## Available reference types
 

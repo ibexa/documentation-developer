@@ -107,4 +107,4 @@ params:
 !!! note
 
     A custom variable can overwrite an existing variable,
-    so it is good practice to avoid existing variable names such as `content` or `location`.
+    so it's good practice to avoid existing variable names such as `content` or `location`.

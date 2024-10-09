@@ -218,7 +218,7 @@ For more information, see [Create virtual products](https://doc.ibexa.co/project
 
 #### Product page URLs
 
-When you are creating a new product type, you can set up a product URL alias name pattern.
+When you're creating a new product type, you can set up a product URL alias name pattern.
 With this feature, you can also create custom URL and URL alias name pattern field based on product attributes.
 Customized URLs are easier to remember, help with SEO optimization and reduce bounce rates on the website.
 
@@ -241,7 +241,7 @@ For more information, see [VAT rates](https://doc.ibexa.co/en/master/pim/pim_con
 
 #### Ability to search through products in a catalog
 
-When you are reviewing catalog details, on the **Products** tab, you can now see what criteria are used to include products in the catalog, and search for a specific product in the catalog.
+When you're reviewing catalog details, on the **Products** tab, you can now see what criteria are used to include products in the catalog, and search for a specific product in the catalog.
 
 #### New Twig functions
 

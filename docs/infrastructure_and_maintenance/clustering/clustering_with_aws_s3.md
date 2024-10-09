@@ -1,5 +1,5 @@
 ---
-description: When you are using a clustering configuration, you can store binary files on Amazon AWS S3.
+description: When you're using a clustering configuration, you can store binary files on Amazon AWS S3.
 ---
 
 # Clustering with Amazon AWS S3

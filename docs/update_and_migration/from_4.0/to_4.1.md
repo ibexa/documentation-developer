@@ -4,7 +4,7 @@ description: Update your installation to the latest v4.1 version from v4.0.
 
 # Update from v4.0.x to v4.1
 
-This update procedure applies if you are using v4.0.0.
+This update procedure applies if you're using v4.0.0.
 
 Go through the following steps to update to v4.1.
 
@@ -25,7 +25,7 @@ First, update your application to the latest version of v4.0: v4.0.8.
 ### Update Flex server
 
 The `flex.ibexa.co` Flex server has been disabled.
-If you are using earlier v4.x versions, and you have not done it before,
+If you're using earlier v4.x versions, and you have not done it before,
 you have to update your Flex server.
 
 To do it, in your `composer.json`, check whether the `https://flex.ibexa.co` endpoint is still listed in `extra.symfony.endpoint`.
@@ -119,7 +119,7 @@ Apply the following database update scripts:
 
 #### Ibexa Open Source
 
-If you are using [[= product_name_oss =]] and have no access to [[= product_name =]]'s `ibexa/installer` package, database upgrade is not necessary.
+If you're using [[= product_name_oss =]] and have no access to [[= product_name =]]'s `ibexa/installer` package, database upgrade is not necessary.
 
 ## Update the app to latest version of v4.1
 

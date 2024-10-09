@@ -172,7 +172,7 @@ This can prove useful for a news agency, where new items are published very ofte
 You can also define custom attributes under the `<attributes>` key.
 This section can only contain values that are distinct and used to build pre-filtered models.
 
-By default, it is assumed that every attribute is of type "NOMINAL", which means that 
+By default, it's assumed that every attribute is of type "NOMINAL", which means that 
 there is a limited set of values, and values of an attribute are treated as distinct 
 when calculating the results of a content-based model.
 
@@ -183,7 +183,7 @@ of the same type, the Personalization server treats the two values as a range.
 <attribute key="size" value="4" type="NUMERIC" />
 ```
 
-However, if the other attribute is of type "NOMINAL", they are both treated 
+However, if the other attribute is of type "NOMINAL", they're both treated 
 as different and have no "distance-based similarity".
 
 Another typical example of a custom attribute is the color of an item. 

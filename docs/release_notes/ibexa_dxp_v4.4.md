@@ -43,7 +43,7 @@ For more information, see [Commerce](https://doc.ibexa.co/en/4.4/commerce/commer
 
 Another addition is the Storefront package that provides a starting kit 
 for the developers.
-It is a working set of components, which you can use to test the new capabilities, 
+it's a working set of components, which you can use to test the new capabilities, 
 and then customize and extend to create your own implementation of a web store.
 
 For more information, see [Storefront](https://doc.ibexa.co/en/4.4/commerce/storefront/storefront).

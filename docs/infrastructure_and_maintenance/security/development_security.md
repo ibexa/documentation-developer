@@ -77,7 +77,7 @@ By default, Symfony redirects to the [URI configured in `security.yaml` as `defa
 
 #### Remember me
 
-It is possible to use the "Remember me" functionality.
+it's possible to use the "Remember me" functionality.
 Refer to the [Symfony cookbook on this topic]([[= symfony_doc =]]/security/remember_me.html).
 
 If you want to use this feature, you must at least extend the login template in order to add the required checkbox:
@@ -119,7 +119,7 @@ lexik_jwt_authentication:
 ```
 
 You also need a new Symfony firewall configuration for REST and/or GraphQL APIs.
-It is already provided in `config/packages/security.yaml`, you only need to uncomment it:
+it's already provided in `config/packages/security.yaml`, you only need to uncomment it:
 
 ``` yaml
 security:

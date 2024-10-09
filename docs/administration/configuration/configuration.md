@@ -9,7 +9,7 @@ It contains everything from selecting the content Repository to SiteAccesses to 
 
 ### Configuration format
 
-The recommended configuration format is YAML. It is used by default in the kernel (and in examples throughout the documentation).
+The recommended configuration format is YAML. It's used by default in the kernel (and in examples throughout the documentation).
 However, you can also use XML or PHP formats for configuration.
 
 ### Configuration files
@@ -29,7 +29,7 @@ These files contain additional settings and point to the general (not environmen
 
 !!! note "New configuration files"
 
-    It is good practice to provide your own configuration in separate files.
+    It's good practice to provide your own configuration in separate files.
     Any YAML files placed in the `config/packages` folder is automatically included in the system configuration.
 
 !!! tip

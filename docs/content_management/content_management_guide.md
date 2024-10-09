@@ -119,7 +119,7 @@ You can use these characteristics in combination with system features to create 
 
 #### Locations
 
-When a content item is created and published, it is assigned a place in the content tree, designated by a Location ID. 
+When a content item is created and published, it's assigned a place in the content tree, designated by a Location ID. 
 A single content item can have more than one Location ID, which means that the same content can be found on different branches of the tree. 
 However, a single location can have only one content item assigned to it.
 
@@ -133,7 +133,7 @@ By [swapping locations]([[= user_doc =]]/content_management/content_organization
 
 Content items can have several [versions]([[= user_doc =]]/content_management/content_versions/). 
 By default, there are three version statuses available: draft, published, and archived. 
-Before they are published, drafts can be routed between different user roles for review and approval.
+Before they're published, drafts can be routed between different user roles for review and approval.
 
 ![Versions](img/versions.png)
 
@@ -151,7 +151,7 @@ Editors can compare different translations of the same content items with the Co
 #### Relations
 
 A [relation](content_relations.md) can exist between any two content items in the content tree. 
-For example, blog posts featured in the website's main page are in a relation with the page that they are embedded in. 
+For example, blog posts featured in the website's main page are in a relation with the page that they're embedded in. 
 Or, instead of direct attachments, an article can use images that are separate content items outside the article and are referenced through a relation.
 
 ## Content arrangement
@@ -183,7 +183,7 @@ This way you can classify content and make it easier for end users to find the c
 ### Access control
 
 When your [[= product_name =]] instance has multiple contributors and visitors, administrators can give them access to different areas of the website and different capabilities. 
-It is done by creating roles, with each role having a different set of [permissions](permission_overview.md), the most fitting example being the `content/edit` permission limited to an `Articles/BookReviews/Historical` subtree of the content tree.
+It's done by creating roles, with each role having a different set of [permissions](permission_overview.md), the most fitting example being the `content/edit` permission limited to an `Articles/BookReviews/Historical` subtree of the content tree.
 
 In the next steps, after you create user groups, you’d assign roles to these groups, and add individual users to each of such groups. 
 For more technical information about permissions and limitations, see [Permission use cases](permission_use_cases.md).
@@ -219,7 +219,7 @@ For example, you can build Pages that contain different recommendations, dependi
 
 ## How to get started
 
-Once you have integrated the headless implementation, installed a local instance of [[= product_name =]] or set up an instance on [[= product_name_cloud =]], you are ready to employ the content management features to good use.
+Once you have integrated the headless implementation, installed a local instance of [[= product_name =]] or set up an instance on [[= product_name_cloud =]], you're ready to employ the content management features to good use.
 
 Since content management is an ongoing process, and, in your implementation, you might prefer focusing on other areas of configuration, the order of operations below is by all means conventional.
 
@@ -233,7 +233,7 @@ Reuse existing Fields Types or [customize them to fit your needs](create_custom_
 **2\. Define permissions**
 
 Although this step is not directly related to content management, 
-it is a good time to [set up user roles and permissions]([[= user_doc =]]/permission_management/work_with_permissions/), which users would need to work with content.
+it's a good time to [set up user roles and permissions]([[= user_doc =]]/permission_management/work_with_permissions/), which users would need to work with content.
 
 **3\. Author content**
 

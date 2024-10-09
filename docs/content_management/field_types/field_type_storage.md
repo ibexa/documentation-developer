@@ -30,7 +30,7 @@ The SPI `FieldValue` struct has properties which the Field Type can use:
 
 The Legacy storage engine uses the `ezcontentobject_attribute` table to store Field values,
 and `ezcontentclass_attribute` to store Field definition values.
-They are both based on the same principle.
+they're both based on the same principle.
 
 Each row represents a Field or a Field definition, and offers several free fields of different types, where the type can store its data e.g.
 
@@ -100,7 +100,7 @@ calls one of the following methods to also access the external data:
 |Method|Description|
 |------|-----------|
 |`hasFieldData()`|Returns whether the Field Type stores external data at all.|
-|`storeFieldData()`|Called right before a Field of the Field Type is stored. The method stores `$externalData`. It returns `true` if the call manipulated internal data of the given Field, so that it is updated in the internal database.|
+|`storeFieldData()`|Called right before a Field of the Field Type is stored. The method stores `$externalData`. It returns `true` if the call manipulated internal data of the given Field, so that it's updated in the internal database.|
 |`getFieldData()`|Called after a Field has been restored from the database in order to restore `$externalData`.|
 |`deleteFieldData()`|Must delete external data for the given Field, if exists.|
 |`getIndexData()`|Returns the actual index data for the provided `Ibexa\Contracts\Core\Persistence\Content\Field`. For more information, see [search service](field_type_search.md#search-field-values).|
@@ -114,7 +114,7 @@ Note that the Field Type must take care on its own for being compliant with diff
 
 ### Gateway-based storage
 
-In order to allow the usage of a Field Type that uses external data with different data storages, it is recommended to implement a gateway infrastructure and a registry for the gateways. To make this easier, the Core implementation of Field Types provides corresponding interfaces and base classes. They can also be used for custom Field Types.
+In order to allow the usage of a Field Type that uses external data with different data storages, it's recommended to implement a gateway infrastructure and a registry for the gateways. To make this easier, the Core implementation of Field Types provides corresponding interfaces and base classes. They can also be used for custom Field Types.
 
 The interface `Ibexa\Contracts\Core\FieldType\StorageGateway` is implemented by gateways, in order to be handled correctly by the registry. It has one method:
 
@@ -183,7 +183,7 @@ Also note that there can be several gateways per Field Type (one per storage eng
 
 Just like in the case of data, storing [Field Type settings](type_and_value.md#field-type-settings) 
 in content item tables may prove insufficient. 
-It is not a problem if your setting specifies, for example, just the allowed number of characters 
+It's not a problem if your setting specifies, for example, just the allowed number of characters 
 in a text field. 
 However, the Field Type may represent a more complex object, for example, it may 
 consist of two or more other fields, such as the name, SKU and price, and there 

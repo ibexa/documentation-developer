@@ -1,6 +1,6 @@
 # Update from v3.3.x to v4.0
 
-This update procedure applies if you are using v3.3.
+This update procedure applies if you're using v3.3.
 
 Go through the following steps to update to v4.0.
 
@@ -13,7 +13,7 @@ An additional compatibility layer makes the process of updating your code easier
 
 !!! note "Symfony 5.4"
 
-    If you are using Symfony 5.3, you need to update your installation to Symfony 5.4.
+    If you're using Symfony 5.3, you need to update your installation to Symfony 5.4.
     To do this, update your composer.json to refer to `5.4.*` instead or `5.3.*`.
 
     Refer to the relevant website skeleton for an example: [content](https://github.com/ibexa/content-skeleton/blob/v4.0.1/composer.json), [experience](https://github.com/ibexa/experience-skeleton/blob/v4.0.1/composer.json), [commerce](https://github.com/ibexa/commerce-skeleton/blob/v4.0.1/composer.json).
@@ -43,7 +43,7 @@ First, run:
 ### Update Flex server
 
 The `flex.ibexa.co` Flex server has been disabled.
-If you are using v4.0.2 or earlier v4.0 version, you need to update your Flex server.
+If you're using v4.0.2 or earlier v4.0 version, you need to update your Flex server.
 
 To do it, in your `composer.json` check whether the `https://flex.ibexa.co` endpoint is still listed in `extra.symfony.endpoint`. 
 If so, replace it with the new [`https://api.github.com/repos/ibexa/recipes/contents/index.json?ref=flex/main`](https://github.com/ibexa/website-skeleton/blob/v4.0.7/composer.json#L98) endpoint.
@@ -140,7 +140,7 @@ If you have no access to [[= product_name =]]'s `ibexa/installer` package, apply
 For every database connection you have configured, perform the following steps:
 
 1. Run `php bin/console doctrine:schema:update --dump-sql --em=ibexa_{connection}`
-2. Check the queries and verify that they are safe and will not damage the data.
+2. Check the queries and verify that they're safe and will not damage the data.
 3. Run `php bin/console doctrine:schema:update --dump-sql --em=ibexa_{connection} --force`
 
 Next, run the following commands to import necessary data migration scripts:

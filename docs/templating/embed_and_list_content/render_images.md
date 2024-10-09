@@ -82,7 +82,7 @@ The following example shows how to use an image contained in an Image Field as a
 
 !!! note
 
-    This implementation is only an example and depends on the JavaScript framework you are using.
+    This implementation is only an example and depends on the JavaScript framework you're using.
 
 First, in the main template, render the Image Field with a custom template:
 

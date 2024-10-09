@@ -1,6 +1,6 @@
 # TextLine Field Type
 
-This Field Type makes possible to store and retrieve a single line of unformatted text. It is capable of handling up to 255 characters.
+This Field Type makes possible to store and retrieve a single line of unformatted text. It's capable of handling up to 255 characters.
 
 | Name       | Internal name | Expected input type |
 |------------|---------------|---------------------|

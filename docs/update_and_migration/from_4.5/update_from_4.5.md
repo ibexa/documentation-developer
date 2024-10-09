@@ -4,7 +4,7 @@ description: Update your installation to the latest v4.6 version from v4.5.x.
 
 # Update from v4.5.x to v4.6
 
-This update procedure applies if you are using a v4.5 installation.
+This update procedure applies if you're using a v4.5 installation.
 
 ## Update from v4.5.x to v4.5.latest
 
@@ -251,7 +251,7 @@ php bin/console ibexa:migrations:migrate --file=2023_12_06_15_00_image_content_t
 
 ### Dashboard migration [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-If you are using [[= product_name_exp =]] or [[= product_name_com =]],
+If you're using [[= product_name_exp =]] or [[= product_name_com =]],
 you must run data migration required by the dashboard and other features to finish the upgrade process:
 
 ```bash
@@ -500,7 +500,7 @@ Run the following scripts:
 The configuration of the package `ibexa/notifications` has changed.
 This package is required by other packages, such as `ibexa/connector-actito` for [Transactional emails](https://doc.ibexa.co/en/latest/commerce/transactional_emails/transactional_emails/), `ibexa/payment`, or `ibexa/user`.
 
-If you are customizing the configuration of the `ibexa/notifications` package, and using SiteAccess aware configuration to change the `Notification` subscriptions, you have to manually change your configuration by using the new node name `notifier` instead of the old `notifications`.
+If you're customizing the configuration of the `ibexa/notifications` package, and using SiteAccess aware configuration to change the `Notification` subscriptions, you have to manually change your configuration by using the new node name `notifier` instead of the old `notifications`.
 
 For example, the following v4.6.2 config:
 

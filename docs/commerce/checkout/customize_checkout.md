@@ -25,7 +25,7 @@ where [one page checkout](#create-a-one-page-checkout) would be enough.
 
 There are several factors that make checkout particularly flexible and customizable:
 
-- it is based on Symfony workflow
+- it's based on Symfony workflow
 - it exposes a variety of APIs
 - it exposes Twig functions that help you render the steps
 
@@ -119,7 +119,7 @@ ibexa:
 
 ### Restart application
 
-You are now ready to see the results of your work.
+you're now ready to see the results of your work.
 Shut down the application, clear browser cache, and restart the application.
 You should be able to see a different checkout applied after you have added products to a cart.
 

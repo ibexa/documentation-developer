@@ -96,7 +96,7 @@ framework:
     ```
 
     When trusting remote IP like this, make sure your application is only accessible through Varnish. 
-    If it is accessible in other ways, this may result in trusting, for example, the IP of client browser instead, which would be a serious security issue.
+    If it's accessible in other ways, this may result in trusting, for example, the IP of client browser instead, which would be a serious security issue.
 
     Make sure that **all** traffic always comes from the trusted proxy/load balancer,
     and that there is no other way to configure it.
@@ -227,7 +227,7 @@ FASTLY_KEY="token"
 
 #### Configure Fastly on Platform.sh
 
-If you use Platform.sh, it is recommended to configure all environment variables through [Platform.sh variables](https://docs.platform.sh/guides/ibexa/fastly.html).
+If you use Platform.sh, it's recommended to configure all environment variables through [Platform.sh variables](https://docs.platform.sh/guides/ibexa/fastly.html).
 In [[= product_name =]], Varnish is enabled by default. To use Fastly, first you must 
 [disable Varnish](https://docs.platform.sh/guides/ibexa/fastly.html#remove-varnish-configuration) 
 
@@ -325,7 +325,7 @@ with the following logic in the out-of-the-box VCL:
 
 Serving grace is not always allowed by default because:
 
-- It is a safe default. Even if just for anonymous users, stale cache can easily be confusing during acceptance testing.
+- it's a safe default. Even if just for anonymous users, stale cache can easily be confusing during acceptance testing.
 - It means REST API, which is used by the back office, would serve stale data, breaking the UI.
 
 !!! tip "Customizing stale cache handling"

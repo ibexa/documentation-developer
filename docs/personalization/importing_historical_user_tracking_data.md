@@ -8,7 +8,7 @@ The recommendation engine supports replaying historical user events by adding a 
 This is then used as the datetime of an event instead of the current timestamp 
 of the request.
 
-To give an example: It is often requested to import the buy history of users 
+To give an example: it's often requested to import the buy history of users 
 to avoid the cold start problem and being able to start with good recommendations.
 Instead of waiting till the user profile is built by collecting events from the day,
 you implemented the tracking.

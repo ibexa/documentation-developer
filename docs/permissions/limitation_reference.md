@@ -10,7 +10,7 @@ page_type: reference
 A generic limitation type to use when no other limitation has been implemented.
 Without any Limitation assigned, a `LimitationNotFoundException` is thrown.
 
-It is called "blocking" because it always informs the permissions system that 
+it's called "blocking" because it always informs the permissions system that 
 the User does not have access to any policy the limitation is assigned to, making 
 the permissions system move on to the next policy.
 

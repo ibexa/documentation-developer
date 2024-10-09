@@ -129,7 +129,7 @@ The account invitation feature defaults to "P7D" (seven days).
 
 ### Disable Varnish when using Fastly
 
-If you are using Fastly, disable Varnish.
+If you're using Fastly, disable Varnish.
 See [Security advisory: EZSA-2020-002](https://developers.ibexa.co/security-advisories/ezsa-2020-002-unauthorised-cache-purge-with-misconfigured-fastly).
 
 ### Block upload of unwanted file types
@@ -151,11 +151,11 @@ See the line below `# Disable .php(3) and other executable extensions in the var
 
 ### Use secure password hashing
 
-Use the most secure supported password hashing method. This is currently `bcrypt`, and it is enabled by default.
+Use the most secure supported password hashing method. This is currently `bcrypt`, and it's enabled by default.
 
 ### Use UTF8MB4 with MySQL/MariaDB
 
-If you are using MySQL/MariaDB, use the UTF8MB4 database character set and related collation.
+If you're using MySQL/MariaDB, use the UTF8MB4 database character set and related collation.
 The older UTF8 can lead to truncation with 4-byte characters, like some emoji, which may have unpredictable side effects.
 
 See [Change from UTF8 to UTF8MB4](update_db_to_2.5.md#change-from-utf8-to-utf8mb4).
@@ -176,7 +176,7 @@ Use the following checklist to ensure the roles and policies are secure:
 
 The [visibility switcher](https://doc.ibexa.co/en/latest/content_management/locations/#location-visibility) is a convenient feature for withdrawing content from the frontend.
 It acts as a filter in the frontend by default. You can choose to respect it or ignore it in your code.
-It isn't permission-based, and doesn't restrict read access to content. Hidden content can be read through other means, like the REST API or GraphQL.
+it'sn't permission-based, and doesn't restrict read access to content. Hidden content can be read through other means, like the REST API or GraphQL.
 
 If you need to restrict read access to a given content item, you could create a role that grants read access for a given
 [**Section**](https://doc.ibexa.co/en/latest/administration/content_organization/sections/)
@@ -186,10 +186,10 @@ Or use other permission-based [**Limitations**](https://doc.ibexa.co/en/latest/p
 
 ### Minimize exposure
 
-Security should be a multi-layered exercise. It is wise to minimize what features you make available to the world, even if there are no known or suspected vulnerabilities in those features, and even if your content is properly protected by roles and policies. Reduce your attack surface by exposing only what you must.
+Security should be a multi-layered exercise. it's wise to minimize what features you make available to the world, even if there are no known or suspected vulnerabilities in those features, and even if your content is properly protected by roles and policies. Reduce your attack surface by exposing only what you must.
 
 - If possible, make the back office unavailable on the open internet.
-- [Symfony FOSJsRoutingBundle](https://github.com/FriendsOfSymfony/FOSJsRoutingBundle) is required in those releases where it is included, to expose routes to JavaScript. It exposes only the required routes, nothing more. It is only required in the back office site access though, so you can consider blocking it in other site accesses. You should also go through your own custom routes, and decide for each if you need to expose them or not. See the documentation on [YAML route definitions for exposure](https://github.com/FriendsOfSymfony/FOSJsRoutingBundle/blob/master/Resources/doc/usage.rst#generating-uris).
+- [Symfony FOSJsRoutingBundle](https://github.com/FriendsOfSymfony/FOSJsRoutingBundle) is required in those releases where it's included, to expose routes to JavaScript. It exposes only the required routes, nothing more. it's only required in the back office site access though, so you can consider blocking it in other site accesses. You should also go through your own custom routes, and decide for each if you need to expose them or not. See the documentation on [YAML route definitions for exposure](https://github.com/FriendsOfSymfony/FOSJsRoutingBundle/blob/master/Resources/doc/usage.rst#generating-uris).
 - By default, a [Powered-By header](https://doc.ibexa.co/en/latest/update_and_migration/from_1.x_2.x/update_db_to_2.5/#powered-by-header) is set. It specifies what version of the DXP is running. For example, `x-powered-by: Ibexa Experience v4`. This doesn't expose anything that couldn't be detected through other means. But if you wish to obscure this, you can either omit the version number, or disable the header entirely.
 - Consider whether certain interfaces must be left available on the open internet. For example:
     - The `/search` and `/graphql` endpoints
@@ -221,7 +221,7 @@ Those steps aren't needed when using [[= product_name_cloud =]], where the provi
 ### Security headers
 
 There are a number of security related HTTP response headers that you can use to improve your security. 
-Headers must be adapted to the site in question, and in most cases it is site owner's responsibility. 
+Headers must be adapted to the site in question, and in most cases it's site owner's responsibility. 
 The headers can be set either by the web server, or by a proxy like Varnish. 
 You can also set headers in PHP code by making a Symfony `RequestListener` for the `kernel.response` event and adding the header to the response object headers list.
 
@@ -233,7 +233,7 @@ This header is less important during development provided that the site is on an
 - `X-Frame-Options` - ensures that the site is not be embedded in a frame by a compliant browser. 
 Set the header to `SAMEORIGIN` to allow embedding by your own site, or `DENY` to block framing completely. 
 - `X-Content-Type-Options` - prevents the browser from second-guessing the mime-type of delivered content. 
-This header is less important if users cannot upload content and/or you trust your editors. However, it is safer to use it at all times. 
+This header is less important if users cannot upload content and/or you trust your editors. However, it's safer to use it at all times. 
 Make sure that the `Content-Type` header is also correctly set, including for the top-level document, to avoid issues with HTML documents being downloaded while they should be rendered. 
 - `Content-Security-Policy` - blocks cross site scripting (XSS) attacks by setting an allowlist (whitelist) of resources to be loaded for a given page. 
 You can set separate lists for scripts, images, fonts, and so on. 

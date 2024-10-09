@@ -77,7 +77,7 @@ You can also use the [autowire feature]([[= symfony_doc =]]/service_container/au
 
 !!! note
 
-    Do not store the retrieved config value unless you know what you are doing. 
+    Do not store the retrieved config value unless you know what you're doing. 
     SiteAccess can change during code execution, which means you might work on the wrong value.
 
 ``` php

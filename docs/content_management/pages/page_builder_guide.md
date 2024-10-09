@@ -35,9 +35,9 @@ Then, from the content tree choose the page and click **Edit**.
 ## What is Page Builder
 
 Page Builder is a visual tool that allows you to create and edit any page in [[= product_name =]].
-It is more than managing: it is about building pages, creating customized content and fully-targeted landing pages.
+It's more than managing: it's about building pages, creating customized content and fully-targeted landing pages.
 Creating pages in Page Builder involves composing content using ready-to-use elements - blocks, properly configured and customized.
-It is also important to choose a layout - it determines the arrangement of drop zones that contain content elements.
+It's also important to choose a layout - it determines the arrangement of drop zones that contain content elements.
 
 ![Page Builder - diagram](page_builder_diagram.png)
 
@@ -104,7 +104,7 @@ For newly created Page you can choose a [layout]([[= user_doc =]]/content_manage
 Applying a layout divides the Page into the defined zones. The zones are placeholders for content items.
 
 On the Page creation modal, select the layout and click **Create draft**.
-Now you are ready to add blocks of content to the Page.
+Now you're ready to add blocks of content to the Page.
 
 The page layouts that an editor has access to are up to you to choose.
 In the `Select layouts` section, you can select layouts that you want to be available for the Page.

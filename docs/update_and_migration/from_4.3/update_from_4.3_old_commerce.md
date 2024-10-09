@@ -73,7 +73,7 @@ Review the old YAML files and move your custom configuration to the relevant new
 #### Flysystem v2
 
 Local adapters' `directory` key changed to `location`.
-It is defined in `config/packages/oneup_flysystem.yaml`:
+it's defined in `config/packages/oneup_flysystem.yaml`:
 
 ```yaml
 oneup_flysystem:
@@ -174,7 +174,7 @@ ibexa:
 
 ### Update the database
 
-Next, update the database if you are using Ibexa Commerce.
+Next, update the database if you're using Ibexa Commerce.
 Ibexa Content and Ibexa Experience do not require the database update.
 
 [[% include 'snippets/update/db/db_backup_warning.md' %]]
@@ -215,7 +215,7 @@ composer run post-install-cmd
 
 ### Customer Portal self-registration
 
-If you are using Ibexa Experience or Ibexa Commerce,
+If you're using Ibexa Experience or Ibexa Commerce,
 run data migration required by the Customer Portal applications feature:
 
 ```bash

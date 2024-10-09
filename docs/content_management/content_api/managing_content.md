@@ -16,7 +16,7 @@ using [`LocationService`](../../api/php_api/php_api_reference/classes/Ibexa-Cont
 ### Adding a new Location to a content item
 
 Every published content item must have at least one Location.
-One content item can have more that one Location, which means it is presented in more than one place
+One content item can have more that one Location, which means it's presented in more than one place
 in the content tree.
 
 Creating a new Location, like creating content, requires using a struct,
@@ -107,7 +107,7 @@ but it copies the Location and its subtree instead of moving it.
 !!! note
 
     [Copy subtree limit](back_office_configuration.md#copy-subtree-limit) only applies to operations in the back office.
-    It is ignored when copying subtrees using the PHP API.
+    It's ignored when copying subtrees using the PHP API.
 
 ## Trash
 

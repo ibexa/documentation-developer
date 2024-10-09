@@ -5,7 +5,7 @@
 
 **The FAST TRACK v1.9.0 release of eZ Platform and eZ Platform Enterprise Edition is available as of April 19, 2017.**
 
-If you are looking for the Long Term Support (LTS) release, see[ https://ezplatform.com/Blog/Long-Term-Support-is-Here](https://ezplatform.com/Blog/Long-Term-Support-is-Here)
+If you're looking for the Long Term Support (LTS) release, see[ https://ezplatform.com/Blog/Long-Term-Support-is-Here](https://ezplatform.com/Blog/Long-Term-Support-is-Here)
 
 
 ## Notable changes since v1.8.0
@@ -40,7 +40,7 @@ In version 1.8 we introduced a new Content Browser in the Universal Discovery Wi
 
 ### eZ Platform Enterprise Edition - Studio
 
--   It is now possible to configure Landing Page blocks used by the Landing Page editor in a simpler way. The configuration is done in a YAML file (see <https://issues.ibexa.co/browse/EZEE-1421>)
+-   it's now possible to configure Landing Page blocks used by the Landing Page editor in a simpler way. The configuration is done in a YAML file (see <https://issues.ibexa.co/browse/EZEE-1421>)
 -   *..lots of other bug fixes and smaller improvements..*
 
 ### eZ Platform Enterprise Edition - Studio Demo

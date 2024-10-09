@@ -2,7 +2,7 @@
 
 This Field Type represents and handles a media (audio/video) binary file.
 
-It is capable of handling the following types of files:
+It's capable of handling the following types of files:
 
 - Apple QuickTime
 - Adobe Flash

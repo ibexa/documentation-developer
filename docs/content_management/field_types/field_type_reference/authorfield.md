@@ -1,6 +1,6 @@
 # Author Field Type
 
-This Field Type allows the storage and retrieval of one or more authors. For each author, it can handle a name and an email address. It is typically used to store information about additional authors who have written/created different parts of a content item.
+This Field Type allows the storage and retrieval of one or more authors. For each author, it can handle a name and an email address. It's typically used to store information about additional authors who have written/created different parts of a content item.
 
 | Name     | Internal name | Expected input | Output   |
 |----------|---------------|----------------|----------|

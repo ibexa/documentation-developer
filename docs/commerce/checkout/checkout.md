@@ -10,7 +10,7 @@ of [[= product_name =]].
 In a course of a multi-step process, it collects necessary transaction data, such 
 as billing and shipping addresses, and payment and shipping information.
 
-From the front-end perspective, it is a reusable component that provides access 
+From the front-end perspective, it's a reusable component that provides access 
 to the workflow and allows buyers to place an order for cart items.
 
 ![Address selection stage](checkout.png "Checkout stages")

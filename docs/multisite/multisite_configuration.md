@@ -150,7 +150,7 @@ ibexa:
                 siteaccess_list: [site, de]
 ```
 
-If you are using multiple domains, list all domains for an admin SiteAccess under `siteaccess_hosts`:
+If you're using multiple domains, list all domains for an admin SiteAccess under `siteaccess_hosts`:
 
 ``` yaml
 ibexa:
@@ -195,7 +195,7 @@ ibexa:
 - `location_id` defines the Location ID of the content root for the SiteAccess.
 - `excluded_uri_prefixes` defines which URIs ignore the root limit set using `location_id`.
 In the example above, the Media and Images folders are accessible using their own URI,
-even though they are outside the Location provided in `content.tree_root.location_id`.
+even though they're outside the Location provided in `content.tree_root.location_id`.
 - `index_page` is the page shown when you access the root index `/`.
 
 !!! note

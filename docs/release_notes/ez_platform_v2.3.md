@@ -76,7 +76,7 @@ You can now access and set user preferences in the user menu.
 
 ![User preferences screen with time zone settings](2.3_user_preferences.png)
 
-It is covered by the `user/preferences` policy.
+it's covered by the `user/preferences` policy.
 
 ### Dates in preferred timezone
 

@@ -64,7 +64,7 @@ The highest number shows first on the list.
 !!! tip
 
     Default views have a `priority` of -255.
-    It is good practice to keep the value between -255 and 255.
+    It's good practice to keep the value between -255 and 255.
 
 ### Block modal template
 

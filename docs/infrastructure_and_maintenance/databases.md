@@ -18,7 +18,7 @@ When you run `composer install`, you will be asked to [provide installation para
 
 !!! tip
 
-    It is recommended to store the database credentials in your `.env.local` file and not commit it to the Version Control System.
+    it's recommended to store the database credentials in your `.env.local` file and not commit it to the Version Control System.
 
 If you use PostgreSQL, the following parameters need to be set differently in the `.env.local` file than when using MySQL:
 

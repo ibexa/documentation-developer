@@ -49,7 +49,7 @@ ibexa:
 ```
 
 Under the `ibexa.system` key, add the new SiteAccess.
-Indicate that they are meant for translations under `site_group.translation_siteaccesses`:
+Indicate that they're meant for translations under `site_group.translation_siteaccesses`:
 
 ``` yaml
 ibexa:

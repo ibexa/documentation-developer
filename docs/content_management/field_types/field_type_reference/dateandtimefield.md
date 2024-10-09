@@ -12,7 +12,7 @@ This Field Type represents a full date and time information.
 
 If input value is of type `string` or `integer`, it will be passed directly to the [PHP's built-in `\DateTime` class constructor](https://www.php.net/manual/en/datetime.construct.php), therefore the same input format expectations apply.
 
-It is also possible to directly pass an instance of `\DateTime`.
+It's also possible to directly pass an instance of `\DateTime`.
 
 |Type|Example|
 |------|------|

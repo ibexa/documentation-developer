@@ -184,7 +184,7 @@ You have to edit the same file on the slave server, and use the code below:
 <requestHandler name="/replication" class="solr.ReplicationHandler">
   <lst name="slave">
 
-    <!-- fully qualified url for the replication handler of master. It is
+    <!-- fully qualified url for the replication handler of master. it's
          possible to pass on this as a request param for the fetchindex command -->
     <str name="masterUrl">http://123.456.789.0:8983/solr/collection1/replication</str>
 
@@ -198,7 +198,7 @@ You have to edit the same file on the slave server, and use the code below:
          values are internal|external.  If the value is 'external' make sure
          that your master Solr has the settings to honor the accept-encoding header.
          See here for details: http://wiki.apache.org/solr/SolrHttpCompression
-         If it is 'internal' everything will be taken care of automatically.
+         If it's 'internal' everything will be taken care of automatically.
          USE THIS ONLY IF YOUR BANDWIDTH IS LOW.
          THIS CAN ACTUALLY SLOWDOWN REPLICATION IN A LAN -->
     <str name="compression">internal</str>

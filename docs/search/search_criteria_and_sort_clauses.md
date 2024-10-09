@@ -11,7 +11,7 @@ For an example of how to use and combine Criteria and Sort Clauses, refer to [Se
 
 ## Search engine handling of Search Criteria and Sort Clauses
 
-As Search Criteria and Sort Clauses are value objects which are used to define the query from API perspective, they are common for all storage engines.
+As Search Criteria and Sort Clauses are value objects which are used to define the query from API perspective, they're common for all storage engines.
 Each storage engine needs to implement its own handlers for the corresponding Criterion and Sort Clause value object,
 which will be used to translate the value object into a storage-specific search query.
 
@@ -26,7 +26,7 @@ Sometimes you will find that standard Search Criteria and Sort Clauses provided
 
     Legacy (SQL-based) search can also be used in `ezkeyword` external storage.
 
-In such cases you can implement a custom Criterion or Sort Clause, together with the corresponding handlers for the storage engine you are using.
+In such cases you can implement a custom Criterion or Sort Clause, together with the corresponding handlers for the storage engine you're using.
 
 !!! caution "Using Field Criterion or Sort Clause with large databases"
 
@@ -58,7 +58,7 @@ Content Search explicitly refuses to accept Criteria and Sort Clauses implementi
 
 ### Configuring custom Criterion and Sort Clause handlers
 
-After you have implemented your Criterion / Sort Clause and its handler, you will need to configure the handler for the [service container](php_api.md#service-container) by using dedicated service tags for each type of search. Doing so will automatically register it and handle your Criterion / Search Clause when it is given as a parameter to one of the Search Service methods.
+After you have implemented your Criterion / Sort Clause and its handler, you will need to configure the handler for the [service container](php_api.md#service-container) by using dedicated service tags for each type of search. Doing so will automatically register it and handle your Criterion / Search Clause when it's given as a parameter to one of the Search Service methods.
 
 Available tags for Criterion handlers in Legacy Storage Engine are:
 

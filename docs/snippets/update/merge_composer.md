@@ -6,7 +6,7 @@ or from [ezplatform.com](https://ezplatform.com), you may have incomplete histor
 To load the full history, run `git fetch upstream --unshallow` from the `update-[[= target_version =]]` branch, and run the merge again.
 
 Ignore the conflicts in `composer.lock`, because this file is regenerated when you execute `composer update` later.
-It is easiest to check out the version of `composer.lock` from the tag and add it to the changes:
+it's easiest to check out the version of `composer.lock` from the tag and add it to the changes:
 
 ``` bash
 git checkout --theirs composer.lock && git add composer.lock
@@ -41,7 +41,7 @@ git checkout -p composer.json
 Answer `no` (do not discard) to the requirement changes of `ezsystems` / `ibexa`  dependencies.
 Answer `yes` (discard) to removals of your changes.
 
-After you are done, inspect the file (you can use an editor or run `git diff composer.json`).
+After you're done, inspect the file (you can use an editor or run `git diff composer.json`).
 You may also test the file with `composer validate`,
 and test the dependencies by running `composer update --dry-run`
 (it outputs what it would do to the dependencies, without applying the changes).

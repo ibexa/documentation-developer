@@ -43,7 +43,7 @@ ibexa:
                 my.site: mysite
 ```
 
-If the matcher class does not start with a backslash (`\`), it is relative to `Ibexa\Core\MVC\Symfony\SiteAccess\Matcher`
+If the matcher class does not start with a backslash (`\`), it's relative to `Ibexa\Core\MVC\Symfony\SiteAccess\Matcher`
 (for example, `Map\URI` refers to `Ibexa\Core\MVC\Symfony\SiteAccess\Matcher\Map\URI`)
 
 You can specify [custom matchers](#custom-matchers) by using a fully qualified class name (e.g. `\My\SiteAccess\Matcher`)

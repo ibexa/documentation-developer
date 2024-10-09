@@ -187,4 +187,4 @@ Edit the **Content/Read** policy line to add the `Media` section to **Limitation
 
 Now go to the homepage of your website and you will see the list of Rides.
 However, the Ride photos are too large and stretch the table.
-In the next step you will ensure they are displayed in proper size.
+In the next step you will ensure they're displayed in proper size.

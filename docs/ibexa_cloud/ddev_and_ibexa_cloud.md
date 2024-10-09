@@ -58,7 +58,7 @@ ddev launch
 
 !!! note
 
-    The Platform.sh API token is set at user profile level, therefore it is stored globally under current user root as `PLATFORMSH_CLI_TOKEN` in `~/.ddev/global_config.yaml`.
+    The Platform.sh API token is set at user profile level, therefore it's stored globally under current user root as `PLATFORMSH_CLI_TOKEN` in `~/.ddev/global_config.yaml`.
 
 ## Without the Platform.sh add-on
 

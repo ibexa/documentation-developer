@@ -12,7 +12,7 @@ The following conventions apply to contributions to [[= product_name_base =]] co
 !!! note
 
     New code needs to follow the rules outlined here.
-    They are being applied progressively to existing code.
+    they're being applied progressively to existing code.
 
 ## Root PHP namespace
 

@@ -23,7 +23,7 @@ In `config/packages/ibexa_fieldtype_page.yaml` add the following code at the end
 ```
 
 The template makes use of an [image variation](images.md) (line 10).
-It is the thumbnail of the Dog Breed image that will be displayed in the block.
+it's the thumbnail of the Dog Breed image that will be displayed in the block.
 To configure this variation, open the `config/packages/image_variations.yaml` file and add the following code under the `image_variations` key:
 
 ``` yaml

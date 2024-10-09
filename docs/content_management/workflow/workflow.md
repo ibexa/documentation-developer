@@ -161,7 +161,7 @@ to only allow sending content in the selected transition.
 
 For example, by using the example above, a `workflow/change_stage` Policy 
 with `WorkflowTransitionLimitation` set to `Approved by legal` allows a legal team to send content forward
-after they are done with their review.
+after they're done with their review.
 
 You can also use the [Workflow Stage Limitation](limitation_reference.md#workflow-stage-limitation) 
 together with the `content/edit` and `content/publish` Policies to limit the ability to edit content in specific stages.

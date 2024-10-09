@@ -66,7 +66,7 @@ The LiipImagineBundle bundle supports GD (default), Imagick or Gmagick PHP
 extensions, and enables you to define flexible filters in PHP. 
 Image files are stored by using the `IOService,` and are completely independent 
 from the Image Field Type. 
-They are generated only once and cleared on demand, for example, on content removal).
+they're generated only once and cleared on demand, for example, on content removal).
 
 LiipImagineBundle only works on image blobs, so no command line tool is needed. 
 For more information, see the [bundle's documentation](https://symfony.com/bundles/LiipImagineBundle/current/configuration.html).
@@ -127,7 +127,7 @@ You can also pass two additional parameters:
 
 With a placeholder generator you can download or generate placeholder images for 
 any missing image. 
-It proves useful when you are working on an existing database and are unable to 
+It proves useful when you're working on an existing database and are unable to 
 download uploaded images to your local development environment, due to, for 
 example, a large size of files.
 

@@ -17,7 +17,7 @@ invite and view members, check their order history and more.
 
 ## Availability
 
-Customer Portal is available in [[= product_name_exp =]]. It is also compatible with PIM, Commerce and [[= product_name_connect =]].
+Customer Portal is available in [[= product_name_exp =]]. It's also compatible with PIM, Commerce and [[= product_name_connect =]].
 
 ## How does Customer Portal work?
 
@@ -102,7 +102,7 @@ With it, they can register and create their account in the Customer Portal.
 
 Self-registration allows business customers to take charge and apply for a business account by themselves. 
 Applications go through the approval process in the back office where they can be accepted, rejected or put on hold. 
-If they are accepted, the business partner receives an invitation link to the Customer Portal, where they can set up their team and manage their account.
+If they're accepted, the business partner receives an invitation link to the Customer Portal, where they can set up their team and manage their account.
 
 To apply for a business account, a company needs to provide their basic information, 
 contact information and billing address in an application.
@@ -126,7 +126,7 @@ Customer Portal comes with [REST API](https://doc.ibexa.co/en/latest/api/rest_ap
 
 ### Company management
 
-Sales representatives can manage details for companies they are associated with, such as contact persons, billing addresses, and more by accessing back office.
+Sales representatives can manage details for companies they're associated with, such as contact persons, billing addresses, and more by accessing back office.
 Company admins are also able to manage the company's details in the Customer Portal interface.
 By giving users power to manage their own accounts, you reduce the need for administrative interventions.
 
@@ -134,7 +134,7 @@ By giving users power to manage their own accounts, you reduce the need for admi
 
 Self-registration allows your customers to take control of their business accounts.
 This not only improves customer satisfaction but also reduces the administrative burden on your team. 
-With the ability to integrate with [[= product_name_connect =]], you are able to fully automate the process.
+With the ability to integrate with [[= product_name_connect =]], you're able to fully automate the process.
 
 ### Address book
 
@@ -155,7 +155,7 @@ It allows you to make use of customer targeting of the segments and create perso
 
 The overall benefit of customer portals is the help they provide to retain customers and increase loyalty, while freeing up customer service employees time for higher-level work.
 They can achieve that by providing customers with up-to-date information about their orders and deliveries, personalize shopping experience, offer special deals available only to B2B partners and do that in one, easily accessible space.
-Currently, customer portals are a standard in global sites such as Amazon. They are the level of quality that customers just expect, and all businesses strive for.
+Currently, customer portals are a standard in global sites such as Amazon. they're the level of quality that customers just expect, and all businesses strive for.
 
 ### Simplified shopping process
 

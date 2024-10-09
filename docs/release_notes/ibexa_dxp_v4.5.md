@@ -29,7 +29,7 @@ Modules can interact with each other, for example, to decrease stock as a result
 
 #### Order management
 
-With order management in place, it is now possible to create orders, configure and customize the order processing workflow, as well as manage orders by using the APIs. 
+With order management in place, it's now possible to create orders, configure and customize the order processing workflow, as well as manage orders by using the APIs. 
 
 New screens added to the back office user interface let [[= product_name =]] users search for orders and filter search results. 
 Users can also review order details and completion status, as well as cancel orders.
@@ -47,7 +47,7 @@ Additionally, new APIs are available, which can be used for managing payment met
 
 #### Shipping
 
-With the arrival of the Shipping module, it is now possible to define and manage shipping methods of different types, together with their related costs, on a dedicated back office screen, as well as configure and customize the shipment workflow.
+With the arrival of the Shipping module, it's now possible to define and manage shipping methods of different types, together with their related costs, on a dedicated back office screen, as well as configure and customize the shipment workflow.
 
 New APIs enable managing shipping methods and payments, while an extension point can be used to expand the default list of shipping method types. 
 

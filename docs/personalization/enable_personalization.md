@@ -62,7 +62,7 @@ the Personalization server must receive a list of item types that are tracked.
 
 You define item types to be tracked in [configuration files](configuration.md#configuration-files).
 The content is then initially exported by a script.
-After this, it is synchronized with the Personalization service every time a change 
+After this, it's synchronized with the Personalization service every time a change 
 occurs (using any method that triggers the event).
 
 The Personalization configuration is SiteAccess-aware.
@@ -345,7 +345,7 @@ and it eventually fetches the affected content and updates it internally.
 
     Recommendations are fetched and rendered asynchronously, so there 
     is no additional load on the server.
-    Therefore, it is crucial that you check whether the content export was successful, 
+    Therefore, it's crucial that you check whether the content export was successful, 
     because certain references, for example, deeplinks and image references, are 
     included.
     If the export fails, the Personalization server does not have full content information.
@@ -509,7 +509,7 @@ if the content Fields were previously exported by the export script.
 #### Modify recommendation data
 
 You can retrieve data returned from the Personalization server and modify it 
-before it is shown to the user.
+before it's shown to the user.
 
 To modify recommendation data, subscribe to `RecommendationResponseEvent`.
 See [`Event/Subscriber/RecommendationEventSubscriber.php`](https://github.com/ibexa/personalization-client/blob/main/src/lib/Event/Subscriber/RecommendationEventSubscriber.php) for an example:

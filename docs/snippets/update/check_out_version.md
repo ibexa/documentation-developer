@@ -1,6 +1,6 @@
 ### A. Create branch
 
-Create a new branch for handling update changes from the branch you are updating on:
+Create a new branch for handling update changes from the branch you're updating on:
 
 ``` bash
 git checkout -b update-[[= target_version =]]
@@ -10,7 +10,7 @@ This creates a new project branch (`update-[[= target_version =]]`) for the upda
 
 ### B. Add `upstream` remote
 
-If it is not added as a remote yet, add an `upstream` remote:
+If it's not added as a remote yet, add an `upstream` remote:
 
 === "ezplatform"
 

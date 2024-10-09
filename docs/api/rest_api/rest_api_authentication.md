@@ -35,7 +35,7 @@ Enabling any other method disables session.
 
 ### Usage examples
 
-You can create a session for a visitor even if they are not logged in by sending the **`POST`** request to `/user/sessions`.
+You can create a session for a visitor even if they're not logged in by sending the **`POST`** request to `/user/sessions`.
 To log out, use the **`DELETE`** request on the same resource.
 
 #### Establishing session
@@ -231,7 +231,7 @@ If an unsafe request is missing the CSRF token, or the token has incorrect value
 
 ##### Rich client application security concerns
 
-The purpose of CSRF protection is to prevent users from accidentally running harmful operations by being tricked into executing an HTTP(S) request against a web applications they are logged into.
+The purpose of CSRF protection is to prevent users from accidentally running harmful operations by being tricked into executing an HTTP(S) request against a web applications they're logged into.
 In browsers this action will be blocked by lack of CSRF token.
 
 However, if you develop a rich client application (JavaScript, JAVA, iOS, Android, etc.), that is:
@@ -247,7 +247,7 @@ Then, you have to make sure to confirm with the user if they want to perform an 
 Example:
 
 A rich JavaScript/web application is using `navigator.registerProtocolHandler()` to register "web+ez:" links to go against REST API.
-It uses a session-based authentication, and it is in widespread use across the net, or/and it is used by everyone within a company.
+It uses a session-based authentication, and it's in widespread use across the net, or/and it's used by everyone within a company.
 A person with minimal insight into this application and the company can easily send out the following link to all employees in that company in email:
 `<a href="web+ez:DELETE /content/locations/1/2">latest reports</a>`.
 

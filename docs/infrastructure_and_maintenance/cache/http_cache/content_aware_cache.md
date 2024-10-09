@@ -1,10 +1,10 @@
 ---
-description: Content-aware HTTP cache takes into account the content it is connected to.
+description: Content-aware HTTP cache takes into account the content it's connected to.
 ---
 
 # Content-aware HTTP cache
 
-HTTP cache in [[= product_name =]] is aware of which content or entity it is connected to.
+HTTP cache in [[= product_name =]] is aware of which content or entity it's connected to.
 This awareness is accomplished by means of cache tagging. All supported reverse proxies are content-aware.
 
 !!! note "Tag header is stripped in production for security reasons"
@@ -91,7 +91,7 @@ Apache has a [hard](https://github.com/apache/httpd/blob/5f32ea94af5f1e7ea68d6fc
 
 1\. For inline rendering just displaying the content name, image attribute, and/or link, it would be enough to:
 
-- Look into how many inline (non ESI) render calls for content rendering you are doing, and see if you can organize it differently.
+- Look into how many inline (non ESI) render calls for content rendering you're doing, and see if you can organize it differently.
 - Consider inlining the views not used elsewhere in the given template and [tagging the response in Twig](#response-tagging-in-templates) with "relation" tags.
     - (Optional) You can set reduced cache TTL for the given view, to reduce the risk of stale cache on subtree operations affecting the inlined content.
 
@@ -135,9 +135,9 @@ If the given content has several Locations, you can see several `l<location-id>`
 ### ResponseConfigurator
 
 A `ReponseCacheConfigurator` configures an HTTP Response object, makes the response public, adds tags and sets the shared max age. 
-It is provided to `ReponseTaggers` that use it to add the tags to the response.
+it's provided to `ReponseTaggers` that use it to add the tags to the response.
 
-The `ConfigurableResponseCacheConfigurator` (`Ibexa\HttpCache\ResponseConfigurator\ConfigurableResponseCacheConfigurator`) follows the `view_cache` configuration and only enables cache if it is enabled in the configuration.
+The `ConfigurableResponseCacheConfigurator` (`Ibexa\HttpCache\ResponseConfigurator\ConfigurableResponseCacheConfigurator`) follows the `view_cache` configuration and only enables cache if it's enabled in the configuration.
 
 ### Delegator and Value taggers
 
@@ -190,7 +190,7 @@ $tagHandler->addRelationTags([33, 44]);
 In PHP, FOSHttpCache exposes the `fos_http_cache.http.symfony_response_tagger` service which enables you to add tags to a response.
 
 The following example adds minimal tags when ID 33 and 34 are rendered in ESI,
-but parent response needs these tags to get refreshed if they are deleted:
+but parent response needs these tags to get refreshed if they're deleted:
 
 ``` php
 /** @var \FOS\HttpCacheBundle\Http\SymfonyResponseTagger $responseTagger */
@@ -215,7 +215,7 @@ $response->headers->set('X-Location-Id', '123,212,42');
 !!! caution "X-Location-Id use is deprecated"
 
     `X-Location-Id` is deprecated and will be removed in future.
-    For rendering content it is advised to refactor to use Content View,
+    For rendering content it's advised to refactor to use Content View,
     if not applicable `ContentTagInterface` or lastly manually output tags.
 
 ## Response tagging in templates
@@ -359,12 +359,12 @@ bin/console fos:httpcache:invalidate:tag ez-all
 
 ## Testing and debugging HTTP cache
 
-It is important to test your code in an environment which is as similar as your production environment as possible. That
+it's important to test your code in an environment which is as similar as your production environment as possible. That
 means that if only are testing locally using the default Symfony Reverse proxy when your are going to use Varnish or
-Fastly in production, you are likely ending up some (bad) surprises. Due to the symfony reverse proxy's lack of support for ESIs, it behaves
+Fastly in production, you're likely ending up some (bad) surprises. Due to the symfony reverse proxy's lack of support for ESIs, it behaves
 quite different from Varnish and Fastly in some aspects.
-If you are going to use Varnish in production, make sure you also test your code with Varnish.
-If you are going to use Fastly in production, testing with Fastly in your developer install is likely not feasible
+If you're going to use Varnish in production, make sure you also test your code with Varnish.
+If you're going to use Fastly in production, testing with Fastly in your developer install is likely not feasible
 (you're local development environment must then be accessible for Fastly). Testing with Varnish instead will in most
 cases do the job. But if you need to change the varnish configuration to make your site work, be aware that Varnish and Fastly uses different dialects, and
 that .vcl code for Varnish V6.x will likely not work as-is on Fastly.
@@ -455,13 +455,13 @@ Some notes about each of these parameters:
     - We specify `443` because we are using `https`
     - We provide the IP of the nginx endpoint at platform.sh (`1.2.3.4` in this example)
 - `--header "Surrogate-Capability: abc=ESI/1.0"`, strictly speaking not needed when fetching the user-context-hash, but this tells [[= product_name =]] that client understands ESI tags.
-  It is good practice to always include this header when imitating the HTTP Cache.
+  it's good practice to always include this header when imitating the HTTP Cache.
 - `--header "accept: application/vnd.fos.user-context-hash"` tells [[= product_name =]] that the client wants to receive the user-context-hash
 - `--header "x-fos-original-url: /"` is required by the fos-http-cache bundle in order to deliver the user-context-hash
 - `https://www.staging.foobar.com.us-2.platformsh.site/_fos_user_context_hash` : here we use the hostname we earlier told
   curl how to resolve using `---resolve`. `/_fos_user_context_hash` is the route to the controller that are able to
   deliver the user-context-hash.
-- You may also provide the session cookie (`--cookie ".....=....") for a logged-in-user if you are interested in
+- You may also provide the session cookie (`--cookie ".....=....") for a logged-in-user if you're interested in
   the x-user-context-hash for a different user but anonymous
 
 The output for this command should look similar to this:
@@ -486,7 +486,7 @@ holds the [cache tags](#cache-tags).
 
 ### Fetching HTML response
 
-Now you have the user-context-hash, and you can ask origin for the actual resource you are after:
+Now you have the user-context-hash, and you can ask origin for the actual resource you're after:
 
 ```bash
     $ curl -IXGET --resolve www.staging.foobar.com.us-2.platformsh.site:443:1.2.3.4 --header "Surrogate-Capability: abc=ESI/1.0" --header "x-user-context-hash: daea248406c0043e62997b37292bf93a8c91434e8661484983408897acd93814" https://www.staging.foobar.com.us-2.platformsh.site/
@@ -532,7 +532,7 @@ The output is:
     <esi:include src="/_fragment?_hash=lnKTnmv6bb1XpaMPWRjV3sNazbn9rDXskhjGae1BDw8%3D&_path=locationId%3D2%26contentId%3D52%26blockId%3D13%26versionNo%3D3%26languageCode%3Deng-GB%26serialized_siteaccess%3D%257B%2522name%2522%253A%2522site%2522%252C%2522matchingType%2522%253A%2522default%2522%252C%2522matcher%2522%253Anull%252C%2522provider%2522%253Anull%257D%26serialized_siteaccess_matcher%3Dnull%26_format%3Dhtml%26_locale%3Den_GB%26_controller%3DEzSystems%255CCustomBundle%255CController%255CFooController%253A%253AcustomAction" />
 ```
 
-Now, investigate the response of each of these ESI fragments to understand what is going on. It is important to
+Now, investigate the response of each of these ESI fragments to understand what is going on. it's important to
 put that URL in single quotes as the URLS to the ESIs include special characters that can be interpreted by the
 shell.
 
@@ -607,6 +607,6 @@ The `Set-Cookie` here may cause the problem. A ESI fragment should never set a c
   stops setting cookies, Fastly will still not cache that fragment. Any document referring to that ESI will be a `MISS`.
   Fastly cache needs to be purged (`Purge-all` request) in order to remove this flag.
   
-- It means that it is not recommended to always initiate a session when loading the front page.
+- It means that it's not recommended to always initiate a session when loading the front page.
 
 You must ensure that you do not unintendedly start a session in a controller used by ESIs, for example, when trying to access as session variable before a session has been initiated yet.

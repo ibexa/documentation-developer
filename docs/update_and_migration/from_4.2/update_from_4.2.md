@@ -4,7 +4,7 @@ description: Update your installation to the latest v4.3 version from v4.2.x.
 
 # Update from v4.2.x to v4.3
 
-This update procedure applies if you are using a v4.2 installation.
+This update procedure applies if you're using a v4.2 installation.
 
 [[% include 'snippets/update/temporary_v4_conflicts.md' %]]
 
@@ -70,7 +70,7 @@ Review the old YAML files and move your custom configuration to the relevant new
 
 #### Customer Portal self-registration
 
-If you are using [[= product_name_exp =]] or [[= product_name_com =]],
+If you're using [[= product_name_exp =]] or [[= product_name_com =]],
 run data migration required by the Customer Portal self-registration feature:
 
 ```bash

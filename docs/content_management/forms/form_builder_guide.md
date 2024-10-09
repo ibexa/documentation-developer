@@ -121,7 +121,7 @@ The **Download submissions** button enables you to download all the submissions 
 
 ### General overview
 
-With Form Builder you are allowed to build an unlimited number of forms. 
+With Form Builder you're allowed to build an unlimited number of forms. 
 These forms can be used anywhere on the website and are ready to start collecting information. 
 Form Builder interface is simple, which makes the creation of forms fast and intuitive.
 

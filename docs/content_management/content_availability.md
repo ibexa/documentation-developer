@@ -7,12 +7,12 @@ description: Control the availability of content items with relation to translat
 The Default content availability flag enables you to control whether content is available when its translation is missing.
 
 You can set the flag in content type definition by checking the "Make content available even with missing translations" option.
-It is automatically applied to any new content item of this Type.
+It's automatically applied to any new content item of this Type.
 
 ![Default content availability](availability_flag.png "Default content availability")
 
 A content item with this flag will be available in its main language
-even if it is not translated into the language of the current SiteAccess.
+even if it's not translated into the language of the current SiteAccess.
 
 Without the flag, a content item will not be available at all if it does not have a language version
 corresponding to the current SiteAccess.
@@ -33,5 +33,5 @@ For example, you can assign the flag to a Blog content type which is intended to
 in multiple languages. If the Blog is in English only, it would not be visible for readers
 using the Norwegian or German SiteAcceses.
 However, if you set the default availability flag for the Blog content type,
-it will be displayed to them in English (if it is set as a main language) and will enable the users to browse individual
+it will be displayed to them in English (if it's set as a main language) and will enable the users to browse individual
 posts in other languages.

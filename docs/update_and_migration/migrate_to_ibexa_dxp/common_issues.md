@@ -77,7 +77,7 @@ You can read more about this issue here: [EZP-24882](https://issues.ibexa.co/bro
 
 ## Listing sub-content
 
-It is possible that after upgrade `sort_key_string` is left empty. This may cause problems
+it's possible that after upgrade `sort_key_string` is left empty. This may cause problems
 in searches throughout the API. The cleanup script will check if Fields of given Field
 Type have correct sort key, and update it if needed.
 

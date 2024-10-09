@@ -4,7 +4,7 @@
 
 **The FAST TRACK v1.8.0 release of eZ Platform and eZ Platform Enterprise Edition is available as of February 16, 2017.**
 
-If you are looking for the Long Term Support (LTS) release, see[ https://ezplatform.com/Blog/Long-Term-Support-is-Here](https://ezplatform.com/Blog/Long-Term-Support-is-Here)
+If you're looking for the Long Term Support (LTS) release, see[ https://ezplatform.com/Blog/Long-Term-Support-is-Here](https://ezplatform.com/Blog/Long-Term-Support-is-Here)
 
 ## Notable Changes Since v1.7.0 LTS
 

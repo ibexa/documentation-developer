@@ -98,7 +98,7 @@ The `DefaultRouter` is always added to the collection with top priority (priorit
 
 `DefaultRouter` (`router.default`):
 The `DefaultRouter` tries to match the `semanticPathinfo` against routes, close to [the way pure Symfony does](https://symfony.com/doc/current/routing.html), by extending and using `Symfony\Component\Routing\Router`.
-If a route matches, the controller associated with it is responsible for building a `View` or `Response` object.
+If a route matches, the controller associated with it's responsible for building a `View` or `Response` object.
 
 ### `UrlWildcardRouter`
 

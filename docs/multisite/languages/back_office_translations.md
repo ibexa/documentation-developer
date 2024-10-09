@@ -20,7 +20,7 @@ If your browser language is set to French, the back office will be displayed in 
 
 !!! tip "Checking browser language"
 
-    To make sure that a language is set in your browser, check if it is sent as an accepted language in the `Accept-Language` header.
+    To make sure that a language is set in your browser, check if it's sent as an accepted language in the `Accept-Language` header.
 
 !!! tip
 
@@ -48,7 +48,7 @@ based on `parameters.locale_fallback` in `config/packages/ibexa.yaml`.
 ## Custom string translations
 
 When you extend the back office you often need to provide labels for new elements.
-It is good practice to provide your labels in translations files, instead of literally,
+it's good practice to provide your labels in translations files, instead of literally,
 so they can be reused and translated into other languages.
 
 To provide label strings, make use of the `Symfony\Component\Translation\TranslatorInterface`
@@ -120,4 +120,4 @@ The language to display will then be selected automatically based on [user prefe
 
 !!! note
 
-    You may need to clear the cache after adding new translations, before they are available in the back office.
+    You may need to clear the cache after adding new translations, before they're available in the back office.

@@ -4,7 +4,7 @@ description: The permission system is based on policies that you assign to users
 
 # Permission overview
 
-A new User does not have permissions for any part of the system, unless they are explicitly given access.
+A new User does not have permissions for any part of the system, unless they're explicitly given access.
 To get access they need to inherit roles, typically assigned to the user group they belong to.
 
 Each role can contain one or more **Policies**. A policy is a rule that gives access to a single **function** in a **module**.
@@ -24,7 +24,7 @@ and [Permission use cases](permission_use_cases.md) for example permission setup
 
 Every user or user group can have many roles. A User can also belong to many groups, for example, Administrators, Editors, Subscribers.
 
-It is best practice to avoid assigning roles to users directly.
+it's best practice to avoid assigning roles to users directly.
 Instead, try to organize your content so that it can be covered with general roles assigned to user groups.
 
 Using Groups is easier to manage and more secure. It also improves system performance.

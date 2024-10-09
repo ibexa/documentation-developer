@@ -41,7 +41,7 @@ See below the techniques that help avoid these problems.
 You can place the code at the very end of the generating script 
 and flush the output buffer to the client before sending the events. 
 The connection to the browser can remain open for the time of processing, 
-but it is transparent for the end user.
+but it's transparent for the end user.
 
 ### Tracking asynchronously
 
@@ -57,7 +57,7 @@ Another solution is to provide a proxy on the server side, which forwards
 script requests to the Personalization server. 
 In this model, the requests are triggered from the client, when the page is already 
 loaded and rendered. 
-It is impossible to request the recommendation controller server directly from JavaScript 
+it's impossible to request the recommendation controller server directly from JavaScript 
 (either through the AJAX library or directly over XMLHttpRequest) because of the 
 cross-domain restriction in most browsers. 
 One possible work around this limitation is [JSONP](https://www.w3schools.com/js/js_json_jsonp.asp).

@@ -16,7 +16,7 @@ What is stored is the number of seconds, calculated from the beginning of the da
 
 If input value is of type `string` or `integer`, it will be passed directly to the [PHP's built-in `\DateTime` class](https://www.php.net/manual/en/datetime.construct.php) constructor, therefore the same input format expectations apply.
 
-It is also possible to directly pass an instance of `\DateTime`.
+It's also possible to directly pass an instance of `\DateTime`.
 
 |Type|Example|
 |------|------|

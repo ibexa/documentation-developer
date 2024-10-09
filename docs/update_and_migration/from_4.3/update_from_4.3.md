@@ -4,7 +4,7 @@ description: Update your installation to the latest v4.4 version from v4.3.x.
 
 # Update from v4.3.x to v4.4
 
-This update procedure applies if you are using the newest v4.3 installation.
+This update procedure applies if you're using the newest v4.3 installation.
 
 This release deprecates all Commerce packages in[[= product_name =]]. They will be removed in v5.
 Until that time, they will be maintained by Ibexa with fixes, including security fixes, but they won't be further developed.

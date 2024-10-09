@@ -152,7 +152,7 @@ This release introduces a few simplifications to API use for content types:
 
 #### Load multiple Locations
 
-You are now able to load multiple Locations at once, using `LocationService->loadLocationList()`. The biggest benefit of this feature is saving load time on complex landing pages when HTTP cache is cold or disabled, including when in development mode.  
+you're now able to load multiple Locations at once, using `LocationService->loadLocationList()`. The biggest benefit of this feature is saving load time on complex landing pages when HTTP cache is cold or disabled, including when in development mode.  
 
 ### BC breaks and important behavior changes
 

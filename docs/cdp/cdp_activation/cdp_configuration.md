@@ -36,7 +36,7 @@ ibexa:
 - `account_number` - a [number](#account-number) obtained from Accounts settings in [[= product_name_cdp =]] dashboard
 - `stream_id` - stream ID generated when importing data from the stream file in Data Manage
 - `activations` - activation details. You can configure multiple activations. They have to be of type `Ibexa` in [[= product_name =]] dashboard
-- `client_id` and `client_secret` - client credentials are used to authenticate against the Webhook endpoint. Make sure they are random and secure
+- `client_id` and `client_secret` - client credentials are used to authenticate against the Webhook endpoint. Make sure they're random and secure
 - `segment_group_identifier` - a [location](#segment-group) to which CDP data is imported
 
 ## Account number

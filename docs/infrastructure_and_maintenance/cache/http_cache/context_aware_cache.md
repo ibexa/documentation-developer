@@ -70,7 +70,7 @@ It also varies on `Authorization` to cover any possible basic authorization head
 
     <a name="default-options-for-foshttpcachebundle"></a>
     The following configuration is defined by default for FOSHttpCacheBundle.
-    You should not override these settings unless you know what you are doing.
+    You should not override these settings unless you know what you're doing.
 
     ``` yaml
     fos_http_cache:
@@ -95,7 +95,7 @@ Here are some generic recommendations on how to approach personalized content wi
 1\. ESI with vary by cookie:
 
 Default VCL strips everything except session cookie, so this is effectively "per user".
-If you are on single-server setup without Varnish or Fastly, you can use the same cookie logic on the web server instead.
+If you're on single-server setup without Varnish or Fastly, you can use the same cookie logic on the web server instead.
 
 This a low effort solution, and can be enough for one fragment that is reused across the whole site, 
 for example, in header to show user name:
@@ -111,7 +111,7 @@ Example:
 
 This method does not consume memory in Varnish. 
 It can optionally be cached with custom logic: Symfony Cache on server side and/or with client side caching techniques. 
-This should be done as Ajax/JS lookup to avoid the uncached request that slows down the whole delivery of Vanish if it is done as ESI.
+This should be done as Ajax/JS lookup to avoid the uncached request that slows down the whole delivery of Vanish if it's done as ESI.
 
 This solution requires more effort depending on project requirements (traffic load, etc.).
 

@@ -17,7 +17,7 @@ For example, for [[= product_name_headless =]], see the [JSON file on GitHub](ht
 !!! caution "Deprecated legacy Commerce bundles"
 
     As of [[= product_name =]] v4.4 all `ibexa/commerce` packages are deprecated. 
-    They are gradually replaced by their revamped counterparts and removed 
+    they're gradually replaced by their revamped counterparts and removed 
     completely from the product in version v5.0.
 
 ## Working with bundles
