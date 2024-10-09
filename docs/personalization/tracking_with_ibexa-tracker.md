@@ -9,7 +9,7 @@ JavaScript in your site.
 The approach is very generic and evaluate it if it meets your
 **requirements and security policy**.
 
-If you want the `userid` to be generated automatically, set user 
+If you want the `userid` to be generated automatically, set user
 parameter as empty `''` in the `_ycq.push` calls.
 If a predefined cookie already exists, it is used. 
 Otherwise a new one is created.
@@ -94,7 +94,7 @@ _ycq.push(['_trackEvent', '1', 'click', '10', '']);
 | --------------- | ------------- | ------ |
 | `_setMandator ` | - Executed with one additional parameter: `MandatorId` | `_ycq.push (['_setMandator' , '<YOUR_MANDATOR_ID>']);` |
 | `_trackEvent` | - Executed with four additional parameters: `ItemType`, `EventType`, `ItemId`, `UserId`.<br /> - `EventType` can be any of the [described types]([[= user_doc =]]/personalization/event_types/) | capturing an event: `_ycq.push(['_trackEvent', '1', 'buy', '10', '']);` |
-| `_trackTimedEvent` | - Executed with five additional parameters: `ItemType`, `EventType`, `ItemId`, `Timeout`, `UserId`.<br /> - `EventType` can be any of the [described types]([[= user_doc =]]/personalization/event_types/).<br /> - `Timeout` can be any integer greater than than 0 representing time in ms | consume event sent after 20s: `_ycq.push(['_trackTimedEvent', '1', 'consume', '10', '20000', '']);` |
+| `_trackTimedEvent` | - Executed with five additional parameters: `ItemType`, `EventType`, `ItemId`, `Timeout`, `UserId`.<br /> - `EventType` can be any of the [described types]([[= user_doc =]]/personalization/event_types/).<br /> - `Timeout` can be any integer greater than 0 representing time in ms | consume event sent after 20s: `_ycq.push(['_trackTimedEvent', '1', 'consume', '10', '20000', '']);` |
 | `_login` | - Executed with two additional parameters: anonymous userId, pseudonymous userId.<br /> - It is to be triggered when a user logs in and the tracking identity is changed.<br /> | - |
 | `ycreco=true` | - If you want to send a click recommended event you can append the following parameter to the recommended item URLs: | [https://mydomain.com/mypage.html?ycreco=true](https://mydomain.com/mypage.html?ycreco=true) or <br />[https://mydomain.com/mypage.html?myparameter=x&ycreco=true](https://mydomain.com/mypage.html?myparameter=x&ycreco=true) |
 
