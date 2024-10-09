@@ -19,8 +19,8 @@ In this training, you learn how to create complex products, to quote their price
 ### Previous knowledge
 
 - [Content management](content_management.md)
-  - [Content types](content_types.md) and [content items](content_model.md#content-items)
-  - [Taxonomy](taxonomy.md)
+    - [Content types](content_types.md) and [content items](content_model.md#content-items)
+    - [Taxonomy](taxonomy.md)
 - [Templating](templating.md)
 
 ### Ibexa DXP edition
