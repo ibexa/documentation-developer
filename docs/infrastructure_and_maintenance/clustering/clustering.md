@@ -26,7 +26,7 @@ The minimal requirements are:
 
 For further details on requirements, see [Requirements page](requirements.md).
 
-It is also recommended to use:
+it's also recommended to use:
 
 - [Solr](solr_overview.md) or [Elasticsearch](elastic_search_overview.md) for better search and performance
 - a CDN for improved performance and faster ping time worldwide
@@ -83,8 +83,8 @@ First, define DFS folder path as a variable in `.env` file:
 
 `DFS_NFS_PATH=/tmp/ibx_1439_nfs`
 
-Next, if you are using a separate DFS database, configure it via the `DATABASE_URL` variable in the `.env` file.
-Depending on which database you are using:
+Next, if you're using a separate DFS database, configure it via the `DATABASE_URL` variable in the `.env` file.
+Depending on which database you're using:
 
 `DFS_DATABASE_URL=mysql://root:rootpassword@127.0.0.1:3306/ibexa_dfs?serverVersion=8.0`
 
@@ -92,7 +92,7 @@ or
 
 `DATABASE_URL=postgresql://root:rootpassword@127.0.0.1:3306/ibexa_dfs?serverVersion=8.0`
 
-For production, it is recommended to create the DFS table in its own database,
+For production, it's recommended to create the DFS table in its own database,
 manually importing its schema definition:
 
 ??? note "dfs_schema.sql (MySQL)"
@@ -200,7 +200,7 @@ ibexa:
 
 !!! tip
 
-    If you are looking to [set up S3](clustering_with_aws_s3.md) or other [Flysystem](https://flysystem.thephpleague.com/docs/)/third-party adapters like Google Cloud Storage, this needs to be configured as binary handler. The rest here will still stay the same, the DFS metadata handler will take care of caching the lookups to avoid slow IO lookups.
+    If you're looking to [set up S3](clustering_with_aws_s3.md) or other [Flysystem](https://flysystem.thephpleague.com/docs/)/third-party adapters like Google Cloud Storage, this needs to be configured as binary handler. The rest here will still stay the same, the DFS metadata handler will take care of caching the lookups to avoid slow IO lookups.
 
 #### Customizing the storage directory
 
@@ -258,9 +258,9 @@ Place this before the include of `ez_params.d`/`ez_rewrite_params` in your vhost
 
 ## Migrating to a cluster setup
 
-If you are migrating an existing single-server site to a cluster setup, and not setting up clustering from scratch, you need to migrate your files.
+If you're migrating an existing single-server site to a cluster setup, and not setting up clustering from scratch, you need to migrate your files.
 Once you have configured your binarydata and metadata handlers, you can run the `ibexa:io:migrate-files` command.
-You can also use it when you are migrating from one data handler to another, e.g. from NFS to Amazon S3.
+You can also use it when you're migrating from one data handler to another, e.g. from NFS to Amazon S3.
 
 This command shows which handlers are configured:
 

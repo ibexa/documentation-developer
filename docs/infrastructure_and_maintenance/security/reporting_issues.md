@@ -13,7 +13,7 @@ No engineering team is perfect though, and if you do discover a security issue i
 
 - If you're a customer or partner, please log in to your Service Portal at <https://support.ibexa.co/>, click "New Ticket", and report the issue as you would report a normal support request. Ibexa Product Support will respond, take care of the report, and keep you informed of the developments.
 - If you're not a customer or partner, please log in to the Ibexa JIRA issue tracker: <https://issues.ibexa.co/>. Create an account if you don't have one, it's free. Click the "Create" button in the top menu to create your report. For "Project", select "Ibexa IBX", or "eZ Publish / Platform", or "eZ Platform Enterprise Edition", depending on which product is affected by the bug. **Important: Select "Security Level": "Security"!** The engineering team will take care of your report.
-- It is also possible to report security issues by email to <security@ibexa.co> - this requires no account.
+- it's also possible to report security issues by email to <security@ibexa.co> - this requires no account.
 
 ## Verbosity
 
@@ -21,7 +21,7 @@ Please be verbose when reporting issues. The issue will be solved faster if you 
 
 - A **title** describing the gist of the issue in one sentence
 - A **description** which includes the steps you take to produce the problem, what you expect the result to be, and what actually happens.
-- Make it clear **why you consider it a security issue**. If you know, also include what type of security issue it is (example: SQL injection, CSRF, Role/Policy failure), what the nature of it is (example: slowing/stopping a web site, leaking sensitive information, destroying data, privilege escalation) and how easy it is to exploit (example: Does it require editor login?).
+- Make it clear **why you consider it a security issue**. If you know, also include what type of security issue it's (example: SQL injection, CSRF, Role/Policy failure), what the nature of it's (example: slowing/stopping a web site, leaking sensitive information, destroying data, privilege escalation) and how easy it's to exploit (example: Does it require editor login?).
 
 ## Dialogue
 

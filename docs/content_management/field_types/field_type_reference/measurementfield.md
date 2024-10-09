@@ -126,7 +126,7 @@ to be marked as `is_base_unit` as in highlighted line above.
 
 !!! note
 
-    To be available for selection in the Back Office, each new Measurement type or unit must be enabled for the  Back Office SiteAccess.
+    To be available for selection in the back office, each new Measurement type or unit must be enabled for the  back office SiteAccess.
 
 Next, you need to define how the new unit should be converted under the `ibexa.system.<scope>.ibexa_measurement` [configuration key](configuration.md#configuration-files):
 

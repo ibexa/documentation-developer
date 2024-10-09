@@ -20,7 +20,7 @@ see [Page block reference]([[= user_doc =]]/content_management/block_reference/)
 ## Request recommendations synchronously
 
 The simplest way to load recommendations is to synchronously request the Personalization 
-server for recommendations as they are needed. This way is sufficient in most cases. 
+server for recommendations as they're needed. This way is sufficient in most cases. 
 The most important drawback is that the request time increases by the time 
 of the recommendation request. 
 If the network is overloaded or the Personalization server is not available, 
@@ -35,7 +35,7 @@ The browser gets a whole page to render and can display it even if the very end
 of the page is still loading. 
 Then the JavaScript code with the recommendation information loaded at the bottom 
 of the page must fill the gaps on the page with recommendations as soon as 
-it is completely loaded.
+it's completely loaded.
 
 ## Non-blocking load in the background
 

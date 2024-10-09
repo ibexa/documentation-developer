@@ -35,7 +35,7 @@ You also need to create the block template, `templates/blocks/random/default.ht
 
 ### Block listener
 
-Block listener provides the logic for the block. It is contained in `src/Event/RandomBlockListener.php`:
+Block listener provides the logic for the block. it's contained in `src/Event/RandomBlockListener.php`:
 
 ``` php
 [[= include_file('code_samples/tutorials/page_tutorial/src/Event/RandomBlockListener.php') =]]

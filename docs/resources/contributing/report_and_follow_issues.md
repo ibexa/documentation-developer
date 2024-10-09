@@ -27,12 +27,12 @@ Click **Create** at the top of the bugtracker window and fill in the following f
 |||
 |------|------|
 |**Project**|Select **Ibexa IBX**.|
-|**Issue type**|Choose **Bug** or **Improvement** depending on what you are reporting, do not use other issue types (they are for internal use only).|
-|**Summary**|Write a short sentence describing what you are reporting.|
+|**Issue type**|Choose **Bug** or **Improvement** depending on what you're reporting, do not use other issue types (they're for internal use only).|
+|**Summary**|Write a short sentence describing what you're reporting.|
 |**Priority**|Select the priority you consider the issue to be. Please try to keep a cool head while selecting it. A 1 pixel alignment bug is not a "blocker".|
 |**Component/s**|This is important, as it will make your issue appear on the radar (dashboards, filters) of people dealing with various parts of Ibexa projects.|
 |**Affect version/s**|Add the versions of the application you experienced the issue on.|
-|**Assignee**|Leave blank, unless you are willing to work on the issue yourself.|
+|**Assignee**|Leave blank, unless you're willing to work on the issue yourself.|
 |**Reporter**|Leave as is (yourself).|
 |**Environment**|Enter specific information regarding your environment that could be relevant in the context of the issues.|
 |**Description**|This is the most important part of the issue report. In case of a bug, it **must** contain explicit steps to reproduce your issue. Anybody should be able to reproduce it at first try. In case of an improvement, it needs to contain use cases and detailed information regarding the expected behavior.|

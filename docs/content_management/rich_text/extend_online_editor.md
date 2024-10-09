@@ -14,7 +14,7 @@ and creating [custom buttons](https://ckeditor.com/docs/ckeditor4/latest/guide/w
 Online Editor is based on the CKEditor5.
 Refer to [CKEditor5 documentation](https://ckeditor.com/docs/ckeditor5/latest/index.html) to learn 
 how you can extend the Online Editor with even more elements.
-For more information about extending the Back Office, see [Extend Back Office](back_office.md).
+For more information about extending the back office, see [Extend back office](back_office.md).
 
 ## Configure custom tags
 
@@ -42,7 +42,7 @@ Place the `factbox.html.twig` template in the
 
 !!! tip
 
-    If an attribute is not required, check if it is defined by adding a check 
+    If an attribute is not required, check if it's defined by adding a check 
     in the template, for example:
 
     ```html+twig
@@ -58,7 +58,7 @@ Add labels for the new tag by providing translations in `translations/custom_tag
 ```
 
 Now you can use the tag.
-In the Back Office, create or edit a content item that has a RichText Field Type.
+In the back office, create or edit a content item that has a RichText Field Type.
 In the Online Editor, click **Add**, and from the list of available tags select the FactBox tag icon.
 
 ![FactBox Tag](custom_tag_factbox.png "FactBox Tag in the Online Editor")
@@ -72,7 +72,7 @@ You can also place custom tags inline with the following configuration:
 ```
 
 `is_inline` is an optional key.
-The default value is `false`, therefore, if it is not set, the custom tag is 
+The default value is `false`, therefore, if it's not set, the custom tag is 
 treated as a block tag.
 
 ### Use cases
@@ -80,7 +80,7 @@ treated as a block tag.
 #### Link tag
 
 You can configure a custom tag with a `link` attribute that offers a basic UI with text input.
-It is useful when migrating from eZ Publish to [[= product_name =]].
+It's useful when migrating from eZ Publish to [[= product_name =]].
 
 The configuration is:
 
@@ -105,7 +105,7 @@ Add labels for the tag by providing translations in `translations/custom_tags.en
 ```
 
 Now you can use the tag.
-In the Back Office, create or edit a content item that has a RichText Field Type.
+In the back office, create or edit a content item that has a RichText Field Type.
 In the Online Editor's toolbar, click **Show more items**, and from the list of available tags select the Link tag icon.
 
 ![Link Tag](custom_tag_link.png "Link Tag in the Online Editor") 
@@ -170,7 +170,7 @@ Add labels for the new styles by providing translations in `translations/custom_
 ### Rendering
 
 The `template` key points to the template that is used to render the custom style. 
-It is recommended that you use the [design engine](design_engine.md).
+It's recommended that you use the [design engine](design_engine.md).
 
 The template files for the front end could look as follows:
 
@@ -186,7 +186,7 @@ The template files for the front end could look as follows:
 <div {% if id is defined %}id="{{ id }}"{% endif %} class="{% if align is defined %}align-{{ align }}{% endif %} ezstyle-{{ name }}">{% apply spaceless %}{{ content|raw }}{% endapply %}</div>
 ```
 
-Templates for Content View in the Back Office would be `templates/themes/admin/field_type/ezrichtext/custom_styles/highlighted_word.html.twig` and `templates/themes/admin/field_type/ezrichtext/custom_styles/highlighted_block.html.twig` respectively (assuming that the Back Office SiteAccess uses the default `admin` theme).
+Templates for Content View in the back office would be `templates/themes/admin/field_type/ezrichtext/custom_styles/highlighted_word.html.twig` and `templates/themes/admin/field_type/ezrichtext/custom_styles/highlighted_block.html.twig` respectively (assuming that the back office SiteAccess uses the default `admin` theme).
 
 ### Use cases
 
@@ -312,7 +312,7 @@ You can also set each attribute to be `required` and set its `default_value`.
 
 For the `choice` type, you must provide an array of available `choices`.
 By adding `multiple`, you can decide whether more than one option can be selected.
-It is set to `false` by default.
+It's set to `false` by default.
 
 Use the example below to add two data attributes, `custom_attribute` and 
 `another_attribute` to the Heading element in the `admin_group` SiteAccess:

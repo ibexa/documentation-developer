@@ -11,7 +11,7 @@ You can use it to create, read, update, manage, and delete all objects available
 content and related objects such as Sections, Locations, content types, languages, etc.
 
 The PHP API is built on top of a layered architecture, including a persistence SPI that abstracts storage.
-Using the API ensures that your code will be forward compatible with future releases based on other storage engines.
+Using the API ensures that your code is forward compatible with future releases based on other storage engines.
 
 ## Using API services
 
@@ -95,14 +95,14 @@ One of the responsibilities of the Repository is user authentication. Every acti
 
 When using the PHP API, authentication is performed in three ways:
 
-- [automatically in the Back Office](#back-office-authentication)
+- [automatically in the back office](#back-office-authentication)
 - [using `sudo()`](#using-sudo)
 - by [setting the Repository user](#setting-the-repository-user)
 
-### Back Office authentication
+### Back office authentication
 
-When actions are performed through the Back Office, they are executed as the logged-in User.
-This User's permissions will affect the behavior of the Repository.
+When actions are performed through the back office, they're executed as the logged-in User.
+This User's permissions affects the behavior of the Repository.
 The User may, for example, not be allowed to create content, or view a particular Section.
 
 ### Using `sudo()`
@@ -156,9 +156,9 @@ $permissionResolver->setCurrentUserReference($user);
 PHP API uses [Exceptions](https://www.php.net/exceptions) to handle errors.
 Each API method may throw different exceptions, depending on what it does.
 
-It is good practice to cover every exception you expect to happen.
+It's good practice to cover every exception you expect to happen.
 
-For example if you are using a command which takes the Content ID as a parameter,
+For example if you're using a command which takes the Content ID as a parameter,
 the ID may either not exist, or the referenced content item may not be visible to the user.
 
 Both cases should be covered with error messages:
@@ -180,7 +180,7 @@ try {
 [Symfony dependency injection]([[= symfony_doc =]]/components/dependency_injection.html) ensures that any required services are available in your custom code
 (for example, controllers) when you inject them into the constructor.
 
-Symfony service container uses service tags to dedicate services to a specific purpose. They are usually used for extension points.
+Symfony service container uses service tags to dedicate services to a specific purpose. they're usually used for extension points.
 
 [[= product_name =]] exposes multiple features using service tags. For example, Field Types are tagged `ibexa.field_type`.
 

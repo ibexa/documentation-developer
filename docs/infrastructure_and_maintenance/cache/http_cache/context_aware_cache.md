@@ -7,7 +7,7 @@ description: Context-aware HTTP cache caches requests depending on the logged-in
 [[= product_name =]] allows caching requests made by logged-in users.
 This is called (user) context-aware cache.
 
-It means that HTTP cache is unique per set of user permissions (Roles and Limitations), 
+It means that HTTP cache is unique per set of user permissions (roles and limitations), 
 and there are variations of cache shared only among users that have the exact same permissions. 
 So if a user browses a list of children Locations, they will only see children Locations 
 they have access to, even if their rendering is served from HTTP cache.
@@ -70,7 +70,7 @@ It also varies on `Authorization` to cover any possible basic authorization head
 
     <a name="default-options-for-foshttpcachebundle"></a>
     The following configuration is defined by default for FOSHttpCacheBundle.
-    You should not override these settings unless you know what you are doing.
+    You should not override these settings unless you know what you're doing.
 
     ``` yaml
     fos_http_cache:
@@ -95,7 +95,7 @@ Here are some generic recommendations on how to approach personalized content wi
 1\. ESI with vary by cookie:
 
 Default VCL strips everything except session cookie, so this is effectively "per user".
-If you are on single-server setup without Varnish or Fastly, you can use the same cookie logic on the web server instead.
+If you're on single-server setup without Varnish or Fastly, you can use the same cookie logic on the web server instead.
 
 This a low effort solution, and can be enough for one fragment that is reused across the whole site, 
 for example, in header to show user name:
@@ -111,7 +111,7 @@ Example:
 
 This method does not consume memory in Varnish. 
 It can optionally be cached with custom logic: Symfony Cache on server side and/or with client side caching techniques. 
-This should be done as Ajax/JS lookup to avoid the uncached request that slows down the whole delivery of Vanish if it is done as ESI.
+This should be done as Ajax/JS lookup to avoid the uncached request that slows down the whole delivery of Vanish if it's done as ESI.
 
 This solution requires more effort depending on project requirements (traffic load, etc.).
 
@@ -132,7 +132,7 @@ This solution requires more effort (controller, VCL logic and adapting your own 
 
 For information on how user context hashes are generated, see [FOSHttpCacheBundle documentation](https://foshttpcachebundle.readthedocs.io/en/latest/features/user-context.html#generating-hashes).
 
-[[= product_name =]] implements a custom context provider in order to make user context hash reflect the current User's Roles and Limitations.
+[[= product_name =]] implements a custom context provider in order to make user context hash reflect the current User's roles and Limitations.
 This is needed given [[= product_name =]]'s more complex permission model compared to Symfony's.
 
 You can technically extend the user context hash by [implementing your own custom context provider(s)](https://foshttpcachebundle.readthedocs.io/en/latest/reference/configuration/user-context.html#custom-context-providers).

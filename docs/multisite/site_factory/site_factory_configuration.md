@@ -68,15 +68,15 @@ ibexa_site_factory:
 
 Now, you can choose a design with a defined Site skeleton, and decide if you want to use its skeleton by toggling **Generate site using site skeleton**.
 
-## User Group skeletons
+## User group skeletons
 
-With User Group skeletons you can define Policies and Limitations that apply to selected groups of users who can access the site.
+With user group skeletons you can define policies and limitations that apply to selected groups of users who can access the site.
 
-You can create many User Group skeletons and associate them with many templates.
-One template can have many User Group skeletons assigned.
+You can create many user group skeletons and associate them with many templates.
+One template can have many user group skeletons assigned.
 
-To create a User Group skeleton, first go to **Admin** -> **Site skeletons** and add a User Group to the list of available skeletons.
-Then, review the detailed information of the newly created User Group skeleton,
+To create a user group skeleton, first go to **Admin** -> **Site skeletons** and add a user group to the list of available skeletons.
+Then, review the detailed information of the newly created user group skeleton,
 copy the Location ID or the Location remote ID, and add a configuration key to the site template definition:
 
 ``` yaml
@@ -88,19 +88,19 @@ ibexa_site_factory:
             user_group_skeleton_remote_ids: [ <id_skeleton3>, <id_skeleton4>, ... ]
 ```
 
-Manage the permissions associated to the User Group skeleton by [assigning Roles](https://doc.ibexa.co/projects/userguide/en/latest/site_organization/organizing_the_site/#managing-permissions).
-Make sure that the Roles that you assign to the User Group skeleton do not contain Location-based Limitations. 
-User Group skeletons cannot contain individual User content items either.
+Manage the permissions associated to the user group skeleton by [assigning roles](https://doc.ibexa.co/projects/userguide/en/latest/site_organization/organizing_the_site/#managing-permissions).
+Make sure that the roles that you assign to the user group skeleton do not contain Location-based limitations. 
+User group skeletons cannot contain individual User content items either.
 
-User Group skeletons are retained after deleting the site.
+User group skeletons are retained after deleting the site.
 
-## Automatic update of Roles
+## Automatic update of roles
 
-Role definitions can contain user/login Policies with Limitations that limit user access to certain sites. 
-To avoid the need to add the new SiteAccess to Limitations for all Roles,
-you can decide that the Roles you select are automatically updated when the site is created, updated or deleted.
+Role definitions can contain user/login policies with limitations that limit user access to certain sites. 
+To avoid the need to add the new SiteAccess to limitations for all roles,
+you can decide that the roles you select are automatically updated when the site is created, updated or deleted.
 
-Under the `ibexa_site_factory` [configuration key](configuration.md#configuration-files), add a list of Roles which should have access to the frontend
+Under the `ibexa_site_factory` [configuration key](configuration.md#configuration-files), add a list of roles which should have access to the frontend
 when a site is created in Site Factory, for example:
 
 ``` yaml
@@ -110,4 +110,4 @@ ibexa_site_factory:
     update_roles: [Anonymous, Administrator]
 ```
 
-For more information about Roles and Policies, see [Permissions](permissions.md). 
+For more information about roles and policies, see [Permissions](permissions.md). 

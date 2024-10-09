@@ -24,9 +24,9 @@ your shipping information and view your past orders.
 You can invite members to your company, activate or deactivate their accounts,
 assign them specific roles and limitations, such as a buyer, or sales representative, and group them into teams.
 
-![Customer Portal Back Office](4.2_customer_portal.png)
+![Customer Portal back office](4.2_customer_portal.png)
 
-For more information, see [Back Office company management documentation](https://doc.ibexa.co/projects/userguide/en/latest/shop_administration/manage_users).
+For more information, see [back office company management documentation](https://doc.ibexa.co/projects/userguide/en/latest/shop_administration/manage_users).
 
 On their personal accounts in Customer Portal, members of your organisation can view their order history,
 other members of their team and information regarding their company, for example, billing addresses.
@@ -40,7 +40,7 @@ For more information, see [Customer Portal documentation](https://doc.ibexa.co/p
 
 #### Inviting users
 
-You can [invite users to create their account](https://doc.ibexa.co/projects/userguide/en/latest/users/user_management/#inviting-users) in the frontend as customers or in the Back Office as members of your team.
+You can [invite users to create their account](https://doc.ibexa.co/projects/userguide/en/latest/users/user_management/#inviting-users) in the frontend as customers or in the back office as members of your team.
 
 ![Inviting members of your team](4.2_invite_users.png)
 
@@ -187,7 +187,7 @@ If a Page block has multiple attributes, you can now group them with the [`neste
 
 ### Search in URL wildcards
 
-You can now search through the **URL wildcards** table in the Back Office.
+You can now search through the **URL wildcards** table in the back office.
 
 ### Product price events
 

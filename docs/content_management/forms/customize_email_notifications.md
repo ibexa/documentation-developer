@@ -25,7 +25,7 @@ Each of them is rendered independently and consists of three sets of parameters.
 ## Configure sender details
 
 Some email providers require a sender address to be set, so to avoid unsent emails when using Form Builder,
-it is recommended to configure `sender_address` in `config/packages/swiftmailer.yaml`.
+it's recommended to configure `sender_address` in `config/packages/swiftmailer.yaml`.
 This email acts as a sender and return address for all bounced messages.
 
 !!! note

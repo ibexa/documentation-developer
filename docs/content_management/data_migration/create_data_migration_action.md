@@ -25,7 +25,7 @@ in `src/Migrations/Action/AssignSectionDenormalizer.php`:
 [[= include_file('code_samples/data_migration/src/Migrations/Action/AssignSectionDenormalizer.php') =]]
 ```
 
-Then, tag the action denormalizer so it is recognized by the serializer used for migrations.
+Then, tag the action denormalizer so it's recognized by the serializer used for migrations.
 
 ``` yaml
 [[= include_file('code_samples/data_migration/config/custom_services.yaml', 0, 5) =]]

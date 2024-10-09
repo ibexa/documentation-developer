@@ -47,8 +47,8 @@ For details, see [Bundles](https://doc.ibexa.co/en/latest/guide/bundles).
 
     ### Site Factory
 
-    The new Site management User Interface is now integrated with Back Office.
-    It enables you to easily create and manage multiple sites from the Back Office without editing the configuration files.
+    The new Site management User Interface is now integrated with back office.
+    It enables you to easily create and manage multiple sites from the back office without editing the configuration files.
 
     For more information about:
 
@@ -59,7 +59,7 @@ For details, see [Bundles](https://doc.ibexa.co/en/latest/guide/bundles).
 
     #### Schedule calendar
 
-    You can now easily view and perform scheduling actions using the Calendar widget available in the Back Office.
+    You can now easily view and perform scheduling actions using the Calendar widget available in the back office.
     By default, the widget displays content items scheduled for future publication, but custom events can be configured as well.
     You can also filter displayed events and toggle through a day, week, and month view.
 
@@ -70,7 +70,7 @@ For details, see [Bundles](https://doc.ibexa.co/en/latest/guide/bundles).
     #### Schedule hiding a content item
 
     You can now schedule hiding content items.
-    Using Calendar widget available in the Back Office you can also reschedule or cancel hiding a content item.
+    Using Calendar widget available in the back office you can also reschedule or cancel hiding a content item.
 
     ### Defining buttons in Online Editor
 
@@ -145,7 +145,7 @@ for user passwords.
 
 ### Duplicate a role
 
-You can now duplicate a role with a single click in the Back Office.
+You can now duplicate a role with a single click in the back office.
 
 ![Duplicate a role](3.0_duplicate_roles.png "Duplicate a role icon")
 
@@ -225,7 +225,7 @@ New multilingual content route for internal translations has been added.
 
 ### Renamed templates and parameters
 
-Templates and parameters used by the Back Office have been renamed for consistency.
+Templates and parameters used by the back office have been renamed for consistency.
 For A full list of changes, see [Backwards compatibility doc](https://doc.ibexa.co/en/latest/releases/ez_platform_v3.0_deprecations).
 
 ### HTTP Cache

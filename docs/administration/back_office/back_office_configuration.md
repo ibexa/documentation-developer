@@ -1,13 +1,13 @@
 ---
-title: Back Office configuration
-description: Configure default upload locations, pagination limits, and more settings for the Back Office.
+title: Back office configuration
+description: Configure default upload locations, pagination limits, and more settings for the back office.
 ---
 
-# Back Office configuration
+# Back office configuration
 
 ## Pagination limits
 
-Default pagination limits for different sections of the Back Office can be defined through respective settings in
+Default pagination limits for different sections of the back office can be defined through respective settings in
 [`ezplatform_default_settings.yaml`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/config/ezplatform_default_settings.yaml#L7)
 
 You can set the pagination limit for user settings under the `ibexa.system.<scope>.pagination_user` [configuration key](configuration.md#configuration-files):

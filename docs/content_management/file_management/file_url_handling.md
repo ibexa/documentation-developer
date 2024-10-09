@@ -49,7 +49,7 @@ Any BinaryFile returned by the public PHP API is prefixed with the value of thi
 Default value: `$var_dir$/$storage_dir$`
 Example: `/var/site/storage`
 
-You can use `io.url_prefix` to configure the default URL decorator service (`ibexa.core.io.default_url_decorator`), used by all binary data handlers to generate the URI of loaded files. It is always interpreted as an absolute URI, meaning that unless it contains a scheme (`http://`, `ftp://`), is prepended with a `/`.
+You can use `io.url_prefix` to configure the default URL decorator service (`ibexa.core.io.default_url_decorator`), used by all binary data handlers to generate the URI of loaded files. It's always interpreted as an absolute URI, meaning that unless it contains a scheme (`http://`, `ftp://`), is prepended with a `/`.
 
 This setting is SiteAccess-aware.
 

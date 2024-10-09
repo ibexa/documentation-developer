@@ -38,7 +38,7 @@ Each step configuration includes the following settings:
 - `controller` - A mandatory setting pointing to a library that governs the behavior of the process. The controller contains all the required business logic and submits the whole step, so that a transition can happen.
 - `next_step` - An optional name of the next workflow transition. If not provided, the next workflow-enabled transition is processed.
 - `label` - An optional name of the step that can be displayed in the Twig helper.
-- `translation_domain` - A optional setting that defines the domain for a site with translated content. By default it is set to `checkout`.
+- `translation_domain` - A optional setting that defines the domain for a site with translated content. By default it's set to `checkout`.
 
 ### Checkout customization example
 

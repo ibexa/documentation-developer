@@ -74,7 +74,7 @@ To use `ResourceOwnerToExistingOrNewUserMapper`, you need to extend it in your c
 !!! tip "OAuth User content type"
 
     When you implement your own mapper for external login,
-    it is good practice to create a special User content type for users registered in this way.
+    it's good practice to create a special User content type for users registered in this way.
     The users who register through an external service do not have a separate password in the system.
     Instead, they log in by their external service's password.
 
@@ -107,7 +107,7 @@ Configure the service by using the `ibexa.oauth2_client.resource_owner_mapper` t
 ## Add login button
 
 After you have activated the OAuth2 client for the `admin` SiteAccess,
-you need to add a **Log in with Google** to the Back Office login form.
+you need to add a **Log in with Google** to the back office login form.
 
 Create the following template file in `templates/themes/admin/account/login/oauth2_login.html.twig`:
 
@@ -128,4 +128,4 @@ services:
 [[= include_file('code_samples/user_management/oauth_google/config/custom_services.yaml', 7, 13) =]]
 ```
 
-![Log in to the Back Office with Google](log_in_via_google.png)
+![Log in to the back office with Google](log_in_via_google.png)

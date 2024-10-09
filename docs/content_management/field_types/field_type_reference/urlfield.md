@@ -1,6 +1,6 @@
 # URL Field Type
 
-This Field Type makes it possible to store and retrieve a URL. It is formed by the combination of a link and the respective text.
+This Field Type makes it possible to store and retrieve a URL. It's formed by the combination of a link and the respective text.
 
 | Name  | Internal name | Expected input |
 |-------|---------------|----------------|

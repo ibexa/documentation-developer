@@ -47,7 +47,7 @@ ibexa:
 !!! note "Enabling the remote PIM support"
 
     By default, the `ibexa.repositories.<repository_name>.product_catalog.engine.type` key is set to `local`, which informs [[= product_name =]] that the built-in PIM solution is used.
-    By changing this setting, as well as changing the `ibexa.repositories.<repository_name>.product_catalog.engine` setting from `default` to your custom value, you inform [[= product_name =]] that you are using a remote PIM.
+    By changing this setting, as well as changing the `ibexa.repositories.<repository_name>.product_catalog.engine` setting from `default` to your custom value, you inform [[= product_name =]] that you're using a remote PIM.
 
 ## Install Remote PIM example package
 

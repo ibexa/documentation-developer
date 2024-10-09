@@ -98,7 +98,7 @@ The `DefaultRouter` is always added to the collection with top priority (priorit
 
 `DefaultRouter` (`router.default`):
 The `DefaultRouter` tries to match the `semanticPathinfo` against routes, close to [the way pure Symfony does](https://symfony.com/doc/current/routing.html), by extending and using `Symfony\Component\Routing\Router`.
-If a route matches, the controller associated with it is responsible for building a `View` or `Response` object.
+If a route matches, the controller associated with it's responsible for building a `View` or `Response` object.
 
 ### `UrlWildcardRouter`
 
@@ -118,7 +118,7 @@ The `locale_listener` (priority 16) sets the request's **`_locale`** attribute.
 
     Another `kernel.request` event listener is the `Ibexa\AdminUi\EventListener\RequestListener` (priority 13).
     When a route gets a `siteaccess_group_whitelist` parameter, this listener checks that the current SiteAccess is in one of the listed groups.
-    For example, the Back Office sets an early protection of its routes by passing them a `siteaccess_group_whitelist` containing only the `admin_group`.
+    For example, the back office sets an early protection of its routes by passing them a `siteaccess_group_whitelist` containing only the `admin_group`.
 
 Now, when the `Request` knows its controller, the `HttpKernel` dispatches the `kernel.controller` event.
 

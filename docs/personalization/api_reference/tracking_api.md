@@ -50,7 +50,7 @@ while a textile product can be defined by item type "2" and item id "3298".
 |Content publishing|Photo Gallery|ID of a photo gallery|
 
 Assuming the numbering of content is independent and the same item ID is used
-for two items of different item types, it is impossible to tell the difference
+for two items of different item types, it's impossible to tell the difference
 if there is no segmentation by item types.
 
 If an article, a video and a photo gallery have the same item ID, use different
@@ -74,11 +74,11 @@ For example:
 
 High quality recommendations can only be delivered if the underlying data
 is correct and consistent. 
-For consistent tracking it is crucial to choose and use a consistent identifier for a user.
+For consistent tracking it's crucial to choose and use a consistent identifier for a user.
 A user usually visits a website anonymously.
 Therefore, their identifier is either a first-party cookie or a session ID
 provided by the website. 
-If there is no existing user ID handling that can be re-used, it is recommended that
+If there is no existing user ID handling that can be re-used, it's recommended that
 you use your own cookie and set the expiry date to at least 90 days from the last usage.
 If there is a login mechanism, the user is usually tracked with a temporary
 identifier before the login.
@@ -89,17 +89,17 @@ After logout, the anonymous user ID can be used again.
 
 !!! note
 
-    The user identifier is required in tracking requests, otherwise it is discarded
+    The user identifier is required in tracking requests, otherwise it's discarded
     from the tracking servers.
 
     If a browser has JavaScript or cookies disabled, make sure that you put some
     "dummy" value as identifier in the tracking request to avoid losing tracking
     information.
-    Even if the event is not user-specific, it is still useful for [popularity models]([[= user_doc =]]/personalization/recommendation_models/).
+    Even if the event is not user-specific, it's still useful for [popularity models]([[= user_doc =]]/personalization/recommendation_models/).
 
 The Personalization server internally creates a hash of every user ID.
 The original ID is not saved.
-It is still possible that the original ID appears in the log files for the debugging
+it's still possible that the original ID appears in the log files for the debugging
 purposes but log files are purged regularly.
 The user ID is case sensitive.
 
@@ -113,7 +113,7 @@ In the eCommerce business you mostly have the possibility to track items based o
 - Universal Product Code (UPC)
 
 The exact identifiers that are tracked are also recommended ("what-you-track-is-what-you-get").
-By default, it is not possible to track SKUs but recommend UPCs.
+By default, it's not possible to track SKUs but recommend UPCs.
 The following use case is typical for eCommerce business:
 
 Customer A implements the Personalization server and decides to use the SKU
@@ -154,8 +154,8 @@ Like all other parameters, the category path must be URL-encoded and cannot cont
 
 The "categorypath" parameter offers the possibility to provide category-based
 recommendations without an explicit export of the structure of a customer's website.
-If enabled by [[= product_name_base =]], it is used for on-the-fly updating of item categories.
-If an item is moved to another category, it is handled as present in both
+If enabled by [[= product_name_base =]], it's used for on-the-fly updating of item categories.
+If an item is moved to another category, it's handled as present in both
 categories until the old category ages out or is forcibly deleted.
 Multiple category locations of an item (multi-homing) are therefore possible.
 
@@ -186,7 +186,7 @@ For a list of embedded parameters that each of the events may use, see the follo
 |`customerid`|A customer ID (for example "00000"). Can be used to identify a website in installations that [hosts multiple SiteAccesses]([[= user_doc =]]/personalization/use_cases/#multiple-website-hosting).|alphanumeric|
 |userid|A user's ID on the website of the customer. It could be an internal customer code, a session code or a cookie for anonymous users.|URL-encoded alphanumeric|
 |`itemtypeid`|Item type ID.|1 to 2147483647|
-|`itemid`|A unique ID of the item the user has clicked.</br>String-based identifiers are also supported as item IDs to track content on a website, but it is discouraged due to fraud and security issues. If you are unable to provide numeric identifiers for the tracking process, contact [[= product_name_base =]] for further information and implementation notes.|1 to 2147483647|
+|`itemid`|A unique ID of the item the user has clicked.</br>String-based identifiers are also supported as item IDs to track content on a website, but it's discouraged due to fraud and security issues. If you're unable to provide numeric identifiers for the tracking process, contact [[= product_name_base =]] for further information and implementation notes.|1 to 2147483647|
 |`sourceuserid`|User identifier valid up to now(usually some anonymous session ID)|URL-encoded alphanumeric|
 |`targetuserid`|User identifier valid from now on (usually an account ID or login name)|URL-encoded alphanumeric|
 
@@ -251,7 +251,7 @@ this event type is not applicable.
 #### Prices in a Buy event
 
 Every Buy event can contain a price.
-If the price is set, it is stored with the event and used for calculating the
+If the price is set, it's stored with the event and used for calculating the
 revenue for statistics.
 The price must be a price the user paid for the item, including all taxes and discounts. 
 
@@ -261,7 +261,7 @@ For more information, see [Content API](content_api.md).
 
 The currency is stored with the price and normalized only when statistic information
 is requested.
-It is often a good choice to select a base currency and convert prices before
+it's often a good choice to select a base currency and convert prices before
 sending the buy event.
 The price attached to a buy event never overwrites the price which was defined
 in an item import.
@@ -275,7 +275,7 @@ structure of the website.
 !!! note
 
     User IDs are not stored in the database.
-    They are irreversibly anonymized before saving to disk or building the
+    they're irreversibly anonymized before saving to disk or building the
     recommendation model.
 
 The URL to track user clicks has the following format:
@@ -300,7 +300,7 @@ Some optional request parameters can be set over query string parameters (GET pa
     For eCommerce stores, this event is not required but can be used in custom implementations.
 
 The event is sent when the end user stays on the page for a predefined period of time.
-It is then assumed that the user consumed the item (read an article or watched a video).
+it's then assumed that the user consumed the item (read an article or watched a video).
 
 The URL has the following format:
 
@@ -400,7 +400,7 @@ A predefined rating can be submitted when the user comments on an item.
 ### Wishlist event
 
 This event is issued when the end user puts a product on their shopping list.
-It means that they are interested in the product but plan to buy it later.
+It means that they're interested in the product but plan to buy it later.
 This information can help return better recommendations.
 It can also be used as a basis for the price drop trigger.
 
@@ -503,7 +503,7 @@ The URL for a Rendered event has the following format:
 
 For a detailed description of embedded parameters, see [event parameters](#event-parameters).
 
-It is common that recommendations are rendered as a block with multiple items.
+it's common that recommendations are rendered as a block with multiple items.
 To save traffic and speed up the process, you can bundle multiple recommendations in one request.
 Several item IDs must be comma-separated.
 

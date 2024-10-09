@@ -14,7 +14,7 @@ Before you start this procedure, make sure you have completed the previous step,
 
 !!! note
 
-    If you are starting from version v2.2 or later, skip to the relevant section.
+    If you're starting from version v2.2 or later, skip to the relevant section.
 
 ### A. Update to v2.2
 
@@ -693,14 +693,14 @@ to add database tables for the Editorial Workflow.
 
 The built-in Forms folder is located in the Form Section in versions 2.4+.
 
-If you are updating your Enterprise installation, you need to add this Section manually and move the folder to it.
+If you're updating your Enterprise installation, you need to add this Section manually and move the folder to it.
 
 To allow anonymous users to access Forms, you also need to add the `content/read` Policy
 with the *Form* Section to the Anonymous User.
 
 #### Changes to Custom tags
 
-v2.4 changed the way of configuring custom tags. They are no longer configured under the `ezpublish` key,
+v2.4 changed the way of configuring custom tags. they're no longer configured under the `ezpublish` key,
 but one level higher in the YAML structure:
 
 ``` yaml
@@ -776,9 +776,9 @@ php bin/console ezplatform:reindex
 
 The introduction of [support for PostgreSQL](databases.md#using-postgresql) includes a change in the way database schema is generated.
 
-It is now created based on [YAML configuration](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/storage/legacy/schema.yaml), using the new [`DoctrineSchemaBundle`](https://github.com/ezsystems/doctrine-dbal-schema).
+it's now created based on [YAML configuration](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/storage/legacy/schema.yaml), using the new [`DoctrineSchemaBundle`](https://github.com/ezsystems/doctrine-dbal-schema).
 
-If you are updating your application according to the usual procedure, no additional actions are required.
+If you're updating your application according to the usual procedure, no additional actions are required.
 However, if you do not update your meta-repository, you need to take two additional steps:
 
 - enable `EzSystems\DoctrineSchemaBundle\DoctrineSchemaBundle()` in `AppKernel.php`
@@ -794,7 +794,7 @@ bin/console ezplatform:migrate:legacy_matrix
 
 #### Required manual cache clearing if using Redis
 
-If you are using Redis as your persistence cache storage you should always clear it manually after an upgrade.
+If you're using Redis as your persistence cache storage you should always clear it manually after an upgrade.
 You can do it in two ways, by using `redis-cli` and executing the following command:
 
 ```bash
@@ -833,7 +833,7 @@ CREATE INDEX ezpage_pages_content_id_version_no ON ezpage_pages(content_id, vers
 ##### Powered-By header
 
 In order to promote use of eZ Platform, `ezsystems/ez-support-tools` v1.0.10, as of eZ Platform v2.5.16, sets the Powered-By header.
-It is enabled by default and generates a header like `Powered-By: eZ Platform Enterprise v2`.
+it's enabled by default and generates a header like `Powered-By: eZ Platform Enterprise v2`.
 
 To omit the version number, use the following configuration:
 ``` yaml
@@ -854,7 +854,7 @@ ezplatform_support_tools:
 
 #### Updating to v2.5.18
 
-To update to v2.5.18, if you are using MySQL, additionally run the following update SQL command:
+To update to v2.5.18, if you're using MySQL, additionally run the following update SQL command:
 
 ``` sql
 ALTER TABLE ezpage_attributes MODIFY value LONGTEXT;
@@ -949,4 +949,4 @@ CREATE INDEX idx_workflow_name ON ezeditorialworkflow_workflows(workflow_name);
 
 ## Update to v3.3
 
-It is strongly recommended to also [update to the latest LTS, v3.3](update_from_2.5.md).
+it's strongly recommended to also [update to the latest LTS, v3.3](update_from_2.5.md).

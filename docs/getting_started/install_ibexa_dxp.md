@@ -135,7 +135,7 @@ run the following command:
 
 ??? note "Using PHP 8.2 or older"
 
-    If you are using PHP 8.2 or any older version, use a different set of commands:
+    If you're using PHP 8.2 or any older version, use a different set of commands:
 
     === "[[= product_name_headless =]]"
 
@@ -174,7 +174,7 @@ run the following command:
 
 !!! note "Platform.sh"
 
-    If you are deploying your installation on [Platform.sh](https://docs.platform.sh/guides/ibexa/deploy.html),
+    If you're deploying your installation on [Platform.sh](https://docs.platform.sh/guides/ibexa/deploy.html),
     run the following command:
     
     ``` bash
@@ -185,7 +185,7 @@ run the following command:
 
 #### Add project to version control
 
-It is recommended to add your project to version control.
+It's recommended to add your project to version control.
 Initiate your project repository:
 
 ``` bash
@@ -195,7 +195,7 @@ git init; git add . > /dev/null; git commit -m "init" > /dev/null
 ### Change installation parameters
 
 At this point configure your database via the `DATABASE_URL` in the `.env` file,
-depending of the database you are using:
+depending of the database you're using:
 
 `DATABASE_URL=mysql://user:password@host:port/database_name`.
 
@@ -234,7 +234,7 @@ and for creating signed URIs when using [ESI (Edge Side Includes)]([[= symfony_d
     After changing the app secret, make sure that you clear the application cache and log out all the users.
     For more information, see [Symfony documentation]([[= symfony_doc =]]/reference/configuration/framework.html#secret).   
 
-    It is recommended to store the database credentials in your `.env.local` file and not commit it to the Version Control System.
+    It's recommended to store the database credentials in your `.env.local` file and not commit it to the Version Control System.
 
 In `DATABASE_VERSION` you can also configure the database server version (for a MariaDB database, prefix the value with `mariadb-`).
 
@@ -349,7 +349,7 @@ Future files and directories created by these two users will need to inherit tho
     You must also make sure that the web server cannot interpret the files in the `var` directory through PHP.
     To do so, follow the instructions on [setting up a virtual host below](#set-up-virtual-host).
 
-To set up permissions for production, it is recommended to use an ACL (Access Control List).
+To set up permissions for production, it's recommended to use an ACL (Access Control List).
 See [Setting up or Fixing File Permissions]([[= symfony_doc =]]/setup/file_permissions.html) in Symfony documentation
 for information on how to do it on different systems.
 
@@ -363,7 +363,7 @@ Prepare a [virtual host configuration](https://en.wikipedia.org/wiki/Virtual_hos
     to `/etc/apache2/sites-available` as a `.conf` file and modify it to fit your project.
 
     Specify `/<your installation directory>/public` as the `DocumentRoot` and `Directory`, or ensure `BASEDIR` is set in the environment.
-    Uncomment the line that starts with `#if [APP_ENV]` and set the value to `prod` or `dev`, depending on the environment that you are configuring,
+    Uncomment the line that starts with `#if [APP_ENV]` and set the value to `prod` or `dev`, depending on the environment that you're configuring,
     or ensure `APP_ENV` is set in the environment.
 
     ```
@@ -393,7 +393,7 @@ Prepare a [virtual host configuration](https://en.wikipedia.org/wiki/Virtual_hos
 
 
     Specify `/<your installation directory>/public` as the `root`, or ensure `BASEDIR` is set in the environment.
-    Ensure `APP_ENV` is set to `prod` or `dev` in the environment, depending on the environment that you are configuring, and uncomment the line that starts with `#if[APP_ENV`.
+    Ensure `APP_ENV` is set to `prod` or `dev` in the environment, depending on the environment that you're configuring, and uncomment the line that starts with `#if[APP_ENV`.
 
     When the virtual host file is ready, enable the virtual host and disable the default.
     Finally, restart the nginx server.

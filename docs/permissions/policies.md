@@ -1,19 +1,19 @@
 ---
-description: Policies are the main building block of the permissions system which lets you define the accesses for specific user Roles.
+description: Policies are the main building block of the permissions system which lets you define the accesses for specific user roles.
 page_type: reference
 ---
 
 # Policies
 
 Policies are the main building block of the permissions system.
-Each Role you assign to user or user group consists of Policies
+Each role you assign to user or user group consists of policies
 which define, which parts of the application or website the user has access to.
 
-## Available Policies
+## Available policies
 
 ### Access to all functions
 
-| Module | Function | Effect                                                      | Possible Limitations |
+| Module | Function | Effect                                                      | Possible limitations |
 |--------|----------|-------------------------------------------------------------|----------------------|
 | `*`    | `*`      | all modules, all functions: grant all available permissions |                      |
 
@@ -32,7 +32,7 @@ which define, which parts of the application or website the user has access to.
 
 #### Customer groups
 
-| Module                        | Function              | Effect                  | Possible Limitations |
+| Module                        | Function              | Effect                  | Possible limitations |
 |-------------------------------|-----------------------|-------------------------|----------------------|
 | <nobr>`customer_group`</nobr> | <nobr>`create`</nobr> | create a customer group |
 |                               | <nobr>`delete`</nobr> | delete a customer group |
@@ -41,24 +41,24 @@ which define, which parts of the application or website the user has access to.
 
 #### Personalization
 
-| Module                         | Function            | Effect                                                            | Possible Limitations                                                                |
+| Module                         | Function            | Effect                                                            | Possible limitations                                                                |
 |--------------------------------|---------------------|-------------------------------------------------------------------|-------------------------------------------------------------------------------------|
 | <nobr>`personalization`</nobr> | <nobr>`edit`</nobr> | modify scenario configuration for selected SiteAccesses           | [Personalization access](limitation_reference.md#personalization-access-limitation) |
 |                                | <nobr>`view`</nobr> | view scenario configuration and results for selected SiteAccesses | [Personalization access](limitation_reference.md#personalization-access-limitation) |
 
 #### Roles
 
-| Module              | Function              | Effect                                                                     | Possible Limitations |
+| Module              | Function              | Effect                                                                     | Possible limitations |
 |---------------------|-----------------------|----------------------------------------------------------------------------|----------------------|
-| <nobr>`role`</nobr> | <nobr>`assign`</nobr> | assign Roles to Users and User Groups                                      |
-|                     | <nobr>`create`</nobr> | create new Roles                                                           |
-|                     | <nobr>`delete`</nobr> | delete Roles                                                               |
-|                     | <nobr>`read`</nobr>   | view the Roles list in Admin. Required for all other role-related Policies |
-|                     | <nobr>`update`</nobr> | modify existing Roles                                                      |
+| <nobr>`role`</nobr> | <nobr>`assign`</nobr> | assign roles to users and user groups                                      |
+|                     | <nobr>`create`</nobr> | create new roles                                                           |
+|                     | <nobr>`delete`</nobr> | delete roles                                                               |
+|                     | <nobr>`read`</nobr>   | view the roles list in Admin. Required for all other role-related policies |
+|                     | <nobr>`update`</nobr> | modify existing roles                                                      |
 
 #### Setup
 
-| Module               | Function                    | Effect                                   | Possible Limitations |
+| Module               | Function                    | Effect                                   | Possible limitations |
 |----------------------|-----------------------------|------------------------------------------|----------------------|
 | <nobr>`setup`</nobr> | <nobr>`administrate`</nobr> | access Admin                             |
 |                      | <nobr>`install`</nobr>      | unused                                   |
@@ -101,7 +101,7 @@ which define, which parts of the application or website the user has access to.
 
 #### Checkout [[% include 'snippets/commerce_badge.md' %]]
 
-| Module                  | Function              | Effect                                                              | Possible Limitations |
+| Module                  | Function              | Effect                                                              | Possible limitations |
 |-------------------------|-----------------------|---------------------------------------------------------------------|----------------------|
 | <nobr>`checkout`</nobr> | <nobr>`create`</nobr> | create new checkout, for example, after workflow fails to complete  |
 |                         | <nobr>`delete`</nobr> | delete checkout, for example, after workflow completes successfully |
@@ -110,14 +110,14 @@ which define, which parts of the application or website the user has access to.
 
 #### Currencies and regions
 
-| Module                  | Function                | Effect            | Possible Limitations |
+| Module                  | Function                | Effect            | Possible limitations |
 |-------------------------|-------------------------|-------------------|----------------------|
 | <nobr>`commerce`</nobr> | <nobr>`currency`</nobr> | manage currencies |
 |                         | <nobr>`region`</nobr>   | manage regions    |
 
 #### Orders [[% include 'snippets/commerce_badge.md' %]]
 
-| Module               | Function              | Effect                    | Possible Limitations                                         |
+| Module               | Function              | Effect                    | Possible limitations                                         |
 |----------------------|-----------------------|---------------------------|--------------------------------------------------------------|
 | <nobr>`order`</nobr> | <nobr>`cancel`</nobr> | cancel an order           | [OrderOwner](limitation_reference.md#order-owner-limitation) |
 |                      | <nobr>`create`</nobr> | create an order           | [OrderOwner](limitation_reference.md#order-owner-limitation) |
@@ -126,7 +126,7 @@ which define, which parts of the application or website the user has access to.
 
 #### Payments [[% include 'snippets/commerce_badge.md' %]]
 
-| Module                 | Function              | Effect           | Possible Limitations                                            |
+| Module                 | Function              | Effect           | Possible limitations                                            |
 |------------------------|-----------------------|------------------|-----------------------------------------------------------------|
 | <nobr>`payment`</nobr> | <nobr>`create`</nobr> | create a payment | [PaymentOwner](limitation_reference.md#paymentowner-limitation) |
 |                        | <nobr>`delete`</nobr> | delete a payment | [PaymentOwner](limitation_reference.md#paymentowner-limitation) |
@@ -135,7 +135,7 @@ which define, which parts of the application or website the user has access to.
 
 #### Payment methods [[% include 'snippets/commerce_badge.md' %]]
 
-| Module                        | Function              | Effect                  | Possible Limitations |
+| Module                        | Function              | Effect                  | Possible limitations |
 |-------------------------------|-----------------------|-------------------------|----------------------|
 | <nobr>`payment_method`</nobr> | <nobr>`create`</nobr> | create a payment method |
 |                               | <nobr>`delete`</nobr> | delete a payment method |
@@ -144,7 +144,7 @@ which define, which parts of the application or website the user has access to.
 
 #### Segments [[% include 'snippets/commerce_badge.md' %]]
 
-| Module                 | Function                      | Effect                   | Possible Limitations                                              |
+| Module                 | Function                      | Effect                   | Possible limitations                                              |
 |------------------------|-------------------------------|--------------------------|-------------------------------------------------------------------|
 | <nobr>`segment`</nobr> | <nobr>`assign_to_user`</nobr> | assign Segments to Users | [Segment Group](limitation_reference.md#segment-group-limitation) |
 |                        | <nobr>`create`</nobr>         | create Segments          | [Segment Group](limitation_reference.md#segment-group-limitation) |
@@ -154,7 +154,7 @@ which define, which parts of the application or website the user has access to.
 
 #### Segment groups [[% include 'snippets/commerce_badge.md' %]]
 
-| Module                       | Function              | Effect                         | Possible Limitations |
+| Module                       | Function              | Effect                         | Possible limitations |
 |------------------------------|-----------------------|--------------------------------|----------------------|
 | <nobr>`segment_group`</nobr> | <nobr>`create`</nobr> | create Segment Groups          |
 |                              | <nobr>`read`</nobr>   | load Segment Group information |
@@ -163,7 +163,7 @@ which define, which parts of the application or website the user has access to.
 
 #### Shipments [[% include 'snippets/commerce_badge.md' %]]
 
-| Module                  | Function              | Effect                      | Possible Limitations                                               |
+| Module                  | Function              | Effect                      | Possible limitations                                               |
 |-------------------------|-----------------------|-----------------------------|--------------------------------------------------------------------|
 | <nobr>`shipment`</nobr> | <nobr>`create`</nobr> | create a shipment           | [ShipmentOwner](limitation_reference.md#shipment-owner-limitation) |
 |                         | <nobr>`delete`</nobr> | delete a shipment           | [ShipmentOwner](limitation_reference.md#shipment-owner-limitation) |
@@ -172,7 +172,7 @@ which define, which parts of the application or website the user has access to.
 
 #### Shipping methods [[% include 'snippets/commerce_badge.md' %]]
 
-| Module                         | Function              | Effect                   | Possible Limitations |
+| Module                         | Function              | Effect                   | Possible limitations |
 |--------------------------------|-----------------------|--------------------------|----------------------|
 | <nobr>`shipping_method`</nobr> | <nobr>`create`</nobr> | create a shipping method |
 |                                | <nobr>`delete`</nobr> | delete a shipping method |
@@ -183,7 +183,7 @@ which define, which parts of the application or website the user has access to.
 
 #### Content
 
-| Module                 | Function                          | Effect                                                                                                                                  | Possible Limitations                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| Module                 | Function                          | Effect                                                                                                                                  | Possible limitations                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 |------------------------|-----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | <nobr>`content`</nobr> | <nobr>`cleantrash`</nobr>         | empty the Trash (even when the User does not have access to individual content items)                                                   |
 |                        | <nobr>`create`</nobr>             | create new content. Note: even without this Policy the User is able to enter edit mode, but cannot finalize work with the content item. | [Content type](limitation_reference.md#content-type-limitation)</br>[Section](limitation_reference.md#section-limitation)</br>[Location](limitation_reference.md#location-limitation)</br>[Subtree](limitation_reference.md#subtree-limitation)</br>[Language](limitation_reference.md#language-limitation)</br>[Owner of Parent](limitation_reference.md#owner-of-parent-limitation)</br>[Content type Group of Parent](limitation_reference.md#content-type-group-of-parent-limitation)</br>[Content type of Parent](limitation_reference.md#content-type-of-parent-limitation)</br>[Parent Depth](limitation_reference.md#parent-depth-limitation)</br>[Field Group](limitation_reference.md#field-group-limitation)</br>[Change Owner](limitation_reference.md#change-owner-limitation)             |
@@ -207,7 +207,7 @@ which define, which parts of the application or website the user has access to.
 
 #### Content types
 
-| Module               | Function              | Effect                                                                   | Possible Limitations |
+| Module               | Function              | Effect                                                                   | Possible limitations |
 |----------------------|-----------------------|--------------------------------------------------------------------------|----------------------|
 | <nobr>`class`</nobr> | <nobr>`create`</nobr> | create new content types. Also required to edit exiting content types    |
 |                      | <nobr>`delete`</nobr> | delete content types                                                     |
@@ -215,7 +215,7 @@ which define, which parts of the application or website the user has access to.
 
 #### Sections
 
-| Module                 | Function              | Effect                                                                           | Possible Limitations                                                                                                                                                                                                                              |
+| Module                 | Function              | Effect                                                                           | Possible limitations                                                                                                                                                                                                                              |
 |------------------------|-----------------------|----------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | <nobr>`section`</nobr> | <nobr>`assign`</nobr> | assign Sections to content                                                       | [content type](limitation_reference.md#content-type-limitation)</br>[Section](limitation_reference.md#section-limitation)</br>[Owner](limitation_reference.md#owner-limitation)</br>[New Section](limitation_reference.md#new-section-limitation) |
 |                        | <nobr>`edit`</nobr>   | edit existing Sections and create new ones                                       |
@@ -223,14 +223,14 @@ which define, which parts of the application or website the user has access to.
 
 #### Object States
 
-| Module               | Function                    | Effect                                | Possible Limitations                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| Module               | Function                    | Effect                                | Possible limitations                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 |----------------------|-----------------------------|---------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | <nobr>`state`</nobr> | <nobr>`assign`</nobr>       | assign Object states to content items | [Content type](limitation_reference.md#content-type-limitation)</br>[Section](limitation_reference.md#section-limitation)</br>[Owner](limitation_reference.md#owner-limitation)</br>[Content type Group](limitation_reference.md#content-type-group-limitation)</br>[Location](limitation_reference.md#location-limitation)</br>[Subtree](limitation_reference.md#subtree-limitation)</br>[Object State](limitation_reference.md#object-state-limitation)</br>[New State](limitation_reference.md#new-state-limitation) |
 |                      | <nobr>`administrate`</nobr> | view, add and edit Object states      |
 
 #### Taxonomy
 
-| Module                  | Function              | Effect                        | Possible Limitations |
+| Module                  | Function              | Effect                        | Possible limitations |
 |-------------------------|-----------------------|-------------------------------|----------------------|
 | <nobr>`taxonomy`</nobr> | <nobr>`assign`</nobr> | tag or untag content          |
 |                         | <nobr>`manage`</nobr> | create, edit, and delete tags |
@@ -238,7 +238,7 @@ which define, which parts of the application or website the user has access to.
 
 #### Workflow and version comparison
 
-| Module                    | Function                    | Effect                                 | Possible Limitations                                                          |
+| Module                    | Function                    | Effect                                 | Possible limitations                                                          |
 |---------------------------|-----------------------------|----------------------------------------|-------------------------------------------------------------------------------|
 | <nobr>`comparison`</nobr> | <nobr>`view`</nobr>         | view version comparison                |
 | <nobr>`workflow`</nobr>   | <nobr>`change_stage`</nobr> | change stage in the specified workflow | [Workflow Transition](limitation_reference.md#workflow-transition-limitation) |
@@ -247,7 +247,7 @@ which define, which parts of the application or website the user has access to.
 
 #### Catalogs
 
-| Module                 | Function              | Effect           | Possible Limitations |
+| Module                 | Function              | Effect           | Possible limitations |
 |------------------------|-----------------------|------------------|----------------------|
 | <nobr>`catalog`</nobr> | <nobr>`create`</nobr> | create a catalog |
 |                        | <nobr>`delete`</nobr> | delete a catalog |
@@ -256,7 +256,7 @@ which define, which parts of the application or website the user has access to.
 
 #### Products
 
-| Module                 | Function              | Effect                                      | Possible Limitations                                                                                                        |
+| Module                 | Function              | Effect                                      | Possible limitations                                                                                                        |
 |------------------------|-----------------------|---------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
 | <nobr>`product`</nobr> | <nobr>`create`</nobr> | create a product                            | [Product Type](limitation_reference.md#product-type-limitation)</br>[Language](limitation_reference.md#language-limitation) |
 |                        | <nobr>`delete`</nobr> | delete a product                            | [Product Type](limitation_reference.md#product-type-limitation)                                                             |
@@ -265,17 +265,17 @@ which define, which parts of the application or website the user has access to.
 
 #### Product types
 
-| Module                      | Function              | Effect                                                                                                          | Possible Limitations |
+| Module                      | Function              | Effect                                                                                                          | Possible limitations |
 |-----------------------------|-----------------------|-----------------------------------------------------------------------------------------------------------------|----------------------|
 | <nobr>`product_type`</nobr> | <nobr>`create`</nobr> | create a product type, a new attribute, a new attribute group and add translation to product type and attribute |
 |                             | <nobr>`delete`</nobr> | delete a product type, attribute, attribute group                                                               |
 |                             | <nobr>`edit`</nobr>   | edit a product type, attribute, attribute group                                                                 |
 |                             | <nobr>`view`</nobr>   | view product types, attributes and attribute groups                                                             |
 
-## Combining Policies
+## Combining policies
 
-Policies on one Role are connected with the *and* relation, not *or*,
-so when Policy has more than one Limitation, all of them have to apply.
+Policies on one role are connected with the *and* relation, not *or*,
+so when policy has more than one limitation, all of them have to apply.
 
-If you want to combine more than one Limitation with the *or* relation, not *and*,
-you can split your Policy in two, each with one of these Limitations.
+If you want to combine more than one limitation with the *or* relation, not *and*,
+you can split your policy in two, each with one of these limitations.

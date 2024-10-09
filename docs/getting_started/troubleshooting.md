@@ -22,7 +22,7 @@ That means changing `%env(resolve:DATABASE_URL)%` to `%env(DATABASE_URL)%`.
 ### Avoid special characters
 
 If your password only contains letters a-z, A-Z, and numbers 0-9, you don't need to do any encoding.
-You can either create your password that way, in which case it is a good idea to make it longer to maintain entropy,
+You can either create your password that way, in which case it's a good idea to make it longer to maintain entropy,
 keeping the password hard to guess for an attacker.
 Or, you can for instance convert your password with `bin2hex()`, so that e.g. `(/!=#Æ¤*;%?[` becomes `282f213d23c386c2a42a3b253f5b`.
 The output from `bin2hex` is limited to 0-9 and a-f. This more than doubles the length of the password, keeping entropy similar.
@@ -38,7 +38,7 @@ When a system runs out of RAM, you may see `Killed` when trying to clear the cac
 
 ## Upload size limit
 
-To make use of the Back Office, the defined maximum upload size must be consistent with the maximum file size defined in the content type using a File, Media or Image Field.
+To make use of the back office, the defined maximum upload size must be consistent with the maximum file size defined in the content type using a File, Media or Image Field.
 
 This is done by setting `LimitRequestBody` for Apache or `client_max_body_size` for nginx.
 
@@ -90,7 +90,7 @@ In such case, require it again when the bug is fixed and the package is updated:
 
 ## Platform.sh HTTP access credentials with Varnish
 
-If you are using Platform.sh with Varnish for HTTP cache
+If you're using Platform.sh with Varnish for HTTP cache
 and you have [HTTP access control by login/password](https://docs.platform.sh/administration/web/configure-environment.html#http-access-control) enabled,
 configure the following variables in your Platform.sh environment:
 

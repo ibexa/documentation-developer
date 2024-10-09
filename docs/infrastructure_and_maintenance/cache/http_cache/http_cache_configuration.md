@@ -69,7 +69,7 @@ fos_http_cache:
 
 For the Page Builder, block cache by default respects `$content.ttl_cache$` and `$content.default_ttl$` settings.
 However, if the given block value has a since or till date, 
-it is taken into account for the TTL calculation for both the block and the whole page.
+it's taken into account for the TTL calculation for both the block and the whole page.
 
 To overload this behavior, listen to [`BlockResponseEvents::BLOCK_RESPONSE`](page_events.md),
 and set priority to `-200` to adapt what Page Field Type does by default.
@@ -86,7 +86,7 @@ In practice, with ESI, every sub-request is regenerated from application perspec
 - With Symfony Proxy (AppCache) there is always some overhead, even on warm cache (hits)
 - In development environment
 
-This may differ depending on your system, however, it is recommended to stay below 5 ESI 
+This may differ depending on your system, however, it's recommended to stay below 5 ESI 
 requests per page and only using them for parts that are the same across the whole site or larger parts of it.
 
 You should not use ESI for parts that are effectively uncached, 

@@ -58,7 +58,7 @@ an `Ibexa\Contracts\Payment\PaymentMethod\PaymentMethodCreateStruct` object that
 
 ## Update payment method
 
-You can update the payment method after it is created. 
+You can update the payment method after it's created. 
 An `Ibexa\Contracts\Payment\PaymentMethod\PaymentMethodUpdateStruct` object can take the following arguments: `identifier` string, `names` array of string values, `descriptions` array of string values, `enabled` boolean value, and an `options` object.
 To update payment method information, use the `PaymentMethodServiceInterface::updatePaymentMethod` method:
 

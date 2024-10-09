@@ -17,7 +17,7 @@ invite and view members, check their order history and more.
 
 ## Availability
 
-Customer Portal is available in [[= product_name_exp =]]. It is also compatible with PIM, Commerce and [[= product_name_connect =]].
+Customer Portal is available in [[= product_name_exp =]]. It's also compatible with PIM, Commerce and [[= product_name_connect =]].
 
 ## How does Customer Portal work?
 
@@ -50,18 +50,18 @@ This setup is recommended for global markets or company-specific portals, where 
 
 ### Company management
 
-The main company management takes place in the Back Office where each company has its own profile where sales representative can find:
+The main company management takes place in the back office where each company has its own profile where sales representative can find:
 
 - summary with basic information and order history
 - company profile with billing information and contact person
 - list of members and pending invitations
 - address book with multiple shipping addresses
 
-![Companies section in Back Office](img/cp_back_office.png)
+![Companies section in back office](img/cp_back_office.png)
 
 From there, they can activate and deactivate the company, edit its information, invite members, manage their roles and edit their basic information.
 
-In the Roles section, you can define Policies for each user group, for example, a Company buyer. 
+In the roles section, you can define policies for each user group, for example, a Company buyer. 
 You can also set up Policies for every user who has a business account by editing a Corporate Access role.
 
 ### Members
@@ -83,7 +83,7 @@ All roles and policies associated with them can be fully customized to fit your 
 
 Members can be invited to the organization from:
 
-- the Back Office: go to **Customers** -> **Companies** -> **Select your company** -> **Invitations** -> **Invite member**
+- the back office: go to **Customers** -> **Companies** -> **Select your company** -> **Invitations** -> **Invite member**
 
 - the Customer Portal: go to your company admin profile, select **Members** -> **Invite members**
 
@@ -101,15 +101,15 @@ With it, they can register and create their account in the Customer Portal.
 ### Company self-registration
 
 Self-registration allows business customers to take charge and apply for a business account by themselves. 
-Applications go through the approval process in the Back Office where they can be accepted, rejected or put on hold. 
-If they are accepted, the business partner receives an invitation link to the Customer Portal, where they can set up their team and manage their account.
+Applications go through the approval process in the back office where they can be accepted, rejected or put on hold. 
+If they're accepted, the business partner receives an invitation link to the Customer Portal, where they can set up their team and manage their account.
 
 To apply for a business account, a company needs to provide their basic information, 
 contact information and billing address in an application.
 
 ![Company self-registration](img/cp_registration.png)
 
-The approval process is customizable. You can decide which user has approval rights by granting them Company Application/Workflow Policy, 
+The approval process is customizable. You can decide which user has approval rights by granting them `Company Application/Workflow` policy, 
 you can also decide between which states the user may move applications:
 
 - on hold
@@ -126,7 +126,7 @@ Customer Portal comes with [REST API](https://doc.ibexa.co/en/latest/api/rest_ap
 
 ### Company management
 
-Sales representatives can manage details for companies they are associated with, such as contact persons, billing addresses, and more by accessing Back Office.
+Sales representatives can manage details for companies they're associated with, such as contact persons, billing addresses, and more by accessing back office.
 Company admins are also able to manage the company's details in the Customer Portal interface.
 By giving users power to manage their own accounts, you reduce the need for administrative interventions.
 
@@ -134,7 +134,7 @@ By giving users power to manage their own accounts, you reduce the need for admi
 
 Self-registration allows your customers to take control of their business accounts.
 This not only improves customer satisfaction but also reduces the administrative burden on your team. 
-With the ability to integrate with [[= product_name_connect =]], you are able to fully automate the process.
+With the ability to integrate with [[= product_name_connect =]], you're able to fully automate the process.
 
 ### Address book
 
@@ -155,7 +155,7 @@ It allows you to make use of customer targeting of the segments and create perso
 
 The overall benefit of customer portals is the help they provide to retain customers and increase loyalty, while freeing up customer service employees time for higher-level work.
 They can achieve that by providing customers with up-to-date information about their orders and deliveries, personalize shopping experience, offer special deals available only to B2B partners and do that in one, easily accessible space.
-Currently, customer portals are a standard in global sites such as Amazon. They are the level of quality that customers just expect, and all businesses strive for.
+Currently, customer portals are a standard in global sites such as Amazon. they're the level of quality that customers just expect, and all businesses strive for.
 
 ### Simplified shopping process
 

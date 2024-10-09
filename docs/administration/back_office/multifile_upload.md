@@ -10,7 +10,7 @@ It provides an interface to publish content based on dropped files while uploadi
 !!! caution
 
     If you want to load the multi-file upload module, you need to load the JS code for it in your view,
-    as it is not available by default.
+    as it's not available by default.
 
 ## Use multi-file upload
 
@@ -128,7 +128,7 @@ Optionally, the multi-file upload module can take a following list of properties
     - **params** _{Object}_ - params hash containing: **parentInfo** and **adminUiConfig** stored under the **config** key
 - **deleteFile** _{Function}_ - a function deleting content created from a given file. It takes three params:
     - **systemInfo** _{Object}_ - hash containing information about CSRF token and SiteAccess: **token** and **siteaccess**
-    - **struct** _{Object}_ - Content struct
+    - **struct** _{Object}_ - content struct
     - **callback** _{Function}_ - content deleted callback
 - **onPopupClose** _{Function}_ - function invoked when closing a Multi-file Upload popup. It takes one param: **itemsUploaded** - the list of uploaded items
 - **publishFile** _{Function}_ - publishes an uploaded file-based content item. Takes three params:

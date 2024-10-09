@@ -11,7 +11,7 @@ To create new campaign, you need to use Qualifio Manager.
 You can use Qualifio's existing templates and interactive elements, such as quizzes, pools, and forms, to create visually appealing, customized campaigns.
 Users can configure the backgrounds, themes, or designs, and set up a specific time frame for each campaign.
 
-Technically, each campaign has a unique campaign ID, that is automatically defined by the Qualifio platform when it is created.
+Technically, each campaign has a unique campaign ID, that is automatically defined by the Qualifio platform when it's created.
 
 For more information about creating and managing campaigns, see [Qualifio documentation](https://support.qualifio.com/hc/en-us/categories/202280638-Campaigns).
 

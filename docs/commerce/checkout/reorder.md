@@ -76,7 +76,7 @@ The following methods can be used to modify the reorder flow to fit your busines
 #### `ReorderService:addToCartFromOrder` 
 
 Allows you to add items from a previous order to a cart.
-It uses historical data from previously ordered items even if they are no longer available.
+It uses historical data from previously ordered items even if they're no longer available.
 Those items are validated against available stock.
 The method uses the following parameters:
 

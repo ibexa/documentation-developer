@@ -6,7 +6,7 @@ edition: commerce
 # Storefront
 
 The Storefront package provides a starting kit for the developers.
-It is a set of components that serves as a basis, which developers can 
+It's a set of components that serves as a basis, which developers can 
 customize and extend to create their own implementation of a web store.
 
 ## Default UI components

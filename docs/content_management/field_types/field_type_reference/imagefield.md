@@ -19,7 +19,7 @@ The `value` property of an Image Field returns an `Ibexa\Core\FieldType\Image\V
 |Property|Type|Example|Description|
 |------|------|------|------|
 |`id`|string|`0/8/4/1/1480-1-eng-GB/image.png`|The image's unique identifier. Usually the path, or a part of the path. To get the full path, use the `uri` property.|
-|`alternativeText`|string|`Picture of an apple.`|The alternative text, as entered in the Field's properties. This property is optional. It is recommended that you require the alternative text for an image when you add the Image Field to a content type, by selecting the "Alternative text is required" checkbox.|
+|`alternativeText`|string|`Picture of an apple.`|The alternative text, as entered in the Field's properties. This property is optional. It's recommended that you require the alternative text for an image when you add the Image Field to a content type, by selecting the "Alternative text is required" checkbox.|
 |`fileName`|string|`image.png`|The original image's filename, without the path.|
 |`fileSize`|int|`37931`|The original image's size, in bytes.|
 |`uri`|string|`var/ezdemo_site/storage/images/0/8/4/1/1480-1-eng-GB/image.png`|The original image's URI.|
@@ -30,7 +30,7 @@ The `value` property of an Image Field returns an `Ibexa\Core\FieldType\Image\V
 
 !!! caution
 
-    Properties marked with an asterisk are currently unsupported. They are available but their value is always `null`.
+    Properties marked with an asterisk are currently unsupported. they're available but their value is always `null`.
 
     Follow [EZP-27987](https://issues.ibexa.co/browse/EZP-27987) for future progress on this issue.
 
@@ -40,7 +40,7 @@ This Field Type does not support settings.
 
 ### Image Variations
 
-Using the variation Service, variations of the original image can be obtained. They are `Ibexa\Contracts\Core\Variation\Values\ImageVariation` objects with the following properties:
+Using the variation Service, variations of the original image can be obtained. they're `Ibexa\Contracts\Core\Variation\Values\ImageVariation` objects with the following properties:
 
 | Property       | Type     | Example  | Description|
 |----------------|----------|----------|------------|
@@ -57,7 +57,7 @@ Using the variation Service, variations of the original image can be obtained. T
 
 !!! caution
 
-    Properties marked with an asterisk are currently unsupported. They are available but their value is always `null`.
+    Properties marked with an asterisk are currently unsupported. they're available but their value is always `null`.
 
     Follow [EZP-27987](https://issues.ibexa.co/browse/EZP-27987) for future progress on this issue.
 

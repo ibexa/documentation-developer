@@ -4,7 +4,7 @@ Apply the following database update script:
 mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ezplatform-2.5-to-ibexa-3.3.0.sql
 ```
 
-If you are updating from an installation based on the `ezsystems/ezplatform-ee` metarepository, 
+If you're updating from an installation based on the `ezsystems/ezplatform-ee` metarepository, 
 run the following command to upgrade your database:
 
 ``` bash
@@ -21,5 +21,5 @@ Check the Location ID of the "Components" content item and set it as a value of 
 - 60 # Components
 ```
 
-If you are upgrading between [[= product_name_com =]] versions,
+If you're upgrading between [[= product_name_com =]] versions,
 add the `content/read` Policy with the Owner Limitation set to `self` to the "Ecommerce registered users" Role.

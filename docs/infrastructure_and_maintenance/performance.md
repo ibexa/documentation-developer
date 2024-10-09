@@ -11,7 +11,7 @@ What follows is a list of recommendation that will make your installation perfor
 
     All the following recommendations are valid for both development and production setups, unless otherwise noted.
 
-If you are in a hurry, the most important recommendations on this page are:
+If you're in a hurry, the most important recommendations on this page are:
 
 - Dump optimized Composer autoload classmap
 - Use a full web (Nginx/Apache) server with vhost
@@ -133,7 +133,7 @@ The things you will need to do:
 1. Change your command so it supports taking slice parameters, like for instance a batch size and a child-offset parameter.
     1. *If defined, child-offset parameter denotes if a process is a child,
     this can be accomplished using two commands as well.*
-    2. *If not defined, it is the master process which will execute the processes until nothing is left to process.*
+    2. *If not defined, it's the master process which will execute the processes until nothing is left to process.*
 
 2. Change the command so that the master process takes care of forking child processes in slices.
     1. For execution in-order, [you may look to our platform installer code](https://github.com/ibexa/core/blob/main/src/bundle/RepositoryInstaller/Command/InstallPlatformCommand.php#L220)

@@ -57,7 +57,7 @@ You can create product variants automatically based on attributes
 that have the "Used for product variants" flag enabled in the product type definition.
 
 You can create variants for any combination of values of selected attributes.
-In the Back Office you can automatically generate all possible variants for a product.
+In the back office you can automatically generate all possible variants for a product.
 
 Codes for product variants are generated automatically based on the [selected strategy](pim_configuration.md#code-generation-strategy).
 

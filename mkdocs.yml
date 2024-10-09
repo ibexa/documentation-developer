@@ -119,11 +119,11 @@ nav:
             - Configuration: administration/configuration/configuration.md
             - Dynamic configuration: administration/configuration/dynamic_configuration.md
             - Repository configuration: administration/configuration/repository_configuration.md
-        - Back Office:
-            - Back Office: administration/back_office/back_office.md
+        - Back office:
+            - Back office: administration/back_office/back_office.md
             - Configuration: administration/back_office/back_office_configuration.md
-            - Content Tree: administration/back_office/content_tree.md
-            - Back Office elements:
+            - Content tree: administration/back_office/content_tree.md
+            - Back office elements:
                 - Reusable components: administration/back_office/back_office_elements/reusable_components.md
                 - Add drop-downs: administration/back_office/back_office_elements/add_dropdowns.md
                 - Custom icons: administration/back_office/back_office_elements/custom_icons.md
@@ -132,13 +132,13 @@ nav:
                 - Formatting date and time: administration/back_office/back_office_elements/formatting_date_and_time.md
                 - Extending thumbnails: administration/back_office/back_office_elements/extending_thumbnails.md
                 - Importing assets from a bundle: administration/back_office/back_office_elements/importing_assets_from_bundle.md
-            - Back Office tabs:
-                - Back Office tabs:  administration/back_office/back_office_tabs/back_office_tabs.md
+            - Back office tabs:
+                - Back office tabs:  administration/back_office/back_office_tabs/back_office_tabs.md
                 - Create dashboard tab: administration/back_office/back_office_tabs/create_dashboard_tab.md
             - Tab switcher in Content edit page: administration/back_office/content_tab_switcher.md
             - Add anchor menu to content type edit screen: administration/back_office/content_type_anchor_menu.md
-            - Back Office menus:
-                - Back Office menus: administration/back_office/back_office_menus/back_office_menus.md
+            - Back office menus:
+                - Back office menus: administration/back_office/back_office_menus/back_office_menus.md
                 - Add menu item: administration/back_office/back_office_menus/add_menu_item.md
             - Add user setting: administration/back_office/add_user_setting.md
             - Customize calendar: administration/back_office/customize_calendar.md
@@ -408,7 +408,7 @@ nav:
         - Languages:
             - Languages: multisite/languages/languages.md
             - Language API: multisite/languages/language_api.md
-            - Back Office translations: multisite/languages/back_office_translations.md
+            - Back office translations: multisite/languages/back_office_translations.md
     - Permissions:
         - Permissions: permissions/permissions.md
         - Permission overview: permissions/permission_overview.md
@@ -416,7 +416,7 @@ nav:
         - Policies: permissions/policies.md
         - Limitations: permissions/limitations.md
         - Limitation reference: permissions/limitation_reference.md
-        - Custom Policies: permissions/custom_policies.md
+        - Custom policies: permissions/custom_policies.md
     - Users:
         - Users: users/users.md
         - User management guide: users/user_management_guide.md

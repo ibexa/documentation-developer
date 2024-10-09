@@ -30,7 +30,7 @@ for example names that start with a digit.
 
 This concerns image variations, content types, content type groups, product types, and Field definition identifiers.
 
-It is recommended to rename the relevant identifiers. Failure to generate schema is registered in logs.
+it's recommended to rename the relevant identifiers. Failure to generate schema is registered in logs.
 To find identifiers that are not included in the schema, look for "Skipped schema generation" log messages, for example:
 `Skipped schema generation for Image Variation`.
 

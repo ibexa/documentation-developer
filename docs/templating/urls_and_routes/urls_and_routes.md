@@ -24,7 +24,7 @@ Use [`ibexa_url()`](url_twig_functions.md#ibexa_url) to get an absolute URL to a
 You can use the [`ibexa_route()`](url_twig_functions.md#ibexa_route) Twig function
 to create a RouteReference object based on the provided information.
 
-A RouteReference contains a route with its parameters and can be modified after it is created.
+A RouteReference contains a route with its parameters and can be modified after it's created.
 Here, the route is based on the ID of the Location.
 
 ``` html+twig

@@ -26,7 +26,7 @@ ibexa:
             user_content_type_identifier: ['user', 'customer']
 ```
 
-## Roles and Policies
+## Roles and policies
 
 You can add custom roles to your installation
 by listing them under the `ibexa.site_access.config.default.corporate_accounts.roles` [configuration](configuration.md#configuration-files).
@@ -45,7 +45,7 @@ You can do it per SiteAccess or SiteAccess group by using [SiteAccess-aware conf
 ## Content type names
 
 You can change names of default content types by assigning what
-content types should be used to describe `Company` and `Member` in the Back Office.
+content types should be used to describe `Company` and `Member` in the back office.
 Proceed only if you already have a `Company` content type in your system, and you don't want to change its identifier.
 
 Configuration for content type names is placed under the `ibexa_corporate_account` key,

@@ -93,9 +93,9 @@ This tells the application to use this template whenever it renders the full vie
 Because you do not have a list of Rides on the front page yet, you cannot simply click a Ride to preview it.
 But you still can see how the template works in two ways:
 
-#### Preview in the Back Office
+#### Preview in the back office
 
-You can use the [preview]([[= user_doc =]]/content_management/preview_content_items/) while editing in the Back Office to see how the content will be rendered in full view.
+You can use the [preview]([[= user_doc =]]/content_management/preview_content_items/) while editing in the back office to see how the content will be rendered in full view.
 
 ![Full ride preview in admin](bike_tutorial_preview_full_ride.png)
 

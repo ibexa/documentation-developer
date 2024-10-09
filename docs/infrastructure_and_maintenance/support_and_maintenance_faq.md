@@ -10,7 +10,7 @@ as well as references to important parts of the documentation and tools useful f
 #### What information should I specify when creating a Customer Support ticket?
 
 When reporting a problem to Customer Support the most important information is the version of [[= product_name =]] which is used in the project.
-The best way to specify it is to provide the list of currently installed packages by running:
+The best way to specify it's to provide the list of currently installed packages by running:
 
 ``` bash
 composer show ibexa/*
@@ -30,17 +30,17 @@ related to the code which generates the problem.
 
 The most important clues around increasing overall performance of your [[= product_name =]]-based project can be found in [the Performance documentation page](performance.md).
 
-#### How can I translate my Back Office?
+#### How can I translate my back office?
 
-The language of the Back Office is based on the browser language.
+The language of the back office is based on the browser language.
 In order to change it you should install the proper package for your language (see [language packages list](https://github.com/ezplatform-i18n)).
-Once you have language packages installed, you can switch the language of the Back Office in the User Settings menu.
+Once you have language packages installed, you can switch the language of the back office in the User Settings menu.
 
 If you do not have a language defined in the browser, it will be selected based on the `parameters.locale_fallback` parameter located in `config/packages/ibexa.yaml`.
 
 To read more about language managing in [[= product_name =]], see the following doc pages:
 
-- [Back Office languages](back_office_translations.md)
+- [Back office languages](back_office_translations.md)
 - [Multi-language SiteAccesses and corresponding translations](set_up_translation_siteaccess.md)
 
 #### How can I apply patches to the installation?
@@ -50,7 +50,7 @@ Remember to clear the cache afterwards.
 
 As an alternative to manually applying the patch, you can use [composer-patches](https://github.com/cweagans/composer-patches).
 You can apply patches received from the Support, community or the others by using your `composer.json` file.
-For checking the versions you are on, refer to your `composer.lock`.
+For checking the versions you're on, refer to your `composer.lock`.
 All you need is to specify which package will receive patches and give the path/URL to the actual file.
 This should be done inside the `extra` section. Packages which should receive patches
 will be removed during `composer update` or `composer require` so they can be re-installed and re-patched.

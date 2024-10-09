@@ -1,5 +1,5 @@
 ---
-description: Ibexa DXP dispatches events before and after you perform different operations in the Back Office and on the Repository.
+description: Ibexa DXP dispatches events before and after you perform different operations in the back office and on the Repository.
 page_type: reference
 ---
 

@@ -4,7 +4,7 @@ description: Manage URL aliases and wildcards, and validate external URLs.
 
 # URL management
 
-You can manage external URL addresses and URL wildcards in the Back Office, **Admin** tab, the **URL Management** node.
+You can manage external URL addresses and URL wildcards in the back office, **Admin** tab, the **URL Management** node.
 Configure URL aliases to have human-readable URL addresses throughout your system.
 
 ## Link manager
@@ -203,7 +203,7 @@ Use it when:
 
 !!! caution
 
-    Before you apply the command, back up your database and make sure it is not modified while the command is running.
+    Before you apply the command, back up your database and make sure it's not modified while the command is running.
 
 
 Execute the following command to regenerate aliases:
@@ -228,7 +228,7 @@ Also, you can decide whether the user sees the content at the address that uses 
 For example, a URL wildcard called `pictures/*/*` can use `media/images/{1}/{2}` as destination.
 In this case, accessing `<yourdomain>/pictures/home/photo/` loads `<yourdomain>/media/images/home/photo/`.
 
-You can configure URL wildcards either in the Back Office, or with the public PHP API.
+You can configure URL wildcards either in the back office, or with the public PHP API.
 
 Before you configure URL wildcards, you must enable the feature in configuration:
 
@@ -238,7 +238,7 @@ ibexa:
         enabled: true
 ```
 
-### Configuring URL wildcards in the Back Office
+### Configuring URL wildcards in the back office
 
 The URL wildcards tab contains all the information about each URL wildcard. You can delete or modify existing entries, or create new ones.
 
@@ -263,4 +263,4 @@ $repository->sudo(function ($repository) use ($urlWildcardService, $source, $des
 ```
 
 If `$redirect` is set to `true`, the redirection changes the URL address.
-If it is `false`, the old URL address is be used, with the new content.
+If it's `false`, the old URL address is be used, with the new content.

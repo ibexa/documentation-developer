@@ -11,7 +11,7 @@ The approach is very generic and evaluate it if it meets your
 
 If you want the `userid` to be generated automatically, leave out the user 
 params in the `_ycq.push` calls.
-If a predefined cookie already exists, it is used. 
+If a predefined cookie already exists, it's used. 
 Otherwise a new one is created.
 
 ## Tracking code quickstart
@@ -95,13 +95,13 @@ _ycq.push(['_trackEvent', '1', 'click', 'https://mydoc.pdf', 'user1234']);
 | `_setMandator ` | - Executed with one additional parameter: `MandatorId` | `_ycq.push (['_setMandator' , '<YOUR_MANDATOR_ID>']);` |
 | `_trackEvent` | - Executed with four additional parameters: `ItemType`, `EventType`, `ItemId`, `UserId`.<br /> - `EventType` can be any of the [described types]([[= user_doc =]]/personalization/event_types/) |  capturing an event: `_ycq.push(['_trackEvent', '1', 'buy', 'https://mydoc.pdf', 'user1234x']);` |
 | `_trackTimedEvent` | - Executed with five additional parameters: `ItemType`, `EventType`, `ItemId`, `Timeout`, `UserId`.<br /> - `EventType` can be any of the [described types]([[= user_doc =]]/personalization/event_types/).<br /> - `Timeout` can be any integer greater than than 0 representing time in ms | consume event sent after 20s: `_ycq.push(['_trackTimedEvent', '1', 'consume', 'https://mydoc.pdf', '20000', 'user1234x']);` |
-| `_login` | - Executed with two additional parameters: anonymous userId, pseudonymous userId.<br /> - It is to be triggered when a user logs in and the tracking identity is changed.<br /> |-|
+| `_login` | - Executed with two additional parameters: anonymous userId, pseudonymous userId.<br /> - it's to be triggered when a user logs in and the tracking identity is changed.<br /> |-|
 | `ycreco=true` | - If you want to send a click recommended event you can append the following parameter to the recommended item URLs: | [https://mydomain.com/mypage.html?ycreco=true](https://mydomain.com/mypage.html?ycreco=true) or <br />[https://mydomain.com/mypage.html?myparameter=x&ycreco=true](https://mydomain.com/mypage.html?myparameter=x&ycreco=true) |
 
 ## Tracking with HTML event handlers
 
 The asynchronous tracking syntax should also be used from within DOM event handlers. 
-For example, the following button generates an event when it is clicked:
+For example, the following button generates an event when it's clicked:
 
 ``` js
 <button onclick = "_ycq.push(['_trackEvent', '2', 'click', 'itemId1', 'user1234x'])"/><button>

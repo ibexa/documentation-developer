@@ -35,7 +35,7 @@ Enabling any other method disables session.
 
 ### Usage examples
 
-You can create a session for a visitor even if they are not logged in by sending the **`POST`** request to `/user/sessions`.
+You can create a session for a visitor even if they're not logged in by sending the **`POST`** request to `/user/sessions`.
 To log out, use the **`DELETE`** request on the same resource.
 
 #### Establishing session
@@ -231,7 +231,7 @@ If an unsafe request is missing the CSRF token, or the token has incorrect value
 
 ##### Rich client application security concerns
 
-The purpose of CSRF protection is to prevent users from accidentally running harmful operations by being tricked into executing an HTTP(S) request against a web applications they are logged into.
+The purpose of CSRF protection is to prevent users from accidentally running harmful operations by being tricked into executing an HTTP(S) request against a web applications they're logged into.
 In browsers this action will be blocked by lack of CSRF token.
 
 However, if you develop a rich client application (JavaScript, JAVA, iOS, Android, etc.), that is:
@@ -247,7 +247,7 @@ Then, you have to make sure to confirm with the user if they want to perform an 
 Example:
 
 A rich JavaScript/web application is using `navigator.registerProtocolHandler()` to register "web+ez:" links to go against REST API.
-It uses a session-based authentication, and it is in widespread use across the net, or/and it is used by everyone within a company.
+It uses a session-based authentication, and it's in widespread use across the net, or/and it's used by everyone within a company.
 A person with minimal insight into this application and the company can easily send out the following link to all employees in that company in email:
 `<a href="web+ez:DELETE /content/locations/1/2">latest reports</a>`.
 
@@ -361,15 +361,15 @@ If the installation has a dedicated host for REST, you can enable HTTP basic aut
                 realm: Ibexa DXP REST API
 ```
 
-!!! caution "Back Office uses REST API"
+!!! caution "Back office uses REST API"
 
-    Back Office uses the REST API too (for some parts like the Location tree or the Calendar) on its own domain.
+    Back office uses the REST API too (for some parts like the Location tree or the Calendar) on its own domain.
 
-    * If the Back Office SiteAccess matches `//admin.example.com` (through `Map\Host`, `HostElement` or `HostText`), it calls the REST API under `//admin.example.com/api/ibexa/v2`;
-    * If the Back Office SiteAccess matches `//localhost/admin` (through `URIElement`, `Map\URI` or `Regex\URI`), it calls the REST API under `//localhost/api/ibexa/v2` because SiteAccess matching with REST isn't enabled at URL level.
+    * If the back office SiteAccess matches `//admin.example.com` (through `Map\Host`, `HostElement` or `HostText`), it calls the REST API under `//admin.example.com/api/ibexa/v2`;
+    * If the back office SiteAccess matches `//localhost/admin` (through `URIElement`, `Map\URI` or `Regex\URI`), it calls the REST API under `//localhost/api/ibexa/v2` because SiteAccess matching with REST isn't enabled at URL level.
 
-    If you enable basic authentication for `pattern: ^/api/ibexa/v2` to use it in your front office across both production and development environments, your development environment's Back Office won't work correctly.
-    This Back Office tries to access REST through the same URL as the front office. Even when logged in Back Office and using the [X-SiteAccess header](rest_requests.md#siteaccess), the firewall blocks access to REST as you're not logged through basic authentification. Therefore, some Back Office features don't work.
+    If you enable basic authentication for `pattern: ^/api/ibexa/v2` to use it in your front office across both production and development environments, your development environment's back office won't work correctly.
+    This back office tries to access REST through the same URL as the front office. Even when logged in back office and using the [X-SiteAccess header](rest_requests.md#siteaccess), the firewall blocks access to REST as you're not logged through basic authentification. Therefore, some back office features don't work.
 
     If basic authentication is used only for REST API, it's better to have a dedicated domain even on a development environment. For example, map an `api.localhost` in your `hosts` file and set the firewall for `host: ^api\.(example\.com|localhost)$`.
 

@@ -35,7 +35,7 @@ Together these major improvements make it practically impossible to run eZ Platf
 
 ### From legacy (4.x or 5.x) to Platform stack (5.4/2014.11)
 
-If you are coming directly from legacy (4.x), you need to follow the best practice 5.x Platform migration path and do the following:
+If you're coming directly from legacy (4.x), you need to follow the best practice 5.x Platform migration path and do the following:
 
 - Rewrite custom Field Types for the new Platform stack. Alternatively you can use Null Field Type as a dummy implementation for the custom Field Types that you don't want to migrate. Using Null Field Type will prevent errors from the Platform Stack, see [Null Field Type Reference](nullfield.md)
 - Rewrite custom web front end to use the new Platform/Symfony stack, see [Beginner Tutorial](beginner_tutorial.md)

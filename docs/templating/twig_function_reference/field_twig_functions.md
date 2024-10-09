@@ -104,7 +104,7 @@ the function returns the Field object in the main language.
 | `forcedLanguage` | `string` | {optional) Language to use (for example, "fre-FR"). |
 
 You can access the Field's value by using `(ibexa_field(content, 'my_field').value)`,
-but it is recommended to use the dedicated [`ibexa_field_value()`](#ibexa_field_value) function for this.
+but it's recommended to use the dedicated [`ibexa_field_value()`](#ibexa_field_value) function for this.
 
 You can use `ibexa_field()` to access the Field Type identifier:
 

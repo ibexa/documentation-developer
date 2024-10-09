@@ -76,7 +76,7 @@ php bin/console ibexa:upgrade --force
 
 #### Database update
 
-If you are using MySQL, run the following update script:
+If you're using MySQL, run the following update script:
 
 ``` sql
 mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-3.3.1-to-3.3.2.sql
@@ -86,7 +86,7 @@ mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgra
 
 #### Commerce configuration
 
-If you are using Commerce, run the following migration action to update the way Commerce configuration is stored:
+If you're using Commerce, run the following migration action to update the way Commerce configuration is stored:
 
 ``` bash
 php bin/console ibexa:migrations:migrate --file=src/bundle/Resources/install/migrations/content/Components/move_configuration_to_settings.yaml
@@ -160,11 +160,11 @@ Run the following scripts:
 
 #### VCL configuration for Fastly
 
-[[= product_name =]] now supports Fastly shielding. If you are using Fastly and want to use shielding, you need to update your VCL files.
+[[= product_name =]] now supports Fastly shielding. If you're using Fastly and want to use shielding, you need to update your VCL files.
 
 !!! tip
 
-    Even if you do not plan to use Fastly shielding, it is recommended to update the VCL files for future compatibility.
+    Even if you do not plan to use Fastly shielding, it's recommended to update the VCL files for future compatibility.
 
 1. Locate the `vendor/ezsystems/ezplatform-http-cache-fastly/fastly/ez_main.vcl` file and update your VCL file with the recent changes.
 2. Do the same with `vendor/ezsystems/ezplatform-http-cache-fastly/fastly/ez_user_hash.vcl`.

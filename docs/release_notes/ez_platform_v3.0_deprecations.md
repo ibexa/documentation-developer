@@ -199,7 +199,7 @@ Selected event names have been changed.
 
 #### Templates renamed
 
-The following templates used in the Back Office have been renamed:
+The following templates used in the back office have been renamed:
 
 |Former name|New name|
 |-----------|--------|
@@ -291,9 +291,9 @@ For the full list of UDW configuration keys and their descriptions, see [UDW con
 All Online Editor front-end code and assets (such as JS, CSS, fonts, etc.)
 have been moved from `ezplatform-admin-ui` to `ezplatform-richtext`.
 
-### Adding new tabs in the Back Office
+### Adding new tabs in the back office
 
-The way of adding custom tab groups in the Back Office has changed.
+The way of adding custom tab groups in the back office has changed.
 You now need to [make use of the `TabsComponent`](https://doc.ibexa.co/en/latest/extending/extending_tabs/#adding-a-new-tab-group).
 
 ### Content type forms
@@ -301,7 +301,7 @@ You now need to [make use of the `TabsComponent`](https://doc.ibexa.co/en/latest
 Content type editing, including Action Dispatchers, Form Processors, Types and Data classes related to content types/Limitations,
 has been moved to `ezplatform-admin-ui` from `repository-forms`.
 
-### Code cleanup in Back Office
+### Code cleanup in back office
 
 The following deprecated items have been removed:
 

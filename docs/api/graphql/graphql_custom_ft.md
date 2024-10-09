@@ -20,7 +20,7 @@ There are two ways of mapping a custom Field Type:
 - configuration
 - custom `FieldDefinitionMapper`
 
-You need to write a custom `FieldDefinitionMapper` if the field definition settings and constraints impact how it is mapped to GraphQL.
+You need to write a custom `FieldDefinitionMapper` if the field definition settings and constraints impact how it's mapped to GraphQL.
 For example, the selection Field Type has a "multiple" option. 
 If set to false, it accepts and returns a single value, 
 but if set to true, it accepts and returns an array of values.
@@ -31,11 +31,11 @@ If your field definition doesn't require additional clarifications, you can map 
 
 To map a custom Field Type with configuration use a compiler pass to modify a container parameter, `ibexa.graphql.schema.content.mapping.field_definition_type`.
 
-It is a hash that maps a Field Type identifier (`ezstring`) to the following entries:
+it's a hash that maps a Field Type identifier (`ezstring`) to the following entries:
 
-- `value_type` - the GraphQL type values of the custom field. It can be a native type (string, int), or a custom type. If none is specified, string will be used.
-- `value_resolver` - how values of this field are resolved and passed to the defined value type. If not specified, it will receive the `Field` object for the field type: `field`.
-- `definition_type` - the GraphQL type the field definitions is mapped to. If not specified, it will use `FieldDefinition`.
+- `value_type` - the GraphQL type values of the custom field. It can be a native type (string, int), or a custom type. If none is specified, string is used.
+- `value_resolver` - how values of this field are resolved and passed to the defined value type. If not specified, it receives the `Field` object for the field type: `field`.
+- `definition_type` - the GraphQL type the field definitions is mapped to. If not specified, it uses `FieldDefinition`.
 
 Compiler pass example that should be placed in `src/DependencyInjection/Compiler`:
 
@@ -74,9 +74,9 @@ The `FieldDefinitionMapper` interface defines following methods:
 - `mapToFieldValueResolver` - returns the resolver, as an expression language string, values are resolved with
 - `mapToFieldDefinitionType`- returns the GraphQL type field definitions of the mapped type
 
-Only implement methods that you need, the rest will be handled by other mappers (configuration or default).
+Only implement methods that you need, the rest is handled by other mappers (configuration or default).
 When a mapper method is decorated, you need to call the decorated service method for unsupported types.
-To do that, you need to replace `mapXXX` by the method it is in:
+To do that, you need to replace `mapXXX` by the method it's in:
 
 ```php
         if (!$this->canMap($fieldDefinition)) {
@@ -84,7 +84,7 @@ To do that, you need to replace `mapXXX` by the method it is in:
          }
 ```
 
-It is required for every implemented method, so that other mappers are called for the other Field Types.
+it's required for every implemented method, so that other mappers are called for the other Field Types.
 
 The [`RelationFieldDefinitionMapper`](https://github.com/ibexa/graphql/blob/main/src/lib/Schema/Domain/Content/Mapper/FieldDefinition/RelationFieldDefinitionMapper.php) example:
 
@@ -135,7 +135,7 @@ class RelationFieldDefinitionMapper extends DecoratingFieldDefinitionMapper impl
 
 The value type depends on the field definition allowed content types setting:
 
-- for types that return content items if there are no restrictions, or several types are allowed, the value will be an `Item`
+- for types that return content items if there are no restrictions, or several types are allowed, the value is an `Item`
 
 The cardinality (single or collection) depends on the selection limit setting:
 

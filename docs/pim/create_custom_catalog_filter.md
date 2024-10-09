@@ -18,7 +18,7 @@ To create a custom catalog filter, first you need to create a filter class in `A
 ```
 
 The filter must implement `Ibexa\Contracts\ProductCatalog\CatalogFilters\FilterDefinitionInterface`,
-provide the filter identifier and name, and the group in which it is displayed in the editing menu.
+provide the filter identifier and name, and the group in which it's displayed in the editing menu.
 
 The example above uses the built-in `ProductName` Search Criterion.
 
@@ -54,7 +54,7 @@ Now, create `ProductNameCriterionTransformer` in `src/CatalogFilter/DataTransfor
 
 ## Provide templates
 
-Now, provide the templates for the catalog editing view in the Back Office.
+Now, provide the templates for the catalog editing view in the back office.
 
 You need two templates: one for the filter form, and one for the filter badge in the product list.
 
@@ -65,9 +65,9 @@ First, add a `form_field_override.html.twig` template to `templates/themes/admin
 ```
 
 Here, you use the same built-in template that is used for example for the product code filter.
-It is placed in a template block corresponding to your custom filter, `catalog_criteria_product_name_values`.
+it's placed in a template block corresponding to your custom filter, `catalog_criteria_product_name_values`.
 
-To ensure the template is used as a Back Office form theme, add the following configuration:
+To ensure the template is used as a back office form theme, add the following configuration:
 
 ``` yaml
 [[= include_file('code_samples/catalog/custom_catalog_filter/config/packages/catalog_filters.yaml', 8, 11) =]]

@@ -13,7 +13,7 @@ To create a new REST resource, you need to prepare:
 * Optionally, the addition of this resource route to the REST root.
 
 In the following example, you add a greeting resource to the REST API.
-It is available through `GET` and `POST` methods. `GET` sets default values while `POST` allows inputting custom values.
+It's available through `GET` and `POST` methods. `GET` sets default values while `POST` allows inputting custom values.
 
 ## Route
 

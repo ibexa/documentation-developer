@@ -27,31 +27,31 @@ ibexa:
 Configuration can be set per [SiteAccess](multisite_configuration.md#siteaccess-configuration)
 or [SiteAccess group](multisite_configuration.md#siteaccess-groups).
 
-All the settings in the configuration are reflected in the Back Office.
+All the settings in the configuration are reflected in the back office.
 
 ## Container remote ID
 
 Defines starting location container for all the dashboards, including customized and predifined ones.
-You can see it in the Admin panel, **Dashboards** section, **Dashboards** folder in the Content Tree. In the **Technical details** tab, it is defined as **Location remote ID**.
+You can see it in the Admin panel, **Dashboards** section, **Dashboards** folder in the content tree. In the **Technical details** tab, it is defined as **Location remote ID**.
 
 ![Container remote ID](dashboard_container_remote_id.png)
 
 ## Default dashboard remote ID
 
-Specifies default predefined dashboard. This is the dashboard that all the users see as a starting dashboard in the Back Office.
-You can see it in the Admin panel, **Dashboards** section, **Default dashboard** folder inside of **Predefined dashboards** container in the Content Tree.
+Specifies default predefined dashboard. This is the dashboard that all the users see as a starting dashboard in the back office.
+You can see it in the Admin panel, **Dashboards** section, **Default dashboard** folder inside of **Predefined dashboards** container in the content tree.
 In the **Technical details** tab, it is defined as **Location remote ID**.
 
 ## Users container remote ID
 
 Defines a container for users folders, which contain all customized dashboards.
-You can see it in the Admin panel, **Dashboards** section, **User dashboards** folder inside of main **Dashboards** container in the Content Tree.
+You can see it in the Admin panel, **Dashboards** section, **User dashboards** folder inside of main **Dashboards** container in the content tree.
 In the **Technical details** tab, it is defined as **Location remote ID**.
 
 ## Predefined container remote ID
 
 Defines a container that contains all predefined dashboards created by Administrator.
-You can see it in the Admin panel, **Dashboards** section, **Predefined dashboards** folder inside of main **Dashboards** container in the Content Tree.
+You can see it in the Admin panel, **Dashboards** section, **Predefined dashboards** folder inside of main **Dashboards** container in the content tree.
 In the **Technical details** tab, it is defined as **Location remote ID**.
 
 ## Section identifier

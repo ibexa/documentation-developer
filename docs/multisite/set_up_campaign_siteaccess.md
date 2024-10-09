@@ -54,7 +54,7 @@ but not `<your site>/campaign/General/Articles/Article1`.
 ## Reuse content
 
 Finally, reuse some content between sites, for example "Logos" from "Images/Media".
-You can allow the `campaign` site to access them, even though they are in a different part of the tree, via `excluded_uri_prefixes`:
+You can allow the `campaign` site to access them, even though they're in a different part of the tree, via `excluded_uri_prefixes`:
 
 ``` yaml
 ibexa:
@@ -67,7 +67,7 @@ ibexa:
 ```
 
 Now, when you use the `campaign` SiteAccess, you can reach `<your site>/campaign/Media/Images/Logos`,
-despite the fact that it is not a sub-item of the "Campaign" Location.
+despite the fact that it's not a sub-item of the "Campaign" Location.
 
 As a next step, you can configure different [designs](design_engine.md)
 for the two SiteAccesses.

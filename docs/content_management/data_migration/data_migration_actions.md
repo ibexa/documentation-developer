@@ -1,5 +1,5 @@
 ---
-description: Data migration actions enable you to run special operations while executing data migrations, such as assigning Roles, Sections, Objects states, and so on.
+description: Data migration actions enable you to run special operations while executing data migrations, such as assigning roles, Sections, Objects states, and so on.
 page_type: reference
 ---
 
@@ -20,7 +20,7 @@ You can find which migration steps support actions in the table below:
 Actions are optional operations that can be run after the main "body" of a migration has been executed
 (that is, content has been created / updated, Object state has been added, and so on).
 Their purpose is to allow additional operations to be performed as part of this particular migration.
-They are executed inside the same transaction, so in the event of failure they cause database rollback to occur.
+they're executed inside the same transaction, so in the event of failure they cause database rollback to occur.
 
 For example, when updating a content type object, some fields might be removed:
 ``` yaml
@@ -61,8 +61,8 @@ The following migration actions are available out of the box:
 - `assign_role_to_user` (Role Create / Update)
 - `assign_role_to_user_group` (Role Create / Update)
 - `assign_user_to_role` (User Create / Update)
-- `assign_user_group_to_role` (User Group Create / Update)
-- `unassign_role_user_group` (User Group Update)
+- `assign_user_group_to_role` (User group Create / Update)
+- `unassign_role_user_group` (User group Update)
 
 In contrast with Kaliop migrations, actions provide you with ability to perform additional operations and extend
 the migration functionality. 
@@ -147,7 +147,7 @@ mode: Create and Update
                     - 1
 ```
 
-### User Groups
+### User groups
 
 mode: Create and Update
 ``` yaml

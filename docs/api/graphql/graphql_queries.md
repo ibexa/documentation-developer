@@ -314,7 +314,7 @@ Response:
 ## Getting children of a Location
 
 To get a [Location's](#querying-locations) children,
-it is recommended to use the [Query Field](content_queries.md#content-query-field).
+it's recommended to use the [Query Field](content_queries.md#content-query-field).
 
 Alternatively, you can query the `children` property of an `item` or `content` object:
 
@@ -766,7 +766,7 @@ You can paginate plural fields using `edges`:
 
 This query returns the first three articles, ordered by their publication date.
 If the current `Connection` (list of results) is not finished yet and there are more items to read,
-`hasNextPage` will be `true`.
+`hasNextPage` is `true`.
 
 For the `children` node, you can use the following pagination method:
 

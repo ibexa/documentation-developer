@@ -50,7 +50,7 @@ It lists all User accounts with duplicate emails.
 
 ## Login rules
 
-You can set the rules for allowed User names in the Back Office per User Field.
+You can set the rules for allowed User names in the back office per User Field.
 The rules are set using regular expressions.
 
 For example, to ensure that User names can only contain lowercase letters,

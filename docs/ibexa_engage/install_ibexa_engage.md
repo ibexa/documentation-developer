@@ -50,4 +50,4 @@ In `config/packages` directory add the following `ibexa_connector_qualifio.yaml`
 
     [[= product_name_base =]] configures the `channel` and `client_id` values so that the selections can be filled up automatically on [[= product_name =]] side.
 
-    The `feed_url` and `variable_map` values don't need to be set at the installation process. They are preconfigured and can be overwritten.
+    The `feed_url` and `variable_map` values don't need to be set at the installation process. they're preconfigured and can be overwritten.

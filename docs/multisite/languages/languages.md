@@ -19,7 +19,7 @@ publishing the draft will not overwrite later modifications.
 
 ### Adding available languages
 
-The multilanguage system operates based on a global translation list that contains all languages available in the installation. Languages can be [added to this list from the Admin Panel](https://doc.ibexa.co/projects/userguide/en/latest/content_management/translate_content/) in the Back Office. After adding a language be sure to dump all assets to the file system:
+The multilanguage system operates based on a global translation list that contains all languages available in the installation. Languages can be [added to this list from the Admin Panel](https://doc.ibexa.co/projects/userguide/en/latest/content_management/translate_content/) in the back office. After adding a language be sure to dump all assets to the file system:
 
 ```
 yarn encore <environment>
@@ -32,7 +32,7 @@ yarn encore <environment>
 
 Language versions consist of translated values of the content item's Fields. In the content type definition every Field is set to be Translatable or not.
 
-[[= product_name =]] does not decide by itself which Fields can be translated and which cannot. For some Field values the need for a translation can be obvious, for example for the body of an article. In other cases, for instance images without text, integer numbers or e-mail addresses, translation is usually unnecessary. Despite that, [[= product_name =]] gives you the possibility to mark any Field as translatable regardless of its Field Type. It is only your decision to exclude the translation possibility for those Fields where it makes no sense.
+[[= product_name =]] does not decide by itself which Fields can be translated and which cannot. For some Field values the need for a translation can be obvious, for example for the body of an article. In other cases, for instance images without text, integer numbers or e-mail addresses, translation is usually unnecessary. Despite that, [[= product_name =]] gives you the possibility to mark any Field as translatable regardless of its Field Type. it's only your decision to exclude the translation possibility for those Fields where it makes no sense.
 
 When a Field is not flagged as Translatable, its value will be copied from the initial/main translation when a new language version is created. This copied value cannot be modified. When a Field is Translatable, you will have to enter its value in a new language version manually.
 
@@ -40,9 +40,9 @@ For example, let's say that you need to store information about marathon contest
 
 ### Access control
 
-You can control whether a User or User Group is able to translate content or not. You do this by adding a [Language Limitation](limitation_reference.md#language-limitation) to Policies that allow creating or editing content. This Limitation enables you to define which Role can work with which languages in the system. (For more information of the permissions system, see [Permissions](permissions.md).)
+You can control whether a user or user group is able to translate content or not. You do this by adding a [Language limitation](limitation_reference.md#language-limitation) to policies that allow creating or editing content. This Limitation enables you to define which role can work with which languages in the system. (For more information of the permissions system, see [Permissions](permissions.md).)
 
-In addition, you can also control the access to the global translation list by using the Content/Translations Policy. This Policy allows users to add and remove languages from the global translation list.
+In addition, you can also control the access to the global translation list by using the Content/Translations policy. This policy allows users to add and remove languages from the global translation list.
 
 ## Using SiteAccesses for handling translations
 
@@ -180,4 +180,4 @@ When setting up SiteAccesses with different language versions, you can specify a
 
 You can also assign a Default content availability flag to content types (available in the Admin Panel). When this flag is assigned, content items of this type will be available even when they do not have a language version in any of the languages configured for the current SiteAccess.
 
-Note that if a language is not provided in the list of prioritized languages and it is not the content item's first language, the URL alias for this content in this language will not be generated.
+Note that if a language is not provided in the list of prioritized languages and it's not the content item's first language, the URL alias for this content in this language will not be generated.

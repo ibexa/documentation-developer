@@ -27,7 +27,7 @@ The Fields can cover data ranging from single variables and text lines to media 
 General information about a content item is stored in a [`ContentInfo`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html) object.
 `ContentInfo` does not include Fields. It contains following information:
 
-**`id`** - the unique ID of the Content object. These numbers are not recycled, so if an item is deleted, its ID will not be reused when a new one is created.
+**`id`** - the unique ID of the Content object. These numbers are not recycled, so if an item is deleted, its ID isn't reused when a new one is created.
 
 **`contentTypeId`** - the unique numerical ID of the content type, on which the content item is based.
 
@@ -48,17 +48,17 @@ See [Sections](sections.md) for more information.
 **`published`** - true if a published version exists, otherwise false.
 
 **`ownerId`** - ID of the User who initially created the content item.
-It is set by the system the first time the content item is published.
-The ownership of an item cannot be modified and will not change even if the owner is removed from the system.
+It's set by the system the first time the content item is published.
+The ownership of an item cannot be modified and doesn't change even if the owner is removed from the system.
 
 **`modificationDate`** - date and time when the content item was last modified.
-This is set by the system and cannot be modified manually, but will change every time the item is published again.
+This is set by the system and cannot be modified manually, but changes every time the item is published again.
 
 **`publishedDate`** - date and time when the content item was published for the first time.
 This is set by the system and cannot be modified.
 
 **`alwaysAvailable`** - indicates if the content item is shown in the main language when it's not present in another requested language.
-It is [set per content type](content_availability.md).
+It's [set per content type](content_availability.md).
 
 **`remoteId`** - a global unique ID of the content item.
 Accepts up to 100 characters. Cannot contain non-printable characters and control sequences (anything in ASCII range `\x00` - `\x1F`).
@@ -72,7 +72,7 @@ If the `alwaysAvailable` flag is set to true, the content item is shown in this 
 **`status`** - status of the content item. It can have three statuses: 0 – *draft*, 1 – *published* and 2 – *archived*.
 When an item is created, its status is set to *draft*. After publishing the status changes to *published*.
 When a published content item is moved to Trash, the item becomes *archived*.
-If a published item is removed from the Trash (or removed without being put in the Trash first), it is permanently deleted.
+If a published item is removed from the Trash (or removed without being put in the Trash first), it's permanently deleted.
 
 ![Diagram of an example content item](content_model_item_diagram.png)
 
@@ -86,7 +86,7 @@ Beyond the built-in set of Field Types, you can [create your own](create_custom_
 
 ### Field value validation
 
-The values entered in a Field may undergo validation, which means the system makes sure that they are correct for the chosen Field Type and can be used without a problem.
+The values entered in a Field may undergo validation, which means the system makes sure that they're correct for the chosen Field Type and can be used without a problem.
 
 Validation depends on the settings of a particular Field Type. It cannot be turned off for a Field if its Field Type supports it.
 
@@ -100,7 +100,7 @@ Aside from the Field Type, the Field definition in a content type provides the f
 
 **Description** – a detailed description of the Field.
 
-**Required** – a flag which indicates if the Field is required for the system to accept the content item. By default, if a Field is flagged as Required, a user will not be able to publish a content item without filling in this Field.
+**Required** – a flag which indicates if the Field is required for the system to accept the content item. By default, if a Field is flagged as Required, a user isn't able to publish a content item without filling in this Field.
 
 !!! note
     You can use the `ContentService::validate()` method to decide whether the required Fields or whole content items are checked for 
@@ -108,7 +108,7 @@ Aside from the Field Type, the Field definition in a content type provides the f
 
     The Required flag is in no way related to Field validation. A Field's value is validated whether the Field is set as required or not.
 
-**[Searchable](search.md)** – a flag which indicates if the value of the Field will be indexed for searching.
+**[Searchable](search.md)** – a flag which indicates if the value of the Field is indexed for searching.
 
 The Searchable flag is not available for some Fields, because some Field Types do not allow searching through their values.
 
@@ -133,7 +133,7 @@ Only one version can be published at the same time.
 When you publish a new version, the previous published version changes its status to Archived.
 
 The number of preserved archived versions is set in `ibexa.repositories.default.options.default_version_archive_limit`.
-By default it is set to 5.
+By default it's set to 5.
 
 A new version is also created when a new [language](languages.md) is added to the content item.
 

@@ -75,7 +75,7 @@ ibexa_design_engine:
 ```
 
 Theme directories that you define have priority over the ones defined in `templates_theme_paths`.
-This ensures that it is always possible to override a template at the application level.
+This ensures that it's always possible to override a template at the application level.
 
 You can also add a global override directory, by listing paths without assigning them to a theme:
 

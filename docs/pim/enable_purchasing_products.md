@@ -19,7 +19,7 @@ To enable adding product to cart and purchasing from the catalog, the following 
 
 ## Region and currency
 
-All currencies available in the system must be enabled in the Back Office under **Product Catalog** -> **Currencies**.
+All currencies available in the system must be enabled in the back office under **Product Catalog** -> **Currencies**.
 
 Additionally, you must configure currencies valid for specific SiteAccesses
 under the `ibexa.system.<scope>.product_catalog.currencies` [configuration key](configuration.md#configuration-files):
@@ -113,6 +113,6 @@ ibexa:
     ```
 
 You can then assign VAT rates that apply to every product type in each of the supported regions.
-To do it, in the Back Office, [open the product type for editing]([[= user_doc =]]/pim/create_product_types/#vat), and navigate to the **VAT rates** area.
+To do it, in the back office, [open the product type for editing]([[= user_doc =]]/pim/create_product_types/#vat), and navigate to the **VAT rates** area.
 
 ![Assigning VAT rates to a product type](catalog_vat_rates.png "Assigning VAT rates to a product type")

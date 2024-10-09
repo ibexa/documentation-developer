@@ -11,7 +11,7 @@ Elasticsearch enables you to use filtering, query, query-time boosting, fulltext
 It organizes data into documents, that then are grouped into indices.
 
 As a result of having distributed architecture, Elasticsearch can analyze massive amounts of data with almost real-time performance.
-Instead of searching text directly, it searches and index. Thanks to this mechanism, it is able to achieve fast response.
+Instead of searching text directly, it searches and index. Thanks to this mechanism, it's able to achieve fast response.
 
 For a detailed description of advanced settings that you might require in a specific production environment, 
 see the documentation provided by Elastic.

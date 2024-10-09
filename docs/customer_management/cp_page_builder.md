@@ -82,7 +82,7 @@ You need to grant the following permissions to company members, so they can view
 
 ![Single Customer Portal permissions](img/single_cp_permissions.png)
 
-If members of the company don't have sufficient permissions for any Customer Portal, they are redirected to the default Customer Portal view.
+If members of the company don't have sufficient permissions for any Customer Portal, they're redirected to the default Customer Portal view.
 
 !!! note
 
@@ -103,7 +103,7 @@ There you will see two possibilities **Customer Portal** and **Customer Portal P
 
 The first one is a separate content type used as a container for your Customer Portal pages.
 Customer Portals containers should be used to sort Customer Portal pages and any other content types used by them, such as articles, inside the root folder.
-It is recommended that you use them instead of folders to divide and store your portals.
+It's recommended that you use them instead of folders to divide and store your portals.
 Select **Customer Portal**, define its name and publish.
 
 ![Customer Portals folder](img/cp_folder_for_portals.png)

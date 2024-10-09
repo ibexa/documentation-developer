@@ -43,4 +43,4 @@ Enable the toggle to display the SEO section on the content item edit page.
 
 !!! note
 
-    If you add multiple Field Types as anchor menus, they are automatically displayed as separate sections. 
+    If you add multiple Field Types as anchor menus, they're automatically displayed as separate sections. 

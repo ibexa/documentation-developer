@@ -18,7 +18,7 @@ reduces the number of classes which must be created, and simplifies the tagging 
 ## Define value object
 
 First, create `Value.php` in the `src/FieldType/HelloWorld` directory.
-The Value class of a Field Type contains only the basic logic of a Field Type, the rest of it is handled by the `Type` class.
+The Value class of a Field Type contains only the basic logic of a Field Type, the rest of it's handled by the `Type` class.
 For more information about Field Type Value see [Value handling](type_and_value.md#value-handling).
 
 The `HelloWorld` Value class should contain:
@@ -97,7 +97,7 @@ Provide the template mapping under the `ibexa.system.<scope>.field_templates` [c
 
 ## Final results
 
-Finally, you should be able to add a new content type in the Back Office interface.
+Finally, you should be able to add a new content type in the back office interface.
 Navigate to **Content types** tab and under **Content** category create a new content type:
 
 ![Creating new content type](extending_field_type_create.png)

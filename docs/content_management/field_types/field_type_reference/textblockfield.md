@@ -1,6 +1,6 @@
 # TextBlock Field Type
 
-The Field Type handles a block of multiple lines of unformatted text. It is capable of handling up to 16,777,216 characters.
+The Field Type handles a block of multiple lines of unformatted text. It's capable of handling up to 16,777,216 characters.
 
 | Name        | Internal name | Expected input type |
 |-------------|---------------|---------------------|

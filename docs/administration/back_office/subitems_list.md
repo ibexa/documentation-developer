@@ -1,5 +1,5 @@
 ---
-description: Inject a sub-items list into your Back Office customizations.
+description: Inject a sub-items list into your back office customizations.
 ---
 
 # Sub-items list
@@ -10,7 +10,7 @@ It provides an interface for listing the sub-items of any Location.
 !!! caution
 
     If you want to load the Sub-items module, you need to load the JS code for it in your view,
-    as it is not available by default.
+    as it's not available by default.
 
 ## Use sub-items list
 
@@ -51,7 +51,7 @@ The `<SubItemsModule />` module can handle additional properties. There are two 
 
 ### Required props
 
-Without all the following properties the Sub-items module will not work.
+Without all the following properties the Sub-items module cannot work.
 
 - **parentLocationId** _{Number}_ - parent Location ID
 - **restInfo** _{Object}_ - backend config object:

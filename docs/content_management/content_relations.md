@@ -4,20 +4,20 @@ description: Content Relations control links between different content items, ei
 
 # Content Relations
 
-Content items are located in a tree structure through the Locations they are placed in.
+Content items are located in a tree structure through the Locations they're placed in.
 However, content items themselves can also be related to one another.
 
 ![Content Relations](content_management_relations.png "Content Relations")
 
 A **Relation** can exist between any two content items in the Repository.
-For example, images are linked to news articles they are used in.
+For example, images are linked to news articles they're used in.
 Instead of using a fixed set of image attributes, the images are stored as separate content items outside the article.
 
 There are different types of Relations available in the system.
 Content can have Relations on item or on Field level.
 
 *Relations at Field level* are created using one of two special Field Types: Content relation (single) and Content relations (multiple).
-These Fields allow you to select one or more other content items in the Field value, which will be linked to these Fields.
+These Fields allow you to select one or more other content items in the Field value, which are linked to these Fields.
 
 *Relations at content item level* can be of three different types:
 

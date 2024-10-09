@@ -47,7 +47,7 @@ an `Ibexa\Contracts\Shipping\Value\ShipmentCreateStruct` object that takes two p
 
 ## Update shipment
 
-You can update the shipment after it is created. 
+You can update the shipment after it's created. 
 You could do it to support a scenario when, for example, the shipment is processed offline and its status has to be updated in the system. 
 To update shipment information, use the `ShipmentService::updateShipment` method:
 

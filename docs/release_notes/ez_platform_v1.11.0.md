@@ -4,7 +4,7 @@
 
 **The FAST TRACK v1.11.0 release of eZ Platform and eZ Platform Enterprise Edition is available as of August 24, 2017.**
 
-If you are looking for the Long Term Support (LTS) release, see [https://ezplatform.com/Blog/Long-Term-Support-is-Here](https://ezplatform.com/Blog/Long-Term-Support-is-Here)
+If you're looking for the Long Term Support (LTS) release, see [https://ezplatform.com/Blog/Long-Term-Support-is-Here](https://ezplatform.com/Blog/Long-Term-Support-is-Here)
 
 ## Notable changes since v1.10.0
 
@@ -64,7 +64,7 @@ There is a corresponding new eZ Publish legacy release called 2017.08 available 
 Unlike eZ Publish 5.4LTS, this should be seen as a Fast Track release of legacy: it's tailored for those that want
 a more modern eZ Platform and Symfony version to take advantage of all new features of the platform and facilitate
 the migration. More info on this in a separate blog post soon. As with eZ Platform itself, Enterprise users will receive the same
-full support, maintenance, and priority security patch handling as they are used to for this setup.
+full support, maintenance, and priority security patch handling as they're used to for this setup.
 
 !!! note
 
