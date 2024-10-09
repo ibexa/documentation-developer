@@ -1,5 +1,6 @@
 ---
 description: PIM training
+page_type: training
 ---
 
 # PIM (Product Information Management)
@@ -8,12 +9,10 @@ description: PIM training
 
 In this training, you learn how to create complex products, to quote their prices, and to organize them in catalogs, using the build-in features.
 
-| Section                                         | Estimated | Description                                                                   |
-|:------------------------------------------------|----------:|:------------------------------------------------------------------------------|
-| [Product modeling](011_product_modeling.md)     | X minutes | Learn about product types, products and product variants.                     |
-| [Product shelving](012_product_shelving.md)     | Y minutes | Organize your products with categories and catalogs.                          |
-| [Product displaying](013_product_displaying.md) | Z minutes | Template the product page.                                                    |
-| [Product pricing](021_product_pricing.md)       | N minutes | Manage currencies and VAT rates, compute prices. (TODO: discount needs users) |                               
+| Section                                     | Estimated | Description                                               |
+|:--------------------------------------------|----------:|:----------------------------------------------------------|
+| [Product modeling](011_product_modeling.md) | X minutes | Learn about product types, products and product variants. |
+| [Product shelving](012_product_shelving.md) | Y minutes | Organize your products with categories and catalogs.      |
 
 ## Requirements
 
