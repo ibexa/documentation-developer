@@ -32,8 +32,8 @@ Each content type is characterized by a set of metadata which define the general
 
 **Identifier** –
 an identifier for internal use in configuration files, templates, PHP code, etc.
-It must be unique, can only contain lowercase letters, digits and underscores;
-the maximum length is 50 characters. (Mandatory.)
+It must be unique, can only contain lowercase letters, digits, and underscores.
+The maximum length is 50 characters. (Mandatory.)
 
 **Description** –
 a detailed description of the content type. (Optional.)
@@ -43,7 +43,7 @@ a detailed description of the content type. (Optional.)
 a pattern that defines what name a new content item based on this content type gets.
 The pattern usually consists of Field identifiers that tell the system which Fields it should use when generating the name of a content item.
 Each Field identifier has to be surrounded with angle brackets.
-Text outside the angle brackets will be included literally.
+Text outside the angle brackets is included literally.
 If no pattern is provided, the system will automatically use the first Field. (Optional.)
 
 ??? note "Pattern examples"
@@ -86,10 +86,10 @@ If no pattern is provided, the system will automatically use the first Field. (O
 
 
 **URL alias name pattern** –
-a pattern which controls how the virtual URLs of the Locations will be generated when content items are created based on this content type.
-Note that only the last part of the virtual URL is affected. The pattern works in the same way as the Content name pattern.
-Text outside the angle brackets will be converted using the selected method of URL transformation.
-If no pattern is provided, the system will automatically use the name of the content item itself. (Optional.)
+a pattern which controls how the virtual URLs of the Locations is generated when content items are created based on this content type.
+Only the last part of the virtual URL is affected. The pattern works in the same way as the Content name pattern.
+Text is converted using the selected method of URL transformation.
+If no pattern is provided, the system automatically uses the name of the content item itself. (Optional.)
 
 !!! tip "Changing URL alias and Content name patterns"
 
@@ -112,7 +112,7 @@ a flag which indicates if content items based on this content type are allowed t
 **Sort children by default by** –
 rule for sorting sub-items.
 If the instances of this content type can serve as containers,
-their children will be sorted according to what is selected here.
+their children are sorted according to what is selected here.
 
 **Sort children by default in order** –
 another rule for sorting sub-items.
