@@ -14,7 +14,7 @@ instance must [request access to the service]([[= user_doc =]]/personalization/e
 ## Set up customer credentials
 
 When you receive the credentials, add them to your configuration.
-In the root folder of your project, edit `.env.local` file
+In the root folder of your project, edit the `.env.local` file
 by adding the following lines with your customer ID and license key: 
 
 ```
@@ -142,7 +142,7 @@ ibexa:
 ```
 !!! note "Support for alphanumeric content identifier"
 
-     Contact `support@ibexa.co` with your organization's requirements to have the alphanumeric content identifier enabled.
+     Contact support@ibexa.co with your organization's requirements to have the alphanumeric content identifier enabled.
 
 #### Enable tracking
 
