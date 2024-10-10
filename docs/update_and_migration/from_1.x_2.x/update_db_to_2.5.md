@@ -88,7 +88,7 @@ In v2.2 Page Builder does not offer all blocks that Landing Page editor did. The
 The Places block has been removed from the clean installation and is only available in the demo out of the box.
 If you use this block in your site, re-apply its configuration based on the [demo](https://github.com/ezsystems/ezplatform-ee-demo/blob/v2.2.2/app/config/blocks.yml).
 
-Later versions of Page Builder come with a Content Scheduler block and new Form Blocks, but migration of Schedule blocks to Content Scheduler blocks and of Form Blocks is not supported. 
+Later versions of Page Builder come with a Content Scheduler block and new Form Blocks, but migration of Schedule blocks to Content Scheduler blocks and of Form Blocks isn't supported. 
 
 If there are missing block definitions, such as Form Block or Schedule Block,
 you have an option to continue, but migrated Landing Pages come without those blocks.

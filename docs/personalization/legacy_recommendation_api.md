@@ -219,7 +219,7 @@ The last modification timestamp indicates a change that could influence the reco
 | Bestselling products last 7 days | no context | 24 hours | The model with the 7 days scope is usually built once a day. It can be easily cached for 24 hours. It has no context and can therefore be cached globally for all the users of a customer. |
 | Also bought products in the last month | current product | 24 hours | The model with the 30 days scope is usually built once a day. The context is always the same. It can be cached for every product. The same result can be used for all users of a customer. |
 | Also consumed read articles in the last hour | current article | 30 minutes | Models with a short scope are usually built several times a day or even per hour. In this case the expiration time is set to the half of the model build frequency/period. |
-| Personalized recommendation based on the user's statistic | customers click history | now | Although the statistic model is not updated within minutes, it's very likely that the context is changed shortly (customer clicks another product and therefore the click is added to his history). The expiration time should not be much longer than the user activity on the web page. |
+| Personalized recommendation based on the user's statistic | customers click history | now | Although the statistic model isn't updated within minutes, it's very likely that the context is changed shortly (customer clicks another product and therefore the click is added to his history). The expiration time should not be much longer than the user activity on the web page. |
 
 In most cases you do not need to calculate the expiration time manually. The table above is provided for the orientation, how the Expires header of the HTTP response is calculated by the recommendation engine and already provided to your caching system. You just need to make sure that the Expires header is used in the configuration of your caching system instead of a static value out of your configuration.
 
@@ -231,7 +231,7 @@ There are several ways to integrate the REST calls to the Recommendation engine 
 
 The simplest way to load recommendations is to synchronously request the Recommendation Engine for recommendations as they're needed.
 This way is sufficient in most cases. The most important drawback is that the request time increases by the time of the recommendation request.
-If the network is overloaded or the Recommendation Engine is not available it can lock the request.
+If the network is overloaded or the Recommendation Engine isn't available it can lock the request.
 
 #### Loading in the bottom
 
@@ -266,7 +266,7 @@ An overview of pros and cons for each of the above techniques:
 
 |Problem|Simple Way|Bottom loading|Background loading|JSONP|XMLHttpRequest + Proxy|
 |---|---|---|---|---|---|
-|Is not blocked by ad blockers or no-track plug-ins|Yes|Yes|Yes|-|Yes|
+|Isn't blocked by ad blockers or no-track plug-ins|Yes|Yes|Yes|-|Yes|
 |Works if JavaScript is disabled|Yes|depends|-|-|-|	 	 
 |Works for server without multithreading functionality|Yes|Yes|-|Yes|Yes|
 |Compatible with frontend caching on the server|-|-|-|Yes|Yes|

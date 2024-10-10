@@ -376,7 +376,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
     ### Ibexa Cloud Setup support matrix
 
-    All Ibexa DXP features are supported in accordance with the example above. For example: As Legacy Bridge is not supported with v3, it's not supported on Ibexa Cloud either.
+    All Ibexa DXP features are supported in accordance with the example above. For example: As Legacy Bridge isn't supported with v3, it's not supported on Ibexa Cloud either.
 
     !!! note
 
@@ -399,7 +399,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
     - Additional time for adaptation and configuration work, and testing by your development team
     - Additional consulting/onboarding time with Platform.sh, Ibexa technical services, and/or one of the many partners with prior experience using Platform.sh with Ibexa DXP
 
-    The cost and effort of this is not included in Ibexa Cloud subscription and is vary depending on the project.
+    The cost and effort of this isn't included in Ibexa Cloud subscription and is vary depending on the project.
 
     ### Custom integrations
 
@@ -423,7 +423,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
     ### Ibexa Cloud Setup support matrix
 
-    All Ibexa DXP features are supported in accordance with the example above. For example: As Legacy Bridge is not supported with v3, it's not supported on Ibexa Cloud either.
+    All Ibexa DXP features are supported in accordance with the example above. For example: As Legacy Bridge isn't supported with v3, it's not supported on Ibexa Cloud either.
 
     !!! note
 
@@ -446,7 +446,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
     - Additional time for adaptation and configuration work, and testing by your development team
     - Additional consulting/onboarding time with Platform.sh, Ibexa technical services, and/or one of the many partners with prior experience using Platform.sh with Ibexa DXP
 
-    The cost and effort of this is not included in Ibexa Cloud subscription and is vary depending on the project.
+    The cost and effort of this isn't included in Ibexa Cloud subscription and is vary depending on the project.
 
     ### Custom integrations
 
@@ -465,7 +465,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
     For example:
 
     - Platform.sh provides Redis support for versions 2.8, 3.0 and 3.2. eZ Platform supports Redis version 3.2 or higher. As a result, Redis is supported by eZ Platform Cloud versions 3.2.
-    - Platform.sh provides Elastic Search service (different versions supported). Elastic Search is not supported for use as search engine for eZ Platform.
+    - Platform.sh provides Elastic Search service (different versions supported). Elastic Search isn't supported for use as search engine for eZ Platform.
 
     Features or services supported by eZ Platform but not covered by Platform.sh may be possible by means of a [custom integration](#custom-integrations).
 
@@ -484,11 +484,11 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
     - Additional time for adaptation and configuration work, and testing by your own team
     - Additional consulting/onboarding time with Platform.sh, Ibexa technical services, and/or one of the many partners with prior experience using Platform.sh with eZ Publish legacy
 
-    The cost and effort of this is not included in eZ Platform Cloud subscription and is vary depending on the project.
+    The cost and effort of this isn't included in eZ Platform Cloud subscription and is vary depending on the project.
 
     ### Experimental/custom Platform.sh setups
 
-    Any use of experimental versions or setups is not eligible for use with eZ Platform Cloud.
+    Any use of experimental versions or setups isn't eligible for use with eZ Platform Cloud.
     However, it's possible to use an eZ Enterprise subscription in combination with a Platform.sh contract,
     where you or a partner take ownership of the configuration to set up the project.
 

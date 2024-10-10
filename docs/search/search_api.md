@@ -115,7 +115,7 @@ You can use the `ContentService::find(Filter)` method to find content items or
 `ContentService::find` returns an iterable [`ContentList`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentList.html)
 while `LocationService::find` returns an iterable [`LocationList`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-LocationList.html).
 
-Filtering differs from search. It does not use the `SearchService` and is not based on indexed data.
+Filtering differs from search. It does not use the `SearchService` and isn't based on indexed data.
 
 [`Filter`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Filter-Filter.html) enables you to configure a query using chained methods to select criteria, sorting, limit and offset.
 

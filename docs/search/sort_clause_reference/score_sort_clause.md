@@ -9,7 +9,7 @@ orders search results by their score.
 
 ## Limitations
 
-The `Score` Sort Clause is not available in [Repository filtering](search_api.md#repository-filtering).
+The `Score` Sort Clause isn't available in [Repository filtering](search_api.md#repository-filtering).
 
 ## Example
 

@@ -53,12 +53,12 @@ Variables:
 
 |Name|Type|Values|
 |----|----|-----------|
-|`headline` (optional)|string|if not specified, the header is not rendered|
+|`headline` (optional)|string|if not specified, the header isn't rendered|
 |`headline_items`|array|
 |`view_mode`|string|`vertical`, default set to `''`|
 |`items`|hash|{`label`, `content_raw`, `content`}|
 
-If `headline` is not specified, the `headline_items` is not rendered.
+If `headline` isn't specified, the `headline_items` isn't rendered.
 
 ## Modal
 
@@ -80,7 +80,7 @@ Variables:
 |Name|Type|Values|
 |----|----|-----------|
 |`size`|string|`small`, `large`, `extra-large`, default set to: `''`|
-|`subtitle`|string|no default value, if not defined, the `subheader` is not rendered|
+|`subtitle`|string|no default value, if not defined, the `subheader` isn't rendered|
 |`no_header`|boolean|default set to `false`|
 |`no_header_border`|boolean|default set to `false`|
 |`class`|string|default `''`|
@@ -317,7 +317,7 @@ The tab component supports the following variables:
 - `id` - tab ID
 - `label` - human-readable label for the tab
 - `active` - true if tab is active
-- `content` - HTML content of tab if `tab_content` is not overridden
+- `content` - HTML content of tab if `tab_content` isn't overridden
 - `tab_content_class` - additional CSS classes attached to `.tab-content`
 - `tab_content_attributes` - additional HTML attributes added to `.tab-content`
 

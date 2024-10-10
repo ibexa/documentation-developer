@@ -73,7 +73,7 @@ You can restrict who can review the content item by setting `reviewers.user_grou
 To be able to search for users for review, the user must have the content/read Policy without any Limitation,
 or with a Limitation that allows reading users.
 This means that, in addition to your own settings for this Policy, 
-you must add the /Users subtree to the Limitation and add Users in the [content type Limitation](limitation_reference.md#content-type-limitation).
+you must add the /Users subtree to the Limitation and add users in the [content type Limitation](limitation_reference.md#content-type-limitation).
 
 ``` yaml hl_lines="8 9"
 [[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 23, 32) =]]
@@ -172,7 +172,7 @@ For example, you can use it to only allow a legal team to edit content in the `l
 ### Validate form before workflow transition
 
 By default, sending content to the next stage of the workflow does not validate the form in UI,
-so with the publish action, the form is not verified for errors in UI.
+so with the publish action, the form isn't verified for errors in UI.
 However, during the publish action, the sent form is validated in the service.
 
 Therefore, if there are any errors in the form, you return to the edit page but errors aren't triggered,

@@ -34,7 +34,7 @@ ibexa_site_factory:
 
 Now, you can see the path to the new site's parent Location under design selection.
 If you have sufficient permissions, you can change the defined Location during site creation.
-If the parent Location is not defined, you have to choose it from Universal Discovery Widget.
+If the parent Location isn't defined, you have to choose it from Universal Discovery Widget.
 
 ## Site skeletons
 
@@ -90,7 +90,7 @@ ibexa_site_factory:
 
 Manage the permissions associated to the user group skeleton by [assigning roles](https://doc.ibexa.co/projects/userguide/en/latest/site_organization/organizing_the_site/#managing-permissions).
 Make sure that the roles that you assign to the user group skeleton do not contain Location-based limitations. 
-User group skeletons cannot contain individual User content items either.
+User group skeletons cannot contain individual user content items either.
 
 User group skeletons are retained after deleting the site.
 

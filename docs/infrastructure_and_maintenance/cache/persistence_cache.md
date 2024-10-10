@@ -33,7 +33,7 @@ Notes:
   order to allow clearing cache by alternative indexes.
   For instance tree operations or changes to content types are
   examples of operations that also need to invalidate content cache by tags.
-- Search is not defined as persistence and the queries themselves are not planned to be cached as they're too complex by design (for example, full text).
+- Search isn't defined as persistence and the queries themselves are not planned to be cached as they're too complex by design (for example, full text).
   Use [Solr](solr_overview.md) which caches this for you to improve scale/performance, and to offload your database.
 
 For further details on which calls are cached or not, see details in the [Symfony Web Debug Toolbar](devops.md#web-debug-toolbar)
@@ -91,7 +91,7 @@ ibexa:
 
 Persistence cache layer caches selected objects in-memory for a short time.
 It avoids loading repeatedly the same data from e.g. a remote Redis instance, which can take up to 4-5ms per call due to the network latency and Redis instance load.
-The cache is organized in 2 pools, one for metadata which is not updated frequently, and one for content related objects that is only meant as a short-lived burst cache.
+The cache is organized in 2 pools, one for metadata which isn't updated frequently, and one for content related objects that is only meant as a short-lived burst cache.
 Limit is organized using a [least frequently used (LFU)](https://en.wikipedia.org/wiki/Least_frequently_used) approach.
 It makes sure repeatedly used objects stay in-memory until expired, and those seldom used are bulk evicted from cache every time the maximum number of cache items is reached.
 
@@ -149,7 +149,7 @@ Use of LRU or LFU is recommended. it's also possible to use `noeviction`, but it
 
 ##### `Symfony\Component\Cache\Adapter\RedisAdapter`
 
-**Pros**: Uses a bit less memory than `RedisTagAwareAdapter`, so it eliminated the risk of stopping saving cache when there is not enough memory.
+**Pros**: Uses a bit less memory than `RedisTagAwareAdapter`, so it eliminated the risk of stopping saving cache when there isn't enough memory.
 
 **Cons**: 1.5-2x more lookups to the back-end cache server then `RedisTagAwareAdapter`.
 Depending on the number of lookups and latency to cache server this might affect page load time.

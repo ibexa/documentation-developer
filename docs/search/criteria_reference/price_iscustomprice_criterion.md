@@ -12,7 +12,7 @@ This Criterion takes no arguments.
 
 ## Limitations
 
-The `IsCustomPrice` Criterion is not available in Solr or Elasticsearch engines.
+The `IsCustomPrice` Criterion isn't available in Solr or Elasticsearch engines.
 
 ## Example
 

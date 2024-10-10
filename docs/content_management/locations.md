@@ -32,7 +32,7 @@ The content tree is hierarchical. It has an empty root Location at the top and a
 Every Location (aside from the root) has one parent Location and can have any number of children.
 
 Top level Locations are direct children of the root of the tree.
-The root has Location ID 1, is not related to any content items and should not be used directly.
+The root has Location ID 1, isn't related to any content items and should not be used directly.
 
 Under this root there are preset top level Locations in each installation which cannot be deleted.
 
@@ -60,14 +60,14 @@ It contains a Folder content item.
 
 ### Users
 
-**Users** is the top level Location that contains the built-in system for managing User accounts.
+**Users** is the top level Location that contains the built-in system for managing user accounts.
 
 ![Users in admin panel](admin_panel_users.png "Users in admin panel")
 
-A User is simply a content item of the User account content type.
-The Users are organized within user group content items below this Location.
+A user is simply a content item of the user account content type.
+The users are organized within user group content items below this Location.
 
-In other words, the **Users** Location contains the actual Users and user groups,
+In other words, the **Users** Location contains the actual users and user groups,
 which can be viewed by selecting the **Users** tab in the Admin Panel.
 
 The default ID number of the **Users** Location is 5.

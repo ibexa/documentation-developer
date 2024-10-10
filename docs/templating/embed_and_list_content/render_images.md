@@ -28,7 +28,7 @@ This enables you to avoid a situation where, for example, the featured image in 
 because the first image Field was left empty.
 
 The [`ibexa_content_field_identifier_first_filled_image()`](image_twig_functions.md#ibexa_content_field_identifier_first_filled_image) Twig function
-returns the identifier of the first image Field that is not empty.
+returns the identifier of the first image Field that isn't empty.
 
 ``` html+twig
 {% set firstImage = ibexa_content_field_identifier_first_filled_image(content) %}

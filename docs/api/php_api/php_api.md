@@ -50,11 +50,11 @@ You can access the PHP API by injecting relevant services into your code:
 - By using [auto-wiring]([[=symfony_doc=]]/service_container/autowiring.html), and the service classname in the `Ibexa\Contracts` namespace (see `bin/console debug:autowiring | grep Ibexa.Contracts`).
 - By using [service parameters]([[=symfony_doc=]]/service_container.html#service-parameters), and service aliases (see `bin/console debug:autowiring | grep ibexa.api`).
 - By using the Repository's `get[ServiceName]()` methods: [`Repository::getContentService()`](php_api_reference/classes/Ibexa-Contracts-Core-Repository-Repository.html#method_getContentService), [`getUserService()`](php_api_reference/classes/Ibexa-Contracts-Core-Repository-Repository.html#method_getUserService), etc.
-  (Prefer injecting several Repository's dedicated services instead of the whole Repository if the Repository itself is not needed.)
+  (Prefer injecting several Repository's dedicated services instead of the whole Repository if the Repository itself isn't needed.)
 
 !!! caution
 
-    The PHP API's services can be accessed with `Ibexa\Bundle\Core\Controller::getRepository()` by extending it from a [custom controller](controllers.md), but such approach is not recommended, and you should prefer dependency injection.
+    The PHP API's services can be accessed with `Ibexa\Bundle\Core\Controller::getRepository()` by extending it from a [custom controller](controllers.md), but such approach isn't recommended, and you should prefer dependency injection.
 
 ## Value objects
 
@@ -141,7 +141,7 @@ In order to identify as a different user, you need to use the `UserService` toge
 
     [`Ibexa\Contracts\Core\Repository\PermissionService`](php_api_reference/classes/Ibexa-Contracts-Core-Repository-PermissionService.html) can be injected to have a Service which provides both `PermissionResolver` and `PermissionCriterionResolver`. It supports auto-wiring.    
 
-This is not required in template functions or controller code,
+This isn't required in template functions or controller code,
 as the HTTP layer takes care of identifying the user, and automatically sets it in the repository.
 
 If you want to identify a user with their credentials instead, provide them in the following way:

@@ -11,7 +11,7 @@ Client applications, such as mobile apps, are able to authenticate a user, and t
 
 ## Server installation
 
-[[= product_name =]] Oauth2 server package is `ibexa/oauth2-server` and is not part of the default installation.
+[[= product_name =]] Oauth2 server package is `ibexa/oauth2-server` and isn't part of the default installation.
 You can install it with the following command:
 
 ```bash

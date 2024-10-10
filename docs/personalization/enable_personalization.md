@@ -528,7 +528,7 @@ before the main subscriber is run.
 
 ### Image variations
 
-Displaying image variations is not supported out of the box.
+Displaying image variations isn't supported out of the box.
 
 You can work around this limitation by creating a template
 (based on [recommendations.html.twig](https://github.com/ibexa/personalization-client/blob/main/src/bundle/Resources/views/recommendations.html.twig)).

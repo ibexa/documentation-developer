@@ -81,7 +81,7 @@ Submitted results can be previewed in the UI or downloaded in a CSV file, and a 
 
 ### Updated Demo Sites
 
-The Enterprise demo site has been significantly improved featuring a new **Product content type** that is used to show products in the Tasteful Planet demo. The product we used are meals that, in a non-demo ideal world, would be available to order and consume. This ordering part is not in the demo, nevertheless, the content looks really yummy... Other improvements includes the good setup of all content type field categories and the demonstration of basic SEO field types. Demo content itself has also been upgraded with more content to better demonstrate the capabilities.
+The Enterprise demo site has been significantly improved featuring a new **Product content type** that is used to show products in the Tasteful Planet demo. The product we used are meals that, in a non-demo ideal world, would be available to order and consume. This ordering part isn't in the demo, nevertheless, the content looks really yummy... Other improvements includes the good setup of all content type field categories and the demonstration of basic SEO field types. Demo content itself has also been upgraded with more content to better demonstrate the capabilities.
 
 ![](productcontenttype.png)
 

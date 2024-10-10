@@ -95,11 +95,11 @@ After logout, the anonymous user ID can be used again.
     If a browser has JavaScript or cookies disabled, make sure that you put some
     "dummy" value as identifier in the tracking request to avoid losing tracking
     information.
-    Even if the event is not user-specific, it's still useful for [popularity models]([[= user_doc =]]/personalization/recommendation_models/).
+    Even if the event isn't user-specific, it's still useful for [popularity models]([[= user_doc =]]/personalization/recommendation_models/).
 
 The Personalization server internally creates a hash of every user ID.
-The original ID is not saved.
-It's still possible that the original ID appears in the log files for the debugging
+The original ID isn't saved.
+it's still possible that the original ID appears in the log files for the debugging
 purposes but log files are purged regularly.
 The user ID is case sensitive.
 
@@ -246,7 +246,7 @@ and `quantity` can be set to 4.
 
 The Buy event is only relevant if the user is charged per product, like in a classic shop.
 If products are sold on a subscription basis, or the web presence is ad-sponsored,
-this event type is not applicable.
+this event type isn't applicable.
 
 #### Prices in a Buy event
 
@@ -261,7 +261,7 @@ For more information, see [Content API](content_api.md).
 
 The currency is stored with the price and normalized only when statistic information
 is requested.
-It's often a good choice to select a base currency and convert prices before
+it's often a good choice to select a base currency and convert prices before
 sending the buy event.
 The price attached to a buy event never overwrites the price which was defined
 in an item import.
@@ -297,10 +297,10 @@ Some optional request parameters can be set over query string parameters (GET pa
 !!! note "eCommerce vs. content publishing"
 
     The Consume event is important for content publishing websites.
-    For eCommerce stores, this event is not required but can be used in custom implementations.
+    For eCommerce stores, this event isn't required but can be used in custom implementations.
 
 The event is sent when the end user stays on the page for a predefined period of time.
-It's then assumed that the user consumed the item (read an article or watched a video).
+it's then assumed that the user consumed the item (read an article or watched a video).
 
 The URL has the following format:
 
@@ -503,7 +503,7 @@ The URL for a Rendered event has the following format:
 
 For a detailed description of embedded parameters, see [event parameters](#event-parameters).
 
-It's common that recommendations are rendered as a block with multiple items.
+it's common that recommendations are rendered as a block with multiple items.
 To save traffic and speed up the process, you can bundle multiple recommendations in one request.
 Several item IDs must be comma-separated.
 

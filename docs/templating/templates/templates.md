@@ -54,7 +54,7 @@ Main variables include:
 |`ibexa.siteaccess`| Current [SiteAccess](multisite.md). |
 |`ibexa.rootLocation`| Root Location object. |
 |`ibexa.requestedUriString`| Requested URI string. |
-|`ibexa.systemUriString`| System URI string. System URI is the URI for internal content controller. If the current route is not a URL alias, then the current PathInfo is returned. |
+|`ibexa.systemUriString`| System URI string. System URI is the URI for internal content controller. If the current route isn't a URL alias, then the current PathInfo is returned. |
 |`ibexa.viewParameters`| View parameters as a hash. |
 |`ibexa.viewParametersString`| View parameters as a string. |
 |`ibexa.translationSiteAccess`| Translation SiteAccess for a given language (null if the SiteAccess cannot be found). |

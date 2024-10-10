@@ -42,7 +42,7 @@ Place the `factbox.html.twig` template in the
 
 !!! tip
 
-    If an attribute is not required, check if it's defined by adding a check 
+    If an attribute isn't required, check if it's defined by adding a check 
     in the template, for example:
 
     ```html+twig

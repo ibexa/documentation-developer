@@ -103,7 +103,7 @@ cartService.deleteCartEntry(cartIdentifier, entryIdentifier);
 ```
 
 Every cart service function returns a `Promise` object with a parsed response.
-When the request is not `OK`, it can throw an error with the response `statusText`.
+When the request isn't `OK`, it can throw an error with the response `statusText`.
 
 - `loadUserCarts(ownerId)` - loads 10 user carts
 - `loadCartSummary(cartIdentifier)` - load cart summary data

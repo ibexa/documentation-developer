@@ -26,15 +26,15 @@ Similarly, you can load a Segment by using `SegmentationService::loadSegmentById
 
 ## Checking assignment
 
-You can check whether a User is assigned to a Segment with `SegmentationService::isUserAssignedToSegment()`:
+You can check whether a user is assigned to a Segment with `SegmentationService::isUserAssignedToSegment()`:
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 66, 71) =]]
 ```
 
-## Assigning Users
+## Assigning users
 
-To assign a User to a Segment, use `SegmentationService::assignUserToSegment()`:
+To assign a user to a Segment, use `SegmentationService::assignUserToSegment()`:
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/SegmentCommand.php', 64, 65) =]]

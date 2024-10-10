@@ -30,7 +30,7 @@ To set up custom templates for invitation or registration forms,
 create a template file and inform the system, through configuration, when to use this template.
 
 You might also set a SiteAccess under `scope`, to which the new user is invited.
-If the SiteAccess is not set, it falls back to the default `site` value.
+If the SiteAccess isn't set, it falls back to the default `site` value.
 
 For example, use the following [configuration](configuration.md#configuration-files):
 

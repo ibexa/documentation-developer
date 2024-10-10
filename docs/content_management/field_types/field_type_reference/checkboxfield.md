@@ -46,4 +46,4 @@ $checkboxValue = new Checkbox\Value( true );
 
 ##### String representation
 
-As this field type is not a string but a boolean, it returns "1" (true) or "0" (false) in cases where it's cast to string, and it's never considered empty.
+As this field type isn't a string but a boolean, it returns "1" (true) or "0" (false) in cases where it's cast to string, and it's never considered empty.

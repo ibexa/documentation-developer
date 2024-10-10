@@ -252,7 +252,7 @@ that ensures the array setting has unique values. It only works on normal arrays
 
 !!! note
 
-    Merge is not recursive. Only second level merge is possible by using `ContextualizerInterface::MERGE_FROM_SECOND_LEVEL` option.
+    Merge isn't recursive. Only second level merge is possible by using `ContextualizerInterface::MERGE_FROM_SECOND_LEVEL` option.
 
 ### Dedicated mapper object
 

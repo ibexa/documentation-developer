@@ -25,7 +25,7 @@ First, update your application to the latest version of v4.0: v4.0.8.
 ### Update Flex server
 
 The `flex.ibexa.co` Flex server has been disabled.
-If you're using earlier v4.x versions, and you have not done it before,
+If you're using earlier v4.x versions, and you haven't done it before,
 you have to update your Flex server.
 
 To do it, in your `composer.json`, check whether the `https://flex.ibexa.co` endpoint is still listed in `extra.symfony.endpoint`.
@@ -119,7 +119,7 @@ Apply the following database update scripts:
 
 #### Ibexa Open Source
 
-If you're using [[= product_name_oss =]] and have no access to [[= product_name =]]'s `ibexa/installer` package, database upgrade is not necessary.
+If you're using [[= product_name_oss =]] and have no access to [[= product_name =]]'s `ibexa/installer` package, database upgrade isn't necessary.
 
 ## Update the app to latest version of v4.1
 

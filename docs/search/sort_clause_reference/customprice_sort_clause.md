@@ -11,7 +11,7 @@ If you do not provide a customer group, the query uses the group related to the 
 
 ## Limitations
 
-The `CustomPrice` Sort Clause is not available in the Legacy Search engine.
+The `CustomPrice` Sort Clause isn't available in the Legacy Search engine.
 
 ## Example
 

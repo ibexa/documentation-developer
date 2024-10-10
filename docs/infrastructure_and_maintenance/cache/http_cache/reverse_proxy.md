@@ -321,9 +321,9 @@ By default, [[= product_name =]] always soft purges content on reverse proxies t
 with the following logic in the out-of-the-box VCL:
 
 - Cache is within grace period.
-- Either the server is not responding, or the request comes without a session cookie (anonymous user).
+- Either the server isn't responding, or the request comes without a session cookie (anonymous user).
 
-Serving grace is not always allowed by default because:
+Serving grace isn't always allowed by default because:
 
 - It's a safe default. Even if just for anonymous users, stale cache can easily be confusing during acceptance testing.
 - It means REST API, which is used by the back office, would serve stale data, breaking the UI.
@@ -331,6 +331,6 @@ Serving grace is not always allowed by default because:
 !!! tip "Customizing stale cache handling"
 
     If you want to use grace handling for logged-in users as well, you can adapt the provided VCL to add a condition
-    for opting out if the request has a cookie and the path contains REST API prefix to make sure the back office is not negatively affected.
+    for opting out if the request has a cookie and the path contains REST API prefix to make sure the back office isn't negatively affected.
 
     If you want to disable grace mode, you can adapt the VCL to do hard instead of soft purges, or set grace/stale time to `0s`.

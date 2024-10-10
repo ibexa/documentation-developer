@@ -81,7 +81,7 @@ Default values:
 
 !!! note
 
-    As SiteAccess configuration Flysystem's v2 native Local NFS adapter is not supported, the following
+    As SiteAccess configuration Flysystem's v2 native Local NFS adapter isn't supported, the following
     configuration should be used:
 
     ``` yaml

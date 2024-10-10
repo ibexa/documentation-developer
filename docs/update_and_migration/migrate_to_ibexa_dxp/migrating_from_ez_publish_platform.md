@@ -291,7 +291,7 @@ ImagesClassList[]
 ImagesClassList[]=image
 ```
 
-If the `--image-content-types` option is not specified, the default setting `image` is used.
+If the `--image-content-types` option isn't specified, the default setting `image` is used.
 
 !!! note
 
@@ -414,7 +414,7 @@ The conversion tool also complains about IDs which contain invalid characters.
 
 **Links with non-existing `object_remote_id` or `node_remote_id`.**
 
-In `ezxmltext` you may have links which refer to other objects by their remote ID. This is not supported in `richtext`, so the conversion tool must look up such remote IDs and replace them with the `object_id` or `node_id`. If the conversion tool cannot find the object by its remote id, it issues a warning about it.
+In `ezxmltext` you may have links which refer to other objects by their remote ID. This isn't supported in `richtext`, so the conversion tool must look up such remote IDs and replace them with the `object_id` or `node_id`. If the conversion tool cannot find the object by its remote id, it issues a warning about it.
 
 In older eZ Publish databases you may also have invalid links due to lack of reference to a target (no `href`, `url_id`, etc.):
 
@@ -426,7 +426,7 @@ When the conversion tool detects links with no reference it issues a warning and
 
 **`<literal>`**
 
-The `<literal>` tag is not yet supported in eZ Platform. For more information about this, please have a look at [EZP-29328](https://issues.ibexa.co/browse/EZP-29328) and [EZP-29027](https://issues.ibexa.co/browse/EZP-29027).
+The `<literal>` tag isn't yet supported in eZ Platform. For more information about this, please have a look at [EZP-29328](https://issues.ibexa.co/browse/EZP-29328) and [EZP-29027](https://issues.ibexa.co/browse/EZP-29027).
 
 When you're ready to migrate your eZ Publish XmlText content to the eZ Platform RichText format and start using pure eZ Platform setup, start the conversion script without the `--dry-run` option. Execute the following from &lt;new-ez-root&gt;:
 

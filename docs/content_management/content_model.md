@@ -47,7 +47,7 @@ See [Sections](sections.md) for more information.
 
 **`published`** - true if a published version exists, otherwise false.
 
-**`ownerId`** - ID of the User who initially created the content item.
+**`ownerId`** - ID of the user who initially created the content item.
 It's set by the system the first time the content item is published.
 The ownership of an item cannot be modified and doesn't change even if the owner is removed from the system.
 
@@ -110,7 +110,7 @@ Aside from the field type, the Field definition in a content type provides the f
 
 **[Searchable](search.md)** – a flag which indicates if the value of the Field is indexed for searching.
 
-The Searchable flag is not available for some Fields, because some field types do not allow searching through their values.
+The Searchable flag isn't available for some Fields, because some field types do not allow searching through their values.
 
 **[Translatable](languages.md)** – a flag which indicates if the value of the Field can be translated. This is independent of the field type, which means that even Fields such as "Float" or "Image" can be set as translatable.
 
@@ -127,7 +127,7 @@ Depending on the field type, there may also be other, specific information to fi
 Each content item can have multiple versions.
 Each version has one of the following statuses: *draft*, *archived* or *published*.
 
-A new version is created every time a content item is edited. The previous published version is not modified.
+A new version is created every time a content item is edited. The previous published version isn't modified.
 
 Only one version can be published at the same time.
 When you publish a new version, the previous published version changes its status to Archived.

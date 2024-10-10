@@ -765,7 +765,7 @@ You can paginate plural fields using `edges`:
 ```
 
 This query returns the first three articles, ordered by their publication date.
-If the current `Connection` (list of results) is not finished yet and there are more items to read,
+If the current `Connection` (list of results) isn't finished yet and there are more items to read,
 `hasNextPage` is `true`.
 
 For the `children` node, you can use the following pagination method:

@@ -320,7 +320,7 @@ Apply the following database update scripts:
 
 #### Ibexa Open Source
 
-If you have no access to Ibexa DXP's `ibexa/installer` package, database upgrade is not necessary.
+If you have no access to Ibexa DXP's `ibexa/installer` package, database upgrade isn't necessary.
 
 ## Ensure password safety
 

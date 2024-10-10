@@ -101,7 +101,7 @@ The empty zones you defined in the template are visible in the editor.
 
 !!! tip
 
-    If the new layout is not available when editing the Page, you may need to clear the cache (using `php bin/console cache:clear`) and/or reload the app.
+    If the new layout isn't available when editing the Page, you may need to clear the cache (using `php bin/console cache:clear`) and/or reload the app.
 
 ![Empty page with new layout](enterprise_tut_new_layout.png)
 
@@ -126,6 +126,6 @@ Edit the `config/packages/views.yaml` file and add the following code under the
 ```
 
 After adding this template you can check the new Page.
-The part between menu and footer should be empty, because you have not added any content to it yet.
+The part between menu and footer should be empty, because you haven't added any content to it yet.
 
 ![Empty Page](enterprise_tut_empty_page.png)

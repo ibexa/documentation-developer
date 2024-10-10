@@ -87,12 +87,12 @@ In the **User account (ezuser)** Field definition, you can set password expirati
 ![Password expiry settings](password_expiry.png)
 
 You can also decide when the user is notified that they need to change their password.
-The notification is displayed in the back office after login and in the User content item's preview.
+The notification is displayed in the back office after login and in the user content item's preview.
 
 ## Repeating passwords
 
 You can set a rule that the password cannot be reused.
-You set it for the User content type in the **User account (ezuser)** field type's settings.
+You set it for the user content type in the **User account (ezuser)** field type's settings.
 When this is set, the user cannot type in the same password when it expires.
 It has to be changed to a new one.
 

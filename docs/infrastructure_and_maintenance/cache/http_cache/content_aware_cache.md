@@ -125,7 +125,7 @@ If the given content has several Locations, you can see several `l<location-id>`
     
     - the response has attribute `view`
     - the view implements `Ibexa\Core\MVC\Symfony\View\CachableView`
-    - cache is not disabled on the individual view
+    - cache isn't disabled on the individual view
 
     If that checks out, the response is adapted with the following:
     
@@ -591,7 +591,7 @@ Surrogate-Key: ez-all
 ```
 
 The `Cache-Control` and `Vary` headers look correct. The request is handled by a custom controller and the `Surrogate-Key` only contains the default `ez-all` value. 
-This is not a problem as long as the controller
+This isn't a problem as long as the controller
 does not return values from any Content in the [[= product_name =]] Repository. If it does, the controller should also add
 the corresponding IDs to such objects in that header.
 

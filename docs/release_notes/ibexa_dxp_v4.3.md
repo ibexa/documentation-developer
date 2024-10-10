@@ -111,7 +111,7 @@ Now, as a Personalization admin, after editing a model in the back office,
 Objects of `Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry` type,
 which are returned by `TaxonomyService`, now contain the information about nesting level in the tree.
 
-The `TaxonomyEntryId` Search Criterion is not available in Legacy search Engine.
+The `TaxonomyEntryId` Search Criterion isn't available in Legacy search Engine.
 
 ### Other improvements
 

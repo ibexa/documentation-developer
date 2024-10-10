@@ -12,7 +12,7 @@ This Criterion takes no arguments.
 
 ## Limitations
 
-The `IsBasePrice` Criterion is not available in Solr or Elasticsearch engines.
+The `IsBasePrice` Criterion isn't available in Solr or Elasticsearch engines.
 
 ## Example
 

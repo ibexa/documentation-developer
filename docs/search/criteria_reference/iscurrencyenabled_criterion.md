@@ -9,7 +9,7 @@ or disabled Currencies (`false`)
 
 ## Limitations
 
-The `IsCurrencyEnabledCriterion` Criterion is not available in Solr or Elasticsearch engines.
+The `IsCurrencyEnabledCriterion` Criterion isn't available in Solr or Elasticsearch engines.
 
 ## Example
 

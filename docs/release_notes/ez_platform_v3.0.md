@@ -216,7 +216,7 @@ In GraphQL, you can now [query Locations and their children](https://doc.ibexa.c
 
 #### Improved translating of notifications
 
-`TranslationService` is not injected into the `NotificationService`.
+`TranslationService` isn't injected into the `NotificationService`.
 You can now use `TranslatableNotificationHandlerInterface` for translated notifications.
 
 #### Multilingual content route

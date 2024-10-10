@@ -6,7 +6,7 @@ description: Legacy search engine overview.
 
 Legacy search engine is the default search engine. it's SQL-based and uses Doctrine's database connection.
 The connections are defined in the same way as for storage engine, and no further specific configuration is needed.
-Legacy search engine is recommended for basic needs and is not intended in production.
+Legacy search engine is recommended for basic needs and isn't intended in production.
 It allows you to use filtering and fulltext search, but with some limitations.
 For more information, check [search engine comparison](search_engines.md#search-engines-comparison)
 

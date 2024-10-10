@@ -32,7 +32,7 @@ or do-not-track plugins on the client side.
 
 Another option is to call the tracker from the server. 
 The most important drawback is that the event request increases the general request time. 
-If the network is overloaded or the Personalization server is not available, 
+If the network is overloaded or the Personalization server isn't available, 
 the number of requests can grow and lead to a stalled and finally crashing HTTP service. 
 See below the techniques that help avoid these problems.
 
@@ -75,7 +75,7 @@ An overview of pros and cons for every technique:
 
 | Feature | Pixel | Server-side | Page bottom | Async. reporting | JSONP | XMLHttpRequest + Proxy |
 |----|-----|-----|-----|-----|-----|------|
-| Is not blocked by ad blockers or do-not-track plug-ins. |-|&#10004;|&#10004;|&#10004;|-|&#10004;|
+| Isn't blocked by ad blockers or do-not-track plug-ins. |-|&#10004;|&#10004;|&#10004;|-|&#10004;|
 | Works if JavaScript is disabled. |&#10004;|&#10004;|&#10004;|&#10004;|-|-|
 | Is compatible with frontend caching on the server. |-|-|-|-|&#10004;|&#10004;|
 | Doesn't delay page rendering. |&#10004;|-|&#10004;|&#10004;|&#10004;|&#10004;|

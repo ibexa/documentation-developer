@@ -4,31 +4,31 @@ description: The permission system is based on policies that you assign to users
 
 # Permission overview
 
-A new User does not have permissions for any part of the system, unless they're explicitly given access.
+A new user does not have permissions for any part of the system, unless they're explicitly given access.
 To get access they need to inherit roles, typically assigned to the user group they belong to.
 
 Each role can contain one or more **Policies**. A policy is a rule that gives access to a single **function** in a **module**.
-For example, a `section/assign` Policy allows the User to assign content to Sections.
+For example, a `section/assign` Policy allows the user to assign content to Sections.
 
 When you add a policy to a role, you can also restrict it using one or more **Limitations**.
 A policy with a limitation only applies when the condition in the limitation is fulfilled.
-For example, a `content/publish` policy with a `ContentType` limitation on the "Blog Post" content type allows the User to publish only Blog Posts, and not other content.
+For example, a `content/publish` policy with a `ContentType` limitation on the "Blog Post" content type allows the user to publish only Blog Posts, and not other content.
 
-A limitation, like a policy, specifies what a User *can* do, not what they *can't do*.
-A `Section` limitation, for example, *gives* the User access to the selected Section, not *prohibits* it.
+A limitation, like a policy, specifies what a user *can* do, not what they *can't do*.
+A `Section` limitation, for example, *gives* the user access to the selected Section, not *prohibits* it.
 
 See [Limitation reference](limitation_reference.md) for further information
 and [Permission use cases](permission_use_cases.md) for example permission setups.
 
 ## Assigning roles to users
 
-Every user or user group can have many roles. A User can also belong to many groups, for example, Administrators, Editors, Subscribers.
+Every user or user group can have many roles. A user can also belong to many groups, for example, Administrators, Editors, Subscribers.
 
 it's best practice to avoid assigning roles to users directly.
 Instead, try to organize your content so that it can be covered with general roles assigned to user groups.
 
 Using Groups is easier to manage and more secure. It also improves system performance.
-The more role assignments and complex policies you add for a given User, the more complex the search/load queries are, because they always take permissions into account.
+The more role assignments and complex policies you add for a given user, the more complex the search/load queries are, because they always take permissions into account.
 
 ## Permissions for custom controllers
 

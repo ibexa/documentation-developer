@@ -79,7 +79,7 @@ They determine what Fields of what field types are included in all content items
     they're caused by the limitation of how many `$_POST` input variables can be accepted.
 
     The easiest way to fix them is by increasing the `max_input_vars` value in the `php.ini` configuration file.
-    Note that this solution is not universally recommended and you're proceeding on your own risk.
+    Note that this solution isn't universally recommended and you're proceeding on your own risk.
 
     Setting the limit inappropriately may damage your project or cause other issues.
     You may also experience performance problems with such large content types, in particular when you have many content items.

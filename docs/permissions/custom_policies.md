@@ -4,7 +4,7 @@ description: Create a custom policy to cover non-standard permission needs.
 
 # Custom policies
 
-The content Repository uses [roles and policies](permissions.md) to give Users access to different functions of the system.
+The content Repository uses [roles and policies](permissions.md) to give users access to different functions of the system.
 
 Any bundle can expose available Policies via a `PolicyProvider` which can be added to IbexaCoreBundle's [service container](php_api.md#service-container) extension.
 

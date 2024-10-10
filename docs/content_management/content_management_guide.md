@@ -96,7 +96,7 @@ and deleting them is done by using a visual interface, with no coding skills nee
 ### Content items
 
 Content items are pieces of content, such as, for example, products, articles, blog posts, or media. 
-In [[= product_name =]], everything is a content item — not just pages, articles or products, but also all media (images, videos, etc.) or even User accounts.
+In [[= product_name =]], everything is a content item — not just pages, articles or products, but also all media (images, videos, etc.) or even user accounts.
 
 Each content item, apart from its name and identifier, contains a composition of Fields, which differs depending on the type of content. 
 For example, articles might have a title, an author, a body, and an image, while products may have a name, category, price, size, color, etc.
@@ -205,7 +205,7 @@ Changing a Section setting does not result in moving a content item to a differe
 
 While reviewing the details of each individual content item in your content tree, you can assign a state to it, for example, “Locked” or “Not locked”. 
 Then you can set a permission that allows or denies users access to content items in a specific state. 
-This setting is not inherited.
+This setting isn't inherited.
 
 ![Object states in content item’s Details](img/object_states.png)
 
@@ -232,7 +232,7 @@ Reuse existing Fields Types or [customize them to fit your needs](create_custom_
 
 **2\. Define permissions**
 
-Although this step is not directly related to content management, 
+Although this step isn't directly related to content management, 
 it's a good time to [set up user roles and permissions]([[= user_doc =]]/permission_management/work_with_permissions/), which users would need to work with content.
 
 **3\. Author content**
@@ -244,7 +244,7 @@ You can pause and resume the work, preview the results, or send content for revi
 
 **4\. Publish**
 
-Again, this is not part of content management, but at this point you can [publish]([[= user_doc =]]/content_management/publish_instantly/) it right away or [schedule content for publication]([[= user_doc =]]/content_management/schedule_publishing/).
+Again, this isn't part of content management, but at this point you can [publish]([[= user_doc =]]/content_management/publish_instantly/) it right away or [schedule content for publication]([[= user_doc =]]/content_management/schedule_publishing/).
 
 **5\. Organize content**
 

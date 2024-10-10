@@ -14,7 +14,7 @@ Results of the query that do not belong to the content type are ranked lower.
 
 ## Limitations
 
-The `Field` Sort Clause is not available in [Repository filtering](search_api.md#repository-filtering).
+The `Field` Sort Clause isn't available in [Repository filtering](search_api.md#repository-filtering).
 
 ## Example
 

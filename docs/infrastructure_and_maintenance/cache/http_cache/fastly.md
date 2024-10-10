@@ -12,7 +12,7 @@ It means that you don't have to do any changes to the Fastly configuration to ma
 The information provided here is only applicable if you want to change the default Fastly configuration on Ibexa Cloud, 
 or if you're not using Ibexa Cloud and want to configure Fastly to work with [[= product_name =]] on premise.
 
-!!! note "The Fastly Web Interface is not available for Ibexa Cloud"
+!!! note "The Fastly Web Interface isn't available for Ibexa Cloud"
     It's recommend for Ibexa Cloud customers to use the Fastly CLI instead of using the Fastly API directly with `curl`, and so on.
 
 !!! note "Disable Varnish when you use Fastly"

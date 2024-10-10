@@ -100,7 +100,7 @@ The available scopes are:
 4. `default`
 
 `global` overrides all other scopes.
-If `global` is not defined, the configuration then tries to match a SiteAccess, and then a SiteAccess group.
+If `global` isn't defined, the configuration then tries to match a SiteAccess, and then a SiteAccess group.
 Finally, if no other scope is matched, `default` is applied.
 
 In short: if you want a match that always applies, regardless of SiteAccesses, use `global`.

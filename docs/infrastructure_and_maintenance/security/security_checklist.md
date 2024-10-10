@@ -31,7 +31,7 @@ make sure that your setup is secure.
     
 !!! note
 
-    On [[= product_name_cloud =]], if `APP_SECRET` is not set, the system sets it to [`PLATFORM_PROJECT_ENTROPY`](https://docs.platform.sh/guides/symfony/environment-variables.html#symfony-environment-variables)
+    On [[= product_name_cloud =]], if `APP_SECRET` isn't set, the system sets it to [`PLATFORM_PROJECT_ENTROPY`](https://docs.platform.sh/guides/symfony/environment-variables.html#symfony-environment-variables)
 
 ### Symfony production mode
 
@@ -230,7 +230,7 @@ You most likely need to vary the security headers based on the SiteAccess in que
 - `Strict-Transport-Security` - ensures that all requests are sent over HTTPS, with no fallback to HTTP. 
 All production sites should use HTTPS and this header unless they have very particular needs. 
 This header is less important during development provided that the site is on an internal, protected network. 
-- `X-Frame-Options` - ensures that the site is not be embedded in a frame by a compliant browser. 
+- `X-Frame-Options` - ensures that the site isn't embedded in a frame by a compliant browser. 
 Set the header to `SAMEORIGIN` to allow embedding by your own site, or `DENY` to block framing completely. 
 - `X-Content-Type-Options` - prevents the browser from second-guessing the mime-type of delivered content. 
 This header is less important if users cannot upload content and/or you trust your editors. However, it's safer to use it at all times. 

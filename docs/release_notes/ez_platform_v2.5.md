@@ -129,9 +129,9 @@ This release introduced several back office improvements to facilitate editorial
 
 ### Permissions
 
-#### Content/Create policy for Users
+#### Content/Create policy for users
 
-You can now define a 'Content/Create' policy for a User or a user group.
+You can now define a 'Content/Create' policy for a user or a user group.
 It enables or disables (if not set) the **Create** button in your dashboard.
 
 #### Universal Discovery Widget
@@ -246,7 +246,7 @@ This section provides a list of deprecated features to be removed in eZ Platform
 
 - The `\EzSystems\PlatformInstallerBundle\Installer\CleanInstaller` class and its [service container](https://doc.ibexa.co/en/2.5/api/service_container) definition (`ezplatform.installer.clean_installer`) have been deprecated in favor of `EzSystems\PlatformInstallerBundle\Installer\CoreInstaller` which requires the [Doctrine Schema Bundle](https://github.com/ezsystems/doctrine-dbal-schema) to be enabled.
 - The `ezplatform.installer.db_based_installer` service container definition has been deprecated in favor of its FQCN-named equivalent (`EzSystems\PlatformInstallerBundle\Installer\DbBasedInstaller`).
-- `vendor/ezsystems/ezpublish-kernel/data/mysql/schema.sql` has been deprecated and is not used by the installation process anymore.
+- `vendor/ezsystems/ezpublish-kernel/data/mysql/schema.sql` has been deprecated and isn't used by the installation process anymore.
 
 
 ## eZ Platform v2.5.6
@@ -281,4 +281,4 @@ When searching in the back office you can now select languages to filter results
 
 ### Searchable Matrix Field
 
-The Matrix Field is not fully searchable.
+The Matrix Field isn't fully searchable.

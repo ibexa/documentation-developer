@@ -276,15 +276,15 @@ php bin/console --env=prod --siteaccess=<name> ibexa:reindex
 
 ### Possible exceptions
 
-If you have not configured your setup correctly, some exceptions might happen on indexing.
+If you haven't configured your setup correctly, some exceptions might happen on indexing.
 Here are the most common issues you may encounter:
 
 - Exception if Binary files in database have an invalid path prefix
     - Make sure `var_dir` is configured properly in `ibexa.yaml` configuration.
     - If your database is inconsistent in regards to file paths, try to update entries to be correct *(make sure to make a backup first)*.
 - Exception on unsupported field types
-    - Make sure to implement all field types in your installation, or to configure missing ones as [NullType](nullfield.md) if implementation is not needed.
-- Content is not immediately available 
+    - Make sure to implement all field types in your installation, or to configure missing ones as [NullType](nullfield.md) if implementation isn't needed.
+- Content isn't immediately available 
     - Solr Bundle on purpose does not commit changes directly on Repository updates *(on indexing)*, but lets you control this using Solr configuration. Adjust Solr's `autoSoftCommit` (visibility of changes to search index) and/or `autoCommit` (hard commit, for durability and replication) to balance performance and load on your Solr instance against needs you have for "[NRT](https://cwiki.apache.org/confluence/display/solr/Near+Real+Time+Searching)".
 - Running out of memory during indexing
     - In general make sure to run indexing using the prod environment to avoid debuggers and loggers from filling up memory.

@@ -34,7 +34,7 @@ Language versions consist of translated values of the content item's Fields. In 
 
 [[= product_name =]] does not decide by itself which Fields can be translated and which cannot. For some Field values the need for a translation can be obvious, for example for the body of an article. In other cases, for instance images without text, integer numbers or e-mail addresses, translation is usually unnecessary. Despite that, [[= product_name =]] gives you the possibility to mark any Field as translatable regardless of its field type. It's only your decision to exclude the translation possibility for those Fields where it makes no sense.
 
-When a Field is not flagged as Translatable, its value is copied from the initial/main translation when a new language version is created. This copied value cannot be modified. When a Field is Translatable, you have to enter its value in a new language version manually.
+When a Field isn't flagged as Translatable, its value is copied from the initial/main translation when a new language version is created. This copied value cannot be modified. When a Field is Translatable, you have to enter its value in a new language version manually.
 
 For example, let's say that you need to store information about marathon contestants and their results. You build a "contestant" content type using the following Fields: name, photo, age, nationality, finish time. Allowing the translation of anything other than nationality would be pointless, since the values stored by the other Fields are the same regardless of the language used to describe the contestant. In other words, the name, photo, age and finish time would be the same in, for example, both English and Norwegian.
 
@@ -55,7 +55,7 @@ For details, see [Multi-language SiteAccesses](set_up_translation_siteaccess.md)
 
 ### Explicit translation SiteAccesses
 
-Configuration is not mandatory, but can help to distinguish which SiteAccesses can be considered translation SiteAccesses.
+Configuration isn't mandatory, but can help to distinguish which SiteAccesses can be considered translation SiteAccesses.
 
 ``` yaml
 ibexa:
@@ -169,7 +169,7 @@ ibexa:
 
 ### Using implicit *related SiteAccesses*
 
-If the `translation_siteaccesses` setting is not provided, implicit *related SiteAccesses* is used instead. SiteAccesses are considered *related* if they share:
+If the `translation_siteaccesses` setting isn't provided, implicit *related SiteAccesses* is used instead. SiteAccesses are considered *related* if they share:
 
 - The same Repository
 - The same root `location_id` (see [Multisite](multisite.md))
@@ -180,4 +180,4 @@ When setting up SiteAccesses with different language versions, you can specify a
 
 You can also assign a Default content availability flag to content types (available in the Admin Panel). When this flag is assigned, content items of this type are available even when they do not have a language version in any of the languages configured for the current SiteAccess.
 
-Note that if a language is not provided in the list of prioritized languages and it's not the content item's first language, the URL alias for this content in this language isn't generated.
+Note that if a language isn't provided in the list of prioritized languages and it's not the content item's first language, the URL alias for this content in this language isn't generated.

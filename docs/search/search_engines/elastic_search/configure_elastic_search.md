@@ -51,7 +51,7 @@ When you configure a node, you need to set the following parameters:
 If you have several Elasticsearch instances that run on the same host, and want to make them
 distinct, you can change the default number.
 - `scheme` - a protocol used to access the node. Default value: `http`.
-- `path` - by default, path is not used. Default value: `null`.
+- `path` - by default, path isn't used. Default value: `null`.
 If you have several Elasticsearch instances that run on the same host, and want to make them
 distinct, you can define a path for each instance.  
 - `user`/`pass` - credentials, if needed to log in to the host. Default values: `null`.

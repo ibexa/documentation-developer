@@ -9,7 +9,7 @@ The `BasePrice` Sort Clause sorts search results by the product's base price.
 
 ## Limitations
 
-The `BasePrice` Sort Clause is not available in the Legacy Search engine.
+The `BasePrice` Sort Clause isn't available in the Legacy Search engine.
 
 ## Example
 

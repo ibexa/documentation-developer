@@ -55,9 +55,9 @@ Now, you can go to the **File mapping** section.
 
 Mapping is completed automatically, the system fills all required information and shows available columns with datapoints on the right.
 You can change their names if needed or disallow empty fields by checking **Mandatory**.
-If the provided file contains empty values, this option is not available.
+If the provided file contains empty values, this option isn't available.
 
-If provided file is not recognized, the system requires you to fill in the parsing-options manually or select an appropriate format.
+If provided file isn't recognized, the system requires you to fill in the parsing-options manually or select an appropriate format.
 If you make any alterations, select the **Parse File** to generate columns with new data.
 
 ## Transform & Map

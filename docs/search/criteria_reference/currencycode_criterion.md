@@ -8,7 +8,7 @@ The `CurrencyCodeCriterion` Search Criterion searches for currencies by their co
 
 ## Limitations
 
-The `CurrencyCodeCriterion` Criterion is not available in Solr or Elasticsearch engines.
+The `CurrencyCodeCriterion` Criterion isn't available in Solr or Elasticsearch engines.
 
 ## Example
 

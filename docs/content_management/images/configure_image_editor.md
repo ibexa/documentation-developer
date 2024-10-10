@@ -48,7 +48,7 @@ The default quality is 0.92:
 
 ### Additional information
 
-Each image can be accompanied by additional information that is not visible to the user.
+Each image can be accompanied by additional information that isn't visible to the user.
 By default, additional information stores the coordinates of the [focal point]([[= user_doc =]]/editing_images/#focal-point),
 but you can use this extension point to pass various parameters of custom features
 that you add by extending the Image Editor.

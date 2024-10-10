@@ -120,7 +120,7 @@ See [Simplified Filtered search](https://doc.ibexa.co/projects/userguide/en/2.5/
 
 ### Sub-items limit
 
-You can now set a number of items displayed in the table using sub-items from your User Settings.
+You can now set a number of items displayed in the table using sub-items from your user Settings.
 
 ![Setting for subitems limit in user preferences](2.4_subitems_limit_pref.png)
 
@@ -227,7 +227,7 @@ you're now able to load multiple Locations at once, using `LocationService->load
                  # ...
     ```
 
-    4\. Make sure that parameter `page_builder.token_authenticator.enabled` has value `true`. If the parameter is not present, add it to `/app/config/config.yml`:
+    4\. Make sure that parameter `page_builder.token_authenticator.enabled` has value `true`. If the parameter isn't present, add it to `/app/config/config.yml`:
 
     ``` yaml
      # ...

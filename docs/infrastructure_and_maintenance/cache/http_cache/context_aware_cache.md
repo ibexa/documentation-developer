@@ -58,7 +58,7 @@ It also varies on `Authorization` to cover any possible basic authorization head
 
     If you use URI-based SiteAccess matching on a multi-repository installation (multiple databases), 
     the default SiteAccess on the domain needs to point to the same repository (database), 
-    because `/_fos_user_context_hash` is not SiteAccess-aware by default (see 
+    because `/_fos_user_context_hash` isn't SiteAccess-aware by default (see 
     `ibexa.rest.default_router.non_siteaccess_aware_routes` parameter).
     This occurs because reverse proxy does not have knowledge about SiteAccesses 
     and it does not pass the whole URL to be able to cache the user context hash response.

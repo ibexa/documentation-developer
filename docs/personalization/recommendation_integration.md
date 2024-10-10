@@ -23,7 +23,7 @@ The simplest way to load recommendations is to synchronously request the Persona
 server for recommendations as they're needed. This way is sufficient in most cases. 
 The most important drawback is that the request time increases by the time 
 of the recommendation request. 
-If the network is overloaded or the Personalization server is not available, 
+If the network is overloaded or the Personalization server isn't available, 
 it can lock the request.
 
 ## Load in the bottom

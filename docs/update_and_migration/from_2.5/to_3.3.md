@@ -19,7 +19,7 @@ When updating from v3.2 to v3.3, you need to follow a special update procedure.
 
 First, create an update branch `update-[[=target_version=]]` in git and commit your work.
 
-If you have not done it before, add the relevant meta-repository as an `upstream` remote:
+If you haven't done it before, add the relevant meta-repository as an `upstream` remote:
 
 === "ezplatform"
 

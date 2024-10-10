@@ -86,7 +86,7 @@ If members of the company don't have sufficient permissions for any Customer Por
 
 !!! note
 
-    Customer Portal is only available to users that are members of the company. Even if a user has all the sufficient permissions but is not a member of a company, they can't see the Customer Portal.
+    Customer Portal is only available to users that are members of the company. Even if a user has all the sufficient permissions but isn't a member of a company, they can't see the Customer Portal.
 
 ## Create and configure multiple portals
 
@@ -171,7 +171,7 @@ If members of the Customer Group don't have sufficient permissions for any Custo
 
 !!! note
 
-    Customer Portal is only available to users that are members of the company. Even if user has all the sufficient permissions but is not a member of a company, they won't see the Customer Portal.
+    Customer Portal is only available to users that are members of the company. Even if user has all the sufficient permissions but isn't a member of a company, they won't see the Customer Portal.
 
 #### Build-in portal mapping
 

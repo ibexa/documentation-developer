@@ -204,7 +204,7 @@ Now add the following policies to the Contributors role.
 
 !!! tip
 
-    The limitations are a powerful tool for fine-tuning the permission management of the Users.
+    The limitations are a powerful tool for fine-tuning the permission management of the users.
     See [the documentation about limitations for more technical details](limitation_reference.md#content-type-group-limitation).
 
 Once the policies are set, go to the "Assignments" tab and assign the role to the user group *Go Bike Members*.

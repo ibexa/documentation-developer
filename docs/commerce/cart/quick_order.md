@@ -35,7 +35,7 @@ Customers can use one or both of the following methods to specify products and p
 
 4\. Uploads the filled in quick order file back to the system by drag and drop or file selection.
 
-5\. The file name appears in the **Add your order** section. At this point, only file validation is provided. The SKUs or product availability is not validated.
+5\. The file name appears in the **Add your order** section. At this point, only file validation is provided. The SKUs or product availability isn't validated.
 
 ![Customer uploads list of products](img/quick_order_add_order.png)
 

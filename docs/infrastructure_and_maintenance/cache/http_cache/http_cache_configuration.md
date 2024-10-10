@@ -94,5 +94,5 @@ because your reverse proxy has to wait for the back end and cannot deliver cache
 
 !!! note "ESI limitations with the URIElement SiteAccess matcher"
 
-    Is is not possible to share ESIs across the SiteAccesses when using URI matching 
+    Is isn't possible to share ESIs across the SiteAccesses when using URI matching 
     as URI contains the SiteAccess name encoded in its path information.
