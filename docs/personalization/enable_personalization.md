@@ -14,7 +14,7 @@ instance must [request access to the service]([[= user_doc =]]/personalization/e
 ## Set up customer credentials
 
 When you receive the credentials, add them to your configuration.
-In the root folder of your project, edit either the `.env` or `.env.local` file 
+In the root folder of your project, edit the `.env.local` file
 by adding the following lines with your customer ID and license key: 
 
 ```
@@ -23,7 +23,7 @@ PERSONALIZATION_LICENSE_KEY=67890-1234-5678-90123-4567
 PERSONALIZATION_HOST_URI=https://server_uri
 ```
 
-!!! note "Configuring user credentials for different customers"
+!!! note "Configuring user credentials for multisite setup and different personalization customers"
 
     If your installation [hosts multiple sites]([[= user_doc =]]/personalization/use_cases/#multiple-website-hosting) with different 
     customer IDs, for example, to provide separate recommendations for different 
@@ -140,6 +140,9 @@ ibexa:
                     content:
                         use_remote_id: true
 ```
+!!! note "Support for alphanumeric content identifier"
+
+     Contact support@ibexa.co with your organization's requirements to have the alphanumeric content identifier enabled.
 
 #### Enable tracking
 
@@ -437,8 +440,8 @@ if the content Fields were previously exported by the export script.
                 "itemType": 38,
                 "relevance": 3,
                 "links": {
-                    "clickRecommended": "//event.test.perso.ibexa.co/api/723/clickrecommended/someuser/38/71?scenario=popular&modelid=4199&categorypath=&requestuuid=d75e7cf0-e4ca-11e7-a94d-0a64dbbea736",
-                    "rendered": "//event.test.perso.ibexa.co/api/723/rendered/someuser/38/71?scenario=popular&modelid=4199&categorypath=&requestuuid=d75e7cf0-e4ca-11e7-a94d-0a64dbbea736"
+                    "clickRecommended": "//event.perso.ibexa.co/api/723/clickrecommended/someuser/38/71?scenario=popular&modelid=4199&categorypath=&requestuuid=d75e7cf0-e4ca-11e7-a94d-0a64dbbea736",
+                    "rendered": "//event.perso.ibexa.co/api/723/rendered/someuser/38/71?scenario=popular&modelid=4199&categorypath=&requestuuid=d75e7cf0-e4ca-11e7-a94d-0a64dbbea736"
                 },
                 "attributes": [
                     {
@@ -472,8 +475,8 @@ if the content Fields were previously exported by the export script.
                 "itemType": 38,
                 "relevance": 1,
                 "links": {
-                    "clickRecommended": "//event.test.perso.ibexa.co/api/723/clickrecommended/someuser/38/75?scenario=popular&modelid=4199&categorypath=&requestuuid=d75e7cf0-e4ca-11e7-a94d-0a64dbbea736",
-                    "rendered": "//event.test.perso.ibexa.co/api/723/rendered/someuser/38/75?scenario=popular&modelid=4199&categorypath=&requestuuid=d75e7cf0-e4ca-11e7-a94d-0a64dbbea736"
+                    "clickRecommended": "//event.perso.ibexa.co/api/723/clickrecommended/someuser/38/75?scenario=popular&modelid=4199&categorypath=&requestuuid=d75e7cf0-e4ca-11e7-a94d-0a64dbbea736",
+                    "rendered": "//event.perso.ibexa.co/api/723/rendered/someuser/38/75?scenario=popular&modelid=4199&categorypath=&requestuuid=d75e7cf0-e4ca-11e7-a94d-0a64dbbea736"
                 },
                 "attributes": [
                     {
