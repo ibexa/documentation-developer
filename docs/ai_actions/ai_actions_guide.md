@@ -9,14 +9,14 @@ description: AI Actions add-on helps editors by automating repetitive tasks.
 In the evolving landscape of digital experience, artificial intelligence becomes more and more important by enhancing user interaction and automating complex tasks.
 To harness AI's potential, [[= product_name =]] introduces th AI Actions add-on, which you can install and use to automate various time-consuming tasks, for example, generating alt text for images.
 
-Built upon the PHP framework, AI Actions offer an extensible solution for integrating services provided by AI engines into your workflows, all managed through a user-friendly interface.
+Built upon the PHP framework, AI Actions offer an extensible solution for integrating services provided by AI services into your workflows, all managed through a user-friendly interface.
 
 You can extend the add-on and make it do different things, for example, transform text passages, or generate illustrations for your articles based on a prompt.
-The possibilities are endless.
+The possibilities are endless and you're not limited to a specific AI service, avoiding vendor lock-in.
 
 ## Availability
 
-AI Actios are available as an add-on to the v.4.6.x version of [[= product_name =]], regardless of its edition.
+AI Actions are available as an add-on to the v4.6.x version of [[= product_name =]], regardless of its edition.
 To use it's capabilities you must install the package and perform initial configuration.
 
 ## How it works
@@ -32,8 +32,8 @@ This clear separation allows for a flexible system where actions can be easily c
 
 #### Action types
 
-Action types are predefined by developers within YAML configuration.
-Each action type defines the structure and nature of the task that the AI engine performs.
+Action types are predefined by developers.
+Each action type defines the structure and nature of the task that the AI service performs.
 Action types could be designed to generate alt text for images, summarize a passage of text, or even translate content into another language.
 By defining action types in YAML, developers can create a wide range of functionalities that can be easily deployed within the application.
 
@@ -48,9 +48,9 @@ By adjusting these configurations, administrators can ensure that the actions ar
 
 Once an action is defined and configured, it must be executed, and this is where handlers come into play.
 Handlers are pieces of PHP code that are responsible for resolving an action.
-Each handler is designed to work with a specific AI engine and action type pair.
-Handlers may include hardcoded prompts for conversational AI engines like ChatGPT, or they may operate without prompts for other types of AI.
-Handlers take configurations defined in the action type and action configuration, combine it with user input and any predefined settings or prompts, and pass this information to the AI engine for processing.
+Each handler is designed to work with a specific AI service and action type pair.
+Handlers may include hardcoded prompts for conversational AI services like ChatGPT, or they may operate without prompts for other types of AI.
+Handlers take configurations defined in the action type and action configuration, combine it with user input and any predefined settings or prompts, and pass this information to the AI service for processing.
 
 ### Triggering actions from the UI
 
@@ -76,9 +76,9 @@ By issuing commands through the API, developers can trigger actions based on ext
 
 Built-in action types offer a good starting point, but the real power of AI Actions lies in extensibility.
 Extending AI Actions opens up new possibilities for content management and editing.
-Developers can extend the feature by adding new action types that use existing AI engines or even integrating additional AI services.
-This involves defining a new action type in YAML, writing a handler that communicates with the new service or engine, and creating a form for configuring the options that extends the action configuration form shown in the Admin Panel.
-For example, a developer could write a handler that uses an AI service to shorten or expand text passages, or generate illustrations based on a body of an article.
+Developers can extend the feature by adding new action types that use existing AI services or even integrating additional ones.
+This involves defining a new action type in YAML, writing a handler that communicates with the new service, and creating a form for configuring the options that extends the action configuration form shown in the Admin Panel.
+For example, a developer could write a handler that uses an AI service to generate complete articles based on a short description, or illustrations based on a body of an article.
 
 ### Use cases
 
@@ -89,4 +89,4 @@ For example, a developer could write a handler that uses an AI service to shorte
 Out of the box, the [[= product_name_base =]] AI Actions add-on comes with the generating alt text for images capability.
 Organizations can benefit from it's use by improving accessibility and SEO.
 Once the feature is configured, editors can generate alt text for images they upload to the system by clicking one button, while administrators can use the API to run a batch process against a larger collection of illustrations.
-Before you can start generating alt text, some preliminary setup is required, which includes configuring access to an AI engine.
+Before you can start generating alt text, some preliminary setup is required, which includes configuring access to an AI service.

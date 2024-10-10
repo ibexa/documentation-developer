@@ -4,7 +4,7 @@ description: Add custom features to alternative text generation for images.
 
 # Customize alternative text generation
 
-If you need more control over the alt text generation feature, you can customize, for example, by integrating a different AI engine, and modifying the default behavior.
+If you need more control over the alt text generation feature, you can customize, for example, by integrating a different AI service, and modifying the default behavior.
 
 ## Add custom glossaries
 
@@ -13,9 +13,9 @@ One way to do it is by creating lists of specific keywords or phrases that shoul
  
 ...
 
-## Integrate a different AI engine
+## Integrate a different AI service
 
-If the default AI engine doesn’t meet your requirements, you can connect to a different AI service.
-To do it, you must configure API endpoints, input formats, and authentication details for the new engine.
+If the default AI service doesn’t meet your requirements, you can connect to a different one.
+To do it, you must configure API endpoints, input formats, and authentication details for the new service.
 
 ...

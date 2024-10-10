@@ -25,9 +25,9 @@ In the root folder of your project, edit the `<ADD FILE NAME>` file by adding th
 ...
 ```
 
-!!! note "Configuring user credentials for different engines"
+!!! note "Configuring user credentials for different servces"
 
-    If your installation supports [multiple AI engines](extend_ai_actions.md) that perform the same AI action, you must provide credentials for each of these engines.
+    If your installation supports [multiple AI services](extend_ai_actions.md) that perform the same AI action, you must provide credentials for each of these services.
     Otherwise some of the AI Actions will remain inactive.
 
 ## ...
