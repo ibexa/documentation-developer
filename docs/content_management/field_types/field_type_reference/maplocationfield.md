@@ -1,6 +1,6 @@
-# MapLocation Field Type
+# MapLocation field type
 
-This Field Type represents a geographical location.
+This field type represents a geographical location.
 
 As input it expects three values:
 
@@ -11,7 +11,7 @@ As input it expects three values:
 |---------------|------------------|----------------|
 | `MapLocation` | `ezgmaplocation` | `mixed`        |
 
-## PHP API Field Type 
+## PHP API field type 
 
 ### Input expectations
 
@@ -23,7 +23,7 @@ As input it expects three values:
 
 ##### Properties
 
-The Value class of this Field Type contains the following properties:
+The Value class of this field type contains the following properties:
 
 |Property|Type|Description|
 |------|------|------|
@@ -33,7 +33,7 @@ The Value class of this Field Type contains the following properties:
 
 ##### Constructor
 
-The `MapLocation\Value` constructor will initialize a new Value object with values provided as hash. Accepted keys are `latitude` (`float`), `longitude` (`float`), `address` (`string`).
+The `MapLocation\Value` constructor initializes a new Value object with values provided as hash. Accepted keys are `latitude` (`float`), `longitude` (`float`), `address` (`string`).
 
 ``` php
 // Constructor example

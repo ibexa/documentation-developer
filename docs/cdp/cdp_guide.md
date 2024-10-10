@@ -72,8 +72,8 @@ For more information, see [CDP data export](https://doc.ibexa.co/en/latest/cdp/c
 
 ### Data customization
 
-​You can customize Content and Product data exported to [[= product_name_cdp =]] and control what Field Type information you want to export.
-With [[= product_name_cdp =]], you can export Field Types and Field Type values. they're exported with metadata and attributes, for example, ID, Field Definition name, type, value.
+​You can customize Content and Product data exported to [[= product_name_cdp =]] and control what field type information you want to export.
+With [[= product_name_cdp =]], you can export field types and field type values. they're exported with metadata and attributes, for example, ID, Field Definition name, type, value.
 
 For more information, see [data customization](https://doc.ibexa.co/en/latest/cdp/cdp_data_customization/#data-customization) documentation in Developer Documentation.
 
@@ -116,7 +116,7 @@ Analyze customer data, track campaigns, and discover the most effective strategi
 
 ### Data customization
 
-Customize data to control what Field Type information you want to export.
+Customize data to control what field type information you want to export.
 
 ### Real-time action
 

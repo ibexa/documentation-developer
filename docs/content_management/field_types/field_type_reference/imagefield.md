@@ -1,6 +1,6 @@
-# Image Field Type
+# Image field type
 
-The Image Field Type allows you to store an image file.
+The Image field type allows you to store an image file.
 
 | Name    | Internal name |
 |---------|---------------|
@@ -8,7 +8,7 @@ The Image Field Type allows you to store an image file.
 
 A **variation service** handles the conversion of the original image into different formats and sizes through a set of preconfigured named variations: large, small, medium, black and white thumbnail, etc.
 
-## PHP API Field Type
+## PHP API field type
 
 ### Value object
 
@@ -36,7 +36,7 @@ The `value` property of an Image Field returns an `Ibexa\Core\FieldType\Image\V
 
 ### Settings
 
-This Field Type does not support settings.
+This field type does not support settings.
 
 ### Image Variations
 
@@ -47,7 +47,7 @@ Using the variation Service, variations of the original image can be obtained. t
 | `width`*       | int      | `null`    | The variation's width in pixels. For more details see Caution note below.|
 | `height`*      | int      | `null`    | The variation's height in pixels. For more details see Caution note below.|
 | `name`         | string   | `medium` | The variation's identifier, name of the image alias.|
-| `info`         | mixed    |n/a| Extra information about the image, depending on the image type, such as EXIF data. If there is no information, the `info` value will be `null`.|
+| `info`         | mixed    |n/a| Extra information about the image, depending on the image type, such as EXIF data. If there is no information, the `info` value is `null`.|
 | `fileSize`     | int      |`31010` |Size (in byte) of current variation.|
 | `mimeType`     | string   |`image/png`|The MIME type.|
 | `fileName`     | string   |`my_image.png`|The name of the file.|
@@ -63,7 +63,7 @@ Using the variation Service, variations of the original image can be obtained. t
 
 ### Field Definition options
 
-The Image Field Type supports one `FieldDefinition` option: the maximum size for the file.
+The Image field type supports one `FieldDefinition` option: the maximum size for the file.
 
 !!!note
 
@@ -71,7 +71,7 @@ The Image Field Type supports one `FieldDefinition` option: the maximum size for
 
 !!! note
 
-    As the default value for maximum size is set to 10MB, we recommend setting the `upload_max_filesize` key in the `php.ini` configuration file to a value equal to or higher than that. It will prevent validation errors while editing content types.
+    As the default value for maximum size is set to 10MB, we recommend setting the `upload_max_filesize` key in the `php.ini` configuration file to a value equal to or higher than that. It prevents validation errors while editing content types.
 
 ## Using an Image Field
 
@@ -79,7 +79,7 @@ To read more about handling images and image variations, see the [Images documen
 
 ### Template Rendering
 
-When displayed using `ibexa_render_field`, an Image Field will output this type of HTML:
+When displayed using `ibexa_render_field`, an Image Field outputs this type of HTML:
 
 ``` html+twig
 <img src="var/ezdemo_site/storage/images/0/8/4/1/1480-1-eng-GB/image_medium.png" width="844" height="430" alt="Alternative text" />
@@ -114,7 +114,7 @@ The variation's properties can be used to generate the required output:
 
 ### With the REST API
 
-Image Fields within REST are exposed by the `application/vnd.ibexa.api.Content` media-type. An Image Field will look like this:
+Image Fields within REST are exposed by the `application/vnd.ibexa.api.Content` media-type. An Image Field looks like this:
 
 ``` xml
 <field>
@@ -140,7 +140,7 @@ Image Fields within REST are exposed by the `application/vnd.ibexa.api.Content`�
 </field>
 ```
 
-Children of the `fieldValue` node will list the general properties of the Field's original image (`fileSize`, `fileName`, `inputUri`, etc.), as well as variations. For each variation, a URI is provided. Requested through REST, this resource will generate the variation if it doesn't exist yet, and list the variation details:
+Children of the `fieldValue` node list the general properties of the Field's original image (`fileSize`, `fileName`, `inputUri`, etc.), as well as variations. For each variation, a URI is provided. Requested through REST, this resource generates the variation if it doesn't exist yet, and list the variation details:
 
 ``` xml
 <ContentImageVariation media-type="application/vnd.ibexa.api.ContentImageVariation+xml" href="/api/ibexa/v2/content/binary/images/240-1480/variations/tiny">
@@ -170,7 +170,7 @@ echo $variation->uri;
 
 ### From PHP
 
-As for any Field Type, there are several ways to input content to a Field. For an Image, the quickest is to call `setField()` on the ContentStruct:
+As for any field type, there are several ways to input content to a Field. For an Image, the quickest is to call `setField()` on the ContentStruct:
 
 ``` php
 $createStruct = $contentService->newContentCreateStruct(
@@ -277,11 +277,11 @@ With the following values:
 - `VersionNumber` = `1`
 - `LanguageCode` = `eng-GB`
 
-Images will be stored in `web/var/ezdemo_site/storage/images/0/8/4/1/1480-1-eng-GB`.
+Images are stored in `web/var/ezdemo_site/storage/images/0/8/4/1/1480-1-eng-GB`.
 
 Using the Field ID digits in reverse order as the folder structure maximizes sharding of files through multiple folders on the filesystem.
 
-Within this folder, images will be named like the uploaded file, suffixed with an underscore and the variation name:
+Within this folder, images are named like the uploaded file, suffixed with an underscore and the variation name:
 
 - `MyImage.png`
 - `MyImage_large.png`

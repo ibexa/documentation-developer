@@ -93,10 +93,10 @@ Persistence cache layer caches selected objects in-memory for a short time.
 It avoids loading repeatedly the same data from e.g. a remote Redis instance, which can take up to 4-5ms per call due to the network latency and Redis instance load.
 The cache is organized in 2 pools, one for metadata which is not updated frequently, and one for content related objects that is only meant as a short-lived burst cache.
 Limit is organized using a [least frequently used (LFU)](https://en.wikipedia.org/wiki/Least_frequently_used) approach.
-It makes sure repeatedly used objects will stay in-memory until expired, and those seldom used will be bulk evicted from cache every time the maximum number of cache items is reached.
+It makes sure repeatedly used objects stay in-memory until expired, and those seldom used are bulk evicted from cache every time the maximum number of cache items is reached.
 
-This in-memory cache will be purged *(for the current PHP process)* when clearing it using any of the mentioned methods below.
-For other processes, the object will be refreshed when it expires or evicted when it reaches the cache limits.
+This in-memory cache is purged *(for the current PHP process)* when clearing it using any of the mentioned methods below.
+For other processes, the object is refreshed when it expires or evicted when it reaches the cache limits.
 
 In-Memory cache is configured globally, and has the following default settings:
 
@@ -119,7 +119,7 @@ parameters:
 
 !!! caution "In-Memory cache is per-process"
 
-    **TTL and Limit need to have a low value.** Setting limit high will increase memory use.
+    **TTL and Limit need to have a low value.** Setting limit high increases memory use.
     High TTL value also increases exponentially risk for system acting on stale metadata (e.g. content type definitions).
     The only case where it's safe to increase these values is for dev environment with single concurrency on writes.
     In prod environment you should only consider reducing them if you have heavy concurrency writes.
@@ -163,7 +163,7 @@ Out of the box in `config/packages/cache_pool/cache.redis.yaml` you'll find a de
     For Ibexa Cloud/Platform.sh: This is automatically configured in `vendor/ibexa/core/src/bundle/Core/DependencyInjection/IbexaCoreExtension.php` if you have enabled Redis as `rediscache` Platform.sh service.
 
 For anything else, you can enable it with environment variables.
-For instance, if you set the following environment variables `export CACHE_POOL="cache.redis" CACHE_DSN="secret@example.com:1234/13"`, it will result in config like this:
+For instance, if you set the following environment variables `export CACHE_POOL="cache.redis" CACHE_DSN="secret@example.com:1234/13"`, it results in config like this:
 
 ``` yaml
 services:
@@ -241,7 +241,7 @@ Out of the box in `config/packages/cache_pool/cache.memcached.yaml` you'll find 
     For Ibexa Cloud/Platform.sh: This is automatically configured in `vendor/ibexa/core/src/bundle/Core/DependencyInjection/IbexaCoreExtension.php` if you have enabled Memcached as `cache` Platform.sh service.
 
 For anything else, you can enable it with environment variables detected automatically by `vendor/ibexa/core/src/bundle/Core/DependencyInjection/IbexaCoreExtension.php`.
-For instance, if you set the following environment variables `export CACHE_POOL="cache.memcached" CACHE_DSN="user:pass@localhost?weight=33"`, it will result in config like this:
+For instance, if you set the following environment variables `export CACHE_POOL="cache.memcached" CACHE_DSN="user:pass@localhost?weight=33"`, it results in config like this:
 
 ``` yaml
 services:
@@ -269,7 +269,7 @@ See `config/default_parameters.yaml` and `config/cache_pool/cache.memcached.yaml
 
 !!! note
 
-    Memcached must not be bound to the local address if clusters are in use, or user logins will fail.
+    Memcached must not be bound to the local address if clusters are in use, or user logins fail.
     To avoid this, in `/etc/memcached.conf` take a look under `# Specify which IP address to listen on. The default is to listen on all IP addresses`
 
     For development environments, change the address below this comment in `/etc/memcached.conf` to `-l 0.0.0.0`

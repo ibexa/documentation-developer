@@ -67,12 +67,12 @@ Log in to your service portal on [support.ibexa.co](https://support.ibexa.co/), 
 ![Authentication token](using_composer_auth_token.png)
 
 1. Select **Create token** (this requires the **Portal administrator** access level).
-2. Fill in a label describing the use of the token. This will allow you to revoke access later.
+2. Fill in a label describing the use of the token. This allows you to revoke access later.
 3. Save the password, **you will not get access to it again**!
 
 !!! tip "Save the authentication token in `auth.json` to avoid re-typing it"
 
-    Composer will ask whether you want to save the token every time you perform an update.
+    Composer asks whether you want to save the token every time you perform an update.
     If you prefer, you can decline and create an `auth.json` file globally
     in [`COMPOSER_HOME`](https://getcomposer.org/doc/03-cli.md#composer-home) directory for machine-wide use:
 
@@ -93,7 +93,7 @@ Log in to your service portal on [support.ibexa.co](https://support.ibexa.co/), 
     If you configure several projects on one machine, make sure that
     you set different tokens for each of the projects in their respective `auth.json` files.
 
-After this, when running Composer to get updates, you will be asked for a username and password. Use:
+After this, when running Composer to get updates, you are asked for a username and password. Use:
 
 - as username - your Installation key found on the **Maintenance and Support agreement details** page in the service portal
 - as password - the token password you retrieved in step 3 above.
@@ -104,9 +104,9 @@ After this, when running Composer to get updates, you will be asked for a userna
 
 !!! caution "Support agreement expiry"
 
-    If your Support agreement expires, your authentication token(s) will no longer work.
-    They will become active again if the agreement is renewed, but this process may take up to 24 hours.
-    _(If the agreement is renewed before the expiry date, there will be no disruption of service.)_
+    If your Support agreement expires, your authentication token(s) doesn't longer work.
+    They become active again if the agreement is renewed, but this process may take up to 24 hours.
+    _(If the agreement is renewed before the expiry date, there is no disruption of service.)_
 
 ### Create project
 
@@ -297,7 +297,7 @@ For development you can use the built-in PHP server.
 php -S 127.0.0.1:8000 -t public
 ```
 
-Your PHP web server will be accessible at `http://127.0.0.1:8000`
+Your PHP web server is accessible at `http://127.0.0.1:8000`
 
 You can also use [Symfony CLI](https://symfony.com/download):
 
@@ -339,7 +339,7 @@ chown -R www-data:www-data <your installation directory>
 ```
 
 Directories `var` and `public/var` must be writable by CLI and the web server user.
-Future files and directories created by these two users will need to inherit those permissions.
+Future files and directories created by these two users need to inherit those permissions.
 
 !!! caution
 
@@ -388,7 +388,7 @@ Prepare a [virtual host configuration](https://en.wikipedia.org/wiki/Virtual_hos
 === "nginx"
 
     You can use [this example vhost file](https://raw.githubusercontent.com/ibexa/post-install/main/resources/templates/nginx/vhost.template)
-    and modify it to fit your project. You will also need the `ibexa_params.d` files that should reside in a subdirectory below where the main file is,
+    and modify it to fit your project. You also need the `ibexa_params.d` files that should reside in a subdirectory below where the main file is,
     [as is shown here](https://github.com/ibexa/post-install/tree/main/resources/templates/nginx).
 
 

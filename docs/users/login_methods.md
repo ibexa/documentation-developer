@@ -43,7 +43,7 @@ It lists all User accounts with duplicate emails.
     you can come across issues if you use the option on an existing database.
 
     This may happen if more than one account uses the same email address.
-    Login through the User name will still be available.
+    Login through the User name is still available.
 
     To resolve the issues, run `ibexa:user:audit-database`
     and manually modify accounts that have duplicate emails.

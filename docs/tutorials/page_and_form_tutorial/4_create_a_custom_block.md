@@ -5,8 +5,8 @@ edition: experience
 
 # Step 4 — Create a custom block
 
-This step will guide you through creating a custom block.
-The custom block will display a randomly chosen content item from a selected folder.
+This step guides you through creating a custom block.
+The custom block displays a randomly chosen content item from a selected folder.
 
 To create a custom block from scratch you need four elements:
 
@@ -23,7 +23,7 @@ In `config/packages/ibexa_fieldtype_page.yaml` add the following block under the
 [[= include_file('code_samples/tutorials/page_tutorial/config/packages/ibexa_fieldtype_page.yaml', 24, 42) =]]
 ```
 
-This configuration defines one attribute, `parent`. You will use it to select the folder containing tips.
+This configuration defines one attribute, `parent`. Use it to select the folder containing tips.
 
 ### Block template
 
@@ -35,7 +35,7 @@ You also need to create the block template, `templates/blocks/random/default.ht
 
 ### Block listener
 
-Block listener provides the logic for the block. it's contained in `src/Event/RandomBlockListener.php`:
+Block listener provides the logic for the block. It's contained in `src/Event/RandomBlockListener.php`:
 
 ``` php
 [[= include_file('code_samples/tutorials/page_tutorial/src/Event/RandomBlockListener.php') =]]
@@ -57,7 +57,7 @@ Run `yarn encore <dev|prod>` to regenerate assets.
 Go back to editing the Front Page. Drag a Random Block from the Elements menu on the right to the Page's side column.
 Access the block's settings and choose the "All Tips" folder from the menu. Save and publish all the changes.
 
-Refresh the home page. The Tip of the Day block will display a random Tip from the "Tips" folder.
-Refresh the page a few more times and you will see the tip change randomly.
+Refresh the home page. The Tip of the Day block displays a random Tip from the "Tips" folder.
+Refresh the page a few more times and you can see the tip change randomly.
 
 ![Random Block with a Tip](enterprise_tut_random_block.png "Random Block with a Tip")

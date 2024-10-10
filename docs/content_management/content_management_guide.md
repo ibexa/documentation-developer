@@ -48,19 +48,19 @@ which allows you to build complex architectures with multiple locales and output
 ## Content model
 
 A structure of elements that *store* content information is referred to as the **content model**. 
-[[= product_name =]] comes with a predefined content model that includes a broad set of various Field Types and several content types.
+[[= product_name =]] comes with a predefined content model that includes a broad set of various field types and several content types.
 
 You can customize and adapt the content model to your organization's needs and the type of output channel that you use. 
-If need be, development teams can [create new Field Types](creating_a_point2d_field_type.md), to enhance editor and visitor experiences. 
-Content managers or even editors can then apply such Field Types when they modify existing or create new content types. 
+If need be, development teams can [create new field types](creating_a_point2d_field_type.md), to enhance editor and visitor experiences. 
+Content managers or even editors can then apply such field types when they modify existing or create new content types. 
 The editing interface lets all users, including those with no coding experience, create or modify certain areas of the content model.
 
 For technical details, see [a Content model](content_model.md#content-model).
 
-### Field Types
+### Field types
 
-[Field Types](field_types.md) are the smallest elements of the content model’s structure. 
-[[= product_name =]] comes with many built-in Field Types that cover most common needs, 
+[Field types](field_types.md) are the smallest elements of the content model’s structure. 
+[[= product_name =]] comes with many built-in field types that cover most common needs, 
 for example, Text line, RichText, Integer, Measurement, Map location, etc.
 
 Their role is to:
@@ -68,18 +68,18 @@ Their role is to:
 - store data
 - validate input data
 - make the data searchable
-- display Fields of a given Field Type
+- display Fields of a given field type
 
-For a complete list of available Field Types, see [Field Type reference](field_type_reference.md).
+For a complete list of available field types, see [field type reference](field_type_reference.md).
 
-![Field Types and Fields](img/field_types.png)
+![Field types and fields](img/field_types.png)
 
 ### Fields
 
-Once you use a Field Type to design and build a content type definition, and define its settings, it becomes a Field.
+Once you use a field type to design and build a content type definition, and define its settings, it becomes a Field.
 
-Fields can be as simple as Name, based on a Text line Field Type, or as complex as Page, 
-based on a Landing Page Field Type, with multiple options to set and choose from:
+Fields can be as simple as Name, based on a Text line field type, or as complex as Page, 
+based on a Landing Page field type, with multiple options to set and choose from:
 
 ![Landing Page Field settings](img/fields.png)
 

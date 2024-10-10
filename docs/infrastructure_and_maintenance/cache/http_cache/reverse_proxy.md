@@ -270,7 +270,7 @@ You can configure environment variables through [Platform.sh variables](https://
 
 !!! tip
 
-    For HTTP cache, you will most likely only use this for configuring Fastly for production and optionally staging,
+    For HTTP cache, you most likely only use this for configuring Fastly for production and optionally staging,
     allowing `variables:env:` in `.platform.app.yaml` to, for example, specify Varnish or Symfony proxy as default for dev environment.
 
 #### Apache with Varnish
@@ -325,7 +325,7 @@ with the following logic in the out-of-the-box VCL:
 
 Serving grace is not always allowed by default because:
 
-- it's a safe default. Even if just for anonymous users, stale cache can easily be confusing during acceptance testing.
+- It's a safe default. Even if just for anonymous users, stale cache can easily be confusing during acceptance testing.
 - It means REST API, which is used by the back office, would serve stale data, breaking the UI.
 
 !!! tip "Customizing stale cache handling"

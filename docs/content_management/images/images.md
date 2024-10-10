@@ -23,7 +23,7 @@ the system that the installation uses.
 
 You can store images in the media library as independent content items of 
 a generic Image [content type](content_types.md) to reuse them across the system.
-You do this by uploading images to an [ImageAsset](imageassetfield.md) Field Type.
+You do this by uploading images to an [ImageAsset](imageassetfield.md) field type.
 
 For an ImageAsset field to be reused, you must publish it. 
 Only then is notification triggered, which states that an image has been published 
@@ -65,7 +65,7 @@ Image variations are generated with [LiipImagineBundle](https://github.com/liip
 The LiipImagineBundle bundle supports GD (default), Imagick or Gmagick PHP 
 extensions, and enables you to define flexible filters in PHP. 
 Image files are stored by using the `IOService,` and are completely independent 
-from the Image Field Type. 
+from the Image field type. 
 they're generated only once and cleared on demand, for example, on content removal).
 
 LiipImagineBundle only works on image blobs, so no command line tool is needed. 
@@ -115,7 +115,7 @@ You can also pass two additional parameters:
 - `iteration-count` is the number of images to be recreated in a single iteration, 
   to reduce memory use. 
   The default value is `25`.
-- `user` is the identifier of a User with proper permission who will perform 
+- `user` is the identifier of a User with proper permission who performs 
   the operation (`read`, `versionread`, `edit` and `publish`). 
   The default value is `admin`.
 
@@ -156,7 +156,7 @@ with basic information about the original image (see [example 1](#configuration-
 |Option|Default value|Description|Required?|
 |------|-------------|-----------|-|
 |fontpath|n/a|Path to the font file (*.ttf).|Yes|
-|text|"IMAGE PLACEHOLDER %width%x%height%\n(%id%)"|Text which will be displayed in the image placeholder. %width%, %height%, %id% in it will be replaced with width, height and ID of the original image.| |
+|text|"IMAGE PLACEHOLDER %width%x%height%\n(%id%)"|Text which is displayed in the image placeholder. %width%, %height%, %id% in it's replaced with width, height and ID of the original image.| |
 |fontsize|20|Size of the font in the image placeholder.| |
 |foreground|#000000|Foreground color of the placeholder.| |
 |secondary|#CCCCCC|Secondary color of the placeholder.| |
@@ -174,7 +174,7 @@ placeholders from:
 
 |Option|Default value|Description|
 |------|-------------|-----------|
-|url_pattern|''|URL pattern. %width%, %height%, %id% in it will be replaced with width, height and ID of the original image.|
+|url_pattern|''|URL pattern. %width%, %height%, %id% in it's replaced with width, height and ID of the original image.|
 |timeout|5|Period of time before timeout, measured in seconds.|
 
 ### Semantic configuration
@@ -217,8 +217,8 @@ generation is disabled.
 ## Support for SVG images
 
 You cannot store SVG images in [[= product_name =]] by using the Image or 
-ImageAsset Field Type.
-However, you can work things around by relying on the File Field Type and implementing 
+ImageAsset field type.
+However, you can work things around by relying on the File field type and implementing 
 a custom extension that lets you display and download files in your templates.
 
 !!! caution
@@ -293,7 +293,7 @@ content items within the field.
 Content items that are identified as images are rendered in the Rich Text Field 
 by using a dedicated template.
 
-You can determine content types that will be treated as images and rendered.
+You can determine content types that are treated as images and rendered.
 You do this by overriding the `ibexa.content_view.image_embed_content_types_identifiers` parameter, for example:
 
 ``` yaml

@@ -1,8 +1,8 @@
-# TaxonomyEntryAssignment Field Type
+# TaxonomyEntryAssignment field type
 
 `TaxonomyEntryAssignment` Field is used to integrate content with the Taxonomy module. 
 It allows you to select tags or categories and assign them to content. 
-This Field Type assigns tags to the content in the data action, so then you can use `TaxonomyService` on this content item. 
+This field type assigns tags to the content in the data action, so then you can use `TaxonomyService` on this content item. 
 
 !!! caution "Duplicate taxonomy fields"
 
@@ -15,7 +15,7 @@ To be able to assign tags to the content, first, you need to add a `TaxonomyEntr
 |--------------------------|----------------------------------|----------------|
 | `TaxonomyEntryAssignment`| `ibexa_taxonomy_entry_assignment`| array with `taxonomyEntries` and `taxonomy` keys|
 
-## PHP API Field Type 
+## PHP API field type 
 
 ### Input expectations
 
@@ -52,7 +52,7 @@ Example using array:
 |Property|Type|Description|
 |--------|----|-----------|
 |`taxonomyEntry`|array of `Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry`|Stores selected taxonomy entry.|
-|`taxonomy`|`string`|Stores the taxonomy identifier, all `taxonomyEntries` have to be assigned to this taxonomy and the identifier has to match the settings of the Field Type in content type configuration.|
+|`taxonomy`|`string`|Stores the taxonomy identifier, all `taxonomyEntries` have to be assigned to this taxonomy and the identifier has to match the settings of the field type in content type configuration.|
 
 #### Constructor
 
@@ -72,7 +72,7 @@ An array of:
 
 #### Validation
 
-The Field Type validates if all Taxonomy Entries from the value are assigned to the configured taxonomy.
+The field type validates if all Taxonomy Entries from the value are assigned to the configured taxonomy.
 
 #### Settings
 

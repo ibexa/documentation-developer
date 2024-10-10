@@ -5,7 +5,7 @@ description: Learn how to embed related content in another content item's templa
 # Step 7 — Embed content
 
 Creating lists and detailed views of content types and their respective items often involves loading related resources.
-In this step, you add a related object, a Landmark, which will be displayed on Ride pages.
+In this step, you add a related object, a Landmark, which is displayed on Ride pages.
 
 You can add as many or as little related resources as you like.
 
@@ -22,7 +22,7 @@ A Landmark is an interesting place that Rides go through. Each Ride may be relat
 
 Then add all Fields with the following information: 
 
-| Field Type   | Name             | Identifier       |  Required | Searchable | Translatable |
+| Field type   | Name             | Identifier       |  Required | Searchable | Translatable |
 | ------------ | ---------------- | ---------------- | --------- | ---------- | ------------ |
 | Text line    | Name             | `name`           | yes       | yes        | yes          |
 | Rich text    | Description      | `description`    | no        | yes        | yes          |
@@ -32,7 +32,7 @@ Then add all Fields with the following information: 
 Confirm the creation of the content type by selecting **Create**.
 
 Create a *Landmarks* Folder and add some Landmarks to it.
-Note that you will need pictures (for the Photo Field) to represent them.
+Note that you need pictures (for the Photo Field) to represent them.
 
 ## Add Landmarks to Ride content type definition
 

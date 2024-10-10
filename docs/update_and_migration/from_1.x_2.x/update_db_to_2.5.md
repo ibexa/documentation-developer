@@ -69,7 +69,7 @@ To use the script:
     This script uses the layout defined in your Landing Page.
     To migrate successfully, you need to copy your zone configuration
     from `ez_systems_landing_page_field_type` under `ezplatform_page_fieldtype` in the new config.
-    Otherwise the script will encounter errors.
+    Otherwise the script encounters errors.
 
 You can remove the bundle after the migration is complete.
 
@@ -78,20 +78,20 @@ The operation is transactional and rolls back in case of errors.
 
 !!! caution "Avoid exception when migrating from eZ Publish"
 
-    If you [migrated to v1.13 from eZ Publish](migrating_from_ez_publish.md), and want to upgrade to v2.5, an exception will occur when you run the `bin/console ezplatform:page:migrate` command and the database contains internal drafts of Landing Pages. 
+    If you [migrated to v1.13 from eZ Publish](migrating_from_ez_publish.md), and want to upgrade to v2.5, an exception occurs when you run the `bin/console ezplatform:page:migrate` command and the database contains internal drafts of Landing Pages. 
     
     To avoid this exception, you must first [remove all internal drafts before you migrate](migrating_from_ez_publish.md#migration_exception). 
 
 ##### Block migration
 
 In v2.2 Page Builder does not offer all blocks that Landing Page editor did. The removed blocks include Keyword, Schedule, and Form blocks.
-The Places block has been removed from the clean installation and will only be available in the demo out of the box.
+The Places block has been removed from the clean installation and is only available in the demo out of the box.
 If you use this block in your site, re-apply its configuration based on the [demo](https://github.com/ezsystems/ezplatform-ee-demo/blob/v2.2.2/app/config/blocks.yml).
 
 Later versions of Page Builder come with a Content Scheduler block and new Form Blocks, but migration of Schedule blocks to Content Scheduler blocks and of Form Blocks is not supported. 
 
 If there are missing block definitions, such as Form Block or Schedule Block,
-you have an option to continue, but migrated Landing Pages will come without those blocks.
+you have an option to continue, but migrated Landing Pages come without those blocks.
 
 !!! tip
 
@@ -122,7 +122,7 @@ For more information about how custom blocks are implemented in Page Builder, ha
 
 For the migration of blocks from Landing Page to Page Builder, you'll need to provide a converter for attributes of custom blocks. For simple blocks you can use `\EzSystems\EzPlatformPageMigration\Converter\AttributeConverter\DefaultConverter`.
 Custom converters must implement the `\EzSystems\EzPlatformPageMigration\Converter\AttributeConverter\ConverterInterface` interface.
-`convert()` will parse XML `\DOMNode $node` and return an array of `\EzSystems\EzPlatformPageFieldType\FieldType\LandingPage\Model\Attribute` objects.
+`convert()` parses XML `\DOMNode $node` and return an array of `\EzSystems\EzPlatformPageFieldType\FieldType\LandingPage\Model\Attribute` objects.
 
 Below is an example of a simple converter for a custom block:
 
@@ -677,7 +677,7 @@ php bin/console ezplatform:form-builder:create-forms-container --content-type cu
 You also need to run a script to add database tables for the Form Builder.
 You can find it in https://github.com/ezsystems/ezplatform-ee-installer/blob/2.3/Resources/sql/schema.sql#L136
 
-!!! caution "Form (ezform) Field Type"
+!!! caution "Form (ezform) field type"
 
     After the update, in order to create forms, you have to add a new content type (for example, named "Form") that contains `Form` Field (this content type can contain other fields
     as well). After that you can use forms inside Landing Pages via Embed block.
@@ -776,7 +776,7 @@ php bin/console ezplatform:reindex
 
 The introduction of [support for PostgreSQL](databases.md#using-postgresql) includes a change in the way database schema is generated.
 
-it's now created based on [YAML configuration](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/storage/legacy/schema.yaml), using the new [`DoctrineSchemaBundle`](https://github.com/ezsystems/doctrine-dbal-schema).
+It's now created based on [YAML configuration](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/storage/legacy/schema.yaml), using the new [`DoctrineSchemaBundle`](https://github.com/ezsystems/doctrine-dbal-schema).
 
 If you're updating your application according to the usual procedure, no additional actions are required.
 However, if you do not update your meta-repository, you need to take two additional steps:
@@ -784,7 +784,7 @@ However, if you do not update your meta-repository, you need to take two additio
 - enable `EzSystems\DoctrineSchemaBundle\DoctrineSchemaBundle()` in `AppKernel.php`
 - add [`ez_doctrine_schema`](https://github.com/ezsystems/ezplatform/blob/2.5/app/config/config.yml#L33) configuration
 
-#### Changes to Matrix Field Type
+#### Changes to Matrix field type
 
 To migrate your content from legacy XML format to a new `ezmatrix` value use the following command:
 
@@ -833,7 +833,7 @@ CREATE INDEX ezpage_pages_content_id_version_no ON ezpage_pages(content_id, vers
 ##### Powered-By header
 
 In order to promote use of eZ Platform, `ezsystems/ez-support-tools` v1.0.10, as of eZ Platform v2.5.16, sets the Powered-By header.
-it's enabled by default and generates a header like `Powered-By: eZ Platform Enterprise v2`.
+It's enabled by default and generates a header like `Powered-By: eZ Platform Enterprise v2`.
 
 To omit the version number, use the following configuration:
 ``` yaml

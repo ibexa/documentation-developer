@@ -79,7 +79,7 @@ that your project uses have been adapted to Symfony 5.
 ### Automatic code refactoring (optional)
 
 To simplify the process of adapting your code to Symfony 5, you can use [Rector, a reconstructor tool](https://github.com/rectorphp/rector)
-that will automatically refactor your Symfony and PHPunit code.
+that automatically refactors your Symfony and PHPunit code.
 
 To properly refactor your code, you might need to run the Rector `process` command for each Symfony version from 4.0 to 5.0 in turn:
 
@@ -94,7 +94,7 @@ Now, go through the following steps and ensure all your code is up to date with 
 
 - [1. Update templates](update_code/1_update_templates.md)
 - [2. Update configuration](update_code/2_update_configuration.md)
-- [3. Update Field Types](update_code/3_update_field_types.md)
+- [3. Update field types](update_code/3_update_field_types.md)
 - [4. Update Signal Slots](update_code/4_update_signal_slots.md)
 - [5. Update Online Editor](update_code/5_update_online_editor.md)
 - [6. Update workflow](update_code/6_update_workflow.md)

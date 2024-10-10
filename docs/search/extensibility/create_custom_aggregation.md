@@ -44,7 +44,7 @@ An aggregation can also implement one of the following interfaces:
     An aggregation definition must contain at least the name of an aggregation 
     and optional aggregation parameters, such as, for example, the path (string) 
     that is used to limit aggregation results to a specific subtree, Content 
-    Type identifier, or Field definition identifier, which will be mapped 
+    Type identifier, or Field definition identifier, which is mapped 
     to the search index field name.
     
     Aggregation definition must be independent of the search engine used.

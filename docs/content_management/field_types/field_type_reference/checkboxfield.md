@@ -1,18 +1,18 @@
-# Checkbox Field Type
+# Checkbox field type
 
-The Checkbox Field Type stores the current status for a checkbox input, checked or unchecked, by storing a boolean value.
+The Checkbox field type stores the current status for a checkbox input, checked or unchecked, by storing a boolean value.
 
 | Name       | Internal name | Expected input type |
 |------------|---------------|---------------------|
 | `Checkbox` | `ezboolean`   | `boolean`           |
 
-## PHP API Field Type 
+## PHP API field type 
 
 ### Value object
 
 ##### Properties
 
-The Value class of this Field Type contains the following properties:
+The Value class of this field type contains the following properties:
 
 | Property | Type      | Default value | Description|
 |----------|-----------|---------------|------------|
@@ -46,4 +46,4 @@ $checkboxValue = new Checkbox\Value( true );
 
 ##### String representation
 
-As this Field Type is not a string but a boolean, it will return "1" (true) or "0" (false) in cases where it's cast to string, and it's never considered empty.
+As this field type is not a string but a boolean, it returns "1" (true) or "0" (false) in cases where it's cast to string, and it's never considered empty.

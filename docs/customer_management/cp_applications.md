@@ -69,7 +69,7 @@ add a `verify` status to the [configuration](configuration.md#configuration-file
 ### Create new Form Type
 
 Next, create a new form type in `src/Form/VerifyType.php`.
-It will be displayed in the application review stage.
+It's displayed in the application review stage.
 
 ``` php hl_lines="17-18 25"
 [[= include_file('code_samples/customer_portal/src/Form/VerifyType.php') =]]
@@ -117,7 +117,7 @@ from the created form to the application list `src/Corporate/EventSubscriber/Ver
 In line 46, you can see that it handles changes to verify status.
 The subscriber only informs that the status has been changed (line 72).
 
-Now, if you click the **Verify** button during application review, the application will get **Verify** status.
+Now, if you click the **Verify** button during application review, the application gets **Verify** status.
 
 ![Verify status](img/cp_verify_status.png)
 

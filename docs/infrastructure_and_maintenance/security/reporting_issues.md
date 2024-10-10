@@ -11,13 +11,13 @@ No engineering team is perfect though, and if you do discover a security issue i
 
 ## Channels
 
-- If you're a customer or partner, please log in to your Service Portal at <https://support.ibexa.co/>, click "New Ticket", and report the issue as you would report a normal support request. Ibexa Product Support will respond, take care of the report, and keep you informed of the developments.
-- If you're not a customer or partner, please log in to the Ibexa JIRA issue tracker: <https://issues.ibexa.co/>. Create an account if you don't have one, it's free. Click the "Create" button in the top menu to create your report. For "Project", select "Ibexa IBX", or "eZ Publish / Platform", or "eZ Platform Enterprise Edition", depending on which product is affected by the bug. **Important: Select "Security Level": "Security"!** The engineering team will take care of your report.
-- it's also possible to report security issues by email to <security@ibexa.co> - this requires no account.
+- If you're a customer or partner, please log in to your Service Portal at <https://support.ibexa.co/>, click "New Ticket", and report the issue as you would report a normal support request. Ibexa Product Support responds, takes care of the report, and keeps you informed of the developments.
+- If you're not a customer or partner, please log in to the Ibexa JIRA issue tracker: <https://issues.ibexa.co/>. Create an account if you don't have one, it's free. Click the "Create" button in the top menu to create your report. For "Project", select "Ibexa IBX", or "eZ Publish / Platform", or "eZ Platform Enterprise Edition", depending on which product is affected by the bug. **Important: Select "Security Level": "Security"!** The engineering team takes care of your report.
+- It's also possible to report security issues by email to <security@ibexa.co> - this requires no account.
 
 ## Verbosity
 
-Please be verbose when reporting issues. The issue will be solved faster if you include:
+Please be verbose when reporting issues. The issue is solved faster if you include:
 
 - A **title** describing the gist of the issue in one sentence
 - A **description** which includes the steps you take to produce the problem, what you expect the result to be, and what actually happens.
@@ -25,7 +25,7 @@ Please be verbose when reporting issues. The issue will be solved faster if you 
 
 ## Dialogue
 
-The engineering team may need your help to clarify certain specifics, so please respond to such inquiries. We will keep you updated about the progress on our end.
+The engineering team may need your help to clarify certain specifics, so please respond to such inquiries. We keep you updated about the progress on our end.
 
 ## Responsible disclosure
 
@@ -33,4 +33,4 @@ Please give the engineering team time to produce and distribute a solution befor
 
 ## Attribution
 
-We will, if you want, include your name and/or the name of your organisation, a link, and short description about you in the security notification we send out with the fix. Thank you!
+If you want, we can include your name and/or the name of your organisation, a link, and short description about you in the security notification we send out with the fix. Thank you!

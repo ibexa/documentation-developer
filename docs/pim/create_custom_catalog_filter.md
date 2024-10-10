@@ -65,7 +65,7 @@ First, add a `form_field_override.html.twig` template to `templates/themes/admin
 ```
 
 Here, you use the same built-in template that is used for example for the product code filter.
-it's placed in a template block corresponding to your custom filter, `catalog_criteria_product_name_values`.
+It's placed in a template block corresponding to your custom filter, `catalog_criteria_product_name_values`.
 
 To ensure the template is used as a back office form theme, add the following configuration:
 

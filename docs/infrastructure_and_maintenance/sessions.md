@@ -5,7 +5,7 @@ description: Ibexa DXP uses Symfony to handle user sessions, with support for Si
 # Sessions
 
 Sessions are handled by the Symfony framework, specifically API and underlying session handlers provided by the HttpFoundation component.
-it's further enhanced in [[= product_name =]] with support for SiteAccess-aware session cookie configuration.
+It's further enhanced in [[= product_name =]] with support for SiteAccess-aware session cookie configuration.
 
 !!! note
 
@@ -126,7 +126,7 @@ If you're on `php-redis` v4.2.0 and higher, you can optionally tweak [`php-redis
 Ideally keep [persistence cache](persistence_cache.md) and session data separated:
 
 - Sessions can't risk getting [randomly evicted](https://redis.io/docs/reference/eviction/#eviction-policies) when you run out of memory for cache.
-- You can't completely disable eviction either, as Redis will then start to refuse new entries once full, including new sessions.
+- You can't completely disable eviction either, as Redis then starts to refuse new entries once full, including new sessions.
     - Either way, you should monitor your Redis instances and make sure you have enough memory set aside for active sessions/cache items.
 
 If you want to make sure sessions survive Redis or server restarts, consider using a [persistent Redis](https://redis.io/docs/management/persistence/) instance for sessions.

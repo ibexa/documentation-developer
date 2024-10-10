@@ -90,7 +90,7 @@ for example `templates/themes/my_theme/fields`.
 [[= include_file('code_samples/front/render_content/templates/themes/my_theme/fields/author.html.twig') =]]
 ```
 
-The Field template must be placed in a block that corresponds to the Field Type identifier,
+The Field template must be placed in a block that corresponds to the field type identifier,
 in this case `{% block ezauthor_field %}`.
 
 !!! tip "Template blocks"

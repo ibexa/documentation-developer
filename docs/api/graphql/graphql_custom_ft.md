@@ -1,10 +1,10 @@
 ---
-description: Add GraphQL support to custom Field Types.
+description: Add GraphQL support to custom field types.
 ---
 
-# Add GraphQL support to custom Field Types
+# Add GraphQL support to custom field types
 
-If you want to use custom Field Types in GraphQL, you need to map them.
+If you want to use custom field types in GraphQL, you need to map them.
 Their values and field definition structure, need to be defined, to interact with them using GraphQL.
 For example:
 
@@ -13,15 +13,15 @@ For example:
 | Text Line     | string | default | `TextLineFieldDefinition`    |
 | Relation List | `Item` `ArticleItem` `ImageItem` | customized | `RelationListFieldDefinitio` |
 
-## Map a custom Field Type
+## Map a custom field type
 
-There are two ways of mapping a custom Field Type:
+There are two ways of mapping a custom field type:
 
 - configuration
 - custom `FieldDefinitionMapper`
 
 You need to write a custom `FieldDefinitionMapper` if the field definition settings and constraints impact how it's mapped to GraphQL.
-For example, the selection Field Type has a "multiple" option. 
+For example, the selection field type has a "multiple" option. 
 If set to false, it accepts and returns a single value, 
 but if set to true, it accepts and returns an array of values.
 
@@ -29,9 +29,9 @@ If your field definition doesn't require additional clarifications, you can map 
 
 ### Map with configuration
 
-To map a custom Field Type with configuration use a compiler pass to modify a container parameter, `ibexa.graphql.schema.content.mapping.field_definition_type`.
+To map a custom field type with configuration use a compiler pass to modify a container parameter, `ibexa.graphql.schema.content.mapping.field_definition_type`.
 
-it's a hash that maps a Field Type identifier (`ezstring`) to the following entries:
+It's a hash that maps a field type identifier (`ezstring`) to the following entries:
 
 - `value_type` - the GraphQL type values of the custom field. It can be a native type (string, int), or a custom type. If none is specified, string is used.
 - `value_resolver` - how values of this field are resolved and passed to the defined value type. If not specified, it receives the `Field` object for the field type: `field`.
@@ -59,7 +59,7 @@ services:
 
 The `$innerMapper` argument passes the decorated mapper to the constructor.
 You can use the `DecoratingFieldDefinitionMapper` from the `graphql` package.
-It requires that you implement the `getFieldTypeIdentifier` method to tell which Field Type is covered by the mapper.
+It requires that you implement the `getFieldTypeIdentifier` method to tell which field type is covered by the mapper.
 
 Add `MyCustomFieldDefinitionMapper.php` mapper to `src/GraphQL/Schema`:
 
@@ -84,7 +84,7 @@ To do that, you need to replace `mapXXX` by the method it's in:
          }
 ```
 
-it's required for every implemented method, so that other mappers are called for the other Field Types.
+It's required for every implemented method, so that other mappers are called for the other field types.
 
 The [`RelationFieldDefinitionMapper`](https://github.com/ibexa/graphql/blob/main/src/lib/Schema/Domain/Content/Mapper/FieldDefinition/RelationFieldDefinitionMapper.php) example:
 
@@ -144,10 +144,10 @@ The cardinality (single or collection) depends on the selection limit setting:
 
 #### Field input mapping
 
-The `mapToFieldValueInputType` method is used to document what input type is expected by Field Types that require a more complex input value.
+The `mapToFieldValueInputType` method is used to document what input type is expected by field types that require a more complex input value.
 For example, `ezmatrix` generates its own input types depending on the configured columns.
 
-Example of a `MyCustomFieldDefinitionMapper` mapper for a complex Field Type:
+Example of a `MyCustomFieldDefinitionMapper` mapper for a complex field type:
 
 ```php
 class MyFieldDefinitionMapper extends DecoratingFieldDefinitionMapper implements FieldDefinitionMapper

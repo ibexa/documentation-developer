@@ -73,7 +73,7 @@ Review the old YAML files and move your custom configuration to the relevant new
 #### Flysystem v2
 
 Local adapters' `directory` key changed to `location`.
-it's defined in `config/packages/oneup_flysystem.yaml`:
+It's defined in `config/packages/oneup_flysystem.yaml`:
 
 ```yaml
 oneup_flysystem:

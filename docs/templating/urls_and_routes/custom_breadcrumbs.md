@@ -22,7 +22,7 @@ Both `breadcrumb_path` and `breadcrumb_names` must be configured for the breadcr
 |Option|Description|
 |--- |--- |
 |`breadcrumb_path`|Valid route identifier which exists in at least one of the routing YAML files.|
-|`breadcrumb_names`|Name for the breadcrumb element. If the translation is not set, there will be a fallback to route translation.</br>In the example above if the `Blog List` key has no translation, the fallback key is `custom_blog_index|breadcrumb`.|
+|`breadcrumb_names`|Name for the breadcrumb element. If the translation is not set, there is a fallback to route translation.</br>In the example above if the `Blog List` key has no translation, the fallback key is `custom_blog_index|breadcrumb`.|
 
 ### Multi-part routes
 

@@ -43,7 +43,7 @@ For more information, see [Commerce](https://doc.ibexa.co/en/4.4/commerce/commer
 
 Another addition is the Storefront package that provides a starting kit 
 for the developers.
-it's a working set of components, which you can use to test the new capabilities, 
+It's a working set of components, which you can use to test the new capabilities, 
 and then customize and extend to create your own implementation of a web store.
 
 For more information, see [Storefront](https://doc.ibexa.co/en/4.4/commerce/storefront/storefront).
@@ -109,8 +109,7 @@ The Flysystem Adapter implementation now supports dynamic paths
 described by complex settings resolvable for the SiteAccess context.
 For more information, see [Configuring the DFS IO handler](https://doc.ibexa.co/en/4.4/infrastructure_and_maintenance/clustering/clustering/#configuring-the-dfs-io-handler).
 
-If your custom project relies directly on a Flysystem features instead of using our IO abstraction,
-it will require an upgrade as well,
+If your custom project relies directly on a Flysystem features instead of using our IO abstraction, it requires an upgrade as well,
 using [these instructions](https://flysystem.thephpleague.com/docs/upgrade-from-1.x/).
 
 ### Dedicated migration type for Corporate Accounts

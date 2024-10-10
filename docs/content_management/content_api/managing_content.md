@@ -34,7 +34,7 @@ and pass it to the [`LocationService::createLocation`](../../api/php_api/php_api
 `LocationCreateStruct` must receive the parent Location ID.
 It sets the `parentLocationId` property of the new Location.
 
-You can also provide other properties for the Location, otherwise they will be set to their defaults:
+You can also provide other properties for the Location, otherwise they are set to their defaults:
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/AddLocationToContentCommand.php', 52, 54) =]]
@@ -71,10 +71,10 @@ You can remove a Location either by deleting it, or sending it to Trash.
 Deleting makes use of [`LocationService::deleteLocation()`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-LocationService.html#method_deleteLocation).
 It permanently deletes the Location, together with its whole subtree.
 
-Content which has only this one Location will be permanently deleted as well.
-Content which has more Locations will be still available in its other Locations.
+Content which has only this one Location is permanently deleted as well.
+Content which has more Locations is still available in its other Locations.
 If you delete the [main Location](#changing-the-main-location) of a content item that has more Locations,
-another Location will become the main one.
+another Location becomes the main one.
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/DeleteContentCommand.php', 44, 45) =]]
@@ -126,7 +126,7 @@ Trash Location is identical to the origin Location of the object.
 [[= include_file('code_samples/api/public_php_api/src/Command/TrashContentCommand.php', 64, 65) =]]
 ```
 
-The content item will be restored under its previous Location.
+The content item is restored under its previous Location.
 You can also provide a different Location to restore in as a second argument:
 
 ``` php
@@ -170,7 +170,7 @@ To copy a content type, use [`ContentTypeService::copyContentType`](../../api/ph
 [[= include_file('code_samples/api/public_php_api/src/Command/CreateContentTypeCommand.php', 89, 90) =]]
 ```
 
-The copy will automatically be given an identifier based on the original content type identifier
+The copy is automatically getting an identifier based on the original content type identifier
 and the copy's ID, for example: `copy_of_folder_21`.
 
 To change the identifier of the copy, use a [`ContentTypeUpdateStruct`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-ContentTypeUpdateStruct.html):

@@ -88,11 +88,11 @@ The plugin provides the following built-in file templates:
 | Command | Symfony command that uses content repository |
 | Composite Criterion | Criterion class based on `\Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\CompositeCriterion` |
 | Field definition form mapper | Class implementing `Ibexa\AdminUi\FieldType\FieldDefinitionFormMapperInterface` |
-| Field Type | Field Type class based on `Ibexa\Contracts\Core\FieldType\Generic\Type` |
-| Field Type Comparable | Class implementing `Ibexa\Contracts\VersionComparison\FieldType\Comparable` |
-| Field Type Indexable | Class implementing `Ibexa\Contracts\Core\FieldType\Indexable` |
+| Field type | Field type class based on `Ibexa\Contracts\Core\FieldType\Generic\Type` |
+| Field type Comparable | Class implementing `Ibexa\Contracts\VersionComparison\FieldType\Comparable` |
+| Field type Indexable | Class implementing `Ibexa\Contracts\Core\FieldType\Indexable` |
 | Field value form mapper | Class implementing `Ibexa\Contracts\ContentForms\FieldType\FieldValueFormMapperInterface` |
-| Field value object | Field Type value class |
+| Field value object | Field type value class |
 | Installer Provisioner | Class implementing `\Ibexa\Installer\Provisioner\ProvisionerInterface`  |
 | Menu configuration event subscriber | Event subscriber for `Ibexa\AdminUi\Menu\Event\ConfigureMenuEvent::MAIN_MENU`  |
 | Policy provider | Class implementing `Ibexa\Bundle\Core\DependencyInjection\Security\PolicyProvider\PolicyProviderInterface` |
@@ -244,7 +244,7 @@ For example, when plugin detects deprecated configuration key usage, it marks th
 
 ## Known issues
 
-it's not possible to create new project with Docker as PHP remote interpreter.
+It's not possible to create new project with Docker as PHP remote interpreter.
 See [related JetBrains issue](https://youtrack.jetbrains.com/issue/WI-61330) for more details.
 
 ## Feedback

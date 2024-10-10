@@ -26,7 +26,7 @@ The `/content/edit/nodraft` route shows a content item creation form for a given
 
 This means that `/content/create/nodraft/folder/eng-GB/2` enables you to create a Folder in English as a child of Location with ID 2.
 
-A limited subset of Field Types is supported:
+A limited subset of field types is supported:
 
 - `TextLine`
 - `TextBlock`

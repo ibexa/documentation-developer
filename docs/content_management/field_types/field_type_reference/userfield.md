@@ -1,12 +1,12 @@
-# User Field Type
+# User field type
 
-This Field Type validates and stores information about a user.
+This field type validates and stores information about a user.
 
 | Name   | Internal name | Expected input |
 |--------|---------------|----------------|
 | `User` | `ezuser`      | ignored        |
 
-## PHP API Field Type
+## PHP API field type
 
 ### Value Object
 

@@ -24,7 +24,7 @@ You can then proceed with consecutive upgrades to further versions: v1.13 LTS an
     1. Additionally there are some other topics to be aware of for the code migration from eZ Publish to eZ Platform:
 
         - Symfony deprecations. The recommended version to migrate to is eZ Platform v2.5 LTS, which is using Symfony 3.4 LTS.
-        - [Field Types reference](field_type_reference.md) for overview of Field Types that do and don't exist in eZ Platform
+        - [Field types reference](field_type_reference.md) for overview of field types that do and don't exist in eZ Platform
         - API changes. While we have a strict backwards compatibility focus, some deprecated API features were removed and some changes were done to internal parts of the system. See [ezpublish-kernel:doc/bc/changes-6.0.md](https://github.com/ezsystems/ezpublish-kernel/blob/v6.7.0/doc/bc/changes-6.0.md)
 
 !!! note
@@ -73,15 +73,15 @@ Assuming you have own composer packages *(libraries and bundles, but not eZ Publ
 
 Adapt the command with your `vendor`, `package`, version number, and add `"–dev"` if a given package is for dev use. Also check if there are other changes in `composer.json` you should move over.
 
-#### 2.2.2 Install XmlText Field Type
+#### 2.2.2 Install XmlText field type
 
-While no longer bundled, the XmlText Field Type still exists and is needed to perform a migration from eZ Publish's XmlText to the new docbook-based format used by the RichText Field Type. If you plan to use Legacy Bridge for a while before migrating content, you'll also need this for rendering content with XMLText. From `<new-ez-root>` execute:
+While no longer bundled, the XmlText field type still exists and is needed to perform a migration from eZ Publish's XmlText to the new docbook-based format used by the RichText field type. If you plan to use Legacy Bridge for a while before migrating content, you'll also need this for rendering content with XMLText. From `<new-ez-root>` execute:
 
 `composer require --no-update "ezsystems/ezplatform-xmltext-fieldtype:^1.3.0"`
 
 !!! note
 
-    As of v1.3, be aware this Field Type now uses the Content View system introduced in eZ Platform 1.0, so make sure you adapt custom templates and override rules if you plan to use this for rendering content _(in Legacy Bridge setup)_.
+    As of v1.3, be aware this field type now uses the Content View system introduced in eZ Platform 1.0, so make sure you adapt custom templates and override rules if you plan to use this for rendering content _(in Legacy Bridge setup)_.
 
 
 ### 2.3. Config
@@ -115,7 +115,7 @@ To move over your own custom configurations, follow the conventions below and ma
 
 !!! note "Make sure to adapt SiteAccess names"
 
-    In the default configurations in **ezplatform.yaml** you'll find existing SiteAccesses like `site`, and depending on installation perhaps a few others, all under a site group called `site\_group`. Make sure to change those to what you had in **ezpublish.yaml** to avoid issues with having to log in to your website, given user/login policy rules will need to be updated if you change names of SiteAccess as part of the upgrade.
+    In the default configurations in **ezplatform.yaml** you'll find existing SiteAccesses like `site`, and depending on installation perhaps a few others, all under a site group called `site\_group`. Make sure to change those to what you had in **ezpublish.yaml** to avoid issues with having to log in to your website, given user/login policy rules need to be updated if you change names of SiteAccess as part of the upgrade.
 
 #### 2.3.1 Image aliases
 
@@ -169,7 +169,7 @@ Move over registration of _your_ bundles you have from src and from composer pac
 
 ### 2.5. Optional: Install Legacy Bridge
 
-If you don't plan to migrate content directly to newer eZ Platform Field Types, you can optionally install Legacy Bridge and gradually handle code and subsequent content migration afterwards. For installation instructions see [here](https://github.com/ezsystems/LegacyBridge/blob/master/INSTALL.md).
+If you don't plan to migrate content directly to newer eZ Platform field types, you can optionally install Legacy Bridge and gradually handle code and subsequent content migration afterwards. For installation instructions see [here](https://github.com/ezsystems/LegacyBridge/blob/master/INSTALL.md).
 
 !!! note
 
@@ -179,9 +179,9 @@ If you don't plan to migrate content directly to newer eZ Platform Field Types, 
 
 As eZ Publish legacy is installed via composer, we need to take care of placing some files outside its generated `<new-ez-root>/ezpublish_legacy/` folder, and for instance use symlink to place them inside during installation.
 
-1. For design and settings files that you typically version in git, you can now take advantage of Legacy Bridge's built-in symlink convention. So as installation already hinted about, you can generate a structure and set up symlinks using `bin/console ezpublish:legacy:symlink -c`. This will create folders you can use below in `<new-ez-root>/src/legacy_files/`.
+1. For design and settings files that you typically version in git, you can now take advantage of Legacy Bridge's built-in symlink convention. So as installation already hinted about, you can generate a structure and set up symlinks using `bin/console ezpublish:legacy:symlink -c`. This creates folders you can use below in `<new-ez-root>/src/legacy_files/`.
 
-1. The same goes for the `<new-ez-root>/ezpublish_legacy/var/[<site>/]storage` folder. However, as it's typically not versioned in git, there's no predefined convention for this. If you create a folder within your project structure for symlinking into this folder, as opposed to a mount somewhere else, make sure to mark this folder as ignored by git once it and the corresponding `.keep` file have been added to your checkout. The example below will assume `<new-ez-root>/src/legacy_files/storage` was created for this purpose, if you opt for something else just adjust the instructions.
+1. The same goes for the `<new-ez-root>/ezpublish_legacy/var/[<site>/]storage` folder. However, as it's typically not versioned in git, there's no predefined convention for this. If you create a folder within your project structure for symlinking into this folder, as opposed to a mount somewhere else, make sure to mark this folder as ignored by git once it and the corresponding `.keep` file have been added to your checkout. The example below assumes `<new-ez-root>/src/legacy_files/storage` was created for this purpose, if you opt for something else just adjust the instructions.
 
 #### 2.5.2 Upgrade the legacy distribution files
 
@@ -220,7 +220,7 @@ When that is done, execute the following to update and install all packages from
 
 !!! note
 
-    At the end of the process, you will be asked for values for parameters.yaml not already moved from old installation, or new *(as defined in parameters.yaml.dist)*.
+    At the end of the process, you are asked for values for parameters.yaml not already moved from old installation, or new *(as defined in parameters.yaml.dist)*.
 
 ### 2.8 Register EzSystemsEzPlatformXmlTextFieldTypeBundle
 
@@ -238,25 +238,25 @@ Import to your database the changes provided in one of the following files. It's
 
 `Postgres: <new-ez-root>/vendor/ezsystems/ezpublish-kernel/data/update/postgres/dbupdate-5.4.0-to-6.13.0.sql`
 
-### 3.2. Once you're ready to migrate content to Platform Field Types
+### 3.2. Once you're ready to migrate content to Platform field types
 
-Steps here should only be done once you're ready to move away from legacy and Legacy Bridge, as the following Field Types are not supported by legacy. In other words, content you have migrated will not be editable in legacy admin interface anymore, but rather in the more modern eZ Platform back-end UI, allowing you to take full advantage of what the Platform has to offer.
+Steps here should only be done once you're ready to move away from legacy and Legacy Bridge, as the following field types are not supported by legacy. In other words, content you have migrated isn't be editable in legacy admin interface anymore, but rather in the more modern eZ Platform back-end UI, allowing you to take full advantage of what the Platform has to offer.
 
-The Field Types unsupported in eZ Platform are:
+The field types unsupported in eZ Platform are:
 
 - [XmlText](#321-migrate-xmltext-content-to-richtext)
 - [Page](#322-migrate-page-field-to-page-ez-enterprise-only)
 - Star Rating
 
-For Field Types which do not have specific procedures below, you must take one of the following actions:
+For field types which do not have specific procedures below, you must take one of the following actions:
 
 - implement them yourself in eZ Platform
 - remove them from all content types that use them
 
 !!! tip
 
-    To find out which content types use a specific Field Type,
-    you can run the following SQL query on your database (in this case, for the Star Rating Field Type):
+    To find out which content types use a specific field type,
+    you can run the following SQL query on your database (in this case, for the Star Rating field type):
 
     ``` sql
     select contentclass_id from ezcontentclass_attribute where data_type_string='ezsrrating' group by contentclass_id;
@@ -271,19 +271,19 @@ Run the conversion script on a copy of your production database as the script is
 
 - `-d memory_limit=1536M` specifies that each conversion process gets 1536MB of memory. This should be more than sufficient for most databases. If you have small `ezxmltext` documents, you may decrease the limit. If you have huge `ezxmltext` documents, you may need to increase it. See PHP documentation for more information about the [memory_limit setting](http://php.net/manual/en/ini.core.php#ini.memory-limit).
 - `--dry-run` prevents the conversion script from writing anything back to the database. It just tests if it's able to convert all the `ezxmltext` documents.
-- `--export-dir` specifies a directory where it will dump the `ezxmltext` for content object attributes which the conversion script finds problems with
+- `--export-dir` specifies a directory where it dumps the `ezxmltext` for content object attributes which the conversion script finds problems with
 - `--export-dir-filter` specifies what severity the problems found needs to be before the script dumps the `ezxmltext`:
     - `notice`: `ezxmltext` contains problems which the conversion tool was able to fix automatically and likely do not need manual intervention
     - `warning`: the conversion tool was able to convert the `ezxmltext` to valid `richtext`, but data could have been altered/removed/added in the process. Manual supervision recommended
     - `error`: the `ezxmltext` text cannot be converted and manual changes are required.
-- `--concurrency 4` specifies that the conversion script will spawn four child processes which run the conversion. If you have dedicated hardware for running the conversion, you should use concurrency level that matches the number of logical CPUs on your system. If your system needs to do other tasks while running the conversion, you should run with a smaller number.
-- `-v` specifies verbosity level. You may increase the verbosity level by supplying `-vv`, but `-v` will be sufficient in most cases.
+- `--concurrency 4` specifies that the conversion script spawns four child processes which run the conversion. If you have dedicated hardware for running the conversion, you should use concurrency level that matches the number of logical CPUs on your system. If your system needs to do other tasks while running the conversion, you should run with a smaller number.
+- `-v` specifies verbosity level. You may increase the verbosity level by supplying `-vv`, but `-v` is sufficient in most cases.
 
 The script also has an `--image-content-types` option which you should use if you have custom image classes. With this option, you specify the content class identifiers:
 
 `php bin/console ezxmltext:convert-to-richtext --image-content-types=image,custom_image -v`
 
-The script needs to know these identifiers in order to convert `<ezembed>` tags correctly. Failing to do so will prevent the editor from showing image thumbnails of embedded image objects. You may find the image content types in your installation by looking for these settings in `content.ini(.append.php)`:
+The script needs to know these identifiers in order to convert `<ezembed>` tags correctly. Failing to do so prevents the editor from showing image thumbnails of embedded image objects. You may find the image content types in your installation by looking for these settings in `content.ini(.append.php)`:
 
 ```
 [RelationGroupSettings]
@@ -291,7 +291,7 @@ ImagesClassList[]
 ImagesClassList[]=image
 ```
 
-If the `--image-content-types` option is not specified, the default setting `image` will be used.
+If the `--image-content-types` option is not specified, the default setting `image` is used.
 
 !!! note
 
@@ -318,7 +318,7 @@ But later realize the last identifier should be `profile`, not ``custom_image``,
 The last command would then ensure embedded objects with content type identifier `custom_image` are no longer tagged as images, while embedded objects with content type identifier `profile` are.
 
 
-Using the option `--export-dir`, the conversion will export problematic `ezxmltext` to files with the name pattern `[export-dir]/ezxmltext_[contentobject_id]_[contentobject_attribute_id]_[version]_[language].xml`. A corresponding `.log` file will also be created which includes information about why the conversion failed. Be aware that the reported location of the problem may not be accurate or may be misleading.
+Using the option `--export-dir`, the conversion exports problematic `ezxmltext` to files with the name pattern `[export-dir]/ezxmltext_[contentobject_id]_[contentobject_attribute_id]_[version]_[language].xml`. A corresponding `.log` file is also created which includes information about why the conversion failed. Be aware that the reported location of the problem may not be accurate or may be misleading.
 
 Below is an example of a xml dump, `ezxmltext_12_1234_2_eng-GB.xml`:
 
@@ -354,8 +354,8 @@ error: Validation errors when converting ezxmltext for contentobject_attribute.i
 - context : Error in 2:0: Element section has extra content: informaltable
 ```
 
-The first log message is a notice about the `ez-temporary=1` attribute which the conversion tool simply will remove during conversion.
-The second log message is an error, but the cause described may be confusing. During the conversion, the `<table>` element will be converted to an `<informaltable>` tag, which is problematic.
+The first log message is a notice about the `ez-temporary=1` attribute which the conversion tool simply removes during conversion.
+The second log message is an error, but the cause described may be confusing. During the conversion, the `<table>` element is converted to an `<informaltable>` tag, which is problematic.
 The exact problem in this case is the value of the second align attribute: `<td align="middle"....>`. An align attribute may only have the following values: `left`, `right`, `center`, `justify`.
 
 In order to fix the problem, open the .xml file in a text editor and correct the errors:
@@ -390,7 +390,7 @@ Now, you may test if the modified `ezxmltext` may be converted using the `--dry-
 
 If the tool reports no errors, then the `ezxmltext` is fixed. You may rerun the command without the `--dry-run` option in order to actually update the database with the correct XmlText.
 
-Once you have fixed all the dump files in `ezxmltext-export/`, you may skip the `--content-object` option and the script will import all the dump files located in the `export-dir`:
+Once you have fixed all the dump files in `ezxmltext-export/`, you may skip the `--content-object` option and the script imports all the dump files located in the `export-dir`:
 
 `php -d memory_limit=1536M bin/console ezxmltext:import-xml --export-dir=ezxmltext-export -v`
 
@@ -398,7 +398,7 @@ Typical problems that needs manual fixing:
 
 **Duplicate xhtml IDs**
 
-Xhtml IDs needs to be unique. The following `ezxmltext` will result in a warning:
+Xhtml IDs needs to be unique. The following `ezxmltext` results in a warning:
 
 ```
     <paragraph>
@@ -409,12 +409,12 @@ Xhtml IDs needs to be unique. The following `ezxmltext` will result in a warning
     </paragraph>
 ```
 
-The conversion tool will replace the duplicate id (`inv5`) with a random value. If you need the ID value to match your CSS, you need to change it manually.
-The conversion tool will also complain about IDs which contain invalid characters.
+The conversion tool replaces the duplicate id (`inv5`) with a random value. If you need the ID value to match your CSS, you need to change it manually.
+The conversion tool also complains about IDs which contain invalid characters.
 
 **Links with non-existing `object_remote_id` or `node_remote_id`.**
 
-In `ezxmltext` you may have links which refer to other objects by their remote ID. This is not supported in `richtext`, so the conversion tool must look up such remote IDs and replace them with the `object_id` or `node_id`. If the conversion tool cannot find the object by its remote id, it will issue a warning about it.
+In `ezxmltext` you may have links which refer to other objects by their remote ID. This is not supported in `richtext`, so the conversion tool must look up such remote IDs and replace them with the `object_id` or `node_id`. If the conversion tool cannot find the object by its remote id, it issues a warning about it.
 
 In older eZ Publish databases you may also have invalid links due to lack of reference to a target (no `href`, `url_id`, etc.):
 
@@ -422,7 +422,7 @@ In older eZ Publish databases you may also have invalid links due to lack of ref
     <link>some text</link>
 ```
 
-When the conversion tool detects links with no reference it will issue a warning and rewrite the URL to point to current page (`href="#"`).
+When the conversion tool detects links with no reference it issues a warning and rewrite the URL to point to current page (`href="#"`).
 
 **`<literal>`**
 
@@ -480,7 +480,7 @@ If you use Varnish, the recommended Varnish (4 or higher) VCL configuration can 
 
 The officially recommended virtual configuration is now shipped in the `doc` folder, for both apache2 (`doc/apache2`) and nginx (`doc/nginx`). Both are built to be easy to understand and use, but aren't meant as drop-in replacements for your existing configuration.
 
-As was the case starting 5.4, one notable change is that `SetEnvIf` is now used to dynamically change rewrite rules depending on the Symfony environment. it's currently used for the assetic production rewrite rules.
+As was the case starting 5.4, one notable change is that `SetEnvIf` is now used to dynamically change rewrite rules depending on the Symfony environment. It's currently used for the assetic production rewrite rules.
 
 ## Step 5: Link assets
 
@@ -495,7 +495,7 @@ php bin/console assetic:dump --env=prod
 
 ##### Unstyled login screen after upgrade
 
-it's possible that after the upgrade your admin screen will be unstyled. This may happen because the new SiteAccess will not be available in the database. You can fix it by editing the permissions for the Anonymous user. Go to **Roles** in the Admin Panel and edit the limitations of the Anonymous user's `user/login` policy. Add all SiteAccesses to the limitation, save, and clear the browser cache. The login screen should now show proper styling.
+It's possible that after the upgrade your admin screen is unstyled. This may happen because the new SiteAccess isn't available in the database. You can fix it by editing the permissions for the Anonymous user. Go to **Roles** in the Admin Panel and edit the limitations of the Anonymous user's `user/login` policy. Add all SiteAccesses to the limitation, save, and clear the browser cache. The login screen should now show proper styling.
 
 ##### Translating URLs
 
@@ -523,13 +523,13 @@ In case of URLs with extended UTF-encoded names, the workaround must make use of
 
 ## Migrating legacy Page field (ezflow) to new Page (Enterprise)
 
-To move your legacy Page field / eZ Flow configuration to eZ Platform Enterprise Edition you can use a script that will aid in the migration process.
+To move your legacy Page field / eZ Flow configuration to eZ Platform Enterprise Edition you can use a script that aids in the migration process.
 
-The script will automatically migrate only data – to move custom views, layouts, blocks etc., you will have to provide their business logic again.
+The script automatically migrates only data – to move custom views, layouts, blocks etc., you have to provide their business logic again.
 
 !!! caution
 
-    The migration script will operate on your current database.
+    The migration script operates on your current database.
 
     Make sure to **back up your database** in case of an unexpected error.
 
@@ -537,7 +537,7 @@ To use the script, do the following:
 
 !!! note
 
-    Make a note of the paths to .ini files which define your legacy blocks. You will need these paths later.
+    Make a note of the paths to .ini files which define your legacy blocks. You need these paths later.
 
 **1.** Add `ezflow-migration-toolkit` to `composer.json` in your clean Platform installation.
 
@@ -575,11 +575,11 @@ bin/console ezflow:migrate <legacy path> —ini=<block definitions> [—ini=<ano
 bin/console ezflow:migrate /var/www/legacy.application.com/ —ini=extension/myapplication/settings/block.ini.append.php
 ```
 
-**5.** You will be warned about the need to create a [backup](backup.md) of your database. **Proceed only if you're sure you have done it.**
+**5.** You are warned about the need to create a [backup](backup.md) of your database. **Proceed only if you're sure you have done it.**
 
-A `MigrationBundle` will be generated in the `src/` folder.
+A `MigrationBundle` is generated in the `src/` folder.
 
-You will see a report summarizing the results of the migration.
+You can see a report summarizing the results of the migration.
 
 **6.** Add `MigrationBundle` to `AppKernel.php`.
 
@@ -590,8 +590,8 @@ new MigrationBundle\MigrationBundle()
 
 **7.** Clear cache again.
 
-At this point you can already view the initial effects of the migration, but they will still be missing some of your custom content.
+At this point you can already view the initial effects of the migration, but they are still missing some of your custom content.
 
 The `MigrationBundle` generates placeholders for layouts in the form of frames with a data dump.
 
-For blocks that could not be mapped to existing Page blocks, it will also generate PHP file templates that you need to fill with your own business logic.
+For blocks that could not be mapped to existing Page blocks, it also generates PHP file templates that you need to fill with your own business logic.

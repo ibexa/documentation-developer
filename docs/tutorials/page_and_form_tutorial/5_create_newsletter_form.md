@@ -63,7 +63,7 @@ Go back to editing the Page.
 Edit the Form block again.
 In the **Design** tab, select the **Newsletter Form View** and click **Submit**.
 
-The block remains unchanged, but the results will be visible when you add CSS styling.
+The block remains unchanged, but the results are visible when you add CSS styling.
 
 ### Change the field template
 

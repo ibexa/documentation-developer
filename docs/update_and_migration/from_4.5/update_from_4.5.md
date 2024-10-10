@@ -240,7 +240,7 @@ And apply the following database script:
 
 ### Image picker migration
 
-The new Image picker by default expects an `ezkeyword` Field Type to exist in the `image` content type.
+The new Image picker by default expects an `ezkeyword` field type to exist in the `image` content type.
 
 You can add it running the following commands:
 

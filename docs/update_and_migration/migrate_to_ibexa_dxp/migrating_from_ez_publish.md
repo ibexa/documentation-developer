@@ -6,7 +6,7 @@ description: Migrate an older eZ Publish installation to eZ Platform.
 
 eZ Publish was eZ Platform's predecessor, a CMS in development for five major versions and several years.
 
-Users of eZ Publish will find eZ Platform largely similar to what they know. The improvements and enhancements did not turn the fundamental concepts underlying the system, such as the content model, upside down. However, specific features, solutions and recipes may work differently between the two versions.
+Users of eZ Publish can find eZ Platform largely similar to what they know. The improvements and enhancements did not turn the fundamental concepts underlying the system, such as the content model, upside down. However, specific features, solutions and recipes may work differently between the two versions.
 
 The release of eZ Platform brought about an inevitable disruption in backwards compatibility with eZ Publish. This means that the process of migrating existing installations requires more effort than simply upgrading from one version to another. Here you can find details on moving existing Publish-powered websites to eZ Platform.
 
@@ -23,7 +23,7 @@ The 6th generation is aimed at being fully backwards compatible on the following
 
 The specific incompatibilities
 
-The specific changes that will be migrated and are incompatible with legacy are: 
+The specific changes that are migrated and are incompatible with legacy are: 
 
 - XmlText fields have been replaced with a new [RichText](richtextfield.md) field
 - Page field (ezflow) has been replaced by the [LandingPage](pagefield.md) field, and is now provided by our commercial product [eZ Platform Enterprise Edition](http://ezstudio.com/)
@@ -37,7 +37,7 @@ Together these major improvements make it practically impossible to run eZ Platf
 
 If you're coming directly from legacy (4.x), you need to follow the best practice 5.x Platform migration path and do the following:
 
-- Rewrite custom Field Types for the new Platform stack. Alternatively you can use Null Field Type as a dummy implementation for the custom Field Types that you don't want to migrate. Using Null Field Type will prevent errors from the Platform Stack, see [Null Field Type Reference](nullfield.md)
+- Rewrite custom field types for the new Platform stack. Alternatively you can use Null field type as a dummy implementation for the custom field types that you don't want to migrate. Using Null field type prevents errors from the Platform Stack, see [Null field type Reference](nullfield.md)
 - Rewrite custom web front end to use the new Platform/Symfony stack, see [Beginner Tutorial](beginner_tutorial.md)
 - Rewrite custom admin modules to use the new Platform/Symfony stack
     - And if you do this while on 5.x, you can use several of the [available legacy migration features](https://doc.ez.no/display/EZP/Legacy+code+and+features) to make the new code appear in legacy admin
@@ -57,7 +57,7 @@ See Upgrade documentation on how to perform the actual upgrade: [Upgrade (eZ Pub
 
 As eZ Platform introduced completely new user interfaces with greatly improved user experience, the following custom developments needs to be made if you have customization needs:
 
-- Write UI code for custom Field Types for the new JavaScript-based editorial interface, (see [Page blocks](render_page.md)
+- Write UI code for custom field types for the new JavaScript-based editorial interface, (see [Page blocks](render_page.md)
 - Adjust custom admin modules for the new Symfony-based admin interface
 
 For a detailed guide through these developments see [Upgrading from 5.4.x and 2014.11 to 16.xx](migrating_from_ez_publish_platform.md#upgrading-from-54x-and-201411-to-16xx) 

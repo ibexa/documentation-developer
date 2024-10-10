@@ -62,7 +62,7 @@ At this point you can go to the back office and check the results.
 
 ## Other Fields as thumbnails
 
-Any Field Type can generate a thumbnail, e.g.:
+Any field type can generate a thumbnail, e.g.:
 
 - DateAndTime (`ezdatetime`) - you can add a mini calendar thumbnail for Appointment content type and on the day of the appointment a clock thumbnail with a specific time when it takes place
 - TextBlock (`eztext`) -  you can add a first letter of the text block that is inside

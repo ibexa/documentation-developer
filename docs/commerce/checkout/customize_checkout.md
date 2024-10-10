@@ -277,9 +277,9 @@ When you have multiple checkout workflows, you can specify which one to use by p
 With this setup, you can specify which workflow to use by clicking the button or link that starts the checkout. 
 The argument passed determines which workflow is used, providing flexibility in workflow selection.
 
-## Define custom Address Field Type formats 
+## Define custom Address field type formats 
 
-To create custom Address Field Type formats to be used in checkout, make the following changes in the project configuration files. 
+To create custom Address field type formats to be used in checkout, make the following changes in the project configuration files. 
 
 First, define custom format configuration keys for `billing_address_format` and `shipping_address_format`:
 

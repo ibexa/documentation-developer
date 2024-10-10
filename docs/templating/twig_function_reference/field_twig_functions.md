@@ -57,7 +57,7 @@ You can pass the following parameters to `ibexa_render_field()`:
 - `template` - Field template to use
 - `attr` - hash of HTML attributes to add to the tag
 - parameters - arbitrary parameters to pass to the template block.
-Some Field Types, like the [MapLocation Field Type](maplocationfield.md), expect specific parameters.
+Some field types, like the [MapLocation field type](maplocationfield.md), expect specific parameters.
 
 #### Examples
 
@@ -93,7 +93,7 @@ the function returns the value in the main language.
 ### `ibexa_field()`
 
 `ibexa_field()` returns the Field object.
-The Field gives you access to the Field value, as well as the Field's definition identifier and Field Type identifier.
+The Field gives you access to the Field value, as well as the Field's definition identifier and field type identifier.
 If the content item does not have a translation in the prioritized or passed language,
 the function returns the Field object in the main language.
 
@@ -106,7 +106,7 @@ the function returns the Field object in the main language.
 You can access the Field's value by using `(ibexa_field(content, 'my_field').value)`,
 but it's recommended to use the dedicated [`ibexa_field_value()`](#ibexa_field_value) function for this.
 
-You can use `ibexa_field()` to access the Field Type identifier:
+You can use `ibexa_field()` to access the field type identifier:
 
 ``` html+twig
 {{ ibexa_field(content, 'my_field').fieldTypeIdentifier }}

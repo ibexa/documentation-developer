@@ -1,6 +1,6 @@
-# Media Field Type
+# Media field type
 
-This Field Type represents and handles a media (audio/video) binary file.
+This field type represents and handles a media (audio/video) binary file.
 
 It's capable of handling the following types of files:
 
@@ -16,14 +16,14 @@ It's capable of handling the following types of files:
 |---------|---------------|----------------|
 | `Media` | `ezmedia`     | mixed        |
 
-## PHP API Field Type 
+## PHP API field type 
 
 ### Input expectations
 
 | Type | Description | Example|
 |------|-------------|--------|
 | `string` | Path to the media file.| `/Users/jane/butterflies.mp4`     |
-| `Ibexa\Core\FieldType\Media\Value` | Media Field Type Value Object with path to the media file as the value of `id` property. | See below. |
+| `Ibexa\Core\FieldType\Media\Value` | Media field type Value Object with path to the media file as the value of `id` property. | See below. |
 
 ### Value object
 
@@ -31,7 +31,7 @@ It's capable of handling the following types of files:
 
 `Ibexa\Core\FieldType\Media\Value` offers the following properties.
 
-Note that both `Media` and `BinaryFile` Value and Type inherit from the `BinaryBase` abstract Field Type and share common properties.
+Note that both `Media` and `BinaryFile` Value and Type inherit from the `BinaryBase` abstract field type and share common properties.
 
 |Property|Type|Description|Example|
 |------|------|------|------|
@@ -65,14 +65,14 @@ The hash format mostly matches the value object. It has the following keys:
 
 ### Validation
 
-The Field Type supports `FileSizeValidator`, defining maximum size of media file in bytes:
+The field type supports `FileSizeValidator`, defining maximum size of media file in bytes:
 
 |Name|Type|Default value|Description|
 |------|------|------|------|
 |`maxFileSize`|`int`|`false`|Maximum size of the file in bytes.|
 
 ``` php
-// Example of using Media Field Type validator in PHP
+// Example of using Media field type validator in PHP
 
 use Ibexa\Core\FieldType\Media\Type;
 
@@ -89,7 +89,7 @@ $mediaFieldCreateStruct->validatorConfiguration = [
 
 ### Settings
 
-The Field Type supports the `mediaType` setting, defining how the media file should be handled in output.
+The field type supports the `mediaType` setting, defining how the media file should be handled in output.
 
 |Name|Type|Default value|Description|
 |------|------|------|------|
@@ -108,7 +108,7 @@ List of all available `mediaType` constants is defined in the `Ibexa\Core\Fiel
 |`TYPE_HTML5_AUDIO`|HTML5 Audio|
 
 ``` php
-// Example of using Media Field Type settings in PHP
+// Example of using Media field type settings in PHP
 
 use Ibexa\Core\FieldType\Media\Type;
  

@@ -13,14 +13,14 @@ For an example of how to use and combine Criteria and Sort Clauses, refer to [Se
 
 As Search Criteria and Sort Clauses are value objects which are used to define the query from API perspective, they're common for all storage engines.
 Each storage engine needs to implement its own handlers for the corresponding Criterion and Sort Clause value object,
-which will be used to translate the value object into a storage-specific search query.
+which are used to translate the value object into a storage-specific search query.
 
 As an example take a look at the [`ContentId` Criterion handler](https://github.com/ibexa/core/blob/main/src/lib/Search/Legacy/Content/Common/Gateway/CriterionHandler/ContentId.php) in Legacy search engine
 or [`ContentId` Criterion handler](https://github.com/ibexa/solr/blob/main/src/lib/Query/Common/CriterionVisitor/ContentIdIn.php) in Solr search engine.
 
 ## Custom Criteria and Sort Clauses
 
-Sometimes you will find that standard Search Criteria and Sort Clauses provided with [[= product_name =]] are not sufficient for your needs. Most often this will be the case if you have a custom Field Type using external storage which cannot be searched using the standard Field Criterion.
+Sometimes you can find that standard Search Criteria and Sort Clauses provided with [[= product_name =]] are not sufficient for your needs. Most often this is the case if you have a custom field type using external storage which cannot be searched using the standard Field Criterion.
 
 !!!note
 
@@ -47,7 +47,7 @@ Each type has dedicated methods in the Search Service:
 | Content        | `findSingle()`           |
 | Location       | `findLocations()`        |
 
-All Criteria and Sort Clauses will be accepted with Location Search, but not all of them can be used with Content Search.
+All Criteria and Sort Clauses are accepted with Location Search, but not all of them can be used with Content Search.
 The reason for this is that while one Location always has exactly one content item, one content item can have multiple Locations.
 In this context some Criteria and Sort Clauses would produce ambiguous queries that would not be accepted by Content Search.
 
@@ -58,7 +58,7 @@ Content Search explicitly refuses to accept Criteria and Sort Clauses implementi
 
 ### Configuring custom Criterion and Sort Clause handlers
 
-After you have implemented your Criterion / Sort Clause and its handler, you will need to configure the handler for the [service container](php_api.md#service-container) by using dedicated service tags for each type of search. Doing so will automatically register it and handle your Criterion / Search Clause when it's given as a parameter to one of the Search Service methods.
+After you have implemented your Criterion / Sort Clause and its handler, you need to configure the handler for the [service container](php_api.md#service-container) by using dedicated service tags for each type of search. Doing so automatically registers it and handle your Criterion / Search Clause when it's given as a parameter to one of the Search Service methods.
 
 Available tags for Criterion handlers in Legacy Storage Engine are:
 
@@ -72,7 +72,7 @@ Available tags for Sort Clause handlers in Legacy Storage Engine are:
 
 !!! note
 
-    You will find all the native handlers and the tags for the Legacy Storage Engine in files located in `core/src/lib/Resources/settings/storage_engines/`.
+    You can find all the native handlers and the tags for the Legacy Storage Engine in files located in `core/src/lib/Resources/settings/storage_engines/`.
 
 !!! tip
 

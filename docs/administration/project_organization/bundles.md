@@ -54,9 +54,9 @@ see the [How to Remove a Bundle]([[= symfony_doc =]]/bundles/remove.html) instru
 |[ibexa/cron](https://github.com/ibexa/cron)|Cron package for use with the `ibexa:cron:run` command|
 |[ibexa/design-engine](https://github.com/ibexa/design-engine)|[Design fallback system](design_engine.md)|
 |[ibexa/doctrine-schema](https://github.com/ibexa/doctrine-schema)| Basic abstraction layer for cross-DBMS schema import|
-|[ibexa/fieldtype-matrix](https://github.com/ibexa/fieldtype-matrix)|[Matrix Field Type](matrixfield.md)|
-|[ibexa/fieldtype-query](https://github.com/ibexa/fieldtype-query)|[Query Field Type](contentqueryfield.md)|
-|[ibexa/fieldtype-richtext](https://github.com/ibexa/fieldtype-richtext)|Field Type for supporting rich-formatted text stored in a structured XML format|
+|[ibexa/fieldtype-matrix](https://github.com/ibexa/fieldtype-matrix)|[Matrix field type](matrixfield.md)|
+|[ibexa/fieldtype-query](https://github.com/ibexa/fieldtype-query)|[Query field type](contentqueryfield.md)|
+|[ibexa/fieldtype-richtext](https://github.com/ibexa/fieldtype-richtext)|field type for supporting rich-formatted text stored in a structured XML format|
 |[ibexa/graphql](https://github.com/ibexa/graphql)|GraphQL server for [[= product_name =]]|
 |[ibexa/http-cache](https://github.com/ibexa/http-cache)|[HTTP cache handling](http_cache.md), using multi tagging|
 |[ibexa/i18n](https://github.com/ibexa/i18n)|Centralized translations to ease synchronization with Crowdin|
@@ -82,7 +82,7 @@ see the [How to Remove a Bundle]([[= symfony_doc =]]/bundles/remove.html) instru
 |ibexa/icons|Icon set for the back office|
 |ibexa/image-editor|[Image Editor](configure_image_editor.md)|
 |ibexa/installer|Provides the `ibexa:install` command|
-|ibexa/measurement|Measurement Field Type and measurement product catalog attribute|
+|ibexa/measurement|Measurement field type and measurement product catalog attribute|
 |ibexa/migrations|[Migration of Repository data](data_migration.md)|
 |[ibexa/oauth2-client](oauth_client.md)|Authenticate user through a third-party OAuth 2 server, integration with [`knpuniversity/oauth2-client-bundle`](https://github.com/knpuniversity/oauth2-client-bundle)|
 |[ibexa/oauth2-server](oauth_server.md)|Allow resource access to OAuth 2 client|
@@ -97,7 +97,7 @@ see the [How to Remove a Bundle]([[= symfony_doc =]]/bundles/remove.html) instru
 |ibexa/recommendation-client|Client for connecting with the personalization engine **deprecated**|
 |ibexa/commerce-base-design|Standard design and theme for the shop **deprecated** |
 |ibexa/commerce-checkout|Shop checkout functionality **deprecated** |
-|ibexa/commerce-fieldtypes|Shop-specific Field Types **deprecated** |
+|ibexa/commerce-fieldtypes|Shop-specific field types **deprecated** |
 |ibexa/commerce-price-engine|Engine for handling prices **deprecated** |
 |ibexa/commerce-shop-ui|UI for the shop front page **deprecated** |
 |ibexa/commerce-shop|Main shop functionalities **deprecated** |
@@ -108,10 +108,10 @@ see the [How to Remove a Bundle]([[= symfony_doc =]]/bundles/remove.html) instru
 |---------|-----------|
 |ibexa/headless|Metapackage for Symfony Flex-based [[= product_name =]] Headless installation|
 |ibexa/corporate-account|Customer portal and corporate accounts|
-|ibexa/fieldtype-address|Address handling Field Type|
+|ibexa/fieldtype-address|Address handling field type|
 |ibexa/form-builder|Enables creating Form content items with multiple form fields|
 |ibexa/page-builder|Page editor|
-|ibexa/fieldtype-page|Page handling Field Type|
+|ibexa/fieldtype-page|Page handling field type|
 |ibexa/permissions|Additional permission functionalities|
 |ibexa/segmentation|Segment functionality for profiling the content displayed to specific users|
 |ibexa/site-factory|Enables configuration of sites from UI|

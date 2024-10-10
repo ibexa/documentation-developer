@@ -14,11 +14,11 @@ To use PostgreSQL, you need to have the `pdo_pgsql` PHP extension installed.
 
 ### Provide parameters
 
-When you run `composer install`, you will be asked to [provide installation parameters](install_ibexa_dxp.md#change-installation-parameters).
+When you run `composer install`, you are asked to [provide installation parameters](install_ibexa_dxp.md#change-installation-parameters).
 
 !!! tip
 
-    it's recommended to store the database credentials in your `.env.local` file and not commit it to the Version Control System.
+    It's recommended to store the database credentials in your `.env.local` file and not commit it to the Version Control System.
 
 If you use PostgreSQL, the following parameters need to be set differently in the `.env.local` file than when using MySQL:
 

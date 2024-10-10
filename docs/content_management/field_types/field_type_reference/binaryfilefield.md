@@ -1,6 +1,6 @@
-# BinaryFile Field Type
+# BinaryFile field type
 
-This Field Type represents and handles a single binary file. It also counts the number of times the file has been downloaded from the `content/download` module.
+This field type represents and handles a single binary file. It also counts the number of times the file has been downloaded from the `content/download` module.
 
 It's capable of handling virtually any file type and is typically used for storing legacy document types such as PDF files, Word documents, spreadsheets, etc. The maximum allowed file size is determined by the "Max file size" class attribute edit parameter and the `upload_max_filesize` directive in the main PHP configuration file (`php.ini`).
 
@@ -8,13 +8,13 @@ It's capable of handling virtually any file type and is typically used for stori
 |--------------|----------------|----------------|---------|
 | `BinaryFile` | `ezbinaryfile` | mixed        | mixed |
 
-## PHP API Field Type
+## PHP API field type
 
 ### Value Object
 
 #### Properties
 
-Note that both `BinaryFile` and `Media` Value and Type inherit from the `BinaryBase` abstract Field Type, and share common properties.
+Note that both `BinaryFile` and `Media` Value and Type inherit from the `BinaryBase` abstract field type, and share common properties.
 
 `Ibexa\Core\FieldType\BinaryFile\Value` offers the following properties:
 
@@ -59,7 +59,7 @@ To use a remote file, you have to download it locally first, then remove it afte
 
 ## REST API specifics
 
-Used in the REST API, a BinaryFile Field will mostly serialize the hash described above. However there are a couple specifics worth mentioning.
+Used in the REST API, a BinaryFile Field mostly serializes the hash described above. However there are a couple specifics worth mentioning.
 
 ### Reading content: `url` property
 

@@ -16,7 +16,7 @@ description: eZ Platform v2.5 is the last Long Term Support release in the v2 li
 ### Content tree
 
 You can now navigate through your website with a content tree.
-It will allow you to easily browse your content in the back office.
+It allows you to easily browse your content in the back office.
 Each content item has a unique icon that helps you identify it without opening.
 
 ![Content tree in the menu](left_menu_tree.png "Content tree in the menu")
@@ -46,12 +46,12 @@ It uses a domain schema based on your content model.
 
 See [GraphQL documentation](https://graphql.org/) for more information about GraphQL in general.
 
-### Matrix Field Type
+### Matrix field type
 
-The new [Matrix Field Type](https://doc.ibexa.co/en/2.5/api/field_types_reference/matrixfield) enables you to store a table of data.
+The new [Matrix field type](https://doc.ibexa.co/en/2.5/api/field_types_reference/matrixfield) enables you to store a table of data.
 Columns in the matrix are defined in the Field definition.
 
-![Configuring a Matrix Field Type](2.5_matrix_ft.png)
+![Configuring a Matrix field type](2.5_matrix_ft.png)
 
 #### Migration of legacy XML format
 
@@ -95,7 +95,7 @@ You can now easily use [custom CK Editor plugins](https://doc.ibexa.co/en/2.5/gu
 ### Hiding and revealing content
 
 You can now hide and reveal content items from the back office.
-Hidden content will be unavailable on the front page regardless of permissions or [Location visibility](https://doc.ibexa.co/en/2.5/guide/content_management/#location-visibility).
+Hidden content is unavailable on the front page regardless of permissions or [Location visibility](https://doc.ibexa.co/en/2.5/guide/content_management/#location-visibility).
 
 ![Icon for hiding content](2.5_hide_content_icon.png)
 
@@ -132,7 +132,7 @@ This release introduced several back office improvements to facilitate editorial
 #### Content/Create policy for Users
 
 You can now define a 'Content/Create' policy for a User or a user group.
-It will enable or disable (if not set) the **Create** button in your dashboard.
+It enables or disables (if not set) the **Create** button in your dashboard.
 
 #### Universal Discovery Widget
 
@@ -202,7 +202,7 @@ It enables you to set up a cluster of Solr servers for highly available and faul
 
 #### Custom attributes
 
-it's now possible to add [custom data attributes and CSS classes](https://doc.ibexa.co/en/2.5/guide/extending/extending_online_editor/#custom-data-attributes-and-classes) to elements in the Online Editor.
+It's now possible to add [custom data attributes and CSS classes](https://doc.ibexa.co/en/2.5/guide/extending/extending_online_editor/#custom-data-attributes-and-classes) to elements in the Online Editor.
 
 #### Translatable custom tag choice attributes
 

@@ -1,12 +1,12 @@
-# URL Field Type
+# URL field type
 
-This Field Type makes it possible to store and retrieve a URL. It's formed by the combination of a link and the respective text.
+This field type makes it possible to store and retrieve a URL. It's formed by the combination of a link and the respective text.
 
 | Name  | Internal name | Expected input |
 |-------|---------------|----------------|
 | `Url` | `ezurl`       | `string`       |
 
-## PHP API Field Type
+## PHP API field type
 
 ### Input expectations
 
@@ -19,12 +19,12 @@ This Field Type makes it possible to store and retrieve a URL. It's formed by th
 
 ##### Properties
 
-The Value class of this Field Type contains the following properties:
+The Value class of this field type contains the following properties:
 
 | Property | Type     | Description|
 |----------|----------|------------|
-| `$link`  | `string` | This property stores the link provided to the value of this Field Type.                              |
-| `$text`  | `string` | This property stores the text to represent the stored link provided to the value of this Field Type. |
+| `$link`  | `string` | This property stores the link provided to the value of this field type.                              |
+| `$text`  | `string` | This property stores the text to represent the stored link provided to the value of this field type. |
 
 ``` php
 // Value object content example
@@ -61,8 +61,8 @@ $hash = [
 
 ### Validation
 
-This Field Type does not perform validation.
+This field type does not perform validation.
 
 ### Settings
 
-This Field Type does not have settings.
+This field type does not have settings.

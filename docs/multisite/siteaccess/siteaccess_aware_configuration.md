@@ -130,7 +130,7 @@ class AcmeExampleExtension extends Extension
         $processor->mapConfig(
             $config,
             // Any kind of callable can be used here.
-            // it's called for each declared scope/SiteAccess.
+            // It's called for each declared scope/SiteAccess.
             static function ($scopeSettings, $currentScope, ContextualizerInterface $contextualizer) {
                 // Maps the "name" setting to "acme_example.<$currentScope>.name" container parameter
                 // it's then possible to retrieve this parameter through ConfigResolver in the application code:
@@ -140,7 +140,7 @@ class AcmeExampleExtension extends Extension
         );
 
         // Now map "custom_setting" and ensure the key defined for "my_siteaccess" overrides the one for "my_siteaccess_group"
-        // it's done outside the closure as it's needed only once.
+        // It's done outside the closure as it's needed only once.
         $processor->mapConfigArray('custom_setting', $config);
     }
 }

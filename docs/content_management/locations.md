@@ -159,8 +159,8 @@ However, child Locations that were explicitly hidden by a user keep their Hidden
 
 ![Revealing a Location with a Hidden ancestor](node_visibility_unhide2.png)
 
-When you reveal a Location that has a Hidden ancestor, it will **not** become Visible itself.
-Because it still has invisible ancestors, its status will change to Hidden by superior.
+When you reveal a Location that has a Hidden ancestor, it **doesn't** become Visible itself.
+Because it still has invisible ancestors, its status changes to Hidden by superior.
 
 !!! tip "In short"
 

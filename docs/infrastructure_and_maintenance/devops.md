@@ -8,7 +8,7 @@ description: See various tools that can help you debug your Ibexa DXP installati
 
 ### Clearing file cache using the Symfony cache:clear command
 
-Symfony provides a command for clearing cache. It will delete all file-based caches, which mainly consist of a Twig template, a [service container](php_api.md#service-container), and the Symfony route cache, but also everything else stored in the cache folder. Out of the box on a single-server setup this includes Content cache. For further information on the command's use, see its help text:
+Symfony provides a command for clearing cache. It deletes all file-based caches, which mainly consist of a Twig template, a [service container](php_api.md#service-container), and the Symfony route cache, but also everything else stored in the cache folder. Out of the box on a single-server setup this includes Content cache. For further information on the command's use, see its help text:
 
 ``` bash
 php bin/console --env=prod cache:clear -h
@@ -16,7 +16,7 @@ php bin/console --env=prod cache:clear -h
 
 !!! note
 
-    If you do not specify an environment, by default `cache:clear` will clear the cache for the `dev` environment. If you want to clear it for `prod` you need to use the `--env=prod` option.
+    If you do not specify an environment, by default `cache:clear` clears the cache for the `dev` environment. If you want to clear it for `prod` you need to use the `--env=prod` option.
 
 !!! caution "Clustering"
 
@@ -38,7 +38,7 @@ To install it, run the following command:
 composer require symfony/debug-pack
 ```
 
-After you have installed Symfony Web Debug Toolbar, it will be available when running [[= product_name =]] in the `dev` environment. it's extended with some [[= product_name =]]-specific information:
+After you have installed Symfony Web Debug Toolbar, it's available when running [[= product_name =]] in the `dev` environment. it's extended with some [[= product_name =]]-specific information:
 
 ![Ibexa DXP info in Web Debug Toolbar](web_debug_toolbar.png "Ibexa DXP info in Web Debug Toolbar")
 
@@ -78,7 +78,7 @@ parameters:
 
 [[= product_name =]] uses the [Monolog](https://github.com/Seldaek/monolog) component to log errors, and it has a `RotatingFileHandler` that allows for file rotation.
 
-According to [their documentation](https://seldaek.github.io/monolog/doc/02-handlers-formatters-processors.html#log-to-files-and-syslog), it "logs records to a file and creates one logfile per day. It will also delete files older than `$maxFiles`".
+According to [their documentation](https://seldaek.github.io/monolog/doc/02-handlers-formatters-processors.html#log-to-files-and-syslog), it "logs records to a file and creates one logfile per day. It also deletes files older than `$maxFiles`".
 
 Monolog's handler can be configured in `config/packages/<environment>/monolog.yaml`:
 

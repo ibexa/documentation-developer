@@ -9,7 +9,7 @@ description: See how you can manage Ibexa DXP configuration files.
 Image variations are different versions of the same image. You can use them to scale images, crop them, add effects, etc.
 
 So far the images in the ride list are fitted to the templates automatically, and the result does not look good.
-Now you will create a variation to specify how you want the images to look in detail.
+Now you can create a variation to specify how you want the images to look in detail.
 
 Create a new `config/packages/image_variations.yaml` file containing:
 
@@ -38,7 +38,7 @@ In `templates/line/rides.html.twig` add the `'alias': 'ride_list'` parameter in 
 {% endif %}
 ```
 
-This ensures that the photo displayed next to each Ride in the list will be scaled down properly with proportions retained.
+This ensures that the photo displayed next to each Ride in the list is scaled down properly with proportions retained.
 
 Clear cache and refresh the front page. Photos should now have a regular size and fit in the table.
 

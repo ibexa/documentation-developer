@@ -23,7 +23,7 @@ Log in to the back office – add `/admin` to your installation's address (`<y
 - **Identifier:** `dog_breed`
 - **Fields:**
 
-| Field Type | Name              | Identifier          | Required | Searchable | Translatable |
+| Field type | Name              | Identifier          | Required | Searchable | Translatable |
 |------------|-------------------|---------------------|----------|------------|--------------|
 | Text line  | Name              | `name`              | yes      | yes        | yes          |
 | Text line  | Short Description | `short_description` | yes      | yes        | yes          |
@@ -36,17 +36,17 @@ Log in to the back office – add `/admin` to your installation's address (`<y
 - **Identifier:** `tip`
 - **Fields:**
 
-| Field Type  | Name  | Identifier | Required | Searchable | Translatable |
+| Field type  | Name  | Identifier | Required | Searchable | Translatable |
 |-------------|-------|------------|----------|------------|--------------|
 | Text line   | Title | `title`    | yes      | yes        | yes          |
 | Text block  | Body  | `body`     | no       | no         | yes          |
 
 ### Modify existing Article content type
 
-You also need to modify the built-in Article content type. It will make inserting photos into articles easier.
+You also need to modify the built-in Article content type. It makes inserting photos into articles easier.
 Edit it to remove the Image Field that has a Content Relation (ezobjectrelation) type, and create a new Field in its place:
 
-| Field Type | Name  | Identifier | Required | Searchable | Translatable |
+| Field type | Name  | Identifier | Required | Searchable | Translatable |
 |------------|-------|------------|----------|------------|--------------|
 | Image Asset | Image | `image`    |yes       |no          | no           |
 
@@ -119,13 +119,13 @@ Remember that you can **Save and close** them, but you should use the **Publish*
 
 Next, create a few content items of proper content types in each of these folders:
 
-- 4 Articles (at least, to best see the effects of the Content Scheduler block that you will create in step 3.)
+- 4 Articles (at least, to best see the effects of the Content Scheduler block that you can create in step 3.)
 - 3 Dog Breeds
 - 3 Tips
 
 ### Add images
 
 When you need an image, you can use one from [this image pack](img/photos.zip).
-This will let you compare effects of your work to screenshots in the tutorial.
+This lets you compare effects of your work to screenshots in the tutorial.
 
 At this point you're ready to proceed with the next step.

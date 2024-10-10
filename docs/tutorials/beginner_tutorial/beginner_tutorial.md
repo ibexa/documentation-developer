@@ -19,20 +19,20 @@ To follow it, you should:
 
 ## Learning outcomes
 
-After finishing this tutorial, you will:
+After finishing this tutorial, you:
 
-- Know how to construct the content model of a website.
-- Be able to use templates to display your content according to your needs.
-- Know how to manage users and permissions.
+- know how to construct the content model of a website.
+- are able to use templates to display your content according to your needs.
+- know how to manage users and permissions.
 
 ## Scenario
 
-In the course of this tutorial you will build a website for storing and sharing bike rides.
-It will enable the user to add information and photos of their routes and indicate what interesting points can be visited during the trip.
+In the course of this tutorial you can build a website for storing and sharing bike rides.
+It enables the user to add information and photos of their routes and indicate what interesting points can be visited during the trip.
 
 ## Steps
 
-In this tutorial you will go through the following steps:
+In this tutorial you go through the following steps:
 
 1. [Get ready](1_get_ready.md)
 1. [Create the content model](2_create_the_content_model.md)

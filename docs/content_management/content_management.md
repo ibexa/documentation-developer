@@ -1,5 +1,5 @@
 ---
-description: Manage content in Ibexa DXP by learning about the content model, Field Types, pages, forms, workflows, and so on.
+description: Manage content in Ibexa DXP by learning about the content model, field types, pages, forms, workflows, and so on.
 page_type: landing_page
 ---
 

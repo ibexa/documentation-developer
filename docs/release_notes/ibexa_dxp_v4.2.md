@@ -100,16 +100,16 @@ For more information, see [Product categories](https://doc.ibexa.co/projects/use
 If a recommendation scenario has more than one content type configured, with cross-content type (CCT) parameter in the request,
 you can now get recommendations for all these content types.
 
-### Taxonomy Field Type
+### Taxonomy field type
 
-Taxonomy is now [configured with a Field Type](https://doc.ibexa.co/projects/userguide/en/latest/taxonomy/#add-tag),
+Taxonomy is now [configured with a field type](https://doc.ibexa.co/projects/userguide/en/latest/taxonomy/#add-tag),
 so you can use many Fields to add different taxonomy categories, for example, tags and product categories in the same content type.
 
-### Address Field Type
+### Address field type
 
-With the [new Address Field Type](https://doc.ibexa.co/en/latest/content_management/field_types/field_type_reference/addressfield), you can now customize address Fields and configure them per country.
+With the [new Address field type](https://doc.ibexa.co/en/latest/content_management/field_types/field_type_reference/addressfield), you can now customize address Fields and configure them per country.
 
-![Address Field Type](4.2_address_field_type.png)
+![Address field type](4.2_address_field_type.png)
 
 ### Repeatable migration steps
 
@@ -228,8 +228,7 @@ a `SegmentGroup` and `Segment` objects respectively, instead of numerical IDs.
 ### Ibexa CDP
 
 [[= product_name_base =]] Customer Data Center allows you to collect, connect and organize customer data from multiple sources.
-You can use them to build segments that will allow you to create personalized customer
-experience for your brand.
+You can use them to build segments that allow you to create personalized customer experience for your brand.
 
 This is a standalone package that you can install along every product edition (Content, Experience, Commerce).
 [[= product_name_cdp =]] is also compatible with [[= product_name_base =]] v3.3.

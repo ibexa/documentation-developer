@@ -23,7 +23,7 @@ For other security related subjects, see:
 This authentication method requires a session cookie to be sent with each request.
 
 If you use this authentication method with a web browser, this session cookie is automatically available as soon as your visitor logs in.
-Add it as a cookie to your REST requests, and the user will be authenticated.
+Add it as a cookie to your REST requests, and the user can be authenticated.
 
 Sessions are created to re-authenticate the user only (and perform authorization), not to hold session state in the service.
 Because of that, you can use this method as supporting AJAX-based applications even if it violates the principles of RESTful services.
@@ -232,7 +232,7 @@ If an unsafe request is missing the CSRF token, or the token has incorrect value
 ##### Rich client application security concerns
 
 The purpose of CSRF protection is to prevent users from accidentally running harmful operations by being tricked into executing an HTTP(S) request against a web applications they're logged into.
-In browsers this action will be blocked by lack of CSRF token.
+In browsers this action is blocked by lack of CSRF token.
 
 However, if you develop a rich client application (JavaScript, JAVA, iOS, Android, etc.), that is:
 

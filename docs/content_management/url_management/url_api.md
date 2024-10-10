@@ -15,7 +15,7 @@ in which you need to specify:
 - query filter e.g. Section
 - Sort Clauses for URL queries
 - offset for search hits, used for paging the results
-- query limit. If value is `0`, search query will not return any search hits
+- query limit. If value is `0`, search query doesn't return any search hits
 
 ```php
 // ...

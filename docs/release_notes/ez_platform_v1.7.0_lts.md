@@ -9,7 +9,7 @@
 
 LTS Info
 
-eZ Platform Enterprise Edition v1.7.0 is the first version of the 2017 Long Term Support ("LTS") release which will be maintained and supported until December 2019.
+eZ Platform Enterprise Edition v1.7.0 is the first version of the 2017 Long Term Support ("LTS") release which is maintained and supported until December 2019.
 
 As of v1.7.0, PHP requirements have been updated to remove PHP 5.5, leaving PHP 5.6 and 7.0 as supported PHP versions.
 
@@ -20,7 +20,7 @@ With the LTS release, the [new product naming](http://ez.no/Blog/eZ-Announces-Na
 
 ### eZ Platform (Open Source)
 
--   **i18n! Internationalization of the eZ Platform** User Interface is now possible. The new system selects the language to use based on the browser settings of the end user. The system makes it possible to create translations for eZ Platform UI. Studio internationalization, as well as translations ready to use will be shipped in further releases. Community members are more than welcome to contribute to the translation process.
+-   **i18n! Internationalization of the eZ Platform** User Interface is now possible. The new system selects the language to use based on the browser settings of the end user. The system makes it possible to create translations for eZ Platform UI. Studio internationalization, as well as translations ready to use are shipped in further releases. Community members are more than welcome to contribute to the translation process.
     ![](i18n.png)
 
 <!-- -->
@@ -65,11 +65,11 @@ With the LTS release, the [new product naming](http://ez.no/Blog/eZ-Announces-Na
 
 ### eZ Platform Enterprise Edition (with Studio)
 
--   You can now use our eZ Personalization service to create highly personalized landing pages. The Studio **Personalization Block** available out of the box lets the editor simply create a block that will render a list of content items personalized to each and every visitor. The interface lets the editor decide which of the Personalization scenarios configured in the eZ Personalization back end should be used, as well as the template to be used for rendering.
+-   You can now use our eZ Personalization service to create highly personalized landing pages. The Studio **Personalization Block** available out of the box lets the editor simply create a block that renders a list of content items personalized to each and every visitor. The interface lets the editor decide which of the Personalization scenarios configured in the eZ Personalization back end should be used, as well as the template to be used for rendering.
 
 ![](personalizationblock.png)
 
--   You can now take advantage of the **Date-Based Publishing** feature – when editing a draft, instead of publishing the content immediately you can select the date and time at which it will be automatically published. All your content scheduled to be published are accessible in a dedicated widget on the dashboard.
+-   You can now take advantage of the **Date-Based Publishing** feature – when editing a draft, instead of publishing the content immediately you can select the date and time at which it's automatically published. All your content scheduled to be published are accessible in a dedicated widget on the dashboard.
 
 ![](future_publication_window.png)
 
@@ -77,7 +77,7 @@ With the LTS release, the [new product naming](http://ez.no/Blog/eZ-Announces-Na
 
 ![](form-builder-1.png)
 
-Submitted results can be previewed in the UI or downloaded in a CSV file, and a designated person will be notified of submissions by email.
+Submitted results can be previewed in the UI or downloaded in a CSV file, and a designated person is notified of submissions by email.
 
 ### Updated Demo Sites
 

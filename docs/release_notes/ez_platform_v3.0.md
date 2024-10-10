@@ -117,20 +117,20 @@ New functionalities and changes include:
 
 For full list of changes, see [Backwards compatibility doc](https://doc.ibexa.co/en/latest/releases/ez_platform_v3.0_deprecations/#universal-discovery-widget) and [Configuration](https://doc.ibexa.co/en/latest/extending/extending_udw/#configuration).
 
-### Field Types
+### Field types
 
-#### Content query Field Type
+#### Content query field type
 
-The new [Content query Field Type](https://doc.ibexa.co/en/latest/api/field_types_reference/contentqueryfield)
-enables you to configure a Content query that will use parameters from a Field definition.
+The new [Content query field type](https://doc.ibexa.co/en/latest/api/field_types_reference/contentqueryfield)
+enables you to configure a Content query that uses parameters from a Field definition.
 
-#### Field Type creation
+#### Field type creation
 
-You can now use [Generic Field Type](https://doc.ibexa.co/en/latest/extending/extending_field_type) as a template for your custom Field Types.
+You can now use [Generic field type](https://doc.ibexa.co/en/latest/extending/extending_field_type) as a template for your custom field types.
 
-#### Keyword Field Type
+#### Keyword field type
 
-The `keyword` Field Type can now recognize versions of a content item.
+The `keyword` field type can now recognize versions of a content item.
 
 ### Login and password options
 
@@ -237,14 +237,14 @@ For a full list of changes this entails, see [Backwards compatibility doc](https
 
 New helper method `window.eZ.helpers.contentType.getContentTypeName` replaces deprecated `ContentTypeNames`.
 
-### User Field Type
+### User field type
 
 User data is now treated as an external storage.
 
 ### SiteAccess-aware Repository
 
 The Repository now uses the SiteAccess-aware layer by default.
-This means that Repository objects will now be loaded in the translation corresponding to the SiteAccess.
+This means that Repository objects are now loaded in the translation corresponding to the SiteAccess.
 
 ### REST API
 
@@ -273,11 +273,11 @@ For full list of deprecations and removals, see  [eZ Platform v3.0 deprecations 
 SignalSlots are removed from the application.
 Use [Event Listeners](https://symfony.com/doc/5.0/event_dispatcher.html) in your code instead.
 
-### Deprecated Field Types
+### Deprecated field types
 
-The deprecated `ezprice` and `ezpage` Field Types have been removed.
+The deprecated `ezprice` and `ezpage` field types have been removed.
 Nameable field type interface has been removed and replaced by `eZ\Publish\SPI\FieldType\FieldType::getName`.
-For a full list of changes on Field Types, see [Backwards compatibility doc](https://doc.ibexa.co/en/latest/releases/ez_platform_v3.0_deprecations/#field-types).
+For a full list of changes on field types, see [Backwards compatibility doc](https://doc.ibexa.co/en/latest/releases/ez_platform_v3.0_deprecations/#field-types).
 
 ### Elastic Search
 

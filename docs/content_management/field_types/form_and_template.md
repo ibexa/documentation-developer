@@ -1,5 +1,5 @@
 ---
-description: Field Type FormMappers allow Field editing, while custom templates ensure the Field can be rendered both in the back office and on site front.
+description: field type FormMappers allow Field editing, while custom templates ensure the Field can be rendered both in the back office and on site front.
 ---
 
 # Form and template
@@ -11,7 +11,7 @@ The FormMapper maps Field definitions into Symfony forms, allowing Field editing
 It can implement two interfaces:
 
 - `Ibexa\Contracts\ContentForms\FieldType\FieldValueFormMapperInterface` to provide editing support
-- `Ibexa\AdminUi\FieldType\FieldDefinitionFormMapperInterface` to provide Field Type definition editing support,
+- `Ibexa\AdminUi\FieldType\FieldDefinitionFormMapperInterface` to provide field type definition editing support,
 when you require non-standard settings
 
 ### FieldValueFormMapperInterface
@@ -56,7 +56,7 @@ Your type has to be called `value`.
 In the example above, `CheckboxFieldType::class` is used, but you can use standard Symfony form type instead.
 
 It's good practice to encapsulate Fields with custom types as it allows easier templating.
-Type has to be compatible with your Field Type's `Ibexa\Core\FieldType` implementation.
+Type has to be compatible with your field type's `Ibexa\Core\FieldType` implementation.
 You can use a [`DataTransformer`]([[= symfony_doc =]]/form/data_transformers.html) to achieve that or just assure correct property and form field names.
 
 ### FieldDefinitionFormMapperInterface
@@ -98,7 +98,7 @@ public function mapFieldDefinitionForm(FormInterface $fieldDefinitionForm, Field
 }
 ```
 
-Use names corresponding to the keys used in Field Type's `Ibexa\Core\FieldType\FieldType::$settingsSchema` implementation.
+Use names corresponding to the keys used in field type's `Ibexa\Core\FieldType\FieldType::$settingsSchema` implementation.
 The special `defaultValue` key allows you to specify a field for setting the default value assigned during content editing.
 
 ### Registering the service
@@ -115,8 +115,8 @@ App\FieldType\Mapper\CustomFieldTypeMapper:
 Tag the mapper according to the support you need to provide:
 
 - Add the `ibexa.admin_ui.field_type.form.mapper.value` tag when providing content editing support (`FieldValueFormMapperInterface` interface).
-- Add the `ibexa.admin_ui.field_type.form.mapper.definition` tag when providing Field Type definition editing support (`FieldDefinitionFormMapperInterface` interface).
-The `fieldType` key has to correspond to the name of your Field Type.
+- Add the `ibexa.admin_ui.field_type.form.mapper.definition` tag when providing field type definition editing support (`FieldDefinitionFormMapperInterface` interface).
+The `fieldType` key has to correspond to the name of your field type.
 
 ## Content view templates
 
@@ -134,7 +134,7 @@ By convention, your block must be named `<fieldTypeIdentifier>_field`.
 
 !!! tip
 
-    Template blocks for built-in Field Types are available in
+    Template blocks for built-in field types are available in
     [`Core/Resources/views/content_fields.html.twig`](https://github.com/ibexa/core/blob/main/src/bundle/Core/Resources/views/content_fields.html.twig).
 
     This template is also exposed as a part of Standard Design, so you can override it with the [design engine](design_engine.md).
@@ -150,13 +150,13 @@ The block can receive the following variables:
 | `field` | `Ibexa\Contracts\Core\Repository\Values\Content\Field` | The field to display |
 | `contentInfo` | `Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo` | The ContentInfo of the content item the Field belongs to |
 | `versionInfo` | `Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo` | The VersionInfo of the content item the Field belongs to |
-| `fieldSettings` | array | Settings of the Field (depends on the Field Type) |
+| `fieldSettings` | array | Settings of the Field (depends on the field type) |
 | `parameters` | hash | Options passed to `ibexa_render_field()` under the `'parameters'` key |
 | `attr` | hash | The attributes to add the generate the HTML markup, passed to ibexa_render_field()` under the `'attr'` key. <br> Contains at least a class entry, containing <fieldtypeidentifier>-field |
 
 ### Reusing blocks
 
-For easier Field Type template development you can take advantage of all defined blocks by using the [`block()` function](https://twig.symfony.com/doc/3.x/functions/block.html).
+For easier field type template development you can take advantage of all defined blocks by using the [`block()` function](https://twig.symfony.com/doc/3.x/functions/block.html).
 
 You can for example use `simple_block_field`, `simple_inline_field` or `field_attributes` blocks provided in [`content_fields.html.twig`](https://github.com/ibexa/core/blob/main/src/bundle/Core/Resources/views/content_fields.html.twig#L486).
 
@@ -166,7 +166,7 @@ You can for example use `simple_block_field`, `simple_inline_field` or `field_at
 
 ### Registering a template
 
-If you don't use the [design engine](design_engine.md) or you want to have separate templates per Field Type and/or SiteAccess,
+If you don't use the [design engine](design_engine.md) or you want to have separate templates per field type and/or SiteAccess,
 you can register a template under the `ibexa.system.<scope>.field_templates` [configuration key](configuration.md#configuration-files):
 
 ``` yaml
@@ -210,7 +210,7 @@ twig:
 ```
 
 We encourage using custom form types for encapsulation as this makes templating easier by providing Twig block name.
-All built-in Field Types are implemented with this approach. In that case overriding form theme can be done with:
+All built-in field types are implemented with this approach. In that case overriding form theme can be done with:
 
 ``` html+twig
 {% block custom_fieldtype_widget %}

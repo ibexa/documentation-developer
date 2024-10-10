@@ -1,12 +1,12 @@
-# RelationList Field Type
+# RelationList field type
 
-This Field Type makes it possible to store and retrieve values of a relation to other content items.
+This field type makes it possible to store and retrieve values of a relation to other content items.
 
 | Name           | Internal name          | Expected input |
 |----------------|------------------------|----------------|
 | `RelationList` | `ezobjectrelationlist` | `mixed`        |
 
-## PHP API Field Type 
+## PHP API field type 
 
 ### Input expectations
 
@@ -15,7 +15,7 @@ This Field Type makes it possible to store and retrieve values of a relation to 
 |`int|string`|ID of the related content item|`42`|
 |`array`|An array of related Content IDs|`[ 24, 42 ]`|
 |`Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo`|ContentInfo instance of the related Content|n/a|
-|`Ibexa\Core\FieldType\RelationList\Value`|RelationList Field Type Value Object|See below.|
+|`Ibexa\Core\FieldType\RelationList\Value`|RelationList field type Value Object|See below.|
 
 ### Value Object
 
@@ -38,7 +38,7 @@ $relationList->destinationContentId = [
 
 ##### Constructor
 
-The `RelationList\Value` constructor will initialize a new Value object with the value provided. It expects a mixed array as value.
+The `RelationList\Value` constructor initializes a new Value object with the value provided. It expects a mixed array as value.
 
 ``` php
 //Constructor example
@@ -55,7 +55,7 @@ $relationListValue = new RelationList\Value(
 
 ### Validation
 
-This Field Type validates if:
+This field type validates if:
 
 - the `selectionMethod` specified is `\Ibexa\Core\FieldType\RelationList\Type::SELECTION_BROWSE` or `\Ibexa\Core\FieldType\RelationList\Type::SELECTION_DROPDOWN`. A validation error is thrown if the value does not match.
 - the `selectionDefaultLocation` specified is `null`, `string` or `integer`. If the type validation fails a validation error is thrown.
@@ -68,7 +68,7 @@ This Field Type validates if:
 
 ### Settings
 
-The Field definition of this Field Type can be configured with the following options:
+The Field definition of this field type can be configured with the following options:
 
 |Name|Type|Default value|Description|
 |------|------|------|------|
@@ -80,7 +80,7 @@ Following selection methods are available:
 
 | Name| Description|
 |-----|------------|
-| `SELECTION_BROWSE` | Selection will use browse mode.|
+| `SELECTION_BROWSE` | Selection uses browse mode.|
 | `SELECTION_DROPDOWN` | *Not implemented yet* |
 
 ### Validators

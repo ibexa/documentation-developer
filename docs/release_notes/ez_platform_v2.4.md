@@ -28,14 +28,14 @@
 
 ### RichText
 
-#### RichText Field Type
+#### RichText field type
 
-RichText Field Type has been extracted to a separate bundle, [ezsystems/ezplatform-richtext](https://github.com/ezsystems/ezplatform-richtext). Relying on any class from the `eZ\Publish\Core\FieldType\RichText` namespace is deprecated.
+RichText field type has been extracted to a separate bundle, [ezsystems/ezplatform-richtext](https://github.com/ezsystems/ezplatform-richtext). Relying on any class from the `eZ\Publish\Core\FieldType\RichText` namespace is deprecated.
 
 If you're implementing any interface or extending any base class from the old namespace, refer to its PHPDoc to see what to implement or extend instead.
 Make sure to enable the new eZ Platform RichTextBundle.
 
-See [RichText Field Type Reference](https://doc.ibexa.co/en/2.5/api/field_types_reference/richtextfield).
+See [RichText field type Reference](https://doc.ibexa.co/en/2.5/api/field_types_reference/richtextfield).
 
 #### RichText block
 
@@ -80,7 +80,7 @@ This possibility is available automatically when you have the target language co
 
 ![Content type with existing translations](2.4_content_type_translations.png "Available translation of a content type")
 
-When you translate Content of this type, the content type information will be displayed in the new language.
+When you translate Content of this type, the content type information is displayed in the new language.
 
 ![Editing a content translation with translated Field names](2.4_translated_ct.png)
 
@@ -146,7 +146,7 @@ The outdated Policy labels are now updated:
 
 This release introduces a few simplifications to API use for content types:
 
-- Exposes `content->getContentType()` for easier use, including from Twig as `content.contentType`. When iterating over the result set of content/Locations these will effectively be loaded all at once.
+- Exposes `content->getContentType()` for easier use, including from Twig as `content.contentType`. When iterating over the result set of content/Locations these are effectively loaded all at once.
 - Adds possibility to load several content types in bulk using `ContentTypeService->loadContentTypeList()`.
 - `UserService` now exposes `isUser()` and `isUserGroup()`. They do not need to do a lookup to the database in order to tell if a content item is of type user or user group.
 

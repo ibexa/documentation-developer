@@ -111,7 +111,7 @@ To be able to see your site online, you need to define a domain for it.
 !!! caution "Define domain for production environment"
 
     These steps are for `dev` environment only.
-    If you want to define domains in production environment, you will need to configure Apache or Nginx by yourself.
+    If you want to define domains in production environment, you need to configure Apache or Nginx by yourself.
 
 In the `.env` file change line 2 to: `COMPOSE_FILE=doc/docker/base-dev.yml:doc/docker/multihost.yml`
 

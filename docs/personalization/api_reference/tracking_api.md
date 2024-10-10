@@ -99,7 +99,7 @@ After logout, the anonymous user ID can be used again.
 
 The Personalization server internally creates a hash of every user ID.
 The original ID is not saved.
-it's still possible that the original ID appears in the log files for the debugging
+It's still possible that the original ID appears in the log files for the debugging
 purposes but log files are purged regularly.
 The user ID is case sensitive.
 
@@ -261,7 +261,7 @@ For more information, see [Content API](content_api.md).
 
 The currency is stored with the price and normalized only when statistic information
 is requested.
-it's often a good choice to select a base currency and convert prices before
+It's often a good choice to select a base currency and convert prices before
 sending the buy event.
 The price attached to a buy event never overwrites the price which was defined
 in an item import.
@@ -300,7 +300,7 @@ Some optional request parameters can be set over query string parameters (GET pa
     For eCommerce stores, this event is not required but can be used in custom implementations.
 
 The event is sent when the end user stays on the page for a predefined period of time.
-it's then assumed that the user consumed the item (read an article or watched a video).
+It's then assumed that the user consumed the item (read an article or watched a video).
 
 The URL has the following format:
 
@@ -503,7 +503,7 @@ The URL for a Rendered event has the following format:
 
 For a detailed description of embedded parameters, see [event parameters](#event-parameters).
 
-it's common that recommendations are rendered as a block with multiple items.
+It's common that recommendations are rendered as a block with multiple items.
 To save traffic and speed up the process, you can bundle multiple recommendations in one request.
 Several item IDs must be comma-separated.
 

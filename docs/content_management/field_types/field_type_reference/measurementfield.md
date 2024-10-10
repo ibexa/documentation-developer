@@ -1,6 +1,6 @@
-# Measurement Field Type
+# Measurement field type
 
-The Measurement Field Type represents measurement information. 
+The Measurement field type represents measurement information. 
 It stores the unit of measure, and either a single measurement value, 
 or a pair of values that defines a range.
 
@@ -8,7 +8,7 @@ or a pair of values that defines a range.
 |---------------|---------------------|----------------------------------------------------|
 | `Measurement` | `ibexa_measurement` | `Ibexa\Contracts\Measurement\Value\ValueInterface` |
 
-## PHP API Field Type
+## PHP API field type
 
 ### Input expectations
 
@@ -31,7 +31,7 @@ examples are as follows:
 
 ##### Properties
 
-The Value class of this Field Type contains the following properties:
+The Value class of this field type contains the following properties:
 
 | Property | Type                                             | Description                                                                                                          |
 |----------|--------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -78,7 +78,7 @@ $measurementValue = new Measurement\Value(
 
 ### Validation
 
-The Measurement Field Type validates measurement types and units passed within 
+The Measurement field type validates measurement types and units passed within 
 the value object against a list of the ones that the system supports, which can 
 be found in the `vendor/ibexa/measurement/src/bundle/Resources/config/builtin_units.yaml` file.
 

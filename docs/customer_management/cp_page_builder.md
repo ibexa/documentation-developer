@@ -5,7 +5,7 @@ edition: experience
 
 # Create Customer Portal
 
-On this page, you will learn how to configure the Customer Portal feature to be editable with Page Builder.
+On this page, you can learn how to configure the Customer Portal feature to be editable with Page Builder.
 If you already configured Customer Portal, you can learn how to build it with a Page Builder in [User Documentation]([[= user_doc =]]/customer_management/build_customer_portal/).
 
 First, you need to decide if you want to create and configure [one portal](#create-and-configure-one-portal) or [multiple portals](#create-and-configure-multiple-portals) setup.
@@ -97,7 +97,7 @@ This setup is recommended for global markets or company specific portals, where 
 First, you need to create a root folder for Customer Portals,
 its location ID needs to be later specified in the configuration as [a tree root](multisite_configuration.md#location-tree).
 To do it, go to **Content** -> **Content structure**, and select **Create content**.
-There you will see two possibilities **Customer Portal** and **Customer Portal Page**.
+There you can see two possibilities **Customer Portal** and **Customer Portal Page**.
 
 ![Create content tab](img/cp_portal_vs_page.png)
 
@@ -167,7 +167,7 @@ First, you need to grant the following permissions to company members from the C
 
 ![Customer Portal permissions](img/cp_permissions.png)
 
-If members of the Customer Group don't have sufficient permissions for any Customer Portal assigned to them, they will be redirected to the default Customer Portal view.
+If members of the Customer Group don't have sufficient permissions for any Customer Portal assigned to them, they are redirected to the default Customer Portal view.
 
 !!! note
 
@@ -193,7 +193,7 @@ There, you can specify which Customer Portals should be available to which Custo
 - Customer Group identifier. You can find it in the **Summary** section of the Company.
 - Location remote ID of Customer Portal container or Customer Portal page. You can find it in the **Details** section.
 
-Portals will be displayed to the Customer Group in order specified in the configuration based on company member's permissions.
+Portals are displayed to the Customer Group in order specified in the configuration based on company member's permissions.
 
 #### Custom portal mapping
 

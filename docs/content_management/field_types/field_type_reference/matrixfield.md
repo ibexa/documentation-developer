@@ -1,4 +1,4 @@
-# Matrix Field Type
+# Matrix field type
 
 This Field represents and handles a table of rows and columns of data.
 
@@ -6,10 +6,10 @@ This Field represents and handles a table of rows and columns of data.
 |----------|---------------|----------------|
 | `Matrix` | `ezmatrix`    | `array`        |
 
-The Matrix Field Type is available via the Matrix Bundle
+The Matrix field type is available via the Matrix Bundle
 provided by the [ibexa/fieldtype-matrix](https://github.com/ibexa/fieldtype-matrix) package.
 
-## PHP API Field Type
+## PHP API field type
 
 ### Input expectations
 
@@ -41,9 +41,9 @@ The minimum number of rows is set on content type level for each Field.
 
 Validation checks for empty rows. A row is considered empty if it contains only empty cells (or cells containing only spaces). Empty rows are removed.
 
-If, after removing empty rows, the number of rows does not fulfill the configured `Minimum number of rows`, the Field will not validate.
+If, after removing empty rows, the number of rows does not fulfill the configured `Minimum number of rows`, the Field doesn't validate.
 
-For example, the following input will not validate if `Minimum number of rows` is set to 3, because the second row is empty:
+For example, the following input doesn't validate if `Minimum number of rows` is set to 3, because the second row is empty:
 
 ```php
 new FieldType\Value([
@@ -53,9 +53,9 @@ new FieldType\Value([
 ]);
 ```
 
-## GraphQL Field Type operations
+## GraphQL field type operations
 
-To get a Field of the Matrix Field Type with GraphQL, you will need to specify a Content ID, a content type, and a Field Type.
+To get a Field of the Matrix field type with GraphQL, you need to specify a Content ID, a content type, and a field type.
 
 The types that are returned are named after the Type and the Field:
 
@@ -104,7 +104,7 @@ The Type returned for the Matrix Field exposes columns defined in the Field defi
 }
 ```
 
-### Query for the Field Type and Field definition's details
+### Query for the field type and Field definition's details
 
 With this query you can inspect details of specific content type. In case of a Matrix Field, you can ask for the list of columns, their names and identifiers.
 
@@ -128,7 +128,7 @@ With this query you can inspect details of specific content type. In case of a M
 }
 ```
 
-The response will list the exposed Field Type settings:
+The response lists the exposed field type settings:
 
 - minimumRows
 - columns
@@ -167,12 +167,12 @@ Example response:
 
 ### Mutation
 
-To create a Matrix Field Type you need to define Field Type and Field definition identifiers.
+To create a Matrix field type you need to define field type and Field definition identifiers.
 The types that are used for input are named after the Type and the Field:
 
 - `{TypeIdentifier}{FieldIdentifier}RowInput` e.g. `dish.nutritionFacts`, `event.agenda`: `DishNutritionFactsRowInput`, `EventAgendaRowInput`
 
-The example below shows how to create a Recipe content item (belonging to a content type with a Matrix Field Type added) that has two Fields:
+The example below shows how to create a Recipe content item (belonging to a content type with a Matrix field type added) that has two Fields:
 
 - `name`: `"Cake Ingredient List"`
 - `ingredients`: `ezmatrix` with two columns: `ingredient` and `quantity`
@@ -195,7 +195,7 @@ The example below shows how to create a Recipe content item (belonging to a cont
 }
 ```
 
-The response will confirm creation of the new Recipe Field:
+The response confirms creation of the new Recipe Field:
 
 ```
 {

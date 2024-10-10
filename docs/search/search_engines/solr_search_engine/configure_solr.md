@@ -13,13 +13,13 @@ description: Configure Solr search engine to use it with Ibexa DXP.
 
 !!! tip "How boosting interacts with Search API"
 
-    Boosting of fields or documents will affect the score (relevance) of your search result hits
+    Boosting of fields or documents affects the score (relevance) of your search result hits
     when using Search API for any Criteria you specify on `$query->query`, or in REST by using `Query` element.
-    When you don't specify anything to sort on, the result will be sorted by this relevance.
-    Anything set on `$query->filter`, or in REST using `Filter` element, will *not* affect scoring and only works
+    When you don't specify anything to sort on, the result is sorted by this relevance.
+    Anything set on `$query->filter`, or in REST using `Filter` element, *doesn't* affect scoring and only works
     as a pure filter for the result. Thus make sure to place Criteria you want to affect scoring on `query`.
 
-Boosting currently happens when indexing, so if you change your configuration you will need to re-index.
+Boosting currently happens when indexing, so if you change your configuration you need to re-index.
 
 Boosting tells the search engine which parts of the content model have more importance when searching, and is an important part of tuning your search results relevance. Importance is defined using a numeric value, where `1.0` is default, values higher than that are more important, and values lower (down to `0.0`) are less important.
 
@@ -41,7 +41,7 @@ ibexa_solr:
                         text: 5.0
 ```
 
-The configuration above will result in the following boosting (content type / Field):
+The configuration above results in the following boosting (content type / Field):
 
 - `article/title: 2.0`
 - `news/description: 1.0` (default)
@@ -118,7 +118,7 @@ The configuration above will result in the following boosting (content type / Fi
 
     Remember to clear the cache and perform search engine reindex afterwords.
 
-    The above configuration will result in the following boosting (content type / Field):
+    The above configuration results in the following boosting (content type / Field):
     
     - `folder/name: 20.0`
     - `folder/description: 10.0`

@@ -2,11 +2,11 @@
 edition: experience
 ---
 
-# Page Field Type
+# Page field type
 
-Page Field Type represents a Page with a layout consisting of multiple zones. Each zone can in turn contain blocks.
+Page field type represents a Page with a layout consisting of multiple zones. Each zone can in turn contain blocks.
 
-Page Field Type is only used in the Page content type that is included in [[= product_name_exp =]].
+Page field type is only used in the Page content type that is included in [[= product_name_exp =]].
 
 | Name           | Internal name   | Expected input  |
 |----------------|-----------------|-----------------|
@@ -14,9 +14,9 @@ Page Field Type is only used in the Page content type that is included in [[= pr
 
 !!! caution "Page Builder"
 
-    If you create content type with both `ezlandingpage` and `ezuser` Field Types,
-    you will not be redirected to Page Builder after selecting `Edit` or `Create`.
-    This is caused by `ezuser` Field Type which requires separate handling. You will be redirected to the standard back office edit or create mode.
+    If you create content type with both `ezlandingpage` and `ezuser` field types,
+    you aren't redirected to Page Builder after selecting `Edit` or `Create`.
+    This is caused by `ezuser` field type which requires separate handling. You are redirected to the standard back office edit or create mode.
 
 ## Layout and zones
 

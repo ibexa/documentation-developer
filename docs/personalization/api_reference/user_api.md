@@ -53,7 +53,7 @@ The `source` parameter defines the system that stores the specified user's metad
 If you have multiple source systems for updating user attributes, 
 for example, a registration service, where users define their gender and age, 
 or an application that integrates with Facebook to source the brands the user "liked" in your shop, 
-every new upload of attributes will replace the attribute set that already exists 
+every new upload of attributes replaces the attribute set that already exists 
 for the same user/source pair.
 
 If you need to get all the available attributes for all sources, apply the `allSources` query string parameter, for example:

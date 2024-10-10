@@ -77,7 +77,7 @@ Content modeling and management are the foundation of [[= product_name =]] with 
 - An item can have multiple locations in this tree.
 - Content items are typed.
 - Content types are sets of typed data fields, with optional conditions on the possible values.
-- Rich Text Field Type comes with an [online editor](online_editor_guide.md).
+- Rich Text field type comes with an [online editor](online_editor_guide.md).
 - Multilingual, it can store a content in several languages, the content model defines which field must be translated, and which don't vary.
 
 For more information, see [Content management product guide](content_management_guide.md).

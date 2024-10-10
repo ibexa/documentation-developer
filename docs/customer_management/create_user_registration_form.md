@@ -42,7 +42,7 @@ ibexa:
                     form: '@ibexadesign/user/registration_form.html.twig'
                     confirmation: '@ibexadesign/user/registration_confirmation.html.twig'
 ```
-This defines which templates will be used for rendering the registration form and confirmation page.
+This defines which templates are used for rendering the registration form and confirmation page.
 
 In the `templates/themes/<theme_name>/user/registration_form.html.twig` create the template for registration form.
 

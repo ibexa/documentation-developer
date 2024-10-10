@@ -72,7 +72,7 @@ However, if the given block value has a since or till date,
 it's taken into account for the TTL calculation for both the block and the whole page.
 
 To overload this behavior, listen to [`BlockResponseEvents::BLOCK_RESPONSE`](page_events.md),
-and set priority to `-200` to adapt what Page Field Type does by default.
+and set priority to `-200` to adapt what Page field type does by default.
 
 For example, to disable cache for the block, use `$event->getResponse()->setPrivate()`.
 

@@ -6,7 +6,7 @@ description: Create, publish, update and translate content items by using the PH
 
 !!! note
 
-    Creating most objects will be impossible for an anonymous user.
+    Creating most objects is impossible for an anonymous user.
     Make sure to [authenticate](php_api.md#setting-the-repository-user) as a user with sufficient permissions.
 
 !!! tip "Content REST API"
@@ -33,19 +33,19 @@ For information about translating a content item into other languages, see [Tran
 
 [`ContentStruct::setField`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentStruct.html#method_setField) (line 3) enables you to define the Field values.
 When the Field accepts a simple value, you can provide it directly, as in the example above.
-For some Field Types, for example [images](#creating-an-image), you need to provide an instance of a Value type.
+For some field types, for example [images](#creating-an-image), you need to provide an instance of a Value type.
 
 ### Creating an image
 
-Image Field Type requires an instance of its Value type, which you must provide to the [`ContentStruct::setField`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentStruct.html#method_setField) method.
-Therefore, when creating a content item of the Image type (or any other content type with an `image` Field Type),
+Image field type requires an instance of its Value type, which you must provide to the [`ContentStruct::setField`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentStruct.html#method_setField) method.
+Therefore, when creating a content item of the Image type (or any other content type with an `image` field type),
 the `ContentCreateStruct` is slightly more complex than in the previous example:
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/CreateImageCommand.php', 56, 69) =]]
 ```
 
-Value of the Image Field Type contains the path to the image file, as well as other basic information
+Value of the Image field type contains the path to the image file, as well as other basic information
 based on the input file.
 
 ### Creating content with RichText
@@ -58,7 +58,7 @@ For example, to add a simple RichText paragraph, provide the following as input:
 ```
 
 To learn more about the format and how it represents different elements of rich text, see
-[RichText Field Type reference](richtextfield.md#custom-docbook-format).
+[RichText field type reference](richtextfield.md#custom-docbook-format).
 
 ## Publishing a draft
 

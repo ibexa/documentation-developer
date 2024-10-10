@@ -9,7 +9,7 @@ This is called (user) context-aware cache.
 
 It means that HTTP cache is unique per set of user permissions (roles and limitations), 
 and there are variations of cache shared only among users that have the exact same permissions. 
-So if a user browses a list of children Locations, they will only see children Locations 
+So if a user browses a list of children Locations, they only see children Locations 
 they have access to, even if their rendering is served from HTTP cache.
 
 This is accomplished by varying on a header called `X-Context-User-Hash`, which the system populates on the request.
@@ -25,7 +25,7 @@ This expands steps covered in [FOSHttpCacheBundle documentation on user context 
 1. The application receives the hash request. An event subscriber (`UserContextSubscriber`) aborts the request immediately after the Symfony firewall is applied.
    The application calculates the hash (`HashGenerator`) and then sends a response with the hash in a custom header (`X-Context-User-Hash`).
 1. The caching proxy receives the hash response, copies the hash header to the client's original request for `/foo` and restarts the modified original request.
-1. If the response to `/foo` should differ per user context, the application sets a `Vary: X-Context-User-Hash` header, which will make Proxy store the variations of this cache varying on the hash value.
+1. If the response to `/foo` should differ per user context, the application sets a `Vary: X-Context-User-Hash` header, which makes Proxy store the variations of this cache varying on the hash value.
 
 The next time a request comes in from the same user, application lookup for the hash (step 3) does not take place,
 as the hash lookup itself is cached by the cache proxy as described below.
@@ -140,7 +140,7 @@ However, **this is strongly discouraged** as it means increasing the amount of c
 stored in proxy for every single cache item, lowering cache hit ratio and increasing memory use.
 
 Instead, you can create your own hash header for use cases where you need it. 
-This way only controllers and views that really vary by your custom logic will vary on it.
+This way only controllers and views that really vary by your custom logic varies on it.
 
 You can do it using several methods, ranging from completely custom VCL logic and dedicated controller to respond with hash 
 to trusted proxy lookups, but this means additional lookups.

@@ -36,7 +36,7 @@ The language of the back office is based on the browser language.
 In order to change it you should install the proper package for your language (see [language packages list](https://github.com/ezplatform-i18n)).
 Once you have language packages installed, you can switch the language of the back office in the User Settings menu.
 
-If you do not have a language defined in the browser, it will be selected based on the `parameters.locale_fallback` parameter located in `config/packages/ibexa.yaml`.
+If you do not have a language defined in the browser, it's selected based on the `parameters.locale_fallback` parameter located in `config/packages/ibexa.yaml`.
 
 To read more about language managing in [[= product_name =]], see the following doc pages:
 
@@ -51,12 +51,12 @@ Remember to clear the cache afterwards.
 As an alternative to manually applying the patch, you can use [composer-patches](https://github.com/cweagans/composer-patches).
 You can apply patches received from the Support, community or the others by using your `composer.json` file.
 For checking the versions you're on, refer to your `composer.lock`.
-All you need is to specify which package will receive patches and give the path/URL to the actual file.
+All you need is to specify which package receives patches and give the path/URL to the actual file.
 This should be done inside the `extra` section. Packages which should receive patches
-will be removed during `composer update` or `composer require` so they can be re-installed and re-patched.
+are removed during `composer update` or `composer require` so they can be re-installed and re-patched.
 
 When updating to the release that already contains specified patches,
-Composer will throw an error alongside a message that they cannot be applied and will be skipped
+Composer throws an error alongside a message that they cannot be applied and are skipped
 ([this is configurable with 1.x](https://github.com/cweagans/composer-patches/tree/1.x#error-handling)).
 They can be manually removed from `composer.json` now.
 

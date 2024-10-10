@@ -63,7 +63,7 @@ Each content type is characterized by a set of metadata which define the general
 ## Field definitions
 
 Aside from the metadata, a content type may contain any number of Field definitions (but has to contain at least one).
-They determine what Fields of what Field Types are included in all content items based on this content type.
+They determine what Fields of what field types are included in all content items based on this content type.
 
 ![Field definitions](admin_panel_field_definitions.png)
 
@@ -75,7 +75,7 @@ They determine what Fields of what Field Types are included in all content items
 
 !!! caution
 
-    In case of content types containing many Field Types you should be aware of possible memory-related issues with publishing/editing.
+    In case of content types containing many field types you should be aware of possible memory-related issues with publishing/editing.
     they're caused by the limitation of how many `$_POST` input variables can be accepted.
 
     The easiest way to fix them is by increasing the `max_input_vars` value in the `php.ini` configuration file.

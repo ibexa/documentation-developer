@@ -106,7 +106,7 @@ Content view templates use the [Twig templating engine](https://twig.symfony.com
 2\. Select a Blog Post content type. Fill in the content item and publish it.
 
 3\. To preview the new content item on the front page, go to `<yourdomain>/<Content-item-name>`.
-For example, if the title of the Blog post is "First blog post", the address will be `<yourdomain>/first-blog-post`.
+For example, if the title of the Blog post is "First blog post", the address is `<yourdomain>/first-blog-post`.
 
 ![Previewing Content](first-steps-preview-content.png)
 
@@ -127,7 +127,7 @@ ibexa:
             site_group: [site, de]
 ```
 
-The SiteAccess will automatically be matched using the last part of the URI.
+The SiteAccess is automatically matched using the last part of the URI.
 
 2\. You can now access the front page through the new SiteAccess: `<yourdomain>/de`.
 
@@ -160,7 +160,7 @@ de:
         - eng-GB
 ```
 
-This means that German will be used as the main language for this SiteAccess, and English as a fallback.
+This means that German is used as the main language for this SiteAccess, and English as a fallback.
 
 2\. Go to the back office and select **Admin** > **Languages**. Add a new language called "German", with the language code `ger-DE`.
 Make sure it's enabled.
@@ -174,7 +174,7 @@ Switch to the **Translations** tab and add a new translation.
 
 4\. Select German and base the new translation on the English version. Edit the content item and publish it.
 
-5\. Go to the front page. The blog post will now display different content, depending on which SiteAccess you enter it from:
+5\. Go to the front page. The blog post now displays different content, depending on which SiteAccess you enter it from:
 `<yourdomain>/<content-name>` or `<yourdomain>/de/<content-name>`.
 
 ![Previewing translated Content](first-steps-translated-content.png)
@@ -207,7 +207,7 @@ ibexa_design_engine:
 4\. Go back to the `content_view` configuration for the blog post. Change the path to the template so that it points to the folder for the correct design:
 `template: '@ibexadesign\full\blog_post.html.twig'`
 
-This means that the app will look for the `blog_post.html.twig` file in a folder relevant for the SiteAccess: `de_design` for the `de` SiteAccess, or `site_design` for other SiteAccesses in `site_group`.
+This means that the app looks for the `blog_post.html.twig` file in a folder relevant for the SiteAccess: `de_design` for the `de` SiteAccess, or `site_design` for other SiteAccesses in `site_group`.
 
 5\. Create a `themes` folder under `templates`, and two folders under it: `de_design` and `site_design`.
 
@@ -233,7 +233,7 @@ Call the group "Bloggers".
 
 3\. Go to **Admin** -> **Roles**. Create a new role called "Blogger".
 
-4\. Add policies that will allow the User to log in:
+4\. Add policies that allow the User to log in:
 
 - `User/Login`
 - `Content/Read`
@@ -241,7 +241,7 @@ Call the group "Bloggers".
 - `Section/View`
 - `Content/Reverserelatedlist`
 
-5\. Now add policies that will allow the User to create and publish content, limited to Blog Posts:
+5\. Now add policies that allow the User to create and publish content, limited to Blog Posts:
 
 - `Content/Create` with Limitation for content type Blog Post
 - `Content/Edit` with Limitation for content type Blog Post
@@ -254,7 +254,7 @@ Call the group "Bloggers".
 ![Assigning a role](first-steps-assign-roles.png)
 
 You can now log out and log in again as the new User.
-You will be able to create Blog Posts only.
+You are able to create Blog Posts only.
 
 !!! tip  "More information"
 

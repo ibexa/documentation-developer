@@ -8,7 +8,7 @@ edition: experience
 You can create a Form attribute for new Form fields or existing ones.
 To do it, you have to define a new Form attribute in the configuration.
 
-In the following example you will learn how to create the new Form with `richtext_description` attribute that allows you to add formatted
+In the following example you can learn how to create the new Form with `richtext_description` attribute that allows you to add formatted
 description to the Form.
 
 ## Configure Form attribute

@@ -50,7 +50,7 @@ You can now change your password, or request a new one if you forgot it.
 
 !!! caution
 
-    The reaction time when requesting a reset of the password will vary depending on whether an account with the provided email exists in the database or not.
+    The reaction time when requesting a reset of the password is vary depending on whether an account with the provided email exists in the database or not.
     This could be misused to confirm existing email addresses.
     To avoid this, set Swift Mailer to `spool` mode.
 
@@ -66,9 +66,9 @@ You can now perform REST search via `POST /views` using custom `FieldCriterion`.
 
 ### Other UI improvements
 
-- When accessing the back office from a link to a specific content item, after logging in you will now be redirected to the proper content view.
-- In edit mode you can now preview content as it will look in any SiteAccess it's available in.
-- When you start editing a content item that already has an open draft, you will see a draft conflict screen:
+- When accessing the back office from a link to a specific content item, after logging in you are now redirected to the proper content view.
+- In edit mode you can now preview content as it looks in any SiteAccess it's available in.
+- When you start editing a content item that already has an open draft, you can see a draft conflict screen:
 
 ![Draft conflict window](draft_conflict.png)
 

@@ -41,7 +41,7 @@ If you have not done it before, add the relevant meta-repository as an `upstream
 
 !!! tip
 
-    it's good practice to make git commits after every step of the update procedure.
+    It's good practice to make git commits after every step of the update procedure.
 
 ### A. Merge project skeleton
 
@@ -88,7 +88,7 @@ Resolve the conflicts in the following way:
 
 !!! caution
 
-    it's impossible to update an Enterprise edition (`ezsystems/ezplatform-ee`)
+    It's impossible to update an Enterprise edition (`ezsystems/ezplatform-ee`)
     to an [[= product_name_content =]] edition.
 
     Also, make sure that `composer.json` has the following `repositories` entry:

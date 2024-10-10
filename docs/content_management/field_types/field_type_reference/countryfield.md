@@ -1,12 +1,12 @@
-# Country Field Type
+# Country field type
 
-This Field Type represents one or multiple countries.
+This field type represents one or multiple countries.
 
 | Name      | Internal name | Expected input |
 |-----------|---------------|----------------|
 | `Country` | `ezcountry`   | `array`        |
 
-## PHP API Field Type 
+## PHP API field type 
 
 ### Input expectations
 
@@ -23,15 +23,15 @@ Example array:
 ];
 ```
 
-When you set an array directly on a Content Field you don't need to provide all this information, the Field Type will assume it's a hash and in this case will accept a simplified structure described below under [Hash format](#hash-format).
+When you set an array directly on a Content Field you don't need to provide all this information, the field type assumes it's a hash and in this case accepts a simplified structure described below under [Hash format](#hash-format).
 
 ### Validation
 
-This Field Type validates whether multiple countries are allowed by the Field definition, and whether the [Alpha2](https://www.iso.org/iso-3166-country-codes.html) is valid according to the countries configured in [[= product_name =]].
+This field type validates whether multiple countries are allowed by the Field definition, and whether the [Alpha2](https://www.iso.org/iso-3166-country-codes.html) is valid according to the countries configured in [[= product_name =]].
 
 ### Settings
 
-The Field definition of this Field Type can be configured with one option:
+The Field definition of this field type can be configured with one option:
 
 | Name         | Type      | Default value | Description|
 |--------------|-----------|---------------|------------|
@@ -59,7 +59,7 @@ The format used by the toHash method is the Alpha2 value, however the input is c
 
 ##### Properties
 
-The Value class of this Field Type contains the following properties:
+The Value class of this field type contains the following properties:
 
 | Property     | Type      | Description|
 |--------------|-----------|------------|
@@ -79,7 +79,7 @@ $value->countries = [
 
 ##### Constructor
 
-The `Country\Value` constructor will initialize a new Value object with the value provided. It expects an array as input.
+The `Country\Value` constructor initializes a new Value object with the value provided. It expects an array as input.
 
 ``` php
 // Constructor example

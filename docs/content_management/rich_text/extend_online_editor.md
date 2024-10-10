@@ -58,7 +58,7 @@ Add labels for the new tag by providing translations in `translations/custom_tag
 ```
 
 Now you can use the tag.
-In the back office, create or edit a content item that has a RichText Field Type.
+In the back office, create or edit a content item that has a RichText field type.
 In the Online Editor, click **Add**, and from the list of available tags select the FactBox tag icon.
 
 ![FactBox Tag](custom_tag_factbox.png "FactBox Tag in the Online Editor")
@@ -105,7 +105,7 @@ Add labels for the tag by providing translations in `translations/custom_tags.en
 ```
 
 Now you can use the tag.
-In the back office, create or edit a content item that has a RichText Field Type.
+In the back office, create or edit a content item that has a RichText field type.
 In the Online Editor's toolbar, click **Show more items**, and from the list of available tags select the Link tag icon.
 
 ![Link Tag](custom_tag_link.png "Link Tag in the Online Editor") 
@@ -118,7 +118,7 @@ You can create an inline custom tag that displays a hovering tooltip with an exp
 [[= include_file('code_samples/back_office/online_editor/custom_tags/acronym/config/packages/custom_tags.yaml') =]]
 ```
 
-The `explanation` attribute contains the meaning of the acronym that will be provided
+The `explanation` attribute contains the meaning of the acronym that is provided
 while editing in the Online Editor.
 
 Add labels for the tag by providing translations in `translations/custom_tags.en.yaml`:
@@ -294,7 +294,7 @@ in the Online Editor:
 
     If you override the default templates for `embedInline`, `embed` or `embedImage` 
     elements, for example, `@IbexaCore/default/content/embed.html.twig`,
-    the data attributes and classes will not be rendered automatically.
+    the data attributes and classes aren't rendered automatically.
 
     Instead, you can make use of the `data_attributes` and `class` properties 
     in your templates.

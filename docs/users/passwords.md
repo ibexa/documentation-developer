@@ -54,7 +54,7 @@ php bin/console ibexa:user:expire-password --user-group-id=13
 ## Password rules
 
 You can customize the password policy in your project.
-Each password setting is customizable per User Field Type.
+Each password setting is customizable per User field type.
 You can change the [password attributes](#password-attributes) or [password expiration settings](#password-expiration), and determine the rules for [repeating passwords](#repeating-passwords).
 
 To access the password settings:
@@ -92,7 +92,7 @@ The notification is displayed in the back office after login and in the User con
 ## Repeating passwords
 
 You can set a rule that the password cannot be reused.
-You set it for the User content type in the **User account (ezuser)** Field Type's settings.
+You set it for the User content type in the **User account (ezuser)** field type's settings.
 When this is set, the user cannot type in the same password when it expires.
 It has to be changed to a new one.
 

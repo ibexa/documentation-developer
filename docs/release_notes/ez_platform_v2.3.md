@@ -55,11 +55,11 @@
 
         You can also check user documentation on [forms](https://doc.ibexa.co/projects/userguide/en/2.5/creating_content_advanced/#forms)
 
-### ImageAsset Field Type
+### ImageAsset field type
 
 You can now create a single source media library with images that can be reused across the system.
 
-See [Reusing images](https://doc.ibexa.co/en/2.5/guide/images/#reusing-images) and [ImageAsset Field Type reference](https://doc.ibexa.co/en/2.5/api/field_types_reference/imageassetfield) for more information.
+See [Reusing images](https://doc.ibexa.co/en/2.5/guide/images/#reusing-images) and [ImageAsset field type reference](https://doc.ibexa.co/en/2.5/api/field_types_reference/imageassetfield) for more information.
 
 ![Set up multiple relations with image](2.3_image_asset.png)
 
@@ -76,7 +76,7 @@ You can now access and set user preferences in the user menu.
 
 ![User preferences screen with time zone settings](2.3_user_preferences.png)
 
-it's covered by the `user/preferences` policy.
+It's covered by the `user/preferences` policy.
 
 ### Dates in preferred timezone
 

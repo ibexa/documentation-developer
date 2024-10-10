@@ -16,14 +16,14 @@ The [[= product_name =]] content Repository is centered around **content items**
 Every content item is an instance of a content type. Content types define what **Fields** are included in each content item.
 For example, an article could include Fields such as *title*, *image*, *abstract*, *article's body*, *publication date* and *list of authors*.
 
-Fields can belong to one of the installed **Field Types**, about 30 in the default distribution.
-Each Field Type is built to represent a specific type of data: a text line, a block of rich text, an image, a collection of relations to content items, etc.
-You can find a complete list in the [Field Types reference](field_type_reference.md) section.
-Every Field Type may have its own options, and comes with its own editing and viewing interfaces.
+Fields can belong to one of the installed **field types**, about 30 in the default distribution.
+Each field type is built to represent a specific type of data: a text line, a block of rich text, an image, a collection of relations to content items, etc.
+You can find a complete list in the [field types reference](field_type_reference.md) section.
+Every field type may have its own options, and comes with its own editing and viewing interfaces.
 
 ## Add a content type
 
-The site will use two content types: **Ride** and **Landmark**.
+The site use two content types: **Ride** and **Landmark**.
 A Ride is a route of a bike trip. It can include one or more Landmarks - interesting places you can see along the way.
 More than one Ride can visit the same Landmark, so it's similar to an N-N relationship model in a database.
 
@@ -35,7 +35,7 @@ In the upper-right corner, click the avatar icon to unfold the drop-down menu an
 
 In the main menu, go to **Content** -> **Content types**.
 
-You will see a list of **Content type groups**. they're used to group content types in a logical way.
+You can see a list of **Content type groups**. they're used to group content types in a logical way.
 
 Select **Content** and then click the **Create** button. 
 
@@ -48,7 +48,7 @@ Fill the form with this basic info: 
 
 Then create all Fields with the following information: 
 
-| Field Type   | Name             | Identifier       |  Required | Searchable | Translatable |
+| Field type   | Name             | Identifier       |  Required | Searchable | Translatable |
 | ------------ | ---------------- | ---------------- | --------- | ---------- | ------------ |
 | Text line    | Name             | `name`           | yes       | yes        | yes          |
 | Image Asset  | Photo            | `photo`          | no        | no         | no           |

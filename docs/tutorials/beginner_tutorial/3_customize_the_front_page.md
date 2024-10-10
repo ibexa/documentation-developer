@@ -4,10 +4,10 @@ description: Try customizing the front page by using custom templates and adding
 
 # Step 3 — Customize the front page
 
-In this step you will create the global layout of your site, and display content using custom templates.
+In this step you can create the global layout of your site, and display content using custom templates.
 
 First, go to the root of the site (`<yourdomain>`). You should now see the home page of the clean install, without any kind of layout.
-You will customize this step by instructing the platform to use a custom template to render this content item.
+You can customize this step by instructing the platform to use a custom template to render this content item.
 
 ## Content rendering configuration
 
@@ -65,7 +65,7 @@ Create a `home_page.html.twig` file in `templates/full/`:
 </div>
 ```
 
-Refresh the page and you will see a simple, unstyled version of the message.
+Refresh the page and you can see a simple, unstyled version of the message.
 
 !!! note
 
@@ -74,7 +74,7 @@ Refresh the page and you will see a simple, unstyled version of the message.
 ### Add the site's main layout
 
 Most sites have a general layout which includes things like header with a logo or footer.
-it's displayed on every page, and the content of the page is placed inside it.
+It's displayed on every page, and the content of the page is placed inside it.
 
 To add a template like this to your site, create a `main_layout.html.twig` file in `templates/` and paste the following code into it:
 
@@ -174,7 +174,7 @@ To add a template like this to your site, create a `main_layout.html.twig` file 
 ```
 
 Note that in the highlighted lines (12 and 89) the template takes advantage of [Symfony Webpack Encore]([[= symfony_doc =]]/frontend.html#webpack-encore).
-This tutorial will lead you through configuring Webpack, but first you need assets.
+This tutorial leads you through configuring Webpack, but first you need assets.
 
 ### Adding assets
 
@@ -240,7 +240,7 @@ Templates can contain named blocks. Any template can extend other templates, and
 
 The code above points to `main_layout.html.twig` in line 1. It also wraps your "Hello world" message in a `content` block.
 If you look back at the main layout template, you can see an empty `{% block content %}{% endblock %}` section (lines 52-53).
-This is where the `home_page.html.twig` will be rendered.
+This is where the `home_page.html.twig` is rendered.
 
 Clear the cache and regenerate the assets by running the following commands:
 

@@ -6,7 +6,7 @@ or from [ezplatform.com](https://ezplatform.com), you may have incomplete histor
 To load the full history, run `git fetch upstream --unshallow` from the `update-[[= target_version =]]` branch, and run the merge again.
 
 Ignore the conflicts in `composer.lock`, because this file is regenerated when you execute `composer update` later.
-it's easiest to check out the version of `composer.lock` from the tag and add it to the changes:
+It's easiest to check out the version of `composer.lock` from the tag and add it to the changes:
 
 ``` bash
 git checkout --theirs composer.lock && git add composer.lock

@@ -399,7 +399,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
     - Additional time for adaptation and configuration work, and testing by your development team
     - Additional consulting/onboarding time with Platform.sh, Ibexa technical services, and/or one of the many partners with prior experience using Platform.sh with Ibexa DXP
 
-    The cost and effort of this is not included in Ibexa Cloud subscription and will vary depending on the project.
+    The cost and effort of this is not included in Ibexa Cloud subscription and is vary depending on the project.
 
     ### Custom integrations
 
@@ -446,7 +446,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
     - Additional time for adaptation and configuration work, and testing by your development team
     - Additional consulting/onboarding time with Platform.sh, Ibexa technical services, and/or one of the many partners with prior experience using Platform.sh with Ibexa DXP
 
-    The cost and effort of this is not included in Ibexa Cloud subscription and will vary depending on the project.
+    The cost and effort of this is not included in Ibexa Cloud subscription and is vary depending on the project.
 
     ### Custom integrations
 
@@ -484,7 +484,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
     - Additional time for adaptation and configuration work, and testing by your own team
     - Additional consulting/onboarding time with Platform.sh, Ibexa technical services, and/or one of the many partners with prior experience using Platform.sh with eZ Publish legacy
 
-    The cost and effort of this is not included in eZ Platform Cloud subscription and will vary depending on the project.
+    The cost and effort of this is not included in eZ Platform Cloud subscription and is vary depending on the project.
 
     ### Experimental/custom Platform.sh setups
 
@@ -499,7 +499,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
         If you're in need of setting up your legacy project on Platform.sh for a transitional period,
         eZ can put you in contact with a partner experienced in setting up older projects on Platform.sh.
-        This will save you a lot of time and effort.
+        This saves you a lot of time and effort.
         
     !!! note
 

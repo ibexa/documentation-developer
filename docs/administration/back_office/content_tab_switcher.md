@@ -1,13 +1,13 @@
 # Tab switcher in content edit page
 
-Tabs switcher allows separating the default Field Types in the content type from the Field Types that enhance the content with new functionalities.
-The best example of such Field Types are SEO or Taxonomy, as these are not typical Field Types but a Field Types that handle functionalities for the whole content object.
+Tabs switcher allows separating the default field types in the content type from the field types that enhance the content with new functionalities.
+The best example of such field types are SEO or Taxonomy, as these are not typical field types but a field types that handle functionalities for the whole content object.
 
-The following example shows how to add a Meta tab with automatically assigned Taxonomy Field Type.
+The following example shows how to add a Meta tab with automatically assigned Taxonomy field type.
 
 ## Add Meta tab
 
-Before you start adding the Meta tab, make sure the content type you want to edit has [Taxonomy Entry Assignment Field Type]([[= user_doc =]]/taxonomy/#assign-tag-to-content-from-taxonomy-tree).
+Before you start adding the Meta tab, make sure the content type you want to edit has [Taxonomy Entry Assignment field type]([[= user_doc =]]/taxonomy/#assign-tag-to-content-from-taxonomy-tree).
 
 Next, provide the semantic configuration under the `ibexa.system.<scope>.admin_ui_forms` [configuration key](configuration.md#configuration-files):
 
@@ -23,9 +23,9 @@ ibexa:
 
 ```
 
-`ibexa_taxonomy_entry_assignment` - identifier for the Field Type
+`ibexa_taxonomy_entry_assignment` - identifier for the field type
 
-`meta` - when set to `true`, puts the declared Field Type in the Meta tab
+`meta` - when set to `true`, puts the declared field type in the Meta tab
 
 ![Meta tab](tab_switcher.png)
 
@@ -33,8 +33,8 @@ ibexa:
 ### Configure Field groups for Meta tab
 
 The default configuration makes the `ibexa_taxonomy_entry_assignment` Field always visible in the Meta tab in the content form. 
-With this new feature, you can indicate what Field types, previously set in the back office content type, are shown in the Meta tab section in the content form. 
-You can automatically move all Field types from Metadata group to the Meta tab in the content form.
+With this new feature, you can indicate what field types, previously set in the back office content type, are shown in the Meta tab section in the content form. 
+You can automatically move all field types from Metadata group to the Meta tab in the content form.
 To do it, use the following configuration:
 
 ```yaml

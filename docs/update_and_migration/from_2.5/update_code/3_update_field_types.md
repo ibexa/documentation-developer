@@ -1,11 +1,11 @@
-# 4.3. Update Field Types
+# 4.3. Update field types
 
-You need to adapt your custom Field Types to the new Field Type architecture.
+You need to adapt your custom field types to the new field type architecture.
 
 ## `eZ\Publish\SPI\FieldType\FieldType` interface
 
 The `eZ\Publish\SPI\FieldType\FieldType` interface is now an abstract class.
-You need to replace `implements FieldType` in your Field Type code with `extends FieldType`.
+You need to replace `implements FieldType` in your field type code with `extends FieldType`.
 
 ## Deprecated `getName` method
 
@@ -47,7 +47,7 @@ You need to replace importing the following classes:
 |EzSystems\RepositoryForms\FieldType\FieldDefinitionFormMapperInterface|EzSystems\EzPlatformAdminUi\FieldType\FieldDefinitionFormMapperInterface|
 |EzSystems\RepositoryForms\FieldType\FieldValueFormMapperInterface|EzSystems\EzPlatformContentForms\FieldType\FieldValueFormMapperInterface|
 
-## Extending Field Type templates
+## Extending field type templates
 
 If you extended templates for `ezobjectrelationlist_field`, `ezimageasset_field`, or `ezobjectrelation_field` Fields
 using `{% extends "@EzPublishCore/content_fields.html.twig" %}`,

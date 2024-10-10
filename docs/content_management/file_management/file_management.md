@@ -15,7 +15,7 @@ $fileContent = $this->ioService->getFileContents($file);
 
 ## Handling binary files
 
-[[= product_name =]] supports multiple binary file handling mechanisms by means of an `IOHandler` interface. This feature is used by the [BinaryFile](imagefield.md) Field Types.
+[[= product_name =]] supports multiple binary file handling mechanisms by means of an `IOHandler` interface. This feature is used by the [BinaryFile](imagefield.md) field types.
 
 ### Native IO handler
 

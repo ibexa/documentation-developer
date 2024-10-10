@@ -2,9 +2,9 @@
 edition: experience
 ---
 
-# Form Field Type
+# Form field type
 
-The Form Field Type stores a Form consisting of one or more form fields.
+The Form field type stores a Form consisting of one or more form fields.
 
 | Name   | Internal name |
 |--------|---------------|

@@ -226,9 +226,9 @@ $output->writeln("Parent Location: " . $mainLocation->getParentLocation()->pathS
 When dealing with Location objects (and Trash objects), you can get access to content item directly using `$location->getContent`.
 In Twig this can also be accessed by `location.content`.
 
-This is a lazy property. It will trigger loading of content when first used.
+This is a lazy property. It triggers loading of content when first used.
 In case of bulk of Locations coming from Search or Location Service,
-the Content will also be loaded in bulk for the whole Location result set.
+the content is also loaded in bulk for the whole Location result set.
 
 ## Comparing content versions
 
@@ -244,7 +244,7 @@ $versionTo = $this->contentService->loadVersionInfo($contentInfo, $versionToId);
 $nameComparison = $this->comparisonService->compare($versionFrom, $versionTo)->getFieldValueDiffByIdentifier('name')->getComparisonResult();
 ```
 
-`getComparisonResult` returns a `ComparisonResult` object, which depends on the Field Type being compared.
+`getComparisonResult` returns a `ComparisonResult` object, which depends on the field type being compared.
 In the example of a Text Line (ezstring) Field, it's an array of `StringDiff` objects.
 
 Each diff contains a section of the Field to compare (e.g. a part of a text line)

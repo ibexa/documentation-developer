@@ -11,8 +11,8 @@ Each role can contain one or more **Policies**. A policy is a rule that gives ac
 For example, a `section/assign` Policy allows the User to assign content to Sections.
 
 When you add a policy to a role, you can also restrict it using one or more **Limitations**.
-A policy with a limitation will only apply when the condition in the limitation is fulfilled.
-For example, a `content/publish` policy with a `ContentType` limitation on the "Blog Post" content type will allow the User to publish only Blog Posts, and not other content.
+A policy with a limitation only applies when the condition in the limitation is fulfilled.
+For example, a `content/publish` policy with a `ContentType` limitation on the "Blog Post" content type allows the User to publish only Blog Posts, and not other content.
 
 A limitation, like a policy, specifies what a User *can* do, not what they *can't do*.
 A `Section` limitation, for example, *gives* the User access to the selected Section, not *prohibits* it.
@@ -28,7 +28,7 @@ it's best practice to avoid assigning roles to users directly.
 Instead, try to organize your content so that it can be covered with general roles assigned to user groups.
 
 Using Groups is easier to manage and more secure. It also improves system performance.
-The more role assignments and complex policies you add for a given User, the more complex the search/load queries will be, because they always take permissions into account.
+The more role assignments and complex policies you add for a given User, the more complex the search/load queries are, because they always take permissions into account.
 
 ## Permissions for custom controllers
 

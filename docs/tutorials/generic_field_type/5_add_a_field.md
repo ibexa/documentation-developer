@@ -1,5 +1,5 @@
 ---
-description: Learn how to use your custom Field Type by adding a Field to a content type and creating an instance.
+description: Learn how to use your custom field type by adding a Field to a content type and creating an instance.
 ---
 
 # Step 5 - Add a new Point 2D Field
@@ -24,7 +24,7 @@ New content type should have the following settings:
 
 Next, define **point2d** with the following Fields:
 
-|Field Type|Name|Identifier|Required|Translatable|
+|Field type|Name|Identifier|Required|Translatable|
 |----------|----|----------|--------|------------|
 | point2d  |Point 2D|`point_2d` | yes | no|
 
@@ -38,7 +38,7 @@ In **Content structure**, select **Create content**. There, under **Content**, y
 
 ![Selecting Point 2D from sidebar](menu_point2d.png)
 
-Here, you can fill in coordinates of your point, e.g. 3, 5. Provided coordinates will be used as a title for a new point.
+Here, you can fill in coordinates of your point, e.g. 3, 5. Provided coordinates are used as a title for a new point.
 
 ![Creating Point 2D](creating_new_point2d.png)
 

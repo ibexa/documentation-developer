@@ -77,8 +77,8 @@ The built-in image optimizer serves as backup to Fastly IO in case of misconfigu
 so it needs to be able to serve the same image variations.
 
 Fastly IO image filters are not compatible with our built-in filters,
-so you will not be able to reflect your original filters accurately with Fastly.
-The script below will help you find replacement filters within Fastly configuration for the basic filters.
+so you aren't able to reflect your original filters accurately with Fastly.
+The script below helps you find replacement filters within Fastly configuration for the basic filters.
 For more optimization options on Fastly side, see [Fastly IO reference](https://developer.fastly.com/reference/io/).
 
 To generate your original image configuration run:

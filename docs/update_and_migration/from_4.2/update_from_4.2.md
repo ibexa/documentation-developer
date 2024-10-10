@@ -93,7 +93,7 @@ php bin/console ibexa:migrate:customers  --input-user-group=3a3beb3d09ae0dacebf1
 ```
 
 - `--input-user-group` - represents the remote ID of a user group you want to migrate to a new content type.
-After migration, this will also be the ID of a new Private Customer user group.
+After migration, this is also the ID of a new Private Customer user group.
 - `--create-content-type` - if you add this parameter, the system creates the new content type based on the one defined in `--input-user-content-type`
 
 ##### Additional parameters
@@ -109,7 +109,7 @@ If you don't have custom User content types, use the basic migration.
 
 !!! caution
 
-    This improvement will prevent logged in backend users from making purchases in the frontend store.
+    This improvement prevents logged in backend users from making purchases in the frontend store.
 
 #### Execute migrations
 

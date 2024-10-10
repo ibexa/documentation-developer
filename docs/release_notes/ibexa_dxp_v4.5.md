@@ -88,7 +88,7 @@ For more information, see [Translation comparison](https://doc.ibexa.co/projects
 
 ### Page Builder for B2B portals [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-With this release, you will be able to use Page Builder to create custom Customer Portals for your clients.
+With this release, you are able to use Page Builder to create custom Customer Portals for your clients.
 With new Sales rep page block and using all available blocks from the original Page Builder, you can create a unique experience for each customer group.
 Additionally, you can assign each customer group to a specific Customer Portal or create an availability hierarchy based on rules and configuration.
 

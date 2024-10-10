@@ -6,11 +6,11 @@ description: Learn how to query for content and render it in a list.
 
 Now that you know how to display a single content item, you can take care of rendering a list of content items.
 
-In this step you will display a table of all Rides on the front page.
+In this step you can display a table of all Rides on the front page.
 
 ## Customize the homepage template
 
-In `templates/full/home_page.html.twig` replace the "Hello world" with a table that will display the list of all existing Rides:
+In `templates/full/home_page.html.twig` replace the "Hello world" with a table that displays the list of all existing Rides:
 
 ``` html+twig hl_lines="15 16"
 {% extends "main_layout.html.twig" %}
@@ -44,7 +44,7 @@ In `templates/full/home_page.html.twig` replace the "Hello world" with a table t
 ```
 
 The `rides` variable you use in line 15 above needs to contain a list of all Rides.
-To get this list, you will use a Query Type.
+To get this list, you use a Query Type.
 
 ## Create a QueryType for the home page
 
@@ -88,14 +88,14 @@ class RideQueryType implements QueryType
 }
 ```
 
-This Query Type will find all visible content items that belong to the `ride` content type (lines 21-22).
+This Query Type finds all visible content items that belong to the `ride` content type (lines 21-22).
 
-Now you need to indicate that this Query Type will be used in your configuration.
+Now you need to indicate that this Query Type is used in your configuration.
 
 ## Add Query Type to configuration
 
 Edit `config/packages/ibexa.yaml`.
-In the view configuration for the home page indicate that this view will use the Query Type:
+In the view configuration for the home page indicate that this view uses the Query Type:
 
 ``` yaml hl_lines="6 10 11 12 13 14 15"
 site:
@@ -147,7 +147,7 @@ system:
 
 Create the `templates/line/rides.html.twig` template.
 
-Because this template will be rendered inside a table, it starts with a `<tr>` tag.
+Because this template is rendered inside a table, it starts with a `<tr>` tag.
 
 ``` html+twig
 <tr>
@@ -185,6 +185,6 @@ Edit the **Content/Read** policy line to add the `Media` section to **Limitation
 
 ![Policies for the Anonymous Role with Media section](step5_admin_anonymous_policies_with_media_section.png)
 
-Now go to the homepage of your website and you will see the list of Rides.
+Now go to the homepage of your website and you can see the list of Rides.
 However, the Ride photos are too large and stretch the table.
-In the next step you will ensure they're displayed in proper size.
+In the next step you can ensure they're displayed in proper size.

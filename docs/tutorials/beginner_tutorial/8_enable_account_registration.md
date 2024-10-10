@@ -4,7 +4,7 @@ description: See how you can enable external users to register and contribute to
 
 # Step 8 — Enable account registration
 
-In this step you will enable other users to create accounts on your site, access the back office and create content.
+In this step you enable other users to create accounts on your site, access the back office and create content.
 
 ## Enable registration
 
@@ -12,7 +12,7 @@ In the main menu, go to **Admin** (gear icon) -> **Roles**, and click the **Anon
 
 ![Available roles](step_8_role_mgmt_screen.png)
 
-Add the `User/Register` policy to the Anonymous User. This will allow any visitor to the website to access the registration form.
+Add the `User/Register` policy to the Anonymous User. This allows any visitor to the website to access the registration form.
 
 ![Policies for the Anonymous Role](step8_admin_anonymous_policies.png)
 
@@ -32,7 +32,7 @@ ibexa:
                     form: user/registration_form.html.twig
 ```
 
-This indicates which template will be used to render the registration form.
+This indicates which template is used to render the registration form.
 
 Create the file `templates/user/registration_form.html.twig`:
 
@@ -60,7 +60,7 @@ Create the file `templates/user/registration_form.html.twig`:
 ```
 
 In line 10 you can see that another file is imported: `registration_content_form.html.twig`.
-The second template will render the actual fields of the registration form. Create this file as well (as `templates/user/registration_content_form.html.twig`):
+The second template renders the actual fields of the registration form. Create this file as well (as `templates/user/registration_content_form.html.twig`):
 
 ``` html+twig
 {% macro display_form(form) %}
@@ -166,7 +166,7 @@ Fill in the form and register a user.
 ## Set up Permissions
 
 Users created through the registration form are placed in the _Guest accounts_ user group.
-The User you have just created will have the roles assigned to this group.
+The User you have just created has the roles assigned to this group.
 
 !!! tip
 
@@ -184,7 +184,7 @@ In the back office, go to **Admin** -> **Users**, click the **Create content** b
 ### Create a Folder for contributed Rides
 
 Go to the `All Rides` Folder and create inside it a new Folder named `Member Rides`.
-Go Bike Members will only be able to create Content in this Folder.
+Go Bike Members are only able to create Content in this Folder.
 
 ### Set permissions for Go Bike Members
 

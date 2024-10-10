@@ -1,6 +1,6 @@
 # SesProfileData
 
-This Field Type stores [`CustomerProfileData`] in the User content type.
+This field type stores [`CustomerProfileData`] in the User content type.
 
 `CustomerProfileData` must be stored as a serialized string in base64 format,
 because it's impossible to store special HTML characters (`<`,`>`, `""`,`''`, `&`) in a text or text area field.

@@ -31,20 +31,20 @@ Run:
     composer require ibexa/commerce:[[= latest_tag_4_3 =]] --with-all-dependencies --no-scripts
     ```
 
-## Remove deprecated Field Types
+## Remove deprecated field types
 
 By default, every v4.3 installation has a set of built-in content types.
-Some of them use Field Types deprecated in v4.4, which need to be removed manually.
-Make sure to remove all occurrences of `sesspecificationstype`, `uivarvarianttype`, `sesselection`, `sesprofiledata` Field Types from your content types.
+Some of them use field types deprecated in v4.4, which need to be removed manually.
+Make sure to remove all occurrences of `sesspecificationstype`, `uivarvarianttype`, `sesselection`, `sesprofiledata` field types from your content types.
 
-This step should be performed on the working installation, omitting it will result in an error during update:
+This step should be performed on the working installation, omitting it results in an error during update:
 
 ```
   [Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\Exception\NotFound (404)]
   Could not find 'Persistence Field Value Converter' with identifier 'sesspecificationstype'
 ```
 
-In that case, you can use [Null Field Type](nullfield.md) to define a replacement for deprecated Field Types in `config/services.yaml`:
+In that case, you can use [Null field type](nullfield.md) to define a replacement for deprecated field types in `config/services.yaml`:
 
 ```yaml
 services:
@@ -126,7 +126,7 @@ Review the old YAML files and move your custom configuration to the relevant new
 ### Flysystem v2
 
 Local adapters' `directory` key changed to `location`.
-it's defined in `config/packages/oneup_flysystem.yaml`:
+It's defined in `config/packages/oneup_flysystem.yaml`:
 
 ```yaml
 oneup_flysystem:

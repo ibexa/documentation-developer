@@ -5,7 +5,7 @@ description: Ensure that your Ibexa DXP installation performs well by following 
 # Performance
 
 [[= product_name =]] can be set up to run efficiently on almost any modern configuration.
-What follows is a list of recommendation that will make your installation perform better.
+What follows is a list of recommendation that make your installation perform better.
 
 !!! note
 
@@ -21,7 +21,7 @@ If you're in a hurry, the most important recommendations on this page are:
 ## Client
 
 - Always use an up-to-date browser and an up-to-date operating system so you have access to latest browser versions
-- If possible, use a fast, stable internet connection, because an unreliable connection will slow down UI
+- If possible, use a fast, stable internet connection, because an unreliable connection slows down UI
 
 ## Server
 
@@ -76,7 +76,7 @@ In production setups:
 
     Check if your cloud provider has native service for Memcached/Redis, as those might be better tuned.
 
-- If you use Redis, make sure to tune it for in-memory cache usage. Its persistence feature is not needed with cache and will severely slow down execution time.
+- If you use Redis, make sure to tune it for in-memory cache usage. Its persistence feature is not needed with cache and severely slows down execution time.
     - [For use with sessions](sessions.md#cluster-setup) however, persistence can be a good fit if you want sessions to survive service interruptions.
     - Further tips for Redis with cache can be found in doc regarding [Redis Clustering](persistence_cache.md#redis-clustering).
 
@@ -111,13 +111,13 @@ To avoid quickly running out of memory while executing such commands you should 
     ```
 
 1.  Run PHP without memory limits using: `php -d memory_limit=-1 bin/console <command>`
-1.  Disable `xdebug` *(PHP extension to debug/profile php use)* when running the command, this will cause php to use much more memory.
+1.  Disable `xdebug` *(PHP extension to debug/profile php use)* when running the command, this causes php to use much more memory.
 
-!!! note "Memory will still grow"
+!!! note "Memory still grows"
 
-    Even when everything is configured like described above, memory will grow for each iteration
+    Even when everything is configured like described above, memory grows for each iteration
     of indexing/inserting a content item with at least *1kb* per iteration after the initial first 100 rounds.
-    This is expected behavior; to be able to handle more iterations you will have to do one or several of the following:
+    This is expected behavior; to be able to handle more iterations you have to do one or several of the following:
 
     - Change the import/index script in question to [use process forking](#process-forking-with-symfony) to avoid the issue.
     - Upgrade PHP: *newer versions of PHP are typically more memory-efficient.*
@@ -128,12 +128,11 @@ To avoid quickly running out of memory while executing such commands you should 
 The recommended way to completely avoid "memory leaks" in PHP in the first place is to use processes.
 For console scripts this is typically done using process forking which is quite easily achievable with Symfony.
 
-The things you will need to do:
+The things you need to do:
 
 1. Change your command so it supports taking slice parameters, like for instance a batch size and a child-offset parameter.
-    1. *If defined, child-offset parameter denotes if a process is a child,
-    this can be accomplished using two commands as well.*
-    2. *If not defined, it's the master process which will execute the processes until nothing is left to process.*
+    1. *If defined, child-offset parameter denotes if a process is a child, this can be accomplished using two commands as well.*
+    2. *If not defined, it's the master process which executes the processes until nothing is left to process.*
 
 2. Change the command so that the master process takes care of forking child processes in slices.
     1. For execution in-order, [you may look to our platform installer code](https://github.com/ibexa/core/blob/main/src/bundle/RepositoryInstaller/Command/InstallPlatformCommand.php#L220)

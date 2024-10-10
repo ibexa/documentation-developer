@@ -83,7 +83,7 @@ Assume the following search query:
 $query->query = new Criterion\FullText('(cup AND ba*ball) "breaking news"');
 ```
 
-It will return content containing phrases such as "Breaking news", "Baseball world cup", "Basketball cup",
+It returns content containing phrases such as "Breaking news", "Baseball world cup", "Basketball cup",
 or "Breaking news: Baseball world cup victory".
 
-It will not return content with phrases such as "Football world cup" or "Breaking sports news".
+It doesn't return content with phrases such as "Football world cup" or "Breaking sports news".

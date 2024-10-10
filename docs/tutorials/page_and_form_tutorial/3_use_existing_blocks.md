@@ -15,7 +15,7 @@ First, create an override template for the Content List block: `templates/blocks
 [[= include_file('code_samples/tutorials/page_tutorial/templates/blocks/contentlist/default.html.twig') =]]
 ```
 
-Then add a configuration that will tell the app to use this template instead of the default one.
+Then add a configuration that tells the app to use this template instead of the default one.
 In `config/packages/ibexa_fieldtype_page.yaml` add the following code at the end of the file, under the `ibexa_fieldtype_page` key on the same level as `layouts`:
 
 ``` yaml
@@ -23,7 +23,7 @@ In `config/packages/ibexa_fieldtype_page.yaml` add the following code at the end
 ```
 
 The template makes use of an [image variation](images.md) (line 10).
-it's the thumbnail of the Dog Breed image that will be displayed in the block.
+It's the thumbnail of the Dog Breed image that is displayed in the block.
 To configure this variation, open the `config/packages/image_variations.yaml` file and add the following code under the `image_variations` key:
 
 ``` yaml
@@ -42,13 +42,13 @@ At this point you can start adding blocks to the Page.
 You do it in the Page's Edit mode by dragging a block from the menu on the right to the correct zone on the page.
 
 Drag a Content List block from the menu to the left zone on the page.
-Click the block and fill in the form. Here you name the block and decide what it will display.
+Click the block and fill in the form. Here you name the block and decide what it displays.
 Choose the "Dog Breed Catalog" folder as the Parent, select Dog Breed as the content type to be displayed, and choose a limit (3).
 You'll display the first three Dog Breeds from the database.
 
 ![Window with Content List options](enterprise_tut_content_list_window.png)
 
-Click **Submit** and you should see a preview of what the block will look like with the dog breed information displayed.
+Click **Submit** and you should see a preview of what the block looks like with the dog breed information displayed.
 
 ![Content List Styled](enterprise_tut_content_list_styled.png "Content List Styled")
 
@@ -58,7 +58,7 @@ Publish the page now and move on to creating another type of block.
 
 ### Create a Content Scheduler block for featured articles
 
-The next block is the Content Scheduler block that will air articles at predetermined times.
+The next block is the Content Scheduler block that airs articles at predetermined times.
 
 First, add a configuration that points to the layout. Go to `config/packages/ibexa_fieldtype_page.yaml` again and add the following code under `blocks` on the same level as the `contentlist` key:
 
@@ -73,9 +73,9 @@ Create the new file `templates/blocks/schedule/featured.html.twig`:
 [[= include_file('code_samples/tutorials/page_tutorial/templates/blocks/schedule/featured.html.twig') =]]
 ```
 
-When you look at the template, you can see three blocks, each of which will render the content items using the `featured` view (line 11).
+When you look at the template, you can see three blocks, each of which render the content items using the `featured` view (line 11).
 So far you only have templates for `full` view for Articles. This means you need to create a `featured` view template,
-otherwise you will get an error when trying to add Content to the block.
+otherwise you get an error when trying to add Content to the block.
 
 You need to modify the `config/packages/views.yaml` file to indicate when to use the template.
 Add the following code to this file, on the same level as the `full` key:
@@ -122,20 +122,20 @@ Navigate to the "All Articles" folder and select the articles you had created an
 Accept the suggested airtime and click **Submit**.
 
 Now click the Airtime button next to one of the Articles and choose a time in the future.
-This article will be listed in the queue.
+This article is listed in the queue.
 
 ![Content Scheduler with scheduled content](enterprise_tut_choosing_airtime.png)
 
 Publish the Page.
 
 Now open the Timeline at the top of the screen.
-You can move the slider to different times and preview what the Content Scheduler block will look like at different hours.
-Content will be shown when you move the slider to the point when it airs.
+You can move the slider to different times and preview what the Content Scheduler block looks like at different hours.
+Content is shown when you move the slider to the point when it airs.
 
 !!! tip
 
     At this point you have configured the Content Scheduler block to work with Articles only.
-    If you try to add Content of any other type, you will see an error.
+    If you try to add Content of any other type, you can see an error.
     This is because there is no `featured` view for content other than Articles defined at the moment.
 
 ![Front Page after adding Featured Block](enterprise_tut_page_with_featured_articles.png "Front Page after adding Featured Block")

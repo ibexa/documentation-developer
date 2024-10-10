@@ -6,7 +6,7 @@ searches for content based on whether it's visible or not.
 This Criterion takes into account both hiding content and hiding Locations.
 
 When used with Content Search, the Criterion takes into account all assigned Locations.
-This means that hidden content will be returned if it has at least one visible Location.
+This means that hidden content is returned if it has at least one visible Location.
 Use Location Search to avoid this.
 
 ## Arguments

@@ -69,7 +69,7 @@ The `template` (line 8) points to the Twig file containing the template for thi
 #### Create Page template
 
 Configuration points to `sidebar.html.twig` as the template for the layout.
-The template defines what zones will be available in the layout.
+The template defines what zones are available in the layout.
 
 Create a `templates/layouts/sidebar.html.twig` file:
 
@@ -95,7 +95,7 @@ With these three elements: configuration, icon and template, the new layout is r
 
 Now you can change the Home Page to use the new layout. Edit Home and in the top bar select **Switch layout**.
 Choose the new layout called "Main section with sidebar on the right".
-The empty zones you defined in the template will be visible in the editor.
+The empty zones you defined in the template are visible in the editor.
 
 ![Select layout window](enterprise_tut_select_layout.png)
 
@@ -105,10 +105,10 @@ The empty zones you defined in the template will be visible in the editor.
 
 ![Empty page with new layout](enterprise_tut_new_layout.png)
 
-Publish the Home Page. You will notice that it still has some additional text information.
+Publish the Home Page. You can notice that it still has some additional text information.
 This is because the looks of a Page are controlled by two separate template files, and you have only prepared one of those.
 The `sidebar.html.twig` file defines how zones are organized and how content is displayed in them.
-But you also need a general template file that will be used for every Page, regardless of its layout.
+But you also need a general template file that is used for every Page, regardless of its layout.
 
 Add this new template, `templates/full/landing_page.html.twig`:
 

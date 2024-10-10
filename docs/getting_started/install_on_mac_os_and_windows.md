@@ -69,7 +69,7 @@ The instructions below assume that you're using Apache.
 
 === "Windows"
 
-    Download and run [Composer-Setup.exe](https://getcomposer.org/Composer-Setup.exe) - it will install the latest Composer version.
+    Download and run [Composer-Setup.exe](https://getcomposer.org/Composer-Setup.exe) - it installs the latest Composer version.
 
 ## Install [[= product_name =]]
 
@@ -88,7 +88,7 @@ Then restart the Apache server.
 ## Set up permissions
 
 Directories `var` and `web/var` need to be writable by CLI and web server user.
-Future files and directories created by these two users will need to inherit those permissions.
+Future files and directories created by these two users need to inherit those permissions.
 
 For more information, see [Setting up or Fixing File Permissions]([[= symfony_doc =]]/setup/file_permissions.html).
 

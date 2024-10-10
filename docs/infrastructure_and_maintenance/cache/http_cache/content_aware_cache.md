@@ -96,7 +96,7 @@ Apache has a [hard](https://github.com/apache/httpd/blob/5f32ea94af5f1e7ea68d6fc
     - (Optional) You can set reduced cache TTL for the given view, to reduce the risk of stale cache on subtree operations affecting the inlined content.
 
 2\. You can opt in to set a max length parameter (in bytes) and corresponding ttl (in seconds) 
-for cases when the limit is reached. The system will log a warning where the limit is reached, and when needed, you can optimize 
+for cases when the limit is reached. The system logs a warning where the limit is reached, and when needed, you can optimize 
 these cases as described above.
 
 ```yaml
@@ -135,7 +135,7 @@ If the given content has several Locations, you can see several `l<location-id>`
 ### ResponseConfigurator
 
 A `ReponseCacheConfigurator` configures an HTTP Response object, makes the response public, adds tags and sets the shared max age. 
-it's provided to `ReponseTaggers` that use it to add the tags to the response.
+It's provided to `ReponseTaggers` that use it to add the tags to the response.
 
 The `ConfigurableResponseCacheConfigurator` (`Ibexa\HttpCache\ResponseConfigurator\ConfigurableResponseCacheConfigurator`) follows the `view_cache` configuration and only enables cache if it's enabled in the configuration.
 
@@ -214,7 +214,7 @@ $response->headers->set('X-Location-Id', '123,212,42');
 
 !!! caution "X-Location-Id use is deprecated"
 
-    `X-Location-Id` is deprecated and will be removed in future.
+    `X-Location-Id` is deprecated and removed in future.
     For rendering content it's advised to refactor to use Content View,
     if not applicable `ContentTagInterface` or lastly manually output tags.
 
@@ -291,14 +291,14 @@ In the event when a new version of `Child` is published, the following keys are 
 In summary, HTTP Cache for any location representing `[Child]`, any Content that relates to the Content `[Child]`, the 
 location for `[Child]`, any children of `[Child]`, any Location that relates to the Location `[Child]`, location for
 `[Parent1]`, any children on `[Parent1]`.
-Effectively, in this example HTTP cache for `[Parent1]` and `[Child]` will be cleared.
+Effectively, in this example HTTP cache for `[Parent1]` and `[Child]` is cleared.
 
 
 ### Tags purged on move event
 
 With the same Content structure as above, the `[Child]` location is moved below `[Parent2]`.
 
-The new structure will then be:
+The new structure is then:
 ```
    - [Home] (content-id=52, location-id=2)
      ez-all c52 ct42 l2 pl1 p1 p2
@@ -312,7 +312,7 @@ The new structure will then be:
          ez-all c55 ct1 l22 pl21 p1 p2 p21 p22
 ```
 
-The following keys will be purged during the move:
+The following keys are purged during the move:
 
 - `l20`, because cache for previous parent of `[Child]` should be purged (`[Parent1]`)
 - `pl20`, because cache for children of `[Parent1]` should be purged
@@ -359,15 +359,15 @@ bin/console fos:httpcache:invalidate:tag ez-all
 
 ## Testing and debugging HTTP cache
 
-it's important to test your code in an environment which is as similar as your production environment as possible. That
+It's important to test your code in an environment which is as similar as your production environment as possible. That
 means that if only are testing locally using the default Symfony Reverse proxy when your are going to use Varnish or
 Fastly in production, you're likely ending up some (bad) surprises. Due to the symfony reverse proxy's lack of support for ESIs, it behaves
 quite different from Varnish and Fastly in some aspects.
 If you're going to use Varnish in production, make sure you also test your code with Varnish.
 If you're going to use Fastly in production, testing with Fastly in your developer install is likely not feasible
-(you're local development environment must then be accessible for Fastly). Testing with Varnish instead will in most
-cases do the job. But if you need to change the varnish configuration to make your site work, be aware that Varnish and Fastly uses different dialects, and
-that .vcl code for Varnish V6.x will likely not work as-is on Fastly.
+(you're local development environment must then be accessible for Fastly). Testing with Varnish instead in most
+cases does the job. But if you need to change the varnish configuration to make your site work, be aware that Varnish and Fastly uses different dialects, and
+that .vcl code for Varnish V6.x doesn't likely work as-is on Fastly.
 
 This section describes to how to debug problems related to HTTP cache. 
 	In order to that, you must be able to look both at
@@ -451,11 +451,11 @@ Some notes about each of these parameters:
 - `-IXGET`, one of many ways to tell curl that we want to send a GET request, but we are only interested in outputting the headers
 - `--resolve www.staging.foobar.com.us-2.platformsh.site:443:1.2.3.4`
     - We tell curl not to do a DNS lookup for `www.staging.foobar.com.us-2.platformsh.site`. We do that because in our case
-    that will resolve to the Fastly endpoint, not our origin (nginx)
+    that resolves to the Fastly endpoint, not our origin (nginx)
     - We specify `443` because we are using `https`
     - We provide the IP of the nginx endpoint at platform.sh (`1.2.3.4` in this example)
 - `--header "Surrogate-Capability: abc=ESI/1.0"`, strictly speaking not needed when fetching the user-context-hash, but this tells [[= product_name =]] that client understands ESI tags.
-  it's good practice to always include this header when imitating the HTTP Cache.
+  It's good practice to always include this header when imitating the HTTP Cache.
 - `--header "accept: application/vnd.fos.user-context-hash"` tells [[= product_name =]] that the client wants to receive the user-context-hash
 - `--header "x-fos-original-url: /"` is required by the fos-http-cache bundle in order to deliver the user-context-hash
 - `https://www.staging.foobar.com.us-2.platformsh.site/_fos_user_context_hash` : here we use the hostname we earlier told
@@ -561,7 +561,7 @@ X-Cache-Debug: 1
 Surrogate-Key: ez-all c52 l2
 ```
 
-The headers here look correct and do not indicate that this ESI will not be cached by the HTTP cache
+The headers here look correct and don't indicate that this ESI isn't cached by the HTTP cache
 The second ESI has a similar response.
 
 #### 3rd ESI
@@ -596,15 +596,15 @@ does not return values from any Content in the [[= product_name =]] Repository. 
 the corresponding IDs to such objects in that header.
 
 The `Set-Cookie` here may cause the problem. A ESI fragment should never set a cookie because:
-- Clients will only receive the headers set in the "mother" document (the headers in the "/" response in this case).
+- Clients only receive the headers set in the "mother" document (the headers in the "/" response in this case).
 
-- Only the content of ESIs responses will be returned to the client. **No headers set in the ESI response will ever reach the client**. ESI headers are only seen by the HTTP cache.
+- Only the content of ESIs responses is returned to the client. **No headers set in the ESI response will ever reach the client**. ESI headers are only seen by the HTTP cache.
   
-- Symfony reverse proxy does not support ESIs at all, and any ESI calls (`render_esi()`) will implicitly be replaced by
-  sub-requests (`render()`). So any `Set-Cookie` **will** be sent to the client when using Symfony reverse proxy.
+- Symfony reverse proxy doesn't support ESIs at all, and any ESI calls (`render_esi()`) are implicitly replaced by
+  sub-requests (`render()`). So any `Set-Cookie` **is** sent to the client when using Symfony reverse proxy.
   
-- Fastly will flag it resource as "not cachable" because it set a cookie at least once. Even though that endpoint.
-  stops setting cookies, Fastly will still not cache that fragment. Any document referring to that ESI will be a `MISS`.
+- Fastly flags it resource as "not cachable" because it set a cookie at least once. Even though that endpoint.
+  stops setting cookies, Fastly still doesn't cache that fragment. Any document referring to that ESI is a `MISS`.
   Fastly cache needs to be purged (`Purge-all` request) in order to remove this flag.
   
 - It means that it's not recommended to always initiate a session when loading the front page.

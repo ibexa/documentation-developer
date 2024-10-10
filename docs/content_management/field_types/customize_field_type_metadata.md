@@ -1,13 +1,13 @@
 ---
-description: You can customize which Field Type metadata should be disabled in the back office.
+description: You can customize which field type metadata should be disabled in the back office.
 ---
 
-# Customize Field Type metadata
+# Customize field type metadata
 
 When creating a content type definition, you add Fields and configure their metadata,
 such as whether they're required, translatable, and so on.
 
-If needed, you can customize that some of those options are disabled in the back office for specific Field Types.
+If needed, you can customize that some of those options are disabled in the back office for specific field types.
 To do this, add custom service definition for `ModifyFieldDefinitionsCollectionTypeExtension` 
 
 For example, this configuration means that no Image Field can be set as required in the definition of a content type:
@@ -24,7 +24,7 @@ services:
             - form.type_extension
 ```
 
-`fieldTypeIdentifier` refers to the identifier of the Field Type, in this case `ezimage`.
+`fieldTypeIdentifier` refers to the identifier of the field type, in this case `ezimage`.
 
 `modifiedOptions` lists the changes you want to make. The following options are available:
 

@@ -20,7 +20,7 @@ Invitations are created with [InvitationService](../api/php_api/php_api_referenc
 but sending them requires additional setup.
 [[= product_name =]] provides you with `Ibexa\User\Invitation\MailSender` implementation of
 `InvitationSender` interface for sending invitations via email.
-If you want to send invitations through different channels, you will need to create a custom setup.
+If you want to send invitations through different channels, you need to create a custom setup.
 
 ## Invitation and registration form templates
 
@@ -29,7 +29,7 @@ If you want to send invitations through different channels, you will need to cre
 To set up custom templates for invitation or registration forms,
 create a template file and inform the system, through configuration, when to use this template.
 
-You might also set a SiteAccess under `scope`, to which the new user will be invited.
+You might also set a SiteAccess under `scope`, to which the new user is invited.
 If the SiteAccess is not set, it falls back to the default `site` value.
 
 For example, use the following [configuration](configuration.md#configuration-files):

@@ -27,7 +27,7 @@ This version introduces the **Page Builder** which replaces the Landing Page edi
 
 #### Modifying the Page content type
 
-You can edit the new Page content type by adding Fields, as well as create new content types with the Page Field Type.
+You can edit the new Page content type by adding Fields, as well as create new content types with the Page field type.
 
 ![Editing Fields in Page Builder](2.2_page_builder_edit_fields.png)
 
@@ -41,11 +41,11 @@ In the Page block config you can now specify the CSS class with its own style fo
 
     Refer to [Updating eZ Platform](https://doc.ibexa.co/en/2.5/updating/5_update_2.2) for a database update script.
 
-    To update to 2.2 with existing Content you will need a [dedicated script for converting the Landing Page into the new Page](https://doc.ibexa.co/en/2.5/updating/5_update_2.2/#migrate-landing-pages).
+    To update to 2.2 with existing Content you need a [dedicated script for converting the Landing Page into the new Page](https://doc.ibexa.co/en/2.5/updating/5_update_2.2/#migrate-landing-pages).
 
 ### Bookmarks
 
-Bookmark service allows you to create bookmarks for Locations by selecting a star located next to the content type name as shown in the screenshot below. Each Location can only be bookmarked once, multiple bookmarks on one Location will cause an error.
+Bookmark service allows you to create bookmarks for Locations by selecting a star located next to the content type name as shown in the screenshot below. Each Location can only be bookmarked once, multiple bookmarks on one Location cause an error.
 
 ![Bookmark](bookmark.png)
 
@@ -85,14 +85,14 @@ Database charset is changed from UTF8 to UTF8MB4, in order to support 4-byte cha
 
 ### URL generation pattern
 
-You can now select the pattern that will be used to generate URL patterns.
+You can now select the pattern that is used to generate URL patterns.
 
 See [URL alias patterns](https://doc.ibexa.co/en/2.5/guide/url_management/#url-alias-patterns) for more information about the available settings.
 
 !!! caution "Default URL generation pattern"
 
     The default URL generation pattern changes from `urlalias` to `urlalias_lowercase`.
-    This change will only apply to new Content.
+    This change only applies to new Content.
     Pay attention to the new `url_alias.slug_converter.transformation` setting in the meta-repository when updating your installation.
 
 ### Choosing installation types

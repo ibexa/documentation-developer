@@ -25,7 +25,7 @@ make sure that your setup is secure.
 
 !!! tip
     
-    The following command will generate a 64-character-long secure random value:
+    The following command generates a 64-character-long secure random value:
     
     `php -r "print bin2hex(random_bytes(32));"`
     
@@ -176,7 +176,7 @@ Use the following checklist to ensure the roles and policies are secure:
 
 The [visibility switcher](https://doc.ibexa.co/en/latest/content_management/locations/#location-visibility) is a convenient feature for withdrawing content from the frontend.
 It acts as a filter in the frontend by default. You can choose to respect it or ignore it in your code.
-it'sn't permission-based, and doesn't restrict read access to content. Hidden content can be read through other means, like the REST API or GraphQL.
+It'sn't permission-based, and doesn't restrict read access to content. Hidden content can be read through other means, like the REST API or GraphQL.
 
 If you need to restrict read access to a given content item, you could create a role that grants read access for a given
 [**Section**](https://doc.ibexa.co/en/latest/administration/content_organization/sections/)
@@ -186,10 +186,10 @@ Or use other permission-based [**Limitations**](https://doc.ibexa.co/en/latest/p
 
 ### Minimize exposure
 
-Security should be a multi-layered exercise. it's wise to minimize what features you make available to the world, even if there are no known or suspected vulnerabilities in those features, and even if your content is properly protected by roles and policies. Reduce your attack surface by exposing only what you must.
+Security should be a multi-layered exercise. It's wise to minimize what features you make available to the world, even if there are no known or suspected vulnerabilities in those features, and even if your content is properly protected by roles and policies. Reduce your attack surface by exposing only what you must.
 
 - If possible, make the back office unavailable on the open internet.
-- [Symfony FOSJsRoutingBundle](https://github.com/FriendsOfSymfony/FOSJsRoutingBundle) is required in those releases where it's included, to expose routes to JavaScript. It exposes only the required routes, nothing more. it's only required in the back office site access though, so you can consider blocking it in other site accesses. You should also go through your own custom routes, and decide for each if you need to expose them or not. See the documentation on [YAML route definitions for exposure](https://github.com/FriendsOfSymfony/FOSJsRoutingBundle/blob/master/Resources/doc/usage.rst#generating-uris).
+- [Symfony FOSJsRoutingBundle](https://github.com/FriendsOfSymfony/FOSJsRoutingBundle) is required in those releases where it's included, to expose routes to JavaScript. It exposes only the required routes, nothing more. It's only required in the back office site access though, so you can consider blocking it in other site accesses. You should also go through your own custom routes, and decide for each if you need to expose them or not. See the documentation on [YAML route definitions for exposure](https://github.com/FriendsOfSymfony/FOSJsRoutingBundle/blob/master/Resources/doc/usage.rst#generating-uris).
 - By default, a [Powered-By header](https://doc.ibexa.co/en/latest/update_and_migration/from_1.x_2.x/update_db_to_2.5/#powered-by-header) is set. It specifies what version of the DXP is running. For example, `x-powered-by: Ibexa Experience v4`. This doesn't expose anything that couldn't be detected through other means. But if you wish to obscure this, you can either omit the version number, or disable the header entirely.
 - Consider whether certain interfaces must be left available on the open internet. For example:
     - The `/search` and `/graphql` endpoints
@@ -225,7 +225,7 @@ Headers must be adapted to the site in question, and in most cases it's site own
 The headers can be set either by the web server, or by a proxy like Varnish. 
 You can also set headers in PHP code by making a Symfony `RequestListener` for the `kernel.response` event and adding the header to the response object headers list.
 
-You will likely need to vary the security headers based on the SiteAccess in question and site implementation details, such as frontend code and libraries used.
+You most likely need to vary the security headers based on the SiteAccess in question and site implementation details, such as frontend code and libraries used.
 
 - `Strict-Transport-Security` - ensures that all requests are sent over HTTPS, with no fallback to HTTP. 
 All production sites should use HTTPS and this header unless they have very particular needs. 

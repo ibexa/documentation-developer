@@ -15,7 +15,7 @@ Different translations of the same content item can be edited separately. This m
 
 Each version, including a draft, contains all the existing translations.
 However, even if work on a draft takes time and other translations are updated in the meantime,
-publishing the draft will not overwrite later modifications.
+publishing the draft doesn't overwrite later modifications.
 
 ### Adding available languages
 
@@ -32,9 +32,9 @@ yarn encore <environment>
 
 Language versions consist of translated values of the content item's Fields. In the content type definition every Field is set to be Translatable or not.
 
-[[= product_name =]] does not decide by itself which Fields can be translated and which cannot. For some Field values the need for a translation can be obvious, for example for the body of an article. In other cases, for instance images without text, integer numbers or e-mail addresses, translation is usually unnecessary. Despite that, [[= product_name =]] gives you the possibility to mark any Field as translatable regardless of its Field Type. it's only your decision to exclude the translation possibility for those Fields where it makes no sense.
+[[= product_name =]] does not decide by itself which Fields can be translated and which cannot. For some Field values the need for a translation can be obvious, for example for the body of an article. In other cases, for instance images without text, integer numbers or e-mail addresses, translation is usually unnecessary. Despite that, [[= product_name =]] gives you the possibility to mark any Field as translatable regardless of its field type. It's only your decision to exclude the translation possibility for those Fields where it makes no sense.
 
-When a Field is not flagged as Translatable, its value will be copied from the initial/main translation when a new language version is created. This copied value cannot be modified. When a Field is Translatable, you will have to enter its value in a new language version manually.
+When a Field is not flagged as Translatable, its value is copied from the initial/main translation when a new language version is created. This copied value cannot be modified. When a Field is Translatable, you have to enter its value in a new language version manually.
 
 For example, let's say that you need to store information about marathon contestants and their results. You build a "contestant" content type using the following Fields: name, photo, age, nationality, finish time. Allowing the translation of anything other than nationality would be pointless, since the values stored by the other Fields are the same regardless of the language used to describe the contestant. In other words, the name, photo, age and finish time would be the same in, for example, both English and Norwegian.
 
@@ -48,8 +48,8 @@ In addition, you can also control the access to the global translation list by u
 
 If you want to have completely separate versions of the website, each with content in its own language,
 you can [use SiteAccesses](#using-siteaccesses-for-handling-translations).
-Depending on the URI used to access the website, a different site will open, with a language set in configuration settings.
-All content items will then be displayed in this language.
+Depending on the URI used to access the website, a different site opens, with a language set in configuration settings.
+All content items are then displayed in this language.
 
 For details, see [Multi-language SiteAccesses](set_up_translation_siteaccess.md).
 
@@ -169,15 +169,15 @@ ibexa:
 
 ### Using implicit *related SiteAccesses*
 
-If the `translation_siteaccesses` setting is not provided, implicit *related SiteAccesses* will be used instead. SiteAccesses are considered *related* if they share:
+If the `translation_siteaccesses` setting is not provided, implicit *related SiteAccesses* is used instead. SiteAccesses are considered *related* if they share:
 
 - The same Repository
 - The same root `location_id` (see [Multisite](multisite.md))
 
 ### Fallback languages and missing translations
 
-When setting up SiteAccesses with different language versions, you can specify a list of preset languages for each SiteAccess. When this SiteAccess is used, the system will go through this list. If a content item is unavailable in the first (prioritized) language, it will attempt to use the next language in the list, and so on. Thanks to this you can have a fallback in case of a lacking translation.
+When setting up SiteAccesses with different language versions, you can specify a list of preset languages for each SiteAccess. When this SiteAccess is used, the system goes through this list. If a content item is unavailable in the first (prioritized) language, it attempts to use the next language in the list, and so on. Thanks to this you can have a fallback in case of a lacking translation.
 
-You can also assign a Default content availability flag to content types (available in the Admin Panel). When this flag is assigned, content items of this type will be available even when they do not have a language version in any of the languages configured for the current SiteAccess.
+You can also assign a Default content availability flag to content types (available in the Admin Panel). When this flag is assigned, content items of this type are available even when they do not have a language version in any of the languages configured for the current SiteAccess.
 
-Note that if a language is not provided in the list of prioritized languages and it's not the content item's first language, the URL alias for this content in this language will not be generated.
+Note that if a language is not provided in the list of prioritized languages and it's not the content item's first language, the URL alias for this content in this language isn't generated.

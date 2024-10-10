@@ -120,7 +120,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Content management
 
-- Updated [BinaryFile Field Type](https://doc.ibexa.co/en/master/content_management/field_types/field_type_reference/binaryfilefield/) description
+- Updated [BinaryFile field type](https://doc.ibexa.co/en/master/content_management/field_types/field_type_reference/binaryfilefield/) description
 
 ### Commerce
 
@@ -530,8 +530,8 @@ and [shipping method PHP API](https://doc.ibexa.co/en/master/commerce/shipping_m
 - [Order management API](https://doc.ibexa.co/en/master/commerce/order_management/order_management_api/)
 - [Customizing checkout](https://doc.ibexa.co/en/master/commerce/checkout/customize_checkout/)
 - Extended [table reusable component documentation](https://doc.ibexa.co/en/master/administration/back_office/back_office_elements/reusable_components/#tables)
-- How to [add GraphQL support to custom Field Types](https://doc.ibexa.co/en/master/api/graphql/graphql_custom_ft/)
-- How to [customize Field Type metadata](https://doc.ibexa.co/en/master/content_management/field_types/customize_field_type_metadata/)
+- How to [add GraphQL support to custom field types](https://doc.ibexa.co/en/master/api/graphql/graphql_custom_ft/)
+- How to [customize field type metadata](https://doc.ibexa.co/en/master/content_management/field_types/customize_field_type_metadata/)
 
 ## February 2023
 
@@ -567,4 +567,4 @@ as well as [checkout-related Twig functions](https://doc.ibexa.co/en/master/temp
 ### Other
 
 - [Fastly Image Optimizer](https://doc.ibexa.co/en/master/content_management/images/fastly_io/)
-- [Storing Field Type settings externally](https://doc.ibexa.co/en/master/content_management/field_types/field_type_storage/#storing-field-type-settings-externally)
+- [Storing field type settings externally](https://doc.ibexa.co/en/master/content_management/field_types/field_type_storage/#storing-field-type-settings-externally)

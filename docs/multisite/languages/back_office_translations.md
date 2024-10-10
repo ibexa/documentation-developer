@@ -16,7 +16,7 @@ ibexa:
 ```
 
 Then clear the cache. Now you can reload your [[= product_name =]] back office.
-If your browser language is set to French, the back office will be displayed in French.
+If your browser language is set to French, the back office is displayed in French.
 
 !!! tip "Checking browser language"
 
@@ -41,14 +41,14 @@ To learn how to contribute to a translation, see [Contributing translations](con
 Once you have language packages enabled, you can switch the language of the back office
 in the User Settings menu.
 
-Otherwise, the language will be selected based on the browser language.
-If you do not have a language defined in the browser, the language will be selected
+Otherwise, the language is selected based on the browser language.
+If you do not have a language defined in the browser, the language is selected
 based on `parameters.locale_fallback` in `config/packages/ibexa.yaml`.
 
 ## Custom string translations
 
 When you extend the back office you often need to provide labels for new elements.
-it's good practice to provide your labels in translations files, instead of literally,
+It's good practice to provide your labels in translations files, instead of literally,
 so they can be reused and translated into other languages.
 
 To provide label strings, make use of the `Symfony\Component\Translation\TranslatorInterface`
@@ -116,7 +116,7 @@ For example, in `custom_extension.de.xliff`:
 </trans-unit>
 ```
 
-The language to display will then be selected automatically based on [user preferences or browser setup](#selecting-back-office-language).
+The language to display is then selected automatically based on [user preferences or browser setup](#selecting-back-office-language).
 
 !!! note
 

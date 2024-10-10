@@ -23,7 +23,7 @@ This is a first step. We aim to provide more in terms of table support in the ed
 
 #### New Design Engine
 
-This is a new way to handle design, theming and design overrides, similar to what we had in eZ Publish. It enables you to define different Themes which are collections of assets and templates. You can then assemble Themes (that can override each other) to define Designs, and eventually, assign a Design to a SiteAccess. This is a powerful concept that we will aim to use in our out-of-the-box templates and demo sites. It comes especially handy when using eZ Platform for a multisite installation and willing to reuse design parts. Further info can be found in the [Bundle documentation](https://github.com/ezsystems/ezplatform-design-engine/tree/master/doc).
+This is a new way to handle design, theming and design overrides, similar to what we had in eZ Publish. It enables you to define different Themes which are collections of assets and templates. You can then assemble Themes (that can override each other) to define Designs, and eventually, assign a Design to a SiteAccess. This is a powerful concept that we aim to use in our out-of-the-box templates and demo sites. It comes especially handy when using eZ Platform for a multisite installation and willing to reuse design parts. Further info can be found in the [Bundle documentation](https://github.com/ezsystems/ezplatform-design-engine/tree/master/doc).
 
 ![](newdesigntable.png)
 
@@ -91,7 +91,7 @@ Starting with 1.10, a new command `ezplatform:io:migrate-files` has been added
 
 ### eZ Platform Enterprise Edition - Studio Demo
 
--   [DEMO-102](https://issues.ibexa.co/browse/DEMO-102): [NovaeZSEOBundle](https://github.com/Novactive/NovaeZSEOBundle/) is now included in Studio Demo. NovaeZSEOBundle includes a new Field Type that lets you manage your SEO strategy in very advanced and powerful ways.
+-   [DEMO-102](https://issues.ibexa.co/browse/DEMO-102): [NovaeZSEOBundle](https://github.com/Novactive/NovaeZSEOBundle/) is now included in Studio Demo. NovaeZSEOBundle includes a new field type that lets you manage your SEO strategy in very advanced and powerful ways.
 -   [DEMO-100](https://issues.ibexa.co/browse/DEMO-100): We also improved the way we provide personalization in the site using a profiling block and letting the end user manage their preferences by themselves. In this new version, the end user, once logged on the site, can access a page where they can define their content preferences. See [here](https://ez.no/Blog/Personalization-Does-Not-Have-to-Be-that-Complex) for more information.
 
 ## Full list of new features, improvements and bug fixes since v1.9.0

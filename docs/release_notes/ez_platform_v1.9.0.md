@@ -14,7 +14,7 @@ If you're looking for the Long Term Support (LTS) release, see[ https://ezplatf
 
 #### Multifile upload
 
-You can now create collections of content quickly: upload multiple files in bulk and they will be imported directly into the content repository. The files will automatically be imported as content using the content type that matches their MIME type. Go to the content view, drag and drop or select multiple files in the sub-items area and you will get direct access for further editing. As ever, this solution can be customized so that you create your own matching rules.
+You can now create collections of content quickly: upload multiple files in bulk and they are imported directly into the content repository. The files are automatically imported as content using the content type that matches their MIME type. Go to the content view, drag and drop or select multiple files in the sub-items area and you get direct access for further editing. As ever, this solution can be customized so that you create your own matching rules.
 
 ![](catsfromtheMET.gif)
 
@@ -35,12 +35,12 @@ In version 1.8 we introduced a new Content Browser in the Universal Discovery Wi
 ![Sub-items table with Edit button and sorting](sub-items-improved.png "Sub-items table with Edit button and sorting")
 
 -   You can now restore from Trash content whose original Location has been deleted.
--   Pasted thead/tfood tags are now kept in RichText Field Type, and its Online Editor
+-   Pasted thead/tfood tags are now kept in RichText field type, and its Online Editor
 -   Solr 6 is now supported in [Solr Bundle](https://doc.ibexa.co/en/latest/guide/search/solr)
 
 ### eZ Platform Enterprise Edition - Studio
 
--   it's now possible to configure Landing Page blocks used by the Landing Page editor in a simpler way. The configuration is done in a YAML file (see <https://issues.ibexa.co/browse/EZEE-1421>)
+-   It's now possible to configure Landing Page blocks used by the Landing Page editor in a simpler way. The configuration is done in a YAML file (see <https://issues.ibexa.co/browse/EZEE-1421>)
 -   *..lots of other bug fixes and smaller improvements..*
 
 ### eZ Platform Enterprise Edition - Studio Demo

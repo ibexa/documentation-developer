@@ -1,12 +1,12 @@
 # SesSelection
 
-This Field Type stores a single selection choice. 
+This field type stores a single selection choice. 
 
-The SesSelection Field Type is configured in a YAML file,
-unlike the [Selection Field Type](selectionfield.md).
-This way, you can set up SiteAccess-specific selection Field Types.
+The SesSelection field type is configured in a YAML file,
+unlike the [Selection field type](selectionfield.md).
+This way, you can set up SiteAccess-specific selection field types.
 
-The Field Type must be configured per attribute:
+The field type must be configured per attribute:
 
 ``` yaml
 ibexa.commerce.site_access.config.core.default.sesselection.news_type:

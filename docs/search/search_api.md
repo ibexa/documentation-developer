@@ -71,7 +71,7 @@ It affects default sorting if no Sort Clause is used.
 As such, `query` is recommended when the search is based on user input.
 
 The difference between `query` and `filter` is only relevant when using Solr or Elasticsearch search engine.
-With the Legacy search engine both properties will give identical results.
+With the Legacy search engine both properties give identical results.
 
 #### Processing large result sets
 
@@ -183,7 +183,7 @@ $filter
 !!! tip
 
     it's recommended to use an IDE that can recognize type hints when working with Repository Filtering.
-    If you try to use an unsupported Criterion or Sort Clause, the IDE will indicate an issue.
+    If you try to use an unsupported Criterion or Sort Clause, the IDE indicates an issue.
 
 ## Searching in a controller
 
@@ -285,7 +285,7 @@ $query->filter = new Criterion\LogicalAnd([
 The query searches for Location B using the [`LocationId` Criterion](locationid_criterion.md),
 and for visible content using the [`Visibility` Criterion](visibility_criterion.md).
 
-Even though the Location B is hidden, the query will find the content because both conditions are satisfied:
+Even though the Location B is hidden, the query finds the content because both conditions are satisfied:
 
 - the content item has Location B
 - the content item is visible (it has the visible Location A)
@@ -324,7 +324,7 @@ For a list of supported Criteria and Sort Clauses, see [Search in trash referenc
 !!! caution
 
     Make sure that you set the Criterion on the `filter` property.
-    it's impossible to use the `query` property, because the search in trash operation filters the database instead of querying.
+    It's impossible to use the `query` property, because the search in trash operation filters the database instead of querying.
 
 ## Aggregation
 
@@ -387,7 +387,7 @@ $query->aggregations[] = new IntegerRangeAggregation('range', 'person', 'age',
 !!! note
 
     The beginning of the range is included and the end is excluded,
-    so a range between 1 and 30 will include value `1`, but not `30`.
+    so a range between 1 and 30 includes value `1`, but not `30`.
     
     `null` means that a range does not have an end.
     In the example all values above (and including) 60 are included in the last range.

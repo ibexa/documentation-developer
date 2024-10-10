@@ -830,6 +830,6 @@ To request a specific page, provide the `cursor` as an argument to `children`:
 children(first: 3, after: "YXJyYXljb25uZWN0aW9uOjM=")
 ```
 
-### Get Matrix Field Type
+### Get Matrix field type
 
-To get a Matrix Field Type with GraphQL, see [Matrix Field Type reference](matrixfield.md).
+To get a Matrix field type with GraphQL, see [Matrix field type reference](matrixfield.md).

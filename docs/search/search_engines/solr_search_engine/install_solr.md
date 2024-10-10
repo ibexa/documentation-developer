@@ -139,7 +139,7 @@ If full language analysis features are preferred, then each language can be conf
 
 !!! note
 
-    Make sure to test this setup against a single-core setup, as it might perform worse than single-core if your project uses a lot of language fallbacks per SiteAccess, as queries will then be performed across several cores at once.
+    Make sure to test this setup against a single-core setup, as it might perform worse than single-core if your project uses a lot of language fallbacks per SiteAccess, as queries are then performed across several cores at once.
 
 ``` yaml
 ibexa_solr:
@@ -282,8 +282,8 @@ Here are the most common issues you may encounter:
 - Exception if Binary files in database have an invalid path prefix
     - Make sure `var_dir` is configured properly in `ibexa.yaml` configuration.
     - If your database is inconsistent in regards to file paths, try to update entries to be correct *(make sure to make a backup first)*.
-- Exception on unsupported Field Types
-    - Make sure to implement all Field Types in your installation, or to configure missing ones as [NullType](nullfield.md) if implementation is not needed.
+- Exception on unsupported field types
+    - Make sure to implement all field types in your installation, or to configure missing ones as [NullType](nullfield.md) if implementation is not needed.
 - Content is not immediately available 
     - Solr Bundle on purpose does not commit changes directly on Repository updates *(on indexing)*, but lets you control this using Solr configuration. Adjust Solr's `autoSoftCommit` (visibility of changes to search index) and/or `autoCommit` (hard commit, for durability and replication) to balance performance and load on your Solr instance against needs you have for "[NRT](https://cwiki.apache.org/confluence/display/solr/Near+Real+Time+Searching)".
 - Running out of memory during indexing

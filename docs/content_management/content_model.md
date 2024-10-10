@@ -80,19 +80,19 @@ The Fields of a content item are defined by the content type to which the conten
 s
 ## Fields
 
-A Field is the smallest unit of storage in the content model and the building block of all content items. Every Field belongs to a Field Type.
+A Field is the smallest unit of storage in the content model and the building block of all content items. Every Field belongs to a field type.
 
-Beyond the built-in set of Field Types, you can [create your own](create_custom_generic_field_type.md).
+Beyond the built-in set of field types, you can [create your own](create_custom_generic_field_type.md).
 
 ### Field value validation
 
-The values entered in a Field may undergo validation, which means the system makes sure that they're correct for the chosen Field Type and can be used without a problem.
+The values entered in a Field may undergo validation, which means the system makes sure that they're correct for the chosen field type and can be used without a problem.
 
-Validation depends on the settings of a particular Field Type. It cannot be turned off for a Field if its Field Type supports it.
+Validation depends on the settings of a particular field type. It cannot be turned off for a Field if its field type supports it.
 
 ### Field details
 
-Aside from the Field Type, the Field definition in a content type provides the following information:
+Aside from the field type, the Field definition in a content type provides the following information:
 
 **Name** – a user-friendly name that describes the Field. This name is used in the interface, but not internally by the system. It can consist of letters, digits, spaces and special characters; the maximum length is 255 characters. If no name is provided, a unique one is automatically generated.
 
@@ -110,17 +110,17 @@ Aside from the Field Type, the Field definition in a content type provides the f
 
 **[Searchable](search.md)** – a flag which indicates if the value of the Field is indexed for searching.
 
-The Searchable flag is not available for some Fields, because some Field Types do not allow searching through their values.
+The Searchable flag is not available for some Fields, because some field types do not allow searching through their values.
 
-**[Translatable](languages.md)** – a flag which indicates if the value of the Field can be translated. This is independent of the Field Type, which means that even Fields such as "Float" or "Image" can be set as translatable.
+**[Translatable](languages.md)** – a flag which indicates if the value of the Field can be translated. This is independent of the field type, which means that even Fields such as "Float" or "Image" can be set as translatable.
 
-Depending on the Field Type, there may also be other, specific information to fill in. For example, the "Country" Field Type allows you to select the default country, as well as to allow selecting multiple countries at the same time.
+Depending on the field type, there may also be other, specific information to fill in. For example, the "Country" field type allows you to select the default country, as well as to allow selecting multiple countries at the same time.
 
 ![Diagram of content model](content_model_diagram.png)
 
 !!! tip
 
-    You can disable the possibility to edit specific Field details per Field Type by [adding custom service definition for `ModifyFieldDefinitionsCollectionTypeExtension`](customize_field_type_metadata.md).
+    You can disable the possibility to edit specific Field details per field type by [adding custom service definition for `ModifyFieldDefinitionsCollectionTypeExtension`](customize_field_type_metadata.md).
 
 ## Content versions
 

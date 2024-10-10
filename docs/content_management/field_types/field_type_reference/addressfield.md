@@ -1,4 +1,4 @@
-# Address Field Type
+# Address field type
 
 This Field represents and handles address fields.
 It allows you to customize address Fields per country.
@@ -7,10 +7,10 @@ It allows you to customize address Fields per country.
 |-----------|-----------------|-----------------------------|
 | `Address` | `ibexa_address` | `string`, `string`, `array` |
 
-The Address Field Type is available via the Address Bundle
+The Address field type is available via the Address Bundle
 provided by the `ibexa/fieldtype-address` package.
 
-## PHP API Field Type
+## PHP API field type
 
 ### Inputs:
 
@@ -36,7 +36,7 @@ new FieldType\Value(
 
 ### Validation
 
-This Field Type validates whether `Country` and `Name` fields have been filled out.
+This field type validates whether `Country` and `Name` fields have been filled out.
 
 ### Value Object
 

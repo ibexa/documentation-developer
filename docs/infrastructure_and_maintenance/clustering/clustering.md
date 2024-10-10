@@ -26,7 +26,7 @@ The minimal requirements are:
 
 For further details on requirements, see [Requirements page](requirements.md).
 
-it's also recommended to use:
+It's also recommended to use:
 
 - [Solr](solr_overview.md) or [Elasticsearch](elastic_search_overview.md) for better search and performance
 - a CDN for improved performance and faster ping time worldwide
@@ -62,7 +62,7 @@ They make sure that files are correctly synchronized among the multiple clients 
 ## DFS IO handler
 
 The DFS IO handler (`legacy_dfs_cluster`) can be used to store binary files on an NFS server.
-It will use a database to manipulate metadata, making up for the potential inconsistency of network-based filesystems.
+It uses a database to manipulate metadata, making up for the potential inconsistency of network-based filesystems.
 
 ### Configuring the DFS IO handler
 
@@ -77,7 +77,7 @@ As metadata handler, create a DFS one, configured with a Doctrine connection.
 
 !!! tip
 
-    The default database install will now include the dfs table *in the same database*
+    The default database install now includes the dfs table *in the same database*
 
 First, define DFS folder path as a variable in `.env` file:
 
@@ -200,7 +200,7 @@ ibexa:
 
 !!! tip
 
-    If you're looking to [set up S3](clustering_with_aws_s3.md) or other [Flysystem](https://flysystem.thephpleague.com/docs/)/third-party adapters like Google Cloud Storage, this needs to be configured as binary handler. The rest here will still stay the same, the DFS metadata handler will take care of caching the lookups to avoid slow IO lookups.
+    If you're looking to [set up S3](clustering_with_aws_s3.md) or other [Flysystem](https://flysystem.thephpleague.com/docs/)/third-party adapters like Google Cloud Storage, this needs to be configured as binary handler. The rest here still stays the same, the DFS metadata handler takes care of caching the lookups to avoid slow IO lookups.
 
 #### Customizing the storage directory
 
@@ -235,7 +235,7 @@ You can read more about that on [Binary files URL handling](file_url_handling.md
 
 ### Web server rewrite rules
 
-The default [[= product_name =]] rewrite rules will let image requests be served directly from disk.
+The default [[= product_name =]] rewrite rules let image requests be served directly from disk.
 In a cluster setup, files matching `^/var/([^/]+/)?storage/images(-versioned)?/.*` have to be passed through `/public/index.php` instead.
 
 In any case, this specific rewrite rule must be placed before the ones that "ignore" image files and just let the web server serve the files directly.
@@ -277,8 +277,8 @@ You can do the actual migration like this:
 ```
 
 The `--from` and `--to` values must be specified as `<metadata_handler>,<binarydata_handler>`.
-If `--from` is omitted, the default IO configuration will be used.
-If `--to` is omitted, the first non-default IO configuration will be used.
+If `--from` is omitted, the default IO configuration is used.
+If `--to` is omitted, the first non-default IO configuration is used.
 
 !!! tip
 
