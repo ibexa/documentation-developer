@@ -9,7 +9,7 @@ page_type: training
 ## Product types
 
 The product type base concept is close to the content type one.
-Like a content type structures a family content items, a product type structures products.
+Like a content type structures a family of content items, a product type structures products.
 
 See a first conceptualisation of what a product is, and what a product type is, in [Documentation > PIM (Product management) > Products](products.md).
 
@@ -40,8 +40,10 @@ SELECT cg.group_id, cg.group_name, g.is_system, c.id, c.identifier, c.version
 The "Product specification" field type (`ibexa_product_specification`) brings in the power of attributes.
 
 Notice that you don't need to add a field or an attribute for price.
-Prices are handled by a particular side mechanism, the price engine, which is treated later in the training with VAT, currencies, etc.
+Prices are handled by a particular side mechanism, the price engine, which is not treated in this training.
 But, also notice that VAT is set at product type level.
+The associations of VAT categories to regions are also stored by the `ibexa_product_specification` field.
+TODO: This is demonstrated in migration.
 
 ## Attributes VS Fields
 
@@ -54,8 +56,6 @@ Only the display of those properties changes with the language. See the followin
 
 - The color of a product is the same whatever the language is, only the corresponding color name is translated.
 - The radius of a sphere doesn't depend on the language, only its numeral representation need translation according to local length units.
-
-TODO: Later in the training, in the templating part, is shown how to localize the attributes.
 
 Unlike fields, attributes are first defined outside the product types.
 Attributes and attribute groups are to be reused from product type to product type.
@@ -237,6 +237,7 @@ But, if you're curious, you can read or implements as a bonus the following cust
 ??? note "TODO: Possible solution(s)"
 
     TODO: Propose grouped attributes and product type(s), illustrate their usage with few products and product variants.
+    TODO: Materials as 1 attribute. Paintjobs as 2 attributes, one per series to reduce selection list length? 3 attributes groups, one common, one per series? Then 2 product types, one per series?
 
 Your new products are in the "Uncategorized products" section of the **Products** admin page.
 It's now time to fix this in the next chapter.

@@ -7,12 +7,13 @@ page_type: training
 
 ## Syllabus
 
-In this training, you learn how to create complex products, to quote their prices, and to organize them in catalogs, using the build-in features.
+In this training, you learn how to create complex products, and to sort them.
 
-| Section                                     | Estimated | Description                                               |
-|:--------------------------------------------|----------:|:----------------------------------------------------------|
-| [Product modeling](011_product_modeling.md) | X minutes | Learn about product types, products and product variants. |
-| [Product shelving](012_product_shelving.md) | Y minutes | Organize your products with categories and catalogs.      |
+| Section                                     | Estimated | Description                                                 |
+|:--------------------------------------------|----------:|:------------------------------------------------------------|
+| [Product modeling](011_product_modeling.md) | X minutes | Learn about product types, products and product variants.   |
+| [Product shelving](012_product_shelving.md) | Y minutes | Organize your products with categories and catalogs.        |
+| [Product migration](021_migration.md)       | Z minutes | Export your product model for deployment on other installs. |
 
 ## Requirements
 
@@ -31,9 +32,7 @@ In this training, you learn how to create complex products, to quote their price
 - [[= product_name_exp =]] [[= latest_tag_4_6 =]]
 - [[= product_name_com =]] [[= latest_tag_4_6 =]]
 
-TODO: Make sure that everything used is in Ibexa DXP Headless scope, so to speak, ibexa/product-catalog
-
-TODO: Trainees working on Ibexa DXP Commerce could pick examples from ibexa/storefront but others mustn't be frustrated of having installed an inferior edition.
+TODO: Make sure that everything used is in Ibexa DXP Headless scope, so to speak, ibexa/product-catalog. It mustn't use features from ibexa/storefront.
 
 ### Cluster elements
 
@@ -47,6 +46,6 @@ This training can be run on the minimal stack.
 
 ### Starting state
 
-To follow this training, you must install code, config and data on top of a fresh installation.
+To follow this training, you must install code, configuration, and data on top of a fresh installation.
 
 TODO: Experience clean install, or previous bike ride design and content?
