@@ -22,7 +22,7 @@ The easiest way of embedding the tracking URL is placing a one pixel image on ev
 like in the case of analytical tools or visitor counters.
 A code that includes an image looks like this:
 
-`<img href="https://event.perso.ibexa.co/ebl/00000/click/<user_ID>/<content_type_ID>/<content_ID>" width="1" height="1">`
+`<img href="https://event.perso.ibexa.co/api/00000/click/<user_ID>/<content_type_ID>/<content_ID>" width="1" height="1">`
 
 where:
 
@@ -39,9 +39,10 @@ PHP:
 
 ``` php
 $mandator_id = '00000';
+$content_type_id = '1';
 $product_id = '123';
 $server = '//event.perso.ibexa.co';
-$tracking = $server.'/ebl/'.$mandator_id.'/click/'.urlencode(session_id()).'/1/'.$product_id;
+$tracking = $server.'/api/'.$mandator_id.'/click/'.urlencode(user_id()).$content_type_id.$product_id;
 echo "<img href='$tracking' width='1' height='1'>";
 ```
 
@@ -49,9 +50,10 @@ JavaScript:
 
 ``` js
 var mandator_id = '00000';
+var content_type_id = '1';
 var product_id = '123';
 var server = '//event.perso.ibexa.co';
-var url = server + '/api/' + mandator_id + '/click/' + getSessionId() + '/1/' + product_id;
+var url = server + '/api/' + mandator_id + '/click/' + getUserId() + content_type_id + product_id;
 var ycimg=new Image(1,1);
 ycimg.src=url;
 ```
@@ -61,7 +63,7 @@ A similar tracking image can be placed on a confirmation page that ends the paym
 ``` php
 $server = '//event.perso.ibexa.co';
 foreach ($just_bought_products as $product_id) {
-   $tracking = $server.'/ebl/'.$mandator_id.'/buy/'.urlencode(session_id()).'/1/'.$product_id;
+   $tracking = $server.'/api/'.$mandator_id.'/buy/'.urlencode(user_id()).$content_type_id.$product_id;
    echo "<img href='$tracking' width='1' height='1'>\n";
 }
 ```
@@ -128,7 +130,7 @@ $mandator_id = '00000';
 $license_key = '67890-1234-5678-90123-4567';
 $server = "https://reco.perso.ibexa.co";
 $scenario = "category_page";
-$url = $server.'/ebl/00000/'.urlencode(session_id()).'/'.urlencode($scenario).'.json';
+$url = $server.'/api/v2/00000/'.urlencode(user_id()).'/'.urlencode($scenario).'.json';
 
 $curl = curl_init();
 $request = array(
