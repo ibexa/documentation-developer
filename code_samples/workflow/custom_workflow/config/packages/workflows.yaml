@@ -30,6 +30,7 @@ ibexa:
                             icon: '/bundles/ibexaplatformicons/img/all-icons.svg#notice'
                             reviewers:
                                 required: true
+                                # Location ID of "Administrator users" user group.
                                 user_group: 13
                             actions:
                                 legal_transition_action:
