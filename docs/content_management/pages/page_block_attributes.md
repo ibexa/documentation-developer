@@ -73,7 +73,7 @@ To define the type, create a `src/Block/Attribute/MyStringAttributeType.php` fil
 [[= include_file('code_samples/page/custom_attribute/src/Block/Attribute/MyStringAttributeType.php') =]]
 ```
 
-Note that the attribute uses `AbstractType` (line 5) and `TextType` (line 6).
+The attribute uses `AbstractType` (line 5) and `TextType` (line 6).
 Adding `getBlockPrefix` (line 15) returns a unique prefix key for a custom template of the attribute.
 
 ### Mapper

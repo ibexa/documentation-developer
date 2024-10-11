@@ -11,7 +11,7 @@ Dynamic configuration is handled by a ConfigResolver.
 It exposes the `hasParameter()` and `getParameter()` methods.
 You can use them to check the different *scopes* available for a given *namespace* to find the appropriate parameter.
 
-In order to work with the ConfigResolver, your dynamic settings must have the following name format: `<namespace>.<scope>.parameter.name`.
+To work with the ConfigResolver, your dynamic settings must have the following name format: `<namespace>.<scope>.parameter.name`.
 
 ``` yaml
 parameters:

@@ -43,7 +43,7 @@ Vary: Cookie, Authorization
 ```
 
 In the example above the response is set to be cached for 10 minutes.
-It varies on the `Cookie` header in order to be able to cache it for the given user.
+It varies on the `Cookie` header to be able to cache it for the given user.
 To optimize it, the default VCL strips any cookie other than session cookies to make this work.
 
 It also varies on `Authorization` to cover any possible basic authorization headers in case that is used over sessions for some requests.
@@ -132,7 +132,7 @@ This solution requires more effort (controller, VCL logic and adapting your own 
 
 For information on how user context hashes are generated, see [FOSHttpCacheBundle documentation](https://foshttpcachebundle.readthedocs.io/en/latest/features/user-context.html#generating-hashes).
 
-[[= product_name =]] implements a custom context provider in order to make user context hash reflect the current User's roles and Limitations.
+[[= product_name =]] implements a custom context provider to make user context hash reflect the current user's roles and limitations.
 This is needed given [[= product_name =]]'s more complex permission model compared to Symfony's.
 
 You can technically extend the user context hash by [implementing your own custom context provider(s)](https://foshttpcachebundle.readthedocs.io/en/latest/reference/configuration/user-context.html#custom-context-providers).

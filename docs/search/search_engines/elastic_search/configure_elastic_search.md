@@ -6,7 +6,7 @@ description: Configure Elasticsearch to use it with Ibexa DXP.
 
 ## Configure connections
 
-To configure Elasticsearch, first, you need to configure the connections. 
+To configure Elasticsearch, first, you need to configure the connections.
 
 There are two possibilities of connection:
 

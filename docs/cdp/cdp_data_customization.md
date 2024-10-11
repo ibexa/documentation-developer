@@ -11,10 +11,10 @@ It casts their `Value` object to string, thanks to `\Stringable` implementation.
 ​
 ## Export field types
 ​
-Field types are exported with metadata, for example, ID, Field Definition name, type, value. 
-You can also provide your own `\Ibexa\Contracts\Cdp\Export\Content\FieldProcessorInterface` instance to extend metadata. 
-The provided implementation has to be defined as a service and tagged with `ibexa.cdp.export.content.field_processor`. 
-Additionally, you can specify `priority` to override the default behavior. 
+Field types are exported with metadata, for example, ID, Field Definition name, type, or value.
+You can also provide your own `\Ibexa\Contracts\Cdp\Export\Content\FieldProcessorInterface` instance to extend metadata.
+The provided implementation has to be defined as a service and tagged with `ibexa.cdp.export.content.field_processor`.
+Additionally, you can specify `priority` to override the default behavior.
 All system Field Processors use `-100` priority, and any higher priority value overrides them.
 
 The interface is plain and has two methods that you need to provide:
@@ -65,7 +65,7 @@ custom_fieldtype.cdp.export.field_processor:
 ## Export field type values
 ​
 To customize export of field type values, provide your own `\Ibexa\Contracts\Cdp\Export\Content\FieldValueProcessorInterface` instance.
-New implementation has to be registered as a service manually or by using autoconfiguration. 
+New implementation has to be registered as a service manually or by using autoconfiguration.
 The service has to use the tag `ibexa.cdp.export.content.field_value_processor`.
 You can also provide `priority` property to override other Field Value Processors.
 ​

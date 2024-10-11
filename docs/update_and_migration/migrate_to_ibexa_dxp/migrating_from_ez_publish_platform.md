@@ -283,7 +283,7 @@ The script also has an `--image-content-types` option which you should use if yo
 
 `php bin/console ezxmltext:convert-to-richtext --image-content-types=image,custom_image -v`
 
-The script needs to know these identifiers in order to convert `<ezembed>` tags correctly. Failing to do so prevents the editor from showing image thumbnails of embedded image objects. You may find the image content types in your installation by looking for these settings in `content.ini(.append.php)`:
+The script needs to know these identifiers to convert `<ezembed>` tags correctly. Failing to do so prevents the editor from showing image thumbnails of embedded image objects. You may find the image content types in your installation by looking for these settings in `content.ini(.append.php)`:
 
 ```
 [RelationGroupSettings]
@@ -358,7 +358,7 @@ The first log message is a notice about the `ez-temporary=1` attribute which the
 The second log message is an error, but the cause described may be confusing. During the conversion, the `<table>` element is converted to an `<informaltable>` tag, which is problematic.
 The exact problem in this case is the value of the second align attribute: `<td align="middle"....>`. An align attribute may only have the following values: `left`, `right`, `center`, `justify`.
 
-In order to fix the problem, open the .xml file in a text editor and correct the errors:
+To fix the problem, open the .xml file in a text editor and correct the errors:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -388,7 +388,7 @@ Now, you may test if the modified `ezxmltext` may be converted using the `--dry-
 
 `php -d memory_limit=1536M bin/console ezxmltext:import-xml --dry-run  --export-dir=ezxmltext-export --content-object=56554 -v`
 
-If the tool reports no errors, then the `ezxmltext` is fixed. You may rerun the command without the `--dry-run` option in order to actually update the database with the correct XmlText.
+If the tool reports no errors, then the `ezxmltext` is fixed. You may rerun the command without the `--dry-run` option to actually update the database with the correct XmlText.
 
 Once you have fixed all the dump files in `ezxmltext-export/`, you may skip the `--content-object` option and the script imports all the dump files located in the `export-dir`:
 
@@ -438,7 +438,7 @@ eZ Platform now supports custom tags, including inline custom tags, and limited 
 After migrating to RichText, you need to adapt your custom tag config for eZ Platform and rewrite the custom tags in Twig.
 See [Custom tag documentation](https://doc.ibexa.co/en/2.5/guide/extending/extending_online_editor/#custom-tags) for more info.
 
-If you configured custom attributes in legacy in OE using [ezoe_attributes.ini](https://github.com/ezsystems/ezpublish-legacy/blob/master/extension/ezoe/settings/ezoe_attributes.ini#L33-L48), note that not all types are supported.
+If you configured custom attributes in legacy in OE using [ezoe_attributes.ini](https://github.com/ezsystems/ezpublish-legacy/blob/master/extension/ezoe/settings/ezoe_attributes.ini#L33-L48), not all types are supported.
 
 Below is a table of the tags that are currently supported, and their corresponding names in eZ Platform.
 

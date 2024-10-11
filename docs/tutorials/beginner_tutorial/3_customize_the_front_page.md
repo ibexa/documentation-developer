@@ -173,7 +173,7 @@ To add a template like this to your site, create a `main_layout.html.twig` file 
 </html>
 ```
 
-Note that in the highlighted lines (12 and 89) the template takes advantage of [Symfony Webpack Encore]([[= symfony_doc =]]/frontend.html#webpack-encore).
+In the highlighted lines (12 and 89) the template takes advantage of [Symfony Webpack Encore]([[= symfony_doc =]]/frontend.html#webpack-encore).
 This tutorial leads you through configuring Webpack, but first you need assets.
 
 ### Adding assets
@@ -213,7 +213,7 @@ Encore
     ]);
 ```
 
-Note that `.addStyleEntry('tutorial', [])` and `.addEntry('tutorial-js', [])` refer respectively to
+`.addStyleEntry('tutorial', [])` and `.addEntry('tutorial-js', [])` refer respectively to
 `{{  encore_entry_link_tags('tutorial') }}` and `{{ encore_entry_script_tags('tutorial-js') }}` from `main_layout.html.twig`.
 This configuration creates a bundle consisting of files to be added to a template.
 

@@ -47,7 +47,7 @@ Ibexa\Core\FieldType\Keyword\SearchField:
         - {name: ibexa.field_type.indexable, alias: ezkeyword}
 ```
 
-Note that `alias` should be the same as field type ID.
+`alias` should be the same as field type ID.
 
 ## Search Field values
 

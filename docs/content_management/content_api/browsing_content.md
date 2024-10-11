@@ -143,7 +143,7 @@ of the ContentInfo object:
 
 !!! note
 
-    Note that requesting Section data may be impossible for an anonymous user.
+    Requesting Section data may be impossible for an anonymous user.
     Make sure to [authenticate](php_api.md#setting-the-repository-user) as a user with sufficient permissions.
 
 ### Object states

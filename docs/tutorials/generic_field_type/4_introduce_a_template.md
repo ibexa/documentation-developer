@@ -6,12 +6,12 @@ description: Learn how to add a template for rendering the custom Field on the s
 
 ## Point 2D template
 
-In order to display data from the field type, you need to create and register a template for it.
+To display data from the field type, you need to create and register a template for it.
 Each field type template receives a set of variables that can be used to achieve the desired goal.
 In this case the most important variable is the `field`, an instance of `Ibexa\Contracts\Core\Repository\Values\Content\Field`.
 In addition to its own metadata (`id`, `fieldDefIdentifier`, etc.), it exposes the Field Value through the `value` property.
 
-Remember that field type templates can be overridden in order to tweak what is displayed and how.
+Remember that field type templates can be overridden to tweak what is displayed and how.
 For more information, see the documentation about [field type templates](form_and_template.md#content-view-templates).
 
 First, create a `point2d_field.html.twig` template in the `templates` directory.

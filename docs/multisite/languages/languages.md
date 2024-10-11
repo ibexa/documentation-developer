@@ -180,4 +180,4 @@ When setting up SiteAccesses with different language versions, you can specify a
 
 You can also assign a Default content availability flag to content types (available in the Admin Panel). When this flag is assigned, content items of this type are available even when they do not have a language version in any of the languages configured for the current SiteAccess.
 
-Note that if a language isn't provided in the list of prioritized languages and it's not the content item's first language, the URL alias for this content in this language isn't generated.
+If a language isn't provided in the list of prioritized languages and it's not the content item's first language, the URL alias for this content in this language isn't generated.

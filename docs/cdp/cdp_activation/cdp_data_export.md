@@ -11,14 +11,12 @@ It takes you to a Dataflow Creator, where in five steps you can set up a data st
 
 ## General Information
 
-In the **General Information** section, specify dataflow name,
-choose **Stream File** as a source of user data and **CDP** as a destination,
-where they're sent for processing.
-Currently, only Stream File transport is supported and can be initialized from the configuration. 
+In the **General Information** section, specify dataflow name, choose **Stream File** as a source of user data and **CDP** as a destination, where they're sent for processing.
+Currently, only Stream File transport is supported and can be initialized from the configuration.
 
 ## Download
 
-In the **Download** section, select **Stream file**. 
+In the **Download** section, select **Stream file**.
 Copy generated steam ID and paste it into the configuration file under `stream_id`.
 It allows you to establish a datastream from the Streaming API into the Data Manager.
 
@@ -67,7 +65,7 @@ At this point, you can map **email** to **email** and **id** to **integer**  fie
 
 Next, select **Create schema based on the downloaded columns**.
 It moves you to Schema Creator.
-There, choose **PersonalData** as a parent and name the schema. 
+There, choose **PersonalData** as a parent and name the schema.
 
 ![Create new schema](cdp_create_new_schema.png)
 
@@ -75,8 +73,7 @@ Next, select all the columns and set Person Identifier as **userid**.
 
 ![Person Identifier](cdp_person_identifier.png)
 
-If you used PersonData or Catalog type schemas, the system requires
-specifying the Write Mode that is applied to them.
+If you used PersonData or Catalog type schemas, the system requires specifying the Write Mode that is applied to them.
 
 **Append** (default one) allows new data to overwrite the old one but leaves existing entries unaffected.
 All entries are stored in the dataset, unchanged by updating dataflow.
@@ -121,9 +118,12 @@ Specify name of your activation, select `userid` as **Person Identifier** and cl
 
 Next, you can fill in **Ibexa information** they must match the ones provided in the YAML configuration:
 
-- **Client Secret** and **Client ID** - are used to authenticate against Webhook endpoint. In the configuration they're taken from environment variables in `.env` file.
+- **Client Secret** and **Client ID** - are used to authenticate against Webhook endpoint.
+In the configuration they're taken from environment variables in `.env` file.
 
-- **Segment Group Identifier** - identifier of the segment group in [[= product_name =]]. It points to a segment group where all the CDP audiences are stored.
+- **Segment Group Identifier** - identifier of the segment group in [[= product_name =]].
+It points to a segment group where all the CDP audiences are stored.
+
 - **Base URL** - URL of your instance with added `/cdp/webhook` at the end.
 
 ![Ibexa Information - Activation](cdp_activation_ibexa_info.png)

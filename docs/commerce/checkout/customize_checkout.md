@@ -5,8 +5,7 @@ edition: commerce
 
 # Customize checkout
 
-When you work with your Commerce implementation, you can review and modify 
-the checkout configuration.
+When you work with your Commerce implementation, you can review and modify the checkout configuration.
 
 Checkout is an essential component of the Commerce offering.
 It collects data that is necessary to create an order, including:
@@ -17,11 +16,9 @@ It collects data that is necessary to create an order, including:
 
 It could also collect any other information that you find necessary.
 
-Depending on your needs, the checkout process can be either complicated or very simple. 
-For example, if the website is selling airline tickets, you may need several [additional steps](#add-checkout-step) 
-with passengers defining their special needs.
-On the other side of the spectrum would be a store that sells books with personal pickup, 
-where [one page checkout](#create-a-one-page-checkout) would be enough.
+Depending on your needs, the checkout process can be either complicated or simple. 
+For example, if the website is selling airline tickets, you may need several [additional steps](#add-checkout-step) with passengers defining their special needs.
+On the other side of the spectrum would be a store that sells books with personal pickup, where [one page checkout](#create-a-one-page-checkout) would be enough.
 
 There are several factors that make checkout particularly flexible and customizable:
 
@@ -30,8 +27,7 @@ There are several factors that make checkout particularly flexible and customiza
 - it exposes Twig functions that help you render the steps
 
 The most important contract exposed by the package is the `CheckoutServiceInterface` interface. 
-It exposes a number of methods that you can call, for example, to load checkouts based 
-on checkout identifier or for a specific cart. 
+It exposes a number of methods that you can call, for example, to load checkouts based on checkout identifier or for a specific cart. 
 Other methods help you create, update, or delete checkouts. 
 
 For more information, see [Checkout API](checkout_api.md).
@@ -39,8 +35,7 @@ For more information, see [Checkout API](checkout_api.md).
 ## Add checkout step
 
 By default, [[= product_name =]] comes with a multi-step checkout process, which you can expand by adding steps.
-For example, if you were creating a project for selling theater tickets, you could add a step 
-that allows users to select their seats.
+For example, if you were creating a project for selling theater tickets, you could add a step that allows users to select their seats.
 
 ### Define workflow
 
@@ -69,8 +64,7 @@ In this case, you want users to select seats in the audience.
 In the `src/Controller/Checkout/Step` folder, create a file that resembles the following example.
 
 The controller contains a Symfony form that collects user selections. 
-It can reuse fields and functions that come from the checkout component, for example, 
-after you check whether the form is valid, use the `AbstractStepController::advance` method to go to the next step of the process.
+It can reuse fields and functions that come from the checkout component, for example, after you check whether the form is valid, use the `AbstractStepController::advance` method to go to the next step of the process.
 
 ``` php hl_lines="23 24"
 [[= include_file('code_samples/front/shop/checkout/src/Controller/Checkout/Step/SelectSeatStepController.php') =]]
@@ -283,14 +277,14 @@ To create custom Address field type formats to be used in checkout, make the fol
 
 First, define custom format configuration keys for `billing_address_format` and `shipping_address_format`:
 
-``` yaml 
+``` yaml
 ibexa:
     repositories:
         <repository_name>:
             checkout:
                 #"billing" by default
                 billing_address_format: <custom_billing_fieldtype_address_format> 
-                #"shipping" by default 
+                #"shipping" by default
                 shipping_address_format: <custom_shipping_fieldtype_address_format> 
                 #used in registration, uses given shipping/billing addresses to pre-populate address forms in select_address checkout step, "customer" by default
                 customer_content_type: <your_ct_identifier_for_customer> 
@@ -298,7 +292,7 @@ ibexa:
 
 Then, define custom address formats, which, for example, do not include the `locality` field:
 
-``` yaml 
+``` yaml
 ibexa_field_type_address:
     formats:
         <custom_shipping_fieldtype_address_format>:
@@ -309,7 +303,7 @@ ibexa_field_type_address:
                     - postal_code
                     - email
                     - phone_number
-                    
+
         <custom_billing_fieldtype_address_format>:
             country:
                 default:

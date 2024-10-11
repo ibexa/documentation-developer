@@ -80,7 +80,7 @@ By default, Symfony redirects to the [URI configured in `security.yaml` as `defa
 It's possible to use the "Remember me" functionality.
 Refer to the [Symfony cookbook on this topic]([[= symfony_doc =]]/security/remember_me.html).
 
-If you want to use this feature, you must at least extend the login template in order to add the required checkbox:
+If you want to use this feature, you must at least extend the login template to add the required checkbox:
 
 ``` html+twig
 {% extends "@IbexaCore/Security/login.html.twig" %}

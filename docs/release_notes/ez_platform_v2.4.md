@@ -148,11 +148,11 @@ This release introduces a few simplifications to API use for content types:
 
 - Exposes `content->getContentType()` for easier use, including from Twig as `content.contentType`. When iterating over the result set of content/Locations these are effectively loaded all at once.
 - Adds possibility to load several content types in bulk using `ContentTypeService->loadContentTypeList()`.
-- `UserService` now exposes `isUser()` and `isUserGroup()`. They do not need to do a lookup to the database in order to tell if a content item is of type user or user group.
+- `UserService` now exposes `isUser()` and `isUserGroup()`. They do not need to do a lookup to the database to tell if a content item is of type user or user group.
 
 #### Load multiple Locations
 
-you're now able to load multiple Locations at once, using `LocationService->loadLocationList()`. The biggest benefit of this feature is saving load time on complex landing pages when HTTP cache is cold or disabled, including when in development mode.  
+you're now able to load multiple Locations at once, using `LocationService->loadLocationList()`. The biggest benefit of this feature is saving load time on complex landing pages when HTTP cache is cold or disabled, including when in development mode.
 
 ### BC breaks and important behavior changes
 

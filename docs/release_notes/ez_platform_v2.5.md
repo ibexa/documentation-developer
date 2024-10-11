@@ -235,8 +235,7 @@ even if they would not have access to the trashed content.
 
 ### Docker environment
 
-BCMath PHP extension has been added to the Docker environments
-in order to enable the Allure reporting tool.
+BCMath PHP extension has been added to the Docker environments to enable the Allure reporting tool.
 
 ### Deprecated features
 

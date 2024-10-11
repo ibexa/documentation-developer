@@ -181,7 +181,7 @@ $createStruct = $contentService->newContentCreateStruct(
 $createStruct->setField( 'image', '/tmp/image.png' );
 ```
 
-In order to customize the Image's alternative texts, you must first get an `Image\Value` object, and set this property. For that, you can use the `Image\Value::fromString()` method that accepts the path to a local file:
+To customize the Image's alternative texts, you must first get an `Image\Value` object, and set this property. For that, you can use the `Image\Value::fromString()` method that accepts the path to a local file:
 
 ``` php
 $createStruct = $contentService->newContentCreateStruct(

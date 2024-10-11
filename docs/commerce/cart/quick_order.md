@@ -19,7 +19,7 @@ Customers can use one or both of the following methods to specify products and p
 
 2\. Provides products' SKU and quantity. At this point, no validation is provided.
 
-![Customer enters individual products](img/quick_order_list.png) 
+![Customer enters individual products](img/quick_order_list.png)
 
 3\. Customer clicks **Add to cart** to add items to the cart and finish an ordering process.
 
@@ -31,7 +31,7 @@ Customers can use one or both of the following methods to specify products and p
 
 2\. Downloads a sample file from **Add your order** section.
 
-3\. Uses the template to fill in their order with products' SKU and quantity. 
+3\. Uses the template to fill in their order with products' SKU and quantity.
 
 4\. Uploads the filled in quick order file back to the system by drag and drop or file selection.
 
@@ -39,7 +39,7 @@ Customers can use one or both of the following methods to specify products and p
 
 ![Customer uploads list of products](img/quick_order_add_order.png)
 
-6\. Customer clicks **Add to cart** to add items to the cart and finish an ordering process. 
+6\. Customer clicks **Add to cart** to add items to the cart and finish an ordering process.
 
 7\. In the cart section, the file format and provided data are validated, the availability of the entered product is checked, and the customer is informed if any of them is unavailable or quantity is insufficient.
 

@@ -6,14 +6,12 @@ edition: experience
 # Ibexa CDP installation
 
 There are three steps required to install [[= product_name_cdp =]].
-First, you need to register your [[= product_name_cdp =]] account, then you can download a CDP package and update the configuration. 
+First, you need to register your [[= product_name_cdp =]] account, then you can download a CDP package and update the configuration.
 
 ## Register in Ibexa CDP dashboard
 
-If you decide to acquire [[= product_name_cdp =]] contact your sales representative,
-they provide you with a registration link to [[= product_name_cdp =]].
-After registration, you get access to a separate instance
-where you can find data required for configuring, activating and using this feature.
+If you decide to acquire [[= product_name_cdp =]] contact your sales representative, they provide you with a registration link to [[= product_name_cdp =]].
+After registration, you get access to a separate instance where you can find data required for configuring, activating, and using this feature.
 
 ## Install CDP package
 
@@ -26,8 +24,7 @@ composer require ibexa/cdp
 ```
 
 Flex installs and activate the package.
-After an installation process is finished, go to `config/packages/security.yaml`
-and uncomment `ibexa_cdp` rule.
+After an installation process is finished, go to `config/packages/security.yaml` and uncomment `ibexa_cdp` rule.
 
 ```yaml
 ibexa_cdp:

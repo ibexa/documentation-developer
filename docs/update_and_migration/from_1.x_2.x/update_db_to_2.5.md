@@ -679,7 +679,7 @@ You can find it in https://github.com/ezsystems/ezplatform-ee-installer/blob/2.3
 
 !!! caution "Form (ezform) field type"
 
-    After the update, in order to create forms, you have to add a new content type (for example, named "Form") that contains `Form` field (this content type can contain other fields
+    After the update, to create forms, you have to add a new content type (for example, named "Form") that contains `Form` field (this content type can contain other fields
     as well). After that you can use forms inside landing pages via Embed block.
 
 ### C. Update to v2.4
@@ -832,7 +832,7 @@ CREATE INDEX ezpage_pages_content_id_version_no ON ezpage_pages(content_id, vers
 
 ##### Powered-By header
 
-In order to promote use of eZ Platform, `ezsystems/ez-support-tools` v1.0.10, as of eZ Platform v2.5.16, sets the Powered-By header.
+To promote use of eZ Platform, `ezsystems/ez-support-tools` v1.0.10, as of eZ Platform v2.5.16, sets the Powered-By header.
 It's enabled by default and generates a header like `Powered-By: eZ Platform Enterprise v2`.
 
 To omit the version number, use the following configuration:

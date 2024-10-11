@@ -32,7 +32,7 @@ The most important clues around increasing overall performance of your [[= produ
 #### How can I translate my back office?
 
 The language of the back office is based on the browser language.
-In order to change it you should install the proper package for your language (see [language packages list](https://github.com/ezplatform-i18n)).
+To change it you should install the proper package for your language (see [language packages list](https://github.com/ezplatform-i18n)).
 Once you have language packages installed, you can switch the language of the back office in the User Settings menu.
 
 If you do not have a language defined in the browser, it's selected based on the `parameters.locale_fallback` parameter located in `config/packages/ibexa.yaml`.
@@ -98,8 +98,7 @@ rm -rf var/cache/*
 
 #### Where should I place my configuration files?
 
-In order to avoid merge conflicts on important configuration settings during upgrades,
-moving as much as possible of your configuration to your own files can be a good idea.
+To avoid merge conflicts on important configuration settings during upgrades, moving as much as possible of your configuration to your own files can be a good idea.
 
 All project-specific parameters should be kept in separate files.
 For example, configuration for Page Blocks could be placed in `config/packages/landing_page_blocks.yaml`.

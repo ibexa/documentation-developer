@@ -6,7 +6,7 @@ description: Update procedure to v4.4 for people who use deprecated Commerce pac
 
 This update procedure applies if you have a v4.3 installation, you use Commerce packages and would like to continue to use them.
 
-Note that all commerce packages as of v4.4 are deprecated and will be removed in v5.
+All commerce packages as of v4.4 are deprecated and will be removed in v5.
 Until that time, they will be maintained by Ibexa with fixes, including security fixes, but they won't be further developed.
 Old packages are replaced by [the all-new Ibexa Commerce packages](ibexa_dxp_v4.4.md#all-new-ibexa-commerce-packages).
 

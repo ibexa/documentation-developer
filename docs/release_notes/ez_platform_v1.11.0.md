@@ -14,7 +14,7 @@ If you're looking for the Long Term Support (LTS) release, see [https://ezplatfo
 
 [EZP-26885](https://issues.ibexa.co/browse/EZP-26885): you now have access to the Doctrine connection instead of
 the Zeta Components Database connection-like object which has been exposed to field types until now.
-Note that the former way will be removed in a future major version.
+The former way will be removed in a future major version.
 
 #### Content type limitation for Relation (single) field
 

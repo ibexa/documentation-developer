@@ -14,14 +14,14 @@ It's capable of handling virtually any file type and is typically used for stori
 
 #### Properties
 
-Note that both `BinaryFile` and `Media` Value and Type inherit from the `BinaryBase` abstract field type, and share common properties.
+Both `BinaryFile` and `Media` Value and Type inherit from the `BinaryBase` abstract field type, and share common properties.
 
 `Ibexa\Core\FieldType\BinaryFile\Value` offers the following properties:
 
 |Attribute|Type|Description|Example|
 |------|------|------|------|
 |`id`|string|Binary file identifier. This ID depends on the [IO Handler](clustering.md#dfs-io-handler) that is being used. With the native, default handlers (FileSystem and Legacy), the ID is the file path, relative to the binary file storage root dir (`var/<vardir>/storage/original` by default).|application/63cd472dd7.pdf|
-|`fileName`|string|The human-readable file name, as exposed to the outside. Used when sending the file for download in order to name the file.|20130116_whitepaper.pdf|
+|`fileName`|string|The human-readable file name, as exposed to the outside. Used when sending the file for download to name the file.|20130116_whitepaper.pdf|
 |`fileSize`|int|File size, in bytes.|1077923|
 |`mimeType`|string|The file's MIME type.|application/pdf|
 |`uri`|string|The binary file's `content/download` URI. If the URI doesn't include a host or protocol, it applies to the request domain.|/content/download/210/2707|

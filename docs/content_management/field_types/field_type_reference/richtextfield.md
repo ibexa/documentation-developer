@@ -8,7 +8,7 @@ This field type validates and stores structured rich text, and exposes it in sev
 |------|------|------|
 |`RichText`|`ezrichtext`|mixed|
 
-## PHP API field type 
+## PHP API field type
 
 ### Value object
 

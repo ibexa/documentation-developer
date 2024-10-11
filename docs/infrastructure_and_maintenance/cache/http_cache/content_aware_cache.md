@@ -432,7 +432,7 @@ As explained in [User Context Hash caching](context_aware_cache.md#user-context-
 user-context-hash. Users with the same user-context-hash here the same cache (as long as [[= product_name =]]
 responds with `Vary: X-Context-User-Hash`).
 
-In order to simulate the requests the HTTP cache sends to [[= product_name =]], you need this user-context-hash.
+To simulate the requests the HTTP cache sends to [[= product_name =]], you need this user-context-hash.
 To obtain it, use `curl`.
 
 ```bash
@@ -450,7 +450,7 @@ Some notes about each of these parameters:
 - `--header "Surrogate-Capability: abc=ESI/1.0"`, strictly speaking not needed when fetching the user-context-hash, but this tells [[= product_name =]] that client understands ESI tags.
   It's good practice to always include this header when imitating the HTTP Cache.
 - `--header "accept: application/vnd.fos.user-context-hash"` tells [[= product_name =]] that the client wants to receive the user-context-hash
-- `--header "x-fos-original-url: /"` is required by the fos-http-cache bundle in order to deliver the user-context-hash
+- `--header "x-fos-original-url: /"` is required by the fos-http-cache bundle to deliver the user-context-hash
 - `https://www.staging.foobar.com.us-2.platformsh.site/_fos_user_context_hash` : here we use the hostname we earlier told
   curl how to resolve using `---resolve`. `/_fos_user_context_hash` is the route to the controller that are able to
   deliver the user-context-hash.
@@ -510,7 +510,7 @@ So back to the original problem here. This resource is for some reason not cache
 `x-cache: MISS` we started with). But origin says this page can be cached for 1 day. How can that be?
 The likely reason is that this page also contains some ESI fragments and that one or more of these aren't cachable.
 
-So, first let's see if there are any ESIs here. We remove the `-IXGET` options (in order to see content of the response,
+So, first let's see if there are any ESIs here. We remove the `-IXGET` options (to see content of the response,
 not only headers) to curl and search for esi:
 
 ```bash
@@ -535,7 +535,7 @@ shell.
     $ curl -IXGET --resolve www.staging.foobar.com.us-2.platformsh.site:443:1.2.3.4 --header "Surrogate-Capability: abc=ESI/1.0" --header "x-user-context-hash: daea248406c0043e62997b37292bf93a8c91434e8661484983408897acd93814" 'https://www.staging.foobar.com.us-2.platformsh.site/_fragment?_hash=B%2BLUWB2kxTCc6nc5aEEn0eEqBSFar%2Br6jNm8fvSKdWU%3D&_path=locationId%3D2%26contentId%3D52%26blockId%3D11%26versionNo%3D3%26languageCode%3Deng-GB%26serialized_siteaccess%3D%257B%2522name%2522%253A%2522site%2522%252C%2522matchingType%2522%253A%2522default%2522%252C%2522matcher%2522%253Anull%252C%2522provider%2522%253Anull%257D%26serialized_siteaccess_matcher%3Dnull%26_format%3Dhtml%26_locale%3Den_GB%26_controller%3DEzSystems%255CEzPlatformPageFieldTypeBundle%255CController%255CBlockController%253A%253ArenderAction'
 ```
 
-You can also note that this ESI is handled by a controller in the `FieldTypePage` bundle provided by [[= product_name =]].
+This ESI is handled by a controller in the `FieldTypePage` bundle provided by [[= product_name =]].
 
 The output is:
 
@@ -592,14 +592,14 @@ The `Set-Cookie` here may cause the problem. A ESI fragment should never set a c
 - Clients only receive the headers set in the "mother" document (the headers in the "/" response in this case).
 
 - Only the content of ESIs responses is returned to the client. **No headers set in the ESI response will ever reach the client**. ESI headers are only seen by the HTTP cache.
-  
+
 - Symfony reverse proxy doesn't support ESIs at all, and any ESI calls (`render_esi()`) are implicitly replaced by
   sub-requests (`render()`). So any `Set-Cookie` **is** sent to the client when using Symfony reverse proxy.
-  
+
 - Fastly flags it resource as "not cachable" because it set a cookie at least once. Even though that endpoint.
   stops setting cookies, Fastly still doesn't cache that fragment. Any document referring to that ESI is a `MISS`.
-  Fastly cache needs to be purged (`Purge-all` request) in order to remove this flag.
-  
+  Fastly cache needs to be purged (`Purge-all` request) to remove this flag.
+
 - It means that it's not recommended to always initiate a session when loading the front page.
 
 You must ensure that you do not unintendedly start a session in a controller used by ESIs, for example, when trying to access as session variable before a session has been initiated yet.

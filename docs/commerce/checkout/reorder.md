@@ -73,7 +73,7 @@ Reorder comes with the dedicated `Ibexa\Contracts\Checkout\Reorder\ReorderServic
 It contains helper methods and facades added over existing API to ease the order manipulation process.
 The following methods can be used to modify the reorder flow to fit your business needs:
 
-#### `ReorderService:addToCartFromOrder` 
+#### `ReorderService:addToCartFromOrder`
 
 Allows you to add items from a previous order to a cart.
 It uses historical data from previously ordered items even if they're no longer available.
@@ -96,7 +96,7 @@ The method uses the following parameters:
 - `$sourceOrder` (OrderInterface) - the source order from which context is copied
 - `$targetCheckout` (CheckoutInterface) - the target checkout to which context is copied
 
-#### `ReorderService:createReorderCart` 
+#### `ReorderService:createReorderCart`
 
 Creates a new shopping cart for reordering items from a past order in the same currency.
 The method uses the following parameters:

@@ -31,7 +31,7 @@ It's capable of handling the following types of files:
 
 `Ibexa\Core\FieldType\Media\Value` offers the following properties.
 
-Note that both `Media` and `BinaryFile` Value and Type inherit from the `BinaryBase` abstract field type and share common properties.
+Both `Media` and `BinaryFile` Value and Type inherit from the `BinaryBase` abstract field type and share common properties.
 
 |Property|Type|Description|Example|
 |------|------|------|------|

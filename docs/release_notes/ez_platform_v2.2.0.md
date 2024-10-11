@@ -77,7 +77,7 @@ You can also [select which content types are treated the same way as user of use
 
 ### Change from UTF8 to UTF8MB4
 
-Database charset is changed from UTF8 to UTF8MB4, in order to support 4-byte characters.
+Database charset is changed from UTF8 to UTF8MB4, to support 4-byte characters.
 
 !!! caution
 

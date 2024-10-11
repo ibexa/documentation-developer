@@ -29,7 +29,7 @@ It can consist of letters, digits, spaces, and special characters (it's mandator
 
 !!! note
 
-    Note that even if your content type defines a field intended as a name for the content item (for example, a title of an article or product name), do not confuse it with this Name, which is a piece of metadata, not a field.
+    Even if your content type defines a field intended as a name for the content item (for example, a title of an article or product name), do not confuse it with this Name, which is a piece of metadata, not a field.
 
 **Identifier** – an identifier for internal use in configuration files, templates, PHP code, etc. 
 It must be unique, can only contain lowercase letters, digits, and underscores (it's mandatory and the maximum length is 50 characters).
@@ -93,7 +93,7 @@ They determine what fields of what field types are included in all content items
     They're caused by the limitation of how many `$_POST` input variables can be accepted.
 
     The easiest way to fix them is by increasing the `max_input_vars` value in the `php.ini` configuration file.
-    Note that this solution isn't universally recommended and you're proceeding on your own risk.
+    This solution isn't universally recommended and you're proceeding on your own risk.
 
     Setting the limit inappropriately may damage your project or cause other issues.
     You may also experience performance problems with such large content types, in particular when you have many content items.

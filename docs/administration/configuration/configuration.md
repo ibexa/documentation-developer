@@ -57,7 +57,7 @@ Keys are usually prefixed by a *namespace* corresponding to your application. Al
 
 For configuration that is meant to be exposed to an end-user (or end-developer), it's usually a good idea to also [implement semantic configuration]([[= symfony_doc =]]/components/config/definition.html).
 
-Note that you can also [implement SiteAccess-aware semantic configuration](siteaccess_aware_configuration.md).
+You can also [implement SiteAccess-aware semantic configuration](siteaccess_aware_configuration.md).
 
 For example:
 

@@ -91,7 +91,7 @@ A field type may store arbitrary data in external data sources.
 External storage can be e.g. a web service, a file in the file system, another database
 or even the [[= product_name =]] database itself (in form of a non-standard table).
 
-In order to store data in external storage, the field type interacts with the Persistence SPI
+To store data in external storage, the field type interacts with the Persistence SPI
 through the `Ibexa\Contracts\Core\FieldType\FieldStorage` interface.
 
 Accessing the internal storage of a content item that includes a Field of the field type
@@ -101,7 +101,7 @@ calls one of the following methods to also access the external data:
 |------|-----------|
 |`hasFieldData()`|Returns whether the field type stores external data at all.|
 |`storeFieldData()`|Called right before a Field of the field type is stored. The method stores `$externalData`. It returns `true` if the call manipulated internal data of the given Field, so that it's updated in the internal database.|
-|`getFieldData()`|Called after a Field has been restored from the database in order to restore `$externalData`.|
+|`getFieldData()`|Called after a Field has been restored from the database to restore `$externalData`.|
 |`deleteFieldData()`|Must delete external data for the given Field, if exists.|
 |`getIndexData()`|Returns the actual index data for the provided `Ibexa\Contracts\Core\Persistence\Content\Field`. For more information, see [search service](field_type_search.md#search-field-values).|
 
@@ -110,19 +110,19 @@ To retrieve and store data in the [[= product_name =]] data storage,
 but outside of the normal structures (e.g. a custom table in an SQL database),
 use [Gateway-based storage](#gateway-based-storage) with properly injected Doctrine Connection.
 
-Note that the field type must take care on its own for being compliant with different data sources and that third parties can extend the data source support easily.
+The field type must take care on its own for being compliant with different data sources and that third parties can extend the data source support easily.
 
 ### Gateway-based storage
 
-In order to allow the usage of a field type that uses external data with different data storages, it's recommended to implement a gateway infrastructure and a registry for the gateways. To make this easier, the Core implementation of field types provides corresponding interfaces and base classes. They can also be used for custom field types.
+To allow the usage of a field type that uses external data with different data storages, it's recommended to implement a gateway infrastructure and a registry for the gateways. To make this easier, the Core implementation of field types provides corresponding interfaces and base classes. They can also be used for custom field types.
 
-The interface `Ibexa\Contracts\Core\FieldType\StorageGateway` is implemented by gateways, in order to be handled correctly by the registry. It has one method:
+The interface `Ibexa\Contracts\Core\FieldType\StorageGateway` is implemented by gateways, to be handled correctly by the registry. It has one method:
 
 |Method|Description|
 |------|-----------|
 |`setConnection()`|The registry mechanism uses this method to set the SPI storage connection (e.g. the database connection to the Legacy Storage database) into the gateway, which might be used to store external data. The connection is retrieved from the `$context` array automatically by the registry.|
 
-Note that the Gateway implementation itself must take care of validating that it received a usable connection. If it does not, it should throw a `RuntimeException`.
+The Gateway implementation itself must take care of validating that it received a usable connection. If it does not, it should throw a `RuntimeException`.
 
 The registry mechanism is realized as a base class for `FieldStorage` implementations: `Ibexa\Core\FieldType\GatewayBasedStorage`. For managing `StorageGateway`s, the following methods are already implemented in the base class:
 
@@ -170,10 +170,10 @@ services:
     App\FieldType\MyField\Storage\Gateway\DoctrineStorage: ~
 ```
 
-Note that `ibexa.api.storage_engine.legacy.connection` is of type `Doctrine\DBAL\Connection`. If your gateway still uses an implementation of `eZ\Publish\Core\Persistence\Database\DatabaseHandler` (`eZ\Publish\Core\Persistence\Doctrine\ConnectionHandler`), instead of the `ibexa.api.storage_engine.legacy.connection`, you can pass the `ibexa.api.storage_engine.legacy.dbhandler` service.
+`ibexa.api.storage_engine.legacy.connection` is of type `Doctrine\DBAL\Connection`. If your gateway still uses an implementation of `eZ\Publish\Core\Persistence\Database\DatabaseHandler` (`eZ\Publish\Core\Persistence\Doctrine\ConnectionHandler`), instead of the `ibexa.api.storage_engine.legacy.connection`, you can pass the `ibexa.api.storage_engine.legacy.dbhandler` service.
 
 
-Also note that there can be several gateways per field type (one per storage engine). In this case it's recommended to either create base implementation which each gateway can inherit or create interface which each gateway must implement and reference it instead of specific implementation when type-hinting method arguments.
+Also there can be several gateways per field type (one per storage engine). In this case it's recommended to either create base implementation which each gateway can inherit or create interface which each gateway must implement and reference it instead of specific implementation when type-hinting method arguments.
 
 !!! tip
 

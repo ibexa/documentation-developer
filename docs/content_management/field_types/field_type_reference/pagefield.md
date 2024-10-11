@@ -22,7 +22,7 @@ Page field type is only used in the Page content type that is included in [[= pr
 
 Layout defines how a Page is divided into zones.
 
-The placement of zones is defined in a template which is a part of the layout configuration. You can modify the template in order to define your own zone layout.
+The placement of zones is defined in a template which is a part of the layout configuration. You can modify the template to define your own zone layout.
 
 For information on how to create and configure new blocks for the Page, see [Page layouts](render_page.md#render-a-layout).
 

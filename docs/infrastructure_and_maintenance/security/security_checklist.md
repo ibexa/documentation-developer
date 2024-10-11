@@ -139,7 +139,8 @@ It prevents uploading files that might be executed on the server, a Remote Code 
 Attempting to upload files from the list results in an error message.
 There are also other safety measures in place, like using the web server configuration to block execution of uploaded scripts, see the next point.
 
-You should adapt this list to your needs. Note that `svg` images are blocked because they may contain JavaScript code.
+You should adapt this list to your needs.
+`svg` images are blocked because they may contain JavaScript code.
 If you opt to allow them, make sure you take steps to mitigate the risk.
 
 The default list of blocked file types contains: `hta htm html jar js jse pgif phar php php3 php4 php5 phps phpt pht phtml svg swf xhtm xhtml`.

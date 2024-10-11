@@ -50,4 +50,4 @@ and the [`Section`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-
 [[= include_file('code_samples/api/public_php_api/src/Command/SectionCommand.php', 64, 67) =]]
 ```
 
-Note that assigning a Section to content does not automatically assign it to the content item's children.
+Assigning a Section to content does not automatically assign it to the content item's children.
