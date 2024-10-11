@@ -500,6 +500,7 @@ plugins:
             'migrating/migrating_from_ez_publish_platform.md': 'update_and_migration/migrate_to_ibexa_dxp/migrating_from_ez_publish_platform.md'
             'migrating/migrating_from_ez_publish.md': 'update_and_migration/migrate_to_ibexa_dxp/migrating_from_ez_publish.md'
             'migrating/common_issues.md': 'update_and_migration/migrate_to_ibexa_dxp/common_issues.md'
+            'docs/update_and_migration/from_2.5/to_3.3.latest.md': 'update_and_migration/from_3.3/update_from_3.3.md'
 
             'releases/ibexa_dxp_v4.2.md': 'release_notes/ibexa_dxp_v4.2.md'
             'releases/ibexa_dxp_v4.1.md': 'release_notes/ibexa_dxp_v4.1.md'
