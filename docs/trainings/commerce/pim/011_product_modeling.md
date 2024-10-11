@@ -18,8 +18,7 @@ In fact, a product type is really a content type from the hidden system group `p
 The presence of an `ibexa_product_specification` field is what distinct product type from content type.
 Don't remove this field from a product type (or it becomes a unreachable hidden content type).
 Don't add such field to a content type (or it becomes an uneditable broken product type).
-
-TODO: What happens if you have several `ibexa_product_specification` fields?
+You can't have more than one `ibexa_product_specification`, the laters won't be editable.
 
 You can trick the system URL to display a product type as a content type but know that this is dangerous and mustn't be exposed to final users.
 Always prefer the dedicated route (as the back office does) `/product-type/view/<product_type_identifier` (`ibexa.product_catalog.product_type.view`).
