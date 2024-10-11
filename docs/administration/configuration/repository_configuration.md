@@ -251,7 +251,7 @@ ibexa:
 ```
 
 You can override these settings if you have other content types that should be treated as users/user groups in the back office.
-When viewing such content in the back office you are able to see e.g. the assigned policies.
+When viewing such content in the back office you're able to see e.g. the assigned policies.
 
 ## Top-level Locations
 

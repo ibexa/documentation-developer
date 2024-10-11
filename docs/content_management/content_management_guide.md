@@ -161,7 +161,7 @@ These operations, like in your computer’s file system, can apply both to indiv
 
 ![Content organization operations](img/content_arrangement.png)
 
-Content items can be hidden when necessary, for example, until a certain event, like a Holiday Sale or Board announcement comes. Hidden content items are not visible to website visitors and are greyed out in the content tree.
+Content items can be hidden when necessary, for example, until a certain event, like a Holiday Sale or Board announcement comes. Hidden content items aren't visible to website visitors and are greyed out in the content tree.
 
 ![Hidden content item](img/hidden_content_item.png)
 
@@ -211,7 +211,7 @@ This setting isn't inherited.
 
 ### User segments
 
-Although segments are not meant to classify content, they could fall into this category, because their role is about targeting users, and not controlling their access to content. 
+Although segments aren't meant to classify content, they could fall into this category, because their role is about targeting users, and not controlling their access to content. 
 With segments, you can reach specific groups, or categories, of visitors with specific information about content or products that could be of their interest. 
 For example, you can build Pages that contain different recommendations, depending on who is visiting them.
 

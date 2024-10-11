@@ -39,7 +39,7 @@ To create a new Customer Portal, go to Content and, from the menu, select Conten
 There, navigate to the root container for your Customer Portals and select Customer Portal Page. 
 In the Page Builder creation box, you see the Customer Portal layout where you can add a dedicated Customer Portal block, 
 Sales Representative, or choose from a selection of blocks available to your [[= product_name =]] version.
-If the built-in page blocks are not sufficient to fulfill your needs, you can add your own.
+If the built-in page blocks aren't sufficient to fulfill your needs, you can add your own.
 
 ![Editable in Page Builder](img/cp_edit_in_page_builder.png)
 
@@ -66,7 +66,7 @@ You can also set up Policies for every user who has a business account by editin
 
 ### Members
 
-Company members are not standard users. They belong to a separate category called Corporate Accounts. 
+Company members aren't standard users. They belong to a separate category called Corporate Accounts. 
 This category is located in **Admin** -> **Corporate** -> **Corporate Accounts**. 
 There, you can find a list of companies and their members.
 
@@ -116,7 +116,7 @@ you can also decide between which states the user may move applications:
 - accept
 - reject
 
-If built-in statuses are not sufficient, you can add custom ones. You can also edit or add reasons for not accepting the company application. Finally, you can customize the registration site itself.
+If built-in statuses aren't sufficient, you can add custom ones. You can also edit or add reasons for not accepting the company application. Finally, you can customize the registration site itself.
 
 ### REST API
 

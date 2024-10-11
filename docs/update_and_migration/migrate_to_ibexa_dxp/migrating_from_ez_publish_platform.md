@@ -220,7 +220,7 @@ When that is done, execute the following to update and install all packages from
 
 !!! note
 
-    At the end of the process, you are asked for values for parameters.yaml not already moved from old installation, or new *(as defined in parameters.yaml.dist)*.
+    At the end of the process, you're asked for values for parameters.yaml not already moved from old installation, or new *(as defined in parameters.yaml.dist)*.
 
 ### 2.8 Register EzSystemsEzPlatformXmlTextFieldTypeBundle
 
@@ -240,7 +240,7 @@ Import to your database the changes provided in one of the following files. It's
 
 ### 3.2. Once you're ready to migrate content to Platform field types
 
-Steps here should only be done once you're ready to move away from legacy and Legacy Bridge, as the following field types are not supported by legacy. In other words, content you have migrated isn't be editable in legacy admin interface anymore, but rather in the more modern eZ Platform back-end UI, allowing you to take full advantage of what the Platform has to offer.
+Steps here should only be done once you're ready to move away from legacy and Legacy Bridge, as the following field types aren't supported by legacy. In other words, content you have migrated isn't be editable in legacy admin interface anymore, but rather in the more modern eZ Platform back-end UI, allowing you to take full advantage of what the Platform has to offer.
 
 The field types unsupported in eZ Platform are:
 
@@ -575,7 +575,7 @@ bin/console ezflow:migrate <legacy path> —ini=<block definitions> [—ini=<ano
 bin/console ezflow:migrate /var/www/legacy.application.com/ —ini=extension/myapplication/settings/block.ini.append.php
 ```
 
-**5.** You are warned about the need to create a [backup](backup.md) of your database. **Proceed only if you're sure you have done it.**
+**5.** You're warned about the need to create a [backup](backup.md) of your database. **Proceed only if you're sure you have done it.**
 
 A `MigrationBundle` is generated in the `src/` folder.
 

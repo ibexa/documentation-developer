@@ -27,7 +27,7 @@ The Fields can cover data ranging from single variables and text lines to media 
 General information about a content item is stored in a [`ContentInfo`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html) object.
 `ContentInfo` does not include Fields. It contains following information:
 
-**`id`** - the unique ID of the Content object. These numbers are not recycled, so if an item is deleted, its ID isn't reused when a new one is created.
+**`id`** - the unique ID of the Content object. These numbers aren't recycled, so if an item is deleted, its ID isn't reused when a new one is created.
 
 **`contentTypeId`** - the unique numerical ID of the content type, on which the content item is based.
 
@@ -36,7 +36,7 @@ The name is in the main language of the content item.
 
 !!! note
 
-    `name` is always searchable, even if the Field(s) used to generate it are not.
+    `name` is always searchable, even if the Field(s) used to generate it aren't.
 
 **`sectionId`** - the unique number of the Section to which the content item belongs.
 New content items are placed in the Standard Section by default.

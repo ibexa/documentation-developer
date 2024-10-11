@@ -171,7 +171,7 @@ For full list of supported versions, see [Requirements](https://doc.ibexa.co/en/
 This version introduces stricter default password quality requirements.
 
 Passwords must be at least 10 characters long, and must include upper and lower case letters, and digits.
-Existing passwords are not changed.
+Existing passwords aren't changed.
 
 See [backwards compatibility changes](https://github.com/ezsystems/ezpublish-kernel/blob/7.5/doc/bc/changes-7.5.md)
 for detailed information.

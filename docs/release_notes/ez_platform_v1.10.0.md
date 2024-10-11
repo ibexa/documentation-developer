@@ -17,7 +17,7 @@ This release introduces the ability to add tables in the RichText editor, enabli
 
 ![](platformui-table.gif)
 
-This is a first step. We aim to provide more in terms of table support in the editor later. For the time being images and embedding are not supported within the table, as you won't be able to move them out or edit them. We also don't provide yet ability to style the table within the editor.
+This is a first step. We aim to provide more in terms of table support in the editor later. For the time being images and embedding aren't supported within the table, as you won't be able to move them out or edit them. We also don't provide yet ability to style the table within the editor.
 
  
 

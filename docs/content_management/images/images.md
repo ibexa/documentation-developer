@@ -225,7 +225,7 @@ a custom extension that lets you display and download files in your templates.
 
     SVG images may contain JavaScript, so they may introduce XSS or other security 
     vulnerabilities.
-    Make sure end users are not allowed to upload SVG images, and be restrictive 
+    Make sure end users aren't allowed to upload SVG images, and be restrictive 
     about which editors are allowed to do so.
 
 First, enable adding SVG files to content by removing them from the blacklist 

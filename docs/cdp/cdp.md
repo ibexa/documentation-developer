@@ -9,7 +9,7 @@ edition: experience
 
 [[= product_name_cdp =]] helps you solve one of the hardest challenges facing business world today:
 building unique experiences for your customers.
-With [[= product_name_cdp =]] you are able to track and aggregate data of your customers' activity on multiple channels.
+With [[= product_name_cdp =]] you're able to track and aggregate data of your customers' activity on multiple channels.
 It allows you to create individual customer profiles that enable you to personalize their experience on your platform.
 
 ![Ibexa CDP control panel](img/cdp_control_panel.png)

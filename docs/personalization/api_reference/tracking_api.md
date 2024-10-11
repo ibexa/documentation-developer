@@ -274,7 +274,7 @@ structure of the website.
 
 !!! note
 
-    User IDs are not stored in the database.
+    User IDs aren't stored in the database.
     they're irreversibly anonymized before saving to disk or building the
     recommendation model.
 

@@ -19,7 +19,7 @@ matches activity log group that has a log entry created before or after a given 
 
 ## Example
 
-The following example is to match all activity log groups that are not older than a day:
+The following example is to match all activity log groups that aren't older than a day:
 
 ```php
 $query = new ActivityLog\Query([

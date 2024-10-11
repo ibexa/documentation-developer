@@ -184,7 +184,7 @@ Catalogs can be created just like with the local PIM, but the criteria are limit
 #### Limitations
 
 The default implementation, which serves as a basis for the example remote PIM package, has some limitations: certain functionalities either do not operate or operate within defined constraints.
-Therefore, if your specific requirements are not met, you may need to extend [[= product_name =]].
+Therefore, if your specific requirements aren't met, you may need to extend [[= product_name =]].
 
 ##### Editing product types, products and product attributes
 
@@ -193,8 +193,8 @@ Therefore, if your specific requirements are not met, you may need to extend [[=
 
 ##### Content-model-based features
 
-The following features rely on [[= product_name =]]'s content model capabilities, which are not supported by the default implementation of remote PIM support.
-Therefore, if your specific requirements are not met, you must extend the application by using extension points exposed in the Product catalog module.
+The following features rely on [[= product_name =]]'s content model capabilities, which aren't supported by the default implementation of remote PIM support.
+Therefore, if your specific requirements aren't met, you must extend the application by using extension points exposed in the Product catalog module.
 
 - Assets
 - Product variants

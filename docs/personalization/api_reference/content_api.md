@@ -235,6 +235,6 @@ The old item is wiped, including all attributes.
 
 !!! note
 
-    The attributes of the "old" item ID are not moved or merged, and if you 
+    The attributes of the "old" item ID aren't moved or merged, and if you 
     rely on attributes, for example, for filtering based on prices, 
     you must reimport the new item.

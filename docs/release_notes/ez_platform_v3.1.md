@@ -111,7 +111,7 @@ or whole content items for completeness at other stages of the editing process.
 #### ezplatform-search
 
 [`ezplatform-search`](https://github.com/ezsystems/ezplatform-search) is a new repository
-that contains search functionalities that are not dependent on the search engine.
+that contains search functionalities that aren't dependent on the search engine.
 
 #### Search controller
 

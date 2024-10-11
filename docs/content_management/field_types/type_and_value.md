@@ -53,7 +53,7 @@ It's important to note that the schema definitions of the field type can be both
 
     Since it's not possible to enforce a schema format, the code using a specific field type must basically know all field types it deals with.
 
-This also applies to all user interfaces and the REST API, which therefore must provide extension points to register handling code for custom field type. These extensions are not defined yet.
+This also applies to all user interfaces and the REST API, which therefore must provide extension points to register handling code for custom field type. These extensions aren't defined yet.
 
 ### field type name
 

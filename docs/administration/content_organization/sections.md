@@ -28,7 +28,7 @@ Other references to the Section remain and thus the system most likely loses con
 
     Removing Sections may corrupt permission settings, template output and other things in the system.
 
-Section ID numbers are not recycled. If a Section is removed, its ID number cannot be reused when a new Section is created.
+Section ID numbers aren't recycled. If a Section is removed, its ID number cannot be reused when a new Section is created.
 
 ### Registering users
 

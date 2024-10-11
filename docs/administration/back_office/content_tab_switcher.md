@@ -1,7 +1,7 @@
 # Tab switcher in content edit page
 
 Tabs switcher allows separating the default field types in the content type from the field types that enhance the content with new functionalities.
-The best example of such field types are SEO or Taxonomy, as these are not typical field types but a field types that handle functionalities for the whole content object.
+The best example of such field types are SEO or Taxonomy, as these aren't typical field types but a field types that handle functionalities for the whole content object.
 
 The following example shows how to add a Meta tab with automatically assigned Taxonomy field type.
 

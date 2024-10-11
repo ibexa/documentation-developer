@@ -5,7 +5,7 @@ description: Learn how to add settings that format the Field value.
 # Step 6 - Implement Point 2D settings
 
 Implementing settings enables you to define the format for displaying the Field on the page.
-To do so, create the `format` field where you are able to change the way coordinates for Point 2D are displayed.
+To do so, create the `format` field where you're able to change the way coordinates for Point 2D are displayed.
 
 ## Define field type format
 

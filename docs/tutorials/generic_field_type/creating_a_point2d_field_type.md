@@ -28,7 +28,7 @@ This tutorial shows you how to use the Generic field type as a template for a cu
 - create a custom Point 2D field type with two coordinates as input, e.g. (4,5)
 - register the new field type as a service and define its template
 - add basic validation to your Point 2D
-- add data migration to the field type so you are able to easily change its output
+- add data migration to the field type so you're able to easily change its output
 
 ## Steps
 

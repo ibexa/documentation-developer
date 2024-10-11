@@ -15,7 +15,7 @@ There are three types of aggregations:
 
 !!! tip
 
-    Aggregations are not available in the Legacy Search engine.
+    Aggregations aren't available in the Legacy Search engine.
 
 ## Content aggregations
 

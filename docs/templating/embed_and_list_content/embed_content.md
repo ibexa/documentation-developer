@@ -28,7 +28,7 @@ The results of the Siblings query are placed in the `items` variable, which you 
 
 ## Embed Relations with a custom controller
 
-You can use a custom controller for any situation where Query types are not sufficient.
+You can use a custom controller for any situation where Query types aren't sufficient.
 
 ``` yaml
 [[= include_file('code_samples/front/embed_content/config/packages/views.yaml', 23, 30) =]]

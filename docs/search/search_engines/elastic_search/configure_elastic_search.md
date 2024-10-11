@@ -491,7 +491,7 @@ The name of the new template should indicate the language it applies to, for exa
 #### Change match pattern for the new template
 
 The default template matches on `*_location_*` and `*_content_*`.
-These patterns are not language-specific and you cannot use them if you plan to use different templates for different languages.
+These patterns aren't language-specific and you cannot use them if you plan to use different templates for different languages.
 In your copy of the default template, change the pattern as follows:
 
 ```diff

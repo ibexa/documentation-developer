@@ -91,7 +91,7 @@ You do it by creating two new roles for a user group:
 
 Follow the example below to learn how to do that.
 
-**Cookbook**, **Dinner recipes** and **Dessert recipes** containers are not accessible in the frontend. 
+**Cookbook**, **Dinner recipes** and **Dessert recipes** containers aren't accessible in the frontend. 
 Edit access to them in the **Admin Panel**. 
 
 ![Subtree file structure](subtree_usability_notes_1.png)
@@ -265,7 +265,7 @@ See below for a detailed listing of permissions that apply to Commerce, together
 !!! note "Owner limitation"
 
     For anonymous users, orders, shipments, and/or payments are saved with a 'null' user reference. 
-    Therefore, when you apply the `Owner/self` imitation to any of the permissions below, anonymous users are not allowed to interact with any of these entities.
+    Therefore, when you apply the `Owner/self` imitation to any of the permissions below, anonymous users aren't allowed to interact with any of these entities.
 
 ### Cart 
 

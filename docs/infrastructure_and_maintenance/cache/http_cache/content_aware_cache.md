@@ -43,7 +43,7 @@ Current content tags (and when the system purges on them):
     This is why in multi-repository setup you can see cache tags such as `1p2`.
     In this example `1` represents the index among configured repositories, meaning the second repository in the system.
 
-    Tags are not prefixed for default repository (index "0").
+    Tags aren't prefixed for default repository (index "0").
 
 The content tags are returned in a header in the responses from [[= product_name =]]. The header name is dependent on
 which HTTP Cache [[= product_name =]] is configured with:
@@ -515,7 +515,7 @@ The document might also be removed from the cache by purging any of the keys pro
 
 So back to the original problem here. This resource is for some reason not cached by Fastly ( remember the
 `x-cache: MISS` we started with). But origin says this page can be cached for 1 day. How can that be?
-The likely reason is that this page also contains some ESI fragments and that one or more of these are not cachable.
+The likely reason is that this page also contains some ESI fragments and that one or more of these aren't cachable.
 
 So, first let's see if there are any ESIs here. We remove the `-IXGET` options (in order to see content of the response,
 not only headers) to curl and search for esi:

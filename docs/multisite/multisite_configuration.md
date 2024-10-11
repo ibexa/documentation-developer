@@ -200,7 +200,7 @@ even though they're outside the Location provided in `content.tree_root.location
 
 !!! note
     
-    Prefixes are not case sensitive.
+    Prefixes aren't case sensitive.
     Leading slashes (`/`) are automatically trimmed internally, so they can be ignored.
 
 !!! tip

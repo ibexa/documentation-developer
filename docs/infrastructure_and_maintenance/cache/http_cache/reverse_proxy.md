@@ -72,7 +72,7 @@ Failing to configure reverse proxies correctly may introduce several problems, i
 
 - [[= product_name =]] generating links with a wrong protocol schema (HTTP instead of HTTPS) if HTTPS termination is done before the web server due to the `X-Forward-Proto` headers being ignored
 - [[= product_name =]] generating links with wrong port numbers due to the `X-Forward-Port` headers being ignored
-- back office showing the login screen because JWT tokens are not accepted due to the `X-Forward-For` headers being ignored
+- back office showing the login screen because JWT tokens aren't accepted due to the `X-Forward-For` headers being ignored
 
 ### Configure Symfony front controller
 

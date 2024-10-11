@@ -21,7 +21,7 @@ or if you're not using Ibexa Cloud and want to configure Fastly to work with [[=
 
 ## Prepare for using Fastly locally
 
-These steps are not needed when you use Ibexa Cloud, because Fastly is preconfigured in it.
+These steps aren't needed when you use Ibexa Cloud, because Fastly is preconfigured in it.
 
 ### Get Fastly credentials from Ibexa Cloud installation
 

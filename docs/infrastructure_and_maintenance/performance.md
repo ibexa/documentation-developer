@@ -69,7 +69,7 @@ In production setups:
     [Symfony v3.4.15](https://github.com/symfony/symfony/pull/28249) may have resolved this.
 
 - Memcached/Redis can in some cases perform better than filesystem cache even with a single server, as it offers better general performance for operations invalidating cache.
-    - However, pure read performance is slower, especially if the next points are not optimized.
+    - However, pure read performance is slower, especially if the next points aren't optimized.
     - With cache being on different node(s) than web server, make sure to try to tune latency between the two.
 
 !!! tip

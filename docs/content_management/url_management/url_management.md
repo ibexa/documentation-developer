@@ -152,7 +152,7 @@ For each URL alias definition the history of changes is preserved, so that users
     had the same name in multiple languages. 
     For more information, see [the Jira ticket](https://issues.ibexa.co/browse/EZP-31818). 
 
-URL aliases are not SiteAccess-aware. When creating an alias, you can select a SiteAccess to base it on.
+URL aliases aren't SiteAccess-aware. When creating an alias, you can select a SiteAccess to base it on.
 If the SiteAccess root path (configured in `content.tree_root.location_id`) is different than the default,
 the prefix path that results from the configured content root is prepended to the final alias path.
 

@@ -88,7 +88,7 @@ To update to this version, follow the [updating guide](https://doc.ibexa.co/en/
 
     #### How to still use the old VCL and the old X-Location-Id headers
 
-    In all 1.x releases you are still able to revert this and use the old deprecated system if you need to. To do that:
+    In all 1.x releases you're still able to revert this and use the old deprecated system if you need to. To do that:
     - Keep using the VCL for BAN
     - Disable _(comment out)_ `EzSystemsPlatformHttpCacheBundle` in `app/AppKernel.php`
     - Change `app/AppCache.php` back to extend `eZ\Bundle\EzPublishCoreBundle\HttpCache`

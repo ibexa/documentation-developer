@@ -75,7 +75,7 @@ This introduces changes from the relevant website skeleton and results in confli
 
 Resolve the conflicts in the following way:
 
-- Make sure all automatically added `ezsystems/*` packages are removed. If you explicitly added any packages that are not part of the standard installation, retain them.
+- Make sure all automatically added `ezsystems/*` packages are removed. If you explicitly added any packages that aren't part of the standard installation, retain them.
 - Review the rest of the packages. If your project requires a package, keep it.
 - If a package is only used as a dependency of an `ezsystems` package, remove it. You can check how the package is used with `composer why <packageName>`.
 - Keep the dependencies listed in the website skeleton.

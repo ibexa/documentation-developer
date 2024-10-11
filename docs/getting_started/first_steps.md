@@ -254,7 +254,7 @@ Call the group "Bloggers".
 ![Assigning a role](first-steps-assign-roles.png)
 
 You can now log out and log in again as the new User.
-You are able to create Blog Posts only.
+You're able to create Blog Posts only.
 
 !!! tip  "More information"
 

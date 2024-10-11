@@ -202,19 +202,19 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 === "Ibexa DXP v4.6"
 
     - For content search, Solr 7.7 LTS or Solr 8, recommended 8.11.1 or higher. Alternatively, Elasticsearch 7.16.2 or higher 7.x version.
-    - The above solutions require Oracle Java/Open JDK. The minimum requirement is 8 LTS, recommended 11 LTS. Newer versions are not supported.
+    - The above solutions require Oracle Java/Open JDK. The minimum requirement is 8 LTS, recommended 11 LTS. Newer versions aren't supported.
 
 === "Ibexa DXP v3.3"
 
     - For content search, Solr 7.7 LTS or Solr 8, recommended 8.11.1 or higher. Alternatively, Elasticsearch 7.16.2 or higher 7.x version.
     - For BinaryFile Field indexing, Apache Tika 1.20 or higher 1.x version, recommended 1.28.1 or higher.
-    - The above solutions require Oracle Java/Open JDK. The minimum requirement is 8 LTS, recommended 11 LTS. Newer versions are not supported.
+    - The above solutions require Oracle Java/Open JDK. The minimum requirement is 8 LTS, recommended 11 LTS. Newer versions aren't supported.
 
 === "eZ Platform v2.5"
 
     - For content search, Solr 7.7 LTS or Solr 8, recommended 8.11.1 or higher. Alternatively, Elasticsearch 7.16.2 or higher 7.x version.
     - For BinaryFile Field indexing, Apache Tika 1.20 or higher 1.x version, recommended 1.28.1 or higher.
-    - The above solutions require Oracle Java/Open JDK. The minimum requirement is 8 LTS, recommended 11 LTS. Newer versions are not supported.
+    - The above solutions require Oracle Java/Open JDK. The minimum requirement is 8 LTS, recommended 11 LTS. Newer versions aren't supported.
 
 ## Graphic Handler
 

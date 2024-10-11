@@ -93,7 +93,7 @@ Log in to your service portal on [support.ibexa.co](https://support.ibexa.co/), 
     If you configure several projects on one machine, make sure that
     you set different tokens for each of the projects in their respective `auth.json` files.
 
-After this, when running Composer to get updates, you are asked for a username and password. Use:
+After this, when running Composer to get updates, you're asked for a username and password. Use:
 
 - as username - your Installation key found on the **Maintenance and Support agreement details** page in the service portal
 - as password - the token password you retrieved in step 3 above.

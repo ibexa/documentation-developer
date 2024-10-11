@@ -21,7 +21,7 @@ For more complex cases, you can build custom [controllers](controllers.md).
 The Query controller offers a set of [built-in Query types](built-in_query_types.md).
 You can use them in the content view configuration, or in the [Content query Field](#content-query-field).
 
-You can also write [custom Query types](create_custom_query_type.md) for the cases that are not covered by the built-in ones.
+You can also write [custom Query types](create_custom_query_type.md) for the cases that aren't covered by the built-in ones.
 
 ### Query type configuration
 

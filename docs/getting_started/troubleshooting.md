@@ -32,7 +32,7 @@ The output from `bin2hex` is limited to 0-9 and a-f. This more than doubles the 
 If you have problems installing [[= product_name =]] on a system with limited RAM (for example 1GB or 2GB), enable swap.
 It allows your operating system to use the hard disk to supplement RAM when it runs out.
 
-With swap enables you are able to successfully run `php -d memory_limit=-1 bin/console ibexa:install --env prod ezplatform-clean`.
+With swap enables you're able to successfully run `php -d memory_limit=-1 bin/console ibexa:install --env prod ezplatform-clean`.
 
 When a system runs out of RAM, you may see `Killed` when trying to clear the cache (e.g. `php bin/console --env=prod cache:clear` from your project's root directory).
 
