@@ -30,7 +30,6 @@ ibexa:
                             icon: '/bundles/ibexaplatformicons/img/all-icons.svg#notice'
                             reviewers:
                                 required: true
-                                # Location ID of "Administrator users" user group.
                                 user_group: 13
                             actions:
                                 legal_transition_action:
@@ -38,6 +37,7 @@ ibexa:
                                         message: "Sent to the legal department"
                             validate: true
                         back_to_draft:
+                            # Notice the reverse property referring to previous transition label
                             reverse: to_legal
                             label: Back to draft
                             color: '#cb8888'
