@@ -44,7 +44,7 @@ Use the POST request to create or update items with the given ID in the database
 `POST: https://admin.perso.ibexa.co/api/[customerid]/item`
 
 A body of the request must contain a valid XML document.
-Once uploaded, the item is scheduled to be inserted in the database, and itsn't directly available.
+Once uploaded, the item is scheduled to be inserted in the database, and isn't directly available.
 
 ## DELETE requests
 
