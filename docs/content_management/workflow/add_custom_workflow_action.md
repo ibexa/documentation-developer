@@ -48,7 +48,7 @@ Line 36 in the listener above sets a custom result value for the transition.
 You can use this value in other stages and transitions for this content item, for example:
 
 ``` yaml hl_lines="10 11"
-[[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 43, 54) =]]
+[[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 44, 55) =]]
 ```
 
 The action indicated here is performed only if the result from the `legal_transition_action` is set to `true`.
