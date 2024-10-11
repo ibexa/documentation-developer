@@ -1,5 +1,5 @@
 ---
-description: The basis of all field types are their Type and Value classes, containing, respectively, the logic and the data for the Fields.
+description: The basis of all field types are their Type and Value classes, containing, respectively, the logic and the data for the fields.
 ---
 
 # Type and Value
@@ -8,9 +8,9 @@ A field type must contain a Type class which contains the logic of the field typ
 A Type class must implement `Ibexa\Core\FieldType\FieldType` ("field type interface").
 All native field types also extend the `Ibexa\Core\FieldType\FieldType` abstract class that implements this interface and provides implementation facilities through a set of abstract methods of its own.
 
-You should also provide a value object class for storing the custom Field value provided by the field type.
+You should also provide a value object class for storing the custom field value provided by the field type.
 The Value is used to represent an instance of the field type within a content item.
-Each Field presents its data using an instance of the Type's Value class.
+Each field presents its data using an instance of the Type's Value class.
 A Value class must implement the `Ibexa\Contracts\Core\FieldType` interface.
 It may also extend the `Ibexa\Core\FieldType\Value` abstract class.
 It's meant to be stateless and as lightweight as possible.
@@ -22,13 +22,13 @@ The Type class of a field type provides an implementation of the [`Ibexa\Contrac
 
 ### Field Definition handling
 
-A custom field type is used in a Field definition of a custom content type.
+A custom field type is used in a field definition of a custom content type.
 You can additionally provide [settings for the field type](#field-type-settings) and a [validator configuration](field_type_validation.md).
 Since the public PHP API cannot know anything about these, their handling is delegated to the field type itself through the following methods:
 
 #### `getFieldTypeIdentifier()`
 
-Returns a unique identifier for the custom field type which is used to assign the type to a Field definition.
+Returns a unique identifier for the custom field type which is used to assign the type to a field definition.
 By convention it should be prefixed by a unique vendor shortcut (e.g. `ibexa` for [[= product_name =]]).
 
 #### `getSettingsSchema()`
@@ -55,14 +55,14 @@ It's important to note that the schema definitions of the field type can be both
 
 This also applies to all user interfaces and the REST API, which therefore must provide extension points to register handling code for custom field type. These extensions aren't defined yet.
 
-### field type name
+### Field type name
 
 The content item name is retrieved by the `Ibexa\Core\FieldType\FieldType::getName` method which must be implemented.
 To generate content item name or URL alias the field type name must be a part of a name schema or a URL schema.
 
 ## Value handling
 
-A field type needs to deal with the custom value format provided by it. In order for the public PHP API to work properly, it delegates working with such custom Field values to the corresponding field type. The `Ibexa\Core\FieldType\FieldType` interface therefore provides the following methods:
+A field type needs to deal with the custom value format provided by it. In order for the public PHP API to work properly, it delegates working with such custom field values to the corresponding field type. The `Ibexa\Core\FieldType\FieldType` interface therefore provides the following methods:
 
 #### `acceptValue()`
 
@@ -78,7 +78,7 @@ For example: a user provides an HTTP link as a string, `acceptValue()` converts 
 
 The field type can specify that the user may define a default value for the `Field` of the type through settings. If no default value is provided, the field type is asked for an "empty value" as the final fallback.
 
-The value chain for filling a specific Field of the field type is as follows:
+The value chain for filling a specific field of the field type is as follows:
 
 1. Is a value provided by the filling user?
 2. If not, is a default value provided by the`FieldDefinition`?
@@ -140,7 +140,7 @@ This ensures that the initialization steps shared by all field types are execute
 
 To make the search engine aware of the data stored in a field type, register it as [indexable](field_type_search.md)
 
-## field type settings
+## Field type settings
 
 It's recommended to use a simple associative array format for the settings schema returned by `Ibexa\Contracts\Core\FieldType\FieldType::getSettingsSchema()`, which follows these rules:
 

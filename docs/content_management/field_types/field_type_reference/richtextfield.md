@@ -106,7 +106,7 @@ When creating RichText content with the REST API, use the `xml` key of the `fiel
 
 The RichText format enriches [DocBook](https://docbook.org/) with the following custom elements:
 
-- `section` - main element of a RichText Field
+- `section` - main element of a RichText field
 - `ezembed` - holds embedded images
 - `ezembedinline` - holds embedded content items
 - `eztemplate` - holds custom tags, including built-in custom tags for embedded Facebook, Twitter and YouTube content

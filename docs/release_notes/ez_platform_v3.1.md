@@ -47,21 +47,21 @@ This release of eZ Platform introduces the following new features:
 
     ![](3_1_filter_elements.png)
 
-    ### Field Group permissions
+    ### Field group permissions
 
-    The new [Field Group Limitation](https://doc.ibexa.co/en/latest/guide/limitation_reference/#field-group-limitation)
-    enables you to control who can edit content Fields per Field group.
+    The new [field group Limitation](https://doc.ibexa.co/en/latest/guide/limitation_reference/#field-group-limitation)
+    enables you to control who can edit content fields per field group.
     
     ### Version comparison
     
-    You can now compare additional Fields in version comparison of content item:
+    You can now compare additional fields in version comparison of content item:
     
     - Content Relation and Content Relations
     - Image Asset and Image
     - Matrix
     - Media
     
-    For overview of additional Fields, see [User documentation on Comparing versions]([[= user_doc =]]/publishing/publishing/#comparing-versions).
+    For overview of additional fields, see [User documentation on Comparing versions]([[= user_doc =]]/publishing/publishing/#comparing-versions).
     
 ### URL management UI
 
@@ -87,15 +87,15 @@ For more information about configuring the Universal Discovery Widget, see [Exte
 
 ### Field group display
 
-Display of Field groups has been improved in content preview and editing.
+Display of field groups has been improved in content preview and editing.
 
-When editing, Field groups are now presented in tabs:
+When editing, field groups are now presented in tabs:
 
-![Field group tabls in Content editing](3.1_collapsible_fields_edit.png)
+![Field group tabls in content editing](3.1_collapsible_fields_edit.png)
 
 In Content preview, the group sections are collapsible:
 
-![Collapsible Field groups in Content view](3.1_collapsible_fields.png)
+![Collapsible field groups in content view](3.1_collapsible_fields.png)
 
 ### Saving incomplete draft
 

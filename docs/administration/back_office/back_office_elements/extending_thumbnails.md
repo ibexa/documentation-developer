@@ -24,15 +24,15 @@ For example for users thumbnails can be downloaded from an avatar-generating ser
 
 For this layer there are following default implementations:
 
-- The mechanism looks for Fields that can be thumbnail, if found, the mechanism moves to the second layer.
-- If there are no Fields that can be a thumbnail, the content type icon is used as a thumbnail.
+- The mechanism looks for fields that can be thumbnail, if found, the mechanism moves to the second layer.
+- If there are no fields that can be a thumbnail, the content type icon is used as a thumbnail.
 
 ### Second layer
 
-Second layer of mechanism enables selection of thumbnail from a Field that the first layer has found. 
-It searches the content type for all the Fields e.g. images with function "Can be a thumbnail" turned on.
+Second layer of mechanism enables selection of thumbnail from a field that the first layer has found. 
+It searches the content type for all the fields e.g. images with function "Can be a thumbnail" turned on.
 
-If there is more than one Field in the content type that can be used as a thumbnail, this layer returns the first nonempty Field as a thumbnail.
+If there is more than one field in the content type that can be used as a thumbnail, this layer returns the first nonempty field as a thumbnail.
 
 This mechanism can be modified to fit your site needs, so you can decide from where and how the thumbnails is downloaded.
 
@@ -60,14 +60,14 @@ At this point you can go to the back office and check the results.
     This strategy overrides all generated thumbnails. You can specify a specific content type. See the example [here](https://github.com/ibexa/user/blob/main/src/lib/Strategy/DefaultThumbnailStrategy.php)
 
 
-## Other Fields as thumbnails
+## Other fields as thumbnails
 
 Any field type can generate a thumbnail, e.g.:
 
 - DateAndTime (`ezdatetime`) - you can add a mini calendar thumbnail for Appointment content type and on the day of the appointment a clock thumbnail with a specific time when it takes place
 - TextBlock (`eztext`) -  you can add a first letter of the text block that is inside
 
-### Add eztext Field as thumbnail
+### Add eztext field as thumbnail
 
 First, create a strategy that adds support for `eztext` as the thumbnail.
 It enables you to add a thumbnail URL in the text field.

@@ -335,7 +335,7 @@ By default, debugging is disabled. To enable debugging, you can toggle either of
 ## Define field type mapping templates
 
 Before you can re-index the [[= product_name =]] data, so that Elasticsearch can search through its contents, you must define an index template.
-Templates instruct Elasticsearch to recognize [[= product_name =]] Fields as specific data types, based on, for example, a field name.
+Templates instruct Elasticsearch to recognize [[= product_name =]] fields as specific data types, based on, for example, a field name.
 They help you prevent Elasticsearch from using the dynamic field mapping feature to create type mappings automatically.
 You can create several field type mapping templates for each index, for example, to define settings that are specific for different languages.
 When you establish a relationship between a field mapping template and a connection, you can apply several templates, too.

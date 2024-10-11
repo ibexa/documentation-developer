@@ -20,4 +20,4 @@ For example, you can offer a 10% discount for all products in the catalog to use
 To enable using customer groups, you need to modify the User content type's definition
 by adding a [Customer Group Field](customergroupfield.md).
 
-With this Field you can add a user to any of the predefined customer groups.
+With this field you can add a user to any of the predefined customer groups.

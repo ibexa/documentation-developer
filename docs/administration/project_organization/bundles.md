@@ -92,7 +92,7 @@ see the [How to Remove a Bundle]([[= symfony_doc =]]/bundles/remove.html) instru
 |ibexa/seo|Search Engine Optimization (SEO) tool|
 |ibexa/taxonomy|Taxonomy functionality|
 |ibexa/tree-builder|Tree builder functionality|
-|ibexa/version-comparison|Enables comparing between two versions of the same Field|
+|ibexa/version-comparison|Enables comparing between two versions of the same field|
 |ibexa/workflow|Collaboration feature that enables you to send content draft to any user for a review or rewriting|
 |ibexa/recommendation-client|Client for connecting with the personalization engine **deprecated**|
 |ibexa/commerce-base-design|Standard design and theme for the shop **deprecated** |

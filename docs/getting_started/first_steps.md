@@ -54,9 +54,9 @@ module.exports = [ eZConfig, ibexaConfig, ...customConfigs ];
 
 5\. Input the content type's name, for example "Blog Post", and identifier: `blog_post`.
 
-6\. Below, add a Field definition of the type Text Line. Name it "Title" and give it identifier `title`.
+6\. Below, add a field definition of the type Text Line. Name it "Title" and give it identifier `title`.
 
-7\. Add another Field definition: Text (type Rich text) with identifier `text`.
+7\. Add another field definition: Text (type Rich text) with identifier `text`.
 
 8\. Save the content type.
 

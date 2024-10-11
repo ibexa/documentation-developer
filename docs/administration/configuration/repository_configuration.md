@@ -1,5 +1,5 @@
 ---
-description: Configure Repository connections, archive limits, Field groups and other settings.
+description: Configure Repository connections, archive limits, field groups and other settings.
 ---
 
 # Repository configuration
@@ -161,7 +161,7 @@ SECOND_DATABASE_URL=otherdb://otheruser:otherpasswd@otherhost:otherport/otherdbn
 ## Field groups configuration
 
 Field groups, used in content and content type editing, can be configured under the `repositories` key.
-Values entered there are Field group *identifiers*:
+Values entered there are field group *identifiers*:
 
 ``` yaml
 repositories:
@@ -173,7 +173,7 @@ repositories:
 
 These identifiers can be given human-readable values and can be translated. Those values are used when editing content types.
 The translation domain is `ibexa_fields_groups`.
-This example in `translations/ibexa_fields_groups.en.yaml` defines English names for Field groups:
+This example in `translations/ibexa_fields_groups.en.yaml` defines English names for field groups:
 
 ``` yaml
 content: Content

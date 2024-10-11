@@ -12,7 +12,7 @@ Field types are responsible for:
 - Storing data, either using the native storage engine mechanisms or specific means
 - Validating input data
 - Making the data searchable (if applicable)
-- Displaying Fields
+- Displaying fields
 
 You can find more information in [field type documentation](field_types.md).
 It describes how each component of a field type interacts with the various layers of the system, and how to implement them.

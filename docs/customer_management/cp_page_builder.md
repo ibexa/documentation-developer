@@ -20,7 +20,7 @@ If you plan to expand your portal portfolio in the future, see [multiple portal 
 First, create a Customer Portal page, its location ID needs to be later specified in the configuration.
 To do it, go to **Content** -> **Content structure**, and select **Customer Portal Page**.
 
-For now, you only need to add a name and a description in the Field view, you can find it in the upper toolbar on the left side.
+For now, you only need to add a name and a description in the field view, you can find it in the upper toolbar on the left side.
 Next, click **Publish** to see the page in the content tree.
 
 ![Add name and description to Customer Portal](img/cp_name_description.png)

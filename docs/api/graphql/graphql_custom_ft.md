@@ -167,7 +167,7 @@ class MyFieldDefinitionMapper extends DecoratingFieldDefinitionMapper implements
 
 The following variables are available in the resolver's expression:
 
-- `field` is the current field, as an extension of the API's Field object that proxies properties requests to the Field Value
+- `field` is the current field, as an extension of the API's field object that proxies properties requests to the field Value
 - `content` is the resolved content item's `Content`
 - `location` is the content item's resolved location, for more information, see [Querying Locations](graphql_queries.md#querying-locations)
 - `item` is the content together with its location `\Ibexa\GraphQL\Value\Item`

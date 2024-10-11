@@ -397,7 +397,7 @@ render(controller('ibexa_personalization::showRecommendationsAction', {
 | `crossContentType`| bool | If set to `true`, returns recommendations for all content types specified in the scenario. |
 | `limit`          | int    | Number of recommendations to fetch. |
 | `template`       | string | Template name. |
-| `attributes`     | array  | Fields that are required and are requested from the Personalization server. These Field names are also used inside Handlebars templates. |
+| `attributes`     | array  | Fields that are required and are requested from the Personalization server. These field names are also used inside Handlebars templates. |
 
 You can also bypass named arguments with standard value passing as arguments.
 
@@ -413,7 +413,7 @@ in the recommendation call.
 This response data can be used in templates to render and style recommendations.
 
 For example, the following GET request should deliver the response below
-if the content Fields were previously exported by the export script.
+if the content fields were previously exported by the export script.
 
 `GET https://reco.perso.ibexa.co/api/v2/<your_customer_id>/someuser/popular.json?contextitems=71&numrecs=5&categorypath=/&outputtypeid=<your_item_type>&attribute=name,author,uri,image`
 

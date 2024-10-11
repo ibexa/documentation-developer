@@ -79,7 +79,7 @@ for example [`ContentInfo`](https://github.com/ibexa/core/blob/main/src/contract
 for [`Content`](https://github.com/ibexa/core/blob/main/src/contracts/Repository/Values/Content/Content.php).
 These objects provide you with lower-level information.
 For instance, `ContentInfo` contains `currentVersionNo` or `remoteId`,
-while `Content` enables you to retrieve Fields, content type, or previous versions.
+while `Content` enables you to retrieve fields, content type, or previous versions.
 
 !!! note
 

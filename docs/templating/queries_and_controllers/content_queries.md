@@ -1,5 +1,5 @@
 ---
-description: Query content by using Query types and content query Field.
+description: Query content by using Query types and content query field.
 ---
 
 # Content queries
@@ -19,7 +19,7 @@ For more complex cases, you can build custom [controllers](controllers.md).
 ## Query types
 
 The Query controller offers a set of [built-in Query types](built-in_query_types.md).
-You can use them in the content view configuration, or in the [Content query Field](#content-query-field).
+You can use them in the content view configuration, or in the [content query field](#content-query-field).
 
 You can also write [custom Query types](create_custom_query_type.md) for the cases that aren't covered by the built-in ones.
 
@@ -81,16 +81,16 @@ Use the [`pagerfanta`](https://www.babdev.com/open-source/packages/pagerfanta/do
 [[= include_file('code_samples/front/query_pagination/templates/themes/my_theme/full/folder.html.twig') =]]
 ```
 
-## Content query Field
+## Content query field
 
-The [Content query Field](contentqueryfield.md) is a Field that defines a query.
-The results of the query are available in the Field value.
+The [Content query field](contentqueryfield.md) is a field that defines a query.
+The results of the query are available in the field value.
 
-![Content query Field definition](content_query_field_definition.png)
+![Content query field definition](content_query_field_definition.png)
 
 ### Query type
 
-When adding the Field to a content type definition, select the Query type in the **Query type** dropdown.
+When adding the field to a content type definition, select the Query type in the **Query type** dropdown.
 All Query types in the application are available, both [built-in](built-in_query_types.md) and [custom ones](create_custom_query_type.md).
 
 ### Returned types
@@ -107,8 +107,8 @@ contentType: '@=returnedType'
 
 Select **Enable pagination** and set the number of items per page to paginate the results.
 
-You can override the pagination settings from Field definition
-by setting the `enablePagination`, `disablePagination` or `itemsPerPage` parameters when rendering the Content query Field:
+You can override the pagination settings from field definition
+by setting the `enablePagination`, `disablePagination` or `itemsPerPage` parameters when rendering the content query field:
 
 ``` html+twig
 {{ ibexa_render_field(content, 'query', {
@@ -144,14 +144,14 @@ The following variables are available in parameter expressions:
 
 ### Content view configuration
 
-To render a Content query Field, in the content view configuration, use the `content_query_field` view type:
+To render a content query field, in the content view configuration, use the `content_query_field` view type:
 
 ``` yaml
 [[= include_file('code_samples/front/list_content/config/packages/views.yaml', 8, 9) =]][[= include_file('code_samples/front/list_content/config/packages/views.yaml', 22, 28) =]]
 ```
 
-The identifier of the Content query Field must be matched by
+The identifier of the content query field must be matched by
 using the `'@Ibexa\FieldTypeQuery\ContentView\FieldDefinitionIdentifierMatcher'` matcher.
 
 Query results are provided to the template in the `items` variable.
-See [List content](list_content.md#list-children-in-content-query-field) for an example of using the Content query Field.
+See [List content](list_content.md#list-children-in-content-query-field) for an example of using the content query field.

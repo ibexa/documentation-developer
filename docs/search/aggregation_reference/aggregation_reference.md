@@ -38,7 +38,7 @@ There are three types of aggregations:
 
 ## Field aggregations
 
-|Name | Type | Based on Field|
+|Name | Type | Based on field|
 |---|---|---|
 |[AuthorTermAggregation](authorterm_aggregation.md) | Term | [Author](authorfield.md) |
 |[CheckboxTermAggregation](checkboxterm_aggregation.md) | Term |[Checkbox](checkboxfield.md)|

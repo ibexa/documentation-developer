@@ -92,7 +92,7 @@ SomethingPayload:
 
 You can customize the name used by GraphQL as the content field name.
 
-Use this setting to avoid conflicts with Field names that derive from a content type definition.
+Use this setting to avoid conflicts with field names that derive from a content type definition.
 
 ``` yaml
 parameters:

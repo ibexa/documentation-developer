@@ -101,7 +101,7 @@ php bin/console ibexa:images:resize-original <Field identifier> <content type id
 You must provide the command with:
 
 - identifier of the image content type
-- identifier of the Field that you want to affect
+- identifier of the field that you want to affect
 - name of the image variation to apply to the images
 
 For example:
@@ -290,7 +290,7 @@ sudo apt-get install optipng
 The [RichText](richtextfield.md) field allows you to embed other 
 content items within the field.
 
-Content items that are identified as images are rendered in the Rich Text Field 
+Content items that are identified as images are rendered in the Rich Text field 
 by using a dedicated template.
 
 You can determine content types that are treated as images and rendered.

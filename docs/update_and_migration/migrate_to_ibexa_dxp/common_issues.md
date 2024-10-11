@@ -60,9 +60,9 @@ The command can be executed in two modes:
 
 You can read more about this issue here: [EZP-27254](https://issues.ibexa.co/browse/EZP-27254)
 
-## Always available flag set on all Fields
+## Always available flag set on all fields
 
-Always available flag is set on all Fields, instead of only on Fields in the main
+Always available flag is set on all fields, instead of only on fields in the main
 language. This problem occurs when [[= product_name =]] is used to create content that is both
 always available and has multiple translations. The cleanup script correctly sets
 always available flag for prioritized language filtering in Legacy search engine.
@@ -71,14 +71,14 @@ always available flag for prioritized language filtering in Legacy search engine
 php bin/console ezpublish:update:legacy_storage_fix_fields_always_available_flag
 ```
 
-Only affected Fields are processed by the cleanup command.
+Only affected fields are processed by the cleanup command.
 
 You can read more about this issue here: [EZP-24882](https://issues.ibexa.co/browse/EZP-24882)
 
 ## Listing sub-content
 
 it's possible that after upgrade `sort_key_string` is left empty. This may cause problems
-in searches throughout the API. The cleanup script checks if Fields of given Field
+in searches throughout the API. The cleanup script checks if fields of given field
 Type have correct sort key, and update it if needed.
 
 Execute the following command from the installation root directory:

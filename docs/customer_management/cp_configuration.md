@@ -70,7 +70,7 @@ To do so, [create and configure user registration form](create_user_registration
 
 ## Address
 
-With the Address field type, you can customize address Fields and configure them per country.
+With the Address field type, you can customize address fields and configure them per country.
 To learn more, see [Address field type documentation](addressfield.md).
 
 ## Templates

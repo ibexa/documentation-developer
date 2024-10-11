@@ -28,7 +28,7 @@ you can [query](graphql_queries.md) and [operate on](graphql_operations.md).
 GraphQL schema cannot be generated for names that do not follow the [GraphQL specification](http://spec.graphql.org/June2018/#sec-Names),
 for example names that start with a digit.
 
-This concerns image variations, content types, content type groups, product types, and Field definition identifiers.
+This concerns image variations, content types, content type groups, product types, and field definition identifiers.
 
 It's recommended to rename the relevant identifiers. Failure to generate schema is registered in logs.
 To find identifiers that aren't included in the schema, look for "Skipped schema generation" log messages, for example:
@@ -46,7 +46,7 @@ Use the singular field to query a single content item, and the plural to get a w
 With the queries you can inspect:
 
 - the existing types 
-- details of content types, and their Fields in the context of developing your own application
+- details of content types, and their fields in the context of developing your own application
 
 You can request additional content information such as the Section or Objects states,
 available under the `_info` field.

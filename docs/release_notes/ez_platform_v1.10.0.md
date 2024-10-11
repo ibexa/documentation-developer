@@ -33,7 +33,7 @@ As part of ongoing effort to simplify everyday aspects of the API for v2, [one n
 
 ###### Example
 
-For objects such as Content, ContentType, Field Definitions and more, to get translated name, description or fields you would before this change have to do the following in PHP and Twig:
+For objects such as content, content type, field definitions and more, to get translated name, description or fields you would before this change have to do the following in PHP and Twig:
 
 **Typical use of API prior to v1.10:**
 

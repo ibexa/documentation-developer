@@ -49,7 +49,7 @@ You need to replace importing the following classes:
 
 ## Extending field type templates
 
-If you extended templates for `ezobjectrelationlist_field`, `ezimageasset_field`, or `ezobjectrelation_field` Fields
+If you extended templates for `ezobjectrelationlist_field`, `ezimageasset_field`, or `ezobjectrelation_field` fields
 using `{% extends "@EzPublishCore/content_fields.html.twig" %}`,
 you now need to extend `EzSystemsPlatformHttpCache` instead, if you wish to make use of cache:
 `{% extends "@EzSystemsPlatformHttpCache/content_fields.html.twig" %}`.

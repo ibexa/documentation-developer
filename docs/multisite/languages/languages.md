@@ -28,15 +28,15 @@ yarn encore <environment>
 
 **The new language must then be added to the [SiteAccess](multisite.md) configuration**. Once this is done, any user with proper permissions can create content item versions in these languages in the user interface.
 
-### Translatable and untranslatable Fields
+### Translatable and untranslatable fields
 
-Language versions consist of translated values of the content item's Fields. In the content type definition every Field is set to be Translatable or not.
+Language versions consist of translated values of the content item's fields. In the content type definition every field is set to be Translatable or not.
 
-[[= product_name =]] does not decide by itself which Fields can be translated and which cannot. For some Field values the need for a translation can be obvious, for example for the body of an article. In other cases, for instance images without text, integer numbers or e-mail addresses, translation is usually unnecessary. Despite that, [[= product_name =]] gives you the possibility to mark any Field as translatable regardless of its field type. It's only your decision to exclude the translation possibility for those Fields where it makes no sense.
+[[= product_name =]] does not decide by itself which fields can be translated and which cannot. For some field values the need for a translation can be obvious, for example for the body of an article. In other cases, for instance images without text, integer numbers or e-mail addresses, translation is usually unnecessary. Despite that, [[= product_name =]] gives you the possibility to mark any field as translatable regardless of its field type. It's only your decision to exclude the translation possibility for those fields where it makes no sense.
 
-When a Field isn't flagged as Translatable, its value is copied from the initial/main translation when a new language version is created. This copied value cannot be modified. When a Field is Translatable, you have to enter its value in a new language version manually.
+When a field isn't flagged as Translatable, its value is copied from the initial/main translation when a new language version is created. This copied value cannot be modified. When a field is Translatable, you have to enter its value in a new language version manually.
 
-For example, let's say that you need to store information about marathon contestants and their results. You build a "contestant" content type using the following Fields: name, photo, age, nationality, finish time. Allowing the translation of anything other than nationality would be pointless, since the values stored by the other Fields are the same regardless of the language used to describe the contestant. In other words, the name, photo, age and finish time would be the same in, for example, both English and Norwegian.
+For example, let's say that you need to store information about marathon contestants and their results. You build a "contestant" content type using the following fields: name, photo, age, nationality, finish time. Allowing the translation of anything other than nationality would be pointless, since the values stored by the other fields are the same regardless of the language used to describe the contestant. In other words, the name, photo, age and finish time would be the same in, for example, both English and Norwegian.
 
 ### Access control
 

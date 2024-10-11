@@ -679,7 +679,7 @@ You can find it in https://github.com/ezsystems/ezplatform-ee-installer/blob/2.3
 
 !!! caution "Form (ezform) field type"
 
-    After the update, in order to create forms, you have to add a new content type (for example, named "Form") that contains `Form` Field (this content type can contain other fields
+    After the update, in order to create forms, you have to add a new content type (for example, named "Form") that contains `Form` field (this content type can contain other fields
     as well). After that you can use forms inside Landing Pages via Embed block.
 
 ### C. Update to v2.4
@@ -943,7 +943,7 @@ CREATE INDEX idx_workflow_name ON ezeditorialworkflow_workflows(workflow_name);
     Clear the cache and refresh the page. The dropdown should now be active.
     Select any option in the dropdown and save the content type.
 
-    You should now be able to remove the Field definition from the content type.
+    You should now be able to remove the field definition from the content type.
 
     Afterwards, you can remove the configuration above from `ezplatform.yml`.
 

@@ -26,7 +26,7 @@ and updated in the background when someone requests them.
 
 Current content tags (and when the system purges on them):
 
-- Content: `c<content-id>` - Purged on all smaller or larger changes to content (including its metadata, Fields and Locations).
+- Content: `c<content-id>` - Purged on all smaller or larger changes to content (including its metadata, fields and Locations).
 - Content Version: `cv<content-id>` - Purged when any version of Content is changed (for example, a draft is created or removed).
 - Content type: `ct<content-type-id>` - Used when the content type changes, affecting content of its type.
 - Location: `l<location-id>` - Used for clearing all cache relevant for a given Location.

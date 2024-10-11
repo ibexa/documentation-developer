@@ -97,13 +97,13 @@ All of the following properties must be used, otherwise the multi-file upload do
         - **defaultMappings** _{Array}_ - a list of file type to content type mappings
         Sample mapping be an object and should follow the convention:
             - **contentTypeIdentifier** _{String}_ - content type identifier
-            - **contentFieldIdentifier** _{String}_ - Field identifier
-            - **nameFieldIdentifier** _{String}_ - name Field identifier
+            - **contentFieldIdentifier** _{String}_ - field identifier
+            - **nameFieldIdentifier** _{String}_ - name field identifier
             - **mimeTypes** _{Array}_ - a list of file types assigned to a specific content type
         - **fallbackContentType** _{Object}_ - a fallback content type definition. Should contain the following info:
             - **contentTypeIdentifier** _{String}_ - content type identifier
-            - **contentFieldIdentifier** _{String}_ - Field identifier
-            - **nameFieldIdentifier** _{String}_ - name Field identifier
+            - **contentFieldIdentifier** _{String}_ - field identifier
+            - **nameFieldIdentifier** _{String}_ - name field identifier
         - **locationMappings** _{Array}_ - list of file type to content type mappings based on a Location identifier
         - **maxFileSize** {Number} - maximum file size allowed for uploading. It's a number of bytes
     - **token** _{String}_ - CSRF token

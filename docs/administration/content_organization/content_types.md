@@ -5,11 +5,11 @@ description: A content type is a base for new content items.
 # Content types
 
 A content type is a base for new content items.
-It defines what Fields are available in the content item.
+It defines what fields are available in the content item.
 
 ![Content types](admin_panel_content_types.png "Content types")
 
-For example, a new content type called *Article* can have Fields such as title, author, body, image, etc.
+For example, a new content type called *Article* can have fields such as title, author, body, image, etc.
 Based on this content type, you can create any number of content items.
 content types are organized into groups.
 
@@ -28,13 +28,13 @@ Each content type is characterized by a set of metadata which define the general
 
 !!! note
 
-    Note that even if your content type defines a Field intended as a name for the content item (for example, a title of an article or product name), do not confuse it with this Name, which is a piece of metadata, not a Field.
+    Note that even if your content type defines a field intended as a name for the content item (for example, a title of an article or product name), do not confuse it with this Name, which is a piece of metadata, not a field.
 
 **Identifier** – an identifier for internal use in configuration files, templates, PHP code, etc. It must be unique, can only contain lowercase letters, digits and underscores; the maximum length is 50 characters. (Mandatory.)
 
 **Description** – a detailed description of the content type. (Optional.)
 
-<a id="content-name-pattern"></a>**Content name pattern** – a pattern that defines what name a new content item based on this content type gets. The pattern usually consists of Field identifiers that tell the system which Fields it should use when generating the name of a content item. Each Field identifier has to be surrounded with angle brackets. Text outside the angle brackets is included literally. If no pattern is provided, the system automatically uses the first Field. (Optional.)
+<a id="content-name-pattern"></a>**Content name pattern** – a pattern that defines what name a new content item based on this content type gets. The pattern usually consists of field identifiers that tell the system which fields it should use when generating the name of a content item. Each field identifier has to be surrounded with angle brackets. Text outside the angle brackets is included literally. If no pattern is provided, the system automatically uses the first field. (Optional.)
 
 **URL alias name pattern** – a pattern which controls how the virtual URLs of the Locations are generated when content items are created based on this content type. Note that only the last part of the virtual URL is affected. The pattern works in the same way as the content name pattern. Text outside the angle brackets is converted using the selected method of URL transformation. If no pattern is provided, the system automatically uses the name of the content item itself. (Optional.)
 
@@ -62,8 +62,8 @@ Each content type is characterized by a set of metadata which define the general
 
 ## Field definitions
 
-Aside from the metadata, a content type may contain any number of Field definitions (but has to contain at least one).
-They determine what Fields of what field types are included in all content items based on this content type.
+Aside from the metadata, a content type may contain any number of field definitions (but has to contain at least one).
+They determine what fields of what field types are included in all content items based on this content type.
 
 ![Field definitions](admin_panel_field_definitions.png)
 
@@ -71,7 +71,7 @@ They determine what Fields of what field types are included in all content items
 
 !!! note
 
-    You can assign each Field defined in a content type to a group by selecting one of the groups in the Category drop-down. [Available groups can be configured in the content repository](repository_configuration.md).
+    You can assign each field defined in a content type to a group by selecting one of the groups in the Category drop-down. [Available groups can be configured in the content repository](repository_configuration.md).
 
 !!! caution
 
@@ -87,11 +87,11 @@ They determine what Fields of what field types are included in all content items
 
 ## Modifying content types
 
-A content type and its Field definitions can be modified after creation,
+A content type and its field definitions can be modified after creation,
 even if there are already content items based on it in the system.
 When a content type is modified, each of its instances are changed as well.
-If a new Field definition is added to a content type, this Field appears (empty) in every relevant content item.
-If a Field definition is deleted from the content type, all the corresponding Fields are removed from content items of this type.
+If a new field definition is added to a content type, this field appears (empty) in every relevant content item.
+If a field definition is deleted from the content type, all the corresponding fields are removed from content items of this type.
 
 ## Removing content types
 

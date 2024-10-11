@@ -49,7 +49,7 @@ See [GraphQL documentation](https://graphql.org/) for more information about Gra
 ### Matrix field type
 
 The new [Matrix field type](https://doc.ibexa.co/en/2.5/api/field_types_reference/matrixfield) enables you to store a table of data.
-Columns in the matrix are defined in the Field definition.
+Columns in the matrix are defined in the field definition.
 
 ![Configuring a Matrix field type](2.5_matrix_ft.png)
 
@@ -80,13 +80,13 @@ all features related to user management, such as user accounts, registering, cha
 
 ### Online editor improvements
 
-#### Anchors in Rich Text Field
+#### Anchors in Rich Text field
 
-You can now link fragments of text by adding Anchors in Rich Text Fields.
+You can now link fragments of text by adding Anchors in Rich Text fields.
 
 #### Inline custom tags
 
-You can now create [inline custom tags](https://doc.ibexa.co/en/2.5/guide/extending/extending_online_editor/#inline-custom-tags) in Rich Text Fields.
+You can now create [inline custom tags](https://doc.ibexa.co/en/2.5/guide/extending/extending_online_editor/#inline-custom-tags) in Rich Text fields.
 
 #### Custom CK Editor plugins
 
@@ -111,7 +111,7 @@ The User Settings menu has been expanded with the following options:
 
 - Preferred language of the back office
 - Preferred date format
-- Option to enable or disable a character counter for Rich Text Fields
+- Option to enable or disable a character counter for Rich Text fields
 
 ![User settings screen with new settings](2.5_user_settings.png)
 
@@ -279,6 +279,6 @@ With v2.5.6 you can optionally use Solr 7.7. To enable it:
 
 When searching in the back office you can now select languages to filter results through.
 
-### Searchable Matrix Field
+### Searchable Matrix field
 
-The Matrix Field isn't fully searchable.
+The Matrix field isn't fully searchable.

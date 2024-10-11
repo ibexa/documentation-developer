@@ -38,11 +38,11 @@ When a system runs out of RAM, you may see `Killed` when trying to clear the cac
 
 ## Upload size limit
 
-To make use of the back office, the defined maximum upload size must be consistent with the maximum file size defined in the content type using a File, Media or Image Field.
+To make use of the back office, the defined maximum upload size must be consistent with the maximum file size defined in the content type using a File, Media or Image field.
 
 This is done by setting `LimitRequestBody` for Apache or `client_max_body_size` for nginx.
 
-For instance, if one of those Fields is configured to accept files up to 10MB, then `client_max_body_size` (in case of nginx) should be set above 10MB, with a safe margin, for example to 15MB.
+For instance, if one of those fields is configured to accept files up to 10MB, then `client_max_body_size` (in case of nginx) should be set above 10MB, with a safe margin, for example to 15MB.
 
 You also need to define settings for uploading files in `php.ini`: `upload_max_filesize` and `post_max_size`.
 

@@ -1,5 +1,5 @@
 ---
-description: Ibexa DXP's content model relies on content items that are instances of content types and contain content Fields.
+description: Ibexa DXP's content model relies on content items that are instances of content types and contain content fields.
 ---
 
 # Content model
@@ -20,12 +20,12 @@ A content item consists of:
 
 - [Content information](#content-information)
 - [Fields](#fields), defined by the [content type](content_types.md).
-The Fields can cover data ranging from single variables and text lines to media files or blocks of formatted text.
+The fields can cover data ranging from single variables and text lines to media files or blocks of formatted text.
 
 #### Content information
 
 General information about a content item is stored in a [`ContentInfo`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html) object.
-`ContentInfo` does not include Fields. It contains following information:
+`ContentInfo` does not include fields. It contains following information:
 
 **`id`** - the unique ID of the Content object. These numbers aren't recycled, so if an item is deleted, its ID isn't reused when a new one is created.
 
@@ -36,7 +36,7 @@ The name is in the main language of the content item.
 
 !!! note
 
-    `name` is always searchable, even if the Field(s) used to generate it aren't.
+    `name` is always searchable, even if the field(s) used to generate it aren't.
 
 **`sectionId`** - the unique number of the Section to which the content item belongs.
 New content items are placed in the Standard Section by default.
@@ -76,43 +76,43 @@ If a published item is removed from the Trash (or removed without being put in t
 
 ![Diagram of an example content item](content_model_item_diagram.png)
 
-The Fields of a content item are defined by the content type to which the content item belongs.
-s
+The fields of a content item are defined by the content type to which the content item belongs.
+
 ## Fields
 
-A Field is the smallest unit of storage in the content model and the building block of all content items. Every Field belongs to a field type.
+A field is the smallest unit of storage in the content model and the building block of all content items. Every field belongs to a field type.
 
 Beyond the built-in set of field types, you can [create your own](create_custom_generic_field_type.md).
 
 ### Field value validation
 
-The values entered in a Field may undergo validation, which means the system makes sure that they're correct for the chosen field type and can be used without a problem.
+The values entered in a field may undergo validation, which means the system makes sure that they're correct for the chosen field type and can be used without a problem.
 
-Validation depends on the settings of a particular field type. It cannot be turned off for a Field if its field type supports it.
+Validation depends on the settings of a particular field type. It cannot be turned off for a field if its field type supports it.
 
 ### Field details
 
-Aside from the field type, the Field definition in a content type provides the following information:
+Aside from the field type, the field definition in a content type provides the following information:
 
-**Name** – a user-friendly name that describes the Field. This name is used in the interface, but not internally by the system. It can consist of letters, digits, spaces and special characters; the maximum length is 255 characters. If no name is provided, a unique one is automatically generated.
+**Name** – a user-friendly name that describes the field. This name is used in the interface, but not internally by the system. It can consist of letters, digits, spaces and special characters; the maximum length is 255 characters. If no name is provided, a unique one is automatically generated.
 
 **Identifier** – an identifier for internal use in configuration files, templates, PHP code, etc. It can only contain lowercase letters, digits and underscores; the maximum length is 50 characters. This identifier is also used in name patterns for the content type.
 
-**Description** – a detailed description of the Field.
+**Description** – a detailed description of the field.
 
-**Required** – a flag which indicates if the Field is required for the system to accept the content item. By default, if a Field is flagged as Required, a user isn't able to publish a content item without filling in this Field.
+**Required** – a flag which indicates if the field is required for the system to accept the content item. By default, if a field is flagged as Required, a user isn't able to publish a content item without filling in this field.
 
 !!! note
-    You can use the `ContentService::validate()` method to decide whether the required Fields or whole content items are checked for 
+    You can use the `ContentService::validate()` method to decide whether the required fields or whole content items are checked for 
     completeness at other stages of the editing process.
 
-    The Required flag is in no way related to Field validation. A Field's value is validated whether the Field is set as required or not.
+    The Required flag is in no way related to field validation. A field's value is validated whether the field is set as required or not.
 
-**[Searchable](search.md)** – a flag which indicates if the value of the Field is indexed for searching.
+**[Searchable](search.md)** – a flag which indicates if the value of the field is indexed for searching.
 
-The Searchable flag isn't available for some Fields, because some field types do not allow searching through their values.
+The Searchable flag isn't available for some fields, because some field types do not allow searching through their values.
 
-**[Translatable](languages.md)** – a flag which indicates if the value of the Field can be translated. This is independent of the field type, which means that even Fields such as "Float" or "Image" can be set as translatable.
+**[Translatable](languages.md)** – a flag which indicates if the value of the field can be translated. This is independent of the field type, which means that even fields such as "Float" or "Image" can be set as translatable.
 
 Depending on the field type, there may also be other, specific information to fill in. For example, the "Country" field type allows you to select the default country, as well as to allow selecting multiple countries at the same time.
 
@@ -120,7 +120,7 @@ Depending on the field type, there may also be other, specific information to fi
 
 !!! tip
 
-    You can disable the possibility to edit specific Field details per field type by [adding custom service definition for `ModifyFieldDefinitionsCollectionTypeExtension`](customize_field_type_metadata.md).
+    You can disable the possibility to edit specific field details per field type by [adding custom service definition for `ModifyFieldDefinitionsCollectionTypeExtension`](customize_field_type_metadata.md).
 
 ## Content versions
 
