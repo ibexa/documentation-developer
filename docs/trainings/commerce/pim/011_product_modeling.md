@@ -176,6 +176,7 @@ To simplify casual customer experience (and above all the exercise), the vendor 
 
 - Manufacturers, brands and models are predefined.
 - Front and rear gears, transmission and shifting system are set in one bundle with predefined models.
+- Paint jobs are predefined palette/colorscheme/color set, and patterns.
 
 The following table shows only properties that can vary. When not all combinations are available, the product has multiple lines.
 
@@ -195,7 +196,7 @@ The following table shows only properties that can vary. When not all combinatio
 | Castor      | MTB-S5-4  | Aluminum | Diamond                    | [S, M, L, XL] + 29″    | [Thin, Large]    | [Castor, Pollux]       | G03-2x12 | 4225€ |
 
 - Create the attribute group(s)
-- Create the attributes
+- Create the attributes (TODO: two ways in the BO, Attributes page, or attribute group "Attributes" tab)
 - Create the product type(s)
 - Create the products
 - Create the product variants
