@@ -11,7 +11,7 @@ Below is a short introduction that only covers points needed for this tutorial.
 
 ## Content model overview
 
-The [[= product_name =]] content Repository is centered around **content items**. A content item is a single piece of content, for example an article, a product review, a place, etc.
+The [[= product_name =]] content repository is centered around **content items**. A content item is a single piece of content, for example an article, a product review, a place, etc.
 
 Every content item is an instance of a content type. Content types define what **Fields** are included in each content item.
 For example, an article could include Fields such as *title*, *image*, *abstract*, *article's body*, *publication date* and *list of authors*.

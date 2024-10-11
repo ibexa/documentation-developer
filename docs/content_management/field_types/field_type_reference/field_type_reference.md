@@ -23,7 +23,7 @@ Custom field types have to be programmed in PHP. However, the built-in field ty
 | [Author](authorfield.md) | Stores a list of authors, each consisting of author name and author email. | No | Yes |
 | [BinaryFile](binaryfilefield.md) | Stores a file.| Yes | Yes |
 | [Checkbox](checkboxfield.md) | Stores a boolean value. | Yes | Yes |
-| [Content query](contentqueryfield.md) | Maps an executable Repository query to a Field. | No | No |
+| [Content query](contentqueryfield.md) | Maps an executable repository query to a Field. | No | No |
 | [Country](countryfield.md) | Stores country names as a string. | Yes[^1^](#1-note-on-legacy-search-engine) | Yes |
 | [Customer group](customergroupfield.md) | Stores customer group to which a user belongs.
 | [DateAndTime](dateandtimefield.md) | Stores a full date including time information. | Yes | Yes |

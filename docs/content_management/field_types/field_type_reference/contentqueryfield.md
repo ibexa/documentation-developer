@@ -1,6 +1,6 @@
 # Content query field type
 
-This field type maps an executable Repository query to a Field.
+This field type maps an executable repository query to a Field.
 
 | Name      | Internal name | Expected input |
 |-----------|---------------|----------------|

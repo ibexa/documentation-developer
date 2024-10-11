@@ -10,7 +10,7 @@ description: Persistence cache caches SPI\Persistence calls used in common page 
 
 Persistence cache can best be described as an implementation of `SPI\Persistence` that decorates the main backend implementation, aka Storage Engine *(currently: "Legacy Storage Engine")*.
 
-As shown in the illustration, this is done in the exact same way as the Event layer is a custom implementation of `API\Repository` decorating the main Repository.
+As shown in the illustration, this is done in the exact same way as the Event layer is a custom implementation of `API\Repository` decorating the main repository.
 In the case of Persistence Cache, instead of sending events on calls passed on to the decorated implementation, most of the load calls are cached, and calls that perform changes purge the affected caches.
 Cache handlers *(Memcached, Redis, Filesystem, etc.)* can be configured using Symfony configuration.
 For details on how to reuse this Cache service in your own custom code, see below.
@@ -66,7 +66,7 @@ to use [FilesystemTagAwareAdapter](https://github.com/ibexa/recipes/blob/master/
 
 You can select a different cache backend and configure its parameters in the relevant file in the `cache_pool` folder.
 
-### Multi Repository setup
+### Multi repository setup
 
 You can [configure multisite to work with multiple Repositories](repository_configuration.md#defining-custom-connection).
 Then, in configuration you can specify which cache pool you want to use on a SiteAccess or SiteAccess group level.
@@ -83,7 +83,7 @@ ibexa:
             cache_service_name: '%cache_pool%'
 ```
 
-!!! note "One cache pool for each Repository"
+!!! note "One cache pool for each repository"
 
     If your installation has several Repositories *(databases)*, make sure every group of sites using different Repositories also uses a different cache pool.
 

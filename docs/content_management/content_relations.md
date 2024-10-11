@@ -9,7 +9,7 @@ However, content items themselves can also be related to one another.
 
 ![Content Relations](content_management_relations.png "Content Relations")
 
-A **Relation** can exist between any two content items in the Repository.
+A **Relation** can exist between any two content items in the repository.
 For example, images are linked to news articles they're used in.
 Instead of using a fixed set of image attributes, the images are stored as separate content items outside the article.
 

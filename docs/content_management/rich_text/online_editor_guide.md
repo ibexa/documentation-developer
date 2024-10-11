@@ -27,7 +27,7 @@ To start using it, create any content item with a RichText Field
 
 Online Editor covers all fundamental formatting options for rich text, 
 such as headings, lists, tables, inline text formatting, anchors and links. 
-It also allows embedding other content from the Repository, as well as from Facebook, Twitter or YouTube.
+It also allows embedding other content from the repository, as well as from Facebook, Twitter or YouTube.
 
 #### Links
 

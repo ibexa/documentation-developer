@@ -256,7 +256,7 @@ See [Tagging from Twig Templates](https://foshttpcachebundle.readthedocs.io/en/l
 
 ### Default tag purging
 
-`ibexa/http-cache` uses Repository API event subscribers to listen to events emitted on Repository operations,
+`ibexa/http-cache` uses repository API event subscribers to listen to events emitted on repository operations,
 and depending on the operation triggers expiry on a specific tag or set of tags.
 All event subscribers can be found in `http-cache/src/lib/EventSubscriber/CachePurge`.
 
@@ -352,7 +352,7 @@ Example for purging by all cache:
 bin/console fos:httpcache:invalidate:tag ez-all
 ```
 
-!!! tip "Purge is done on the current Repository"
+!!! tip "Purge is done on the current repository"
 
     Similarly to purging from code, the tags you purge on, are prefixed to match the currently configured SiteAccess. 
     When you use this command in combination with multi-repository setup, make sure to specify SiteAccess argument.
@@ -592,7 +592,7 @@ Surrogate-Key: ez-all
 
 The `Cache-Control` and `Vary` headers look correct. The request is handled by a custom controller and the `Surrogate-Key` only contains the default `ez-all` value. 
 This isn't a problem as long as the controller
-does not return values from any Content in the [[= product_name =]] Repository. If it does, the controller should also add
+does not return values from any Content in the [[= product_name =]] repository. If it does, the controller should also add
 the corresponding IDs to such objects in that header.
 
 The `Set-Cookie` here may cause the problem. A ESI fragment should never set a cookie because:

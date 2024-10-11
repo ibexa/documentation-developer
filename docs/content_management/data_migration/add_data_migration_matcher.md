@@ -4,7 +4,7 @@ description: Create a matcher for handling data migrations.
 
 # Create data migration matcher
 
-[Matchers in data migrations](exporting_data.md#match-property) enable you to select which data from the Repository to export.
+[Matchers in data migrations](exporting_data.md#match-property) enable you to select which data from the repository to export.
 
 In addition to the built-in matchers, you can create custom matchers for content.
 

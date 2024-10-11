@@ -261,4 +261,4 @@ Refresh the page and you should see the "Hello world" placed inside a styled lay
 
 ![Homepage with a Hello world](bike_tutorial_hello_world.png)
 
-At this point, the template is static. It does not render any dynamic data from the Repository.
+At this point, the template is static. It does not render any dynamic data from the repository.

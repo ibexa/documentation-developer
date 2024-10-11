@@ -40,7 +40,7 @@ For example, let's say that you need to store information about marathon contest
 
 ### Access control
 
-You can control whether a user or user group is able to translate content or not. You do this by adding a [Language limitation](limitation_reference.md#language-limitation) to policies that allow creating or editing content. This Limitation enables you to define which role can work with which languages in the system. (For more information of the permissions system, see [Permissions](permissions.md).)
+You can control whether a user or user group is able to translate content or not. You do this by adding a [Language limitation](limitation_reference.md#language-limitation) to policies that allow creating or editing content. This limitation enables you to define which role can work with which languages in the system. (For more information of the permissions system, see [Permissions](permissions.md).)
 
 In addition, you can also control the access to the global translation list by using the Content/Translations policy. This policy allows users to add and remove languages from the global translation list.
 
@@ -171,7 +171,7 @@ ibexa:
 
 If the `translation_siteaccesses` setting isn't provided, implicit *related SiteAccesses* is used instead. SiteAccesses are considered *related* if they share:
 
-- The same Repository
+- The same repository
 - The same root `location_id` (see [Multisite](multisite.md))
 
 ### Fallback languages and missing translations

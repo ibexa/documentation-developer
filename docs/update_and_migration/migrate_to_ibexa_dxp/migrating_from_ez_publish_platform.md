@@ -93,11 +93,11 @@ To move over your own custom configurations, follow the conventions below and ma
 - `<old-ez-root>/ezpublish/config/config.yaml =>  <new-ez-root>/app/config/config.yaml`
     -  *For system/framework config, and for defining global db, cache, search settings.*
 - `<old-ez-root>/ezpublish/config/ezpublish.yaml => <new-ez-root>/app/config/ezplatform.yaml`
-    -  *For SiteAccess, site groups and Repository settings.*
+    -  *For SiteAccess, site groups and repository settings.*
 
-!!! note "Changes to Repository configuration"
+!!! note "Changes to repository configuration"
 
-    When moving configuration over, be aware that as of 5.4.5 and higher, Repository configuration has been enhanced to allow configuring storage engine and search engine independently.
+    When moving configuration over, be aware that as of 5.4.5 and higher, repository configuration has been enhanced to allow configuring storage engine and search engine independently.
 
     ``` yaml
     # Default ezplatform.yaml Repositories configuration with comments

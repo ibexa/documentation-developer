@@ -171,7 +171,7 @@ To let users create and assign taxonomy entries, set the following permissions:
 - `taxonomy/read` to see the Taxonomy interface
 - `taxonomy/manage` to create, edit and delete tags
 
-With limitations, you can configure whether permissions apply to Tags, Product categories or both.
+With limitations, you can configure whether permissions apply to Tags, product categories or both.
 
 ## Register Users
 
@@ -220,7 +220,7 @@ Users are treated like other content, so to create and modify them, the User nee
 
 ## Product catalog
 
-You can control to what extend users can access the Product catalog and all its related parts.
+You can control to what extend users can access the product catalog and all its related parts.
 
 ### Product type
 

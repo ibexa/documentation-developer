@@ -138,7 +138,7 @@ The registry mechanism is realized as a base class for `FieldStorage` implementa
 ### Registering external storage
 
 To use external storage, you need to define a service implementing the `Ibexa\Contracts\Core\FieldType\FieldStorage` interface
-and tag it as `ibexa.field_type.storage.external.handler` to be recognized by the Repository.
+and tag it as `ibexa.field_type.storage.external.handler` to be recognized by the repository.
 
 Here is an example for the `myfield` field type:
 

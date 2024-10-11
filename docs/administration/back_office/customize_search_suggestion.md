@@ -34,7 +34,7 @@ After this event, the suggestion collection is sorted by score and truncated to 
     php bin/console debug:event BuildSuggestionCollectionEvent
     ```
 
-The following example is boosting Product suggestions.
+The following example is boosting product suggestions.
 It's a subscriber that passes after the default one (because priority is set to zero), adds matching products at a score above the earlier content suggestions, and avoids duplicates.
 
 - If the suggestion source finds a number of matching products that is equal or greater than the `result_limit`, only those products end up in the suggestion.

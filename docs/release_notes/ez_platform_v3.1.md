@@ -49,7 +49,7 @@ This release of eZ Platform introduces the following new features:
 
     ### Field group permissions
 
-    The new [field group Limitation](https://doc.ibexa.co/en/latest/guide/limitation_reference/#field-group-limitation)
+    The new [field group limitation](https://doc.ibexa.co/en/latest/guide/limitation_reference/#field-group-limitation)
     enables you to control who can edit content fields per field group.
     
     ### Version comparison

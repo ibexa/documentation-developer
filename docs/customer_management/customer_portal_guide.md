@@ -62,7 +62,7 @@ The main company management takes place in the back office where each company ha
 From there, they can activate and deactivate the company, edit its information, invite members, manage their roles and edit their basic information.
 
 In the roles section, you can define policies for each user group, for example, a Company buyer. 
-You can also set up Policies for every user who has a business account by editing a Corporate Access role.
+You can also set up policies for every user who has a business account by editing a Corporate Access role.
 
 ### Members
 

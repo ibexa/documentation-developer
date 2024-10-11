@@ -59,7 +59,7 @@ By adding the `Ibexa\Bundle\OAuth2Client\Security\Authenticator\OAuth2Authentica
 
 ## Resource owner mappers
 
-Resource owner mappers map the data received from the OAuth2 authorization server to user information in the Repository.
+Resource owner mappers map the data received from the OAuth2 authorization server to user information in the repository.
 
 Resource owner mappers must implement the [`Ibexa\Contracts\OAuth2Client\ResourceOwner\ResourceOwnerMapper`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-OAuth2Client-ResourceOwner-ResourceOwnerMapper.html) interface.
 Four implementations of `ResourceOwnerMapper` are proposed by default:
@@ -67,7 +67,7 @@ Four implementations of `ResourceOwnerMapper` are proposed by default:
 - `ResourceOwnerToExistingUserMapper` is the base class extended by the following mappers:
     - `ResourceOwnerIdToUserMapper` - loads a user (resource owner) based on the identifier, but doesn't create a new user.
     - `ResourceOwnerEmailToUserMapper` - loads a user (resource owner) based on the email, but doesn't create a new user.
-- `ResourceOwnerToExistingOrNewUserMapper` - checks whether the user exists and loads the data if it does.  If not, creates a new user in the Repository.
+- `ResourceOwnerToExistingOrNewUserMapper` - checks whether the user exists and loads the data if it does.  If not, creates a new user in the repository.
 
 To use `ResourceOwnerToExistingOrNewUserMapper`, you need to extend it in your custom mapper.
 
@@ -87,7 +87,7 @@ The following example shows how to create a Resource Owner mapper for the `googl
 
 Create a resource owner mapper for Google login in `src/OAuth/GoogleResourceOwnerMapper.php`.
 The mapper extends `ResourceOwnerToExistingOrNewUserMapper`,
-which enables it to create a new user in the Repository if the user doesn't exist yet.
+which enables it to create a new user in the repository if the user doesn't exist yet.
 
 The mapper loads a user (line 51) or creates a new one (line 61),
 based on the information from `resourceOwner`, that's the OAuth2 authorization server.

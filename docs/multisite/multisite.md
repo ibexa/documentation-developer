@@ -1,5 +1,5 @@
 ---
-description: Multisite enables hosting multiple websites with different content, templates and configuration using one Repository.
+description: Multisite enables hosting multiple websites with different content, templates and configuration using one repository.
 page_type: landing_page
 ---
 

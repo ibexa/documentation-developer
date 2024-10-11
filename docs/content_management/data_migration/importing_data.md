@@ -1,12 +1,12 @@
 ---
-description: Import data into your Repository from prepared YAML files.
+description: Import data into your repository from prepared YAML files.
 page_type: reference
 month_change: false
 ---
 
 # Importing data
 
-To import data from YAML migration files into Repository, you run the `ibexa:migrations:migrate` command.
+To import data from YAML migration files into repository, you run the `ibexa:migrations:migrate` command.
 
 The `ibexa:migrations:import` command automatically places migration files in the correct folder.
 

@@ -243,11 +243,11 @@ Call the group "Bloggers".
 
 5\. Now add policies that allow the User to create and publish content, limited to Blog Posts:
 
-- `Content/Create` with Limitation for content type Blog Post
-- `Content/Edit` with Limitation for content type Blog Post
-- `Content/Publish` with Limitation for content type Blog Post
+- `Content/Create` with limitation for content type Blog Post
+- `Content/Edit` with limitation for content type Blog Post
+- `Content/Publish` with limitation for content type Blog Post
 
-![Adding Limitations to a policy](first-steps-policy-limitations.png)
+![Adding limitations to a policy](first-steps-policy-limitations.png)
 
 6\. In the Assignments tab assign the "Blogger" role to the "Bloggers" group.
 

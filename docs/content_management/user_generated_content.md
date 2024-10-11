@@ -1,5 +1,5 @@
 ---
-description: You can enable users to create new content in the Repository by using forms available in the front end of the site.
+description: You can enable users to create new content in the repository by using forms available in the front end of the site.
 ---
 
 # User-generated content

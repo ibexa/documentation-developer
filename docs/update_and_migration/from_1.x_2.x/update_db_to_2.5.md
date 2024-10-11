@@ -695,7 +695,7 @@ The built-in Forms folder is located in the Form Section in versions 2.4+.
 
 If you're updating your Enterprise installation, you need to add this Section manually and move the folder to it.
 
-To allow anonymous users to access Forms, you also need to add the `content/read` Policy
+To allow anonymous users to access Forms, you also need to add the `content/read` policy
 with the *Form* Section to the Anonymous User.
 
 #### Changes to Custom tags

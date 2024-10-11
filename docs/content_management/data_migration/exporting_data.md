@@ -1,5 +1,5 @@
 ---
-description: Export Repository data to use in future data migrations.
+description: Export repository data to use in future data migrations.
 page_type: reference
 ---
 
@@ -7,8 +7,8 @@ page_type: reference
 
 To see an example of migrations in action, export data already present in your installation.
 
-To export Repository content, use the `ibexa:migrations:generate` command.
-This command generates a YAML file with the requested part of the Repository.
+To export repository content, use the `ibexa:migrations:generate` command.
+This command generates a YAML file with the requested part of the repository.
 The file is located by default in the `src/Migrations/Ibexa/migrations` folder
 or in [a custom folder that you configure](managing_migrations.md#migration-folders).
 You can later use this file to import the data.
@@ -141,7 +141,7 @@ Note that you should test your migrations. See [Importing data](importing_data.m
 
 ## type
 
-The mandatory `--type` option defines the type of Repository data to export.
+The mandatory `--type` option defines the type of repository data to export.
 The following types are available:
 
 - `content`
@@ -210,7 +210,7 @@ This option is also important if you use [several repositories with their own da
 
 ## match-property
 
-The optional `--match-property` option, together with `value`, enables you to select which data from the Repository to export.
+The optional `--match-property` option, together with `value`, enables you to select which data from the repository to export.
 `match-property` defines what property should be used as a criterion for selecting data.
 The following properties are available (per type):
 
@@ -269,7 +269,7 @@ You can extend the list of available matchers by creating [a custom one](add_dat
 
 ## value
 
-The optional `--value` option, together with `match-property`, filters the Repository content that the command exports.
+The optional `--value` option, together with `match-property`, filters the repository content that the command exports.
 `value` defines which values of the `match-property` should be included in the export.
 
 For example, to export only Article content items, use the `content_type_identifier` match property with `article` as the value:
@@ -298,7 +298,7 @@ php bin/console ibexa:migrations:generate --type=content --mode=create --file=my
 ## user-context
 
 The optional `--user-context` option enables you to run the export command as a specified User.
-The command only exports Repository data that the selected User has access to.
+The command only exports repository data that the selected User has access to.
 By default the admin account is used, unless specifically overridden by this option or in
 bundle configuration (`ibexa_migrations.default_user_login`).
 

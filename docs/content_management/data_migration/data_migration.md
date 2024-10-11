@@ -1,5 +1,5 @@
 ---
-description: Data migration enables you to import and export Repository data by using YAML files.
+description: Data migration enables you to import and export repository data by using YAML files.
 page_type: landing_page
 ---
 
@@ -7,9 +7,9 @@ page_type: landing_page
 
 Data migration allows exporting and importing selected data from an [[= product_name =]] installation.
 
-[*Exporting*](exporting_data.md) data consists in saving selected Repository information in YAML format.
-[*Importing*](importing_data.md) reads migration YAML files and creates or modifies Repository content based on them.
-You can migrate your Repository data, that is content items, as well as content types, languages, Object states, Sections, and so on,
+[*Exporting*](exporting_data.md) data consists in saving selected repository information in YAML format.
+[*Importing*](importing_data.md) reads migration YAML files and creates or modifies repository content based on them.
+You can migrate your repository data, that is content items, as well as content types, languages, Object states, Sections, and so on,
 between installations.
 
 You can use migrations in projects that require the same data to be present across multiple instances.

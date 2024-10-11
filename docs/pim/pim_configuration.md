@@ -32,7 +32,7 @@ ibexa_product_catalog:
                 product_type_group_identifier: 'product'
 ```
 
-The `local` type is the built-in type of catalog based on the Repository.
+The `local` type is the built-in type of catalog based on the repository.
 
 Under `options.product_type_group_identifier` you can define the identifier of the content type Group used for storing products.
 

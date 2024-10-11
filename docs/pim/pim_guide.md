@@ -194,7 +194,7 @@ Therefore, if your specific requirements aren't met, you may need to extend [[= 
 ##### Content-model-based features
 
 The following features rely on [[= product_name =]]'s content model capabilities, which aren't supported by the default implementation of remote PIM support.
-Therefore, if your specific requirements aren't met, you must extend the application by using extension points exposed in the Product catalog module.
+Therefore, if your specific requirements aren't met, you must extend the application by using extension points exposed in the product catalog module.
 
 - Assets
 - Product variants

@@ -4,7 +4,7 @@ description: Embed a content item in another using query types or controllers.
 
 # Embed related content
 
-To embed content in another content item, you query for it in the Repository.
+To embed content in another content item, you query for it in the repository.
 There are two ways to query for a content item:
 
 - by using a [Query type](#embed-siblings-with-query-type)

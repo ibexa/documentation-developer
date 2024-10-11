@@ -182,7 +182,7 @@ Set the below policies to allow users to:
 - `site/change_status` - change status of the public accesses to `Live` or `Offline`
 - `site/delete` - delete sites
 
-For full documentation on how Permissions work and how to set them up, see [the Permissions section](permissions.md).
+For full documentation on how permissions work and how to set them up, see [the permissions section](permissions.md).
 
 To learn how to use Site Factory, see [User documentation]([[= user_doc =]]/site_organization/site_factory/).
 
