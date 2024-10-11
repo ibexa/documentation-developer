@@ -75,9 +75,9 @@ To add an in-memory collection as an event source, create `src/Calendar/Holidays
 !!! note
 
     When creating the list of events, you must list all the `createEvent()` entities chronologically.
-    
+
     For example:
-    
+
     ``` php
     $collection = new EventCollection([
         $this->createEvent("Event 1", new DateTime("2024-01-01")),

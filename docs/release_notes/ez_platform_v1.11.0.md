@@ -33,7 +33,7 @@ This has been made possible by initial legacy contribution from [@peterkeung](ht
 
 #### Collection block
 
-New Collection block is available in the Landing Page editor.
+New Collection block is available in the landing page editor.
 It enables you to manually select a set of content items to be displayed.
 
 ![Collection block options with three content items selected](collection_block.png)

@@ -29,7 +29,7 @@ If you're looking for the Long Term Support (LTS) release, see[ https://ezplatf
 
 #### Under the Hood
 
--   New opt-in approach to HttpCache to improve usability as well as performance by means of:
+-   New opt-in approach to HttpCache to improve usability and performance by means of:
     -   Cache multi-tagging: allowing you to tag pages with a path, location, type, parent, etc. so the repository can clear cache in a more targeted, accurate, and flexible way, getting rid of any "clear all" situations on complex operations.
     -   For Varnish this uses [xkey](https://github.com/varnish/varnish-modules/blob/master/docs/vmod_xkey.rst) instead of BAN, enabling greater performance by allowing you to control grace time.
     -   This also places HttpCache in a separate repo, allowing it to grow independently: see <https://github.com/ezsystems/ezplatform-http-cache>

@@ -35,9 +35,7 @@ To import CSS files only, use:
     For a full example of importing asset configuration,
     see [`ibexa.config.js`](https://github.com/ibexa/admin-ui/blob/main/src/bundle/Resources/encore/ibexa.config.js)
 
-To edit existing configuration entries, either in the bundle's `Resources/encore/` folder, 
-or in the `encore` folder in the root folder of your project, 
-create an `ibexa.config.manager.js` file:
+To edit existing configuration entries, either in the bundle's `Resources/encore/` folder, or in the `encore` folder in the root folder of your project, create an `ibexa.config.manager.js` file:
 
 ``` js
 const path = require('path');
@@ -80,9 +78,7 @@ module.exports = (ibexaConfig, ibexaConfigManager) => {
     For a full example of overriding configuration,
     see [`ibexa.config.manager.js`](https://github.com/ibexa/fieldtype-matrix/blob/main/src/bundle/Resources/encore/ibexa.config.manager.js).
 
-To add a new configuration under your own namespace and with its own dependencies, 
-create an `ibexa.webpack.custom.config.js` file that you create either in the bundle's `Resources/encore/` folder, 
-or in the `encore` folder in the root directory of your project, for example:
+To add a new configuration under your own namespace and with its own dependencies, create an `ibexa.webpack.custom.config.js` file that you create either in the bundle's `Resources/encore/` folder, or in the `encore` folder in the root directory of your project, for example:
 
 ``` js
 	const Encore = require('@symfony/webpack-encore');
@@ -103,18 +99,15 @@ or in the `encore` folder in the root directory of your project, for example:
 
 !!! tip
 
-    If you don't plan to add multiple entry files on the same page in your custom configuration,
-    use the `disableSingleRuntimeChunk()` function to avoid adding a separate `runtime.js` file.
+    If you don't plan to add multiple entry files on the same page in your custom configuration, use the `disableSingleRuntimeChunk()` function to avoid adding a separate `runtime.js` file.
     Otherwise, your JS code may be run multiple times.
     By default, the `enableSingleRuntimeChunk()` function is used.
 
 ## Configuration from main project files
 
-If you prefer to include the asset configuration in the main project files,
-add it in [`webpack.config.js`](https://github.com/ibexa/recipes/blob/master/ibexa/oss/4.0/encore/webpack.config.js#L31).
+If you prefer to include the asset configuration in the main project files, add it in [`webpack.config.js`](https://github.com/ibexa/recipes/blob/master/ibexa/oss/4.0/encore/webpack.config.js#L31).
 
-To overwrite the built-in assets, use the following configuration to replace, remove or add asset files
-in `webpack.config.js`:
+To overwrite the built-in assets, use the following configuration to replace, remove or add asset files in `webpack.config.js`:
 
 ``` js
 ibexaConfigManager.replace({

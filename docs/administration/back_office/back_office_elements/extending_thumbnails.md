@@ -109,5 +109,5 @@ Next, add the strategy with the `ibexa.repository.thumbnail.strategy.field` tag 
         tags:
             - { name: ibexa.repository.thumbnail.strategy.field, priority: 100 }
 ```
- 
+
 At this point you can go to the back office and check the results.

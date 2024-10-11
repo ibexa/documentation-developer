@@ -1,5 +1,5 @@
 ---
-description: You can use the PHP API to view the bookmark list, as well as add and remove content from it.
+description: You can use the PHP API to view the bookmark list, and add or remove content from it.
 ---
 
 # Bookmark API

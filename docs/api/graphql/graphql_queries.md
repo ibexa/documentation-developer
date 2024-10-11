@@ -10,8 +10,7 @@ You can query a single content item or a list of content items using fields defi
 
 ### Get a content item
 
-To get a specific content item by its content ID, Location ID, or URL alias, use its relevant singular field,
-for example `article`, `folder`, `image`, etc.:
+To get a specific content item by its content ID, Location ID, or URL alias, use its relevant singular field, for example `article`, `folder`, or `image`.
 
 ```
 {
@@ -106,7 +105,7 @@ When you do not specify a language, the response contains the most prioritized t
 
 ### Get a group of content items
 
-To get a list of all content items of a selected type, use the plural field, e.g. `articles`:
+To get a list of all content items of a selected type, use the plural field, for example, `articles`:
 
 ```
 {
@@ -765,8 +764,7 @@ You can paginate plural fields using `edges`:
 ```
 
 This query returns the first three articles, ordered by their publication date.
-If the current `Connection` (list of results) isn't finished yet and there are more items to read,
-`hasNextPage` is `true`.
+If the current `Connection` (list of results) isn't finished yet and there are more items to read, `hasNextPage` is `true`.
 
 For the `children` node, you can use the following pagination method:
 

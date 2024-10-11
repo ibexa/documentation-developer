@@ -45,8 +45,7 @@ the `ContentCreateStruct` is slightly more complex than in the previous example:
 [[= include_file('code_samples/api/public_php_api/src/Command/CreateImageCommand.php', 56, 69) =]]
 ```
 
-Value of the Image field type contains the path to the image file, as well as other basic information
-based on the input file.
+Value of the Image field type contains the path to the image file and other basic information based on the input file.
 
 ### Creating content with RichText
 

@@ -69,7 +69,7 @@ ibexa:
                     - custom_portal
 ```
 
-Now, you can go to your Customer Portal Landing Page and edit it in Page Builder.
+Now, you can go to your Customer Portal landing page and edit it in Page Builder.
 
 ![Edit Customer Portal in Page Builder](img/cp_edit_in_page_builder.png)
 

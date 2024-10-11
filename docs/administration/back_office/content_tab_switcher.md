@@ -1,3 +1,7 @@
+---
+description: Tabs switcher allows separating the default field types in the content type from the field types that enhance the content with new functionalities.
+---
+
 # Tab switcher in content edit page
 
 Tabs switcher allows separating the default field types in the content type from the field types that enhance the content with new functionalities.
@@ -32,8 +36,8 @@ ibexa:
 
 ### Configure field groups for Meta tab
 
-The default configuration makes the `ibexa_taxonomy_entry_assignment` field always visible in the Meta tab in the content form. 
-With this new feature, you can indicate what field types, previously set in the back office content type, are shown in the Meta tab section in the content form. 
+The default configuration makes the `ibexa_taxonomy_entry_assignment` field always visible in the Meta tab in the content form.
+With this new feature, you can indicate what field types, previously set in the back office content type, are shown in the Meta tab section in the content form.
 You can automatically move all field types from Metadata group to the Meta tab in the content form.
 To do it, use the following configuration:
 
@@ -62,7 +66,7 @@ ibexa:
 ```
 
 
-The `meta_field_groups_list` configuration can be easily overriden.
+The `meta_field_groups_list` configuration can be overriden.
 
 ## Add custom tab
 

@@ -7,7 +7,7 @@ description: To authenticate REST API communication you can use session (default
 This page refers to [REST API reference](rest_api_reference/rest_api_reference.html), where you can find detailed information about
 REST API resources and endpoints.
 
-Five authentication methods are currently supported: session (default), JWT, basic, OAuth and client certificate (SSL).
+Five authentication methods are currently supported: session (default), JWT, basic, OAuth, and client certificate (SSL).
 
 You can only use one of those methods at the same time.
 
@@ -52,7 +52,7 @@ To create a session, execute the following REST request:
     Accept: application/vnd.ibexa.api.Session+xml
     Content-Type: application/vnd.ibexa.api.SessionInput+xml
     ```
-    
+
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <SessionInput>
@@ -60,14 +60,14 @@ To create a session, execute the following REST request:
       <password>publish</password>
     </SessionInput>
     ```
-    
+
     ```
     HTTP/1.1 201 Created
     Location: /user/sessions/go327ij2cirpo59pb6rrv2a4el2
     Set-Cookie: eZSESSID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2; domain=.example.net; path=/; expires=Wed, 13-Jan-2021 22:23:01 GMT; HttpOnly
     Content-Type: application/vnd.ibexa.api.Session+xml
     ```
-    
+
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <Session href="/user/sessions/sessionID" media-type="application/vnd.ibexa.api.Session+xml">
@@ -86,7 +86,7 @@ To create a session, execute the following REST request:
     Accept: application/vnd.ibexa.api.Session+json
     Content-Type: application/vnd.ibexa.api.SessionInput+json
     ```
-    
+
     ```json
     {
       "SessionInput": {
@@ -95,14 +95,14 @@ To create a session, execute the following REST request:
       }
     }
     ```
-    
+
     ```
     HTTP/1.1 201 Created
     Location: /user/sessions/go327ij2cirpo59pb6rrv2a4el2
     Set-Cookie: eZSESSID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2; domain=.example.net; path=/; expires=Wed, 13-Jan-2021 22:23:01 GMT; HttpOnly
     Content-Type: application/vnd.ibexa.api.Session+xml
     ```
-    
+
     ```json
     {
       "Session": {
@@ -121,8 +121,7 @@ To create a session, execute the following REST request:
 
 ##### Logging in with active session
 
-Logging in is very similar to session creation, with one important detail:
-the CSRF token obtained in the previous step is added to the new request through the `X-CSRF-Token` header.
+Logging in is similar to session creation, with one important detail: the CSRF token obtained in the previous step is added to the new request through the `X-CSRF-Token` header.
 
 === "XML"
 
@@ -134,7 +133,7 @@ the CSRF token obtained in the previous step is added to the new request through
     Cookie: eZSESSID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2
     X-CSRF-Token: 23lk.neri34ijajedfw39orj-3j93
     ```
-    
+
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <SessionInput>
@@ -142,12 +141,12 @@ the CSRF token obtained in the previous step is added to the new request through
       <password>publish</password>
     </SessionInput>
     ```
-    
+
     ```
     HTTP/1.1 200 OK
     Content-Type: application/vnd.ibexa.api.Session+xml
     ```
-    
+
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <Session href="user/sessions/go327ij2cirpo59pb6rrv2a4el2/refresh" media-type="application/vnd.ibexa.api.Session+xml">
@@ -168,7 +167,7 @@ the CSRF token obtained in the previous step is added to the new request through
     Cookie: eZSESSID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2
     X-CSRF-Token: 23lk.neri34ijajedfw39orj-3j93
     ```
-    
+
     ```xml
     {
       "SessionInput": {
@@ -177,12 +176,12 @@ the CSRF token obtained in the previous step is added to the new request through
       }
     }
     ```
-    
+
     ```
     HTTP/1.1 200 OK
     Content-Type: application/vnd.ibexa.api.Session+json
     ```
-    
+
     ```xml
     {
       "Session": {
@@ -214,8 +213,7 @@ Cookie: eZSESSID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2
 
 ##### CSRF token
 
-It can be important to keep the CSRF token (`csrfToken`) for the duration of the session,
-because you must send this token in every request that uses [unsafe HTTP methods](rest_requests.md#request-method) (others than the safe GET or HEAD or OPTIONS) when a session has been established.
+It can be important to keep the CSRF token (`csrfToken`) for the duration of the session, because you must send this token in every request that uses [unsafe HTTP methods](rest_requests.md#request-method) (others than the safe GET or HEAD or OPTIONS) when a session has been established.
 It should be sent with an `X-CSRF-Token` header.
 
 Only three built-in routes can accept unsafe methods without CSRF, the sessions routes starting with `/user/sessions` to create, refresh or delete a session.
@@ -270,8 +268,7 @@ See [JWT authentication](#jwt-authentication) or GraphQL.
 
 ### Usage example
 
-After you [configure JWT authentication](development_security.md#jwt-authentication) at least for REST,
-you can get the JWT token through the following request:
+After you [configure JWT authentication](development_security.md#jwt-authentication) at least for REST, you can get the JWT token through the following request:
 
 === "XML"
 
@@ -281,24 +278,24 @@ you can get the JWT token through the following request:
     Accept: application/vnd.ibexa.api.JWT+xml
     Content-Type: application/vnd.ibexa.api.JWTInput+xml
     ```
-    
+
     Provide the username and password in the request body:
-    
+
     ```xml
     <JWTInput>
         <username>admin</username>
         <password>publish</password>
     </JWTInput>
     ```
-    
+
     If credentials are valid, the server response contains a token:
-    
+
     ```xml
     <JWT media-type="application/vnd.ibexa.api.JWT+xml" token="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9…-QBE4-6eKNjg"/>
     ```
-    
+
     You can then use this token in your request instead of username and password.
-    
+
     ```
     GET /content/locations/1/5/children
     Host: <yourdomain>
@@ -314,9 +311,9 @@ you can get the JWT token through the following request:
     Accept: application/vnd.ibexa.api.JWT+json
     Content-Type: application/vnd.ibexa.api.JWTInput+json
     ```
-    
+
     Provide the username and password in the request body:
-    
+
     ```json
     {
         "JWTInput": {
@@ -325,9 +322,9 @@ you can get the JWT token through the following request:
         }
     }
     ```
-    
+
     If credentials are valid, the server response contains a token:
-    
+
     ```json
     {
         "JWT": {
@@ -336,9 +333,9 @@ you can get the JWT token through the following request:
         }
     }
     ```
-    
+
     You can then use this token in your request instead of username and password.
-    
+
     ```
     GET /content/locations/1/5/children
     Host: <yourdomain>
@@ -378,8 +375,8 @@ If the installation has a dedicated host for REST, you can enable HTTP basic aut
 Basic authentication requires the username and password to be sent *(username:password)*, base64 encoded, with each request.
 For details, see [RFC 2617](https://datatracker.ietf.org/doc/html/rfc2617).
 
-Most HTTP client libraries as well as REST libraries support this method.
-[Creating content with binary attachments](rest_requests.md#creating-content-with-binary-attachments) has an example using basic authentication with [cURL](https://www.php.net/manual/en/book.curl.php) and its `CURLOPT_USERPWD`. 
+Most HTTP client libraries and REST libraries support this method.
+[Creating content with binary attachments](rest_requests.md#creating-content-with-binary-attachments) has an example using basic authentication with [cURL](https://www.php.net/manual/en/book.curl.php) and its `CURLOPT_USERPWD`.
 
 **Raw HTTP request with basic authentication**
 

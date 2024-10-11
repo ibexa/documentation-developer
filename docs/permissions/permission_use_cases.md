@@ -39,7 +39,7 @@ To create and publish content, users must additionally have the following polici
 - `content/edit`
 - `content/publish`
 
-This also lets the user copy and move content, as well as add new Locations to a content item (but not remove them).
+This also lets the user copy and move content, and add new Locations to a content item (but not remove them).
 
 ## Move content
 

@@ -41,12 +41,9 @@ ibexa:
 
 ## Copy subtree limit
 
-Copying large subtrees can cause performance issues, so you can limit the number of content items
-that can be copied at once using the `ibexa.system.<scope>.subtree_operations.copy_subtree.limit`
-[configuration key](configuration.md#configuration-files).
+Copying large subtrees can cause performance issues, so you can limit the number of content items that can be copied at once using the `ibexa.system.<scope>.subtree_operations.copy_subtree.limit` [configuration key](configuration.md#configuration-files).
 
-The default value is `100`. You can set it to `-1` for no limit,
-or to `0` to completely disable copying subtrees.
+The default value is `100`. You can set it to `-1` for no limit, or to `0` to completely disable copying subtrees.
 
 You can copy subtree from CLI using the command: `bin/console ibexa:copy-subtree <sourceLocationId> <targetLocationId>`.
 

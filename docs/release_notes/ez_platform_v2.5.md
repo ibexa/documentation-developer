@@ -253,7 +253,7 @@ This section provides a list of deprecated features to be removed in eZ Platform
 
 ### Configuration through `ezplatform`
 
-In YAML configuration, you can now use `ezplatform` as well as `ezpublish` as the main configuration key.
+In YAML configuration, you can now use `ezplatform` and `ezpublish` as the main configuration key.
 
 ### API improvements
 

@@ -30,8 +30,7 @@ ibexa:
     Database settings are supplied by [DoctrineBundle](https://github.com/doctrine/DoctrineBundle).
     As such, you can refer to [DoctrineBundle's documentation](https://github.com/doctrine/DoctrineBundle/blob/2.7.x/Resources/doc/configuration.rst#doctrine-dbal-configuration).
 
-If no Repository is specified for a SiteAccess or SiteAccess group,
-the first Repository defined under `ibexa.repositories` is used:
+If no Repository is specified for a SiteAccess or SiteAccess group, the first Repository defined under `ibexa.repositories` is used:
 
 ``` yaml
 ibexa:
@@ -59,9 +58,7 @@ But the following configuration would be invalid:
 - `ibexa.co` domain can use `ibexa_repo`
 - `ibexa.co/doc` **cannot** use `doc_repo`, as it's under the same domain.
 
-Invalid configuration causes problems for different parts of the system,
-for example back-end UI, REST interface and other non-SiteAccess-aware Symfony routes
-such as `/_fos_user_context_hash` used by [HTTP cache](http_cache.md).
+Invalid configuration causes problems for different parts of the system, for example back-end UI, REST interface, and other non-SiteAccess-aware Symfony routes such as `/_fos_user_context_hash` used by [HTTP cache](http_cache.md).
 
 ### Entity manager
 
@@ -83,8 +80,7 @@ ibexa:
                 prefix: Ibexa\Bundle\Core\Entity
 ```
 
-Refer to [DoctrineBundle documentation](https://symfony.com/doc/3.4/reference/configuration/doctrine.html)
-for more information.
+Refer to [DoctrineBundle documentation](https://symfony.com/doc/3.4/reference/configuration/doctrine.html) for more information.
 
 !!! note
 
@@ -119,8 +115,8 @@ doctrine:
 
 ibexa:
     repositories:
-        first_repository: 
-            storage: 
+        first_repository:
+            storage:
                 engine: legacy
                 connection: my_connection_name
                 config: {}
@@ -135,7 +131,7 @@ ibexa:
             search:
                 connection: my_second_connection_name
         another_repository:
-            storage: 
+            storage:
                 engine: legacy
                 connection: another_connection_name
                 config: {}
@@ -200,8 +196,7 @@ This limit is enforced on publishing a new version and only covers archived vers
 
     Don't set `default_version_archive_limit` too high.
     In Legacy storage engine you can see performance degradation if you store too many versions.
-    The default value of 5 is the recommended value, but the less content you have overall,
-    the more you can increase this to, for instance, 25 or even 50.
+    The default value of 5 is the recommended value, but the less content you have overall, the more you can increase this to, for instance, 25 or even 50.
 
 ### Removing versions on publication
 
@@ -218,8 +213,7 @@ ibexa:
 `remove_archived_versions_on_publish` is set to `true` by default.
 Set it to `false` if you have multiple older versions of content and need to avoid performance drops when publishing.
 
-When you set the value to `false`, run [`ibexa:content:cleanup-versions`](#removing-old-versions) periodically
-to make sure that content item versions that exceed the limit are removed.
+When you set the value to `false`, run [`ibexa:content:cleanup-versions`](#removing-old-versions) periodically to make sure that content item versions that exceed the limit are removed.
 
 ### Removing old versions
 
@@ -230,7 +224,7 @@ The command takes the following optional parameters:
 - `status` or `t` - status of versions to remove: `draft`, `archived` or `all`
 - `keep` or `k` - number of versions to keep
 - `user` or `u` - the User that the command is performed as. The User must have the `content/remove`, `content/read` and `content/versionread` policies. By default the `administrator` user is applied.
-- `excluded-content-types` - exclude versions of one or multiple content types from the cleanup procedure; separate multiple content types identifiers with the comma.
+- `excluded-content-types` - exclude versions of one or multiple content types from the cleanup procedure and separate multiple content types identifiers with the comma.
 
 `ibexa:content:cleanup-versions --status <status name> --keep <number of versions> --user <user name> --excluded-content-types article,blog_post`
 
@@ -269,8 +263,7 @@ ibexa:
 ## Content Scheduler snapshots
 
 Content Scheduler snapshots speed up the rendering of Content Scheduler blocks and reduce the space used in the database.
-By default, five snapshots are stored, but you can modify this number with the following configuration,
-depending on the complexity of the Content Scheduler blocks:
+By default, five snapshots are stored, but you can modify this number with the following configuration, depending on the complexity of the Content Scheduler blocks:
 
 ``` yaml
 parameters:
@@ -285,8 +278,7 @@ This enables you to use different settings for different Repositories.
 
 !!! tip "SiteAccess-aware configuration"
 
-    If you need to use different settings per SiteAccess, not per Repository,
-    see [SiteAccess-aware configuration](siteaccess_aware_configuration.md).
+    If you need to use different settings per SiteAccess, not per Repository, see [SiteAccess-aware configuration](siteaccess_aware_configuration.md).
 
 To do this, create a parser that implements `Ibexa\Bundle\Core\DependencyInjection\Configuration\RepositoryConfigParserInterface`:
 

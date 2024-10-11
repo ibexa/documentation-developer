@@ -4,23 +4,26 @@ description: Sections are used to divide content items in the tree.
 
 ## Sections
 
-Sections are used to divide content items in the tree into groups that are more easily manageable by content editors.
+Sections are used to divide content items in the tree into groups that are more manageable by content editors.
 Division into Sections allows you, among others, to set [permissions](permission_overview.md) for only a part of the tree.
 
 ![Sections screen](admin_panel_sections.png "Sections screen")
 
-Technically, a Section is a number, a name and an identifier.
+Technically, a Section is a number, a name, and an identifier.
 Content items are placed in Sections by being assigned the Section ID. One item can be in only one Section.
 
 When a new content item is created, its Section ID is set to the default Section (which is usually Standard).
-When the item is published it is assigned to the same Section as its parent. Because content must always be in a Section, unassigning happens by choosing a different Section to move it into.
+When the item is published it is assigned to the same Section as its parent.
+Because content must always be in a Section, unassigning happens by choosing a different Section to move it into.
 If a content item has multiple Location assignments then it is always the Section ID of the item referenced by the parent of the main Location that is used.
 In addition, if the main Location of a content item with multiple Location assignments is changed then the Section ID of that item is updated.
 
 When content is moved to a different Location, the item itself and all of its subtree are assigned to the Section of the new Location.
-It works only for copy and move; assigning a new Section to a parent content item does not affect the subtree, meaning that subtree cannot currently be updated this way.
+It works only for copy and move.
+Assigning a new Section to a parent content item does not affect the subtree, meaning that subtree cannot currently be updated this way.
 
-Sections can only be removed if no content items are assigned to them. Even then, it should be done carefully.
+Sections can only be removed if no content items are assigned to them.
+Even then, it should be done carefully.
 When a Section is deleted, it's only its definition itself that is removed.
 Other references to the Section remain and thus the system most likely loses consistency.
 
@@ -34,5 +37,4 @@ Section ID numbers aren't recycled. If a Section is removed, its ID number canno
 
 Registration form for your website is placed under this address: <yourdomain>/register.
 By default, new users created in this way are placed in the Guest accounts group.
-To give your users a possibility to register themselves, follow the instructions 
-on [enabling account registration](8_enable_account_registration.md).
+To give your users a possibility to register themselves, follow the instructions on [enabling account registration](8_enable_account_registration.md).

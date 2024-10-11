@@ -15,7 +15,7 @@ To learn more about its back office usage and the actions logged by default, see
 With some configuration, you can customize the log length in the database or on screen.
 A command maintains the log size in database, it should be scheduled through CRON.
 
-- The configuration `ibexa.system.<scope>.activity_log.pagination.activity_logs_limit` sets the number of log items shown per page in the back office (default value: 25). 
+- The configuration `ibexa.system.<scope>.activity_log.pagination.activity_logs_limit` sets the number of log items shown per page in the back office (default value: 25).
 A log item is a group of entries, or an entry without group.
 - The configuration `ibexa.repositories.<repository>.activity_log.truncate_after_days` sets the number of days a log entry is kept before it's deleted by the `ibexa:activity-log:truncate` command (default value: 30 days).
 
@@ -60,11 +60,9 @@ This policy is required to view [activity log in user profile]([[= user_doc =]]/
     A username of the User who performs the action is logged.
     When acting through the web server, the User's IP address is also logged.
     Other access, such as console commands, doesn't log an IP.
-    Your Data Protection Officer or GDPR representative should be aware of this,
-    so they can ensure users are informed if needed, depending on your use case, jurisdiction, and company policy.
+    Your Data Protection Officer or GDPR representative should be aware of this, so they can ensure users are informed if needed, depending on your use case, jurisdiction, and company policy.
 
-    For example, if a content edition feature, such as reader's comments, is available in the front office,
-    the recent activity log records the front users' IPs.
+    For example, if a content edition feature, such as reader's comments, is available in the front office, the recent activity log records the front users' IPs.
 
 ## PHP API
 
@@ -208,7 +206,7 @@ Other actions are displayed after you click the **Show more** button.
 
 #### Display log entries
 
-To display your log entry, if your object's PHP class isn't already covered, you'll have to:
+To display your log entry, if your object's PHP class isn't already covered, you have to:
 
 - implement `ClassNameMapperInterface` to associate the class name with an identifier,
 - eventually create a `PostActivityListLoadEvent` subscriber if you need to load the object for the template,

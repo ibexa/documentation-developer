@@ -4,7 +4,7 @@ description: All menus in the back office are based on KnpMenuBundle and you can
 
 # Back office menus
 
-Back office menus are based on the [KnpMenuBundle](https://github.com/KnpLabs/KnpMenuBundle) and are easily extensible.
+Back office menus are based on the [KnpMenuBundle](https://github.com/KnpLabs/KnpMenuBundle) and they're extensible.
 
 !!! tip
 
@@ -15,8 +15,6 @@ Menus are extensible using event subscribers, for example:
 
 ``` php
 [[= include_file('code_samples/back_office/menu/menu_item/src/EventSubscriber/MyMenuSubscriber.php', 0, 29) =]]
-    }
-}
 ```
 
 !!! tip
@@ -65,8 +63,7 @@ You can listen to the following events:
 
 ## Adding menu items
 
-To add a menu item, use the `addChild()` method. Provide the method with the new menu item's identifier
-and, optionally, with parameters.
+To add a menu item, use the `addChild()` method. Provide the method with the new menu item's identifier and, optionally, with parameters.
 
 To add an inactive menu section, do not add a route to its parameters.
 
@@ -133,8 +130,7 @@ For example, the following code changes the default icon for the **Create conten
 
 ## Removing menu items
 
-To remove a menu item, for example, to remove the **Copy subtree** item from the right menu in content view,
-use the following event listener:
+To remove a menu item, for example, to remove the **Copy subtree** item from the right menu in content view, use the following event listener:
 
 ``` php
 [[= include_file('code_samples/back_office/menu/menu_item/src/EventSubscriber/MyMenuSubscriber.php', 44, 45) =]]

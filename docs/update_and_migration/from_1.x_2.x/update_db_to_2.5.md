@@ -54,9 +54,9 @@ doctrine:
 
 Also make the corresponding change in `app/config/dfs/dfs.yml`.
 
-#### Migrate Landing Pages
+#### Migrate landing pages
 
-To update to v2.2 with existing Landing Pages, you need to use a dedicated script.
+To update to v2.2 with existing landing pages, you need to use a dedicated script.
 The script is contained in the `ezplatform-page-migration` bundle and **works since version v2.2.2**.
 To use the script:
 
@@ -66,32 +66,32 @@ To use the script:
 
 !!! tip
 
-    This script uses the layout defined in your Landing Page.
+    This script uses the layout defined in your landing page.
     To migrate successfully, you need to copy your zone configuration
     from `ez_systems_landing_page_field_type` under `ezplatform_page_fieldtype` in the new config.
     Otherwise the script encounters errors.
 
 You can remove the bundle after the migration is complete.
 
-The `ezplatform:page:migrate` command migrates Landing Pages created in eZ Platform v1.x, v2.0 and v2.1 to new Pages.
+The `ezplatform:page:migrate` command migrates landing pages created in eZ Platform v1.x, v2.0 and v2.1 to new Pages.
 The operation is transactional and rolls back in case of errors.
 
 !!! caution "Avoid exception when migrating from eZ Publish"
 
-    If you [migrated to v1.13 from eZ Publish](migrating_from_ez_publish.md), and want to upgrade to v2.5, an exception occurs when you run the `bin/console ezplatform:page:migrate` command and the database contains internal drafts of Landing Pages. 
+    If you [migrated to v1.13 from eZ Publish](migrating_from_ez_publish.md), and want to upgrade to v2.5, an exception occurs when you run the `bin/console ezplatform:page:migrate` command and the database contains internal drafts of landing pages. 
     
     To avoid this exception, you must first [remove all internal drafts before you migrate](migrating_from_ez_publish.md#migration_exception). 
 
 ##### Block migration
 
-In v2.2 Page Builder does not offer all blocks that Landing Page editor did. The removed blocks include Keyword, Schedule, and Form blocks.
+In v2.2 Page Builder does not offer all blocks that landing page editor did. The removed blocks include Keyword, Schedule, and Form blocks.
 The Places block has been removed from the clean installation and is only available in the demo out of the box.
 If you use this block in your site, re-apply its configuration based on the [demo](https://github.com/ezsystems/ezplatform-ee-demo/blob/v2.2.2/app/config/blocks.yml).
 
 Later versions of Page Builder come with a Content Scheduler block and new Form Blocks, but migration of Schedule blocks to Content Scheduler blocks and of Form Blocks isn't supported. 
 
 If there are missing block definitions, such as Form Block or Schedule Block,
-you have an option to continue, but migrated Landing Pages come without those blocks.
+you have an option to continue, but migrated landing pages come without those blocks.
 
 !!! tip
 
@@ -112,7 +112,7 @@ See [documentation](render_page.md#render-a-layout) for an example on usage of t
 
 ###### Migrate custom blocks
 
-Landing Page blocks (from v2.1 and earlier) were defined using a class implementing `EzSystems\LandingPageFieldTypeBundle\FieldType\LandingPage\Model\AbstractBlockType`. 
+Landing page blocks (from v2.1 and earlier) were defined using a class implementing `EzSystems\LandingPageFieldTypeBundle\FieldType\LandingPage\Model\AbstractBlockType`. 
 In Page Builder (from v2.2 onwards), this interface is no longer present. Instead the logic of your block must be implemented in a [Listener](page_blocks.md#block-events).
 Typically, what you previously would do in `getTemplateParameters()`, you'll now do in the `onBlockPreRender()` event handler.
 
@@ -120,7 +120,7 @@ The definition of block parameters has to be moved from `createBlockDefinition()
 
 For more information about how custom blocks are implemented in Page Builder, have a look at [Creating custom Page blocks](create_custom_page_block.md) for your custom blocks.
 
-For the migration of blocks from Landing Page to Page Builder, you'll need to provide a converter for attributes of custom blocks. For simple blocks you can use `\EzSystems\EzPlatformPageMigration\Converter\AttributeConverter\DefaultConverter`.
+For the migration of blocks from landing page to Page Builder, you'll need to provide a converter for attributes of custom blocks. For simple blocks you can use `\EzSystems\EzPlatformPageMigration\Converter\AttributeConverter\DefaultConverter`.
 Custom converters must implement the `\EzSystems\EzPlatformPageMigration\Converter\AttributeConverter\ConverterInterface` interface.
 `convert()` parses XML `\DOMNode $node` and return an array of `\EzSystems\EzPlatformPageFieldType\FieldType\LandingPage\Model\Attribute` objects.
 
@@ -139,10 +139,10 @@ This converter is only needed when running the `ezplatform:page:migrate` script 
 
 ###### Page migration example
 
-Below is an example how to migrate a Landing Page Layout and Block to new Page Builder. The code is based on the Random block 
+Below is an example how to migrate a landing page Layout and Block to new Page Builder. The code is based on the Random block 
 defined in the [Enterprise Beginner tutorial](page_and_form_tutorial.md)
 
-??? tip "Landing Page code"
+??? tip "Landing page code"
 
     `app/Resources/views/layouts/sidebar.html.twig`:
 
@@ -680,7 +680,7 @@ You can find it in https://github.com/ezsystems/ezplatform-ee-installer/blob/2.3
 !!! caution "Form (ezform) field type"
 
     After the update, in order to create forms, you have to add a new content type (for example, named "Form") that contains `Form` field (this content type can contain other fields
-    as well). After that you can use forms inside Landing Pages via Embed block.
+    as well). After that you can use forms inside landing pages via Embed block.
 
 ### C. Update to v2.4
 

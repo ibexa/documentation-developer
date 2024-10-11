@@ -140,7 +140,7 @@ Image Fields within REST are exposed by the `application/vnd.ibexa.api.Content`Â
 </field>
 ```
 
-Children of the `fieldValue` node list the general properties of the Field's original image (`fileSize`, `fileName`, `inputUri`, etc.), as well as variations. For each variation, a URI is provided. Requested through REST, this resource generates the variation if it doesn't exist yet, and list the variation details:
+Children of the `fieldValue` node list the general properties of the Field's original image (`fileSize`, `fileName`, `inputUri`, etc.), and its variations. For each variation, a URI is provided. Requested through REST, this resource generates the variation if it doesn't exist yet, and list the variation details:
 
 ``` xml
 <ContentImageVariation media-type="application/vnd.ibexa.api.ContentImageVariation+xml" href="/api/ibexa/v2/content/binary/images/240-1480/variations/tiny">

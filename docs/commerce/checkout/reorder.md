@@ -43,7 +43,7 @@ Below, you can find a few examples that demonstrate how you can modify this feat
 ### Customize reorder
 
 You can modify workflow under the `framework.workflows` [configuration key](configuration.md#configuration-files).
-Each workflow definition consists of a series of steps as well as a series of transitions between the steps.
+Each workflow definition consists of a series of steps and a series of transitions between the steps.
 
 Below example shows how to set up `can_be_reordered` flag for specific order statuses.
 

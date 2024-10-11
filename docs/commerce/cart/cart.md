@@ -1,5 +1,5 @@
 ---
-description: The cart component covers adding items to the shopping cart, as well as previewing and modifying the cart information.
+description: The cart component covers adding items to the shopping cart, and previewing or modifying the cart information.
 edition: commerce
 ---
 

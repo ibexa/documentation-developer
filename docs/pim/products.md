@@ -4,8 +4,7 @@ description: Products in the PIM are characterized by attributes describing thei
 
 # Products
 
-Products are a special type of content that contains typical content Fields
-as well as additional product information.
+Products are a special type of content that contains typical content Fields and additional product information.
 
 Each product belongs to a product type (similar to how a content item belongs to a content type).
 

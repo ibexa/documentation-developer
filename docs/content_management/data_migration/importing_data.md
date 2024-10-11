@@ -278,7 +278,7 @@ enabling swift file migration regardless of storage (local, DFS).
 The following example shows how to create a role.
 A role requires the `identifier` metadata key.
 
-For each policy assigned to the role, you select the module and function, with optional Limitations.
+For each policy assigned to the role, you select the module and function, with optional limitations.
 
 The following example shows the creation of a `Contributor` role:
 

@@ -33,16 +33,16 @@ This release of eZ Platform introduces the following new features:
     You can now define the parent Location for every new site in the template configuration.
 
     For more information about defining parent Location, see [Configure parent Location](https://doc.ibexa.co/en/latest/guide/multisite/site_factory_configuration/#parent-location).
-    
+
     ### Elasticsearch
-    
+
     You can now use [Elasticsearch](https://www.elastic.co/) in your eZ Platform installation
     through the `PlatformElasticSearchEngineBundle`.
-    
+
     See [Elasticsearch documentation](https://doc.ibexa.co/en/latest/guide/search/elastic) to learn how to set up, configure and user Elasticsearch with eZ Platform.
-    
+
     ### Page Builder
-    
+
     You can now filter elements in the sidebar during site creation process to get to the desired blocks faster.
 
     ![](3_1_filter_elements.png)
@@ -51,21 +51,22 @@ This release of eZ Platform introduces the following new features:
 
     The new [field group limitation](https://doc.ibexa.co/en/latest/guide/limitation_reference/#field-group-limitation)
     enables you to control who can edit content fields per field group.
-    
+
     ### Version comparison
-    
+
     You can now compare additional fields in version comparison of content item:
-    
+
     - Content Relation and Content Relations
     - Image Asset and Image
     - Matrix
     - Media
-    
+
     For overview of additional fields, see [User documentation on Comparing versions]([[= user_doc =]]/publishing/publishing/#comparing-versions).
     
 ### URL management UI
 
-You can now manage URL addresses and URL wildcards with a comfortable user interface that is available in the back office. You can create, modify and delete URL wildcards, as well as decide if the user should be redirected to the new address on clicking the link.
+You can now manage URL addresses and URL wildcards with a comfortable user interface that is available in the back office.
+You can create, modify or delete URL wildcards, and decide if the user should be redirected to the new address on clicking the link.
 
 !!! note
 
@@ -134,9 +135,9 @@ You can now have a Service that provides both `PermissionResolver` and `Permissi
 
 ## Behavior changes
 
-### Landing Page drafts
+### Landing page drafts
 
-When you start creating a Landing Page, a new draft is now automatically created.
+When you start creating a landing page, a new draft is now automatically created.
 
 ## Deprecations
 

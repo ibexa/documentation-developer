@@ -71,12 +71,12 @@ For example, you could:
 
 - Remove `references` if you don't intend to store IDs for future use (see [migration references](managing_migrations.md#references))
 - Remove `publicationDate`, `modificationDate`, `locationRemoteId`,
-  as those are generated if not passed (just like in PHP API)
+  as those are generated if not passed (like in PHP API)
 - Add [`actions`](data_migration_actions.md)
 - Add fields for other languages present in the system.
 
 Similarly, you can create update and delete operations.
-they're particularly useful combined with `match-property`.
+They're particularly functional combined with `match-property`.
 This option is automatically added as part of `match` expression in the update/delete migration:
 
 ``` bash
@@ -128,7 +128,7 @@ php bin/console ibexa:migrations:generate --type=content_type --mode=update --ma
 
 ```
 
-Note that you should test your migrations. See [Importing data](importing_data.md).
+You should test your migrations. See [Importing data](importing_data.md).
 
 !!! tip
 

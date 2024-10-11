@@ -10,15 +10,13 @@ You can [create bundles yourself](package_structure.md) or make use of available
 You can also reuse the bundles you create in other projects or share them with the community.
 
 Many [[= product_name =]] functionalities are provided through separate bundles included in the installation.
-You can see the bundles that are automatically installed with [[= product_name =]]
-in the respective `composer.json` files.
+You can see the bundles that are automatically installed with [[= product_name =]] in the respective `composer.json` files.
 For example, for [[= product_name_headless =]], see the [JSON file on GitHub](https://github.com/ibexa/headless/blob/master/composer.json).
 
 !!! caution "Deprecated legacy Commerce bundles"
 
-    As of [[= product_name =]] v4.4 all `ibexa/commerce` packages are deprecated. 
-    they're gradually replaced by their revamped counterparts and removed 
-    completely from the product in version v5.0.
+    As of [[= product_name =]] v4.4 all `ibexa/commerce` packages are deprecated.
+    they're gradually replaced by their revamped counterparts and removed completely from the product in version v5.0.
 
 ## Working with bundles
 
@@ -29,14 +27,13 @@ To learn how to create your own bundles, see [Symfony documentation on bundles](
 
 ### Overriding third-party bundles
 
-When you use an external bundle, you can override its parts, such as templates, controllers, etc.
+When you use an external bundle, you can override its parts, such as templates or controllers.
 To do so, make use of [Symfony's bundle override mechanism]([[= symfony_doc =]]/bundles/override.html).
-Note that when overriding files, the path inside your application has to correspond to the path inside the bundle.
+When overriding files, the path inside your application has to correspond to the path inside the bundle.
 
 ### Removing bundles
 
-To remove a bundle (either one you created yourself, or an out-of-the-box one that you do not need),
-see the [How to Remove a Bundle]([[= symfony_doc =]]/bundles/remove.html) instruction in Symfony doc.
+To remove a bundle (either one you created yourself, or an out-of-the-box one that you do not need), see the [How to Remove a Bundle]([[= symfony_doc =]]/bundles/remove.html) instruction in Symfony doc.
 
 ## Core packages
 

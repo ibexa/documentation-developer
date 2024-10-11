@@ -4,8 +4,7 @@ description: See how you can resolve common issues and report a Customer Support
 
 # Support and maintenance FAQ
 
-This page contains answers to most common questions and tips around support and maintenance,
-as well as references to important parts of the documentation and tools useful for developers in their daily work.
+This page contains answers to most common questions and tips around support and maintenance, references to important parts of the documentation, and tools for developers in their daily work.
 
 #### What information should I specify when creating a Customer Support ticket?
 

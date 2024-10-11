@@ -9,9 +9,9 @@ It defines what fields are available in the content item.
 
 ![Content types](admin_panel_content_types.png "Content types")
 
-For example, a new content type called *Article* can have fields such as title, author, body, image, etc.
+For example, a new content type called *Article* can have fields such as title, author, body, or image.
 Based on this content type, you can create any number of content items.
-content types are organized into groups.
+Content types are organized into groups.
 
 ![Content type groups](admin_panel_content_type_groups.png "Content type groups")
 
@@ -24,24 +24,33 @@ For a detailed overview of the content model, see [Content model overview](conte
 
 Each content type is characterized by a set of metadata which define the general behavior of its instances:
 
-**Name** – a user-friendly name that describes the content type. This name is used in the interface, but not internally by the system. It can consist of letters, digits, spaces and special characters; the maximum length is 255 characters. (Mandatory.)
+**Name** – a user-friendly name that describes the content type. This name is used in the interface, but not internally by the system.
+It can consist of letters, digits, spaces, and special characters (it's mandatory and the maximum length is 255 characters).
 
 !!! note
 
     Note that even if your content type defines a field intended as a name for the content item (for example, a title of an article or product name), do not confuse it with this Name, which is a piece of metadata, not a field.
 
-**Identifier** – an identifier for internal use in configuration files, templates, PHP code, etc. It must be unique, can only contain lowercase letters, digits and underscores; the maximum length is 50 characters. (Mandatory.)
+**Identifier** – an identifier for internal use in configuration files, templates, PHP code, etc. 
+It must be unique, can only contain lowercase letters, digits, and underscores (it's mandatory and the maximum length is 50 characters).
 
-**Description** – a detailed description of the content type. (Optional.)
+**Description** – a detailed description of the content type (optional).
 
-<a id="content-name-pattern"></a>**Content name pattern** – a pattern that defines what name a new content item based on this content type gets. The pattern usually consists of field identifiers that tell the system which fields it should use when generating the name of a content item. Each field identifier has to be surrounded with angle brackets. Text outside the angle brackets is included literally. If no pattern is provided, the system automatically uses the first field. (Optional.)
+<a id="content-name-pattern"></a>**Content name pattern** – a pattern that defines what name a new content item based on this content type gets.
+The pattern usually consists of field identifiers that tell the system which fields it should use when generating the name of a content item.
+Each field identifier has to be surrounded with angle brackets.
+Text outside the angle brackets is included literally.
+If no pattern is provided, the system automatically uses the first field (optional).
 
-**URL alias name pattern** – a pattern which controls how the virtual URLs of the Locations are generated when content items are created based on this content type. Note that only the last part of the virtual URL is affected. The pattern works in the same way as the content name pattern. Text outside the angle brackets is converted using the selected method of URL transformation. If no pattern is provided, the system automatically uses the name of the content item itself. (Optional.)
+**URL alias name pattern** – a pattern which controls how the virtual URLs of the Locations are generated when content items are created based on this content type.
+Only the last part of the virtual URL is affected.
+The pattern works in the same way as the content name pattern.
+Text outside the angle brackets is converted using the selected method of URL transformation.
+If no pattern is provided, the system automatically uses the name of the content item itself (optional).
 
 !!! tip "Changing URL alias and content name patterns"
 
-    If you change the content name pattern or the URL alias name pattern,
-    existing content items cannot be modified automatically.
+    If you change the content name pattern or the URL alias name pattern, existing content items cannot be modified automatically.
     The new pattern is only applied after you modify the content item and save a new version.
 
     The old URL aliases continue to redirect to the same content items.
@@ -50,13 +59,17 @@ Each content type is characterized by a set of metadata which define the general
 
 !!! note
 
-    This flag was added for convenience and only affects the interface. In other words, it doesn't control any actual low-level logic, it simply controls the way the graphical user interface behaves.
+    This flag was added for convenience and only affects the interface.
+    In other words, it doesn't control any actual low-level logic, it simply controls the way the graphical user interface behaves.
 
-**Sort children by default by** – rule for sorting sub-items. If the instances of this content type can serve as containers, their children are sorted according to what is selected here.
+**Sort children by default by** – rule for sorting sub-items.
+If the instances of this content type can serve as containers, their children are sorted according to what is selected here.
 
-**Sort children by default in order** – another rule for sorting sub-items. This decides the sort order for the criterion chosen above.
+**Sort children by default in order** – another rule for sorting sub-items.
+This decides the sort order for the criterion chosen above.
 
-<a id="default-content-availability"></a>**Make content available even with missing translations** – a flag which indicates if content items of this content type should be available even without a corresponding language version. See [Content availability](content_availability.md).
+<a id="default-content-availability"></a>**Make content available even with missing translations** – a flag which indicates if content items of this content type should be available even without a corresponding language version.
+See [Content availability](content_availability.md).
 
 ![Creating a new content type](admin_panel_new_content_type.png)
 
@@ -71,12 +84,13 @@ They determine what fields of what field types are included in all content items
 
 !!! note
 
-    You can assign each field defined in a content type to a group by selecting one of the groups in the Category drop-down. [Available groups can be configured in the content repository](repository_configuration.md).
+    You can assign each field defined in a content type to a group by selecting one of the groups in the Category drop-down.
+    [Available groups can be configured in the content repository](repository_configuration.md).
 
 !!! caution
 
     In case of content types containing many field types you should be aware of possible memory-related issues with publishing/editing.
-    they're caused by the limitation of how many `$_POST` input variables can be accepted.
+    They're caused by the limitation of how many `$_POST` input variables can be accepted.
 
     The easiest way to fix them is by increasing the `max_input_vars` value in the `php.ini` configuration file.
     Note that this solution isn't universally recommended and you're proceeding on your own risk.
@@ -87,8 +101,7 @@ They determine what fields of what field types are included in all content items
 
 ## Modifying content types
 
-A content type and its field definitions can be modified after creation,
-even if there are already content items based on it in the system.
+A content type and its field definitions can be modified after creation, even if there are already content items based on it in the system.
 When a content type is modified, each of its instances are changed as well.
 If a new field definition is added to a content type, this field appears (empty) in every relevant content item.
 If a field definition is deleted from the content type, all the corresponding fields are removed from content items of this type.
@@ -97,8 +110,7 @@ If a field definition is deleted from the content type, all the corresponding fi
 
 System content types are by default used for the File Uploads and removing them can cause errors.
 
-If you decide to remove a `file` or `image` content type, or change their identifiers,
-you need to change the configuration, so it reflects the available content types.
+If you decide to remove a `file` or `image` content type, or change their identifiers, you need to change the configuration, so it reflects the available content types.
 
 Example configuration:
 

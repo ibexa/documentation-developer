@@ -21,9 +21,8 @@ There are two ways of mapping a custom field type:
 - custom `FieldDefinitionMapper`
 
 You need to write a custom `FieldDefinitionMapper` if the field definition settings and constraints impact how it's mapped to GraphQL.
-For example, the selection field type has a "multiple" option. 
-If set to false, it accepts and returns a single value, 
-but if set to true, it accepts and returns an array of values.
+For example, the selection field type has a "multiple" option.
+If set to false, it accepts and returns a single value, but if set to true, it accepts and returns an array of values.
 
 If your field definition doesn't require additional clarifications, you can map it with configuration.
 
@@ -34,8 +33,10 @@ To map a custom field type with configuration use a compiler pass to modify a co
 It's a hash that maps a field type identifier (`ezstring`) to the following entries:
 
 - `value_type` - the GraphQL type values of the custom field. It can be a native type (string, int), or a custom type. If none is specified, string is used.
-- `value_resolver` - how values of this field are resolved and passed to the defined value type. If not specified, it receives the `Field` object for the field type: `field`.
-- `definition_type` - the GraphQL type the field definitions is mapped to. If not specified, it uses `FieldDefinition`.
+- `value_resolver` - how values of this field are resolved and passed to the defined value type.
+If not specified, it receives the `Field` object for the field type: `field`.
+- `definition_type` - the GraphQL type the field definitions is mapped to.
+If not specified, it uses `FieldDefinition`.
 
 Compiler pass example that should be placed in `src/DependencyInjection/Compiler`:
 

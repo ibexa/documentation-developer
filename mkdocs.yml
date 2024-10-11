@@ -34,7 +34,7 @@ nav:
         - Page and Form tutorial:
             - Page and Form tutorial: tutorials/page_and_form_tutorial/page_and_form_tutorial.md
             - 1. Get a starter website: tutorials/page_and_form_tutorial/1_get_a_starter_website.md
-            - 2. Prepare the Landing Page: tutorials/page_and_form_tutorial/2_prepare_the_landing_page.md
+            - 2. Prepare the landing page: tutorials/page_and_form_tutorial/2_prepare_the_landing_page.md
             - 3. Use existing blocks: tutorials/page_and_form_tutorial/3_use_existing_blocks.md
             - 4. Create a custom block: tutorials/page_and_form_tutorial/4_create_a_custom_block.md
             - 5. Create a newsletter form: tutorials/page_and_form_tutorial/5_create_newsletter_form.md

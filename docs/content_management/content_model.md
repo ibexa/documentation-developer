@@ -52,10 +52,10 @@ It's set by the system the first time the content item is published.
 The ownership of an item cannot be modified and doesn't change even if the owner is removed from the system.
 
 **`modificationDate`** - date and time when the content item was last modified.
-This is set by the system and cannot be modified manually, but changes every time the item is published again.
+It's set by the system and cannot be modified manually, but changes every time the item is published again.
 
 **`publishedDate`** - date and time when the content item was published for the first time.
-This is set by the system and cannot be modified.
+It's set by the system and cannot be modified.
 
 **`alwaysAvailable`** - indicates if the content item is shown in the main language when it's not present in another requested language.
 It's [set per content type](content_availability.md).
@@ -94,17 +94,16 @@ Validation depends on the settings of a particular field type. It cannot be turn
 
 Aside from the field type, the field definition in a content type provides the following information:
 
-**Name** – a user-friendly name that describes the field. This name is used in the interface, but not internally by the system. It can consist of letters, digits, spaces and special characters; the maximum length is 255 characters. If no name is provided, a unique one is automatically generated.
+**Name** – a user-friendly name that describes the field. This name is used in the interface, but not internally by the system. It can consist of letters, digits, spaces, and special characters (the maximum length is 255 characters). If no name is provided, a unique one is automatically generated.
 
-**Identifier** – an identifier for internal use in configuration files, templates, PHP code, etc. It can only contain lowercase letters, digits and underscores; the maximum length is 50 characters. This identifier is also used in name patterns for the content type.
+**Identifier** – an identifier for internal use in configuration files, templates, PHP code, etc. It can only contain lowercase letters, digits and underscores (the maximum length is 50 characters). This identifier is also used in name patterns for the content type.
 
 **Description** – a detailed description of the field.
 
 **Required** – a flag which indicates if the field is required for the system to accept the content item. By default, if a field is flagged as Required, a user isn't able to publish a content item without filling in this field.
 
 !!! note
-    You can use the `ContentService::validate()` method to decide whether the required fields or whole content items are checked for 
-    completeness at other stages of the editing process.
+    You can use the `ContentService::validate()` method to decide whether the required fields or whole content items are checked for completeness at other stages of the editing process.
 
     The Required flag is in no way related to field validation. A field's value is validated whether the field is set as required or not.
 
@@ -112,9 +111,9 @@ Aside from the field type, the field definition in a content type provides the f
 
 The Searchable flag isn't available for some fields, because some field types do not allow searching through their values.
 
-**[Translatable](languages.md)** – a flag which indicates if the value of the field can be translated. This is independent of the field type, which means that even fields such as "Float" or "Image" can be set as translatable.
+**[Translatable](languages.md)** – a flag which indicates if the value of the field can be translated. It's independent of the field type, which means that even fields such as "Float" or "Image" can be set as translatable.
 
-Depending on the field type, there may also be other, specific information to fill in. For example, the "Country" field type allows you to select the default country, as well as to allow selecting multiple countries at the same time.
+Depending on the field type, there may also be other, specific information to fill in. For example, the "Country" field type allows you to select the default country, and to allow selecting multiple countries at the same time.
 
 ![Diagram of content model](content_model_diagram.png)
 

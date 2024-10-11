@@ -4,7 +4,7 @@ description: Tabs are used for content view, in dashboard, system information an
 
 # Back office tabs
 
-Many elements of the back office interface, such as content view, dashboard or system information, are built using tabs.
+Many elements of the back office interface, such as content view, dashboard, or system information, are built using tabs.
 
 ![Tabs in System Information](tabs_system_info.png)
 
@@ -56,7 +56,7 @@ Tabs are displayed according to this value in ascending order.
     It is good practice to reserve some distance between these values, for example to stagger them by step of 10.
     It may come useful if you later need to place something between the existing tabs.
 
-You can also influence tab display (for example, order tabs, remove or modify them) by using the following event listeners:
+You can also influence tab display (for example, order tabs, remove, or modify them) by using the following event listeners:
 
 - `TabEvents::TAB_GROUP_PRE_RENDER`
 - `TabEvents::TAB_PRE_RENDER`

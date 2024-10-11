@@ -6,8 +6,7 @@ description: Enrich you site front with a menu displaying selected content items
 
 To add a navigation menu to your website, prepare a general layout template in a `templates/themes/<theme_name>/pagelayout.html.twig` file.
 
-This template can contain things such as header, menu, footer, as well as [assets](assets.md) for the whole site,
-and all other templates [extend](templates.md#connecting-templates) it.
+This template can contain things such as header, menu, footer, and [assets](assets.md) for the whole site, and all other templates [extend](templates.md#connecting-templates) it.
 
 To select items that should be rendered in the menu, you can use one of the following ways:
 

@@ -79,9 +79,9 @@ For a complete list of available field types, see [field type reference](field_t
 Once you use a field type to design and build a content type definition, and define its settings, it becomes a Field.
 
 Fields can be as simple as Name, based on a Text line field type, or as complex as Page, 
-based on a Landing Page field type, with multiple options to set and choose from:
+based on a landing page field type, with multiple options to set and choose from:
 
-![Landing Page Field settings](img/fields.png)
+![Landing page field settings](img/fields.png)
 
 ### Content types
 
@@ -150,14 +150,14 @@ Editors can compare different translations of the same content items with the Co
 
 #### Relations
 
-A [relation](content_relations.md) can exist between any two content items in the content tree. 
-For example, blog posts featured in the website's main page are in a relation with the page that they're embedded in. 
+A [relation](content_relations.md) can exist between any two content items in the content tree.
+For example, blog posts featured in the website's main page are in a relation with the page that they're embedded in.
 Or, instead of direct attachments, an article can use images that are separate content items outside the article and are referenced through a relation.
 
 ## Content arrangement
 
-In [[= product_name =]], content items can be moved and copied between branches of the content tree. 
-These operations, like in your computer’s file system, can apply both to individual content items as well as folders or groups.
+In [[= product_name =]], content items can be moved and copied between branches of the content tree.
+These operations, like in your computer’s file system, can apply both to individual content items and folders or groups.
 
 ![Content organization operations](img/content_arrangement.png)
 

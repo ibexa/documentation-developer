@@ -1,5 +1,5 @@
 ---
-description: Use PHP API to get content items and their information, as well as content Fields, Location, and others.
+description: Use PHP API to get content items and their information, content Fields, Location, and others.
 ---
 
 # Browsing and viewing content
@@ -21,8 +21,7 @@ The service should be [injected into the constructor of your command or controll
 ### ContentInfo
 
 Basic content metadata is available through [`ContentInfo`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html) objects and their properties.
-This value object provides primitive fields, such as `contentTypeId`, `publishedDate`, or `mainLocationId`,
-as well as methods for retrieving selected properties.
+This value object provides primitive fields, such as `contentTypeId`, `publishedDate`, or `mainLocationId`, and methods for retrieving selected properties.
 
 You can also use it to request other Content-related value objects from various services:
 

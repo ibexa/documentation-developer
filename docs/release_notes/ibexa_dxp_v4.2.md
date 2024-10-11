@@ -67,7 +67,7 @@ The system automatically generates variants for the attribute values you select.
 
 ![Generating product variants](4.2_product_variants_generate.png)
 
-You can set prices, including custom pricing, as well as availability and stock for each variant separately.
+You can set prices, including custom pricing, availability, and stock for each variant separately.
 
 ### Product assets
 

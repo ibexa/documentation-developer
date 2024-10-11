@@ -91,8 +91,7 @@ Create websites with content targeted at your customers. Deliver your visitors r
 
 ### Reduce clutter and improve customer retention
 
-Help users find content of their interest quicker,
-use words to appeal to individual customers, as well as segments.
+Help users find content of their interest quicker, use words to appeal to individual customers and segments.
 Enrich customer data by integrating [[= product_name_base =]] Personalization with other systems such as ERP, CRMs.
 Track user’s scenarios and develop strategies that match your strategies and improve engagement.
 ### Satisfy customer expectations

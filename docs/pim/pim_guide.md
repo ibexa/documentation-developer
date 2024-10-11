@@ -6,9 +6,7 @@ description: The PIM product guide provides a full description of the features a
 
 ## What is PIM
 
-PIM is a Product Information Management module that lets you create, configure and
-manage products, their specifications, assets, variants and prices, 
-as well as group products into categories and catalogs.
+PIM is a Product Information Management module that lets you create, configure and manage products, their specifications, assets, variants, and prices, but also group products into categories and catalogs.
 
 ## Availability
 

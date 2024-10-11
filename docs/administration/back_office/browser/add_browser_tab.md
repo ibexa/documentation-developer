@@ -119,7 +119,7 @@ ibexaConfigManager.add({
 ```
 
 ## Check results
-    
+
 In the back office go to **Content** -> **Dashboard**. On the top right, click the **Create content** button.
 In the UDW a new **Images** tab appears, listing all images from the Repository.
 
@@ -127,5 +127,5 @@ In the UDW a new **Images** tab appears, listing all images from the Repository.
 
 !!! tip
 
-    If you cannot see the results or encounter an error, clear the cache and reload the application. 
+    If you cannot see the results or encounter an error, clear the cache and reload the application.
     Remember, after any change of css/js files you should always run `yarn encore dev` in the terminal.

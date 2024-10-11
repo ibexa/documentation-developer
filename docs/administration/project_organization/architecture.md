@@ -4,10 +4,10 @@ description: Ibexa DXP architecture is structured in multiple layers connected b
 
 # Architecture
 
-[[= product_name =]] architecture is based on the philosophy to **use APIs** that is maintained in the long term. This **makes upgrades easier and provides lossless couplings** between all parts of the architecture, at the same time improving the migration capabilities of the system.
+[[= product_name =]] architecture is based on the philosophy to **use APIs** that is maintained in the long term.
+This **makes upgrades easier and provides lossless couplings** between all parts of the architecture, at the same time improving the migration capabilities of the system.
 
-The structure of an [[= product_name =]] app is based on the Symfony framework
-but content management functions rely on the public PHP API.
+The structure of an [[= product_name =]] app is based on the Symfony framework but content management functions rely on the public PHP API.
 Other applications integrate with [[= product_name =]] via REST API, which also relies on the public PHP API.
 
 ![Architecture](architecture.png "Architecture")

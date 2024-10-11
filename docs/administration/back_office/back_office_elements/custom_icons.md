@@ -6,8 +6,7 @@ description: Configure custom icons to use for content types.
 
 ## Customize content type icons
 
-To add custom icons for existing content types or custom content types in [[= product_name =]],
-use the following configuration under the `ibexa.system.<scope>.content_type` [configuration key](configuration.md#configuration-files):
+To add custom icons for existing content types or custom content types in [[= product_name =]], use the following configuration under the `ibexa.system.<scope>.content_type` [configuration key](configuration.md#configuration-files):
 
 ```yaml
 ibexa:

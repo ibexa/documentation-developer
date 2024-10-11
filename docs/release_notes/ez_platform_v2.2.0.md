@@ -12,13 +12,13 @@
 
 ### Page Builder
 
-This version introduces the **Page Builder** which replaces the Landing Page editor from earlier versions.
+This version introduces the **Page Builder** which replaces the landing page editor from earlier versions.
 
 ![Page Builder](2.2_page_builder.png)
 
 !!! note
 
-    The Page Builder does not offer all blocks that Landing Page editor did.
+    The Page Builder does not offer all blocks that landing page editor did.
     The removed blocks include Schedule and Form blocks.
     They will be included again in a future release.
 
@@ -27,7 +27,7 @@ This version introduces the **Page Builder** which replaces the Landing Page edi
 
 #### Modifying the Page content type
 
-You can edit the new Page content type by adding Fields, as well as create new content types with the Page field type.
+You can edit the new Page content type by adding Fields and create new content types with the Page field type.
 
 ![Editing Fields in Page Builder](2.2_page_builder_edit_fields.png)
 
@@ -41,7 +41,7 @@ In the Page block config you can now specify the CSS class with its own style fo
 
     Refer to [Updating eZ Platform](https://doc.ibexa.co/en/2.5/updating/5_update_2.2) for a database update script.
 
-    To update to 2.2 with existing Content you need a [dedicated script for converting the Landing Page into the new Page](https://doc.ibexa.co/en/2.5/updating/5_update_2.2/#migrate-landing-pages).
+    To update to 2.2 with existing Content you need a [dedicated script for converting the landing page into the new Page](https://doc.ibexa.co/en/2.5/updating/5_update_2.2/#migrate-landing-pages).
 
 ### Bookmarks
 

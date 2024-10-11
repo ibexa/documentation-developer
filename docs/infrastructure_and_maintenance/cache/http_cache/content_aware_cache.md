@@ -27,7 +27,7 @@ and updated in the background when someone requests them.
 Current content tags (and when the system purges on them):
 
 - Content: `c<content-id>` - Purged on all smaller or larger changes to content (including its metadata, fields and Locations).
-- Content Version: `cv<content-id>` - Purged when any version of Content is changed (for example, a draft is created or removed).
+- Content version: `cv<content-id>` - Purged when any version of Content is changed (for example, a draft is created or removed).
 - Content type: `ct<content-type-id>` - Used when the content type changes, affecting content of its type.
 - Location: `l<location-id>` - Used for clearing all cache relevant for a given Location.
 - Parent Location: `pl<[parent-]location-id>` - Used for clearing all children of a Location (`pl<location-id>`), or all siblings (`pl<parent-location-id>`).
@@ -60,9 +60,8 @@ Examples:
 
 ### Troubleshooting - Cache header too long errors
 
-In case of complex content, for example, Pages with many blocks, or RichText with a lot of embeds/links, 
-you can encounter problems with too long cache header on responses. 
-It happens because necessary cache entries may not be tagged properly. 
+In case of complex content, for example, Pages with many blocks, or RichText with a lot of embeds/links, you can encounter problems with too long cache header on responses.
+It happens because necessary cache entries may not be tagged properly.
 You may also see `502 Headers too long` errors, and webserver refusing to serve the page.
 
 You can solve this issue in one of the following ways:
@@ -89,15 +88,14 @@ Apache has a [hard](https://github.com/apache/httpd/blob/5f32ea94af5f1e7ea68d6fc
 
 #### B. Limit tags header output by system
 
-1\. For inline rendering just displaying the content name, image attribute, and/or link, it would be enough to:
+1\. For inline rendering displaying the content name, image attribute, and/or link, it would be enough to:
 
 - Look into how many inline (non ESI) render calls for content rendering you're doing, and see if you can organize it differently.
 - Consider inlining the views not used elsewhere in the given template and [tagging the response in Twig](#response-tagging-in-templates) with "relation" tags.
     - (Optional) You can set reduced cache TTL for the given view, to reduce the risk of stale cache on subtree operations affecting the inlined content.
 
-2\. You can opt in to set a max length parameter (in bytes) and corresponding ttl (in seconds) 
-for cases when the limit is reached. The system logs a warning where the limit is reached, and when needed, you can optimize 
-these cases as described above.
+2\. You can opt in to set a max length parameter (in bytes) and corresponding ttl (in seconds) for cases when the limit is reached.
+The system logs a warning where the limit is reached, and when needed, you can optimize these cases as described above.
 
 ```yaml
 parameters:
@@ -122,19 +120,19 @@ If the given content has several Locations, you can see several `l<location-id>`
 !!! note "How response tagging for ContentView is done internally"
 
     In `ibexa/http-cache` there is a dedicated response listener `HttpCacheResponseSubscriber` that checks if:
-    
+
     - the response has attribute `view`
     - the view implements `Ibexa\Core\MVC\Symfony\View\CachableView`
     - cache isn't disabled on the individual view
 
     If that checks out, the response is adapted with the following:
-    
+
     - `ResponseCacheConfigurator` applies SiteAccess settings for enabled/disabled cache and default TTL.
     - `DispatcherTagger` dispatches the built-in ResponseTaggers which generate the tags as described above.
 
 ### ResponseConfigurator
 
-A `ReponseCacheConfigurator` configures an HTTP Response object, makes the response public, adds tags and sets the shared max age. 
+A `ReponseCacheConfigurator` configures an HTTP Response object, makes the response public, adds tags, and sets the shared max age. 
 It's provided to `ReponseTaggers` that use it to add the tags to the response.
 
 The `ConfigurableResponseCacheConfigurator` (`Ibexa\HttpCache\ResponseConfigurator\ConfigurableResponseCacheConfigurator`) follows the `view_cache` configuration and only enables cache if it's enabled in the configuration.
@@ -288,9 +286,7 @@ In the event when a new version of `Child` is published, the following keys are 
 - `l20`, because cache for parent of `[Child]` should be purged
 - `pl20`, because cache for siblings of `[Child]` should be purged
 
-In summary, HTTP Cache for any location representing `[Child]`, any Content that relates to the Content `[Child]`, the 
-location for `[Child]`, any children of `[Child]`, any Location that relates to the Location `[Child]`, location for
-`[Parent1]`, any children on `[Parent1]`.
+In summary, HTTP Cache for any location representing `[Child]`, any Content that relates to the Content `[Child]`, the location for `[Child]`, any children of `[Child]`, any Location that relates to the Location `[Child]`, location for `[Parent1]`, any children on `[Parent1]`.
 Effectively, in this example HTTP cache for `[Parent1]` and `[Child]` is cleared.
 
 
@@ -370,13 +366,12 @@ cases does the job. But if you need to change the varnish configuration to make 
 that .vcl code for Varnish V6.x doesn't likely work as-is on Fastly.
 
 This section describes to how to debug problems related to HTTP cache. 
-	In order to that, you must be able to look both at
-	responses and headers [[= product_name =]] sends to HTTP cache, and not so much at responses and headers
+	You must be able to look both at responses and headers [[= product_name =]] sends to HTTP cache, and not so much at responses and headers
 	the HTTP cache sends to the client (web browser).
 	It means you must be able to send requests to your origin (web server) that do not go through Varnish or Fastly.
-	If you run Nginx and Varnish on premise, you should know what host and port number both Varnish and Nginx runs on. If you
-	perform tests on Fastly enabled environment on [[= product_name_cloud =]] provided by Platform.sh, you need to use the Platform.sh
-	Dashboard to obtain the endpoint for Nginx.
+	If you run Nginx and Varnish on premise, you should know what host and port number both Varnish and Nginx runs on.
+  If you perform tests on Fastly enabled environment on [[= product_name_cloud =]] provided by Platform.sh, you need to use the Platform.sh
+	dashboard to obtain the endpoint for Nginx.
 
 The following example shows how to debug and check why Fastly does not cache the front page properly. 
 If you run the command multiple times:
@@ -418,10 +413,8 @@ You can also use the [Ibexa Cloud CLI](https://cli.ibexa.co/) (which has the sam
 
 #### Finding Nginx endpoint on dedicated cloud
 
-If you have a dedicated 3-node cluster on Platform.sh, the procedure for getting the endpoint to environments that are 
-located on that cluster (`production` and sometimes also `staging`) is slightly different.
-In the **URLs** drop-down in the Platform.sh dashboard, find the route that has the format 
-`somecontent.[clusterid].ent.platform.sh/`, for example, `myenvironment.abcdfg2323.ent.platform.sh/`
+If you have a dedicated 3-node cluster on Platform.sh, the procedure for getting the endpoint to environments that are located on that cluster (`production` and sometimes also `staging`) is slightly different.
+In the **URLs** drop-down in the Platform.sh dashboard, find the route that has the format `somecontent.[clusterid].ent.platform.sh/`, for example, `myenvironment.abcdfg2323.ent.platform.sh/`
 
 The endpoint in case has the format `c.[clusterid].ent.platform.sh`, for example, `c.asddfs2323.ent.platform.sh/`
 Next, use nslookup to find the IP:

@@ -50,8 +50,7 @@ depending on the Segments they belong to.
 
 You can [configure Segments](https://doc.ibexa.co/en/latest/guide/admin_panel/#segments) in the back office.
 
-[Segmentation API](https://doc.ibexa.co/en/latest/api/public_php_api_managing_users/#segments) enables you to create and edit Segments and Segment Groups,
-as well as assign Users to Segments.
+[Segmentation API](https://doc.ibexa.co/en/latest/api/public_php_api_managing_users/#segments) enables you to create and edit Segments and Segment Groups, and assign Users to Segments.
 
 ### Twig helpers for content rendering
 

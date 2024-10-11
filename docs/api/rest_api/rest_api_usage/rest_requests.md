@@ -36,8 +36,7 @@ For method action details per resource, see the [REST API reference](../rest_api
 !!! note "Caution with custom HTTP methods"
 
     Using custom HTTP methods can cause issues with several HTTP proxies, network firewall/security solutions and simpler web servers.
-    To avoid issues with this, REST API allows you to set these using the HTTP header `X-HTTP-Method-Override` alongside the standard `POST` method
-    instead of using a custom HTTP method. For example: `X-HTTP-Method-Override: PUBLISH`
+    To avoid issues with this, REST API allows you to set these using the HTTP header `X-HTTP-Method-Override` alongside the standard `POST` method instead of using a custom HTTP method. For example: `X-HTTP-Method-Override: PUBLISH`
 
     If applicable, both methods are always mentioned in the specifications.
 
@@ -115,14 +114,14 @@ On top of methods, HTTP request headers allow you to personalize the request's b
 On every resource, you can use the `Accept` header to indicate which format you want to communicate in, JSON or XML.
 This header is also used to specify the response type you want the server to send when multiple types are available.
 
--   `Accept: application/vnd.ibexa.api.Content+xml` to get `Content` (full data, Fields included) as **[XML](https://www.w3.org/XML/)**
--   `Accept: application/vnd.ibexa.api.ContentInfo+json` to get `ContentInfo` (metadata only) as **[JSON](https://www.json.org/)**
+- `Accept: application/vnd.ibexa.api.Content+xml` to get `Content` (full data, Fields included) as **[XML](https://www.w3.org/XML/)**
+- `Accept: application/vnd.ibexa.api.ContentInfo+json` to get `ContentInfo` (metadata only) as **[JSON](https://www.json.org/)**
 
 Media types are also used with the [`Content-Type` header](rest_responses.md#content-type-header) to characterize a [request body](#request-body) or a [response body](rest_responses.md#response-body).
 See [Creating content with binary attachments](#creating-content-with-binary-attachments) below.
 Also see [Creating session](rest_api_authentication.md#creating-session) examples.
 
-If the resource only returns one media type, it's also possible to skip it and to just specify the format using `application/xml` or `application/json`.
+If the resource only returns one media type, it's also possible to skip it and to specify the format using `application/xml` or `application/json`.
 
 A response indicates `href`s to related resources and their media types.
 
@@ -143,18 +142,16 @@ The `X-Expected-User` header specifies the user needed for the request execution
 With this header, if the current username on server side isn't equal to `X-Expected-User` value, a `401 Unauthorized` error is returned.
 Without this header, the request is executed with the current user who might be unexpected (like the Anonymous user if a previous authentication has expired) and an ambiguous response might be returned as a success not informing about a wrong user.
 
-For example, it prevents a Content request to be executed with Anonymous user in the case of an expired authentication,
-and the response being a `200 OK` but missing content items due to access rights difference with the expected user.
+For example, it prevents a Content request to be executed with Anonymous user in the case of an expired authentication, and the response being a `200 OK` but missing content items due to access rights difference with the expected user.
 
 ## Request body
 
-You can pass some short scalar parameters in the URIs or as GET parameters, but other resources need heavier structured payloads passed in the request body,
-in particular the ones to create (`POST`) or update (`PATCH`) items.
+You can pass some short scalar parameters in the URIs or as GET parameters, but other resources need heavier structured payloads passed in the request body, in particular the ones to create (`POST`) or update (`PATCH`) items.
 In the [REST API reference](../rest_api_reference/rest_api_reference.html), request payload examples are given when needed.
 
 One example is the [creation of an authentication session](rest_api_authentication.md#establishing-session).
 
-When creating a content item, a special payload is needed if the ContentType has some [Image](imagefield.md) or [BinaryFile](binaryfilefield.md) Fields as files need to be attached. See the example of a [script uploading images](#creating-content-with-binary-attachments) below.
+When creating a content item, a special payload is needed if the content type has some [Image](imagefield.md) or [BinaryFile](binaryfilefield.md) Fields as files need to be attached. See the example of a [script uploading images](#creating-content-with-binary-attachments) below.
 
 When searching for content items (or Locations), the query grammar is also particular. See the [Search section](#search-views) below.
 

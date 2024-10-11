@@ -12,11 +12,7 @@ This page lists backwards compatibility breaks and deprecations introduced in eZ
 ## Symfony 5
 
 v3.0 now uses Symfony 5 instead of Symfony 3.
-Refer to [Symfony changelog for 4.0](https://github.com/symfony/symfony/blob/master/CHANGELOG-4.0.md)
-and [for 5.0](https://github.com/symfony/symfony/blob/master/CHANGELOG-5.0.md)
-as well as [Symfony upgrade guides for 4.0](https://github.com/symfony/symfony/blob/master/UPGRADE-4.0.md)
-and [for 5.0](https://github.com/symfony/symfony/blob/master/UPGRADE-5.0.md)
-to learn about all changes it entails.
+Refer to [Symfony changelog for 4.0](https://github.com/symfony/symfony/blob/master/CHANGELOG-4.0.md), [for 5.0](https://github.com/symfony/symfony/blob/master/CHANGELOG-5.0.md), [Symfony upgrade guides for 4.0](https://github.com/symfony/symfony/blob/master/UPGRADE-4.0.md), and [for 5.0](https://github.com/symfony/symfony/blob/master/UPGRADE-5.0.md) to learn about all changes it entails.
 
 See [v3.0 project update](adapt_code_to_v3.md) for the steps you need to take to update your project to Symfony 5.
 See also [full requirements for installing eZ Platform](https://doc.ibexa.co/en/latest/getting_started/requirements).

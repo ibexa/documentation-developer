@@ -17,7 +17,7 @@ Set elements which are available for the `<select>` input, for example:
     <option value="DE">DE</option>
     <option value="US">US</option>
     <option value="NO">NO</option>
-    <option value="PL">PL</option> 
+    <option value="PL">PL</option>
 </select>
 {% endset %}
 ```
@@ -88,7 +88,8 @@ For `value`, see the example:
 
 ## Prepare custom drop-down structure
 
-Next, prepare the component structure and place it in the template after setting the needed attributes. See the example:
+Next, prepare the component structure and place it in the template after setting the needed attributes.
+See the example:
 
 ```twig
 {% include '@ibexadesign/ui/component/dropdown/dropdown.html.twig' with {

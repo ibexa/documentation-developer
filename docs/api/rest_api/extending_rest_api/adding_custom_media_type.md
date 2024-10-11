@@ -10,9 +10,10 @@ By default, this resource takes an `application/vnd.ibexa.api.Location+xml` (or 
 The following example adds the handling of a new media type `application/app.api.Location+xml` (or `+json`) `Accept` header to obtain a different response using the same controller.
 
 You need the following elements:
-* A `ValueObjectVisitor` to create the new response corresponding to the new media type;
-* A `ValueObjectVisitorDispatcher` to have this `ValueObjectVisitor` used to visit the default controller result;
-* An `Output\Visitor` service associating this new `ValueObjectVisitorDispatcher` with the new media type.
+
+- `ValueObjectVisitor` - to create the new response corresponding to the new media type
+- `ValueObjectVisitorDispatcher` - to have this `ValueObjectVisitor` used to visit the default controller result
+- `Output\Visitor` - service associating this new `ValueObjectVisitorDispatcher` with the new media type
 
 !!! note
 

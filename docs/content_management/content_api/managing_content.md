@@ -1,5 +1,5 @@
 ---
-description: PHP API enables managing content Locations, content types, as well as content in Trash and Calendar events.
+description: PHP API enables managing content Locations, content types, content in Trash, and Calendar events.
 ---
 
 # Managing content
@@ -213,7 +213,7 @@ You can process the events in a collection using the `find(Closure $predicate)`,
 
 You can perform a calendar action (e.g. reschedule or unschedule calendar events) using the `CalendarServiceInterface::executeAction()` method.
 You must pass an `Ibexa\Contracts\Calendar\EventAction\EventActionContext` instance as argument.
-`EventActionContext` defines events on which the action is performed, as well as action-specific parameters e.g. a new date:
+`EventActionContext` defines events on which the action is performed, and action-specific parameters, for example, a new date:
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/CalendarCommand.php', 59, 61) =]]

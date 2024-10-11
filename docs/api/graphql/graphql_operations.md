@@ -70,7 +70,7 @@ Response:
 }
 ```
 
-Note that the input for updating a content item is the same as when creating it, but all fields are optional.
+The input for updating a content item is the same as when creating it, but all fields are optional.
 
 ## Deleting content
 

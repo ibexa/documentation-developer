@@ -71,7 +71,7 @@ ibexa:
                     	batch_size: 64
                     https:
                     	enabled: true
-                    	ignore_certificate: false             
+                    	ignore_certificate: false
                     mailto:
                     	enabled: false
 ```
@@ -137,20 +137,17 @@ The `scheme` attribute is mandatory and has to correspond to the name of the pro
 ## URL aliases
 
 You can define URL aliases for individual content items, for example, when you reorganize the content, and want to provide users with continuity.
-For each URL alias definition the history of changes is preserved, so that users who have bookmarked the URL addresses of content items can still find he information they desire.
+For each URL alias definition the history of changes is preserved, so that users who have bookmarked the URL addresses of content items can still find the information they desire.
 
 !!! note
 
-    Make sure that you correctly define languages used by the site in the configuration 
-    (under the `ibexa.system.<scope>.languages` key). 
-    Otherwise, redirections for the renamed Content with translations in multiple
-    languages may fail to work properly.
+    Make sure that you correctly define languages used by the site in the configuration (under the `ibexa.system.<scope>.languages` key).
+    Otherwise, redirections for the renamed Content with translations in multiple languages may fail to work properly.
 
 !!! caution "Legacy storage engine limitation"
 
-    The [Legacy storage engine](field_type_storage.md#legacy-storage-engine) does not archive URL aliases, which initially 
-    had the same name in multiple languages. 
-    For more information, see [the Jira ticket](https://issues.ibexa.co/browse/EZP-31818). 
+    The [Legacy storage engine](field_type_storage.md#legacy-storage-engine) does not archive URL aliases, which initially had the same name in multiple languages.
+    For more information, see [the Jira ticket](https://issues.ibexa.co/browse/EZP-31818).
 
 URL aliases aren't SiteAccess-aware. When creating an alias, you can select a SiteAccess to base it on.
 If the SiteAccess root path (configured in `content.tree_root.location_id`) is different than the default,

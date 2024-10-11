@@ -27,8 +27,7 @@ parameters:
     myapp.default.my_param: Default value
 ```
 
-Inside a controller, in `site_group` SiteAccess, you can use the parameters in the following way
-(note that the same applies for `hasParameter()`):
+Inside a controller, in `site_group` SiteAccess, you can use the parameters in the following way (the same applies for `hasParameter()`):
 
 ``` php
 $configResolver = $this->getConfigResolver();
@@ -77,7 +76,7 @@ You can also use the [autowire feature]([[= symfony_doc =]]/service_container/au
 
 !!! note
 
-    Do not store the retrieved config value unless you know what you're doing. 
+    Do not store the retrieved config value unless you know what you're doing.
     SiteAccess can change during code execution, which means you might work on the wrong value.
 
 ``` php

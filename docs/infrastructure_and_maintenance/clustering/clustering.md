@@ -13,9 +13,7 @@ The parts illustrate the different roles needed for a successful cluster setup.
 
 ![Server setup for clustering](server_setup.png)
 
-The number of web servers, Memcached/Redis, Solr, Varnish, Database and NFS servers,
-as well as whether some servers play several of these roles (typically running Memcached/Redis across the web server)
-is up to you and your performance needs.
+The number of web servers, Memcached/Redis, Solr, Varnish, Database, and NFS servers, but also whether some servers play several of these roles (typically running Memcached/Redis across the web server), is up to you and your performance needs.
 
 The minimal requirements are:
 

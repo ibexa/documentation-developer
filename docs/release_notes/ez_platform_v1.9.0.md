@@ -40,7 +40,7 @@ In version 1.8 we introduced a new Content Browser in the Universal Discovery Wi
 
 ### eZ Platform Enterprise Edition - Studio
 
--   It's now possible to configure Landing Page blocks used by the Landing Page editor in a simpler way. The configuration is done in a YAML file (see <https://issues.ibexa.co/browse/EZEE-1421>)
+-   It's now possible to configure landing page blocks used by the landing page editor in a simpler way. The configuration is done in a YAML file (see <https://issues.ibexa.co/browse/EZEE-1421>)
 -   *..lots of other bug fixes and smaller improvements..*
 
 ### eZ Platform Enterprise Edition - Studio Demo

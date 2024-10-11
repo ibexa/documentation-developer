@@ -47,7 +47,7 @@ The type is asked to validate the settings (provided by the user) before the pub
 
 As in `validateFieldSettings()`, this method verifies that the given validator configuration complies to the schema provided by `getValidatorConfigurationSchema()`.
 
-It's important to note that the schema definitions of the field type can be both of arbitrary and serializable format. It's highly recommended to use a simple hash structure.
+It's important to know that the schema definitions of the field type can be both of arbitrary and serializable format. It's highly recommended to use a simple hash structure.
 
 !!! note
 
@@ -91,7 +91,7 @@ It's based on the field type settings and validator configuration and stored in 
 
 ### Serialization
 
-When [REST API](rest_api_usage.md) is used, conversion needs to be done for field type values, settings and validator configurations. These are converted to and from a simple hash format that can be encoded in REST payload. As conversion needs to be done both when transmitting and receiving data through REST, field type implements the following pairs of methods:
+When [REST API](rest_api_usage.md) is used, conversion needs to be done for field type values, settings, and validator configurations. These are converted to and from a simple hash format that can be encoded in REST payload. As conversion needs to be done both when transmitting and receiving data through REST, field type implements the following pairs of methods:
 
 |Method|Description|
 |------|-----------|
@@ -107,7 +107,7 @@ When [REST API](rest_api_usage.md) is used, conversion needs to be done for fiel
 ## Registration
 
 The field type must be registered in `config/services.yml`:
- 
+
 ``` yaml
 services:
     Ibexa\FieldTypeMatrix\FieldType\Type:
@@ -126,8 +126,7 @@ If you need to inject other services into your Type class, skip using the `paren
 Like most API components, field types use the [Symfony service tag mechanism]([[= symfony_doc =]]/service_container/tags.html).
 
 A service can be assigned one or several tags, with specific parameters.
-When the [service container](php_api.md#service-container) is compiled into a PHP file, 
-tags are read by `CompilerPass` implementations that add extra handling for tagged services.
+When the [service container](php_api.md#service-container) is compiled into a PHP file, tags are read by `CompilerPass` implementations that add extra handling for tagged services.
 Each service tagged as `ibexa.field_type` is added to a [registry](https://martinfowler.com/eaaCatalog/registry.html) using the `alias` key as its unique `fieldTypeIdentifier` e.g. `ezstring`.
 Each field type must also inherit from the abstract `ibexa.field_type` service.
 This ensures that the initialization steps shared by all field types are executed.
@@ -168,8 +167,7 @@ The settings are mapped into Symfony forms via the [FormMapper](form_and_templat
 
 !!! note
 
-    You can store field type settings internally, or, when the schema becomes 
-    too complex, move them to [external storage](field_type_storage.md#storing-field-type-settings-externally).
+    You can store field type settings internally, or, when the schema becomes too complex, move them to [external storage](field_type_storage.md#storing-field-type-settings-externally).
 
 ## Extensibility points
 

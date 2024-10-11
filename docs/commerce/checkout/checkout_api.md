@@ -53,9 +53,7 @@ You can update the collected data after the checkout is created.
 The data is stored within the `CheckoutInterface::context` object. 
 The last update time and status are also stored. 
 
-To update the checkout, use the `CheckoutServiceInterface::updateCheckout` method 
-and provide it with the `CheckoutUpdateStruct` struct that contains data collected at each 
-step of the workflow, as well as a transition name to identify what step follows. 
+To update the checkout, use the `CheckoutServiceInterface::updateCheckout` method and provide it with the `CheckoutUpdateStruct` struct that contains data collected at each step of the workflow, and a transition name to identify what step follows.
 
 All data is placed in session storage.
 

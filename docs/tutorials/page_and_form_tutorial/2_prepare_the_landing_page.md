@@ -23,9 +23,9 @@ Go to the front page of your website (`<yourdomain>`). You can see that it looks
 
 Log in to the back office. Go to **Content Structure**.
 The **Ibexa Digital Experience Platform** content item is the first page that is shown to the visitor.
-Here you can check what content type it belongs to: it's a Landing Page.
+Here you can check what content type it belongs to: it's a landing page.
 
-![Ibexa Digital Experience Platform is a Landing Page](enterprise_tut_home_is_an_lp.png)
+![Ibexa Digital Experience Platform is a landing page](enterprise_tut_home_is_an_lp.png)
 
 The page contains one Code block and is displayed without any template.
 Click Edit to enter a mode that enables you to work with Pages.
@@ -61,7 +61,7 @@ First create a new file for layout configuration, `config/packages/ibexa_fieldty
     For a detailed description of creating a Page layout, see [Page layouts](render_page.md#render-a-layout).
 
 The `sidebar` (line 3) is the internal key of the layout. `name` (line 5) is displayed in the interface when the user selects a layout.
-The `thumbnail` (line 7) points to an image file that is shown when creating a new Landing Page next to the name.
+The `thumbnail` (line 7) points to an image file that is shown when creating a new landing page next to the name.
 Use the [supplied thumbnail file](https://github.com/ibexa/documentation-developer/blob/master/code_samples/tutorials/page_tutorial_starting_point/public/assets/images/layouts/sidebar.png) and place it in the `public/assets/images/layouts/` folder.
 
 The `template` (line 8) points to the Twig file containing the template for this layout.

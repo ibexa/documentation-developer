@@ -7,7 +7,7 @@ description: Learn how to use the Online Editor, a tool that allows you to edit 
 ## What is Online Editor
 
 Online Editor is the interface for editing RichText Fields in any content item in [[= product_name =]].
-It offers standard editing capabilities as well as extensibility points to customize the editing experience and the available elements.
+It offers standard editing capabilities and extensibility points to customize the editing experience and the available elements.
 
 Online Editor is based on [CKEditor 5](https://ckeditor.com/ckeditor-5/).
 
@@ -25,9 +25,8 @@ To start using it, create any content item with a RichText Field
 
 ### Rich Text editor
 
-Online Editor covers all fundamental formatting options for rich text, 
-such as headings, lists, tables, inline text formatting, anchors and links. 
-It also allows embedding other content from the repository, as well as from Facebook, Twitter or YouTube.
+Online Editor covers all fundamental formatting options for rich text, such as headings, lists, tables, inline text formatting, anchors, and links. 
+It also allows embedding other content from the repository, but also from Facebook, Twitter, or YouTube.
 
 #### Links
 
@@ -47,9 +46,12 @@ For more information, see [Distraction free mode]([[= user_doc =]]/content_manag
 Custom tags are customizable RichText elements for which you can specify attributes 
 and render them with custom templates.
 
-Custom tags can be created by means of specifying two things only: 
-YAML configuration and relevant Twig templates.
-The YAML configuration defines a custom tag’s attributes and the template used to render it, as well as where in the toolbar the tag is available.
+Custom tags can be created by means of specifying two things only:
+
+- YAML configuration
+- relevant Twig templates
+
+The YAML configuration defines a custom tag’s attributes, the template used to render it, and where in the toolbar the tag is available.
 
 See [Extend Online Editor](extend_online_editor.md#configure-custom-tags) for a full example.
 
@@ -95,9 +97,10 @@ The range of available text elements can be extended by offering custom elements
 Custom formatting options can be offered either as custom CSS classes that editors can add to specific elements, 
 or as custom styles which can have their own templates.
 
-More extensive customization is available via custom tags: 
-completely custom RichText elements that you can fully configure, 
-as well as custom CKEditor 5 plugins.
+More extensive customization is available via custom tags:
+
+- completely custom RichText elements that you can fully configure
+- custom CKEditor 5 plugins
 
 ## Use cases
 

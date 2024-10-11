@@ -485,23 +485,15 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Payment
 
-- [Payment management](https://doc.ibexa.co/en/master/commerce/payment/payment/),
-including [configuring payment workflow](https://doc.ibexa.co/en/master/commerce/payment/configure_payment/),
-as well as [payment](https://doc.ibexa.co/en/master/commerce/payment/payment_api/)
-and [payment method PHP API](https://doc.ibexa.co/en/master/commerce/payment/payment_method_api/).
+- [Payment management](https://doc.ibexa.co/en/master/commerce/payment/payment/), including [configuring payment workflow](https://doc.ibexa.co/en/master/commerce/payment/configure_payment/), [payment](https://doc.ibexa.co/en/master/commerce/payment/payment_api/), and [payment method PHP API](https://doc.ibexa.co/en/master/commerce/payment/payment_method_api/).
 
 ### Orders
 
-- [Order management](https://doc.ibexa.co/en/master/commerce/order_management/order_management/),
-including [configuring order workflow](https://doc.ibexa.co/en/master/commerce/order_management/configure_order_management/)
-and [Orders REST API reference](https://doc.ibexa.co/en/master/api/rest_api/rest_api_reference/rest_api_reference.html#orders).
+- [Order management](https://doc.ibexa.co/en/master/commerce/order_management/order_management/), including [configuring order workflow](https://doc.ibexa.co/en/master/commerce/order_management/configure_order_management/) and [Orders REST API reference](https://doc.ibexa.co/en/master/api/rest_api/rest_api_reference/rest_api_reference.html#orders).
 
 ### Shipping
 
-- [Shipping management](https://doc.ibexa.co/en/master/commerce/shipping_management/shipping_management/),
-including [configuring shipment workflow](https://doc.ibexa.co/en/master/commerce/shipping_management/configure_shipment/),
-as well as [shipment](https://doc.ibexa.co/en/master/commerce/shipping_management/shipment_api/)
-and [shipping method PHP API](https://doc.ibexa.co/en/master/commerce/shipping_management/shipping_method_api/).
+- [Shipping management](https://doc.ibexa.co/en/master/commerce/shipping_management/shipping_management/), including [configuring shipment workflow](https://doc.ibexa.co/en/master/commerce/shipping_management/configure_shipment/), [shipment](https://doc.ibexa.co/en/master/commerce/shipping_management/shipment_api/), and [shipping method PHP API](https://doc.ibexa.co/en/master/commerce/shipping_management/shipping_method_api/).
 
 ### Search
 
@@ -548,10 +540,7 @@ and [extend Storefront](https://doc.ibexa.co/en/master/commerce/storefront/exten
 
 ### Checkout
 
-- [Checkout](https://doc.ibexa.co/en/master/commerce/checkout/checkout/) documentation,
-including how to [configure checkout](https://doc.ibexa.co/en/master/commerce/checkout/configure_checkout/).
-Description of main [PHP API methods](https://doc.ibexa.co/en/master/commerce/checkout/checkout_api/)
-as well as [checkout-related Twig functions](https://doc.ibexa.co/en/master/templating/twig_function_reference/checkout_twig_functions/).
+- [Checkout](https://doc.ibexa.co/en/master/commerce/checkout/checkout/) documentation, including [how to configure checkout](https://doc.ibexa.co/en/master/commerce/checkout/configure_checkout/), description of main [PHP API methods](https://doc.ibexa.co/en/master/commerce/checkout/checkout_api/), and [checkout-related Twig functions](https://doc.ibexa.co/en/master/templating/twig_function_reference/checkout_twig_functions/).
 
 ### Other
 

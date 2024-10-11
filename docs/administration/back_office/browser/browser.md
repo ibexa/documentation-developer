@@ -4,8 +4,8 @@ description: Customize the configuration of the content browser.
 
 # Browser
 
-Browsing the content structure and selecting content from the Repository uses the module Universal Discovery Widget (UDW). UDW has an interactive interface
-which allows you to create, move or copy content items.
+Browsing the content structure and selecting content from the Repository uses the module Universal Discovery Widget (UDW).
+UDW has an interactive interface which allows you to create, move or copy content items.
 
 ## Using UDW
 
@@ -98,8 +98,7 @@ General configuration for tabs, for example, browse, search, bookmarks.
 |`title`|string|yes|The title of Universal Discovery Widget.|
 
 UDW configuration is SiteAccess-aware. For each defined SiteAccess, you need to be able to use the same configuration tree to define SiteAccess-specific config.
-These settings need to be mapped to SiteAccess-aware internal parameters that 
-you can retrieve with the [ConfigResolver](dynamic_configuration.md#configresolver).
+These settings need to be mapped to SiteAccess-aware internal parameters that you can retrieve with the [ConfigResolver](dynamic_configuration.md#configresolver).
 
 ## Add new configuration
 

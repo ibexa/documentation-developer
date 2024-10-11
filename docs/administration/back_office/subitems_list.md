@@ -9,8 +9,7 @@ It provides an interface for listing the sub-items of any Location.
 
 !!! caution
 
-    If you want to load the Sub-items module, you need to load the JS code for it in your view,
-    as it's not available by default.
+    If you want to load the Sub-items module, you need to load the JS code for it in your view, as it's not available by default.
 
 ## Use sub-items list
 
@@ -47,7 +46,9 @@ const attrs = {
 
 ## Properties list
 
-The `<SubItemsModule />` module can handle additional properties. There are two types of properties: **required** and **optional**. All of them are listed below.
+The `<SubItemsModule />` module can handle additional properties.
+There are two types of properties: **required** and **optional**.
+All of them are listed below.
 
 ### Required props
 
@@ -106,5 +107,4 @@ Optionally, Sub-items module can take a following list of props:
 To add a Sub-items list on a page that does not have the (right) action sidebar, you need to do one of the following things:
 
 - add a `<div>` element with the `.ibexa-extra-actions-container` selector
-- change the selector in the Sub-items settings by sending the `languageContainerSelector` prop
-which takes the selector for the element that renders the `languageSelector`.
+- change the selector in the Sub-items settings by sending the `languageContainerSelector` prop which takes the selector for the element that renders the `languageSelector`.

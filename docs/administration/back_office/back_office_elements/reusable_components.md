@@ -19,7 +19,7 @@ With `embed` you can override blocks that are defined inside the included templa
 
 The alert component has the following properties:
 
-- `type` - available types of alert: error, info, success and warning
+- `type` - available types of alert: error, info, success, and warning
 - `icon` - name of the icon, taken from the default icon set
 - `icon_path` - full icon path, in case you do not want to use an icon from the default icon set
 - `title` - alert title
@@ -208,14 +208,14 @@ The following example shows how to render both text and hyperlink which redirect
 See the example below to learn how to create an action button which removes the article in the table.
 The table component has to be wrapped into the remove article form.
 
-As in many cases you want a button to be disabled when no item in a table is selected and enabled otherwise, there is a built-in mechanism for this. 
+As in many cases you want a button to be disabled when no item in a table is selected and enabled otherwise, there is a built-in mechanism for this.
 To enable it you need to add the `ibexa-toggle-btn-state` CSS class to the form element alongside `data-toggle-button-id` data-attribute
 which holds the id of the button that should be enabled/disabled after a checkbox state change.
 
 Next, pass a button under the `action` parameter to the table headline.
 
 Action buttons are rendered on the right side of the table headline (do not confuse it with the table header).
-You can also specify headline text, which is a table title displayed above, by passing it under `headline` parameter. 
+You can also specify headline text, which is a table title displayed above, by passing it under `headline` parameter.
 
 You can generate various headline texts using the `results_headline` macro with a few parameters:
 
@@ -230,10 +230,10 @@ Column types available for the table header :
 - normal content column `{ content: col_name }` (content is the title of the column)
 - icon column `{ has_icon: true }`
 - checkbox column `{ has_checkbox: true }`
-- action buttons column `{  }` 
+- action buttons column `{  }`
 
 Additional parameters available for all of the objects mentioned earlier:
- 
+
     - class (CSS class)
     - attr (HTML attributes)
 
@@ -297,10 +297,11 @@ To avoid wrapping headline inside the form, as it's done in the earlier example,
 {% endblock %}
 ```
 
-This method is useful in case of another form inside headline actions or to avoid interferences with the form like button triggering its submission.
+This method is practical in case of another form inside headline actions or to avoid interferences with the form like button triggering its submission.
 
 By default, tables are wrapped in a scrollable wrapper which prevents them from being too long.
 To disable it, set the `is_scrollable` parameter to `false`.
+
 !!! tip
 
     For an example of using the table component, see [Add menu item](add_menu_item.md).

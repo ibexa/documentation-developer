@@ -15,14 +15,12 @@ However, you can also use XML or PHP formats for configuration.
 ### Configuration files
 
 Configuration files are located in the `config` folder.
-Configuration is provided per package in the `config/packages` folder,
-and routes are defined per package in `config/routes`.
+Configuration is provided per package in the `config/packages` folder, and routes are defined per package in `config/routes`.
 
 `config/packages/ibexa.yaml` contains basic configuration.
 It stores, among others, [SiteAccess](multisite.md) information and content view config.
 
-Other configuration is provided in respective files, e.g. `config/packages/ibexa_admin_ui.yaml`,
-`config/packages/ibexa_http_cache.yaml`.
+Other configuration is provided in respective files, e.g. `config/packages/ibexa_admin_ui.yaml`, `config/packages/ibexa_http_cache.yaml`.
 
 Configuration can be made environment-specific using separate folders for each environment.
 These files contain additional settings and point to the general (not environment-specific) configuration that is applied in other cases.
@@ -57,8 +55,7 @@ You can define key/value pairs in your configuration files.
 Internally and by convention, keys follow a *dot syntax*, where the different segments follow your configuration hierarchy.
 Keys are usually prefixed by a *namespace* corresponding to your application. All kinds of values are accepted, including arrays and deep hashes.
 
-For configuration that is meant to be exposed to an end-user (or end-developer),
-it's usually a good idea to also [implement semantic configuration]([[= symfony_doc =]]/components/config/definition.html).
+For configuration that is meant to be exposed to an end-user (or end-developer), it's usually a good idea to also [implement semantic configuration]([[= symfony_doc =]]/components/config/definition.html).
 
 Note that you can also [implement SiteAccess-aware semantic configuration](siteaccess_aware_configuration.md).
 

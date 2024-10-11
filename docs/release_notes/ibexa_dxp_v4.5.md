@@ -29,17 +29,17 @@ Modules can interact with each other, for example, to decrease stock as a result
 
 #### Order management
 
-With order management in place, it's now possible to create orders, configure and customize the order processing workflow, as well as manage orders by using the APIs. 
+With order management in place, it's now possible to create orders, configure and customize the order processing workflow, and manage orders by using the APIs. 
 
 New screens added to the back office user interface let [[= product_name =]] users search for orders and filter search results. 
-Users can also review order details and completion status, as well as cancel orders.
+Users can also review order details and completion status, and cancel orders.
 
 ![The order list screen](img/4.5_order_list.png "The order list screen")
 
 #### Payment
 
 The all-new Payment module brings a possibility of tracking payment progress and defining a custom payment processing workflow. 
-New back office screens allow users to search for payment methods and payments, as well as define, enable and disable offline payment methods.
+New back office screens allow users to search for payment methods and payments, and also define, enable, and disable offline payment methods.
 
 Additionally, new APIs are available, which can be used for managing payment methods and payments.
 
@@ -47,7 +47,8 @@ Additionally, new APIs are available, which can be used for managing payment met
 
 #### Shipping
 
-With the arrival of the Shipping module, it's now possible to define and manage shipping methods of different types, together with their related costs, on a dedicated back office screen, as well as configure and customize the shipment workflow.
+With the arrival of the Shipping module, it's now possible to define and manage shipping methods of different types, together with their related costs, on a dedicated back office screen.
+You can now also configure and customize the shipment workflow.
 
 New APIs enable managing shipping methods and payments, while an extension point can be used to expand the default list of shipping method types. 
 

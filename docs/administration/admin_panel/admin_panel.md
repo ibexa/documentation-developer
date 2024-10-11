@@ -1,12 +1,12 @@
 ---
-description: Ibexa DXP back office contains managements options for permissions, users, languages, content types, as well as system information.
+description: Ibexa DXP back office contains managements options for permissions, users, languages, content types, and system information.
 page_type: landing_page
 ---
 
 # Admin panel
 
 Once you set up your environment you can start your work as an administrator.
-Your most useful tools can be found in **Admin Panel**.
+Your most functional tools can be found in **Admin Panel**.
 
 To access Admin Panel, click the icon: ![Admin Panel Icon](admin_panel_icon.png){.inline-image}.
 
@@ -18,5 +18,5 @@ To access Admin Panel, click the icon: ![Admin Panel Icon](admin_panel_icon.png)
     "administration/admin_panel/segments_admin_panel",
     "administration/admin_panel/corporate_admin_panel",
     "administration/admin_panel/workflow_admin_panel",
-    "administration/admin_panel/system_information_admin_panel",                
+    "administration/admin_panel/system_information_admin_panel"
 ], columns=4) =]]

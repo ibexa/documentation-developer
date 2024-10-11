@@ -37,8 +37,7 @@ App\Component\MyNewComponent:
 
 ## Base component classes
 
-If you only need to inject a short element (for example, a Twig template or a CSS link) without writing a class,
-you can make use of the following base classes:
+If you only need to inject a short element (for example, a Twig template or a CSS link) without writing a class, you can make use of the following base classes:
 
 - `TwigComponent` renders a Twig template.
 - `LinkComponent` renders the HTML `<link>` tag.

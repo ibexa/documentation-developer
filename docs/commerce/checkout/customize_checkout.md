@@ -45,7 +45,7 @@ that allows users to select their seats.
 ### Define workflow
 
 You can create workflow definitions under the `framework.workflows` [configuration key](configuration.md#configuration-files). 
-Each workflow definition consists of a series of steps as well as a series of transitions between the steps. 
+Each workflow definition consists of a series of steps and a series of transitions between the steps. 
 
 To create a new workflow, for example, `seat_selection_checkout`, use the default workflow that comes with the storefront module as a basis,
 and add a `seat_selected` step.
@@ -165,7 +165,7 @@ To create a one page checkout, define a workflow that has two steps, `initialize
 ### Create controller
 
 Add a regular Symfony controller in project code, which reuses classes provided by the application.
-Within the controller, create a form that contains all the necessary fields, such as the shipping and billing addresses, as well as shipping and billing methods.
+Within the controller, create a form that contains all the necessary fields, such as the shipping and billing addresses, together with shipping and billing methods.
 
 In the `src/Controller/Checkout` folder, create a file that resembles the following example:
 

@@ -33,8 +33,7 @@ ibexa_elasticsearch:
         default_connection: <connection_name>
     ```
 
-Now, you need to decide whether to add a cluster that you administer and manage yourself, or use a cloud
-solution from Elastic, as well as configure additional parameters.
+Now, you need to decide whether to add a cluster that you administer and manage yourself, or use a cloud solution from Elastic, and configure additional parameters.
 
 If you want to connect by using a cluster, follow the instructions below in the [Cluster](#configure-clustering) section.
 If you want to use Elasticsearch Cloud, skip to [Elasticsearch Cloud](#configure-elasticsearch-cloud) section.

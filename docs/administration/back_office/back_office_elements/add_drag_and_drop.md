@@ -9,7 +9,7 @@ You can create a generic interface for drag and drop interactions that you can r
 First, prepare the HTML code structure and place it in a Twig template. See the example:
 
 ```html
-<div 
+<div
         class="items-container-drag"
         data-placeholder='<div class="item-placeholder-drag">item placeholder name</div>'
 >

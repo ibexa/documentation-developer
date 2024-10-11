@@ -20,7 +20,10 @@ With the LTS release, the [new product naming](http://ez.no/Blog/eZ-Announces-Na
 
 ### eZ Platform (Open Source)
 
--   **i18n! Internationalization of the eZ Platform** User Interface is now possible. The new system selects the language to use based on the browser settings of the end user. The system makes it possible to create translations for eZ Platform UI. Studio internationalization, as well as translations ready to use are shipped in further releases. Community members are more than welcome to contribute to the translation process.
+-   **i18n! Internationalization of the eZ Platform** User Interface is now possible. The new system selects the language to use based on the browser settings of the end user.
+The system makes it possible to create translations for eZ Platform UI.
+Studio internationalization and translations ready to use are shipped in further releases.
+Community members are more than welcome to contribute to the translation process.
     ![](i18n.png)
 
 <!-- -->
@@ -29,7 +32,7 @@ With the LTS release, the [new product naming](http://ez.no/Blog/eZ-Announces-Na
 
 ![](udwre.png)
 
--   The Admin Panel now provides a way to get a very clean **digest view of content types** configured in the system, with the ability to clearly get access to properties and field definitions.
+-   The Admin Panel now provides a way to get a clean **digest view of content types** configured in the system, with the ability to clearly get access to properties and field definitions.
 
 ![](contenttypeviews.png)
 
@@ -65,15 +68,17 @@ With the LTS release, the [new product naming](http://ez.no/Blog/eZ-Announces-Na
 
 ### eZ Platform Enterprise Edition (with Studio)
 
--   You can now use our eZ Personalization service to create highly personalized landing pages. The Studio **Personalization Block** available out of the box lets the editor simply create a block that renders a list of content items personalized to each and every visitor. The interface lets the editor decide which of the Personalization scenarios configured in the eZ Personalization back end should be used, as well as the template to be used for rendering.
+- You can now use eZ Personalization service to create highly personalized landing pages.
+The Studio **Personalization Block** available out of the box lets the editor create a block that renders a list of content items personalized to each and every visitor.
+The interface lets the editor decide which of the Personalization scenarios configured in the eZ Personalization back end, and also the template for rendering, should be used.
 
 ![](personalizationblock.png)
 
--   You can now take advantage of the **Date-Based Publishing** feature – when editing a draft, instead of publishing the content immediately you can select the date and time at which it's automatically published. All your content scheduled to be published are accessible in a dedicated widget on the dashboard.
+- You can now take advantage of the **Date-Based Publishing** feature – when editing a draft, instead of publishing the content immediately you can select the date and time at which it's automatically published. All your content scheduled to be published are accessible in a dedicated widget on the dashboard.
 
 ![](future_publication_window.png)
 
--   Create forms in your Landing Page using the **Form Builder**. A special Form Block allows you to add forms with different types of fields to the Landing Page. This system has been designed to be extended, so that you can create your own form fields. The system also provide an interface to access the data that has been collected, and download it as CSV files.
+- Create forms in your landing page using the **Form Builder**. A special Form Block allows you to add forms with different types of fields to the landing page. This system has been designed to be extended, so that you can create your own form fields. The system also provide an interface to access the data that has been collected, and download it as CSV files.
 
 ![](form-builder-1.png)
 

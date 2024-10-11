@@ -1,5 +1,5 @@
 ---
-description: PHP API enables you to create Sections, assign content to them as well as get various information about the Section.
+description: PHP API enables you to create Sections, assign content to them, and get various information about the Section.
 ---
 
 # Section API
