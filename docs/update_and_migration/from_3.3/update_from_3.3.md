@@ -317,7 +317,7 @@ Run the following scripts:
 
 #### Ibexa Cloud
 
-Update Platform.sh configuration for PHP and Varnish.
+Update Platform.sh configuration and scripts.
 
 Generate new configuration with the following command:
 
