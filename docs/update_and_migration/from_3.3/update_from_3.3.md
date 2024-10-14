@@ -426,3 +426,9 @@ Run the following scripts:
 ### v3.3.40
 
 A command to deal with duplicated database entries, as reported in [IBX-8562](https://issues.ibexa.co/browse/IBX-8562), will be available soon.
+
+## Finish the update
+
+[[% include 'snippets/update/finish_the_update.md' %]]
+
+[[% include 'snippets/update/notify_support.md' %]]
