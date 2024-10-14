@@ -1,6 +1,5 @@
 ---
 target_version: '3.3'
-latest_tag: '3.3.24'
 ---
 
 # Update the app to v3.3
@@ -52,7 +51,7 @@ Merge the current skeleton into your project:
     ``` bash
     git remote add content-skeleton https://github.com/ibexa/content-skeleton.git
     git fetch content-skeleton --tags
-    git merge v[[= latest_tag =]] --allow-unrelated-histories
+    git merge v[[= latest_tag_3_3 =]] --allow-unrelated-histories
     ```
 
 === "Ibexa Experience"
@@ -60,7 +59,7 @@ Merge the current skeleton into your project:
     ``` bash
     git remote add experience-skeleton https://github.com/ibexa/experience-skeleton.git
     git fetch experience-skeleton --tags
-    git merge v[[= latest_tag =]] --allow-unrelated-histories
+    git merge v[[= latest_tag_3_3 =]] --allow-unrelated-histories
     ```
 
 === "Ibexa Commerce"
@@ -68,7 +67,7 @@ Merge the current skeleton into your project:
     ``` bash
     git remote add commerce-skeleton https://github.com/ibexa/commerce-skeleton.git
     git fetch commerce-skeleton --tags
-    git merge v[[= latest_tag =]] --allow-unrelated-histories
+    git merge v[[= latest_tag_3_3 =]] --allow-unrelated-histories
     ```
 
 This introduces changes from the relevant website skeleton and results in conflicts.
