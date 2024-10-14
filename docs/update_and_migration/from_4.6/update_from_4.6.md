@@ -6,6 +6,8 @@ description: Update your installation to the latest v4.6 version from an earlier
 
 ## Update the application
 
+Note which version you actually have before starting.
+
 First, run:
 
 === "[[= product_name_headless =]]"
