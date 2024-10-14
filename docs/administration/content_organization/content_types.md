@@ -30,13 +30,66 @@ Each content type is characterized by a set of metadata which define the general
 
     Note that even if your content type defines a Field intended as a name for the content item (for example, a title of an article or product name), do not confuse it with this Name, which is a piece of metadata, not a Field.
 
-**Identifier** – an identifier for internal use in configuration files, templates, PHP code, etc. It must be unique, can only contain lowercase letters, digits and underscores; the maximum length is 50 characters. (Mandatory.)
+**Identifier** –
+an identifier for internal use in configuration files, templates, PHP code, etc.
+It must be unique, can only contain lowercase letters, digits, and underscores.
+The maximum length is 50 characters. (Mandatory.)
 
-**Description** – a detailed description of the content type. (Optional.)
+**Description** –
+a detailed description of the content type. (Optional.)
 
-<a id="content-name-pattern"></a>**Content name pattern** – a pattern that defines what name a new content item based on this content type gets. The pattern usually consists of Field identifiers that tell the system which Fields it should use when generating the name of a content item. Each Field identifier has to be surrounded with angle brackets. Text outside the angle brackets will be included literally. If no pattern is provided, the system will automatically use the first Field. (Optional.)
+<a id="content-name-pattern"></a>
+**Content name pattern** –
+a pattern that defines what name a new content item based on this content type gets.
+The pattern usually consists of Field identifiers that tell the system which Fields it should use when generating the name of a content item.
+Each Field identifier has to be surrounded with angle brackets.
+Text outside the angle brackets is included literally.
+If no pattern is provided, the system will automatically use the first Field. (Optional.)
 
-**URL alias name pattern** – a pattern which controls how the virtual URLs of the Locations will be generated when content items are created based on this content type. Note that only the last part of the virtual URL is affected. The pattern works in the same way as the Content name pattern. Text outside the angle brackets will be converted using the selected method of URL transformation. If no pattern is provided, the system will automatically use the name of the content item itself. (Optional.)
+??? note "Pattern examples"
+
+    The following pattern takes the value of the field with the identifier `title` (which is required):
+    ```
+    <title>
+    ```
+
+    The following pattern combines several field values:
+    ```
+    <firstname> <lastname>
+    ```
+
+    The following pattern takes the value of the field with the identifier `seo_title` (which is optional) if not empty,
+    else the value of the field with the identifier `short_title` (which is optional),
+    else it takes the one with identifier `title` (which is required):
+    ```
+    <seo_title|short_title|title>
+    ```
+
+    The following pattern takes the value of the field with the identifier `nickname` if not empty,
+    else it takes the ones with identifiers `firstname` and `lastname` with a space inbetween:
+    ```
+    <nickname|(<firstname> <lastname>)>
+    ```
+
+    - Input-output example:
+        - `fistname`: "*Alice*"
+        - `lastname`: "*Doe*"
+        - `nickname`: "" (empty)
+        - Generated content name: "*Alice Doe*"
+    - Input-output example:
+        - `fistname`: "*Robert*"
+        - `lastname`: "*Doe*"
+        - `nickname`: "*Bob*"
+        - Generated content name: "*Bob*"
+
+    **Notice that you won't be able to obtain a vertical bar `|`  or parentheses in the generated names as they are special characters.**
+
+
+**URL alias name pattern** –
+a pattern which controls how the virtual URLs of the Locations is generated when content items are created based on this content type.
+Only the last part of the virtual URL is affected. The pattern works in the same way as the Content name pattern.
+Text is converted using the selected method of URL transformation.
+If no pattern is provided, the system automatically uses the name of the content item itself. (Optional.)
 
 !!! tip "Changing URL alias and Content name patterns"
 
@@ -46,17 +99,29 @@ Each content type is characterized by a set of metadata which define the general
 
     The old URL aliases will continue to redirect to the same content items.
 
-**Container** – a flag which indicates if content items based on this content type are allowed to have sub-items or not (mainly relevant for actions via the UI, not validated by every PHP API).
+**Container** –
+a flag which indicates if content items based on this content type are allowed to have sub-items or not
+(mainly relevant for actions via the UI, not validated by every PHP API).
 
 !!! note
 
-    This flag was added for convenience and only affects the interface. In other words, it doesn't control any actual low-level logic, it simply controls the way the graphical user interface behaves.
+    This flag was added for convenience and only affects the interface.
+    In other words, it doesn't control any actual low-level logic,
+    it simply controls the way the graphical user interface behaves.
 
-**Sort children by default by** – rule for sorting sub-items. If the instances of this content type can serve as containers, their children will be sorted according to what is selected here.
+**Sort children by default by** –
+rule for sorting sub-items.
+If the instances of this content type can serve as containers,
+their children are sorted according to what is selected here.
 
-**Sort children by default in order** – another rule for sorting sub-items. This decides the sort order for the criterion chosen above.
+**Sort children by default in order** –
+another rule for sorting sub-items.
+This decides the sort order for the criterion chosen above.
 
-<a id="default-content-availability"></a>**Make content available even with missing translations** – a flag which indicates if content items of this content type should be available even without a corresponding language version. See [Content availability](content_availability.md).
+<a id="default-content-availability"></a>
+**Make content available even with missing translations** –
+a flag which indicates if content items of this content type should be available even without a corresponding language version.
+See [Content availability](content_availability.md).
 
 ![Creating a new content type](admin_panel_new_content_type.png)
 
