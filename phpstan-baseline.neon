@@ -71,11 +71,6 @@ parameters:
 			path: code_samples/api/public_php_api/src/Command/FormSubmissionCommand.php
 
 		-
-			message: "#^Parameter \\#4 \\$data of method Ibexa\\\\Contracts\\\\FormBuilder\\\\FormSubmission\\\\FormSubmissionServiceInterface\\:\\:create\\(\\) expects array\\<array\\{id\\: int, identifier\\: string, name\\: string, value\\: mixed\\}\\>, array\\{array\\{identifier\\: 'single_line', name\\: 'Line', value\\: 'The name'\\}, array\\{identifier\\: 'number', name\\: 'Number', value\\: 123\\}, array\\{identifier\\: 'checkbox', name\\: 'Checkbox', value\\: 0\\}\\} given\\.$#"
-			count: 1
-			path: code_samples/api/public_php_api/src/Command/FormSubmissionCommand.php
-
-		-
 			message: "#^Parameter \\#1 \\$messages of method Symfony\\\\Component\\\\Console\\\\Output\\\\OutputInterface\\:\\:writeln\\(\\) expects iterable\\<string\\>\\|string, string\\|null given\\.$#"
 			count: 2
 			path: code_samples/api/public_php_api/src/Command/ObjectStateCommand.php
