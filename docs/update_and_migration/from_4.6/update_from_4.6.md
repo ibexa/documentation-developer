@@ -8,7 +8,7 @@ description: Update your installation to the latest v4.6 version from an earlier
 
 First, run:
 
-=== "[[= product_name_headless =]] (formerly [[= product_name_content =]])"
+=== "[[= product_name_headless =]]"
 
     ``` bash
     composer require ibexa/headless:[[= latest_tag_4_6 =]] --with-all-dependencies --no-scripts
