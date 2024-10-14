@@ -31,6 +31,8 @@ First, run:
 
 Then execute the instructions below from the version you're upgrading from (or the closest superior) to the end of this page.
 
+<!-- vale Ibexa.VariablesVersion = NO -->
+
 ## v4.6.2
 
 #### Database update
