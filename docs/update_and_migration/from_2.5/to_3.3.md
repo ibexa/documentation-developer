@@ -101,9 +101,10 @@ Resolve the conflicts in the following way:
 
 ### B. Update the app
 
-Run `composer update` to update the dependencies:
+Update Symfony Flex, then update the dependencies:
 
 ``` bash
+composer update symfony/flex --no-plugins --no-scripts
 composer update
 ```
 
