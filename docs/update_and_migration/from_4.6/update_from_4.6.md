@@ -4,7 +4,30 @@ description: Update your installation to the latest v4.6 version from an earlier
 
 # Update from v4.6.x to v4.6.latest
 
-<!-- vale Ibexa.VariablesVersion = NO -->
+## Update the application
+
+First, run:
+
+=== "[[= product_name_headless =]] (formerly [[= product_name_content =]])"
+
+    ``` bash
+    composer require ibexa/headless:[[= latest_tag_4_6 =]] --with-all-dependencies --no-scripts
+    composer recipes:install ibexa/headless --force -v
+    ```
+=== "[[= product_name_exp =]]"
+
+    ``` bash
+    composer require ibexa/experience:[[= latest_tag_4_6 =]] --with-all-dependencies --no-scripts
+    composer recipes:install ibexa/experience --force -v
+    ```
+=== "[[= product_name_com =]]"
+
+    ``` bash
+    composer require ibexa/commerce:[[= latest_tag_4_6 =]] --with-all-dependencies --no-scripts
+    composer recipes:install ibexa/commerce --force -v
+    ```
+
+Then execute the instructions below from the version you're upgrading from (or the closest superior) to the end of this page.
 
 ## v4.6.2
 
