@@ -132,8 +132,8 @@ The following UDW configuration is used so only an `event` typed content item ca
 
 For more information, see [UDW configuration](browser.md#udw-configuration).
 
-Your custom page block is now ready.
+Your custom page block is now registered in the system.
 
 !!! caution
 
-    Before you can use the block in Page Builder, it needs to be enabled. This can be done manually in [Page field settings]([[= user_doc =]]/content_management/configure_ct_field_settings/#block-display) or by using the migration action [`add_block_to_available_blocks`](data_migration_actions.md#content-types).
+   To use the new block in Page Builder, add it to the list of available blocks in a given content type's settings. This can be done manually in [Page field settings]([[= user_doc =]]/content_management/configure_ct_field_settings/#block-display) or by using the migration action [`add_block_to_available_blocks`](data_migration_actions.md#content-types).
