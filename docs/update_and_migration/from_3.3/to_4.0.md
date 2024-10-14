@@ -219,3 +219,16 @@ Finally, generate the new GraphQl schema:
 ``` bash
 php bin/console ibexa:graphql:generate-schema
 ```
+
+### Ibexa Cloud
+
+Update Platform.sh configuration and scripts.
+
+Generate new configuration with the following command:
+
+```bash
+composer ibexa:setup --platformsh
+```
+
+Review the changes applied to `.platform.app.yaml`, `.platform/` and `bin/platformsh_prestart_cacheclear.sh`,
+merge with your custom settings if needed, and commit them to Git.
