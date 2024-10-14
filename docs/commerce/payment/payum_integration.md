@@ -27,7 +27,9 @@ payum:
 ## Workflow mapping
 
 In [[= product_name =]], the default payment workflow has certain places, such as `pending`, `failed`, `paid`, or `cancelled`, and their corresponding transitions.
+
 However, for your application to use other transitions and places, for example, `authorized`, `notified`, `refunded` etc., and to present them in the user interface, you need to:
+
 - override the default payment workflow
 - create a custom workflow and enable it by using semantic configuration
 

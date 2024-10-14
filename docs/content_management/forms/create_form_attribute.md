@@ -83,9 +83,9 @@ php bin/console assets:install
 yarn encore dev
 ```
 
-## Implement Field
+## Implement field
 
-Now you have to implement the Field, and make sure the value from the Rich Text attribute is passed on to the field form.
+Now you have to implement the field, and make sure the value from the Rich Text attribute is passed on to the field form.
 
 Create a `src/FormBuilder/Form/Type/CheckboxWithRichtextDescriptionType.php` file.
 
@@ -105,7 +105,7 @@ Now, the attribute value can be stored in the new Form.
 
 ## Create submission converter
 
-The new Field is based on a checkbox, so to display the submissions of this field, you can use the `BooleanFieldSubmissionConverter`. 
+The new field is based on a checkbox, so to display the submissions of this field, you can use the `BooleanFieldSubmissionConverter`. 
 
 Create a `src/FormBuilder/FormSubmission/Converter/RichtextDescriptionFieldSubmissionConverter.php` file.
 

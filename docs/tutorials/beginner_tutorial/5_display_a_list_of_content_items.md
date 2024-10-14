@@ -175,7 +175,7 @@ Because this template is rendered inside a table, it starts with a `<tr>` tag.
 ```
 ### Add Media permission
 
-To be able to view the `photo` Field you have to add a `read` permission to `Media` section.
+To be able to view the `photo` field you have to add a `read` permission to `Media` section.
 
 In the main menu, go to **Admin** (gear icon) -> **Roles**, and click the **Anonymous** role.
 

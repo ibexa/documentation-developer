@@ -25,14 +25,14 @@ returns a new [`ContentCreateStruct`](../../api/php_api/php_api_reference/classe
 ```
 
 This command creates a draft using [`ContentService::createContent`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_createContent) (line 7).
-This method must receive a `ContentCreateStruct` and an array of Location structs.
+This method must receive a `ContentCreateStruct` and an array of location structs.
 
 `ContentCreateStruct` (which extends `ContentStruct`) is created through [`ContentService::newContentCreateStruct`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ContentService.html#method_newContentCreateStruct) (line 2),
 which receives the content type and the primary language for the content item.
 For information about translating a content item into other languages, see [Translating content](#translating-content).
 
-[`ContentStruct::setField`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentStruct.html#method_setField) (line 3) enables you to define the Field values.
-When the Field accepts a simple value, you can provide it directly, as in the example above.
+[`ContentStruct::setField`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentStruct.html#method_setField) (line 3) enables you to define the field values.
+When the field accepts a simple value, you can provide it directly, as in the example above.
 For some field types, for example [images](#creating-an-image), you need to provide an instance of a Value type.
 
 ### Creating an image
@@ -49,8 +49,8 @@ Value of the Image field type contains the path to the image file and other basi
 
 ### Creating content with RichText
 
-The RichText Field accepts values in a custom flavor of [Docbook](https://github.com/docbook/wiki/wiki) format.
-For example, to add a simple RichText paragraph, provide the following as input:
+The RichText field accepts values in a custom flavor of [Docbook](https://github.com/docbook/wiki/wiki) format.
+For example, to add a RichText paragraph, provide the following as input:
 
 ``` xml
 <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml" xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom" version="5.0-variant ezpublish-1.0"><para>Description of your content item.</para></section>

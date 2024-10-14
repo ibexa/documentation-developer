@@ -9,7 +9,7 @@ Search Criteria are filters for Content and Location Search and
 
 Criteria can take some of the following arguments:
 
-- `target` - when the Criterion supports targeting a specific Field, example: `FieldDefinition` or Metadata identifier
+- `target` - when the Criterion supports targeting a specific field, example: `FieldDefinition` or Metadata identifier
 - `value` - the value(s) to filter on, typically a scalar or array of scalars
 - `operator` - constants on `Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\Operator`: `IN`, `EQ`, `GT`, `GTE`, `LT`, `LTE`, `LIKE`, `BETWEEN`, `CONTAINS`. Most Criteria do not expose this and select `EQ` or `IN` depending on whether the value is scalar or an array. `IN` and `BETWEEN` always act on an array of values, while the other operators act on single scalar value
 - `valueData` - additional value data, required by some Criteria, for instance `MapLocationDistance`
@@ -32,9 +32,9 @@ Due to this storage limitation, searching content using the Country field type o
 |[CurrencyCodeCriterion](currencycode_criterion.md)|Currency code|&#10004; |&#10004; |&#10004; |
 |[DateMetadata](datemetadata_criterion.md)|The date when content was created or last modified|&#10004; |&#10004; |&#10004; |
 |[Depth](depth_criterion.md)|Location depth in the content tree| |&#10004; |&#10004; |
-|[Field](field_criterion.md)|Content of one of content item's Fields|&#10004; |&#10004; | |
+|[Field](field_criterion.md)|Content of one of content item's fields|&#10004; |&#10004; | |
 |[FieldRelation](fieldrelation_criterion.md)|Content items the content in question has Relations to|&#10004; |&#10004; | |
-|[FullText](fulltext_criterion.md)|Full text content of a content item's Fields|&#10004; |&#10004; | |
+|[FullText](fulltext_criterion.md)|Full text content of a content item's fields|&#10004; |&#10004; | |
 |[Image](image_criterion.md)|Image by specified image attributes|&#10004;|&#10004;||
 |[ImageDimensions](imagedimensions_criterion.md)|Image dimensions: height and width|&#10004;|&#10004;||
 |[ImageFileSize](imagefilesize_criterion.md)|Image size in MB|&#10004;|&#10004;||
@@ -43,7 +43,7 @@ Due to this storage limitation, searching content using the Country field type o
 |[ImageOrientation](imageorientation_criterion.md)|Image orientation|&#10004;|&#10004;||
 |[ImageWidth](imagewidth_criterion.md)|Image width in pixels|&#10004;|&#10004;||
 |[IsCurrencyEnabledCriterion](iscurrencyenabled_criterion.md)|Whether a specified currency is enabled in the system| | | |
-|[IsFieldEmpty](isfieldempty_criterion.md)|Whether a specified Field of a content item is empty or not|&#10004; |&#10004; | |
+|[IsFieldEmpty](isfieldempty_criterion.md)|Whether a specified field of a content item is empty or not|&#10004; |&#10004; | |
 |[IsMainLocation](ismainlocation_criterion.md)|Whether a Location is the main Location of a content item| |&#10004; |&#10004; |
 |[IsProductBased](isproductbased_criterion.md)|Whether content represents a product|&#10004; |&#10004; |&#10004; |
 |[IsUserBased](isuserbased_criterion.md)|Whether content represents a User account|&#10004; |&#10004; |&#10004; |
@@ -51,7 +51,7 @@ Due to this storage limitation, searching content using the Country field type o
 |[LanguageCode](languagecode_criterion.md)|Whether a content item is translated into the selected language|&#10004; |&#10004; |&#10004; |
 |[LocationId](locationid_criterion.md)|Location ID|&#10004; |&#10004; |&#10004; |
 |[LocationRemoteId](locationremoteid_criterion.md)|Location remote ID|&#10004; |&#10004; |&#10004; |
-|[MapLocationDistance](maplocationdistance_criterion.md)|Distance between the location contained in a MapLocation Field and the provided coordinates|&#10004; |&#10004; | |
+|[MapLocationDistance](maplocationdistance_criterion.md)|Distance between the location contained in a MapLocation field and the provided coordinates|&#10004; |&#10004; | |
 |[MatchAll](matchall_criterion.md)|Returns all search results|&#10004; |&#10004; |&#10004; |
 |[MatchNone](matchnone_criterion.md)|Returns no search results|&#10004; |&#10004; |&#10004; |
 |[ObjectStateId](objectstateid_criterion.md)|Object State ID|&#10004; |&#10004; |&#10004; |

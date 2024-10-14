@@ -5,7 +5,8 @@ edition: commerce
 
 # Extend shipping
 
-There are different ways in which you can extend or customize your Shipping module implementation. 
+You can extend or customize your Shipping module implementation in different ways.
+
 Here, you can learn about the following ideas to make your Commerce solution more powerful:
 
 - create a custom shipping method type
@@ -16,12 +17,12 @@ You can also [customize the shipment processing workflow](configure_shipment.md#
 
 ## Create custom shipping method type
 
-If your application needs shipping methods of other type than the default ones, you can create custom shipping method types. 
+If your application needs shipping methods of other type than the default ones, you can create custom shipping method types.
 See the code samples below to learn how to do it.
- 
+
 ### Define custom shipping method type class
 
-Create a definition of the shipping method type. 
+Create a definition of the shipping method type.
 Use a built-in type factory to define the class in `config/services.yaml`:
 
 ``` yaml
@@ -34,7 +35,7 @@ At this point a custom shipping method type should be visible on the **Create sh
 
 ### Create options form
 
-To let users create shipping methods of a custom type within the user interface, you need a Symfony form type. 
+To let users create shipping methods of a custom type within the user interface, you need a Symfony form type.
 Create a `src/ShippingMethodType/Form/Type/CustomShippingMethodOptionsType.php` file with a form type.
 
 Next, define a name of the custom shipping method type in the file, by using the `getTranslationMessages` method.
@@ -65,7 +66,7 @@ At this point you should be able to create a shipping method based on a custom s
 
 ### Create options validator
 
-You might want to validate the data provided by the user against certain constraints. 
+You might want to validate the data provided by the user against certain constraints.
 Here, you create an options validator class that checks whether the user provided the `customer_identifier` value and dispatches an error when needed.
 
 Use the type factory to define a compound validator class in `config/services.yaml`:
@@ -107,7 +108,7 @@ Then, register the storage converter as a service:
 [[= include_file('code_samples/front/shop/shipping/config/services.yaml', 0, 1) =]][[= include_file('code_samples/front/shop/shipping/config/services.yaml', 25, 28) =]]
 ```
 
-#### Storage definition 
+#### Storage definition
 
 Now, create a storage definition class and a corresponding schema.
 The table stores information specific for the custom shipping method type.
@@ -118,7 +119,7 @@ The table stores information specific for the custom shipping method type.
 
     `CREATE TABLE ibexa_shipping_method_region_custom(id int auto_increment primary key, customer_id text, shipping_method_region_id int);`
 
-Create a `src/ShippingMethodType/Storage/StorageDefinition.php` file with a storage definition: 
+Create a `src/ShippingMethodType/Storage/StorageDefinition.php` file with a storage definition:
 
 ``` php
 [[= include_file('code_samples/front/shop/shipping/src/ShippingMethodType/Storage/StorageDefinition.php') =]]
@@ -152,7 +153,7 @@ Register the voter as a service:
 [[= include_file('code_samples/front/shop/shipping/config/services.yaml', 0, 1) =]][[= include_file('code_samples/front/shop/shipping/config/services.yaml', 31, 34) =]]
 ```
 
-## Display shipping method parameters in details view 
+## Display shipping method parameters in details view
 
 You can extend the default shipping method details view by making shipping method visible on the **Cost** tab.
 To do this, create a `src/ShippingMethodType/Cost/CustomCostFormatter.php` file with a formatter class:

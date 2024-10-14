@@ -6,7 +6,7 @@ page_type: landing_page
 
 # Commerce
 
-The commerce component of [[= product_name =]] covers various areas of managing an e-commerce presence: from configuring payment and shipping methods, through processing a transaction (listing available products, adding products to a cart, processing checkout and sending confirmation), all the way to order management.
+The commerce component of [[= product_name =]] covers various areas of managing an e-commerce presence: from configuring payment and shipping methods, through processing a transaction (listing available products, adding products to a cart, processing checkout, and sending confirmation), all the way to order management.
 
 [[= cards([
 "commerce/cart/cart",

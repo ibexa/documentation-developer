@@ -9,7 +9,7 @@ Supported orientation values: landscape, portrait and square.
 
 ## Arguments
 
-- `fielDefIdentifier` - string representing the identifier of the Field
+- `fielDefIdentifier` - string representing the identifier of the field
 - `orientation` - strings representing orientations
 
 ## Example

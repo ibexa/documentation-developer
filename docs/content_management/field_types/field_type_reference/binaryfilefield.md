@@ -59,11 +59,11 @@ To use a remote file, you have to download it locally first, then remove it afte
 
 ## REST API specifics
 
-Used in the REST API, a BinaryFile Field mostly serializes the hash described above. However there are a couple specifics worth mentioning.
+Used in the REST API, a BinaryFile field mostly serializes the hash described above. However there are a couple specifics worth mentioning.
 
 ### Reading content: `url` property
 
-When reading the contents of a Field of this type, an extra key is added: `url`. This key gives you the absolute file URL, protocol and host included.
+When reading the contents of a field of this type, an extra key is added: `url`. This key gives you the absolute file URL, protocol and host included.
 
 Example: `http://example.com/var/ezdemo_site/storage/original/application/63cd472dd7819da7b75e8e2fee507c68.pdf`
 

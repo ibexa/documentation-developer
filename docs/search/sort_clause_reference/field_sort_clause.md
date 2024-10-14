@@ -1,15 +1,15 @@
 # Field Sort Clause
 
 The [`Field` Sort Clause](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-Field.html)
-sorts search results by the value of one of the content items' Fields.
+sorts search results by the value of one of the content items' fields.
 
-Search results of the provided content type are sorted in Field value order.
+Search results of the provided content type are sorted in field value order.
 Results of the query that do not belong to the content type are ranked lower.
 
 ## Arguments
 
-- `typeIdentifier` - string representing the identifier of the content type to which the Field belongs
-- `fieldIdentifier` - string representing the identifier of the Field to sort by
+- `typeIdentifier` - string representing the identifier of the content type to which the field belongs
+- `fieldIdentifier` - string representing the identifier of the field to sort by
 [[= include_file('docs/snippets/sort_direction.md') =]]
 
 ## Limitations

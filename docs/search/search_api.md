@@ -39,7 +39,7 @@ The following command takes the content type identifier as an argument and lists
 
 [`SearchService::findContentInfo`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-SearchService.html#method_findContentInfo) (line 16)
 retrieves [`ContentInfo`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Persistence-Content-ContentInfo.html) objects of the found content items.
-You can also use [`SearchService::findContent`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-SearchService.html#method_findContent) to get full Content objects, together with their Field information.
+You can also use [`SearchService::findContent`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-SearchService.html#method_findContent) to get full Content objects, together with their field information.
 
 To query for a single result, for example by providing a Content ID,
 use the [`SearchService::findSingle`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-SearchService.html#method_findSingle) method:
@@ -354,11 +354,11 @@ Aggregation results contain the name of the result and the count of found items:
 [[= include_file('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 46, 49) =]]
 ```
 
-With field aggregations you can group search results according to the value of a specific Field.
-In this case the aggregation takes the content type identifier and the Field identifier as parameters.
+With field aggregations you can group search results according to the value of a specific field.
+In this case the aggregation takes the content type identifier and the field identifier as parameters.
 
 The following example creates an aggregation named `selection` that groups results
-according to the value of the `topic` Field in the `article` content type:
+according to the value of the `topic` field in the `article` content type:
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/FindWithAggregationCommand.php', 39, 40) =]]

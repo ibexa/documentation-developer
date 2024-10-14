@@ -28,7 +28,7 @@ In the Form Builder, add and configure (using the **Basic** and **Validation** t
 
 The configuration should look like this:
 
-![Adding Fields to Newsletter Form](enterprise_tut_form_creation.png "Adding Fields to Newsletter Form")
+![Adding fields to Newsletter Form](enterprise_tut_form_creation.png "Adding fields to Newsletter Form")
 
 When you add all the fields, save the form and click **Publish**.
 Now you can edit the Front Page and add a Form block below the Random block.

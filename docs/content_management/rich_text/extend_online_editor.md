@@ -4,7 +4,7 @@ description: Add custom tags, styles and data attributes to enrich the functiona
 
 # Extend Online Editor
 
-[[= product_name =]] users edit the contents of RichText Fields, for example, 
+[[= product_name =]] users edit the contents of RichText fields, for example, 
 in the Content box of a Page, by using the Online Editor.
 
 You can extend the Online Editor by adding custom tags and styles, defining custom 

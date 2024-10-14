@@ -34,7 +34,7 @@ If this list isn't sufficient, you can use Events to include additional variable
 <?php
 
 namespace App\EventSubscriber;
-  
+
 use Ibexa\Contracts\ConnectorActito\Client\TransactionalMail\SimpleParameter;
 use Ibexa\Contracts\ConnectorActito\Event\TransactionalMailRequest\ParametersFactoryEvent;
 use Ibexa\Contracts\OrderManagement\Notification\OrderAwareNotificationInterface;
@@ -72,7 +72,7 @@ final class TransactionalMailFactoryEventSubscriber implements EventSubscriberIn
 
 ## Customize Actito end-user profile
 
-The Actito platform offers many features for customer data collection, including segmentation, subscriptions and interaction tracking.
+The Actito platform offers many features for customer data collection, including segmentation, subscriptions, and interaction tracking.
 This information can be later user for generating statistics, establishing trends, or used to calculate Personalization recommendations.
 To use these features you need to provide profile data to API requests yourself.
 You do it by means of events that are triggered during profile building.
@@ -81,14 +81,14 @@ For example, the `Ibexa\Contracts\ConnectorActito\Event\TransactionalMailRequest
 
 ```php
 <?php
-  
+
 namespace App\EventSubscriber;
 
 use Ibexa\Contracts\ConnectorActito\Client\TransactionalMail\Attribute;
 use Ibexa\Contracts\ConnectorActito\Client\TransactionalMail\Segmentation;
 use Ibexa\Contracts\ConnectorActito\Event\TransactionalMailRequest\ProfileFactoryEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-  
+
 final class TransactionalMailFactoryEventSubscriber implements EventSubscriberInterface
 {
     public static function getSubscribedEvents(): array

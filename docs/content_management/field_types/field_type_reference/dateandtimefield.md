@@ -72,12 +72,12 @@ This field type does not perform any special validation of the input value.
 
 ### Settings
 
-The Field definition of this field type can be configured with several options:
+The field definition of this field type can be configured with several options:
 
 |Name|Type|Default value|Description|
 |------|------|------|------|
 |`useSeconds`|`boolean`|`false`|Used to control displaying of seconds in the output.|
-|`defaultType`|`mixed`|`Type::DEFAULT_EMPTY`|One of the `DEFAULT_*` constants, used by the administration interface for setting the default Field value. See below for more details.|
+|`defaultType`|`mixed`|`Type::DEFAULT_EMPTY`|One of the `DEFAULT_*` constants, used by the administration interface for setting the default field value. See below for more details.|
 |`dateInterval`|`null|\DateInterval`|`null`|This setting complements `defaultType` setting and can be used only when the latter is set to `Type::DEFAULT_CURRENT_DATE_ADJUSTED`. In that case the default input value when using administration interface is adjusted by the given `\DateInterval`.|
 
 Following `defaultType` default value options are available as constants in the `Ibexa\Core\FieldType\DateAndTime\Type` class:
@@ -102,11 +102,11 @@ $settings = [
 
 ## Template rendering
 
-The template called by the [`ibexa_render_field()` Twig function](field_twig_functions.md#ibexa_render_field) while rendering a Date Field has access to the following parameters:
+The template called by the [`ibexa_render_field()` Twig function](field_twig_functions.md#ibexa_render_field) while rendering a Date field has access to the following parameters:
 
 | Parameter | Type     | Default | Description|
 |-----------|----------|---------|------------|
-| `locale`  | `string` |   n/a   | Internal parameter set by the system based on current request locale or if not set calculated based on the language of the Field. |
+| `locale`  | `string` |   n/a   | Internal parameter set by the system based on current request locale or if not set calculated based on the language of the field. |
 
 Example:
 

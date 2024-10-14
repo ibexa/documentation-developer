@@ -146,20 +146,20 @@ which define, which parts of the application or website the user has access to.
 
 | Module                 | Function                      | Effect                   | Possible limitations                                              |
 |------------------------|-------------------------------|--------------------------|-------------------------------------------------------------------|
-| <nobr>`segment`</nobr> | <nobr>`assign_to_user`</nobr> | assign Segments to Users | [Segment Group](limitation_reference.md#segment-group-limitation) |
-|                        | <nobr>`create`</nobr>         | create Segments          | [Segment Group](limitation_reference.md#segment-group-limitation) |
-|                        | <nobr>`read`</nobr>           | load Segment information | [Segment Group](limitation_reference.md#segment-group-limitation) |
-|                        | <nobr>`remove`</nobr>         | remove Segments          | [Segment Group](limitation_reference.md#segment-group-limitation) |
-|                        | <nobr>`update`</nobr>         | update Segments          | [Segment Group](limitation_reference.md#segment-group-limitation) |
+| <nobr>`segment`</nobr> | <nobr>`assign_to_user`</nobr> | assign segments to users | [Segment Group](limitation_reference.md#segment-group-limitation) |
+|                        | <nobr>`create`</nobr>         | create segments          | [Segment Group](limitation_reference.md#segment-group-limitation) |
+|                        | <nobr>`read`</nobr>           | load segment information | [Segment Group](limitation_reference.md#segment-group-limitation) |
+|                        | <nobr>`remove`</nobr>         | remove segments          | [Segment Group](limitation_reference.md#segment-group-limitation) |
+|                        | <nobr>`update`</nobr>         | update segments          | [Segment Group](limitation_reference.md#segment-group-limitation) |
 
 #### Segment groups [[% include 'snippets/commerce_badge.md' %]]
 
 | Module                       | Function              | Effect                         | Possible limitations |
 |------------------------------|-----------------------|--------------------------------|----------------------|
-| <nobr>`segment_group`</nobr> | <nobr>`create`</nobr> | create Segment Groups          |
-|                              | <nobr>`read`</nobr>   | load Segment Group information |
-|                              | <nobr>`remove`</nobr> | remove Segment Groups          |
-|                              | <nobr>`update`</nobr> | update Segment Groups          |
+| <nobr>`segment_group`</nobr> | <nobr>`create`</nobr> | create segment groups          |
+|                              | <nobr>`read`</nobr>   | load segment group information |
+|                              | <nobr>`remove`</nobr> | remove segment groups          |
+|                              | <nobr>`update`</nobr> | update segment groups          |
 
 #### Shipments [[% include 'snippets/commerce_badge.md' %]]
 

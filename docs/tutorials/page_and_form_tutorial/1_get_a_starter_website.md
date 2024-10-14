@@ -44,13 +44,13 @@ Log in to the back office – add `/admin` to your installation's address (`<y
 ### Modify existing Article content type
 
 You also need to modify the built-in Article content type. It makes inserting photos into articles easier.
-Edit it to remove the Image Field that has a Content Relation (ezobjectrelation) type, and create a new Field in its place:
+Edit it to remove the Image field that has a Content Relation (ezobjectrelation) type, and create a new field in its place:
 
 | Field type | Name  | Identifier | Required | Searchable | Translatable |
 |------------|-------|------------|----------|------------|--------------|
 | Image Asset | Image | `image`    |yes       |no          | no           |
 
-![New image Field in the Article content type](enterprise_tut_image_in_article_ct.png)
+![New image field in the Article content type](enterprise_tut_image_in_article_ct.png)
 
 ## Add template, configuration and style files
 

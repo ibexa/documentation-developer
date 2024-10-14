@@ -4,13 +4,13 @@ description: You can customize which field type metadata should be disabled in t
 
 # Customize field type metadata
 
-When creating a content type definition, you add Fields and configure their metadata,
+When creating a content type definition, you add fields and configure their metadata,
 such as whether they're required, translatable, and so on.
 
 If needed, you can customize that some of those options are disabled in the back office for specific field types.
-To do this, add custom service definition for `ModifyFieldDefinitionsCollectionTypeExtension` 
+To do this, add custom service definition for `ModifyFieldDefinitionsCollectionTypeExtension`.
 
-For example, this configuration means that no Image Field can be set as required in the definition of a content type:
+For example, this configuration means that no Image field can be set as required in the definition of a content type:
 
 ``` yaml
 services:
@@ -28,9 +28,9 @@ services:
 
 `modifiedOptions` lists the changes you want to make. The following options are available:
 
-- `disable_identifier_field` - disables changing the Field identifier
-- `disable_required_field` - disables setting the Field as required
-- `disable_translatable_field` - disables setting the Field as translatable
-- `disable_remove` - disables removing the Field from content type definition (after it has been saved)
+- `disable_identifier_field` - disables changing the field identifier
+- `disable_required_field` - disables setting the field as required
+- `disable_translatable_field` - disables setting the field as translatable
+- `disable_remove` - disables removing the field from content type definition (after it has been saved)
 
-![Image Field with disabled required option](disable-required-field.png)
+![Image field with disabled required option](disable-required-field.png)

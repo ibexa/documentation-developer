@@ -6,21 +6,21 @@ edition: commerce
 # Checkout
 
 Checkout is a crucial component of the Commerce offering delivered as part of [[= product_name_com =]].
-In a course of a multi-step process, it collects necessary transaction data, such as billing and shipping addresses, and payment and shipping information.
+In a course of a multi-step process, it collects necessary transaction data, such as billing and shipping addresses, payment and shipping information.
 
 From the front-end perspective, it's a reusable component that provides access to the workflow and allows buyers to place an order for cart items.
 
 ![Address selection stage](checkout.png "Checkout stages")
 
-Depending on the model of shopping process that you need to use, the checkout process can range between a straightforward and extremely complicated one. 
+Depending on the model of shopping process that you need to use, the checkout process can range between a straightforward and extremely complicated one.
 To allow for this variation, the component is highly configurable and extensible:
 
-- Like the editorial workflow, it relies on [Symfony Workflow]([[= symfony_doc =]]/components/workflow.html) 
+- Like the editorial workflow, it relies on [Symfony Workflow]([[= symfony_doc =]]/components/workflow.html)
 - It exposes [PHP API](checkout_api.md) that allows for workflow manipulation
 - It exposes Twig functions used for checkout rendering
 
 In a default implementation, users go through a series of steps.
-They first select a billing and shipping address, then select shipping and payment methods, later they review summary and confirm their choices, to finally receive a simulated order confirmation.
+They first select a billing and shipping address, then select shipping and payment methods, later they review summary, and confirm their choices, to finally receive a simulated order confirmation.
 
 Until the checkout process is complete, at any point of the process, users can go back to the cart and modify cart information, for example, cart item quantities.
 They can also navigate back and forth between checkout steps, with an exception of the "Checkout complete" step, which always ends the process.

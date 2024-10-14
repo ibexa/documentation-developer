@@ -23,15 +23,15 @@ Example array:
 ];
 ```
 
-When you set an array directly on a Content Field you don't need to provide all this information, the field type assumes it's a hash and in this case accepts a simplified structure described below under [Hash format](#hash-format).
+When you set an array directly on a content field you don't need to provide all this information, the field type assumes it's a hash and in this case accepts a simplified structure described below under [Hash format](#hash-format).
 
 ### Validation
 
-This field type validates whether multiple countries are allowed by the Field definition, and whether the [Alpha2](https://www.iso.org/iso-3166-country-codes.html) is valid according to the countries configured in [[= product_name =]].
+This field type validates whether multiple countries are allowed by the field definition, and whether the [Alpha2](https://www.iso.org/iso-3166-country-codes.html) is valid according to the countries configured in [[= product_name =]].
 
 ### Settings
 
-The Field definition of this field type can be configured with one option:
+The field definition of this field type can be configured with one option:
 
 | Name         | Type      | Default value | Description|
 |--------------|-----------|---------------|------------|
@@ -46,7 +46,7 @@ $settings = [
 
 ### Hash format
 
-The format used for serialization is simpler than the full format. It's also available when setting value on the content Field, by setting the value to an array instead of the Value object. Example of that shown below:
+The format used for serialization is simpler than the full format. It's also available when setting value on the content field, by setting the value to an array instead of the Value object. Example of that shown below:
 
 ``` php
 // Value object content example

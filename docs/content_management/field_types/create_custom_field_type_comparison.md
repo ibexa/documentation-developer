@@ -1,11 +1,11 @@
 ---
-description: Enable comparison of content Fields based on a custom field type.
+description: Enable comparison of content fields based on a custom field type.
 ---
 
 # Create custom field type comparison
 
-In the back office, you can compare the contents of Fields.
-Comparing is possible only between two versions of the same Field that are in the same language.
+In the back office, you can compare the contents of fields.
+Comparing is possible only between two versions of the same field that are in the same language.
 
 You can add the possibility to compare custom and other unsupported field types.
 
@@ -42,7 +42,7 @@ Next, create a `src/FieldType/HelloWorld/Comparison/Value.php` file that holds t
 
 ## Create comparison engine
 
-The comparison engine handles the operations required for comparing the contents of Fields.
+The comparison engine handles the operations required for comparing the contents of fields.
 Each field type requires a separate comparison engine, which implements the `Ibexa\Contracts\VersionComparison\Engine\FieldTypeComparisonEngine` interface.
 
 For the "Hello World" field type, create the following comparison engine based on the engine for the TextLine field type.

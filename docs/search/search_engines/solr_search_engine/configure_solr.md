@@ -118,7 +118,7 @@ The configuration above results in the following boosting (content type / Field)
 
     Remember to clear the cache and perform search engine reindex afterwords.
 
-    The above configuration results in the following boosting (content type / Field):
+    The above configuration results in the following boosting (content type / field):
     
     - `folder/name: 20.0`
     - `folder/description: 10.0`

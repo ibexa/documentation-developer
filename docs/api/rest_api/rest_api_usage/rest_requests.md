@@ -114,7 +114,7 @@ On top of methods, HTTP request headers allow you to personalize the request's b
 On every resource, you can use the `Accept` header to indicate which format you want to communicate in, JSON or XML.
 This header is also used to specify the response type you want the server to send when multiple types are available.
 
-- `Accept: application/vnd.ibexa.api.Content+xml` to get `Content` (full data, Fields included) as **[XML](https://www.w3.org/XML/)**
+- `Accept: application/vnd.ibexa.api.Content+xml` to get `Content` (full data, fields included) as **[XML](https://www.w3.org/XML/)**
 - `Accept: application/vnd.ibexa.api.ContentInfo+json` to get `ContentInfo` (metadata only) as **[JSON](https://www.json.org/)**
 
 Media types are also used with the [`Content-Type` header](rest_responses.md#content-type-header) to characterize a [request body](#request-body) or a [response body](rest_responses.md#response-body).
@@ -151,7 +151,7 @@ In the [REST API reference](../rest_api_reference/rest_api_reference.html), requ
 
 One example is the [creation of an authentication session](rest_api_authentication.md#establishing-session).
 
-When creating a content item, a special payload is needed if the content type has some [Image](imagefield.md) or [BinaryFile](binaryfilefield.md) Fields as files need to be attached. See the example of a [script uploading images](#creating-content-with-binary-attachments) below.
+When creating a content item, a special payload is needed if the content type has some [Image](imagefield.md) or [BinaryFile](binaryfilefield.md) fields as files need to be attached. See the example of a [script uploading images](#creating-content-with-binary-attachments) below.
 
 When searching for content items (or Locations), the query grammar is also particular. See the [Search section](#search-views) below.
 

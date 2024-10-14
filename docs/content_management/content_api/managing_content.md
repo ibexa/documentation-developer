@@ -134,7 +134,7 @@ $newParent = $this->locationService->loadLocation($location);
 $this->trashService->recover($trashItem, $newParent);
 ```
 
-You can also search through Trash items and sort the results using several public PHP API search criteria and sort clauses that have been exposed for `TrashService` queries.
+You can also search through Trash items and sort the results using several public PHP API Search Criteria and Sort Clauses that have been exposed for `TrashService` queries.
 For more information, see [Searching in trash](search_api.md#searching-in-trash).
 
 ## Content types
@@ -150,13 +150,13 @@ To operate on content types, you need to make use of [`ContentTypeService`](../.
 Adding a new content type, like creating content, must happen with the use of a struct, because a content type value object is read-only.
 In this case you use [`ContentTypeCreateStruct`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-ContentType-ContentTypeCreateStruct.html).
 
-A content type must have at least one name, in the main language, and at least one Field definition.
+A content type must have at least one name, in the main language, and at least one field definition.
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/CreateContentTypeCommand.php', 59, 69) =]][[= include_file('code_samples/api/public_php_api/src/Command/CreateContentTypeCommand.php', 76, 85) =]]
 ```
 
-You can specify more details of the Field definition in the create struct, for example:
+You can specify more details of the field definition in the create struct, for example:
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/CreateContentTypeCommand.php', 67, 77) =]]
@@ -196,7 +196,7 @@ You need to provide the method with an EventQuery, which takes a date range and 
 [[= include_file('code_samples/api/public_php_api/src/Command/CalendarCommand.php', 39, 50) =]]
 ```
 
-You can also get the first and last event in the list by using the `first()` and `last()` methods of an `EventCollection` (`Ibexa\Contracts\Calendar\EventCollection`) respectively:
+You can also get the first and last event in the list by using the `first()` and `last()` methods of an `EventCollection` (`Ibexa\Contracts\Calendar\EventCollection`):
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/CalendarCommand.php', 51, 53) =]]

@@ -1,5 +1,5 @@
 ---
-description: Learn how to create a Value class that stores the value of the Field.
+description: Learn how to create a Value class that stores the value of the field.
 ---
 
 # Step 1 - Implement the Point 2D Value class
@@ -18,7 +18,7 @@ Open your project with a clean installation and create the base directory for a 
 
 The Value class of a field type is by design very simple.
 It's used to represent an instance of the field type within a content item.
-Each Field presents its data using an instance of the Type's Value class.
+Each field presents its data using an instance of the Type's Value class.
 For more information about field type Value, see [Value handling](type_and_value.md#value-handling).
 
 !!! tip

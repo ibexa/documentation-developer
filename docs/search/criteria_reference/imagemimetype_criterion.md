@@ -8,7 +8,7 @@ The `MimeType` Search Criterion searches for image with specified mime type(s).
 
 ## Arguments
 
-- `fielDefIdentifier` - string representing the identifier of the Field
+- `fielDefIdentifier` - string representing the identifier of the field
 - `type` - string(s) representing mime type(s)
 
 ## Example

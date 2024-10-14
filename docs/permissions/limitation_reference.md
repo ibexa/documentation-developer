@@ -279,10 +279,10 @@ This limitation can be used as a role limitation.
 |------|------|------|
 |`<Session_id>`|`<Session_name>`|All valid session IDs can be set as value(s)|
 
-## Segment Group limitation [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
+## Segment group limitation [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-The Segment Group (`SegmentGroup`) limitation specifies whether the User has access Segments within a specific 
-Segment Group.
+The segment group (`SegmentGroup`) limitation specifies whether the user has access segments within a specific 
+segment group.
 
 This limitation can be used as a role limitation.
 
@@ -290,7 +290,7 @@ This limitation can be used as a role limitation.
 
 |Value|UI value|Description|
 |------|------|------|
-|`<Segment_group_id>`|`<Segment_group_name>`|All valid Segment Group IDs can be set as value(s).|
+|`<Segment_group_id>`|`<Segment_group_name>`|All valid segment group IDs can be set as value(s).|
 
 ## SiteAccess limitation
 

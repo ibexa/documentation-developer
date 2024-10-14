@@ -1,7 +1,7 @@
 # Address field type
 
-This Field represents and handles address fields.
-It allows you to customize address Fields per country.
+This field represents and handles address fields.
+It allows you to customize address fields per country.
 
 | Name      | Internal name   | Expected input              |
 |-----------|-----------------|-----------------------------|
@@ -67,7 +67,7 @@ formats:
                 - postal_code
 ```
 
-#### Modifying Field configuration
+#### Modifying field configuration
 
 ```yaml
 formats:

@@ -1,15 +1,15 @@
 # TaxonomyEntryAssignment field type
 
-`TaxonomyEntryAssignment` Field is used to integrate content with the Taxonomy module. 
+`TaxonomyEntryAssignment` field is used to integrate content with the Taxonomy module. 
 It allows you to select tags or categories and assign them to content. 
 This field type assigns tags to the content in the data action, so then you can use `TaxonomyService` on this content item. 
 
 !!! caution "Duplicate taxonomy fields"
 
-    Because tags are assigned per content item, not per Field, you cannot use two **Taxonomy Entry Assignment** Fields with the same taxonomy type in one content type.
+    Because tags are assigned per content item, not per field, you cannot use two **Taxonomy Entry Assignment** fields with the same taxonomy type in one content type.
 
 
-To be able to assign tags to the content, first, you need to add a `TaxonomyEntryAssignment` Field to the content type definition.
+To be able to assign tags to the content, first, you need to add a `TaxonomyEntryAssignment` field to the content type definition.
 
 | Name                     | Internal name                    | Expected input |
 |--------------------------|----------------------------------|----------------|
@@ -60,8 +60,8 @@ The constructor accepts `taxonomyEntries` and `taxonomy` as described above.
 
 #### String representation
 
-If the Field has no entries - empty string.
-If the Field has entries (for example: "Cars and 5 more") - a string displaying the first taxonomy entry and the number of rest of the entries.
+If the field has no entries - empty string.
+If the field has entries (for example: "Cars and 5 more") - a string displaying the first taxonomy entry and the number of rest of the entries.
 
 #### Hash format
 

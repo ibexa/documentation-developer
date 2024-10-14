@@ -5,7 +5,10 @@ page_type: reference
 
 # Field type reference
 
-A field type is the underlying building block of the content model. It consists of two entities: Field value and Field definition. Field value is determined by values entered into the Content Field. Field definition is provided by the content type, and holds any user defined rules used by field type to determine how a Field Value is validated, stored, retrieved, formatted and so on.
+A field type is the underlying building block of the content model.
+It consists of two entities: field value and field definition.
+Field value is determined by values entered into the content field.
+Field definition is provided by the content type, and holds any user defined rules used by field type to determine how a field Value is validated, stored, retrieved, formatted and so on.
 
 [[= product_name =]] comes with a collection of field types that can be used to build powerful and complex content structures. In addition, it's possible to extend the system by creating custom types for special needs.
 
@@ -23,7 +26,7 @@ Custom field types have to be programmed in PHP. However, the built-in field ty
 | [Author](authorfield.md) | Stores a list of authors, each consisting of author name and author email. | No | Yes |
 | [BinaryFile](binaryfilefield.md) | Stores a file.| Yes | Yes |
 | [Checkbox](checkboxfield.md) | Stores a boolean value. | Yes | Yes |
-| [Content query](contentqueryfield.md) | Maps an executable repository query to a Field. | No | No |
+| [Content query](contentqueryfield.md) | Maps an executable repository query to a field. | No | No |
 | [Country](countryfield.md) | Stores country names as a string. | Yes[^1^](#1-note-on-legacy-search-engine) | Yes |
 | [Customer group](customergroupfield.md) | Stores customer group to which a user belongs.
 | [DateAndTime](dateandtimefield.md) | Stores a full date including time information. | Yes | Yes |

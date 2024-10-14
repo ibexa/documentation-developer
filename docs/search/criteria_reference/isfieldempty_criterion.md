@@ -5,9 +5,9 @@ searches for content based on whether a specified Field is empty or not.
 
 ## Arguments
 
-- `fieldDefinitionIdentifier` - string representing the identifier of the Field
+- `fieldDefinitionIdentifier` - string representing the identifier of the field
 - (optional) `value` - bool representing whether to search for empty (default `true`),
-or non-empty Fields (`false`)
+or non-empty fields (`false`)
 
 ## Limitations
 

@@ -20,7 +20,7 @@ A Landmark is an interesting place that Rides go through. Each Ride may be relat
 - **Name**: Landmark
 - **Identifier**: landmark
 
-Then add all Fields with the following information: 
+Then add all fields with the following information: 
 
 | Field type   | Name             | Identifier       |  Required | Searchable | Translatable |
 | ------------ | ---------------- | ---------------- | --------- | ---------- | ------------ |
@@ -32,12 +32,12 @@ Then add all Fields with the following information: 
 Confirm the creation of the content type by selecting **Create**.
 
 Create a *Landmarks* Folder and add some Landmarks to it.
-You need pictures (for the Photo Field) to represent them.
+You need pictures (for the Photo field) to represent them.
 
 ## Add Landmarks to Ride content type definition
 
 Now edit the Ride content type to add a Multiple Content Relation between the two content types.
-Create a new **Content relations (multiple)** Field called "Landmarks" with identifier `landmarks` and allow content type "Landmark" to be added to it:
+Create a new **Content relations (multiple)** field called "Landmarks" with identifier `landmarks` and allow content type "Landmark" to be added to it:
 
 ![Adding Landmarks to the Ride content type](bike_ride_adding_landmarks_to_the_ride_content_type.png "Adding a relation between the Ride and the Landmark using Content Relations (multiple)")
 

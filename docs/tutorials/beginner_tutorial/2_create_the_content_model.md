@@ -14,7 +14,7 @@ Below is a short introduction that only covers points needed for this tutorial.
 The [[= product_name =]] content repository is centered around **content items**. A content item is a single piece of content, for example an article, a product review, a place, etc.
 
 Every content item is an instance of a content type. Content types define what **Fields** are included in each content item.
-For example, an article could include Fields such as *title*, *image*, *abstract*, *article's body*, *publication date* and *list of authors*.
+For example, an article could include fields such as *title*, *image*, *abstract*, *article's body*, *publication date* and *list of authors*.
 
 Fields can belong to one of the installed **field types**, about 30 in the default distribution.
 Each field type is built to represent a specific type of data: a text line, a block of rich text, an image, a collection of relations to content items, etc.
@@ -46,7 +46,7 @@ Fill the form with this basic info: 
 - **Name**: Ride
 - **Identifier**: `ride`
 
-Then create all Fields with the following information: 
+Then create all fields with the following information: 
 
 | Field type   | Name             | Identifier       |  Required | Searchable | Translatable |
 | ------------ | ---------------- | ---------------- | --------- | ---------- | ------------ |

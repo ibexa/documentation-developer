@@ -60,7 +60,7 @@ This field type validates if:
 - the `selectionMethod` specified is `\Ibexa\Core\FieldType\RelationList\Type::SELECTION_BROWSE` or `\Ibexa\Core\FieldType\RelationList\Type::SELECTION_DROPDOWN`. A validation error is thrown if the value does not match.
 - the `selectionDefaultLocation` specified is `null`, `string` or `integer`. If the type validation fails a validation error is thrown.
 - the value specified in `selectionContentTypes` is an `array`. If not, a validation error in given.
-- the number of content items selected in the Field isn't greater than the `selectionLimit`.
+- the number of content items selected in the field isn't greater than the `selectionLimit`.
 
 !!! note
 
@@ -68,7 +68,7 @@ This field type validates if:
 
 ### Settings
 
-The Field definition of this field type can be configured with the following options:
+The field definition of this field type can be configured with the following options:
 
 |Name|Type|Default value|Description|
 |------|------|------|------|
@@ -87,7 +87,7 @@ Following selection methods are available:
 
 |Name|Type|Default value|Description|
 |------|------|------|------|
-|`RelationListValueValidator[selectionLimit]`|`integer`|`0`|The number of content items that can be selected in the Field. When set to 0, any number can be selected.|
+|`RelationListValueValidator[selectionLimit]`|`integer`|`0`|The number of content items that can be selected in the field. When set to 0, any number can be selected.|
 
 ``` php
 // Example of using settings and validators configuration in PHP

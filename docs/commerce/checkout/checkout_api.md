@@ -7,15 +7,15 @@ edition: commerce
 
 To get checkouts and manage them, use the `Ibexa\Contracts\Checkout\CheckoutServiceInterface` interface.
 
-With `CheckoutServiceInterface`, you manipulate checkouts that are stored in sessions. 
-Checkouts are containers for the `Ibexa\Contracts\Cart\Value\CartInterface` object and all the data provided at each step of the [configurable checkout process](configure_checkout.md). 
+With `CheckoutServiceInterface`, you manipulate checkouts that are stored in sessions.
+Checkouts are containers for the `Ibexa\Contracts\Cart\Value\CartInterface` object and all the data provided at each step of the [configurable checkout process](configure_checkout.md).
 
-The checkout process relies on Symfony Workflow, and you can customize each of its steps. 
+The checkout process relies on Symfony Workflow, and you can customize each of its steps.
 Each checkout step has its own controller that allows adding forms and external API calls that process data and pass them to `CheckoutService`. 
-Completing a step results in submitting a form and updating the current checkout object. 
+Completing a step results in submitting a form and updating the current checkout object.
 At this point Symfony Workflow advances, the next controller takes over, and the whole process continues.
 
-From the developer's perspective, checkouts are referenced with an UUID identifier. 
+From the developer's perspective, checkouts are referenced with an UUID identifier.
 
 ## Get single checkout by identifier
 
@@ -27,7 +27,7 @@ To access a single checkout, use the `CheckoutServiceInterface::getCheckout` met
 
 ## Get single checkout for specific cart
 
-To fetch checkout for a cart that already exists, use the `CheckoutServiceInterface::getCheckoutForCart` method. 
+To fetch checkout for a cart that already exists, use the `CheckoutServiceInterface::getCheckoutForCart` method.
 You can use it when you want to initiate the checkout process right after products are successfully added to a cart.
 
 ``` php

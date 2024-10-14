@@ -1,6 +1,6 @@
 # FloatStatsAggregation
 
-The Field-based [FloatStatsAggregation](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Field-FloatStatsAggregation.html) aggregates search results by the value of the Float Field
+The field-based [FloatStatsAggregation](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Field-FloatStatsAggregation.html) aggregates search results by the value of the Float field
 and provides statistical information for the values. You can use the provided getters to access the values:
 
 - sum (`getSum()`)

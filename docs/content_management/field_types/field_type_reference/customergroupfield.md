@@ -1,4 +1,4 @@
-# Customer group Field
+# Customer group field
 
 This field type represents a customer group that a user belongs to.
 

@@ -58,7 +58,7 @@ It enables you to edit the new field type.
 [[= include_file('code_samples/field_types/generic_ft/src/Form/Type/HelloWorldType.php') =]]
 ```
 
-Now you can map Field definitions into Symfony forms with FormMapper.
+Now you can map field definitions into Symfony forms with FormMapper.
 Add the `mapFieldValueForm()` method required by `FieldValueFormMapperInterface`
 and the required `use` statements to `src/FieldType/HelloWorld/Type.php`:
 

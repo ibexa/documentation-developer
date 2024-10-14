@@ -1,8 +1,8 @@
 ---
-description: Learn how to use your custom field type by adding a Field to a content type and creating an instance.
+description: Learn how to use your custom field type by adding a field to a content type and creating an instance.
 ---
 
-# Step 5 - Add a new Point 2D Field
+# Step 5 - Add a new Point 2D field
 
 All actions in this step are done in the admin interface also called the back office.
 Go to the admin interface (`<yourdomain>/admin`) and log in with the default username: `admin` and the default password: `publish`. 
@@ -22,7 +22,7 @@ New content type should have the following settings:
 
 ![Adding new field](point2d_field_definition.png)
 
-Next, define **point2d** with the following Fields:
+Next, define **point2d** with the following fields:
 
 |Field type|Name|Identifier|Required|Translatable|
 |----------|----|----------|--------|------------|

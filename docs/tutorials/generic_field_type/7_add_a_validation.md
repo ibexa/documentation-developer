@@ -1,5 +1,5 @@
 ---
-description: Learn how to validate custom Field data.
+description: Learn how to validate custom field data.
 ---
 
 # Step 7 - Add basic validation

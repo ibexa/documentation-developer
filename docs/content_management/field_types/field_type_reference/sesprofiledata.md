@@ -8,4 +8,4 @@ because it's impossible to store special HTML characters (`<`,`>`, `""`,`''`, `&
 The name of the customer (taken from the contact section) can be used for lists.
 To do it, use the name pattern in the content type definition of the User content type.
 
-`customer_profile_data` is the identifier of the Field where the profile data is stored.
+`customer_profile_data` is the identifier of the field where the profile data is stored.

@@ -1,17 +1,17 @@
 # Field Criterion
 
 The [`Field` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Field.html)
-searches for content based on the content of one of its Fields.
+searches for content based on the content of one of its fields.
 
 ## Arguments
 
-- `target` - string representing the identifier of the Field to query
+- `target` - string representing the identifier of the field to query
 - `operator` - operator constant (IN, EQ, GT, GTE, LT, LTE, LIKE, BETWEEN, CONTAINS)
 - `value` - the value to query for
 
 The `LIKE` operator works together with wildcards (`*`). Without a wildcards its results are the same as for the `EQ` operator.
 
-The `CONTAINS` operator works with collection Fields like the Country field type,
+The `CONTAINS` operator works with collection fields like the Country field type,
 enabling you to retrieve results when the query value is one of the values of the collection.
 Querying for a collection with the `EQ` operator returns result only when the whole collection equals the query values.
 

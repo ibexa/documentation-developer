@@ -35,7 +35,7 @@ interface or inherit one of following abstract classes:
 
 An aggregation can also implement one of the following interfaces:
 
-- `Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\FieldAggregation`, based on content Field
+- `Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\FieldAggregation`, based on content field
 - `Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\LocationAggregation`, based on content Location
 - `Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\RawAggregation`, based on details of the index structure
 
@@ -44,7 +44,7 @@ An aggregation can also implement one of the following interfaces:
     An aggregation definition must contain at least the name of an aggregation 
     and optional aggregation parameters, such as, for example, the path (string) 
     that is used to limit aggregation results to a specific subtree, Content 
-    Type identifier, or Field definition identifier, which is mapped 
+    Type identifier, or field definition identifier, which is mapped 
     to the search index field name.
     
     Aggregation definition must be independent of the search engine used.

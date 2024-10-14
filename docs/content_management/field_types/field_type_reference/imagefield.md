@@ -12,14 +12,14 @@ A **variation service** handles the conversion of the original image into diffe
 
 ### Value object
 
-The `value` property of an Image Field returns an `Ibexa\Core\FieldType\Image\Value` object with the following properties:
+The `value` property of an Image field returns an `Ibexa\Core\FieldType\Image\Value` object with the following properties:
 
 ##### Properties
 
 |Property|Type|Example|Description|
 |------|------|------|------|
 |`id`|string|`0/8/4/1/1480-1-eng-GB/image.png`|The image's unique identifier. Usually the path, or a part of the path. To get the full path, use the `uri` property.|
-|`alternativeText`|string|`Picture of an apple.`|The alternative text, as entered in the Field's properties. This property is optional. It's recommended that you require the alternative text for an image when you add the Image Field to a content type, by selecting the "Alternative text is required" checkbox.|
+|`alternativeText`|string|`Picture of an apple.`|The alternative text, as entered in the field's properties. This property is optional. It's recommended that you require the alternative text for an image when you add the Image field to a content type, by selecting the "Alternative text is required" checkbox.|
 |`fileName`|string|`image.png`|The original image's filename, without the path.|
 |`fileSize`|int|`37931`|The original image's size, in bytes.|
 |`uri`|string|`var/ezdemo_site/storage/images/0/8/4/1/1480-1-eng-GB/image.png`|The original image's URI.|
@@ -73,19 +73,19 @@ The Image field type supports one `FieldDefinition` option: the maximum size for
 
     As the default value for maximum size is set to 10MB, we recommend setting the `upload_max_filesize` key in the `php.ini` configuration file to a value equal to or higher than that. It prevents validation errors while editing content types.
 
-## Using an Image Field
+## Using an Image field
 
 To read more about handling images and image variations, see the [Images documentation](images.md).
 
 ### Template Rendering
 
-When displayed using `ibexa_render_field`, an Image Field outputs this type of HTML:
+When displayed using `ibexa_render_field`, an Image field outputs this type of HTML:
 
 ``` html+twig
 <img src="var/ezdemo_site/storage/images/0/8/4/1/1480-1-eng-GB/image_medium.png" width="844" height="430" alt="Alternative text" />
 ```
 
-The template called by the [`ibexa_render_field()` Twig function](field_twig_functions.md#ibexa_render_field) while rendering a Image Field accepts the following parameters:
+The template called by the [`ibexa_render_field()` Twig function](field_twig_functions.md#ibexa_render_field) while rendering a Image field accepts the following parameters:
 
 | Parameter | Type     | Default        | Description |
 |-----------|----------|----------------|-------------|
@@ -100,7 +100,7 @@ Example: 
 {{ ibexa_render_field( content, 'image', { 'parameters':{ 'alias': 'imagelarge', 'width': 400, 'height': 400 } } ) }}
 ```
 
-The raw Field can also be used if needed. Image variations for the Field's content can be obtained using the `ibexa_image_alias` Twig helper:
+The raw field can also be used if needed. Image variations for the field's content can be obtained using the `ibexa_image_alias` Twig helper:
 
 ``` html+twig
 {% set imageAlias = ibexa_image_alias( field, versionInfo, 'medium' ) %}
@@ -114,7 +114,7 @@ The variation's properties can be used to generate the required output:
 
 ### With the REST API
 
-Image Fields within REST are exposed by the `application/vnd.ibexa.api.Content` media-type. An Image Field looks like this:
+Image Fields within REST are exposed by the `application/vnd.ibexa.api.Content` media-type. An Image field looks like this:
 
 ``` xml
 <field>
@@ -140,7 +140,7 @@ Image Fields within REST are exposed by the `application/vnd.ibexa.api.Content`�
 </field>
 ```
 
-Children of the `fieldValue` node list the general properties of the Field's original image (`fileSize`, `fileName`, `inputUri`, etc.), and its variations. For each variation, a URI is provided. Requested through REST, this resource generates the variation if it doesn't exist yet, and list the variation details:
+Children of the `fieldValue` node list the general properties of the field's original image (`fileSize`, `fileName`, `inputUri`, etc.), and its variations. For each variation, a URI is provided. Requested through REST, this resource generates the variation if it doesn't exist yet, and list the variation details:
 
 ``` xml
 <ContentImageVariation media-type="application/vnd.ibexa.api.ContentImageVariation+xml" href="/api/ibexa/v2/content/binary/images/240-1480/variations/tiny">
@@ -156,7 +156,7 @@ Children of the `fieldValue` node list the general properties of the Field's ori
 
 #### Getting an image variation
 
-The variation service, `ibexa.field_type.ezimage.variation_service`, can be used to generate/get variations for a Field. It expects a VersionInfo, the Image Field, and the variation name as a string (`large`, `medium`, etc.):
+The variation service, `ibexa.field_type.ezimage.variation_service`, can be used to generate/get variations for a field. It expects a VersionInfo, the Image field, and the variation name as a string (`large`, `medium`, etc.):
 
 ``` php
 $variation = $imageVariationHandler->getVariation(
@@ -170,7 +170,7 @@ echo $variation->uri;
 
 ### From PHP
 
-As for any field type, there are several ways to input content to a Field. For an Image, the quickest is to call `setField()` on the ContentStruct:
+As for any field type, there are several ways to input content to a field. For an Image, the quickest is to call `setField()` on the ContentStruct:
 
 ``` php
 $createStruct = $contentService->newContentCreateStruct(
@@ -211,9 +211,9 @@ $createStruct->setField( 'image', $imageValue );
 
 ### From REST
 
-The REST API expects Field values to be provided in a hash-like structure. Those keys are identical to those expected by the `Image\Value` constructor: `fileName`, `alternativeText`. In addition, image data can be provided using the `data` property, with the image's content encoded as base64.
+The REST API expects field values to be provided in a hash-like structure. Those keys are identical to those expected by the `Image\Value` constructor: `fileName`, `alternativeText`. In addition, image data can be provided using the `data` property, with the image's content encoded as base64.
 
-#### Creating an Image Field
+#### Creating an Image field
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -236,9 +236,9 @@ The REST API expects Field values to be provided in a hash-like structure. Those
 </ContentCreate>
 ```
 
-### Updating an Image Field
+### Updating an Image field
 
-Updating an Image Field requires that you re-send existing data. This can be done by re-using the Field obtained via REST, **removing the variations key**, and updating `alternativeText`, `fileName` or `data`. If you do not want to change the image itself, do not provide the `data` key.
+Updating an Image field requires that you re-send existing data. This can be done by re-using the field obtained via REST, **removing the variations key**, and updating `alternativeText`, `fileName` or `data`. If you do not want to change the image itself, do not provide the `data` key.
 
 ``` xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -279,7 +279,7 @@ With the following values:
 
 Images are stored in `web/var/ezdemo_site/storage/images/0/8/4/1/1480-1-eng-GB`.
 
-Using the Field ID digits in reverse order as the folder structure maximizes sharding of files through multiple folders on the filesystem.
+Using the field ID digits in reverse order as the folder structure maximizes sharding of files through multiple folders on the filesystem.
 
 Within this folder, images are named like the uploaded file, suffixed with an underscore and the variation name:
 

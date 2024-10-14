@@ -8,7 +8,7 @@ The `Image` Search Criterion searches for image by specified image attributes.
 
 ## Arguments
 
-- `fieldDefIdentifier` - string representing the identifier of the Field
+- `fieldDefIdentifier` - string representing the identifier of the field
 - `imageCriteriaData` - array representing image attributes. All attributes are optional.
 
 ## Example

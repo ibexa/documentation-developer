@@ -1,6 +1,6 @@
 # KeywordTermAggregation
 
-The Field-based [KeywordTermAggregation](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Field-KeywordTermAggregation.html) aggregates search results by the value of the Keyword Field.
+The field-based [KeywordTermAggregation](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Field-KeywordTermAggregation.html) aggregates search results by the value of the Keyword field.
 
 ## Arguments
 

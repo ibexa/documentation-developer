@@ -1,5 +1,5 @@
 ---
-description: Field types define the Fields that a content item is built of.
+description: Field types define the fields that a content item is built of.
 ---
 
 # Field types
@@ -12,11 +12,11 @@ Field types are responsible for:
 - Storing data, either using the native storage engine mechanisms or specific means
 - Validating input data
 - Making the data searchable (if applicable)
-- Displaying Fields of this type
+- Displaying fields of this type
 
 ## Custom data
 
-[[= product_name =]] can support custom data to be stored in the Fields of a content item.
+[[= product_name =]] can support custom data to be stored in the fields of a content item.
 To do so, you need to create a custom field type.
 
 A custom field type must implement the **FieldType Service Provider Interfaces**

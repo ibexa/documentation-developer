@@ -1,5 +1,5 @@
 ---
-description: Learn how to create the Type class which contains the logic for the Field.
+description: Learn how to create the Type class which contains the logic for the field.
 ---
 
 # Step 2 - Define the Point 2D field type

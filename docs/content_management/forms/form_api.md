@@ -33,7 +33,7 @@ This method takes:
 
 - the `ContentInfo` object of the content item containing the form
 - the language code
-- the value of the Field containing the form
+- the value of the field containing the form
 - the array of form field values
 
 ``` php

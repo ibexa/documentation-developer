@@ -102,7 +102,7 @@ To do it, you have to:
 1. add Symfony form type,
 1. customize Form templates,
 1. add scripts,
-1. implement Field,
+1. implement field,
 1. implement field mapper,
 1. create submission converter.
 

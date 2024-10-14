@@ -11,7 +11,7 @@ It's used as a parent for a tag or category.
 
 ### Input expectations
 
-A `TaxonomyEntry` Field accepts an array with an `Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry` object.
+A `TaxonomyEntry` field accepts an array with an `Ibexa\Contracts\Taxonomy\Value\TaxonomyEntry` object.
 
 | Type     | Description | Example         |
 |--------|-----------------|-----------------|
@@ -69,7 +69,7 @@ No validation.
 
 #### Settings
 
-The Field definition of this field type can be configured with the following options:
+The field definition of this field type can be configured with the following options:
 
 |Name|Type|Default value|Description|
 |------|------|------|------|

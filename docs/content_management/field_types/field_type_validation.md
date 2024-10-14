@@ -1,5 +1,5 @@
 ---
-description: Field type validation allows you to validate if data entered stored in the Field conforms to the schema.
+description: Field type validation allows you to validate if data entered stored in the field conforms to the schema.
 ---
 
 # Field type validation

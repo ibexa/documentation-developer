@@ -6,17 +6,17 @@ description: To be able to store the data saved to a Field, you must configure s
 
 ## Storage conversion
 
-If you want to store Field values in regular [[= product_name =]] database tables,
+If you want to store field values in regular [[= product_name =]] database tables,
 the `FieldValue` must be converted to the storage-specific format used by the Persistence SPI:
 `Ibexa\Contracts\Core\Persistence\Content\FieldValue`.
-After restoring a Field of the field type, you must reverse the conversion.
+After restoring a field of the field type, you must reverse the conversion.
 
 The following methods of the field type are responsible for that:
 
 |Method|Description|
 |------|-----------|
-|`toPersistenceValue()`|This method receives the value of a Field of the field type and returns an SPI `FieldValue`, which can be stored.|
-|`fromPersistenceValue()`|This method receives an SPI `FieldValue` and reconstructs the original value of the Field from it.|
+|`toPersistenceValue()`|This method receives the value of a field of the field type and returns an SPI `FieldValue`, which can be stored.|
+|`fromPersistenceValue()`|This method receives an SPI `FieldValue` and reconstructs the original value of the field from it.|
 
 The SPI `FieldValue` struct has properties which the field type can use:
 
@@ -24,15 +24,15 @@ The SPI `FieldValue` struct has properties which the field type can use:
 |--------|-----------|
 |`$data`|The data to be stored in the database. This may be a scalar value, an associative array or a simple, serializable object.|
 |`$externalData`|The arbitrary data stored in this field isn't touched by any of the [[= product_name =]] components directly, but is available for [Storing data externally](#storing-data-externally).|
-|`$sortKey`|A value which can be used to sort content by this Field.|
+|`$sortKey`|A value which can be used to sort content by this field.|
 
 ### Legacy storage engine
 
-The Legacy storage engine uses the `ezcontentobject_attribute` table to store Field values,
-and `ezcontentclass_attribute` to store Field definition values.
+The Legacy storage engine uses the `ezcontentobject_attribute` table to store field values,
+and `ezcontentclass_attribute` to store field definition values.
 they're both based on the same principle.
 
-Each row represents a Field or a Field definition, and offers several free fields of different types, where the type can store its data e.g.
+Each row represents a field or a field definition, and offers several free fields of different types, where the type can store its data e.g.
 
 - `ezcontentobject_attribute` offers:
     - `data_int`
@@ -47,7 +47,7 @@ Each type is free to use those fields in any way it requires.
 
 The default Legacy storage engine cannot store arbitrary value information as provided by a field type.
 This means that using this storage engine requires a conversion.
-Converters map a Field's semantic values to the fields described above, for both settings (validation and configuration) and value.
+Converters map a field's semantic values to the fields described above, for both settings (validation and configuration) and value.
 
 The conversion takes place through the `Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter` interface,
 which you must implement in your field type. The interface contains the following methods:
@@ -79,7 +79,7 @@ The tag has the following attribute:
 
 | Attribute name | Usage |
 |----------------|-------|
-| `alias` | Represents the `fieldTypeIdentifier` (just like for the [field type service](type_and_value.md#registration)). |
+| `alias` | Represents the `fieldTypeIdentifier` (like for the [field type service](type_and_value.md#registration)). |
 
 !!! tip
 
@@ -94,15 +94,15 @@ or even the [[= product_name =]] database itself (in form of a non-standard tabl
 To store data in external storage, the field type interacts with the Persistence SPI
 through the `Ibexa\Contracts\Core\FieldType\FieldStorage` interface.
 
-Accessing the internal storage of a content item that includes a Field of the field type
+Accessing the internal storage of a content item that includes a field of the field type
 calls one of the following methods to also access the external data:
 
 |Method|Description|
 |------|-----------|
 |`hasFieldData()`|Returns whether the field type stores external data at all.|
-|`storeFieldData()`|Called right before a Field of the field type is stored. The method stores `$externalData`. It returns `true` if the call manipulated internal data of the given Field, so that it's updated in the internal database.|
-|`getFieldData()`|Called after a Field has been restored from the database to restore `$externalData`.|
-|`deleteFieldData()`|Must delete external data for the given Field, if exists.|
+|`storeFieldData()`|Called right before a Field of the field type is stored. The method stores `$externalData`. It returns `true` if the call manipulated internal data of the given field, so that it's updated in the internal database.|
+|`getFieldData()`|Called after a field has been restored from the database to restore `$externalData`.|
+|`deleteFieldData()`|Must delete external data for the given field, if exists.|
 |`getIndexData()`|Returns the actual index data for the provided `Ibexa\Contracts\Core\Persistence\Content\Field`. For more information, see [search service](field_type_search.md#search-field-values).|
 
 Each of the above methods (except `hasFieldData`) receives a `$context` array with information on the underlying storage and the environment.

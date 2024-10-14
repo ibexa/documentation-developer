@@ -48,7 +48,7 @@ This field type validates whether the provided relation exists, but before that 
 
 ### Settings
 
-The Field definition of this field type can be configured with three options:
+The field definition of this field type can be configured with three options:
 
 |Name|Type|Default value|Description|
 |------|------|------|------|

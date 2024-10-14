@@ -34,7 +34,7 @@ You can see that the home Page has only one zone with the block.
 ![Empty Page with default layout](enterprise_tut_empty_single_block.png)
 
 Remove the Tag block. Hover over it and select the trash icon from the menu.
-Click the **Field** button on the left of the top bar to switch to editing Page Fields.
+Click the **Field** button on the left of the top bar to switch to editing page fields.
 Change the Title of the page to "Home". Then, publish the Page to update its name.
 
 The design for the website you're making needs a layout with two zones: a main column and a narrower sidebar.

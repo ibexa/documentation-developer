@@ -8,7 +8,7 @@ The `FileSize` Search Criterion searches for image with specified size.
 
 ## Arguments
 
-- `fieldDefIdentifier` - string representing the identifier of the Field
+- `fieldDefIdentifier` - string representing the identifier of the field
 - (optional) `minValue` - numeric representing minimum file size expressed in MB, default: 0
 - (optional) `maxValue` - numeric representing maximum file size expressed in MB, default: `null`
 

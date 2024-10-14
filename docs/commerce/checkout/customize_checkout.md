@@ -16,19 +16,19 @@ It collects data that is necessary to create an order, including:
 
 It could also collect any other information that you find necessary.
 
-Depending on your needs, the checkout process can be either complicated or simple. 
+Depending on your needs, the checkout process can be either complex or straightforward.
 For example, if the website is selling airline tickets, you may need several [additional steps](#add-checkout-step) with passengers defining their special needs.
 On the other side of the spectrum would be a store that sells books with personal pickup, where [one page checkout](#create-a-one-page-checkout) would be enough.
 
-There are several factors that make checkout particularly flexible and customizable:
+Several factors can make checkout particularly flexible and customizable:
 
 - it's based on Symfony workflow
 - it exposes a variety of APIs
 - it exposes Twig functions that help you render the steps
 
-The most important contract exposed by the package is the `CheckoutServiceInterface` interface. 
-It exposes a number of methods that you can call, for example, to load checkouts based on checkout identifier or for a specific cart. 
-Other methods help you create, update, or delete checkouts. 
+The most important contract exposed by the package is the `CheckoutServiceInterface` interface.
+It exposes a number of methods that you can call, for example, to load checkouts based on checkout identifier or for a specific cart.
+Other methods help you create, update, or delete checkouts.
 
 For more information, see [Checkout API](checkout_api.md).
 
@@ -39,11 +39,10 @@ For example, if you were creating a project for selling theater tickets, you cou
 
 ### Define workflow
 
-You can create workflow definitions under the `framework.workflows` [configuration key](configuration.md#configuration-files). 
-Each workflow definition consists of a series of steps and a series of transitions between the steps. 
+You can create workflow definitions under the `framework.workflows` [configuration key](configuration.md#configuration-files).
+Each workflow definition consists of a series of steps and a series of transitions between the steps.
 
-To create a new workflow, for example, `seat_selection_checkout`, use the default workflow that comes with the storefront module as a basis,
-and add a `seat_selected` step.
+To create a new workflow, for example, `seat_selection_checkout`, use the default workflow that comes with the storefront module as a basis, and add a `seat_selected` step.
 
 ``` yaml hl_lines="3 15"
 [[= include_file('code_samples/front/shop/checkout/config/packages/checkout.yaml', 17, 19) =]] [[= include_file('code_samples/front/shop/checkout/config/packages/checkout.yaml', 38, 54) =]]
@@ -63,7 +62,7 @@ In this case, you want users to select seats in the audience.
 
 In the `src/Controller/Checkout/Step` folder, create a file that resembles the following example.
 
-The controller contains a Symfony form that collects user selections. 
+The controller contains a Symfony form that collects user selections.
 It can reuse fields and functions that come from the checkout component, for example, after you check whether the form is valid, use the `AbstractStepController::advance` method to go to the next step of the process.
 
 ``` php hl_lines="23 24"
@@ -97,7 +96,7 @@ In `assets/styles/checkout.css`, add styles required to properly display your te
 
     Remember to [add the new asset file to your Webpack configuration](assets.md#configure-assets).
 
-### Select supported workflow 
+### Select supported workflow
 
 Next, you must inform the application that the configured workflow is used in your repository.
 
@@ -106,7 +105,7 @@ You do it in repository configuration, under the `ibexa.repositories.<repository
 ``` yaml
 ibexa:
     repositories:
-        default: 
+        default:
             checkout:
                 workflow: seat_selection_checkout
 ```
@@ -124,7 +123,7 @@ You should be able to see a different checkout applied after you have added prod
 By default, [[= product_name =]] comes with a multi-step checkout process, which you can scale down by hiding steps.
 To do it, modify workflow under the `framework.workflows` [configuration key](configuration.md#configuration-files).
 
-This example shows how to hide a 'Billing & shipping address' step. 
+This example shows how to hide a 'Billing & shipping address' step.
 It can be used for logged-in users with billing data stored in their accounts.
 
 ```yaml hl_lines="14"
@@ -167,8 +166,7 @@ In the `src/Controller/Checkout` folder, create a file that resembles the follow
 [[= include_file('code_samples/front/shop/checkout/src/Controller/Checkout/OnePageCheckout.php') =]]
 ```
 
-The controller can reuse fields and functions that come from the checkout component, for example, 
-after you check whether the form is valid, use the `AbstractStepController::advance` method to go to the next step of the process.
+The controller can reuse fields and functions that come from the checkout component, for example, after you check whether the form is valid, use the `AbstractStepController::advance` method to go to the next step of the process.
 
 #### Create a form
 
@@ -193,10 +191,9 @@ In `assets/styles/checkout.css`, add styles required to properly display your te
 
     Remember to [add the new asset file to your Webpack configuration](assets.md#configure-assets).
 
-### Select supported workflow 
+### Select supported workflow
 
-Then you have to map the single-step workflow to the repository, 
-by replacing the default `ibexa_checkout` reference with one of `one_page_checkout`:
+Then you have to map the single-step workflow to the repository, by replacing the default `ibexa_checkout` reference with one of `one_page_checkout`:
 
 ``` yaml
 [[= include_file('code_samples/front/shop/checkout/config/packages/checkout.yaml', 0, 5) =]]
@@ -212,7 +209,7 @@ You should be able to see a one page checkout applied after you add products to 
 ## Create custom strategy
 
 Create a PHP definition of the new strategy that allows for workflow manipulation.
-In this example, custom checkout workflow applies when specific currency code ('EUR') is used in the cart. 
+In this example, custom checkout workflow applies when specific currency code ('EUR') is used in the cart.
 
 ``` php
 [[= include_file('code_samples/workflow/strategy/NewWorkflow.php', 0, 25) =]]
@@ -220,7 +217,7 @@ In this example, custom checkout workflow applies when specific currency code ('
 
 ### Add conditional step
 
-Defining strategy allows to add conditional step for workflow if needed. 
+Defining strategy allows to add conditional step for workflow if needed.
 If you add conditional step, the checkout process uses provided workflow and goes to defined step if the condition described in the strategy is met.
 By default conditional step is set as null.
 
@@ -238,7 +235,7 @@ Now, register the strategy as a service:
 [[= include_file('code_samples/workflow/services/workflow.yaml', 0, 5) =]]
 ```
 
-### Override default workflow 
+### Override default workflow
 
 Next, you must inform the application that the configured workflow is used in your repository.
 
@@ -251,7 +248,7 @@ You do it in repository configuration, under the `ibexa.repositories.<repository
 ``` yaml
 ibexa:
     repositories:
-        <repository_name>: 
+        <repository_name>:
             checkout:
                 workflow: new_workflow
 ```
@@ -268,12 +265,12 @@ When you have multiple checkout workflows, you can specify which one to use by p
 
 ```
 
-With this setup, you can specify which workflow to use by clicking the button or link that starts the checkout. 
+With this setup, you can specify which workflow to use by clicking the button or link that starts the checkout.
 The argument passed determines which workflow is used, providing flexibility in workflow selection.
 
-## Define custom Address field type formats 
+## Define custom Address field type formats
 
-To create custom Address field type formats to be used in checkout, make the following changes in the project configuration files. 
+To create custom Address field type formats to be used in checkout, make the following changes in the project configuration files.
 
 First, define custom format configuration keys for `billing_address_format` and `shipping_address_format`:
 

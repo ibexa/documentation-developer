@@ -66,7 +66,7 @@ A field type needs to deal with the custom value format provided by it. In order
 
 #### `acceptValue()`
 
-This method is responsible for accepting and converting user input for the Field. It checks the input structure by accepting, building, and returning a different structure holding the data.
+This method is responsible for accepting and converting user input for the field. It checks the input structure by accepting, building, and returning a different structure holding the data.
 
 For example: a user provides an HTTP link as a string, `acceptValue()` converts the link to a URL field type value object. Unlike the `FieldType\Value` constructor, it's possible to make this method aware of multiple input types (object or primitive).
 

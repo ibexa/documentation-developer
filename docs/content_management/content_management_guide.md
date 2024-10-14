@@ -64,7 +64,7 @@ Their role is to:
 - store data
 - validate input data
 - make the data searchable
-- display Fields of a given field type
+- display fields of a given field type
 
 For a complete list of available field types, see [field type reference](field_type_reference.md).
 
@@ -72,7 +72,7 @@ For a complete list of available field types, see [field type reference](field_t
 
 ### Fields
 
-Once you use a field type to design and build a content type definition, and define its settings, it becomes a Field.
+Once you use a field type to design and build a content type definition, and define its settings, it becomes a field.
 
 Fields can be as simple as Name, based on a Text line field type, or as complex as Page, based on a landing page field type, with multiple options to set and choose from:
 
@@ -81,7 +81,7 @@ Fields can be as simple as Name, based on a Text line field type, or as complex 
 ### Content types
 
 Life gets easier when you have templates to fill in with content. Content types are such templates, which editors use to create content items.
-Content types define what Fields are available in the content item.
+Content types define what fields are available in the content item.
 
 [[= product_name =]] comes with several basic content types, and creating new ones, editing, and deleting them is done by using a visual interface, with no coding skills needed.
 
@@ -90,9 +90,9 @@ Content types define what Fields are available in the content item.
 ### Content items
 
 Content items are pieces of content, such as, for example, products, articles, blog posts, or media.
-In [[= product_name =]], everything is a content item — not just pages, articles or products, but also all media (images, videos, etc.) or even user accounts.
+In [[= product_name =]], everything is a content item — not only pages, articles or products, but also all media (images, videos, etc.) or even user accounts.
 
-Each content item, apart from its name and identifier, contains a composition of Fields, which differs depending on the type of content.
+Each content item, apart from its name and identifier, contains a composition of fields, which differs depending on the type of content.
 For example, articles might have a title, an author, a body, and an image, while products may have a name, category, price, size, color, etc.
 
 ### Forms
@@ -208,7 +208,7 @@ Although segments aren't meant to classify content, they could fall into this ca
 With segments, you can reach specific groups, or categories, of visitors with specific information about content or products that could be of their interest.
 For example, you can build Pages that contain different recommendations, depending on who is visiting them.
 
-![A Segment Group with two user segments](img/user_segments.png)
+![A segment group with two user segments](img/user_segments.png)
 
 ## How to get started
 
@@ -221,7 +221,7 @@ Since content management is an ongoing process, and, in your implementation, you
 Any content that you might want to deliver to a viewer can be structured and split into smaller elements.
 Reverse-engineer the intended concepts into individual fields, which can be categorized, and then picked from categories and combined into content items.
 
-Reuse existing Fields Types or [customize them to fit your needs](create_custom_generic_field_type.md), then [create content types]([[= user_doc =]]/content_management/create_edit_content_items/).
+Reuse existing fields types or [customize them to fit your needs](create_custom_generic_field_type.md), then [create content types]([[= user_doc =]]/content_management/create_edit_content_items/).
 
 **2\. Define permissions**
 
@@ -229,7 +229,7 @@ Although this step isn't directly related to content management, it's a good tim
 
 **3\. Author content**
 
-[Create various content items]([[= user_doc =]]/content_management/create_edit_content_items/), such as pages, articles, forms, or media. While you fill Fields with content, several actions are there to help you with your task.
+[Create various content items]([[= user_doc =]]/content_management/create_edit_content_items/), such as pages, articles, forms, or media. While you fill fields with content, several actions are there to help you with your task.
 You can pause and resume the work, preview the results, or send content for review.
 
 ![Send to review](img/send_to_review.png)

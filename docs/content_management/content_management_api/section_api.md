@@ -40,14 +40,13 @@ You can also use the query to get the total number of assigned content items:
 [[= include_file('code_samples/api/public_php_api/src/Command/SectionCommand.php', 69, 75) =]][[= include_file('code_samples/api/public_php_api/src/Command/SectionCommand.php', 82, 86) =]]
 ```
 
-## Assigning Section to content
+## Assigning section to content
 
-To assign content to a Section, use the [`SectionService::assignSection`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-SectionService.html#method_assignSection) method.
-You need to provide it with the `ContentInfo` object of the content item,
-and the [`Section`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Section.html) object:
+To assign content to a section, use the [`SectionService::assignSection`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-SectionService.html#method_assignSection) method.
+You need to provide it with the `ContentInfo` object of the content item, and the [`Section`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Section.html) object:
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/SectionCommand.php', 64, 67) =]]
 ```
 
-Assigning a Section to content does not automatically assign it to the content item's children.
+Assigning a section to content does not automatically assign it to the content item's children.

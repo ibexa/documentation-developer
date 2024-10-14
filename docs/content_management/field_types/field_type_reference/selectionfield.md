@@ -63,7 +63,7 @@ $hash = [ 1, 2 ];
 
 ### Validation
 
-This field type validates the input, verifying if all selected options exist in the Field definition and checks if multiple selections are allowed in the Field definition.
+This field type validates the input, verifying if all selected options exist in the field definition and checks if multiple selections are allowed in the field definition.
 If any of these validations fail, a `ValidationError` is thrown, specifying the error message. When option validation fails, a list with the invalid options is also presented.
 
 ### Settings
@@ -71,7 +71,7 @@ If any of these validations fail, a `ValidationError` is thrown, specifying the
 | Name         | Type      | Default value | Description|
 |--------------|-----------|---------------|------------|
 | `isMultiple` | `boolean` | `false`       | Used to allow or prohibit multiple selection from the option list. |
-| `options`    | `hash`    | `[]`     | Stores the list of options defined in the Field definition.    |
+| `options`    | `hash`    | `[]`     | Stores the list of options defined in the field definition.    |
 
 ``` php
 // Selection field type example settings

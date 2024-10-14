@@ -5,9 +5,10 @@ edition: commerce
 
 # Extend Payment
 
-There are different ways you can extend your Payment module implementation. 
-One of them is to create a custom payment method type. 
-The other is attaching custom data to a payment.
+You can extend your Payment module implementation:
+
+- by creating a custom payment method type
+- by attaching custom data to a payment
 
 You can also [customize the payment processing workflow](configure_payment.md#custom-payment-workflows).
 
@@ -66,7 +67,7 @@ Then, register `OptionsFormMapper` a service:
 
 ### Create options validator
 
-You might want to make sure that data provided by the user is validated. 
+You might want to make sure that data provided by the user is validated.
 To do that, create an options validator that checks user input against the constraints and dispatches an error when needed.
 
 ``` php

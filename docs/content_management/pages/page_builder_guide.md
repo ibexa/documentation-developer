@@ -67,10 +67,10 @@ E. Buttons:
 
 |Button|Description|
 |------|-----------|
-|![Edit and preview switch](page_builder_toolbar_editpreview.png)|Access main properties of the Page, like title and description.|
-|![Preview segments](page_builder_toolbar_preview_segment.png)|Access preview of the Page for a given Segment.|
-|![Timeline button](page_builder_toolbartimelinetoggler.png)|Access the timeline to preview how the Page changes with time. You can also view the list of all upcoming scheduled events.|
-|![View toggler](page_builder_toolbar_devicestoggler.png)|Toggle through to see how the Page is rendered on different devices.|
+|![Edit and preview switch](page_builder_toolbar_editpreview.png)|Access main properties of the page, like title and description.|
+|![Preview segments](page_builder_toolbar_preview_segment.png)|Access preview of the page for a given segment.|
+|![Timeline button](page_builder_toolbartimelinetoggler.png)|Access the timeline to preview how the page changes with time. You can also view the list of all upcoming scheduled events.|
+|![View toggler](page_builder_toolbar_devicestoggler.png)|Toggle through to see how the page is rendered on different devices.|
 |![Elements menu](page_builder_toolbarelements.png)|Move Page blocks / Structure view to the other side of the screen.|
 |![Undo](page_builder_undo.png)|Undo latest change.|
 |![Redo](page_builder_redo.png)|Redo latest change.|
@@ -201,9 +201,9 @@ Additionaly, Page Builder offers you a selection of ready-to-use page blocks tha
 
 A. **Default** blocks:
 
-- Dynamic targeting - embeds recommended items based on the Segment the user belongs to.
+- Dynamic targeting - embeds recommended items based on the segment the user belongs to.
 - Personalized - displays a list of content items/products that are recommended to end users when specific scenarios are triggered.
-- Targeting - embeds a content item based on the Segment the user belongs to.
+- Targeting - embeds a content item based on the segment the user belongs to.
 
 B. **PIM** blocks:
 

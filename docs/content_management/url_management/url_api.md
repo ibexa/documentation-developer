@@ -1,11 +1,11 @@
 ---
-description: The PHP API URLService enables searching for external URLs used in tech text and URL Fields.
+description: The PHP API URLService enables searching for external URLs used in tech text and URL fields.
 ---
 
 # URL API
 
 [`URLService`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-URLService.html)
-enables you to find, load and update external URLs used in RichText and URL Fields.
+enables you to find, load and update external URLs used in RichText and URL fields.
 
 To view a list of all URLs, use [`URLService::findUrls`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-URLService.html#method_findUrls)
 

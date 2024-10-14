@@ -1,12 +1,12 @@
 ---
-description: field type FormMappers allow Field editing, while custom templates ensure the Field can be rendered both in the back office and on site front.
+description: Field type FormMappers allow field editing, while custom templates ensure the field can be rendered both in the back office and on site front.
 ---
 
 # Form and template
 
 ## FormMapper
 
-The FormMapper maps Field definitions into Symfony forms, allowing Field editing.
+The FormMapper maps field definitions into Symfony forms, allowing field editing.
 
 It can implement two interfaces:
 
@@ -18,7 +18,7 @@ when you require non-standard settings
 
 The `FieldValueFormMapperInterface::mapFieldValueForm` method accepts two arguments:
 
-- `FormInterface` — form for the current Field
+- `FormInterface` — form for the current field
 - `FieldData` — underlying data for current field form
 
 You have to add your form type to the content editing form. The example shows how `ezboolean` injects the form:
@@ -55,9 +55,9 @@ public function mapFieldValueForm(FormInterface $fieldForm, FieldData $data)
 Your type has to be called `value`.
 In the example above, `CheckboxFieldType::class` is used, but you can use standard Symfony form type instead.
 
-It's good practice to encapsulate Fields with custom types as it allows easier templating.
+It's good practice to encapsulate fields with custom types as it allows easier templating.
 Type has to be compatible with your field type's `Ibexa\Core\FieldType` implementation.
-You can use a [`DataTransformer`]([[= symfony_doc =]]/form/data_transformers.html) to achieve that or just assure correct property and form field names.
+You can use a [`DataTransformer`]([[= symfony_doc =]]/form/data_transformers.html) to achieve that or assure correct property and form field names.
 
 ### FieldDefinitionFormMapperInterface
 
@@ -120,8 +120,8 @@ The `fieldType` key has to correspond to the name of your field type.
 
 ## Content view templates
 
-To render the Field in content view by using the [`ibexa_render_field()` Twig helper](field_twig_functions.md#ibexa_render_field),
-you need to define a template containing a block for the Field.
+To render the field in content view by using the [`ibexa_render_field()` Twig helper](field_twig_functions.md#ibexa_render_field),
+you need to define a template containing a block for the field.
 
 ``` html+twig
 {% block customfieldtype_field %}
@@ -184,7 +184,7 @@ ibexa:
 
 ### Back office view template
 
-For templates for previewing the Field in the back office,
+For templates for previewing the field in the back office,
 using the design engine is recommended with `ibexa_standard_design.override_kernel_templates` set to `true`.
 With the design engine you can apply a template (e.g. `Resources/views/themes/admin/content_fields.html.twig`) without any extra configuration.
 
@@ -200,7 +200,7 @@ ibexa:
 
 ### Field edit template
 
-To use a template for the Field edit form in the back office, you need to specify it in configuration
+To use a template for the field edit form in the back office, you need to specify it in configuration
 under the `twig.form_themes` [configuration key](configuration.md#configuration-files):
 
 ``` yaml

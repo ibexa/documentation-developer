@@ -1,5 +1,5 @@
 ---
-description: Learn how to serialize and deserialize Field data to enable sorting or search.
+description: Learn how to serialize and deserialize field data to enable sorting or search.
 ---
 
 # Step 8 -  Data migration between field type versions
