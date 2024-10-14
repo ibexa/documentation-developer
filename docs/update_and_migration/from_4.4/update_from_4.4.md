@@ -240,56 +240,6 @@ php bin/console ibexa:migrations:import vendor/ibexa/order-management/src/bundle
 php bin/console ibexa:migrations:migrate --file=order_permissions.yaml
 ```
 
-### v4.5.2
+## Update to v4.5.latest
 
-#### Database update
-
-Run the following scripts:
-
-=== "MySQL"
-
-    ``` bash
-    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.5.1-to-4.5.2.sql
-    ```
-
-=== "PostgreSQL"
-
-    ``` bash
-    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.5.1-to-4.5.2.sql
-    ```
-
-### v4.5.3
-
-#### Database update [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
-
-Run the following scripts:
-
-=== "MySQL"
-
-    ``` bash
-    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.5.2-to-4.5.3.sql
-    ```
-
-=== "PostgreSQL"
-
-    ``` bash
-    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.5.2-to-4.5.3.sql
-    ```
-
-### v4.5.4
-
-#### Database update
-
-Run the following scripts:
-
-=== "MySQL"
-
-    ``` bash
-    mysql -u <username> -p <password> <database_name> < vendor/ibexa/installer/upgrade/db/mysql/ibexa-4.5.3-to-4.5.4.sql
-    ```
-
-=== "PostgreSQL"
-
-    ``` bash
-    psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.5.3-to-4.5.4.sql
-    ```
+You can now continue with the application of the 4.5 patches instructions starting with [v4.5.2](update_from_4.5.md#v452).

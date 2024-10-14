@@ -85,6 +85,7 @@ Run the following scripts:
     ``` bash
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/ibexa-4.5.3-to-4.5.4.sql
     ```
+
 ## Update from v4.5.latest to v4.6
 
 When you have the latest version of v4.5, you can update to v4.6.
