@@ -319,11 +319,11 @@ Apply the following database update scripts:
     ```
 
 If you used old Commerce packages before, and have migrated everything, you can remove the old tables.
-The removable tables are prefixed with `ses_` and `sve_`.
+The tables that can be removed are prefixed with `ses_` and `sve_`.
 
 === "MySQL"
 
-    To be on the right database, adapt the following command:
+    To switch to the right database, issue the following command:
     ``` sql
     USE <database_name>;
     ```
@@ -362,7 +362,7 @@ The removable tables are prefixed with `ses_` and `sve_`.
 
 === "PostgreSQL"
 
-    To be on the right database, adapt the following command:
+    To switch to the right database, issue the following command:
     ``` sql
     \connect <database_name>;
     ```
