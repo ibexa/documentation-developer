@@ -4,16 +4,19 @@ description: Learn how to create a content model consisting of content types and
 
 # Step 2 — Create the content model
 
-How your content is structured is a very important part of an [[= product_name =]] project. Think of it as the database design of your application.
+How your content is structured is an important part of an [[= product_name =]] project.
+Think of it as the database design of your application.
 
 To get full information, read the [content model](content_model.md) documentation page.
 Below is a short introduction that only covers points needed for this tutorial.
 
 ## Content model overview
 
-The [[= product_name =]] content repository is centered around **content items**. A content item is a single piece of content, for example an article, a product review, a place, etc.
+The [[= product_name =]] content repository is centered around **content items**.
+A content item is a single piece of content, for example an article, a product review, a place, etc.
 
-Every content item is an instance of a content type. Content types define what **Fields** are included in each content item.
+Every content item is an instance of a content type.
+Content types define what **Fields** are included in each content item.
 For example, an article could include fields such as *title*, *image*, *abstract*, *article's body*, *publication date* and *list of authors*.
 
 Fields can belong to one of the installed **field types**, about 30 in the default distribution.
@@ -27,7 +30,7 @@ The site use two content types: **Ride** and **Landmark**.
 A Ride is a route of a bike trip. It can include one or more Landmarks - interesting places you can see along the way.
 More than one Ride can visit the same Landmark, so it's similar to an N-N relationship model in a database.
 
-In this step you'll add the first content type, Ride.
+In this step you add the first content type, Ride.
 
 Go to the admin interface (`<yourdomain>/admin`) and log in with the default username: `admin` and the default password: `publish`. 
 
@@ -63,18 +66,17 @@ Confirm the creation of the content type by clicking **Save and close**.
 
 !!! note
 
-    If you're using [[= product_name_exp =]], the root content item in your installation is
-    a Page called "Ibexa Digital Experience Platform".
-    
+    If you're using [[= product_name_exp =]], the root content item in your installation is a Page called "Ibexa Digital Experience Platform".
+
     For this tutorial, swap it with its child, a Folder called "Ibexa Platform".
-    
+
     To do this, in the main menu go to **Content** -> **Content structure** -> **Ibexa Digital Experience Platform**, select the **Locations** tab
     and in the **Swap Locations** section navigate to "Ibexa Platform".
-    
+
     You can learn how to work with Pages in [another tutorial](page_and_form_tutorial.md).
 
-Go back to the content by selecting **Content structure** in the main menu. 
-Then browse the content tree and create a Folder named *All Rides* using the **Create content** button on the top right of the screen. 
+Go back to the content by selecting **Content structure** in the main menu.
+Then browse the content tree and create a Folder named *All Rides* using the **Create content** button on the top right of the screen.
 Publish the Folder.
 
 While in the folder, create a few of Rides using the **Create content** button, add photos and publish them.

@@ -23,7 +23,8 @@ In `config/packages/ibexa_fieldtype_page.yaml` add the following block under the
 [[= include_file('code_samples/tutorials/page_tutorial/config/packages/ibexa_fieldtype_page.yaml', 24, 42) =]]
 ```
 
-This configuration defines one attribute, `parent`. Use it to select the folder containing tips.
+This configuration defines one attribute, `parent`.
+Use it to select the folder containing tips.
 
 ### Block template
 
@@ -35,7 +36,8 @@ You also need to create the block template, `templates/blocks/random/default.ht
 
 ### Block listener
 
-Block listener provides the logic for the block. It's contained in `src/Event/RandomBlockListener.php`:
+Block listener provides the logic for the block.
+It's contained in `src/Event/RandomBlockListener.php`:
 
 ``` php
 [[= include_file('code_samples/tutorials/page_tutorial/src/Event/RandomBlockListener.php') =]]
@@ -43,8 +45,10 @@ Block listener provides the logic for the block. It's contained in `src/Event/Ra
 
 At this point the new custom block is ready to be used.
 
-You're left with the last cosmetic changes. First, the new Block has a broken icon in the Elements menu in Page mode.
-This is because you haven't provided this icon yet. If you look back to the YAML configuration, you can see the icon file defined as `random_block.svg` (line 4). Download [the provided file](https://github.com/ibexa/documentation-developer/blob/master/code_samples/tutorials/page_tutorial_starting_point/public/assets/images/blocks/random_block.svg) and place it in `public/assets/images/blocks`.
+You're left with the last cosmetic changes.
+First, the new Block has a broken icon in the Elements menu in page mode.
+This is because you haven't provided this icon yet.
+If you look back to the YAML configuration, you can see the icon file defined as `random_block.svg` (line 4). Download [the provided file](https://github.com/ibexa/documentation-developer/blob/master/code_samples/tutorials/page_tutorial_starting_point/public/assets/images/blocks/random_block.svg) and place it in `public/assets/images/blocks`.
 
 Finally, add some styling for the new block. Add the following to the end of the `assets/css/style.css` file:
 
@@ -54,10 +58,12 @@ Finally, add some styling for the new block. Add the following to the end of the
 
 Run `yarn encore <dev|prod>` to regenerate assets.
 
-Go back to editing the Front Page. Drag a Random Block from the Elements menu on the right to the Page's side column.
+Go back to editing the Front page.
+Drag a Random Block from the Elements menu on the right to the page's side column.
 Access the block's settings and choose the "All Tips" folder from the menu. Save and publish all the changes.
 
-Refresh the home page. The Tip of the Day block displays a random Tip from the "Tips" folder.
+Refresh the home page.
+The Tip of the Day block displays a random Tip from the "Tips" folder.
 Refresh the page a few more times and you can see the tip change randomly.
 
 ![Random Block with a Tip](enterprise_tut_random_block.png "Random Block with a Tip")

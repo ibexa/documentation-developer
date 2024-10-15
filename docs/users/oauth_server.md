@@ -105,8 +105,7 @@ security:
 
 ## Resource Server configuration
 
-To allow resource routes to be accessible through OAuth authorization,
-you must define a firewall by using `Ibexa\OAuth2Server\Security\Guard\OAuth2Authenticator`.
+To allow resource routes to be accessible through OAuth authorization, you must define a firewall by using `Ibexa\OAuth2Server\Security\Guard\OAuth2Authenticator`.
 
 The following firewall example allows the REST API to be accessed as an OAuth resource.
 It must be placed before the firewall with a less restrictive pattern like `ibexa_front`.
@@ -159,8 +158,7 @@ php bin/console league:oauth2-server:update-client example-oauth2-client \
   --add-redirect-uri=https://example.com/another-oauth2-callback
 ```
 
-Other commands let you list all the configured clients (`league:oauth2-server:list-clients`)
-or delete a client (`league:oauth2-server:delete-client`).
+Other commands let you list all the configured clients (`league:oauth2-server:list-clients`) or delete a client (`league:oauth2-server:delete-client`).
 
 !!! note
 

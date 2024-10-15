@@ -6,7 +6,8 @@ description: See how you can manage Ibexa DXP configuration files.
 
 ## Define image variations
 
-Image variations are different versions of the same image. You can use them to scale images, crop them, add effects, etc.
+Image variations are different versions of the same image.
+You can use them to scale images, crop them, add effects, etc.
 
 So far the images in the ride list are fitted to the templates automatically, and the result doesn't look good.
 Now you can create a variation to specify how you want the images to look in detail.
@@ -24,7 +25,8 @@ ibexa:
                         - {name: geometry/scaledownonly, params: [140, 100]}
 ```
 
-Next, modify the templates to use these variations. Variation names are provided as parameters when rendering the image content.
+Next, modify the templates to use these variations.
+Variation names are provided as parameters when rendering the image content.
 
 In `templates/line/rides.html.twig` add the `'alias': 'ride_list'` parameter in the following way, in lines 8-10:
 
@@ -40,17 +42,20 @@ In `templates/line/rides.html.twig` add the `'alias': 'ride_list'` parameter in 
 
 This ensures that the photo displayed next to each Ride in the list is scaled down properly with proportions retained.
 
-Clear cache and refresh the front page. Photos should now have a regular size and fit in the table.
+Clear cache and refresh the front page.
+Photos should now have a regular size and fit in the table.
 
 ![Ride list with proper image variations](bike_tutorial_ride_list.png)
 
 ## Separate view configuration
 
-In a larger site there are many elements that need configuration. To keep it more organized, you can split parts of configuration into separate files.
+In a larger site there are many elements that need configuration.
+To keep it more organized, you can split parts of configuration into separate files.
 
-As an example, you can separate all content view configuration into its own file. Create a `config/packages/views.yaml` file. 
+As an example, you can separate all content view configuration into its own file.
+Create a `config/packages/views.yaml` file.
 Copy everything under `content_view` from `config/packages/ibexa.yaml` and move it to the new file.
-Remove the corresponding code from `ibexa.yaml`. 
+Remove the corresponding code from `ibexa.yaml`.
 
 The `views.yaml` file should look like this:
 

@@ -8,8 +8,7 @@ You can use OAuth2 to securely authenticate users with external Authorization Se
 
 ![OAuth2 Client](img/oauth2-client.png)
 
-[[= product_name =]] uses an integration with [`knpuniversity/oauth2-client-bundle`](https://github.com/knpuniversity/oauth2-client-bundle)
-to provide OAuth2 authentication.
+[[= product_name =]] uses an integration with [`knpuniversity/oauth2-client-bundle`](https://github.com/knpuniversity/oauth2-client-bundle) to provide OAuth2 authentication.
 
 ## Configure OAuth2 client
 

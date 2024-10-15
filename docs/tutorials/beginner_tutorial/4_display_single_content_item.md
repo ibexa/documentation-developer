@@ -4,7 +4,7 @@ description: Learn how to render content details with a custom template.
 
 # Step 4 — Display a single content item
 
-You'll render a list of all Rides here in the next step.
+You render a list of all Rides here in the next step.
 But before that, you can use the existing page layout to render the content of a single Ride.
 
 ### Create the Ride view
@@ -90,7 +90,7 @@ This tells the application to use this template whenever it renders the full vie
 
 ### Check the Ride full view
 
-Because you don't have a list of Rides on the front page yet, you cannot simply click a Ride to preview it.
+Because you don't have a list of Rides on the front page yet, you cannot click a Ride to preview it.
 But you still can see how the template works in two ways:
 
 #### Preview in the back office

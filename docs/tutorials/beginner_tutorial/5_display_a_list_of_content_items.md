@@ -118,8 +118,7 @@ site:
 The `query_type` parameter in line 12 indicates which Query Type to use.
 You defined the name `Ride` in the Query Type file in the `getName` method.
 
-Using the `pagingQueryAction` of the built-in `ibexa_query` controller (line 6)
-enables you to automatically get paginated results.
+Using the `pagingQueryAction` of the built-in `ibexa_query` controller (line 6) enables you to automatically get paginated results.
 You can set the limit of results per page in the `limit` parameter.
 
 ### View types

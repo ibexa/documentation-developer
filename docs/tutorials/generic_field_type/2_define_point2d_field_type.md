@@ -14,7 +14,8 @@ For more information about the Type class of a field type, see [Type class](type
 ## Field type identifier
 
 First, create `src/FieldType/Point2D/Type.php`.
-Add a `getFieldTypeIdentifier()` method to it. The new method returns the string that **uniquely** identifies your field type, in this case `point2d`:
+Add a `getFieldTypeIdentifier()` method to it.
+The new method returns the string that **uniquely** identifies your field type, in this case `point2d`:
 
 ```php
 [[= include_file('code_samples/field_types/2dpoint_ft/steps/step_2/Type.php') =]]

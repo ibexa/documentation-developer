@@ -38,11 +38,12 @@ Finally, add some styling to the block. Add the following CSS to the end of the�
 
 Run `yarn encore <dev|prod>` to regenerate assets.
 
-At this point you can start adding blocks to the Page.
-You do it in the Page's Edit mode by dragging a block from the menu on the right to the correct zone on the page.
+At this point you can start adding blocks to the page.
+You do it in the page's Edit mode by dragging a block from the menu on the right to the correct zone on the page.
 
 Drag a Content List block from the menu to the left zone on the page.
-Click the block and fill in the form. Here you name the block and decide what it displays.
+Click the block and fill in the form.
+Here you name the block and decide what it displays.
 Choose the "Dog Breed Catalog" folder as the Parent, select Dog Breed as the content type to be displayed, and choose a limit (3).
 You'll display the first three Dog Breeds from the database.
 
@@ -60,7 +61,8 @@ Publish the page now and move on to creating another type of block.
 
 The next block is the Content Scheduler block that airs articles at predetermined times.
 
-First, add a configuration that points to the layout. Go to `config/packages/ibexa_fieldtype_page.yaml` again and add the following code under `blocks` on the same level as the `contentlist` key:
+First, add a configuration that points to the layout.
+Go to `config/packages/ibexa_fieldtype_page.yaml` again and add the following code under `blocks` on the same level as the `contentlist` key:
 
 ``` yaml
 [[= include_file('code_samples/tutorials/page_tutorial/config/packages/ibexa_fieldtype_page.yaml', 19, 24) =]]
@@ -74,8 +76,8 @@ Create the new file `templates/blocks/schedule/featured.html.twig`:
 ```
 
 When you look at the template, you can see three blocks, each of which render the content items using the `featured` view (line 11).
-So far you only have templates for `full` view for Articles. This means you need to create a `featured` view template,
-otherwise you get an error when trying to add Content to the block.
+So far you only have templates for `full` view for Articles.
+This means you need to create a `featured` view template, otherwise you get an error when trying to add content to the block.
 
 You need to modify the `config/packages/views.yaml` file to indicate when to use the template.
 Add the following code to this file, on the same level as the `full` key:
@@ -97,7 +99,8 @@ Add it in `config/packages/image_variations.yaml` under the `image_variations` k
 [[= include_file('code_samples/tutorials/page_tutorial/config/packages/image_variations.yaml', 18, 22) =]]
 ```
 
-The Block is already operational, but first update the stylesheet. Add the following CSS at the end of the `assets/css/style.css` file:
+The Block is already operational, but first update the stylesheet.
+Add the following CSS at the end of the `assets/css/style.css` file:
 
 ``` css
 [[= include_file('code_samples/tutorials/page_tutorial/assets/css/style.css', 177, 207) =]]
@@ -105,13 +108,13 @@ The Block is already operational, but first update the stylesheet. Add the follo
 
 Run `yarn encore <dev|prod>` to regenerate assets.
 
-At this point you can add a new Content Scheduler block to your Page and fill it with content to see how it works.
+At this point you can add a new Content Scheduler block to your page and fill it with content to see how it works.
 
 !!! tip
 
     If you don't see the featured block template, you may need to clear the cache (using `php bin/console cache:clear`) and/or reload the app.
 
-Go back to editing the Home Page and drag a Content Scheduler block from the pane on the right to the main zone in the layout, above the Content List block.
+Go back to editing the Home page and drag a Content Scheduler block from the pane on the right to the main zone in the layout, above the Content List block.
 Select the block and click the Block Settings icon.
 
 Set the Limit to three and click Select Content.
@@ -126,7 +129,7 @@ This article is listed in the queue.
 
 ![Content Scheduler with scheduled content](enterprise_tut_choosing_airtime.png)
 
-Publish the Page.
+Publish the page.
 
 Now open the Timeline at the top of the screen.
 You can move the slider to different times and preview what the Content Scheduler block looks like at different hours.

@@ -15,7 +15,8 @@ Now you need to add the second content type needed in the site, Landmark.
 
 Go to **Content types**, and in the **Content** group, add the Landmark content type.
 
-A Landmark is an interesting place that Rides go through. Each Ride may be related to multiple Landmarks.
+A Landmark is an interesting place that Rides go through.
+Each Ride may be related to multiple Landmarks.
 
 - **Name**: Landmark
 - **Identifier**: landmark
@@ -174,7 +175,7 @@ ibexa:
 
 ### Add the Landmark in the Ride full view
 
-Now modify the Ride full view template to include a list of Landmarks, and the controller that you just created.
+Now modify the Ride full view template to include a list of Landmarks, and the controller that you created.
 Add the following lines at the end of `templates/full/ride.html.twig`, before the last `</div>` and the closing tag `{% endblock %}`:
 
 ``` html+twig

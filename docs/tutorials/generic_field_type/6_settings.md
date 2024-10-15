@@ -21,7 +21,7 @@ Open `src/FieldType/Point2D/Type.php` and add a `getSettingsSchema` method accor
 
 ## Add a format field
 
-In this part you define and implement the edit form for your field type. 
+In this part you define and implement the edit form for your field type.
 
 Define a `Point2DSettingsType` class and add a `format` field in `src/Form/Type/Point2DSettingsType.php`:
 
@@ -33,7 +33,7 @@ Define a `Point2DSettingsType` class and add a `format` field in `src/Form/Type/
 
 Now, enable the user to add the coordinates which are validated.
 In `src/FieldType/Point2D/Type.php` you:
- 
+
 - implement the `FieldDefinitionFormMapperInterface` interface
 - add a `mapFieldDefinitionForm` method at the end that defines the field settings
 

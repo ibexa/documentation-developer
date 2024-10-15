@@ -15,7 +15,8 @@ Get it by following the [Install [[= product_name =]]](install_ibexa_dxp.md) gui
 
 ## Add content types
 
-Log in to the back office – add `/admin` to your installation's address (`<yourdomain>/admin`) and log in using `admin` as the login and `publish` as the password. Disable the Focus mode, go to content types screen and (under the Content category) add two content types with the following settings:
+Log in to the back office – add `/admin` to your installation's address (`<yourdomain>/admin`) and log in using `admin` as the login and `publish` as the password.
+Disable the Focus mode, go to content types screen and (under the content category) add two content types with the following settings:
 
 ### Dog Breed
 
@@ -43,7 +44,8 @@ Log in to the back office – add `/admin` to your installation's address (`<y
 
 ### Modify existing Article content type
 
-You also need to modify the built-in Article content type. It makes inserting photos into articles easier.
+You also need to modify the built-in Article content type.
+It makes inserting photos into articles easier.
 Edit it to remove the Image field that has a Content Relation (ezobjectrelation) type, and create a new field in its place:
 
 | Field type | Name  | Identifier | Required | Searchable | Translatable |
@@ -56,11 +58,13 @@ Edit it to remove the Image field that has a Content Relation (ezobjectrelation)
 
 !!! tip
 
-    For an introduction on how to use templates in [[= product_name =]], take a look at the [Beginner tutorial](beginner_tutorial.md).
+    For an introduction on how to use templates in [[= product_name =]], see [Beginner tutorial](beginner_tutorial.md).
 
 First, to remove the welcome page, go to `config/packages/` and delete the `ibexa_welcome_page.yaml` file.
 
-Place the [`pagelayout.html.twig`](https://github.com/ibexa/documentation-developer/blob/master/code_samples/tutorials/page_tutorial_starting_point/templates/pagelayout.html.twig) and [`pagelayout_menu.html.twig`](https://github.com/ibexa/documentation-developer/blob/master/code_samples/tutorials/page_tutorial_starting_point/templates/pagelayout_menu.html.twig) files in the `templates` folder. Create a new folder, called `full`, in `templates`. Place further template files in it:
+Place the [`pagelayout.html.twig`](https://github.com/ibexa/documentation-developer/blob/master/code_samples/tutorials/page_tutorial_starting_point/templates/pagelayout.html.twig) and [`pagelayout_menu.html.twig`](https://github.com/ibexa/documentation-developer/blob/master/code_samples/tutorials/page_tutorial_starting_point/templates/pagelayout_menu.html.twig) files in the `templates` folder.
+Create a new folder, called `full`, in `templates`.
+Place further template files in it:
 
 - [`article.html.twig`](https://github.com/ibexa/documentation-developer/blob/master/code_samples/tutorials/page_tutorial_starting_point/templates/full/article.html.twig)
 - [`dog_breed.html.twig`](https://github.com/ibexa/documentation-developer/blob/master/code_samples/tutorials/page_tutorial_starting_point/templates/full/dog_breed.html.twig)
@@ -96,10 +100,9 @@ php bin/console cache:clear
 
 In the `src` folder create a `QueryType` subfolder and add [`QueryType/MenuQueryType.php`](https://github.com/ibexa/documentation-developer/blob/master/code_samples/tutorials/page_tutorial_starting_point/src/QueryType/MenuQueryType.php) to it.
 
-This file takes care of displaying the top menu (read up on it [in the documentation](content_queries.md#query-types)).
-it's not the scope of this tutorial and we won't go here into detail on how it works.
+This file takes care of displaying the top menu (for more information, see [the documentation](content_queries.md#query-types)).
 
-This is what the structure of the new and modified files should look like:
+The structure of the new and modified files should look like:
 
 ![File structure](enterprise_tut_file_structure.png)
 
@@ -114,7 +117,8 @@ In the **Sub-items** tab, select all the current sub-items and click the **Hide*
 
 ![Hiding content items you don't need](enterprise_tut_hide_content.png)
 
-Next, under "Ibexa Digital Experience Platform", create three Folders. Call them 'All Articles', 'Dog Breed Catalog' and 'All Tips'.
+Next, under "Ibexa Digital Experience Platform", create three Folders.
+Call them 'All Articles', 'Dog Breed Catalog' and 'All Tips'.
 Remember that you can **Save and close** them, but you should use the **Publish** button.
 
 Next, create a few content items of proper content types in each of these folders:

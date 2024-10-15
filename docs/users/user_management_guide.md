@@ -18,7 +18,7 @@ User management is available in all [[= product_name =]] versions.
 
 ## How does user management work
 
-[[= product_name =]] simplifies user management with an intuitive and powerful system of accounts, Roles, Permissions, groups, and Segments.
+[[= product_name =]] simplifies user management with an intuitive and powerful system of accounts, Roles, Permissions, groups, and segments.
 You can find all user groups and users in the **Admin** panel by selecting **Users**.
 Here, you can manage users, their relations, roles, and policies.
 
@@ -42,9 +42,7 @@ Here's how it works:
 
 ## Capabilities
 
-The detailed capabilities of [[= product_name_base =]] User Management,
-which provide organizations with the tools they need to deliver personalized, secure,
-and efficient user experiences while ensuring that user access and content delivery align with their business goals and strategies.
+The detailed capabilities of [[= product_name_base =]] user management, which provide organizations with the tools they need to deliver personalized, secure, and efficient user experiences while ensuring that user access and content delivery align with their business goals and strategies.
 
 ### User roles and permissions
 
@@ -53,7 +51,7 @@ Furthermore, you can create user groups to simplify Permission management.
 Assign multiple users to a group to ensure consistency and ease of access control.
 This helps maintain effortless security and control.
 
-To help you understand further the role each element serves, here's a brief summary: 
+To help you understand further the role each element serves, here's a brief summary:
 
 - Role - represents a collection of Permissions that can be assigned to users or user groups. Roles streamline permission management by grouping related Permissions together.
 - Permission - defines a specific action or access level that can be granted or denied within the system.
@@ -62,7 +60,8 @@ Policies allow for fine-grained control of access based on various factors, such
 
 ### Custom policies
 
-[Tailor user access control](custom_policies.md) to your unique requirements using custom policies. Define complex rules and access criteria for different users or groups.
+[Tailor user access control](custom_policies.md) to your unique requirements using custom policies.
+Define complex rules and access criteria for different users or groups.
 
 ### Limitations
 
@@ -90,9 +89,9 @@ Track the status of invitations, including when they were sent, whether they wer
 ### User segmentation and personalization
 
 [[= product_name_base =]]'s segmentation and personalization features allow organizations to deliver customized user experiences.
-Track user behavior, such as page views, search queries, and interactions, to create Segments and Segment Groups for users who share similar behaviors.
+Track user behavior, such as page views, search queries, and interactions, to create segments and segment groups for users who share similar behaviors.
 
-![Segment Groups](../administration/img/admin_panel_segment_groups.png)
+![Segment groups](../administration/img/admin_panel_segment_groups.png)
 
 Possible uses:
 

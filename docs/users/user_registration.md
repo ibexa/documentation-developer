@@ -4,7 +4,8 @@ description: Register new users.
 
 # Register new users
 
-You can allow your users to create accounts by employing the `/register` route. This route leads to a registration form that, when filled in, creates a new user content item in the repository.
+You can allow your users to create accounts by employing the `/register` route.
+This route leads to a registration form that, when filled in, creates a new user content item in the repository.
 
 ## User types
 
@@ -22,7 +23,8 @@ ibexa:
 
 ## User groups
 
-By default, new users generated in this way are placed in the Guest accounts group. You can select a different default group in the following section of configuration:
+By default, new users generated in this way are placed in the Guest accounts group.
+You can select a different default group in the following section of configuration:
 
 ``` yaml
 ibexa:

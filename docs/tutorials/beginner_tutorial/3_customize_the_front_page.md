@@ -6,7 +6,8 @@ description: Try customizing the front page by using custom templates and adding
 
 In this step you can create the global layout of your site, and display content using custom templates.
 
-First, go to the root of the site (`<yourdomain>`). You should now see the home page of the clean install, without any kind of layout.
+First, go to the root of the site (`<yourdomain>`).
+You should now see the home page of the clean install, without any kind of layout.
 You can customize this step by instructing the platform to use a custom template to render this content item.
 
 ## Content rendering configuration
@@ -41,7 +42,8 @@ This tells [[= product_name =]] to use the `template` when rendering content wit
 
 !!! note "Clear the cache"
 
-    Each time you change the YAML files, you should clear the cache. It's not mandatory in dev environment.
+    Each time you change the YAML files, you should clear the cache.
+    It's not mandatory in dev environment.
 
     To clear the cache:
 
@@ -178,7 +180,8 @@ This tutorial leads you through configuring Webpack, but first you need assets.
 
 ### Adding assets
 
-The site has no stylesheets or assets yet. You need to download [`assets.zip`](img/assets.zip) which contains the prepared asset files.
+The site has no stylesheets or assets yet.
+You need to download [`assets.zip`](img/assets.zip) which contains the prepared asset files.
 
 Then unpack its contents to the following directories:
 
@@ -193,7 +196,8 @@ Before proceeding, ensure that the structure of the added files looks like this:
 
 In [[= product_name =]], you can add assets by using [Symfony Webpack Encore]([[= symfony_doc =]]/frontend.html#webpack-encore)
 — an integration of Webpack that enables you to build bundles of CSS stylesheets and JS scripts and add them to the project.
-For more details, see [Importing assets from a bundle](importing_assets_from_bundle.md).
+
+For more information, see [Importing assets from a bundle](importing_assets_from_bundle.md).
 
 To create bundles, first, indicate which files to include in them.
 
@@ -236,9 +240,11 @@ To add one template to another, edit `templates/full/home_page.html.twig` and re
 ```
 
 The templating language Twig supports [template inheritance](https://twig.symfony.com/doc/3.x/tags/extends.html).
-Templates can contain named blocks. Any template can extend other templates, and modify the blocks defined by its parents.
+Templates can contain named blocks.
+Any template can extend other templates, and modify the blocks defined by its parents.
 
-The code above points to `main_layout.html.twig` in line 1. It also wraps your "Hello world" message in a `content` block.
+The code above points to `main_layout.html.twig` in line 1.
+It also wraps your "Hello world" message in a `content` block.
 If you look back at the main layout template, you can see an empty `{% block content %}{% endblock %}` section (lines 52-53).
 This is where the `home_page.html.twig` is rendered.
 
@@ -261,4 +267,5 @@ Refresh the page and you should see the "Hello world" placed inside a styled lay
 
 ![Homepage with a Hello world](bike_tutorial_hello_world.png)
 
-At this point, the template is static. It doesn't render any dynamic data from the repository.
+At this point, the template is static.
+It doesn't render any dynamic data from the repository.

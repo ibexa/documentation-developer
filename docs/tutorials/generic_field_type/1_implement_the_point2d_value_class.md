@@ -7,9 +7,7 @@ description: Learn how to create a Value class that stores the value of the fiel
 ## Project installation
 
 To start the tutorial, you need to make a clean [[= product_name =]] installation.
-Follow the guide for your system to [install [[= product_name =]]](install_ibexa_dxp.md),
-[configure a server](requirements.md),
-and [start the web server](install_ibexa_dxp.md#use-phps-built-in-server).
+Follow the guide for your system to [install [[= product_name =]]](install_ibexa_dxp.md), [configure a server](requirements.md), and [start the web server](install_ibexa_dxp.md#use-phps-built-in-server).
 Remember to install using the `dev` environment.
 
 Open your project with a clean installation and create the base directory for a new Point 2D field type in `src/FieldType/Point2D`.

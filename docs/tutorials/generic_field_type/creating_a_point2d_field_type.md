@@ -2,10 +2,11 @@
 description: Go through a field type tutorial to learn how to create a custom field type based on the built-in Generic field type.
 ---
 
-# Creating a Point 2D field type 
+# Creating a Point 2D field type
 
 This tutorial covers the creation and development of a custom [[= product_name =]] [field type](create_custom_generic_field_type.md).
-The Generic field type is a very powerful extension point. It enables you to easily build complex solutions on a ready-to-go field type template.
+The Generic field type is a powerful extension point.
+It enables you to build complex solutions on a ready-to-go field type template.
 
 Field types are responsible for:
 
@@ -25,10 +26,10 @@ This tutorial is aimed at developers who are familiar with [[= product_name =]] 
 
 This tutorial shows you how to use the Generic field type as a template for a custom field type. You:
 
-- create a custom Point 2D field type with two coordinates as input, e.g. (4,5)
+- create a custom Point 2D field type with two coordinates as input, for example '4,5'
 - register the new field type as a service and define its template
 - add basic validation to your Point 2D
-- add data migration to the field type so you're able to easily change its output
+- add data migration to the field type so you're able to change its output
 
 ## Steps
 

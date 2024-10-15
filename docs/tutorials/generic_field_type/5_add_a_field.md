@@ -5,7 +5,7 @@ description: Learn how to use your custom field type by adding a field to a cont
 # Step 5 - Add a new Point 2D field
 
 All actions in this step are done in the admin interface also called the back office.
-Go to the admin interface (`<yourdomain>/admin`) and log in with the default username: `admin` and the default password: `publish`. 
+Go to the admin interface (`<yourdomain>/admin`) and log in with the default username: `admin` and the default password: `publish`.
 
 ## Add new content type
 
@@ -34,11 +34,13 @@ Save everything and go back to the **Content/Content structure** tab.
 
 ## Create your content
 
-In **Content structure**, select **Create content**. There, under **Content**, you should see Point 2D content type you just added. Click it to create new content.
+In **Content structure**, select **Create content**. There, under **Content**, you should see Point 2D content type you added.
+Click it to create new content.
 
 ![Selecting Point 2D from sidebar](menu_point2d.png)
 
-Here, you can fill in coordinates of your point, e.g. 3, 5. Provided coordinates are used as a title for a new point.
+Here, you can fill in coordinates of your point, e.g. 3, 5.
+Provided coordinates are used as a title for a new point.
 
 ![Creating Point 2D](creating_new_point2d.png)
 

@@ -8,15 +8,17 @@ In this step you enable other users to create accounts on your site, access the 
 
 ## Enable registration
 
-In the main menu, go to **Admin** (gear icon) -> **Roles**, and click the **Anonymous** Role.
+In the main menu, go to **Admin** (gear icon) -> **Roles**, and click the **Anonymous** role.
 
 ![Available roles](step_8_role_mgmt_screen.png)
 
-Add the `User/Register` policy to the Anonymous User. This allows any visitor to the website to access the registration form.
+Add the `User/Register` policy to the Anonymous user.
+This allows any visitor to the website to access the registration form.
 
 ![Policies for the Anonymous Role](step8_admin_anonymous_policies.png)
 
-Then go to `<yourdomain>/register`. The registration form is unstyled, so you need to add templates to it.
+Then go to `<yourdomain>/register`.
+The registration form is unstyled, so you need to add templates to it.
 
 ## Customize registration forms
 
@@ -60,7 +62,8 @@ Create the file `templates/user/registration_form.html.twig`:
 ```
 
 In line 10 you can see that another file is imported: `registration_content_form.html.twig`.
-The second template renders the actual fields of the registration form. Create this file as well (as `templates/user/registration_content_form.html.twig`):
+The second template renders the actual fields of the registration form.
+Create this file as well (as `templates/user/registration_content_form.html.twig`):
 
 ``` html+twig
 {% macro display_form(form) %}
@@ -166,16 +169,16 @@ Fill in the form and register a user.
 ## Set up Permissions
 
 Users created through the registration form are placed in the _Guest accounts_ user group.
-The User you have just created has the roles assigned to this group.
+The user you created has the roles assigned to this group.
 
 !!! tip
 
-    You can change the group in which new Users are placed (but you don't need to do it for this tutorial).
+    You can change the group in which new users are placed (but you don't need to do it for this tutorial).
     For more information, see [Registering new users](user_registration.md).
 
 At this point you don't want anyone who registers to be able to add content to the website.
-That's why you'll create a new user group with additional permissions.
-When the administrator accepts a new User, they can move them to this new group.
+That's why you need to create a new user group with additional permissions.
+When the administrator accepts a new user, they can move them to this new group.
 
 ### Create a user group
 
@@ -207,9 +210,10 @@ Now add the following policies to the Contributors role.
     The limitations are a powerful tool for fine-tuning the permission management of the users.
     See [the documentation about limitations for more technical details](limitation_reference.md#content-type-group-limitation).
 
-Once the policies are set, go to the "Assignments" tab and assign the role to the user group *Go Bike Members*.
+Once the policies are set, go to the **Assignments** tab and assign the role to the user group *Go Bike Members*.
 
-Next, go to the Users page. Select the user you have just created and move them into the *Go Bike Members* user group.
+Next, go to the users page.
+Select the user you created and move them into the *Go Bike Members* user group.
 
 ### Create content as a Go Bike Member
 
