@@ -23,12 +23,15 @@ Get an individual product by using the `productService::getProduct()` method:
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 68, 71) =]]
 ```
 
-Find multiple products with `productService::findProducts()`.
+Find multiple products with [`productService::findProducts()`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-ProductServiceInterface.html#method_findProducts).
+
 Provide the method with optional filter, query or Sort Clauses.
 
 ``` php
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 72, 82) =]]
 ```
+
+See [Product Search Criteria](product_search_criteria.md) and [Product Sort Clauses](product_sort_clauses.md) references for more to use with [`ProductQuery`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-ProductQuery.html).
 
 ### Modifying products
 
