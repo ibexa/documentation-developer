@@ -46,7 +46,7 @@ with the variation name passed as an argument, for example:
 !!! caution
 
     This function works only for [Image](imagefield.md) Fields.
-    It does not work for [ImageAsset](imageassetfield.md) Fields.
+    It doesn't work for [ImageAsset](imageassetfield.md) Fields.
 
 | Argument | Type | Description |
 | ------ |----- | ----- |

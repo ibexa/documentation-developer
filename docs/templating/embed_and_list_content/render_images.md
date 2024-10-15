@@ -39,7 +39,7 @@ returns the identifier of the first image Field that isn't empty.
 !!! caution
 
     This function works only for [Image](imagefield.md) Fields.
-    It does not work for [ImageAsset](imageassetfield.md) Fields.
+    It doesn't work for [ImageAsset](imageassetfield.md) Fields.
 
 ## Configure image variation
 
@@ -75,7 +75,7 @@ To use it, select the variation when rendering the image:
 ## Use focal point
 
 In the [image editor](configure_image_editor.md) you can define a focal point for an image.
-The focal point does not have an instant effect when you use the default templates.
+The focal point doesn't have an instant effect when you use the default templates.
 However, you can use it to select the part of the image the view focuses on when the image is cropped.
 
 The following example shows how to use an image contained in an Image Field as a focussed background.

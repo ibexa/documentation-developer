@@ -227,7 +227,7 @@ and for creating signed URIs when using [ESI (Edge Side Includes)]([[= symfony_d
     php -r "print bin2hex(random_bytes(32));"
     ```
 
-    Don't commit the secret to version control systems, or share it with anyone who does not strictly need it.
+    Don't commit the secret to version control systems, or share it with anyone who doesn't strictly need it.
     If you have any suspicion that the secret may have been exposed, replace it with a new one.
     The same goes for other secrets, like database password, Varnish invalidate token, JWT passphrase, etc.
     

@@ -216,14 +216,14 @@ You can now translate labels of choice attributes in Custom tags using the `ezri
 
 ### API improvements
 
-`SectionService::loadSection` has been improved to return a filtered list when user does not have access to a Section,
+`SectionService::loadSection` has been improved to return a filtered list when user doesn't have access to a Section,
 instead of throwing an exception.
 
 ## eZ Platform v2.5.4
 
 ### Permission improvements
 
-`RoleService` methods have been improved to return a filtered list when user does not have access to content,
+`RoleService` methods have been improved to return a filtered list when user doesn't have access to content,
 instead of throwing an exception. The following methods are affected:
 
 - `RoleService::loadRoles`

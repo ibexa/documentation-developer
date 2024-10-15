@@ -51,8 +51,8 @@ If set to `null` or `~`, the variation takes the original image for reference.
 | `geometry/scalewidth` | `[width]` | Scales image width, both up and down. Preserves aspect ratio. |
 | `geometry/scaleheight` | `[height]` | Scales image height, both up and down. Preserves aspect ratio. |
 | `geometry/scale` | `[width, height]` | Scales image size to the provided width and height, both up and down. Preserves aspect ratio. |
-| `geometry/scaleexact` | `[width, height]` | Scales image to  exactly fit the provided width and height. Does not preserve aspect ratio. |
-| `geometry/scalepercent` | `[widthPercent, heightPercent]` | Scales width and height by the provided percent values. Does not preserve aspect ratio. |
+| `geometry/scaleexact` | `[width, height]` | Scales image to  exactly fit the provided width and height. Doesn't preserve aspect ratio. |
+| `geometry/scalepercent` | `[widthPercent, heightPercent]` | Scales width and height by the provided percent values. Doesn't preserve aspect ratio. |
 | `geometry/crop` | `[width, height, startX, startY]` | Crops the image. The result has the provided width/height, starting at the provided startX/startY |
 | `border` | `[thickBorderX, thickBorderY, color=#000]` | Adds a border around the image. Thickness is defined in px. Color is `#000` by default. |
 | `filter/noise` | `[radius=0]` | Smooths the contours of an image (`imagick`/`gmagick` only). `radius` is in px. |

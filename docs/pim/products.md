@@ -62,7 +62,7 @@ Codes for product variants are generated automatically based on the [selected st
 
 Each product variant has separate availability and stock information.
 Each variant can also have separate price rules.
-If a variant does not have separate price rules, it uses the price of its base product.
+If a variant doesn't have separate price rules, it uses the price of its base product.
 
 ## Product assets
 
@@ -85,7 +85,7 @@ The stock can also be set to infinite (for example, in case of digital products)
 
 !!! note
 
-    Availability does not automatically mean that a product can be ordered.
+    Availability doesn't automatically mean that a product can be ordered.
     A product can be available, but have zero stock.
 
     A product can only be ordered when it has either positive stock, or stock set to infinite.

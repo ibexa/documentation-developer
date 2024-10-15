@@ -32,7 +32,7 @@ yarn encore <environment>
 
 Language versions consist of translated values of the content item's fields. In the content type definition every field is set to be Translatable or not.
 
-[[= product_name =]] does not decide by itself which fields can be translated and which cannot. For some field values the need for a translation can be obvious, for example for the body of an article. In other cases, for instance images without text, integer numbers or e-mail addresses, translation is usually unnecessary. Despite that, [[= product_name =]] gives you the possibility to mark any field as translatable regardless of its field type. It's only your decision to exclude the translation possibility for those fields where it makes no sense.
+[[= product_name =]] doesn't decide by itself which fields can be translated and which cannot. For some field values the need for a translation can be obvious, for example for the body of an article. In other cases, for instance images without text, integer numbers or e-mail addresses, translation is usually unnecessary. Despite that, [[= product_name =]] gives you the possibility to mark any field as translatable regardless of its field type. It's only your decision to exclude the translation possibility for those fields where it makes no sense.
 
 When a field isn't flagged as Translatable, its value is copied from the initial/main translation when a new language version is created. This copied value cannot be modified. When a field is Translatable, you have to enter its value in a new language version manually.
 

@@ -304,7 +304,7 @@ fastly service-version activate --version=latest
 ### Get diff between two versions
 
 You can easily view the diff between two different versions by using the Fastly web interface.
-Unfortunately, Fastly CLI does not support this functionality.
+Unfortunately, Fastly CLI doesn't support this functionality.
 However, Fastly API and GNU diff can help you get an identical result.
 
 Use the Fastly API to download the generated `.vcl` file. It includes the VCL configuration that Fastly generates

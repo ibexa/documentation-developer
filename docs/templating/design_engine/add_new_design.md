@@ -115,7 +115,7 @@ This is because you defined `standard` design as fallback for this SiteAccess:
 
 In this case, if the design engine cannot find a template for the current design,
 it uses the template from the next configured design.
-In the case above, the engine does not find the footer template for the `campaign` SiteAccess,
+In the case above, the engine doesn't find the footer template for the `campaign` SiteAccess,
 so it uses the one from `standard`.
 
 This way you don't need to provide all templates for a new design, but only those that you want to be different than the fallback one.

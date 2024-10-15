@@ -11,14 +11,14 @@ A generic limitation type to use when no other limitation has been implemented.
 Without any Limitation assigned, a `LimitationNotFoundException` is thrown.
 
 It's called "blocking" because it always informs the permissions system that 
-the user does not have access to any policy the limitation is assigned to, making 
+the user doesn't have access to any policy the limitation is assigned to, making 
 the permissions system move on to the next policy.
 
 ### Possible values
 
 |Value|UI value|Description|
 |------|------|------|
-|`<mixed>`|`<mixed>`|This is a generic limitation which does not validate the values provided to it. Make sure that you validate the values passed to this limitation in your own logic.|
+|`<mixed>`|`<mixed>`|This is a generic limitation which doesn't validate the values provided to it. Make sure that you validate the values passed to this limitation in your own logic.|
 
 ### Configuration
 

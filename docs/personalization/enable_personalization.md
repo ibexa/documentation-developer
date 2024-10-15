@@ -347,7 +347,7 @@ and it eventually fetches the affected content and updates it internally.
     Therefore, it's crucial that you check whether the content export was successful, 
     because certain references, for example, deeplinks and image references, are 
     included.
-    If the export fails, the Personalization server does not have full content information.
+    If the export fails, the Personalization server doesn't have full content information.
     As a result, even if the recommendations are displayed, they might miss images, 
     titles or deeplinks.
 

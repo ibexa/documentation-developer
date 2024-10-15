@@ -15,7 +15,7 @@ Null field type accepts anything provided as a value and is usually combined wit
 - NullConverter: Makes it not store anything to the legacy storage engine (database), nor it reads any data.
 - Unindexed: Indexable class making sure nothing is indexed to configured search engine.
 
-This field type does not have its own fixed internal name. Its identifier is instead configured as needed by passing it as an argument to the constructor.
+This field type doesn't have its own fixed internal name. Its identifier is instead configured as needed by passing it as an argument to the constructor.
 
 ### Example for usage of Null field type
 

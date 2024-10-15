@@ -380,7 +380,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
     !!! note
 
-        As Platform.sh does not support a configuration with multiple PostgreSQL databases,
+        As Platform.sh doesn't support a configuration with multiple PostgreSQL databases,
         for [[= product_name_cloud =]] / Platform.sh it's impossible to have a DFS table in a separate database.
 
     ### Recommended [[= product_name_cloud =]] setup
@@ -427,7 +427,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
     !!! note
 
-        As Platform.sh does not support a configuration with multiple PostgreSQL databases,
+        As Platform.sh doesn't support a configuration with multiple PostgreSQL databases,
         for [[= product_name_cloud =]] / Platform.sh it's impossible to have a DFS table in a separate database.
 
     ### Recommended [[= product_name_cloud =]] setup
@@ -503,7 +503,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
         
     !!! note
 
-        As Platform.sh does not support a configuration with multiple PostgreSQL databases,
+        As Platform.sh doesn't support a configuration with multiple PostgreSQL databases,
         for eZ Platform Cloud / Platform.sh it's impossible to have a DFS table in a separate database.
 
     ### Custom integrations

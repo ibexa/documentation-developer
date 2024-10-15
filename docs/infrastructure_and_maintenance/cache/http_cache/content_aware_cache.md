@@ -373,7 +373,7 @@ This section describes to how to debug problems related to HTTP cache.
   If you perform tests on Fastly enabled environment on [[= product_name_cloud =]] provided by Platform.sh, you need to use the Platform.sh
 	dashboard to obtain the endpoint for Nginx.
 
-The following example shows how to debug and check why Fastly does not cache the front page properly. 
+The following example shows how to debug and check why Fastly doesn't cache the front page properly. 
 If you run the command multiple times:
 
 `curl -IXGET https://www.staging.foobar.com.us-2.platformsh.site`
@@ -583,10 +583,8 @@ X-Cache-Debug: 1
 Surrogate-Key: ez-all
 ```
 
-The `Cache-Control` and `Vary` headers look correct. The request is handled by a custom controller and the `Surrogate-Key` only contains the default `ez-all` value. 
-This isn't a problem as long as the controller
-does not return values from any Content in the [[= product_name =]] repository. If it does, the controller should also add
-the corresponding IDs to such objects in that header.
+The `Cache-Control` and `Vary` headers look correct. The request is handled by a custom controller and the `Surrogate-Key` only contains the default `ez-all` value.
+This isn't a problem as long as the controller doesn't return values from any Content in the [[= product_name =]] repository. If it does, the controller should also add the corresponding IDs to such objects in that header.
 
 The `Set-Cookie` here may cause the problem. A ESI fragment should never set a cookie because:
 - Clients only receive the headers set in the "mother" document (the headers in the "/" response in this case).

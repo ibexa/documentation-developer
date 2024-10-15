@@ -48,7 +48,7 @@ The general package directory structure and corresponding PHP namespace mapping 
 |   +-- lib (`Ibexa\Tests\<PackageName>`)
 ```
 
-If a package does not contain some of the described parts, you can skip those directories.
+If a package doesn't contain some of the described parts, you can skip those directories.
 
 ### Implementation (lib)
 

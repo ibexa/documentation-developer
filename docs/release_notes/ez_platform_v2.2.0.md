@@ -18,7 +18,7 @@ This version introduces the **Page Builder** which replaces the landing page edi
 
 !!! note
 
-    The Page Builder does not offer all blocks that landing page editor did.
+    The Page Builder doesn't offer all blocks that landing page editor did.
     The removed blocks include Schedule and Form blocks.
     They will be included again in a future release.
 

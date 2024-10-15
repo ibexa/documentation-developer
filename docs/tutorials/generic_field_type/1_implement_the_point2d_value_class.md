@@ -39,7 +39,7 @@ The Point 2D is going to store two elements (coordinates for point 2D):
 - `x` value
 - `y` value
 
-At this point, it does not matter where they're stored. You want to focus on what the field type exposes as an API.
+At this point, it doesn't matter where they're stored. You want to focus on what the field type exposes as an API.
 
 `src/FieldType/Point2D/Value.php` should have the following properties:
 

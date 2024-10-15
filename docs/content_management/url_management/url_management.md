@@ -146,7 +146,7 @@ For each URL alias definition the history of changes is preserved, so that users
 
 !!! caution "Legacy storage engine limitation"
 
-    The [Legacy storage engine](field_type_storage.md#legacy-storage-engine) does not archive URL aliases, which initially had the same name in multiple languages.
+    The [Legacy storage engine](field_type_storage.md#legacy-storage-engine) doesn't archive URL aliases, which initially had the same name in multiple languages.
     For more information, see [the Jira ticket](https://issues.ibexa.co/browse/EZP-31818).
 
 URL aliases aren't SiteAccess-aware. When creating an alias, you can select a SiteAccess to base it on.
@@ -196,7 +196,7 @@ Use it when:
 
 - you change URL alias configuration and want to regenerate old aliases
 - you encounter database corruption
-- you have content that does not have a URL alias
+- you have content that doesn't have a URL alias
 
 !!! caution
 

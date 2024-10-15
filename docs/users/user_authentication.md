@@ -14,7 +14,7 @@ This is mainly for the kernel to be able to manage content-related permissions (
 
 Depending on your context, you either want to create a Platform user, return an existing user, or even always use a generic user.
 
-Whenever an *external* user is matched (i.e. one that does not come from Platform repository, like coming from LDAP), [[= product_name =]] kernel initiates an `MVCEvents::INTERACTIVE_LOGIN` event.
+Whenever an *external* user is matched (i.e. one that doesn't come from Platform repository, like coming from LDAP), [[= product_name =]] kernel initiates an `MVCEvents::INTERACTIVE_LOGIN` event.
 Every service listening to this event receives an `Ibexa\Core\MVC\Symfony\Event\InteractiveLoginEvent` object which contains the original security token (that holds the matched user) and the request.
 
 Then, it's up to the listener to retrieve a Platform user from the repository and to assign it back to the event object.

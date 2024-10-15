@@ -36,7 +36,7 @@ The `value` property of an Image field returns an `Ibexa\Core\FieldType\Image\V
 
 ### Settings
 
-This field type does not support settings.
+This field type doesn't support settings.
 
 ### Image Variations
 

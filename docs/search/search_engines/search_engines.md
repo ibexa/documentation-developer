@@ -21,7 +21,7 @@ Currently, they exist in their own [[= product_name =]] Bundles:
 | Index-time boosting | No | No | Query-time boosting\*\*\* |
 | Aggregations | No | Yes | Yes |
 
-\* Usage of Criteria and Sort Clauses for fields does not perform well on medium to larger 
+\* Usage of Criteria and Sort Clauses for fields doesn't perform well on medium to larger 
 amount of data with Legacy Search Engine (SQL).
 
 \*\* For more information about fulltext search syntax support, see [Fulltext Criterion](fulltext_criterion.md).

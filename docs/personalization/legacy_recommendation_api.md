@@ -270,5 +270,5 @@ An overview of pros and cons for each of the above techniques:
 |Works if JavaScript is disabled|Yes|depends|-|-|-|	 	 
 |Works for server without multithreading functionality|Yes|Yes|-|Yes|Yes|
 |Compatible with frontend caching on the server|-|-|-|Yes|Yes|
-|Does not delay page rendering|-|depends|depends|Yes|Yes|
+|Doesn't delay page rendering|-|depends|depends|Yes|Yes|
 |Supports authentication for recommendation fetching|Yes|Yes|Yes|-|depends|

@@ -34,7 +34,7 @@ The constructor for this Value object initializes a new Value object with the va
 
 ### Validation
 
-This field type does not perform any special validation of the input value.
+This field type doesn't perform any special validation of the input value.
 
 ### Settings
 

@@ -133,7 +133,7 @@ For more information and a list of available choices, see [Connection pool](http
 !!! tip "Load tests recommendation"
 
     If you change the connection pool setting, it's recommended that you to perform load tests
-    to check whether the change does not negatively impact the performance of your environment.
+    to check whether the change doesn't negatively impact the performance of your environment.
 
 #### Connection selector
 

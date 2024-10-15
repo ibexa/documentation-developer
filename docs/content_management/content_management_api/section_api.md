@@ -49,4 +49,4 @@ You need to provide it with the `ContentInfo` object of the content item, and th
 [[= include_file('code_samples/api/public_php_api/src/Command/SectionCommand.php', 64, 67) =]]
 ```
 
-Assigning a section to content does not automatically assign it to the content item's children.
+Assigning a section to content doesn't automatically assign it to the content item's children.

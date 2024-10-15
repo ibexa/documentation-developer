@@ -64,13 +64,13 @@ ibexa:
 ```
 
 With this configuration, the main English site displays content in English and ignores French content.
-The French site displays content in French, but also in English, if it does not exist in French.
+The French site displays content in French, but also in English, if it doesn't exist in French.
 
 Clear the cache by running: `php bin/console cache:clear`.
 
 ## Set permissions
 
-By default, the Anonymous user role does not have permissions for new SiteAccesses.
+By default, the Anonymous user role doesn't have permissions for new SiteAccesses.
 As a next step, allow Anonymous users to read content on the new SiteAccesses:
 
 1. In the back office, go to **Admin** -> **Roles**.

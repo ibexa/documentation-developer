@@ -30,7 +30,7 @@ This field type validates and stores structured rich text, and exposes it in sev
 
 The field type expects an XML value as input, in the form of a string, `DOMDocument` object, or field type's `Value` object.
 The field type's `Value` object must hold the value in the field type's [internal format](#internal-format).
-For a string of a `DOMDocument` object, if the input does not conform to this format, it's converted into it.
+For a string of a `DOMDocument` object, if the input doesn't conform to this format, it's converted into it.
 
 ##### Internal format
 

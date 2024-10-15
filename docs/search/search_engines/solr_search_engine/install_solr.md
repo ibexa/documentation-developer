@@ -50,7 +50,7 @@ To set SolrCloud up follow [SolrCloud reference guide](https://lucene.apache.org
 
 ### Continue Solr configuration
 
-The bundle does not commit Solr index changes directly on Repository updates, leaving it up to you to tune this using `solrconfig.xml` as best practice suggests.
+The bundle doesn't commit Solr index changes directly on Repository updates, leaving it up to you to tune this using `solrconfig.xml` as best practice suggests.
 
 This setting is **required** if you want to see the changes after publish. it's strongly recommended to set-up `solrconfig.xml` like this:
 
@@ -263,7 +263,7 @@ ibexa:
 
 ## Clear prod cache
 
-While Symfony `dev` environment keeps track of changes to YAML files, `prod` does not, so clear the cache to make sure Symfony reads the new config:
+While Symfony `dev` environment keeps track of changes to YAML files, `prod` doesn't, so clear the cache to make sure Symfony reads the new config:
 
 ``` bash
 php bin/console --env=prod cache:clear
@@ -288,7 +288,7 @@ Here are the most common issues you may encounter:
 - Exception on unsupported field types
     - Make sure to implement all field types in your installation, or to configure missing ones as [NullType](nullfield.md) if implementation isn't needed.
 - Content isn't immediately available 
-    - Solr Bundle on purpose does not commit changes directly on Repository updates *(on indexing)*, but lets you control this using Solr configuration. Adjust Solr's `autoSoftCommit` (visibility of changes to search index) and/or `autoCommit` (hard commit, for durability and replication) to balance performance and load on your Solr instance against needs you have for "[NRT](https://cwiki.apache.org/confluence/display/solr/Near+Real+Time+Searching)".
+    - Solr Bundle on purpose doesn't commit changes directly on Repository updates *(on indexing)*, but lets you control this using Solr configuration. Adjust Solr's `autoSoftCommit` (visibility of changes to search index) and/or `autoCommit` (hard commit, for durability and replication) to balance performance and load on your Solr instance against needs you have for "[NRT](https://cwiki.apache.org/confluence/display/solr/Near+Real+Time+Searching)".
 - Running out of memory during indexing
     - In general make sure to run indexing using the prod environment to avoid debuggers and loggers from filling up memory.
     - Flysystem: You can find further info in https://issues.ibexa.co/browse/EZP-25325.

@@ -4,7 +4,7 @@ description: The permission system is based on policies that you assign to users
 
 # Permission overview
 
-A new user does not have permissions for any part of the system, unless they're explicitly given access.
+A new user doesn't have permissions for any part of the system, unless they're explicitly given access.
 To get access they need to inherit roles, typically assigned to the user group they belong to.
 
 Each role can contain one or more **Policies**. A policy is a rule that gives access to a single **function** in a **module**.
@@ -34,7 +34,7 @@ The more role assignments and complex policies you add for a given user, the mor
 
 You can control access to a custom controller by implementing the `performAccessCheck()` method.
 
-In the following example the user does not have access to the controller unless they have the `section/view` policy:
+In the following example the user doesn't have access to the controller unless they have the `section/view` policy:
 
 ``` php
 use Ibexa\Core\MVC\Symfony\Security\Authorization\Attribute;

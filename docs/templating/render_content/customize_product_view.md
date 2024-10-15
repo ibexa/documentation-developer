@@ -37,7 +37,7 @@ To do it, create your own template in `templates/themes/storefront/storefront/co
 {% endif %}
 ```
 
-This template adds a "price currently unavailable" label when a product does not have a price specified.
+This template adds a "price currently unavailable" label when a product doesn't have a price specified.
 
 ## Available templates
 

@@ -128,10 +128,10 @@ The SiteAccess is automatically matched using the last part of the URI.
 !!! note "Log in"
 
     At this point you need to log in to preview the new SiteAccess,
-    because an anonymous visitor does not have permissions to view it.
+    because an anonymous visitor doesn't have permissions to view it.
     See [section about permissions below](#set-up-permissions).
 
-For now the new SiteAccess does not differ from the main site.
+For now the new SiteAccess doesn't differ from the main site.
 
 For more information, see [Multisite](multisite.md) and [SiteAccess matchers](siteaccess_matching.md#available-siteaccess-matchers).
 

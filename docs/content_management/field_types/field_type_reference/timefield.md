@@ -58,7 +58,7 @@ Example: `36000`
 
 ### Validation
 
-This field type does not perform validation of the input value.
+This field type doesn't perform validation of the input value.
 
 ### Settings
 

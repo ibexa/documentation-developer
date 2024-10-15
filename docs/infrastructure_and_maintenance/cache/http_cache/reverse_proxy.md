@@ -40,7 +40,7 @@ Using a different proxy is highly recommended as they provide better performance
 
 !!! note
 
-    Use of Varnish or Fastly is a requirement for a [Clustering](clustering.md) setup, as Symfony Proxy does not support sharing cache between several application servers.
+    Use of Varnish or Fastly is a requirement for a [Clustering](clustering.md) setup, as Symfony Proxy doesn't support sharing cache between several application servers.
 
 ## VCL base files
 
@@ -88,7 +88,7 @@ framework:
 
 !!! caution "Careful when trusting dynamic IP using `REMOTE_ADDR` value or similar"
 
-    On Platform.sh, Varnish does not have a static IP, like with [AWS LB](https://symfony.com/doc/5.1/deployment/proxies.html#but-what-if-the-ip-of-my-reverse-proxy-changes-constantly).
+    On Platform.sh, Varnish doesn't have a static IP, like with [AWS LB](https://symfony.com/doc/5.1/deployment/proxies.html#but-what-if-the-ip-of-my-reverse-proxy-changes-constantly).
     For this reason, the `TRUSTED_PROXIES` env variable supports being set to value `REMOTE_ADDR`, which is equal to:
   
     ```php
@@ -153,7 +153,7 @@ ibexa:
 
 If your installation uses Varnish and you want users to be able to configure and use Captcha in their forms, 
 you must enable sending Captcha data as a response to an Ajax request. 
-Otherwise, Varnish does not allow for the transfer of Captcha data to the form, and as a result, users see an empty image.
+Otherwise, Varnish doesn't allow for the transfer of Captcha data to the form, and as a result, users see an empty image.
 
 To enable sending Captcha over Ajax, add the following configuration:
 
@@ -306,7 +306,7 @@ fastcgi_param FASTLY_KEY "token"
 Stale cache, or grace mode in Varnish, occurs when:
 
 - Cache is served some time after the TTL expired.
-- When the back-end server does not respond.
+- When the back-end server doesn't respond.
 
 This has several benefits for high traffic installations to reduce load to the back end. 
 Instead of creating several concurrent requests for the same page to the back end, 

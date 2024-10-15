@@ -122,7 +122,7 @@ The interface `Ibexa\Contracts\Core\FieldType\StorageGateway` is implemented by 
 |------|-----------|
 |`setConnection()`|The registry mechanism uses this method to set the SPI storage connection (e.g. the database connection to the Legacy Storage database) into the gateway, which might be used to store external data. The connection is retrieved from the `$context` array automatically by the registry.|
 
-The Gateway implementation itself must take care of validating that it received a usable connection. If it does not, it should throw a `RuntimeException`.
+The Gateway implementation itself must take care of validating that it received a usable connection. If it doesn't, it should throw a `RuntimeException`.
 
 The registry mechanism is realized as a base class for `FieldStorage` implementations: `Ibexa\Core\FieldType\GatewayBasedStorage`. For managing `StorageGateway`s, the following methods are already implemented in the base class:
 

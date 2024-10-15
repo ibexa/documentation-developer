@@ -123,16 +123,16 @@ as item identifiers and recommendable items.
 End users who browse through the shop probably get recommendations of
 the same item that is currently displayed but in a different size and/or color,
 a so-called "variant".
-The Personalization server does not recognize relations between items, therefore,
+The Personalization server doesn't recognize relations between items, therefore,
 every single SKU is used to calculate similarities between them.
 In the case of bestsellers, this could lead to the appearance of a shirt
 in size L on position 2 and the same shirt in size M on position 4.
 
 Customer B decides to use the UPC as item identifiers.
 This results in recommendations that don't contain variations of the currently shown item.
-Therefore, the detail page of shirt X does not contain a recommendation
+Therefore, the detail page of shirt X doesn't contain a recommendation
 for the same shirt in a different size.
-And the same shirt does not show up twice on a list of bestseller recommendations.
+And the same shirt doesn't show up twice on a list of bestseller recommendations.
 
 If the size of an item or the color is selectable on a detail page of an item,
 you may prefer to use the UPC.

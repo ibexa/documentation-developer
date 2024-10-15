@@ -43,7 +43,7 @@ ibexa:
                 my.site: mysite
 ```
 
-If the matcher class does not start with a backslash (`\`), it's relative to `Ibexa\Core\MVC\Symfony\SiteAccess\Matcher`
+If the matcher class doesn't start with a backslash (`\`), it's relative to `Ibexa\Core\MVC\Symfony\SiteAccess\Matcher`
 (for example, `Map\URI` refers to `Ibexa\Core\MVC\Symfony\SiteAccess\Matcher\Map\URI`)
 
 You can specify [custom matchers](#custom-matchers) by using a fully qualified class name (e.g. `\My\SiteAccess\Matcher`)
@@ -190,7 +190,7 @@ Example URL `http://my_site.com:8080/content` matches SiteAccess `site`.
 ### `Ibexa\SiteFactory\SiteAccessMatcher` [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
 Enables the use of [Site Factory](site_factory.md).
-Does not take any parameters in configuration:
+Doesn't take any parameters in configuration:
 
 ``` yaml
 ibexa:

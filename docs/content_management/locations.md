@@ -12,7 +12,7 @@ Every published content item has a Location and, as a consequence, also a place 
 ![Content tree - locations](content_management_tree_locations.png "Content tree - locations")
 
 A content item receives a Location only once it has been published.
-This means that a new unpublished draft does not have a Location yet.
+This means that a new unpublished draft doesn't have a Location yet.
 You can find drats in the **Drafts** tab in the **Content** menu.
 
 ![Drafts](content_management_drafts.png "Drafts")
@@ -125,9 +125,9 @@ it's unavailable on the front page.
 The difference is that a Location Hidden by superior cannot be revealed separately from their parent(s).
 It only becomes visible once all of its parent Locations are made visible again.
 
-A Hidden by superior status does not override a Hidden status.
+A Hidden by superior status doesn't override a Hidden status.
 This means that if a Location is Hidden manually and later one of its ancestors is hidden as well,
-the first Location's status does not change – it remains Hidden (not Hidden by superior).
+the first Location's status doesn't change – it remains Hidden (not Hidden by superior).
 If the ancestor Location is made visible again, the first Location still remains hidden.
 
 The way visibility works can be illustrated using the following scenarios:

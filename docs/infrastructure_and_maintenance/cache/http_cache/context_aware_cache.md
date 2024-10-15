@@ -27,7 +27,7 @@ This expands steps covered in [FOSHttpCacheBundle documentation on user context 
 1. The caching proxy receives the hash response, copies the hash header to the client's original request for `/foo` and restarts the modified original request.
 1. If the response to `/foo` should differ per user context, the application sets a `Vary: X-Context-User-Hash` header, which makes Proxy store the variations of this cache varying on the hash value.
 
-The next time a request comes in from the same user, application lookup for the hash (step 3) does not take place,
+The next time a request comes in from the same user, application lookup for the hash (step 3) doesn't take place,
 as the hash lookup itself is cached by the cache proxy as described below.
 
 ### User context hash caching
@@ -60,8 +60,8 @@ It also varies on `Authorization` to cover any possible basic authorization head
     the default SiteAccess on the domain needs to point to the same repository (database), 
     because `/_fos_user_context_hash` isn't SiteAccess-aware by default (see 
     `ibexa.rest.default_router.non_siteaccess_aware_routes` parameter).
-    This occurs because reverse proxy does not have knowledge about SiteAccesses 
-    and it does not pass the whole URL to be able to cache the user context hash response.
+    This occurs because reverse proxy doesn't have knowledge about SiteAccesses 
+    and it doesn't pass the whole URL to be able to cache the user context hash response.
 
     The only known workaround is to make it SiteAccess aware, and have custom VCL logic tied to your SiteAccess
     matching with Varnish/Fastly, to send the SiteAccess prefix as URI.
@@ -109,7 +109,7 @@ Example:
 
 2\. Ajax/JS lookup to "uncached" custom Symfony controllers:
 
-This method does not consume memory in Varnish. 
+This method doesn't consume memory in Varnish. 
 It can optionally be cached with custom logic: Symfony Cache on server side and/or with client side caching techniques. 
 This should be done as Ajax/JS lookup to avoid the uncached request that slows down the whole delivery of Vanish if it's done as ESI.
 

@@ -115,7 +115,7 @@ You can use the `ContentService::find(Filter)` method to find content items or
 `ContentService::find` returns an iterable [`ContentList`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentList.html)
 while `LocationService::find` returns an iterable [`LocationList`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-LocationList.html).
 
-Filtering differs from search. It does not use the `SearchService` and isn't based on indexed data.
+Filtering differs from search. It doesn't use the `SearchService` and isn't based on indexed data.
 
 [`Filter`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Filter-Filter.html) enables you to configure a query using chained methods to select criteria, sorting, limit and offset.
 
@@ -262,7 +262,7 @@ This also shows that you can get the total number of search results using the `t
 
 You can also nest different operators to construct more complex queries.
 The example below uses the `LogicalNot` operator to search for all content containing a given phrase
-that does not belong to the provided Section:
+that doesn't belong to the provided Section:
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 45, 46) =]][[= include_file('code_samples/api/public_php_api/src/Command/FindComplexCommand.php', 48, 53) =]]
@@ -389,7 +389,7 @@ $query->aggregations[] = new IntegerRangeAggregation('range', 'person', 'age',
     The beginning of the range is included and the end is excluded,
     so a range between 1 and 30 includes value `1`, but not `30`.
     
-    `null` means that a range does not have an end.
+    `null` means that a range doesn't have an end.
     In the example all values above (and including) 60 are included in the last range.
 
 See [Agrregation reference](aggregation_reference.md) for details of all available aggregations.

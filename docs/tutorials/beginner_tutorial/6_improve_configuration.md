@@ -8,7 +8,7 @@ description: See how you can manage Ibexa DXP configuration files.
 
 Image variations are different versions of the same image. You can use them to scale images, crop them, add effects, etc.
 
-So far the images in the ride list are fitted to the templates automatically, and the result does not look good.
+So far the images in the ride list are fitted to the templates automatically, and the result doesn't look good.
 Now you can create a variation to specify how you want the images to look in detail.
 
 Create a new `config/packages/image_variations.yaml` file containing:

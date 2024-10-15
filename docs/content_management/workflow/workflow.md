@@ -45,7 +45,7 @@ If set to `published`, applies for Content that has already been published (for 
 
 Each stage in the workflow has an identifier and can have a label and a color.
 
-The optional `last_stage` key indicates that content in this stage does not appear on the dashboard or in Review Queue.
+The optional `last_stage` key indicates that content in this stage doesn't appear on the dashboard or in Review Queue.
 
 One stage, listed under `initial_stage`, is the one that the workflow starts with.
 
@@ -113,8 +113,7 @@ To do so, configure the `publish` action for the transition:
 
 ### Disable Quick Review
 
-You can disable the default workflow, for example, if your project does not use 
-workflows, or Quick Review entries clog your database:
+You can disable the default workflow, for example, if your project doesn't use workflows, or Quick Review entries clog your database:
 
 ``` yaml
 [[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 0, 4) =]][[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 63, 67) =]]
@@ -171,7 +170,7 @@ For example, you can use it to only allow a legal team to edit content in the `l
 
 ### Validate form before workflow transition
 
-By default, sending content to the next stage of the workflow does not validate the form in UI,
+By default, sending content to the next stage of the workflow doesn't validate the form in UI,
 so with the publish action, the form isn't verified for errors in UI.
 However, during the publish action, the sent form is validated in the service.
 

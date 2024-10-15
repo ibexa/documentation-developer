@@ -57,7 +57,7 @@ $relationListValue = new RelationList\Value(
 
 This field type validates if:
 
-- the `selectionMethod` specified is `\Ibexa\Core\FieldType\RelationList\Type::SELECTION_BROWSE` or `\Ibexa\Core\FieldType\RelationList\Type::SELECTION_DROPDOWN`. A validation error is thrown if the value does not match.
+- the `selectionMethod` specified is `\Ibexa\Core\FieldType\RelationList\Type::SELECTION_BROWSE` or `\Ibexa\Core\FieldType\RelationList\Type::SELECTION_DROPDOWN`. A validation error is thrown if the value doesn't match.
 - the `selectionDefaultLocation` specified is `null`, `string` or `integer`. If the type validation fails a validation error is thrown.
 - the value specified in `selectionContentTypes` is an `array`. If not, a validation error in given.
 - the number of content items selected in the field isn't greater than the `selectionLimit`.

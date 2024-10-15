@@ -62,4 +62,4 @@ If the validations fail, a `ValidationError` is thrown, specifying the error m
 
 ### Settings
 
-This field type does not support settings.
+This field type doesn't support settings.

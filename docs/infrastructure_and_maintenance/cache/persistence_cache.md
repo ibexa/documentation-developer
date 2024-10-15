@@ -183,7 +183,7 @@ See `.env`, `config/packages/ibexa.yaml` and `config/packages/cache_pool/cache.r
 
 !!! caution "Clearing Redis cache"
 
-    The regular `php bin/console cache:clear` command does not clear Redis persistence cache.
+    The regular `php bin/console cache:clear` command doesn't clear Redis persistence cache.
     Use a dedicated Symfony command to clear the pool you have configured: `php bin/console cache:pool:clear cache.redis`.
 
 ##### Redis Clustering
@@ -259,7 +259,7 @@ See `config/default_parameters.yaml` and `config/cache_pool/cache.memcached.yaml
 
 !!! caution "Clearing Memcached cache"
 
-    The regular `php bin/console cache:clear` command does not clear Memcached persistence cache.
+    The regular `php bin/console cache:clear` command doesn't clear Memcached persistence cache.
     Use a dedicated Symfony command to clear the pool you have configured: `php bin/console cache:pool:clear cache.memcached`.
 
 

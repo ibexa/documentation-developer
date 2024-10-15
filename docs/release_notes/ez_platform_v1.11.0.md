@@ -42,7 +42,7 @@ It enables you to manually select a set of content items to be displayed.
 
     To enable adding content to a Collection block in a clean installation,
     you need to configure the views for the block and define which content types can be embedded in it.
-    
+
     For more information and an example, see [block templates](https://doc.ibexa.co/en/latest/content_management/pages/page_blocks/#block-templates).
 
 #### RecommendationBundle adapted for YooChoose v2
@@ -69,7 +69,7 @@ full support, maintenance, and priority security patch handling as they're used 
 
 !!! note
 
-    Not supported for clean/new installs, intended for use with migrations. The Legacy Bridge integration does not have same performance,
+    Not supported for clean/new installs, intended for use with migrations. The Legacy Bridge integration doesn't have same performance,
     scalability or integrated experience as pure Platform setup. There are known edge cases where for instance cache or search index
     won't always be immediately updated across the two systems using the bridge, which is one of the many reasons why we recommend
     a pure Platform setup where that is possible.

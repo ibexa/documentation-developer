@@ -29,7 +29,7 @@ To publish, they must send the content for review to another User with proper pe
 - `content/edit`
 
 Use this setup with [[= product_name_exp =]] or [[= product_name_com =]] only,
-as [[= product_name_headless =]] does not allow the User to continue working with their content.
+as [[= product_name_headless =]] doesn't allow the User to continue working with their content.
 
 ## Create and publish content
 
@@ -61,7 +61,7 @@ Further manipulation of Trash requires the `content/restore` policy to restore i
 !!! caution
 
     With the `content/cleantrash` policy, the User can empty the Trash even if they don't have access to the trashed content,
-    for example, because it belonged to a Section that the User does not have permissions for.
+    for example, because it belonged to a Section that the user doesn't have permissions for.
 
 ## Restrict editing to part of the tree
 
@@ -74,7 +74,7 @@ Let's assume you have two Folders under your Home: Blog and Articles.
 You can let a User create content for the blogs, but not in Articles, by adding a `Section` limitation to 
 the Blog content item.
 This allows the User to publish content anywhere under this Location in the structure.
-Section does not have to belong to the same Subtree of Location in the content structure, any Locations can be assigned to it.
+Section doesn't have to belong to the same Subtree of Location in the content structure, any Locations can be assigned to it.
 
 ### Location limitation
 
@@ -112,7 +112,7 @@ The vegetarian editors should now see the following content tree:
 
 ![Limited subtree file structure](subtree_usability_notes_2.png)
 
-When a policy has more than one limitation, all of them have to apply, or the policy does not work.
+When a policy has more than one limitation, all of them have to apply, or the policy doesn't work.
 For example, a `Location` limitation on Location `1/2` and `Subtree of Location` limitation on `1/2/55` cannot work together,
 because no Location can satisfy both those requirements at the same time.
 To combine more than one limitation with the *or* relation, not *and*,

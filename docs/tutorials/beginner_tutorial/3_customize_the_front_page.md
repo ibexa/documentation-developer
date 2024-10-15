@@ -17,7 +17,7 @@ To use a custom template when rendering the root content, create a `content_view
 
     When pasting YAML code, pay attention to indentation and levels.
     The code blocks shown here include the full structure of the YAML file to help you learn where to place new blocks.
-    Be careful not to duplicate existing keys, because YAML does not allow it.
+    Be careful not to duplicate existing keys, because YAML doesn't allow it.
 
 Edit `config/packages/ibexa.yaml`.
 Add the following block under `site` while paying attention to indentation - `content_view` should be one level below `site`:
@@ -261,4 +261,4 @@ Refresh the page and you should see the "Hello world" placed inside a styled lay
 
 ![Homepage with a Hello world](bike_tutorial_hello_world.png)
 
-At this point, the template is static. It does not render any dynamic data from the repository.
+At this point, the template is static. It doesn't render any dynamic data from the repository.

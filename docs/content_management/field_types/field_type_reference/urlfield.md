@@ -61,8 +61,8 @@ $hash = [
 
 ### Validation
 
-This field type does not perform validation.
+This field type doesn't perform validation.
 
 ### Settings
 
-This field type does not have settings.
+This field type doesn't have settings.

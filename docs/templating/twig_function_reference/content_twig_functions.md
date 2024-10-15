@@ -58,7 +58,7 @@ You can pass one of the following rendering methods to `ibexa_render()`:
 `ibexa_content_name()` renders the name of a content item.
 
 The function uses prioritized languages from SiteAccess settings unless you pass another language as `forcedLanguage`.
-If the content item does not have a translation in the prioritized or passed language,
+If the content item doesn't have a translation in the prioritized or passed language,
 the function returns the name in the main language.
 
 | Argument | Type | Description |

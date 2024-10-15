@@ -14,7 +14,7 @@ The release of eZ Platform brought about an inevitable disruption in backwards c
 
 ### Incompatibilities with legacy
 
-eZ Platform represents the 6th generation of eZ Publish, and while the 5th generation had* *a major focus on backwards code compatibility with the 3rd and 4th generations *(legacy)*, the 6th generation does not.
+eZ Platform represents the 6th generation of eZ Publish, and while the 5th generation had* *a major focus on backwards code compatibility with the 3rd and 4th generations *(legacy)*, the 6th generation doesn't.
 
 The 6th generation is aimed at being fully backwards compatible on the following:
 

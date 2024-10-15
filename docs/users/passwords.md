@@ -108,7 +108,7 @@ To do this, in the **User account (ezuser)** field definition, select "Password 
 ![Protection against using breached passwords](password_breached.png)
 
 This rule checks the password against known password dumps by using the https://haveibeenpwned.com/ API.
-It does not check existing passwords, so it won't block login for anyone. It applies only to new passwords when users change them.
+It doesn't check existing passwords, so it won't block login for anyone. It applies only to new passwords when users change them.
 
 !!! note
 

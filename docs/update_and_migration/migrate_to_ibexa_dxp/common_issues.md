@@ -45,7 +45,7 @@ php bin/console ezplatform:images:normalize-path
 
 ## Unknown relation type 0
 
-"Unknown relation type 0." error occurs only when using REST API. The issue does not occur
+"Unknown relation type 0." error occurs only when using REST API. The issue doesn't occur
 the first time article is published (upon creation). It only happens after the article is
 edited and published.
 

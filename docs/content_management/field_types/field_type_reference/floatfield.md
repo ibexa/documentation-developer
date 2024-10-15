@@ -79,4 +79,4 @@ $floatFieldCreateStruct->validatorConfiguration = [
 
 ### Settings
 
-This field type does not support settings.
+This field type doesn't support settings.

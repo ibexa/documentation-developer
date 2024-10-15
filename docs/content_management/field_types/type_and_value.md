@@ -37,7 +37,7 @@ This method retrieves via public PHP API a schema for the field type settings. A
 
 #### `getValidatorConfigurationSchema()`
 
-In addition to normal settings, the field type should provide schema settings for its validation process. The schema describes what kind of validation can be performed by the field type and which settings the user can specify to these validation methods. For example, the `ezstring` type can validate minimum and maximum length of the string. It therefore provides a schema to indicate to the user that they might specify the corresponding restrictions, when creating a `FieldDefinition` with this type. The schema does not underlie any regulations, except for that it must be serializable.
+In addition to normal settings, the field type should provide schema settings for its validation process. The schema describes what kind of validation can be performed by the field type and which settings the user can specify to these validation methods. For example, the `ezstring` type can validate minimum and maximum length of the string. It therefore provides a schema to indicate to the user that they might specify the corresponding restrictions, when creating a `FieldDefinition` with this type. The schema doesn't underlie any regulations, except for that it must be serializable.
 
 #### `validateFieldSettings()`
 
@@ -72,7 +72,7 @@ For example: a user provides an HTTP link as a string, `acceptValue()` converts 
 
 !!! note
 
-    `acceptValue()` asserts structural consistency of the value, but does not validate plausibility of the value.
+    `acceptValue()` asserts structural consistency of the value, but doesn't validate plausibility of the value.
 
 #### `getEmptyValue()`
 

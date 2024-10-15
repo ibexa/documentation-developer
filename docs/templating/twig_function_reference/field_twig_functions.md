@@ -77,7 +77,7 @@ Some field types, like the [MapLocation field type](maplocationfield.md), expect
 
 The function returns the value of the field only.
 To render the field with default or custom templates, use [`ibexa_render_field()`](#ibexa_render_field) instead.
-If the content item does not have a translation in the prioritized or passed language,
+If the content item doesn't have a translation in the prioritized or passed language,
 the function returns the value in the main language.
 
 | Argument | Type | Description |
@@ -94,7 +94,7 @@ the function returns the value in the main language.
 
 `ibexa_field()` returns the field object.
 The field gives you access to the field value, the field's definition identifier, and field type identifier.
-If the content item does not have a translation in the prioritized or passed language,
+If the content item doesn't have a translation in the prioritized or passed language,
 the function returns the field object in the main language.
 
 | Argument | Type | Description |
@@ -119,7 +119,7 @@ You can use `ibexa_field()` to access the field type identifier:
 `ibexa_field_name()` returns the name of a content item's field.
 
 The function uses prioritized languages from SiteAccess settings unless you pass another language as `forcedLanguage`.
-If the content item does not have a translation in the prioritized or passed language,
+If the content item doesn't have a translation in the prioritized or passed language,
 the function returns the name in the main language.
 
 | Argument | Type | Description |
@@ -140,7 +140,7 @@ the function returns the name in the main language.
 `ibexa_field_description()` returns the description of a content item's field.
 
 The function uses prioritized languages from SiteAccess settings unless you pass another language as `forcedLanguage`.
-If the content item does not have a translation in the prioritized or passed language,
+If the content item doesn't have a translation in the prioritized or passed language,
 the function returns the description in the main language.
 
 | Argument | Type | Description |
