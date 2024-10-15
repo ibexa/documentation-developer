@@ -70,7 +70,7 @@ You can create, modify or delete URL wildcards, and decide if the user should be
 
 !!! note
 
-    As of this release, the Link manager is no longer part of the Content panel, and now it belongs to the Admin panel of the back office.
+    As of this release, the Link manager is no longer part of the Content panel, and now it belongs to the **Admin** panel of the back office.
 
 ![URL Management UI](3_1_URL_Management.png "URL Management UI")
 

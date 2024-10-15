@@ -6,9 +6,9 @@ page_type: landing_page
 # Admin panel
 
 Once you set up your environment you can start your work as an administrator.
-Your most functional tools can be found in **Admin Panel**.
+You can find key tools in **Admin** panel.
 
-To access Admin Panel, click the icon: ![Admin Panel Icon](admin_panel_icon.png){.inline-image}.
+To access **Admin** panel, click the icon: ![Admin panel Icon](admin_panel_icon.png){.inline-image}.
 
 [[= cards([
     "administration/admin_panel/users_admin_panel",

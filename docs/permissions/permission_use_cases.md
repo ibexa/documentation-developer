@@ -92,7 +92,7 @@ You do it by creating two new roles for a user group:
 Follow the example below to learn how to do that.
 
 **Cookbook**, **Dinner recipes** and **Dessert recipes** containers aren't accessible in the frontend. 
-Edit access to them in the **Admin Panel**. 
+Edit access to them in the **Admin** panel. 
 
 ![Subtree file structure](subtree_usability_notes_1.png)
 

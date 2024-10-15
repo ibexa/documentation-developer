@@ -62,13 +62,13 @@ It contains a Folder content item.
 
 **Users** is the top level Location that contains the built-in system for managing user accounts.
 
-![Users in admin panel](admin_panel_users.png "Users in admin panel")
+![Users in Admin panel](admin_panel_users.png "Users in Admin panel")
 
 A user is simply a content item of the user account content type.
 The users are organized within user group content items below this Location.
 
 In other words, the **Users** Location contains the actual users and user groups,
-which can be viewed by selecting the **Users** tab in the Admin Panel.
+which can be viewed by selecting the **Users** tab in the **Admin** Panel.
 
 The default ID number of the **Users** Location is 5.
 It contains user group content items.

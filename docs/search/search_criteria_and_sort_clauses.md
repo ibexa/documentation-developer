@@ -20,7 +20,7 @@ or [`ContentId` Criterion handler](https://github.com/ibexa/solr/blob/main/src/l
 
 ## Custom Criteria and Sort Clauses
 
-Sometimes you can find that standard Search Criteria and Sort Clauses provided with [[= product_name =]] aren't sufficient for your needs. Most often this is the case if you have a custom field type using external storage which cannot be searched using the standard field Criterion.
+Sometimes you can find that standard Search Criteria and Sort Clauses provided with [[= product_name =]] aren't sufficient for your needs. Most often this is the case if you have a custom field type using external storage which cannot be searched using the standard Field Criterion.
 
 !!!note
 

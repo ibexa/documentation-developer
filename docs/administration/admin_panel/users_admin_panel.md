@@ -1,11 +1,11 @@
 ---
-description: All user groups and users can be accessed in the users tab.
+description: You can access all users and user groups in the users tab.
 ---
 
 # Users
 
 [Users](users.md) in [[= product_name =]] are treated the same way as content items.
-they're organized in groups such as *Guests*, *Editors*, *Anonymous*, which makes it easier to manage them and their permissions.
+They're organized in groups such as *Guests*, *Editors*, *Anonymous*, which makes it easier to manage them and their permissions.
 All user groups and users can be accessed in the Admin panel by selecting **Users**.
 
 ![Users and user groups](admin_panel_users.png "Users and user groups")

@@ -32,7 +32,7 @@ Community members are more than welcome to contribute to the translation process
 
 ![](udwre.png)
 
--   The Admin Panel now provides a way to get a clean **digest view of content types** configured in the system, with the ability to clearly get access to properties and field definitions.
+-   The **Admin** panel now provides a way to get a clean **digest view of content types** configured in the system, with the ability to clearly get access to properties and field definitions.
 
 ![](contenttypeviews.png)
 

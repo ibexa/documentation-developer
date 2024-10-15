@@ -19,7 +19,7 @@ publishing the draft doesn't overwrite later modifications.
 
 ### Adding available languages
 
-The multilanguage system operates based on a global translation list that contains all languages available in the installation. Languages can be [added to this list from the Admin Panel](https://doc.ibexa.co/projects/userguide/en/latest/content_management/translate_content/) in the back office. After adding a language be sure to dump all assets to the file system:
+The multilanguage system operates based on a global translation list that contains all languages available in the installation. Languages can be [added to this list from the **Admin** panel](https://doc.ibexa.co/projects/userguide/en/latest/content_management/translate_content/) in the back office. After adding a language be sure to dump all assets to the file system:
 
 ```
 yarn encore <environment>
@@ -178,6 +178,6 @@ If the `translation_siteaccesses` setting isn't provided, implicit *related S
 
 When setting up SiteAccesses with different language versions, you can specify a list of preset languages for each SiteAccess. When this SiteAccess is used, the system goes through this list. If a content item is unavailable in the first (prioritized) language, it attempts to use the next language in the list, and so on. Thanks to this you can have a fallback in case of a lacking translation.
 
-You can also assign a Default content availability flag to content types (available in the Admin Panel). When this flag is assigned, content items of this type are available even when they do not have a language version in any of the languages configured for the current SiteAccess.
+You can also assign a Default content availability flag to content types (available in the **Admin** panel). When this flag is assigned, content items of this type are available even when they do not have a language version in any of the languages configured for the current SiteAccess.
 
 If a language isn't provided in the list of prioritized languages and it's not the content item's first language, the URL alias for this content in this language isn't generated.

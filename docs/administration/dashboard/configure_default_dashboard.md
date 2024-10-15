@@ -32,7 +32,7 @@ All the settings in the configuration are reflected in the back office.
 ## Container remote ID
 
 Defines starting location container for all the dashboards, including customized and predifined ones.
-You can see it in the Admin panel, **Dashboards** section, **Dashboards** folder in the content tree.
+You can see it in the **Admin** panel, **Dashboards** section, **Dashboards** folder in the content tree.
 In the **Technical details** tab, it is defined as **Location remote ID**.
 
 ![Container remote ID](dashboard_container_remote_id.png)
@@ -41,19 +41,19 @@ In the **Technical details** tab, it is defined as **Location remote ID**.
 
 Specifies default predefined dashboard.
 All the users can see this dashboard as a starting dashboard in the back office.
-You can see it in the Admin panel, **Dashboards** section, **Default dashboard** folder inside of **Predefined dashboards** container in the content tree.
+You can see it in the **Admin** panel, **Dashboards** section, **Default dashboard** folder inside of **Predefined dashboards** container in the content tree.
 In the **Technical details** tab, it's defined as **Location remote ID**.
 
 ## Users container remote ID
 
 Defines a container for users folders, which contain all customized dashboards.
-You can see it in the Admin panel, **Dashboards** section, **User dashboards** folder inside of main **Dashboards** container in the content tree.
+You can see it in the **Admin** panel, **Dashboards** section, **User dashboards** folder inside of main **Dashboards** container in the content tree.
 In the **Technical details** tab, it's defined as **Location remote ID**.
 
 ## Predefined container remote ID
 
 Defines a container that contains all predefined dashboards created by Administrator.
-You can see it in the Admin panel, **Dashboards** section, **Predefined dashboards** folder inside of main **Dashboards** container in the content tree.
+You can see it in the **Admin** panel, **Dashboards** section, **Predefined dashboards** folder inside of main **Dashboards** container in the content tree.
 In the **Technical details** tab, it's defined as **Location remote ID**.
 
 ## Section identifier
@@ -63,7 +63,7 @@ Specifies the name of the [Section](sections.md).
 ## Content type identifier
 
 It is an identifier that represents dashboard content type.
-You can find it in the Admin panel, **Dashboard content Ttpe** section, **View/Global properties** tab.
+You can find it in the **Admin** panel, **Dashboard content Ttpe** section, **View/Global properties** tab.
 
 ![Content type identifier](dashboard_content_type_identifier.png)
 

@@ -19,7 +19,7 @@ User management is available in all [[= product_name =]] versions.
 ## How does user management work
 
 [[= product_name =]] simplifies user management with an intuitive and powerful system of accounts, Roles, Permissions, groups, and Segments.
-You can find all user groups and users in the **Admin Panel** by selecting **Users**.
+You can find all user groups and users in the **Admin** panel by selecting **Users**.
 Here, you can manage users, their relations, roles, and policies.
 
 ![User's section](users_section.png)

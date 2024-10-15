@@ -207,6 +207,7 @@ $output->writeln("Parent Location: " . $mainLocation->getParentLocation()->pathS
 
 When dealing with location objects (and Trash objects), you can get access to content item directly using `$location->getContent`.
 In Twig this can also be accessed by `location.content`.
+This is a lazy property.
 It triggers loading of content when first used.
 In case of bulk of locations coming from Search or Location Service,
 the content is also loaded in bulk for the whole location result set.

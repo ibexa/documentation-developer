@@ -70,7 +70,7 @@ all features related to user management, such as user accounts, registering, cha
 
     ### Workflow improvements
 
-    You can now preview a diagram of the configured workflows in the Admin Panel.
+    You can now preview a diagram of the configured workflows in the **Admin** panel.
 
     ![Diagram of a workflow configuration](2.5_workflow_diagram.png)
 
