@@ -65,7 +65,7 @@ Using the variation Service, variations of the original image can be obtained. t
 
 The Image field type supports one `FieldDefinition` option: the maximum size for the file.
 
-!!!note
+!!! note
 
     Maximum size is rounded to 1 MB (legacy storage limitation).
 

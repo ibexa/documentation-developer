@@ -13,5 +13,5 @@ including their specifications and pricing.
     "pim/products",
     "pim/catalogs",
     "pim/pim_configuration",
-    "pim/prices",
+    "pim/prices"
 ], columns=3) =]]

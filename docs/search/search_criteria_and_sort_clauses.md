@@ -22,7 +22,7 @@ or [`ContentId` Criterion handler](https://github.com/ibexa/solr/blob/main/src/l
 
 Sometimes you can find that standard Search Criteria and Sort Clauses provided with [[= product_name =]] aren't sufficient for your needs. Most often this is the case if you have a custom field type using external storage which cannot be searched using the standard Field Criterion.
 
-!!!note
+!!! note
 
     Legacy (SQL-based) search can also be used in `ezkeyword` external storage.
 
@@ -104,10 +104,8 @@ Ibexa\Core\Search\Legacy\Content\Location\Gateway\SortClauseHandler\Location\Dep
     tags:
         - {name: ibexa.search.legacy.gateway.sort_clause_handler.location}
 ```
-
-!!! note "See also"
-
-    For more information about passing parameters, see [Symfony Service Container documentation]([[= symfony_doc =]]/book/service_container.html#service-parameters).
+    
+For more information about passing parameters, see [Symfony Service Container documentation]([[= symfony_doc =]]/book/service_container.html#service-parameters).
 
 ## Search using custom Field Criterion [REST]
 

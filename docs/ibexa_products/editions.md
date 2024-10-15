@@ -8,9 +8,9 @@ page_type: landing_page
 Three [[= product_name =]] product editions are available to help you accelerate your digital transformation at the speed and cost that work best for you.
 
 [[= cards([
-"ibexa_products/ibexa_headless",
-"ibexa_products/ibexa_experience",
-"ibexa_products/ibexa_commerce"
+    "ibexa_products/ibexa_headless",
+    "ibexa_products/ibexa_experience",
+    "ibexa_products/ibexa_commerce"
 ], columns=3) =]]
 
 ## Feature comparison

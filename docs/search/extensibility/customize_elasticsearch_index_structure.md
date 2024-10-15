@@ -11,9 +11,7 @@ This lets you control the size of [Elasticsearch shards](https://www.elastic.co/
 By customizing the structure to your needs, you can avoid "oversharding" (having too many shards),
 which negatively affects performance and can lead to instability.
 
-!!! tip "Sizing Elasticsearch shards"
-
-    See [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/8.4/size-your-shards.html) for more information about adapting the size of your search index shards.
+For more information about adapting the size of your search index shards, see [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/8.4/size-your-shards.html).
 
 ## Selecting indexing strategy
 

@@ -87,7 +87,7 @@ This Processor is a default one, as long as no other Processor with higher prior
 ​
 This Processor generates JSON data from hash representation of the field type (it uses `\Ibexa\Contracts\Core\FieldType\FieldType::toHash` method).
 
-!!! warning
+!!! caution
 
     CDP doesn't support column mapping, which allows you to match records on JSON data directly.
 

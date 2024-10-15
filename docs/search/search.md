@@ -15,5 +15,5 @@ page_type: landing_page
     "search/search_criteria_and_sort_clauses",
     "search/extensibility/create_custom_search_criterion",
     "search/extensibility/create_custom_sort_clause",
-    "search/extensibility/create_custom_aggregation",
+    "search/extensibility/create_custom_aggregation"
 ], columns=4) =]]

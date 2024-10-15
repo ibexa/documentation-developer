@@ -97,7 +97,7 @@ data to the content item's HTML code.
 {{ ibexa_seo(content) }}
 ```
 
-!!! tip 
+!!! tip
 
     The following example uses both SEO-related functions:
 

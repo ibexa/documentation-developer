@@ -22,5 +22,5 @@ You can run data migrations either with a command, or with the [PHP API](data_mi
     "content_management/data_migration/importing_data",
     "content_management/data_migration/exporting_data",
     "content_management/data_migration/data_migration_actions",
-    "content_management/data_migration/managing_migrations",
+    "content_management/data_migration/managing_migrations"
 ]) =]]

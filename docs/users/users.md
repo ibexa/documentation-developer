@@ -12,24 +12,24 @@ All such user accounts have the same underlying mechanism and enable you to cont
 ## Invite nad manage users
 
 [[= cards([
-"users/user_management_guide",
-"users/invitations",
-"users/user_registration",
+    "users/user_management_guide",
+    "users/invitations",
+    "users/user_registration"
 ], columns=3) =]]
 
 ## Authenticate users
 
 [[= cards([
-"users/login_methods",
-"users/passwords",
-"users/user_authentication",
-"users/oauth_client",
-"users/oauth_server",
+    "users/login_methods",
+    "users/passwords",
+    "users/user_authentication",
+    "users/oauth_client",
+    "users/oauth_server"
 ], columns=5) =]]
 
 ## Group users
 
 [[= cards([
-"users/customer_groups",
-"users/segment_api",
+    "users/customer_groups",
+    "users/segment_api"
 ], columns=2) =]]

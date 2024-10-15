@@ -12,7 +12,7 @@
 
 ### Content scheduling
 
-!!! dxp
+!!! note
 
     You can now schedule content on a Page to become visible at a specific time in the future.
 
@@ -33,13 +33,11 @@
 
     The timeline also shows other events, such a Content published using the date-based publisher.
 
-    !!! tip "User documentation"
-
-        You can also check user documentation on [advanced publishing options](https://doc.ibexa.co/projects/userguide/en/2.5/publishing/advanced_publishing_options)
+For more information, check [advanced publishing options](https://doc.ibexa.co/projects/userguide/en/2.5/publishing/advanced_publishing_options) in User Documentation.
 
 ### Form Builder
 
-!!! dxp
+!!! note
 
     The new Form Builder enables you to create Form content items with multiple form fields.
 
@@ -51,9 +49,7 @@
 
     See [Extending Form Builder](https://doc.ibexa.co/en/2.5/guide/extending/extending_form_builder) for information on how to modify and create Form fields.
 
-    !!! tip "User documentation"
-
-        You can also check user documentation on [forms](https://doc.ibexa.co/projects/userguide/en/2.5/creating_content_advanced/#forms)
+Fore more information, check [forms](https://doc.ibexa.co/projects/userguide/en/2.5/creating_content_advanced/#forms) in User Documentation.
 
 ### ImageAsset field type
 

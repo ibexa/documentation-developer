@@ -158,7 +158,7 @@ Depending on the number of lookups and latency to cache server this might affect
 
 Out of the box in `config/packages/cache_pool/cache.redis.yaml` you'll find a default example that can be used.
 
-!!! note "Ibexa Cloud"
+!!! note "[[= product_name_cloud =]]"
 
     For Ibexa Cloud/Platform.sh: This is automatically configured in `vendor/ibexa/core/src/bundle/Core/DependencyInjection/IbexaCoreExtension.php` if you have enabled Redis as `rediscache` Platform.sh service.
 
@@ -207,9 +207,9 @@ Several cloud providers have managed services that are easier to set up, handle 
 - [Azure Redis Cache](https://azure.microsoft.com/en-us/products/cache/)
 - [Google Cloud Memorystore](https://cloud.google.com/memorystore/)
 
-###### Ibexa Cloud / Platform.sh usage
+###### [[= product_name_cloud =]] / Platform.sh usage
 
-!!! note "Ibexa Cloud"
+!!! note "[[= product_name_cloud =]]"
 
     If you use Platform.sh Enterprise you can benefit from the Redis Sentinel across three nodes for great fault tolerance.
     Platform.sh Professional and lower versions offer Redis in single instance mode only.
@@ -236,9 +236,9 @@ There is one Memcached adapter available out of the box.
 
 Out of the box in `config/packages/cache_pool/cache.memcached.yaml` you'll find a default example that can be used.
 
-!!! note "Ibexa Cloud"
+!!! note "[[= product_name_cloud =]]"
 
-    For Ibexa Cloud/Platform.sh: This is automatically configured in `vendor/ibexa/core/src/bundle/Core/DependencyInjection/IbexaCoreExtension.php` if you have enabled Memcached as `cache` Platform.sh service.
+    For [[= product_name_cloud =]]/Platform.sh: This is automatically configured in `vendor/ibexa/core/src/bundle/Core/DependencyInjection/IbexaCoreExtension.php` if you have enabled Memcached as `cache` Platform.sh service.
 
 For anything else, you can enable it with environment variables detected automatically by `vendor/ibexa/core/src/bundle/Core/DependencyInjection/IbexaCoreExtension.php`.
 For instance, if you set the following environment variables `export CACHE_POOL="cache.memcached" CACHE_DSN="user:pass@localhost?weight=33"`, it results in config like this:

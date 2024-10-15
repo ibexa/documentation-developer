@@ -30,7 +30,7 @@ Information that relates to anonymous users is stored in the PHP session, while 
 
 By default, anonymous users can add items to cart, but to display the cart view, they have to log in and transition into an authenticated user.
 
-!!! note 
+!!! note
 
     For information about roles and permissions that control access to the cart, see [Permission use cases](permission_use_cases.md#commerce).
 

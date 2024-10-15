@@ -17,5 +17,5 @@ Content view configuration is SiteAccess-aware.
     "templating/templates/templates",
     "templating/queries_and_controllers/content_queries",
     "templating/twig_function_reference/twig_function_reference",
-    "templating/design_engine/design_engine",
+    "templating/design_engine/design_engine"
 ], columns=4) =]]

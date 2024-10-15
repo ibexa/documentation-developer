@@ -197,6 +197,7 @@ Security should be a multi-layered exercise. It's wise to minimize what features
     - The REST API endpoints
 
 !!! tip "Access control"
+
     One way to lock down an endpoint that should not be openly available is to restrict access to logged-in users, by using the [`access_control`]([[= symfony_doc =]]/security/access_control.html) feature. In your YAML configuration, under the `security` key, add an entry similar to the following one, which redirects requests to a login page:
 
     ```yaml

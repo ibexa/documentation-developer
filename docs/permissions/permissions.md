@@ -11,6 +11,6 @@ The permission system of [[= product_name =]] enables you to control in detail w
     "permissions/permission_overview",
     "permissions/policies",
     "permissions/permission_use_cases",
-    "permissions/limitations",
+    "permissions/limitations"
 ], columns=4) =]]
 
