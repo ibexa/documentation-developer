@@ -55,7 +55,8 @@ The following tags used to register field type features in the [service containe
 |`ezpublish.fieldType.externalStorageHandler.gateway`|`ezplatform.field_type.external_storage_handler.gateway`|
 
 Deprecated method `eZ\Publish\SPI\FieldType\FieldType::getName` is now supported with a new signature similar to `eZ\Publish\SPI\FieldType\Nameable::getFieldName()`, which has been removed.
-See [eZ Platform v3.0 project update](https://doc.ibexa.co/en/latest/updating/4_3_upgrade_field_types) for further information.
+
+For more information, see [eZ Platform v3.0 project update](https://doc.ibexa.co/en/latest/updating/4_3_upgrade_field_types).
 
 The deprecated `eZ\Publish\Core\FieldType\RichText` namespace has been removed, as it was moved to a separate bundle in v2.4.
 

@@ -85,7 +85,7 @@ To update to this version, follow the [updating guide](https://doc.ibexa.co/en/
     - There is a new VCL
     - Requires Varnish 4.1+ with `varnish-modules` _(incl. xkey)_, or Varnish Plus where it's built in
 
-    Further reading in [doc/varnish/varnish.md](https://github.com/ezsystems/ezplatform/blob/master/doc/varnish/varnish.md).
+    For more information, see [doc/varnish/varnish.md](https://github.com/ezsystems/ezplatform/blob/master/doc/varnish/varnish.md).
 
     #### How to still use the old VCL and the old X-Location-Id headers
 

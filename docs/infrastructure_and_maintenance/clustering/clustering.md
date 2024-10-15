@@ -22,7 +22,7 @@ The minimal requirements are:
 - Shared database (using MySQL/MariaDB)
 - [Shared binary files](#shared-binary-files) (using NFS, or S3)
 
-For further details on requirements, see [Requirements page](requirements.md).
+For more information on requirements, see [Requirements page](requirements.md).
 
 It's also recommended to use:
 

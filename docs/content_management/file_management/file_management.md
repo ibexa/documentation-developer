@@ -121,4 +121,6 @@ To learn how to configure other adapters, see the [bundle's online documentation
 ### DFS Cluster handler
 
 For clustering, the platform provides a custom metadata handler that stores metadata about your assets in the database.
-This is faster than accessing the remote NFS or S3 instance to read metadata. For further reading on setting this up, see [Clustering](clustering.md).
+This is faster than accessing the remote NFS or S3 instance to read metadata.
+
+For more information, see [Clustering](clustering.md).

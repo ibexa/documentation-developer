@@ -7,6 +7,6 @@ description: URL Management lets you manage external URL addresses and URL wildc
 You can manage external URL addresses and URL wildcards in the **Admin** panel.
 Configure URL aliases to have human-readable URL addresses throughout your system.
 
-See [URL management](url_management.md) for further information.
+For more information, see [URL management](url_management.md).
 
 ![URL Management](admin_panel_url_management.png "URL Management")

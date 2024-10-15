@@ -10,4 +10,4 @@ There, in the **Corporate** section, you can find basic information about existi
 
 ![Corporate section](admin_panel_corporate.png "Corporate section")
 
-See [Customer management](https://doc.ibexa.co/projects/userguide/en/latest/customer_management/manage_customers/) for further information.
+For more information, see [Customer management](https://doc.ibexa.co/projects/userguide/en/latest/customer_management/manage_customers/).

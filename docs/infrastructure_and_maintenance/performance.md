@@ -78,7 +78,8 @@ In production setups:
 
 - If you use Redis, make sure to tune it for in-memory cache usage. Its persistence feature isn't needed with cache and severely slows down execution time.
     - [For use with sessions](sessions.md#cluster-setup) however, persistence can be a good fit if you want sessions to survive service interruptions.
-    - Further tips for Redis with cache can be found in doc regarding [Redis Clustering](persistence_cache.md#redis-clustering).
+
+For more information, see [Redis Clustering](persistence_cache.md#redis-clustering).
 
 ### Search
 

@@ -24,7 +24,8 @@ See [example use case](permission_use_cases.md#restrict-editing-to-part-of-the-t
 
     Limitation specifies what a user can do, not what they can't do.
     A `Location` limitation, for example, gives the user access to content with a specific Location, not prohibits it.
-    See [Limitation reference](limitation_reference.md) for further information.
+
+    For more information, see [Limitation reference](limitation_reference.md).
 
 **Assignments**
 
@@ -40,4 +41,4 @@ That way system is be more secure and easier to manage.
 This approach also improves performance.
 Role assignments and policies are taken into account during search/load queries.
 
-See [Permissions overview](permissions.md) for further information and [Permission use cases](permission_use_cases.md) for details on how to customize access to different parts of the back office.
+For more information, see [Permissions overview](permissions.md) and [Permission use cases](permission_use_cases.md).
