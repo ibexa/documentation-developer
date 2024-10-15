@@ -368,7 +368,7 @@ See [Update Flex server](#update-flex-server).
 
 #### VCL configuration for Fastly
 
-Ibexa DXP now supports Fastly shielding. If you're using Fastly and want to use shielding, you need to update your VCL files.
+[[= product_name =]] now supports Fastly shielding. If you're using Fastly and want to use shielding, you need to update your VCL files.
 
 !!! tip
 

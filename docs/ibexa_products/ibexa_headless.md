@@ -3,7 +3,7 @@ title: Ibexa Headless
 description: Get to know Ibexa Headless - an edition that focuses on content management.
 ---
 
-# Ibexa DXP Headless edition product guide
+# [[= product_name_headless =]] edition product guide
 
 ## What is [[= product_name_headless =]]
 

@@ -3,7 +3,7 @@ description: Learn more about various Ibexa DXP editions' features to help yours
 page_type: landing_page
 ---
 
-# Ibexa DXP editions
+# [[= product_name =]] editions
 
 Three [[= product_name =]] product editions are available to help you accelerate your digital transformation at the speed and cost that work best for you.
 

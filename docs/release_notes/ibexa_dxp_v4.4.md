@@ -3,7 +3,7 @@ description: Ibexa DXP v4.4 adds the improvements to the Welcome Page, All-new I
 ---
 <!-- vale VariablesVersion = NO -->
 
-# Ibexa DXP v4.4
+# [[= product_name =]] v4.4
 
 **Version number**: v4.4
 
@@ -56,7 +56,7 @@ for example, cropping, resizing and trimming before serving it to end user.
 Fastly is an external service that requires a separate subscription,
 to learn more see, [Fastly Image Optimizer website](https://docs.fastly.com/en/guides/about-fastly-image-optimizer).
 
-If you already have Fastly IO subscription, you can move to [Fastly IO configuration in Ibexa DXP](https://doc.ibexa.co/en/4.4/content_management/images/fastly_io/).
+If you already have Fastly IO subscription, you can move to [Fastly IO configuration in [[= product_name =]]](https://doc.ibexa.co/en/4.4/content_management/images/fastly_io/).
 
 #### Fastly VCL upload
 
@@ -92,7 +92,7 @@ provide the best recommendations.
 ## Ibexa Connect
 
 You can now take advantage of [Ibexa Connect](https://www.ibexa.co/products/ibexa-connect),
-an iPaaS (integration platform-as-a-service) which allows you to connect Ibexa DXP with third-party applications.
+an iPaaS (integration platform-as-a-service) which allows you to connect [[= product_name =]] with third-party applications.
 [[= product_name_connect =]] features a low-code drag-and-drop interface and hundreds of connectors to different services
 that help you automate business processes.
 

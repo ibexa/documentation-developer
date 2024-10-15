@@ -58,7 +58,7 @@ If you decide to use Fastly VCL, consider using [Fastly CLI](https://developer.f
 To learn more, see [Prepare to use Fastly locally](fastly.md#prepare-for-using-fastly-locally) and [Introduction to Fastly CLI](fastly.md#quick-introduction-to-fastly-cli).
 
 !!! tip
-    Support for Fastly Shielding was added in Ibexa DXP v3.3.24 and v4.1.6
+    Support for Fastly Shielding was added in [[= product_name =]] v3.3.24 and v4.1.6
 
     When you extend [FOSHttpCacheBundle](https://foshttpcachebundle.readthedocs.io/en/latest/),
     you can also adapt your VCL further with [FOSHttpCache documentation](https://foshttpcache.readthedocs.io/en/latest/varnish-configuration.html)
@@ -107,7 +107,7 @@ When using Fastly, you need to set `trusted_proxies` according to the [IP ranges
 
     You don't have to set `trusted_proxies` when using Fastly on Platform.sh.
     The Platform.sh router automatically changes the source IP of requests coming from Fastly,
-    replacing the source IP with the actual client IP and removing any `X-FORWARD-...` header in the request before it reaches Ibexa DXP.
+    replacing the source IP with the actual client IP and removing any `X-FORWARD-...` header in the request before it reaches [[= product_name =]].
 
 For more information about setting these variables, see [Configuration examples](#configuration-examples).
 

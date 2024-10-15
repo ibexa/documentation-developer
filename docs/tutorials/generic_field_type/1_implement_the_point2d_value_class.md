@@ -7,7 +7,7 @@ description: Learn how to create a Value class that stores the value of the fiel
 ## Project installation
 
 To start the tutorial, you need to make a clean [[= product_name =]] installation.
-Follow the guide for your system to [install Ibexa DXP](install_ibexa_dxp.md),
+Follow the guide for your system to [install [[= product_name =]]](install_ibexa_dxp.md),
 [configure a server](requirements.md),
 and [start the web server](install_ibexa_dxp.md#use-phps-built-in-server).
 Remember to install using the `dev` environment.

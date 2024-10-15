@@ -4,7 +4,7 @@ description: Explore all of the key features, functionalities, and advantages of
 month_change: true
 ---
 
-# Ibexa DXP Commerce edition product guide
+# [[= product_name_com =]] edition product guide
 
 ## What is [[= product_name_com =]]
 

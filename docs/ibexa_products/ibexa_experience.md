@@ -4,7 +4,7 @@ description: Learn about all the main attributes, features, and benefits of the 
 month_change: true
 ---
 
-# Ibexa DXP Experience edition product guide
+# [[= product_name_exp =]] edition product guide
 
 ## What is [[= product_name_exp =]]
 

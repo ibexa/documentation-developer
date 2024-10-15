@@ -26,7 +26,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Getting started
 
-- Added instructions in [Install Ibexa DXP](https://doc.ibexa.co/en/master/getting_started/install_ibexa_dxp/#create-project) about using PHP 8.3 to create a project
+- Added instructions in [Install [[= product_name =]]](https://doc.ibexa.co/en/master/getting_started/install_ibexa_dxp/#create-project) about using PHP 8.3 to create a project
 - Updated the [requirements for running v3.3.x on PHP 8.3](https://doc.ibexa.co/en/master/getting_started/requirements/#php)
 
 ### Infrastructure and maintenance

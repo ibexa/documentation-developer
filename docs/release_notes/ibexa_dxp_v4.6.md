@@ -4,7 +4,7 @@ description: Ibexa DXP v4.6 brings improvements to Commerce, PIM and Personaliza
 
 <!-- vale VariablesVersion = NO -->
 
-# Ibexa DXP v4.6
+# [[= product_name =]] v4.6
 
 **Version number**: v4.6
 
@@ -469,7 +469,7 @@ For more information, see [Ibexa Connect scenario block](https://doc.ibexa.co/en
 
 ### DDEV
 
-[Ibexa DXP can officially be run on DDEV](https://ddev.readthedocs.io/en/latest/users/quickstart/#ibexa-dxp). For more information, see the [DDEV guide](https://doc.ibexa.co/en/master/getting_started/install_with_ddev/), which offers a step-by-step walkthrough for installing Ibexa DXP.
+[[[= product_name =]] can officially be run on DDEV](https://ddev.readthedocs.io/en/latest/users/quickstart/#ibexa-dxp). For more information, see the [DDEV guide](https://doc.ibexa.co/en/master/getting_started/install_with_ddev/), which offers a step-by-step walkthrough for installing [[= product_name =]].
 
 ### Customer Data Platform (CDP)
 
@@ -482,7 +482,7 @@ For more information, see [CDP Activation](https://doc.ibexa.co/en/master/cdp/cd
 
 ### New packages 
 
-The following packages has been introduced in Ibexa DXP v4.6.0:
+The following packages has been introduced in [[= product_name =]] v4.6.0:
 
 - [ibexa/oauth2-server](oauth_server.md) (optional)
 - ibexa/site-context
@@ -503,7 +503,7 @@ The following packages has been introduced in Ibexa DXP v4.6.0:
 
 ### REST APIs
 
-Ibexa DXP v4.6.0 adds REST API coverage for the following features:
+[[= product_name =]] v4.6.0 adds REST API coverage for the following features:
 
 - Price engine
 - Shipping
@@ -668,7 +668,7 @@ The following events have been added in the v4.6.0 release (39 events in total):
 
 ### View matchers
 
-The following view matchers have been introduced in Ibexa DXP v4.6.0:
+The following view matchers have been introduced in [[= product_name =]] v4.6.0:
 
 - `\Ibexa\Core\MVC\Symfony\Matcher\ContentBased\IsPreview`
 - `\Ibexa\Taxonomy\View\Matcher\TaxonomyEntryBased\Id`
