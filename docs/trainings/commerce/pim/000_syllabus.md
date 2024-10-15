@@ -7,13 +7,13 @@ page_type: training
 
 ## Syllabus
 
-In this training, you learn how to create complex products, and to sort them.
+In this training, you learn how to create complex products locally, and to organize them.
 
-| Section                                     | Estimated | Description                                                 |
-|:--------------------------------------------|----------:|:------------------------------------------------------------|
-| [Product modeling](011_product_modeling.md) | X minutes | Learn about product types, products and product variants.   |
-| [Product shelving](012_product_shelving.md) | Y minutes | Organize your products with categories and catalogs.        |
-| [Product migration](021_migration.md)       | Z minutes | Export your product model for deployment on other installs. |
+| Section                                     | Estimated | Description                                               |
+|:--------------------------------------------|----------:|:----------------------------------------------------------|
+| [Product modeling](011_product_modeling.md) | X minutes | Learn about product types, products and product variants. |
+| [Product shelving](012_product_shelving.md) | Y minutes | Organize your products with categories and catalogs.      |
+| [Product exchange](021_product_exchange.md) | Z minutes | Explore REST API, PHP API, and migrations.                |
 
 ## Requirements
 

@@ -1,10 +1,39 @@
 ---
-description: "PIM training: Migration"
+description: "PIM training: Product exchange"
 edition: experience
 page_type: training
 ---
 
-# Product model migration
+# Product exchange
+
+## Remote PIM
+
+Even if this is outside the scope of this training, this is important to know that the products could be stored outside Ibexa DXP.
+With a [remote PIM](pim_guide.md#remote-pim-support), Ibexa DXP role is to display them on the storefront and allow their purchase.
+
+## REST API
+
+TODO
+
+TODO: Exercise request through REST the bikes from "5 series"
+TODO: /product/catalog/catalogs/{identifier}/products/view
+
+## PHP API
+
+[Product API](product_api.md)
+
+Notice that there is a `ProductServiceInterface` for reading and a `LocalProductServiceInterface for writing.
+This is due to reading being available for both local and remote PIM, while writing is available only locally.
+
+[Criteria for `ProductServiceInterface::findProducts()`](product_search_criteria.md)
+
+[Catalog API](catalog_api.md)
+
+[Taxonomy API for product categories](taxonomy_api.md)
+
+TODO: Exercise: Write a command/controller listing all mountain bikes by series.
+
+## Product model migration
 
 After having modeled your catalog organization on your local developer instance,
 you may want/need to [generate migration files](exporting_data.md) to install the model on a shared instance

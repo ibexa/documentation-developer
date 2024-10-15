@@ -22,22 +22,21 @@ Product categories are tags in the `product_categories` [taxonomy](taxonomy.md).
 
 If you're curious, you can find the `product_categories` taxonomy configuration in `vendor/ibexa/product-catalog/src/bundle/Resources/config/prepend.yaml`.
 
-TODO: Something interesting to do using the Taxo API?
-
 Exercise:
 
-- Create a "Mountain Bike" category with two child categories "4 Series" and "5 Series"
+- Create a "Bike" category, its child "Mountain Bike" category, with for the latter two children categories "4 Series" and "5 Series"
 - Categorize the products from previous chapter's exercise into the right series:
 
-- Mountain Bike
-  - 4 Series
-    - Fuji
-    - Matterhorn
-    - Annapurna
-    - Etna
-  - 5 Series
-    - Kilimanjaro
-    - Stádda
-    - Aconcagua
-    - Ventoux
-    - Castor
+- Bike
+    - Mountain Bike
+        - 4 Series
+            - Fuji
+            - Matterhorn
+            - Annapurna
+            - Etna
+        - 5 Series
+            - Kilimanjaro
+            - Stádda
+            - Aconcagua
+            - Ventoux
+            - Castor

@@ -66,6 +66,8 @@ How to think product types?
 How to not have a product type per product?
 How to not want a "god" product type trying to cover everything?
 
+TODO: Image field VS Product assets
+
 TODO: Variants
 TODO: attribute value display translation
 
@@ -83,7 +85,7 @@ Exercise: Think about attributes and content type to sell full bicycles and bicy
 
 The following is an example of a bicycle feature model sketch.
 As you can see, it's a rich and complex matrix.
-And it doesn't involve different brands and models for the same feature yet.
+And it doesn't even involve different brands and models for the same feature yet!
 
 - Bicycle:
     - Frameset:
