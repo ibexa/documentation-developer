@@ -174,5 +174,5 @@ You should now see the parameter, in this case it's a customer identifier, displ
 
 !!! note "Non-matching label"
 
-    This section does not discuss overriding the default form, therefore the alphanumerical customer identifier is shown under the **Cost value** label.
+    This section doesn't discuss overriding the default form, therefore the alphanumerical customer identifier is shown under the **Cost value** label.
     For more information about working with forms, see [Page and Form tutorial](../../tutorials/page_and_form_tutorial/5_create_newsletter_form.md).

@@ -18,6 +18,7 @@ It's provided without a default front office, but with a complete back office an
 ## Availability
 
 To start using [[= product_name_headless =]] you must purchase a product license.
+
 For more information, see [[[= product_name_headless =]] license pricing](https://www.ibexa.co/products/pricing?tab=1).
 You can [contact us](https://www.ibexa.co/about-ibexa/contact-us) or [contact one of our partners](https://www.ibexa.co/partners).
 

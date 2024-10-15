@@ -16,7 +16,7 @@ The following block validators are available:
 
 !!! note
 
-    Do not use the `required` and `not_blank` validators for `richtext` attributes.
+    Don't use the `required` and `not_blank` validators for `richtext` attributes.
     Instead, use `not_blank_richtext`.
 
 For each validator you can provide a message that displays in the Page Builder

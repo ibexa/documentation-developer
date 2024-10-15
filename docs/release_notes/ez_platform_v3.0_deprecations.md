@@ -467,7 +467,7 @@ Using dynamic settings (through `$setting$`) and getting settings from the [Conf
 or method call has been dropped.
 
 You should use the ConfigResolver instead.
-Do not store the values globally. Every time the value is needed call `ConfigResolverInterface::getParameter`.
+Don't store the values globally. Every time the value is needed call `ConfigResolverInterface::getParameter`.
 
 ### Controllers
 

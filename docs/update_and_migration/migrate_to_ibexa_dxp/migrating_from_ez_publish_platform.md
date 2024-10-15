@@ -17,7 +17,7 @@ You can then proceed with consecutive upgrades to further versions: v1.13 LTS an
 
 !!! caution "Things to be aware of when planning a migration"
 
-    1. While the instructions below are fully supported, we are aware that the community, partners and customers come from a wide range of different versions of eZ Publish, some with issues that do not surface before attempting a migration. That's why we and the community are actively gathering feedback on Slack and/or support channels for Enterprise customers to gradually improve the migration scripts and instructions. Reach out before you start so others who have done this before you can support you.
+    1. While the instructions below are fully supported, we are aware that the community, partners and customers come from a wide range of different versions of eZ Publish, some with issues that don't surface before attempting a migration. That's why we and the community are actively gathering feedback on Slack and/or support channels for Enterprise customers to gradually improve the migration scripts and instructions. Reach out before you start so others who have done this before you can support you.
 
     1. As of eZ Platform v1.11, Legacy Bridge is a supported option for 1.x and future 2.x series. This means you can plan for a more gradual migration if you want, just like you could on eZ Publish Platform 5.x, with a more feature-rich version of eZ Platform and (with 2.x) also more recent version of Symfony. This is a great option for those who want the latest features and are comfortable with more frequent releases.
 
@@ -188,12 +188,12 @@ As eZ Publish legacy is installed via composer, we need to take care of placing 
 The easiest way to upgrade the distribution files is to copy the directories that contain site-specific files from the existing 5.4 installation into `/<ezplatform>/ezpublish_legacy`. Make sure you copy the following directories:
 
 - `<old-ez-root>/ezpublish_legacy/design/<your_designs>` => `<new-ez-root>/src/legacy_files/design/<your_designs>`
-    - *Do NOT include built-in designs: admin, base, standard or admin2*
+    - *Don't include built-in designs: admin, base, standard or admin2*
 - `<old-ez-root>/ezpublish_legacy/settings/siteaccess/<your_siteaccesses>` => `<new-ez-root>/src/legacy_files/settings/siteaccess/<your_siteaccesses>`
 - `<old-ez-root>/ezpublish_legacy/settings/override/*` => `<new-ez-root>/src/legacy_files/settings/override/*`
 - Other folders to move over *(or potentially set up symlinks for)* if applicable:
     - ezpublish_legacy/var/storage/packages
-    - ezpublish_legacy/extension/\* *(do NOT include the built-in / composer provided ones, like: ezflow, ezjscore, ezoe, ezodf, ezie, ezmultiupload, ezmbpaex, ez_network, ezprestapiprovider, ezscriptmonitor, ezsi, ezfind)*
+    - ezpublish_legacy/extension/\* *(don't include the built-in / composer provided ones, like: ezflow, ezjscore, ezoe, ezodf, ezie, ezmultiupload, ezmbpaex, ez_network, ezprestapiprovider, ezscriptmonitor, ezsi, ezfind)*
     - ezpublish_legacy/config.php and ezpublish_legacy/config.cluster.php
 
 !!! note
@@ -248,7 +248,7 @@ The field types unsupported in eZ Platform are:
 - [Page](#322-migrate-page-field-to-page-ez-enterprise-only)
 - Star Rating
 
-For field types which do not have specific procedures below, you must take one of the following actions:
+For field types which don't have specific procedures below, you must take one of the following actions:
 
 - implement them yourself in eZ Platform
 - remove them from all content types that use them
@@ -273,7 +273,7 @@ Run the conversion script on a copy of your production database as the script is
 - `--dry-run` prevents the conversion script from writing anything back to the database. It just tests if it's able to convert all the `ezxmltext` documents.
 - `--export-dir` specifies a directory where it dumps the `ezxmltext` for content object attributes which the conversion script finds problems with
 - `--export-dir-filter` specifies what severity the problems found needs to be before the script dumps the `ezxmltext`:
-    - `notice`: `ezxmltext` contains problems which the conversion tool was able to fix automatically and likely do not need manual intervention
+    - `notice`: `ezxmltext` contains problems which the conversion tool was able to fix automatically and likely don't need manual intervention
     - `warning`: the conversion tool was able to convert the `ezxmltext` to valid `richtext`, but data could have been altered/removed/added in the process. Manual supervision recommended
     - `error`: the `ezxmltext` text cannot be converted and manual changes are required.
 - `--concurrency 4` specifies that the conversion script spawns four child processes which run the conversion. If you have dedicated hardware for running the conversion, you should use concurrency level that matches the number of logical CPUs on your system. If your system needs to do other tasks while running the conversion, you should run with a smaller number.
@@ -426,7 +426,9 @@ When the conversion tool detects links with no reference it issues a warning and
 
 **`<literal>`**
 
-The `<literal>` tag isn't yet supported in eZ Platform. For more information about this, please have a look at [EZP-29328](https://issues.ibexa.co/browse/EZP-29328) and [EZP-29027](https://issues.ibexa.co/browse/EZP-29027).
+The `<literal>` tag isn't yet supported in eZ Platform.
+
+For more information, see [EZP-29328](https://issues.ibexa.co/browse/EZP-29328) and [EZP-29027](https://issues.ibexa.co/browse/EZP-29027).
 
 When you're ready to migrate your eZ Publish XmlText content to the eZ Platform RichText format and start using pure eZ Platform setup, start the conversion script without the `--dry-run` option. Execute the following from &lt;new-ez-root&gt;:
 
@@ -462,7 +464,9 @@ Below is a table of the tags that are currently supported, and their correspondi
 
 #### 3.2.2 Migrate Page field to Page (eZ Enterprise only)
 
-**If** you use Page field (ezflow) and an eZ Enterprise subscription, and are ready to migrate your eZ Publish Flow content to the eZ Enterprise Page format, you can use a script to migrate your old Page content to new Page, to start using a pure eZ Enterprise setup. See [Migrating legacy Page field (ezflow) to new Page (Enterprise)](#migrating-legacy-page-field-ezflow-to-new-page-enterprise) for more information.
+**If** you use Page field (ezflow) and an eZ Enterprise subscription, and are ready to migrate your eZ Publish Flow content to the eZ Enterprise Page format, you can use a script to migrate your old Page content to new Page, to start using a pure eZ Enterprise setup.
+
+For more information, see [Migrating legacy Page field (ezflow) to new Page (Enterprise)](#migrating-legacy-page-field-ezflow-to-new-page-enterprise).
 
 #### 3.2.3 Add other eZ Enterprise schemas (eZ Enterprise only)
 

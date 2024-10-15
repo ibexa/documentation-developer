@@ -36,7 +36,7 @@ The result is a list of item IDs that can be used to call the underlying CMS
 or shop system, to retrieve the necessary information for the rendering process.
 
 To allow the customer to retrieve different types of recommendations based on different methods (for example, Collaborative Filtering, Content Based, Stereotype, etc.) the Recommendation System uses scenario IDs relating to a predefined set of configurations inside the system.
-These configurations are a combination of methods and filters that should be applied including possible fallbacks if the requested methods do not deliver a result.
+These configurations are a combination of methods and filters that should be applied including possible fallbacks if the requested methods don't deliver a result.
 
 A recommendation request looks like this:
 
@@ -47,7 +47,7 @@ The embedded parameters `solutionid`, `clientid` and `userid` are the same as us
 | Parameter Name | Description | Values |
 |-----|-----|------|
 | `scenarioid` | The ID of the scenario used for providing recommendations. It's configured or predefined in the Administration GUI. | alphanumeric |
-| `extension` | The format the server generates the response in. There are three formats supported: JSON, XML and JSONP. See the chapter [Response Handling](#response-handling) below for more information | json, xml or jsonp |
+| `extension` | The format the server generates the response in. There are three formats supported: JSON, XML and JSONP. For more information, see [Response Handling](#response-handling). | json, xml or jsonp |
 
 ## Basic Request Parameters
 
@@ -221,7 +221,7 @@ The last modification timestamp indicates a change that could influence the reco
 | Also consumed read articles in the last hour | current article | 30 minutes | Models with a short scope are usually built several times a day or even per hour. In this case the expiration time is set to the half of the model build frequency/period. |
 | Personalized recommendation based on the user's statistic | customers click history | now | Although the statistic model isn't updated within minutes, it's very likely that the context is changed shortly (customer clicks another product and therefore the click is added to his history). The expiration time should not be much longer than the user activity on the web page. |
 
-In most cases you do not need to calculate the expiration time manually. The table above is provided for the orientation, how the Expires header of the HTTP response is calculated by the recommendation engine and already provided to your caching system. You just need to make sure that the Expires header is used in the configuration of your caching system instead of a static value out of your configuration.
+In most cases you don't need to calculate the expiration time manually. The table above is provided for the orientation, how the Expires header of the HTTP response is calculated by the recommendation engine and already provided to your caching system. You just need to make sure that the Expires header is used in the configuration of your caching system instead of a static value out of your configuration.
 
 ## Integration best Practices
 

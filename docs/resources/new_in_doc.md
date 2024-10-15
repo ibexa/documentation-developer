@@ -10,8 +10,8 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Product guides
 
-- [Ibexa Experience product guide](https://doc.ibexa.co/en/master/ibexa_products/ibexa_experience/)
-- [Ibexa Commerce product guide](https://doc.ibexa.co/en/master/ibexa_products/ibexa_commerce/)
+- [[[= product_name_exp =]] product guide](https://doc.ibexa.co/en/master/ibexa_products/ibexa_experience/)
+- [[[= product_name_com =]] product guide](https://doc.ibexa.co/en/master/ibexa_products/ibexa_commerce/)
 - Added [page collecting all feature product guides](https://doc.ibexa.co/en/master/product_guides/product_guides/)
 
 ### Content management
@@ -40,23 +40,23 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 - Added a note about multi-repository scenario in [Managing migration](https://doc.ibexa.co/en/master/content_management/data_migration/managing_migrations/#migration-folders)
 - Updated the instructions for [Importing data](https://doc.ibexa.co/en/master/content_management/data_migration/importing_data/#built-in-functions) by mentioning the `env` function and a possibility of swapping content items assigned to a location
 
-### Ibexa Cloud
+### [[= product_name_cloud =]]
 
-- Placed all articles about Ibexa Cloud [in a common location](https://doc.ibexa.co/en/master/ibexa_cloud/ibexa_cloud/)
+- Placed all articles about [[= product_name_cloud =]] [in a common location](https://doc.ibexa.co/en/master/ibexa_cloud/ibexa_cloud/)
 
-### Ibexa Engage
+### [[= product_name_engage =]]
 
-- [Added a landing page in the Ibexa Engage area](https://doc.ibexa.co/en/master/ibexa_engage/ibexa_engage/)
+- [Added a landing page in the [[= product_name_engage =]] area](https://doc.ibexa.co/en/master/ibexa_engage/ibexa_engage/)
 
 ### Product guides
 
-- [Ibexa Cloud product guide](https://doc.ibexa.co/en/master/ibexa_cloud/ibexa_cloud_guide/)
+- [[[= product_name_cloud =]] product guide](https://doc.ibexa.co/en/master/ibexa_cloud/ibexa_cloud_guide/)
 
 ## June 2024
 
-### Ibexa Engage
+### [[= product_name_engage =]]
 
-- [Learn more about Ibexa Engage](https://doc.ibexa.co/en/master/ibexa_engage/install_ibexa_engage/)
+- [Learn more about [[= product_name_engage =]]](https://doc.ibexa.co/en/master/ibexa_engage/install_ibexa_engage/)
 
 ### Search
 
@@ -69,7 +69,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Infrastructure and maintenance
 
-- [Updated Ibexa Cloud domain to ibexa.cloud](https://doc.ibexa.co/en/master/getting_started/install_on_ibexa_cloud/#4-push-the-project)
+- [Updated [[= product_name_cloud =]] domain to ibexa.cloud](https://doc.ibexa.co/en/master/getting_started/install_on_ibexa_cloud/#4-push-the-project)
 - [v4.6.3 to v4.6.4 update instructions](https://doc.ibexa.co/en/master/update_and_migration/from_4.5/update_from_4.5/#v464)
 
 ### Documentation
@@ -90,7 +90,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Product guides
 
-- [Ibexa CDP product guide](https://doc.ibexa.co/en/master/cdp/cdp_guide/)
+- [[[= product_name_cdp =]] product guide](https://doc.ibexa.co/en/master/cdp/cdp_guide/)
 
 ### Infrastructure and maintenance
 
@@ -142,11 +142,11 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Dashboard
 
-- New dashboard sections in user documentation:
+- New dashboard sections in User Documentation:
     - [Dashboard](https://doc.ibexa.co/projects/userguide/en/master/getting_started/dashboard/dashboard/)
     - [Work with dashboard](https://doc.ibexa.co/projects/userguide/en/master/getting_started/dashboard/work_with_dashboard/)
     - [Dashboard block reference](https://doc.ibexa.co/projects/userguide/en/master/getting_started/dashboard/dashboard_block_reference/)
-- Dashboard section in developer documentation:
+- Dashboard section in Developer Documentation:
     - [Configure default dashboard](https://doc.ibexa.co/en/master/administration/dashboard/configure_default_dashboard/)
     - [Customize dashboard](https://doc.ibexa.co/en/master/administration/dashboard/customize_dashboard/)
     - [PHP API Dashboard service](https://doc.ibexa.co/en/master/administration/dashboard/php_api_dashboard_service/)
@@ -181,7 +181,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 - New sections in taxonomy documentation:
     - [How to hide the delete button in large subtrees](https://doc.ibexa.co/en/master/content_management/taxonomy/taxonomy/#hide-delete-button-on-large-subtree)
     - [How to remove orphaned content items](https://doc.ibexa.co/en/master/content_management/taxonomy/taxonomy/#remove-orphaned-content-items)
-- Updated information in user documentation:
+- Updated information in User Documentation:
     - [Enhanced create and edit pages article](https://doc.ibexa.co/projects/userguide/en/master/content_management/create_edit_pages/)
     - [Edit embedded content items](https://doc.ibexa.co/projects/userguide/en/master/content_management/create_edit_content_items/#edit-embedded-content-items)
 
@@ -192,7 +192,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 ### Getting started
 
 - [[[= product_name_headless =]] product guide](https://doc.ibexa.co/en/master/ibexa_products/headless/)
-- [Enhanced get started article](https://doc.ibexa.co/projects/userguide/en/master/getting_started/get_started/#edit-user-profile) in user documentation
+- [Enhanced get started article](https://doc.ibexa.co/projects/userguide/en/master/getting_started/get_started/#edit-user-profile) in User Documentation
 
 ### Image management
 
@@ -219,7 +219,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### PIM
 
-- [Reorganized and updated information in user documentation](https://doc.ibexa.co/projects/userguide/en/master/pim/pim/)
+- [Reorganized and updated information in User Documentation](https://doc.ibexa.co/projects/userguide/en/master/pim/pim/)
 
 ### Templating
 
@@ -254,7 +254,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 ### Others
 
 - [Redesigned requirements page](https://doc.ibexa.co/en/master/getting_started/requirements/)
-- [Updated Ibexa Cloud CLI](https://doc.ibexa.co/en/master/getting_started/install_on_ibexa_cloud/)
+- [Updated [[= product_name_cloud =]] CLI](https://doc.ibexa.co/en/master/getting_started/install_on_ibexa_cloud/)
 - [Updated React app block procedure](https://doc.ibexa.co/en/master/content_management/pages/react_app_block/)
 - [Added fulltext features in search](https://doc.ibexa.co/en/master/search/criteria_reference/fulltext_criterion/#supported-syntax)
 
@@ -300,7 +300,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 - [Updated configuration for triggers](https://doc.ibexa.co/en/master/personalization/api_reference/tracking_api/#tracking-events-based-on-recommendations)
 - [Send messages with recommendations](https://doc.ibexa.co/en/master/personalization/integrate_recommendation_service/#send-messages-with-recommendations)
-- [Email triggers](https://doc.ibexa.co/projects/userguide/en/master/personalization/triggers/) in user documentation 
+- [Email triggers](https://doc.ibexa.co/projects/userguide/en/master/personalization/triggers/) in User Documentation 
 
 ### PIM
 
@@ -322,7 +322,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Others
 
-- Product guides integrated into developer documentation
+- Product guides integrated into Developer Documentation
     - [Content management](https://doc.ibexa.co/en/master/content_management/content_management_guide/)
     - [Customer portal](https://doc.ibexa.co/en/master/customer_management/customer_portal/)
     - [Form Builder](https://doc.ibexa.co/en/master/content_management/forms/form_builder_guide/)
@@ -336,7 +336,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### New home page
 
-- Redesigned [home page for the user documentation](https://doc.ibexa.co/projects/userguide/en/master/)
+- Redesigned [home page for User Documentation](https://doc.ibexa.co/projects/userguide/en/master/)
 
 ### Administration
 
@@ -379,15 +379,15 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### New home page
 
-- Redesigned [home page for the developer documentation](https://doc.ibexa.co/en/master/)
+- Redesigned [home page for Developer Documentation](https://doc.ibexa.co/en/master/)
 
 ### Getting started
 
-- New cautions in [Install on Ibexa Cloud](https://doc.ibexa.co/en/master/getting_started/install_on_ibexa_cloud/) about using `cloud.ibexa.co` instead of `platform.sh`
+- New cautions in [Install on [[= product_name_cloud =]]](https://doc.ibexa.co/en/master/getting_started/install_on_ibexa_cloud/) about using `cloud.ibexa.co` instead of `platform.sh`
 
 ### Content management
 
-- New Page block [Ibexa Connect scenario block](https://doc.ibexa.co/en/master/content_management/pages/ibexa_connect_scenario_block/)
+- New Page block [[[= product_name_connect =]] scenario block](https://doc.ibexa.co/en/master/content_management/pages/ibexa_connect_scenario_block/)
 - Updated [Create custom Page blocks](https://doc.ibexa.co/en/master/content_management/pages/create_custom_page_block/#add-block-javascript)
 
 ### Customer Portal
@@ -397,14 +397,14 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 ### Personalization
 
 - [Multiple attributes in submodel computation](https://doc.ibexa.co/en/master/personalization/api_reference/recommendation_api/#submodel-parameters)
-- [Multiple attributes in submodel computation](https://doc.ibexa.co/projects/userguide/en/master/personalization/recommendation_models/#submodels) in user documentation
+- [Multiple attributes in submodel computation](https://doc.ibexa.co/projects/userguide/en/master/personalization/recommendation_models/#submodels) in User Documentation
 
 ### PIM
 
 - Updated [Enable purchasing products](https://doc.ibexa.co/en/master/pim/enable_purchasing_products/#region-and-currency)
 - [Virtual products](https://doc.ibexa.co/en/master/pim/products/#product-types)
-- [Virtual products in user documentation](https://doc.ibexa.co/projects/userguide/en/master/pim/create_virtual_product/)
-- [Work with product attributes](https://doc.ibexa.co/projects/userguide/en/master/pim/work_with_product_attributes/) in user documentation
+- [Virtual products in User Documentation](https://doc.ibexa.co/projects/userguide/en/master/pim/create_virtual_product/)
+- [Work with product attributes](https://doc.ibexa.co/projects/userguide/en/master/pim/work_with_product_attributes/) in User Documentation
 
 ### REST API
 - Added example of input payload in JSON format for [ContentTypeCreate in REST API reference](https://doc.ibexa.co/en/master/api/rest_api/rest_api_reference/rest_api_reference.html#managing-content-create-content-type)
@@ -444,7 +444,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 ### Personalization
 
 - [Email triggers](https://doc.ibexa.co/en/master/personalization/integrate_recommendation_service/#send-messages-with-recommendations)
-- [Email triggers](https://doc.ibexa.co/projects/userguide/en/master/personalization/triggers/) in user documentation
+- [Email triggers](https://doc.ibexa.co/projects/userguide/en/master/personalization/triggers/) in User Documentation
 
 ### Search
 
@@ -455,8 +455,8 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 ### Commerce
 
-- [Shipping methods management](https://doc.ibexa.co/projects/userguide/en/master/commerce/shipping_management/work_with_shipping_methods/) in user documentation
-- [Payment methods management](https://doc.ibexa.co/projects/userguide/en/master/commerce/payment/work_with_payments/) in user documentation
+- [Shipping methods management](https://doc.ibexa.co/projects/userguide/en/master/commerce/shipping_management/work_with_shipping_methods/) in User Documentation
+- [Payment methods management](https://doc.ibexa.co/projects/userguide/en/master/commerce/payment/work_with_payments/) in User Documentation
 - Stock Search Criteria and Aggregation:
     - [ProductStockRangeAggregation](https://doc.ibexa.co/en/master/search/aggregation_reference/productstockrange_aggregation/)
     - [ProductStock](https://doc.ibexa.co/en/master/search/criteria_reference/productstock_criterion/)

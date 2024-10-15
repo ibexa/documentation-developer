@@ -18,7 +18,7 @@ For more information about creating and managing campaigns, see [Qualifio docume
 ## Publication channels
 
 Each campaign includes a minimum of one publication channel that you can choose from the three options the platform provides for publishing a campaign.
-For more information about publication channels, see [Publication channel]([[= user_doc =]]/ibexa_engage/ibexa_engage/#publication-channel) in the User Documentation.
+For more information about publication channels, see [Publication channel]([[= user_doc =]]/ibexa_engage/ibexa_engage/#publication-channel) in User Documentation.
 
 ## Use Campaign block in Page Builder
 

@@ -20,7 +20,7 @@ It includes first, second, and third-party data from multiple sources such as tr
 
 [[= product_name_cdp =]] is available in [[= product_name_exp =]] and [[= product_name_com =]] editions.
 
-## How does Ibexa CDP work
+## How does [[= product_name_cdp =]] work
 
 [[= product_name_cdp =]] unifies customer data throughout your whole organization.
 It helps you activate your users and give them real-time interaction.

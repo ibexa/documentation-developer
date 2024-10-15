@@ -103,4 +103,4 @@ ibexa:
                     timeout: 0
 ```
 
-The values shown above are the defaults. `0` means the notification does not hide automatically.
+The values shown above are the defaults. `0` means the notification doesn't hide automatically.

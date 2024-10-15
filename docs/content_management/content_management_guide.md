@@ -190,7 +190,7 @@ You can divide your content tree into nominal parts to better organize it.
 Once you have defined sections, for example, Media or Forms, and assigned them to content items, you can decide which roles have access to which Section of the tree.
 
 The setting is inherited, which means that a child content item inherits a value of this setting from its parent.
-Changing a Section setting does not result in moving a content item to a different location within a content tree.
+Changing a Section setting doesn't result in moving a content item to a different location within a content tree.
 
 ![Members of the Media Section](img/sections.png)
 

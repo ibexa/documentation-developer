@@ -19,7 +19,7 @@ reduces the number of classes which must be created, and simplifies the tagging 
 
 First, create `Value.php` in the `src/FieldType/HelloWorld` directory.
 The Value class of a field type contains only the basic logic of a field type, the rest of it's handled by the `Type` class.
-For more information about field type Value see [Value handling](type_and_value.md#value-handling).
+For more information about field type Value, see [Value handling](type_and_value.md#value-handling).
 
 The `HelloWorld` Value class should contain:
 
@@ -39,9 +39,7 @@ It provides settings for the field type and an implementation of the `Ibexa\Cont
 [[= include_file('code_samples/field_types/generic_ft/src/FieldType/HelloWorld/Type.php', 0, 6) =]][[= include_file('code_samples/field_types/generic_ft/src/FieldType/HelloWorld/Type.php', 9, 16) =]]}
 ```
 
-!!! tip
-
-    For more information about the Type class of a field type, see [Type class](type_and_value.md#type-class).
+For more information about the Type class of a field type, see [Type class](type_and_value.md#type-class).
 
 Next, register the field type as a service and tag it with `ibexa.field_type`:
 
@@ -66,9 +64,7 @@ and the required `use` statements to `src/FieldType/HelloWorld/Type.php`:
 [[= include_file('code_samples/field_types/generic_ft/src/FieldType/HelloWorld/Type.php') =]]
 ```
 
-!!! tip
-
-    For more information about the FormMappers see [field type form and template](form_and_template.md).
+For more information about the FormMappers, see [field type form and template](form_and_template.md).
 
 Next, add the `ibexa.admin_ui.field_type.form.mapper.value` tag to the service definition:
 

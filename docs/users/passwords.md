@@ -36,7 +36,7 @@ You can use the following additional options with the command:
 
 - `--force|-f` - commits the change, otherwise the command only performs a dry run
 - `--iteration-count|-c` - defines how many users are fetched at once. Lowering this value helps with memory issues
-- `--password-ttl|-t` - number of days after which new passwords expire. Used when the command enables password expiration for user content types that do not use it yet.
+- `--password-ttl|-t` - number of days after which new passwords expire. Used when the command enables password expiration for user content types that don't use it yet.
 
 For example, to revoke the passwords of all users of the `user` content type, run:
 
@@ -113,4 +113,5 @@ It does not check existing passwords, so it won't block login for anyone. It app
 !!! note
 
     The password itself isn't sent to the https://haveibeenpwned.com/ API, which makes this check secure.
+
     For more information on how that is possible, see [Validating Leaked Passwords with k-Anonymity](https://blog.cloudflare.com/validating-leaked-passwords-with-k-anonymity/).

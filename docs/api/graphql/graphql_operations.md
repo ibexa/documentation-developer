@@ -154,7 +154,7 @@ curl -v -X POST \
 !!! note "Authentication"
 
     The example above requires you to set your authentication cookie in the `$AUTH_COOKIE` variable.
-    See [Authentication](graphql.md#authentication) for more information.
+    For more information, see [Authentication](graphql.md#authentication).
 
 ### Uploading multiple files
 

@@ -88,7 +88,7 @@ When you translate Content of this type, the content type information is display
 
 New multi-file content management functionalities enable you to move and delete multiple files at the same time.
 
-See [Multi-file content management](https://doc.ibexa.co/projects/userguide/en/2.5/multi_file_content_management/#multi-file-content-management) for more information.
+For more information, see[Multi-file content management](https://doc.ibexa.co/projects/userguide/en/2.5/multi_file_content_management/#multi-file-content-management).
 
 !!! dxp
 
@@ -110,13 +110,13 @@ The list of all drafts can now be found in the **Administrator User** menu under
 
 ![Administrator User list of all Drafts](2.4_drafts_admin_user.png "Administrator User list of all Drafts")
 
-See [Reviewing a draft](https://doc.ibexa.co/projects/userguide/en/2.5/publishing/flex_workflow/#reviewing-a-draft) for more information.
+For more information, see [Reviewing a draft](https://doc.ibexa.co/projects/userguide/en/2.5/publishing/flex_workflow/#reviewing-a-draft).
 
 ### Subtree search filter
 
 A new filter enables you to filter search results by Subtree.
 
-See [Simplified Filtered search](https://doc.ibexa.co/projects/userguide/en/2.5/search/#simplified-filtered-search) for more information.
+For more information, see [Simplified Filtered search](https://doc.ibexa.co/projects/userguide/en/2.5/search/#simplified-filtered-search).
 
 ### Sub-items limit
 
@@ -148,7 +148,7 @@ This release introduces a few simplifications to API use for content types:
 
 - Exposes `content->getContentType()` for easier use, including from Twig as `content.contentType`. When iterating over the result set of content/Locations these are effectively loaded all at once.
 - Adds possibility to load several content types in bulk using `ContentTypeService->loadContentTypeList()`.
-- `UserService` now exposes `isUser()` and `isUserGroup()`. They do not need to do a lookup to the database to tell if a content item is of type user or user group.
+- `UserService` now exposes `isUser()` and `isUserGroup()`. They don't need to do a lookup to the database to tell if a content item is of type user or user group.
 
 #### Load multiple Locations
 
@@ -210,7 +210,9 @@ you're now able to load multiple Locations at once, using `LocationService->load
                  enabled: false
     ```
 
-    By default `HS256` is used as signature algorithm for generated token but we strongly recommend switching to SSH keys. For more information see [`LexikJWTAuthenticationBundle` installation instruction](https://github.com/lexik/LexikJWTAuthenticationBundle/blob/master/Resources/doc/index.md#installation).
+    By default `HS256` is used as signature algorithm for generated token but we strongly recommend switching to SSH keys.
+    
+    For more information, see [`LexikJWTAuthenticationBundle` installation instruction](https://github.com/lexik/LexikJWTAuthenticationBundle/blob/master/Resources/doc/index.md#installation).
 
     3\. Add `EzSystems\EzPlatformPageBuilder\Security\EditorialMode\TokenAuthenticator` authentication provider to `ezpublish_front` firewall before `form_login` in `app/config/security.yml`:
 

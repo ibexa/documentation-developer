@@ -171,7 +171,7 @@ The User you have just created has the roles assigned to this group.
 !!! tip
 
     You can change the group in which new Users are placed (but you don't need to do it for this tutorial).
-    See [Registering new users](user_registration.md) for more information.
+    For more information, see [Registering new users](user_registration.md).
 
 At this point you don't want anyone who registers to be able to add content to the website.
 That's why you'll create a new user group with additional permissions.

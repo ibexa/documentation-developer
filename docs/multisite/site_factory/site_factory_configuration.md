@@ -89,7 +89,7 @@ ibexa_site_factory:
 ```
 
 Manage the permissions associated to the user group skeleton by [assigning roles](https://doc.ibexa.co/projects/userguide/en/latest/site_organization/organizing_the_site/#managing-permissions).
-Make sure that the roles that you assign to the user group skeleton do not contain Location-based limitations. 
+Make sure that the roles that you assign to the user group skeleton don't contain Location-based limitations. 
 User group skeletons cannot contain individual user content items either.
 
 User group skeletons are retained after deleting the site.
@@ -110,4 +110,4 @@ ibexa_site_factory:
     update_roles: [Anonymous, Administrator]
 ```
 
-For more information about roles and policies, see [Permissions](permissions.md). 
+For more information about roles and policies, see [Permissions](permissions.md).

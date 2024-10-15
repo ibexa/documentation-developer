@@ -139,7 +139,7 @@ To check how many digits the fractional unit of a currency has, see the [ISO 421
 
 Items with defined validity are recommended only in the specified timeframe. 
 Values in the `validto` and `validfrom` attributes must follow the [XSD format](https://www.w3.org/TR/xmlschema-2/#dateTime) 
-and do not include the time zone. 
+and don't include the time zone. 
 Time zone is always your time zone.
 
 ##### Category path

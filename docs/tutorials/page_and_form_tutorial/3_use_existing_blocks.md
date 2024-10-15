@@ -109,7 +109,7 @@ At this point you can add a new Content Scheduler block to your Page and fill it
 
 !!! tip
 
-    If you do not see the featured block template, you may need to clear the cache (using `php bin/console cache:clear`) and/or reload the app.
+    If you don't see the featured block template, you may need to clear the cache (using `php bin/console cache:clear`) and/or reload the app.
 
 Go back to editing the Home Page and drag a Content Scheduler block from the pane on the right to the main zone in the layout, above the Content List block.
 Select the block and click the Block Settings icon.

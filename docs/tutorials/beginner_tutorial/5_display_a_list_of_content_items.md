@@ -49,6 +49,7 @@ To get this list, you use a Query Type.
 ## Create a QueryType for the home page
 
 QueryType objects are used to limit and sort results for content item queries.
+
 For more information, see [Built-In Query Types](built-in_query_types.md).
 
 Here, you need to display `ride` objects that have been published (are visible).
@@ -101,7 +102,7 @@ In the view configuration for the home page indicate that this view uses the Que
 site:
     content_view:
         full:
-            # existing keys, do not change them
+            # existing keys, don't change them
             home_page:
                 controller: ibexa_query::pagingQueryAction
                 template: full/home_page.html.twig

@@ -19,8 +19,8 @@ make sure that your setup is secure.
 
 `APP_SECRET` needs to be a strong, random, securely stored value.
 
-- Do not use a default value like `ff6dc61a329dc96652bb092ec58981f7` or `ThisTokenIsNotSoSecretChangeIt`.
-- The secret must be secured against unwanted access. Do not commit the value to a version control system.
+- Don't use a default value like `ff6dc61a329dc96652bb092ec58981f7` or `ThisTokenIsNotSoSecretChangeIt`.
+- The secret must be secured against unwanted access. Don't commit the value to a version control system.
 - The secret must be long enough. 32 characters is minimum, longer is better.
 
 !!! tip
@@ -36,15 +36,10 @@ make sure that your setup is secure.
 ### Symfony production mode
 
 Only expose Symfony production mode openly on the internet.
-Do not expose the dev mode on the internet, otherwise you may disclose things like `phpinfo` and environment variables.
+Don't expose the dev mode on the internet, otherwise you may disclose things like `phpinfo` and environment variables.
 Exposing the dev mode exposes things like `phpinfo`, environment variables and so on.
 
-!!! tip "More information about Symfony security"
-
-    For more information about securing Symfony-based systems, see:
-    
-    - [Authentication and authorisation]([[= symfony_doc =]]/security.html), and [more on this subject]([[= symfony_doc =]]/security.html#learn-more)
-    - Symfony's [secrets management system]([[= symfony_doc =]]/configuration/secrets.html)
+For more information about securing Symfony-based systems, see [Authentication and authorisation]([[= symfony_doc =]]/security.html), [more on this subject]([[= symfony_doc =]]/security.html#learn-more), and Symfony's [secrets management system]([[= symfony_doc =]]/configuration/secrets.html).
 
 ## PHP
 
@@ -52,7 +47,7 @@ Exposing the dev mode exposes things like `phpinfo`, environment variables and s
 
 PHP 7.4 introduced the `zend.exception_ignore_args` setting in `php.ini`.
 The default value is 0 (disabled) for backwards compatibility.
-On production sites this should be set to 1 (enabled), to ensure stack traces do not include arguments passed to functions.
+On production sites this should be set to 1 (enabled), to ensure stack traces don't include arguments passed to functions.
 Such arguments could include passwords or other sensitive information.
 You should also make sure no stack trace is ever visible to end users of production sites,
 though visible arguments are unsafe even if the stack traces only show up in log files.
@@ -94,7 +89,7 @@ This is specially important for admin accounts and other privileged users.
 
 - Never go online with admin password set to `publish` or any other default value.
 - Introduce password quality checks. Make sure the checks are strict enough (length/complexity).
-- 16 characters is a quite secure minimum length. Do not go below 10.
+- 16 characters is a quite secure minimum length. Don't go below 10.
 - If using [[= product_name =]] v4.5 or newer, enable the password rule that rejects any password which has been exposed in a public breach.
 
 !!! tip "Password rules"
@@ -173,7 +168,7 @@ Use the following checklist to ensure the roles and policies are secure:
 - Is there a clear role separation between the organisation's internal and external users?
 - Is access to user data properly restricted, in accordance with GDPR?
 
-### Do not use "hide" for read access restriction
+### Don't use "hide" for read access restriction
 
 The [visibility switcher](https://doc.ibexa.co/en/latest/content_management/locations/#location-visibility) is a convenient feature for withdrawing content from the frontend.
 It acts as a filter in the frontend by default. You can choose to respect it or ignore it in your code.
@@ -191,7 +186,7 @@ Security should be a multi-layered exercise. It's wise to minimize what features
 
 - If possible, make the back office unavailable on the open internet.
 - [Symfony FOSJsRoutingBundle](https://github.com/FriendsOfSymfony/FOSJsRoutingBundle) is required in those releases where it's included, to expose routes to JavaScript. It exposes only the required routes, nothing more. It's only required in the back office SiteAccess though, so you can consider blocking it in other SiteAccesses. You should also go through your own custom routes, and decide for each if you need to expose them or not. See the documentation on [YAML route definitions for exposure](https://github.com/FriendsOfSymfony/FOSJsRoutingBundle/blob/master/Resources/doc/usage.rst#generating-uris).
-- By default, a [Powered-By header](https://doc.ibexa.co/en/latest/update_and_migration/from_1.x_2.x/update_db_to_2.5/#powered-by-header) is set. It specifies what version of the DXP is running. For example, `x-powered-by: Ibexa Experience v4`. This doesn't expose anything that couldn't be detected through other means. But if you wish to obscure this, you can either omit the version number, or disable the header entirely.
+- By default, a [Powered-By header](https://doc.ibexa.co/en/latest/update_and_migration/from_1.x_2.x/update_db_to_2.5/#powered-by-header) is set. It specifies what version of the DXP is running. For example, `x-powered-by: [[= product_name_exp =]] v4`. This doesn't expose anything that couldn't be detected through other means. But if you wish to obscure this, you can either omit the version number, or disable the header entirely.
 - Consider whether certain interfaces must be left available on the open internet. For example:
     - The `/search` and `/graphql` endpoints
     - The REST API endpoints

@@ -14,7 +14,7 @@ description: Install Ibexa DXP on a Linux system and prepare your installation f
 !!! note "Installing [[= product_name_oss =]]"
 
     This installation guide shows in details how to install [[= product_name =]] for users who have a subscription agreement with [[= product_name_base =]].
-    If you want to install [[= product_name_oss =]], you do not need authentication tokens or an account on updates.ibexa.co,
+    If you want to install [[= product_name_oss =]], you don't need authentication tokens or an account on updates.ibexa.co,
     but must adapt the steps shown here to the product edition and the `ibexa/oss-skeleton` repository.
 
 ## Prepare work environment
@@ -227,12 +227,13 @@ and for creating signed URIs when using [ESI (Edge Side Includes)]([[= symfony_d
     php -r "print bin2hex(random_bytes(32));"
     ```
 
-    Do not commit the secret to version control systems, or share it with anyone who does not strictly need it.
+    Don't commit the secret to version control systems, or share it with anyone who does not strictly need it.
     If you have any suspicion that the secret may have been exposed, replace it with a new one.
     The same goes for other secrets, like database password, Varnish invalidate token, JWT passphrase, etc.
     
     After changing the app secret, make sure that you clear the application cache and log out all the users.
-    For more information, see [Symfony documentation]([[= symfony_doc =]]/reference/configuration/framework.html#secret).   
+
+    For more information, see [Symfony documentation]([[= symfony_doc =]]/reference/configuration/framework.html#secret).
 
     It's recommended to store the database credentials in your `.env.local` file and not commit it to the Version Control System.
 
@@ -434,6 +435,6 @@ Finally, remove the temporary file:
 
 To make use of the [Link Manager](url_management.md#enabling-automatic-url-validation).
 
-## Ibexa Cloud
+## [[= product_name_cloud =]]
 
-If you want to host your application on [[= product_name_cloud =]], follow the [Install on Ibexa Cloud](install_on_ibexa_cloud.md) procedure.
+If you want to host your application on [[= product_name_cloud =]], follow the [Install on [[= product_name_cloud =]]](install_on_ibexa_cloud.md) procedure.

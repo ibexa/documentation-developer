@@ -30,7 +30,7 @@ In such cases you can implement a custom Criterion or Sort Clause, together with
 
 !!! caution "Using Field Criterion or Sort Clause with large databases"
 
-    Field Criterion and Sort Clause do not perform well by design when using SQL database.
+    Field Criterion and Sort Clause don't perform well by design when using SQL database.
     If you have a large database and want to use them, you either need to use the Solr search engine,
     or develop your own Custom Criterion or Sort Clause. This way you can avoid using the attributes (fields) database table,
     and instead use a custom simplified table which can handle the amount of data you have.

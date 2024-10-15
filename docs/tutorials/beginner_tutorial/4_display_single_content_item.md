@@ -79,7 +79,7 @@ Go back to `config/packages/ibexa.yaml` and add the following configuration (und
 site:
     content_view:
         full:
-            # existing keys, do not change them
+            # existing keys, don't change them
             ride:
                 template: full/ride.html.twig
                 match:
@@ -90,7 +90,7 @@ This tells the application to use this template whenever it renders the full vie
 
 ### Check the Ride full view
 
-Because you do not have a list of Rides on the front page yet, you cannot simply click a Ride to preview it.
+Because you don't have a list of Rides on the front page yet, you cannot simply click a Ride to preview it.
 But you still can see how the template works in two ways:
 
 #### Preview in the back office

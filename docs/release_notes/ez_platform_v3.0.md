@@ -50,10 +50,9 @@ For details, see [Bundles](https://doc.ibexa.co/en/latest/guide/bundles).
     The new Site management User Interface is now integrated with back office.
     It enables you to easily create and manage multiple sites from the back office without editing the configuration files.
 
-    For more information about:
+    For more information about enabling and configuring, see [Enable Site Factory](https://doc.ibexa.co/en/latest/guide/multisite/site_factory/#enable-site-factory).
 
-    - enabling and configuring, see [Enable Site Factory](https://doc.ibexa.co/en/latest/guide/multisite/site_factory/#enable-site-factory)
-    - using the Site Factory, see [User Guide]([[= user_doc =]]/site_organization/site_factory)
+    For more information about using the Site Factory, see [User Documentation]([[= user_doc =]]/site_organization/site_factory)
 
     ### Scheduling
 
@@ -183,7 +182,7 @@ They can be defined per SiteAccess, or per content view.
 Five built-in ready-to-use Query Types have been added: `Children`, `Siblings`, `Ancestors`, `RelatedToContent`, and `GeoLocation`.
 
 You can now use the `ez_render_content_query` and `ez_render_location_query` Twig functions
-to make use of Query Types that do not use the current content or Location.
+to make use of Query Types that don't use the current content or Location.
 
 ### Grouping blocks in Page Builder
 
@@ -200,6 +199,7 @@ You can now add custom tooltips to provide more information for the users when t
 ### Thumbnails
 
 The new thumbnails API allows you to easily choose an image for each content.
+
 For more information, see [Extending thumbnails](https://doc.ibexa.co/en/latest/extending/extending_thumbnails).
 
 ### Type hints for public PHP API

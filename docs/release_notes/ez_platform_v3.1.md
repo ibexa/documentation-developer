@@ -12,7 +12,7 @@
 
 [eZ Commerce](https://github.com/ezsystems/ezcommerce) now uses Symfony 5 and is fully integrated into the eZ Platform back office.
 
-Refer to [eZ Commerce documentation](https://doc.ezplatform.com/projects/ezcommerce/en/latest/) for more information.
+For more information, see [eZ Commerce documentation](https://doc.ezplatform.com/projects/ezcommerce/en/latest/).
 
 ## New features
 

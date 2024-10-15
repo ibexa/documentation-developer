@@ -3,7 +3,7 @@ description: Update procedure to v4.4 for people who don't use Commerce packages
 ---
 # Update with new Commerce packages
 
-This update procedure applies if you have a v4.3 installation, and you do not use Commerce packages.
+This update procedure applies if you have a v4.3 installation, and you don't use Commerce packages.
 
 [[% include 'snippets/update/temporary_v4_conflicts.md' %]]
 
@@ -145,7 +145,7 @@ composer recipe:install --force --reset -- oneup/flysystem-bundle
 ### Remove `ibexa/commerce-*` packages with dependencies
 
 Remove the following bundles from `config/bundles.php`.
-You do not have to remove third-party bundles (`FOS\` to `JMS\`) if they're used by your installation.
+You don't have to remove third-party bundles (`FOS\` to `JMS\`) if they're used by your installation.
 
 === "[[= product_name_content =]]"
 
@@ -246,7 +246,7 @@ You do not have to remove third-party bundles (`FOS\` to `JMS\`) if they're used
     ```
 
 Next, remove related extensions' configuration.
-You do not have to remove third-party bundles (for example `config/packages/fos_rest.yaml`) if they're used by your installation.
+You don't have to remove third-party bundles (for example `config/packages/fos_rest.yaml`) if they're used by your installation.
 
 === "[[= product_name_content =]]"
 
@@ -299,8 +299,8 @@ Finally, remove related routes by deleting `config/routes/ibexa_commerce.yaml` f
 
 ### Update the database
 
-Next, update the database if you're using Ibexa Commerce.
-Ibexa Content and Ibexa Experience do not require the database update.
+Next, update the database if you're using [[= product_name_com =]].
+[[= product_name_content =]] and [[= product_name_exp =]] don't require the database update.
 
 [[% include 'snippets/update/db/db_backup_warning.md' %]]
 
@@ -320,7 +320,7 @@ Apply the following database update scripts:
 
 #### Ibexa Open Source
 
-If you have no access to Ibexa DXP's `ibexa/installer` package, database upgrade isn't necessary.
+If you have no access to [[= product_name =]]'s `ibexa/installer` package, database upgrade isn't necessary.
 
 ## Ensure password safety
 
@@ -339,7 +339,7 @@ composer run post-install-cmd
 
 ### Customer Portal self-registration
 
-If you're using Ibexa Experience or Ibexa Commerce,
+If you're using [[= product_name_exp =]] or [[= product_name_com =]],
 you can now run data migration required by the Customer Portal applications feature to finish the update process:
 
 ```bash

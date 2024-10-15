@@ -5,7 +5,7 @@ description: Customize thumbnails use for content items in the back office.
 # Extending thumbnails
 
 The thumbnails API enable you to easily choose an image for a specific content.
-If you do not want to use custom thumbnails, `ContentType` is used instead.
+If you don't want to use custom thumbnails, `ContentType` is used instead.
 
 ## Thumbnail mechanism 
 

@@ -73,7 +73,7 @@ To use `ResourceOwnerToExistingOrNewUserMapper`, you need to extend it in your c
 !!! tip "OAuth user content type"
 
     When you implement your own mapper for external login, it's good practice to create a special user content type for users registered in this way.
-    The users who register through an external service do not have a separate password in the system.
+    The users who register through an external service don't have a separate password in the system.
     Instead, they log in by their external service's password.
 
     To avoid issues with password restrictions in the built-in user content type, create a special content type (for example, "OAuth user"), without restrictions on the password.

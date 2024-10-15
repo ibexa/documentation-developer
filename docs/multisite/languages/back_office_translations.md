@@ -42,7 +42,7 @@ Once you have language packages enabled, you can switch the language of the back
 in the User Settings menu.
 
 Otherwise, the language is selected based on the browser language.
-If you do not have a language defined in the browser, the language is selected
+If you don't have a language defined in the browser, the language is selected
 based on `parameters.locale_fallback` in `config/packages/ibexa.yaml`.
 
 ## Custom string translations

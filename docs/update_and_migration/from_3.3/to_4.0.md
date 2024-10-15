@@ -108,7 +108,7 @@ php bin/console cache:clear
 
 Apply the following database update script:
 
-### Ibexa DXP
+### [[= product_name =]]
 
 === "MySQL"
     ``` bash

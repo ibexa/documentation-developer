@@ -18,7 +18,7 @@ and provides statistical information for the values. You can use the provided ge
 
 !!! caution
 
-    To keep your project search engine independent, do not use the `RawStatsAggregation` Aggregation in production code.
+    To keep your project search engine independent, don't use the `RawStatsAggregation` Aggregation in production code.
     Valid use cases are: testing, or temporary (one-off) tools.
 
 ## Example

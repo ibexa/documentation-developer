@@ -164,7 +164,7 @@ Run the following scripts:
 
 !!! tip
 
-    Even if you do not plan to use Fastly shielding, it's recommended to update the VCL files for future compatibility.
+    Even if you don't plan to use Fastly shielding, it's recommended to update the VCL files for future compatibility.
 
 1. Locate the `vendor/ezsystems/ezplatform-http-cache-fastly/fastly/ez_main.vcl` file and update your VCL file with the recent changes.
 2. Do the same with `vendor/ezsystems/ezplatform-http-cache-fastly/fastly/ez_user_hash.vcl`.

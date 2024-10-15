@@ -14,6 +14,7 @@ and creating [custom buttons](https://ckeditor.com/docs/ckeditor4/latest/guide/w
 Online Editor is based on the CKEditor5.
 Refer to [CKEditor5 documentation](https://ckeditor.com/docs/ckeditor5/latest/index.html) to learn 
 how you can extend the Online Editor with even more elements.
+
 For more information about extending the back office, see [Extend back office](back_office.md).
 
 ## Configure custom tags

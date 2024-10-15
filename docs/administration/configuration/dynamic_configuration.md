@@ -70,13 +70,11 @@ services:
 
 You can also use the [autowire feature]([[= symfony_doc =]]/service_container/autowiring.html), by type hinting against ConfigResolverInterface.
 
-!!! tip
-
-    For more information about dependency injection, see [Service container](php_api.md#service-container).
+For more information about dependency injection, see [Service container](php_api.md#service-container).
 
 !!! note
 
-    Do not store the retrieved config value unless you know what you're doing.
+    Don't store the retrieved config value unless you know what you're doing.
     SiteAccess can change during code execution, which means you might work on the wrong value.
 
 ``` php

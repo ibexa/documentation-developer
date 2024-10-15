@@ -111,6 +111,6 @@ The following attribute types are supported:
 
 - DATE - An XSD-formatted date, for example, "2014-08-07"
 - DATETIME - An XSD-formatted time without a time zone, for example, "2014-08-07T14:43:12"
-- NOMINAL - A value from a fixed length list, for example "gender" or "favorite film genre". If you do not set the attribute type, this is the default value
+- NOMINAL - A value from a fixed length list, for example "gender" or "favorite film genre". If you don't set the attribute type, this is the default value
 - NUMERIC - A decimal value, for example, "1.23" or "-2345"
 - TEXT - A longer text, usually free form

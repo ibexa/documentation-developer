@@ -25,7 +25,7 @@ available in the [`Ibexa\Core\FieldType`](https://github.com/ibexa/core/tree/mai
 !!! note "Registration"
 
     Remember that all your custom field types must be registered in `config/services.yml`.
-    For more information see [Registration](type_and_value.md#registration).
+    For more information, see [Registration](type_and_value.md#registration).
 
 To provide custom functionality for a field type, the SPI interacts with multiple layers of the [[= product_name =]] architecture:
 

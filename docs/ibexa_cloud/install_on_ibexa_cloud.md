@@ -2,7 +2,7 @@
 description: Install and configure Ibexa DXP to run in cloud using Ibexa Cloud.
 ---
 
-# Install on Ibexa Cloud
+# Install on [[= product_name_cloud =]]
 
 [[= product_name_cloud =]] enables you to host your application in the cloud by using the [Platform.sh](https://platform.sh/) service.
 
@@ -85,7 +85,7 @@ When you're done with configuration, push your project to the Platform.sh remote
 git push -u <platform.sh-remote> master
 ```
 
-You can also use the [Ibexa Cloud CLI](https://cli.ibexa.cloud/) to push your code.
+You can also use the [[[= product_name_cloud =]] CLI](https://cli.ibexa.cloud/) to push your code.
 
 ``` bash
 ibexa_cloud push master
@@ -97,11 +97,11 @@ ibexa_cloud push master
 
 !!! caution
 
-    Do not use Platform.sh CLI (`platform`), instead, use the [Ibexa Cloud CLI (`ibexa_cloud`)](https://cli.ibexa.cloud/).
+    Don't use Platform.sh CLI (`platform`), instead, use the [[[= product_name_cloud =]] CLI (`ibexa_cloud`)](https://cli.ibexa.cloud/).
 
-    To install Ibexa Cloud CLI, follow https://cli.ibexa.cloud/ "Installation instructions".
+    To install [[= product_name_cloud =]] CLI, follow https://cli.ibexa.cloud/ "Installation instructions".
 
-    Ibexa Cloud CLI and Platform.sh CLI share the same commands and the [same documentation](https://docs.platform.sh/administration/cli.html#3-use), but you have to replace `platform` with `ibexa_cloud`.
+    [[= product_name_cloud =]] CLI and Platform.sh CLI share the same commands and the [same documentation](https://docs.platform.sh/administration/cli.html#3-use), but you have to replace `platform` with `ibexa_cloud`.
 
-    If you have previously set up an alias to use Platform.sh CLI with Ibexa Cloud, it's outdated.
-    Remove the alias and install Ibexa Cloud CLI instead.
+    If you have previously set up an alias to use Platform.sh CLI with [[= product_name_cloud =]], it's outdated.
+    Remove the alias and install [[= product_name_cloud =]] CLI instead.

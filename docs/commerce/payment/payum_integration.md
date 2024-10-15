@@ -77,5 +77,5 @@ For a list of events, see [Event dispatcher](https://github.com/Payum/Payum/blob
 !!! caution
 
     In certain cases, depending on the payment processing service, when a customer closes the payment page in a browser and the bank has not processed the payment yet, the payment status can remain unchanged.
-    Depending on how your checkout process is configured, it may result in unwanted effects, for example, cause that the cart does not purge after the purchase.
+    Depending on how your checkout process is configured, it may result in unwanted effects, for example, cause that the cart doesn't purge after the purchase.
     Make sure that you account for this fact in your implementation.

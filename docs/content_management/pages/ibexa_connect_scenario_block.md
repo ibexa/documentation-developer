@@ -2,7 +2,7 @@
 description: Work with Ibexa Connect scenario block that retrieves and displays data from an Ibexa Connect webhook. 
 ---
 
-# Ibexa Connect scenario block
+# [[= product_name_connect =]] scenario block
 
 [[= product_name_connect =]] scenario block retrieves and displays data from an [[= product_name_connect =]] webhook. 
 Scenario block is a regular [Page block](page_blocks.md) and can be configured on field definition level as any other block.
@@ -49,7 +49,7 @@ Then, in `templates/blocks` directory under `default.html.twig`, provide your bl
 In the following example, the configuration of the block is non-complex - block is only used to display the content transferred from an [[= product_name_connect =]] webhook.
 At this point the [[= product_name_connect =]] scenario block is ready to be used in Page Builder.
 
-### Configure Ibexa Connect scenario block in Page Builder
+### Configure [[= product_name_connect =]] scenario block in Page Builder
 
 Now, you can configure [[= product_name_connect =]] scenario block in Page Builder.
 To do it, in your Page add [[= product_name_connect =]] block by dragging it from the menu to a drop zone and enter block settings. 

@@ -33,7 +33,7 @@
 
     The timeline also shows other events, such a Content published using the date-based publisher.
 
-For more information, check [advanced publishing options](https://doc.ibexa.co/projects/userguide/en/2.5/publishing/advanced_publishing_options) in User Documentation.
+For more information, see [advanced publishing options](https://doc.ibexa.co/projects/userguide/en/2.5/publishing/advanced_publishing_options) in User Documentation.
 
 ### Form Builder
 
@@ -49,13 +49,13 @@ For more information, check [advanced publishing options](https://doc.ibexa.co/p
 
     See [Extending Form Builder](https://doc.ibexa.co/en/2.5/guide/extending/extending_form_builder) for information on how to modify and create Form fields.
 
-Fore more information, check [forms](https://doc.ibexa.co/projects/userguide/en/2.5/creating_content_advanced/#forms) in User Documentation.
+For more information, see [forms](https://doc.ibexa.co/projects/userguide/en/2.5/creating_content_advanced/#forms) in User Documentation.
 
 ### ImageAsset field type
 
 You can now create a single source media library with images that can be reused across the system.
 
-See [Reusing images](https://doc.ibexa.co/en/2.5/guide/images/#reusing-images) and [ImageAsset field type reference](https://doc.ibexa.co/en/2.5/api/field_types_reference/imageassetfield) for more information.
+For more information, see [Reusing images](https://doc.ibexa.co/en/2.5/guide/images/#reusing-images) and [ImageAsset field type reference](https://doc.ibexa.co/en/2.5/api/field_types_reference/imageassetfield).
 
 ![Set up multiple relations with image](2.3_image_asset.png)
 
@@ -64,7 +64,7 @@ See [Reusing images](https://doc.ibexa.co/en/2.5/guide/images/#reusing-images) a
 A new `ezplatform:urls:regenerate-aliases` command enables you to regenerate all URL aliases.
 You can use it after changing URL alias configuration, or in case of database corruption.
 
-See [Regenerating URL aliases](https://doc.ibexa.co/en/2.5/guide/url_management/#regenerating-url-aliases) for more information.
+For more information, see [Regenerating URL aliases](https://doc.ibexa.co/en/2.5/guide/url_management/#regenerating-url-aliases).
 
 ### User preferences
 
@@ -100,7 +100,7 @@ There are three new ways you can now contribute to back office translations:
 - translate in-context with console
 - translate directly on the Crowdin website
 
-See [How to translate the interface using Crowdin](https://doc.ibexa.co/en/2.5/community_resources/translations/#how-to-translate-the-interface-using-crowdin) for more information.
+For more information, see [How to translate the interface using Crowdin](https://doc.ibexa.co/en/2.5/community_resources/translations/#how-to-translate-the-interface-using-crowdin).
 
 ## Full list of new features, improvements and bug fixes since v2.2.0
 

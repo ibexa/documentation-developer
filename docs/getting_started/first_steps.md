@@ -39,8 +39,7 @@ module.exports = [ eZConfig, ibexaConfig, ...customConfigs ];
 
 !!! caution "Password change"
 
-    Make sure that you change the default password before you switch your installation 
-    from development to production. 
+    Make sure that you change the default password before you switch your installation from development to production.
     For more information about passwords, see [Passwords](passwords.md).
     For more information about production security, see [Security checklist](security_checklist.md).
 
@@ -60,9 +59,7 @@ module.exports = [ eZConfig, ibexaConfig, ...customConfigs ];
 
 8\. Save the content type.
 
-!!! tip "More information"
-
-    - [Content model](content_model.md)
+For more information, see [Content model](content_model.md).
 
 ## Create Twig templates and match then with view config
 
@@ -92,10 +89,7 @@ Content view templates use the [Twig templating engine](https://twig.symfony.com
 <div>{{ ibexa_render_field(content, 'text') }}</div>
 ```
 
-!!! tip "More information"
-
-    - [Templates](templates.md)
-    - [Twig documentation](https://twig.symfony.com/doc/3.x/)
+For more information, see [Templates](templates.md) and [Twig documentation](https://twig.symfony.com/doc/3.x/).
 
 ## Create content and test view templates
 
@@ -139,10 +133,7 @@ The SiteAccess is automatically matched using the last part of the URI.
 
 For now the new SiteAccess does not differ from the main site.
 
-!!! tip "More information"
-
-    - [Multisite](multisite.md)
-    - [SiteAccess matchers](siteaccess_matching.md#available-siteaccess-matchers)
+For more information, see [Multisite](multisite.md) and [SiteAccess matchers](siteaccess_matching.md#available-siteaccess-matchers).
 
 ## Add a language and translate Content
 
@@ -179,10 +170,7 @@ Switch to the **Translations** tab and add a new translation.
 
 ![Previewing translated Content](first-steps-translated-content.png)
 
-!!! tip "More information"
-
-    - [Languages](languages.md)
-    - [Set up translation SiteAccess](set_up_translation_siteaccess.md)
+For more information, see [Languages](languages.md) and [Set up translation SiteAccess](set_up_translation_siteaccess.md).
 
 ## Add a design
 
@@ -256,6 +244,4 @@ Call the group "Bloggers".
 You can now log out and log in again as the new User.
 You're able to create Blog Posts only.
 
-!!! tip  "More information"
-
-    - [Permissions](permissions.md)
+For more information, see [Permissions](permissions.md).

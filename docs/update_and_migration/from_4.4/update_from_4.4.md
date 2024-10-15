@@ -84,7 +84,8 @@ ibexa_measurement:
             my_unit: { symbol: my, is_base_unit: true }
 ```
 
-Next, add unit conversion to `src/bundle/Resources/config/services/conversion.yaml`. 
+Next, add unit conversion to `src/bundle/Resources/config/services/conversion.yaml`.
+
 For more information, see [Modify and add Measurement types and units](measurementfield.md#modify-and-add-measurement-types-and-units).
 
 ### Update the database
@@ -193,7 +194,7 @@ composer run post-install-cmd
 
 ## Run data migration
 
-If you're using Ibexa Experience or Ibexa Commerce,
+If you're using [[= product_name_exp =]] or [[= product_name_com =]],
 you can now run data migration required by the Customer Portal and Commerce features to finish the update process:
 
 - Customer Portal [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]

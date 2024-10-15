@@ -2,7 +2,7 @@
 description: Use DDEV to run an Ibexa Cloud project locally.
 ---
 
-# DDEV and Ibexa Cloud
+# DDEV and [[= product_name_cloud =]]
 
 Two ways are available to run an [[= product_name_cloud =]] project locally with DDEV:
 
@@ -11,7 +11,7 @@ Two ways are available to run an [[= product_name_cloud =]] project locally with
 
 !!! note
 
-    The following examples use [Ibexa Cloud CLI (`ibexa_cloud`)](https://cli.ibexa.co/).
+    The following examples use [[[= product_name_cloud =]] CLI (`ibexa_cloud`)](https://cli.ibexa.co/).
 
 ## With the `ddev-platformsh` add-on
 

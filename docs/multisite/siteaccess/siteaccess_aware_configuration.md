@@ -170,7 +170,7 @@ parameters:
 
 #### Merging hash values between scopes
 
-When you define a hash as semantic config, you sometimes do not want the SiteAccess settings to replace the default or group values,
+When you define a hash as semantic config, you sometimes don't want the SiteAccess settings to replace the default or group values,
 but enrich them by appending new entries. This is possible by using `$processor->mapConfigArray()`,
 which you must call outside the closure (before or after), so that it's called only once.
 
@@ -259,7 +259,7 @@ that ensures the array setting has unique values. It only works on normal arrays
 Instead of passing a callable to `$processor->mapConfig()`, you can pass an instance of
 `Ibexa\Bundle\Core\DependencyInjection\Configuration\SiteAccessAware\ConfigurationMapperInterface`.
 
-This can be useful if you have a lot of configuration to map and do not want to pollute 
+This can be useful if you have a lot of configuration to map and don't want to pollute 
 your service container extension class (it's better for maintenance).
 
 #### Merging hash values between scopes

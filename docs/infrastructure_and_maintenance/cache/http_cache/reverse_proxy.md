@@ -314,7 +314,7 @@ the following happens when a page has been soft purged:
 
 - Next request hitting the cache triggers an asynchronous lookup to the back end.
 - If cache is still within grace period, first and subsequent requests for the content are served from cache,
-and do not wait for the asynchronous lookup to finish.
+and don't wait for the asynchronous lookup to finish.
 - The back-end lookup finishes and refreshes the cache so any subsequent requests get a fresh cache.
 
 By default, [[= product_name =]] always soft purges content on reverse proxies that support it (Varnish and Fastly),

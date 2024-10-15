@@ -3,13 +3,13 @@ description: Integrate Ibexa Engage with Ibexa Connect.
 edition: experience
 ---
 
-# Use Ibexa Connect
+# Use [[= product_name_connect =]]
 
-You can create workflows using [Ibexa Connect](https://doc.ibexa.co/projects/connect/en/latest/general/ibexa_connect/).
+You can create workflows using [[[= product_name_connect =]]](https://doc.ibexa.co/projects/connect/en/latest/general/ibexa_connect/).
 [[= product_name_engage =]] collects user data and passes it directly to [[= product_name_connect =]].
 With this data, you can create scenarios, for example, to add a user to newsletter, or to specific user segment group.
 
-For more information, see [Ibexa Connect documentation](https://doc.ibexa.co/projects/connect/en/latest/).
+For more information, see [[[= product_name_connect =]] documentation](https://doc.ibexa.co/projects/connect/en/latest/).
 
 ## Integrate [[= product_name_engage =]] with [[= product_name_connect =]]
 

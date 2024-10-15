@@ -287,7 +287,7 @@ ibexa:
                 customer_content_type: <your_ct_identifier_for_customer> 
 ```
 
-Then, define custom address formats, which, for example, do not include the `locality` field:
+Then, define custom address formats, which, for example, don't include the `locality` field:
 
 ``` yaml
 ibexa_field_type_address:

@@ -4,15 +4,16 @@ description: Learn how to report security issues in Ibexa DXP.
 
 # Reporting security issues in Ibexa products
 
-The security of our software is a primary concern and we take it seriously.
-For more information on security in our products, see [Ibexa Security Policy](https://www.ibexa.co/software-information/security).
+The security of [[= product_name_base =]] software is a primary concern and we take it seriously.
+
+For more information on security in [[= product_name_base =]] products, see [Ibexa Security Policy](https://www.ibexa.co/software-information/security).
 
 No engineering team is perfect though, and if you do discover a security issue in one of our products we are very grateful for your help in reporting it to us privately, and refraining from public disclosure until we have found the solution and distributed it. Thank you!
 
 ## Channels
 
-- If you're a customer or partner, please log in to your Service Portal at <https://support.ibexa.co/>, click "New Ticket", and report the issue as you would report a normal support request. Ibexa Product Support responds, takes care of the report, and keeps you informed of the developments.
-- If you're not a customer or partner, please log in to the Ibexa JIRA issue tracker: <https://issues.ibexa.co/>. Create an account if you don't have one, it's free. Click the "Create" button in the top menu to create your report. For "Project", select "Ibexa IBX", or "eZ Publish / Platform", or "eZ Platform Enterprise Edition", depending on which product is affected by the bug. **Important: Select "Security Level": "Security"!** The engineering team takes care of your report.
+- If you're a customer or partner, please log in to your Service Portal at <https://support.ibexa.co/>, click "New Ticket", and report the issue as you would report a normal support request. [[= product_name_base =]] Product Support responds, takes care of the report, and keeps you informed of the developments.
+- If you're not a customer or partner, please log in to the [[= product_name_base =]] JIRA issue tracker: <https://issues.ibexa.co/>. Create an account if you don't have one, it's free. Click the "Create" button in the top menu to create your report. For "Project", select "[[= product_name_base =]] IBX", or "eZ Publish / Platform", or "eZ Platform Enterprise Edition", depending on which product is affected by the bug. **Important: Select "Security Level": "Security"!** The engineering team takes care of your report.
 - It's also possible to report security issues by email to <security@ibexa.co> - this requires no account.
 
 ## Verbosity

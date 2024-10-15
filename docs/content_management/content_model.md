@@ -12,7 +12,7 @@ Each content item is an instance of a content type.
 
 !!! tip
 
-    An introduction to the content model for non-developer users is available in [[[= product_name =]] user documentation](https://doc.ibexa.co/projects/userguide/en/latest/content_management/content_model/).
+    An introduction to the content model for non-developer users is available in [[[= product_name =]] User Documentation](https://doc.ibexa.co/projects/userguide/en/latest/content_management/content_model/).
 
 ## Content items
 
@@ -25,7 +25,7 @@ The fields can cover data ranging from single variables and text lines to media 
 #### Content information
 
 General information about a content item is stored in a [`ContentInfo`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html) object.
-`ContentInfo` does not include fields. It contains following information:
+`ContentInfo` doesn't include fields. It contains following information:
 
 **`id`** - the unique ID of the Content object. These numbers aren't recycled, so if an item is deleted, its ID isn't reused when a new one is created.
 
@@ -41,7 +41,8 @@ The name is in the main language of the content item.
 **`sectionId`** - the unique number of the Section to which the content item belongs.
 New content items are placed in the Standard Section by default.
 This behavior can be changed, but content must always belong to some Section.
-See [Sections](sections.md) for more information.
+
+For more information, see [Sections](sections.md).
 
 **`currentVersionNo`** - current version number is the number of the published version or of a newly created draft (which is 1).
 
@@ -109,7 +110,7 @@ Aside from the field type, the field definition in a content type provides the f
 
 **[Searchable](search.md)** – a flag which indicates if the value of the field is indexed for searching.
 
-The Searchable flag isn't available for some fields, because some field types do not allow searching through their values.
+The Searchable flag isn't available for some fields, because some field types don't allow searching through their values.
 
 **[Translatable](languages.md)** – a flag which indicates if the value of the field can be translated. It's independent of the field type, which means that even fields such as "Float" or "Image" can be set as translatable.
 
@@ -140,4 +141,4 @@ A new version is also created when a new [language](languages.md) is added to th
 
 Products are a special type of content that holds products you can manage in the built-in PIM system.
 
-See [PIM](pim.md) for more information.
+For more information, see [PIM](pim.md).

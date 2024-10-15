@@ -8,6 +8,7 @@ description: Learn how to create the Type class which contains the logic for the
 
 The Type contains logic of the field type: validating data, transforming from various formats, describing the validators, etc.
 In this example Point 2D field type extends the `Ibexa\Contracts\Core\FieldType\Generic\Type` class.
+
 For more information about the Type class of a field type, see [Type class](type_and_value.md#type-class).
 
 ## Field type identifier

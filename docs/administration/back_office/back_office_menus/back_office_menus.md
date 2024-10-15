@@ -65,7 +65,7 @@ You can listen to the following events:
 
 To add a menu item, use the `addChild()` method. Provide the method with the new menu item's identifier and, optionally, with parameters.
 
-To add an inactive menu section, do not add a route to its parameters.
+To add an inactive menu section, don't add a route to its parameters.
 
 The following method adds a new menu section under **Content**, and under it, a new item with custom attributes:
 

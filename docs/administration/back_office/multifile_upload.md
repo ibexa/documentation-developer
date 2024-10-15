@@ -89,7 +89,7 @@ There are two types of properties: **required** and **optional**.
 
 ### Required properties
 
-All of the following properties must be used, otherwise the multi-file upload does not work.
+All of the following properties must be used, otherwise the multi-file upload doesn't work.
 
 - **onAfterUpload** _{Function}_ - a callback to be invoked immediately after a file has been uploaded
 - **adminUiConfig** _{Object}_ - UI config object. It should keep the following structure:

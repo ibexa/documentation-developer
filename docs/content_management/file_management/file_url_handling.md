@@ -36,7 +36,7 @@ ibexa:
 
 !!! caution
 
-    For security reasons, do not map `/path/to/ibexa/public/` as
+    For security reasons, don't map `/path/to/ibexa/public/` as
     Document Root of the static server.
     Map the `/var/` directory directly to `/path/to/ibexa/public/var` instead.
 

@@ -43,7 +43,8 @@ First, in `templates/themes/standard/embed/`, create a custom template `dam.html
 
 The `770px` parameter in the template above is used to render the DAM image. It's the `unsplash` specific image variation and must be defined separately.
 
-Next, in `config/packages/ibexa.yaml`, set the `dam.html.twig` template for the `embed` view type that is matched for the content type, which you created for DAM images. 
+Next, in `config/packages/ibexa.yaml`, set the `dam.html.twig` template for the `embed` view type that is matched for the content type, which you created for DAM images.
+
 For more information about displaying content, see [Content rendering](render_content.md).
 
 ``` yaml
@@ -72,7 +73,8 @@ dam_unsplash:
             fit: max
 ```
 
-You can customize the parameters according to your needs. 
+You can customize the parameters according to your needs.
+
 For more information about supported parameters, see the [Unsplash documentation](https://unsplash.com/documentation#dynamically-resizable-images).
 
 In the back office, go to **Admin** > **Content types**.

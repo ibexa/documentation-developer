@@ -60,7 +60,7 @@ Further manipulation of Trash requires the `content/restore` policy to restore i
 
 !!! caution
 
-    With the `content/cleantrash` policy, the User can empty the Trash even if they do not have access to the trashed content,
+    With the `content/cleantrash` policy, the User can empty the Trash even if they don't have access to the trashed content,
     for example, because it belonged to a Section that the User does not have permissions for.
 
 ## Restrict editing to part of the tree

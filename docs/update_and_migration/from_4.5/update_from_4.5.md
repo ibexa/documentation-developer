@@ -565,7 +565,7 @@ A command to deal with duplicated database entries, as reported in [IBX-8562](ht
 
 ## v4.6.11
 
-### Ibexa Cloud
+### [[= product_name_cloud =]]
 
 Update Platform.sh configuration for PHP and Varnish.
 

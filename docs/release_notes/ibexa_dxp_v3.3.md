@@ -34,6 +34,7 @@ The Image Editor is available when browsing the Media library, or creating or ed
 that contain an `ezimage` or `ezimageasset` Field.
 
 You can modify the Image Editor's default settings to change its appearance or behavior.
+
 For more information, see [Configuring the Image Editor](https://doc.ibexa.co/en/3.3/guide/image_editor).
 
 ### Migration bundle
@@ -82,13 +83,14 @@ framework:
 
 See [list of changes in Symfony 5.2](https://symfony.com/blog/symfony-5-2-curated-new-features).
 
-| Ibexa Content  | Ibexa Experience  | Ibexa Commerce |
+| [[= product_name_content =]]  | [[= product_name_exp =]]  | [[= product_name_com =]] |
 |--------------|------------|------------|
-| [Ibexa Content v3.3.0](https://github.com/ibexa/content/releases/tag/v3.3.0) | [Ibexa Experience v3.3.0](https://github.com/ibexa/experience/releases/tag/v3.3.0) | [Ibexa Commerce v3.3.0](https://github.com/ibexa/commerce/releases/tag/v3.3.0)|
+| [[[= product_name_content =]] v3.3.0](https://github.com/ibexa/content/releases/tag/v3.3.0) | [[[= product_name_exp =]] v3.3.0](https://github.com/ibexa/experience/releases/tag/v3.3.0) | [[[= product_name_com =]] v3.3.0](https://github.com/ibexa/commerce/releases/tag/v3.3.0)|
 
 ## v3.3.15 
 
 ### Symfony 5.4
 
 The version v3.3.15 moves [[= product_name =]] to Symfony 5.4.
+
 For more information, see [Symfony 5.4 documentation](https://symfony.com/releases/5.4) and [update documentation](update_from_3.3.md#3315).

@@ -25,7 +25,7 @@ $query->query = new Criterion\IsFieldEmpty('title');
 
 ## Use case
 
-You can use the `IsFieldEmpty` Criterion to search for articles that do not have an image:
+You can use the `IsFieldEmpty` Criterion to search for articles that don't have an image:
 
 ``` php hl_lines="4"
 $query = new LocationQuery;

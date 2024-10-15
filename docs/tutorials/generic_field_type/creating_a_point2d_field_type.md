@@ -14,7 +14,7 @@ Field types are responsible for:
 - Making the data searchable (if applicable)
 - Displaying fields
 
-You can find more information in [field type documentation](field_types.md).
+For more information, see [field type documentation](field_types.md).
 It describes how each component of a field type interacts with the various layers of the system, and how to implement them.
 
 ## Intended audience

@@ -11,7 +11,7 @@ Criteria can take some of the following arguments:
 
 - `target` - when the Criterion supports targeting a specific field, example: `FieldDefinition` or Metadata identifier
 - `value` - the value(s) to filter on, typically a scalar or array of scalars
-- `operator` - constants on `Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\Operator`: `IN`, `EQ`, `GT`, `GTE`, `LT`, `LTE`, `LIKE`, `BETWEEN`, `CONTAINS`. Most Criteria do not expose this and select `EQ` or `IN` depending on whether the value is scalar or an array. `IN` and `BETWEEN` always act on an array of values, while the other operators act on single scalar value
+- `operator` - constants on `Ibexa\Contracts\Core\Repository\Values\Content\Query\Criterion\Operator`: `IN`, `EQ`, `GT`, `GTE`, `LT`, `LTE`, `LIKE`, `BETWEEN`, `CONTAINS`. Most Criteria don't expose this and select `EQ` or `IN` depending on whether the value is scalar or an array. `IN` and `BETWEEN` always act on an array of values, while the other operators act on single scalar value
 - `valueData` - additional value data, required by some Criteria, for instance `MapLocationDistance`
 
 Support and capabilities of individual Criteria can depend on the search engine.

@@ -35,7 +35,7 @@ and select the downloaded file.
 ## Configuration
 
 Plugin configuration is available in PhpStorm settings/preferences (depending on your system), 
-under **PHP** > **Frameworks** > **Ibexa DXP**.
+under **PHP** > **Frameworks** > **[[= product_name =]]**.
 
 You can use it to:
 
@@ -60,20 +60,20 @@ on wizard data.
 ### Project wizard
 
 The plugin enables creating a new [[= product_name =]] project directly from PhpStorm.
-To do it, select **File** > **New Project...** > **Ibexa DXP**.
+To do it, select **File** > **New Project...** > **[[= product_name =]]**.
 
 In project settings form you can choose:
 
 - Location of the project
-- Product edition: Ibexa OSS, Ibexa Content, [[= product_name_exp =]], [[= product_name_com =]]
+- Product edition: [[= product_name_oss =]], [[= product_name_content =]], [[= product_name_exp =]], [[= product_name_com =]]
 - Authentication token (for Content, Experience and Commerce editions)
 - Product version: Default (latest LTS version), Latest (fast track or LTS), Latest LTS and "Next 3.x" (unstable, based on the 3.x branch) and "Next 4.x" (unstable, based on the 4.x branch)
-- Generate [Ibexa Cloud configuration](install_on_ibexa_cloud.md) 
+- Generate [[[= product_name_cloud =]] configuration](install_on_ibexa_cloud.md) 
 - Composer settings
 
 ![Create a project](phpstorm_plugin_create_project.png)
 
-If you do not provide credentials for https://updates.ibexa.co/, the plugin uses the installation key and token password stored in global Composer configuration. Otherwise, it creates an `auth.json` file.
+If you don't provide credentials for https://updates.ibexa.co/, the plugin uses the installation key and token password stored in global Composer configuration. Otherwise, it creates an `auth.json` file.
 
 You can find details of the installation procedure in Composer log window.
 
@@ -104,7 +104,7 @@ The plugin provides the following built-in file templates:
 | Value object visitor | REST value visitor class based on `Ibexa\Contracts\Rest\Output\ValueObjectVisitor` |
 | Workflow action listener | Workflow action listener class based on `Ibexa\Contracts\Workflow\Event\Action\AbstractTransitionWorkflowActionListener` |
 
-The templates are available in, for example, the context menu in **Project window** > **New** > **Ibexa DXP**.
+The templates are available in, for example, the context menu in **Project window** > **New** > **[[= product_name =]]**.
 
 The list of available file templates depends on the [[= product_name =]] edition used by the project.
 
@@ -170,7 +170,7 @@ To customize live templates, go to **File** > **Settings**/**Preferences** > **E
 
 ### Autocompletion in configuration files
 
-Plugin provides autocompletion for Ibexa DXP configuration structure in YAML files placed in `config/packages/`.
+Plugin provides autocompletion for [[= product_name =]] configuration structure in YAML files placed in `config/packages/`.
 
 Besides configuration structure, for the following YAML keys addition suggestions are available:
 

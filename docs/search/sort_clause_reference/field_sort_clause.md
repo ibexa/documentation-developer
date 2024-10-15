@@ -4,7 +4,7 @@ The [`Field` Sort Clause](../../api/php_api/php_api_reference/classes/Ibexa-Cont
 sorts search results by the value of one of the content items' fields.
 
 Search results of the provided content type are sorted in field value order.
-Results of the query that do not belong to the content type are ranked lower.
+Results of the query that don't belong to the content type are ranked lower.
 
 ## Arguments
 

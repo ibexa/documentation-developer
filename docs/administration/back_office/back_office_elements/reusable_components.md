@@ -21,7 +21,7 @@ The alert component has the following properties:
 
 - `type` - available types of alert: error, info, success, and warning
 - `icon` - name of the icon, taken from the default icon set
-- `icon_path` - full icon path, in case you do not want to use an icon from the default icon set
+- `icon_path` - full icon path, in case you don't want to use an icon from the default icon set
 - `title` - alert title
 - `subtitle` - displays subtitle content
 - `show_subtitle_below` - default set to `false`, the subtitle is displayed next to the title
@@ -214,7 +214,7 @@ which holds the id of the button that should be enabled/disabled after a checkbo
 
 Next, pass a button under the `action` parameter to the table headline.
 
-Action buttons are rendered on the right side of the table headline (do not confuse it with the table header).
+Action buttons are rendered on the right side of the table headline (don't confuse it with the table header).
 You can also specify headline text, which is a table title displayed above, by passing it under `headline` parameter.
 
 You can generate various headline texts using the `results_headline` macro with a few parameters:
@@ -284,7 +284,7 @@ Other table component parameters include:
 - `attr` - (other HTML attributes applied on the HTML table element), for example:
     - `attr: { 'data-some-data-attribute-you-need': 'foo' }`
 - `table_body_class` and `table_body_attr` are the same as mentioned earlier, but applied on the table element
-- `show_head_cols_if_empty` - (default: `false`), by default, when `body_rows` is empty, the table component does not show the table header, but you may want to have it because for example rows are rendered dynamically with JavaScript on the browser side.
+- `show_head_cols_if_empty` - (default: `false`), by default, when `body_rows` is empty, the table component doesn't show the table header, but you may want to have it because for example rows are rendered dynamically with JavaScript on the browser side.
 
 To avoid wrapping headline inside the form, as it's done in the earlier example, you can `embed` table and override the `between_header_and_table` block:
 

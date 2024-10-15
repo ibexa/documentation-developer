@@ -24,7 +24,7 @@ They contain information about the domain objects and the fields you can [query]
 
 ### Schema generation limitations
 
-GraphQL schema cannot be generated for names that do not follow the [GraphQL specification](http://spec.graphql.org/June2018/#sec-Names), for example names that start with a digit.
+GraphQL schema cannot be generated for names that don't follow the [GraphQL specification](http://spec.graphql.org/June2018/#sec-Names), for example names that start with a digit.
 
 This concerns image variations, content types, content type groups, product types, and field definition identifiers.
 

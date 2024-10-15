@@ -64,7 +64,7 @@ which implements this interface and provides access to the WhiteOctober breadcru
 Every breadcrumb generator has to add a `translationParameters` array with `type`, `identifier` and `content_type_id`.
 Always create all three keys and leave the elements empty if not needed.
 
-If you can't or do not want to use `AbstractWhiteOctoberBreadcrumbsGenerator`,
+If you can't or don't want to use `AbstractWhiteOctoberBreadcrumbsGenerator`,
 your generator's `renderBreadcrumbs()` method must handle rendering the HTML code for the breadcrumbs.
 
 The highest priority generator which matches `canRender()` renders the breadcrumbs for the current request.

@@ -118,7 +118,7 @@ Typically, what you previously would do in `getTemplateParameters()`, you'll now
 
 The definition of block parameters has to be moved from `createBlockDefinition()` to the [YAML configuration](create_custom_page_block.md) for your custom blocks.
 
-For more information about how custom blocks are implemented in Page Builder, have a look at [Creating custom Page blocks](create_custom_page_block.md) for your custom blocks.
+For more information about how custom blocks are implemented in Page Builder, see [Creating custom Page blocks](create_custom_page_block.md) for your custom blocks.
 
 For the migration of blocks from landing page to Page Builder, you'll need to provide a converter for attributes of custom blocks. For simple blocks you can use `\EzSystems\EzPlatformPageMigration\Converter\AttributeConverter\DefaultConverter`.
 Custom converters must implement the `\EzSystems\EzPlatformPageMigration\Converter\AttributeConverter\ConverterInterface` interface.
@@ -779,7 +779,7 @@ The introduction of [support for PostgreSQL](databases.md#using-postgresql) incl
 It's now created based on [YAML configuration](https://github.com/ezsystems/ezpublish-kernel/blob/master/eZ/Bundle/EzPublishCoreBundle/Resources/config/storage/legacy/schema.yaml), using the new [`DoctrineSchemaBundle`](https://github.com/ezsystems/doctrine-dbal-schema).
 
 If you're updating your application according to the usual procedure, no additional actions are required.
-However, if you do not update your meta-repository, you need to take two additional steps:
+However, if you don't update your meta-repository, you need to take two additional steps:
 
 - enable `EzSystems\DoctrineSchemaBundle\DoctrineSchemaBundle()` in `AppKernel.php`
 - add [`ez_doctrine_schema`](https://github.com/ezsystems/ezplatform/blob/2.5/app/config/config.yml#L33) configuration

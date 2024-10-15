@@ -59,7 +59,7 @@ See [Extend Online Editor](extend_online_editor.md#configure-custom-tags) for a 
 
 Custom styles allow specifying custom predefined templates for specific RichText elements.
 
-Custom styles differ from custom tags in that they do not have attributes configured. A custom style requires YAML configuration that points to a template used to render an elements with this style.
+Custom styles differ from custom tags in that they don't have attributes configured. A custom style requires YAML configuration that points to a template used to render an elements with this style.
 
 See [Extend Online Editor](extend_online_editor.md#configure-custom-styles) for a full example.
 
@@ -69,11 +69,11 @@ For each RichText element type, you can configure custom data attributes or CSS 
 
 Custom data attributes allow adding new attributes to existing Rich Text elements, such as headings or lists, which are added in the form of `data-ezattribute-<attribute_name>="<value>"`.
 
-See [Extend Online Editor](extend_online_editor.md#custom-data-attributes) for more information
+For more information, see [Extend Online Editor](extend_online_editor.md#custom-data-attributes).
 
 Custom CSS classes work in a similar way, giving editor a choice of classes to add to any type of element.
 
-See [Extend Online Editor](extend_online_editor.md#custom-css-classes) for more information
+For more information, see [Extend Online Editor](extend_online_editor.md#custom-css-classes).
 
 ### Plugins
 

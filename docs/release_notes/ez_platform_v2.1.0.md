@@ -16,7 +16,7 @@ You can now add custom tags to RichText fields.
 
 Custom tags enable you to extend the menu of available elements when editing a RichText field with the Online Editor.
 
-See [Custom tags](https://doc.ibexa.co/en/2.5/guide/extending/extending_online_editor/#custom-tags) for more information.
+For more information, see [Custom tags](https://doc.ibexa.co/en/2.5/guide/extending/extending_online_editor/#custom-tags).
 
 ### Object states
 

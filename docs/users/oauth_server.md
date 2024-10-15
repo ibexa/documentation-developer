@@ -49,9 +49,11 @@ return [
 ### Keys
 
 To configure the server, you need private and public keys.
+
 For more information, see [Generating public and private keys](https://oauth2.thephpleague.com/installation/#generating-public-and-private-keys).
 
 You also need an encryption key.
+
 For more information, see [Generating encryption keys](https://oauth2.thephpleague.com/installation/#generating-encryption-keys).
 
 Set the following environment variables:

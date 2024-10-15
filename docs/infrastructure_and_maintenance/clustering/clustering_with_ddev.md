@@ -6,7 +6,7 @@ description: Use DDEV to run a cluster infrastructure locally.
 
 !!! caution
 
-    Do not use this procedure in production.
+    Don't use this procedure in production.
     A staging environment for validation before production should exactly replicate the production environment.
     This is meant for development environment only.
 
@@ -25,7 +25,7 @@ The `ddev config --php-version` option should set the same PHP version as the pr
 
    Discover more commands in [DDEV documentation](https://ddev.readthedocs.io/en/latest/users/usage/commands/).
 
-To run an [[= product_name_cloud =]] project locally, you may refer to [DDEV and Ibexa Cloud](ddev_and_ibexa_cloud.md) instead.
+To run an [[= product_name_cloud =]] project locally, you may refer to [DDEV and [[= product_name_cloud =]]](ddev_and_ibexa_cloud.md) instead.
 
 ## Install search engine
 
@@ -54,7 +54,7 @@ You can now check whether Elasticsearch works.
 
 For example, the `ddev exec curl -s "http://elasticsearch:9200/_count"` command checks whether the `web` server can access the `elasticsearch` server and displays the number of indexed documents.
 
-See [ddev/ddev-elasticsearch README](https://github.com/ddev/ddev-elasticsearch) for more information on topics such as memory management.
+For more information on topics such as memory management, see [ddev/ddev-elasticsearch README](https://github.com/ddev/ddev-elasticsearch).
 
 See [Elasticsearch REST API reference](https://www.elastic.co/guide/en/elasticsearch/reference/current/rest-apis.html) for more request options, like, for example:
 

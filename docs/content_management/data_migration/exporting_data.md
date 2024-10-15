@@ -161,7 +161,7 @@ The following types are available:
 - `segment_group`
 - `company`
 
-If you do not provide the `--type` option, the command asks you to select a type of data.
+If you don't provide the `--type` option, the command asks you to select a type of data.
 
 ## mode
 
@@ -172,7 +172,7 @@ The following modes are available:
 - `update` - updates an existing item. Only covers specified fields and properties. If the item does not exist, causes an error.
 - `delete` - deletes an existing item. If the item does not exist, causes an error.
 
-If you do not provide the `--mode` option, the command asks you to select the mode.
+If you don't provide the `--mode` option, the command asks you to select the mode.
 
 The following combinations of types are modes are available:
 

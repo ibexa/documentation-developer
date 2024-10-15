@@ -16,7 +16,7 @@ description: Ibexa DXP v4.6 brings improvements to Commerce, PIM and Personaliza
 
 ## Notable changes
 
-### Ibexa Headless
+### [[= product_name_headless =]]
 
 [[= product_name_content =]] changes name to [[= product_name_headless =]] to emphasize [[= product_name_base =]]'s capacity for headless architecture.
 
@@ -70,6 +70,7 @@ For more information, see [Edit embedded content items](https://doc.ibexa.co/pro
 
 With multiple changes to the back office UI intended to expose the most important information and actions, editors can now better focus on their work.
 The UI is now more friendly and appealing for marketers and editors, with simplified Content structure, designed with new and non-advanced users in mind.
+
 For more information, see [Focus mode](https://doc.ibexa.co/projects/userguide/en/latest/getting_started/discover_ui/#focus-mode).
 
 ![Focus mode](img/4.6_focus_mode.png "Focus mode")
@@ -141,9 +142,7 @@ on the dashboard within Recent activity block, or on the user profile.
 
 ![Recent activity log](img/4.6_activity_list.png "Recent activity log")
 
-For more information,
-see feature's [user documentation](https://doc.ibexa.co/projects/userguide/en/master/recent_activity/recent_activity/),
-and [developer documentation](https://doc.ibexa.co/en/master/administration/recent_activity/recent_activity/).
+For more information, see feature's [User Documentation](https://doc.ibexa.co/projects/userguide/en/master/recent_activity/recent_activity/), and [Developer Documentation](https://doc.ibexa.co/en/master/administration/recent_activity/recent_activity/).
 
 #### back office search
 
@@ -157,9 +156,7 @@ If a relevant suggestion occurs, it can be clicked, or navigated too with up/dow
 In the search result page, a spellcheck suggestion can be made.
 For example, if the searched text is "Comany", the result page may ask "Did you mean company?", which is clickable to relaunch the search with this word.
 
-For more information,
-see [user documentation](https://doc.ibexa.co/projects/userguide/en/master/search/search_for_content/),
-and how to [customize autocompletion suggestions](https://doc.ibexa.co/en/master/administration/back_office/customize_search_suggestion/).
+For more information, see [User Documentation](https://doc.ibexa.co/projects/userguide/en/master/search/search_for_content/), and how to [customize autocompletion suggestions](https://doc.ibexa.co/en/master/administration/back_office/customize_search_suggestion/).
 
 ##### Filtering and sorting
 
@@ -167,9 +164,7 @@ The search result page can be sorted in other orders than relevance. Name, publi
 
 Filters can be applied to the search page to narrow down the results.
 
-For more information,
-see [user documentation](https://doc.ibexa.co/projects/userguide/en/master/search/search_for_content/#filtered-search),
-and how to [customize search sorting](https://doc.ibexa.co/en/master/administration/back_office/customize_search_sorting/).
+For more information, see [User Documentation](https://doc.ibexa.co/projects/userguide/en/master/search/search_for_content/#filtered-search), and how to [customize search sorting](https://doc.ibexa.co/en/master/administration/back_office/customize_search_sorting/).
 
 #### New and updated content type icons
 
@@ -455,7 +450,7 @@ Any third party code that extends `\Ibexa\Contracts\Rest\Output\Generator` needs
 
 A new helper method `ibexa.helpers.contentType.getContentTypeDataByHref` has been introduced to help you get content type data in JavaScript.
 
-### Ibexa Connect
+### [[= product_name_connect =]]
 
 For a list of changes in [[= product_name_connect =]], see [Ibexa app release notes](https://doc.ibexa.co/projects/connect/en/latest/general/ibexa_app_release_notes/).
 
@@ -465,11 +460,13 @@ New [[= product_name_connect =]] scenario block retrieves and displays data from
 Scenario block is a regular Page block and can be configured on field definition level as any other block.
 You also need to configure scenario block in the Page Builder. To do it, you need to provide name for the block, enter webhook link for the [[= product_name_connect =]] webhook and select the template to be used to present the webhook.
 
-For more information, see [Ibexa Connect scenario block](https://doc.ibexa.co/en/master/content_management/pages/ibexa_connect_scenario_block/).
+For more information, see [[[= product_name_connect =]] scenario block](https://doc.ibexa.co/en/master/content_management/pages/ibexa_connect_scenario_block/).
 
 ### DDEV
 
-[[[= product_name =]] can officially be run on DDEV](https://ddev.readthedocs.io/en/latest/users/quickstart/#ibexa-dxp). For more information, see the [DDEV guide](https://doc.ibexa.co/en/master/getting_started/install_with_ddev/), which offers a step-by-step walkthrough for installing [[= product_name =]].
+[[[= product_name =]] can officially be run on DDEV](https://ddev.readthedocs.io/en/latest/users/quickstart/#ibexa-dxp).
+
+For more information, see the [DDEV guide](https://doc.ibexa.co/en/master/getting_started/install_with_ddev/), which offers a step-by-step walkthrough for installing [[= product_name =]].
 
 ### Customer Data Platform (CDP)
 

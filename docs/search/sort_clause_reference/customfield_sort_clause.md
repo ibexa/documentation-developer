@@ -12,7 +12,7 @@ sorts search results by raw search index fields.
 
 !!! caution
 
-    To keep your project search engine independent, do not use the `CustomField` Sort Clause in production code.
+    To keep your project search engine independent, don't use the `CustomField` Sort Clause in production code.
     Valid use cases are: testing, or temporary (one-off) tools.
 
 The `CustomField` Sort Clause isn't available in [Repository filtering](search_api.md#repository-filtering).

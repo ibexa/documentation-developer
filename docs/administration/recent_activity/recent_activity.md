@@ -8,7 +8,7 @@ Recent activity log displays last actions in the repository (whatever their orig
 
 ![Recent activity](admin_panel_recent_activity.png)
 
-To learn more about its back office usage and the actions logged by default, see [Recent activity in the User documentation]([[= user_doc =]]/recent_activity/recent_activity/).
+To learn more about its back office usage and the actions logged by default, see [Recent activity in User Documentation]([[= user_doc =]]/recent_activity/recent_activity/).
 
 ## Configuration and cronjob
 
@@ -51,7 +51,7 @@ This policy is required to view [activity log in user profile]([[= user_doc =]]/
 
 !!! caution
 
-    Do not assign `activity_log/read` permission to the Anonymous role, even with the owner limitation, because this role is shared among all unauthenticated users.
+    Don't assign `activity_log/read` permission to the Anonymous role, even with the owner limitation, because this role is shared among all unauthenticated users.
 
 ## User privacy
 
@@ -131,7 +131,7 @@ migration
 !!! caution
 
     Keep activity logging as light as possible.
-    Do not make database requests or heavy computation at logging time.
+    Don't make database requests or heavy computation at logging time.
     Keep them for activity log list display time.
 
 #### Create an entry

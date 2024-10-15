@@ -47,7 +47,7 @@ See Upgrade documentation on how to perform the actual upgrade: [Upgrade (eZ Pub
 !!! caution "Avoid exception when migrating the database"
 
     If you plan to migrate from from eZ Publish through eZ Publish Platform 5.4 to eZ Platform and further, an exception may occur when you try to migrate the database while it contains internal drafts of landing pages.
-    This can happen because such drafts do not have an expected row in the `ezcontentobject_name` table.<a id="migration_exception"></a> 
+    This can happen because such drafts don't have an expected row in the `ezcontentobject_name` table.<a id="migration_exception"></a> 
     
     To avoid this exception, you must remove all internal drafts before you migrate. 
     First, in `content.ini`, set the `InternalDraftsCleanUpLimit` and `InternalDraftsDuration` values to 0. 

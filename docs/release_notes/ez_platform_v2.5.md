@@ -21,9 +21,9 @@ Each content item has a unique icon that helps you identify it without opening.
 
 ![Content tree in the menu](left_menu_tree.png "Content tree in the menu")
 
-For more information on custom configuration, see [content tree](https://doc.ibexa.co/en/2.5/guide/config_back_office/#content-tree) in the developer documentation.
+For more information on custom configuration, see [content tree](https://doc.ibexa.co/en/2.5/guide/config_back_office/#content-tree) in Developer Documentation.
 
-For full description of the interface, see [content tree](https://doc.ibexa.co/projects/userguide/en/2.5/content_model/#content-tree) in the user documentation.
+For full description of the interface, see [content tree](https://doc.ibexa.co/projects/userguide/en/2.5/content_model/#content-tree) in User Documentation.
 
 ### Webpack Encore
 
@@ -44,7 +44,7 @@ Database schema is now created based on [YAML configuration](https://github.com/
 You can now take advantage of [GraphQL](https://doc.ibexa.co/en/2.5/api/graphql) to query and operate on content.
 It uses a domain schema based on your content model.
 
-See [GraphQL documentation](https://graphql.org/) for more information about GraphQL in general.
+For more information, see [GraphQL documentation](https://graphql.org/).
 
 ### Matrix field type
 

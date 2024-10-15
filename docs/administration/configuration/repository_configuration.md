@@ -10,7 +10,7 @@ You can define several Repositories within a single application. However, you ca
 
 ### Using default values
 
-To use the default Repository connection, you do not need to specify its details:
+To use the default Repository connection, you don't need to specify its details:
 
 ``` yaml
 ibexa:
@@ -46,7 +46,7 @@ ibexa:
 #### Multisite URI matching with multi-Repository setup
 
 You can use only one Repository (database) per domain.
-This does not prohibit using [different Repositories](persistence_cache.md#multi-repository-setup) on different subdomains.
+This doesn't prohibit using [different Repositories](persistence_cache.md#multi-repository-setup) on different subdomains.
 However, when using URI matching for multisite setup, all SiteAccesses sharing domain also need to share Repository.
 For example:
 
@@ -80,7 +80,7 @@ ibexa:
                 prefix: Ibexa\Bundle\Core\Entity
 ```
 
-Refer to [DoctrineBundle documentation](https://symfony.com/doc/3.4/reference/configuration/doctrine.html) for more information.
+For more information, see [DoctrineBundle documentation](https://symfony.com/doc/3.4/reference/configuration/doctrine.html).
 
 !!! note
 

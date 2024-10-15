@@ -17,8 +17,9 @@ This method adds fields for `x` and `y` coordinates.
 
 ## Add a Form Mapper Interface
 
-The FormMapper adds the field definitions into Symfony forms using the `add()` method. 
+The FormMapper adds the field definitions into Symfony forms using the `add()` method.
 The `FieldValueFormMapperInterface` provides an edit form for your field type in the administration interface.
+
 For more information about the FormMappers, see [field type form and template](form_and_template.md).
 
 First, implement a `FieldValueFormMapperInterface` interface (`Ibexa\Contracts\ContentForms\FieldType\FieldValueFormMapperInterface`) to field type definition in the `src/FieldType/Point2D/Type.php`.

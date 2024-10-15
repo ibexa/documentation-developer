@@ -29,6 +29,7 @@ and use assets such as images directly from the DAM in your content.
 ### Autosave
 
 [[= product_name_base =]] Platform can now save your edits in a content item or product automatically to help you preserve the progress in an event of a failure.
+
 For more information, see [Autosave](https://doc.ibexa.co/projects/userguide/en/latest/publishing/publishing/#autosave).
 
 ### Aggregation API
@@ -39,7 +40,7 @@ to group search results and get the count of results per aggregation type.
 You can aggregate results by general conditions such as content type or Section,
 or by Field aggregations such as the value of specific Fields.
 
-See [Aggregation API](https://doc.ibexa.co/en/latest/api/public_php_api_search/#aggregation) for more information.
+For more information, see [Aggregation API](https://doc.ibexa.co/en/latest/api/public_php_api_search/#aggregation).
 
 ### Targeting block and Segmentation API [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
@@ -60,7 +61,7 @@ Use `ez_render_content(content)` and `ez_render_location(location)` to render th
 
 You can also use `ez_render()` and provide it with either a content or Location object.
 
-See [Using `ez_render` Twig helpers](https://doc.ibexa.co/en/latest/guide/templates/#using-ez_render-twig-helpers) for more information.
+For more information, see [Using `ez_render` Twig helpers](https://doc.ibexa.co/en/latest/guide/templates/#using-ez_render-twig-helpers).
 
 ### JWT authentication
 
@@ -69,9 +70,9 @@ and [GraphQL](https://doc.ibexa.co/en/latest/api/graphql/#jwt-authentication).
 
 See [JWT authentication](https://doc.ibexa.co/en/latest/guide/security/#jwt-authentication) to learn how to configure this authentication method.
 
-### Searching in Ibexa Commerce with Elasticsearch [[% include 'snippets/commerce_badge.md' %]]
+### Searching in [[= product_name_com =]] with Elasticsearch [[% include 'snippets/commerce_badge.md' %]]
 
-You can now use Elasticsearch for searching in Ibexa Commerce.
+You can now use Elasticsearch for searching in [[= product_name_com =]].
 
 See [Install Ibexa Platform](https://doc.ibexa.co/en/latest/getting_started/install_ez_platform/#install-and-configure-a-search-engine) to learn how to install and configure the search engine.
 
@@ -83,7 +84,7 @@ You can now define user group skeletons where you define policies and limitation
 You can then associate a number of such skeletons with a site template. 
 User group skeletons survive deleting a site.
 
-See [Configure user group skeleton](https://doc.ibexa.co/en/latest/guide/multisite/site_factory_configuration/#user-group-skeletons) for more information.
+For more information, see [Configure user group skeleton](https://doc.ibexa.co/en/latest/guide/multisite/site_factory_configuration/#user-group-skeletons).
 
 ### Calendar widget improvements
 
@@ -96,7 +97,7 @@ For more information, see [Calendar widget](https://doc.ibexa.co/projects/usergu
 
 ### Cloning content types
 
-When creating content types in the back office, you do not have to start from scratch.
+When creating content types in the back office, you don't have to start from scratch.
 You can now clone an existing content type instead.
 
 To do this, click the **Copy** icon located next to the content type that you want to clone.
@@ -109,6 +110,6 @@ to [get Object states and Object state groups](https://doc.ibexa.co/en/latest/ap
 
 ## Full changelog
 
-| Ibexa Platform  | Ibexa DXP  | Ibexa Commerce |
+| Ibexa Platform  | [[= product_name =]]  | [[= product_name_com =]] |
 |--------------|------------|------------|
-| [Ibexa Platform v3.2.0](https://github.com/ezsystems/ezplatform/releases/tag/v3.2.0) | [Ibexa DXP v3.2.0](https://github.com/ezsystems/ezplatform-ee/releases/tag/v3.2.0) | [Ibexa Commerce v3.2.0](https://github.com/ezsystems/ezcommerce/releases/tag/v3.2.0)
+| [Ibexa Platform v3.2.0](https://github.com/ezsystems/ezplatform/releases/tag/v3.2.0) | [[[= product_name =]] v3.2.0](https://github.com/ezsystems/ezplatform-ee/releases/tag/v3.2.0) | [[[= product_name_com =]] v3.2.0](https://github.com/ezsystems/ezcommerce/releases/tag/v3.2.0)

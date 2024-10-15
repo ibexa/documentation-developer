@@ -368,7 +368,7 @@ that .vcl code for Varnish V6.x doesn't likely work as-is on Fastly.
 This section describes to how to debug problems related to HTTP cache. 
 	You must be able to look both at responses and headers [[= product_name =]] sends to HTTP cache, and not so much at responses and headers
 	the HTTP cache sends to the client (web browser).
-	It means you must be able to send requests to your origin (web server) that do not go through Varnish or Fastly.
+	It means you must be able to send requests to your origin (web server) that don't go through Varnish or Fastly.
 	If you run Nginx and Varnish on premise, you should know what host and port number both Varnish and Nginx runs on.
   If you perform tests on Fastly enabled environment on [[= product_name_cloud =]] provided by Platform.sh, you need to use the Platform.sh
 	dashboard to obtain the endpoint for Nginx.
@@ -405,7 +405,7 @@ Typically, you can add a `gw` to the hostname and use nslookup to find it.
    Address:  1.2.3.4
 ```
 
-You can also use the [Ibexa Cloud CLI](https://cli.ibexa.co/) (which has the same command as the Platform.sh CLI) to find [the endpoint](https://docs.platform.sh/domains/steps/dns.html):
+You can also use the [[[= product_name_cloud =]] CLI](https://cli.ibexa.co/) (which has the same command as the Platform.sh CLI) to find [the endpoint](https://docs.platform.sh/domains/steps/dns.html):
 
 ```bash
     ibexa_cloud environment:info edge_hostname
@@ -602,4 +602,4 @@ The `Set-Cookie` here may cause the problem. A ESI fragment should never set a c
 
 - It means that it's not recommended to always initiate a session when loading the front page.
 
-You must ensure that you do not unintendedly start a session in a controller used by ESIs, for example, when trying to access as session variable before a session has been initiated yet.
+You must ensure that you don't unintendedly start a session in a controller used by ESIs, for example, when trying to access as session variable before a session has been initiated yet.

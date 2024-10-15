@@ -218,6 +218,6 @@ You can configure integration at a more advanced level to track more events,
 use additional parameters, apply custom scenario configurations, filters,
 and enable additional features.
 
-For more information about available functionalities, see the [User Documentation]([[= user_doc =]]/personalization/personalization).
+For more information about available functionalities, see [User Documentation]([[= user_doc =]]/personalization/personalization).
 
 For more information about integrating the Personalization service, see [tracking API](tracking_api.md) and [tracking integration](tracking_integration.md) documentation.

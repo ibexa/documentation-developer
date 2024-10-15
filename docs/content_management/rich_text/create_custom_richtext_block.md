@@ -75,5 +75,4 @@ You can now add your block in the Site tab.
 
 ![RichText block](extending_richtext_block.png)
 
-For more information about customizing additional options of the block or creating 
-custom blocks with other attribute types, see [Create custom Page block](create_custom_page_block.md).
+For more information about customizing additional options of the block or creating custom blocks with other attribute types, see [Create custom Page block](create_custom_page_block.md).

@@ -13,8 +13,8 @@ To be able to configure this feature, you need [Fastly IO subscription](https://
 
 To use Fastly Image Optimizer, you first need a [working setup of [[= product_name =]] and Fastly](reverse_proxy.md#using-varnish-or-fastly)
 with shielding enabled.
-To enable shielding, follow the steps in [Fastly developer documentation](https://developer.fastly.com/learning/concepts/shielding/#enabling-and-disabling-shielding).
-Remember to choose a shield location from the **Shielding** menu, as described in [Fastly user documentation](https://docs.fastly.com/en/guides/shielding#enabling-shielding).
+To enable shielding, follow the steps in [Fastly Developer Documentation](https://developer.fastly.com/learning/concepts/shielding/#enabling-and-disabling-shielding).
+Remember to choose a shield location from the **Shielding** menu, as described in [Fastly User Documentation](https://docs.fastly.com/en/guides/shielding#enabling-shielding).
 
 ## VCL configuration
 

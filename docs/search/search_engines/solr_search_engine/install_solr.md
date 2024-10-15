@@ -71,7 +71,7 @@ This setting is **required** if you want to see the changes after publish. it's 
 ### Generate Solr configuration automatically
 
 The command line tool `bin/generate-solr-config.sh` generates Solr 7 configuration automatically.
-It can be used for deploying to Ibexa Cloud (Platform.sh) and on-premise installs.
+It can be used for deploying to [[= product_name_cloud =]] (Platform.sh) and on-premise installs.
 
 Execute the script from the [[= product_name =]] root directory for further information:
 
@@ -227,7 +227,10 @@ ibexa_solr:
 This solution uses the default SolrCloud [document routing strategy: `compositeId`](https://lucene.apache.org/solr/guide/7_7/shards-and-indexing-data-in-solrcloud.html#ShardsandIndexingDatainSolrCloud-DocumentRouting).
 
 ### Solr Basic HTTP Authorization
-Solr core can be secured with Basic HTTP Authorization. See more information here: [Solr Basic Authentication Plugin](https://cwiki.apache.org/confluence/display/solr/Basic+Authentication+Plugin).
+Solr core can be secured with Basic HTTP Authorization.
+
+For more information, see [Solr Basic Authentication Plugin](https://cwiki.apache.org/confluence/display/solr/Basic+Authentication+Plugin).
+
 In the example below we configured Solr Bundle to work with secured Solr core.
 
 ``` yaml

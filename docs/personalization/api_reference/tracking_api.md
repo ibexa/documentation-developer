@@ -14,16 +14,18 @@ The most popular user events are:
 - Login - When a user logs in on a website
 - Clickrecommended - When a user clicks a recommendation
 
-For a complete list of events, see [Event types]([[= user_doc =]]/personalization/event_types) in the user documentation. 
+For a complete list of events, see [Event types]([[= user_doc =]]/personalization/event_types) in User Documentation. 
 Depending on the event type, some additional parameters, such as item price
 or user rating, must be provided.
 
 Importing historical user data can help you reduce the delay in delivery of high
 quality recommendations.
+
 For more information, see [Importing historical user tracking data](importing_historical_user_tracking_data.md).
 
 Apart from the tracking API, you can add tracking to the website by integrating
 a JavaScript library.
+
 For more information, see [Tracking with ibexa-tracker.js](tracking_with_ibexa-tracker.md).
 
 ## Definitions
@@ -127,7 +129,7 @@ In the case of bestsellers, this could lead to the appearance of a shirt
 in size L on position 2 and the same shirt in size M on position 4.
 
 Customer B decides to use the UPC as item identifiers.
-This results in recommendations that do not contain variations of the currently shown item.
+This results in recommendations that don't contain variations of the currently shown item.
 Therefore, the detail page of shirt X does not contain a recommendation
 for the same shirt in a different size.
 And the same shirt does not show up twice on a list of bestseller recommendations.
@@ -174,8 +176,7 @@ Multiple category locations of an item (multi-homing) are therefore possible.
     Events are forwarded to the Personalization server with HTTP or HTTPS requests
     (or [RESTful-Requests](https://en.wikipedia.org/wiki/Representational_state_transfer)).
     Both GET and POST methods are allowed for the event tracking.
-    Make sure that all embedded and query string parameters are URL encoded and
-    do not use a backslash, encoded as %5C\.
+    Make sure that all embedded and query string parameters are URL encoded and don't use a backslash, encoded as %5C\.
 
 ### Event parameters
 
@@ -211,7 +212,7 @@ This event has no query string parameters.
 
 ### Blacklist event
 
-If a website offers a link or button that allows feedback similar to "do not
+If a website offers a link or button that allows feedback similar to "don't
 recommend this product to me anymore", a user could express that they have bought
 it already in another shop.
 
@@ -257,6 +258,7 @@ The price must be a price the user paid for the item, including all taxes and di
 
 If product price filtering is activated, the information provided over the product
 import is used.
+
 For more information, see [Content API](content_api.md).
 
 The currency is stored with the price and normalized only when statistic information
@@ -290,7 +292,7 @@ Some optional request parameters can be set over query string parameters (GET pa
 
 |Name|Description|Values|
 |---|---|---|
-|`categorypath`|The forward slash-separated path of categories of the item. Like all other parameters it must be URL-encoded, for example `%2FCameras%26Foto%2FCompact%20Cameras%2FCanon`.</br>For use cases, see [Category path filters]([[= user_doc =]]/personalization/filters/#category-path-filters) in the user documentation.|URL-encoded string.</br>Initial and trailing slashes are ignored: "/Cameras/" is the same as "Cameras".|
+|`categorypath`|The forward slash-separated path of categories of the item. Like all other parameters it must be URL-encoded, for example `%2FCameras%26Foto%2FCompact%20Cameras%2FCanon`.</br>For use cases, see [Category path filters]([[= user_doc =]]/personalization/filters/#category-path-filters) in User Documentation.|URL-encoded string.</br>Initial and trailing slashes are ignored: "/Cameras/" is the same as "Cameras".|
 
 ### Consume event
 

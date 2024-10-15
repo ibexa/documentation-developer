@@ -45,7 +45,7 @@ Compare all features available in [[= product_name_headless =]], [[= product_nam
 | [Customer Portal](customer_portal_guide.md) |  | &#10004; | &#10004; |
 | [Segments](segments_admin_panel.md) |  | &#10004; | &#10004; |
 | [Recent activity](recent_activity.md) |  | &#10004; | &#10004; |
-| [Ibexa Engage add-on]([[= user_doc =]]/ibexa_engage/ibexa_engage/) |  | &#10004; | &#10004; |
+| [[[= product_name_engage =]] add-on]([[= user_doc =]]/ibexa_engage/ibexa_engage/) |  | &#10004; | &#10004; |
 | [Customer Data Platform (CDP) add-on](cdp_guide.md) |  | &#10004; | &#10004; |
 | [Order management](order_management.md) |  |  | &#10004; |
 | [Payment management](payment.md) |  |  | &#10004; |

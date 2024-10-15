@@ -18,8 +18,8 @@ You indicate which controller to use in the [content view configuration](templat
 
 For a full example of using a custom controller, see [Embed content](embed_content.md#embed-relations-with-a-custom-controller).
 
-If you do not want to use the default view controller and only use a custom one,
-use the same configuration, but do not provide the `template` key.
+If you don't want to use the default view controller and only use a custom one,
+use the same configuration, but don't provide the `template` key.
 You have to indicate the template to use from the controller itself.
 
 !!! tip "Permissions for custom controllers"

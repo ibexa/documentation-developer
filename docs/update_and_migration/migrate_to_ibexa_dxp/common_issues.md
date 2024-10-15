@@ -22,7 +22,8 @@ issues that can occur after migration to [[= product_name =]].
 ## Regenerating URL aliases
 
 To regenerate URL aliases, use the `ibexa:urls:regenerate-aliases` command.
-See [Regenerating URL aliases](url_management.md#regenerating-url-aliases) for more information.
+
+For more information, see [Regenerating URL aliases](url_management.md#regenerating-url-aliases).
 
 !!! note
 

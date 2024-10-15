@@ -20,7 +20,7 @@ In addition, if the main Location of a content item with multiple Location assig
 
 When content is moved to a different Location, the item itself and all of its subtree are assigned to the Section of the new Location.
 It works only for copy and move.
-Assigning a new Section to a parent content item does not affect the subtree, meaning that subtree cannot currently be updated this way.
+Assigning a new Section to a parent content item doesn't affect the subtree, meaning that subtree cannot currently be updated this way.
 
 Sections can only be removed if no content items are assigned to them.
 Even then, it should be done carefully.

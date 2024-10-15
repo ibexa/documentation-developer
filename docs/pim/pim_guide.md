@@ -181,7 +181,7 @@ Catalogs can be created just like with the local PIM, but the criteria are limit
 
 #### Limitations
 
-The default implementation, which serves as a basis for the example remote PIM package, has some limitations: certain functionalities either do not operate or operate within defined constraints.
+The default implementation, which serves as a basis for the example remote PIM package, has some limitations: certain functionalities either don't operate or operate within defined constraints.
 Therefore, if your specific requirements aren't met, you may need to extend [[= product_name =]].
 
 ##### Editing product types, products and product attributes
@@ -203,7 +203,7 @@ Therefore, if your specific requirements aren't met, you must extend the applica
 ##### Simplified presentation of PIM-related blocks and views
 
 Enabling Remote PIM impacts a number of application views and blocks, such as Product view, Product list, Catalog and Product Collection.
-they're simplified, for example, they do not include thumbnails and other assets, or refer to URL aliases.
+they're simplified, for example, they don't include thumbnails and other assets, or refer to URL aliases.
 You can customize them by extending the default implementation.
 
 ##### Limited HTTP Caching
@@ -220,7 +220,7 @@ For this, the following configuration is required:
 - at least one price added for the product,
 - availability of the product set with positive or infinitive stock.
 
-Next, follow steps from [product management in user documentation]([[= user_doc =]]/persona_paths/manage_products/).
+Next, follow steps from [product management in User Documentation]([[= user_doc =]]/persona_paths/manage_products/).
 
 ## Benefits
 

@@ -334,13 +334,11 @@ This limitation can be used as a role limitation.
 
 ### Usage notes
 
-For more information on how to restrict user's access to part of the Subtree 
-follow [the example in the Admin management section](permission_use_cases.md#restrict-editing-to-part-of-the-tree).
+For more information on how to restrict user's access to part of the Subtree, see [the example in the Admin management section](permission_use_cases.md#restrict-editing-to-part-of-the-tree).
 
 ## Version Lock limitation
 
-The Version Lock (`VersionLock`) limitation specifies whether the user can perform actions, for example, edit 
-or unlock, on content items that are in a workflow.
+The Version Lock (`VersionLock`) limitation specifies whether the user can perform actions, for example, edit or unlock, on content items that are in a workflow.
 
 This limitation can be used as a role limitation.
 

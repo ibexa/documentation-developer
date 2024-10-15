@@ -89,6 +89,7 @@ and can be used for recommendation engine filtering.
 
 This release brings you a new content type for private customers registering from the front page.
 We also prepared a migration command for already existing users to ease your upgrade process.
+
 For more information, refer to upgrade documentation.
 
 ### API improvements
@@ -119,9 +120,9 @@ The `TaxonomyEntryId` Search Criterion isn't available in Legacy search Engine.
 
 ## Full changelog
 
-| Ibexa Content  | Ibexa Experience  | Ibexa Commerce |
+| [[= product_name_content =]]  | [[= product_name_exp =]]  | [[= product_name_com =]] |
 |--------------|------------|------------|
-| [Ibexa Content v4.3](https://github.com/ibexa/content/releases/tag/v4.3.0) | [Ibexa Experience v4.3](https://github.com/ibexa/experience/releases/tag/v4.3.0) | [Ibexa Commerce v4.3](https://github.com/ibexa/commerce/releases/tag/v4.3.0)|
+| [[[= product_name_content =]] v4.3](https://github.com/ibexa/content/releases/tag/v4.3.0) | [[[= product_name_exp =]] v4.3](https://github.com/ibexa/experience/releases/tag/v4.3.0) | [[[= product_name_com =]] v4.3](https://github.com/ibexa/commerce/releases/tag/v4.3.0)|
 
 ## v4.3.1
 

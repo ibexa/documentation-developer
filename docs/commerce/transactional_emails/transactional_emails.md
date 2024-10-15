@@ -77,7 +77,7 @@ For a complete list of parameters, see [Transactional email variables reference]
 
 !!! Tip
 
-    When you invent names for your campaigns, keep them simple, and do not use special characters or spaces.
+    When you invent names for your campaigns, keep them simple, and don't use special characters or spaces.
 
 
 Campaign emails can be sent in one language only.

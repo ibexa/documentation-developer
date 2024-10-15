@@ -14,7 +14,7 @@ It's automatically applied to any new content item of this Type.
 A content item with this flag is available in its main language
 even if it's not translated into the language of the current SiteAccess.
 
-Without the flag, a content item isn't available at all if it does not have a language version
+Without the flag, a content item isn't available at all if it doesn't have a language version
 corresponding to the current SiteAccess.
 
 !!! note

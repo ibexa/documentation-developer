@@ -5,7 +5,7 @@ edition: experience
 
 # Customer Data Platform (CDP)
 
-## What is Ibexa CDP
+## What is [[= product_name_cdp =]]
 
 [[= product_name_cdp =]] helps you solve one of the hardest challenges facing business world today: building unique experiences for your customers.
 With [[= product_name_cdp =]] you're able to track and aggregate data of your customers' activity on multiple channels.

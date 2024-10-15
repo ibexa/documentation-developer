@@ -11,7 +11,7 @@ To set up the starter website, you need to follow these steps:
 
 To begin the tutorial, you need a clean installation of [[= product_name_exp =]].
 
-Get it by following the [Install Ibexa DXP](install_ibexa_dxp.md) guide.
+Get it by following the [Install [[= product_name =]]](install_ibexa_dxp.md) guide.
 
 ## Add content types
 
@@ -112,7 +112,7 @@ First, you can hide unneeded content items from the project root.
 Go to **Content structure** and select "Ibexa Digital Experience Platform".
 In the **Sub-items** tab, select all the current sub-items and click the **Hide** icon:
 
-![Hiding content items you do not need](enterprise_tut_hide_content.png)
+![Hiding content items you don't need](enterprise_tut_hide_content.png)
 
 Next, under "Ibexa Digital Experience Platform", create three Folders. Call them 'All Articles', 'Dog Breed Catalog' and 'All Tips'.
 Remember that you can **Save and close** them, but you should use the **Publish** button.

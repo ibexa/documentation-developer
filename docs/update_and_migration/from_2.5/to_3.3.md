@@ -47,7 +47,7 @@ If you haven't done it before, add the relevant meta-repository as an `upstream`
 
 Merge the current skeleton into your project:
 
-=== "Ibexa Content"
+=== "[[= product_name_content =]]t"
 
     ``` bash
     git remote add content-skeleton https://github.com/ibexa/content-skeleton.git
@@ -55,7 +55,7 @@ Merge the current skeleton into your project:
     git merge v[[= latest_tag =]] --allow-unrelated-histories
     ```
 
-=== "Ibexa Experience"
+=== "[[= product_name_exp =]]"
 
     ``` bash
     git remote add experience-skeleton https://github.com/ibexa/experience-skeleton.git
@@ -63,7 +63,7 @@ Merge the current skeleton into your project:
     git merge v[[= latest_tag =]] --allow-unrelated-histories
     ```
 
-=== "Ibexa Commerce"
+=== "[[= product_name_com =]]"
 
     ``` bash
     git remote add commerce-skeleton https://github.com/ibexa/commerce-skeleton.git

@@ -24,7 +24,7 @@ You can also convert multiple files using `ibexa:migrations:kaliop:bulk-convert`
 php bin/console ibexa:migrations:kaliop:bulk-convert --recursive kaliop_files ibexa_files
 ```
 
-If you do not specify the output folder, the command overwrites the input files.
+If you don't specify the output folder, the command overwrites the input files.
 
 ## Adding migration files
 

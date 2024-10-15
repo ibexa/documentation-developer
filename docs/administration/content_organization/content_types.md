@@ -17,7 +17,7 @@ Content types are organized into groups.
 
 You can add your own groups here to keep your content types in better order.
 
-For a full tutorial, see [Add a content type](first_steps.md#add-a-content-type) or follow [user documentation](https://doc.ibexa.co/projects/userguide/en/latest/content_management/create_edit_content_types/).
+For a full tutorial, see [Add a content type](first_steps.md#add-a-content-type) or follow [User Documentation](https://doc.ibexa.co/projects/userguide/en/latest/content_management/create_edit_content_types/).
 For a detailed overview of the content model, see [Content model overview](content_model.md).
 
 ## Content type metadata
@@ -29,7 +29,7 @@ It can consist of letters, digits, spaces, and special characters (it's mandator
 
 !!! note
 
-    Even if your content type defines a field intended as a name for the content item (for example, a title of an article or product name), do not confuse it with this Name, which is a piece of metadata, not a field.
+    Even if your content type defines a field intended as a name for the content item (for example, a title of an article or product name), don't confuse it with this Name, which is a piece of metadata, not a field.
 
 **Identifier** – an identifier for internal use in configuration files, templates, PHP code, etc. 
 It must be unique, can only contain lowercase letters, digits, and underscores (it's mandatory and the maximum length is 50 characters).

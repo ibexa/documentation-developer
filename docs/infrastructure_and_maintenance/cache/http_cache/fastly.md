@@ -7,23 +7,23 @@ description: Configure Fastly for use with Ibexa DXP.
 You can configure Fastly by using API calls or through the Fastly Web Interface. 
 Fastly provides a [Fastly CLI](https://developer.fastly.com/reference/cli/) for configuring Fastly through its API.
 
-Ibexa Cloud is delivered with Fastly preconfigured. 
+[[= product_name_cloud =]] is delivered with Fastly preconfigured. 
 It means that you don't have to do any changes to the Fastly configuration to make your site work. 
-The information provided here is only applicable if you want to change the default Fastly configuration on Ibexa Cloud, 
-or if you're not using Ibexa Cloud and want to configure Fastly to work with [[= product_name =]] on premise.
+The information provided here is only applicable if you want to change the default Fastly configuration on [[= product_name_cloud =]], 
+or if you're not using [[= product_name_cloud =]] and want to configure Fastly to work with [[= product_name =]] on premise.
 
-!!! note "The Fastly Web Interface isn't available for Ibexa Cloud"
-    It's recommend for Ibexa Cloud customers to use the Fastly CLI instead of using the Fastly API directly with `curl`, and so on.
+!!! note "The Fastly Web Interface isn't available for [[= product_name_cloud =]]"
+    It's recommend for [[= product_name_cloud =]] customers to use the Fastly CLI instead of using the Fastly API directly with `curl`, and so on.
 
 !!! note "Disable Varnish when you use Fastly"
-    Varnish is automatically provisioned on Ibexa Cloud. Varnish needs to be disabled on all environments that use
+    Varnish is automatically provisioned on [[= product_name_cloud =]]. Varnish needs to be disabled on all environments that use
     Fastly. See [documentation on how to do that](https://docs.platform.sh/guides/ibexa/fastly.html).
 
 ## Prepare for using Fastly locally
 
-These steps aren't needed when you use Ibexa Cloud, because Fastly is preconfigured in it.
+These steps aren't needed when you use [[= product_name_cloud =]], because Fastly is preconfigured in it.
 
-### Get Fastly credentials from Ibexa Cloud installation
+### Get Fastly credentials from [[= product_name_cloud =]] installation
 
 To use Fastly CLI or Fastly API directly, you need to obtain the credentials for your site.
 To obtain the credentials, connect to your Fastly-enabled environment (for example, production or staging) through SSH and run the following command:

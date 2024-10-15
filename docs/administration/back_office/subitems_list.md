@@ -104,7 +104,7 @@ Optionally, Sub-items module can take a following list of props:
 
 ## Reuse Sub-items list
 
-To add a Sub-items list on a page that does not have the (right) action sidebar, you need to do one of the following things:
+To add a Sub-items list on a page that doesn't have the (right) action sidebar, you need to do one of the following things:
 
 - add a `<div>` element with the `.ibexa-extra-actions-container` selector
 - change the selector in the Sub-items settings by sending the `languageContainerSelector` prop which takes the selector for the element that renders the `languageSelector`.

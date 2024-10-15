@@ -40,7 +40,9 @@ For example, let's say that you need to store information about marathon contest
 
 ### Access control
 
-You can control whether a user or user group is able to translate content or not. You do this by adding a [Language limitation](limitation_reference.md#language-limitation) to policies that allow creating or editing content. This limitation enables you to define which role can work with which languages in the system. (For more information of the permissions system, see [Permissions](permissions.md).)
+You can control whether a user or user group is able to translate content or not. You do this by adding a [Language limitation](limitation_reference.md#language-limitation) to policies that allow creating or editing content. This limitation enables you to define which role can work with which languages in the system.
+
+For more information of the permissions system, see [Permissions](permissions.md).
 
 In addition, you can also control the access to the global translation list by using the Content/Translations policy. This policy allows users to add and remove languages from the global translation list.
 
@@ -178,6 +180,6 @@ If the `translation_siteaccesses` setting isn't provided, implicit *related S
 
 When setting up SiteAccesses with different language versions, you can specify a list of preset languages for each SiteAccess. When this SiteAccess is used, the system goes through this list. If a content item is unavailable in the first (prioritized) language, it attempts to use the next language in the list, and so on. Thanks to this you can have a fallback in case of a lacking translation.
 
-You can also assign a Default content availability flag to content types (available in the **Admin** panel). When this flag is assigned, content items of this type are available even when they do not have a language version in any of the languages configured for the current SiteAccess.
+You can also assign a Default content availability flag to content types (available in the **Admin** panel). When this flag is assigned, content items of this type are available even when they don't have a language version in any of the languages configured for the current SiteAccess.
 
 If a language isn't provided in the list of prioritized languages and it's not the content item's first language, the URL alias for this content in this language isn't generated.

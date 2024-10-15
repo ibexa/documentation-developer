@@ -103,7 +103,7 @@ The User may, for example, not be allowed to create content, or view a particula
 To skip permission checks, you can use the `sudo()` method.
 It allows API execution to be performed with full access, sand-boxed.
 
-You can use this method to perform an action that the current User does not have permissions for.
+You can use this method to perform an action that the current user doesn't have permissions for.
 
 For example, to [hide a Location](managing_content.md#hiding-and-revealing-locations), use:
 

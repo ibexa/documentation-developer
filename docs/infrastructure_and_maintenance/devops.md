@@ -16,7 +16,7 @@ php bin/console --env=prod cache:clear -h
 
 !!! note
 
-    If you do not specify an environment, by default `cache:clear` clears the cache for the `dev` environment. If you want to clear it for `prod` you need to use the `--env=prod` option.
+    If you don't specify an environment, by default `cache:clear` clears the cache for the `dev` environment. If you want to clear it for `prod` you need to use the `--env=prod` option.
 
 !!! caution "Clustering"
 

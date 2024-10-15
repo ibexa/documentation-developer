@@ -188,7 +188,7 @@ For templates for previewing the field in the back office,
 using the design engine is recommended with `ibexa_standard_design.override_kernel_templates` set to `true`.
 With the design engine you can apply a template (e.g. `Resources/views/themes/admin/content_fields.html.twig`) without any extra configuration.
 
-If you do not use the design engine, apply the following configuration:
+If you don't use the design engine, apply the following configuration:
 
 ``` yaml
 ibexa:
@@ -219,6 +219,4 @@ All built-in field types are implemented with this approach. In that case overri
 {% endblock %}
 ```
 
-!!! tip
-
-    For more information on creating and overriding form type templates, see [Symfony documentation]([[= symfony_doc =]]/form/create_custom_field_type.html#creating-the-form-type-template).
+For more information on creating and overriding form type templates, see [Symfony documentation]([[= symfony_doc =]]/form/create_custom_field_type.html#creating-the-form-type-template).

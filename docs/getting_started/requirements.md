@@ -11,9 +11,9 @@ To review the requirements, select the specific version of [[= product_name =]] 
 
 The following server requirements cover both running the software on-premise and on third-party PaaS providers.
 
-!!! note "Ibexa Cloud"
+!!! note "[[= product_name_cloud =]]"
 
-    For running on [Ibexa Cloud](https://www.ibexa.co/products/ibexa-cloud), where recommended configuration and support is provided out of the box, see separate [Ibexa Cloud section](#ibexa-cloud-requirements-and-setup) for further reading on its requirements.
+    For running on [[[= product_name_cloud =]]](https://www.ibexa.co/products/ibexa-cloud), where recommended configuration and support is provided out of the box, see separate [[[= product_name_cloud =]] section](#ibexa-cloud-requirements-and-setup) for further reading on its requirements.
 
 The minimal setup requires PHP, MySQL/MariaDB, Apache/Nginx, Node.js and `yarn`.
 Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, NFS/EFS/S3 and Solr/Elasticsearch in a [clustered setup](clustering.md).
@@ -360,36 +360,36 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
     - Chromium™ based browsers such as Microsoft® Edge® and Opera®, most recent stable version, desktop *and* tablet
     - Apple® Safari® most recent stable version, desktop *and* tablet
 
-## Ibexa Cloud requirements and setup
+## [[= product_name_cloud =]] requirements and setup
 
-=== "Ibexa Cloud v4.6"
+=== "[[= product_name_cloud =]] v4.6"
 
-    ### Cloud hosting with Ibexa Cloud and Platform.sh
+    ### Cloud hosting with [[= product_name_cloud =]] and Platform.sh
 
-    In general, Ibexa Cloud supports all features and services of [Platform.sh](https://platform.sh/marketplace/ibexa/) that are compatible and supported by the [[= product_name =]] version you use.
+    In general, [[= product_name_cloud =]] supports all features and services of [Platform.sh](https://platform.sh/marketplace/ibexa/) that are compatible and supported by the [[= product_name =]] version you use.
 
     For example:
 
-    - Platform.sh provides Redis support for versions 3.2, 4.0 and 5.0. [[= product_name =]] supports Redis version 4.0 or higher, and recommends 5.0. As a result, Redis is supported on Ibexa Cloud in versions 4.0 and 5.0, but 5.0 is recommended.
+    - Platform.sh provides Redis support for versions 3.2, 4.0 and 5.0. [[= product_name =]] supports Redis version 4.0 or higher, and recommends 5.0. As a result, Redis is supported on [[= product_name_cloud =]] in versions 4.0 and 5.0, but 5.0 is recommended.
 
     Features or services supported by [[= product_name =]] but not covered by Platform.sh may be possible by means of a [custom integration](#custom-integrations).
 
-    ### Ibexa Cloud Setup support matrix
+    ### [[= product_name_cloud =]] Setup support matrix
 
-    All [[= product_name =]] features are supported in accordance with the example above. For example: As Legacy Bridge isn't supported with v3, it's not supported on Ibexa Cloud either.
+    All [[= product_name =]] features are supported in accordance with the example above. For example: As Legacy Bridge isn't supported with v3, it's not supported on [[= product_name_cloud =]] either.
 
     !!! note
 
         As Platform.sh does not support a configuration with multiple PostgreSQL databases,
-        for Ibexa Cloud / Platform.sh it's impossible to have a DFS table in a separate database.
+        for [[= product_name_cloud =]] / Platform.sh it's impossible to have a DFS table in a separate database.
 
-    ### Recommended Ibexa Cloud setup
+    ### Recommended [[= product_name_cloud =]] setup
 
     For more details on recommended setup configuration see bundled `.platform.app.yaml` and `.platform/` configuration files.
 
     These files are kept up-to-date with latest recommendations and can be improved through contributions.
 
-    ### Supported Ibexa Cloud setup
+    ### Supported [[= product_name_cloud =]] setup
 
     Because of the large range of possible configurations of [[= product_name =]], there are many possibilities beyond what is provided in the default recommended configuration.
 
@@ -399,7 +399,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
     - Additional time for adaptation and configuration work, and testing by your development team
     - Additional consulting/onboarding time with Platform.sh, Ibexa technical services, and/or one of the many partners with prior experience using Platform.sh with [[= product_name =]]
 
-    The cost and effort of this isn't included in Ibexa Cloud subscription and is vary depending on the project.
+    The cost and effort of this isn't included in [[= product_name_cloud =]] subscription and is vary depending on the project.
 
     ### Custom integrations
 
@@ -409,34 +409,34 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
     We recommend giving the development team working on the project access to the bucket
     to ensure work is done in a DevOps way without depending on external teams when changes are needed.
 
-=== "Ibexa Cloud v3.3"
+=== "[[= product_name_cloud =]] v3.3"
 
-    ### Cloud hosting with Ibexa Cloud and Platform.sh
+    ### Cloud hosting with [[= product_name_cloud =]] and Platform.sh
 
-    In general, Ibexa Cloud supports all features and services of [Platform.sh](https://platform.sh/marketplace/ibexa/) that are compatible and supported by the [[= product_name =]] version you use.
+    In general, [[= product_name_cloud =]] supports all features and services of [Platform.sh](https://platform.sh/marketplace/ibexa/) that are compatible and supported by the [[= product_name =]] version you use.
 
     For example:
 
-    - Platform.sh provides Redis support for versions 3.2, 4.0 and 5.0. [[= product_name =]] supports Redis version 4.0 or higher, and recommends 5.0. As a result, Redis is supported on Ibexa Cloud in versions 4.0 and 5.0, but 5.0 is recommended.
+    - Platform.sh provides Redis support for versions 3.2, 4.0 and 5.0. [[= product_name =]] supports Redis version 4.0 or higher, and recommends 5.0. As a result, Redis is supported on [[= product_name_cloud =]] in versions 4.0 and 5.0, but 5.0 is recommended.
 
     Features or services supported by [[= product_name =]] but not covered by Platform.sh may be possible by means of a [custom integration](#custom-integrations).
 
-    ### Ibexa Cloud Setup support matrix
+    ### [[= product_name_cloud =]] Setup support matrix
 
-    All [[= product_name =]] features are supported in accordance with the example above. For example: As Legacy Bridge isn't supported with v3, it's not supported on Ibexa Cloud either.
+    All [[= product_name =]] features are supported in accordance with the example above. For example: As Legacy Bridge isn't supported with v3, it's not supported on [[= product_name_cloud =]] either.
 
     !!! note
 
         As Platform.sh does not support a configuration with multiple PostgreSQL databases,
-        for Ibexa Cloud / Platform.sh it's impossible to have a DFS table in a separate database.
+        for [[= product_name_cloud =]] / Platform.sh it's impossible to have a DFS table in a separate database.
 
-    ### Recommended Ibexa Cloud setup
+    ### Recommended [[= product_name_cloud =]] setup
 
     For more details on recommended setup configuration see bundled `.platform.app.yaml` and `.platform/` configuration files.
 
     These files are kept up-to-date with latest recommendations and can be improved through contributions.
 
-    ### Supported Ibexa Cloud setup
+    ### Supported [[= product_name_cloud =]] setup
 
     Because of the large range of possible configurations of [[= product_name =]], there are many possibilities beyond what is provided in the default recommended configuration.
 
@@ -446,7 +446,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
     - Additional time for adaptation and configuration work, and testing by your development team
     - Additional consulting/onboarding time with Platform.sh, Ibexa technical services, and/or one of the many partners with prior experience using Platform.sh with [[= product_name =]]
 
-    The cost and effort of this isn't included in Ibexa Cloud subscription and is vary depending on the project.
+    The cost and effort of this isn't included in [[= product_name_cloud =]] subscription and is vary depending on the project.
 
     ### Custom integrations
 

@@ -41,7 +41,8 @@ For information about available options, see [Gregwar/CaptchaBundle's documentat
 
 !!! note
 
-    If your installation uses Varnish to manage content cache, you must modify the configuration to avoid issues with the Captcha field. For more information, see [Ensure proper captcha behavior](reverse_proxy.md#ensure-proper-captcha-behavior).
+    If your installation uses Varnish to manage content cache, you must modify the configuration to avoid issues with the Captcha field.
+    For more information, see [Ensure proper captcha behavior](reverse_proxy.md#ensure-proper-captcha-behavior).
 
 ## Form submission purging
 

@@ -24,7 +24,9 @@ You need to install [Node.js](https://nodejs.org/en) and [Yarn](https://classic.
 In v2.5 it's still possible to use Assetic, like in earlier versions.
 However, if you're using the latest Bootstrap version, [`scssphp`](https://github.com/leafo/scssphp)
 doesn't compile correctly with Assetic.
-In this case, use Webpack Encore. See [Importing assets from a bundle](importing_assets_from_bundle.md) for more information.
+In this case, use Webpack Encore.
+
+For more information, see [Importing assets from a bundle](importing_assets_from_bundle.md).
 
 If you experience issues during the update, see [Troubleshooting](troubleshooting.md#cloning-failed-using-an-ssh-key).
 

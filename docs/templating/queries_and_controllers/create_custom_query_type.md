@@ -32,8 +32,8 @@ The name defined in `getName()` is the one you use to identify the Query type in
     Query type name must be unique.
 
 The `getQuery()` method constructs the query based on Search Criteria and Sort Clauses.
-See [Content search](search_api.md) for more information about queries
-and [Search reference](search_criteria_reference.md) for a reference of available Criteria and Sort Clauses.
+
+For more information, see [Content search](search_api.md) and [Search reference](search_criteria_reference.md).
 
 The `getSupportedParameters()` method provides the parameters you can set in content view configuration.
 

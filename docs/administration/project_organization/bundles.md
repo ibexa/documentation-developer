@@ -33,7 +33,7 @@ When overriding files, the path inside your application has to correspond to the
 
 ### Removing bundles
 
-To remove a bundle (either one you created yourself, or an out-of-the-box one that you do not need), see the [How to Remove a Bundle]([[= symfony_doc =]]/bundles/remove.html) instruction in Symfony doc.
+To remove a bundle (either one you created yourself, or an out-of-the-box one that you don't need), see the [How to Remove a Bundle]([[= symfony_doc =]]/bundles/remove.html) instruction in Symfony doc.
 
 ## Core packages
 
@@ -65,13 +65,13 @@ To remove a bundle (either one you created yourself, or an out-of-the-box one th
 |[ibexa/system-info](https://github.com/ibexa/system-info)| Information about the system [[= product_name =]] is running on|
 |[ibexa/user](https://github.com/ibexa/user)|User management|
 
-## Ibexa Headless packages
+## [[= product_name_headless =]] packages
 
 |Bundle|Description|
 |---------|-----------|
 |ibexa/oss|Core packages|
 |ibexa/content-tree|content tree functionality|
-|ibexa/connect|[Ibexa Connect](https://doc.ibexa.co/projects/connect/en/latest/)|
+|ibexa/connect|[[[= product_name_connect =]]](https://doc.ibexa.co/projects/connect/en/latest/)|
 |ibexa/calendar|Calendar tab with a calendar widget|
 |ibexa/connector-dam|Connector for DAM (Digital Asset Management) systems|
 |ibexa/elasticsearch|Integration with Elasticsearch search engine|
@@ -99,7 +99,7 @@ To remove a bundle (either one you created yourself, or an out-of-the-box one th
 |ibexa/commerce-shop-ui|UI for the shop front page **deprecated** |
 |ibexa/commerce-shop|Main shop functionalities **deprecated** |
 
-## Ibexa Experience packages
+## [[= product_name_exp =]] packages
 
 |Bundle|Description|
 |---------|-----------|
@@ -116,7 +116,7 @@ To remove a bundle (either one you created yourself, or an out-of-the-box one th
 |ibexa/connector-qualifio|Enables integration with [Qualifio Engage platform](https://developers.qualifio.com/docs/engage/)|
 
 
-## Ibexa Commerce packages
+## [[= product_name_com =]] packages
 
 |Bundle|Description|
 |---------|-----------|

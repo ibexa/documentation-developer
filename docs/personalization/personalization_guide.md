@@ -76,7 +76,7 @@ Use segments to get content targeted at particular user groups. Segments calcula
 
 Personalization includes interface as API that you can use to interact with stored data and to send requests and export data from the service.
 
-For more information see documentation for API operations available for Personalization:
+For more information, see documentation for API operations available for Personalization:
 
 - [Tracking API](api_reference/tracking_api.md/)
 - [Content API](api_reference/content_api.md/)

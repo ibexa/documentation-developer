@@ -54,4 +54,4 @@ For example, to ensure that user names can only contain lowercase letters, set `
 ![Setting a user name pattern](username_pattern.png)
 
 To check that all existing user accounts have names that fit the current pattern, run the `ibexa:user:audit-database` command.
-It checks all user accounts in the database and lists those that do not fit the pattern.
+It checks all user accounts in the database and lists those that don't fit the pattern.

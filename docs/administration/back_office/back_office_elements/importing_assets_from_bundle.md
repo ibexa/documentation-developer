@@ -68,7 +68,7 @@ module.exports = (ibexaConfig, ibexaConfigManager) => {
 
 !!! tip
 
-	If you do not know what `entryName` to use, you can use the browser's developer tools to check what files are loaded on the given page.
+	If you don't know what `entryName` to use, you can use the browser's developer tools to check what files are loaded on the given page.
 	Then, use the file name as `entryName`.
 
 !!! tip

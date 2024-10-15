@@ -39,7 +39,7 @@ A SiteAccess can be part of several groups. SiteAccess configuration has always 
 #### `admin` SiteAccess
 
 The predefined `admin` SiteAccess in `admin_group` (configured in `config/packages/ibexa_admin_ui.yaml`) serves the back office.
-Do not remove this group.
+Don't remove this group.
 If you need a multisite setup with multiple back offices, add any additional administration SiteAccesses to `admin_group`.
 
 In cases where the sites are on separate databases, each needs its own [repository](repository_configuration.md)
@@ -64,7 +64,8 @@ ibexa:
 ### SiteAccess matching
 
 The `match` setting defines the rule or set of rules by which SiteAccesses are matched.
-See [SiteAccess matching](siteaccess_matching.md) for more information.
+
+For more information, see [SiteAccess matching](siteaccess_matching.md).
 
 ``` yaml
 ibexa:
@@ -171,7 +172,7 @@ ibexa:
 
 #### SiteAccess switching in Page Builder
 
-If you need to change between SiteAccesses in Site mode, do not use any functions in the page itself (for example, a language switcher).
+If you need to change between SiteAccesses in Site mode, don't use any functions in the page itself (for example, a language switcher).
 This may cause unexpected errors. Instead, switch between SiteAccesses using the SiteAccess bar above the page.
 
 ## Location tree

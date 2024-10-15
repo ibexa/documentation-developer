@@ -3,12 +3,12 @@ description: Installation of standalone Ibexa CDP package.
 edition: experience
 ---
 
-# Ibexa CDP installation
+# [[= product_name_cdp =]] installation
 
 There are three steps required to install [[= product_name_cdp =]].
 First, you need to register your [[= product_name_cdp =]] account, then you can download a CDP package and update the configuration.
 
-## Register in Ibexa CDP dashboard
+## Register in [[= product_name_cdp =]] dashboard
 
 If you decide to acquire [[= product_name_cdp =]] contact your sales representative, they provide you with a registration link to [[= product_name_cdp =]].
 After registration, you get access to a separate instance where you can find data required for configuring, activating, and using this feature.

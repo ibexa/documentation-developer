@@ -137,10 +137,7 @@ Content-Type: application/vnd.ibexa.api.Content+json
 
 [Cross-Origin Resource Sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) can allow the REST API to be reached from a page on another domain.
 
-!!! tip "More information about CORS"
-
-    - [WHATWG's CORS Protocol specification](https://fetch.spec.whatwg.org/#cors-protocol)
-    - [Overview of CORS on developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
+For more information about CORS, see [WHATWG's CORS Protocol specification](https://fetch.spec.whatwg.org/#cors-protocol) and [Overview of CORS on developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS).
 
 CORS support is provided by the third party [nelmio/cors-bundle](https://packagist.org/packages/nelmio/cors-bundle). You can read more about it in [NelmioCorsBundle's README](https://github.com/nelmio/NelmioCorsBundle/blob/master/README.md).
 

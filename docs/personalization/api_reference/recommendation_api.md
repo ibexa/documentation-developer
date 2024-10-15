@@ -9,8 +9,7 @@ that rely on the HTTP GET method.
 The result can a list of item IDs that can then be used to call the underlying 
 CMS or shop system and postload the necessary information for the rendering process.
 
-For more information about Personalization, see [Introduction](personalization.md), 
-[Basic integration](recommendation_integration.md).
+For more information about Personalization, see [Introduction](personalization.md) and [Basic integration](recommendation_integration.md).
 
 !!! note "Authentication"
 
@@ -69,9 +68,8 @@ You can use the following parameters to customize a request:
 
 ##### Submodel parameters
 
-If your recommendation model uses submodels to group content items/products based 
-on an attribute, you can pass the following parameters to request recommendations 
-for a specific group. 
+If your recommendation model uses submodels to group content items/products based on an attribute, you can pass the following parameters to request recommendations for a specific group.
+
 For more information, see [Submodels]([[= user_doc =]]/personalization/recommendation_models/#submodels).
 
 |Parameter|Example|Description|Value|
@@ -105,6 +103,7 @@ items and an array of recommendation objects in JSON or JSONP format.
 The result can be integrated into any webpage on the client side by using script code. 
 To track user actions like "clickrecommended" and "rendered", use the links 
 delivered in the response.
+
 For more information, see inline comments below.
 
 !!! note "Previewing recommendations"
@@ -113,8 +112,7 @@ For more information, see inline comments below.
     and how they're rendered in the user interface.
     For more information, see [Previewing scenario results]([[= user_doc =]]/personalization/previewing_scenario).
     
-For more information about integrating recommendations in the web page, 
-see [Best practices](recommendation_integration.md).
+For more information about integrating recommendations in the web page, see [Best practices](recommendation_integration.md).
 
 ### Response object format
 

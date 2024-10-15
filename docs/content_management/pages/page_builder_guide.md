@@ -85,7 +85,9 @@ F. Saving options
 |Save draft|Save the page draft*.|
 |Delete draft|Delete the page draft.|
 
-*To help you preserve your work, system saves drafts of content items automatically. For more information, see [Autosave]([[= user_doc =]]/content_management/content_versions/#autosave).
+*To help you preserve your work, system saves drafts of content items automatically.
+
+For more information, see [Autosave]([[= user_doc =]]/content_management/content_versions/#autosave).
 
 Page Builder has two main views that you can use while creating a page:
 
@@ -112,6 +114,7 @@ In the `Select layouts` section, you can select layouts that you want to be avai
 ![Switch layout](switch_layout_window.png)
 
 The default, built-in Page layout has only one zone, but developers can create other layouts in configuration.
+
 For more information, see [Configure layout](render_page.md#configure-layout).
 
 #### Add blocks

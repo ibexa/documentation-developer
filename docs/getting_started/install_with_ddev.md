@@ -412,12 +412,12 @@ If the local project needs to answer to real production domains (for example, to
 
     As this feature modifies domain resolution, the real website may be unreachable until the `hosts` file is manually cleaned.
 
-### Cluster or Ibexa Cloud
+### Cluster or [[= product_name_cloud =]]
 
 DDEV can be useful to locally simulate a production cluster.
 
 - See [clustering with DDEV](clustering_with_ddev.md) to add Elasticsearch, Solr, Redis or Memcached to your DDEV installation.
-- See [DDEV and Ibexa Cloud](ddev_and_ibexa_cloud.md) to locally run an [[= product_name =]] project by using DDEV.
+- See [DDEV and [[= product_name_cloud =]]](ddev_and_ibexa_cloud.md) to locally run an [[= product_name =]] project by using DDEV.
 
 ## Stop or remove the project
 

@@ -56,6 +56,7 @@ Image files are stored by using the `IOService,` and are completely independent 
 they're generated only once and cleared on demand, for example, on content removal).
 
 LiipImagineBundle only works on image blobs, so no command line tool is needed.
+
 For more information, see the [bundle's documentation](https://symfony.com/bundles/LiipImagineBundle/current/configuration.html).
 
 !!! caution "Code injection in image EXIF"
@@ -68,6 +69,7 @@ For more information, see the [bundle's documentation](https://symfony.com/bundl
 
 You can use LiipImagine's `liip:imagine:cache:resolve` command to resolve the path to image variations that are generated from the original image, with one or more paths as arguments.
 Paths to repository images must be relative to the `var/<site>/storage/images` directory, for example: `7/4/2/0/247-1-eng-GB/test.jpg`.
+
 For more information, see [LiipImagineBundle documentation](https://symfony.com/bundles/LiipImagineBundle/current/basic-usage.html#resolve-with-the-console).
 
 ## Resizing images

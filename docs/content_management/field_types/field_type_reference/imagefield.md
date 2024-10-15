@@ -238,7 +238,7 @@ The REST API expects field values to be provided in a hash-like structure. Those
 
 ### Updating an Image field
 
-Updating an Image field requires that you re-send existing data. This can be done by re-using the field obtained via REST, **removing the variations key**, and updating `alternativeText`, `fileName` or `data`. If you do not want to change the image itself, do not provide the `data` key.
+Updating an Image field requires that you re-send existing data. This can be done by re-using the field obtained via REST, **removing the variations key**, and updating `alternativeText`, `fileName` or `data`. If you don't want to change the image itself, don't provide the `data` key.
 
 ``` xml
 <?xml version="1.0" encoding="UTF-8"?>

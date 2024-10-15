@@ -52,8 +52,7 @@ the Personalization server.
 Its job is to track the way visitors use the website and recommend content 
 based on their behavior.
 
-For more information about integrating the Personalization service,
-see [Developer guide](tracking_api.md) and [Best practices](tracking_integration.md).
+For more information about integrating the Personalization service, see [Developer guide](tracking_api.md) and [Best practices](tracking_integration.md).
 
 ### Set up item type tracking
 
@@ -117,7 +116,7 @@ ibexa:
     For data exchange purposes, basic authentication is enabled by default. 
     To change this, contact support@ibexa.co.
     For security reasons, [store the authentication credentials in the ENV file](#set-up-customer-credentials), 
-    and do not commit them to the Version Control System.
+    and don't commit them to the Version Control System.
     Then, use environment variables to pull them into the YAML file.
 
 | Parameter                            | Description                                               |

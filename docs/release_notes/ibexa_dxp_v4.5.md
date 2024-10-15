@@ -16,7 +16,7 @@ description: Ibexa DXP v4.5 adds new features to Ibexa Commerce, translation com
 
 ## Notable changes
 
-### All-new Ibexa Commerce packages [[% include 'snippets/commerce_badge.md' %]]
+### All-new [[= product_name_com =]] packages [[% include 'snippets/commerce_badge.md' %]]
 
 This release brings new packages to complement the redesigned and reconstructed Commerce offering.
 You can use them to further enhance your e-commerce presence:
@@ -125,6 +125,7 @@ and allows supporting other transport types accepted by CDP.
 Currently, only `stream_file` transport is supported and can be initialized from the configuration.
 
 [[= product_name =]] v4.5 adds the abstraction that allows you to implement other transport types from third parties.
+
 For more information, see [CDP configuration](https://doc.ibexa.co/en/4.5/cdp/cdp_activation/#configuration).
 
 ### API improvements
@@ -206,9 +207,9 @@ It's no longer necessary to take other taxonomies into account when creating tag
 You can now enhance password security with a setting that prevents using passwords that have been exposed in a public breach.
 To do it, the system checks the password against known password dumps by using the https://haveibeenpwned.com/ API.
 
-See [Breached passwords](https://doc.ibexa.co/en/4.5/users/user_management/#breached-passwords) for more information.
+For more information, see [Breached passwords](https://doc.ibexa.co/en/4.5/users/user_management/#breached-passwords).
 
-### Ibexa Connect
+### [[= product_name_connect =]]
 
 For list of changes in [[= product_name_connect =]], see [Ibexa app release notes](https://doc.ibexa.co/projects/connect/en/latest/general/ibexa_app_release_notes/).
 
@@ -228,9 +229,9 @@ Deprecations:
 
 ## Full changelog
 
-| Ibexa Content | Ibexa Experience | Ibexa Commerce|
+| [[= product_name_content =]] | [[= product_name_exp =]] | [[= product_name_com =]]|
 |---------------|------------------|---------------|
-| [Ibexa Content v4.5](https://github.com/ibexa/content/releases/tag/v4.5.0) | [Ibexa Experience v4.5](https://github.com/ibexa/experience/releases/tag/v4.5.0) | [Ibexa Commerce v4.5](https://github.com/ibexa/commerce/releases/tag/v4.5.0) |
+| [[[= product_name_content =]] v4.5](https://github.com/ibexa/content/releases/tag/v4.5.0) | [[[= product_name_exp =]] v4.5](https://github.com/ibexa/experience/releases/tag/v4.5.0) | [[[= product_name_com =]] v4.5](https://github.com/ibexa/commerce/releases/tag/v4.5.0) |
 
 ## v4.5.1
 

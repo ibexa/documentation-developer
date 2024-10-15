@@ -12,7 +12,7 @@ It's easiest to check out the version of `composer.lock` from the tag and add it
 git checkout --theirs composer.lock && git add composer.lock
 ```
 
-If you do not keep a copy of `composer.lock` in the branch, you may also remove it by running:
+If you don't keep a copy of `composer.lock` in the branch, you may also remove it by running:
 
 ``` bash
 git rm composer.lock
@@ -38,7 +38,7 @@ Use `git checkout -p` to selectively cancel those changes (and retain your addit
 git checkout -p composer.json
 ```
 
-Answer `no` (do not discard) to the requirement changes of `ezsystems` / `ibexa`  dependencies.
+Answer `no` (don't discard) to the requirement changes of `ezsystems` / `ibexa`  dependencies.
 Answer `yes` (discard) to removals of your changes.
 
 After you're done, inspect the file (you can use an editor or run `git diff composer.json`).

@@ -16,19 +16,20 @@ You also have new options to format your text using subscript, superscript, quot
 
 ![New text formatting options](oe-formatting-new-options.png)
 
-See [EZP-28030](https://issues.ibexa.co/browse/EZP-28030) for more information.
+For more information, see [EZP-28030](https://issues.ibexa.co/browse/EZP-28030).
 
 #### Improved full text search capabilities
 
-See [EZP-26806](https://issues.ibexa.co/browse/EZP-26806) for more information.
+For more information, see [EZP-26806](https://issues.ibexa.co/browse/EZP-26806).
 
 #### Deleting translations
 
 You can now remove translations from content item Versions through the PHP API.
 
-See the section on [deleting translations](https://doc.ibexa.co/en/latest/api/public_php_api_creating_content/#deleting-a-translation) for more information.
+For more information, see the section on [deleting translations](https://doc.ibexa.co/en/latest/api/public_php_api_creating_content/#deleting-a-translation).
 
-You also have a new endpoint available for deleting a single Version, see [EZP-27864](https://issues.ibexa.co/browse/EZP-27864) for more information.
+You also have a new endpoint available for deleting a single Version.
+For more information, see [EZP-27864](https://issues.ibexa.co/browse/EZP-27864).
 
 #### Improved Security for password storage
 
@@ -100,4 +101,4 @@ To update to this version, follow the [updating guide](https://doc.ibexa.co/en/
     This release changes the way of loading React to avoid a case where it was loaded twice and caused errors.
     Take this into consideration if you user React in your own implementation.
 
-    See [this PR](https://github.com/ezsystems/PlatformUIBundle/pull/906) for more information.
+    For more information, see [this PR](https://github.com/ezsystems/PlatformUIBundle/pull/906).

@@ -60,7 +60,7 @@ You can find the list of all bookmarks in *Browse content* section. There, you c
 ### Standard design
 
 eZ Platform now comes with two designs using the [design engine](https://doc.ibexa.co/en/2.5/guide/design_engine): `standard` for content view and `admin` for the back office.
-See [default designs](https://doc.ibexa.co/en/2.5/guide/design_engine/#default-designs) for more information.
+For more information, see [default designs](https://doc.ibexa.co/en/2.5/guide/design_engine/#default-designs).
 
 !!! caution
 
@@ -87,7 +87,7 @@ Database charset is changed from UTF8 to UTF8MB4, to support 4-byte characters.
 
 You can now select the pattern that is used to generate URL patterns.
 
-See [URL alias patterns](https://doc.ibexa.co/en/2.5/guide/url_management/#url-alias-patterns) for more information about the available settings.
+For more information about the available settings, see [URL alias patterns](https://doc.ibexa.co/en/2.5/guide/url_management/#url-alias-patterns).
 
 !!! caution "Default URL generation pattern"
 

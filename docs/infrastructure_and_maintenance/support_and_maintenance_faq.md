@@ -35,7 +35,7 @@ The language of the back office is based on the browser language.
 To change it you should install the proper package for your language (see [language packages list](https://github.com/ezplatform-i18n)).
 Once you have language packages installed, you can switch the language of the back office in the User Settings menu.
 
-If you do not have a language defined in the browser, it's selected based on the `parameters.locale_fallback` parameter located in `config/packages/ibexa.yaml`.
+If you don't have a language defined in the browser, it's selected based on the `parameters.locale_fallback` parameter located in `config/packages/ibexa.yaml`.
 
 To read more about language managing in [[= product_name =]], see the following doc pages:
 

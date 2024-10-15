@@ -7,7 +7,7 @@ The `CustomPrice` Search Criterion searches for products by their custom price f
 - `value` - a `Money\Money` object representing the price in a specific currency
 - (optional) `operator` - Operator constant (EQ, GT, GTE, LT, LTE, default EQ)
 - (optional) `customerGroup` - a `CustomerGroupInterface` object representing the customer group to show prices for.
-If you do not provide a customer group, the query uses the group related to the current user.
+If you don't provide a customer group, the query uses the group related to the current user.
 
 ## Limitations
 
