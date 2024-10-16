@@ -13,7 +13,8 @@ For more information, see [Qualifio Developers documentation](https://developers
 ## Enable [[= product_name_engage =]] account
 
 To use [[= product_name_engage =]], you must make arrangements with [[= product_name =]] to define the initial configuration.
-[[= product_name_base =]] team creates and provides user account. An invitation link is sent during the setup process.
+[[= product_name_base =]] team creates and provides user account.
+An invitation link is sent during the setup process.
 
 For more information, see [[[= product_name_engage =]] in User Documentation]([[= user_doc =]]/ibexa_engage/ibexa_engage/#request-access).
 

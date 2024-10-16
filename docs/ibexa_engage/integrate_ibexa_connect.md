@@ -54,4 +54,5 @@ To do it, perform the following actions::
 
 ![Configure Ibexa Engage](configure_ibexa_engage.png "Configure Ibexa Engage")
 
-4\. Then, go to **Engage** -> **Integrations** -> **Push rules** to define the default or specific rules for new campaign or website. Select the created webhook.
+4\. Then, go to **Engage** -> **Integrations** -> **Push rules** to define the default or specific rules for new campaign or website.
+Select the created webhook.
