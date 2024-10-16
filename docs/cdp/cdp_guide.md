@@ -83,7 +83,7 @@ For more information, see [CDP data export](https://doc.ibexa.co/en/latest/cdp/c
 
 ​You can customize content and product data exported to [[= product_name_cdp =]] and control what field type information you want to export.
 With [[= product_name_cdp =]], you can export field types and field type values.
-They're exported with metadata and attributes, for example, ID, Field Definition name, type, or value.
+They're exported with metadata and attributes, for example, ID, field definition name, type, or value.
 
 For more information, see [data customization](https://doc.ibexa.co/en/latest/cdp/cdp_data_customization/#data-customization) documentation in Developer Documentation.
 
@@ -114,7 +114,7 @@ Build extensive customer profiles that include their interactions, habits, and p
 ### Segment groups
 
 Provide a personalized customer experience, group your clients into specified audiences, and provide recommendations depending on the user data.
-Create Segment groups to deliver personalized campaigns to boost engagement and conversion rates.
+Create segment groups to deliver personalized campaigns to boost engagement and conversion rates.
 
 ### Audience Builder
 

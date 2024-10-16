@@ -5,13 +5,13 @@ edition: experience
 
 # Data customization
 ​
-You can customize Content and Product data exported to CDP and you can control what field type information you want to export.
+You can customize content and product data exported to CDP and you can control what field type information you want to export.
 By default, custom field types have basic export functionality.
 It casts their `Value` object to string, thanks to `\Stringable` implementation.
 ​
 ## Export field types
 ​
-Field types are exported with metadata, for example, ID, Field Definition name, type, or value.
+Field types are exported with metadata, for example, ID, field definition name, type, or value.
 You can also provide your own `\Ibexa\Contracts\Cdp\Export\Content\FieldProcessorInterface` instance to extend metadata.
 The provided implementation has to be defined as a service and tagged with `ibexa.cdp.export.content.field_processor`.
 Additionally, you can specify `priority` to override the default behavior.
