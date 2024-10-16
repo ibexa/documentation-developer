@@ -9,8 +9,7 @@ It provides an interface to publish content based on dropped files while uploadi
 
 !!! caution
 
-    If you want to load the multi-file upload module, you need to load the JS code for it in your view,
-    as it's not available by default.
+    If you want to load the multi-file upload module, you need to load the JS code for it in your view, as it's not available by default.
 
 ## Use multi-file upload
 

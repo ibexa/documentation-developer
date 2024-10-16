@@ -83,7 +83,7 @@ To add an in-memory collection as an event source, create `src/Calendar/Holidays
         $this->createEvent("Event 1", new DateTime("2024-01-01")),
         $this->createEvent("Event 2", new DateTime("2024-01-02")),
         // ...
-    ```    
+    ```
 
 Next, register the event source as a service:
 

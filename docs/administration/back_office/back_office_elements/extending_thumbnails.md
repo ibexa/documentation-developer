@@ -4,10 +4,10 @@ description: Customize thumbnails use for content items in the back office.
 
 # Extending thumbnails
 
-The thumbnails API enable you to easily choose an image for a specific content.
+The thumbnails API enable you to choose an image for a specific content.
 If you don't want to use custom thumbnails, `ContentType` is used instead.
 
-## Thumbnail mechanism 
+## Thumbnail mechanism
 
 The thumbnail mechanism has two layers, and each layer can have many implementations.
 The mechanism checks if any of the implementations returns a field, for example, `ezimage`, that has function "Can be a thumbnail" turned on.
@@ -29,14 +29,14 @@ For this layer there are following default implementations:
 
 ### Second layer
 
-Second layer of mechanism enables selection of thumbnail from a field that the first layer has found. 
+Second layer of mechanism enables selection of thumbnail from a field that the first layer has found.
 It searches the content type for all the fields, for example, images, with function "Can be a thumbnail" turned on.
 
 If there is more than one field in the content type that can be used as a thumbnail, this layer returns the first nonempty field as a thumbnail.
 
 This mechanism can be modified to fit your site needs, so you can decide from where and how the thumbnails is downloaded.
 
-### Create a thumbnail mechanism 
+### Create a thumbnail mechanism
 
 First, create base strategy for returning custom thumbnails from a static file.
 Create `StaticStrategy.php` in `src/Strategy`.
@@ -46,7 +46,7 @@ Create `StaticStrategy.php` in `src/Strategy`.
 ```
 
 Next, add the strategy with the `ibexa.repository.thumbnail.strategy.content` tag and `priority: 100` to `config/services.yaml`:
- 
+
 ```yaml
 [[= include_file('code_samples/back_office/thumbnails/config/custom_services.yaml') =]]
 ```
@@ -57,7 +57,8 @@ At this point you can go to the back office and check the results.
 
 !!! note "Thumbnail mechanism "
 
-    This strategy overrides all generated thumbnails. You can specify a specific content type. See the example [here](https://github.com/ibexa/user/blob/main/src/lib/Strategy/DefaultThumbnailStrategy.php)
+    This strategy overrides all generated thumbnails. You can specify a specific content type.
+    See the example [here](https://github.com/ibexa/user/blob/main/src/lib/Strategy/DefaultThumbnailStrategy.php)
 
 
 ## Other fields as thumbnails

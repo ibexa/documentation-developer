@@ -8,11 +8,9 @@ description: Add the option to select a custom preference in user menu.
 
 You can add new preferences to the **User Settings** menu in the back office.
 
-To do so, create a setting class implementing two interfaces:
-`ValueDefinitionInterface` and `FormMapperInterface`.
+To do so, create a setting class implementing two interfaces: `ValueDefinitionInterface` and `FormMapperInterface`.
 
-In this example the class is located in `src/Setting/Unit.php`
-and enables the user to select their preference for metric or imperial unit systems.
+In this example the class is located in `src/Setting/Unit.php` and enables the user to select their preference for metric or imperial unit systems.
 
 ``` php
 [[= include_file('code_samples/back_office/settings/src/Setting/Unit.php') =]]
@@ -45,8 +43,7 @@ The value of the setting is accessible with `ez_user_settings['unit']`.
 
 ## Create template for editing settings
 
-You can override a template used when editing the new setting
-under the `ibexa.system.<scope>.user_settings_update_view` [configuration key](configuration.md#configuration-files):
+You can override a template used when editing the new setting under the `ibexa.system.<scope>.user_settings_update_view` [configuration key](configuration.md#configuration-files):
 
 ``` yaml
 [[= include_file('code_samples/back_office/settings/config/packages/user_settings.yaml') =]]

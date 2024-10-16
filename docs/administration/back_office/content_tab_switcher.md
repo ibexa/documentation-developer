@@ -39,6 +39,7 @@ ibexa:
 The default configuration makes the `ibexa_taxonomy_entry_assignment` field always visible in the Meta tab in the content form.
 With this new feature, you can indicate what field types, previously set in the back office content type, are shown in the Meta tab section in the content form.
 You can automatically move all field types from Metadata group to the Meta tab in the content form.
+
 To do it, use the following configuration:
 
 ```yaml

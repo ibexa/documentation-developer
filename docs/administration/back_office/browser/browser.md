@@ -4,12 +4,13 @@ description: Customize the configuration of the content browser.
 
 # Browser
 
-Browsing the content structure and selecting content from the Repository uses the module Universal Discovery Widget (UDW).
+Browsing the content structure and selecting content from the repository uses the module Universal Discovery Widget (UDW).
 UDW has an interactive interface which allows you to create, move or copy content items.
 
 ## Using UDW
 
-UDW requires that you provide configuration by using the `ibexa_udw_config` Twig helper. This configuration must be spread to the props of the component itself.
+UDW requires that you provide configuration by using the `ibexa_udw_config` Twig helper.
+This configuration must be spread to the props of the component itself.
 
 ```html+twig
 <button data-udw-config="{{ ibexa_udw_config('single') }}">
@@ -17,7 +18,8 @@ UDW requires that you provide configuration by using the `ibexa_udw_config` Twig
 </button>
 ```
 
-`single` configuration is one of the default configuration provided. You can also do your [own configuration](#add-new-configuration).
+`single` configuration is one of the default configuration provided.
+You can also do your [own configuration](#add-new-configuration).
 
 With plain JS:
 

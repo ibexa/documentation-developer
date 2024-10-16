@@ -61,7 +61,7 @@ appbundle.components.my_twig_component:
 
 This renders the `path/to/file.html.twig` template with `first_param` and `second_param` as parameters.
 
-With `LinkComponent` and `ScriptComponent` you provide `$href` and `$src` as arguments, respectively:
+With `LinkComponent` and `ScriptComponent` you provide `$href` and `$src` as arguments:
 
 ``` yaml
 app.components.my_link_component:

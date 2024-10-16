@@ -30,6 +30,7 @@ After this event, the suggestion collection is sorted by score and truncated to 
 !!! tip
 
     You can list listeners and subscribers with the following command:
+
     ``` shell
     php bin/console debug:event BuildSuggestionCollectionEvent
     ```
@@ -113,7 +114,7 @@ Here is a complete `assets/js/admin.search.autocomplete.product.js` from the pro
 [[= include_file('code_samples/back_office/search/assets/js/admin.search.autocomplete.product.js') =]]
 ```
 
-To be loaded in the back office layout, this file must be added to Webpack entry `ibexa-admin-ui-layout-js`. 
+To be loaded in the back office layout, this file must be added to Webpack entry `ibexa-admin-ui-layout-js`.
 At the end of `webpack.config.js`, add it by using `ibexaConfigManager`:
 
 ``` javascript

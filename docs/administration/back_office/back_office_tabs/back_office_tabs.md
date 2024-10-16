@@ -53,7 +53,7 @@ Tabs are displayed according to this value in ascending order.
 
 !!! tip
 
-    It is good practice to reserve some distance between these values, for example to stagger them by step of 10.
+    It's a good practice to reserve some distance between these values, for example to stagger them by step of 10.
     It may come useful if you later need to place something between the existing tabs.
 
 You can also influence tab display (for example, order tabs, remove, or modify them) by using the following event listeners:
@@ -73,4 +73,5 @@ To create a tab group, register it as a service:
 
 Tag the group with `ibexa.admin_ui.component`.
 `group` indicates where the group is rendered.
+
 For a list of possible rendering places, see [Injecting custom components](custom_components.md).
