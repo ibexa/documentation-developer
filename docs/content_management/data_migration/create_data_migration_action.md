@@ -37,8 +37,7 @@ And finally, add an executor to perform the action, in `src/Migrations/Action/As
 [[= include_file('code_samples/data_migration/src/Migrations/Action/AssignSectionExecutor.php') =]]
 ```
 
-Tag the executor with `ibexa.migrations.executor.action.<type>` tag, where `<type>` is the "type" of the step
-that executor works with (`content`, `content_type`, `location`, and so on).
+Tag the executor with `ibexa.migrations.executor.action.<type>` tag, where `<type>` is the "type" of the step that executor works with (for example, `content`, `content_type`, or `location`).
 The tag has to have a `key` property with the action type.
 
 ```yaml

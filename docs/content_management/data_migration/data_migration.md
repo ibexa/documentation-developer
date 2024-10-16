@@ -12,9 +12,9 @@ Data migration allows exporting and importing selected data from an [[= product_
 Between installation, you can migrate your repository data, for example, content items, content types, languages, object states, or sections.
 
 You can use migrations in projects that require the same data to be present across multiple instances.
-They can be useful for project templates. Migrations are able to store shared data, so they can be applied for each new project you start,
-or incrementally upgrade older projects to your new standard, if needed.
-they're a developer-friendly tool that allows you to share data without writing code.
+You can use them for project templates.
+Migrations are able to store shared data, so they can be applied for each new project you start, or incrementally upgrade older projects to your new standard, if needed.
+They're a developer-friendly tool that allows you to share data without writing code.
 
 You can run data migrations either with a command, or with the [PHP API](data_migration_api.md).
 

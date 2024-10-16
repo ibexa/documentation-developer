@@ -9,8 +9,7 @@ To see an example of migrations in action, export data already present in your i
 
 To export repository content, use the `ibexa:migrations:generate` command.
 This command generates a YAML file with the requested part of the repository.
-The file is located by default in the `src/Migrations/Ibexa/migrations` folder
-or in [a custom folder that you configure](managing_migrations.md#migration-folders).
+The file is located by default in the `src/Migrations/Ibexa/migrations` folder or in [a custom folder that you configure](managing_migrations.md#migration-folders).
 You can later use this file to import the data.
 
 ``` bash
@@ -70,8 +69,7 @@ You can treat it as a template for another content item for user group.
 For example, you could:
 
 - Remove `references` if you don't intend to store IDs for future use (see [migration references](managing_migrations.md#references))
-- Remove `publicationDate`, `modificationDate`, `locationRemoteId`,
-  as those are generated if not passed (like in PHP API)
+- Remove `publicationDate`, `modificationDate`, `locationRemoteId`, as those are generated if not passed (like in PHP API)
 - Add [`actions`](data_migration_actions.md)
 - Add fields for other languages present in the system.
 
@@ -170,7 +168,7 @@ The following modes are available:
 
 - `create` - creates new items
 - `update` - updates an existing item. Only covers specified fields and properties. If the item doesn't exist, causes an error.
-- `delete` - deletes an existing item. If the item doesn't exist, causes an error.
+- `delete` - deletes an existing item. If the item doesn't exist, causes an error
 
 If you don't provide the `--mode` option, the command asks you to select the mode.
 
@@ -292,15 +290,13 @@ php bin/console ibexa:migrations:generate --type=content --mode=create --file=my
 
 !!! note
 
-    When migrating multiple files at once (for example when calling `ibexa:migrations:migrate` without options),
-    they're executed in alphabetical order.
+    When migrating multiple files at once (for example when calling `ibexa:migrations:migrate` without options), they're executed in alphabetical order.
 
 ## user-context
 
-The optional `--user-context` option enables you to run the export command as a specified User.
-The command only exports repository data that the selected User has access to.
-By default the admin account is used, unless specifically overridden by this option or in
-bundle configuration (`ibexa_migrations.default_user_login`).
+The optional `--user-context` option enables you to run the export command as a specified user.
+The command only exports repository data that the selected user has access to.
+By default the admin account is used, unless specifically overridden by this option or in bundle configuration (`ibexa_migrations.default_user_login`).
 
 ``` bash
 php bin/console ibexa:migrations:generate --type=content --mode=create --user-context=jessica_andaya

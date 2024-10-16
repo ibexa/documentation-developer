@@ -17,12 +17,12 @@ You can find which migration steps support actions in the table below:
 | `user_group`   |&#10004;|&#10004;||
 | `company`      |&#10004;|||
 
-Actions are optional operations that can be run after the main "body" of a migration has been executed
-(that is, content has been created / updated, Object state has been added, and so on).
+Actions are optional operations that can be run after the main "body" of a migration has been executed (for example, content has been created / updated, Object state has been added).
 Their purpose is to allow additional operations to be performed as part of this particular migration.
-they're executed inside the same transaction, so in the event of failure they cause database rollback to occur.
+They're executed inside the same transaction, so in the event of failure they cause database rollback to occur.
 
 For example, when updating a content type object, some fields might be removed:
+
 ``` yaml
 -
     type: content_type
@@ -64,9 +64,8 @@ The following migration actions are available out of the box:
 - `assign_user_group_to_role` (User group Create / Update)
 - `unassign_role_user_group` (User group Update)
 
-In contrast with Kaliop migrations, actions provide you with ability to perform additional operations and extend
-the migration functionality. 
-See [creating your own Actions](create_data_migration_action.md).
+In contrast with Kaliop migrations, actions provide you with ability to perform additional operations and extend the migration functionality.
+For more information, see [creating your own Actions](create_data_migration_action.md).
 
 ## Action usage examples
 
@@ -131,14 +130,14 @@ mode: Create and Update
 
 mode: Create and Update
 ``` yaml
-    actions: 
-        -   
+    actions:
+        -
             action: assign_user_to_role
             identifier: foo
-        -   
+        -
             action: assign_user_to_role
             id: 2
-        -   
+        -
             action: assign_user_to_role
             id: 2
             limitation:
@@ -158,7 +157,7 @@ mode: Create and Update
         -
             action: assign_user_group_to_role
             id: 2
-        -   
+        -
             action: assign_user_group_to_role
             id: 1
             limitation:
@@ -169,7 +168,7 @@ mode: Create and Update
 
 !!! note
 
-    In the `assign_user_group_to_role` action, Limitation type Section can only use Section ID.
+    In the `assign_user_group_to_role` action, limitation type section can only use section ID.
 
 mode: Update
 ``` yaml

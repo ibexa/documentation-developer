@@ -5,15 +5,13 @@ description: Create a matcher for handling data migrations.
 # Create data migration matcher
 
 [Matchers in data migrations](exporting_data.md#match-property) enable you to select which data from the repository to export.
-
 In addition to the built-in matchers, you can create custom matchers for content.
 
-The following example creates a matcher for Section identifiers.
+The following example creates a matcher for section identifiers.
 
 ## Create normalizer
 
 To do this, first add a normalizer which handles the conversion between objects and the YAML format used for data migration.
-
 Matchers are instances of `FilteringCriterion`, so a custom normalizer needs to denormalize into an instance of `FilteringCriterion`.
 
 !!! tip "Normalizers"

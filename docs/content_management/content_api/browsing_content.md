@@ -122,7 +122,7 @@ To get the creator of the current version and not the content item's owner, you 
 
 ### Section
 
-You can find the Section to which a content item belongs through the [`getSection`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html#method_getSection) method of the ContentInfo object:
+You can find the section to which a content item belongs through the [`getSection`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentInfo.html#method_getSection) method of the ContentInfo object:
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 111, 112) =]]
@@ -130,7 +130,7 @@ You can find the Section to which a content item belongs through the [`getSectio
 
 !!! note
 
-    Requesting Section data may be impossible for an anonymous user.
+    Requesting section data may be impossible for an anonymous user.
     Make sure to [authenticate](php_api.md#setting-the-repository-user) as a user with sufficient permissions.
 
 ### Object states
