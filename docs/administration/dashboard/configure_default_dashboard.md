@@ -24,8 +24,7 @@ ibexa:
                 container_content_type_identifier: folder
 ```
 
-Configuration can be set per [SiteAccess](multisite_configuration.md#siteaccess-configuration)
-or [SiteAccess group](multisite_configuration.md#siteaccess-groups).
+Configuration can be set per [SiteAccess](multisite_configuration.md#siteaccess-configuration) or [SiteAccess group](multisite_configuration.md#siteaccess-groups).
 
 All the settings in the configuration are reflected in the back office.
 

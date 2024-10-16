@@ -45,8 +45,7 @@ For every exact hour, the cronjob line is:
 The [`activity_log/read`](policies.md#activity-log) policy gives a role the access to the **Admin** -> **Activity list**, the dashboard's **Recent activity** block, and the user profile's **Recent activity**.
 It can be limited to "Only own logs" ([`ActivityLogOwner`](limitation_reference.md#activitylogowner-limitation)).
 
-The policy should be given to every roles having access to the back office, at least with the `ActivityLogOwner` owner limitation,
-to allow them to use the "Recent activity" block in the [default dashboard](configure_default_dashboard.md) or their [custom dashboard](customize_dashboard.md).
+The policy should be given to every roles having access to the back office, at least with the `ActivityLogOwner` owner limitation, to allow them to use the "Recent activity" block in the [default dashboard](configure_default_dashboard.md) or their [custom dashboard](customize_dashboard.md).
 This policy is required to view [activity log in user profile]([[= user_doc =]]/recent_activity/recent_activity/#user-profile), if [profile]([[= user_doc =]]/getting_started/get_started/#edit-user-profile) is enabled.
 
 !!! caution
@@ -164,7 +163,7 @@ This stored name can be used at the time of displaying information whether the a
 #### Context group
 
 If you log several related entries at once, you can group them into a context.
-Context is a set of actions done for the same purpose, for example, it could group the actions of a CRON that fetches third party data and updates Content items.
+Context is a set of actions done for the same purpose, for example, it could group the actions of a CRON that fetches third party data and updates content items.
 The built-in contexts include:
 
 - `web` - groups actions made in the back office, like the update and the publishing of a new content item's version
@@ -174,10 +173,10 @@ A context group counts as one item in regard to `activity_logs_limit` configurat
 
 To open a context group, use `ActivityLogService::prepareContext` which has two arguments:
 
-- `$source` - describes, usually through a short identifier, what is triggering the set of actions. 
+- `$source` - describes, usually through a short identifier, what is triggering the set of actions.
 For example, some already existing sources are `web` (incl. actions from the back office), `graphql`, `rest` and `migration`
 - `$description` - an optional, more specific contextualisation.
-For example, `migration` context source is associated with the migration file name in its context description
+For example, `migration` context source is associated with the migration file name in its context description.
 
 To close a context group, use `ActivityLogService::dismissContext`.
 
