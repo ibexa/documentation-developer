@@ -137,5 +137,5 @@ This allows you to create forms that fit your needs.
 
 ### Analytic tool
 
-All the submissions can are visible in Submissions tab. 
+All the submissions can are visible in **Submissions** tab. 
 You can download them as a .CSV file for additional analysis.

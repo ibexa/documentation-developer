@@ -22,7 +22,7 @@ The example below uses EU (Ireland): `eu-west-1`
 See <https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html>.
 1.  Then create a group and assign the user to the group.
 1.  Assign policies to the group. The `AmazonS3FullAccess` policy gives read/write access to your bucket.
-1.  Still in the IAM console, view the user you created. Click the "Security credentials" tab.
+1.  Still in the IAM console, view the user you created. Click the **Security credentials** tab.
 1.  Click "Create access key" and make note of the "Access key ID" and the "Secret access key".
 The secret key cannot be retrieved again after the key has been created, so don't lose it.
 (However, you can create new keys if needed.)

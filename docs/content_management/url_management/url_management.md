@@ -12,7 +12,7 @@ Configure URL aliases to have human-readable URL addresses throughout your syste
 When developing a site, users can enter links to external websites in either RichText or URL fields.
 Each such link is then displayed in the URL table. You can view and update all external links that exist within the site, without having to modify and re-publish the individual content items.
 
-The Link manager tab contains all the information about each link, including its status (valid or invalid) and the time the system last attempted to validate the URL address.
+The **Link manager** tab contains all the information about each link, including its status (valid or invalid) and the time the system last attempted to validate the URL address.
 Click an entry in the list to display its details and check which content items use this link.
 Edit the entry to update the URL address in all the occurrences throughout the website.
 
@@ -237,7 +237,7 @@ ibexa:
 
 ### Configuring URL wildcards in the back office
 
-The URL wildcards tab contains all the information about each URL wildcard. You can delete or modify existing entries, or create new ones.
+The **URL wildcards** tab contains all the information about each URL wildcard. You can delete or modify existing entries, or create new ones.
 
 !!! note
 

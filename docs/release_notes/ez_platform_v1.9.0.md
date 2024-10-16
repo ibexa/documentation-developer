@@ -26,7 +26,7 @@ In version 1.8 we introduced a new Content Browser in the Universal Discovery Wi
 
 #### Miscellaneous
 
--   The Details tab in content view now provides information about the Section the content item belongs to.
+-   The **Details** tab in content view now provides information about the Section the content item belongs to.
 
 ![Section details in Details tab](section-details.png "Section details in Details tab")
 

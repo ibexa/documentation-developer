@@ -71,7 +71,7 @@ services:
 
 
 You have successfully created a custom RichText block. 
-You can now add your block in the Site tab.
+You can now add your block in the **Site** tab.
 
 ![RichText block](extending_richtext_block.png)
 

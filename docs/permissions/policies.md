@@ -63,7 +63,7 @@ which define, which parts of the application or website the user has access to.
 | <nobr>`setup`</nobr> | <nobr>`administrate`</nobr> | access Admin                             |
 |                      | <nobr>`install`</nobr>      | unused                                   |
 |                      | <nobr>`setup`</nobr>        | unused                                   |
-|                      | <nobr>`system_info`</nobr>  | view the System Information tab in Admin |
+|                      | <nobr>`system_info`</nobr>  | view the **System Information** tab in Admin |
 
 #### Sites [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 

@@ -16,9 +16,9 @@
 
     You can now schedule content on a Page to become visible at a specific time in the future.
 
-    To do this you can use the Schedule tab in any block's configuration or a special Content Scheduler block.
+    To do this you can use the **Schedule** tab in any block's configuration or a special Content Scheduler block.
 
-    In the Schedule tab you can define when any block becomes visible and when it disappears from a Page.
+    In the **Schedule** tab you can define when any block becomes visible and when it disappears from a Page.
 
     ![Schedule tab](2.3_schedule_tab.png)
 

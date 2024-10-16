@@ -237,7 +237,7 @@ Call the group "Bloggers".
 
 ![Adding limitations to a policy](first-steps-policy-limitations.png)
 
-6\. In the Assignments tab assign the "Blogger" role to the "Bloggers" group.
+6\. In the **Assignments** tab assign the "Blogger" role to the "Bloggers" group.
 
 ![Assigning a role](first-steps-assign-roles.png)
 

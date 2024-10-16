@@ -67,7 +67,7 @@ You can now move assets between collections by using drag and drop.
 
 ![Moving assets between collection with drag and drop](img/4.3_collection_dnd.png)
 
-From product's Completeness tab you can now jump directly to editing the product prices in all configured currencies.
+From product's **Completeness** tab you can now jump directly to editing the product prices in all configured currencies.
 
 ![Editing product price from Completeness tab](img/4.3_edit_product_price.png)
 
