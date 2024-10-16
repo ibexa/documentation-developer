@@ -24,14 +24,15 @@ For a detailed overview of the content model, see [Content model overview](conte
 
 Each content type is characterized by a set of metadata which define the general behavior of its instances:
 
-**Name** – a user-friendly name that describes the content type. This name is used in the interface, but not internally by the system.
+**Name** – a user-friendly name that describes the content type.
+This name is used in the interface, but not internally by the system.
 It can consist of letters, digits, spaces, and special characters (it's mandatory and the maximum length is 255 characters).
 
 !!! note
 
     Even if your content type defines a field intended as a name for the content item (for example, a title of an article or product name), don't confuse it with this Name, which is a piece of metadata, not a field.
 
-**Identifier** – an identifier for internal use in configuration files, templates, PHP code, etc. 
+**Identifier** – an identifier for internal use in configuration files, templates, PHP code, etc.
 It must be unique, can only contain lowercase letters, digits, and underscores (it's mandatory and the maximum length is 50 characters).
 
 **Description** – a detailed description of the content type (optional).
@@ -42,7 +43,7 @@ Each field identifier has to be surrounded with angle brackets.
 Text outside the angle brackets is included literally.
 If no pattern is provided, the system automatically uses the first field (optional).
 
-**URL alias name pattern** – a pattern which controls how the virtual URLs of the Locations are generated when content items are created based on this content type.
+**URL alias name pattern** – a pattern which controls how the virtual URLs of the locations are generated when content items are created based on this content type.
 Only the last part of the virtual URL is affected.
 The pattern works in the same way as the content name pattern.
 Text outside the angle brackets is converted using the selected method of URL transformation.

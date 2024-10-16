@@ -2,7 +2,7 @@
 description: Object states are user-defined states that can be assigned to content items.
 ---
 
-## Object States
+# Object States
 
 Object states are user-defined states that can be assigned to content items.
 they're contained in groups.
