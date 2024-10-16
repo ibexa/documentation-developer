@@ -211,7 +211,7 @@ You can process the events in a collection using the `find(Closure $predicate)`,
 
 ### Performing calendar actions
 
-You can perform a calendar action (e.g. reschedule or unschedule calendar events) using the `CalendarServiceInterface::executeAction()` method.
+You can perform a calendar action (for example, reschedule or unschedule calendar events) using the `CalendarServiceInterface::executeAction()` method.
 You must pass an `Ibexa\Contracts\Calendar\EventAction\EventActionContext` instance as argument.
 `EventActionContext` defines events on which the action is performed, and action-specific parameters, for example, a new date:
 

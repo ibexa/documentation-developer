@@ -24,7 +24,7 @@ That means changing `%env(resolve:DATABASE_URL)%` to `%env(DATABASE_URL)%`.
 If your password only contains letters a-z, A-Z, and numbers 0-9, you don't need to do any encoding.
 You can either create your password that way, in which case it's a good idea to make it longer to maintain entropy,
 keeping the password hard to guess for an attacker.
-Or, you can for instance convert your password with `bin2hex()`, so that e.g. `(/!=#Æ¤*;%?[` becomes `282f213d23c386c2a42a3b253f5b`.
+Or, you can for instance convert your password with `bin2hex()`, so that, for example, `(/!=#Æ¤*;%?[` becomes `282f213d23c386c2a42a3b253f5b`.
 The output from `bin2hex` is limited to 0-9 and a-f. This more than doubles the length of the password, keeping entropy similar.
 
 ## Enabling swap with limited RAM
@@ -34,7 +34,7 @@ It allows your operating system to use the hard disk to supplement RAM when it r
 
 With swap enables you're able to successfully run `php -d memory_limit=-1 bin/console ibexa:install --env prod ezplatform-clean`.
 
-When a system runs out of RAM, you may see `Killed` when trying to clear the cache (e.g. `php bin/console --env=prod cache:clear` from your project's root directory).
+When a system runs out of RAM, you may see `Killed` when trying to clear the cache (for example, `php bin/console --env=prod cache:clear` from your project's root directory).
 
 ## Upload size limit
 

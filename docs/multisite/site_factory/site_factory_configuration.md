@@ -49,7 +49,7 @@ Remember that one template can only have one Site skeleton.
 If the design doesn't have a defined Site skeleton, a directory of the new site is created in a standard Site Factory process.
 
 To define a Site skeleton, add the `site_skeleton_id` or `site_skeleton_remote_id` key to the site template definition.
-This can be either a Location ID (e.g. `5966`), or a remote Location ID (e.g. `3bed95afb1f8126f06a3c464e461e1ae66`).
+This can be either a Location ID (for example, `5966`), or a remote Location ID (for example, `3bed95afb1f8126f06a3c464e461e1ae66`).
 
 ``` yaml hl_lines="7 12"
 ibexa_site_factory:

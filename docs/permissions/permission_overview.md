@@ -47,8 +47,8 @@ public function performAccessCheck(): void
 
 `Attribute` accepts three arguments:
 
-- `module` is the policy module (e.g. `content`)
-- `function` is the function inside the module (e.g. `read`)
+- `module` is the policy module (for example,`content`)
+- `function` is the function inside the module (for example, `read`)
 - `limitations` are optional limitations to check against. Here you can provide two keys:
     - `valueObject` is the object you want to check for, for example `ContentInfo`.
     - `targets` are a table of value objects that are the target of the operation.

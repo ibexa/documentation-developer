@@ -199,7 +199,7 @@ See [Tagging from code](https://foshttpcachebundle.readthedocs.io/en/latest/feat
 
 4\. Use deprecated `X-Location-Id` header.
 
-For custom or built-in controllers (e.g. REST) still using `X-Location-Id`, `XLocationIdResponseSubscriber` handles translating
+For custom or built-in controllers (for example, REST) still using `X-Location-Id`, `XLocationIdResponseSubscriber` handles translating
 this header to tags. It supports singular and comma-separated Location ID value(s):
 
 ```php

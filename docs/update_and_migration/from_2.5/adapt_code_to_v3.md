@@ -23,7 +23,7 @@ When updating to eZ Platform v3 you need to move your files and modify file path
 #### Configuration
 
 Configuration files have been moved from `app/Resources/config` to `config`.
-Package-specific configuration is placed in `config/packages` (e.g. `config/packages/ezplatform_admin_ui.yaml`).
+Package-specific configuration is placed in `config/packages` (for example, `config/packages/ezplatform_admin_ui.yaml`).
 This folder also contains `config/packages/ezplatform.yaml`, which contains all settings coming in from Kernel.
 
 #### PHP code and bundle organization

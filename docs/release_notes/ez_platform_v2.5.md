@@ -149,7 +149,7 @@ New API improvements include:
 - new `loadLanguageListByCode()` and `loadLanguageListById()` endpoints for bulk loading of languages
 - new method `ContentService->loadContentInfoList()` for bulk loading Content information
     - it can be used with `ContentService->loadContentListByContentInfo()` to bulk load Content
-    - v2.5 also takes advantage of it in e.g. `RelationList` and `ParameterProvider`
+    - v2.5 also takes advantage of it in, for example, `RelationList` and `ParameterProvider`
 - now Persistence cache layer also caches selected metadata objects in-memory
 - indexation of related objects in the full text search
 

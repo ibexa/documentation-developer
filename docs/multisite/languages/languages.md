@@ -91,7 +91,7 @@ ibexa:
 
 !!! note
 
-    The top prioritized language is always used the SiteAccess language reference (e.g. `fre-FR` for `fre` SiteAccess in the example above).
+    The top prioritized language is always used the SiteAccess language reference (for example, `fre-FR` for `fre` SiteAccess in the example above).
 
 If several translation SiteAccesses share the same language reference, **the first declared SiteAccess always applies**.
 

@@ -90,7 +90,7 @@ ibexa:
 ### In-Memory cache configuration
 
 Persistence cache layer caches selected objects in-memory for a short time.
-It avoids loading repeatedly the same data from e.g. a remote Redis instance, which can take up to 4-5ms per call due to the network latency and Redis instance load.
+It avoids loading repeatedly the same data from, for example, a remote Redis instance, which can take up to 4-5ms per call due to the network latency and Redis instance load.
 The cache is organized in 2 pools, one for metadata which isn't updated frequently, and one for content related objects that is only meant as a short-lived burst cache.
 Limit is organized using a [least frequently used (LFU)](https://en.wikipedia.org/wiki/Least_frequently_used) approach.
 It makes sure repeatedly used objects stay in-memory until expired, and those seldom used are bulk evicted from cache every time the maximum number of cache items is reached.
@@ -120,7 +120,7 @@ parameters:
 !!! caution "In-Memory cache is per-process"
 
     **TTL and Limit need to have a low value.** Setting limit high increases memory use.
-    High TTL value also increases exponentially risk for system acting on stale metadata (e.g. content type definitions).
+    High TTL value also increases exponentially risk for system acting on stale metadata (for example, content type definitions).
     The only case where it's safe to increase these values is for dev environment with single concurrency on writes.
     In prod environment you should only consider reducing them if you have heavy concurrency writes.
 
@@ -196,10 +196,10 @@ With that in mind, the following configurations of Redis are possible:
     - Shard slaves can improve availability, however [they use asynchronous replication](https://redis.io/docs/management/scaling/#redis-cluster-consistency-guarantees) so they can't be used for reads
     - Unsupported Redis features that can affect performance: [pipelining](https://github.com/phpredis/phpredis/blob/develop/cluster.md#pipelining) and [most multiple key commands](https://github.com/phpredis/phpredis/blob/develop/cluster.md#multiple-key-commands)
 - [Redis Sentinel](https://redis.io/docs/management/sentinel/)
-    - Provides high availability by providing one or several slaves (ideally 2 slaves or more, e.g. minimum 3 servers), and handle failover
+    - Provides high availability by providing one or several slaves (ideally 2 slaves or more, for example, minimum 3 servers), and handle failover
     - [Slaves are asynchronously replicated](https://redis.io/docs/management/sentinel/#fundamental-things-to-know-about-sentinel-before-deploying), so they can't be used for reads
-    - Typically used with a load balancer (e.g. HAproxy with occasional calls to Redis Sentinel API) in the front to only speak to elected master
-    - As of v3 you can also configure this [directly on the connection string]([[= symfony_doc =]]/components/cache/adapters/redis_adapter.html#configure-the-connection), **if** you use `Predis` instead of `php-redis` 
+    - Typically used with a load balancer (for example, HAproxy with occasional calls to Redis Sentinel API) in the front to only speak to elected master
+    - As of v3 you can also configure this [directly on the connection string]([[= symfony_doc =]]/components/cache/adapters/redis_adapter.html#configure-the-connection), **if** you use `Predis` instead of `php-redis`
 
 Several cloud providers have managed services that are easier to set up, handle replication and scalability for you, and might perform better. Notable services include:
 

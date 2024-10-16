@@ -20,7 +20,7 @@ Configuration is provided per package in the `config/packages` folder, and route
 `config/packages/ibexa.yaml` contains basic configuration.
 It stores, among others, [SiteAccess](multisite.md) information and content view config.
 
-Other configuration is provided in respective files, e.g. `config/packages/ibexa_admin_ui.yaml`, `config/packages/ibexa_http_cache.yaml`.
+Other configuration is provided in respective files, for example, `config/packages/ibexa_admin_ui.yaml`, `config/packages/ibexa_http_cache.yaml`.
 
 Configuration can be made environment-specific using separate folders for each environment.
 These files contain additional settings and point to the general (not environment-specific) configuration that is applied in other cases.

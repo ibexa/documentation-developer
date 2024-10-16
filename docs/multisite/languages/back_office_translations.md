@@ -84,7 +84,7 @@ private function getTranslatedDescription(): string
 The strings are provided in .xliff files.
 The file should be stored in your project's or your bundle's `Resources/translations` folder.
 
-File name corresponds to the selected domain and the language, e.g. `custom_extension.en.xliff`.
+File name corresponds to the selected domain and the language, for example, `custom_extension.en.xliff`.
 
 ``` xml
 <?xml version="1.0" encoding="utf-8"?>

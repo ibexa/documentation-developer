@@ -5,7 +5,7 @@ description: Make sure your custom development's configuration can be used with 
 # SiteAccess-aware configuration
 
 The [Symfony Config component]([[= symfony_doc =]]/components/config.html) makes it possible to define semantic configuration, exposed to the end developer.
-This configuration is validated by rules you define, e.g. validating type (string, array, integer, boolean and so on).
+This configuration is validated by rules you define, for example, validating type (string, array, integer, boolean and so on).
 Usually, after it's validated and processed, this semantic configuration is then mapped to internal *key/value* parameters stored in the service container.
 
 [[= product_name =]] uses this for its core configuration, but adds another configuration level, the SiteAccess.

@@ -170,7 +170,7 @@ Example response:
 To create a Matrix field type you need to define field type and field definition identifiers.
 The types that are used for input are named after the Type and the field:
 
-- `{TypeIdentifier}{FieldIdentifier}RowInput` e.g. `dish.nutritionFacts`, `event.agenda`: `DishNutritionFactsRowInput`, `EventAgendaRowInput`
+- `{TypeIdentifier}{FieldIdentifier}RowInput`, for example, `dish.nutritionFacts`, `event.agenda`: `DishNutritionFactsRowInput`, `EventAgendaRowInput`
 
 The example below shows how to create a Recipe content item (belonging to a content type with a Matrix field type added) that has two fields:
 

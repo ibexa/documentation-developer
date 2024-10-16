@@ -258,7 +258,7 @@ Place this before the include of `ez_params.d`/`ez_rewrite_params` in your vhost
 
 If you're migrating an existing single-server site to a cluster setup, and not setting up clustering from scratch, you need to migrate your files.
 Once you have configured your binarydata and metadata handlers, you can run the `ibexa:io:migrate-files` command.
-You can also use it when you're migrating from one data handler to another, e.g. from NFS to Amazon S3.
+You can also use it when you're migrating from one data handler to another, for example, from NFS to Amazon S3.
 
 This command shows which handlers are configured:
 

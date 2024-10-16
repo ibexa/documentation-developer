@@ -10,7 +10,7 @@ If you don't want to use custom thumbnails, `ContentType` is used instead.
 ## Thumbnail mechanism 
 
 The thumbnail mechanism has two layers, and each layer can have many implementations.
-The mechanism checks if any of the implementations returns a field e.g. `ezimage` that has function "Can be a thumbnail" turned on.
+The mechanism checks if any of the implementations returns a field, for example, `ezimage`, that has function "Can be a thumbnail" turned on.
 
 ![Can be a thumbnail setting](extending_thumbnail_can_be.png)
 
@@ -30,7 +30,7 @@ For this layer there are following default implementations:
 ### Second layer
 
 Second layer of mechanism enables selection of thumbnail from a field that the first layer has found. 
-It searches the content type for all the fields e.g. images with function "Can be a thumbnail" turned on.
+It searches the content type for all the fields, for example, images, with function "Can be a thumbnail" turned on.
 
 If there is more than one field in the content type that can be used as a thumbnail, this layer returns the first nonempty field as a thumbnail.
 
@@ -62,7 +62,7 @@ At this point you can go to the back office and check the results.
 
 ## Other fields as thumbnails
 
-Any field type can generate a thumbnail, e.g.:
+Any field type can generate a thumbnail, for example:
 
 - DateAndTime (`ezdatetime`) - you can add a mini calendar thumbnail for Appointment content type and on the day of the appointment a clock thumbnail with a specific time when it takes place
 - TextBlock (`eztext`) -  you can add a first letter of the text block that is inside

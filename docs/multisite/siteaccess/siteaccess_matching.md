@@ -46,8 +46,8 @@ ibexa:
 If the matcher class doesn't start with a backslash (`\`), it's relative to `Ibexa\Core\MVC\Symfony\SiteAccess\Matcher`
 (for example, `Map\URI` refers to `Ibexa\Core\MVC\Symfony\SiteAccess\Matcher\Map\URI`)
 
-You can specify [custom matchers](#custom-matchers) by using a fully qualified class name (e.g. `\My\SiteAccess\Matcher`)
-or a service identifier (e.g. `@my_matcher_service`).
+You can specify [custom matchers](#custom-matchers) by using a fully qualified class name (for example, `\My\SiteAccess\Matcher`)
+or a service identifier (for example, `@my_matcher_service`).
 In the case of a fully qualified class name, the matching configuration is passed in the constructor.
 In the case of a service, it must implement `Ibexa\Bundle\Core\SiteAccess\Matcher`.
 The matching configuration is passed to `setMatchingConfiguration()`.

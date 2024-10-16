@@ -212,7 +212,7 @@ bin/console ibexa:urls:regenerate-aliases
 You can also extend the command with the following parameters:
 
 - `--iteration-count` — Defines how many Locations are processed at once to reduce memory usage
-- `--location-id` — Regenerates URL addresses for specific Locations only, e.g. `ibexa:urls:regenerate-aliases --location-id=1 --location-id=2`
+- `--location-id` — Regenerates URL addresses for specific Locations only, for example, `ibexa:urls:regenerate-aliases --location-id=1 --location-id=2`
 
 ## URL wildcards
 

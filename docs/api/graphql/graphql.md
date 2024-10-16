@@ -36,7 +36,7 @@ To find identifiers that aren't included in the schema, look for "Skipped schema
 
 GraphQL for [[= product_name =]] is based on the content types (including product types), content type groups, and content items defined in the repository.
 
-For each content type the schema exposes a singular and plural field, e.g. `article` and `articles`.
+For each content type the schema exposes a singular and plural field, for example, `article` and `articles`.
 Use the singular field to query a single content item, and the plural to get a whole `Connection` (a list of content items that supports pagination).
 
 With the queries you can inspect:
@@ -52,7 +52,7 @@ You can also query content type and content type group information through the `
 
 The repository schema, accessed through `_repository`, exposes the [[= product_name =]] repository in a manner similar to the [Public PHP API](php_api.md).
 
-The `_repository` field also enables you to query e.g. Object states configured for the repository.
+The `_repository` field also enables you to query, for example, Object states configured for the repository.
 
 ### Custom schemas
 

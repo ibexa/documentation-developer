@@ -39,7 +39,7 @@ Click it to create new content.
 
 ![Selecting Point 2D from sidebar](menu_point2d.png)
 
-Here, you can fill in coordinates of your point, e.g. 3, 5.
+Here, you can fill in coordinates of your point, for example, 3, 5.
 Provided coordinates are used as a title for a new point.
 
 ![Creating Point 2D](creating_new_point2d.png)

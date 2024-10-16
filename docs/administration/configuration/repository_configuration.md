@@ -245,11 +245,11 @@ ibexa:
 ```
 
 You can override these settings if you have other content types that should be treated as users/user groups in the back office.
-When viewing such content in the back office you're able to see e.g. the assigned policies.
+When viewing such content in the back office you're able to see, for example, the assigned policies.
 
 ## Top-level Locations
 
-You can change the default path for top-level Locations such as content or media in the back office, e.g.:
+You can change the default path for top-level Locations such as content or media in the back office, for example:
 
 ```yaml
 ibexa:

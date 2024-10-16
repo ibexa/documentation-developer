@@ -39,7 +39,7 @@ It provides you with basic content metadata such as modification and publication
 
 !!! note "Retrieving content information in a controller"
 
-    To retrieve content information in a controller, you also make use of the `ContentService`, but rendering specific elements (e.g. content information or field values) is relegated to [templates](templates.md).
+    To retrieve content information in a controller, you also make use of the `ContentService`, but rendering specific elements (for example, content information or field values) is relegated to [templates](templates.md).
 
 ### Locations
 
@@ -229,4 +229,4 @@ $nameComparison = $this->comparisonService->compare($versionFrom, $versionTo)->g
 `getComparisonResult` returns a `ComparisonResult` object, which depends on the field type being compared.
 In the example of a Text Line (ezstring) field, it's an array of `StringDiff` objects.
 
-Each diff contains a section of the field to compare (e.g. a part of a text line) and its status, which can be "unchanged", "added" or "removed".
+Each diff contains a section of the field to compare (for example, a part of a text line) and its status, which can be "unchanged", "added" or "removed".

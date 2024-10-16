@@ -5,7 +5,7 @@ description: Field types define the fields that a content item is built of.
 # Field types
 
 Field types are the smallest building blocks of content.
-[[= product_name =]] comes with many [built-in field types](field_type_reference.md#available-field-types) that cover most common needs e.g. Text line, Email address, Author list, Content relation, Map location, Float, etc.
+[[= product_name =]] comes with many [built-in field types](field_type_reference.md#available-field-types) that cover most common needs, for example, Text line, Email address, Author list, Content relation, Map location, Float, etc.
 
 Field types are responsible for:
 
@@ -42,7 +42,7 @@ Below that, the field type must support the **public PHP API** implementation re
 - Communication with the Persistence SPI
 
 On the bottom level, a field type can additionally hook into the **Persistence SPI** to store data from a `FieldValue` in an external service.
-All non-standard [[= product_name =]] database tables (e.g. `ezurl`) are treated as [external storage](field_type_storage.md#storing-data-externally).
+All non-standard [[= product_name =]] database tables (for example, `ezurl`) are treated as [external storage](field_type_storage.md#storing-data-externally).
 
 The following sequence diagrams visualize the process of creating and publishing new content across all layers, especially focused on the interaction with a field type.
 

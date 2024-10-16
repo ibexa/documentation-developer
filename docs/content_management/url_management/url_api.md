@@ -12,7 +12,7 @@ To view a list of all URLs, use [`URLService::findUrls`](../../api/php_api/php_a
 `URLService::findUrls` takes as argument a [`URLQuery`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-URL-URLQuery.html),
 in which you need to specify:
 
-- query filter e.g. Section
+- query filter, for example, Section
 - Sort Clauses for URL queries
 - offset for search hits, used for paging the results
 - query limit. If value is `0`, search query doesn't return any search hits

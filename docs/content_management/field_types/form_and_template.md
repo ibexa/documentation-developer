@@ -186,7 +186,7 @@ ibexa:
 
 For templates for previewing the field in the back office,
 using the design engine is recommended with `ibexa_standard_design.override_kernel_templates` set to `true`.
-With the design engine you can apply a template (e.g. `Resources/views/themes/admin/content_fields.html.twig`) without any extra configuration.
+With the design engine you can apply a template (for example, `Resources/views/themes/admin/content_fields.html.twig`) without any extra configuration.
 
 If you don't use the design engine, apply the following configuration:
 

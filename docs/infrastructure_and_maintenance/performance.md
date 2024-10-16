@@ -40,7 +40,7 @@ In production setups:
 ### VM
 
 - Avoid shared filesystems for code (Docker for Mac/Win, VirtualBox/*, Vagrant, etc.), because they typically slow down the application 10x or more, compared to native Linux filesystem.
-- VM in itself also adds 10-30% of overhead. However when it comes to production, e.g. AWS vs barebones, it also comes down to cost and convenience factors.
+- VM in itself also adds 10-30% of overhead. However when it comes to production, for example, AWS vs barebones, it also comes down to cost and convenience factors.
 
 ### Web server
 

@@ -29,11 +29,11 @@ Since the public PHP API cannot know anything about these, their handling is del
 #### `getFieldTypeIdentifier()`
 
 Returns a unique identifier for the custom field type which is used to assign the type to a field definition.
-By convention it should be prefixed by a unique vendor shortcut (e.g. `ibexa` for [[= product_name =]]).
+By convention it should be prefixed by a unique vendor shortcut (for example, `ibexa` for [[= product_name =]]).
 
 #### `getSettingsSchema()`
 
-This method retrieves via public PHP API a schema for the field type settings. A typical setting would be e.g. default value. The settings structure defined by this schema is stored in the `FieldDefinition`. Since it's not possible to define a generic format for such a schema, the field type is free to return any serializable data structure from this method.
+This method retrieves via public PHP API a schema for the field type settings. A typical setting would be, for example, default value. The settings structure defined by this schema is stored in the `FieldDefinition`. Since it's not possible to define a generic format for such a schema, the field type is free to return any serializable data structure from this method.
 
 #### `getValidatorConfigurationSchema()`
 
@@ -127,7 +127,7 @@ Like most API components, field types use the [Symfony service tag mechanism]([[
 
 A service can be assigned one or several tags, with specific parameters.
 When the [service container](php_api.md#service-container) is compiled into a PHP file, tags are read by `CompilerPass` implementations that add extra handling for tagged services.
-Each service tagged as `ibexa.field_type` is added to a [registry](https://martinfowler.com/eaaCatalog/registry.html) using the `alias` key as its unique `fieldTypeIdentifier` e.g. `ezstring`.
+Each service tagged as `ibexa.field_type` is added to a [registry](https://martinfowler.com/eaaCatalog/registry.html) using the `alias` key as its unique `fieldTypeIdentifier`, for example, `ezstring`.
 Each field type must also inherit from the abstract `ibexa.field_type` service.
 This ensures that the initialization steps shared by all field types are executed.
 
@@ -143,9 +143,9 @@ To make the search engine aware of the data stored in a field type, register it 
 
 It's recommended to use a simple associative array format for the settings schema returned by `Ibexa\Contracts\Core\FieldType\FieldType::getSettingsSchema()`, which follows these rules:
 
-- The key of the associative array identifies a setting (e.g. `default`)
+- The key of the associative array identifies a setting (for example, `default`)
 - Its value is an associative array describing the setting using:
-    - `type` to identify the setting type (e.g. `int` or `string`)
+    - `type` to identify the setting type (for example, `int` or `string`)
     - `default` containing the default setting value
 
 An example schema could look like this:

@@ -32,7 +32,7 @@ The Legacy storage engine uses the `ezcontentobject_attribute` table to store fi
 and `ezcontentclass_attribute` to store field definition values.
 they're both based on the same principle.
 
-Each row represents a field or a field definition, and offers several free fields of different types, where the type can store its data e.g.
+Each row represents a field or a field definition, and offers several free fields of different types, where the type can store its data.
 
 - `ezcontentobject_attribute` offers:
     - `data_int`
@@ -88,7 +88,7 @@ The tag has the following attribute:
 ## Storing data externally
 
 A field type may store arbitrary data in external data sources.
-External storage can be e.g. a web service, a file in the file system, another database
+External storage can be, for example, a web service, a file in the file system, another database
 or even the [[= product_name =]] database itself (in form of a non-standard table).
 
 To store data in external storage, the field type interacts with the Persistence SPI
@@ -107,7 +107,7 @@ calls one of the following methods to also access the external data:
 
 Each of the above methods (except `hasFieldData`) receives a `$context` array with information on the underlying storage and the environment.
 To retrieve and store data in the [[= product_name =]] data storage,
-but outside of the normal structures (e.g. a custom table in an SQL database),
+but outside of the normal structures (for example, a custom table in an SQL database),
 use [Gateway-based storage](#gateway-based-storage) with properly injected Doctrine Connection.
 
 The field type must take care on its own for being compliant with different data sources and that third parties can extend the data source support easily.
@@ -120,7 +120,7 @@ The interface `Ibexa\Contracts\Core\FieldType\StorageGateway` is implemented by 
 
 |Method|Description|
 |------|-----------|
-|`setConnection()`|The registry mechanism uses this method to set the SPI storage connection (e.g. the database connection to the Legacy Storage database) into the gateway, which might be used to store external data. The connection is retrieved from the `$context` array automatically by the registry.|
+|`setConnection()`|The registry mechanism uses this method to set the SPI storage connection (for example, the database connection to the Legacy Storage database) into the gateway, which might be used to store external data. The connection is retrieved from the `$context` array automatically by the registry.|
 
 The Gateway implementation itself must take care of validating that it received a usable connection. If it doesn't, it should throw a `RuntimeException`.
 

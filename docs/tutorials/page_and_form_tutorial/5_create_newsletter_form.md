@@ -52,7 +52,7 @@ Create a `newsletter.html.twig` file in `templates/blocks/form/`:
 This template extends the default block layout by adding an additional class (line 1) that shares CSS styling with the Random block.
 
 Append the new template to the block by adding it to `config/packages/ibexa_fieldtype_page.yaml`.
-Add the following configuration under the `blocks` key at the same level as other block names, e.g. `random`:
+Add the following configuration under the `blocks` key at the same level as other block names, for example, `random`:
 
 ``` yaml hl_lines="1"
 [[= include_file('code_samples/tutorials/page_tutorial/config/packages/ibexa_fieldtype_page.yaml', 42, 47) =]]

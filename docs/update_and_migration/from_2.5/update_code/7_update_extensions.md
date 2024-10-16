@@ -3,7 +3,7 @@
 ## Universal Discovery Widget
 
 If you extended the Universal Discovery Widget
-(e.g. added your own tabs or triggered opening the UDW for your own customizations),
+(for example, added your own tabs or triggered opening the UDW for your own customizations),
 you need to rewrite this extension using the [new YAML configuration](https://doc.ibexa.co/en/3.3/extending/extending_udw/).
 
 ## Back office extensibility

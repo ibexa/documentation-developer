@@ -34,7 +34,7 @@ For information on how to create and configure new blocks for the Page, see [Cre
 
 Page rendering takes place while editing or viewing.
 
-When rendering a Page, its zones are passed to the layout as a `zones` array with a `blocks` array each. You can access them using twig (e.g. `{{ zones[0].id }}` ).
+When rendering a Page, its zones are passed to the layout as a `zones` array with a `blocks` array each. You can access them using twig (for example, `{{ zones[0].id }}` ).
 
 Each div that's a zone should have the `data-ibexa-zone-id` attribute with zone ID as a value for a zone container.
 
