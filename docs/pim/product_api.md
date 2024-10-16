@@ -8,8 +8,8 @@ description: Use PHP API to manage products in PIM, their attributes, availabili
 
 [[= product_name =]]'s Product API provides two services for handling product information, which differ in function:
 
-- `ProductServiceInterface` is used to request product data
-- `LocalProductServiceInterface` is used to modify products
+- [`ProductServiceInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-ProductServiceInterface.html) is used to request product data
+- [`LocalProductServiceInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-LocalProductServiceInterface.html) is used to modify products
 
 !!! tip "Product REST API"
 
@@ -17,18 +17,21 @@ description: Use PHP API to manage products in PIM, their attributes, availabili
 
 ### Getting product information
 
-Get an individual product by using the `productService::getProduct()` method:
+Get an individual product by using the `ProductServiceInterface::getProduct()` method:
 
 ``` php
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 68, 71) =]]
 ```
 
-Find multiple products with `productService::findProducts()`.
+Find multiple products with [`ProductServiceInterface::findProducts()`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-ProductServiceInterface.html#method_findProducts).
+
 Provide the method with optional filter, query or Sort Clauses.
 
 ``` php
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 72, 82) =]]
 ```
+
+See [Product Search Criteria](product_search_criteria.md) and [Product Sort Clauses](product_sort_clauses.md) references for more to use with [`ProductQuery`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-ProductQuery.html).
 
 ### Modifying products
 
@@ -38,7 +41,7 @@ To create, update and delete products, use the `LocalProductServiceInterface`.
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 93, 97) =]]
 ```
 
-To create a product, use `LocalProductService::newProductCreateStruct()`.
+To create a product, use [`LocalProductServiceInterface::newProductCreateStruct()`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-LocalProductServiceInterface.html#method_newProductCreateStruct).
 Provide the method with the product type object and the main language code.
 You also need to set (at least) the code for the product and the required Field of the underlying content type, `name`:
 
@@ -46,7 +49,7 @@ You also need to set (at least) the code for the product and the required Field 
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 83, 90) =]]
 ```
 
-To delete a product, use `LocalProductService::deleteProduct()`:
+To delete a product, use `LocalProductServiceInterface::deleteProduct()`:
 
 ``` php
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 120, 121) =]]
@@ -55,7 +58,7 @@ To delete a product, use `LocalProductService::deleteProduct()`:
 ### Product variants
 
 You can access the variants of a product by using `ProductServiceInterface::findProductVariants()`.
-The method takes the product object and a `ProductVariantQuery` object as parameters.
+The method takes the product object and a [`ProductVariantQuery`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-ProductVariantQuery.html#constants) object as parameters.
 
 A `ProductVariantQuery` lets you define the offset and limit of the variant query.
 The default offset is 0, and limit is 25.
@@ -73,8 +76,8 @@ by using `ProductVariant::getDiscriminatorAttributes()`.
 
 #### Creating variants
 
-To create a product variant, use `LocalProductService::createProductVariants()`.
-This method takes the product and an array of `ProductVariantCreateStruct` objects as parameters.
+To create a product variant, use `LocalProductServiceInterface::createProductVariants()`.
+This method takes the product and an array of [`ProductVariantCreateStruct`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-Values-Product-ProductVariantCreateStruct.html) objects as parameters.
 `ProductVariantCreateStruct` specifies the attribute values and the code for the new variant.
 
 ``` php
@@ -83,7 +86,7 @@ This method takes the product and an array of `ProductVariantCreateStruct` objec
 
 ### Product assets
 
-You can get assets assigned to a product by using `AssetServiceInterface`.
+You can get assets assigned to a product by using [`AssetServiceInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-AssetServiceInterface.html).
 
 Use `AssetServiceInterface` to get a single asset by providing the product object and the assets's ID as parameters:
 
@@ -92,7 +95,7 @@ Use `AssetServiceInterface` to get a single asset by providing the product objec
 ```
 
 To get all assets assigned to a product, use `AssetServiceInterface::findAssets()`.
-You can retrieve the tags (corresponding to attribute values) of assets with the `getTags()` method:
+You can retrieve the tags (corresponding to attribute values) of assets with the `AssetInterface::getTags()` method:
 
 ``` php
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductAssetCommand.php', 57, 66) =]]
@@ -100,15 +103,15 @@ You can retrieve the tags (corresponding to attribute values) of assets with the
 
 ## Product types
 
-To work with product types, use `ProductTypeServiceInterface`.
+To work with product types, use [`ProductTypeServiceInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-ProductTypeServiceInterface.html).
 
-Get a product type object by using `ProductTypeServiceInterface::getProductType`:
+Get a product type object by using `ProductTypeServiceInterface::getProductType()`:
 
 ``` php
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductTypeCommand.php', 43, 44) =]]
 ```
 
-You can also get a list of product types with `ProductTypeServiceInterface::findProductTypes`:
+You can also get a list of product types with `ProductTypeServiceInterface::findProductTypes()`:
 
 ``` php
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductTypeCommand.php', 47, 52) =]]
@@ -117,18 +120,18 @@ You can also get a list of product types with `ProductTypeServiceInterface::find
 ## Product availability
 
 Product availability is an object which defines whether a product is available, and if so, in what stock.
-To manage it, use `ProductAvailabilityServiceInterface`.
+To manage it, use [`ProductAvailabilityServiceInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-ProductAvailabilityServiceInterface.html).
 
-To check whether a product is available (with or without stock defined), use `ProductAvailabilityServiceInterface::hasAvailability`.
+To check whether a product is available (with or without stock defined), use `ProductAvailabilityServiceInterface::hasAvailability()`.
 
-Get the availability object with `getAvailability()`.
-You can then use `ProductAvailabilityServiceInterface::getStock` to get the stock number for the product:
+Get the availability object with `ProductAvailabilityServiceInterface::getAvailability()`.
+You can then use `ProductAvailabilityServiceInterface::getStock()` to get the stock number for the product:
 
 ```php
 [[= include_file('code_samples/api/product_catalog/src/Command/ProductCommand.php', 104, 109) =]]        }
 ```
 
-To change availability for a product, use `updateProductAvailability()` with a `ProductAvailabilityUpdateStruct`
+To change availability for a product, use `ProductAvailabilityServiceInterface::updateProductAvailability()` with a [`ProductAvailabilityUpdateStruct`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Availability-ProductAvailabilityUpdateStruct.html)
 and provide it with the product object. The second parameter defines whether product is available,
 and the third whether its stock is infinite. The fourth parameter is the stock number:
 
@@ -138,19 +141,19 @@ and the third whether its stock is infinite. The fourth parameter is the stock n
 
 ## Attributes
 
-To get information about product attribute groups, use the `AttributeGroupServiceInterface`,
-or `LocalAttributeGroupServiceInterface` to modify attribute groups.
+To get information about product attribute groups, use the [`AttributeGroupServiceInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-AttributeGroupServiceInterface.html),
+or [`LocalAttributeGroupServiceInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-LocalAttributeGroupServiceInterface.html) to modify attribute groups.
 
 `AttributeGroupServiceInterface::getAttributeGroup()` enables you to get a single attribute group by its identifier.
-`AttributeGroupServiceInterface::findAttributeGroups()` get all attribute groups, base on optional query:
+`AttributeGroupServiceInterface::findAttributeGroups()` get all attribute groups, base on optional [`AttributeGroupQuery`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-AttributeGroup-AttributeGroupQuery.html):
 
 ``` php
 [[= include_file('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 71, 72) =]]
 [[= include_file('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 92, 97) =]]
 ```
 
-To create an attribute group, use `LocalAttributeGroupServiceinterface::createAttributeGroup`
-and provide it with an `AttributeGroupCreateStruct`:
+To create an attribute group, use `LocalAttributeGroupServiceinterface::createAttributeGroup()`
+and provide it with an [`AttributeGroupCreateStruct`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-Values-AttributeGroup-AttributeGroupCreateStruct.html):
 
 ``` php
 [[= include_file('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 66, 70) =]]
@@ -163,8 +166,8 @@ or `LocalAttributeDefinitionServiceInterface` to modify attributes.
 [[= include_file('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 78, 80) =]]
 ```
 
-To create an attribute, use `LocalAttributeGroupServiceinterface::createAttributeDefinition`
-and provide it with an `AttributeDefinitionCreateStruct`:
+To create an attribute, use `LocalAttributeGroupServiceinterface::createAttributeDefinition()`
+and provide it with an [`AttributeDefinitionCreateStruct`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-Values-AttributeDefinition-AttributeDefinitionCreateStruct.html):
 
 ``` php
 [[= include_file('code_samples/api/product_catalog/src/Command/AttributeCommand.php', 83, 89) =]]
