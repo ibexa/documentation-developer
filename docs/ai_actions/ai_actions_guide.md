@@ -26,7 +26,7 @@ The possibilities are endless and you're not limited to a specific AI service, a
 The AI Actions feature is an opt-in capability available as an LTS Update to the v4.6.x version of [[= product_name =]], regardless of its edition.
 To begin using AI Actions, you must first install the required packages and perform initial configuration.
 
-!!! "API Key
+!!! note "API Key"
 
     The Open AI connector requires that you first [get an API key](https://help.openai.com/en/articles/4936850-where-do-i-find-my-openai-api-key).
 
@@ -46,7 +46,7 @@ AI Actions can also be extended beyond the default setup by creating custom conn
 
 ### Core concepts
 
-#### Actions
+#### Action
 
 Actions are tasks or functions that the AI is set to perform.
 Each Action is a combination of an action type and an action configuration.
@@ -67,7 +67,7 @@ Action configurations are managed in the [Admin Panel](admin_panel.md), and allo
 Such tuning might involve setting specific parameters used the AI service, setting an expense limit, or configuring how the output should be handled.
 By making such adjustments, administrators can ensure that the actions are tailored to meet their requirements.
 
-#### Handlers
+#### Handler
 
 Once an action is defined and configured, it must be executed, and this is where handlers come into play.
 Handlers are pieces of PHP code that are responsible for resolving an action.
@@ -92,8 +92,8 @@ Procedures are straightforward and intuitive, ensuring that users can quickly ac
 
 AI Actions add-on exposes a REST API interface that allows for programmatic execution of actions.
 With the API, developers can automate tasks and execute actions on batches of content by integrating them into workflows.
-By issuing commands through the API, developers can trigger actions based on external events:
-...
+<!---By issuing commands through the API, developers can trigger actions based on external events:
+...--->
 
 ## Capabilities
 
@@ -101,7 +101,9 @@ By issuing commands through the API, developers can trigger actions based on ext
 
 The AI Actions allows you to control the lifecycle of action configurations.
 Users with the appropriate permissions, governed by role-based [policies](policies.md#ai-actions), can create, edit, execute, and delete action configurations.
-Additionally, configurations can be enabled or disabled depending on the organization's needs. 
+Additionally, configurations can be enabled or disabled depending on the organization's needs.
+
+[Configurations management screen](ai_actions_list.md)
 
 An intuitive AI Actions interface within the Admin Panel displays a list of all available action configurations.
 Here, you can search for specific configurations and filter them by type or status.
