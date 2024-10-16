@@ -68,7 +68,7 @@ Log in to your service portal on [support.ibexa.co](https://support.ibexa.co/), 
 
 1. Select **Create token** (this requires the **Portal administrator** access level).
 2. Fill in a label describing the use of the token. This allows you to revoke access later.
-3. Save the password, **you will not get access to it again**!
+3. Save the password, **you aren't able to access it again**.
 
 !!! tip "Save the authentication token in `auth.json` to avoid re-typing it"
 

@@ -335,7 +335,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
 === "[[= product_name =]] v4.6"
 
-    [[= product_name =]] is developed to work with *any* web browser that supports modern standards, on *any* screen resolution suitable for web, running on *any* device. However for the Editorial and Administration User Interfaces you'll need; a minimum of 1366-by-768 screen resolution, a desktop or tablet device, and a recommended/supported browser among the ones found below.
+    [[= product_name =]] is developed to work with *any* web browser that supports modern standards, on *any* screen resolution suitable for web, running on *any* device. However for the Editorial and Administration User Interfaces you need: a minimum of 1366-by-768 screen resolution, a desktop or tablet device, and a recommended/supported browser among the ones found below.
 
     - Mozilla® Firefox® most recent stable version (recommended)
     - Google Chrome™ most recent stable version (recommended)
@@ -344,7 +344,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
 === "[[= product_name =]] v3.3"
 
-    [[= product_name =]] is developed to work with *any* web browser that supports modern standards, on *any* screen resolution suitable for web, running on *any* device. However for the Editorial and Administration User Interfaces you'll need; a minimum of 1366-by-768 screen resolution, a desktop or tablet device, and a recommended/supported browser among the ones found below.
+    [[= product_name =]] is developed to work with *any* web browser that supports modern standards, on *any* screen resolution suitable for web, running on *any* device. However for the Editorial and Administration User Interfaces you need: a minimum of 1366-by-768 screen resolution, a desktop or tablet device, and a recommended/supported browser among the ones found below.
 
     - Mozilla® Firefox® most recent stable version (recommended)
     - Google Chrome™ most recent stable version (recommended)
@@ -353,7 +353,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
 === "eZ Platform v2.5"
 
-    eZ Platform is developed to work with *any* web browser that supports modern standards, on *any* screen resolution suitable for web, running on *any* device. However for the Editorial and Administration User Interfaces you'll need; a minimum of 1366-by-768 screen resolution, a desktop or tablet device, and a recommended/supported browser among the ones found below.
+    eZ Platform is developed to work with *any* web browser that supports modern standards, on *any* screen resolution suitable for web, running on *any* device. However for the Editorial and Administration User Interfaces you need: a minimum of 1366-by-768 screen resolution, a desktop or tablet device, and a recommended/supported browser among the ones found below.
 
     - Mozilla® Firefox® most recent stable version (recommended)
     - Google Chrome™ most recent stable version (recommended)

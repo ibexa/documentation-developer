@@ -589,7 +589,7 @@ This isn't a problem as long as the controller doesn't return values from any Co
 The `Set-Cookie` here may cause the problem. A ESI fragment should never set a cookie because:
 - Clients only receive the headers set in the "mother" document (the headers in the "/" response in this case).
 
-- Only the content of ESIs responses is returned to the client. **No headers set in the ESI response will ever reach the client**. ESI headers are only seen by the HTTP cache.
+- Only the content of ESIs responses is returned to the client. **No headers set in the ESI response ever reach the client**. ESI headers are only seen by the HTTP cache.
 
 - Symfony reverse proxy doesn't support ESIs at all, and any ESI calls (`render_esi()`) are implicitly replaced by
   sub-requests (`render()`). So any `Set-Cookie` **is** sent to the client when using Symfony reverse proxy.

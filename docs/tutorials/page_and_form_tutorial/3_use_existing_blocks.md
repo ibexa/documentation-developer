@@ -5,7 +5,7 @@ edition: experience
 
 # Step 3 — Use existing blocks
 
-In this step you'll add a Content List block and a Content Scheduler block and customize them.
+In this step you can add a Content List block and a Content Scheduler block and customize them.
 
 ### Add a Content List block
 
@@ -45,7 +45,7 @@ Drag a Content List block from the menu to the left zone on the page.
 Click the block and fill in the form.
 Here you name the block and decide what it displays.
 Choose the "Dog Breed Catalog" folder as the Parent, select Dog Breed as the content type to be displayed, and choose a limit (3).
-You'll display the first three Dog Breeds from the database.
+Display the first three Dog Breeds from the database.
 
 ![Window with Content List options](enterprise_tut_content_list_window.png)
 

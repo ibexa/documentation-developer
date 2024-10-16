@@ -75,7 +75,7 @@ Adapt the command with your `vendor`, `package`, version number, and add `"–d
 
 #### 2.2.2 Install XmlText field type
 
-While no longer bundled, the XmlText field type still exists and is needed to perform a migration from eZ Publish's XmlText to the new docbook-based format used by the RichText field type. If you plan to use Legacy Bridge for a while before migrating content, you'll also need this for rendering content with XMLText. From `<new-ez-root>` execute:
+While no longer bundled, the XmlText field type still exists and is needed to perform a migration from eZ Publish's XmlText to the new docbook-based format used by the RichText field type. If you plan to use Legacy Bridge for a while before migrating content, you also need this for rendering content with XMLText. From `<new-ez-root>` execute:
 
 `composer require --no-update "ezsystems/ezplatform-xmltext-fieldtype:^1.3.0"`
 
@@ -115,7 +115,7 @@ To move over your own custom configurations, follow the conventions below and ma
 
 !!! note "Make sure to adapt SiteAccess names"
 
-    In the default configurations in **ezplatform.yaml** you'll find existing SiteAccesses like `site`, and depending on installation perhaps a few others, all under a site group called `site\_group`. Make sure to change those to what you had in **ezpublish.yaml** to avoid issues with having to log in to your website, given user/login policy rules need to be updated if you change names of SiteAccess as part of the upgrade.
+    In the default configurations in **ezplatform.yaml** you can find existing SiteAccesses like `site`, and depending on installation perhaps a few others, all under a site group called `site\_group`. Make sure to change those to what you had in **ezpublish.yaml** to avoid issues with having to log in to your website, given user/login policy rules need to be updated if you change names of SiteAccess as part of the upgrade.
 
 #### 2.3.1 Image aliases
 

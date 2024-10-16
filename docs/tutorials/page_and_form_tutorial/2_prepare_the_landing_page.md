@@ -5,7 +5,7 @@ edition: experience
 
 # Step 2 — Prepare the Page
 
-In this step you'll prepare and configure your front page, together with its layout and templates.
+In this step you can prepare and configure your front page, together with its layout and templates.
 
 ## Create Page layout
 

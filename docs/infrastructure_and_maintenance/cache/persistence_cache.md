@@ -156,7 +156,7 @@ Depending on the number of lookups and latency to cache server this might affect
 
 #### Adjusting configuration
 
-Out of the box in `config/packages/cache_pool/cache.redis.yaml` you'll find a default example that can be used.
+Out of the box in `config/packages/cache_pool/cache.redis.yaml` you can find a default example that can be used.
 
 !!! note "[[= product_name_cloud =]]"
 
@@ -234,7 +234,7 @@ There is one Memcached adapter available out of the box.
 
 #### Adjusting configuration
 
-Out of the box in `config/packages/cache_pool/cache.memcached.yaml` you'll find a default example that can be used.
+Out of the box in `config/packages/cache_pool/cache.memcached.yaml` you can find a default example that can be used.
 
 !!! note "[[= product_name_cloud =]]"
 

@@ -29,7 +29,7 @@ This folder also contains `config/packages/ezplatform.yaml`, which contains all 
 #### PHP code and bundle organization
 
 Since Symfony 4 `src/` code is no longer organized in bundles, `AppBundle` has been removed from the default eZ Platform install.
-To adapt, you'll need to move all your PHP code, such as controllers or event listeners, to the `src` folder and use the `App` namespace for your custom code instead.
+To adapt, you need to move all your PHP code, such as controllers or event listeners, to the `src` folder and use the `App` namespace for your custom code instead.
 
 !!! tip "How to make AppBundle continue to work, for now"
 
