@@ -4,7 +4,7 @@ description: Learn how to report security issues in Ibexa DXP.
 
 # Reporting security issues in Ibexa products
 
-The security of [[= product_name_base =]] software is a primary concern and we take it seriously.
+The security of [[= product_name_base =]] software is a primary concern and is taken seriously.
 
 For more information on security in [[= product_name_base =]] products, see [Ibexa Security Policy](https://www.ibexa.co/software-information/security).
 
@@ -26,7 +26,8 @@ Please be verbose when reporting issues. The issue is solved faster if you inclu
 
 ## Dialogue
 
-The engineering team may need your help to clarify certain specifics, so please respond to such inquiries. We keep you updated about the progress on our end.
+The engineering team may need your help to clarify certain specifics, so please respond to such inquiries.
+We keep you updated about the progress on our end.
 
 ## Responsible disclosure
 
@@ -34,4 +35,5 @@ Please give the engineering team time to produce and distribute a solution befor
 
 ## Attribution
 
-If you want, we can include your name and/or the name of your organisation, a link, and short description about you in the security notification we send out with the fix. Thank you!
+If you want, we can include your name and/or the name of your organisation, a link, and short description about you in the security notification we send out with the fix.
+Thank you!

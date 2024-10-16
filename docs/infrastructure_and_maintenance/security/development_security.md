@@ -10,8 +10,7 @@ description: Ensure the security of your Ibexa DXP installation by using one of 
 
 !!! note "Security checklist"
 
-    See the [Security checklist](security_checklist.md) for a list of security-related issues
-    you should take care of before going live with a project.
+    See the [Security checklist](security_checklist.md) for a list of security-related issues you should take care of before going live with a project.
 
 ## Symfony authentication
 
@@ -52,11 +51,13 @@ logout:
 
 Authentication is provided using the Symfony Security component.
 
-[Native and universal `form_login`]([[= symfony_doc =]]/security/form_login_setup.html) is used, in conjunction with an extended `DaoAuthenticationProvider` (DAO stands for *Data Access Object*), the `RepositoryAuthenticationProvider`. Native behavior of `DaoAuthenticationProvider` has been preserved, making it possible to still use it for pure Symfony applications.
+[Native and universal `form_login`]([[= symfony_doc =]]/security/form_login_setup.html) is used, in conjunction with an extended `DaoAuthenticationProvider` (DAO stands for *Data Access Object*), the `RepositoryAuthenticationProvider`.
+Native behavior of `DaoAuthenticationProvider` has been preserved, making it possible to still use it for pure Symfony applications.
 
 #### Security controller
 
-A `SecurityController` is used to manage all security-related actions and is thus used to display the login form. It follows all standards explained in [Symfony security documentation]([[= symfony_doc =]]/security/form_login_setup.html).
+A `SecurityController` is used to manage all security-related actions and is thus used to display the login form.
+It follows all standards explained in [Symfony security documentation]([[= symfony_doc =]]/security/form_login_setup.html).
 
 The base template used is [`Security/login.html.twig`](https://github.com/ibexa/core/blob/main/src/bundle/Core/Resources/views/Security/login.html.twig).
 
@@ -94,14 +95,14 @@ If you want to use this feature, you must at least extend the login template to 
 
 #### Login handlers / SSO
 
-Symfony provides native support for [multiple user providers]([[= symfony_doc =]]/security/multiple_user_providers.html). This makes it easy to integrate any kind of login handlers, including SSO and existing third-party bundles (for example, [FR3DLdapBundle](https://github.com/Maks3w/FR3DLdapBundle), [HWIOauthBundle](https://github.com/hwi/HWIOAuthBundle), [FOSUserBundle](https://github.com/FriendsOfSymfony/FOSUserBundle), [BeSimpleSsoAuthBundle](https://github.com/BeSimple/BeSimpleSsoAuthBundle), etc.).
+Symfony provides native support for [multiple user providers]([[= symfony_doc =]]/security/multiple_user_providers.html).
+This makes it easy to integrate any kind of login handlers, including SSO and existing third-party bundles (for example, [FR3DLdapBundle](https://github.com/Maks3w/FR3DLdapBundle), [HWIOauthBundle](https://github.com/hwi/HWIOAuthBundle), [FOSUserBundle](https://github.com/FriendsOfSymfony/FOSUserBundle), [BeSimpleSsoAuthBundle](https://github.com/BeSimple/BeSimpleSsoAuthBundle), and more).
 
 See [Authenticating a user with multiple user provider](user_authentication.md#authenticate-user-with-multiple-user-providers) for more information.
 
 ## JWT authentication
 
-To use [JWT authentication](https://jwt.io/) with [[= product_name =]], in the provided `config/packages/lexik_jwt_authentication.yaml` file,
-modify the existing configuration by setting `authorization_header` to `enabled`:
+To use [JWT authentication](https://jwt.io/) with [[= product_name =]], in the provided `config/packages/lexik_jwt_authentication.yaml` file, modify the existing configuration by setting `authorization_header` to `enabled`:
 
 ``` yaml hl_lines="8"
 lexik_jwt_authentication:
