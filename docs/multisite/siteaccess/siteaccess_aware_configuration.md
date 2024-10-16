@@ -5,14 +5,13 @@ description: Make sure your custom development's configuration can be used with 
 # SiteAccess-aware configuration
 
 The [Symfony Config component]([[= symfony_doc =]]/components/config.html) makes it possible to define semantic configuration, exposed to the end developer.
-This configuration is validated by rules you define, for example, validating type (string, array, integer, boolean and so on).
+This configuration is validated by rules you define, for example, validating type (string, array, integer, boolean, and more).
 Usually, after it's validated and processed, this semantic configuration is then mapped to internal *key/value* parameters stored in the service container.
 
 [[= product_name =]] uses this for its core configuration, but adds another configuration level, the SiteAccess.
 For each defined SiteAccess, you need to be able to use the same configuration tree to define SiteAccess-specific config.
 
-These settings then need to be mapped to SiteAccess-aware internal parameters 
-that you can retrieve with the [ConfigResolver](dynamic_configuration.md#configresolver).
+These settings then need to be mapped to SiteAccess-aware internal parameters that you can retrieve with the [ConfigResolver](dynamic_configuration.md#configresolver).
 For this, internal keys need to follow the format `<namespace>.<scope>.<parameter_name>`. where:
 
 - `namespace` is specific to your app or bundle
@@ -23,8 +22,7 @@ For more information about the ConfigResolver, namespaces and scopes, see [confi
 
 !!! tip "Repository-aware configuration"
 
-    If you need to use different settings per Repository, not per SiteAccess,
-    see [Repository-aware configuration](repository_configuration.md#repository-aware-configuration).
+    If you need to use different settings per Repository, not per SiteAccess, see [Repository-aware configuration](repository_configuration.md#repository-aware-configuration).
 
 The example below assumes you're using an `Acme\ExampleBundle`.
 Remember to register the bundle by adding it to `config/bundles.php`:
@@ -35,9 +33,7 @@ Acme\ExampleBundle\AcmeExampleBundle::class => ['all' => true],
 
 ### Parsing semantic configuration
 
-To parse semantic configuration, create a `Configuration` class which extends
-`Ibexa\Bundle\Core\DependencyInjection\Configuration\SiteAccessAware\Configuration`
-and then extend its `generateScopeBaseNode()` method:
+To parse semantic configuration, create a `Configuration` class which extends `Ibexa\Bundle\Core\DependencyInjection\Configuration\SiteAccessAware\Configuration` and then extend its `generateScopeBaseNode()` method:
 
 ``` php hl_lines="17"
 <?php
@@ -171,8 +167,8 @@ parameters:
 #### Merging hash values between scopes
 
 When you define a hash as semantic config, you sometimes don't want the SiteAccess settings to replace the default or group values,
-but enrich them by appending new entries. This is possible by using `$processor->mapConfigArray()`,
-which you must call outside the closure (before or after), so that it's called only once.
+but enrich them by appending new entries.
+This is possible by using `$processor->mapConfigArray()`, which you must call outside the closure (before or after), so that it's called only once.
 
 ``` php
 $processor->mapConfigArray('custom_setting', $config);
@@ -209,8 +205,7 @@ acme_example:
                 language: javascript
 ```
 
-By calling `mapConfigArray()` you can get the following end configuration, 
-where keys defined for `custom_setting` in default/group/SiteAccess scopes are merged:
+By calling `mapConfigArray()` you can get the following end configuration, where keys defined for `custom_setting` in default/group/SiteAccess scopes are merged:
 
 ``` yaml
 parameters:
@@ -225,11 +220,9 @@ parameters:
 ##### Merging from second level
 
 In the example above, entries were merged in respect to the scope order of precedence.
-However, because you defined the `os_types` key for `siteaccess1`, it completely overrode the default value,
-because the merge process is done only at the first level.
+However, because you defined the `os_types` key for `siteaccess1`, it completely overrode the default value, because the merge process is done only at the first level.
 
-You can add another level by passing `ContextualizerInterface::MERGE_FROM_SECOND_LEVEL`
-as the third argument to `$contextualizer->mapConfigArray()`:
+You can add another level by passing `ContextualizerInterface::MERGE_FROM_SECOND_LEVEL` as the third argument to `$contextualizer->mapConfigArray()`:
 
 ``` php
 $contextualizer->mapConfigArray('custom_setting', $config, ContextualizerInterface::MERGE_FROM_SECOND_LEVEL);
@@ -247,8 +240,8 @@ parameters:
         language: javascript
 ```
 
-There is also another option, `ContextualizerInterface::UNIQUE`,
-that ensures the array setting has unique values. It only works on normal arrays, not hashes.
+There is also another option, `ContextualizerInterface::UNIQUE`, that ensures the array setting has unique values.
+It only works on normal arrays, not hashes.
 
 !!! note
 
@@ -259,12 +252,10 @@ that ensures the array setting has unique values. It only works on normal arrays
 Instead of passing a callable to `$processor->mapConfig()`, you can pass an instance of
 `Ibexa\Bundle\Core\DependencyInjection\Configuration\SiteAccessAware\ConfigurationMapperInterface`.
 
-This can be useful if you have a lot of configuration to map and don't want to pollute 
-your service container extension class (it's better for maintenance).
+This can be useful if you have a lot of configuration to map and don't want to pollute your service container extension class (it's better for maintenance).
 
 #### Merging hash values between scopes
 
 You should not use `$contextualizer->mapConfigArray()` within the scope loop, like for simple values.
 When using a closure/callable, you usually call it before or after `$processor->mapConfig()`.
-For mapper objects, you can use a dedicated interface: `HookableConfigurationMapperInterface`,
-which defines two methods: `preMap()` and `postMap()`.
+For mapper objects, you can use a dedicated interface: `HookableConfigurationMapperInterface`, which defines two methods: `preMap()` and `postMap()`.

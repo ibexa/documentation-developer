@@ -10,15 +10,13 @@ It enables you to configure new sites without editing [YAML-based SiteAccess con
 
 !!! note
 
-    A SiteAccess that you define for a site by following the [configuration](multisite_configuration.md) 
-    is always treated with higher priority than a SiteAccess created by using the Site Factory. 
-    For example, if you define a French site within a YAML file,
-    and then create a site that uses the `fr` path in Site Factory, matchers ignore the second site.
+    A SiteAccess that you define for a site by following the [configuration](multisite_configuration.md) is always treated with higher priority than a SiteAccess created by using the Site Factory.
+    For example, if you define a French site within a YAML file, and then create a site that uses the `fr` path in Site Factory, matchers ignore the second site.
 
 Site Factory is disabled by default after installation.
 
 If you plan to use Site Factory, you need to enable and configure it.
-To enable or disable Site Factory, follow respectively:
+To enable or disable Site Factory, follow:
 
 - [Enable Site Factory section](#enable-site-factory)
 - [Disable Site Factory section](#disable-site-factory)
@@ -29,11 +27,11 @@ To enable Site Factory, set the `ibexa_site_factory.enabled` [configuration key]
 
 ### Configure designs
 
-Next, configure Site Factory by adding empty SiteAccess groups. At least one empty group is required.
+Next, configure Site Factory by adding empty SiteAccess groups.
+At least one empty group is required.
 The number of empty SiteAccess groups must be equal to the number of templates that you want to have when you create the new site.
 
-In this example, you add two SiteAccess groups (`example_site_factory_group_1` and `example_site_factory_group_2`)
-that correspond to the two templates (`site1` and `site2`) that you add in the next step.
+In this example, you add two SiteAccess groups (`example_site_factory_group_1` and `example_site_factory_group_2`) that correspond to the two templates (`site1` and `site2`) that you add in the next step.
 
 Add the groups under the `ibexa.siteaccess` [configuration key](configuration.md#configuration-files):
 
@@ -144,7 +142,7 @@ Then, run `docker-compose up`:
 ```bash
 export COMPOSE_FILE="doc/docker/base-dev.yml:doc/docker/multihost.yml"
 docker-compose up
-```       
+```
 
 Your sites should be now visible under:
 
@@ -157,7 +155,7 @@ Your sites should be now visible under:
 
 ### Define site directory
 
-You can adjust the place where the directory of the new site is created (Location with ID 2 by default).
+You can adjust the place where the directory of the new site is created (location with ID 2 by default).
 To do it, go to configuration files and under the `ibexa.system.<scope>.site_factory` [configuration key](configuration.md#configuration-files) add the following parameter:
 
 ``` yaml
@@ -172,7 +170,7 @@ Now, all new directories are created under "[[= product_name =]]".
 
 ### Provide access
 
-The Site Factory is set up, now you can provide sufficient permissions to the Users.
+The Site Factory is set up, now you can provide sufficient permissions to the users.
 
 Set the below policies to allow users to:
 
