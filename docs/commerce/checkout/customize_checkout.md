@@ -48,7 +48,7 @@ To create a new workflow, for example, `seat_selection_checkout`, use the defaul
 [[= include_file('code_samples/front/shop/checkout/config/packages/checkout.yaml', 17, 19) =]] [[= include_file('code_samples/front/shop/checkout/config/packages/checkout.yaml', 38, 54) =]]
 ```
 
-Then, add a list of transitions. 
+Then, add a list of transitions.
 When defining a new transition, within its metadata, map the transition to its controller, and set other necessary details, such as the next step and label.
 
 ``` yaml hl_lines="2 12"
@@ -280,11 +280,11 @@ ibexa:
         <repository_name>:
             checkout:
                 #"billing" by default
-                billing_address_format: <custom_billing_fieldtype_address_format> 
+                billing_address_format: <custom_billing_fieldtype_address_format>
                 #"shipping" by default
-                shipping_address_format: <custom_shipping_fieldtype_address_format> 
+                shipping_address_format: <custom_shipping_fieldtype_address_format>
                 #used in registration, uses given shipping/billing addresses to pre-populate address forms in select_address checkout step, "customer" by default
-                customer_content_type: <your_ct_identifier_for_customer> 
+                customer_content_type: <your_ct_identifier_for_customer>
 ```
 
 Then, define custom address formats, which, for example, don't include the `locality` field:
