@@ -34,7 +34,8 @@ It's also recommended to use:
 
 ### Shared persistence cache
 
-Redis is the recommended cache solution for clustering. An alternative solution is using Memcached.
+Redis is the recommended cache solution for clustering.
+An alternative solution is using Memcached.
 
 See [persistence cache documentation](persistence_cache.md#persistence-cache-configuration) on information on how to configure them.
 
@@ -66,10 +67,8 @@ It uses a database to manipulate metadata, making up for the potential inconsist
 
 You need to configure both metadata and binarydata handlers.
 
-[[= product_name =]] ships with a custom local adapter (`ibexa.io.nfs.adapter.site_access_aware`), 
-which decorates the Flysystem v2 local adapter to enable support for SiteAccess-aware settings.
-If an NFS path relies on SiteAccess-aware dynamic parameters, you must use the custom local adapter 
-instead of the Flysystem v2 local adapter.
+[[= product_name =]] ships with a custom local adapter (`ibexa.io.nfs.adapter.site_access_aware`), which decorates the Flysystem v2 local adapter to enable support for SiteAccess-aware settings.
+If an NFS path relies on SiteAccess-aware dynamic parameters, you must use the custom local adapter instead of the Flysystem v2 local adapter.
 Configure the custom local adapter to read/write to the NFS mount point on each local server.
 As metadata handler, create a DFS one, configured with a Doctrine connection.
 
@@ -90,10 +89,9 @@ or
 
 `DATABASE_URL=postgresql://root:rootpassword@127.0.0.1:3306/ibexa_dfs?serverVersion=8.0`
 
-For production, it's recommended to create the DFS table in its own database,
-manually importing its schema definition:
+For production, it's recommended to create the DFS table in its own database, manually importing its schema definition:
 
-??? note "dfs_schema.sql (MySQL)"
+!!! note "dfs_schema.sql (MySQL)"
 
     ``` sql
         CREATE TABLE ezdfsfile (
@@ -114,7 +112,7 @@ manually importing its schema definition:
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
     ```
 
-??? note "dfs_schema.sql (PostgreSQL)"
+!!! note "dfs_schema.sql (PostgreSQL)"
 
     ``` sql
     CREATE TABLE ezdfsfile (
@@ -198,13 +196,13 @@ ibexa:
 
 !!! tip
 
-    If you're looking to [set up S3](clustering_with_aws_s3.md) or other [Flysystem](https://flysystem.thephpleague.com/docs/)/third-party adapters like Google Cloud Storage, this needs to be configured as binary handler. The rest here still stays the same, the DFS metadata handler takes care of caching the lookups to avoid slow IO lookups.
+    If you're looking to [set up S3](clustering_with_aws_s3.md) or other [Flysystem](https://flysystem.thephpleague.com/docs/)/third-party adapters like Google Cloud Storage, this needs to be configured as binary handler.
+    The rest here still stays the same, the DFS metadata handler takes care of caching the lookups to avoid slow IO lookups.
 
 #### Customizing the storage directory
 
 Earlier versions required the NFS adapter directory to be set to `$var_dir$/$storage_dir$` part for the NFS path.
-This is no longer required,
-but the default prefix used to serve binary files still matches this expectation.
+It's no longer required, but the default prefix used to serve binary files still matches this expectation.
 
 If you decide to change this setting, make sure you also set `io.url_prefix` to a matching value.
 If you set the NFS adapter's directory to `/path/to/nfs/storage`, use this configuration so that the files can be served by Symfony:
@@ -218,8 +216,7 @@ ibexa:
 ```
 
 As an alternative, you may serve images from NFS using a dedicated web server.
-If in the example above, this server listens on `http://static.example.com/`
-and uses `/path/to/nfs/storage` as the document root, configure `io.url_prefix` as follows:
+If in the example above, this server listens on `http://static.example.com/` and uses `/path/to/nfs/storage` as the document root, configure `io.url_prefix` as follows:
 
 ``` yaml
 ibexa:
@@ -236,7 +233,7 @@ You can read more about that on [Binary files URL handling](file_url_handling.md
 The default [[= product_name =]] rewrite rules let image requests be served directly from disk.
 In a cluster setup, files matching `^/var/([^/]+/)?storage/images(-versioned)?/.*` have to be passed through `/public/index.php` instead.
 
-In any case, this specific rewrite rule must be placed before the ones that "ignore" image files and just let the web server serve the files directly.
+In any case, this specific rewrite rule must be placed before the ones that "ignore" image files and let the web server serve the files directly.
 
 #### Apache
 
@@ -285,4 +282,4 @@ If `--to` is omitted, the first non-default IO configuration is used.
 While the command is running, the files should not be modified.
 To avoid surprises you should create a [backup](backup.md) and/or execute a dry run before doing the actual update, using the `--dry-run` switch.
 
-Since this command can run for a very long time, to avoid memory exhaustion run it in the production environment using the `--env=prod` switch.
+Since this command can run for a long time, to avoid memory exhaustion run it in the production environment using the `--env=prod` switch.

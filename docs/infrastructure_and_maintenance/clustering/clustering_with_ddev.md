@@ -18,7 +18,7 @@ But the data sharing needed by a cluster of several servers can still be emulate
 The `ddev config --php-version` option should set the same PHP version as the production servers.
 
 !!! tip
- 
+
     - [`ddev describe`](https://ddev.readthedocs.io/en/latest/users/usage/commands/#describe) displays a cluster summary that include accesses from inside and outside DDEV services
     - [`ddev ssh`](https://ddev.readthedocs.io/en/latest/users/usage/commands/#ssh) opens a terminal inside a service
     - [`ddev exec`](https://ddev.readthedocs.io/en/latest/users/usage/commands/#exec) executes a command inside a service
@@ -79,7 +79,7 @@ You can now check whether Solr works.
 
 For example, the `ddev exec curl -s http://solr:8983/api/cores/` command:
 
- - checks whether the `web` server can access the `solr` server, 
+ - checks whether the `web` server can access the `solr` server
  - checks whether `collection1` exists and its status
  - displays `collection1`'s `numDocs` that shouldn't be zero if indexing worked correctly
 
