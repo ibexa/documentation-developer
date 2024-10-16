@@ -12,19 +12,14 @@ To use this feature you must first install the add-on and then configure it YAML
 AI Actions are available from v4.6.x of [[= product_name =]].
 Run the following command to install the bundle:
 
-`composer require ibexa/connector-ai`
+``` bash
+composer require ibexa/connector-ai
+composer require ibexa/connector-openai
+```
 
 This command adds the code, Twig templates and configuration files required for using AI Actions, and modifies the permission system to account for the new functionality.
 
-To check for the presence of AI Actions in your application, run the following command:
-
-`composer show | grep "ibexa/connector-ai"`
-
 ## Prepare configuration files
 
-When you install AI Actions add-on, it modifies the YAML configuration files by adding configuration keys similar to this example:
-
-```yaml
-...
-
-```
+After you install AI Actions add-on, you must enable the OpenAI connector by specifying the OpenAPI token.
+In the `.env` file, define a new environment variable `OPENAPI_TOKEN=` and add the token that you obtained from the AI service.
