@@ -93,7 +93,7 @@ class Service
     {
         $this->configResolver = $configResolver;
     }
-    
+
     public function someMethodThatNeedConfig()
     {
         $configValue = $this->configResolver->getParameter('my_param', 'myapp');

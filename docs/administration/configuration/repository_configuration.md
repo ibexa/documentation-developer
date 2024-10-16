@@ -1,16 +1,17 @@
 ---
-description: Configure Repository connections, archive limits, field groups and other settings.
+description: Configure repository connections, archive limits, field groups and other settings.
 ---
 
 # Repository configuration
 
-You can define several Repositories within a single application. However, you can only use one per site.
+You can define several repositories within a single application.
+However, you can only use one per site.
 
 ## Repository connection
 
 ### Using default values
 
-To use the default Repository connection, you don't need to specify its details:
+To use the default repository connection, you don't need to specify its details:
 
 ``` yaml
 ibexa:
@@ -24,13 +25,13 @@ ibexa:
 
 !!! note "Legacy storage engine"
 
-    Legacy storage engine is the default storage engine for the Repository.
+    Legacy storage engine is the default storage engine for the repository.
 
     It uses [Doctrine DBAL](https://www.doctrine-project.org/projects/doctrine-dbal/en/latest/) (Database Abstraction Layer).
     Database settings are supplied by [DoctrineBundle](https://github.com/doctrine/DoctrineBundle).
     As such, you can refer to [DoctrineBundle's documentation](https://github.com/doctrine/DoctrineBundle/blob/2.7.x/Resources/doc/configuration.rst#doctrine-dbal-configuration).
 
-If no Repository is specified for a SiteAccess or SiteAccess group, the first Repository defined under `ibexa.repositories` is used:
+If no repository is specified for a SiteAccess or SiteAccess group, the first repository defined under `ibexa.repositories` is used:
 
 ``` yaml
 ibexa:
@@ -43,11 +44,11 @@ ibexa:
             # ...
 ```
 
-#### Multisite URI matching with multi-Repository setup
+#### Multisite URI matching with multi-repository setup
 
-You can use only one Repository (database) per domain.
-This doesn't prohibit using [different Repositories](persistence_cache.md#multi-repository-setup) on different subdomains.
-However, when using URI matching for multisite setup, all SiteAccesses sharing domain also need to share Repository.
+You can use only one repository (database) per domain.
+This doesn't prohibit using [different repositories](persistence_cache.md#multi-repository-setup) on different subdomains.
+However, when using URI matching for multisite setup, all SiteAccesses sharing domain also need to share repository.
 For example:
 
 - `ibexa.co` domain can use `ibexa_repo`
@@ -62,8 +63,7 @@ Invalid configuration causes problems for different parts of the system, for exa
 
 ### Entity manager
 
-If you use the [Doctrine entity manager](https://www.doctrine-project.org/projects/doctrine-orm/en/2.10/tutorials/getting-started.html#obtaining-the-entitymanager),
-you're unable to connect different SiteAccesses to different databases.
+If you use the [Doctrine entity manager](https://www.doctrine-project.org/projects/doctrine-orm/en/2.10/tutorials/getting-started.html#obtaining-the-entitymanager), you're unable to connect different SiteAccesses to different databases.
 
 To have this possibility, you need to use the SiteAccess-aware entity manager: `ibexa.doctrine.orm.entity_manager`.
 
@@ -84,12 +84,11 @@ For more information, see [DoctrineBundle documentation](https://symfony.com/doc
 
 !!! note
 
-    In contrast with DoctrineBundle, when using the SiteAccess-aware entity manager you need to explicitly set all options:
-    `dir` (it still accepts relative path in case of bundles), `prefix`, `type`, and `is_bundle`.
+    In contrast with DoctrineBundle, when using the SiteAccess-aware entity manager you need to explicitly set all options: `dir` (it still accepts relative path in case of bundles), `prefix`, `type`, and `is_bundle`.
 
 ### Defining custom connection
 
-You can also explicitly define a custom Repository connection:
+You can also explicitly define a custom repository connection:
 
 ``` yaml
 doctrine:
@@ -167,7 +166,8 @@ repositories:
             default: content
 ```
 
-These identifiers can be given human-readable values and can be translated. Those values are used when editing content types.
+These identifiers can be given human-readable values and can be translated.
+Those values are used when editing content types.
 The translation domain is `ibexa_fields_groups`.
 This example in `translations/ibexa_fields_groups.en.yaml` defines English names for field groups:
 
@@ -179,7 +179,7 @@ user_data: User data
 
 ## Limit of archived content versions
 
-`default_version_archive_limit` controls the number of archived versions per content item that are stored in the Repository.
+`default_version_archive_limit` controls the number of archived versions per content item that are stored in the repository.
 By default it's set to 5. This setting is configured in the following way (typically in `ibexa.yaml`):
 
 ``` yaml
@@ -223,7 +223,7 @@ The command takes the following optional parameters:
 
 - `status` or `t` - status of versions to remove: `draft`, `archived` or `all`
 - `keep` or `k` - number of versions to keep
-- `user` or `u` - the User that the command is performed as. The User must have the `content/remove`, `content/read` and `content/versionread` policies. By default the `administrator` user is applied.
+- `user` or `u` - the User that the command is performed as. The user must have the `content/remove`, `content/read` and `content/versionread` policies. By default the `administrator` user is applied.
 - `excluded-content-types` - exclude versions of one or multiple content types from the cleanup procedure and separate multiple content types identifiers with the comma.
 
 `ibexa:content:cleanup-versions --status <status name> --keep <number of versions> --user <user name> --excluded-content-types article,blog_post`
@@ -272,13 +272,13 @@ parameters:
 
 ## Repository-aware configuration
 
-In your custom development, you can create Repository-aware configuration settings.
+In your custom development, you can create repository-aware configuration settings.
 
-This enables you to use different settings for different Repositories.
+This enables you to use different settings for different repositories.
 
 !!! tip "SiteAccess-aware configuration"
 
-    If you need to use different settings per SiteAccess, not per Repository, see [SiteAccess-aware configuration](siteaccess_aware_configuration.md).
+    If you need to use different settings per SiteAccess, not per repository, see [SiteAccess-aware configuration](siteaccess_aware_configuration.md).
 
 To do this, create a parser that implements `Ibexa\Bundle\Core\DependencyInjection\Configuration\RepositoryConfigParserInterface`:
 
