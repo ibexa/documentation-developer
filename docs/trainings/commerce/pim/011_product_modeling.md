@@ -24,25 +24,26 @@ You can trick the system URL to display a product type as a content type but kno
 Always prefer the dedicated route (as the back office does) `/product-type/view/<product_type_identifier` (`ibexa.product_catalog.product_type.view`).
 To view it through `/contenttypegroup/<product_group_id>/contenttype/<product_type_id>` (`ibexa.content_type.view`) is doable. You could even edit it from there. But this is strongly not recommended.
 
-TODO: move to somewhere in the exercise
-If you're curious, after having created a product type, you can run the following SQL query to see the database representation.
-
-```sql
-SELECT cg.group_id, cg.group_name, g.is_system, c.id, c.identifier, c.version
-    FROM ezcontentclass AS c
-        JOIN ezcontentclass_classgroup AS cg ON c.id = cg.contentclass_id AND c.version = cg.contentclass_version
-        JOIN ezcontentclassgroup AS g ON cg.group_id = g.id
-    ORDER BY cg.group_id ASC, c.id ASC
-;
-```
-
 The "Product specification" field type (`ibexa_product_specification`) brings in the power of attributes.
 
-Notice that you don't need to add a field or an attribute for price.
-Prices are handled by a particular side mechanism, the price engine, which is not treated in this training.
-But, also notice that VAT is set at product type level.
-The associations of VAT categories to regions are also stored by the `ibexa_product_specification` field.
-TODO: This is demonstrated in migration.
+### Product type default fields
+
+When creating a new product type, several fields are already present.
+
+| identifier            | type                            |
+|:----------------------|:--------------------------------|
+| name                  | ezsting                         |
+| product_specification | ibexa_product_specification     |
+| description           | ezrichtext                      |
+| image                 | ezimageasset                    |
+| category              | ibexa_taxonomy_entry_assignment |
+
+Prices are not part of this training but:
+
+- Notice that you don't need to add a field or an attribute for price. Prices are handled by a particular side mechanism, the price engine, which is not treated in this training.
+- Also notice that VAT is set at product type level. The associations of VAT categories to regions are also stored by the `ibexa_product_specification` field.
+
+Product assets presented bellow are explaining why there is no need to add fields to handle more images of the product.
 
 ## Attributes VS Fields
 
@@ -78,6 +79,22 @@ Technically, a product is a content item.
 But a variant isn't.
 
 TODO: Continue content VS product VS variant
+
+## Product assets
+
+Product assets are collection(s) of images associated to a base product and eventually to its variants.
+
+The default `image` field is for an introduction image to the base product.
+It's the image appearing in the product catalog's list of products.
+
+Assets are the images appearing on the product page.
+
+In the PIM, product assets are more powerful than a relation list or other field type could be.
+
+A collection of assets is associated to attribute values used for variants.
+When displaying a product variant, the application combines the asset collections which suit its attribute values.
+For example, you can associate close-up photos of a feature to the checkbox representing its presence,
+while associating full views of the products to each of its available colors.
 
 ## Exercise: Bikes and bike parts modeling
 
@@ -181,20 +198,20 @@ To simplify casual customer experience (and above all the exercise), the vendor 
 
 The following table shows only properties that can vary. When not all combinations are available, the product has multiple lines.
 
-| Name        | Base code | Material | Frame shapes               | Frameset + wheel sizes | Saddle           | Paint job              |  Gears   | Price |
-|:------------|:----------|:---------|:---------------------------|:-----------------------|:-----------------|:-----------------------|:--------:|------:|
-| Fuji        | MTB-S4-4  | Aluminum | Diamond                    | [S, M, L, XL] + 29″    | Thin             | [Sakura, Ronin]        | G02-2x10 | 3776€ |
-| Fuji        | MTB-S4-4  | Aluminum | [Diamond, Step-through]    | [S, M, L] + 29″        | [Thin, Large]    | [Sakura, Ronin]        | G02-1x10 | 3676€ |
-| Fuji        | MTB-S4-4  | Aluminum | [Diamond, Step-through]    | XS + 27.5″             | [Thin, Large]    | [Sakura, Ronin]        | G02-1x08 | 3666€ |
-| Matterhorn  | MTB-S4-5  | Aluminum | Diamond                    | [S, M, L, XL] + 29″    | [Thin, Large]    | [Snow, Rock]           | G02-2x12 | 4478€ |
-| Annapurna   | MTB-S4-6  | Carbon   | Diamond w/ suspension      | [S, M, L, XL] + 29″    | [Thin, Noseless] | Annapurna              | G01-3x12 | 8091€ |
-| Etna        | MTB-S4-7  | Aluminum | [Diamond, Step-through]    | [S, M, L, XL] + 29″    | [Thin, Large]    | Etna                   | G02-1x06 | 3369€ |
-| Etna        | MTB-S4-7  | Aluminum | [Diamond, Step-through]    | XS + 27.5″             | [Thin, Large]    | Etna                   | G02-1x06 | 3339€ |
-| Kilimanjaro | MTB-S5-0  | Aluminum | Step-through w/ suspension | [S, M, L, XL] + 29″    | [Thin, Large]    | [Shira, Mawenzi, Kibo] | G03-2x12 | 5895€ |
-| Stádda      | MTB-S5-1  | Aluminum | Step-through               | XS + [26″, 27.5″]      | Large            | [Sunrise, Sunset]      | G04-1x03 | 1392€ |
-| Aconcagua   | MTB-S5-2  | Carbon   | Diamond w/ suspension      | [S, M, L, XL] + 29″    | [Thin, Noseless] | [Condor, Llama]        | G01-3x12 | 6960€ |
-| Ventoux     | MTB-S5-3  | Aluminum | Step-through               | XS + [26″, 27.5″]      | [Thin, Large]    | [Provence, Mistral]    | G04-1x04 | 1910€ |
-| Castor      | MTB-S5-4  | Aluminum | Diamond                    | [S, M, L, XL] + 29″    | [Thin, Large]    | [Castor, Pollux]       | G03-2x12 | 4225€ |
+| Name        | Base code | Material | Frame shape                | Frameset + wheel size | Saddle           | Paint job              |  Gears   | Price |
+|:------------|:----------|:---------|:---------------------------|:----------------------|:-----------------|:-----------------------|:--------:|------:|
+| Fuji        | MTB-S4-4  | Aluminum | Diamond                    | [S, M, L, XL] + 29″   | Thin             | [Sakura, Ronin]        | G02-2x10 | 3776€ |
+| Fuji        | MTB-S4-4  | Aluminum | [Diamond, Step-through]    | [S, M, L] + 29″       | [Thin, Large]    | [Sakura, Ronin]        | G02-1x10 | 3676€ |
+| Fuji        | MTB-S4-4  | Aluminum | [Diamond, Step-through]    | XS + 27.5″            | [Thin, Large]    | [Sakura, Ronin]        | G02-1x08 | 3666€ |
+| Matterhorn  | MTB-S4-5  | Aluminum | Diamond                    | [S, M, L, XL] + 29″   | [Thin, Large]    | [Snow, Rock]           | G02-2x12 | 4478€ |
+| Annapurna   | MTB-S4-6  | Carbon   | Diamond w/ suspension      | [S, M, L, XL] + 29″   | [Thin, Noseless] | Annapurna              | G01-3x12 | 8091€ |
+| Etna        | MTB-S4-7  | Aluminum | [Diamond, Step-through]    | [S, M, L, XL] + 29″   | [Thin, Large]    | Etna                   | G02-1x06 | 3369€ |
+| Etna        | MTB-S4-7  | Aluminum | [Diamond, Step-through]    | XS + 27.5″            | [Thin, Large]    | Etna                   | G02-1x06 | 3339€ |
+| Kilimanjaro | MTB-S5-0  | Aluminum | Step-through w/ suspension | [S, M, L, XL] + 29″   | [Thin, Large]    | [Shira, Mawenzi, Kibo] | G03-2x12 | 5895€ |
+| Stádda      | MTB-S5-1  | Aluminum | Step-through               | XS + [26″, 27.5″]     | Large            | [Sunrise, Sunset]      | G04-1x03 | 1392€ |
+| Aconcagua   | MTB-S5-2  | Carbon   | Diamond w/ suspension      | [S, M, L, XL] + 29″   | [Thin, Noseless] | [Condor, Llama]        | G01-3x12 | 6960€ |
+| Ventoux     | MTB-S5-3  | Aluminum | Step-through               | XS + [26″, 27.5″]     | [Thin, Large]    | [Provence, Mistral]    | G04-1x04 | 1910€ |
+| Castor      | MTB-S5-4  | Aluminum | Diamond                    | [S, M, L, XL] + 29″   | [Thin, Large]    | [Castor, Pollux]       | G03-2x12 | 4225€ |
 
 - Create the attribute group(s)
 - Create the attributes (TODO: two ways in the BO, Attributes page, or attribute group "Attributes" tab)
@@ -240,6 +257,37 @@ But, if you're curious, you can read or implements as a bonus the following cust
 
     TODO: Propose grouped attributes and product type(s), illustrate their usage with few products and product variants.
     TODO: Materials as 1 attribute. Paintjobs as 2 attributes, one per series to reduce selection list length? 3 attributes groups, one common, one per series? Then 2 product types, one per series?
+
+??? note "Bonus: Database schema"
+
+    If you're curious, after having created product type(s), you can run the following SQL query to see the database representation:
+    
+    ```sql
+    SELECT cg.group_id, cg.group_name, g.is_system, c.id, c.identifier, c.version
+        FROM ezcontentclass AS c
+            JOIN ezcontentclass_classgroup AS cg ON c.id = cg.contentclass_id AND c.version = cg.contentclass_version
+            JOIN ezcontentclassgroup AS g ON cg.group_id = g.id
+        ORDER BY cg.group_id ASC, c.id ASC
+    ;
+    ```
+
+Here are some assets for the Fuji bikes, and for the G02 bundles front gears:
+
+On Fuji, create the asset collections for the assets to be associated to the corresponding variants.
+(Download the targets of the following links.)
+
+- [Fuji: Diamond frame + Ronin paint](Fuji-diamond-ronin.png)
+- [Fuji: Diamond frame + Sakura paint](Fuji-diamond-sakura.png)
+- [Fuji: Step-through frame + Ronin paint](Fuji-stepthrough-ronin.png)
+- [Fuji: Step-through frame + Sakura paint](Fuji-stepthrough-sakura.png)
+- [G02-2x10: Front gears](G02-2.png)
+- [G02-1x10 and G02-1x8: Front gears](G02-1.png)
+
+For the Fuji base product generic image, use [this one](Fuji-diamond.png).
+
+??? note "TODO: Possible solution(s)"
+
+    ![Fuji, example of asset collection for diamond frame shame with "Sakura" paint job.](Fuji-asset-collection-diamond-sakura.png)
 
 Your new products are in the "Uncategorized products" section of the **Products** admin page.
 It's now time to fix this in the next chapter.

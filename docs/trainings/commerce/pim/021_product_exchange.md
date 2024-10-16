@@ -9,7 +9,7 @@ page_type: training
 ## Remote PIM
 
 Even if this is outside the scope of this training, this is important to know that the products could be stored outside Ibexa DXP.
-With a [remote PIM](pim_guide.md#remote-pim-support), Ibexa DXP role is to display them on the storefront and allow their purchase.
+With a [remote PIM](pim_guide.md#remote-pim-support), Ibexa DXP role is to display them on the storefront, and, for the Commerce edition, to allow their purchase.
 
 ## REST API
 
@@ -27,11 +27,18 @@ This is due to reading being available for both local and remote PIM, while writ
 
 [Criteria for `ProductServiceInterface::findProducts()`](product_search_criteria.md)
 
+[Sort Clauses for `ProductServiceInterface::findProducts()`](product_sort_clauses.md)
+
+To create product types, use `ContentTypeFactoryInterface::createContentTypeCreateStruct`.
+As you can see in [its `ContentTypeFactory::createContentTypeCreateStruct` implementation](https://github.com/ibexa/product-catalog/blob/main/src/lib/Local/Repository/ProductType/ContentTypeFactory.php#L39-L43),
+this function is responsible for the default fields of a new product type.
+
 [Catalog API](catalog_api.md)
 
 [Taxonomy API for product categories](taxonomy_api.md)
 
 TODO: Exercise: Write a command/controller listing all mountain bikes by series.
+TODO: Exercise: "4 Series" has been discontinued. Create a "Retired product" category below root
 
 ## Product model migration
 
