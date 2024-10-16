@@ -12,8 +12,7 @@ You can use it if your application requires custom GraphQL resources, for instan
 
 To do so, create a `config/graphql/types/Query.types.yaml` file. It is used as the GraphQL query root.
 
-In that file, add new fields that use any custom type or custom logic you require, based
-on [overblog/GraphQLBundle](https://github.com/overblog/GraphQLBundle).
+In that file, add new fields that use any custom type or custom logic you require, based on [overblog/GraphQLBundle](https://github.com/overblog/GraphQLBundle).
 
 The custom schema should be created only after generating other schemas to avoid problems, especially if the custom schema depends on other schema elements.
 For example, `Type "Domain" inherited by "Query" not found.`.

@@ -10,7 +10,8 @@ Depending on how your browser understands XML, it either downloads the XML file,
 
 The following examples show how to interrogate the REST API using cURL, PHP or JS.
 
-To test further, you can use browser extensions, like [Advanced REST client for Chrome](https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo) or [RESTClient for Firefox](https://addons.mozilla.org/en-US/firefox/addon/restclient/), or dedicated tools. For command line users, [HTTPie](https://github.com/httpie/cli) is a good tool.
+To test further, you can use browser extensions, like [Advanced REST client for Chrome](https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo) or [RESTClient for Firefox](https://addons.mozilla.org/en-US/firefox/addon/restclient/), or dedicated tools.
+For command line users, [HTTPie](https://github.com/httpie/cli) is a good tool.
 
 ## CLI
 
@@ -48,7 +49,7 @@ To test it, copy-paste this code into your browser console alongside a page from
 
     ```javascript
     const resource = '/api/ibexa/v2/content/objects/52';
-    
+
     fetch(resource, {
         headers: {'Accept': 'application/vnd.ibexa.api.ContentInfo+json'},
     }).then((response) => {
@@ -64,7 +65,7 @@ To test it, copy-paste this code into your browser console alongside a page from
     ```javascript
     const resource = '/api/ibexa/v2/content/objects/52';
     const request = new XMLHttpRequest();
-    
+
     request.open('GET', resource, true);
     request.setRequestHeader('Accept', 'application/vnd.ibexa.api.ContentInfo+json');
     request.onload = function () {

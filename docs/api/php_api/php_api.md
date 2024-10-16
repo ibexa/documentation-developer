@@ -7,14 +7,14 @@ page_type: reference
 
 The [public PHP API](../php_api_reference/) enables you to interact with [[= product_name =]]'s Repository and content model from your PHP code.
 
-You can use it to create, read, update, manage, and delete all objects available in [[= product_name =]], namely content and related objects such as Sections, Locations, content types, or languages.
+You can use it to create, read, update, manage, and delete all objects available in [[= product_name =]], namely content and related objects such as sections, locations, content types, or languages.
 
 The PHP API is built on top of a layered architecture, including a persistence SPI that abstracts storage.
 Using the API ensures that your code is forward compatible with future releases based on other storage engines.
 
 ## Using API services
 
-The API provides access to Content, User, content types, and other features through various services.
+The API provides access to content, user, content types, and other features through various services.
 
 The full list of available services covers:
 
@@ -48,7 +48,7 @@ You can access the PHP API by injecting relevant services into your code:
 
 - By using [auto-wiring]([[=symfony_doc=]]/service_container/autowiring.html), and the service classname in the `Ibexa\Contracts` namespace (see `bin/console debug:autowiring | grep Ibexa.Contracts`).
 - By using [service parameters]([[=symfony_doc=]]/service_container.html#service-parameters), and service aliases (see `bin/console debug:autowiring | grep ibexa.api`).
-- By using the Repository's `get[ServiceName]()` methods: [`Repository::getContentService()`](php_api_reference/classes/Ibexa-Contracts-Core-Repository-Repository.html#method_getContentService), [`getUserService()`](php_api_reference/classes/Ibexa-Contracts-Core-Repository-Repository.html#method_getUserService), etc.
+- By using the repository's `get[ServiceName]()` methods: [`Repository::getContentService()`](php_api_reference/classes/Ibexa-Contracts-Core-Repository-Repository.html#method_getContentService), [`getUserService()`](php_api_reference/classes/Ibexa-Contracts-Core-Repository-Repository.html#method_getUserService), etc.
   (Prefer injecting several Repository's dedicated services instead of the whole Repository if the Repository itself isn't needed.)
 
 !!! caution
@@ -66,8 +66,8 @@ Value objects come with their own properties, such as `$content->id` or `$locati
 
 ### Creating and updating objects
 
-Value objects fetch data from the Repository and are read-only.
-To create and modify Repository values, use data structures, such as [`ContentService::newContentCreateStruct()`](https://github.com/ibexa/core/blob/v4.6.6/src/contracts/Repository/ContentService.php#L572) or [`LocationService::newLocationUpdateStruct()`](https://github.com/ibexa/core/blob/v4.6.6/src/contracts/Repository/LocationService.php#L238).
+Value objects fetch data from the repository and are read-only.
+To create and modify repository values, use data structures, such as [`ContentService::newContentCreateStruct()`](https://github.com/ibexa/core/blob/v4.6.6/src/contracts/Repository/ContentService.php#L572) or [`LocationService::newLocationUpdateStruct()`](https://github.com/ibexa/core/blob/v4.6.6/src/contracts/Repository/LocationService.php#L238).
 
 ### Value info objects
 
@@ -84,7 +84,8 @@ For instance, `ContentInfo` contains `currentVersionNo` or `remoteId`, while `Co
 
 ## Authentication
 
-One of the responsibilities of the Repository is user authentication. Every action is executed *as* a user.
+One of the responsibilities of the repository is user authentication.
+Every action is executed *as* a user.
 
 When using the PHP API, authentication is performed in three ways:
 
@@ -94,9 +95,9 @@ When using the PHP API, authentication is performed in three ways:
 
 ### Back office authentication
 
-When actions are performed through the back office, they're executed as the logged-in User.
-This User's permissions affects the behavior of the repository.
-The User may, for example, not be allowed to create content, or view a particular Section.
+When actions are performed through the back office, they're executed as the logged-in user.
+This user's permissions affects the behavior of the repository.
+The user may, for example, not be allowed to create content, or view a particular section.
 
 ### Using `sudo()`
 
@@ -117,9 +118,9 @@ $hiddenLocation = $repository->sudo(function (Repository $repository) use ($loca
 });
 ```
 
-### Setting the Repository user
+### Setting the repository user
 
-In a command line script, the Repository runs as if executed by the anonymous user.
+In a command line script, the repository runs as if executed by the anonymous user.
 While [using `sudo()`](#using-sudo) is the recommended option, you can also set the current user to a user with necessary permissions to achieve the same effect.
 
 To identify as a different user, you need to use the `UserService` together with `PermissionResolver` (in the example `admin` is the login of the administrator user):
@@ -149,7 +150,7 @@ Each API method may throw different exceptions, depending on what it does.
 
 It's good practice to cover every exception you expect to happen.
 
-For example if you're using a command which takes the Content ID as a parameter, the ID may either not exist, or the referenced content item may not be visible to the user.
+For example if you're using a command which takes the content ID as a parameter, the ID may either not exist, or the referenced content item may not be visible to the user.
 
 Both cases should be covered with error messages:
 

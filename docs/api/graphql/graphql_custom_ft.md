@@ -47,8 +47,7 @@ Compiler pass example that should be placed in `src/DependencyInjection/Compiler
 ### Map with a custom `FieldDefinitionMapper`
 
 The `FieldDefinitionMapper` API uses service decorators.
-To register your own mapper, make it decorate the
-`Ibexa\GraphQL\Schema\Domain\Content\Mapper\FieldDefinition\DecoratingFieldDefinitionMapper` service:
+To register your own mapper, make it decorate the `Ibexa\GraphQL\Schema\Domain\Content\Mapper\FieldDefinition\DecoratingFieldDefinitionMapper` service:
 
 ```yaml
 services:

@@ -10,7 +10,7 @@ You can query a single content item or a list of content items using fields defi
 
 ### Get a content item
 
-To get a specific content item by its content ID, Location ID, or URL alias, use its relevant singular field, for example `article`, `folder`, or `image`.
+To get a specific content item by its content ID, location ID, or URL alias, use its relevant singular field, for example `article`, `folder`, or `image`.
 
 ```
 {
@@ -44,10 +44,10 @@ Response:
 }
 ```
 
-You can request any Fields of the content item. In the example above, these are `title` and `author`.
+You can request any fields of the content item. In the example above, these are `title` and `author`.
 
 You can also query the generic `item` object.
-The `item` object references a content item, but you can also get its [Location information](#querying-locations).
+The `item` object references a content item, but you can also get its [location information](#querying-locations).
 The query accepts `locationId`, `remoteId`, and `urlAlias` as arguments.
 
 ```
@@ -72,7 +72,7 @@ Response:
 
 #### Get language versions
 
-To get Fields of a content item in a specific language, use the `language` argument.
+To get fields of a content item in a specific language, use the `language` argument.
 The language must be configured for the current SiteAccess.
 
 ```
@@ -246,9 +246,9 @@ Response:
 You can get the Location object from any item by querying for `_location` or `_allLocations`.
 When you use `_location`, the API returns:
 
-- the Location specified in the `locationId` or `urlAlias` argument
-- the Location based on the current SiteAccess
-- the main Location
+- the location specified in the `locationId` or `urlAlias` argument
+- the location based on the current SiteAccess
+- the main location
 
 ```
 {
@@ -312,8 +312,7 @@ Response:
 
 ## Getting children of a Location
 
-To get a [Location's](#querying-locations) children,
-it's recommended to use the [Query Field](content_queries.md#content-query-field).
+To get a [location's](#querying-locations) children, it's recommended to use the [Query field](content_queries.md#content-query-field).
 
 Alternatively, you can query the `children` property of an `item` or `content` object:
 
@@ -607,7 +606,7 @@ To filter products based on attributes:
 }
 
 ```
- 
+
 If the attribute type (in this case, `measure`) cannot be found in the schema, the response is:
 
 ```
@@ -661,8 +660,7 @@ You can also query attributes by providing the attribute type:
 
 !!! note
 
-    You need to use aliases (for example, `sizeValue`) when querying attributes by the attribute type
-    due to the conflicting return types.
+    You need to use aliases (for example, `sizeValue`) when querying attributes by the attribute type due to the conflicting return types.
 
 Response:
 

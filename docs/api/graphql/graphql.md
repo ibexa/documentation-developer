@@ -29,8 +29,7 @@ GraphQL schema cannot be generated for names that don't follow the [GraphQL spec
 This concerns image variations, content types, content type groups, product types, and field definition identifiers.
 
 It's recommended to rename the relevant identifiers. Failure to generate schema is registered in logs.
-To find identifiers that aren't included in the schema, look for "Skipped schema generation" log messages, for example:
-`Skipped schema generation for Image Variation`.
+To find identifiers that aren't included in the schema, look for "Skipped schema generation" log messages, for example: `Skipped schema generation for Image Variation`.
 
 ## Domain schema
 
@@ -44,7 +43,7 @@ With the queries you can inspect:
 - the existing types
 - details of content types, and their fields in the context of developing your own application
 
-You can request additional content information such as the Section or Objects states, available under the `_info` field.
+You can request additional content information such as the section or Objects states, available under the `_info` field.
 
 You can also query content type and content type group information through the `_info` and `_types` fields.
 
