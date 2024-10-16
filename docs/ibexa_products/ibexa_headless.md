@@ -36,8 +36,7 @@ Then, content is available to end users through REST, GraphQL, or every output y
 
 ### Technical backstage
 
-When you have a license, you install [[= product_name_headless =]] through Composer
-on an architecture including at least a web server with PHP and a relational database server.
+When you have a license, you install [[= product_name_headless =]] through Composer on an architecture including at least a web server with PHP and a relational database server.
 For performance, several bricks can be added to your stack such as a reverse proxy or a search engine.
 
 [[= product_name_headless =]] is based on Symfony. Any Symfony developer, or even PHP developer, can quickly learn how to extend it with the help of an online documentation.
@@ -54,8 +53,7 @@ APIs summary:
 - The OAuth 2 [Client](oauth_client.md) and [Server](oauth_server.md) allow to connect to an SSO or be the SSO.
 - The design engine and its theme templates mechanism allows to serve the content in several shapes.
 - The PHP API opens [[= product_name_headless =]] to extendability to fit your needs.
-  For example, content can be computed, edited or served in specific ways such as
-  scheduled/live imports/exports, automated edition tasks, or specific controllers to communicate with other applications.
+  For example, content can be computed, edited, or served in specific ways such as scheduled/live imports/exports, automated edition tasks, or specific controllers to communicate with other applications.
 
 ## Capabilities and benefits
 
@@ -63,8 +61,7 @@ APIs summary:
 It comes without a default front office.
 You don't lose time to develop a theme for a provided front office before discovering it doesn't fit your needs.
 No distraction.
-[[= product_name_headless =]] helps you focus on the content, create and organize with its straightforward user interface (UI),
-imagine its inputs/outputs, and implement them with its various layers' APIs.
+[[= product_name_headless =]] helps you focus on the content, create and organize with its straightforward user interface (UI), imagine its inputs/outputs, and implement them with its various layers' APIs.
 
 ### Core features
 
@@ -173,22 +170,14 @@ Several features help end users collaborate on the content, such as:
 
 ## Use cases
 
-As a content repository with an omnipotent back office,
-many APIs to absorb, compute and distribute content,
-even a recommendation engine to deliver the right content to various readers,
-[[= product_name_headless =]] can be used in several cases.
+As a content repository with an omnipotent back office, many APIs to absorb, compute and distribute content, even a recommendation engine to deliver the right content to various readers, [[= product_name_headless =]] can be used in several cases.
 Here are few examples.
 
 ### Brick and mortar, but with an online showcase
 
-If you prefer the human warmth of a retail store,
-if your products' numerous complex options should be discussed,
-or if you're simply not ready yet to sell online,
-[[= product_name_headless =]] helps to build an exposition of your product catalog and your philosophy,
-an online presence to keep earlier customers interested and gather new ones.
-It can be a structuring first step to test customer's adoption of your website,
-before increasing user experience with [[= product_name_exp =]],
-and finally becoming an online store with [[= product_name_com =]].
+If you prefer the human warmth of a retail store, if your products' numerous complex options should be discussed,
+or if you're not ready yet to sell online, [[= product_name_headless =]] helps to build an exposition of your product catalog and your philosophy, an online presence to keep earlier customers interested and gather new ones.
+It can be a structuring first step to test customer's adoption of your website, before increasing user experience with [[= product_name_exp =]], and finally becoming an online store with [[= product_name_com =]].
 
 ### Large network with multiple inputs and outputs
 

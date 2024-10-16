@@ -126,7 +126,7 @@ To promote your campaign, you can add a Campaign block to a page in Page Builder
 ### Use cases
 
 With [[= product_name_exp =]], your customers are the main focus of all that you do.
-It makes it simpler than ever to create the different touchpoints that your customers have with your brand, giving you the ability to guide them through your significant business procedures. 
+It makes it simpler than ever to create the different touchpoints that your customers have with your brand, giving you the ability to guide them through your significant business procedures.
 
 #### Build new pages and integrated forms
 

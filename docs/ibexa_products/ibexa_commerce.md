@@ -104,7 +104,7 @@ Recommendations can be used to propose related, alternative, or complimentary pr
 
 #### Use effective merchandising
 
-Merchandising assists in keeping the consistency of the brand and providing customized product recommendations with captivating visuals and powerful search features. 
+Merchandising assists in keeping the consistency of the brand and providing customized product recommendations with captivating visuals and powerful search features.
 You can engage your customers with eye-catching graphics and information.
 The search engine makes it easy to find what they're looking for by providing quick and easy access to the product catalogs.
 
@@ -124,7 +124,7 @@ You can create online store that really fits your needs.
 
 #### Automate business processes
 
-With [[= product_name_com =]], the automation process becomes easier, which is essential if your company wants to do more with less effort. 
-It comes with all capabilities, including order and inventory management, customer data and custom pricing, which are needed to achieve it.
-You can integrate with over 1,300 standard apps, including your CRM, ERP, PIM and DAM systems, and build custom connectors.
+With [[= product_name_com =]], the automation process becomes easier, which is essential if your company wants to do more with less effort.
+It comes with all capabilities, including order and inventory management, customer data, and custom pricing, which are needed to achieve it.
+You can integrate with over 1,300 standard apps, including your CRM, ERP, PIM, and DAM systems, and build custom connectors.
 Also, you can use the ready-to-use pre-designed templates.
