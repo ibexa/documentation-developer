@@ -9,8 +9,7 @@ This awareness is accomplished by means of cache tagging. All supported reverse 
 
 !!! note "Tag header is stripped in production for security reasons"
 
-    For security reasons this header, and other internal cache headers,
-    are stripped from output in production by the reverse proxy (in VCL for Varnish and Fastly).
+    For security reasons this header, and other internal cache headers, are stripped from output in production by the reverse proxy (in VCL for Varnish and Fastly).
 
 ## Cache tags
 
@@ -20,9 +19,7 @@ Tags form a secondary set of keys assigned to every cache item, on top of the "p
 Like an index in a database, a tag is typically used for anything relevant that represents the given cache item.
 Tags are used for cache invalidation.
 
-For example, the system tags every article response, and when the article content type is updated,
-it tells Varnish that all articles should be considered stale
-and updated in the background when someone requests them.
+For example, the system tags every article response, and when the article content type is updated, it tells Varnish that all articles should be considered stale and updated in the background when someone requests them.
 
 Current content tags (and when the system purges on them):
 
@@ -37,16 +34,14 @@ Current content tags (and when the system purges on them):
 
 !!! note "Automatic repository prefixing of cache tags"
 
-    As [[= product_name =]] supports multi-repository (multi-database) setups that can have overlapping IDs,
-    the shared HTTP cache systems need to distinguish tags relevant to the different content repositories.
+    As [[= product_name =]] supports multi-repository (multi-database) setups that can have overlapping IDs, the shared HTTP cache systems need to distinguish tags relevant to the different content repositories.
 
     This is why in multi-repository setup you can see cache tags such as `1p2`.
     In this example `1` represents the index among configured repositories, meaning the second repository in the system.
 
     Tags aren't prefixed for default repository (index "0").
 
-The content tags are returned in a header in the responses from [[= product_name =]]. The header name is dependent on
-which HTTP Cache [[= product_name =]] is configured with:
+The content tags are returned in a header in the responses from [[= product_name =]]. The header name is dependent on which HTTP Cache [[= product_name =]] is configured with:
 
 - Symfony reverse proxy: `X-Cache-Tags`
 - Varnish: `xkey`
@@ -132,14 +127,15 @@ If the given content has several Locations, you can see several `l<location-id>`
 
 ### ResponseConfigurator
 
-A `ReponseCacheConfigurator` configures an HTTP Response object, makes the response public, adds tags, and sets the shared max age. 
+A `ReponseCacheConfigurator` configures an HTTP Response object, makes the response public, adds tags, and sets the shared max age.
 It's provided to `ReponseTaggers` that use it to add the tags to the response.
 
 The `ConfigurableResponseCacheConfigurator` (`Ibexa\HttpCache\ResponseConfigurator\ConfigurableResponseCacheConfigurator`) follows the `view_cache` configuration and only enables cache if it's enabled in the configuration.
 
 ### Delegator and Value taggers
 
-- Delegator taggers - extract another value or several from the given value and pass it on to another tagger. For example, a `ContentView` is covered both by the `ContentValueViewTagger` and `LocationValueViewTagger`, where the first extracts the Content from the `ContentView` and passes it to the `ContentInfoTagger`.
+- Delegator taggers - extract another value or several from the given value and pass it on to another tagger.
+For example, a `ContentView` is covered both by the `ContentValueViewTagger` and `LocationValueViewTagger`, where the first extracts the content from the `ContentView` and passes it to the `ContentInfoTagger`.
 - Value taggers - extract the `Location` and pass it on to the `LocationViewTagger`.
 
 ## DispatcherTagger
@@ -187,8 +183,7 @@ $tagHandler->addRelationTags([33, 44]);
 
 In PHP, FOSHttpCache exposes the `fos_http_cache.http.symfony_response_tagger` service which enables you to add tags to a response.
 
-The following example adds minimal tags when ID 33 and 34 are rendered in ESI,
-but parent response needs these tags to get refreshed if they're deleted:
+The following example adds minimal tags when ID 33 and 34 are rendered in ESI, but parent response needs these tags to get refreshed if they're deleted:
 
 ``` php
 /** @var \FOS\HttpCacheBundle\Http\SymfonyResponseTagger $responseTagger */
@@ -199,8 +194,8 @@ See [Tagging from code](https://foshttpcachebundle.readthedocs.io/en/latest/feat
 
 4\. Use deprecated `X-Location-Id` header.
 
-For custom or built-in controllers (for example, REST) still using `X-Location-Id`, `XLocationIdResponseSubscriber` handles translating
-this header to tags. It supports singular and comma-separated Location ID value(s):
+For custom or built-in controllers (for example, REST) still using `X-Location-Id`, `XLocationIdResponseSubscriber` handles translating this header to tags.
+It supports singular and comma-separated Location ID value(s):
 
 ```php
 /** @var \Symfony\Component\HttpFoundation\Response $response */
@@ -213,8 +208,7 @@ $response->headers->set('X-Location-Id', '123,212,42');
 !!! caution "X-Location-Id use is deprecated"
 
     `X-Location-Id` is deprecated and removed in future.
-    For rendering content it's advised to refactor to use Content View,
-    if not applicable `ContentTagInterface` or lastly manually output tags.
+    For rendering content it's advised to refactor to use content view, if not applicable `ContentTagInterface` or lastly manually output tags.
 
 ## Response tagging in templates
 
@@ -254,14 +248,13 @@ See [Tagging from Twig Templates](https://foshttpcachebundle.readthedocs.io/en/l
 
 ### Default tag purging
 
-`ibexa/http-cache` uses repository API event subscribers to listen to events emitted on repository operations,
-and depending on the operation triggers expiry on a specific tag or set of tags.
+`ibexa/http-cache` uses repository API event subscribers to listen to events emitted on repository operations, and depending on the operation triggers expiry on a specific tag or set of tags.
 All event subscribers can be found in `http-cache/src/lib/EventSubscriber/CachePurge`.
 
 ### Tags purged on publish event
 
-Below is an example of a Content structure. The tags which the content view controller adds to each location are
-also listed
+Below is an example of a content structure.
+The tags which the content view controller adds to each location are also listed:
 
 ```
    - [Home] (content-id=52, location-id=2)
@@ -292,9 +285,10 @@ Effectively, in this example HTTP cache for `[Parent1]` and `[Child]` is cleared
 
 ### Tags purged on move event
 
-With the same Content structure as above, the `[Child]` location is moved below `[Parent2]`.
+With the same content structure as above, the `[Child]` location is moved below `[Parent2]`.
 
 The new structure is then:
+
 ```
    - [Home] (content-id=52, location-id=2)
      ez-all c52 ct42 l2 pl1 p1 p2
@@ -316,8 +310,7 @@ The following keys are purged during the move:
 - `pl21`, because cache for all children of new parent (`[Parent2]`) should be purged
 - `p22`, because cache for any element below `[Child]` should be purged (because path has changed)
 
-In other words, HTTP Cache for `[Parent1]`, children of `[Parent1]` ( if any ), `[Parent2]`, children of `[Parent2]` ( if any ),
-`[Child]` and any subtree below `[Child]`.
+In other words, HTTP Cache for `[Parent1]`, children of `[Parent1]` ( if any ), `[Parent2]`, children of `[Parent2]` ( if any ), `[Child]` and any subtree below `[Child]`.
 
 ### Custom purging from code
 
@@ -336,7 +329,7 @@ $purgeClient->purgeAll();
 
 ### Purging from command line
 
-Example for purging by Location and by Content ID:
+Example for purging by Location and by content ID:
 
 ```bash
 bin/console fos:httpcache:invalidate:tag l44 c33
@@ -350,22 +343,21 @@ bin/console fos:httpcache:invalidate:tag ez-all
 
 !!! tip "Purge is done on the current repository"
 
-    Similarly to purging from code, the tags you purge on, are prefixed to match the currently configured SiteAccess. 
+    Similarly to purging from code, the tags you purge on, are prefixed to match the currently configured SiteAccess.
     When you use this command in combination with multi-repository setup, make sure to specify SiteAccess argument.
 
 ## Testing and debugging HTTP cache
 
-It's important to test your code in an environment which is as similar as your production environment as possible. That
-means that if only are testing locally using the default Symfony Reverse proxy when your are going to use Varnish or
-Fastly in production, you're likely ending up some (bad) surprises. Due to the symfony reverse proxy's lack of support for ESIs, it behaves
-quite different from Varnish and Fastly in some aspects.
+It's important to test your code in an environment which is as similar as your production environment as possible.
+That means that if only are testing locally using the default Symfony Reverse proxy when your are going to use Varnish or Fastly in production, you're likely ending up some (bad) surprises.
+Due to the symfony reverse proxy's lack of support for ESIs, it behaves quite different from Varnish and Fastly in some aspects.
 If you're going to use Varnish in production, make sure you also test your code with Varnish.
-If you're going to use Fastly in production, testing with Fastly in your developer install is likely not feasible
-(you're local development environment must then be accessible for Fastly). Testing with Varnish instead in most
-cases does the job. But if you need to change the varnish configuration to make your site work, be aware that Varnish and Fastly uses different dialects, and
-that .vcl code for Varnish V6.x doesn't likely work as-is on Fastly.
+If you're going to use Fastly in production, testing with Fastly in your developer install is likely not feasible (you're local development environment must then be accessible for Fastly).
+Testing with Varnish instead in most cases does the job.
+But if you need to change the varnish configuration to make your site work, be aware that Varnish and Fastly uses different dialects, and that .vcl code for Varnish V6.x doesn't likely work as-is on Fastly.
 
-This section describes to how to debug problems related to HTTP cache. 
+This section describes to how to debug problems related to HTTP cache.
+
 	You must be able to look both at responses and headers [[= product_name =]] sends to HTTP cache, and not so much at responses and headers
 	the HTTP cache sends to the client (web browser).
 	It means you must be able to send requests to your origin (web server) that don't go through Varnish or Fastly.
@@ -373,7 +365,7 @@ This section describes to how to debug problems related to HTTP cache.
   If you perform tests on Fastly enabled environment on [[= product_name_cloud =]] provided by Platform.sh, you need to use the Platform.sh
 	dashboard to obtain the endpoint for Nginx.
 
-The following example shows how to debug and check why Fastly doesn't cache the front page properly. 
+The following example shows how to debug and check why Fastly doesn't cache the front page properly.
 If you run the command multiple times:
 
 `curl -IXGET https://www.staging.foobar.com.us-2.platformsh.site`
@@ -390,12 +382,13 @@ x-cache: MISS
 
 #### Finding Nginx endpoint for environments located on the grid
 
-To find the Nginx point, first, you need to know in which region your project is located. To do that, go to the Platform.sh dashboard.
+To find the Nginx point, first, you need to know in which region your project is located.
+To do that, go to the Platform.sh dashboard.
 To find a valid route, click an element in the **URLs** drop-down for the specified environment and select the route.
 A route may look like this:
 `https://www.staging.foobar.com.us-2.platformsh.site/`
 
-In this case the region is `us-2` and you can find the public IP list on [Platform.sh documentation page](https://docs.platform.sh/development/regions.html#public-ip-addresses)
+In this case the region is `us-2` and you can find the public IP list on [Platform.sh documentation page](https://docs.platform.sh/development/regions.html#public-ip-addresses).
 Typically, you can add a `gw` to the hostname and use nslookup to find it.
 
 ```bash
@@ -416,7 +409,7 @@ You can also use the [[[= product_name_cloud =]] CLI](https://cli.ibexa.co/) (wh
 If you have a dedicated 3-node cluster on Platform.sh, the procedure for getting the endpoint to environments that are located on that cluster (`production` and sometimes also `staging`) is slightly different.
 In the **URLs** drop-down in the Platform.sh dashboard, find the route that has the format `somecontent.[clusterid].ent.platform.sh/`, for example, `myenvironment.abcdfg2323.ent.platform.sh/`
 
-The endpoint in case has the format `c.[clusterid].ent.platform.sh`, for example, `c.asddfs2323.ent.platform.sh/`
+The endpoint in case has the format `c.[clusterid].ent.platform.sh`, for example, `c.asddfs2323.ent.platform.sh/`.
 Next, use nslookup to find the IP:
 
 ```bash
@@ -428,9 +421,8 @@ Next, use nslookup to find the IP:
 
 ### Fetching user context hash
 
-As explained in [User Context Hash caching](context_aware_cache.md#user-context-hash-caching), the HTTP cache indexes the cache based on the
-user-context-hash. Users with the same user-context-hash here the same cache (as long as [[= product_name =]]
-responds with `Vary: X-Context-User-Hash`).
+As explained in [User Context Hash caching](context_aware_cache.md#user-context-hash-caching), the HTTP cache indexes the cache based on the user-context-hash.
+Users with the same user-context-hash here the same cache (as long as [[= product_name =]] responds with `Vary: X-Context-User-Hash`).
 
 To simulate the requests the HTTP cache sends to [[= product_name =]], you need this user-context-hash.
 To obtain it, use `curl`.
@@ -443,8 +435,8 @@ Some notes about each of these parameters:
 
 - `-IXGET`, one of many ways to tell curl that we want to send a GET request, but we are only interested in outputting the headers
 - `--resolve www.staging.foobar.com.us-2.platformsh.site:443:1.2.3.4`
-    - We tell curl not to do a DNS lookup for `www.staging.foobar.com.us-2.platformsh.site`. We do that because in our case
-    that resolves to the Fastly endpoint, not our origin (nginx)
+    - We tell curl not to do a DNS lookup for `www.staging.foobar.com.us-2.platformsh.site`.
+    We do that because in our case that resolves to the Fastly endpoint, not our origin (nginx)
     - We specify `443` because we are using `https`
     - We provide the IP of the nginx endpoint at platform.sh (`1.2.3.4` in this example)
 - `--header "Surrogate-Capability: abc=ESI/1.0"`, strictly speaking not needed when fetching the user-context-hash, but this tells [[= product_name =]] that client understands ESI tags.
@@ -452,12 +444,11 @@ Some notes about each of these parameters:
 - `--header "accept: application/vnd.fos.user-context-hash"` tells [[= product_name =]] that the client wants to receive the user-context-hash
 - `--header "x-fos-original-url: /"` is required by the fos-http-cache bundle to deliver the user-context-hash
 - `https://www.staging.foobar.com.us-2.platformsh.site/_fos_user_context_hash` : here we use the hostname we earlier told
-  curl how to resolve using `---resolve`. `/_fos_user_context_hash` is the route to the controller that are able to
-  deliver the user-context-hash.
-- You may also provide the session cookie (`--cookie ".....=....") for a logged-in-user if you're interested in
-  the x-user-context-hash for a different user but anonymous
+  curl how to resolve using `---resolve`. `/_fos_user_context_hash` is the route to the controller that are able to deliver the user-context-hash.
+- You may also provide the session cookie (`--cookie ".....=....") for a logged-in-user if you're interested in the x-user-context-hash for a different user but anonymous
 
 The output for this command should look similar to this:
+
 ```
     HTTP/1.1 200 OK
     Server: nginx/1.20.0
@@ -474,8 +465,7 @@ The output for this command should look similar to this:
     Surrogate-Key: ez-user-context-hash ez-all fos_http_cache_hashlookup-
 ```
 
-The header `X-User-Context-Hash` is the one of the interest here, but you may also note the `Surrogate-Key` which
-holds the [cache tags](#cache-tags).
+The header `X-User-Context-Hash` is the one of the interest here, but you may also note the `Surrogate-Key` which holds the [cache tags](#cache-tags).
 
 ### Fetching HTML response
 
@@ -486,6 +476,7 @@ Now you have the user-context-hash, and you can ask origin for the actual resour
 ```
 
 The output :
+
 ```
 HTTP/1.1 200 OK
 Server: nginx/1.20.0
@@ -502,16 +493,16 @@ Surrogate-Key: ez-all c52 ct42 l2 pl1 p1 p2 r56 r57
 ```
 
 The `Cache-Control` header tells the HTTP cache to store the result in the cache for 1 day (86400 seconds)
-The `Vary: X-User-Content-Hash` header tells the HTTP cache that this cache element may be used for all users which has
-the given `x-user-hash` (`daea248406c0043e62997b37292bf93a8c91434e8661484983408897acd93814`).
+The `Vary: X-User-Content-Hash` header tells the HTTP cache that this cache element may be used for all users which has the given `x-user-hash` (`daea248406c0043e62997b37292bf93a8c91434e8661484983408897acd93814`).
 The document might also be removed from the cache by purging any of the keys provided in the `Surrogate-Key` header.
 
-So back to the original problem here. This resource is for some reason not cached by Fastly ( remember the
-`x-cache: MISS` we started with). But origin says this page can be cached for 1 day. How can that be?
+So back to the original problem here.
+This resource is for some reason not cached by Fastly (remember the `x-cache: MISS` we started with).
+But origin says this page can be cached for 1 day. How can that be?
 The likely reason is that this page also contains some ESI fragments and that one or more of these aren't cachable.
 
-So, first let's see if there are any ESIs here. We remove the `-IXGET` options (to see content of the response,
-not only headers) to curl and search for esi:
+So, first let's see if there are any ESIs here.
+We remove the `-IXGET` options (to see content of the response, not only headers) to curl and search for esi:
 
 ```bash
     $ curl --resolve www.staging.foobar.com.us-2.platformsh.site:443:1.2.3.4 --header "Surrogate-Capability: abc=ESI/1.0" --header "x-user-context-hash: daea248406c0043e62997b37292bf93a8c91434e8661484983408897acd93814" https://www.staging.foobar.com.us-2.platformsh.site/ | grep esi
@@ -525,9 +516,8 @@ The output is:
     <esi:include src="/_fragment?_hash=lnKTnmv6bb1XpaMPWRjV3sNazbn9rDXskhjGae1BDw8%3D&_path=locationId%3D2%26contentId%3D52%26blockId%3D13%26versionNo%3D3%26languageCode%3Deng-GB%26serialized_siteaccess%3D%257B%2522name%2522%253A%2522site%2522%252C%2522matchingType%2522%253A%2522default%2522%252C%2522matcher%2522%253Anull%252C%2522provider%2522%253Anull%257D%26serialized_siteaccess_matcher%3Dnull%26_format%3Dhtml%26_locale%3Den_GB%26_controller%3DEzSystems%255CCustomBundle%255CController%255CFooController%253A%253AcustomAction" />
 ```
 
-Now, investigate the response of each of these ESI fragments to understand what is going on. it's important to
-put that URL in single quotes as the URLS to the ESIs include special characters that can be interpreted by the
-shell.
+Now, investigate the response of each of these ESI fragments to understand what is going on.
+It's important to put that URL in single quotes as the URLS to the ESIs include special characters that can be interpreted by the shell.
 
 #### 1st ESI
 
@@ -554,7 +544,7 @@ X-Cache-Debug: 1
 Surrogate-Key: ez-all c52 l2
 ```
 
-The headers here look correct and don't indicate that this ESI isn't cached by the HTTP cache
+The headers here look correct and don't indicate that this ESI isn't cached by the HTTP cache.
 The second ESI has a similar response.
 
 #### 3rd ESI
@@ -583,20 +573,27 @@ X-Cache-Debug: 1
 Surrogate-Key: ez-all
 ```
 
-The `Cache-Control` and `Vary` headers look correct. The request is handled by a custom controller and the `Surrogate-Key` only contains the default `ez-all` value.
-This isn't a problem as long as the controller doesn't return values from any Content in the [[= product_name =]] repository. If it does, the controller should also add the corresponding IDs to such objects in that header.
+The `Cache-Control` and `Vary` headers look correct.
+The request is handled by a custom controller and the `Surrogate-Key` only contains the default `ez-all` value.
+This isn't a problem as long as the controller doesn't return values from any content in the [[= product_name =]] repository.
+If it does, the controller should also add the corresponding IDs to such objects in that header.
 
-The `Set-Cookie` here may cause the problem. A ESI fragment should never set a cookie because:
+The `Set-Cookie` here may cause the problem.
+A ESI fragment should never set a cookie because:
+
 - Clients only receive the headers set in the "mother" document (the headers in the "/" response in this case).
 
-- Only the content of ESIs responses is returned to the client. **No headers set in the ESI response ever reach the client**. ESI headers are only seen by the HTTP cache.
+- Only the content of ESIs responses is returned to the client.
+**No headers set in the ESI response ever reach the client**.
+ESI headers are only seen by the HTTP cache.
 
-- Symfony reverse proxy doesn't support ESIs at all, and any ESI calls (`render_esi()`) are implicitly replaced by
-  sub-requests (`render()`). So any `Set-Cookie` **is** sent to the client when using Symfony reverse proxy.
+- Symfony reverse proxy doesn't support ESIs at all, and any ESI calls (`render_esi()`) are implicitly replaced by sub-requests (`render()`).
+So any `Set-Cookie` **is** sent to the client when using Symfony reverse proxy.
 
-- Fastly flags it resource as "not cachable" because it set a cookie at least once. Even though that endpoint.
-  stops setting cookies, Fastly still doesn't cache that fragment. Any document referring to that ESI is a `MISS`.
-  Fastly cache needs to be purged (`Purge-all` request) to remove this flag.
+- Fastly flags it resource as "not cachable" because it set a cookie at least once.
+Even though that endpoint stops setting cookies, Fastly still doesn't cache that fragment.
+Any document referring to that ESI is a `MISS`.
+Fastly cache needs to be purged (`Purge-all` request) to remove this flag.
 
 - It means that it's not recommended to always initiate a session when loading the front page.
 

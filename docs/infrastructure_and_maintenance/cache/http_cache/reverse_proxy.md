@@ -44,8 +44,7 @@ Using a different proxy is highly recommended as they provide better performance
 
 ## VCL base files
 
-For reverse proxies to work properly with your installation, you need to add the corresponding VCL files for your
-HTTP Cache.
+For reverse proxies to work properly with your installation, you need to add the corresponding VCL files for your HTTP Cache.
 
 - [Varnish VCL xkey example](https://github.com/ibexa/http-cache/blob/main/docs/varnish/vcl/varnish5.vcl)
 - Fastly can be found in `vendor/ibexa/fastly/fastly`. You must install the following to use Fastly:
@@ -57,12 +56,9 @@ The provided `.vcl` files work both with [Fastly Shielding](https://docs.fastly.
 If you decide to use Fastly VCL, consider using [Fastly CLI](https://developer.fastly.com/learning/tools/cli/#installing) with it to manage VCL files from the command line.
 To learn more, see [Prepare to use Fastly locally](fastly.md#prepare-for-using-fastly-locally) and [Introduction to Fastly CLI](fastly.md#quick-introduction-to-fastly-cli).
 
-!!! tip
-    Support for Fastly Shielding was added in [[= product_name =]] v3.3.24 and v4.1.6
+!!! tip "Support for Fastly Shielding was added in [[= product_name =]] v3.3.24 and v4.1.6"
 
-    When you extend [FOSHttpCacheBundle](https://foshttpcachebundle.readthedocs.io/en/latest/),
-    you can also adapt your VCL further with [FOSHttpCache documentation](https://foshttpcache.readthedocs.io/en/latest/varnish-configuration.html)
-    to use additional features.
+    When you extend [FOSHttpCacheBundle](https://foshttpcachebundle.readthedocs.io/en/latest/), you can also adapt your VCL further with [FOSHttpCache documentation](https://foshttpcache.readthedocs.io/en/latest/varnish-configuration.html) to use additional features.
 
 ## Configure Varnish and Fastly
 
@@ -78,8 +74,7 @@ Failing to configure reverse proxies correctly may introduce several problems, i
 
 You need to consider your `TrustedProxy` configuration when you use Symfony [behind a load balancer or a reverse proxy](https://symfony.com/doc/5.1/deployment/proxies.html).
 
-To configure trusted proxies, use [Symfony semantic configuration]([[= symfony_doc =]]/deployment/proxies.html#solution-settrustedproxies) under
-the `framework.trusted_proxies` [configuration key](configuration.md#configuration-files), for example:
+To configure trusted proxies, use [Symfony semantic configuration]([[= symfony_doc =]]/deployment/proxies.html#solution-settrustedproxies) under the `framework.trusted_proxies` [configuration key](configuration.md#configuration-files), for example:
 
 ``` yaml
 framework:
@@ -90,31 +85,28 @@ framework:
 
     On Platform.sh, Varnish doesn't have a static IP, like with [AWS LB](https://symfony.com/doc/5.1/deployment/proxies.html#but-what-if-the-ip-of-my-reverse-proxy-changes-constantly).
     For this reason, the `TRUSTED_PROXIES` env variable supports being set to value `REMOTE_ADDR`, which is equal to:
-  
+
     ```php
     Request::setTrustedProxies([$request->server->get('REMOTE_ADDR')], Request::HEADER_X_FORWARDED_ALL);
     ```
 
-    When trusting remote IP like this, make sure your application is only accessible through Varnish. 
+    When trusting remote IP like this, make sure your application is only accessible through Varnish.
     If it's accessible in other ways, this may result in trusting, for example, the IP of client browser instead, which would be a serious security issue.
 
-    Make sure that **all** traffic always comes from the trusted proxy/load balancer,
-    and that there is no other way to configure it.
+    Make sure that **all** traffic always comes from the trusted proxy/load balancer, and that there is no other way to configure it.
 
 When using Fastly, you need to set `trusted_proxies` according to the [IP ranges used by Fastly](https://api.fastly.com/public-ip-list).
 
 !!! tip
 
     You don't have to set `trusted_proxies` when using Fastly on Platform.sh.
-    The Platform.sh router automatically changes the source IP of requests coming from Fastly,
-    replacing the source IP with the actual client IP and removing any `X-FORWARD-...` header in the request before it reaches [[= product_name =]].
+    The Platform.sh router automatically changes the source IP of requests coming from Fastly, replacing the source IP with the actual client IP and removing any `X-FORWARD-...` header in the request before it reaches [[= product_name =]].
 
 For more information about setting these variables, see [Configuration examples](#configuration-examples).
 
 ### Update YML configuration
 
-Next, you need to tell [[= product_name =]] to use an HTTP-based purge client (specifically the FosHttpCache Varnish purge client),
-and specify the URL that Varnish can be reached on:
+Next, you need to tell [[= product_name =]] to use an HTTP-based purge client (specifically the FosHttpCache Varnish purge client), and specify the URL that Varnish can be reached on:
 
 | Configuration | Parameter| Environment variable| Possible values|
 |---------|--------|--------|----------|
@@ -124,8 +116,7 @@ and specify the URL that Varnish can be reached on:
 | `ibexa.system.<scope>.http_cache.fastly.service_id` | `fastly_service_id` | `FASTLY_SERVICE_ID` | Service ID to authenticate with Fastly. |
 | `ibexa.system.<scope>.http_cache.fastly.key` | `fastly_key` | `FASTLY_KEY` | Service key/token to authenticate with Fastly. |
 
-If you need to set multiple purge servers, configure them in the YAML configuration, 
-instead of parameter or environment variable, as they only take single string value.
+If you need to set multiple purge servers, configure them in the YAML configuration, instead of parameter or environment variable, as they only take single string value.
 
 Example configuration for Varnish as reverse proxy, providing that [front controller has been configured](#configure-symfony-front-controller):
 
@@ -144,15 +135,13 @@ ibexa:
 
 !!! note "Invalidating Varnish cache using tokens"
 
-    In setups where the Varnish server IP can change (for example, on [[= product_name_cloud =]]),
-    you can use token-based cache invalidation through [`ez_purge_acl`](https://github.com/ibexa/http-cache/blob/main/docs/varnish/vcl/varnish5.vcl#L174).
- 
+    In setups where the Varnish server IP can change (for example, on [[= product_name_cloud =]]), you can use token-based cache invalidation through [`ez_purge_acl`](https://github.com/ibexa/http-cache/blob/main/docs/varnish/vcl/varnish5.vcl#L174).
+
     In such situation, use strong, secure hash and make sure to keep the token secret.
 
 ### Ensure proper Captcha behavior [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-If your installation uses Varnish and you want users to be able to configure and use Captcha in their forms, 
-you must enable sending Captcha data as a response to an Ajax request. 
+If your installation uses Varnish and you want users to be able to configure and use Captcha in their forms, you must enable sending Captcha data as a response to an Ajax request.
 Otherwise, Varnish doesn't allow for the transfer of Captcha data to the form, and as a result, users see an empty image.
 
 To enable sending Captcha over Ajax, add the following configuration:
@@ -168,8 +157,7 @@ ibexa:
 
 ### Update custom Captcha block [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-If you created a custom Captcha block for your site by overriding the default file (`vendor/gregwar/captcha-bundle/Resources/views/captcha.html.twig`),
-you must make the following changes to the custom block template file:
+If you created a custom Captcha block for your site by overriding the default file (`vendor/gregwar/captcha-bundle/Resources/views/captcha.html.twig`), you must make the following changes to the custom block template file:
 
 - change the name of the block to `ajax_captcha_widget`
 - include the JavaScript file:
@@ -228,12 +216,12 @@ FASTLY_KEY="token"
 #### Configure Fastly on Platform.sh
 
 If you use Platform.sh, it's recommended to configure all environment variables through [Platform.sh variables](https://docs.platform.sh/guides/ibexa/fastly.html).
-In [[= product_name =]], Varnish is enabled by default. To use Fastly, first you must 
-[disable Varnish](https://docs.platform.sh/guides/ibexa/fastly.html#remove-varnish-configuration) 
+In [[= product_name =]], Varnish is enabled by default. To use Fastly, first you must [disable Varnish](https://docs.platform.sh/guides/ibexa/fastly.html#remove-varnish-configuration).
 
 #### Get Fastly service ID and API token
 
-To get the service ID, log in to https://www.fastly.com/. In the upper menu, click the **CONFIGURE** tab.
+To get the service ID, log in to https://www.fastly.com/.
+In the upper menu, click the **CONFIGURE** tab.
 The service ID is displayed next to the name of your service on any page.
 
 For instructions on how to generate a Fastly API token, see [the Fastly guide](https://docs.fastly.com/en/guides/using-api-tokens).
@@ -270,8 +258,7 @@ You can configure environment variables through [Platform.sh variables](https://
 
 !!! tip
 
-    For HTTP cache, you most likely only use this for configuring Fastly for production and optionally staging,
-    allowing `variables:env:` in `.platform.app.yaml` to, for example, specify Varnish or Symfony proxy as default for dev environment.
+    For HTTP cache, you most likely only use this for configuring Fastly for production and optionally staging, allowing `variables:env:` in `.platform.app.yaml` to, for example, specify Varnish or Symfony proxy as default for dev environment.
 
 #### Apache with Varnish
 
@@ -308,29 +295,25 @@ Stale cache, or grace mode in Varnish, occurs when:
 - Cache is served some time after the TTL expired.
 - When the back-end server doesn't respond.
 
-This has several benefits for high traffic installations to reduce load to the back end. 
-Instead of creating several concurrent requests for the same page to the back end, 
-the following happens when a page has been soft purged:
+This has several benefits for high traffic installations to reduce load to the back end.
+Instead of creating several concurrent requests for the same page to the back end, the following happens when a page has been soft purged:
 
 - Next request hitting the cache triggers an asynchronous lookup to the back end.
-- If cache is still within grace period, first and subsequent requests for the content are served from cache,
-and don't wait for the asynchronous lookup to finish.
+- If cache is still within grace period, first and subsequent requests for the content are served from cache, and don't wait for the asynchronous lookup to finish.
 - The back-end lookup finishes and refreshes the cache so any subsequent requests get a fresh cache.
 
-By default, [[= product_name =]] always soft purges content on reverse proxies that support it (Varnish and Fastly),
-with the following logic in the out-of-the-box VCL:
+By default, [[= product_name =]] always soft purges content on reverse proxies that support it (Varnish and Fastly), with the following logic in the out-of-the-box VCL:
 
 - Cache is within grace period.
 - Either the server isn't responding, or the request comes without a session cookie (anonymous user).
 
 Serving grace isn't always allowed by default because:
 
-- It's a safe default. Even if just for anonymous users, stale cache can easily be confusing during acceptance testing.
+- It's a safe default. Even if for anonymous users, stale cache can be confusing during acceptance testing.
 - It means REST API, which is used by the back office, would serve stale data, breaking the UI.
 
 !!! tip "Customizing stale cache handling"
 
-    If you want to use grace handling for logged-in users as well, you can adapt the provided VCL to add a condition
-    for opting out if the request has a cookie and the path contains REST API prefix to make sure the back office isn't negatively affected.
+    If you want to use grace handling for logged-in users as well, you can adapt the provided VCL to add a condition for opting out if the request has a cookie and the path contains REST API prefix to make sure the back office isn't negatively affected.
 
     If you want to disable grace mode, you can adapt the VCL to do hard instead of soft purges, or set grace/stale time to `0s`.
