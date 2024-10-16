@@ -20,9 +20,12 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
 !!! caution "Recommended versions"
 
-    Review all the recommended versions carefully. If you see a "+" next to the product version, it means that we recommend this version or higher within the same major release. For example, "1.18+" means any 1.x version higher or equal to 1.18, but not 2.x.
+    Review all the recommended versions carefully.
+    If you see a "+" next to the product version, it means that we recommend this version or higher within the same major release.
+    For example, "1.18+" means any 1.x version higher or equal to 1.18, but not 2.x.
 
-    Using the latest listed version of each product or component is recommended. Always use a version that receives security updates, either by the vendor themselves or by a trusted third party, such as the distribution vendor.
+    Using the latest listed version of each product or component is recommended.
+    Always use a version that receives security updates, either by the vendor themselves or by a trusted third party, such as the distribution vendor.
 
 ## Operating system
 
@@ -36,7 +39,8 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
     |Ubuntu "Jammy Jellyfish"| 22.04 |
     |RHEL / CentOS | 8.1-8.5+ |
 
-    If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release. For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
+    If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release.
+    For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
 
 === "[[= product_name =]] v3.3"
 
@@ -48,7 +52,8 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
     |Ubuntu "Jammy Jellyfish"| 22.04 |
     |RHEL / CentOS | 8.1-8.5+ |
 
-    If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release. For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
+    If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release.
+    For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
 
 === "eZ Platform v2.5"
 
@@ -58,7 +63,8 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
     |Ubuntu  "Bionic" | 18.04 LTS  |
     |RHEL / CentOS | 8.0-8.5+ |
 
-    If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release. For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
+    If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release.
+    For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
 
 ## Web server
 
@@ -68,7 +74,8 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
     - Apache 2.4 (with required modules `mod_rewrite`, `mod_env` and recommended: `mod_setenvif`, `mod_expires`;
     event MPM is recommended, if you need to use prefork you also need the `mod_php` module)
 
-    If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release. For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
+    If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release.
+    For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
 
 === "[[= product_name =]] v3.3"
 
@@ -90,7 +97,8 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
     - MySQL 8.0
     - PostgreSQL 14
 
-    If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release. For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
+    If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release.
+    For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
 
 === "[[= product_name =]] v3.3"
 
@@ -98,15 +106,18 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
     - MySQL  8.0 (optionally 5.7 - deprecated)
     - PostgreSQL 10+ (PostgreSQL 10 has reached its End of Life. We highly recommend using PostgreSQL 14 for optimal performance and security)
 
-    If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release. For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
+    If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release.
+    For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
 
 === "eZ Platform v2.5"
 
     - MariaDB  10.3, 10.4 (optionally 10.2 - deprecated)
     - MySQL  8.0 (optionally 5.7 - deprecated)
-    - PostgreSQL 10+ (PostgreSQL 10 has reached its End of Life. We highly recommend using PostgreSQL 14 for optimal performance and security)
+    - PostgreSQL 10+ (PostgreSQL 10 has reached its End of Life.
+    We highly recommend using PostgreSQL 14 for optimal performance and security)
 
-    If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release. For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
+    If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release.
+    For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
 
 ## PHP
 
@@ -129,10 +140,13 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
 === "eZ Platform v2.5"
 
-    - 7.1 (PHP 7.1 has reached its End of Life. Unless you have extended support from vendors like Debian or Zend, you should upgrade to [[= product_name =]] v3.3 or v4.x)
+    - 7.1 (PHP 7.1 has reached its End of Life.
+    Unless you have extended support from vendors like Debian or Zend, you should upgrade to [[= product_name =]] v3.3 or v4.x)
     - 7.2 (PHP 7.2 has reached its End of Life. Unless you have extended support from vendors like Debian or Zend, you should upgrade to [[= product_name =]]P v3.3 or v4.x)
-    - 7.3 (PHP 7.3 has reached its End of Life. Unless you have extended support from vendors like Debian or Zend, you should upgrade to [[= product_name =]] v3.3 or v4.x)
-    - 7.4 (PHP 7.4 has reached its End of Life. Unless you have extended support from vendors like Debian or Zend, you should upgrade to [[= product_name =]] v3.3 or v4.x)
+    - 7.3 (PHP 7.3 has reached its End of Life.
+    Unless you have extended support from vendors like Debian or Zend, you should upgrade to [[= product_name =]] v3.3 or v4.x)
+    - 7.4 (PHP 7.4 has reached its End of Life.
+    Unless you have extended support from vendors like Debian or Zend, you should upgrade to [[= product_name =]] v3.3 or v4.x)
 
 ### PHP extensions
 
@@ -195,26 +209,32 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
     - `php-redis` 3.1.3+ or `php-memcached` 3.x+*
 
-    If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release. For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
+    If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release.
+    For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
 
 ## Search
 
 === "[[= product_name =]] v4.6"
 
-    - For content search, Solr 7.7 LTS or Solr 8, recommended 8.11.1 or higher. Alternatively, Elasticsearch 7.16.2 or higher 7.x version.
-    - The above solutions require Oracle Java/Open JDK. The minimum requirement is 8 LTS, recommended 11 LTS. Newer versions aren't supported.
+    - For content search, Solr 7.7 LTS or Solr 8, recommended 8.11.1 or higher.
+    Alternatively, Elasticsearch 7.16.2 or higher 7.x version.
+    - The above solutions require Oracle Java/Open JDK. The minimum requirement is 8 LTS, recommended 11 LTS.
+    Newer versions aren't supported.
 
 === "[[= product_name =]] v3.3"
 
-    - For content search, Solr 7.7 LTS or Solr 8, recommended 8.11.1 or higher. Alternatively, Elasticsearch 7.16.2 or higher 7.x version.
+    - For content search, Solr 7.7 LTS or Solr 8, recommended 8.11.1 or higher.
+    Alternatively, Elasticsearch 7.16.2 or higher 7.x version.
     - For BinaryFile field indexing, Apache Tika 1.20 or higher 1.x version, recommended 1.28.1 or higher.
     - The above solutions require Oracle Java/Open JDK. The minimum requirement is 8 LTS, recommended 11 LTS. Newer versions aren't supported.
 
 === "eZ Platform v2.5"
 
-    - For content search, Solr 7.7 LTS or Solr 8, recommended 8.11.1 or higher. Alternatively, Elasticsearch 7.16.2 or higher 7.x version.
+    - For content search, Solr 7.7 LTS or Solr 8, recommended 8.11.1 or higher.
+    Alternatively, Elasticsearch 7.16.2 or higher 7.x version.
     - For BinaryFile field indexing, Apache Tika 1.20 or higher 1.x version, recommended 1.28.1 or higher.
-    - The above solutions require Oracle Java/Open JDK. The minimum requirement is 8 LTS, recommended 11 LTS. Newer versions aren't supported.
+    - The above solutions require Oracle Java/Open JDK.
+    The minimum requirement is 8 LTS, recommended 11 LTS. Newer versions aren't supported.
 
 ## Graphic Handler
 
@@ -262,7 +282,8 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
     - Redis 4.0+, 5.0 or higher (separate instances for session and cache, both using a `volatile-*` [eviction policy](https://redis.io/docs/reference/eviction/), session instance configured for persistence) or [Memcached](https://memcached.org/) 1.5 or higher
     - [Varnish](http://varnish-cache.org/) 6.0LTS or 7.1 with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.md) or [Fastly](https://www.fastly.com/) using [the provided bundle](http_cache.md) (for HTTP Cache)
 
-    If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release. For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
+    If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release.
+    For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
 
 === "[[= product_name =]] v3.3"
 
@@ -270,7 +291,8 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
     - Redis 4.0+, 5.0 or higher (separate instances for session and cache, both using a `volatile-*` [eviction policy](https://redis.io/docs/reference/eviction/), session instance configured for persistence) or [Memcached](https://memcached.org/) 1.5 or higher
     - [Varnish](http://varnish-cache.org/) 6.0LTS with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.md) or [Fastly](https://www.fastly.com/) using [the provided bundle](https://doc.ibexa.co/en/3.3/guide/cache/http_cache/#serving-varnish-through-fastly) (for HTTP Cache)
 
-    If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release. For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
+    If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release.
+    For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
 
 === "eZ Platform v2.5"
 
@@ -278,7 +300,8 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
     - Redis 3.2+ (separate instances for session and cache, both using a `volatile-*` [eviction policy](https://redis.io/docs/reference/eviction/), session instance configured for persistence) or [Memcached](https://memcached.org/) 1.5 or higher
     - [Varnish](http://varnish-cache.org/) 5.1 or 6.0LTS with [varnish-modules](https://github.com/varnish/varnish-modules/blob/master/README.md) or [Fastly](https://www.fastly.com/) using [the provided bundle](https://doc.ibexa.co/en/2.5/guide/cache/http_cache/#serving-varnish-through-fastly) (for HTTP Cache)
 
-    If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release. For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
+    If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release.
+    For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
 
 ## Filesystem
 
@@ -315,27 +338,32 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
     - `Node.js` 18+
     - `yarn` 1.15.2+
 
-    If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release. For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
+    If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release.
+    For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
 
 === "[[= product_name =]] v3.3"
 
-    - `Node.js` 14+, 16+, 18+ (`Node.js` 14+ has reached its End of Life. We strongly recommend using a newer version to ensure you receive security updates.)
+    - `Node.js` 14+, 16+, 18+ (`Node.js` 14+ has reached its End of Life.
+    We strongly recommend using a newer version to ensure you receive security updates.)
     - `yarn` 1.15.2+
 
-    If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release. For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
+    If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release.
+    For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
 
 === "eZ Platform v2.5"
 
     - `Node.js` 10, 12 or 14
     - `yarn` 1.15.2+
 
-    If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release. For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
+    If you see a "+" next to the product version, it indicates a recommended version or higher within the same major release.
+    For example, "1.18+" means any 1.x version equal to or higher than 1.18, but not 2.x.
 
 ## Browser
 
 === "[[= product_name =]] v4.6"
 
-    [[= product_name =]] is developed to work with *any* web browser that supports modern standards, on *any* screen resolution suitable for web, running on *any* device. However for the Editorial and Administration User Interfaces you need: a minimum of 1366-by-768 screen resolution, a desktop or tablet device, and a recommended/supported browser among the ones found below.
+    [[= product_name =]] is developed to work with *any* web browser that supports modern standards, on *any* screen resolution suitable for web, running on *any* device.
+    However for the Editorial and Administration User Interfaces you need: a minimum of 1366-by-768 screen resolution, a desktop or tablet device, and a recommended/supported browser among the ones found below.
 
     - Mozilla® Firefox® most recent stable version (recommended)
     - Google Chrome™ most recent stable version (recommended)
@@ -344,7 +372,8 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
 === "[[= product_name =]] v3.3"
 
-    [[= product_name =]] is developed to work with *any* web browser that supports modern standards, on *any* screen resolution suitable for web, running on *any* device. However for the Editorial and Administration User Interfaces you need: a minimum of 1366-by-768 screen resolution, a desktop or tablet device, and a recommended/supported browser among the ones found below.
+    [[= product_name =]] is developed to work with *any* web browser that supports modern standards, on *any* screen resolution suitable for web, running on *any* device.
+    However for the Editorial and Administration User Interfaces you need: a minimum of 1366-by-768 screen resolution, a desktop or tablet device, and a recommended/supported browser among the ones found below.
 
     - Mozilla® Firefox® most recent stable version (recommended)
     - Google Chrome™ most recent stable version (recommended)
@@ -353,7 +382,8 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
 === "eZ Platform v2.5"
 
-    eZ Platform is developed to work with *any* web browser that supports modern standards, on *any* screen resolution suitable for web, running on *any* device. However for the Editorial and Administration User Interfaces you need: a minimum of 1366-by-768 screen resolution, a desktop or tablet device, and a recommended/supported browser among the ones found below.
+    eZ Platform is developed to work with *any* web browser that supports modern standards, on *any* screen resolution suitable for web, running on *any* device.
+    However for the Editorial and Administration User Interfaces you need: a minimum of 1366-by-768 screen resolution, a desktop or tablet device, and a recommended/supported browser among the ones found below.
 
     - Mozilla® Firefox® most recent stable version (recommended)
     - Google Chrome™ most recent stable version (recommended)
@@ -370,18 +400,19 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
     For example:
 
-    - Platform.sh provides Redis support for versions 3.2, 4.0 and 5.0. [[= product_name =]] supports Redis version 4.0 or higher, and recommends 5.0. As a result, Redis is supported on [[= product_name_cloud =]] in versions 4.0 and 5.0, but 5.0 is recommended.
+    - Platform.sh provides Redis support for versions 3.2, 4.0 and 5.0. [[= product_name =]] supports Redis version 4.0 or higher, and recommends 5.0.
+    As a result, Redis is supported on [[= product_name_cloud =]] in versions 4.0 and 5.0, but 5.0 is recommended.
 
     Features or services supported by [[= product_name =]] but not covered by Platform.sh may be possible by means of a [custom integration](#custom-integrations).
 
     ### [[= product_name_cloud =]] Setup support matrix
 
-    All [[= product_name =]] features are supported in accordance with the example above. For example: As Legacy Bridge isn't supported with v3, it's not supported on [[= product_name_cloud =]] either.
+    All [[= product_name =]] features are supported in accordance with the example above.
+    For example: As Legacy Bridge isn't supported with v3, it's not supported on [[= product_name_cloud =]] either.
 
     !!! note
 
-        As Platform.sh doesn't support a configuration with multiple PostgreSQL databases,
-        for [[= product_name_cloud =]] / Platform.sh it's impossible to have a DFS table in a separate database.
+        As Platform.sh doesn't support a configuration with multiple PostgreSQL databases, for [[= product_name_cloud =]] / Platform.sh it's impossible to have a DFS table in a separate database.
 
     ### Recommended [[= product_name_cloud =]] setup
 
@@ -406,8 +437,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
     Features supported by [[= product_name =]], but not natively by Platform.sh, can in many cases be used by means of custom integrations with external services.
 
     For example, you can create an integration with S3 by means of setting up your own S3 bucket and configuring the relevant parts of [[= product_name =]].
-    We recommend giving the development team working on the project access to the bucket
-    to ensure work is done in a DevOps way without depending on external teams when changes are needed.
+    We recommend giving the development team working on the project access to the bucket to ensure work is done in a DevOps way without depending on external teams when changes are needed.
 
 === "[[= product_name_cloud =]] v3.3"
 
@@ -417,18 +447,19 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
     For example:
 
-    - Platform.sh provides Redis support for versions 3.2, 4.0 and 5.0. [[= product_name =]] supports Redis version 4.0 or higher, and recommends 5.0. As a result, Redis is supported on [[= product_name_cloud =]] in versions 4.0 and 5.0, but 5.0 is recommended.
+    - Platform.sh provides Redis support for versions 3.2, 4.0 and 5.0. [[= product_name =]] supports Redis version 4.0 or higher, and recommends 5.0.
+    As a result, Redis is supported on [[= product_name_cloud =]] in versions 4.0 and 5.0, but 5.0 is recommended.
 
     Features or services supported by [[= product_name =]] but not covered by Platform.sh may be possible by means of a [custom integration](#custom-integrations).
 
     ### [[= product_name_cloud =]] Setup support matrix
 
-    All [[= product_name =]] features are supported in accordance with the example above. For example: As Legacy Bridge isn't supported with v3, it's not supported on [[= product_name_cloud =]] either.
+    All [[= product_name =]] features are supported in accordance with the example above.
+    For example: As Legacy Bridge isn't supported with v3, it's not supported on [[= product_name_cloud =]] either.
 
     !!! note
 
-        As Platform.sh doesn't support a configuration with multiple PostgreSQL databases,
-        for [[= product_name_cloud =]] / Platform.sh it's impossible to have a DFS table in a separate database.
+        As Platform.sh doesn't support a configuration with multiple PostgreSQL databases, for [[= product_name_cloud =]] / Platform.sh it's impossible to have a DFS table in a separate database.
 
     ### Recommended [[= product_name_cloud =]] setup
 
@@ -453,8 +484,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
     Features supported by [[= product_name =]], but not natively by Platform.sh, can in many cases be used by means of custom integrations with external services.
 
     For example, you can create an integration with S3 by means of setting up your own S3 bucket and configuring the relevant parts of [[= product_name =]].
-    We recommend giving the development team working on the project access to the bucket
-    to ensure work is done in a DevOps way without depending on external teams when changes are needed.
+    We recommend giving the development team working on the project access to the bucket to ensure work is done in a DevOps way without depending on external teams when changes are needed.
 
 === "eZ Platform Cloud v2.5"
 
@@ -464,8 +494,10 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
     For example:
 
-    - Platform.sh provides Redis support for versions 2.8, 3.0 and 3.2. eZ Platform supports Redis version 3.2 or higher. As a result, Redis is supported by eZ Platform Cloud versions 3.2.
-    - Platform.sh provides Elastic Search service (different versions supported). Elastic Search isn't supported for use as search engine for eZ Platform.
+    - Platform.sh provides Redis support for versions 2.8, 3.0 and 3.2. eZ Platform supports Redis version 3.2 or higher.
+    As a result, Redis is supported by eZ Platform Cloud versions 3.2.
+    - Platform.sh provides Elastic Search service (different versions supported).
+    Elastic Search isn't supported for use as search engine for eZ Platform.
 
     Features or services supported by eZ Platform but not covered by Platform.sh may be possible by means of a [custom integration](#custom-integrations).
 
@@ -489,22 +521,18 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
     ### Experimental/custom Platform.sh setups
 
     Any use of experimental versions or setups isn't eligible for use with eZ Platform Cloud.
-    However, it's possible to use an eZ Enterprise subscription in combination with a Platform.sh contract,
-    where you or a partner take ownership of the configuration to set up the project.
+    However, it's possible to use an eZ Enterprise subscription in combination with a Platform.sh contract, where you or a partner take ownership of the configuration to set up the project.
 
-    Such projects are possible by means of custom integrations/configuration,
-    but they may generate issues that aren't covered by eZ Enterprise subscription bug fix guarantee.
+    Such projects are possible by means of custom integrations/configuration, but they may generate issues that aren't covered by eZ Enterprise subscription bug fix guarantee.
 
     !!! tip "Use a partner with prior experience on legacy and Platform.sh"
 
-        If you're in need of setting up your legacy project on Platform.sh for a transitional period,
-        eZ can put you in contact with a partner experienced in setting up older projects on Platform.sh.
+        If you're in need of setting up your legacy project on Platform.sh for a transitional period, eZ can put you in contact with a partner experienced in setting up older projects on Platform.sh.
         This saves you a lot of time and effort.
         
     !!! note
 
-        As Platform.sh doesn't support a configuration with multiple PostgreSQL databases,
-        for eZ Platform Cloud / Platform.sh it's impossible to have a DFS table in a separate database.
+        As Platform.sh doesn't support a configuration with multiple PostgreSQL databases, for eZ Platform Cloud / Platform.sh it's impossible to have a DFS table in a separate database.
 
     ### Custom integrations
 

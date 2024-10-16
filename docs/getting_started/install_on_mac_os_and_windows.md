@@ -11,7 +11,7 @@ This page explains how to install [[= product_name =]] on macOS or Windows.
     This procedure is **for development purposes only**.
     Installing [[= product_name =]] for production purposes is supported only on Linux.
 
-    For information about installing the product on Linux, see [Install [[= product_name =]]](install_ibexa_dxp.md).  
+    For information about installing the product on Linux, see [Install [[= product_name =]]](install_ibexa_dxp.md).
 
 ### Prepare work environment
 
@@ -39,7 +39,7 @@ The instructions below assume that you're using Apache.
     ``` bash
     zend_extension=opcache.so
     ```
-    
+
     You can install Apache as a Windows service by running the following command in CMD as administrator:
 
     ``` bash
