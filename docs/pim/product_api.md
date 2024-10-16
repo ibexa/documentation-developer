@@ -8,8 +8,8 @@ description: Use PHP API to manage products in PIM, their attributes, availabili
 
 [[= product_name =]]'s Product API provides two services for handling product information, which differ in function:
 
-- `ProductServiceInterface` is used to request product data
-- `LocalProductServiceInterface` is used to modify products
+- [`ProductServiceInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-ProductServiceInterface.html) is used to request product data
+- [`LocalProductServiceInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-LocalProductServiceInterface.html) is used to modify products
 
 !!! tip "Product REST API"
 
@@ -86,7 +86,7 @@ This method takes the product and an array of [`ProductVariantCreateStruct`](../
 
 ### Product assets
 
-You can get assets assigned to a product by using `AssetServiceInterface`.
+You can get assets assigned to a product by using [`AssetServiceInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-AssetServiceInterface.html).
 
 Use `AssetServiceInterface` to get a single asset by providing the product object and the assets's ID as parameters:
 
@@ -103,7 +103,7 @@ You can retrieve the tags (corresponding to attribute values) of assets with the
 
 ## Product types
 
-To work with product types, use `ProductTypeServiceInterface`.
+To work with product types, use [`ProductTypeServiceInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-ProductTypeServiceInterface.html).
 
 Get a product type object by using `ProductTypeServiceInterface::getProductType()`:
 
@@ -120,7 +120,7 @@ You can also get a list of product types with `ProductTypeServiceInterface::find
 ## Product availability
 
 Product availability is an object which defines whether a product is available, and if so, in what stock.
-To manage it, use `ProductAvailabilityServiceInterface`.
+To manage it, use [`ProductAvailabilityServiceInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-ProductAvailabilityServiceInterface.html).
 
 To check whether a product is available (with or without stock defined), use `ProductAvailabilityServiceInterface::hasAvailability()`.
 
@@ -141,8 +141,8 @@ and the third whether its stock is infinite. The fourth parameter is the stock n
 
 ## Attributes
 
-To get information about product attribute groups, use the `AttributeGroupServiceInterface`,
-or `LocalAttributeGroupServiceInterface` to modify attribute groups.
+To get information about product attribute groups, use the [`AttributeGroupServiceInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-AttributeGroupServiceInterface.html),
+or [`LocalAttributeGroupServiceInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Local-LocalAttributeGroupServiceInterface.html) to modify attribute groups.
 
 `AttributeGroupServiceInterface::getAttributeGroup()` enables you to get a single attribute group by its identifier.
 `AttributeGroupServiceInterface::findAttributeGroups()` get all attribute groups, base on optional [`AttributeGroupQuery`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-AttributeGroup-AttributeGroupQuery.html):
