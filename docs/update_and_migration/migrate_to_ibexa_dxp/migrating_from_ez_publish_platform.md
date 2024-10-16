@@ -173,7 +173,7 @@ If you don't plan to migrate content directly to newer eZ Platform field types, 
 
 !!! note
 
-    The Legacy Bridge integration doesn't have the same performance, scalability or integrated experience as a pure Platform setup. Like on eZ Publish Platform 5.x there are known edge cases where, for instance, cache or search index won't always be immediately updated across the two systems using the bridge. This is one of the many reasons why we recommend a pure Platform setup where that is possible.
+    The Legacy Bridge integration doesn't have the same performance, scalability or integrated experience as a pure Platform setup. Like on eZ Publish Platform 5.x there are known edge cases where, for instance, cache or search index cannot always be immediately updated across the two systems using the bridge. This is one of the many reasons why we recommend a pure Platform setup where that is possible.
 
 #### 2.5.1 Set up symlinks for legacy folders
 

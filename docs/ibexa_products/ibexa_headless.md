@@ -61,7 +61,7 @@ APIs summary:
 
 [[= product_name_headless =]] is a tool box with a back office.
 It comes without a default front office.
-You don't lose time to develop a theme for a provided front office before discovering it won't fit your needs.
+You don't lose time to develop a theme for a provided front office before discovering it doesn't fit your needs.
 No distraction.
 [[= product_name_headless =]] helps you focus on the content, create and organize with its straightforward user interface (UI),
 imagine its inputs/outputs, and implement them with its various layers' APIs.
@@ -128,7 +128,7 @@ Like everything in the back office, the calendar is extendable: you can add an e
 - Product variants can rapidly be created by the automatic declination of attributes that have a defined set of values.
 - With taxonomy, you can tag content items to organize them by topics in a much intuitive way for the editor than a content tree with multiple locations would.
 Tags themselves are organized in a tree, and synonyms are linked to favorite terms.
-Tag organization can be handled by a supervisor who won't need to move content items around a corporate content tree.
+Tag organization can be handled by a supervisor who doesn't need to move content items around a corporate content tree.
 At search time, tags can be keywords with a high value in relevance score to help the end user having results closer to the searched topic.
 
 #### Collaboration

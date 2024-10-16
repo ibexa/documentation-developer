@@ -493,7 +493,7 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
     where you or a partner take ownership of the configuration to set up the project.
 
     Such projects are possible by means of custom integrations/configuration,
-    but they may generate issues that won't be covered by eZ Enterprise subscription bug fix guarantee.
+    but they may generate issues that aren't covered by eZ Enterprise subscription bug fix guarantee.
 
     !!! tip "Use a partner with prior experience on legacy and Platform.sh"
 

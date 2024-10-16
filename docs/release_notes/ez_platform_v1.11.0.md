@@ -71,7 +71,7 @@ full support, maintenance, and priority security patch handling as they're used 
 
     Not supported for clean/new installs, intended for use with migrations. The Legacy Bridge integration doesn't have same performance,
     scalability or integrated experience as pure Platform setup. There are known edge cases where for instance cache or search index
-    won't always be immediately updated across the two systems using the bridge, which is one of the many reasons why we recommend
+    cannot always be immediately updated across the two systems using the bridge, which is one of the many reasons why we recommend
     a pure Platform setup where that is possible.
 
 ## Full list of new features, improvements and bug fixes since v1.10.0

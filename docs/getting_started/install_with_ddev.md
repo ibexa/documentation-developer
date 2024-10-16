@@ -128,7 +128,7 @@ Replace `<installation-key>` and `<token-password>` with your actual installatio
 ddev composer config --global http-basic.updates.ibexa.co <installation-key> <token-password>
 ```
 
-This authentication won't persist if the project is restarted (by `ddev restart` or `ddev composer create`). You can back up the authentication file (`auth.json`) by using the following command:
+This authentication doesn't persist if the project is restarted (by `ddev restart` or `ddev composer create`). You can back up the authentication file (`auth.json`) by using the following command:
 
 ```bash
 ddev exec "mkdir -p .ddev/homeadditions/.composer; cp ~/.composer/auth.json .ddev/homeadditions/.composer"
