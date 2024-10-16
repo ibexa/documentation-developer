@@ -15,7 +15,7 @@ If you're in a hurry, the most important recommendations on this page are:
 
 - Dump optimized Composer autoload classmap
 - Use a full web (Nginx/Apache) server with vhost
-- Avoid shared filesystems for code (Docker for Mac/Win, VirtualBox/*, Vagrant, etc.), or find ways to optimize or work around the issues.
+- Avoid shared filesystems for code (Docker for Mac/Win, VirtualBox/*, Vagrant, and more), or find ways to optimize or work around the issues.
 - For clustering (mainly relevant for production/staging), reduce latency to Redis/Memcached, use Varnish and [Solr](solr_overview.md).
 
 ## Client
@@ -44,7 +44,7 @@ In production setups:
 
 ### Web server
 
-- Use Nginx/Apache even for development, as PHP's built-in web server (as exposed via Symfony's `server:*` commands) is only able to handle one request at a time (including JS/CSS/* asset loading, etc.).
+- Use Nginx/Apache even for development, as PHP's built-in web server (as exposed via Symfony's `server:*` commands) is only able to handle one request at a time (including JS/CSS/* asset loading, and more).
 - Use a recent version of nginx, set up https, and enable http/2 to reduce connection latency on parallel requests.
 
 ### PHP
@@ -116,9 +116,9 @@ To avoid quickly running out of memory while executing such commands you should 
 
 !!! note "Memory still grows"
 
-    Even when everything is configured like described above, memory grows for each iteration
-    of indexing/inserting a content item with at least *1kb* per iteration after the initial first 100 rounds.
-    This is expected behavior; to be able to handle more iterations you have to do one or several of the following:
+    Even when everything is configured like described above, memory grows for each iteration of indexing/inserting a content item with at least *1kb* per iteration after the initial first 100 rounds.
+    This is expected behavior.
+    To be able to handle more iterations you have to do one or several of the following:
 
     - Change the import/index script in question to [use process forking](#process-forking-with-symfony) to avoid the issue.
     - Upgrade PHP: *newer versions of PHP are typically more memory-efficient.*
@@ -127,7 +127,7 @@ To avoid quickly running out of memory while executing such commands you should 
 ### Process forking with Symfony
 
 The recommended way to completely avoid "memory leaks" in PHP in the first place is to use processes.
-For console scripts this is typically done using process forking which is quite easily achievable with Symfony.
+For console scripts this is typically done using process forking which is achievable with Symfony.
 
 The things you need to do:
 

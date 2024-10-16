@@ -17,13 +17,11 @@ composer show ibexa/*
 
 Besides that, all the configuration from the `config` directory may be helpful.
 
-You should also list the steps to reproduce the issue,
-or at least provide a clear description of the circumstances under which the problem occurred.
+You should also list the steps to reproduce the issue, or at least provide a clear description of the circumstances under which the problem occurred.
 
 If you stumble upon a database-related problem, providing corresponding logs is also an important step.
 
-Additionally, mention recent changes, performed migrations or external scripts/code customizations
-related to the code which generates the problem.
+Additionally, mention recent changes, performed migrations or external scripts/code customizations related to the code which generates the problem.
 
 #### What are the recommended ways to increase my project's performance?
 
@@ -33,7 +31,7 @@ The most important clues around increasing overall performance of your [[= produ
 
 The language of the back office is based on the browser language.
 To change it you should install the proper package for your language (see [language packages list](https://github.com/ezplatform-i18n)).
-Once you have language packages installed, you can switch the language of the back office in the User Settings menu.
+Once you have language packages installed, you can switch the language of the back office in the **User Settings** menu.
 
 If you don't have a language defined in the browser, it's selected based on the `parameters.locale_fallback` parameter located in `config/packages/ibexa.yaml`.
 
@@ -51,12 +49,9 @@ As an alternative to manually applying the patch, you can use [composer-patches]
 You can apply patches received from the Support, community or the others by using your `composer.json` file.
 For checking the versions you're on, refer to your `composer.lock`.
 All you need is to specify which package receives patches and give the path/URL to the actual file.
-This should be done inside the `extra` section. Packages which should receive patches
-are removed during `composer update` or `composer require` so they can be re-installed and re-patched.
+This should be done inside the `extra` section. Packages which should receive patches are removed during `composer update` or `composer require` so they can be re-installed and re-patched.
 
-When updating to the release that already contains specified patches,
-Composer throws an error alongside a message that they cannot be applied and are skipped
-([this is configurable with 1.x](https://github.com/cweagans/composer-patches/tree/1.x#error-handling)).
+When updating to the release that already contains specified patches, Composer throws an error alongside a message that they cannot be applied and are skipped ([this is configurable with 1.x](https://github.com/cweagans/composer-patches/tree/1.x#error-handling)).
 They can be manually removed from `composer.json` now.
 
 #### How to clear the cache properly?

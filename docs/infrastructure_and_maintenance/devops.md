@@ -8,7 +8,9 @@ description: See various tools that can help you debug your Ibexa DXP installati
 
 ### Clearing file cache using the Symfony cache:clear command
 
-Symfony provides a command for clearing cache. It deletes all file-based caches, which mainly consist of a Twig template, a [service container](php_api.md#service-container), and the Symfony route cache, but also everything else stored in the cache folder. Out of the box on a single-server setup this includes Content cache. 
+Symfony provides a command for clearing cache.
+It deletes all file-based caches, which mainly consist of a Twig template, a [service container](php_api.md#service-container), and the Symfony route cache, but also everything else stored in the cache folder.
+Out of the box on a single-server setup this includes Content cache. 
 
 For further information on the command's use, see its help text:
 
@@ -18,7 +20,8 @@ php bin/console --env=prod cache:clear -h
 
 !!! note
 
-    If you don't specify an environment, by default `cache:clear` clears the cache for the `dev` environment. If you want to clear it for `prod` you need to use the `--env=prod` option.
+    If you don't specify an environment, by default `cache:clear` clears the cache for the `dev` environment.
+    If you want to clear it for `prod` you need to use the `--env=prod` option.
 
 !!! caution "Clustering"
 
@@ -41,17 +44,20 @@ To install it, run the following command:
 composer require symfony/debug-pack
 ```
 
-After you have installed Symfony Web Debug Toolbar, it's available when running [[= product_name =]] in the `dev` environment. it's extended with some [[= product_name =]]-specific information:
+After you have installed Symfony Web Debug Toolbar, it's available when running [[= product_name =]] in the `dev` environment.
+It's extended with some [[= product_name =]]-specific information:
 
 ![Ibexa DXP info in Web Debug Toolbar](web_debug_toolbar.png "Ibexa DXP info in Web Debug Toolbar")
 
 #### SPI (persistence)
 
-This section provides the number of non-cached SPI calls and handlers. You can see details of these calls in the [Symfony Profiler]([[= symfony_doc =]]/profiler.html) page.
+This section provides the number of non-cached SPI calls and handlers.
+You can see details of these calls in the [Symfony Profiler]([[= symfony_doc =]]/profiler.html) page.
 
 #### SiteAccess
 
-Here you can see the name of the current SiteAccess and how it was matched. For reference see the [list of possible SiteAccess matchers](siteaccess_matching.md#available-siteaccess-matchers).
+Here you can see the name of the current SiteAccess and how it was matched.
+For reference see the [list of possible SiteAccess matchers](siteaccess_matching.md#available-siteaccess-matchers).
 
 ## Logging and debug configuration
 
@@ -61,8 +67,8 @@ The other is the standard [PSR-3](https://github.com/php-fig/fig-standards/blob
 
 ### Debugging in dev environment
 
-When using the Symfony `dev` [environment](environments.md), the system tracks additional metrics for you to be able to debug issues. They
-include Symfony cache use, and a [persistence cache](persistence_cache.md#persistence-cache-configuration) use.
+When using the Symfony `dev` [environment](environments.md), the system tracks additional metrics for you to be able to debug issues.
+They include Symfony cache use, and a [persistence cache](persistence_cache.md#persistence-cache-configuration) use.
 
 #### Reducing memory use
 
