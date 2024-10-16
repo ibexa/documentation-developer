@@ -22,15 +22,13 @@ You can adapt the configuration in the following places:
 - `.platform/services.yml` - additional services such as search engines or cache
 - `.platform/routes.yml` - routes to additional services, for example Fastly
 
-For details about available configuration settings,
-refer to [Platform.sh documentation](https://docs.platform.sh/create-apps.html).
+For details about available configuration settings, refer to [Platform.sh documentation](https://docs.platform.sh/create-apps.html).
 
 ### Disk space
 
 The total disk space depends on your [[= product_name_cloud =]] subscription level.
 You can assign disk space to the main app container under the `disk` key.
-You can distribute the remaining space between other containers (for example, the database) or search engine
-in `.platform/services.yaml`, under the individual service definitions.
+You can distribute the remaining space between other containers (for example, the database) or search engine in `.platform/services.yaml`, under the individual service definitions.
 
 ### Build and deploy process
 
@@ -44,14 +42,11 @@ Configuration under `hooks` defines the process of building and deploying your p
 
 ### Additional services
 
-`.platform/services.yaml` contains preconfigured setting blocks that you can uncomment
-to enable services such as Solr or Elasticsearch, or persistent Redis session storage.
+`.platform/services.yaml` contains preconfigured setting blocks that you can uncomment to enable services such as Solr or Elasticsearch, or persistent Redis session storage.
 
-For information about available services,
-see [Platform.sh documentation](https://docs.platform.sh/add-services.html#available-services).
+For information about available services, see [Platform.sh documentation](https://docs.platform.sh/add-services.html#available-services).
 
-If you enable any of the services, you must uncomment the relevant relationship
-under the `relationship` key in `.platform.app.yaml` as well.
+If you enable any of the services, you must uncomment the relevant relationship under the `relationship` key in `.platform.app.yaml` as well.
 
 ## 2. Create an account
 
