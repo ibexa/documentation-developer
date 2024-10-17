@@ -74,7 +74,7 @@ This `Local` prefix in names of services allowing to write is recurrent.
 To create product types, you could use
 <code><small>\Ibexa\ProductCatalog\Local\Repository\ProductType\</small>ContentTypeFactoryInterface::createContentTypeCreateStruct</code>
 <small>(`vendor/ibexa/product-catalog/src/lib/Local/Repository/ProductType/ContentTypeFactoryInterface.php`)</small>.
-Notice that this interface isn't in a `Contract` namespace, which means that its behavior could change in a future minor version.
+Notice that this interface isn't in the `Ibexa\Contracts` namespace, which means that its behavior could change in a future minor version.
 As you can see in its `ContentTypeFactory::createContentTypeCreateStruct` implementation,
 this function is responsible for the default fields of a new product type.
 
