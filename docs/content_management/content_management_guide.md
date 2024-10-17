@@ -74,7 +74,7 @@ For a complete list of available field types, see [field type reference](field_t
 
 Once you use a field type to design and build a content type definition, and define its settings, it becomes a field.
 
-Fields can be as simple as Name, based on a Text line field type, or as complex as Page, based on a landing page field type, with multiple options to set and choose from:
+Fields can be as simple as Name, based on a Text line field type, or as complex as page, based on a landing page field type, with multiple options to set and choose from:
 
 ![Landing page field settings](img/fields.png)
 

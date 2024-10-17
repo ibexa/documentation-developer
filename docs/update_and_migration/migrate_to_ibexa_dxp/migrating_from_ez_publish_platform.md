@@ -462,9 +462,9 @@ Below is a table of the tags that are currently supported, and their correspondi
 | `cssborder`   | Not supported |   Use `string` as workaround |
 
 
-#### 3.2.2 Migrate Page field to Page (eZ Enterprise only)
+#### 3.2.2 Migrate page field to page (eZ Enterprise only)
 
-**If** you use Page field (ezflow) and an eZ Enterprise subscription, and are ready to migrate your eZ Publish Flow content to the eZ Enterprise Page format, you can use a script to migrate your old Page content to new Page, to start using a pure eZ Enterprise setup.
+**If** you use page field (ezflow) and an eZ Enterprise subscription, and are ready to migrate your eZ Publish Flow content to the eZ Enterprise page format, you can use a script to migrate your old page content to new page, to start using a pure eZ Enterprise setup.
 
 For more information, see [Migrating legacy Page field (ezflow) to new Page (Enterprise)](#migrating-legacy-page-field-ezflow-to-new-page-enterprise).
 
@@ -525,9 +525,9 @@ In case of URLs with extended UTF-encoded names, the workaround must make use of
 ```
 
 
-## Migrating legacy Page field (ezflow) to new Page (Enterprise)
+## Migrating legacy page field (ezflow) to new page (Enterprise)
 
-To move your legacy Page field / eZ Flow configuration to eZ Platform Enterprise Edition you can use a script that aids in the migration process.
+To move your legacy page field / eZ Flow configuration to eZ Platform Enterprise Edition you can use a script that aids in the migration process.
 
 The script automatically migrates only data – to move, for example, custom views, layouts, or blocks, you have to provide their business logic again.
 

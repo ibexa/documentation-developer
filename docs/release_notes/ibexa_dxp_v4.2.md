@@ -248,7 +248,7 @@ Thanks to splitting SQL upgrade files into separate product editions, the produc
 
 ### Event layer for TaxonomyService
 
-Now, Events are sent while performing operations within Taxonomy, which considerably extends the Taxonomy feature.
+Now, events are sent while performing operations within Taxonomy, which considerably extends the Taxonomy feature.
 
 ### Protected segment groups
 

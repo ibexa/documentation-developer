@@ -1,5 +1,5 @@
 ---
-description: Try creating a custom Page block with specific logic.
+description: Try creating a custom page block with specific logic.
 edition: experience
 ---
 

@@ -1,20 +1,20 @@
 ---
-description: Prepare templates for Page layouts and render Page blocks.
+description: Prepare templates for page layouts and render page blocks.
 edition: experience
 ---
 
 # Render a page
 
-Page is a special content type that contains a [Page field](pagefield.md).
+Page is a special content type that contains a [page field](pagefield.md).
 
-A Page field is a layout composed of zones.
+A page field is a layout composed of zones.
 Each zone can contain multiple blocks.
 
 ## Render a layout
 
 ### Configure layout
 
-The default, built-in Page layout has only one zone.
+The default, built-in page layout has only one zone.
 You can create other layouts in configuration, under the `ibexa_fieldtype_page.layouts` key.
 
 To create a new layout called "Right sidebar", use the following [configuration](configuration.md#configuration-files):

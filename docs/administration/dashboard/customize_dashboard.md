@@ -36,4 +36,4 @@ For more information about available blocks, see [[[= product_name =]] User Docu
 
 In addition to existing blocks available in Dashboard Builder, you can also create custom blocks.
 
-To do it, follow the instruction on how to [create custom Page block](create_custom_page_block.md).
+To do it, follow the instruction on how to [create custom page block](create_custom_page_block.md).
