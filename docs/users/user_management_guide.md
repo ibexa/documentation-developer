@@ -124,7 +124,7 @@ User management helps prevent unauthorized access.
 
 ### Efficient user onboarding
 
-Invitations and easy account creation streamline the process of onboarding new users.
+Invitations and account creation streamline the process of onboarding new users.
 
 ### Targeted marketing
 
