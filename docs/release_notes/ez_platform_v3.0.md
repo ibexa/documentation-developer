@@ -279,9 +279,9 @@ The deprecated `ezprice` and `ezpage` field types have been removed.
 Nameable field type interface has been removed and replaced by `eZ\Publish\SPI\FieldType\FieldType::getName`.
 For a full list of changes on field types, see [Backwards compatibility doc](https://doc.ibexa.co/en/latest/releases/ez_platform_v3.0_deprecations/#field-types).
 
-### Elastic Search
+### Elasticsearch
 
-Elastic Search support has been dropped.
+Elasticsearch support has been dropped.
 
 ### REST server
 

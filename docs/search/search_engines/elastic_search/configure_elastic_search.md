@@ -487,7 +487,7 @@ For more information about specifying the pattern for your language, see [Define
 
 #### Create config for language specific analyzer
 
-For information about configuring an analyzer for each specific language, see [Elastic Search documentation](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/analysis-lang-analyzer.html).
+For information about configuring an analyzer for each specific language, see [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/analysis-lang-analyzer.html).
 
 An adoption of the [English analyzer](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/analysis-lang-analyzer.html#english-analyzer) in [[= product_name =]] configuration looks like this:
 

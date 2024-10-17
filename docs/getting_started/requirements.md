@@ -496,8 +496,8 @@ Recommendation for production setups is to use Varnish/Fastly, Redis/Memcached, 
 
     - Platform.sh provides Redis support for versions 2.8, 3.0 and 3.2. eZ Platform supports Redis version 3.2 or higher.
     As a result, Redis is supported by eZ Platform Cloud versions 3.2.
-    - Platform.sh provides Elastic Search service (different versions supported).
-    Elastic Search isn't supported for use as search engine for eZ Platform.
+    - Platform.sh provides Elasticsearch service (different versions supported).
+    Elasticsearch isn't supported for use as search engine for eZ Platform.
 
     Features or services supported by eZ Platform but not covered by Platform.sh may be possible by means of a [custom integration](#custom-integrations).
 

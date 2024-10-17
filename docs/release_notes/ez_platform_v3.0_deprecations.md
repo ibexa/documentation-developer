@@ -487,9 +487,9 @@ Use:
 - `viewAction` instead of `viewLocation`
 - `embedAction` instead of `embedLocation`
 
-### Elastic Search
+### Elasticsearch
 
-Experimental, deprecated and unsupported code for Elastic Search 1.4.2 has been dropped from kernel,
+Experimental, deprecated and unsupported code for Elasticsearch 1.4.2 has been dropped from kernel,
 to be replaced with a dedicated bundle for the latest Elastic version in the future.
 
 ### Field types
