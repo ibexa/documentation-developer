@@ -4,7 +4,7 @@ description: ProductCode Sort Clause
 
 # ProductCode Sort Clause
 
-The `ProductCode` Sort Clause sorts search results by the Product code.
+The `ProductCode` Sort Clause sorts search results by the product code.
 
 ## Arguments
 
