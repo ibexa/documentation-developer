@@ -71,7 +71,7 @@ E. Buttons:
 |![Preview segments](page_builder_toolbar_preview_segment.png)|Access preview of the page for a given segment.|
 |![Timeline button](page_builder_toolbartimelinetoggler.png)|Access the timeline to preview how the page changes with time. You can also view the list of all upcoming scheduled events.|
 |![View toggler](page_builder_toolbar_devicestoggler.png)|Toggle through to see how the page is rendered on different devices.|
-|![Elements menu](page_builder_toolbarelements.png)|Move Page blocks / Structure view to the other side of the screen.|
+|![Page blocks menu](page_builder_toolbarelements.png)|Move Page blocks / Structure view to the other side of the screen.|
 |![Undo](page_builder_undo.png)|Undo latest change.|
 |![Redo](page_builder_redo.png)|Redo latest change.|
 
