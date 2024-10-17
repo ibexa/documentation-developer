@@ -24,7 +24,8 @@ It activates the tracking by inserting <https://cdn.perso.ibexa.co/ibexa-track
 To use this mechanism on your pages, copy the code snippet below, and replace 
 `<YOUR_MANDATOR_ID>` with the customer ID, `<PAGE_ID>` with the page/item identifier.
 `<USER_ID>` - empty string for cookie based anonymous user or replaced with the value generated
-by your user identifier system for logged in user.
+by your user identifier system for logged-in user. In case user activity should not be tracked,
+'not_defined' value should be used to still have an event stored without link to the user.
 
 All identifiers can be any form of string. 
 Paste this snippet into your website template page so that it appears before 
