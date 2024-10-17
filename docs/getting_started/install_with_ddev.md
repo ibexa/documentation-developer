@@ -275,7 +275,7 @@ For example, you can append it to [[= product_name_base =]]'s FastCGI config:
 echo 'fastcgi_param HTTPS $fcgi_https;' >> .ddev/nginx_full/ibexa_params.d/ibexa_fastcgi_params
 ```
 
-### Switch to Apache and its Virtual Host
+### Switch to Apache and its virtual host
 
 To use Apache instead of the default Nginx, run the following command:
 
@@ -283,14 +283,14 @@ To use Apache instead of the default Nginx, run the following command:
 ddev config --webserver-type=apache-fpm
 ```
 
-[[= product_name =]] can't run on Apache without a dedicated Virtual Host.
+[[= product_name =]] can't run on Apache without a dedicated virtual host.
 
-To set the Apache Virtual Host, override `.ddev/apache/apache-site.conf` with [[= product_name =]]'s config.
+To set the Apache virtual host, override `.ddev/apache/apache-site.conf` with [[= product_name =]]'s config.
 You can do it manually or by using a script.
 
 #### Manual procedure
 
-Copy the Virtual Host template as the new Apache configuration:
+Copy the virtual host template as the new Apache configuration:
 
 ```bash
 cp vendor/ibexa/post-install/resources/templates/apache2/vhost.template .ddev/apache/apache-site.conf
@@ -336,7 +336,7 @@ ddev restart
 
 #### Scripted procedure
 
-Generate the Virtual Host with [`vhost.sh`](https://github.com/ibexa/docker/blob/main/scripts/vhost.sh):
+Generate the virtual host with [`vhost.sh`](https://github.com/ibexa/docker/blob/main/scripts/vhost.sh):
 
 ```bash
 curl -O https://raw.githubusercontent.com/ibexa/docker/main/scripts/vhost.sh

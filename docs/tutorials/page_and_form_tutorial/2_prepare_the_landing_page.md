@@ -71,7 +71,7 @@ Use the [supplied thumbnail file](https://github.com/ibexa/documentation-develop
 
 The `template` (line 8) points to the Twig file containing the template for this layout.
 
-#### Create Page template
+#### Create page template
 
 Configuration points to `sidebar.html.twig` as the template for the layout.
 The template defines what zones are available in the layout.

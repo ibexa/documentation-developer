@@ -698,7 +698,7 @@ If you're updating your Enterprise installation, you need to add this Section ma
 To allow anonymous users to access Forms, you also need to add the `content/read` policy
 with the *Form* Section to the Anonymous User.
 
-#### Changes to Custom tags
+#### Changes to custom tags
 
 v2.4 changed the way of configuring custom tags. they're no longer configured under the `ezpublish` key,
 but one level higher in the YAML structure:

@@ -38,7 +38,7 @@ The `value` property of an Image field returns an `Ibexa\Core\FieldType\Image\V
 
 This field type doesn't support settings.
 
-### Image Variations
+### Image variations
 
 Using the variation Service, variations of the original image can be obtained. they're `Ibexa\Contracts\Core\Variation\Values\ImageVariation` objects with the following properties:
 

@@ -64,7 +64,7 @@ The Change Owner (`ChangeOwner`) limitation specifies whether the user can chang
 
 ## Content type Group limitation
 
-The Content Type Group (`UserGroup`) limitation specifies that only users with at least one common *direct* user Group with the owner of content get the selected access right.
+The Content Type Group (`UserGroup`) limitation specifies that only users with at least one common *direct* user group with the owner of content get the selected access right.
 
 ### Possible values
 

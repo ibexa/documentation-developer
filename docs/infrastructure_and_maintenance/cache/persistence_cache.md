@@ -11,7 +11,7 @@ description: Persistence cache caches SPI\Persistence calls used in common page 
 Persistence cache can best be described as an implementation of `SPI\Persistence` that decorates the main backend implementation, aka Storage Engine *(currently: "Legacy Storage Engine")*.
 
 As shown in the illustration, this is done in the exact same way as the event layer is a custom implementation of `API\Repository` decorating the main repository.
-In the case of Persistence Cache, instead of sending events on calls passed on to the decorated implementation, most of the load calls are cached, and calls that perform changes purge the affected caches.
+In the case of persistence cache, instead of sending events on calls passed on to the decorated implementation, most of the load calls are cached, and calls that perform changes purge the affected caches.
 Cache handlers *(for example, Memcached, Redis, or Filesystem)* can be configured using Symfony configuration.
 For details on how to reuse this Cache service in your own custom code, see below.
 

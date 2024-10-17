@@ -139,5 +139,5 @@ ibexa:
 You can select defined image variations during content item creation in the image options.
 Variations can include different sizing options and other filters that are applied to the image.
 
-![Fastly Image Variations](img/fastly_variations.png)
+![Fastly image variations](img/fastly_variations.png)
 
