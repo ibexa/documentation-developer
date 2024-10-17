@@ -15,7 +15,7 @@ With a [remote PIM](pim_guide.md#remote-pim-support), Ibexa DXP role is to displ
 
 After having modeled your catalog organization on your developer instance,
 you may want/need to [generate migration files](exporting_data.md) for backup, or to install the model on a shared instance
-(for example a staging instance or the production instance) where the creation of the final products is then done.
+(for example a staging instance, or the production instance where the creation of the final products is then done).
 
 Export attribute groups, attributes, and product types:
 
