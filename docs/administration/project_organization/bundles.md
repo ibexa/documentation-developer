@@ -123,7 +123,7 @@ To remove a bundle (either one you created yourself, or an out-of-the-box one th
 |ibexa/experience|Metapackage for Symfony Flex-based [[= product_name =]] Experience installation|
 |ibexa/cart|Main store functionalities|
 |ibexa/checkout|Store checkout functionality|
-|ibexa/storefront|A store front starting kit|
+|ibexa/storefront|A storefront starting kit|
 |ibexa/order-management|Order management|
 |ibexa/payment|Payment handling|
 |ibexa/shipping|Shipping handling|
