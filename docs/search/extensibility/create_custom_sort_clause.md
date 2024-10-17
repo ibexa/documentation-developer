@@ -52,7 +52,7 @@ Then, add a `ScoreVisitor` class that implements `SortClauseVisitor`:
 
 Finally, register the visitor as a service.
 
-Sort Clauses can be valid for both content and location search.
+Sort Clauses can be valid for both content and Location search.
 To choose the search type, use either `content` or `location` in the tag when registering the visitor as a service:
 
 === "Solr"

@@ -5,7 +5,7 @@ description: Create custom Aggregation to use with Solr and Elasticsearch search
 # Create custom Aggregation
 
 To create a custom Aggregation, create an aggregation class.
-In the following example, an aggregation groups the location query results by the Location priority:
+In the following example, an aggregation groups the location query results by the location priority:
 
 === "Solr"
 
@@ -35,7 +35,7 @@ An aggregation must implement the `Ibexa\Contracts\Core\Repository\Values\Conten
 An aggregation can also implement one of the following interfaces:
 
 - `Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\FieldAggregation`, based on content field
-- `Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\LocationAggregation`, based on content Location
+- `Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\LocationAggregation`, based on content location
 - `Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\RawAggregation`, based on details of the index structure
 
 !!! note "Aggregation definition"

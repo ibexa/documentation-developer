@@ -54,8 +54,8 @@ The following sequence diagrams visualize the process of creating and publishing
 
 !!! note "indexLocation()"
 
-    For **Solr** Locations are indexed during Content indexing.
-    For **Legacy/SQL** indexing isn't required as Location data already exists in a database.
+    For **Solr** locations are indexed during Content indexing.
+    For **Legacy/SQL** indexing isn't required as location data already exists in a database.
 
 ![Publish content sequence](publish_content_sequence.png)
 

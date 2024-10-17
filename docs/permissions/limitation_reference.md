@@ -74,13 +74,13 @@ The Content Type Group (`UserGroup`) limitation specifies that only users with a
 
 ## Content type Group of Parent limitation
 
-The Content Type Group of Parent (`ParentUserGroupLimitation`) limitation specifies that only Users with at least one common *direct* user group with the owner of the parent Location of a content item get a certain access right, used by `content/create` permission.
+The Content Type Group of Parent (`ParentUserGroupLimitation`) limitation specifies that only Users with at least one common *direct* user group with the owner of the parent location of a content item get a certain access right, used by `content/create` permission.
 
 ### Possible values
 
 |Value|UI value|Description|
 |------|------|------|
-|`1`|"self"|Only a user who has at least one common *direct* user group with owner of the parent Location gets access|
+|`1`|"self"|Only a user who has at least one common *direct* user group with owner of the parent location gets access|
 
 ## Content type limitation
 
@@ -136,7 +136,7 @@ A user with this limitation is allowed to:
 
 ## Location limitation
 
-A Location (`Location`) limitation specifies whether the user has access to content with a specific location, in case of `content/create` the parent location is evaluated.
+A location (`Location`) limitation specifies whether the user has access to content with a specific location, in case of `content/create` the parent location is evaluated.
 
 ### Possible values
 

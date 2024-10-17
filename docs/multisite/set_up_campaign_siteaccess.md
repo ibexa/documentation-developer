@@ -63,6 +63,6 @@ ibexa:
                     excluded_uri_prefixes: [ /media/images/logos ]
 ```
 
-Now, when you use the `campaign` SiteAccess, you can reach `<your site>/campaign/Media/Images/Logos`, despite the fact that it's not a sub-item of the "Campaign" Location.
+Now, when you use the `campaign` SiteAccess, you can reach `<your site>/campaign/Media/Images/Logos`, despite the fact that it's not a sub-item of the "Campaign" location.
 
 As a next step, you can configure different [designs](design_engine.md) for the two SiteAccesses.

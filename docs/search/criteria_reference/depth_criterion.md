@@ -12,7 +12,7 @@ This Criterion is available only for Location Search.
 ## Arguments
 
 - `operator` - Operator constant (IN, EQ, GT, GTE, LT, LTE, BETWEEN)
-- `value` - int(s) representing the Location depth(s)
+- `value` - int(s) representing the location depth(s)
 
 The `value` argument requires:
 

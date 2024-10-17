@@ -22,7 +22,7 @@ You can add a bookmark to a content item by providing its Location object to the
 [[= include_file('code_samples/api/public_php_api/src/Command/BookmarkCommand.php', 37, 40) =]]
 ```
 
-You can remove a bookmark from a Location with [`BookmarkService::deleteBookmark`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-BookmarkService.html#method_deleteBookmark):
+You can remove a bookmark from a location with [`BookmarkService::deleteBookmark`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-BookmarkService.html#method_deleteBookmark):
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/BookmarkCommand.php', 52, 53) =]]

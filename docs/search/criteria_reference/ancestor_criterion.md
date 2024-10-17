@@ -9,7 +9,7 @@ The [`Ancestor` Search Criterion](../../api/php_api/php_api_reference/classes/Ib
 
 ## Arguments
 
-- `value` - array of Location pathStrings
+- `value` - array of location pathStrings
 
 ## Example
 

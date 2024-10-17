@@ -10,7 +10,7 @@ searches for content based on the Location ID of its parent.
 
 ## Arguments
 
-- `value` - int(s) representing the parent Location IDs
+- `value` - int(s) representing the parent location IDs
 
 ## Example
 

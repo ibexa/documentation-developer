@@ -25,7 +25,7 @@ For code details per resource, see the [REST API reference](../rest_api_referenc
 | `409` | Conflict               | The request is in conflict with another part of the repository (for example, trying to create a new item with an identifier already used).                                                                                                                  |
 | `415` | Unsupported Media Type | The request payload media type doesn't match the media type specified in the request header.                                                                                                                                                                |
 | `500` | Internal Server Error  | The server encountered an unexpected condition, usually an exception, which prevents it from fulfilling the request, like database down, permissions or configuration error.                                                                                |
-| `501` | Not Implemented        | Returned when the requested method hasn't yet been implemented. For [[= product_name =]], most of Users, User groups, content items, Locations and content types have been implemented. Some of their methods, and other features, may return a 501. |
+| `501` | Not Implemented        | Returned when the requested method hasn't yet been implemented. For [[= product_name =]], most of users, user groups, content items, locations and content types have been implemented. Some of their methods, and other features, may return a 501. |
 
 ## Response headers
 

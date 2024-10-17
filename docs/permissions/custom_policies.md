@@ -201,7 +201,7 @@ Next, register the service with the `ibexa.admin_ui.limitation.mapper.form` tag 
 Some abstract limitation type form mapper classes are provided to help implementing common complex limitations.
 
 - `MultipleSelectionBasedMapper` is a mapper used to build forms for limitations based on a checkbox list, where multiple items can be chosen. For example, it's used to build forms for [Content Type Limitation](limitation_reference.md#content-type-limitation), [Language Limitation](limitation_reference.md#language-limitation) or [Section Limitation](limitation_reference.md#section-limitation).
-- `UDWBasedMapper` is used to build a limitation form where a Content/Location must be selected. For example, it's used by the [Subtree Limitation](limitation_reference.md#subtree-limitation) form.
+- `UDWBasedMapper` is used to build a limitation form where a content/location must be selected. For example, it's used by the [Subtree Limitation](limitation_reference.md#subtree-limitation) form.
 
 #### Value mapper
 

@@ -103,14 +103,14 @@ All of the following properties must be used, otherwise the multi-file upload do
             - **contentTypeIdentifier** _{String}_ - content type identifier
             - **contentFieldIdentifier** _{String}_ - field identifier
             - **nameFieldIdentifier** _{String}_ - name field identifier
-        - **locationMappings** _{Array}_ - list of file type to content type mappings based on a Location identifier
+        - **locationMappings** _{Array}_ - list of file type to content type mappings based on a location identifier
         - **maxFileSize** {Number} - maximum file size allowed for uploading. It's a number of bytes
     - **token** _{String}_ - CSRF token
     - **siteaccess** _{String}_ - SiteAccess identifier
-- **parentInfo** _{Object}_ - parent Location meta information:
+- **parentInfo** _{Object}_ - parent location meta information:
     - **contentTypeIdentifier** _{String}_ - content type identifier
     - **contentTypeId** _{Number}_ - content type ID
-    - **locationPath** _{String}_ - Location path string
+    - **locationPath** _{String}_ - location path string
     - **language** _{String}_ - language code identifier
 
 ### Optional properties
@@ -119,7 +119,7 @@ Optionally, the multi-file upload module can take a following list of properties
 
 - **checkCanUpload** _{Function}_ - checks whether am uploaded file can be uploaded. The callback takes four params:
     - **file** _{File}_ - file object
-    - **parentInfo** _{Object}_ - parent Location meta information
+    - **parentInfo** _{Object}_ - parent location meta information
     - **config** _{Object}_ - Multi-file Upload module config
     - **callbacks** _{Object}_ - error callbacks list: **fileTypeNotAllowedCallback** and **fileSizeNotAllowedCallback**
 - **createFileStruct** _{Function}_ - a function that creates a _ContentCreate_ struct. The function takes two params:

@@ -36,7 +36,7 @@ The `local` type is the built-in type of catalog based on the repository.
 
 Under `options.product_type_group_identifier` you can define the identifier of the content type Group used for storing products.
 
-`root_location_remote_id` indicates the remote ID of the Location where products are stored.
+`root_location_remote_id` indicates the remote ID of the location where products are stored.
 
 ## VAT rates
 

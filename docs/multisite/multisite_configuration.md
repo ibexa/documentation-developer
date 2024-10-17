@@ -173,7 +173,7 @@ Instead, switch between SiteAccesses using the SiteAccess bar above the page.
 ## Location tree
 
 You can restrict SiteAccesses to different parts of the content tree.
-When you do it, only the selected Location and its descendants are reachable from this SiteAccess.
+When you do it, only the selected location and its descendants are reachable from this SiteAccess.
 
 Configure this under the `ibexa.systems.<scope>.content.tree_root` [configuration key](configuration.md#configuration-files), for example:
 
@@ -188,9 +188,9 @@ ibexa:
             index_page: /EventFrontPage
 ```
 
-- `location_id` defines the Location ID of the content root for the SiteAccess.
+- `location_id` defines the location ID of the content root for the SiteAccess.
 - `excluded_uri_prefixes` defines which URIs ignore the root limit set using `location_id`.
-In the example above, the Media and Images folders are accessible using their own URI, even though they're outside the Location provided in `content.tree_root.location_id`.
+In the example above, the Media and Images folders are accessible using their own URI, even though they're outside the location provided in `content.tree_root.location_id`.
 - `index_page` is the page shown when you access the root index `/`.
 
 !!! note

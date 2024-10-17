@@ -44,7 +44,7 @@ Each type has dedicated methods in the Search Service:
 | Location       | `findLocations()`        |
 
 All Criteria and Sort Clauses are accepted with Location Search, but not all of them can be used with Content Search.
-The reason for this is that while one Location always has exactly one content item, one content item can have multiple locations.
+The reason for this is that while one location always has exactly one content item, one content item can have multiple locations.
 In this context some Criteria and Sort Clauses would produce ambiguous queries that would not be accepted by Content Search.
 
 Content Search explicitly refuses to accept Criteria and Sort Clauses implementing these abstract classes:

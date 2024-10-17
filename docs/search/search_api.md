@@ -1,5 +1,5 @@
 ---
-description: You can search for content, Locations and products by using the PHP API. Fine-tune the search with Search Criteria, Sort Clauses and Aggregations.
+description: You can search for content, locations and products by using the PHP API. Fine-tune the search with Search Criteria, Sort Clauses and Aggregations.
 ---
 
 # Search API
@@ -122,7 +122,7 @@ For example, the following command lists all content items under the specified p
 [[= include_file('code_samples/api/public_php_api/src/Command/FilterCommand.php', 32, 52) =]]
 ```
 
-The same Filter can be applied to find Locations instead of content items, for example:
+The same Filter can be applied to find locations instead of content items, for example:
 
 ``` php hl_lines="17"
 // ...
@@ -150,7 +150,7 @@ You can use the following methods of the Filter:
 - `sliceBy` - set limit and offset for pagination
 - `reset` - remove all Criteria, Sort Clauses, and pagination settings
 
-The following example filters for Folder content items under the parent Location 2, sorts them by publication date and returns 10 results, starting from the third one:
+The following example filters for Folder content items under the parent location 2, sorts them by publication date and returns 10 results, starting from the third one:
 
 ``` php
 $filter = new Filter();
@@ -177,7 +177,7 @@ $filter
 ## Searching in a controller
 
 You can use the `SearchService` or repository filtering in a controller, as long as you provide the required parameters.
-For example, in the code below, `locationId` is provided to list all children of a Location by using the `SearchService`.
+For example, in the code below, `locationId` is provided to list all children of a location by using the `SearchService`.
 
 ``` php hl_lines="22-24"
 // ...
@@ -220,10 +220,10 @@ For more information and examples, see [PagerFanta documentation](https://www.ba
 |------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [`ContentSearchAdapter`](https://github.com/ibexa/core/blob/main/src/lib/Pagination/Pagerfanta/ContentSearchAdapter.php)                             | Makes a search against passed Query and returns [`Content`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Content.html) objects.                                                                  |
 | [`ContentSearchHitAdapter`](https://github.com/ibexa/core/blob/main/src/lib/Pagination/Pagerfanta/ContentSearchHitAdapter.php)                       | Makes a search against passed Query and returns [`SearchHit`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Search-SearchHit.html) objects instead.                                               |
-| [`LocationSearchAdapter`](https://github.com/ibexa/core/blob/main/src/lib/Pagination/Pagerfanta/LocationSearchAdapter.php)                           | Makes a Location search against passed Query and returns [`Location`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Location.html) objects.                                                       |
-| [`LocationSearchHitAdapter`](https://github.com/ibexa/core/blob/main/src/lib/Pagination/Pagerfanta/LocationSearchHitAdapter.php)                     | Makes a Location search against passed Query and  returns [`SearchHit`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Search-SearchHit.html) objects instead.                                     |
+| [`LocationSearchAdapter`](https://github.com/ibexa/core/blob/main/src/lib/Pagination/Pagerfanta/LocationSearchAdapter.php)                           | Makes a location search against passed Query and returns [`Location`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Location.html) objects.                                                       |
+| [`LocationSearchHitAdapter`](https://github.com/ibexa/core/blob/main/src/lib/Pagination/Pagerfanta/LocationSearchHitAdapter.php)                     | Makes a location search against passed Query and  returns [`SearchHit`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Search-SearchHit.html) objects instead.                                     |
 | [`ContentFilteringAdapter`](https://github.com/ibexa/core/blob/main/src/lib/Pagination/Pagerfanta/ContentFilteringAdapter.php)                       | Applies a Content filter and returns a [`ContentList`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-ContentList.html) object.                                                                    |
-| [`LocationFilteringAdapter`](https://github.com/ibexa/core/blob/main/src/lib/Pagination/Pagerfanta/LocationFilteringAdapter.php)                     | Applies a Location filter and returns a [`LocationList`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-LocationList.html) object.                                                                 |
+| [`LocationFilteringAdapter`](https://github.com/ibexa/core/blob/main/src/lib/Pagination/Pagerfanta/LocationFilteringAdapter.php)                     | Applies a location filter and returns a [`LocationList`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-LocationList.html) object.                                                                 |
 | [`AttributeDefinitionListAdapter`](https://github.com/ibexa/product-catalog/blob/main/src/lib/Pagerfanta/Adapter/AttributeDefinitionListAdapter.php) | Makes a search for product attributes and returns an [`AttributeDefinitionListInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-AttributeDefinition-AttributeDefinitionListInterface.html) object. |
 | [`AttributeGroupListAdapter`](https://github.com/ibexa/product-catalog/blob/main/src/lib/Pagerfanta/Adapter/AttributeGroupListAdapter.php)           | Makes a search for product attribute groups and returns an [`AttributeGroupListInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-AttributeGroup-AttributeGroupListInterface.html) object.          |
 | [`CurrencyListAdapter`](https://github.com/ibexa/product-catalog/blob/main/src/lib/Pagerfanta/Adapter/CurrencyListAdapter.php)                       | Makes a search for currencies and returns a [`CurrencyListInterface`](../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Currency-CurrencyListInterface.html) object.                                           |
@@ -262,7 +262,7 @@ that doesn't belong to the provided Section:
 Criteria are independent of one another.
 This can lead to unexpected behavior, for instance because content can have multiple locations.
 
-For example, a content item has two Locations: visible Location A and hidden Location B.
+For example, a content item has two locations: visible location A and hidden location B.
 You perform the following query:
 
 ``` php
@@ -277,7 +277,7 @@ The query searches for location B using the [`LocationId` Criterion](locationid_
 Even though the location B is hidden, the query finds the content because both conditions are satisfied:
 
 - the content item has location B
-- the content item is visible (it has the visible Location A)
+- the content item is visible (it has the visible location A)
 
 
 ## Sorting results

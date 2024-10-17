@@ -209,8 +209,7 @@ When dealing with location objects (and Trash objects), you can get access to co
 In Twig this can also be accessed by `location.content`.
 This is a lazy property.
 It triggers loading of content when first used.
-In case of bulk of locations coming from Search or Location Service,
-the content is also loaded in bulk for the whole location result set.
+In case of bulk of locations coming from Search or location Service, the content is also loaded in bulk for the whole location result set.
 
 ## Comparing content versions
 

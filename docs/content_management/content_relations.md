@@ -4,7 +4,7 @@ description: Content Relations control links between different content items, ei
 
 # Content Relations
 
-Content items are located in a tree structure through the Locations they're placed in.
+Content items are located in a tree structure through the locations they're placed in.
 However, content items themselves can also be related to one another.
 
 ![Content Relations](content_management_relations.png "Content Relations")
@@ -23,7 +23,7 @@ These fields allow you to select one or more other content items in the field va
 
 - *Common Relations* are created between two content items using the public PHP API.
 - *RichText linked Relations* are created using a field of the RichText type.
-When an internal link (a link to another Location or content item) is placed in a RichText field,
+When an internal link (a link to another location or content item) is placed in a RichText field,
 the system automatically creates a Relation.
 The Relation is automatically removed from the system when the link is removed from the content item.
 - *RichText embedded Relations* also use a RichText field.

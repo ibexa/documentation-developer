@@ -23,14 +23,14 @@ For example, the system tags every article response, and when the article conten
 
 Current content tags (and when the system purges on them):
 
-- Content: `c<content-id>` - Purged on all smaller or larger changes to content (including its metadata, fields and Locations).
+- Content: `c<content-id>` - Purged on all smaller or larger changes to content (including its metadata, fields and locations).
 - Content version: `cv<content-id>` - Purged when any version of Content is changed (for example, a draft is created or removed).
 - Content type: `ct<content-type-id>` - Used when the content type changes, affecting content of its type.
-- Location: `l<location-id>` - Used for clearing all cache relevant for a given Location.
-- Parent Location: `pl<[parent-]location-id>` - Used for clearing all children of a Location (`pl<location-id>`), or all siblings (`pl<parent-location-id>`).
+- Location: `l<location-id>` - Used for clearing all cache relevant for a given location.
+- Parent Location: `pl<[parent-]location-id>` - Used for clearing all children of a location (`pl<location-id>`), or all siblings (`pl<parent-location-id>`).
 - Path: `p<location-id>` - For operations that change the tree itself, like move, remove, etc.
 - Relation: `r<content-id>` - Only purged on when content updates are severe enough to also affect reverse relations.
-- Relation location: `rl<location-id>` - Same as relation, but by Location ID.
+- Relation location: `rl<location-id>` - Same as relation, but by location ID.
 
 !!! note "Automatic repository prefixing of cache tags"
 
@@ -110,7 +110,7 @@ Cache-Control: public, max-age=86400
 xkey: ez-all c1 ct1 l2 pl1 p1 p2
 ```
 
-If the given content has several Locations, you can see several `l<location-id>` and `p<location-id>` tags in the response.
+If the given content has several locations, you can see several `l<location-id>` and `p<location-id>` tags in the response.
 
 !!! note "How response tagging for ContentView is done internally"
 
@@ -195,7 +195,7 @@ See [Tagging from code](https://foshttpcachebundle.readthedocs.io/en/latest/feat
 4\. Use deprecated `X-Location-Id` header.
 
 For custom or built-in controllers (for example, REST) still using `X-Location-Id`, `XLocationIdResponseSubscriber` handles translating this header to tags.
-It supports singular and comma-separated Location ID value(s):
+It supports singular and comma-separated location ID value(s):
 
 ```php
 /** @var \Symfony\Component\HttpFoundation\Response $response */
@@ -273,13 +273,13 @@ In the event when a new version of `Child` is published, the following keys are 
 
 - `c55`, because Content `[Child]` was changed
 - `r55`, because cache for any object that has a relation to Content `[Child]` should be purged
-- `l22`, because Location `[Child]` has changed ( that would be location holding content-id=55)
+- `l22`, because location `[Child]` has changed ( that would be location holding content-id=55)
 - `pl22`, because cache for children of `[Child]` should be purged
 - `rl22`, because cache for any object that has a relation to Location `[Child]` should be purged
 - `l20`, because cache for parent of `[Child]` should be purged
 - `pl20`, because cache for siblings of `[Child]` should be purged
 
-In summary, HTTP Cache for any location representing `[Child]`, any Content that relates to the Content `[Child]`, the location for `[Child]`, any children of `[Child]`, any Location that relates to the Location `[Child]`, location for `[Parent1]`, any children on `[Parent1]`.
+In summary, HTTP Cache for any location representing `[Child]`, any Content that relates to the Content `[Child]`, the location for `[Child]`, any children of `[Child]`, any location that relates to the location `[Child]`, location for `[Parent1]`, any children on `[Parent1]`.
 Effectively, in this example HTTP cache for `[Parent1]` and `[Child]` is cleared.
 
 
@@ -329,7 +329,7 @@ $purgeClient->purgeAll();
 
 ### Purging from command line
 
-Example for purging by Location and by content ID:
+Example for purging by location and by content ID:
 
 ```bash
 bin/console fos:httpcache:invalidate:tag l44 c33

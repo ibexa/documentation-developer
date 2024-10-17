@@ -9,7 +9,7 @@ The `ParentLocationRemoteId` Search Criterion searches for content based on the 
 
 ## Arguments
 
-- `value` - int(s) representing the parent Location remote IDs
+- `value` - int(s) representing the parent location remote IDs
 
 
 ### REST API

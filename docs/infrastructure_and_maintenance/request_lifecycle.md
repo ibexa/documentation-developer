@@ -110,7 +110,7 @@ If a wildcard matches, the request's `semanticPathinfo` is updated and the route
 
 `UrlAliasRouter` (`Ibexa\Bundle\Core\Routing\UrlAliasRouter`):
 This router uses the `UrlAliasService` to associate the `semanticPathinfo` to a location.
-If it finds a Location, the request receives the attributes **`locationId`** and **`contentId`**, **`viewType`** is set to `full`, and the **`_controller`** is set to `ibexa_content:viewAction` for now.
+If it finds a location, the request receives the attributes **`locationId`** and **`contentId`**, **`viewType`** is set to `full`, and the **`_controller`** is set to `ibexa_content:viewAction` for now.
 
 The `locale_listener` (priority 16) sets the request's **`_locale`** attribute.
 

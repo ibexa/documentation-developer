@@ -23,7 +23,7 @@ See [example use case](permission_use_cases.md#restrict-editing-to-part-of-the-t
 !!! note
 
     Limitation specifies what a user can do, not what they can't do.
-    A `Location` limitation, for example, gives the user access to content with a specific Location, not prohibits it.
+    A `Location` limitation, for example, gives the user access to content with a specific location, not prohibits it.
 
     For more information, see [Limitation reference](limitation_reference.md).
 

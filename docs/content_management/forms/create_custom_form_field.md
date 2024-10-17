@@ -27,7 +27,7 @@ Available attribute types are:
 |`multiple`|Multiple choice|
 |`select`|Dropdown|
 |`checkbox`|Checkbox|
-|`location`|Content Location|
+|`location`|Content location|
 |`radio`|Radio button|
 |`action`|Button|
 |`choices`|List of available options|

@@ -249,7 +249,7 @@ When viewing such content in the back office you're able to see, for example, th
 
 ## Top-level Locations
 
-You can change the default path for top-level Locations such as content or media in the back office, for example:
+You can change the default path for top-level locations such as content or media in the back office, for example:
 
 ```yaml
 ibexa:

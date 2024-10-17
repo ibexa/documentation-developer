@@ -29,7 +29,7 @@ For method action details per resource, see the [REST API reference](../rest_api
 | [PATCH](https://datatracker.ietf.org/doc/html/rfc5789)               | Custom   | Update an item         | No   |
 | COPY                                                                 | Custom   | Duplicate an item      | No   |
 | [MOVE](https://datatracker.ietf.org/doc/html/rfc2518)                | Custom   | Move an item           | No   |
-| SWAP                                                                 | Custom   | Swap two Locations     | No   |
+| SWAP                                                                 | Custom   | Swap two locations     | No   |
 | PUBLISH                                                              | Custom   | Publish an item        | No   |
 | [DELETE](https://datatracker.ietf.org/doc/html/rfc2616#section-9.7)  | Standard | Remove an item         | No   |
 
@@ -103,7 +103,7 @@ Accept: application/vnd.ibexa.api.Root+json
 X-Siteaccess: restapi
 ```
 
-One of the principles of REST is that the same resource (such as content item, Location, content type) should be unique.
+One of the principles of REST is that the same resource (such as content item, location, content type) should be unique.
 It allows caching your REST API using a reverse proxy such as Varnish.
 If the same resource is available in multiple locations, cache purging is noticeably more complex.
 This is why SiteAccess matching with REST isn't enabled at URL level (or domain).
@@ -128,7 +128,7 @@ A response indicates `href`s to related resources and their media types.
 ### Destination
 
 The `Destination` request header is the request counterpart of the `Location` response header.
-It's used for a `COPY`, `MOVE` or `SWAP` operation to indicate where the resource should be moved, copied to or swapped with by using the ID of the parent or target Location.
+It's used for a `COPY`, `MOVE` or `SWAP` operation to indicate where the resource should be moved, copied to or swapped with by using the ID of the parent or target location.
 
 Examples of such requests are:
 
@@ -153,7 +153,7 @@ One example is the [creation of an authentication session](rest_api_authenticati
 
 When creating a content item, a special payload is needed if the content type has some [Image](imagefield.md) or [BinaryFile](binaryfilefield.md) fields as files need to be attached. See the example of a [script uploading images](#creating-content-with-binary-attachments) below.
 
-When searching for content items (or Locations), the query grammar is also particular. See the [Search section](#search-views) below.
+When searching for content items (or locations), the query grammar is also particular. See the [Search section](#search-views) below.
 
 ### Creating content with binary attachments
 
@@ -193,7 +193,7 @@ The root node is `<ViewInput>` and it has two mandatory children: `<identifier>`
 
 You can add `version=1.1` to the `Content-Type` header to support the distinction between `ContentQuery` and `LocationQuery` instead of `Query` which implicitly looks only for content items.
 
-The following examples search for `article` and `news` typed content items everywhere or for content items of all types directly under Location `123`. All those content items must be in the `standard` section.
+The following examples search for `article` and `news` typed content items everywhere or for content items of all types directly under location `123`. All those content items must be in the `standard` section.
 
 === "XML"
 

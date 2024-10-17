@@ -47,7 +47,7 @@ The `renderAction` has the following parameters:
 
 |Parameter|Description|
 |---------|-----------|
-|`locationId`|ID of the Location of the content item which can be accessed by `contentInfo.id`|
+|`locationId`|ID of the location of the content item which can be accessed by `contentInfo.id`|
 |`blockId`|ID of the block which you want to render.|
 |`versionNo`|Version number of the content item to render.|
 |`languageCode`|Language code of the content item to render.|

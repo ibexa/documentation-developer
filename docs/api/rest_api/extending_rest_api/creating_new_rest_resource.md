@@ -64,7 +64,7 @@ A REST controller should:
 [[= include_file('code_samples/api/rest_api/src/Rest/Controller/DefaultController.php') =]]
 ```
 
-If the returned value was depending on a Location, it could have been wrapped in a `CachedValue` to be cached by the reverse proxy (like Varnish) for future calls.
+If the returned value was depending on a location, it could have been wrapped in a `CachedValue` to be cached by the reverse proxy (like Varnish) for future calls.
 
 `CachedValue` is used in the following way:
 

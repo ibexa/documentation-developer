@@ -10,8 +10,8 @@ With this configuration you can:
 - decide how many content items are displayed in the tree
 - set maximum depth of expanded tree
 - hide content types
-- set a tree root Location
-- override content tree's root for specific Locations
+- set a tree root location
+- override content tree's root for specific locations
 
 ```yaml
 ibexa:

@@ -18,7 +18,7 @@ The associated content type is `tag`.
 ## Configuration keys
 
 * `ibexa_taxonomies` - section responsible for taxonomy structure where you can [configure other taxonomies](#customize-taxonomy-structure)
-* `ibexa_taxonomies.tags.parent_location_remote_id` - Remote ID for Location where new content items representing tags are created
+* `ibexa_taxonomies.tags.parent_location_remote_id` - Remote ID for location where new content items representing tags are created
 * `ibexa_taxonomies.tags.content_type` - Content type identifier which stands for the tags
 * `ibexa_taxonomies.tags.field_mappings` - field types map of a content type which taxonomy receives information about the tag from.
 
@@ -38,7 +38,7 @@ Next, under the `ibexa_taxonomy.taxonomies` [key](configuration.md#configuration
 [[= include_file('code_samples/taxonomy/config/packages/ibexa_taxonomy.yaml', 9, 17) =]]
 ```
 
-Replace `<content_categories_remote_id>` with the new container's Location remote ID.
+Replace `<content_categories_remote_id>` with the new container's location remote ID.
 
 Translate the configuration identifier in the `ibexa_taxonomy` domain by, for example, creating a `translations/ibexa_taxonomy.en.yaml` file containing the following:
 ```yaml

@@ -56,10 +56,10 @@ There you can set the following properties:
 
 |YML</br>React props|Values|Required|Definition|
 |-------------------|------|--------|----------|
-|multiple</br>`multiple`|true</br>false|no|The possibility to choose multiple Locations.|
+|multiple</br>`multiple`|true</br>false|no|The possibility to choose multiple locations.|
 |multiple_items_limit</br>`multipleItemsLimit`|number|no|Maximum number of items with configuration `multiple: true`.|
-|root_location_id</br>`rootLocationId`|number|no|UDW displays Locations only below this content tree element.|
-|starting_location_id</br>`startingLocationId`|number|no|This Location is displayed as a starting Location in UDW.|
+|root_location_id</br>`rootLocationId`|number|no|UDW displays locations only below this content tree element.|
+|starting_location_id</br>`startingLocationId`|number|no|This location is displayed as a starting location in UDW.|
 |containers_only</br>`containersOnly`|true</br>false|no|When set to `true` only containers can be selected.|
 |allowed_content_types</br>`allowedContentTypes`|null</br>[]</br>[`contentTypeIdentifier`]|yes|List of allowed content types:</br>`null` – all content types are allowed,</br>`[]` – empty table, no content types are allowed.|
 |active_sort_clause</br>`activeSortClause`|DatePublished</br>ContentName|no|Sort Clause by which children in the content tree is sorted.|

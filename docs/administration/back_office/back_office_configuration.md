@@ -47,9 +47,9 @@ The default value is `100`. You can set it to `-1` for no limit, or to `0` to co
 
 You can copy subtree from CLI using the command: `bin/console ibexa:copy-subtree <sourceLocationId> <targetLocationId>`.
 
-## Default Locations
+## Default locations
 
-Default Location IDs for [Content structure, Media and Users](locations.md#top-level-locations) in the menu are configured using the `ibexa.system.<scope>.location_ids` [configuration key](configuration.md#configuration-files):
+Default location IDs for [content structure, Media, and users](locations.md#top-level-locations) in the menu are configured using the `ibexa.system.<scope>.location_ids` [configuration key](configuration.md#configuration-files):
 
 ``` yaml
 ibexa:

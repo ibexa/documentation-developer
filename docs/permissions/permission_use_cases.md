@@ -43,8 +43,8 @@ This also lets the user copy and move content, and add new locations to a conten
 
 To move a content item or a subtree to another location, the user must have the following policies:
 
-- `content/read` - on the source Location
-- `content/create` - on the target Location
+- `content/read` - on the source location
+- `content/create` - on the target location
 
 ## Remove content
 
@@ -74,7 +74,7 @@ Section doesn't have to belong to the same subtree of location in the content st
 
 ### Location limitation
 
-If you add a `Location` limitation and point to the same location, the user is able to publish content directly under the selected Location, but not anywhere deeper in its subtree of location.
+If you add a `Location` limitation and point to the same location, the user is able to publish content directly under the selected location, but not anywhere deeper in its subtree of location.
 
 ### Subtree of location limitation
 
@@ -106,7 +106,7 @@ The vegetarian editors should now see the following content tree:
 ![Limited subtree file structure](subtree_usability_notes_2.png)
 
 When a policy has more than one limitation, all of them have to apply, or the policy doesn't work.
-For example, a `Location` limitation on Location `1/2` and `Subtree of Location` limitation on `1/2/55` cannot work together, because no location can satisfy both those requirements at the same time.
+For example, a `Location` limitation on location `1/2` and `Subtree of Location` limitation on `1/2/55` cannot work together, because no location can satisfy both those requirements at the same time.
 To combine more than one limitation with the *or* relation, not *and*, you can split your policy in two, each with one of these limitations.
 
 ## Manage locations
@@ -117,7 +117,7 @@ To allow the user to remove a location, grant them the following policies:
 - `content/remove`
 - `content/manage_locations`
 
-Hiding and revealing Location requires one more policy: `content/hide`.
+Hiding and revealing location requires one more policy: `content/hide`.
 
 ## Editorial workflows
 
@@ -144,7 +144,7 @@ To enable upload, you need you set the following permissions:
 
 You can control what content items can be uploaded and where by using imitations on the `content/create` and `content/publish` policies.
 
-A Location limitation limits the uploading to a specific location in the tree.
+A location limitation limits the uploading to a specific location in the tree.
 A content type limitation controls the content types that are allowed.
 For example, you can set the location limitation on a **Pictures** Folder, and add a content type limitation that only allows content items of type **Image**.
 This ensures that only files of type `image` can be uploaded, and only to the **Pictures** Folder.

@@ -11,7 +11,7 @@ This Criterion takes into account both hiding content and hiding locations.
 
 When used with Content Search, the Criterion takes into account all assigned locations.
 This means that hidden content is returned if it has at least one visible location.
-Use location Search to avoid this.
+Use Location Search to avoid this.
 
 ## Arguments
 

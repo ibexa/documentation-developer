@@ -7,7 +7,7 @@ description: Use document field mappers to add additional data in Solr search en
 You can use document field mappers to index additional data in the search engine.
 
 The additional data can come from external sources (for example, the [Personalization service](personalization.md)), or from internal ones.
-An example of indexing internal data is indexing data through the Location hierarchy: from the parent location to the child location, or indexing child data on the parent location.
+An example of indexing internal data is indexing data through the location hierarchy: from the parent location to the child location, or indexing child data on the parent location.
 You can use this to find the content with full-text search, or to simplify a search in a complicated data model.
 
 To do this effectively, you must understand how the data is indexed with the Solr search engine.

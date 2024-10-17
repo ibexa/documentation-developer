@@ -113,8 +113,8 @@ You can use these characteristics in combination with system features to create 
 
 #### Locations
 
-When a content item is created and published, it's assigned a place in the content tree, designated by a Location ID.
-A single content item can have more than one Location ID, which means that the same content can be found on different branches of the tree.
+When a content item is created and published, it's assigned a place in the content tree, designated by a location ID.
+A single content item can have more than one location ID, which means that the same content can be found on different branches of the tree.
 However, a single location can have only one content item assigned to it.
 
 ![Locations](img/locations.png)
@@ -146,7 +146,7 @@ Editors can compare different translations of the same content items with the Co
 
 A [relation](content_relations.md) can exist between any two content items in the content tree.
 For example, blog posts featured in the website's main page are in a relation with the page that they're embedded in.
-Or, instead of direct attachments, an article can use images that are separate content items outside the article and are referenced through a relation.
+Or, instead of direct attachments, an article can use images that are separate content items outside the article, and are referenced through a relation.
 
 ## Content arrangement
 
@@ -155,7 +155,7 @@ These operations, like in your computer’s file system, can apply both to indiv
 
 ![Content organization operations](img/content_arrangement.png)
 
-Content items can be hidden when necessary, for example, until a certain event, like a Holiday Sale or Board announcement comes. Hidden content items aren't visible to website visitors and are greyed out in the content tree.
+Content items can be hidden when necessary, for example, until a certain event, like a Holiday Sale, or Board announcement comes. Hidden content items aren't visible to website visitors and are greyed out in the content tree.
 
 ![Hidden content item](img/hidden_content_item.png)
 

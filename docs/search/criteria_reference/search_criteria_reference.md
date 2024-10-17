@@ -1,5 +1,5 @@
 ---
-description: Search Criteria help define and fine-tune search queries for content and Locations.
+description: Search Criteria help define and fine-tune search queries for content and locations.
 ---
 
 # Search Criteria reference
@@ -22,7 +22,7 @@ Due to this storage limitation, searching content using the Country field type o
 
 |Search Criterion|Search based on|Content Search |Location Search |Filtering |
 |-----|-----|-----|-----|-----|
-|[Ancestor](ancestor_criterion.md)|Whether the content item is an ancestor of the provided Location|&#10004; |&#10004; |&#10004; |
+|[Ancestor](ancestor_criterion.md)|Whether the content item is an ancestor of the provided location|&#10004; |&#10004; |&#10004; |
 |[ContentId](contentid_criterion.md)|Content item's ID|&#10004; |&#10004; |&#10004; |
 |[ContentName](contentname_criterion.md)|Content item's name|&#10004; |&#10004; |&#10004; |
 |[ContentTypeGroupId](contenttypegroupid_criterion.md)|ID of the content item's content type group|&#10004; |&#10004; |&#10004; |
@@ -43,7 +43,7 @@ Due to this storage limitation, searching content using the Country field type o
 |[ImageWidth](imagewidth_criterion.md)|Image width in pixels|&#10004;|&#10004;||
 |[IsCurrencyEnabledCriterion](iscurrencyenabled_criterion.md)|Whether a specified currency is enabled in the system| | | |
 |[IsFieldEmpty](isfieldempty_criterion.md)|Whether a specified field of a content item is empty or not|&#10004; |&#10004; | |
-|[IsMainLocation](ismainlocation_criterion.md)|Whether a Location is the main Location of a content item| |&#10004; |&#10004; |
+|[IsMainLocation](ismainlocation_criterion.md)|Whether a location is the main location of a content item| |&#10004; |&#10004; |
 |[IsProductBased](isproductbased_criterion.md)|Whether content represents a product|&#10004; |&#10004; |&#10004; |
 |[IsUserBased](isuserbased_criterion.md)|Whether content represents a User account|&#10004; |&#10004; |&#10004; |
 |[IsUserEnabled](isuserenabled_criterion.md)|Whether a User account is enabled|&#10004; |&#10004; |&#10004; |

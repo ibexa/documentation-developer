@@ -63,7 +63,7 @@ The following table lists some of the available options and their meaning:
 ## Form-uploaded files
 
 You can use Forms to enable the user to upload files.
-The default Location for files uploaded in this way is `/Media/Files/Form Uploads`.
+The default location for files uploaded in this way is `/Media/Files/Form Uploads`.
 You can change it with the following configuration:
 
 ``` yaml
@@ -74,4 +74,4 @@ ibexa:
                 upload_location_id: 54
 ```
 
-This applies only if no specific Location is defined in the Form itself.
+This applies only if no specific location is defined in the Form itself.

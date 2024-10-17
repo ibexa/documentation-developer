@@ -6,7 +6,7 @@ description: PHP API enables managing content Locations, content types, content 
 
 ## Locations
 
-You can manage [Locations](locations.md) that hold content using [`LocationService`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-LocationService.html).
+You can manage [locations](locations.md) that hold content using [`LocationService`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-LocationService.html).
 
 !!! tip "Location REST API"
 

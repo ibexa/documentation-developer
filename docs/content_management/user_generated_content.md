@@ -22,9 +22,9 @@ The `/content/edit/nodraft` route shows a content item creation form for a given
 |-------------------------|-----------|----------------------------------------------------------------------------|
 | `contentTypeIdentifier` | `string`  | The identifier of the content type to create. Example: `folder`, `article` |
 | `languageCode`          | `string`  | Language code the content item must be created in. Example: `eng-GB`       |
-| `parentLocationId`      | `integer` | ID of the Location the content item must be created in. Example: `2`       |
+| `parentLocationId`      | `integer` | ID of the location the content item must be created in. Example: `2`       |
 
-This means that `/content/create/nodraft/folder/eng-GB/2` enables you to create a Folder in English as a child of Location with ID 2.
+This means that `/content/create/nodraft/folder/eng-GB/2` enables you to create a Folder in English as a child of location with ID 2.
 
 A limited subset of field types is supported:
 
