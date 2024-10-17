@@ -47,14 +47,94 @@ php bin/console ibexa:migrations:generate \
   --siteaccess=admin;
 ```
 
+TODO: What about product migration limitation, and product variant migration inexistence?
+
 ## REST API
 
+Thanks to REST API, [[= product_name =]]'s PIM can be shared with other applications.
+
+### Attribute groups and attributes
+
+| CRUD action | Method verb | Route                                  |
+|-------------|-------------|----------------------------------------|
+| Create      | POST        | /product/catalog/attribute_groups      |
+| Read        | GET         | /product/catalog/attribute_groups/{id} |
+| Update      | PATCH       | /product/catalog/attribute_groups/{id} |
+| Delete      | DELETE      | /product/catalog/attribute_groups/{id} |
+
+TODO: GET /product/catalog/attribute_types
+TODO: GET /product/catalog/attribute_types/{identifier}
+
+TODO: DELETE /product/catalog/attribute_groups/translation/{id}/{languageCode}
+
+| CRUD action | Method verb | Route                                       |
+|-------------|-------------|---------------------------------------------|
+| Create      | POST        | /product/catalog/attributes                 |
+| Read        | POST        | /product/catalog/attributes/view            |
+| Read        | GET         | /product/catalog/attributes/{id}            |
+| Update      | PATCH       | /product/catalog/attributes/{id}/{group_id} |
+| Delete      | DELETE      | /product/catalog/attributes/{id}            |
+
+TODO: DELETE /product/catalog/attributes/translation/{id}/{languageCode}
+
+### Product types
+
+| CRUD action | Method verb | Route                                               |
+|-------------|-------------|-----------------------------------------------------|
+| Create      | POST        | /product/catalog/product_types                      |
+| Read        | GET         | /product/catalog/product_types/{id}                 |
+| Read        | GET         | /product/catalog/product_types/is_used/{identifier} |
+| Read        | POST        | /product/catalog/product_types/view                 |
+| Update      | PATCH       | /product/catalog/product_types/{id}                 |
+| Delete      | DELETE      | /product/catalog/product_types/{id}                 |
+
+### Product and product variants
+
+| CRUD action | Method verb | Route                                                |
+|-------------|-------------|------------------------------------------------------|
+| Create      | POST        | /product/catalog/products/{productTypeIdentifier}    |
+| Read        | GET         | /product/catalog/products/{code}                     |
+| Read        | POST        | /product/catalog/products/view                       |
+| Read        | POST        | /product/catalog/catalogs/{identifier}/products/view |
+| Update      | PATCH       | /product/catalog/products/{code}                     |
+| Delete      | DELETE      | /product/catalog/products/{identifier}               |
+
+| CRUD action | Method verb | Route                                                        |
+|-------------|-------------|--------------------------------------------------------------|
+| Create      | POST        | /product/catalog/product_variants/{baseProductCode}          |
+| Create      | POST        | /product/catalog/product_variants/generate/{baseProductCode} |
+| Read        | GET         | /product/catalog/product_variant/{code}                      |
+| Read        | POST        | /product/catalog/product_variants/view/{baseProductCode}     |
+| Update      | PATCH       | /product/catalog/product_variants/{code}                     |
+| Delete      | DELETE      | /product/catalog/product_variants/{code}                     |
+
+#### Product assets
+
 TODO
+
+### Catalogs
+
+| CRUD action | Method verb | Route                                       |
+|-------------|-------------|---------------------------------------------|
+| Create      | POST        | /product/catalog/catalogs                   |
+| Create      | POST        | /product/catalog/catalogs/copy/{identifier} |
+| Read        | GET         | /product/catalog/catalogs/{identifier}      |
+| Read        | POST        | /product/catalog/catalogs/view              |
+| Update      | PATCH       | /product/catalog/catalogs/{identifier}      |
+| Delete      | DELETE      | /product/catalog/catalogs/{identifier}      |
+
+### Categories
+
+TODO
+
+### TODO: Exercises
 
 TODO: Exercise request through REST the bikes from "5 series"
 TODO: /product/catalog/catalogs/{identifier}/products/view
 
 ## PHP API
+
+[[= product_name =]]'s PIM can be extended, accessed through custom controllers, command lines, or whatever you imagine, thanks to the PHP API.
 
 There are several services to read or modify the product model, the products, and other product related features.
 
