@@ -129,7 +129,7 @@ This release introduced several back office improvements to facilitate editorial
 
 ### Permissions
 
-#### Content/Create policy for users
+#### `Content/Create` policy for users
 
 You can now define a 'Content/Create' policy for a user or a user group.
 It enables or disables (if not set) the **Create** button in your dashboard.

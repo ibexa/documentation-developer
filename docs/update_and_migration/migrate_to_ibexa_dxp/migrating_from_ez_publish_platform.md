@@ -115,7 +115,7 @@ To move over your own custom configurations, follow the conventions below and ma
 
 !!! note "Make sure to adapt SiteAccess names"
 
-    In the default configurations in **ezplatform.yaml** you can find existing SiteAccesses like `site`, and depending on installation perhaps a few others, all under a site group called `site\_group`. Make sure to change those to what you had in **ezpublish.yaml** to avoid issues with having to log in to your website, given user/login policy rules need to be updated if you change names of SiteAccess as part of the upgrade.
+    In the default configurations in **ezplatform.yaml** you can find existing SiteAccesses like `site`, and depending on installation perhaps a few others, all under a site group called `site\_group`. Make sure to change those to what you had in **ezpublish.yaml** to avoid issues with having to log in to your website, given `user/login` policy rules need to be updated if you change names of SiteAccess as part of the upgrade.
 
 #### 2.3.1 Image aliases
 
