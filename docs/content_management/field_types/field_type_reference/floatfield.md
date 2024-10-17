@@ -40,7 +40,8 @@ $float->value = 284.773
 
 ##### Constructor
 
-The `Float\Value` constructor initializes a new Value object with the value provided. It expects a numeric value with or without decimals.
+The `Float\Value` constructor initializes a new value object with the value provided.
+It expects a numeric value with or without decimals.
 
 ``` php
 // Constructor example

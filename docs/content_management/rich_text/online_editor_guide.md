@@ -18,8 +18,7 @@ Online Editor is available in all supported [[= product_name =]] versions and ed
 ## How to get started
 
 Online Editor is the default editing interface for all RichText fields. 
-To start using it, create any content item with a RichText field 
-(for example, using the built-in Article content type) and edit this field.
+To start using it, create any content item with a RichText field (for example, using the built-in Article content type) and edit this field.
 
 ## Capabilities
 
@@ -30,8 +29,7 @@ It also allows embedding other content from the repository, but also from Facebo
 
 #### Links
 
-All links added to a RichText field by using the link element are listed
-and can be managed in the [Link manager](url_management.md).
+All links added to a RichText field by using the link element are listed and can be managed in the [Link manager](url_management.md).
 
 #### Distraction free mode
 
@@ -43,8 +41,7 @@ For more information, see [Distraction free mode]([[= user_doc =]]/content_manag
 
 ### Custom tags
 
-Custom tags are customizable RichText elements for which you can specify attributes 
-and render them with custom templates.
+Custom tags are customizable RichText elements for which you can specify attributes and render them with custom templates.
 
 Custom tags can be created by means of specifying two things only:
 
@@ -59,7 +56,8 @@ See [Extend Online Editor](extend_online_editor.md#configure-custom-tags) for a 
 
 Custom styles allow specifying custom predefined templates for specific RichText elements.
 
-Custom styles differ from custom tags in that they don't have attributes configured. A custom style requires YAML configuration that points to a template used to render an elements with this style.
+Custom styles differ from custom tags in that they don't have attributes configured.
+A custom style requires YAML configuration that points to a template used to render an elements with this style.
 
 See [Extend Online Editor](extend_online_editor.md#configure-custom-styles) for a full example.
 
@@ -83,8 +81,7 @@ Because Online Editor is based on CKEditor 5, you can use CKEditor's capabilitie
 
 ### Familiar editing tools
 
-Online editor offers rich text editing tools familiar to most editors and contributors, 
-which allows quick adoption to the editorial flow.
+Online editor offers rich text editing tools familiar to most editors and contributors, which allows quick adoption to the editorial flow.
 
 ![Familiar editing tools](img/familiar_editing_tools.png)
 
@@ -94,8 +91,7 @@ The editor's toolbars can be customized and reorganized to for the specific proj
 
 The range of available text elements can be extended by offering custom elements and custom formatting options.
 
-Custom formatting options can be offered either as custom CSS classes that editors can add to specific elements, 
-or as custom styles which can have their own templates.
+Custom formatting options can be offered either as custom CSS classes that editors can add to specific elements, or as custom styles which can have their own templates.
 
 More extensive customization is available via custom tags:
 
@@ -106,8 +102,8 @@ More extensive customization is available via custom tags:
 
 ### Customizable Call to action buttons
 
-Online Editor extensibility offers a simple way to create custom elements such as Call to action (CTA) buttons. 
-Creating a CTA custom tag lets you use a template to construct a button element. 
+Online Editor extensibility offers a simple way to create custom elements such as Call to action (CTA) buttons.
+Creating a CTA custom tag lets you use a template to construct a button element.
 Then, you can add a link attribute to provide target for the button, and a style attribute with different presets to style its look.
 
 ![Call to action buttons](img/call_to_action_buttons.png)
@@ -116,6 +112,6 @@ Refer to [Extend Online Editor](extend_online_editor.md#link-tag) for a similar 
 
 ### Embed external resources
 
-Custom tags allow embedding content from external resources inside RichText fields. 
-The built-in elements offer embedding of Twitter or Facebook posts, but you can extend the capability by embedding other resources. 
-These can be, for example, 3D product or real estate viewers.
+Custom tags allow embedding content from external resources inside RichText fields.
+The built-in elements offer embedding of Twitter or Facebook posts, but you can extend the capability by embedding other resources.
+These can be, for example, 3D product, or real estate viewers.

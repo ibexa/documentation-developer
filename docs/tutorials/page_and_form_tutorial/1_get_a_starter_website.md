@@ -112,12 +112,12 @@ Now return to the back office and create some content for your website.
 
 First, you can hide unneeded content items from the project root.
 
-Go to **Content structure** and select "Ibexa Digital Experience Platform".
+Go to **Content structure** and select "[[= product_name_base =]] Digital Experience Platform".
 In the **Sub-items** tab, select all the current sub-items and click the **Hide** icon:
 
 ![Hiding content items you don't need](enterprise_tut_hide_content.png)
 
-Next, under "Ibexa Digital Experience Platform", create three Folders.
+Next, under "[[= product_name_base =]] Digital Experience Platform", create three Folders.
 Call them 'All Articles', 'Dog Breed Catalog' and 'All Tips'.
 Remember that you can **Save and close** them, but you should use the **Publish** button.
 

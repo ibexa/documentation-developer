@@ -9,8 +9,7 @@ You can build forms consisting of different fields in the Form Builder.
 
 !!! tip
 
-    To learn how to get, create, and delete form submissions by using the PHP API,
-    see [Form API](form_api.md).
+    To learn how to get, create, and delete form submissions by using the PHP API, see [Form API](form_api.md).
 
 [[% include 'snippets/forms_caution.md' %]]
 
@@ -32,8 +31,7 @@ gregwar_captcha:
     reload: true
 ```
 
-The example configuration above resizes the Captcha image (line 3), changes the error message (line 4),
-and enables the user to reload the code (line 5).
+The example configuration above resizes the Captcha image (line 3), changes the error message (line 4), and enables the user to reload the code (line 5).
 
 ![Custom captcha field](extending_form_builder_captcha_result.png)
 
@@ -47,14 +45,13 @@ For information about available options, see [Gregwar/CaptchaBundle's documentat
 ## Form submission purging
 
 You can purge all submissions of a given form. 
-To do this, run the following command, where `form-id` stands for Content ID 
-of the form for which you want to purge data:
+To do this, run the following command, where `form-id` stands for Content ID of the form for which you want to purge data:
 
 ```bash
 php bin/console ibexa:form-builder:purge-form-submissions [options] [--] <form-id>
 ```
 
-The following table lists some of the available options and their meaning: 
+The following table lists some of the available options and their meaning:
 
 | Switch | Option | Description |
 |--------------|------------|------------|

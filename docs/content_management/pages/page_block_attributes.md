@@ -131,7 +131,7 @@ Now, you can create a block containing your custom attribute:
 
 The `nested_attribute` attribute is used when you want to create a group of attributes.
 
-First, make sure you have configured the attributes you want to use in the group. 
+First, make sure you have configured the attributes you want to use in the group.
 
 Next, provide the configuration. See the example:
 

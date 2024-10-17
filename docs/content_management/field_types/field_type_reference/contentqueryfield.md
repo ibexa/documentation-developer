@@ -6,7 +6,6 @@ This field type maps an executable repository query to a field.
 |-----------|---------------|----------------|
 | `Content query` | `ezcontentquery`   | `string`        |
 
-The Content query field type is available via the Query field type Bundle
-provided by the [fieldtype-query](https://github.com/ibexa/fieldtype-query) package.
+The Content query field type is available via the Query field type Bundle provided by the [fieldtype-query](https://github.com/ibexa/fieldtype-query) package.
 
 For information about the field type's usage, see [Content queries](content_queries.md#content-query-field).

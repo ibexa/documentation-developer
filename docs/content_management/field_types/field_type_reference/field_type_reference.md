@@ -8,15 +8,17 @@ page_type: reference
 A field type is the underlying building block of the content model.
 It consists of two entities: field value and field definition.
 Field value is determined by values entered into the content field.
-Field definition is provided by the content type, and holds any user defined rules used by field type to determine how a field Value is validated, stored, retrieved, formatted and so on.
+Field definition is provided by the content type, and holds any user defined rules used by field type to determine how a field value is, for example, validated, stored, retrieved, or formatted.
 
-[[= product_name =]] comes with a collection of field types that can be used to build powerful and complex content structures. In addition, it's possible to extend the system by creating custom types for special needs.
+[[= product_name =]] comes with a collection of field types that can be used to build powerful and complex content structures.
+In addition, it's possible to extend the system by creating custom types for special needs.
 
 !!! tip
 
     For general field type documentation, see [field type](field_types.md).
 
-Custom field types have to be programmed in PHP. However, the built-in field types are usually sufficient enough for typical scenarios. The following table gives an overview of the supported field types that come with [[= product_name =]].
+Custom field types have to be programmed in PHP. However, the built-in field types are usually sufficient enough for typical scenarios.
+The following table gives an overview of the supported field types that come with [[= product_name =]].
 
 
 ## Available field types
@@ -63,8 +65,6 @@ Custom field types have to be programmed in PHP. However, the built-in field ty
 
 <a id="1-note-on-legacy-search-engine"></a>**^[1]^ Note on Legacy Search Engine**
 
-Legacy Search/Storage Engine index is limited to 255 characters in database design,
-so formatted and unformatted text blocks only index the first part.
-In case of multiple selection field types like Keyword, Selection, Country, etc.,
-only the first choices are indexed. they're indexed only as a text blob separated by string separator.
+Legacy Search/Storage Engine index is limited to 255 characters in database design, so formatted and unformatted text blocks only index the first part.
+In case of multiple selection field types like, for example, Keyword, Selection, or Country, only the first choices are indexed. they're indexed only as a text blob separated by string separator.
 Proper indexing of these field types is done with [Solr Search engine](solr_overview.md).

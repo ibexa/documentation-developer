@@ -38,7 +38,8 @@ $relationList->destinationContentId = [
 
 ##### Constructor
 
-The `RelationList\Value` constructor initializes a new Value object with the value provided. It expects a mixed array as value.
+The `RelationList\Value` constructor initializes a new value object with the value provided.
+It expects a mixed array as value.
 
 ``` php
 //Constructor example

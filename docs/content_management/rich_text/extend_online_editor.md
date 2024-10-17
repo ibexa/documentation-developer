@@ -4,16 +4,13 @@ description: Add custom tags, styles and data attributes to enrich the functiona
 
 # Extend Online Editor
 
-[[= product_name =]] users edit the contents of RichText fields, for example, 
-in the Content box of a Page, by using the Online Editor.
+[[= product_name =]] users edit the contents of RichText fields, for example,  in the Content box of a Page, by using the Online Editor.
 
-You can extend the Online Editor by adding custom tags and styles, defining custom 
-data attributes, re-arranging existing buttons, grouping buttons into custom toolbar, 
+You can extend the Online Editor by adding custom tags and styles, defining custom data attributes, re-arranging existing buttons, grouping buttons into custom toolbar, 
 and creating [custom buttons](https://ckeditor.com/docs/ckeditor4/latest/guide/widget_sdk_tutorial_1.html#widget-toolbar-button) and [custom plugins](https://ckeditor.com/docs/ckeditor4/latest/guide/dev_plugins.html).
 
 Online Editor is based on the CKEditor5.
-Refer to [CKEditor5 documentation](https://ckeditor.com/docs/ckeditor5/latest/index.html) to learn 
-how you can extend the Online Editor with even more elements.
+Refer to [CKEditor5 documentation](https://ckeditor.com/docs/ckeditor5/latest/index.html) to learn how you can extend the Online Editor with even more elements.
 
 For more information about extending the back office, see [Extend back office](back_office.md).
 
@@ -130,8 +127,7 @@ Add labels for the tag by providing translations in `translations/custom_tags.en
 
 ![Adding an explanation to an Acronym custom tag](oe_custom_tag_add_acronym.png)
 
-In the template file `acronym.html.twig` provide the explanation as attribute value
-to the title of the `abbr` tag:
+In the template file `acronym.html.twig` provide the explanation as attribute value to the title of the `abbr` tag:
 
 ``` html+twig
 <abbr title="{{ params.explanation }}">{{ content }}</abbr>
@@ -187,7 +183,7 @@ The template files for the front end could look as follows:
 <div {% if id is defined %}id="{{ id }}"{% endif %} class="{% if align is defined %}align-{{ align }}{% endif %} ezstyle-{{ name }}">{% apply spaceless %}{{ content|raw }}{% endapply %}</div>
 ```
 
-Templates for Content View in the back office would be `templates/themes/admin/field_type/ezrichtext/custom_styles/highlighted_word.html.twig` and `templates/themes/admin/field_type/ezrichtext/custom_styles/highlighted_block.html.twig` respectively (assuming that the back office SiteAccess uses the default `admin` theme).
+Templates for Content View in the back office would be `templates/themes/admin/field_type/ezrichtext/custom_styles/highlighted_word.html.twig` and `templates/themes/admin/field_type/ezrichtext/custom_styles/highlighted_block.html.twig` (assuming that the back office SiteAccess uses the default `admin` theme).
 
 ### Use cases
 
@@ -266,8 +262,7 @@ ezrichtext.custom_styles.highlight.label: 'Highlight'
 
 ## Configure custom data attributes and classes
 
-You can add custom data attributes and CSS classes to the following elements 
-in the Online Editor:
+You can add custom data attributes and CSS classes to the following elements in the Online Editor:
 
 - `embedInline`
 - `embed`
@@ -307,25 +302,21 @@ in the Online Editor:
 You configure custom data attributes under the `fieldtypes.ibexa_fieldtype_richtext.attributes` key.
 The configuration is SiteAccess-aware.
 
-A custom data attribute can belong to one of the following types: `choice`, 
-`boolean`, `string`, or `number`.
+A custom data attribute can belong to one of the following types: `choice`, `boolean`, `string`, or `number`.
 You can also set each attribute to be `required` and set its `default_value`.
 
 For the `choice` type, you must provide an array of available `choices`.
 By adding `multiple`, you can decide whether more than one option can be selected.
 It's set to `false` by default.
 
-Use the example below to add two data attributes, `custom_attribute` and 
-`another_attribute` to the Heading element in the `admin_group` SiteAccess:
+Use the example below to add two data attributes, `custom_attribute` and `another_attribute` to the Heading element in the `admin_group` SiteAccess:
 
 ``` yaml
 [[= include_file('code_samples/back_office/online_editor/config/packages/custom_data_attributes.yaml') =]]
 ```
 
-The configuration outputs `data-ezattribute-<attribute_name>="<value>"` in the 
-corresponding HTML element.
-Here, the resulting values are `data-ezattribute-custom-attribute="false"` and 
-`data-ezattribute-another-attribute="attr1,attr2"`.
+The configuration outputs `data-ezattribute-<attribute_name>="<value>"` in the corresponding HTML element.
+Here, the resulting values are `data-ezattribute-custom-attribute="false"` and `data-ezattribute-another-attribute="attr1,attr2"`.
 
 ### Custom CSS classes
 
@@ -344,9 +335,7 @@ Use the example below to add a class choice to the Paragraph element in the `adm
  
 !!! note "Label translations"
 
-    If there are many custom attributes, to provide label translations for these 
-    attributes, you can use the `ez_online_editor_attributes` translation extractor 
-    to get a full list of all custom attributes for all elements in all scopes.
+    If there are many custom attributes, to provide label translations for these attributes, you can use the `ez_online_editor_attributes` translation extractor to get a full list of all custom attributes for all elements in all scopes.
 
     For example:
 
@@ -359,8 +348,7 @@ Use the example below to add a class choice to the Paragraph element in the `adm
 
 #### Note box
 
-You can create a custom class that enables you to place a paragraph element in 
-a note box:
+You can create a custom class that enables you to place a paragraph element in a note box:
 
 ![Example of a note box custom style](oe_custom_style_note_box.png)
 
@@ -369,8 +357,7 @@ a note box:
 
 ```
 
-With this class you can choose one of the following classes for each paragraph 
-element: `regular`, `tip_box`, or `warning_box`.
+With this class you can choose one of the following classes for each paragraph element: `regular`, `tip_box`, or `warning_box`.
 You can then style the class by using CSS.
 
 ![Selecting a custom style for a paragraph](oe_custom_class_note_box_select.png)
@@ -381,23 +368,23 @@ You can then style the class by using CSS.
 
 ## Rearrange buttons
 
-You can modify the order and visibility of buttons that are available in the 
-Online Editor toolbar through configuration:
+You can modify the order and visibility of buttons that are available in the Online Editor toolbar through configuration:
 
 ``` yaml
 [[= include_file('code_samples/back_office/online_editor/config/packages/custom_buttons.yaml') =]]
 ```
 
-For each button you can set `priority`, which defines the order of buttons in 
-the toolbar.
+For each button you can set `priority`, which defines the order of buttons in the toolbar.
 
 For a full list of standard buttons, see the RichText module's [configuration file](https://github.com/ibexa/fieldtype-richtext/blob/main/src/bundle/Resources/config/prepend/ezpublish.yaml)
 
 ## Add CKEditor plugins
 
-Regular CKEditor plugins can be added to the Online Editor. This procedure is illustrated with the addition of the [Special characters plugin](https://ckeditor.com/docs/ckeditor5/latest/features/special-characters.html).
+Regular CKEditor plugins can be added to the Online Editor.
+This procedure is illustrated with the addition of the [Special characters plugin](https://ckeditor.com/docs/ckeditor5/latest/features/special-characters.html).
 
-A CKEditor plugin is installed locally by using `yarn add ` or `npm install`, and is deployed by committing the `yarn.lock` file. A local installation looks like:
+A CKEditor plugin is installed locally by using `yarn add ` or `npm install`, and is deployed by committing the `yarn.lock` file.
+A local installation looks like:
 
 ```bash
 yarn add @ckeditor/ckeditor5-special-characters

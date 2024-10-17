@@ -8,14 +8,16 @@ This field type is used as fallback for migration scenarios, and for testing pur
 
 ## Description
 
-The Null field type serves as an aid when migrating from eZ Publish Platform and earlier legacy versions. It's a dummy for legacy field types that aren't implemented in [[= product_name =]].
+The Null field type serves as an aid when migrating from eZ Publish Platform and earlier legacy versions.
+It's a dummy for legacy field types that aren't implemented in [[= product_name =]].
 
 Null field type accepts anything provided as a value and is usually combined with:
 
 - NullConverter: Makes it not store anything to the legacy storage engine (database), nor it reads any data.
 - Unindexed: Indexable class making sure nothing is indexed to configured search engine.
 
-This field type doesn't have its own fixed internal name. Its identifier is instead configured as needed by passing it as an argument to the constructor.
+This field type doesn't have its own fixed internal name.
+Its identifier is instead configured as needed by passing it as an argument to the constructor.
 
 ### Example for usage of Null field type
 

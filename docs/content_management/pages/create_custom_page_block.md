@@ -23,12 +23,10 @@ First, add the following [YAML configuration](configuration.md#configuration-fil
 `event` is the internal name for the block, and `name` indicates the name under which the block is available in the interface.
 You also set up the category in the Elements panel that the block appears in.
 In this case, it doesn't show with the rest of the built-in blocks, but in a separate "Custom" category.
-The thumbnail for the block can be one of the pre-existing icons, like in the example above,
-or you can use a custom SVG file.
+The thumbnail for the block can be one of the pre-existing icons, like in the example above, or you can use a custom SVG file.
 
-A block can have multiple attributes that you edit when adding it to a Page.
-In this example, you configure three attributes: name of the event, category it belongs to,
-and an event content item that you select and embed.
+A block can have multiple attributes that you edit when adding it to a page.
+In this example, you configure three attributes: name of the event, category it belongs to, and an event content item that you select and embed.
 
 For a list of all available attribute types, see [Page block attributes](page_block_attributes.md).
 
@@ -39,7 +37,7 @@ The `regexp` validator ensure that the final value looks like a content ID.
 
 ## Add block templates
 
-A block can have different templates that you select when adding it to a Page.
+A block can have different templates that you select when adding it to a page.
 
 To configure block templates, add them to block configuration:
 
@@ -90,7 +88,7 @@ document.getElementsByTagName('body')[0].addEventListener('ibexa-render-block-pr
 !!! note
 
     For the addition of your custom block's JS and CSS files, see [Assets](assets.md).
-    
+
     If you consider using React JavaScript library, see [React App block](react_app_block.md).
 
 ## Add pre-render event listener

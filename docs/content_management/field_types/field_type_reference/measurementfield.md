@@ -1,8 +1,7 @@
 # Measurement field type
 
 The Measurement field type represents measurement information. 
-It stores the unit of measure, and either a single measurement value, 
-or a pair of values that defines a range.
+It stores the unit of measure, and either a single measurement value, or a pair of values that defines a range.
 
 | Name          | Internal name       | Expected input type                                |
 |---------------|---------------------|----------------------------------------------------|
@@ -19,8 +18,7 @@ The service contains the following API endpoints:
 - `buildSimpleValue` that is used to handle a single value
 - `buildRangeValue` that is used to handle a range
 
-Assuming that the service exists as `$measurementService`, the expected input 
-examples are as follows:
+Assuming that the service exists as `$measurementService`, the expected input examples are as follows:
 
 | Type                                                    | Example                                                             |
 |---------------------------------------------------------|---------------------------------------------------------------------|
@@ -39,8 +37,7 @@ The Value class of this field type contains the following properties:
 
 ##### Constructor
 
-The `Measurement\Value` constructor for this value object initializes a new value 
-object with the value provided. 
+The `Measurement\Value` constructor for this value object initializes a new value object with the value provided. 
 As its first argument it accepts an object of `Ibexa\Contracts\Measurement\Value\ValueInterface` type.
 
 Depending on the selected input type, the object resembles the following examples:
@@ -78,13 +75,11 @@ $measurementValue = new Measurement\Value(
 
 ### Validation
 
-The Measurement field type validates measurement types and units passed within 
-the value object against a list of the ones that the system supports, which can 
-be found in the `vendor/ibexa/measurement/src/bundle/Resources/config/builtin_units.yaml` file.
+The Measurement field type validates measurement types and units passed within the value object against a list of the ones that the system supports, which can be found in the `vendor/ibexa/measurement/src/bundle/Resources/config/builtin_units.yaml` file.
 
 ### Modify and add Measurement types and units
 
-You can extend the default list of Measurement types and units by modifying the existing entries or adding new ones. 
+You can extend the default list of Measurement types and units by modifying the existing entries or adding new ones.
 To do this, you modify the YAML configuration.
 
 To override an existing designation of the unit of measure by changing the symbol that corresponds to a nautical unit of speed, and to add a rotational speed unit, add the following lines to your [YAML configuration](configuration.md#configuration-files):
@@ -121,12 +116,11 @@ ibexa:
                         - my_unit
 ```
 
-The configuration also requires that exactly one unit needs
-to be marked as `is_base_unit` as in highlighted line above.
+The configuration also requires that exactly one unit needs to be marked as `is_base_unit` as in highlighted line above.
 
 !!! note
 
-    To be available for selection in the back office, each new Measurement type or unit must be enabled for the  back office SiteAccess.
+    To be available for selection in the back office, each new Measurement type or unit must be enabled for the back office SiteAccess.
 
 Next, you need to define how the new unit should be converted under the `ibexa.system.<scope>.ibexa_measurement` [configuration key](configuration.md#configuration-files):
 

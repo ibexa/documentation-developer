@@ -6,8 +6,7 @@ This field represents and handles a table of rows and columns of data.
 |----------|---------------|----------------|
 | `Matrix` | `ezmatrix`    | `array`        |
 
-The Matrix field type is available via the Matrix Bundle
-provided by the [ibexa/fieldtype-matrix](https://github.com/ibexa/fieldtype-matrix) package.
+The Matrix field type is available via the Matrix Bundle provided by the [ibexa/fieldtype-matrix](https://github.com/ibexa/fieldtype-matrix) package.
 
 ## PHP API field type
 
@@ -39,7 +38,9 @@ new FieldType\Value([
 
 The minimum number of rows is set on content type level for each field.
 
-Validation checks for empty rows. A row is considered empty if it contains only empty cells (or cells containing only spaces). Empty rows are removed.
+Validation checks for empty rows.
+A row is considered empty if it contains only empty cells (or cells containing only spaces).
+Empty rows are removed.
 
 If, after removing empty rows, the number of rows doesn't fulfill the configured `Minimum number of rows`, the field doesn't validate.
 
@@ -55,7 +56,7 @@ new FieldType\Value([
 
 ## GraphQL field type operations
 
-To get a field of the Matrix field type with GraphQL, you need to specify a Content ID, a content type, and a field type.
+To get a field of the Matrix field type with GraphQL, you need to specify a content ID, a content type, and a field type.
 
 The types that are returned are named after the Type and the field:
 
@@ -106,7 +107,8 @@ The Type returned for the Matrix field exposes columns defined in the field defi
 
 ### Query for the field type and field definition's details
 
-With this query you can inspect details of specific content type. In case of a Matrix field, you can ask for the list of columns, their names and identifiers.
+With this query you can inspect details of specific content type.
+In case of a Matrix field, you can ask for the list of columns, their names, and identifiers.
 
 ```
 {

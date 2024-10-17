@@ -32,7 +32,7 @@ The Value class of this field type contains the following properties:
 
 ##### Constructor
 
-The constructor for this value object initializes a new Value object with the value provided. It accepts an instance of PHP's built-in `\DateTime` class.
+The constructor for this value object initializes a new value object with the value provided. It accepts an instance of PHP's built-in `\DateTime` class.
 
 ##### String representation
 

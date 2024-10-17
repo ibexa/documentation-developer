@@ -32,7 +32,8 @@ $emailaddressValue->email = "someuser@example.com";
 
 ##### Constructor
 
-The `EmailAddress\Value` constructor initializes a new Value object with the value provided. It accepts a string as input.
+The `EmailAddress\Value` constructor initializes a new value object with the value provided.
+It accepts a string as input.
 
 ``` php
 // Constructor example

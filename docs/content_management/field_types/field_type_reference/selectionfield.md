@@ -53,7 +53,7 @@ Example: `"1,2,24,42"`
 
 ### Hash format
 
-Hash format of this field type is the same as Value object's `selection` property.
+Hash format of this field type is the same as value object's `selection` property.
 
 ``` php
 // Example of value in hash format
@@ -64,7 +64,8 @@ $hash = [ 1, 2 ];
 ### Validation
 
 This field type validates the input, verifying if all selected options exist in the field definition and checks if multiple selections are allowed in the field definition.
-If any of these validations fail, a `ValidationError` is thrown, specifying the error message. When option validation fails, a list with the invalid options is also presented.
+If any of these validations fail, a `ValidationError` is thrown, specifying the error message.
+When option validation fails, a list with the invalid options is also presented.
 
 ### Settings
 

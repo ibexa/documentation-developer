@@ -33,27 +33,37 @@ By convention it should be prefixed by a unique vendor shortcut (for example, `i
 
 #### `getSettingsSchema()`
 
-This method retrieves via public PHP API a schema for the field type settings. A typical setting would be, for example, default value. The settings structure defined by this schema is stored in the `FieldDefinition`. Since it's not possible to define a generic format for such a schema, the field type is free to return any serializable data structure from this method.
+This method retrieves via public PHP API a schema for the field type settings.
+A typical setting would be, for example, default value.
+The settings structure defined by this schema is stored in the `FieldDefinition`.
+Since it's not possible to define a generic format for such a schema, the field type is free to return any serializable data structure from this method.
 
 #### `getValidatorConfigurationSchema()`
 
-In addition to normal settings, the field type should provide schema settings for its validation process. The schema describes what kind of validation can be performed by the field type and which settings the user can specify to these validation methods. For example, the `ezstring` type can validate minimum and maximum length of the string. It therefore provides a schema to indicate to the user that they might specify the corresponding restrictions, when creating a `FieldDefinition` with this type. The schema doesn't underlie any regulations, except for that it must be serializable.
+In addition to normal settings, the field type should provide schema settings for its validation process.
+The schema describes what kind of validation can be performed by the field type and which settings the user can specify to these validation methods.
+For example, the `ezstring` type can validate minimum and maximum length of the string.
+It therefore provides a schema to indicate to the user that they might specify the corresponding restrictions, when creating a `FieldDefinition` with this type.
+The schema doesn't underlie any regulations, except for that it must be serializable.
 
 #### `validateFieldSettings()`
 
-The type is asked to validate the settings (provided by the user) before the public PHP API stores those settings for the field type in a `FieldDefinition`. As a result, the field type must return if the given settings comply to the schema defined by `getSettingsSchema()`.
+The type is asked to validate the settings (provided by the user) before the public PHP API stores those settings for the field type in a `FieldDefinition`.
+As a result, the field type must return if the given settings comply to the schema defined by `getSettingsSchema()`.
 
 #### `validateValidatorConfiguration()`
 
 As in `validateFieldSettings()`, this method verifies that the given validator configuration complies to the schema provided by `getValidatorConfigurationSchema()`.
 
-It's important to know that the schema definitions of the field type can be both of arbitrary and serializable format. It's highly recommended to use a simple hash structure.
+It's important to know that the schema definitions of the field type can be both of arbitrary and serializable format.
+It's highly recommended to use a simple hash structure.
 
 !!! note
 
     Since it's not possible to enforce a schema format, the code using a specific field type must basically know all field types it deals with.
 
-This also applies to all user interfaces and the REST API, which therefore must provide extension points to register handling code for custom field type. These extensions aren't defined yet.
+This also applies to all user interfaces and the REST API, which therefore must provide extension points to register handling code for custom field type.
+These extensions aren't defined yet.
 
 ### Field type name
 
@@ -62,13 +72,17 @@ To generate content item name or URL alias the field type name must be a part of
 
 ## Value handling
 
-A field type needs to deal with the custom value format provided by it. In order for the public PHP API to work properly, it delegates working with such custom field values to the corresponding field type. The `Ibexa\Core\FieldType\FieldType` interface therefore provides the following methods:
+A field type needs to deal with the custom value format provided by it.
+In order for the public PHP API to work properly, it delegates working with such custom field values to the corresponding field type.
+The `Ibexa\Core\FieldType\FieldType` interface therefore provides the following methods:
 
 #### `acceptValue()`
 
-This method is responsible for accepting and converting user input for the field. It checks the input structure by accepting, building, and returning a different structure holding the data.
+This method is responsible for accepting and converting user input for the field.
+It checks the input structure by accepting, building, and returning a different structure holding the data.
 
-For example: a user provides an HTTP link as a string, `acceptValue()` converts the link to a URL field type value object. Unlike the `FieldType\Value` constructor, it's possible to make this method aware of multiple input types (object or primitive).
+For example: a user provides an HTTP link as a string, `acceptValue()` converts the link to a URL field type value object.
+Unlike the `FieldType\Value` constructor, it's possible to make this method aware of multiple input types (object or primitive).
 
 !!! note
 
@@ -76,7 +90,8 @@ For example: a user provides an HTTP link as a string, `acceptValue()` converts 
 
 #### `getEmptyValue()`
 
-The field type can specify that the user may define a default value for the `Field` of the type through settings. If no default value is provided, the field type is asked for an "empty value" as the final fallback.
+The field type can specify that the user may define a default value for the `Field` of the type through settings.
+If no default value is provided, the field type is asked for an "empty value" as the final fallback.
 
 The value chain for filling a specific field of the field type is as follows:
 
@@ -91,7 +106,9 @@ It's based on the field type settings and validator configuration and stored in 
 
 ### Serialization
 
-When [REST API](rest_api_usage.md) is used, conversion needs to be done for field type values, settings, and validator configurations. These are converted to and from a simple hash format that can be encoded in REST payload. As conversion needs to be done both when transmitting and receiving data through REST, field type implements the following pairs of methods:
+When [REST API](rest_api_usage.md) is used, conversion needs to be done for field type values, settings, and validator configurations.
+These are converted to and from a simple hash format that can be encoded in REST payload.
+As conversion needs to be done both when transmitting and receiving data through REST, field type implements the following pairs of methods:
 
 |Method|Description|
 |------|-----------|
@@ -118,7 +135,8 @@ services:
 
 #### `parent`
 
-As described in the [Symfony service container documentation]([[= symfony_doc =]]/components/dependency_injection/parentservices.html), the `parent` config key indicates that you want your service to inherit from the parent's dependencies, including constructor arguments and method calls. This helps avoiding repetition in your field type configuration and keeps consistency between all field types.
+As described in the [Symfony service container documentation]([[= symfony_doc =]]/components/dependency_injection/parentservices.html), the `parent` config key indicates that you want your service to inherit from the parent's dependencies, including constructor arguments and method calls.
+This helps avoiding repetition in your field type configuration and keeps consistency between all field types.
 If you need to inject other services into your Type class, skip using the `parent` config key.
 
 #### `tags`
@@ -171,7 +189,8 @@ The settings are mapped into Symfony forms via the [FormMapper](form_and_templat
 
 ## Extensibility points
 
-Some field types require additional processing, for example a field type storing a binary file, or one having more complex settings or validator configuration. For this purpose specific implementations of an abstract class `Ibexa\Contracts\Rest\FieldTypeProcessor` are used.
+Some field types require additional processing, for example a field type storing a binary file, or one having more complex settings, or validator configuration.
+For this purpose specific implementations of an abstract class `Ibexa\Contracts\Rest\FieldTypeProcessor` are used.
 
 This class provides the following methods:
 
@@ -184,4 +203,5 @@ This class provides the following methods:
 |`preProcessValidatorConfigurationHash()`|Performs manipulations on a received validator configuration hash, so that it conforms to the format expected by the `validatorConfigurationFromHash()` method described above.|
 |`postProcessValidatorConfigurationHash()`|Performs manipulations on a outgoing validator configuration hash, previously generated by the `validatorConfigurationToHash()` method described above.|
 
-Base implementations of these methods simply return the given hash, so you can implement only the methods your field type requires. Some built-in field types already implement processors and you're encouraged to take a look at them.
+Base implementations of these methods return the given hash, so you can implement only the methods your field type requires.
+Some built-in field types already implement processors and you're encouraged to take a look at them.

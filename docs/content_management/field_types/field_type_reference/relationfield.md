@@ -33,7 +33,7 @@ $relation->destinationContentId = $contentInfo->id;
 
 ##### Constructor
 
-The `Relation\Value` constructor initializes a new Value object with the value provided. It expects a mixed value.
+The `Relation\Value` constructor initializes a new value object with the value provided. It expects a mixed value.
 
 ``` php
 // Constructor example

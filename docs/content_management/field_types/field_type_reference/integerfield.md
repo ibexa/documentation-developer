@@ -31,7 +31,8 @@ $integer->value = 8
 
 ##### Constructor
 
-The `Integer\Value` constructor initializes a new Value object with the value provided. It expects a numeric, integer value.
+The `Integer\Value` constructor initializes a new value object with the value provided.
+It expects a numeric, integer value.
 
 ``` php
 // Constructor example

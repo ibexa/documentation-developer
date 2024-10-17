@@ -1,6 +1,7 @@
 # URL field type
 
-This field type makes it possible to store and retrieve a URL. It's formed by the combination of a link and the respective text.
+This field type makes it possible to store and retrieve a URL.
+It's formed by the combination of a link and the respective text.
 
 | Name  | Internal name | Expected input |
 |-------|---------------|----------------|
@@ -35,7 +36,8 @@ $url->text = "Ibexa";
 
 ##### Constructor
 
-The `Url\Value` constructor initializes a new Value object with the provided value. It expects two comma-separated strings, corresponding to the link and text.
+The `Url\Value` constructor initializes a new value object with the provided value.
+It expects two comma-separated strings, corresponding to the link and text.
 
 ``` php
 // Constructor example

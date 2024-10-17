@@ -24,11 +24,13 @@ An ISBN's string representation is the `$isbn` property's value, as a string.
 
 ##### Constructor
 
-The constructor for this value object initializes a new Value object with the value provided. It accepts a string as argument and sets it to the `isbn` attribute.
+The constructor for this value object initializes a new value object with the value provided.
+It accepts a string as argument and sets it to the `isbn` attribute.
 
 ### Validation
 
-The input passed into this field type is subject of ISBN validation depending on the field settings in its FieldDefinition stored in the content type. An example of this field setting is shown below and controls if input is validated as ISBN-13 or ISBN-10:
+The input passed into this field type is subject of ISBN validation depending on the field settings in its FieldDefinition stored in the content type.
+An example of this field setting is shown below and controls if input is validated as ISBN-13 or ISBN-10:
 
 ``` php
 Array

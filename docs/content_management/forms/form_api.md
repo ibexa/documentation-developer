@@ -11,15 +11,13 @@ To manage form submissions created in the [Form Builder](form_builder_guide.md),
 
 ### Getting form submissions
 
-To get existing form submissions, use `FormSubmissionServiceInterface::loadByContent()`
-(which takes a `ContentInfo` object as parameter), or `FormSubmissionServiceInterface::loadById()`.
+To get existing form submissions, use `FormSubmissionServiceInterface::loadByContent()` (which takes a `ContentInfo` object as parameter), or `FormSubmissionServiceInterface::loadById()`.
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/FormSubmissionCommand.php', 54, 55) =]]
 ```
 
-Through this object, you can get information about submissions, such as their total number,
-and submission contents.
+Through this object, you can get information about submissions, such as their total number, and submission contents.
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/FormSubmissionCommand.php', 55, 66) =]]

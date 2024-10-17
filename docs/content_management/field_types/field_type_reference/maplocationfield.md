@@ -33,7 +33,8 @@ The Value class of this field type contains the following properties:
 
 ##### Constructor
 
-The `MapLocation\Value` constructor initializes a new Value object with values provided as hash. Accepted keys are `latitude` (`float`), `longitude` (`float`), `address` (`string`).
+The `MapLocation\Value` constructor initializes a new value object with values provided as hash.
+Accepted keys are `latitude` (`float`), `longitude` (`float`), `address` (`string`).
 
 ``` php
 // Constructor example
@@ -50,7 +51,7 @@ $MapLocationValue = new MapLocation\Value(
 
 ## Template rendering
 
-The template called by [the `ibexa_render_field()` Twig function](field_twig_functions.md#ibexa_render_field) while rendering a Map Location field accepts the following parameters:
+The template called by [the `ibexa_render_field()` Twig function](field_twig_functions.md#ibexa_render_field) while rendering a Map location field accepts the following parameters:
 
 |Parameter|Type|Default|Description|
 |------|------|------|------|
@@ -70,5 +71,4 @@ Example:
 
 !!! note
 
-    The option to automatically get user coordinates through the "Locate me" button
-    is only available when the back office is served through the `https://` protocol.
+    The option to automatically get user coordinates through the "Locate me" button is only available when the back office is served through the `https://` protocol.

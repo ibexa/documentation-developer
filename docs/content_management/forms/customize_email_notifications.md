@@ -20,7 +20,7 @@ Each of them is rendered independently and consists of three sets of parameters.
 |---------|----|-----------|
 |`content`|`Ibexa\Contracts\Core\Repository\Values\Content\Content`|Name of the form, its content type|
 |`form`|`Ibexa\Contracts\FormBuilder\FieldType\Model\Form`|Definition of the form|
-|`data`|`Ibexa\Contracts\FormBuilder\FieldType\Model\FormSubmission`|Sent data|  
+|`data`|`Ibexa\Contracts\FormBuilder\FieldType\Model\FormSubmission`|Sent data|
 
 ## Configure sender details
 

@@ -1,8 +1,8 @@
 # TaxonomyEntryAssignment field type
 
-`TaxonomyEntryAssignment` field is used to integrate content with the Taxonomy module. 
-It allows you to select tags or categories and assign them to content. 
-This field type assigns tags to the content in the data action, so then you can use `TaxonomyService` on this content item. 
+`TaxonomyEntryAssignment` field is used to integrate content with the Taxonomy module.
+It allows you to select tags or categories and assign them to content.
+This field type assigns tags to the content in the data action, so then you can use `TaxonomyService` on this content item.
 
 !!! caution "Duplicate taxonomy fields"
 
@@ -33,7 +33,7 @@ new \Ibexa\Taxonomy\FieldType\TaxonomyEntryAssignment\Value(
         $taxonomyEntry2,
         // ...
     ],
-    'tags', 
+    'tags',
 );
 ```
 

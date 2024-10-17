@@ -1,6 +1,7 @@
 # ImageAsset field type
 
-ImageAsset field type enables storing images in independent content items of a generic Image content type, in the media library. It makes them reusable across system.
+ImageAsset field type enables storing images in independent content items of a generic Image content type, in the media library.
+It makes them reusable across system.
 
 ### Input expectations
 
@@ -33,7 +34,8 @@ $imageAssetValue->alternativeText = "Picture of an apple.";
 
 ##### Constructor
 
-The `ImageAsset\Value` constructor initializes a new value object with the value provided. It expects an ID of a content item representing asset and the alternative text.
+The `ImageAsset\Value` constructor initializes a new value object with the value provided.
+It expects an ID of a content item representing asset and the alternative text.
 
 ``` php
 // Constructor example
@@ -75,12 +77,13 @@ ibexa:
 
 ## Customizing ImageAsset field type rendering
 
-Internally the Image Asset Type is rendered via subrequest (similar to other relation types). Rendering customization is possible by configuring view type `asset_image`:
+Internally the Image Asset Type is rendered via subrequest (similar to other relation types).
+Rendering customization is possible by configuring view type `asset_image`:
 
 ```php
 ibexa:
     system:
-       default:           
+       default:
             content_view:
                 asset_image:
                     default:

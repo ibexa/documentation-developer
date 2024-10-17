@@ -10,8 +10,7 @@ Define new form fields in configuration.
 
 ## Configure Form field
 
-For example, to create a Country Form field in the "Custom form fields" category,
-provide the following configuration under the `ibexa_form_builder.fields` [configuration key](configuration.md#configuration-files):
+For example, to create a Country Form field in the "Custom form fields" category, provide the following configuration under the `ibexa_form_builder.fields` [configuration key](configuration.md#configuration-files):
 
 ``` yaml
 [[= include_file('code_samples/forms/custom_form_field/config/packages/form_builder.yaml') =]]

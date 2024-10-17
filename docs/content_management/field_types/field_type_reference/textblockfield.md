@@ -30,7 +30,8 @@ A TextBlock's string representation is the `$text` property's value, as a string
 
 ##### Constructor
 
-The constructor for this Value object initializes a new Value object with the value provided. It accepts a string as argument and imports it to the `$text` attribute.
+The constructor for this value object initializes a new value object with the value provided.
+It accepts a string as argument and imports it to the `$text` attribute.
 
 ### Validation
 

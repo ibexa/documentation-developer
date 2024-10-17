@@ -30,15 +30,20 @@ This example from the `Url` field type shows that the field type always returns 
 
 ### `getDefaultMatchField()`
 
-This method retrieves the name of the default field to be used for matching. As field types can index multiple fields (see [MapLocation](maplocationfield.md) field type's implementation of this interface), this method is used to define the default field for matching. The default field is typically used by the [`Field` Search Criterion](field_criterion.md).
+This method retrieves the name of the default field to be used for matching.
+As field types can index multiple fields (see [MapLocation](maplocationfield.md) field type's implementation of this interface), this method is used to define the default field for matching.
+Default field is typically used by the [`Field` Search Criterion](field_criterion.md).
 
 ### `getDefaultSortField()`
 
-This method gets name of the default field to be used for sorting. As field types can index multiple fields (see [MapLocation](maplocationfield.md) field type's implementation of this interface), this method is used to define default field for sorting. Default field is typically used by the [`Field` Sort Clause](field_sort_clause.md).
+This method gets name of the default field to be used for sorting.
+As field types can index multiple fields (see [MapLocation](maplocationfield.md) field type's implementation of this interface), this method is used to define default field for sorting.
+Default field is typically used by the [`Field` Sort Clause](field_sort_clause.md).
 
 ## Register `Indexable` implementations
 
-Implement `Ibexa\Contracts\Core\FieldType\Indexable` as an extra service and register this Service using the `ibexa.field_type.indexable` tag. Example from [`indexable_fieldtypes.yaml`](https://github.com/ibexa/core/blob/main/src/lib/Resources/settings/indexable_fieldtypes.yml):
+Implement `Ibexa\Contracts\Core\FieldType\Indexable` as an extra service and register this Service using the `ibexa.field_type.indexable` tag.
+Example from [`indexable_fieldtypes.yaml`](https://github.com/ibexa/core/blob/main/src/lib/Resources/settings/indexable_fieldtypes.yml):
 
 ``` yaml
 Ibexa\Core\FieldType\Keyword\SearchField:
@@ -61,7 +66,9 @@ The search field values returned by the `getIndexData` method are simple value o
 
 ## Search field types
 
-There are many available search field types which are handled by search backend configuration. When using them, there is no need to adapt, for example, the Solr configuration in any way. You can always use custom field types, but these might require re-configuration of the search backend. For Solr this would mean adapting the `schema.xml` file.
+There are many available search field types which are handled by search backend configuration.
+When using them, there is no need to adapt, for example, the Solr configuration in any way.
+You can always use custom field types, but these might require re-configuration of the search backend. For Solr this would mean adapting the `schema.xml` file.
 
 The default available search field types that can be found in the `Ibexa\Contracts\Core\Search\FieldType` namespace are:
 
@@ -89,7 +96,8 @@ The default available search field types that can be found in the `Ibexa\Contrac
 As mentioned before, if you use the standard type definitions, there is no need to configure the search backend in any way.
 The field definitions are handled using `dynamicField` definitions in Solr, for example.
 
-If you want to configure the handling of your field, you can always add a special field definition to the Solr `schema.xml`. For fields, the field type names used by the Solr search backend look like this: `<content_type_identifier>/<field_identifier>/<search_field_name>_<type>`.
+If you want to configure the handling of your field, you can always add a special field definition to the Solr `schema.xml`.
+For fields, the field type names used by the Solr search backend look like this: `<content_type_identifier>/<field_identifier>/<search_field_name>_<type>`.
 You can define custom `dynamicField` definitions to match, for example, on your custom `_<type>` definition.
 
 You could also define a custom field definition for certain fields, like for the name field in an article:

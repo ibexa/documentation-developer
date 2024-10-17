@@ -6,7 +6,7 @@ The Image field type allows you to store an image file.
 |---------|---------------|
 | `Image` | `ezimage`     |
 
-A **variation service** handles the conversion of the original image into different formats and sizes through a set of preconfigured named variations: large, small, medium, black and white thumbnail, etc.
+A **variation service** handles the conversion of the original image into different formats and sizes through a set of preconfigured named variations, for example, large, small, medium, or black and white thumbnail.
 
 ## PHP API field type
 
@@ -46,7 +46,7 @@ Using the variation Service, variations of the original image can be obtained. t
 |----------------|----------|----------|------------|
 | `width`*       | int      | `null`    | The variation's width in pixels. For more details see Caution note below.|
 | `height`*      | int      | `null`    | The variation's height in pixels. For more details see Caution note below.|
-| `name`         | string   | `medium` | The variation's identifier, name of the image alias.|
+| `name`         | string   | `medium` | The variation's identifier, name of the image variation.|
 | `info`         | mixed    |n/a| Extra information about the image, depending on the image type, such as EXIF data. If there is no information, the `info` value is `null`.|
 | `fileSize`     | int      |`31010` |Size (in byte) of current variation.|
 | `mimeType`     | string   |`image/png`|The MIME type.|
@@ -114,7 +114,8 @@ The variation's properties can be used to generate the required output:
 
 ### With the REST API
 
-Image Fields within REST are exposed by the `application/vnd.ibexa.api.Content` media-type. An Image field looks like this:
+Image Fields within REST are exposed by the `application/vnd.ibexa.api.Content` media-type.
+An Image field looks like this:
 
 ``` xml
 <field>
@@ -140,7 +141,9 @@ Image Fields within REST are exposed by the `application/vnd.ibexa.api.Content`�
 </field>
 ```
 
-Children of the `fieldValue` node list the general properties of the field's original image (`fileSize`, `fileName`, `inputUri`, etc.), and its variations. For each variation, a URI is provided. Requested through REST, this resource generates the variation if it doesn't exist yet, and list the variation details:
+Children of the `fieldValue` node list the general properties of the field's original image (`fileSize`, `fileName`, `inputUri`, etc.), and its variations.
+For each variation, a URI is provided.
+Requested through REST, this resource generates the variation if it doesn't exist yet, and list the variation details:
 
 ``` xml
 <ContentImageVariation media-type="application/vnd.ibexa.api.ContentImageVariation+xml" href="/api/ibexa/v2/content/binary/images/240-1480/variations/tiny">
@@ -156,7 +159,8 @@ Children of the `fieldValue` node list the general properties of the field's ori
 
 #### Getting an image variation
 
-The variation service, `ibexa.field_type.ezimage.variation_service`, can be used to generate/get variations for a field. It expects a VersionInfo, the Image field, and the variation name as a string (`large`, `medium`, etc.):
+The variation service, `ibexa.field_type.ezimage.variation_service`, can be used to generate/get variations for a field.
+It expects a VersionInfo, the Image field, and the variation name as a string (`large`, `medium`, and more.):
 
 ``` php
 $variation = $imageVariationHandler->getVariation(
@@ -170,7 +174,8 @@ echo $variation->uri;
 
 ### From PHP
 
-As for any field type, there are several ways to input content to a field. For an Image, the quickest is to call `setField()` on the ContentStruct:
+As for any field type, there are several ways to input content to a field.
+For an Image, the quickest is to call `setField()` on the ContentStruct:
 
 ``` php
 $createStruct = $contentService->newContentCreateStruct(
@@ -181,7 +186,8 @@ $createStruct = $contentService->newContentCreateStruct(
 $createStruct->setField( 'image', '/tmp/image.png' );
 ```
 
-To customize the Image's alternative texts, you must first get an `Image\Value` object, and set this property. For that, you can use the `Image\Value::fromString()` method that accepts the path to a local file:
+To customize the Image's alternative texts, you must first get an `Image\Value` object, and set this property.
+For that, you can use the `Image\Value::fromString()` method that accepts the path to a local file:
 
 ``` php
 $createStruct = $contentService->newContentCreateStruct(
@@ -211,7 +217,9 @@ $createStruct->setField( 'image', $imageValue );
 
 ### From REST
 
-The REST API expects field values to be provided in a hash-like structure. Those keys are identical to those expected by the `Image\Value` constructor: `fileName`, `alternativeText`. In addition, image data can be provided using the `data` property, with the image's content encoded as base64.
+The REST API expects field values to be provided in a hash-like structure.
+Those keys are identical to those expected by the `Image\Value` constructor: `fileName`, `alternativeText`.
+In addition, image data can be provided using the `data` property, with the image's content encoded as base64.
 
 #### Creating an Image field
 
@@ -238,7 +246,9 @@ The REST API expects field values to be provided in a hash-like structure. Those
 
 ### Updating an Image field
 
-Updating an Image field requires that you re-send existing data. This can be done by re-using the field obtained via REST, **removing the variations key**, and updating `alternativeText`, `fileName` or `data`. If you don't want to change the image itself, don't provide the `data` key.
+Updating an Image field requires that you re-send existing data.
+This can be done by re-using the field obtained via REST, **removing the variations key**, and updating `alternativeText`, `fileName` or `data`.
+If you don't want to change the image itself, don't provide the `data` key.
 
 ``` xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -281,7 +291,7 @@ Images are stored in `web/var/ezdemo_site/storage/images/0/8/4/1/1480-1-eng-GB`
 
 Using the field ID digits in reverse order as the folder structure maximizes sharding of files through multiple folders on the filesystem.
 
-Within this folder, images are named like the uploaded file, suffixed with an underscore and the variation name:
+Within this folder, images are named like the uploaded file, suffixed with an underscore, and the variation name:
 
 - `MyImage.png`
 - `MyImage_large.png`

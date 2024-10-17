@@ -134,12 +134,10 @@ By convention, your block must be named `<fieldTypeIdentifier>_field`.
 
 !!! tip
 
-    Template blocks for built-in field types are available in
-    [`Core/Resources/views/content_fields.html.twig`](https://github.com/ibexa/core/blob/main/src/bundle/Core/Resources/views/content_fields.html.twig).
+    Template blocks for built-in field types are available in [`Core/Resources/views/content_fields.html.twig`](https://github.com/ibexa/core/blob/main/src/bundle/Core/Resources/views/content_fields.html.twig).
 
     This template is also exposed as a part of Standard Design, so you can override it with the [design engine](design_engine.md).
-    To do so, place the template `themes/standard/content_fields.html.twig` in your `Resources/views`
-    (assuming `ibexa_standard_design.override_kernel_templates` is set to true).
+    To do so, place the template `themes/standard/content_fields.html.twig` in your `Resources/views` (assuming `ibexa_standard_design.override_kernel_templates` is set to true).
 
 ### Template variables
 
@@ -148,9 +146,9 @@ The block can receive the following variables:
 | Name | Type | Description |
 |------|------|-------------|
 | `field` | `Ibexa\Contracts\Core\Repository\Values\Content\Field` | The field to display |
-| `contentInfo` | `Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo` | The ContentInfo of the content item the Field belongs to |
-| `versionInfo` | `Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo` | The VersionInfo of the content item the Field belongs to |
-| `fieldSettings` | array | Settings of the Field (depends on the field type) |
+| `contentInfo` | `Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo` | The ContentInfo of the content item the field belongs to |
+| `versionInfo` | `Ibexa\Contracts\Core\Repository\Values\Content\VersionInfo` | The VersionInfo of the content item the field belongs to |
+| `fieldSettings` | array | Settings of the field (depends on the field type) |
 | `parameters` | hash | Options passed to `ibexa_render_field()` under the `'parameters'` key |
 | `attr` | hash | The attributes to add the generate the HTML markup, passed to ibexa_render_field()` under the `'attr'` key. <br> Contains at least a class entry, containing <fieldtypeidentifier>-field |
 

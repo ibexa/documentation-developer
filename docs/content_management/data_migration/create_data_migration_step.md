@@ -12,8 +12,7 @@ To create a custom migration step, you need:
 - A step normalizer, to convert YAML definition into your step class.
 - A step executor, to handle the step.
 
-The following example shows how to create a step that replaces all `ezstring` Fields
-that have an old company name with "New Company Name".
+The following example shows how to create a step that replaces all `ezstring` fields that have an old company name with "New Company Name".
 
 ## Create step class
 

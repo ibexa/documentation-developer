@@ -5,16 +5,13 @@ edition: experience
 
 # Create custom RichText block
 
-A RichText block is a specific example of a [custom block](create_custom_page_block.md) that you can use when 
-you create a Page. 
-To create a custom block, you must define the block's layout, provide templates, add a subscriber 
-and register the subscriber as a service.
+A RichText block is a specific example of a [custom block](create_custom_page_block.md) that you can use when you create a page. 
+To create a custom block, you must define the block's layout, provide templates, add a subscriber, and register the subscriber as a service.
 
-Follow the procedure below to create a RichText Page block.
+Follow the procedure below to create a RichText page block.
 
 First, provide the block configuration under the `ibexa_page_fieldtype.blocks` [configuration key](configuration.md#configuration-files). 
-The following code defines a new block, its view and configuration 
-templates.
+The following code defines a new block, its view and configuration templates.
 It also sets the attribute type to `richtext` (line 15):
 
 ``` yaml hl_lines="3 15"
@@ -37,8 +34,7 @@ Lines 41-51 handle the conversion of content into an XML string:
 [[= include_file('code_samples/back_office/online_editor/src/event/subscriber/RichTextBlockSubscriber.php') =]]
 ```
 
-Now you can create [templates](templates.md) that are used 
-for displaying and configuring your block.
+Now you can create [templates](templates.md) that are used for displaying and configuring your block.
 
 Create the view template in `templates/themes/<your-theme>/blocks/my_block/richtext.html.twig`.
 Line 2 is responsible for rendering the content from XML to HTML5:
@@ -70,7 +66,7 @@ services:
 ```
 
 
-You have successfully created a custom RichText block. 
+You have successfully created a custom RichText block.
 You can now add your block in the **Site** tab.
 
 ![RichText block](extending_richtext_block.png)

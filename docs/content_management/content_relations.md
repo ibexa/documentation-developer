@@ -16,7 +16,7 @@ Instead of using a fixed set of image attributes, the images are stored as separ
 In the system you can find different types of Relations.
 Content can have Relations on item or on field level.
 
-*Relations at Field level* are created using one of two special field types: Content relation (single) and Content relations (multiple).
+*Relations at field level* are created using one of two special field types: Content relation (single) and Content relations (multiple).
 These fields allow you to select one or more other content items in the field value, which are linked to these fields.
 
 *Relations at content item level* can be of three different types:

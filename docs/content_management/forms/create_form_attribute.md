@@ -1,9 +1,9 @@
 ---
-description: Create Form Builder Form attribute. 
+description: Create Form Builder Form attribute.
 edition: experience
 ---
 
-# Create Form Builder Form attribute 
+# Create Form Builder Form attribute
 
 You can create a Form attribute for new Form fields or existing ones.
 To do it, you have to define a new Form attribute in the configuration.
@@ -63,7 +63,8 @@ twig:
 
 ## Add scripts
 
-Now you need to enable the Rich Text editor. Provide the required script in a new `assets/js/formbuilder-richtext-checkbox.js` file:
+Now you need to enable the Rich Text editor.
+Provide the required script in a new `assets/js/formbuilder-richtext-checkbox.js` file:
 
 ``` js
 [[= include_file('code_samples/forms/custom_form_attribute/assets/js/formbuilder-richtext-checkbox.js') =]]

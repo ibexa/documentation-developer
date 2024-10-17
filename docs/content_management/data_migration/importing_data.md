@@ -117,7 +117,7 @@ Then, you can use `faker()` in expressions, for example:
 [[= include_file('code_samples/data_migration/examples/repeatable_step.yaml', 16, 19) =]]
 ```
 
-This step generates Field values with fake personal names.
+This step generates field values with fake personal names.
 
 ### Expression syntax
 
@@ -465,7 +465,7 @@ If the content type associated with the tags is changed, the configuration shoul
     If there are multiple taxonomies, the `taxonomy` field is then necessary here (line 21).
 
 
-You can use the following example to assign tags to a Content (content type Article has an additional Field):
+You can use the following example to assign tags to a Content (content type Article has an additional field):
 
 ``` yaml
 [[= include_file('code_samples/data_migration/examples/assign_tag.yaml') =]]

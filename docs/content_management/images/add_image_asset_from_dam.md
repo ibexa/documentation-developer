@@ -26,7 +26,7 @@ To add the Unsplash connector to your system add the `ibexa/connector-unsplash` 
 
 ## Add Image Asset in Page Builder [[% include 'snippets/experience_badge.md' %]] [[% include 'snippets/commerce_badge.md' %]]
 
-To add Image Assets directly in the Page Builder, you can do it by using the Embed block. 
+To add Image Assets directly in the Page Builder, you can do it by using the Embed block.
 The example below shows how to add images from [Unsplash](https://unsplash.com/).
 
 First, in `templates/themes/standard/embed/`, create a custom template `dam.html.twig`:
@@ -64,7 +64,7 @@ In your [configuration file](configuration.md#configuration-files) add the follo
 ``` yaml
 dam_unsplash:
     application_id: <your_application_access_key>
-    utm_source: <your_utm_source_name>  
+    utm_source: <your_utm_source_name> 
     variations:
        770px:
             fm: jpg

@@ -1,5 +1,5 @@
 ---
-description: To be able to store the data saved to a Field, you must configure storage conversion for the field type.
+description: To be able to store the data saved to a field, you must configure storage conversion for the field type.
 ---
 
 # Field type storage
@@ -50,7 +50,8 @@ This means that using this storage engine requires a conversion.
 Converters map a field's semantic values to the fields described above, for both settings (validation and configuration) and value.
 
 The conversion takes place through the `Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter` interface,
-which you must implement in your field type. The interface contains the following methods:
+which you must implement in your field type.
+The interface contains the following methods:
 
 |Method|Description|
 |------|-----------|
@@ -88,33 +89,30 @@ The tag has the following attribute:
 ## Storing data externally
 
 A field type may store arbitrary data in external data sources.
-External storage can be, for example, a web service, a file in the file system, another database
-or even the [[= product_name =]] database itself (in form of a non-standard table).
+External storage can be, for example, a web service, a file in the file system, another database or even the [[= product_name =]] database itself (in form of a non-standard table).
 
-To store data in external storage, the field type interacts with the Persistence SPI
-through the `Ibexa\Contracts\Core\FieldType\FieldStorage` interface.
+To store data in external storage, the field type interacts with the Persistence SPI through the `Ibexa\Contracts\Core\FieldType\FieldStorage` interface.
 
-Accessing the internal storage of a content item that includes a field of the field type
-calls one of the following methods to also access the external data:
+Accessing the internal storage of a content item that includes a field of the field type calls one of the following methods to also access the external data:
 
 |Method|Description|
 |------|-----------|
 |`hasFieldData()`|Returns whether the field type stores external data at all.|
-|`storeFieldData()`|Called right before a Field of the field type is stored. The method stores `$externalData`. It returns `true` if the call manipulated internal data of the given field, so that it's updated in the internal database.|
+|`storeFieldData()`|Called right before a field of the field type is stored. The method stores `$externalData`. It returns `true` if the call manipulated internal data of the given field, so that it's updated in the internal database.|
 |`getFieldData()`|Called after a field has been restored from the database to restore `$externalData`.|
 |`deleteFieldData()`|Must delete external data for the given field, if exists.|
 |`getIndexData()`|Returns the actual index data for the provided `Ibexa\Contracts\Core\Persistence\Content\Field`. For more information, see [search service](field_type_search.md#search-field-values).|
 
 Each of the above methods (except `hasFieldData`) receives a `$context` array with information on the underlying storage and the environment.
-To retrieve and store data in the [[= product_name =]] data storage,
-but outside of the normal structures (for example, a custom table in an SQL database),
-use [Gateway-based storage](#gateway-based-storage) with properly injected Doctrine Connection.
+To retrieve and store data in the [[= product_name =]] data storage, but outside of the normal structures (for example, a custom table in an SQL database), use [Gateway-based storage](#gateway-based-storage) with properly injected Doctrine Connection.
 
-The field type must take care on its own for being compliant with different data sources and that third parties can extend the data source support easily.
+The field type must take care on its own for being compliant with different data sources and that third parties can extend the data source support.
 
 ### Gateway-based storage
 
-To allow the usage of a field type that uses external data with different data storages, it's recommended to implement a gateway infrastructure and a registry for the gateways. To make this easier, the Core implementation of field types provides corresponding interfaces and base classes. They can also be used for custom field types.
+To allow the usage of a field type that uses external data with different data storages, it's recommended to implement a gateway infrastructure and a registry for the gateways.
+To make this easier, the Core implementation of field types provides corresponding interfaces and base classes.
+They can also be used for custom field types.
 
 The interface `Ibexa\Contracts\Core\FieldType\StorageGateway` is implemented by gateways, to be handled correctly by the registry. It has one method:
 
@@ -173,7 +171,8 @@ services:
 `ibexa.api.storage_engine.legacy.connection` is of type `Doctrine\DBAL\Connection`. If your gateway still uses an implementation of `eZ\Publish\Core\Persistence\Database\DatabaseHandler` (`eZ\Publish\Core\Persistence\Doctrine\ConnectionHandler`), instead of the `ibexa.api.storage_engine.legacy.connection`, you can pass the `ibexa.api.storage_engine.legacy.dbhandler` service.
 
 
-Also there can be several gateways per field type (one per storage engine). In this case it's recommended to either create base implementation which each gateway can inherit or create interface which each gateway must implement and reference it instead of specific implementation when type-hinting method arguments.
+Also there can be several gateways per field type (one per storage engine).
+In this case it's recommended to either create base implementation which each gateway can inherit or create interface which each gateway must implement and reference it instead of specific implementation when type-hinting method arguments.
 
 !!! tip
 
@@ -181,30 +180,23 @@ Also there can be several gateways per field type (one per storage engine). In t
 
 ## Storing field type settings externally
 
-Just like in the case of data, storing [field type settings](type_and_value.md#field-type-settings) 
-in content item tables may prove insufficient. 
-It's not a problem if your setting specifies, for example, just the allowed number of characters 
-in a text field. 
-However, the field type may represent a more complex object, for example, it may 
-consist of two or more other fields, such as the name, SKU and price, and there 
-can be a set of default values instead of just one. 
+Just like in the case of data, storing [field type settings](type_and_value.md#field-type-settings) in content item tables may prove insufficient.
+It's not a problem if your setting specifies, for example, the allowed number of characters in a text field.
+However, the field type may represent a more complex object, for example, it may consist of two or more other fields, such as the name, SKU, and price, and there can be a set of default values instead of just one.
 Once you add validation rules for these field values, then it becomes an issue.
-    
-You can overcome this obstacle: 
-When you create a new field type, you can move field type settings 
-to external storage.
-    
+
+You can overcome this obstacle:
+When you create a new field type, you can move field type settings to external storage.
+
 !!! note
-    
-    Another benefit of an external storage is that there can be database relations to 
-    other objects/entities, and the database itself can maintain the integrity of data.
-    
-First, create a class that implements the 
-`Ibexa\Contracts\Core\FieldType\FieldConstraintsStorage` interface.
-    
-Then, register the External Storage as a service and tag it with `ibexa.field_type.external_constraints_storage`. 
+
+    Another benefit of an external storage is that there can be database relations to other objects/entities, and the database itself can maintain the integrity of data.
+
+First, create a class that implements the `Ibexa\Contracts\Core\FieldType\FieldConstraintsStorage` interface.
+
+Then, register the External Storage as a service and tag it with `ibexa.field_type.external_constraints_storage`.
 Make sure that the alias you use matches the identifier of the new field type:
-    
+
 ``` yaml
 services:
     App\FieldType\Example\ExternalStorage:

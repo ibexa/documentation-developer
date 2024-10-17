@@ -49,7 +49,8 @@ Example: `Wednesday 22 May 2016`
 
 ##### Constructor
 
-The constructor for this value object initializes a new Value object with the value provided. It accepts an instance of [PHP's built-in `\DateTime` class](https://www.php.net/manual/en/datetime.construct.php).
+The constructor for this value object initializes a new value object with the value provided.
+It accepts an instance of [PHP's built-in `\DateTime` class](https://www.php.net/manual/en/datetime.construct.php).
 
 ### Hash format
 

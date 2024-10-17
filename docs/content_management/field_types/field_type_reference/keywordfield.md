@@ -39,7 +39,7 @@ $keyword->value = [ "php", "css3", "html5", "Ibexa Platform" ];
 
 #### Constructor
 
-The `Keyword\Value` constructor initializes a new Value object with the value provided.
+The `Keyword\Value` constructor initializes a new value object with the value provided.
 
 It expects a list of keywords, either comma-separated in a string or as an array of strings.
 

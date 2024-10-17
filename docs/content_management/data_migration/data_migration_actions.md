@@ -42,7 +42,7 @@ When executed, this migration:
 - Finds content type using its identifier (`article`)
 - Assigns content type Group "Media"
 - Removes it from content type Group "Content"
-- Removes the `short_title` Field
+- Removes the `short_title` field
 - Removes its existing drafts, if any.
 
 ## Available migration actions
@@ -180,4 +180,4 @@ mode: Update
 
 !!! note
 
-    In the `unassign_role_user_group` action, the ID is Role assignment ID from the `ezuser_role` table.
+    In the `unassign_role_user_group` action, the ID is role assignment ID from the `ezuser_role` table.

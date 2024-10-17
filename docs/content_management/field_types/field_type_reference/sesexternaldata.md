@@ -13,7 +13,7 @@ The data is stored in the `ses_externaldata` table with the following structure:
 
 ## Storing data in `ses_externaldata`
 
-Data that is stored in the `ses_externaldata` table must be either a simple datatype: int, float, bool or a field type.
+Data that is stored in the `ses_externaldata` table must be either a simple datatype: int, float, bool, or a field type.
 
 Field type data is stored in the database in serialized form by using the `toHash()` method.
 Simple data types (int, float, bool) are stored in serialized form.

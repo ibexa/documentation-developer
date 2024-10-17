@@ -64,11 +64,9 @@ The XHTML5 format is used by the Online Editor.
 
 !!! caution
 
-    The custom DocBook format described below is subject to change
-    and isn't covered by backwards compatibility promise.
+    The custom DocBook format described below is subject to change and isn't covered by backwards compatibility promise.
 
-You can use the [[= product_name_base =]] flavor of the DocBook format in PHP API and in REST API requests
-by providing the DocBook content as a string.
+You can use the [[= product_name_base =]] flavor of the DocBook format in PHP API and in REST API requests by providing the DocBook content as a string.
 
 The following example shows how to pass DocBook content to a [create struct](creating_content.md#creating-content-item-draft):
 
@@ -109,7 +107,7 @@ The RichText format enriches [DocBook](https://docbook.org/) with the following 
 - `section` - main element of a RichText field
 - `ezembed` - holds embedded images
 - `ezembedinline` - holds embedded content items
-- `eztemplate` - holds custom tags, including built-in custom tags for embedded Facebook, Twitter and YouTube content
+- `eztemplate` - holds custom tags, including built-in custom tags for embedded Facebook, Twitter, and YouTube content
 - `eztemplateinline` - holds inline custom tags
 - `ezconfig` - contains configuration for custom tags and other elements
 - `ezvalue` - contains values for other elements, such as `ezconfig` or `ezembed`

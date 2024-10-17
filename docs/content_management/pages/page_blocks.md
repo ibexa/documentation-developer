@@ -8,11 +8,9 @@ Page blocks are configured in YAML files, under the `ibexa_fieldtype_page` key.
 Keep in mind that Page block configuration isn't SiteAccess-aware.
 
 [[= product_name =]] ships with a number of page blocks.
-For a list of all page blocks that are available out-of-the-box,
-see [Page block reference]([[= user_doc =]]/content_management/block_reference/).
+For a list of all page blocks that are available out-of-the-box, see [Page block reference]([[= user_doc =]]/content_management/block_reference/).
 
-For information on how to create and configure new layouts for the Page,
-see [Page layouts](render_page.md#render-a-layout).
+For information on how to create and configure new layouts for the Page, see [Page layouts](render_page.md#render-a-layout).
 
 [[% include 'snippets/page_block_cache_clear.md' %]]
 
@@ -88,8 +86,7 @@ The following example wraps all form fields for block attributes in an ordered l
 
 ## Block events
 
-To add functionalities to your block that go beyond the available attributes,
-you can use an event listener.
+To add functionalities to your block that go beyond the available attributes, you can use an event listener.
 
 You can listen to events related to block definition and block rendering.
 
@@ -116,7 +113,7 @@ You can use this parameter, for example, in block template:
 #### Exposing content relations from blocks
 
 Page blocks, for example Embed block or Collection block, can embed other content items.
-Publishing a Page with such blocks creates Relations to those content items.
+Publishing a page with such blocks creates Relations to those content items.
 
 When creating a custom block with embeds, you can ensure such Relations are created using the block Relation collection event.
 

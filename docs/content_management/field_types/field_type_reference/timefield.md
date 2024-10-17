@@ -36,7 +36,8 @@ The Value class of this field type contains the following properties:
 
 ##### Constructor
 
-The constructor for this Value object initializes a new Value object with the value provided. It accepts an integer representing the number of seconds since the beginning of the day.
+The constructor for this value object initializes a new value object with the value provided.
+It accepts an integer representing the number of seconds since the beginning of the day.
 
 ##### String representation
 
