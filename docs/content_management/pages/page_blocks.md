@@ -21,10 +21,10 @@ Each configured block has an identifier and the following settings:
 | Setting                  | Description                                                                                                                                                   |
 |--------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                   | Name of the block used in the Page Builder interface.                                                                                                         |
-| `category`               | Category in the Page Builder **Page blocks** menu that the block is shown in.                                                                                        |
-| `thumbnail`              | Thumbnail used in the Page Builder **Page blocks** menu.                                                                                                             |
+| `category`               | Category in the Page Builder **Page blocks** toolbox that the block is shown in.                                                                                        |
+| `thumbnail`              | Thumbnail used in the Page Builder **Page blocks** toolbox.                                                                                                             |
 | `views`                  | Available [templates for the block](#block-templates).                                                                                                        |
-| `visible`                | (Optional) Toggles the block's visibility in the Page Builder **Page blocks** menu. Remove the block from the layout before you publish another version of the page. |
+| `visible`                | (Optional) Toggles the block's visibility in the Page Builder **Page blocks** toolbox. Remove the block from the layout before you publish another version of the page. |
 | `configuration_template` | (Optional) Template for the block settings modal.                                                                                                             |
 | `attributes`             | (Optional) List of [block attributes](page_block_attributes.md).                                                                                              |
 

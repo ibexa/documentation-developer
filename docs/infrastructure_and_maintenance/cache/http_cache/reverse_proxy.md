@@ -40,7 +40,7 @@ Using a different proxy is highly recommended as they provide better performance
 
 !!! note
 
-    Use of Varnish or Fastly is a requirement for a [Clustering](clustering.md) setup, as Symfony Proxy doesn't support sharing cache between several application servers.
+    Use of Varnish or Fastly is a requirement for a [clustering](clustering.md) setup, as Symfony Proxy doesn't support sharing cache between several application servers.
 
 ## VCL base files
 

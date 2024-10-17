@@ -141,4 +141,4 @@ Content is shown when you move the slider to the point when it airs.
     If you try to add Content of any other type, you can see an error.
     This is because there is no `featured` view for content other than Articles defined at the moment.
 
-![Front Page after adding Featured Block](enterprise_tut_page_with_featured_articles.png "Front Page after adding Featured Block")
+![Front page after adding Featured Block](enterprise_tut_page_with_featured_articles.png "Front page after adding Featured Block")

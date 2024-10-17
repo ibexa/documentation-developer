@@ -21,7 +21,7 @@ First, add the following [YAML configuration](configuration.md#configuration-fil
 ```
 
 `event` is the internal name for the block, and `name` indicates the name under which the block is available in the interface.
-You also set up the category in the **Page blocks** panel that the block appears in.
+You also set up the category in the **Page blocks** toolbox that the block appears in.
 In this case, it doesn't show with the rest of the built-in blocks, but in a separate "Custom" category.
 The thumbnail for the block can be one of the pre-existing icons, like in the example above, or you can use a custom SVG file.
 

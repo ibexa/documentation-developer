@@ -19,7 +19,7 @@ To configure the [`ddev/ddev-platformsh` add-on](https://github.com/ddev/ddev-pl
 
 The `ddev/ddev-platformsh` add-on configures the document root, the PHP version, the database, and the cache pool according to the [[= product_name_cloud =]] configuration.
 About the search engine, the add-on can configure Elasticsearch but can't configure Solr.
-If you use Solr on [[= product_name_cloud =]] and want to add it to your DDEV stack, see [clustering with DDEV and `ibexa/ddev-solr` add-on](clustering_with_ddev.md#solr).
+If you use Solr on [[= product_name_cloud =]] and want to add it to your DDEV stack, see [Clustering with DDEV and `ibexa/ddev-solr` add-on](clustering_with_ddev.md#solr).
 
 `COMPOSER_AUTH` from Platform.sh can't be used, because JSON commas are incorrectly interpreted by `--web-environment-add`, which sees them as multiple variable separators.
 But the variable must exist for Platform.sh `hooks` scripts to work.
@@ -103,4 +103,4 @@ ddev launch
 
 From there, services can be added to get closer to [[= product_name_cloud =]] Platform.sh architecture.
 `.platform/services.yaml` indicates the services used.
-For more information, see [clustering with DDEV](clustering_with_ddev.md).
+For more information, see [Clustering with DDEV](clustering_with_ddev.md).
