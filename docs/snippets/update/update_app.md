@@ -6,7 +6,7 @@ If you want to first test how the update proceeds without actually updating any 
 composer update --dry-run
 ```
 
-Then, run `composer update` to update the dependencies. 
+Then, run `composer update` to update the dependencies.
 
 ``` bash
 composer update

@@ -39,14 +39,14 @@ git merge update-[[= target_version =]]
 !!! note "Insecure password hashes"
 
     To ensure that no users have unsupported, insecure password hashes, run the following command:
-    
+
     ``` bash
     # In v1 and v2:
     php bin/console ezplatform:user:validate-password-hashes
     # In v3:
     php bin/console ibexa:user:validate-password-hashes
     ```
-    
+
     This command checks if all user hashes are up-to-date and informs you if any of them need to be updated.
 
 ### D. Complete the update

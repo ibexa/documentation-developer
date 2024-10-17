@@ -1,7 +1,6 @@
 ### A. Resolve conflicts
 
-If you get a lot of conflicts and you installed from the [support.ez.no / support.ibexa.co](https://support.ibexa.co) tarball
-or from [ezplatform.com](https://ezplatform.com), you may have incomplete history.
+If you get a lot of conflicts and you installed from the [support.ez.no / support.ibexa.co](https://support.ibexa.co) tarball or from [ezplatform.com](https://ezplatform.com), you may have incomplete history.
 
 To load the full history, run `git fetch upstream --unshallow` from the `update-[[= target_version =]]` branch, and run the merge again.
 
@@ -30,7 +29,8 @@ git checkout --theirs composer.json && git diff HEAD composer.json
 
 This command shows the differences between the target `composer.json` and your own in the diff output.
 
-Updating `composer.json` changes the requirements for all of the `ezsystems` / `ibexa`  packages. Keep those changes.
+Updating `composer.json` changes the requirements for all of the `ezsystems` / `ibexa`  packages.
+Keep those changes.
 The other changes remove what you added for your own project.
 Use `git checkout -p` to selectively cancel those changes (and retain your additions):
 
@@ -42,9 +42,7 @@ Answer `no` (don't discard) to the requirement changes of `ezsystems` / `ibexa` 
 Answer `yes` (discard) to removals of your changes.
 
 After you're done, inspect the file (you can use an editor or run `git diff composer.json`).
-You may also test the file with `composer validate`,
-and test the dependencies by running `composer update --dry-run`
-(it outputs what it would do to the dependencies, without applying the changes).
+You may also test the file with `composer validate`, and test the dependencies by running `composer update --dry-run` (it outputs what it would do to the dependencies, without applying the changes).
 
 When finished, run `git add composer.json` and commit.
 
@@ -52,5 +50,5 @@ When finished, run `git add composer.json` and commit.
 
 Depending on the local changes you have done, you may get other conflicts on configuration files, kernel, etc.
 
-For each change, edit the file, identify the conflicting changes and resolve the conflict.
+For each change, edit the file, identify the conflicting changes, and resolve the conflict.
 Run `git add <conflicting-file>` to add the changes.
