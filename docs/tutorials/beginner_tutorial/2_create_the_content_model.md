@@ -13,21 +13,22 @@ Below is a short introduction that only covers points needed for this tutorial.
 ## Content model overview
 
 The [[= product_name =]] content repository is centered around **content items**.
-A content item is a single piece of content, for example an article, a product review, a place, etc.
+A content item is a single piece of content, for example an article, a product review, a place, and more.
 
 Every content item is an instance of a content type.
 Content types define what **Fields** are included in each content item.
 For example, an article could include fields such as *title*, *image*, *abstract*, *article's body*, *publication date* and *list of authors*.
 
 Fields can belong to one of the installed **field types**, about 30 in the default distribution.
-Each field type is built to represent a specific type of data: a text line, a block of rich text, an image, a collection of relations to content items, etc.
+Each field type is built to represent a specific type of data: a text line, a block of rich text, an image, a collection of relations to content items, and more.
 You can find a complete list in the [field types reference](field_type_reference.md) section.
 Every field type may have its own options, and comes with its own editing and viewing interfaces.
 
 ## Add a content type
 
 The site use two content types: **Ride** and **Landmark**.
-A Ride is a route of a bike trip. It can include one or more Landmarks - interesting places you can see along the way.
+A Ride is a route of a bike trip.
+It can include one or more Landmarks - interesting places you can see along the way.
 More than one Ride can visit the same Landmark, so it's similar to an N-N relationship model in a database.
 
 In this step you add the first content type, Ride.
@@ -70,8 +71,7 @@ Confirm the creation of the content type by clicking **Save and close**.
 
     For this tutorial, swap it with its child, a Folder called "Ibexa Platform".
 
-    To do this, in the main menu go to **Content** -> **Content structure** -> **Ibexa Digital Experience Platform**, select the **Locations** tab
-    and in the **Swap Locations** section navigate to "Ibexa Platform".
+    To do this, in the main menu go to **Content** -> **Content structure** -> **Ibexa Digital Experience Platform**, select the **Locations** tab and in the **Swap Locations** section navigate to "Ibexa Platform".
 
     You can learn how to work with Pages in [another tutorial](page_and_form_tutorial.md).
 

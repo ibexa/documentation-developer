@@ -24,7 +24,8 @@ This tutorial is aimed at developers who are familiar with [[= product_name =]] 
 
 ## Content of the tutorial
 
-This tutorial shows you how to use the Generic field type as a template for a custom field type. You:
+This tutorial shows you how to use the Generic field type as a template for a custom field type.
+You:
 
 - create a custom Point 2D field type with two coordinates as input, for example '4,5'
 - register the new field type as a service and define its template

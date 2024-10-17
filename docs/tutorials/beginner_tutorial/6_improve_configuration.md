@@ -7,7 +7,7 @@ description: See how you can manage Ibexa DXP configuration files.
 ## Define image variations
 
 Image variations are different versions of the same image.
-You can use them to scale images, crop them, add effects, etc.
+You can use them, for example, to scale images, crop them, or add effects.
 
 So far the images in the ride list are fitted to the templates automatically, and the result doesn't look good.
 Now you can create a variation to specify how you want the images to look in detail.

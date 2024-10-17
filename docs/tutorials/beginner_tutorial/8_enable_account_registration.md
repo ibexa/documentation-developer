@@ -116,7 +116,8 @@ Create this file as well (as `templates/user/registration_content_form.html.twig
 ```
 
 The third template you need to prepare covers the confirmation page that is displayed when a user completes the registration.
-First, point to the new template in the configuration. Add a `confirmation` key to `config/packages/views.yaml`:
+First, point to the new template in the configuration.
+Add a `confirmation` key to `config/packages/views.yaml`:
 
 ``` yaml hl_lines="4"
 user_registration:
@@ -163,8 +164,7 @@ Fill in the form and register a user.
 
 !!! tip
 
-    If you log in as the new user at this point, you need to go to the back office (`<yourdomain>/admin`)
-    to log out again re-log in as Admin.
+    If you log in as the new user at this point, you need to go to the back office (`<yourdomain>/admin`) to log out again re-log in as Admin.
 
 ## Set up Permissions
 

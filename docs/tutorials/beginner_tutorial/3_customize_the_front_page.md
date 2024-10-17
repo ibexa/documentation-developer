@@ -36,7 +36,7 @@ ibexa:
 ```
 
 This tells [[= product_name =]] to use the `template` when rendering content with Location ID `2`.
-`2` is the default Location for the root content item.
+`2` is the default location for the root content item.
 
 `Id\Location` is one of several [view matchers](view_matcher_reference.md) that you can use to customize rendering depending on different criteria.
 
@@ -67,7 +67,7 @@ Create a `home_page.html.twig` file in `templates/full/`:
 </div>
 ```
 
-Refresh the page and you can see a simple, unstyled version of the message.
+Refresh the page and you can see an unstyled version of the message.
 
 !!! note
 
@@ -217,8 +217,7 @@ Encore
     ]);
 ```
 
-`.addStyleEntry('tutorial', [])` and `.addEntry('tutorial-js', [])` refer respectively to
-`{{  encore_entry_link_tags('tutorial') }}` and `{{ encore_entry_script_tags('tutorial-js') }}` from `main_layout.html.twig`.
+`.addStyleEntry('tutorial', [])` and `.addEntry('tutorial-js', [])` refer to `{{  encore_entry_link_tags('tutorial') }}` and `{{ encore_entry_script_tags('tutorial-js') }}` from `main_layout.html.twig`.
 This configuration creates a bundle consisting of files to be added to a template.
 
 At this point the bundles are created and ready to be used.
