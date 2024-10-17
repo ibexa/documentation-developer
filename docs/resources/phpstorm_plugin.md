@@ -4,8 +4,7 @@ description: The Ibexa DXP PHPStorm plugin helps you speed up your development b
 
 # [[= product_name =]] plugin for PhpStorm
 
-[[= product_name =]] plugin for PhpStorm helps you to work with [[= product_name =]] by speeding up installation
-and providing file templates, intentions, autocompletion, and other features.
+[[= product_name =]] plugin for PhpStorm helps you to work with [[= product_name =]] by speeding up installation and providing file templates, intentions, autocompletion, and other features.
 
 ## Requirements
 
@@ -14,8 +13,7 @@ and providing file templates, intentions, autocompletion, and other features.
 
 ## Install PhpStorm plugin
 
-You can install the [[= product_name =]] plugin for PhpStorm from the JetBrains Marketplace,
-or manually, from a downloaded .jar file.
+You can install the [[= product_name =]] plugin for PhpStorm from the JetBrains Marketplace, or manually, from a downloaded .jar file.
 
 ### Install from JetBrains Marketplace
 
@@ -29,13 +27,11 @@ You can also install the plugin manually from a `.jar` file:
 
 1\. Download the latest version of the plugin from [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/17239-ibexa-dxp/versions).
 
-2\. In PhpStorm settings/preferences (depending on your system), select **Plugins** > (gear icon) > **Install plugin from Disk...**
-and select the downloaded file.
+2\. In PhpStorm settings/preferences (depending on your system), select **Plugins** > (gear icon) > **Install plugin from Disk...** and select the downloaded file.
 
 ## Configuration
 
-Plugin configuration is available in PhpStorm settings/preferences (depending on your system), 
-under **PHP** > **Frameworks** > **[[= product_name =]]**.
+Plugin configuration is available in PhpStorm settings/preferences (depending on your system), under **PHP** > **Frameworks** > **[[= product_name =]]**.
 
 You can use it to:
 
@@ -46,14 +42,13 @@ You can use it to:
 
 !!! note
 
-    Some plugin features depends on the selected product edition and version. 
-    For example, "deprecated namespaces usage" inspection is enabled only if the project uses v4.x.  
+    Some plugin features depends on the selected product edition and version.
+    For example, "deprecated namespaces usage" inspection is enabled only if the project uses v4.x.
 
 Plugin configuration is automatically resolved when opening [[= product_name =]] project for the first time.
 If detection is successful, a notification appears with an "Enable [[= product_name =]] support for this project" link.
 
-If you created your project by using [[= product_name =]] project wizard, the plugin is automatically enabled and configured based 
-on wizard data.
+If you created your project by using [[= product_name =]] project wizard, the plugin is automatically enabled and configured based on wizard data.
 
 ## Features
 
@@ -68,7 +63,7 @@ In project settings form you can choose:
 - Product edition: [[= product_name_oss =]], [[= product_name_content =]], [[= product_name_exp =]], [[= product_name_com =]]
 - Authentication token (for Content, Experience and Commerce editions)
 - Product version: Default (latest LTS version), Latest (fast track or LTS), Latest LTS and "Next 3.x" (unstable, based on the 3.x branch) and "Next 4.x" (unstable, based on the 4.x branch)
-- Generate [[[= product_name_cloud =]] configuration](install_on_ibexa_cloud.md) 
+- Generate [[[= product_name_cloud =]] configuration](install_on_ibexa_cloud.md)
 - Composer settings
 
 ![Create a project](phpstorm_plugin_create_project.png)
@@ -146,9 +141,9 @@ and in PHP files:
 | Abbreviation | Comment |
 |---|---|
 | `ibx_create_c` | Create content |
-| `ibx_create_cd` | Create content draft | 
+| `ibx_create_cd` | Create content draft |
 | `ibx_create_ct` | Create content type |
-| `ibx_find_c` | Create and execute content query | 
+| `ibx_find_c` | Create and execute content query |
 | `ibx_find_ci` | Create and execute content info query |
 | `ibx_find_l` | Create and execute location query |
 | `ibx_load_c` | Load content by ID |
@@ -214,8 +209,7 @@ To enable autocompletion, you must place the file in the `config` directory and 
 
 Parameter names suggestions are available in `Ibexa\Contracts\Core\SiteAccess\ConfigResolverInterface::{hasParameter,getParameter}` method calls.
 
-Suggested results take into account namespace argument, if its value can be resolved without running interpreter
-(for example, string literal or const reference).
+Suggested results take into account namespace argument, if its value can be resolved without running interpreter (for example, string literal or const reference).
 
 ### Query type name autocompletion
 
@@ -225,12 +219,11 @@ Suggestions are based on service definitions tagged as `ibexa.query_type`.
 
 ### Query type parameter autocompletion
 
-Parameter name suggestions are available for Query types which implement the `Ibexa\Core\QueryType\QueryType` interface
-or extend the `Ibexa\Core\QueryType\OptionsResolverBasedQueryType` class in the following places:
+Parameter name suggestions are available for Query types which implement the `Ibexa\Core\QueryType\QueryType` interface or extend the `Ibexa\Core\QueryType\OptionsResolverBasedQueryType` class in the following places:
 
 * `Ibexa\Core\QueryType\QueryType::getQuery` method calls
 * `Ibexa\Core\QueryType\QueryType::getQuery` method definition
-* `Ibexa\Core\QueryType\OptionsResolverBasedQueryType::doGetQuery` method definition 
+* `Ibexa\Core\QueryType\OptionsResolverBasedQueryType::doGetQuery` method definition
 
 ![Query Type parameter autocompletion](phpstorm_plugin_query_type_params.png)
 

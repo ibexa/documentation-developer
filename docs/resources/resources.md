@@ -5,8 +5,7 @@ page_type: landing_page
 
 # Resources
 
-See additional information about [[= product_name =]] development process,
-helpful tools, and learn how you can contribute to the creation of the platform.
+See additional information about [[= product_name =]] development process, helpful tools, and learn how you can contribute to the creation of the platform.
 
 [[= cards([
     "resources/release_process_and_roadmap",

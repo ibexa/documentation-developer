@@ -11,8 +11,7 @@ You can use an XLIFF editor of your choice to contribute strings in your languag
 
 ## Translating interface using Crowdin
 
-If you wish to contribute to an existing translation of back office or start a new one you can
-use the Crowdin website.
+If you wish to contribute to an existing translation of back office or start a new one you can use the Crowdin website.
 
 Visit [[[= product_name =]]'s Crowdin page](https://crowdin.com/project/ibexa-dxp), choose a language, and you can see a list of files containing strings. Here you can suggest your translations.
 

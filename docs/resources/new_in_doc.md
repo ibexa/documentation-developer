@@ -300,7 +300,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
 
 - [Updated configuration for triggers](https://doc.ibexa.co/en/master/personalization/api_reference/tracking_api/#tracking-events-based-on-recommendations)
 - [Send messages with recommendations](https://doc.ibexa.co/en/master/personalization/integrate_recommendation_service/#send-messages-with-recommendations)
-- [Email triggers](https://doc.ibexa.co/projects/userguide/en/master/personalization/triggers/) in User Documentation 
+- [Email triggers](https://doc.ibexa.co/projects/userguide/en/master/personalization/triggers/) in User Documentation
 
 ### PIM
 
@@ -431,7 +431,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
         - [CatalogStatus Criterion](https://doc.ibexa.co/en/master/search/criteria_reference/catalogstatus_criterion/)
         - [FloatAttributeRange Criterion](https://doc.ibexa.co/en/master/search/criteria_reference/floatattributerange_criterion/)
         - [IntegerAttributeRange Criterion](https://doc.ibexa.co/en/master/search/criteria_reference/integerattributerange_criterion/)
-    
+
 ### Infrastructure and maintenance
 
 - [Configure and customize Fastly](https://doc.ibexa.co/en/master/infrastructure_and_maintenance/cache/http_cache/fastly/)
@@ -502,7 +502,7 @@ This page contains recent highlights and notable changes in [[= product_name =]]
     and [Sort Clauses](https://doc.ibexa.co/en/master/search/sort_clause_reference/order_sort_clauses/)
     - Payment [Search Criteria](https://doc.ibexa.co/en/master/search/criteria_reference/payment_search_criteria/)
     and [Sort Clauses](https://doc.ibexa.co/en/master/search/sort_clause_reference/payment_sort_clauses/)
-    - Payment method [Search Criteria](https://doc.ibexa.co/en/master/search/criteria_reference/payment_method_search_criteria/) 
+    - Payment method [Search Criteria](https://doc.ibexa.co/en/master/search/criteria_reference/payment_method_search_criteria/)
     and [Sort Clauses](https://doc.ibexa.co/en/master/search/sort_clause_reference/payment_method_sort_clauses/)
     - Shipment [Search Criteria](https://doc.ibexa.co/en/master/search/criteria_reference/shipment_search_criteria/)
     and [Sort Clauses](https://doc.ibexa.co/en/master/search/sort_clause_reference/shipment_sort_clauses/)

@@ -4,15 +4,14 @@ description: All code contributions to Ibexa DXP must follow package and bundle 
 
 # Package and bundle structure and namespaces
 
-If you wish to contribute to [[= product_name =]] development,
-you need to adhere to the package and bundle structure and namespace standards.
+If you wish to contribute to [[= product_name =]] development, you need to adhere to the package and bundle structure and namespace standards.
 
 The following conventions apply to contributions to [[= product_name_base =]] core code, not to third party packages.
 
 !!! note
 
     New code needs to follow the rules outlined here.
-    they're being applied progressively to existing code.
+    They're being applied progressively to existing code.
 
 ## Root PHP namespace
 
@@ -91,8 +90,7 @@ class IbexaCommerceShopBundle // ...
 
 ### Contracts
 
-A package may introduce a namespace for contracts, to be consumed by first and third party packages
-and projects, which must be prefixed as:
+A package may introduce a namespace for contracts, to be consumed by first and third party packages and projects, which must be prefixed as:
 
 ```php
 namespace Ibexa\Contracts;
