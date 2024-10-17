@@ -22,8 +22,8 @@ It activates the tracking by inserting <https://cdn.perso.ibexa.co/ibexa-track
 <https://cdn.perso.ibexa.co/ibexa-tracker.min.js> into the page.
 
 To use this mechanism on your pages, copy the code snippet below, and replace 
-`<YOUR_MANDATOR_ID>` with the customer ID, `<PAGE_ID>` with the page/item identifier .
-`<USER_ID>`  - empty string for cookie based anonymous user or replaced with the value generated
+`<YOUR_MANDATOR_ID>` with the customer ID, `<PAGE_ID>` with the page/item identifier.
+`<USER_ID>` - empty string for cookie based anonymous user or replaced with the value generated
 by your user identifier system for logged in user.
 
 All identifiers can be any form of string. 
