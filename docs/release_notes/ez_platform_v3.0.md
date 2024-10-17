@@ -160,7 +160,7 @@ The following new Search Criteria have been added:
 |-----|-----|
 |[IsUserBased](https://doc.ibexa.co/en/latest/guide/search/criteria_reference/isuserbased_criterion)|Whether content represents a User account|
 |[IsUserEnabled](https://doc.ibexa.co/en/latest/guide/search/criteria_reference/isuserenabled_criterion)|Whether a User account is enabled|
-|[ObjectStateIdentifier](https://doc.ibexa.co/en/latest/guide/search/criteria_reference/objectstateidentifier_criterion)|Object State Identifier|
+|[ObjectStateIdentifier](https://doc.ibexa.co/en/latest/guide/search/criteria_reference/objectstateidentifier_criterion)|Object state Identifier|
 |[SectionId](https://doc.ibexa.co/en/latest/guide/search/criteria_reference/sectionid_criterion)|ID of the Section content is assigned to|
 |[SectionIdentifier](https://doc.ibexa.co/en/latest/guide/search/criteria_reference/sectionidentifier_criterion)|Identifier of the Section content is assigned to|
 |[UserEmail](https://doc.ibexa.co/en/latest/guide/search/criteria_reference/useremail_criterion)|Email address of a User account|

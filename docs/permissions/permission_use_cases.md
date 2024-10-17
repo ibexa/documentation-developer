@@ -191,7 +191,7 @@ Additional policies are needed for each section of the Admin.
 
 ### Object states
 
-- `state/administrate` to view a list of Object states, add and edit them
+- `state/administrate` to view a list of object states, add and edit them
 - `state/assign` to assign Objects states to content
 
 ### Roles

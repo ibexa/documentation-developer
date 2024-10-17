@@ -14,7 +14,7 @@ If you're looking for the Long Term Support (LTS) release, see[ https://ezplatf
 
 #### Multifile upload
 
-You can now create collections of content quickly: upload multiple files in bulk and they are imported directly into the content repository. The files are automatically imported as content using the content type that matches their MIME type. Go to the content view, drag and drop or select multiple files in the sub-items area and you get direct access for further editing. As ever, this solution can be customized so that you create your own matching rules.
+You can now create collections of content quickly: upload multiple files in bulk and they're imported directly into the content repository. The files are automatically imported as content using the content type that matches their MIME type. Go to the content view, drag and drop or select multiple files in the sub-items area and you get direct access for further editing. As ever, this solution can be customized so that you create your own matching rules.
 
 ![](catsfromtheMET.gif)
 

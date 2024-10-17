@@ -5,7 +5,7 @@ description: In Ibexa DXP you store and manage configuration in project files, t
 # Configuration
 
 [[= product_name =]] configuration is delivered using a number of dedicated configuration files.
-It contains everything from selecting the content Repository to SiteAccesses to language settings.
+It contains everything from selecting the content repository to SiteAccesses to language settings.
 
 ### Configuration format
 

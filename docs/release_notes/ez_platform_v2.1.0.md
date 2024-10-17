@@ -22,7 +22,7 @@ For more information, see [Custom tags](https://doc.ibexa.co/en/2.5/guide/extend
 
 Object states enable you to create sets of custom states and then assign them to Content.
 
-!["Lock" Object state](2.1_object_state_lock.png)
+!["Lock" object state](2.1_object_state_lock.png)
 
 Object states can be used in conjunction with [permissions](https://doc.ibexa.co/en/2.5/guide/limitation_reference/#state-limitation).
 

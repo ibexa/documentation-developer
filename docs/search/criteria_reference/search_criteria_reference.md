@@ -53,8 +53,8 @@ Due to this storage limitation, searching content using the Country field type o
 |[MapLocationDistance](maplocationdistance_criterion.md)|Distance between the location contained in a MapLocation field and the provided coordinates|&#10004; |&#10004; | |
 |[MatchAll](matchall_criterion.md)|Returns all search results|&#10004; |&#10004; |&#10004; |
 |[MatchNone](matchnone_criterion.md)|Returns no search results|&#10004; |&#10004; |&#10004; |
-|[ObjectStateId](objectstateid_criterion.md)|Object State ID|&#10004; |&#10004; |&#10004; |
-|[ObjectStateIdentifier](objectstateidentifier_criterion.md)|Object State Identifier|&#10004; |&#10004; |&#10004; |
+|[ObjectStateId](objectstateid_criterion.md)|Object state ID|&#10004; |&#10004; |&#10004; |
+|[ObjectStateIdentifier](objectstateidentifier_criterion.md)|Object state Identifier|&#10004; |&#10004; |&#10004; |
 |[ParentLocationId](parentlocationid_criterion.md)|Location ID of a content item's parent|&#10004; |&#10004; |&#10004; |
 |[ParentLocationRemoteId](parentlocationremoteId_criterion.md)|Location remote ID of a content item's parent|&#10004; |&#10004; |
 |[Priority](priority_criterion.md)|Location priority| |&#10004; |&#10004; |

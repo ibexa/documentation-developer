@@ -6,7 +6,7 @@ description: IsMainLocation Sort Clause
 
 The [`Location\IsMainLocation` Sort Clause](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-Location-IsMainLocation.html) sorts search results by whether their location is the main location of the content item.
 
-Locations that aren't main locations are ranked as lower values (for example, with ascending order they are returned first).
+Locations that aren't main locations are ranked as lower values (for example, with ascending order they're returned first).
 
 ## Arguments
 

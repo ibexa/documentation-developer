@@ -4,8 +4,7 @@ description: You can customize which field type metadata should be disabled in t
 
 # Customize field type metadata
 
-When creating a content type definition, you add fields and configure their metadata,
-such as whether they're required, translatable, and so on.
+When creating a content type definition, you add fields and configure their metadata, for example, whether they're required or translatable.
 
 If needed, you can customize that some of those options are disabled in the back office for specific field types.
 To do this, add custom service definition for `ModifyFieldDefinitionsCollectionTypeExtension`.

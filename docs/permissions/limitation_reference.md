@@ -158,7 +158,7 @@ In the `section/assign` policy you can combine this with section limitation to l
 
 ## New State limitation
 
-A New State (`NewObjectState`) limitation specifies whether the user has access to (assigning) a given Object state to content.
+A New State (`NewObjectState`) limitation specifies whether the user has access to (assigning) a given object state to content.
 
 In the `state/assign` policy you can combine this with State limitation to limit both from and to values.
 
@@ -170,7 +170,7 @@ In the `state/assign` policy you can combine this with State limitation to limit
 
 ## Object State limitation
 
-The Object State (`ObjectState`) limitation specifies whether the user has access to content with a specific Object state.
+The Object State (`ObjectState`) limitation specifies whether the user has access to content with a specific object state.
 
 ### Possible values
 

@@ -56,7 +56,7 @@ public function performAccessCheck(): void
     - `valueObject` is the object you want to check for, for example `ContentInfo`.
     - `targets` are a table of value objects that are the target of the operation.
     For example, to check if content can be assigned to a Section, provide the Section as `targets`.
-    `targets` accept location, Object state and section objects.
+    `targets` accept location, object state and section objects.
 
 ### Checking user access
 

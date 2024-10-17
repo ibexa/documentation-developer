@@ -25,7 +25,7 @@ You can use them to further enhance your e-commerce presence:
 - `ibexa/payment`
 - `ibexa/shipping`
 
-Modules can interact with each other, for example, to decrease stock as a result of a sale, or cancel shipments and payments when orders are cancelled, and so on.
+Modules can interact with each other, for example, to decrease stock as a result of a sale, or cancel shipments and payments when orders are cancelled.
 
 #### Order management
 

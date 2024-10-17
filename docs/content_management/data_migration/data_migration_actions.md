@@ -1,5 +1,5 @@
 ---
-description: Data migration actions enable you to run special operations while executing data migrations, such as assigning roles, sections, Objects states, and so on.
+description: Data migration actions enable you to run special operations while executing data migrations, such as assigning roles, sections, Objects states, and more.
 page_type: reference
 ---
 
@@ -17,7 +17,7 @@ You can find which migration steps support actions in the table below:
 | `user_group`   |&#10004;|&#10004;||
 | `company`      |&#10004;|||
 
-Actions are optional operations that can be run after the main "body" of a migration has been executed (for example, content has been created / updated, Object state has been added).
+Actions are optional operations that can be run after the main "body" of a migration has been executed (for example, content has been created / updated, object state has been added).
 Their purpose is to allow additional operations to be performed as part of this particular migration.
 They're executed inside the same transaction, so in the event of failure they cause database rollback to occur.
 
@@ -40,8 +40,8 @@ For example, when updating a content type object, some fields might be removed:
 When executed, this migration:
 
 - Finds content type using its identifier (`article`)
-- Assigns content type Group "Media"
-- Removes it from content type Group "Content"
+- Assigns content type group "Media"
+- Removes it from content type group "Content"
 - Removes the `short_title` field
 - Removes its existing drafts, if any.
 

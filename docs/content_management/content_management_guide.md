@@ -241,7 +241,7 @@ Again, this isn't part of content management, but at this point you can [publish
 **5\. Organize content**
 
 Organize the content of your website by copying or moving content items, [controlling Locations and URL addresses]([[= user_doc =]]/content_management/content_organization/manage_locations_urls/).
-Then work with Tags, sections and Object States to [classify]([[= user_doc =]]/content_management/content_organization/classify_content/#sections) it.
+Then work with Tags, sections and object states to [classify]([[= user_doc =]]/content_management/content_organization/classify_content/#sections) it.
 
 ## Benefits
 

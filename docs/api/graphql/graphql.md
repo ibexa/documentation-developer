@@ -51,7 +51,7 @@ You can also query content type and content type group information through the `
 
 The repository schema, accessed through `_repository`, exposes the [[= product_name =]] repository in a manner similar to the [Public PHP API](php_api.md).
 
-The `_repository` field also enables you to query, for example, Object states configured for the repository.
+The `_repository` field also enables you to query, for example, object states configured for the repository.
 
 ### Custom schemas
 

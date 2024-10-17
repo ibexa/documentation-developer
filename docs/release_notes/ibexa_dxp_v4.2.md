@@ -79,10 +79,8 @@ Assets are grouped into collections based on attribute values
 
 ### Product completeness
 
-The new product completeness tab, in product view, lists all the parts of a product you can configure:
-attributes, assets, prices, availability, and so on.
-You can use it to get a quick overview of missing parts in the product configuration
-and to instantly move to the proper screen to fill the gaps.
+The new product completeness tab, in product view, lists all the parts of a product you can configure, for example, attributes, assets, prices, aor vailability.
+You can use it to get a quick overview of missing parts in the product configuration and to instantly move to the proper screen to fill the gaps.
 
 ![Product completeness tab](4.2_product_completeness.png)
 

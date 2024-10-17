@@ -10,7 +10,7 @@ They're used out of the box in the Targeting and Dynamic targeting blocks in the
 
 You can collect segments in segment groups:
 
-![Segment Groups](admin_panel_segment_groups.png)
+![Segment groups](admin_panel_segment_groups.png)
 
 Each segment group can contain segments that you can target content for.
 

@@ -122,7 +122,7 @@ This release introduced several back office improvements to facilitate editorial
 - [Icons for content types and the ability to define them](https://doc.ibexa.co/en/2.5/guide/extending/extending_back_office/#custom-content-type-icons)
 - Ability to collapse and expand content preview to have easier access to the Sub-items list
 - Responsive Sub-items table with selectable column layout
-- Simpler assigning of Object States to content
+- Simpler assigning of object states to content
 
 
 ![Back office improvements](2.5_back_office_improvements.png)

@@ -106,7 +106,7 @@ Then, refresh the view to see an updated list of content types.
 ### Object state API improvements
 
 You can now use `ObjectStateService::loadObjectStateByIdentifier()` and `ObjectStateService::loadObjectStateGroupByIdentifier()`
-to [get Object states and Object state groups](https://doc.ibexa.co/en/latest/api/public_php_api_managing_repository/#getting-object-state-information) in the PHP API.
+to [get object states and object state groups](https://doc.ibexa.co/en/latest/api/public_php_api_managing_repository/#getting-object-state-information) in the PHP API.
 
 ## Full changelog
 

@@ -1,5 +1,5 @@
 ---
-description: With transactional emails you can notify end users about changes in the status of user registration, password recovery, orders, payments, shipments, and so on.
+description: With transactional emails you can notify end users about changes in the status of user registration, password recovery, orders, payments, shipments, and more.
 edition: commerce
 ---
 

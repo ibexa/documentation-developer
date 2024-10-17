@@ -29,7 +29,7 @@ To add a new location to existing content you need to create a [`LocationCreateS
 `LocationCreateStruct` must receive the parent location ID.
 It sets the `parentLocationId` property of the new location.
 
-You can also provide other properties for the location, otherwise they are set to their defaults:
+You can also provide other properties for the location, otherwise they're set to their defaults:
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/AddLocationToContentCommand.php', 52, 54) =]]

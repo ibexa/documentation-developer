@@ -135,9 +135,9 @@ You can find the section to which a content item belongs through the [`getSectio
 
 ### Object states
 
-You can retrieve [Object states](object_states.md) of a content item using [`ObjectStateService::getContentState`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ObjectStateService.html#method_getContentState).
-You need to provide it with the Object state group.
-All Object state groups can be retrieved through [`loadObjectStateGroups`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ObjectStateService.html#method_loadObjectStateGroups).
+You can retrieve [object states](object_states.md) of a content item using [`ObjectStateService::getContentState`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ObjectStateService.html#method_getContentState).
+You need to provide it with the object state group.
+All object state groups can be retrieved through [`loadObjectStateGroups`](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-ObjectStateService.html#method_loadObjectStateGroups).
 
 ``` php
 [[= include_file('code_samples/api/public_php_api/src/Command/ViewContentMetaDataCommand.php', 114, 119) =]]

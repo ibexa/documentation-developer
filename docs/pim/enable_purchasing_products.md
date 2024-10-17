@@ -13,7 +13,7 @@ To enable adding product to cart and purchasing from the catalog, the following 
 
 !!! note "Configuring products in the UI"
 
-    After you configure the region, currency and VAT rates for regions in settings, the store manager must set up the remaining parameters in the UI, such as, [VAT rates per product type]([[= user_doc =]]/pim/create_product_types/#vat), descriptions, attributes, assets, [prices]([[= user_doc =]]/pim/manage_prices/) and [availability]([[= user_doc =]]/pim/manage_availability_and_stock/) per product, and so on.
+    After you configure the region, currency and VAT rates for regions in settings, the store manager must set up the remaining parameters in the UI, such as, [VAT rates per product type]([[= user_doc =]]/pim/create_product_types/#vat), descriptions, attributes, assets, [prices]([[= user_doc =]]/pim/manage_prices/), and [availability]([[= user_doc =]]/pim/manage_availability_and_stock/) per product.
 
     For more information, see [User Documentation]([[= user_doc =]]/pim/products/#product-completeness).
 

@@ -594,7 +594,7 @@ new MigrationBundle\MigrationBundle()
 
 **7.** Clear cache again.
 
-At this point you can already view the initial effects of the migration, but they are still missing some of your custom content.
+At this point you can already view the initial effects of the migration, but they're still missing some of your custom content.
 
 The `MigrationBundle` generates placeholders for layouts in the form of frames with a data dump.
 

@@ -155,17 +155,17 @@ ibexa:
 Now, you can go back to your Customer Portal's container.
 All landing pages that you create in it use Customer Portal template.
 
-### Assign portal to Customer Group
+### Assign portal to Customer group
 
-You can assign multiple Customer Portal containers or Pages to a specific Customer Group.
-First, you need to grant the following permissions to company members from the Customer Group:
+You can assign multiple Customer Portal containers or Pages to a specific Customer group.
+First, you need to grant the following permissions to company members from the Customer group:
 
 - `user/login` to `custom_portal` SiteAccess
 - `content/read` to selected Customer Portals
 
 ![Customer Portal permissions](img/cp_permissions.png)
 
-If members of the Customer Group don't have sufficient permissions for any Customer Portal assigned to them, they are redirected to the default Customer Portal view.
+If members of the Customer group don't have sufficient permissions for any Customer Portal assigned to them, they're redirected to the default Customer Portal view.
 
 !!! note
 
@@ -174,7 +174,7 @@ If members of the Customer Group don't have sufficient permissions for any Custo
 
 #### Build-in portal mapping
 
-Now, you need to assign your custom portals to Customer Groups.
+Now, you need to assign your custom portals to Customer groups.
 Add portal mapping configuration in `config/services.yaml`:
 
 ```yaml hl_lines="3 4"
@@ -187,12 +187,12 @@ parameters:
             - 6ce85480aeaeed59f7431a12b46bc869
 ```
 
-There, you can specify which Customer Portals should be available to which Customer Group by adding:
+There, you can specify which Customer Portals should be available to which Customer group by adding:
 
-- Customer Group identifier. You can find it in the **Summary** section of the Company.
+- Customer group identifier. You can find it in the **Summary** section of the Company.
 - Location remote ID of Customer Portal container or Customer Portal page. You can find it in the **Details** section.
 
-Portals are displayed to the Customer Group in order specified in the configuration based on company member's permissions.
+Portals are displayed to the Customer group in order specified in the configuration based on company member's permissions.
 
 #### Custom portal mapping
 

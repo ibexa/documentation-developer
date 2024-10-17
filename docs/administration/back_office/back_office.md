@@ -1,5 +1,5 @@
 ---
-description: Back office holds the administrator and editor interface and allows creating, publishing and managing content, users, settings and so on.
+description: Back office holds the administrator and editor interface and allows creating, publishing and managing content, users, settings, and more.
 page_type: landing_page
 ---
 
