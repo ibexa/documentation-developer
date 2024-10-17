@@ -11,8 +11,7 @@ The `campaign` site uses a different part of the content tree than the main site
 
 ## Configure SiteAccesses
 
-First, in SiteAccess configuration, add the `campaign` SiteAccess
-to the list under the `ibexa.siteaccess` [configuration key](configuration.md#configuration-files):
+First, in SiteAccess configuration, add the `campaign` SiteAccess to the list under the `ibexa.siteaccess` [configuration key](configuration.md#configuration-files):
 
 ``` yaml
 ibexa:
@@ -27,8 +26,7 @@ ibexa:
                 site: site
 ```
 
-The `match` setting ensures that when a visitor accesses the `<yourdomain>/summer-sale` URI,
-they see the `campaign` SiteAccess.
+The `match` setting ensures that when a visitor accesses the `<yourdomain>/summer-sale` URI, they see the `campaign` SiteAccess.
 
 ## Set root folder
 
@@ -48,8 +46,7 @@ ibexa:
                     location_id: 57
 ```
 
-Thanks to this configuration, you can access `<your site>/campaign/Articles/Article2`,
-but not `<your site>/campaign/General/Articles/Article1`.
+Thanks to this configuration, you can access `<your site>/campaign/Articles/Article2`, but not `<your site>/campaign/General/Articles/Article1`.
 
 ## Reuse content
 
@@ -66,8 +63,6 @@ ibexa:
                     excluded_uri_prefixes: [ /media/images/logos ]
 ```
 
-Now, when you use the `campaign` SiteAccess, you can reach `<your site>/campaign/Media/Images/Logos`,
-despite the fact that it's not a sub-item of the "Campaign" Location.
+Now, when you use the `campaign` SiteAccess, you can reach `<your site>/campaign/Media/Images/Logos`, despite the fact that it's not a sub-item of the "Campaign" Location.
 
-As a next step, you can configure different [designs](design_engine.md)
-for the two SiteAccesses.
+As a next step, you can configure different [designs](design_engine.md) for the two SiteAccesses.

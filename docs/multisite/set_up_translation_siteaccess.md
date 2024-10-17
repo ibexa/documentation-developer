@@ -28,8 +28,7 @@ yarn encore <prod|dev>
 
 Next, configure a new SiteAccess to match the newly-configured language.
 
-The most typical setup for a site with translated content is to map the base of the domain to one language
-and use the first segment of the URI to match to translations.
+The most typical setup for a site with translated content is to map the base of the domain to one language and use the first segment of the URI to match to translations.
 
 For example:
 
@@ -38,7 +37,7 @@ For example:
 
 To achieve this you need to create a new SiteAccess in configuration under the `ibexa.siteaccesses` [configuration key](configuration.md#configuration-files).
 Add the `fr` SiteAccess to list of all SiteAccesses and it to the common `site_group`.
-This group is used for sharing settings such as API keys, cache locations and so on.
+This group is used for sharing settings such as API keys, cache locations, and more.
 
 ``` yaml
 ibexa:
@@ -79,5 +78,4 @@ As a next step, allow Anonymous users to read content on the new SiteAccesses:
 1. Clear the cache by running: `php bin/console cache:clear`.
 
 You can now start translating content.
-When you reload the site, access a translated content item through both SiteAccesses to see the difference,
-for example: `<yourdomain>/<article-name>` and `<yourdomain>/fr/<article-name>`.
+When you reload the site, access a translated content item through both SiteAccesses to see the difference, for example: `<yourdomain>/<article-name>` and `<yourdomain>/fr/<article-name>`.
