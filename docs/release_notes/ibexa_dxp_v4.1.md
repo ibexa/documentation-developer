@@ -15,7 +15,7 @@ description: Ibexa DXP v4.1 enhances the PIM capabilities, adds a Measurement fi
 
 ### Product catalog enhancements
 
-With this release, product catalog brings new PHP APIs, productivity boost from new product search criteria and sort classes, advanced filtering in REST endpoints, auto-generated identifiers, product list sorting, and more.
+With this release, product catalog brings new PHP APIs, productivity boost from new product Search Criteria and Sort classes, advanced filtering in REST endpoints, auto-generated identifiers, product list sorting, and more.
 
 You can now use [advanced filtering on products, product types, attributes, and others in REST endpoints](https://doc.ibexa.co/en/latest/api/rest_api_reference/rest_api_reference.html#product-catalog-filter-currencies).
 
@@ -25,7 +25,7 @@ based on the current context (for example, selected locale).
 A new Color attribute enables adding a product attribute that uses the color picker to select a precise color.
 
 The product catalog is now fully integrated with the transactional system integration, enabling a full purchasing process.
-  
+
 ### Measurement field type and attribute
 
 With the new Measurement field type users can now add a Measurement Field, with different pre-built units, to content:
