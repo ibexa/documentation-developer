@@ -53,7 +53,7 @@ Community members are more than welcome to contribute to the translation process
     -    QueryType's now support using alias when being used as service so you can define several services with same  QueryType class ([EZP-26628](http://jira.ez.no/browse/EZP-26628))
         -    Example: Generic location child QueryType being reused several times for specific services for article or blog post listings 
 -   API:
-    -   New method:` Location->getSortClauses()` to get sort clauses based on what kind of sorting has been set on the Location ([EZP-26528](http://jira.ez.no/browse/EZP-26528))
+    -   New method:` Location->getSortClauses()` to get Sort Clauses based on what kind of sorting has been set on the Location ([EZP-26528](http://jira.ez.no/browse/EZP-26528))
     -   Add Content Version archives limit by configuration & enforce on publish ([EZP-23281](http://jira.ez.no/browse/EZP-23281))
 -   Debug:
     -   ez-support-tools:dump-info command now able to dump system info in several formats, and default is now json ([EZP-26549](http://jira.ez.no/browse/EZP-26549))
