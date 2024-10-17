@@ -25,6 +25,7 @@ Always prefer the dedicated route (as the back office does) `/product-type/view/
 To view it through `/contenttypegroup/<product_group_id>/contenttype/<product_type_id>` (`ibexa.content_type.view`) is doable. You could even edit it from there. But this is strongly not recommended.
 
 The "Product specification" field type (`ibexa_product_specification`) brings in the power of attributes.
+When defining the product model, the product schema, you go back and forth between attributes and product types.
 
 ### Product type default fields
 
@@ -67,10 +68,7 @@ How to think product types?
 How to not have a product type per product?
 How to not want a "god" product type trying to cover everything?
 
-TODO: Image field VS Product assets
-
 TODO: Variants
-TODO: attribute value display translation
 
 ## Product and product variants
 
@@ -96,7 +94,7 @@ When displaying a product variant, the application combines the asset collection
 For example, you can associate close-up photos of a feature to the checkbox representing its presence,
 while associating full views of the products to each of its available colors.
 
-## Exercise: Bikes and bike parts modeling
+## Exercise: Bike modeling
 
 Exercise: Think about attributes and content type to sell full bicycles and bicycle parts.
 
