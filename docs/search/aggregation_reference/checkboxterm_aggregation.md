@@ -1,3 +1,7 @@
+---
+description: CheckboxTermAggregation
+---
+
 # CheckboxTermAggregation
 
 The field-based [CheckboxTermAggregation](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Field-CheckboxTermAggregation.html) aggregates search results by the value of the Checkbox field.

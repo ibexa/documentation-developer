@@ -1,3 +1,8 @@
+---
+description: Priority Search Criterion
+edition: commerce
+---
+
 # Priority Criterion
 
 The [`Location\Priority` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Location-Priority.html)

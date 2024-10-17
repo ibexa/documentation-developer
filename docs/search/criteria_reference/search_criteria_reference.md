@@ -4,8 +4,7 @@ description: Search Criteria help define and fine-tune search queries for conten
 
 # Search Criteria reference
 
-Search Criteria are filters for Content and Location Search and
-[Repository filtering](search_api.md#repository-filtering).
+Search Criteria are filters for content and location Search and [Repository filtering](search_api.md#repository-filtering).
 
 Criteria can take some of the following arguments:
 

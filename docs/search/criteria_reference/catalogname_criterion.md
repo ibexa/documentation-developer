@@ -1,3 +1,8 @@
+---
+description: CatalogName Search Criterion
+edition: commerce
+---
+
 # CatalogName Criterion
 
 The `CatalogName` Search Criterion searches for catalogs by the value of their name.

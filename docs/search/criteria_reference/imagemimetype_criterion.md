@@ -1,5 +1,5 @@
 ---
-description: Image MimeType Criterion
+description: Image MimeType Search Criterion
 ---
 
 # Image MimeType Criterion
@@ -19,7 +19,7 @@ The `MimeType` Search Criterion searches for image with specified mime type(s).
 $query->query = new Criterion\MimeType('image', 'image/jpeg');
 ```
 
-or 
+or
 
 ```php
 $mimeTypes = [

@@ -1,3 +1,8 @@
+---
+description: BasePrice Search Criterion
+edition: commerce
+---
+
 # BasePrice Criterion
 
 The [`BasePrice` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-ProductCatalog-Values-Product-Query-Criterion-BasePrice.html) searches for products by their base price.

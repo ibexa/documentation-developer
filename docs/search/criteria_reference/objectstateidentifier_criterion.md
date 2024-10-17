@@ -1,7 +1,11 @@
+---
+description: ObjectStateIdentifier Search Criterion
+edition: commerce
+---
+
 # ObjectStateIdentifier Criterion
 
-The [`ObjectStateIdentifier` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-ObjectStateId.html)
-searches for content based on its Object State identifier.
+The [`ObjectStateIdentifier` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-ObjectStateId.html) searches for content based on its Object State identifier.
 
 ## Arguments
 

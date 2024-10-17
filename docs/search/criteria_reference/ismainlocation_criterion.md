@@ -1,7 +1,11 @@
+---
+description: IsMainLocation Search Criterion
+edition: commerce
+---
+
 # IsMainLocation Criterion
 
-The [`IsMainLocation` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-LanguageCode.html)
-searches for Locations based on whether they're the main Location of a content item or not.
+The [`IsMainLocation` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-LanguageCode.html) searches for locations based on whether they're the main Location of a content item or not.
 
 This Criterion is available only for Location Search.
 

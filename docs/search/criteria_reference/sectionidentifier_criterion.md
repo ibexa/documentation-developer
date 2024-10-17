@@ -1,7 +1,11 @@
+---
+description: SectionIdentifier Search Criterion
+edition: commerce
+---
+
 # SectionIdentifier Criterion
 
-The [`SectionIdentifier` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-SectionIdentifier.html)
-searches for content based on the identifier of the Section it's assigned to.
+The [`SectionIdentifier` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-SectionIdentifier.html) searches for content based on the identifier of the Section it's assigned to.
 
 ## Arguments
 

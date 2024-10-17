@@ -1,5 +1,5 @@
 ---
-description: Image Width Criterion
+description: Image Width Search Criterion
 ---
 
 # Image Width Criterion

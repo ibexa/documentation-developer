@@ -1,3 +1,8 @@
+---
+description: CatalogStatus Search Criterion
+edition: commerce
+---
+
 # CatalogStatus Criterion
 
 The `CatalogStatus` Search Criterion searches for catalogs by the value of their status.

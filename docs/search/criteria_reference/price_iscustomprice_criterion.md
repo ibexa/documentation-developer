@@ -1,5 +1,5 @@
 ---
-description: Price IsCustomPrice Criterion
+description: Price IsCustomPrice Search Criterion
 ---
 
 # Price IsCustomPrice Criterion
@@ -19,7 +19,7 @@ The `IsCustomPrice` Criterion isn't available in Solr or Elasticsearch engines.
 ### PHP
 
 ``` php
-$query = new PriceQuery( 
+$query = new PriceQuery(
     new \Ibexa\Contracts\ProductCatalog\Values\Price\Query\Criterion\IsCustomPrice()
 );
 ```

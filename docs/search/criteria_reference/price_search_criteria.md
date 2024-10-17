@@ -7,7 +7,7 @@ page_type: reference
 
 Price Search Criteria are only supported by [Price Search (`ProductPriceServiceInterface::findPrices`)](price_api.md#prices).
 
-With these Criteria you can filter prices by currency, customer group, product, and so on.
+With these Criteria you can filter prices by currency, customer group, product, and more.
 
 ## Price Search Criteria
 

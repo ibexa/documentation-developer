@@ -1,3 +1,8 @@
+---
+description: CreatedAtRange Search Criterion
+edition: commerce
+---
+
 # CreatedAtRange Criterion
 
 The `CreatedAtRange` Search Criterion searches for products based on the date range when they were created.

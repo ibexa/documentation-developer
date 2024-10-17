@@ -1,7 +1,10 @@
+---
+description: BasePriceStatsAggregation
+---
+
 # BasePriceStatsAggregation
 
-The BasePriceStatsAggregation aggregates search results by the value of the product's price
-and provides statistical information for the values. You can use the provided getters to access the values:
+The BasePriceStatsAggregation aggregates search results by the value of the product's pricecand provides statistical information for the values. You can use the provided getters to access the values:
 
 - sum (`getSum()`)
 - count of values (`getCount()`)

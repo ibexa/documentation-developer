@@ -1,7 +1,11 @@
+---
+description: CustomerGroupId Search Criterion
+edition: commerce
+---
+
 # CustomerGroupId Criterion
 
-The `CustomerGroupId` Search Criterion
-searches for content based on the ID of its customer group.
+The `CustomerGroupId` Search Criterion searches for content based on the ID of its customer group.
 
 ## Arguments
 

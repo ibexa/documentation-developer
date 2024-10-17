@@ -1,3 +1,8 @@
+---
+description: ProductType Search Criterion
+edition: commerce
+---
+
 # ProductType Criterion
 
 The `ProductType` Search Criterion searches for products by their codes.

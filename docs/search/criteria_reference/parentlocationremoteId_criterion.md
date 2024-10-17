@@ -1,6 +1,11 @@
+---
+description: ParentLocationRemoteId Search Criterion
+edition: commerce
+---
+
 # ParentLocationRemoteId Criterion
 
-The `ParentLocationRemoteId` Search Criterion searches for content based on the Location remote ID of its parent.
+The `ParentLocationRemoteId` Search Criterion searches for content based on the location remote ID of its parent.
 
 ## Arguments
 

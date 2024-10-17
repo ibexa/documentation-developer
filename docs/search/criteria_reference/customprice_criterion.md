@@ -1,3 +1,8 @@
+---
+description: CustomPrice Search Criterion
+edition: commerce
+---
+
 # CustomPrice Criterion
 
 The `CustomPrice` Search Criterion searches for products by their custom price for a specific customer group.

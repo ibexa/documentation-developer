@@ -1,3 +1,8 @@
+---
+description: SimpleMeasurementAttribute Search Criterion
+edition: commerce
+---
+
 # SimpleMeasurementAttribute Criterion
 
 The `SimpleMeasurementAttribute` Search Criterion searches for products by the value of their measurement (single) attribute.

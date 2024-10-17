@@ -1,3 +1,8 @@
+---
+description: RangeMeasurementAttributeMinimum Search Criterion
+edition: commerce
+---
+
 # RangeMeasurementAttributeMinimum Criterion
 
 The `RangeMeasurementAttributeMinimum` Search Criterion searches for products by the minimum value of their measurement (range) attribute.

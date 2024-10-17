@@ -1,7 +1,11 @@
+---
+description: Sibling Search Criterion
+edition: commerce
+---
+
 # Sibling Criterion
 
-The [`Sibling` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Sibling.html)
-searches for content under the same parent as the indicated Location.
+The [`Sibling` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Sibling.html) searches for content under the same parent as the indicated location.
 
 ## Arguments
 

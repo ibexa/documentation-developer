@@ -1,3 +1,8 @@
+---
+description: CatalogIdentifier Search Criterion
+edition: commerce
+---
+
 # CatalogIdentifier Criterion
 
 The `CatalogIdentifier` Search Criterion searches for a catalog by the value of its identifier.

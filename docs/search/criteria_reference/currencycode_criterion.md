@@ -1,3 +1,8 @@
+---
+description: CurrencyCode Search Criterion
+edition: commerce
+---
+
 # CurrencyCode Criterion
 
 The `CurrencyCodeCriterion` Search Criterion searches for currencies by their codes.

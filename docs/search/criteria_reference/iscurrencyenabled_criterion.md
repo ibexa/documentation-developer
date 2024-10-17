@@ -1,3 +1,8 @@
+---
+description: IsCurrencyEnabledCriterion Search Criterion
+edition: commerce
+---
+
 # IsCurrencyEnabledCriterion Criterion
 
 The `IsCurrencyEnabledCriterion` Search Criterion searches for currencies that are enabled in the system.

@@ -1,3 +1,7 @@
+---
+description: FloatRangeAggregation
+---
+
 # FloatRangeAggregation
 
 The field-based [FloatRangeAggregation](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Aggregation-Field-FloatRangeAggregation.html) aggregates search results by the value of the Float field.

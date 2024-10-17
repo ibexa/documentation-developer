@@ -1,7 +1,10 @@
+---
+description: CustomPriceStatsAggregation
+---
+
 # CustomPriceStatsAggregation
 
-The CustomPriceStatsAggregation aggregates search results by the value of the custom product's price
-and provides statistical information for the values. You can use the provided getters to access the values:
+The CustomPriceStatsAggregation aggregates search results by the value of the custom product's price and provides statistical information for the values. You can use the provided getters to access the values:
 
 - sum (`getSum()`)
 - count of values (`getCount()`)

@@ -1,5 +1,5 @@
 ---
-description: Image Dimensions Criterion
+description: Image Dimensions Search Criterion
 ---
 
 # Image Dimension Criterion

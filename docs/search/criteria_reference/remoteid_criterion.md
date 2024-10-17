@@ -1,3 +1,8 @@
+---
+description: RemoteId / ContentRemoteId Search Criterion
+edition: commerce
+---
+
 # RemoteId / ContentRemoteId Criterion
 
 The [`RemoteId` / `ContentRemoteId` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-RemoteId.html)

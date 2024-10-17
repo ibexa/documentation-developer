@@ -1,3 +1,8 @@
+---
+description: ProductName Search Criterion
+edition: commerce
+---
+
 # ProductName Criterion
 
 The `ProductName` Search Criterion searches for products by theis names.

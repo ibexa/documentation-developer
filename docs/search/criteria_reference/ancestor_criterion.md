@@ -1,7 +1,11 @@
+---
+description: Ancestor Search Criterion
+edition: commerce
+---
+
 # Ancestor Criterion
 
-The [`Ancestor` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Ancestor.html)
-searches for content that is an ancestor of the provided Location, including this Location.
+The [`Ancestor` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-Ancestor.html) searches for content that is an ancestor of the provided location, including this location.
 
 ## Arguments
 

@@ -11,7 +11,7 @@ There are three types of aggregations:
 
 - Term aggregations group by value and count object in each group
 - Range aggregations count values in specified ranges
-- Stats aggregations compute stats over numeric fields: minimum, average and maximum value, count and sum of values
+- Stats aggregations compute stats over numeric fields: minimum, average and maximum value, count, and sum of values
 
 !!! tip
 

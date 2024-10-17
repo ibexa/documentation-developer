@@ -1,7 +1,6 @@
 # LoggedAt Criterion
 
-The `LoggedAtCriterion` Activity Log Criterion
-matches activity log group that has a log entry created before or after a given date time.
+The `LoggedAtCriterion` Activity Log Criterion matches activity log group that has a log entry created before or after a given date time.
 
 ## Arguments
 

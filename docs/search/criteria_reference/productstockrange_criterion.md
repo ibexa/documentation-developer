@@ -1,3 +1,8 @@
+---
+description: ProductStockRange Search Criterion
+edition: commerce
+---
+
 # ProductStockRange Criterion
 
 The `ProductStockRange` Search Criterion searches for products by their numerical stock.

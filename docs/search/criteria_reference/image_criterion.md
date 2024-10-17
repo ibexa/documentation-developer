@@ -1,5 +1,5 @@
 ---
-description: Image Criterion
+description: Image Search Criterion
 ---
 
 # Image Criterion

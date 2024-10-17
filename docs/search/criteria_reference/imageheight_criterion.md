@@ -1,5 +1,5 @@
 ---
-description: Image Height Criterion
+description: Image Height Search Criterion
 ---
 
 # Image Height Criterion

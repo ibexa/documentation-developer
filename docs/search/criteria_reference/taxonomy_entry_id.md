@@ -1,7 +1,11 @@
+---
+description: TaxonomyEntryId Search Criterion
+edition: commerce
+---
+
 # TaxonomyEntryId Criterion
 
-The [`TaxonomyEntryId` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Taxonomy-Search-Query-Criterion-TaxonomyEntryId.html)
-searches for content based on the ID of the Taxonomy Entry it's assigned to.
+The [`TaxonomyEntryId` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Taxonomy-Search-Query-Criterion-TaxonomyEntryId.html) searches for content based on the ID of the Taxonomy Entry it's assigned to.
 
 ## Arguments
 

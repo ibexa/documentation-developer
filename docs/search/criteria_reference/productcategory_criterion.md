@@ -1,3 +1,8 @@
+---
+description: ProductCategory Search Criterion
+edition: commerce
+---
+
 # ProductCategory Criterion
 
 The `ProductCategory` Search Criterion searches for products by the category they're assigned to.

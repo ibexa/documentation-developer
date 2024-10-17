@@ -1,3 +1,8 @@
+---
+description: AttributeGroupIdentifier Search Criterion
+edition: commerce
+---
+
 # AttributeGroupIdentifier Criterion
 
 The `AttributeGroupIdentifier` Search Criterion searches for products by the value of their attribute group identifier.

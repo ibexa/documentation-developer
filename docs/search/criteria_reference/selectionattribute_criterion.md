@@ -1,3 +1,8 @@
+---
+description: SelectionAttribute Search Criterion
+edition: commerce
+---
+
 # SelectionAttribute Criterion
 
 The `SelectionAttribute` Search Criterion searches for products by the value of their selection attribute.

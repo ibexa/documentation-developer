@@ -1,5 +1,5 @@
 ---
-description: Image Orientation Criterion
+description: Image Orientation Search Criterion
 ---
 
 # Image Orientation Criterion
@@ -57,7 +57,7 @@ $query->query = new Criterion\Orientation('image', $orientations);
     }
 
     OR
-    
+
     "Query": {
         "Filter": {
             "ImageOrientationCriterion": {
