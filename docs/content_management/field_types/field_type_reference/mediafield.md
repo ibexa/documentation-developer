@@ -23,7 +23,7 @@ It's capable of handling the following types of files:
 | Type | Description | Example|
 |------|-------------|--------|
 | `string` | Path to the media file.| `/Users/jane/butterflies.mp4`     |
-| `Ibexa\Core\FieldType\Media\Value` | Media field type Value Object with path to the media file as the value of `id` property. | See below. |
+| `Ibexa\Core\FieldType\Media\Value` | Media field type value object with path to the media file as the value of `id` property. | See below. |
 
 ### Value object
 

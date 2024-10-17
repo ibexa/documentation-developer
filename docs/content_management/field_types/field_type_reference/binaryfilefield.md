@@ -10,7 +10,7 @@ It's capable of handling virtually any file type and is typically used for stori
 
 ## PHP API field type
 
-### Value Object
+### Value object
 
 #### Properties
 

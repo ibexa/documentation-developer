@@ -8,7 +8,7 @@ This field type validates and stores information about a user.
 
 ## PHP API field type
 
-### Value Object
+### Value object
 
 |Property|Type|Description|Example|
 |------|------|------|------|

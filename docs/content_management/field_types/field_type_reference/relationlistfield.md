@@ -15,7 +15,7 @@ This field type makes it possible to store and retrieve values of a relation to 
 |`int|string`|ID of the related content item|`42`|
 |`array`|An array of related Content IDs|`[ 24, 42 ]`|
 |`Ibexa\Contracts\Core\Repository\Values\Content\ContentInfo`|ContentInfo instance of the related Content|n/a|
-|`Ibexa\Core\FieldType\RelationList\Value`|RelationList field type Value Object|See below.|
+|`Ibexa\Core\FieldType\RelationList\Value`|RelationList field type value object|See below.|
 
 ### Value Object
 

@@ -46,7 +46,7 @@ $emailaddressValue = new Type\Value( "someuser@example.com" );
 
 ##### String representation
 
-String representation of the field type's Value object is the email address contained in it.
+String representation of the field type's value object is the email address contained in it.
 
 Example: `someuser@example.com`
 

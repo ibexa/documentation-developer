@@ -38,7 +38,7 @@ new FieldType\Value(
 
 This field type validates whether `Country` and `Name` fields have been filled out.
 
-### Value Object
+### Value object
 
 #### Properties
 

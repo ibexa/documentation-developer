@@ -26,7 +26,7 @@ new FieldType\Value([
 ]);
 ```
 
-### Value Object
+### Value object
 
 `Ibexa\FieldTypeMatrix\FieldType\Value` offers the following properties:
 

@@ -8,7 +8,7 @@ This field type allows the storage and retrieval of one or more authors. For eac
 
 ## PHP API field type
 
-### Value Object
+### Value object
 
 ##### Properties
 
