@@ -64,6 +64,6 @@ Two implementations are provided: `Prefix`, and `AbsolutePrefix`. They both add 
 Three URL decorator services are introduced:
 
 - `Ibexa\Core\IO\UrlDecorator\AbsolutePrefix` used by the binary data handlers to decorate all URIs sent out by the API. Uses `AbsolutePrefix`.
-- `Ibexa\Core\IO\UrlDecorator\Prefix` used through the `UrlRedecorator` by various legacy elements (converter, storage gateway, etc.) to generate its internal storage format for URIs. Uses a `Prefix`, not an `AbsolutePrefix`, meaning that no leading `/` is added.
+- `Ibexa\Core\IO\UrlDecorator\Prefix` used through the `UrlRedecorator` by various legacy elements (for example, converter or storage gateway) to generate its internal storage format for URIs. Uses a `Prefix`, not an `AbsolutePrefix`, meaning that no leading `/` is added.
 
 In addition, a URL redecorator service, `Ibexa\Core\IO\UrlDecorator\Prefix`, uses both previously mentioned decorators to convert URIs between what is used on the new stack, and what format legacy expects (relative URLs from the project root).

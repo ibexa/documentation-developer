@@ -28,7 +28,7 @@ Current content tags (and when the system purges on them):
 - Content type: `ct<content-type-id>` - Used when the content type changes, affecting content of its type.
 - Location: `l<location-id>` - Used for clearing all cache relevant for a given location.
 - Parent Location: `pl<[parent-]location-id>` - Used for clearing all children of a location (`pl<location-id>`), or all siblings (`pl<parent-location-id>`).
-- Path: `p<location-id>` - For operations that change the tree itself, like move, remove, etc.
+- Path: `p<location-id>` - For operations that change the tree itself, for example, move or remove.
 - Relation: `r<content-id>` - Only purged on when content updates are severe enough to also affect reverse relations.
 - Relation location: `rl<location-id>` - Same as relation, but by location ID.
 

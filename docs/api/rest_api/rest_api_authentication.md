@@ -232,7 +232,7 @@ If an unsafe request is missing the CSRF token, or the token has incorrect value
 The purpose of CSRF protection is to prevent users from accidentally running harmful operations by being tricked into executing an HTTP(S) request against a web applications they're logged into.
 In browsers this action is blocked by lack of CSRF token.
 
-However, if you develop a rich client application (JavaScript, JAVA, iOS, Android, etc.), that is:
+However, if you develop a rich client application (for example, JavaScript, JAVA, iOS, or Android), that is:
 
 - Registering itself as a protocol handler:
     - Exposes unsafe methods in any way

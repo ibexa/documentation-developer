@@ -416,7 +416,7 @@ The conversion tool also complains about IDs which contain invalid characters.
 
 In `ezxmltext` you may have links which refer to other objects by their remote ID. This isn't supported in `richtext`, so the conversion tool must look up such remote IDs and replace them with the `object_id` or `node_id`. If the conversion tool cannot find the object by its remote id, it issues a warning about it.
 
-In older eZ Publish databases you may also have invalid links due to lack of reference to a target (no `href`, `url_id`, etc.):
+In older eZ Publish databases you may also have invalid links due to lack of reference to a target (for example, no `href` or `url_id`):
 
 ```
     <link>some text</link>
@@ -529,7 +529,7 @@ In case of URLs with extended UTF-encoded names, the workaround must make use of
 
 To move your legacy Page field / eZ Flow configuration to eZ Platform Enterprise Edition you can use a script that aids in the migration process.
 
-The script automatically migrates only data – to move custom views, layouts, blocks etc., you have to provide their business logic again.
+The script automatically migrates only data – to move, for example, custom views, layouts, or blocks, you have to provide their business logic again.
 
 !!! caution
 

@@ -285,8 +285,7 @@ For the full list of UDW configuration keys and their descriptions, see [UDW con
 
 ### Online Editor
 
-All Online Editor front-end code and assets (such as JS, CSS, fonts, etc.)
-have been moved from `ezplatform-admin-ui` to `ezplatform-richtext`.
+All Online Editor front-end code and assets (such as JS, CSS, or fonts) have been moved from `ezplatform-admin-ui` to `ezplatform-richtext`.
 
 ### Adding new tabs in the back office
 
@@ -861,8 +860,7 @@ The following Webpack Encore entries have been changed:
 - `ezplatform-admin-ui-alloyeditor-css` replaced by `ezplatform-richtext-onlineeditor-css`
 - `ezplatform-admin-ui-alloyeditor-js` replaced by `ezplatform-richtext-onlineeditor-js`
 
-All Online Editor front-end code and assets (such as JS, CSS, fonts, etc.)
-have been moved from `ezplatform-admin-ui` to `ezplatform-richtext`.
+All Online Editor front-end code and assets (such as JS, CSS, or fonts) have been moved from `ezplatform-admin-ui` to `ezplatform-richtext`.
 
 #### Custom button configuration
 

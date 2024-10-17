@@ -235,7 +235,7 @@ KlUh0J1fnw1JY1aEQ0up    8        Re-Enable shielding on restart  false    1iJWIf
 
 ### Get details of installed snippets
 
-Use the `vcl snippet list` command with the `--verbose` option to get information such as: priority, which subroutine it's attached to (`vcl_recv`, `vcl_fetch` etc.) and the code itself.
+Use the `vcl snippet list` command with the `--verbose` option to get information such as: priority, which subroutine it's attached to (for example, `vcl_recv` or `vcl_fetch`) and the code itself.
 
 ``` bash
 fastly vcl snippet list --version=active -v

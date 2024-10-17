@@ -22,7 +22,7 @@ These policies are necessary for all other cases below that require access to th
 
 You can use this option together with [[= product_name_exp =]]'s content review options.
 Users assigned with these policies can create content, but cannot publish it.
-To publish, they must send the content for review to another User with proper permissions (for example, senior editor, proofreader, etc.).
+To publish, they must send the content for review to another User with proper permissions (for example, senior editor or proofreader).
 
 - `content/create`
 - `content/edit`

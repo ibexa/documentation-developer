@@ -216,7 +216,7 @@ ibexa_elasticsearch:
 ### API key authentication
 
 If your Elasticsearch cluster is protected by API keys, you must provide the key and secret in authentication configuration to connect [[= product_name =]] with the cluster.
-With API key authentication you can define different authorization levels, such as [`create_index`, `index`, etc.](https://www.elastic.co/guide/en/elasticsearch/reference/7.x/security-privileges.html#privileges-list-indices).
+With API key authentication you can define different authorization levels, such as [`create_index` or `index`](https://www.elastic.co/guide/en/elasticsearch/reference/7.x/security-privileges.html#privileges-list-indices).
 Such approach proves useful if the cluster is available to the public.
 
 For more information, see [Create API key](https://www.elastic.co/guide/en/elasticsearch/reference/7.x/security-api-create-api-key.html).

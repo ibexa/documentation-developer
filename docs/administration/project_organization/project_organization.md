@@ -10,7 +10,7 @@ You can see an example of organizing a project in the [companion repository](htt
 
 ## PHP code
 
-The project's PHP code (controllers, event listeners, etc.) should be placed in the `src` folder.
+The project's PHP code (for example, controllers or event listeners) should be placed in the `src` folder.
 
 Reusable libraries should be packaged so that they can be managed using Composer.
 

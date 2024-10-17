@@ -141,7 +141,7 @@ An Image field looks like this:
 </field>
 ```
 
-Children of the `fieldValue` node list the general properties of the field's original image (`fileSize`, `fileName`, `inputUri`, etc.), and its variations.
+Children of the `fieldValue` node list the general properties of the field's original image (for example, `fileSize`, `fileName`, or `inputUri`), and its variations.
 For each variation, a URI is provided.
 Requested through REST, this resource generates the variation if it doesn't exist yet, and list the variation details:
 

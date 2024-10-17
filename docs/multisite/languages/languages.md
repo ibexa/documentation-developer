@@ -126,7 +126,7 @@ A locale *conversion map* example [can be found in `ibexa/core`, in `locale.yaml
 
 ### More complex translation setup
 
-There are some cases where your SiteAccesses share settings (repository, content settings, etc.), but you don't want all of them to share the same `translation_siteaccesses` setting.
+There are some cases where your SiteAccesses share settings (for example, repository or content settings), but you don't want all of them to share the same `translation_siteaccesses` setting.
 This can be for example the case when you use separate SiteAccesses for mobile versions of a website.
 
 The solution is defining new groups:

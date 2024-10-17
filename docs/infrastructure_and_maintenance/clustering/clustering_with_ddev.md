@@ -117,7 +117,7 @@ ddev php bin/console cache:clear
 
 You can now check whether Redis works.
 
-For example, the `ddev redis-cli MONITOR` command returns outputs such as `"SETEX" "ezp:`, `"MGET" "ezp:`, `"SETEX" "PHPREDIS_SESSION:`, `"GET" "PHPREDIS_SESSION:`, etc. while navigating into the website, in particular the back office.
+For example, the `ddev redis-cli MONITOR` command returns outputs, for example, `"SETEX" "ezp:`, `"MGET" "ezp:`, `"SETEX" "PHPREDIS_SESSION:`, or `"GET" "PHPREDIS_SESSION:`, while navigating into the website, in particular the back office.
 
 See [Redis commands](https://redis.io/commands/) for more details such as information about the [`MONITOR`](https://redis.io/commands/monitor/) command used in the previous example.
 

@@ -2,7 +2,8 @@
 
 This field type represents and handles a single binary file. It also counts the number of times the file has been downloaded from the `content/download` module.
 
-It's capable of handling virtually any file type and is typically used for storing legacy document types such as PDF files, Word documents, spreadsheets, etc. The maximum allowed file size is determined by the "Max file size" class attribute edit parameter and the `upload_max_filesize` directive in the main PHP configuration file (`php.ini`).
+It's capable of handling virtually any file type and is typically used for storing legacy document types, for example, PDF files, Word documents, or spreadsheets.
+The maximum allowed file size is determined by the "Max file size" class attribute edit parameter and the `upload_max_filesize` directive in the main PHP configuration file (`php.ini`).
 
 | Name         | Internal name  | Expected input | Output  |
 |--------------|----------------|----------------|---------|

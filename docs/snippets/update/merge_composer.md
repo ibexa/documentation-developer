@@ -48,7 +48,7 @@ When finished, run `git add composer.json` and commit.
 
 ### C. Fix other conflicts
 
-Depending on the local changes you have done, you may get other conflicts on configuration files, kernel, etc.
+Depending on the local changes you have done, you may get other conflicts, for example, on configuration files or kernel.
 
 For each change, edit the file, identify the conflicting changes, and resolve the conflict.
 Run `git add <conflicting-file>` to add the changes.

@@ -4,7 +4,7 @@ description: The basis of all field types are their Type and Value classes, cont
 
 # Type and Value
 
-A field type must contain a Type class which contains the logic of the field type: validating data, transforming from various formats, describing the validators, etc.
+A field type must contain a Type class which contains the logic of the field type, for example, validating data, transforming from various formats, or describing the validators.
 A Type class must implement `Ibexa\Core\FieldType\FieldType` ("field type interface").
 All native field types also extend the `Ibexa\Core\FieldType\FieldType` abstract class that implements this interface and provides implementation facilities through a set of abstract methods of its own.
 

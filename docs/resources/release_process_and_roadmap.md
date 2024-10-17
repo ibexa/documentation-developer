@@ -32,7 +32,7 @@ The version number of [[= product_name =]] and all its internal components follo
 
 - Changes to X indicate breaking changes. They usually concern mostly internal things, but developers should check in our change logs if they need to adjust their code to continue using the API or features. If there are larger breaks, this is announced well in advance of the upcoming release.
 - Y represents new features and functionalities.
-- Z represents patches, bug fixes, smaller improvements, etc.
+- Z represents patches, bug fixes, or smaller improvements.
 
 Distribution files of [[= product_name_base =]] three editions are as follows:
 

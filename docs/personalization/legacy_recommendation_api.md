@@ -28,7 +28,7 @@ Before recommendation can be fetched from the recommendation controller, a suffi
 Recommendations are retrieved from the Personalization server with RESTful requests by using the GET method.
 The result is a list of item IDs that can be used to call the underlying CMS or shop system, to retrieve the necessary information for the rendering process.
 
-To allow the customer to retrieve different types of recommendations based on different methods (for example, Collaborative Filtering, Content Based, Stereotype, etc.) the Recommendation System uses scenario IDs relating to a predefined set of configurations inside the system.
+To allow the customer to retrieve different types of recommendations based on different methods (for example, Collaborative Filtering, Content Based, or Stereotype) the Recommendation System uses scenario IDs relating to a predefined set of configurations inside the system.
 These configurations are a combination of methods and filters that should be applied including possible fallbacks if the requested methods don't deliver a result.
 
 A recommendation request looks like this:
@@ -140,7 +140,7 @@ The Following HTTP response codes are used by the recommendation controller.
 |400 Bad Request</br>414 Request-URI Too Long|The request is wrongly formatted. See response body for more information.|
 |401 Unauthorized|Not valid authentication credentials.|
 |403 Forbidden|Access denied.|
-|404 Not Found|The requested element was not found. It can be customer ID (a.k.a. mandator ID), model ID, scenario ID etc.|
+|404 Not Found|The requested element was not found. It can be, for example, customer ID (a.k.a. mandator ID), model ID, or scenario ID.|
 |409 Conflict|The combination of used models and the recommendation request parameters doesn't allow to provide recommendations. This could be, for example, if personalized recommendations are requested for a user who has no history at all.|
 |500 Internal Server Error|Unspecified error. Please inform support if you get this error repeatedly.|
 

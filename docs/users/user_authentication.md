@@ -7,7 +7,7 @@ description: Customize user authentication.
 ## Authenticate user with multiple user providers
 
 Symfony provides native support for [multiple user providers]([[= symfony_doc =]]/security/multiple_user_providers.html).
-This makes it easier to integrate any kind of login handlers, including SSO and existing third party bundles (for example, [FR3DLdapBundle](https://github.com/Maks3w/FR3DLdapBundle), [HWIOauthBundle](https://github.com/hwi/HWIOAuthBundle), [FOSUserBundle](https://github.com/FriendsOfSymfony/FOSUserBundle), [BeSimpleSsoAuthBundle](https://github.com/BeSimple/BeSimpleSsoAuthBundle), etc.).
+This makes it easier to integrate any kind of login handlers, including SSO and existing third party bundles (for example, [FR3DLdapBundle](https://github.com/Maks3w/FR3DLdapBundle), [HWIOauthBundle](https://github.com/hwi/HWIOAuthBundle), [FOSUserBundle](https://github.com/FriendsOfSymfony/FOSUserBundle), or [BeSimpleSsoAuthBundle](https://github.com/BeSimple/BeSimpleSsoAuthBundle)).
 
 However, to be able to use *external* user providers with [[= product_name =]], a valid Platform user needs to be injected into the repository.
 This is mainly for the kernel to be able to manage content-related permissions (but not limited to this).

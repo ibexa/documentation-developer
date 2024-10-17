@@ -32,7 +32,7 @@ It can consist of letters, digits, spaces, and special characters (it's mandator
 
     Even if your content type defines a field intended as a name for the content item (for example, a title of an article or product name), don't confuse it with this Name, which is a piece of metadata, not a field.
 
-**Identifier** – an identifier for internal use in configuration files, templates, PHP code, etc.
+**Identifier** – an identifier for internal use in configuration, for example, files, templates, or PHP code.
 It must be unique, can only contain lowercase letters, digits, and underscores (it's mandatory and the maximum length is 50 characters).
 
 **Description** – a detailed description of the content type (optional).

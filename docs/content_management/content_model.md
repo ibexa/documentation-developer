@@ -7,7 +7,7 @@ description: Ibexa DXP's content model relies on content items that are instance
 ## Content model overview
 
 The content structure in [[= product_name =]] is based on content items.
-A content item represents a single piece of content: an article, a blog post, an image, a product, etc.
+A content item represents a single piece of content, for example, an article, a blog post, an image, or a product.
 Each content item is an instance of a content type.
 
 !!! tip
@@ -97,7 +97,7 @@ Aside from the field type, the field definition in a content type provides the f
 
 **Name** – a user-friendly name that describes the field. This name is used in the interface, but not internally by the system. It can consist of letters, digits, spaces, and special characters (the maximum length is 255 characters). If no name is provided, a unique one is automatically generated.
 
-**Identifier** – an identifier for internal use in configuration files, templates, PHP code, etc. It can only contain lowercase letters, digits and underscores (the maximum length is 50 characters). This identifier is also used in name patterns for the content type.
+**Identifier** – an identifier for internal use, for example, in configuration files, templates, or PHP code. It can only contain lowercase letters, digits and underscores (the maximum length is 50 characters). This identifier is also used in name patterns for the content type.
 
 **Description** – a detailed description of the field.
 

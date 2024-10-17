@@ -43,7 +43,7 @@ can be viewed by selecting the **Content structure** tab in the Content mode int
 
 ![Content structure](content_management_tree.png "Content structure")
 
-This part of the tree is typically used for organizing folders, articles, information pages, etc.
+This part of the tree is typically used, for example, for organizing folders, articles, or information pages.
 The default ID number of this location is 2, but it can be [modified via configuration](repository_configuration.md#top-level-locations).
 It contains a Folder content item.
 

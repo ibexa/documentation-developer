@@ -49,7 +49,7 @@ For more information about integrating the Personalization service, see [Develop
 
 ### Set up item type tracking
 
-For the recommendations to be calculated, apart from visitor events (CLICK, BUY, etc.), the Personalization server must receive a list of item types that are tracked.
+For the recommendations to be calculated, apart from visitor events (for example, CLICK or BUY), the Personalization server must receive a list of item types that are tracked.
 
 You define item types to be tracked in [configuration files](configuration.md#configuration-files).
 The content is then initially exported by a script.

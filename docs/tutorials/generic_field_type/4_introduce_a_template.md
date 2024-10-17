@@ -9,7 +9,7 @@ description: Learn how to add a template for rendering the custom field on the s
 To display data from the field type, you need to create and register a template for it.
 Each field type template receives a set of variables that can be used to achieve the desired goal.
 In this case the most important variable is the `field`, an instance of `Ibexa\Contracts\Core\Repository\Values\Content\Field`.
-In addition to its own metadata (`id`, `fieldDefIdentifier`, etc.), it exposes the field Value through the `value` property.
+In addition to its own metadata (for example, `id` or `fieldDefIdentifier`), it exposes the field Value through the `value` property.
 
 Remember that field type templates can be overridden to tweak what is displayed and how.
 

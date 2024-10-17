@@ -28,7 +28,7 @@ You can [contact us](https://www.ibexa.co/about-ibexa/contact-us) or [contact on
 
 You access with any web browser from any platform to a rich back office, the main place to
 
-- define users and their rights (customers, subscribers, editors, etc.),
+- define users and their rights (for example, customers, subscribers, or editors),
 - organize content (content types, fields, tree, tags, languages, and more),
 - edit content in a collaborative workplace with versions and workflows.
 

@@ -25,7 +25,7 @@ Content management capabilities are available in all [[= product_name =]] editio
 - articles or posts
 - products
 - forms
-- media (images, videos, etc.)
+- media (for example, images or videos)
 - user accounts
 
 You can set up content structure, define the templates to be filled with content, and assign different areas of the structure to your editors.
@@ -57,7 +57,7 @@ For technical details, see [a Content model](content_model.md#content-model).
 ### Field types
 
 [Field types](field_types.md) are the smallest elements of the content model’s structure.
-[[= product_name =]] comes with many built-in field types that cover most common needs, for example, Text line, RichText, Integer, Measurement, Map location, etc.
+[[= product_name =]] comes with many built-in field types that cover most common needs, for example, Text line, RichText, Integer, Measurement, or Map location.
 
 Their role is to:
 
@@ -90,10 +90,10 @@ Content types define what fields are available in the content item.
 ### Content items
 
 Content items are pieces of content, such as, for example, products, articles, blog posts, or media.
-In [[= product_name =]], everything is a content item — not only pages, articles or products, but also all media (images, videos, etc.) or even user accounts.
+In [[= product_name =]], everything is a content item — not only pages, articles or products, but also all media (for example, images or videos) or even user accounts.
 
 Each content item, apart from its name and identifier, contains a composition of fields, which differs depending on the type of content.
-For example, articles might have a title, an author, a body, and an image, while products may have a name, category, price, size, color, etc.
+For example, articles might have for example, a title, an author, a body, and an image, while products may have, for example, a name, category, price, size, or color.
 
 ### Forms
 

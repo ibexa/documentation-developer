@@ -102,7 +102,7 @@ This method doesn't consume memory in Varnish.
 It can optionally be cached with custom logic: Symfony Cache on server side and/or with client side caching techniques.
 This should be done as Ajax/JS lookup to avoid the uncached request that slows down the whole delivery of Vanish if it's done as ESI.
 
-This solution requires more effort depending on project requirements (traffic load, etc.).
+This solution requires more effort depending on project requirements (for example, traffic load).
 
 3\. Custom vary by logic, for example, `X-User-Preference-Hash` inspired by `X-Context-User-Hash`:
 
