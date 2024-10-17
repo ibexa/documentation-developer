@@ -19,8 +19,7 @@ Otherwise a new one is created.
 The Personalization JavaScript is a Google-like tracking API (ga.js) that you can paste 
 into your pages. 
 It activates the tracking by inserting <https://cdn.perso.ibexa.co/ibexa-tracker.js> or
-<https://cdn.perso.ibexa.co/ibexa-tracker.min.js>
-into the page.
+<https://cdn.perso.ibexa.co/ibexa-tracker.min.js> into the page.
 
 To use this mechanism on your pages, copy the code snippet below, and replace 
 `<YOUR_MANDATOR_ID>` with the customer ID, `<PAGE_ID>` with the page/item identifier 
