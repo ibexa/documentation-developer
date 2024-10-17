@@ -1,14 +1,14 @@
 ---
-description: Work with Ibexa Connect scenario block that retrieves and displays data from an Ibexa Connect webhook. 
+description: Work with Ibexa Connect scenario block that retrieves and displays data from an Ibexa Connect webhook.
 ---
 
-# Ibexa Connect scenario block
+# [[= product_name_connect =]] scenario block
 
-[[= product_name_connect =]] scenario block retrieves and displays data from an [[= product_name_connect =]] webhook. 
+[[= product_name_connect =]] scenario block retrieves and displays data from an [[= product_name_connect =]] webhook.
 Scenario block is a regular [Page block](page_blocks.md) and can be configured on field definition level as any other block.
 
 !!! caution
-    
+
     When setting up your instance, ensure you have profiler enabled.
     To set up Page Builder in [[= product_name =]], follow the [Page and Form tutorial](page_and_form_tutorial.md).
 
@@ -24,11 +24,11 @@ First, in `config/packages/ibexa_connect.yaml` add the following configuration:
 [[= include_file('code_samples/page/ibexa_connect_scenario_block/config/packages/ibexa_connect.yaml') =]]
 ```
 
-For each block template you can set up additional settings, for example, label, type or parameters. 
+For each block template you can set up additional settings, for example, label, type or parameters.
 
 ### Define page layouts
 
-To preview your block in the frontend, define page layouts in `config/packages/views.yaml` directory. This file defines, which layouts are used to render Page Builder. 
+To preview your block in the frontend, define page layouts in `config/packages/views.yaml` directory. This file defines, which layouts are used to render Page Builder.
 
 ```yaml
 [[= include_file('code_samples/page/ibexa_connect_scenario_block/config/packages/views.yaml') =]]
@@ -49,22 +49,21 @@ Then, in `templates/blocks` directory under `default.html.twig`, provide your bl
 In the following example, the configuration of the block is non-complex - block is only used to display the content transferred from an [[= product_name_connect =]] webhook.
 At this point the [[= product_name_connect =]] scenario block is ready to be used in Page Builder.
 
-### Configure Ibexa Connect scenario block in Page Builder
+### Configure [[= product_name_connect =]] scenario block in Page Builder
 
 Now, you can configure [[= product_name_connect =]] scenario block in Page Builder.
-To do it, in your Page add [[= product_name_connect =]] block by dragging it from the menu to a drop zone and enter block settings. 
+To do it, in your Page add [[= product_name_connect =]] block by dragging it from the menu to a drop zone and enter block settings.
 
-- In the **Basic** tab in **Webhook link** field, provide a link to an [[= product_name_connect =]] webhook, 
-for example, `https://connect.ibexa.co/3/scenarios/688/edit`:
+- In the **Basic** tab in **Webhook link** field, provide a link to an [[= product_name_connect =]] webhook, for example, `https://connect.ibexa.co/3/scenarios/688/edit`:
 
 ![Ibexa Connect Basic tab](ibexa_connect_basic_tab.png)
 
-- In the **Design** tab, choose one of declared templates, in the following example, `company_customers` or `External clients`. 
+- In the **Design** tab, choose one of declared templates, in the following example, `company_customers` or `External clients`.
 To do it, extend drop-down list in the **View** field and choose one of the available options.
 
 ![Ibexa Connect Design tab](ibexa_connect_design_tab.png)
 
 Click **Submit** button to confirm.
-After submitting the block, Page refreshes and [[= product_name_connect =]] block displays data from provided [[= product_name_connect =]] webhook. 
+After submitting the block, page refreshes and [[= product_name_connect =]] block displays data from provided [[= product_name_connect =]] webhook.
 
 ![Ibexa Connect webhook preview](ibexa_connect_webhook_preview.png)

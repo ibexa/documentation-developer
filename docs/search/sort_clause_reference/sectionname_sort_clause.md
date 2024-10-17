@@ -1,7 +1,10 @@
+---
+description: SectionName Sort Clause
+---
+
 # SectionName Sort Clause
 
-The [`SectionName` Sort Clause](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-SectionName.html)
-sorts search results by the Section name of the content items.
+The [`SectionName` Sort Clause](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-SortClause-SectionName.html) sorts search results by the Section name of the content items.
 
 ## Arguments
 

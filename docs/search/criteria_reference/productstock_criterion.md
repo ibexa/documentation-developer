@@ -1,3 +1,8 @@
+---
+description: ProductStock Search Criterion
+edition: commerce
+---
+
 # ProductStock Criterion
 
 The `ProductStock` Search Criterion searches for products by their numerical stock.

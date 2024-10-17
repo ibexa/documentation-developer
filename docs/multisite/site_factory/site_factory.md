@@ -1,24 +1,22 @@
 ---
-description: Site Factory allows creating multiple sites (SiteAccesses) from the Back Office.
+description: Site Factory allows creating multiple sites (SiteAccesses) from the back office.
 edition: experience
 ---
 
 # Site Factory
 
-Site Factory is a site management interface, integrated with the Back Office.
+Site Factory is a site management interface, integrated with the back office.
 It enables you to configure new sites without editing [YAML-based SiteAccess configuration](multisite_configuration.md).
 
 !!! note
 
-    A SiteAccess that you define for a site by following the [configuration](multisite_configuration.md) 
-    is always treated with higher priority than a SiteAccess created by using the Site Factory. 
-    For example, if you define a French site within a YAML file,
-    and then create a site that uses the `fr` path in Site Factory, matchers ignore the second site.
+    A SiteAccess that you define for a site by following the [configuration](multisite_configuration.md) is always treated with higher priority than a SiteAccess created by using the Site Factory.
+    For example, if you define a French site within a YAML file, and then create a site that uses the `fr` path in Site Factory, matchers ignore the second site.
 
 Site Factory is disabled by default after installation.
 
 If you plan to use Site Factory, you need to enable and configure it.
-To enable or disable Site Factory, follow respectively:
+To enable or disable Site Factory, follow:
 
 - [Enable Site Factory section](#enable-site-factory)
 - [Disable Site Factory section](#disable-site-factory)
@@ -29,11 +27,11 @@ To enable Site Factory, set the `ibexa_site_factory.enabled` [configuration key]
 
 ### Configure designs
 
-Next, configure Site Factory by adding empty SiteAccess groups. At least one empty group is required.
+Next, configure Site Factory by adding empty SiteAccess groups.
+At least one empty group is required.
 The number of empty SiteAccess groups must be equal to the number of templates that you want to have when you create the new site.
 
-In this example, you add two SiteAccess groups (`example_site_factory_group_1` and `example_site_factory_group_2`)
-that correspond to the two templates (`site1` and `site2`) that you add in the next step.
+In this example, you add two SiteAccess groups (`example_site_factory_group_1` and `example_site_factory_group_2`) that correspond to the two templates (`site1` and `site2`) that you add in the next step.
 
 Add the groups under the `ibexa.siteaccess` [configuration key](configuration.md#configuration-files):
 
@@ -100,7 +98,7 @@ ibexa_site_factory:
             thumbnail: /path/to/image/example-thumbnail_2.png
 ```
 
-You can check the results of your work in the Back Office by going to **Site management** and selecting **Sites**.
+You can check the results of your work in the back office by going to **Site management** and selecting **Sites**.
 
 There, you should be able to add a new site and choose a design for it.
 
@@ -111,7 +109,7 @@ To be able to see your site online, you need to define a domain for it.
 !!! caution "Define domain for production environment"
 
     These steps are for `dev` environment only.
-    If you want to define domains in production environment, you will need to configure Apache or Nginx by yourself.
+    If you want to define domains in production environment, you need to configure Apache or Nginx by yourself.
 
 In the `.env` file change line 2 to: `COMPOSE_FILE=doc/docker/base-dev.yml:doc/docker/multihost.yml`
 
@@ -144,7 +142,7 @@ Then, run `docker-compose up`:
 ```bash
 export COMPOSE_FILE="doc/docker/base-dev.yml:doc/docker/multihost.yml"
 docker-compose up
-```       
+```
 
 Your sites should be now visible under:
 
@@ -157,7 +155,7 @@ Your sites should be now visible under:
 
 ### Define site directory
 
-You can adjust the place where the directory of the new site is created (Location with ID 2 by default).
+You can adjust the place where the directory of the new site is created (location with ID 2 by default).
 To do it, go to configuration files and under the `ibexa.system.<scope>.site_factory` [configuration key](configuration.md#configuration-files) add the following parameter:
 
 ``` yaml
@@ -168,13 +166,13 @@ ibexa:
                 sites_location_id: 42
 ```
 
-Now, all new directories are created under "Ibexa DXP".
+Now, all new directories are created under "[[= product_name =]]".
 
 ### Provide access
 
-The Site Factory is set up, now you can provide sufficient permissions to the Users.
+The Site Factory is set up, now you can provide sufficient permissions to the users.
 
-Set the below Policies to allow Users to:
+Set the below policies to allow users to:
 
 - `site/view` - enter the Site Factory interface
 - `site/create` - create sites
@@ -182,9 +180,9 @@ Set the below Policies to allow Users to:
 - `site/change_status` - change status of the public accesses to `Live` or `Offline`
 - `site/delete` - delete sites
 
-For full documentation on how Permissions work and how to set them up, see [the Permissions section](permissions.md).
+For full documentation on how permissions work and how to set them up, see [the permissions section](permissions.md).
 
-To learn how to use Site Factory, see [User documentation]([[= user_doc =]]/site_organization/site_factory/).
+To learn how to use Site Factory, see [User Documentation]([[= user_doc =]]/site_organization/site_factory/).
 
 ## Disable Site Factory
 
@@ -194,11 +192,11 @@ Enabled Site Factory may cause following performance issues:
 - Site Factory matchers are connected to the database in search for new SiteAccesses
 
 You can disable Site Factory to boost ConfigResolver performance.
-Keep in mind that with disabled Site Factory you are unable to add new sites or use existing ones.
+Keep in mind that with disabled Site Factory you're unable to add new sites or use existing ones.
 
 1\. In `config/packages/ibexa_site_factory.yaml` change `enabled` to `false`.
 
-2\. In `config/packages/ibexa.yaml` comment the `ibexa.siteaccess.match: '@Ibexa\SiteFactory\SiteAccessMatcher': ~` if it is uncommented.
+2\. In `config/packages/ibexa.yaml` comment the `ibexa.siteaccess.match: '@Ibexa\SiteFactory\SiteAccessMatcher': ~` if it's uncommented.
 
 3\. Remove separate connection to database in `config/packages/doctrine.yaml`.
 

@@ -45,7 +45,7 @@ If set to `published`, applies for Content that has already been published (for 
 
 Each stage in the workflow has an identifier and can have a label and a color.
 
-The optional `last_stage` key indicates that content in this stage does not appear on the dashboard or in Review Queue.
+The optional `last_stage` key indicates that content in this stage doesn't appear on the dashboard or in Review Queue.
 
 One stage, listed under `initial_stage`, is the one that the workflow starts with.
 
@@ -68,12 +68,12 @@ or be `reverse` to a different transition (line 9).
 
 When moving a content item through a transition, the user can select a reviewer.
 Assigning a reviewer is mandatory if you set `reviewers.required` to `true` for this transition.
-You can restrict who can review the content item by setting `reviewers.user_group` to a Location ID of the user group.
+You can restrict who can review the content item by setting `reviewers.user_group` to a location ID of the user group.
 
 To be able to search for users for review, the user must have the content/read Policy without any Limitation,
 or with a Limitation that allows reading users.
 This means that, in addition to your own settings for this Policy, 
-you must add the /Users subtree to the Limitation and add Users in the [content type Limitation](limitation_reference.md#content-type-limitation).
+you must add the /Users subtree to the Limitation and add users in the [content type Limitation](limitation_reference.md#content-type-limitation).
 
 ``` yaml hl_lines="8 9"
 [[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 23, 32) =]]
@@ -113,8 +113,7 @@ To do so, configure the `publish` action for the transition:
 
 ### Disable Quick Review
 
-You can disable the default workflow, for example, if your project does not use 
-workflows, or Quick Review entries clog your database:
+You can disable the default workflow, for example, if your project doesn't use workflows, or Quick Review entries clog your database:
 
 ``` yaml
 [[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 0, 4) =]][[= include_file('code_samples/workflow/custom_workflow/config/packages/workflows.yaml', 63, 67) =]]
@@ -161,7 +160,7 @@ to only allow sending content in the selected transition.
 
 For example, by using the example above, a `workflow/change_stage` Policy 
 with `WorkflowTransitionLimitation` set to `Approved by legal` allows a legal team to send content forward
-after they are done with their review.
+after they're done with their review.
 
 You can also use the [Workflow Stage Limitation](limitation_reference.md#workflow-stage-limitation) 
 together with the `content/edit` and `content/publish` Policies to limit the ability to edit content in specific stages.
@@ -171,8 +170,8 @@ For example, you can use it to only allow a legal team to edit content in the `l
 
 ### Validate form before workflow transition
 
-By default, sending content to the next stage of the workflow does not validate the form in UI,
-so with the publish action, the form is not verified for errors in UI.
+By default, sending content to the next stage of the workflow doesn't validate the form in UI,
+so with the publish action, the form isn't verified for errors in UI.
 However, during the publish action, the sent form is validated in the service.
 
 Therefore, if there are any errors in the form, you return to the edit page but errors aren't triggered,

@@ -1,3 +1,8 @@
+---
+description: ParentLocationId Search Criterion
+edition: commerce
+---
+
 # ParentLocationId Criterion
 
 The [`ParentLocationId` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-ParentLocationId.html)
@@ -5,7 +10,7 @@ searches for content based on the Location ID of its parent.
 
 ## Arguments
 
-- `value` - int(s) representing the parent Location IDs
+- `value` - int(s) representing the parent location IDs
 
 ## Example
 

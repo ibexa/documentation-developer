@@ -19,7 +19,7 @@ In `assets/random_dot/`, create the `random-dot.js` file with the following code
 [[= include_file('code_samples/back_office/image_editor/assets/random_dot/random-dot-stem.js') =]]
 ```
 
-The code does not perform any action yet, you add the action in the following steps.
+The code doesn't perform any action yet, you add the action in the following steps.
 
 ## Add configuration
 
@@ -46,7 +46,7 @@ At this point you should be able to see a new button in the Image Editor's UI.
 
 ## Expand the React component
 
-The button that you created above does not initiate any action yet.
+The button that you created above doesn't initiate any action yet.
 You must modify the JavaScript component to add a function to the button.
 
 ### Contexts

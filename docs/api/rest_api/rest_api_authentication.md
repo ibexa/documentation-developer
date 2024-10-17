@@ -7,7 +7,7 @@ description: To authenticate REST API communication you can use session (default
 This page refers to [REST API reference](rest_api_reference/rest_api_reference.html), where you can find detailed information about
 REST API resources and endpoints.
 
-Five authentication methods are currently supported: session (default), JWT, basic, OAuth and client certificate (SSL).
+Five authentication methods are currently supported: session (default), JWT, basic, OAuth, and client certificate (SSL).
 
 You can only use one of those methods at the same time.
 
@@ -28,7 +28,7 @@ For other security related subjects, see:
 This authentication method requires a session cookie to be sent with each request.
 
 If you use this authentication method with a web browser, this session cookie is automatically available as soon as your visitor logs in.
-Add it as a cookie to your REST requests, and the user will be authenticated.
+Add it as a cookie to your REST requests, and the user can be authenticated.
 
 Sessions are created to re-authenticate the user only (and perform authorization), not to hold session state in the service.
 Because of that, you can use this method as supporting AJAX-based applications even if it violates the principles of RESTful services.
@@ -40,7 +40,7 @@ Enabling any other method disables session.
 
 ### Usage examples
 
-You can create a session for a visitor even if they are not logged in by sending the **`POST`** request to `/user/sessions`.
+You can create a session for a visitor even if they're not logged in by sending the **`POST`** request to `/user/sessions`.
 To log out, use the **`DELETE`** request on the same resource.
 
 #### Establishing session
@@ -57,7 +57,7 @@ To create a session, execute the following REST request:
     Accept: application/vnd.ibexa.api.Session+xml
     Content-Type: application/vnd.ibexa.api.SessionInput+xml
     ```
-    
+
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <SessionInput>
@@ -65,14 +65,14 @@ To create a session, execute the following REST request:
       <password>publish</password>
     </SessionInput>
     ```
-    
+
     ```
     HTTP/1.1 201 Created
     Location: /user/sessions/go327ij2cirpo59pb6rrv2a4el2
     Set-Cookie: eZSESSID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2; domain=.example.net; path=/; expires=Wed, 13-Jan-2021 22:23:01 GMT; HttpOnly
     Content-Type: application/vnd.ibexa.api.Session+xml
     ```
-    
+
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <Session href="/user/sessions/sessionID" media-type="application/vnd.ibexa.api.Session+xml">
@@ -91,7 +91,7 @@ To create a session, execute the following REST request:
     Accept: application/vnd.ibexa.api.Session+json
     Content-Type: application/vnd.ibexa.api.SessionInput+json
     ```
-    
+
     ```json
     {
       "SessionInput": {
@@ -100,14 +100,14 @@ To create a session, execute the following REST request:
       }
     }
     ```
-    
+
     ```
     HTTP/1.1 201 Created
     Location: /user/sessions/go327ij2cirpo59pb6rrv2a4el2
     Set-Cookie: eZSESSID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2; domain=.example.net; path=/; expires=Wed, 13-Jan-2021 22:23:01 GMT; HttpOnly
     Content-Type: application/vnd.ibexa.api.Session+xml
     ```
-    
+
     ```json
     {
       "Session": {
@@ -126,8 +126,7 @@ To create a session, execute the following REST request:
 
 ##### Logging in with active session
 
-Logging in is very similar to session creation, with one important detail:
-the CSRF token obtained in the previous step is added to the new request through the `X-CSRF-Token` header.
+Logging in is similar to session creation, with one important detail: the CSRF token obtained in the previous step is added to the new request through the `X-CSRF-Token` header.
 
 === "XML"
 
@@ -139,7 +138,7 @@ the CSRF token obtained in the previous step is added to the new request through
     Cookie: eZSESSID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2
     X-CSRF-Token: 23lk.neri34ijajedfw39orj-3j93
     ```
-    
+
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <SessionInput>
@@ -147,12 +146,12 @@ the CSRF token obtained in the previous step is added to the new request through
       <password>publish</password>
     </SessionInput>
     ```
-    
+
     ```
     HTTP/1.1 200 OK
     Content-Type: application/vnd.ibexa.api.Session+xml
     ```
-    
+
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <Session href="user/sessions/go327ij2cirpo59pb6rrv2a4el2/refresh" media-type="application/vnd.ibexa.api.Session+xml">
@@ -173,7 +172,7 @@ the CSRF token obtained in the previous step is added to the new request through
     Cookie: eZSESSID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2
     X-CSRF-Token: 23lk.neri34ijajedfw39orj-3j93
     ```
-    
+
     ```xml
     {
       "SessionInput": {
@@ -182,12 +181,12 @@ the CSRF token obtained in the previous step is added to the new request through
       }
     }
     ```
-    
+
     ```
     HTTP/1.1 200 OK
     Content-Type: application/vnd.ibexa.api.Session+json
     ```
-    
+
     ```xml
     {
       "Session": {
@@ -219,8 +218,7 @@ Cookie: eZSESSID98defd6ee70dfb1dea416=go327ij2cirpo59pb6rrv2a4el2
 
 ##### CSRF token
 
-It can be important to keep the CSRF token (`csrfToken`) for the duration of the session,
-because you must send this token in every request that uses [unsafe HTTP methods](rest_requests.md#request-method) (others than the safe GET or HEAD or OPTIONS) when a session has been established.
+It can be important to keep the CSRF token (`csrfToken`) for the duration of the session, because you must send this token in every request that uses [unsafe HTTP methods](rest_requests.md#request-method) (others than the safe GET or HEAD or OPTIONS) when a session has been established.
 It should be sent with an `X-CSRF-Token` header.
 
 Only three built-in routes can accept unsafe methods without CSRF, the sessions routes starting with `/user/sessions` to create, refresh or delete a session.
@@ -236,10 +234,10 @@ If an unsafe request is missing the CSRF token, or the token has incorrect value
 
 ##### Rich client application security concerns
 
-The purpose of CSRF protection is to prevent users from accidentally running harmful operations by being tricked into executing an HTTP(S) request against a web applications they are logged into.
-In browsers this action will be blocked by lack of CSRF token.
+The purpose of CSRF protection is to prevent users from accidentally running harmful operations by being tricked into executing an HTTP(S) request against a web applications they're logged into.
+In browsers this action is blocked by lack of CSRF token.
 
-However, if you develop a rich client application (JavaScript, JAVA, iOS, Android, etc.), that is:
+However, if you develop a rich client application (for example, JavaScript, JAVA, iOS, or Android), that is:
 
 - Registering itself as a protocol handler:
     - Exposes unsafe methods in any way
@@ -252,7 +250,7 @@ Then, you have to make sure to confirm with the user if they want to perform an 
 Example:
 
 A rich JavaScript/web application is using `navigator.registerProtocolHandler()` to register "web+ez:" links to go against REST API.
-It uses a session-based authentication, and it is in widespread use across the net, or/and it is used by everyone within a company.
+It uses a session-based authentication, and it's in widespread use across the net, or/and it's used by everyone within a company.
 A person with minimal insight into this application and the company can easily send out the following link to all employees in that company in email:
 `<a href="web+ez:DELETE /content/locations/1/2">latest reports</a>`.
 
@@ -275,8 +273,7 @@ See [JWT authentication](#jwt-authentication) or GraphQL.
 
 ### Usage example
 
-After you [configure JWT authentication](development_security.md#jwt-authentication) at least for REST,
-you can get the JWT token through the following request:
+After you [configure JWT authentication](development_security.md#jwt-authentication) at least for REST, you can get the JWT token through the following request:
 
 === "XML"
 
@@ -286,24 +283,24 @@ you can get the JWT token through the following request:
     Accept: application/vnd.ibexa.api.JWT+xml
     Content-Type: application/vnd.ibexa.api.JWTInput+xml
     ```
-    
+
     Provide the username and password in the request body:
-    
+
     ```xml
     <JWTInput>
         <username>admin</username>
         <password>publish</password>
     </JWTInput>
     ```
-    
+
     If credentials are valid, the server response contains a token:
-    
+
     ```xml
     <JWT media-type="application/vnd.ibexa.api.JWT+xml" token="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9…-QBE4-6eKNjg"/>
     ```
-    
+
     You can then use this token in your request instead of username and password.
-    
+
     ```
     GET /content/locations/1/5/children
     Host: <yourdomain>
@@ -319,9 +316,9 @@ you can get the JWT token through the following request:
     Accept: application/vnd.ibexa.api.JWT+json
     Content-Type: application/vnd.ibexa.api.JWTInput+json
     ```
-    
+
     Provide the username and password in the request body:
-    
+
     ```json
     {
         "JWTInput": {
@@ -330,9 +327,9 @@ you can get the JWT token through the following request:
         }
     }
     ```
-    
+
     If credentials are valid, the server response contains a token:
-    
+
     ```json
     {
         "JWT": {
@@ -341,9 +338,9 @@ you can get the JWT token through the following request:
         }
     }
     ```
-    
+
     You can then use this token in your request instead of username and password.
-    
+
     ```
     GET /content/locations/1/5/children
     Host: <yourdomain>
@@ -366,25 +363,27 @@ If the installation has a dedicated host for REST, you can enable HTTP basic aut
                 realm: Ibexa DXP REST API
 ```
 
-!!! caution "Back Office uses REST API"
+!!! caution "Back office uses REST API"
 
-    Back Office uses the REST API too (for some parts like the Location tree or the Calendar) on its own domain.
+    Back office uses the REST API too (for some parts like the Location tree or the Calendar) on its own domain.
 
-    * If the Back Office SiteAccess matches `//admin.example.com` (through `Map\Host`, `HostElement` or `HostText`), it calls the REST API under `//admin.example.com/api/ibexa/v2`;
-    * If the Back Office SiteAccess matches `//localhost/admin` (through `URIElement`, `Map\URI` or `Regex\URI`), it calls the REST API under `//localhost/api/ibexa/v2` because SiteAccess matching with REST isn't enabled at URL level.
+    * If the back office SiteAccess matches `//admin.example.com` (through `Map\Host`, `HostElement` or `HostText`), it calls the REST API under `//admin.example.com/api/ibexa/v2`;
+    * If the back office SiteAccess matches `//localhost/admin` (through `URIElement`, `Map\URI` or `Regex\URI`), it calls the REST API under `//localhost/api/ibexa/v2` because SiteAccess matching with REST isn't enabled at URL level.
 
-    If you enable basic authentication for `pattern: ^/api/ibexa/v2` to use it in your front office across both production and development environments, your development environment's Back Office won't work correctly.
-    This Back Office tries to access REST through the same URL as the front office. Even when logged in Back Office and using the [X-SiteAccess header](rest_requests.md#siteaccess), the firewall blocks access to REST as you're not logged through basic authentification. Therefore, some Back Office features don't work.
+    If you enable basic authentication for `pattern: ^/api/ibexa/v2` to use it in your front office across both production and development environments, your development environment's back office cannot work correctly.
+    This back office tries to access REST through the same URL as the front office.
+    Even when logged in back office and using the [X-SiteAccess header](rest_requests.md#siteaccess), the firewall blocks access to REST as you're not logged through basic authentification. Therefore, some back office features don't work.
 
-    If basic authentication is used only for REST API, it's better to have a dedicated domain even on a development environment. For example, map an `api.localhost` in your `hosts` file and set the firewall for `host: ^api\.(example\.com|localhost)$`.
+    If basic authentication is used only for REST API, it's better to have a dedicated domain even on a development environment.
+    For example, map an `api.localhost` in your `hosts` file and set the firewall for `host: ^api\.(example\.com|localhost)$`.
 
 ### Usage example
 
 Basic authentication requires the username and password to be sent *(username:password)*, base64 encoded, with each request.
 For details, see [RFC 2617](https://datatracker.ietf.org/doc/html/rfc2617).
 
-Most HTTP client libraries as well as REST libraries support this method.
-[Creating content with binary attachments](rest_requests.md#creating-content-with-binary-attachments) has an example using basic authentication with [cURL](https://www.php.net/manual/en/book.curl.php) and its `CURLOPT_USERPWD`. 
+Most HTTP client libraries and REST libraries support this method.
+[Creating content with binary attachments](rest_requests.md#creating-content-with-binary-attachments) has an example using basic authentication with [cURL](https://www.php.net/manual/en/book.curl.php) and its `CURLOPT_USERPWD`.
 
 **Raw HTTP request with basic authentication**
 

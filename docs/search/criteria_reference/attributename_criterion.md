@@ -1,3 +1,8 @@
+---
+description: AttributeName Search Criterion
+edition: commerce
+---
+
 # AttributeName Criterion
 
 The `AttributeName` Search Criterion searches for products by the value of their attribute name.

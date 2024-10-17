@@ -1,12 +1,13 @@
 ---
-description: The language of the Back Office is selected automatically based on browser language, or you can choose it manually in user settings.
+description: The language of the back office is selected automatically based on browser language, or you can choose it manually in user settings.
 ---
 
-# Back Office translations
+# Back office translations
 
-## Enabling Back Office languages
+## Enabling back office languages
 
-All translations are available as a part of [[= product_name =]]. To enable Back Office translations, use the following configuration:
+All translations are available as a part of [[= product_name =]].
+To enable back office translations, use the following configuration:
 
 ``` yaml
 ibexa:
@@ -15,44 +16,40 @@ ibexa:
             enabled: true
 ```
 
-Then clear the cache. Now you can reload your [[= product_name =]] Back Office.
-If your browser language is set to French, the Back Office will be displayed in French.
+Then clear the cache. Now you can reload your [[= product_name =]] back office.
+If your browser language is set to French, the back office is displayed in French.
 
 !!! tip "Checking browser language"
 
-    To make sure that a language is set in your browser, check if it is sent as an accepted language in the `Accept-Language` header.
+    To make sure that a language is set in your browser, check if it's sent as an accepted language in the `Accept-Language` header.
 
 !!! tip
 
     You can also manually add the necessary .xliff files to an existing project.
-    
+
     Add the language to an array under `ibexa.system.<siteaccess>.user_preferences.additional_translations`, for example:
 
     `ibexa.system.<siteaccess>.user_preferences.additional_translations: ['pl_PL', 'fr_FR']`
 
     Then, run `composer run post-update-cmd` and clear the cache.
 
-### Contributing Back Office translations
+### Contributing back office translations
 
 To learn how to contribute to a translation, see [Contributing translations](contribute_translations.md).
 
-### Selecting Back Office language
+### Selecting back office language
 
-Once you have language packages enabled, you can switch the language of the Back Office
-in the User Settings menu.
+Once you have language packages enabled, you can switch the language of the back office in the **User Settings** menu.
 
-Otherwise, the language will be selected based on the browser language.
-If you do not have a language defined in the browser, the language will be selected
-based on `parameters.locale_fallback` in `config/packages/ibexa.yaml`.
+Otherwise, the language is selected based on the browser language.
+If you don't have a language defined in the browser, the language is selected based on `parameters.locale_fallback` in `config/packages/ibexa.yaml`.
 
 ## Custom string translations
 
-When you extend the Back Office you often need to provide labels for new elements.
-It is good practice to provide your labels in translations files, instead of literally,
-so they can be reused and translated into other languages.
+When you extend the back office you often need to provide labels for new elements.
+It's good practice to provide your labels in translations files, instead of literally, so they can be reused and translated into other languages.
 
-To provide label strings, make use of the `Symfony\Component\Translation\TranslatorInterface`
-and its `trans()` method.
+To provide label strings, make use of the `Symfony\Component\Translation\TranslatorInterface` and its `trans()` method.
 
 The method takes as arguments:
 
@@ -84,7 +81,7 @@ private function getTranslatedDescription(): string
 The strings are provided in .xliff files.
 The file should be stored in your project's or your bundle's `Resources/translations` folder.
 
-File name corresponds to the selected domain and the language, e.g. `custom_extension.en.xliff`.
+File name corresponds to the selected domain and the language, for example, `custom_extension.en.xliff`.
 
 ``` xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -116,8 +113,8 @@ For example, in `custom_extension.de.xliff`:
 </trans-unit>
 ```
 
-The language to display will then be selected automatically based on [user preferences or browser setup](#selecting-back-office-language).
+The language to display is then selected automatically based on [user preferences or browser setup](#selecting-back-office-language).
 
 !!! note
 
-    You may need to clear the cache after adding new translations, before they are available in the Back Office.
+    You may need to clear the cache after adding new translations, before they're available in the back office.

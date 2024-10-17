@@ -1,3 +1,8 @@
+---
+description: IsCurrencyEnabledCriterion Search Criterion
+edition: commerce
+---
+
 # IsCurrencyEnabledCriterion Criterion
 
 The `IsCurrencyEnabledCriterion` Search Criterion searches for currencies that are enabled in the system.
@@ -9,7 +14,7 @@ or disabled Currencies (`false`)
 
 ## Limitations
 
-The `IsCurrencyEnabledCriterion` Criterion is not available in Solr or Elasticsearch engines.
+The `IsCurrencyEnabledCriterion` Criterion isn't available in Solr or Elasticsearch engines.
 
 ## Example
 

@@ -1,7 +1,6 @@
 # Object Criterion
 
-The `ObjectCriterion` Activity Log Criterion
-matches log group with a log entry about the given class name, and eventually one of the given IDs.
+The `ObjectCriterion` Activity Log Criterion matches log group with a log entry about the given class name, and eventually one of the given IDs.
 
 ## Arguments
 

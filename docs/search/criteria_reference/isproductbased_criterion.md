@@ -1,3 +1,8 @@
+---
+description: IsProductBased Search Criterion
+edition: commerce
+---
+
 # IsProductBased Criterion
 
 The `IsProductBased` Search Criterion searches for content that plays the role of a Product.

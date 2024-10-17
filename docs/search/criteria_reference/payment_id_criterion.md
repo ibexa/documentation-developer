@@ -1,5 +1,5 @@
 ---
-description: Payment Id Criterion
+description: Payment Id Search Criterion
 edition: commerce
 ---
 

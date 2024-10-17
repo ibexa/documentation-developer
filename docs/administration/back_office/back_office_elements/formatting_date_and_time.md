@@ -1,5 +1,5 @@
 ---
-description: Use different formats to render dates and times in the Back Office and website front.
+description: Use different formats to render dates and times in the back office and website front.
 ---
 
 # Formatting date and time
@@ -54,7 +54,7 @@ class MyService
 Then, add the following to `config/services.yaml`:
 
 ``` yaml
-services:    
+services:
     App\Service\MyService:
         arguments:
             $shortDateTimeFormatter: '@ibexa.user.settings.short_datetime_format.formatter'
@@ -62,8 +62,8 @@ services:
 
 ## Using User settings menu
 
-Users can set their preferred date and time formats in the User settings menu.
-This format is used throughout the Back Office.
+Users can set their preferred date and time formats in the user settings menu.
+This format is used throughout the back office.
 
 You can set the list of available formats under the `ibexa.system.<scope>.user_preferences` [configuration key](configuration.md#configuration-files):
 

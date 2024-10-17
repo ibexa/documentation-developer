@@ -1,10 +1,15 @@
+---
+description: ProductType Search Criterion
+edition: commerce
+---
+
 # ProductType Criterion
 
 The `ProductType` Search Criterion searches for products by their codes.
 
 ## Arguments
 
-- `productType` - array of strings representing the Product type(s)
+- `productType` - array of strings representing the product type(s)
 
 ## Example
 

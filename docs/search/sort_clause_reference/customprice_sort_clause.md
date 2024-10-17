@@ -1,17 +1,20 @@
+---
+description: CustomPrice Sort Clause
+---
+
 # CustomPrice Sort Clause
 
 The `CustomPrice` Sort Clause sorts search results by the product's custom price for a selected customer group.
 
 ## Arguments
 
-- `currency` - a `CurrencyInterface` object representing the currency to check price for
-[[= include_file('docs/snippets/sort_direction.md') =]]
+- `currency` - a `CurrencyInterface` object representing the currency to check price for [[= include_file('docs/snippets/sort_direction.md') =]]
 - (optional) `customerGroup` - a `CustomerGroupInterface` object representing the customer group to check prices for.
-If you do not provide a customer group, the query uses the group related to the current user.
+If you don't provide a customer group, the query uses the group related to the current user.
 
 ## Limitations
 
-The `CustomPrice` Sort Clause is not available in the Legacy Search engine.
+The `CustomPrice` Sort Clause isn't available in the Legacy Search engine.
 
 ## Example
 

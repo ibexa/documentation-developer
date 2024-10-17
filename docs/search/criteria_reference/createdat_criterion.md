@@ -1,3 +1,8 @@
+---
+description: CreatedAt Search Criterion
+edition: commerce
+---
+
 # CreatedAt Criterion
 
 The `CreatedAt` Search Criterion searches for products based on the date when they were created.

@@ -1,3 +1,8 @@
+---
+description: IntegerAttribute Search Criterion
+edition: commerce
+---
+
 # IntegerAttribute Criterion
 
 The `IntegerAttribute` Search Criterion searches for products by the value of their integer attribute.

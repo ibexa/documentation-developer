@@ -16,11 +16,10 @@ The following block validators are available:
 
 !!! note
 
-    Do not use the `required` and `not_blank` validators for `richtext` attributes.
+    Don't use the `required` and `not_blank` validators for `richtext` attributes.
     Instead, use `not_blank_richtext`.
 
-For each validator you can provide a message that displays in the Page Builder
-when an attribute field doesn't fulfil the criteria.
+For each validator you can provide a message that displays in the Page Builder when an attribute field doesn't fulfill the criteria.
 
 Additionally, for some validators you can provide settings under the
 `ibexa_fieldtype_page.blocks.<block_name>.validators.regexp.options` [configuration key](configuration.md#configuration-files), for example:

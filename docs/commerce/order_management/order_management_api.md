@@ -11,7 +11,7 @@ edition: commerce
 
 To get orders and manage them, use the `Ibexa\Contracts\OrderManagement\OrderServiceInterface` interface.
 
-## Get single order 
+## Get single order
 
 ### Get single order by identifier
 
@@ -31,7 +31,7 @@ To access a single order by using its numerical ID, use the `OrderService::getOr
 
 ## Get multiple orders
 
-To fetch multiple orders, use the `OrderService::findOrders` method. 
+To fetch multiple orders, use the `OrderService::findOrders` method.
 It follows the same search query pattern as other APIs:
 
 ``` php
@@ -43,8 +43,7 @@ It follows the same search query pattern as other APIs:
 
 ## Create order
 
-To create an order, use the `OrderService::createOrder` method and provide 
-it with the `Ibexa\Contracts\OrderManagement\Value\OrderCreateStruct` object that contains a list of products, purchased quantities, product and total prices, as well as tax amounts.
+To create an order, use the `OrderService::createOrder` method and provide it with the `Ibexa\Contracts\OrderManagement\Value\OrderCreateStruct` object that contains a list of products, purchased quantities, product, total prices, and tax amounts.
 
 ``` php
 [[= include_file('code_samples/api/commerce/src/Command/OrderCommand.php', 97, 108) =]]
@@ -52,8 +51,8 @@ it with the `Ibexa\Contracts\OrderManagement\Value\OrderCreateStruct` object tha
 
 ## Update order
 
-You can update the order after it is created. 
-You could do it to support a scenario when, for example, the order is processed manually and its status has to be changed in the system. 
+You can update the order after it's created.
+You could do it to support a scenario when, for example, the order is processed manually and its status has to be changed in the system.
 To update order information, use the `OrderService::updateOrder` method:
 
 ``` php

@@ -1,11 +1,15 @@
+---
+description: LocationRemoteId Search Criterion
+edition: commerce
+---
+
 # LocationRemoteId Criterion
 
-The [`LocationRemoteId` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-LocationRemoteId.html)
-searches for content based in the Location remote ID.
+The [`LocationRemoteId` Search Criterion](../../api/php_api/php_api_reference/classes/Ibexa-Contracts-Core-Repository-Values-Content-Query-Criterion-LocationRemoteId.html) searches for content based in the location remote ID.
 
 ## Arguments
 
-- `value` - string(s) representing the Location remote ID(s)
+- `value` - string(s) representing the location remote ID(s)
 
 ## Example
 

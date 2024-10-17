@@ -1,5 +1,5 @@
 ---
-description: Price LogicalOr Criterion
+description: Price LogicalOr Search Criterion
 edition: commerce
 ---
 

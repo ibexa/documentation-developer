@@ -1,7 +1,6 @@
 # Object Name Criterion
 
-The `ObjectNameCriterion` Activity Log Criterion
-matches log groups that have a log entry with an object having a given string as name, or part of their name.
+The `ObjectNameCriterion` Activity Log Criterion matches log groups that have a log entry with an object having a given string as name, or part of their name.
 
 ## Arguments
 

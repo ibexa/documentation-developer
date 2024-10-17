@@ -3,7 +3,7 @@ description: Ibexa DXP v4.4 adds the improvements to the Welcome Page, All-new I
 ---
 <!-- vale VariablesVersion = NO -->
 
-# Ibexa DXP v4.4
+# [[= product_name =]] v4.4
 
 **Version number**: v4.4
 
@@ -21,7 +21,7 @@ A new welcome page greets you when opening Ibexa Digital Experience Platform.
 
 ![New Welcome Page](4.4_welcome_page.png)
 
-### All-new Ibexa Commerce packages [[% include 'snippets/commerce_badge.md' %]]
+### All-new [[= product_name_com =]] packages [[% include 'snippets/commerce_badge.md' %]]
 
 This release deprecates all Commerce packages that you've known from previous releases 
 and brings a redesigned and reconstructed Commerce offering:
@@ -43,7 +43,7 @@ For more information, see [Commerce](https://doc.ibexa.co/en/4.4/commerce/commer
 
 Another addition is the Storefront package that provides a starting kit 
 for the developers.
-It is a working set of components, which you can use to test the new capabilities, 
+It's a working set of components, which you can use to test the new capabilities, 
 and then customize and extend to create your own implementation of a web store.
 
 For more information, see [Storefront](https://doc.ibexa.co/en/4.4/commerce/storefront/storefront).
@@ -56,7 +56,7 @@ for example, cropping, resizing and trimming before serving it to end user.
 Fastly is an external service that requires a separate subscription,
 to learn more see, [Fastly Image Optimizer website](https://docs.fastly.com/en/guides/about-fastly-image-optimizer).
 
-If you already have Fastly IO subscription, you can move to [Fastly IO configuration in Ibexa DXP](https://doc.ibexa.co/en/4.4/content_management/images/fastly_io/).
+If you already have Fastly IO subscription, you can move to [Fastly IO configuration in [[= product_name =]]](https://doc.ibexa.co/en/4.4/content_management/images/fastly_io/).
 
 #### Fastly VCL upload
 
@@ -89,14 +89,14 @@ For more information, see [Requesting access to the server](https://doc.ibexa.co
 Personalization engine introduces two new recommendation models: [predictive](https://doc.ibexa.co/projects/userguide/en/4.4/personalization/recommendation_models/#predictive) and [recurring purchase](https://doc.ibexa.co/projects/userguide/en/4.4/personalization/recommendation_models/#recurring-purchase). These two new models, based on mathematical approach, help to predict clients behavior and
 provide the best recommendations.
 
-## Ibexa Connect
+## [[= product_name_connect =]]
 
-You can now take advantage of [Ibexa Connect](https://www.ibexa.co/products/ibexa-connect),
-an iPaaS (integration platform-as-a-service) which allows you to connect Ibexa DXP with third-party applications.
+You can now take advantage of [[[= product_name_connect =]]](https://www.ibexa.co/products/ibexa-connect),
+an iPaaS (integration platform-as-a-service) which allows you to connect [[= product_name =]] with third-party applications.
 [[= product_name_connect =]] features a low-code drag-and-drop interface and hundreds of connectors to different services
 that help you automate business processes.
 
-See [Ibexa Connect documentation](https://doc.ibexa.co/projects/connect/en/latest/).
+See [[[= product_name_connect =]] documentation](https://doc.ibexa.co/projects/connect/en/latest/).
 
 ![Example of an Ibexa Connect scenario](4.4_connect_scenario_example.png)
 
@@ -107,16 +107,17 @@ See [Ibexa Connect documentation](https://doc.ibexa.co/projects/connect/en/lates
 The codebase has undergone significant upgrades to rely on Flysystem v2.
 The Flysystem Adapter implementation now supports dynamic paths
 described by complex settings resolvable for the SiteAccess context.
+
 For more information, see [Configuring the DFS IO handler](https://doc.ibexa.co/en/4.4/infrastructure_and_maintenance/clustering/clustering/#configuring-the-dfs-io-handler).
 
-If your custom project relies directly on a Flysystem features instead of using our IO abstraction,
-it will require an upgrade as well,
+If your custom project relies directly on a Flysystem features instead of using our IO abstraction, it requires an upgrade as well,
 using [these instructions](https://flysystem.thephpleague.com/docs/upgrade-from-1.x/).
 
 ### Dedicated migration type for Corporate Accounts
 
 To simplify data migration, you can now create a corporate account with underlying objects such as members group and address book.
-You can also extract those objects as references. 
+You can also extract those objects as references.
+
 For more information on data migration actions, see [Data migration actions](https://doc.ibexa.co/en/4.4/content_management/data_migration/data_migration_actions/#data-migration-actions).
 
 ### API improvements
@@ -145,7 +146,7 @@ The following Commerce packages are deprecated as of this release and will be re
 - `ibexa/commerce-shop-ui`
 
 They will be maintained by [[= product_name_name =]] with fixes, including security fixes, but they won't be further developed.
-Old packages are replaced by [the all-new Ibexa Commerce packages](#all-new-ibexa-commerce-packages) with more
+Old packages are replaced by [the all-new [[= product_name_com =]] packages](#all-new-ibexa-commerce-packages) with more
 to come in the upcoming releases.
 
 #### Flysystem
@@ -155,6 +156,6 @@ to come in the upcoming releases.
 
 ## Full changelog
 
-| Ibexa Content          | Ibexa Experience          | Ibexa Commerce          |
+| [[= product_name_content =]]          | [[= product_name_exp =]]          | [[= product_name_com =]]         |
 |------------------------|---------------------------|-------------------------|
-| [Ibexa Content v4.4](https://github.com/ibexa/content/releases/tag/v4.4.0) | [Ibexa Experience v4.4](https://github.com/ibexa/experience/releases/tag/v4.4.0) | [Ibexa Commerce v4.4](https://github.com/ibexa/commerce/releases/tag/v4.4.0) |
+| [[[= product_name_content =]] v4.4](https://github.com/ibexa/content/releases/tag/v4.4.0) | [[[= product_name_exp =]] v4.4](https://github.com/ibexa/experience/releases/tag/v4.4.0) | [[[= product_name_com =]]  v4.4](https://github.com/ibexa/commerce/releases/tag/v4.4.0) |

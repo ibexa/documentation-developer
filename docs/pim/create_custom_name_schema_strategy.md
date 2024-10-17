@@ -5,12 +5,12 @@ description: Create custom name schema strategy to generate URL aliases based on
 # Create custom name schema strategy
 
 You can create custom name schema strategy to generate URL aliases based on attribute values.
-Make sure the attributes are configured correctly. 
+Make sure the attributes are configured correctly.
 Each attribute that you want to include in the URL alias must have a name schema strategy.
 
 ## Create converting class
 
-Start by creating a `PercentNameSchemaStrategy` class, which implements `\Ibexa\Contracts\ProductCatalog\NameSchema\NameSchemaStrategyInterface`. 
+Start by creating a `PercentNameSchemaStrategy` class, which implements `\Ibexa\Contracts\ProductCatalog\NameSchema\NameSchemaStrategyInterface`.
 This class is responsible for converting attribute values into a string of URL parameters:
 
 ``` php
