@@ -577,3 +577,11 @@ composer ibexa:setup --platformsh
 
 Review the changes applied to `.platform.app.yaml` and `.platform/`,
 merge with your custom settings if needed, and commit them to Git.
+
+## v4.6.12
+
+If the new bundle `ibexa/core-search` has not been added by the recipies, enable it by adding the following line in `config/bundles.php`:
+
+```php
+    Ibexa\Bundle\CoreSearch\IbexaCoreSearchBundle::class => ['all' => true],
+```

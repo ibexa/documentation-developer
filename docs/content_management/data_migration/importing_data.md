@@ -302,6 +302,7 @@ The following example shows how to swap content items assigned to given location
 [[= include_file('code_samples/data_migration/examples/swap_location.yaml') =]]
 ```
 
+The metadata keys for Location are optional.
 
 ### Users
 

@@ -318,6 +318,88 @@ Apply the following database update scripts:
     psql <database_name> < vendor/ibexa/installer/upgrade/db/postgresql/commerce/ibexa-4.3.latest-to-4.4.0.sql
     ```
 
+If you used old Commerce packages before, and have migrated everything, you can remove the old tables.
+The tables that can be removed are prefixed with `ses_` and `sve_`.
+
+=== "MySQL"
+
+    To switch to the right database, issue the following command:
+    ``` sql
+    USE <database_name>;
+    ```
+
+    Then, to remove all the old tables, run the following queries:
+    ``` sql
+    DROP TABLE IF EXISTS ses_basket;
+    DROP TABLE IF EXISTS ses_basket_line;
+    DROP TABLE IF EXISTS ses_content_modification_queue;
+    DROP TABLE IF EXISTS ses_customer_prices;
+    DROP TABLE IF EXISTS ses_customer_sku;
+    DROP TABLE IF EXISTS ses_download;
+    DROP TABLE IF EXISTS ses_externaldata;
+    DROP TABLE IF EXISTS ses_gdpr_log;
+    DROP TABLE IF EXISTS ses_invoice;
+    DROP TABLE IF EXISTS ses_log_erp;
+    DROP TABLE IF EXISTS ses_log_mail;
+    DROP TABLE IF EXISTS ses_log_search;
+    DROP TABLE IF EXISTS ses_payment_basket_map;
+    DROP TABLE IF EXISTS ses_price;
+    DROP TABLE IF EXISTS ses_shipping_cost;
+    DROP TABLE IF EXISTS ses_stat_sessions;
+    DROP TABLE IF EXISTS ses_stock;
+    DROP TABLE IF EXISTS ses_token;
+    DROP TABLE IF EXISTS sve_class;
+    DROP TABLE IF EXISTS sve_class_attributes;
+    DROP TABLE IF EXISTS sve_object;
+    DROP TABLE IF EXISTS sve_object_attributes;
+    DROP TABLE IF EXISTS sve_object_attributes_tmp;
+    DROP TABLE IF EXISTS sve_object_catalog;
+    DROP TABLE IF EXISTS sve_object_catalog_tmp;
+    DROP TABLE IF EXISTS sve_object_tmp;
+    DROP TABLE IF EXISTS sve_object_urls;
+    DROP TABLE IF EXISTS sve_object_urls_tmp;
+    ```
+
+=== "PostgreSQL"
+
+    To switch to the right database, issue the following command:
+    ``` sql
+    \connect <database_name>;
+    ```
+
+
+    Then, to remove all the old tables, run the following queries:
+    ``` sql
+    DROP TABLE IF EXISTS ses_basket;
+    DROP TABLE IF EXISTS ses_basket_line;
+    DROP TABLE IF EXISTS ses_content_modification_queue;
+    DROP TABLE IF EXISTS ses_customer_prices;
+    DROP TABLE IF EXISTS ses_customer_sku;
+    DROP TABLE IF EXISTS ses_download;
+    DROP TABLE IF EXISTS ses_externaldata;
+    DROP TABLE IF EXISTS ses_gdpr_log;
+    DROP TABLE IF EXISTS ses_invoice;
+    DROP TABLE IF EXISTS ses_log_erp;
+    DROP TABLE IF EXISTS ses_log_mail;
+    DROP TABLE IF EXISTS ses_log_search;
+    DROP TABLE IF EXISTS ses_payment_basket_map;
+    DROP TABLE IF EXISTS ses_price;
+    DROP TABLE IF EXISTS ses_shipping_cost;
+    DROP TABLE IF EXISTS ses_stat_sessions;
+    DROP TABLE IF EXISTS ses_stock;
+    DROP TABLE IF EXISTS ses_token;
+    DROP TABLE IF EXISTS sve_class;
+    DROP TABLE IF EXISTS sve_class_attributes;
+    DROP TABLE IF EXISTS sve_object;
+    DROP TABLE IF EXISTS sve_object_attributes;
+    DROP TABLE IF EXISTS sve_object_attributes_tmp;
+    DROP TABLE IF EXISTS sve_object_catalog;
+    DROP TABLE IF EXISTS sve_object_catalog_tmp;
+    DROP TABLE IF EXISTS sve_object_tmp;
+    DROP TABLE IF EXISTS sve_object_urls;
+    DROP TABLE IF EXISTS sve_object_urls_tmp;
+    ```
+
 #### Ibexa Open Source
 
 If you have no access to [[= product_name =]]'s `ibexa/installer` package, database upgrade isn't necessary.

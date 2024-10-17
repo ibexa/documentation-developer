@@ -7,8 +7,9 @@ description: Integrate tracking with a Google-style JavaScript.
 This is another example of how you can integrate the tracking with a Google-style JavaScript in your site.
 The approach is very generic and evaluate it if it meets your **requirements and security policy**.
 
-If you want the `userid` to be generated automatically, leave out the user params in the `_ycq.push` calls.
-If a predefined cookie already exists, it's used.
+If you want the `userid` to be generated automatically, set user parameter as empty `''` in the `_ycq.push` calls.
+If a predefined cookie already exists, it is used. 
+
 Otherwise a new one is created.
 
 ## Tracking code quickstart
@@ -24,7 +25,7 @@ Paste this snippet into your website template page so that it appears before the
 <script type="text/javascript">
   var _ycq = _ycq || [];
   _ycq.push(['_setMandator', '<YOUR_MANDATOR_ID>']);
-  _ycq.push(['_trackEvent', '1', 'click', '<PAGE_ID>', '<USER_ID>']);
+  _ycq.push(['_trackEvent', '<CONTENT_TYPE_ID>', 'click', '<CONTENT_ID>', '<USER_ID>']);
 
   (function() {
     var yc = document.createElement('script');
@@ -69,17 +70,17 @@ Here is an example of typical usage of the method:
 ``` js
 var _ycq = _ycq || [];
 _ycq.push(['_setMandator', '<YOUR_MANDATOR_ID>']);
-_ycq.push(['_trackEvent', '1', 'click', 'https://mydoc.pdf', 'user1234']);
+_ycq.push(['_trackEvent', '1', 'click', '10', '']);
 ```
 
 ## Tracker object names
 
-| Object          | Description   | Example  |
-| --------------- | ------------- | ----- |
+| Object          | Description   | Example |
+| --------------- | ------------- | ------ |
 | `_setMandator ` | - Executed with one additional parameter: `MandatorId` | `_ycq.push (['_setMandator' , '<YOUR_MANDATOR_ID>']);` |
-| `_trackEvent` | - Executed with four additional parameters: `ItemType`, `EventType`, `ItemId`, `UserId`.<br /> - `EventType` can be any of the [described types]([[= user_doc =]]/personalization/event_types/) |  capturing an event: `_ycq.push(['_trackEvent', '1', 'buy', 'https://mydoc.pdf', 'user1234x']);` |
-| `_trackTimedEvent` | - Executed with five additional parameters: `ItemType`, `EventType`, `ItemId`, `Timeout`, `UserId`.<br /> - `EventType` can be any of the [described types]([[= user_doc =]]/personalization/event_types/).<br /> - `Timeout` can be any integer greater than than 0 representing time in ms | consume event sent after 20s: `_ycq.push(['_trackTimedEvent', '1', 'consume', 'https://mydoc.pdf', '20000', 'user1234x']);` |
-| `_login` | - Executed with two additional parameters: anonymous userId, pseudonymous userId.<br /> - it's to be triggered when a user logs in and the tracking identity is changed.<br /> |-|
+| `_trackEvent` | - Executed with four additional parameters: `ItemType`, `EventType`, `ItemId`, `UserId`.<br /> - `EventType` can be any of the [described types]([[= user_doc =]]/personalization/event_types/) | capturing an event: `_ycq.push(['_trackEvent', '1', 'buy', '10', '']);` |
+| `_trackTimedEvent` | - Executed with five additional parameters: `ItemType`, `EventType`, `ItemId`, `Timeout`, `UserId`.<br /> - `EventType` can be any of the [described types]([[= user_doc =]]/personalization/event_types/).<br /> - `Timeout` can be any integer greater than 0 representing time in ms | consume event sent after 20s: `_ycq.push(['_trackTimedEvent', '1', 'consume', '10', '20000', '']);` |
+| `_login` | - Executed with two additional parameters: anonymous userId, pseudonymous userId.<br /> - It is to be triggered when a user logs in and the tracking identity is changed.<br /> | - |
 | `ycreco=true` | - If you want to send a click recommended event you can append the following parameter to the recommended item URLs: | [https://mydomain.com/mypage.html?ycreco=true](https://mydomain.com/mypage.html?ycreco=true) or <br />[https://mydomain.com/mypage.html?myparameter=x&ycreco=true](https://mydomain.com/mypage.html?myparameter=x&ycreco=true) |
 
 ## Tracking with HTML event handlers
@@ -88,7 +89,7 @@ The asynchronous tracking syntax should also be used from within DOM event handl
 For example, the following button generates an event when it's clicked:
 
 ``` js
-<button onclick = "_ycq.push(['_trackEvent', '2', 'click', 'itemId1', 'user1234x'])"/><button>
+<button onclick = "_ycq.push(['_trackEvent', '2', 'click', 'itemId1', ''])"/><button>
 ```
 
 Even if this button is clicked before the browser has finished loading `ibexa-tracker.js`, the event is captured and eventually executed.
